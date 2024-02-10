@@ -167,6 +167,74 @@ namespace DB_EDITOR.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Tuiasosopo
+        ///Tuivaiti
+        ///Finau
+        ///Tuigamala
+        ///Tuipulotu
+        ///Lauti
+        ///Ma’afu
+        ///Tuisamoa
+        ///Matagi
+        ///Togia
+        ///Malieitulua
+        ///Tuakoi
+        ///Tupou
+        ///Va’enuku
+        ///Taumalolo
+        ///Vaihola
+        ///Fonoti
+        ///Tuita
+        ///Pulu
+        ///Vaovasa
+        ///Siaki
+        ///Tavita
+        ///Moeaki
+        ///Hafoka
+        ///Taukolo
+        ///Maka
+        ///Unga
+        ///Taula
+        ///Tavake
+        ///Vakameilalo
+        ///Uasike
+        ///Savelio
+        ///Te’o
+        ///Lavaka
+        ///Katoa
+        ///Niumatai
+        ///Kauvaka
+        ///Halangahu
+        ///Tuipala
+        ///Fonua
+        ///Taufa
+        ///Taulapapa
+        ///Uasi
+        ///Ngalu
+        ///Kaufusi
+        ///Taniela
+        ///Vakapuna
+        ///Veikoso
+        ///Unger
+        ///Kefu
+        ///Taua
+        ///Palepoi
+        ///Tamaivena
+        ///Tofa
+        ///Fisiiahi
+        ///Oloapu
+        ///Vakauta
+        ///Saumaki
+        ///Likiliki
+        ///Tuitavake        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string poly_surnames {
+            get {
+                return ResourceManager.GetString("poly_surnames", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap save3 {

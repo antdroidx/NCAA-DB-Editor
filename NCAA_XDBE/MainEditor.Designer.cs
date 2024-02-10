@@ -122,6 +122,11 @@ namespace DB_EDITOR
             this.coachProg = new System.Windows.Forms.Button();
             this.medRS = new System.Windows.Forms.Button();
             this.tabOffSeason = new System.Windows.Forms.TabPage();
+            this.labelPolyNamesPCT = new System.Windows.Forms.Label();
+            this.polyNamesPCT = new System.Windows.Forms.NumericUpDown();
+            this.polyNames = new System.Windows.Forms.Button();
+            this.textBoxOffSeason = new System.Windows.Forms.TextBox();
+            this.textBoxOffSeasonTitle = new System.Windows.Forms.TextBox();
             this.labelIntTeams = new System.Windows.Forms.Label();
             this.removeInterestTeams = new System.Windows.Forms.NumericUpDown();
             this.buttonInterestedTeams = new System.Windows.Forms.Button();
@@ -136,8 +141,6 @@ namespace DB_EDITOR
             this.buttonRandRecruits = new System.Windows.Forms.Button();
             this.buttonRandWalkOns = new System.Windows.Forms.Button();
             this.buttonMinRecruitingPts = new System.Windows.Forms.Button();
-            this.textBoxOffSeasonTitle = new System.Windows.Forms.TextBox();
-            this.textBoxOffSeason = new System.Windows.Forms.TextBox();
             qbTend = new System.Windows.Forms.Button();
             this.mainMenu.SuspendLayout();
             this.tableMenu.SuspendLayout();
@@ -152,6 +155,7 @@ namespace DB_EDITOR
             this.tabPlayers.SuspendLayout();
             this.tabTools.SuspendLayout();
             this.tabOffSeason.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.polyNamesPCT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.removeInterestTeams)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minTRPA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minRecPts)).BeginInit();
@@ -928,7 +932,7 @@ namespace DB_EDITOR
             this.increaseSpeed.BackColor = System.Drawing.Color.MediumAquamarine;
             this.increaseSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.increaseSpeed.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.increaseSpeed.Location = new System.Drawing.Point(216, 528);
+            this.increaseSpeed.Location = new System.Drawing.Point(216, 471);
             this.increaseSpeed.Name = "increaseSpeed";
             this.increaseSpeed.Size = new System.Drawing.Size(110, 80);
             this.increaseSpeed.TabIndex = 5;
@@ -952,7 +956,7 @@ namespace DB_EDITOR
             // 
             this.dbToolsInfo.BackColor = System.Drawing.Color.AntiqueWhite;
             this.dbToolsInfo.Enabled = false;
-            this.dbToolsInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dbToolsInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dbToolsInfo.Location = new System.Drawing.Point(481, 29);
             this.dbToolsInfo.Multiline = true;
             this.dbToolsInfo.Name = "dbToolsInfo";
@@ -977,7 +981,7 @@ namespace DB_EDITOR
             this.coachProg.BackColor = System.Drawing.Color.DodgerBlue;
             this.coachProg.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.coachProg.ForeColor = System.Drawing.SystemColors.Control;
-            this.coachProg.Location = new System.Drawing.Point(216, 87);
+            this.coachProg.Location = new System.Drawing.Point(64, 188);
             this.coachProg.Name = "coachProg";
             this.coachProg.Size = new System.Drawing.Size(110, 80);
             this.coachProg.TabIndex = 1;
@@ -1001,6 +1005,9 @@ namespace DB_EDITOR
             // tabOffSeason
             // 
             this.tabOffSeason.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.tabOffSeason.Controls.Add(this.labelPolyNamesPCT);
+            this.tabOffSeason.Controls.Add(this.polyNamesPCT);
+            this.tabOffSeason.Controls.Add(this.polyNames);
             this.tabOffSeason.Controls.Add(this.textBoxOffSeason);
             this.tabOffSeason.Controls.Add(this.textBoxOffSeasonTitle);
             this.tabOffSeason.Controls.Add(this.labelIntTeams);
@@ -1024,11 +1031,73 @@ namespace DB_EDITOR
             this.tabOffSeason.TabIndex = 4;
             this.tabOffSeason.Text = "Recruiting";
             // 
+            // labelPolyNamesPCT
+            // 
+            this.labelPolyNamesPCT.AutoSize = true;
+            this.labelPolyNamesPCT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPolyNamesPCT.Location = new System.Drawing.Point(59, 582);
+            this.labelPolyNamesPCT.Name = "labelPolyNamesPCT";
+            this.labelPolyNamesPCT.Size = new System.Drawing.Size(76, 16);
+            this.labelPolyNamesPCT.TabIndex = 19;
+            this.labelPolyNamesPCT.Text = "% Chance";
+            // 
+            // polyNamesPCT
+            // 
+            this.polyNamesPCT.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.polyNamesPCT.Location = new System.Drawing.Point(73, 559);
+            this.polyNamesPCT.Name = "polyNamesPCT";
+            this.polyNamesPCT.Size = new System.Drawing.Size(52, 20);
+            this.polyNamesPCT.TabIndex = 18;
+            this.polyNamesPCT.Value = new decimal(new int[] {
+            85,
+            0,
+            0,
+            0});
+            // 
+            // polyNames
+            // 
+            this.polyNames.BackColor = System.Drawing.Color.LightGreen;
+            this.polyNames.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.polyNames.Location = new System.Drawing.Point(144, 537);
+            this.polyNames.Name = "polyNames";
+            this.polyNames.Size = new System.Drawing.Size(110, 70);
+            this.polyNames.TabIndex = 17;
+            this.polyNames.Text = "Polynesian Last Name Generator";
+            this.polyNames.UseVisualStyleBackColor = false;
+            this.polyNames.Click += new System.EventHandler(this.polyNames_Click);
+            // 
+            // textBoxOffSeason
+            // 
+            this.textBoxOffSeason.Enabled = false;
+            this.textBoxOffSeason.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxOffSeason.Location = new System.Drawing.Point(360, 77);
+            this.textBoxOffSeason.Multiline = true;
+            this.textBoxOffSeason.Name = "textBoxOffSeason";
+            this.textBoxOffSeason.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBoxOffSeason.Size = new System.Drawing.Size(526, 600);
+            this.textBoxOffSeason.TabIndex = 16;
+            this.textBoxOffSeason.Text = resources.GetString("textBoxOffSeason.Text");
+            // 
+            // textBoxOffSeasonTitle
+            // 
+            this.textBoxOffSeasonTitle.Enabled = false;
+            this.textBoxOffSeasonTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxOffSeasonTitle.Location = new System.Drawing.Point(360, 23);
+            this.textBoxOffSeasonTitle.Name = "textBoxOffSeasonTitle";
+            this.textBoxOffSeasonTitle.Size = new System.Drawing.Size(526, 31);
+            this.textBoxOffSeasonTitle.TabIndex = 15;
+            this.textBoxOffSeasonTitle.Text = "Off-Season Recruiting Tools";
+            this.textBoxOffSeasonTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // labelIntTeams
             // 
             this.labelIntTeams.AutoSize = true;
             this.labelIntTeams.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelIntTeams.Location = new System.Drawing.Point(71, 248);
+            this.labelIntTeams.Location = new System.Drawing.Point(71, 212);
             this.labelIntTeams.Name = "labelIntTeams";
             this.labelIntTeams.Size = new System.Drawing.Size(55, 16);
             this.labelIntTeams.TabIndex = 14;
@@ -1038,7 +1107,7 @@ namespace DB_EDITOR
             // removeInterestTeams
             // 
             this.removeInterestTeams.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.removeInterestTeams.Location = new System.Drawing.Point(73, 223);
+            this.removeInterestTeams.Location = new System.Drawing.Point(73, 187);
             this.removeInterestTeams.Maximum = new decimal(new int[] {
             11,
             0,
@@ -1057,7 +1126,7 @@ namespace DB_EDITOR
             // 
             this.buttonInterestedTeams.BackColor = System.Drawing.Color.SandyBrown;
             this.buttonInterestedTeams.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonInterestedTeams.Location = new System.Drawing.Point(144, 195);
+            this.buttonInterestedTeams.Location = new System.Drawing.Point(144, 159);
             this.buttonInterestedTeams.Name = "buttonInterestedTeams";
             this.buttonInterestedTeams.Size = new System.Drawing.Size(110, 80);
             this.buttonInterestedTeams.TabIndex = 12;
@@ -1141,7 +1210,7 @@ namespace DB_EDITOR
             // 
             this.labelRecruit.AutoSize = true;
             this.labelRecruit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRecruit.Location = new System.Drawing.Point(59, 394);
+            this.labelRecruit.Location = new System.Drawing.Point(59, 343);
             this.labelRecruit.Name = "labelRecruit";
             this.labelRecruit.Size = new System.Drawing.Size(78, 16);
             this.labelRecruit.TabIndex = 7;
@@ -1151,7 +1220,7 @@ namespace DB_EDITOR
             // recruitTolerance
             // 
             this.recruitTolerance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.recruitTolerance.Location = new System.Drawing.Point(73, 369);
+            this.recruitTolerance.Location = new System.Drawing.Point(73, 318);
             this.recruitTolerance.Maximum = new decimal(new int[] {
             3,
             0,
@@ -1170,7 +1239,7 @@ namespace DB_EDITOR
             // 
             this.wkonLabel.AutoSize = true;
             this.wkonLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.wkonLabel.Location = new System.Drawing.Point(59, 528);
+            this.wkonLabel.Location = new System.Drawing.Point(59, 477);
             this.wkonLabel.Name = "wkonLabel";
             this.wkonLabel.Size = new System.Drawing.Size(78, 16);
             this.wkonLabel.TabIndex = 5;
@@ -1180,7 +1249,7 @@ namespace DB_EDITOR
             // toleranceWalkOn
             // 
             this.toleranceWalkOn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toleranceWalkOn.Location = new System.Drawing.Point(73, 503);
+            this.toleranceWalkOn.Location = new System.Drawing.Point(73, 452);
             this.toleranceWalkOn.Maximum = new decimal(new int[] {
             4,
             0,
@@ -1199,7 +1268,7 @@ namespace DB_EDITOR
             // 
             this.buttonRandRecruits.BackColor = System.Drawing.Color.Moccasin;
             this.buttonRandRecruits.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRandRecruits.Location = new System.Drawing.Point(144, 341);
+            this.buttonRandRecruits.Location = new System.Drawing.Point(144, 290);
             this.buttonRandRecruits.Name = "buttonRandRecruits";
             this.buttonRandRecruits.Size = new System.Drawing.Size(110, 80);
             this.buttonRandRecruits.TabIndex = 3;
@@ -1211,7 +1280,7 @@ namespace DB_EDITOR
             // 
             this.buttonRandWalkOns.BackColor = System.Drawing.Color.BurlyWood;
             this.buttonRandWalkOns.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRandWalkOns.Location = new System.Drawing.Point(144, 475);
+            this.buttonRandWalkOns.Location = new System.Drawing.Point(144, 424);
             this.buttonRandWalkOns.Name = "buttonRandWalkOns";
             this.buttonRandWalkOns.Size = new System.Drawing.Size(110, 80);
             this.buttonRandWalkOns.TabIndex = 2;
@@ -1230,29 +1299,6 @@ namespace DB_EDITOR
             this.buttonMinRecruitingPts.Text = "Raise Minimum Recruiting Points";
             this.buttonMinRecruitingPts.UseVisualStyleBackColor = false;
             this.buttonMinRecruitingPts.Click += new System.EventHandler(this.buttonMinRecruitingPts_Click);
-            // 
-            // textBoxOffSeasonTitle
-            // 
-            this.textBoxOffSeasonTitle.Enabled = false;
-            this.textBoxOffSeasonTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxOffSeasonTitle.Location = new System.Drawing.Point(360, 23);
-            this.textBoxOffSeasonTitle.Name = "textBoxOffSeasonTitle";
-            this.textBoxOffSeasonTitle.Size = new System.Drawing.Size(526, 31);
-            this.textBoxOffSeasonTitle.TabIndex = 15;
-            this.textBoxOffSeasonTitle.Text = "Off-Season Recruiting Tools";
-            this.textBoxOffSeasonTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBoxOffSeason
-            // 
-            this.textBoxOffSeason.Enabled = false;
-            this.textBoxOffSeason.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxOffSeason.Location = new System.Drawing.Point(360, 77);
-            this.textBoxOffSeason.Multiline = true;
-            this.textBoxOffSeason.Name = "textBoxOffSeason";
-            this.textBoxOffSeason.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxOffSeason.Size = new System.Drawing.Size(526, 600);
-            this.textBoxOffSeason.TabIndex = 16;
-            this.textBoxOffSeason.Text = resources.GetString("textBoxOffSeason.Text");
             // 
             // MainEditor
             // 
@@ -1291,6 +1337,7 @@ namespace DB_EDITOR
             this.tabTools.PerformLayout();
             this.tabOffSeason.ResumeLayout(false);
             this.tabOffSeason.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.polyNamesPCT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.removeInterestTeams)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.minTRPA)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.minRecPts)).EndInit();
@@ -1412,6 +1459,9 @@ namespace DB_EDITOR
         private System.Windows.Forms.Label labelIntTeams;
         private System.Windows.Forms.TextBox textBoxOffSeasonTitle;
         private System.Windows.Forms.TextBox textBoxOffSeason;
+        private System.Windows.Forms.Button polyNames;
+        private System.Windows.Forms.NumericUpDown polyNamesPCT;
+        private System.Windows.Forms.Label labelPolyNamesPCT;
     }
 }
 

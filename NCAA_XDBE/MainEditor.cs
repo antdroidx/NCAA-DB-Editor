@@ -15,6 +15,7 @@ namespace DB_EDITOR
 
     public partial class MainEditor : Form
     {
+        Random rand = new Random();
 
         string currentDBfile = "";
         int currentDBfileIndex = -1;  // 0 = Open/Save, 1 = Save As..., 2 = settings.db, 3 = streameddata.db, 4 = 00012-DB_TEMPLATES.db
@@ -859,8 +860,8 @@ namespace DB_EDITOR
 
                         if (TableProps.Name == "PLAY")
                         {
-                            importFN_StringToInt(record[importtmpfieldindex + 1], recnum);
-                            importLN_StringToInt(record[importtmpfieldindex + 2], recnum);
+                            importFN_StringToInt(record[importtmpfieldindex + 1], recnum, "PLAY");
+                            importLN_StringToInt(record[importtmpfieldindex + 2], recnum, "PLAY");
                         }
 
                         recnum++;
@@ -1648,6 +1649,9 @@ namespace DB_EDITOR
             tableGridView.Columns[1].Name = "Name";
             tableGridView.Columns[1].Width = 47;
 
+            setPositions();
+            createRatingsDB();
+
             int tmpi = 0;
             foreach (KeyValuePair<int, string> TABLE in TABLEnames)
             {
@@ -1658,6 +1662,7 @@ namespace DB_EDITOR
 
                 if (TABLE.Value == "TEAM")
                 {
+                    createTeamDB();
 
                     //BOOKMARK TAB PAGES ON/OFF
 
@@ -1745,14 +1750,6 @@ namespace DB_EDITOR
                 // Clone PNLU table
                 clonePNLU();
             }
-            if (TDB.TableIndex(dbFILEindex, "TEAM") == 1)
-            {
-                createTeamDB();
-            }
-
-            setPositions();
-            createRatingsDB();
-
 
             FIELDnames.Clear();
 
@@ -2129,7 +2126,7 @@ namespace DB_EDITOR
                     string tmpPFNA = fieldsGridView.Rows[rownum].Cells[colnum].Value.ToString();
 
 
-                    importFN_StringToInt(tmpPFNA, tmpcol); //converts name to digits
+                    importFN_StringToInt(tmpPFNA, tmpcol, "PLAY"); //converts name to digits
                     return;
                 }
 
@@ -2137,7 +2134,7 @@ namespace DB_EDITOR
                 {
                     string tmpPLNA = fieldsGridView.Rows[rownum].Cells[colnum].Value.ToString();
 
-                    importLN_StringToInt(tmpPLNA, tmpcol); //converts name to digits
+                    importLN_StringToInt(tmpPLNA, tmpcol, "PLAY"); //converts name to digits
                     return;
                 }
 
@@ -2508,7 +2505,7 @@ namespace DB_EDITOR
             return tmpSTR;
         }
 
-        private void importFN_StringToInt(string PFNA, int tmpRecNo)
+        private void importFN_StringToInt(string PFNA, int tmpRecNo, string tableName)
         {
             for (int i = 1; i <= maxNameChar; i++)
             {
@@ -2519,14 +2516,14 @@ namespace DB_EDITOR
 
                 // MessageBox.Show(tmpSTR.ToString());
                 TDB.NewfieldValue(currentDBfileIndex,
-                                  "PLAY",
+                                  tableName,
                                   "PF" + addLeadingZeros(Convert.ToString(i), 2),
                                   tmpRecNo,
                                   Convert.ToString(tmpSTR));
 
             }
         }
-        private void importLN_StringToInt(string PLNA, int tmpRecNo)
+        private void importLN_StringToInt(string PLNA, int tmpRecNo, string tableName)
         {
             for (int i = 1; i <= maxNameChar; i++)
             {
@@ -2536,7 +2533,7 @@ namespace DB_EDITOR
                     tmpSTR = AlphabetX[PLNA.Substring(i - 1, 1)];
 
                 TDB.NewfieldValue(currentDBfileIndex,
-                                  "PLAY",
+                                  tableName,
                                   "PL" + addLeadingZeros(Convert.ToString(i), 2),
                                   tmpRecNo,
                                   Convert.ToString(tmpSTR));
@@ -3518,7 +3515,14 @@ namespace DB_EDITOR
             {
                 string tmpRec = TDB.FieldValue(currentDBfileIndex, "INJY", "INJL", i);
                 //check to see if value is greater than 225
-                if (Convert.ToInt32(tmpRec) >= 225)
+                /* 254 = Season Ending
+                 * 196 = 10 weeks
+                 * 
+                 * 
+                 * 
+                 * 
+                 */
+                if (Convert.ToInt32(tmpRec) >= 196)
                 {
                     //find the corresponding PGID
                     string PGID = TDB.FieldValue(currentDBfileIndex, "INJY", "PGID", i);
@@ -3634,6 +3638,7 @@ namespace DB_EDITOR
                 }
                 Row++;
             }
+            sr.Close();
 
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
@@ -3754,8 +3759,6 @@ namespace DB_EDITOR
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
             progressBar1.Maximum = TDB.TableRecordCount(currentDBfileIndex, "COCH");
-
-            Random rand = new Random();
 
             for (int i = 0; i < TDB.TableRecordCount(currentDBfileIndex, "COCH"); i++)
             {
@@ -3935,7 +3938,6 @@ namespace DB_EDITOR
             progressBar1.Minimum = 0;
             progressBar1.Maximum = TDB.TableRecordCount(currentDBfileIndex, "RCPT");
 
-            Random rand = new Random();
             int tol =  (int)recruitTolerance.Value;
             int tolA = 2;
 
@@ -4046,7 +4048,6 @@ namespace DB_EDITOR
             progressBar1.Minimum = 0;
             progressBar1.Maximum = TDB.TableRecordCount(currentDBfileIndex, "WKON");
 
-            Random rand = new Random();
             int tol = (int)toleranceWalkOn.Value;
 
             for (int i = 0; i < TDB.TableRecordCount(currentDBfileIndex, "WKON"); i++)
@@ -4149,10 +4150,117 @@ namespace DB_EDITOR
             return attribute;
         }
 
+        //Polynesian Surname Generator
+        private void polyNames_Click(object sender, EventArgs e)
+        {
+            polynesianNameGenerator();
+        }
+        private void polynesianNameGenerator()
+        {
+            string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string csvLocation = Path.Combine(executableLocation, @"resources\poly-surnames.csv");
 
+            string filePath = csvLocation;
+            StreamReader sr = new StreamReader(filePath);
+            List<string> surnames = new List<string>();
+            while (!sr.EndOfStream)
+            {
+                surnames.Add(sr.ReadLine());
+            }
+            sr.Close();
+
+            progressBar1.Visible = true;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = TDB.TableRecordCount(currentDBfileIndex, "RCPT");
+            progressBar1.Step = 1;
+
+            /*States STID
+             * Hawaii 10
+             * California 4
+             * Utah 43
+             * Washington 46
+             * Arizona 2
+             */
+
+            for (int i = 0; i < TDB.TableRecordCount(currentDBfileIndex, "RCPT"); i++)
+            {
+                //Check for Hawaii recruits (256 x 10 - 2560)
+                if(Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "RCHD", i)) >= 2560 && Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "RCHD", i)) < 2816)
+                {
+                    if (rand.Next(0,100) < polyNamesPCT.Value && Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PRID", i)) < 21000)
+                    {
+                        int x = rand.Next(0, surnames.Count);
+                        string newName = surnames[x];
+                        TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PLNA", i, newName);
+                        TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PSKI", i, "2");
+                        TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PFMP", i, Convert.ToString(rand.Next(16, 24)));
+                    }
+                } 
+                //Check for California 4 
+                else if (Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "RCHD", i)) >= 1024 && Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "RCHD", i)) < 1280)
+                {
+                    if (rand.Next(0, 100) < 0.25 && Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PRID", i)) < 21000)
+                    {
+                        int x = rand.Next(0, surnames.Count);
+                        string newName = surnames[x];
+                        TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PLNA", i, newName);
+                        TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PSKI", i, "2");
+                        TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PFMP", i, Convert.ToString(rand.Next(16, 24)));
+                    }
+                }
+                //Check for Utah 43
+                else if (Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "RCHD", i)) >= 11008 && Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "RCHD", i)) < 11264)
+                {
+                    if (rand.Next(0, 100) < 0.25 && Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PRID", i)) < 21000)
+                    {
+                        int x = rand.Next(0, surnames.Count);
+                        string newName = surnames[x];
+                        TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PLNA", i, newName);
+                        TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PSKI", i, "2");
+                        TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PFMP", i, Convert.ToString(rand.Next(16, 24)));
+                    }
+                }
+                //Check for Washington  46
+                else if (Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "RCHD", i)) >= 11776 && Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "RCHD", i)) < 12032)
+                {
+                    if (rand.Next(0, 100) < 0.15 && Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PRID", i)) < 21000)
+                    {
+                        int x = rand.Next(0, surnames.Count);
+                        string newName = surnames[x];
+                        TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PLNA", i, newName);
+                        TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PSKI", i, "2");
+                        TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PFMP", i, Convert.ToString(rand.Next(16, 24)));
+                    }
+                }
+                //Check for Arizona  2
+                else if (Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "RCHD", i)) >= 512 && Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "RCHD", i)) < 768)
+                {
+                    if (rand.Next(0, 100) < 0.15 && Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PRID", i)) < 21000)
+                    {
+                        int x = rand.Next(0, surnames.Count);
+                        string newName = surnames[x];
+                        TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PLNA", i, newName);
+                        TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PSKI", i, "2");
+                        TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PFMP", i, Convert.ToString(rand.Next(16, 24)));
+                    }
+                }
+
+
+                progressBar1.PerformStep();
+            }
+
+            progressBar1.Visible = false;
+            progressBar1.Value = 0;
+
+            MessageBox.Show("Surname updates are complete!");
+
+        }
 
 
         #endregion
+
+
+
 
     }
 

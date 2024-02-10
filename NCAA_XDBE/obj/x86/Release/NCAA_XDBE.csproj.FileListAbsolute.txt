@@ -11,3 +11,4 @@ D:\Modding\NCAA_XDBE\NCAA_XDBE\obj\x86\Release\NCAA_XDBE.csproj.GenerateResource
 D:\Modding\NCAA_XDBE\NCAA_XDBE\obj\x86\Release\NCAA_XDBE.csproj.CoreCompileInputs.cache
 D:\Modding\NCAA_XDBE\NCAA_XDBE\obj\x86\Release\NCAA_XDBE.exe
 D:\Modding\NCAA_XDBE\NCAA_XDBE\obj\x86\Release\NCAA_XDBE.pdb
+D:\Modding\NCAA_XDBE\NCAA_XDBE\bin\Release\Resources\poly-surnames.csv

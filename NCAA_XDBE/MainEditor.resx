@@ -138,9 +138,11 @@
   <data name="dbToolsInfo.Text" xml:space="preserve">
     <value>This is a set of NCAA Football Modding Tools that add more realism to the game. 
 
-It is recommended to use these tools after the completion of the National Championship game and before the start of the off-season.
+Use these at the end of the Regular Season (or during Bowl Weeks)
 
 * Medical Redshirt - Grants Players that have Season Ending injuries a redshirt year
+
+It is recommended to use these tools after the completion of the National Championship game and before the start of the off-season.
 
 * Coach Progression - For use with NO CONTRACT dynasties. Changes User/CPU Coach Prestige value based on performance
 
@@ -157,13 +159,20 @@ These tools can be used at any time.
   <data name="textBoxOffSeason.Text" xml:space="preserve">
     <value>This is the off-season toolbox for recruiting. Most of these tools can only occur during specific phases of the off-season.
 
-Raise Minimum Recruiting Points : This raises the min points and minimum TRPA (??). The TRPA determines how many points are given each week, although it is just one of the many factors. The Min Points resets each week.
+Raise Minimum Recruiting Points : 
+This raises the min points and minimum TRPA (??). The TRPA determines how many points are given each week, although it is just one of the many factors. The Min Points resets each week.
 
-Modify Recruiting Interested Teams: This value is set to default of 10. If you lower it, there will be less teams automatically interested in a recruit. This allows other teams to try to get into the recruit's top 10 list.
+Modify Recruiting Interested Teams:
+This value is set to default of 10. If you lower it, there will be less teams automatically interested in a recruit. This allows other teams to try to get into the recruit's top 10 list.
 
-Randomize Recruits: This randomizes the recruit attribute ratings. Use the tolerance to set the min/max randomization value. Weight and Height are also randomize. Potential, Injury and Awareness are also randomized.
+Randomize Recruits: 
+This randomizes the recruit attribute ratings. Use the tolerance to set the min/max randomization value. Weight and Height are also randomize. Potential, Injury and Awareness are also randomized.
 
-Randomize Walk-Ons: This randomizes the walk-on attribute ratings. Use the toleranace to set the min/max randomization value. Weight and Height are also randomize. Potential, Injury and Awareness are also randomized.</value>
+Randomize Walk-Ons: 
+This randomizes the walk-on attribute ratings. Use the toleranace to set the min/max randomization value. Weight and Height are also randomize. Potential, Injury and Awareness are also randomized.
+
+Polynesian Surname Generator: 
+This changes recruits from Hawaii and western states to have polynesian surnames. The % Chance is for Hawaii, with 15-25% of CA, UT, WA and AZ states getting players of polynesian descent.</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

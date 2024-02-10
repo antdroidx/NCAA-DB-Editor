@@ -139,6 +139,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Resources\open2.png" />
+    <None Include="Resources\poly-surnames.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\save3.png" />
     <None Include="Resources\close.png" />
     <None Include="Resources\def file.png" />
