@@ -7,6 +7,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace DB_EDITOR
 
@@ -2660,6 +2661,7 @@ namespace DB_EDITOR
                 teamNameDB[j] = Convert.ToString(TDB.FieldValue(currentDBfileIndex, "TEAM", "TDNA", i));
             }
         }
+
         public string getTeamName(int tmpRecNo)
         {
 
@@ -2667,13 +2669,1102 @@ namespace DB_EDITOR
             return tmpSTR;
         }
 
+        private int findTeamPrestige(int TGID)
+        {
+            int TMPR = 0;
+            for (int i = 0; i < TDB.TableRecordCount(currentDBfileIndex, "TEAM"); i++)
+            {
+                if (TGID == Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "TEAM", "TGID", i)))
+                {
+                    TMPR = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "TEAM", "TMPR", i));
+                }
+            }
+            return TMPR;
+        }
+
+        private int findRecNumberCCID(int CCID)
+        {
+            for (int i = 0; i < TDB.TableRecordCount(currentDBfileIndex, "COCH"); i++)
+            {
+                if (CCID == Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "COCH", "CCID", i)))
+                {
+                    return i;
+                }
+            }
+
+            return -1;
+        }
+
+        private int getRandomAttribute(int attribute, int tol)
+        {
+            Random rand = new Random();
+
+            attribute += rand.Next(tol, tol + 1);
+
+            if (attribute < 0) attribute = 0; if (attribute > 31) attribute = 31;
+
+            return attribute;
+        }
+
+        private int getReducedAttribute(int attribute, int tol)
+        {
+            Random rand = new Random();
+
+            attribute += rand.Next(0, tol + 1);
+
+            if (attribute < 0) attribute = 0; if (attribute > 31) attribute = 31;
+
+            return attribute;
+        }
+
+        #endregion
+
+
+        /* 
+         * TAB SWITCHING AREA
+         */
+        #region TAB CONTROLS
+        private void tabControl1_IndexChange(object sender, EventArgs e)
+        {
+
+            if (tabControl1.SelectedTab == tabDB) tabDB_Start();
+            else tabTools_Start();
+
+        }
+        private void openTabs()
+        {
+            if (activeDB == 1) tabControl1.TabPages.Add(tabTools);
+            if (activeDB == 2) tabControl1.TabPages.Add(tabOffSeason);
+        }
+        private void tabTools_Start()
+        {
+            progressBar1.Visible = false;
+            progressBar1.Value = 0;
+            TablePropsgroupBox.Visible = false;
+            FieldsPropsgroupBox.Visible = false;
+        }
+
+        private void tabDB_Start()
+        {
+            progressBar1.Visible = true;
+            progressBar1.Value = 0;
+            TablePropsgroupBox.Visible = true;
+            FieldsPropsgroupBox.Visible = true;
+            TableGridView_SelectionChanged(null,null);
+        }
+        #endregion
+
+
+        /* 
+         * DB TOOLS TAB AREA
+         */
+        #region MAIN DB TOOLS
+
+        //Medical Redshirt - If player's INJL = 254, they are out of season. Let's give them a medical year!
+        private void medRS_Click(object sender, EventArgs e)
+        {
+            medicalRedshirt();
+        }
+        private void medicalRedshirt()
+        {
+            progressBar1.Visible = true;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = TDB.TableRecordCount(currentDBfileIndex, "INJY");
+            string names = "";
+            //looks at INJY table
+            for (int i = 0; i < TDB.TableRecordCount(currentDBfileIndex, "INJY"); i++)
+            {
+                string tmpRec = TDB.FieldValue(currentDBfileIndex, "INJY", "INJL", i);
+                //check to see if value is greater than 225
+                /* 254 = Season Ending
+                 * 196 = 10 weeks
+                 */
+                if (Convert.ToInt32(tmpRec) >= 196)
+                {
+                    //find the corresponding PGID
+                    string PGID = TDB.FieldValue(currentDBfileIndex, "INJY", "PGID", i);
+                    //find the corresponding recNo of the PGID in PLAY
+                    for (int j = 0; j < TDB.TableRecordCount(currentDBfileIndex, "PLAY"); j++)
+                    {
+                        if (PGID == TDB.FieldValue(currentDBfileIndex, "PLAY", "PGID", j))
+                        {
+                            //checks to see if player has only played 4 or less games
+                            if (checkBoxMedRSNEXT.Checked)
+                            {
+                                if (Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "PLAY", "PL13", j)) <= 4 && TDB.FieldValue(currentDBfileIndex, "PLAY", "PRSD", j) != "1")
+                                {
+                                    //changes redshirt status to "1" (active redshirt)
+                                    TDB.NewfieldValue(currentDBfileIndex, "PLAY", "PRSD", j, "1");
+                                    string team = getTeamName(Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "PLAY", "PGID", j)) / 70);
+
+                                    if (checkBoxInjuryRatings.Checked)
+                                    {
+                                        reduceSkills(i);
+                                    }
+
+                                    names += "\n * " + convertFN_IntToString(j) + " " + convertLN_IntToString(j) + " (" + team + ")";
+                                }
+                            } 
+                            else
+                            {
+                                if (TDB.FieldValue(currentDBfileIndex, "PLAY", "PRSD", j) != "1")
+                                {
+                                    //changes redshirt status to "1" (active redshirt)
+                                    TDB.NewfieldValue(currentDBfileIndex, "PLAY", "PRSD", j, "1");
+                                    string team = getTeamName(Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "PLAY", "PGID", j)) / 70);
+
+                                    if (checkBoxInjuryRatings.Checked)
+                                    {
+                                        reduceSkills(i);
+                                    }
+
+                                    names += "\n * " + convertFN_IntToString(j) + " " + convertLN_IntToString(j) + " (" + team + ")";
+                                }
+                            }
+
+                            break;
+                        }
+                    }
+
+                }
+                progressBar1.PerformStep();
+            }
+            progressBar1.Visible = false;
+            progressBar1.Value = 0;
+
+            MessageBox.Show("The NCAA has approved the following Medical Redshirts:\n\r" + names);
+        }
+
+        private void reduceSkills(int i)
+        {
+            int PPOE, PINJ, PSTA, PACC, PSPD, PAGI, PJMP, PSTR;
+            int tol = (int)skillDrop.Value;
+
+            PPOE = convertRating(Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "PLAY", "PPOE", i)));
+            PINJ = convertRating(Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "PLAY", "PINJ", i)));
+            PSTA = convertRating(Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "PLAY", "PSTA", i)));
+            PACC = convertRating(Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "PLAY", "PACC", i)));
+            PSPD = convertRating(Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "PLAY", "PSPD", i)));
+            PAGI = convertRating(Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "PLAY", "PAGI", i)));
+            PJMP = convertRating(Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "PLAY", "PJMP", i)));
+            PSTR = convertRating(Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "PLAY", "PSTR", i)));
+
+            PPOE = revertRating(getReducedAttribute(PPOE, tol));
+            PINJ = revertRating(getReducedAttribute(PINJ, tol));
+            PSTA = revertRating(getReducedAttribute(PSTA, tol));
+            PACC = revertRating(getReducedAttribute(PACC, tol));
+            PSPD = revertRating(getReducedAttribute(PSPD, tol));
+            PAGI = revertRating(getReducedAttribute(PAGI, tol));
+            PJMP = revertRating(getReducedAttribute(PJMP, tol));
+            PSTR = revertRating(getReducedAttribute(PSTR, tol));
+
+            TDB.NewfieldValue(currentDBfileIndex, "PLAY", "PPOE", i, Convert.ToString(PPOE));
+            TDB.NewfieldValue(currentDBfileIndex, "PLAY", "PINJ", i, Convert.ToString(PINJ));
+            TDB.NewfieldValue(currentDBfileIndex, "PLAY", "PSTA", i, Convert.ToString(PSTA));
+            TDB.NewfieldValue(currentDBfileIndex, "PLAY", "PACC", i, Convert.ToString(PACC));
+            TDB.NewfieldValue(currentDBfileIndex, "PLAY", "PSPD", i, Convert.ToString(PSPD));
+            TDB.NewfieldValue(currentDBfileIndex, "PLAY", "PAGI", i, Convert.ToString(PAGI));
+            TDB.NewfieldValue(currentDBfileIndex, "PLAY", "PJMP", i, Convert.ToString(PJMP));
+            TDB.NewfieldValue(currentDBfileIndex, "PLAY", "PSTR", i, Convert.ToString(PSTR));
+        }
+
+        //Coaching Progression -- useful for "Contracts Off" dynasty setting where coaching progression is disabled
+        /* 
+        Use current TEAM's TMPR and COCH's CTOP to make CPRE updated, then update CTOP to match previous TMPR
+        */
+        private void coachProg_Click(object sender, EventArgs e)
+        {
+            coachPrestigeProgression();
+        }
+        private void coachPrestigeProgression()
+        {
+            progressBar1.Visible = true;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = TDB.TableRecordCount(currentDBfileIndex, "COCH");
+
+            string coach = "";
+            for (int i = 0; i < TDB.TableRecordCount(currentDBfileIndex, "COCH"); i++)
+            {
+                if (TDB.FieldValue(currentDBfileIndex, "COCH", "TGID", i) != "511")
+                {
+                    string TGID = TDB.FieldValue(currentDBfileIndex, "COCH", "TGID", i);
+                    int oldPrestige = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "COCH", "CPRE", i));
+                    int newPrestige = oldPrestige;
+                    int CTOP = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "COCH", "CTOP", i));
+                    int CLTF = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "COCH", "CLTF", i));
+
+                    if (CLTF > 6) CLTF = CTOP;
+
+                    newPrestige += findTeamPrestige(Convert.ToInt32(TGID)) - CLTF;
+
+                    if (newPrestige > 6) newPrestige = 6;
+                    if (newPrestige < 1) newPrestige = 1;
+
+
+                    if (newPrestige > oldPrestige)
+                    {
+                        coach += "\n* " + getTeamName(Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "COCH", "TGID", i))) + ": " + TDB.FieldValue(currentDBfileIndex, "COCH", "CLFN", i) + " " + TDB.FieldValue(currentDBfileIndex, "COCH", "CLLN", i) + " (+" + (newPrestige - oldPrestige) + ")";
+                    }
+                    else if (newPrestige < oldPrestige)
+                    {
+                        coach += "\n* " + getTeamName(Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "COCH", "TGID", i))) + ": " + TDB.FieldValue(currentDBfileIndex, "COCH", "CLFN", i) + " " + TDB.FieldValue(currentDBfileIndex, "COCH", "CLLN", i) + " (" + (newPrestige - oldPrestige) + ")";
+                    }
+                    TDB.NewfieldValue(currentDBfileIndex, "COCH", "CPRE", i, Convert.ToString(newPrestige));
+                    TDB.NewfieldValue(currentDBfileIndex, "COCH", "CLTF", i, Convert.ToString(findTeamPrestige(Convert.ToInt32(TGID))));
+
+
+
+                } else
+                {
+                    TDB.NewfieldValue(currentDBfileIndex, "COCH", "CLTF", i, "511"); //resets their value
+                    TDB.NewfieldValue(currentDBfileIndex, "COCH", "CCPO", i, "60"); //fixes coach status
+                }
+
+                progressBar1.PerformStep();
+            }
+
+            progressBar1.Visible = false;
+            progressBar1.Value = 0;
+
+            MessageBox.Show("Coach Prestige Changes:\n\n" + coach);
+        }
+
+        //Fixes Body Size Models if user does manipulation of the player attributes in the in-game player editor
+        private void bodyFix_Click(object sender, EventArgs e)
+        {
+            recalculateBMI("PLAY");
+        }
+        private void recalculateBMI(string tableName)
+        {
+            string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string csvLocation = Path.Combine(executableLocation, @"resources\BMI-Calc.csv");
+            //string csvLocation = Properties.Resources.BMI_Calc;
+
+
+            string filePath = csvLocation;
+            StreamReader sr = new StreamReader(filePath);
+            string[,] strArray = null;
+            int Row = 0;
+            while (!sr.EndOfStream)
+            {
+                string[] Line = sr.ReadLine().Split(',');
+                if (Row == 0)
+                {
+                    strArray = new string[402, Line.Length];
+                }
+                for (int column = 0; column < Line.Length; column++)
+                {
+                    strArray[Row, column] = Line[column];
+                }
+                Row++;
+            }
+            sr.Close();
+
+            progressBar1.Visible = true;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = TDB.TableRecordCount(currentDBfileIndex, tableName);
+            progressBar1.Step = 1;
+
+            for (int i = 0; i < TDB.TableRecordCount(currentDBfileIndex, tableName); i++)
+            {
+                double bmi = Math.Round(Convert.ToDouble(TDB.FieldValue(currentDBfileIndex, tableName, "PWGT", i)) / Convert.ToDouble(TDB.FieldValue(currentDBfileIndex, tableName, "PHGT", i)), 2); 
+
+                for (int j = 0; j < 401; j++)
+                {
+                    if (Convert.ToString(bmi) == strArray[j, 0])
+                    {
+                        TDB.NewfieldValue(currentDBfileIndex, tableName, "PFSH", i, strArray[j, 1]);
+                        TDB.NewfieldValue(currentDBfileIndex, tableName, "PMSH", i, strArray[j, 2]);
+                        TDB.NewfieldValue(currentDBfileIndex, tableName, "PSSH", i, strArray[j, 3]);
+                        break;
+                    }
+                }
+                progressBar1.PerformStep();
+            }
+
+            progressBar1.Visible = false;
+            progressBar1.Value = 0;
+
+            MessageBox.Show("Body Model updates are complete!");
+        }
+
+        //Increases minium speed for skill positions to 80
+        private void increaseSpeed_Click(object sender, EventArgs e)
+        {
+            increaseMinimumSpeed();
+        }
+        private void increaseMinimumSpeed()
+        {
+            progressBar1.Visible = true;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = TDB.TableRecordCount(currentDBfileIndex, "PLAY");
+            progressBar1.Step = 1;
+
+            for (int i = 0; i < TDB.TableRecordCount(currentDBfileIndex, "PLAY"); i++)
+            {
+                if (TDB.FieldValue(currentDBfileIndex, "PLAY", "PPOS", i) == "1" || TDB.FieldValue(currentDBfileIndex, "PLAY", "PPOS", i) == "3"
+                    || TDB.FieldValue(currentDBfileIndex, "PLAY", "PPOS", i) == "16" || TDB.FieldValue(currentDBfileIndex, "PLAY", "PPOS", i) == "17" || TDB.FieldValue(currentDBfileIndex, "PLAY", "PPOS", i) == "18")
+                {
+                    if (Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "PLAY", "PSPD", i)) < 14)
+                    {
+                        TDB.NewfieldValue(currentDBfileIndex, "PLAY", "PSPD", i, "14");
+                    }
+                }
+                progressBar1.PerformStep();
+            }
+
+            progressBar1.Visible = false;
+            progressBar1.Value = 0;
+            MessageBox.Show("Speed updates are complete!");
+        }
+
+        //Recalculates QB Tendencies based on original game criteria
+        private void qbTend_Click(object sender, EventArgs e)
+        {
+            recalculateQBTendencies();
+        }
+        private void recalculateQBTendencies()
+        {
+            progressBar1.Visible = true;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = TDB.TableRecordCount(currentDBfileIndex, "PLAY");
+            progressBar1.Step = 1;
+
+            int pocket = 0;
+            int balanced = 0;
+            int scrambler = 0;
+
+
+            for (int i = 0; i < TDB.TableRecordCount(currentDBfileIndex, "PLAY"); i++)
+            {
+                if (TDB.FieldValue(currentDBfileIndex, "PLAY", "PPOS", i) == "0")
+                {
+                    int tendies;
+                    int speed = convertRating(Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "PLAY", "PSPD", i)));
+                    int acceleration = convertRating(Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "PLAY", "PACC", i)));
+                    int agility = convertRating(Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "PLAY", "PAGI", i)));
+                    int ThPow = convertRating(Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "PLAY", "PTHP", i)));
+                    int ThAcc = convertRating(Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "PLAY", "PTHA", i)));
+
+
+                    tendies = (100 + 10 * speed + acceleration + agility - 3 * ThPow - 5 * ThAcc) / 20;
+
+                    if (tendies > 31) tendies = 31;
+                    if (tendies < 0) tendies = 0;
+
+                    TDB.NewfieldValue(currentDBfileIndex, "PLAY", "PTEN", i, Convert.ToString(tendies));
+
+                    if (tendies < 10) pocket++;
+                    else if (tendies > 19) scrambler++;
+                    else balanced++;
+
+                }
+                progressBar1.PerformStep();
+            }
+
+            progressBar1.Visible = false;
+            progressBar1.Value = 0;
+            MessageBox.Show("QB updates are complete!\n\nThe Stats:\n\n* Pocket-Passers: " + pocket + "\n\n* Balanced: " + balanced + "\n\n* Scramblers: " + scrambler);
+        }
+
+
+        //Randomizes the Coaching Budgets - Must be done prior to 1st Off-Season Task
+
+        private void buttonRandomBudgets_Click(object sender, EventArgs e)
+        {
+            randomizeBudgets();
+        }
+        private void randomizeBudgets()
+        {
+            progressBar1.Visible = true;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = TDB.TableRecordCount(currentDBfileIndex, "COCH");
+
+            for (int i = 0; i < TDB.TableRecordCount(currentDBfileIndex, "COCH"); i++)
+            {
+                //CDPC, CRPC, CTPC
+                int CDPC, CRPC, CTPC;
+                CRPC = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "COCH", "CRPC", i));
+                CTPC = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "COCH", "CTPC", i));
+                CDPC = 0;
+
+                while (CDPC < 15 || CDPC > 25) {
+                    CTPC += rand.Next(-4, 5);
+                    CRPC += rand.Next(-4, 5);
+                    CDPC = 100 - CTPC - CRPC;
+                }
+
+                TDB.NewfieldValue(currentDBfileIndex, "COCH", "CDPC", i, Convert.ToString(CDPC));
+                TDB.NewfieldValue(currentDBfileIndex, "COCH", "CRPC", i, Convert.ToString(CRPC));
+                TDB.NewfieldValue(currentDBfileIndex, "COCH", "CTPC", i, Convert.ToString(CTPC));
+
+                progressBar1.PerformStep();
+            }
+
+            progressBar1.Visible = false;
+            progressBar1.Value = 0;
+
+            MessageBox.Show("Team Budgets Changed!");
+        }
+
+
+        //Randomize Player Potential
+        private void buttonRandPotential_Click(object sender, EventArgs e)
+        {
+            randomizePotential();
+        }
+
+        private void randomizePotential()
+        {
+            progressBar1.Visible = true;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = TDB.TableRecordCount(currentDBfileIndex, "PLAY");
+            progressBar1.Step = 1;
+
+            for (int i = 0; i < TDB.TableRecordCount(currentDBfileIndex, "PLAY"); i++)
+            {
+                int x = rand.Next(0, 32);
+
+                TDB.NewfieldValue(currentDBfileIndex, "PLAY", "PPOE", i, Convert.ToString(x));
+
+                progressBar1.PerformStep();
+            }
+
+            progressBar1.Visible = false;
+            progressBar1.Value = 0;
+            MessageBox.Show("Player Potential Updates are complete!");
+        }
+
+
+        //Transfer Portal Chaos Mode -- Must be done at Players Leaving stage
+        private void chaosTransfers()
+        {
+            /*
+             *  For every G5 school, pick 2 starters
+             *  For every P5 school, pick 1 starter
+             *  Pick a random position, find the highest ranked active starter
+             */
+
+
+        }
+
+        //Coaching Carousel -- Must be done at end of Season
+        private void buttonCarousel_Click(object sender, EventArgs e)
+        {
+            coachCarousel();
+        }
+        private void coachCarousel()
+        {
+            progressBar1.Visible = true;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = TDB.TableRecordCount(currentDBfileIndex, "COCH");
+
+            List<string> CCID_FAList = new List<string>();
+            List<string> CCID_FiredList = new List<string>();
+            List<string> CCID_PromoteList = new List<string>();
+            List<string> TGID_VacancyList = new List<string>();
+
+
+            string news = "";
+            string news2 = "";
+
+            //Get List of Coaches and Fire Some
+            for (int i = 0; i < TDB.TableRecordCount(currentDBfileIndex, "COCH"); i++)
+            {
+                //ADD COACHING FREE AGENCY POOL TO THE LIST
+                if(TDB.FieldValue(currentDBfileIndex, "COCH", "TGID", i) == "511") {
+                    CCID_FAList.Add(TDB.FieldValue(currentDBfileIndex, "COCH", "CCID", i));     
+                } 
+                else
+                {
+                    int CTOP = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "COCH", "CTOP", i));
+                    int CLTF = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "COCH", "CLTF", i));
+                    int CCPO = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "COCH", "CCPO", i));
+
+                    //FIRE COACHES
+                    if(CCPO < (int)jobSecurityValue.Value && CTOP > CLTF && TDB.FieldValue(currentDBfileIndex, "COCH", "CFUC", i) != "1")
+                    {
+                        CCID_FiredList.Add(TDB.FieldValue(currentDBfileIndex, "COCH", "CCID", i));
+                        TGID_VacancyList.Add(TDB.FieldValue(currentDBfileIndex, "COCH", "TGID", i));
+
+                        string coachFN = TDB.FieldValue(currentDBfileIndex, "COCH", "CLFN", i);
+                        string coachLN = TDB.FieldValue(currentDBfileIndex, "COCH", "CLLN", i);
+                        string teamID = getTeamName(Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "COCH", "TGID", i)));
+
+                        news2 += "Fired: " + coachFN + " " + coachLN + " (" + teamID + ")\n\n";
+
+                        TDB.NewfieldValue(currentDBfileIndex, "COCH", "TGID", i, "511");
+                        TDB.NewfieldValue(currentDBfileIndex, "COCH", "CLTF", i, "511");
+                        TDB.NewfieldValue(currentDBfileIndex, "COCH", "CCPO", i, "60");
+                    } 
+                    //ADD COACHES TO CANDIDATE LIST
+                    else if (CCPO > 99 && CTOP < CLTF && TDB.FieldValue(currentDBfileIndex, "COCH", "CFUC", i) != "1")
+                    {
+                        CCID_PromoteList.Add(TDB.FieldValue(currentDBfileIndex, "COCH", "CCID", i));
+
+                        string coachFN = TDB.FieldValue(currentDBfileIndex, "COCH", "CLFN", i);
+                        string coachLN = TDB.FieldValue(currentDBfileIndex, "COCH", "CLLN", i);
+                        string teamID = getTeamName(Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "COCH", "TGID", i)));
+                    }
+                }
+                progressBar1.PerformStep();
+            }
+
+            //MessageBox.Show(news2, "Fired Head Coaches");
+
+            progressBar1.Value = 0;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = TGID_VacancyList.Count;
+
+            //HIRE NEW COACHES
+            while (TGID_VacancyList.Count > 0)
+            {
+                int TGID = Convert.ToInt32(TGID_VacancyList[0]);
+                int TMPR = findTeamPrestige(TGID);
+                bool hired = false;
+                int downgrade = 0;
+
+                while (!hired)
+                {
+                    if(rand.Next(0,100) > (100 - (int)poachValue.Value))
+                    {
+                        int r = rand.Next(CCID_FAList.Count);
+                        int CCID = Convert.ToInt32(CCID_FAList[r]);
+
+                        int x = findRecNumberCCID(CCID);
+                        if (x == -1) MessageBox.Show("ERROR");
+
+                        int CPRS = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "COCH", "CPRS", x));
+                        if (CPRS >= TMPR - downgrade)
+                        {
+
+                            TDB.NewfieldValue(currentDBfileIndex, "COCH", "TGID", x, Convert.ToString(TGID));
+                            TDB.NewfieldValue(currentDBfileIndex, "COCH", "CLTF", x, Convert.ToString(TMPR));
+                            TDB.NewfieldValue(currentDBfileIndex, "COCH", "CCPO", x, "60");
+
+                            string coachFN = TDB.FieldValue(currentDBfileIndex, "COCH", "CLFN", x);
+                            string coachLN = TDB.FieldValue(currentDBfileIndex, "COCH", "CLLN", x);
+                            string teamID = getTeamName(Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "COCH", "TGID", x)));
+
+                            news += "Hired: " + coachFN + " " + coachLN + " (" + teamID + ")\n\n";
+
+                            CCID_FAList.RemoveAt(r);
+                            TGID_VacancyList.RemoveAt(0);
+                            hired = true;
+
+                        }
+
+                    } 
+                    else if (CCID_PromoteList.Count > 0)
+                    {
+                        int r = rand.Next(CCID_PromoteList.Count);
+                        int CCID = Convert.ToInt32(CCID_PromoteList[r]);
+
+                        int x = findRecNumberCCID(CCID);
+                        if(x == -1) MessageBox.Show("ERROR");
+
+
+                        string currentTGID = TDB.FieldValue(currentDBfileIndex, "COCH", "TGID", x);
+                        int currentTMPR = findTeamPrestige(Convert.ToInt32(currentTGID));
+
+                        if (currentTMPR < TMPR)
+                        {
+                            TDB.NewfieldValue(currentDBfileIndex, "COCH", "TGID", x, Convert.ToString(TGID));
+                            TDB.NewfieldValue(currentDBfileIndex, "COCH", "CLTF", x, Convert.ToString(TMPR));
+                            TDB.NewfieldValue(currentDBfileIndex, "COCH", "CCPO", x, "60");
+
+                            string coachFN = TDB.FieldValue(currentDBfileIndex, "COCH", "CLFN", x);
+                            string coachLN = TDB.FieldValue(currentDBfileIndex, "COCH", "CLLN", x);
+                            string teamID = getTeamName(Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "COCH", "TGID", x)));
+                            string oldTeamID = getTeamName(Convert.ToInt32(currentTGID));
+
+
+                            news += "Poached! " + coachFN + " " + coachLN + " (" + teamID + ") from (" + oldTeamID + ")\n\n";
+
+                            CCID_PromoteList.RemoveAt(r);
+                            TGID_VacancyList.RemoveAt(0);
+                            TGID_VacancyList.Add(currentTGID);
+                            hired = true;
+                        }
+                    }
+
+                    downgrade++;
+                }
+
+                TGID_VacancyList.OrderBy(z => z).ToList();
+                progressBar1.PerformStep();
+            }
+
+
+            if (news == "") news = "No Coaching Changes!";
+            MessageBox.Show(news2 + "................................\n\n" + news, "COACHING CAROUSEL");
+
+            progressBar1.Visible = false;
+            progressBar1.Value = 0;
+        }
+
+
+
+        //Pre-Season Injuries -- randomly give injuries to players in pre-season
+
+        #endregion
+
+
+        /* 
+        * OFF-SEASON RECRUITING TAB AREA
+        */
+        #region RECRUITING TOOLS
+
+
+
+        //Raise minimum recruiting point allocation and off-season TPRA values -- Must be done at start of Recruiting
+        private void buttonMinRecruitingPts_Click(object sender, EventArgs e)
+        {
+            bool correctWeek = false;
+            for (int i = 0; i < TDB.TableRecordCount(currentDBfileIndex, "RCYR"); i++)
+            {
+                if (Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCYR", "SEWN", i)) >= 1)
+                {
+                    raiseMinimumRecruitingPoints();
+                    correctWeek = true;
+                }
+            }
+            if (!correctWeek)
+            {
+                MessageBox.Show("Please use this feature at the beginning of Recruiting Stage!");
+            }
+        }
+        private void raiseMinimumRecruitingPoints()
+        {
+            progressBar1.Visible = true;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = TDB.TableRecordCount(currentDBfileIndex, "RTRI");
+
+            Random rand = new Random();
+
+            for (int i = 0; i < TDB.TableRecordCount(currentDBfileIndex, "RTRI"); i++)
+            {
+                int TRPA, TRPR;
+                TRPA = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RTRI", "TRPA", i));
+                TRPR = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RTRI", "TRPR", i));
+
+                if (TRPR < (int)minRecPts.Value) TRPR = (int)minRecPts.Value;
+                if (TRPA < (int)minTRPA.Value) TRPA = (int)minTRPA.Value;
+
+                TDB.NewfieldValue(currentDBfileIndex, "RTRI", "TRPA", i, Convert.ToString(TRPA));
+                TDB.NewfieldValue(currentDBfileIndex, "RTRI", "TRPR", i, Convert.ToString(TRPR));
+
+                progressBar1.PerformStep();
+            }
+
+            progressBar1.Visible = false;
+            progressBar1.Value = 0;
+
+            MessageBox.Show("Team Budgets Changed!");
+        }
+
+        //Randomize or Remove Recruiting Interested Teams
+        private void buttonInterestedTeams_Click(object sender, EventArgs e)
+        {
+            bool correctWeek = false;
+            for (int i = 0; i < TDB.TableRecordCount(currentDBfileIndex, "RCYR"); i++)
+            {
+                if (TDB.FieldValue(currentDBfileIndex, "RCYR", "SEWN", i) == "1")
+                {
+                    removeInterestedTeams();
+                    correctWeek = true;
+                }
+            }
+            if (!correctWeek)
+            {
+                MessageBox.Show("Please use this feature at the beginning of Recruiting Stage!");
+            }
+        }
+
+        private void randomizeInterestedTeams()
+        {
+
+        }
+
+        private void removeInterestedTeams()
+        {
+            progressBar1.Visible = true;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = TDB.TableRecordCount(currentDBfileIndex, "RCPR");
+
+            Random rand = new Random();
+
+            for (int i = 0; i < TDB.TableRecordCount(currentDBfileIndex, "RCPR"); i++)
+            {
+                
+
+                for (int j = (int)removeInterestTeams.Value - 1; j < 11; j++)
+                {
+                    if (j < 10)
+                    {
+                        TDB.NewfieldValue(currentDBfileIndex, "RCPR", "PS0" + j, i, "0");
+                        TDB.NewfieldValue(currentDBfileIndex, "RCPR", "PT0" + j, i, "511");
+                    } else
+                    {
+                        TDB.NewfieldValue(currentDBfileIndex, "RCPR", "PS" + j, i, "0");
+                        TDB.NewfieldValue(currentDBfileIndex, "RCPR", "PT" + j, i, "511");
+                    }
+                }
+
+                progressBar1.PerformStep();
+            }
+
+            progressBar1.Visible = false;
+            progressBar1.Value = 0;
+
+            MessageBox.Show("Recruit Interested Teams Changed!");
+        }
+
+        //Randomize the Recruits to give a little bit more variety and evaluation randomness -- Must be done at start of Recruiting
+        private void buttonRandRecruits_Click(object sender, EventArgs e)
+        {
+            bool correctWeek = false;
+            for (int i = 0; i < TDB.TableRecordCount(currentDBfileIndex, "RCYR"); i++)
+            {
+                if (TDB.FieldValue(currentDBfileIndex, "RCYR", "SEWN", i) == "1")
+                {
+                    randomizeRecruitDB();
+                    correctWeek = true;
+                }
+            }
+            if (!correctWeek)
+            {
+                MessageBox.Show("Please use this feature at the beginning of Recruiting Stage!");
+            }
+
+        }
+        private void randomizeRecruitDB()
+        {
+            progressBar1.Visible = true;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = TDB.TableRecordCount(currentDBfileIndex, "RCPT");
+
+            int tol =  (int)recruitTolerance.Value;
+            int tolA = 2;
+
+            for (int i = 0; i < TDB.TableRecordCount(currentDBfileIndex, "RCPT"); i++)
+            {
+                if(Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PRID", i)) < 21000)  //skips transfers
+                {
+                    //PTHA	PSTA	PKAC	PACC	PSPD	PPOE	PCTH	PAGI	PINJ	PTAK	PPBK	PRBK	PBTK	PTHP	PJMP	PCAR	PKPR	PSTR	PAWR
+                    //PPOE, PINJ, PAWR
+
+                    int PBRE, PEYE, PPOE, PINJ, PAWR, PWGT, PHGT, PTHA, PSTA, PKAC, PACC, PSPD, PCTH, PAGI, PTAK, PPBK, PRBK, PBTK, PTHP, PJMP, PCAR, PKPR, PSTR;
+
+                    PHGT = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PHGT", i));
+                    PWGT = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PWGT", i));
+                    PAWR = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PAWR", i));
+
+                    PTHA = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PTHA", i));
+                    PSTA = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PSTA", i));
+                    PKAC = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PKAC", i));
+                    PACC = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PACC", i));
+                    PSPD = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PSPD", i));
+                    PCTH = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PCTH", i));
+                    PAGI = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PAGI", i));
+                    PTAK = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PTAK", i));
+                    PPBK = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PPBK", i));
+                    PRBK = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PRBK", i));
+                    PBTK = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PBTK", i));
+                    PTHP = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PTHP", i));
+                    PJMP = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PJMP", i));
+                    PCAR = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PCAR", i));
+                    PKPR = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PKPR", i));
+                    PSTR = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PSTR", i));
+
+                    PBRE = rand.Next(0, 2);
+                    PEYE = rand.Next(0, 2);
+                    PHGT += rand.Next(-1, 2);
+                    PWGT += rand.Next(-8, 9);
+                    if (PWGT < 0) PWGT = 0;
+                    if (PHGT > 82) PHGT = 82;
+                    PPOE = rand.Next(1, 30);
+                    PINJ = rand.Next(1, 30);
+                    PAWR = getRandomAttribute(PAWR, tolA);
+
+                    PTHA = getRandomAttribute(PTHA, tol);
+                    PSTA = getRandomAttribute(PSTA, tol);
+                    PKAC = getRandomAttribute(PKAC, tol);
+                    PACC = getRandomAttribute(PACC, tol);
+                    PSPD = getRandomAttribute(PSPD, tol);
+                    PCTH = getRandomAttribute(PCTH, tol);
+                    PAGI = getRandomAttribute(PAGI, tol);
+                    PTAK = getRandomAttribute(PTAK, tol);
+                    PPBK = getRandomAttribute(PPBK, tol);
+                    PRBK = getRandomAttribute(PRBK, tol);
+                    PBTK = getRandomAttribute(PBTK, tol);
+                    PTHP = getRandomAttribute(PTHP, tol);
+                    PJMP = getRandomAttribute(PJMP, tol);
+                    PCAR = getRandomAttribute(PCAR, tol);
+                    PKPR = getRandomAttribute(PKPR, tol);
+                    PSTR = getRandomAttribute(PSTR, tol);
+
+                    TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PBRE", i, Convert.ToString(PBRE));
+                    TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PEYE", i, Convert.ToString(PEYE));
+                    TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PPOE", i, Convert.ToString(PPOE));
+                    TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PINJ", i, Convert.ToString(PINJ));
+                    TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PAWR", i, Convert.ToString(PAWR));
+                    TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PHGT", i, Convert.ToString(PHGT));
+                    TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PWGT", i, Convert.ToString(PWGT));
+
+
+                    TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PTHA", i, Convert.ToString(PTHA));
+                    TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PSTA", i, Convert.ToString(PSTA));
+                    TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PKAC", i, Convert.ToString(PKAC));
+                    TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PACC", i, Convert.ToString(PACC));
+                    TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PSPD", i, Convert.ToString(PSPD));
+                    TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PCTH", i, Convert.ToString(PCTH));
+                    TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PAGI", i, Convert.ToString(PAGI));
+                    TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PTAK", i, Convert.ToString(PTAK));
+                    TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PPBK", i, Convert.ToString(PPBK));
+                    TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PRBK", i, Convert.ToString(PRBK));
+                    TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PBTK", i, Convert.ToString(PBTK));
+                    TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PTHP", i, Convert.ToString(PTHP));
+                    TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PJMP", i, Convert.ToString(PJMP));
+                    TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PCAR", i, Convert.ToString(PCAR));
+                    TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PKPR", i, Convert.ToString(PKPR));
+                    TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PSTR", i, Convert.ToString(PKPR));
+                }
+
+
+                progressBar1.PerformStep();
+            }
+
+            progressBar1.Visible = false;
+            progressBar1.Value = 0;
+
+            MessageBox.Show("Recruits Randomized!");
+
+            recalculateBMI("RCPT");
+        }
+
+        //Randomize Walk-On Database -- Must be done prior to Cut Players stage
+        private void buttonRandWalkOns_Click(object sender, EventArgs e)
+        {
+            randomizeWalkOnDB();
+        }
+        private void randomizeWalkOnDB()
+        {
+            progressBar1.Visible = true;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = TDB.TableRecordCount(currentDBfileIndex, "WKON");
+
+            int tol = (int)toleranceWalkOn.Value;
+
+            for (int i = 0; i < TDB.TableRecordCount(currentDBfileIndex, "WKON"); i++)
+            {
+                //PTHA	PSTA	PKAC	PACC	PSPD	PPOE	PCTH	PAGI	PINJ	PTAK	PPBK	PRBK	PBTK	PTHP	PJMP	PCAR	PKPR	PSTR	PAWR
+                //PPOE, PINJ, PAWR
+
+                int PBRE, PEYE, PPOE, PINJ, PAWR, PWGT, PHGT, PTHA, PSTA, PKAC, PACC, PSPD, PCTH, PAGI, PTAK, PPBK, PRBK, PBTK, PTHP, PJMP, PCAR, PKPR, PSTR;
+
+                PHGT = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "WKON", "PHGT", i));
+                PWGT = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "WKON", "PWGT", i));
+
+                PTHA = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "WKON", "PTHA", i));
+                PSTA = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "WKON", "PSTA", i));
+                PKAC = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "WKON", "PKAC", i));
+                PACC = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "WKON", "PACC", i));
+                PSPD = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "WKON", "PSPD", i));
+                PCTH = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "WKON", "PCTH", i));
+                PAGI = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "WKON", "PAGI", i));
+                PTAK = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "WKON", "PTAK", i));
+                PPBK = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "WKON", "PPBK", i));
+                PRBK = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "WKON", "PRBK", i));
+                PBTK = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "WKON", "PBTK", i));
+                PTHP = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "WKON", "PTHP", i));
+                PJMP = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "WKON", "PJMP", i));
+                PCAR = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "WKON", "PCAR", i));
+                PKPR = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "WKON", "PKPR", i));
+                PSTR = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "WKON", "PSTR", i));
+
+                PBRE = rand.Next(0, 2);
+                PEYE = rand.Next(0, 2);
+                PHGT += rand.Next(-2, 3);
+                PWGT += rand.Next(-12, 13);
+                if (PWGT < 0) PWGT = 0;
+                if (PHGT > 82) PHGT = 82;
+                PPOE = rand.Next(1, 31);
+                PINJ = rand.Next(1, 31);
+                PAWR = rand.Next(1, 31);
+
+                PTHA = getRandomAttribute(PTHA, tol);
+                PSTA = getRandomAttribute(PSTA, tol);
+                PKAC = getRandomAttribute(PKAC, tol);
+                PACC = getRandomAttribute(PACC, tol);
+                PSPD = getRandomAttribute(PSPD, tol);
+                PCTH = getRandomAttribute(PCTH, tol);
+                PAGI = getRandomAttribute(PAGI, tol);
+                PTAK = getRandomAttribute(PTAK, tol);
+                PPBK = getRandomAttribute(PPBK, tol);
+                PRBK = getRandomAttribute(PRBK, tol);
+                PBTK = getRandomAttribute(PBTK, tol);
+                PTHP = getRandomAttribute(PTHP, tol);
+                PJMP = getRandomAttribute(PJMP, tol);
+                PCAR = getRandomAttribute(PCAR, tol);
+                PKPR = getRandomAttribute(PKPR, tol);
+                PSTR = getRandomAttribute(PSTR, tol);
+
+                TDB.NewfieldValue(currentDBfileIndex, "WKON", "PBRE", i, Convert.ToString(PBRE));
+                TDB.NewfieldValue(currentDBfileIndex, "WKON", "PEYE", i, Convert.ToString(PEYE));
+                TDB.NewfieldValue(currentDBfileIndex, "WKON", "PPOE", i, Convert.ToString(PPOE));
+                TDB.NewfieldValue(currentDBfileIndex, "WKON", "PINJ", i, Convert.ToString(PINJ));
+                TDB.NewfieldValue(currentDBfileIndex, "WKON", "PAWR", i, Convert.ToString(PAWR));
+                TDB.NewfieldValue(currentDBfileIndex, "WKON", "PHGT", i, Convert.ToString(PHGT));
+                TDB.NewfieldValue(currentDBfileIndex, "WKON", "PWGT", i, Convert.ToString(PWGT));
+
+                TDB.NewfieldValue(currentDBfileIndex, "WKON", "PTHA", i, Convert.ToString(PTHA));
+                TDB.NewfieldValue(currentDBfileIndex, "WKON", "PSTA", i, Convert.ToString(PSTA));
+                TDB.NewfieldValue(currentDBfileIndex, "WKON", "PKAC", i, Convert.ToString(PKAC));
+                TDB.NewfieldValue(currentDBfileIndex, "WKON", "PACC", i, Convert.ToString(PACC));
+                TDB.NewfieldValue(currentDBfileIndex, "WKON", "PSPD", i, Convert.ToString(PSPD));
+                TDB.NewfieldValue(currentDBfileIndex, "WKON", "PCTH", i, Convert.ToString(PCTH));
+                TDB.NewfieldValue(currentDBfileIndex, "WKON", "PAGI", i, Convert.ToString(PAGI));
+                TDB.NewfieldValue(currentDBfileIndex, "WKON", "PTAK", i, Convert.ToString(PTAK));
+                TDB.NewfieldValue(currentDBfileIndex, "WKON", "PPBK", i, Convert.ToString(PPBK));
+                TDB.NewfieldValue(currentDBfileIndex, "WKON", "PRBK", i, Convert.ToString(PRBK));
+                TDB.NewfieldValue(currentDBfileIndex, "WKON", "PBTK", i, Convert.ToString(PBTK));
+                TDB.NewfieldValue(currentDBfileIndex, "WKON", "PTHP", i, Convert.ToString(PTHP));
+                TDB.NewfieldValue(currentDBfileIndex, "WKON", "PJMP", i, Convert.ToString(PJMP));
+                TDB.NewfieldValue(currentDBfileIndex, "WKON", "PCAR", i, Convert.ToString(PCAR));
+                TDB.NewfieldValue(currentDBfileIndex, "WKON", "PKPR", i, Convert.ToString(PKPR));
+                TDB.NewfieldValue(currentDBfileIndex, "WKON", "PSTR", i, Convert.ToString(PKPR));
+
+                progressBar1.PerformStep();
+            }
+
+            progressBar1.Visible = false;
+            progressBar1.Value = 0;
+
+            MessageBox.Show("Walk-Ons Randomized!");
+            recalculateBMI("WKON");
+        }
+
+        //Polynesian Surname Generator
+        private void polyNames_Click(object sender, EventArgs e)
+        {
+            polynesianNameGenerator();
+        }
+        private void polynesianNameGenerator()
+        {
+            string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string csvLocation = Path.Combine(executableLocation, @"resources\poly-surnames.csv");
+
+            string filePath = csvLocation;
+            StreamReader sr = new StreamReader(filePath);
+            List<string> surnames = new List<string>();
+            while (!sr.EndOfStream)
+            {
+                surnames.Add(sr.ReadLine());
+            }
+            sr.Close();
+
+            progressBar1.Visible = true;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = TDB.TableRecordCount(currentDBfileIndex, "RCPT");
+            progressBar1.Step = 1;
+
+            /*States STID
+             * Hawaii 10
+             * California 4
+             * Utah 43
+             * Washington 46
+             * Arizona 2
+             */
+
+            for (int i = 0; i < TDB.TableRecordCount(currentDBfileIndex, "RCPT"); i++)
+            {
+                //Check for Hawaii recruits (256 x 10 - 2560)
+                if(Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "RCHD", i)) >= 2560 && Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "RCHD", i)) < 2816)
+                {
+                    if (rand.Next(0,100) < polyNamesPCT.Value && Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PRID", i)) < 21000)
+                    {
+                        int x = rand.Next(0, surnames.Count);
+                        string newName = surnames[x];
+                        TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PLNA", i, newName);
+                        TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PSKI", i, "2");
+                        TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PFMP", i, Convert.ToString(rand.Next(16, 24)));
+                    }
+                } 
+                //Check for California 4 
+                else if (Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "RCHD", i)) >= 1024 && Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "RCHD", i)) < 1280)
+                {
+                    if (rand.Next(0, 100) < 0.25 && Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PRID", i)) < 21000)
+                    {
+                        int x = rand.Next(0, surnames.Count);
+                        string newName = surnames[x];
+                        TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PLNA", i, newName);
+                        TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PSKI", i, "2");
+                        TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PFMP", i, Convert.ToString(rand.Next(16, 24)));
+                    }
+                }
+                //Check for Utah 43
+                else if (Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "RCHD", i)) >= 11008 && Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "RCHD", i)) < 11264)
+                {
+                    if (rand.Next(0, 100) < 0.25 && Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PRID", i)) < 21000)
+                    {
+                        int x = rand.Next(0, surnames.Count);
+                        string newName = surnames[x];
+                        TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PLNA", i, newName);
+                        TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PSKI", i, "2");
+                        TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PFMP", i, Convert.ToString(rand.Next(16, 24)));
+                    }
+                }
+                //Check for Washington  46
+                else if (Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "RCHD", i)) >= 11776 && Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "RCHD", i)) < 12032)
+                {
+                    if (rand.Next(0, 100) < 0.15 && Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PRID", i)) < 21000)
+                    {
+                        int x = rand.Next(0, surnames.Count);
+                        string newName = surnames[x];
+                        TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PLNA", i, newName);
+                        TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PSKI", i, "2");
+                        TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PFMP", i, Convert.ToString(rand.Next(16, 24)));
+                    }
+                }
+                //Check for Arizona  2
+                else if (Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "RCHD", i)) >= 512 && Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "RCHD", i)) < 768)
+                {
+                    if (rand.Next(0, 100) < 0.15 && Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PRID", i)) < 21000)
+                    {
+                        int x = rand.Next(0, surnames.Count);
+                        string newName = surnames[x];
+                        TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PLNA", i, newName);
+                        TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PSKI", i, "2");
+                        TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PFMP", i, Convert.ToString(rand.Next(16, 24)));
+                    }
+                }
+
+
+                progressBar1.PerformStep();
+            }
+
+            progressBar1.Visible = false;
+            progressBar1.Value = 0;
+
+            MessageBox.Show("Surname updates are complete!");
+
+        }
+
+
+
+
+
+
+
         #endregion
 
 
 
+
         /*
-         * PLAYER & TEAM EDITOR
-         */
+        * PLAYER & TEAM EDITOR (work from elguapo - not used currently)
+        */
         #region PLAYER/TEAM EDITOR - NOT COMPLETE
 
 
@@ -3457,809 +4548,6 @@ namespace DB_EDITOR
         }
 
         #endregion
-
-
-        /* 
-         * TAB SWITCHING AREA
-         */
-        #region TAB CONTROLS
-        private void tabControl1_IndexChange(object sender, EventArgs e)
-        {
-
-            if (tabControl1.SelectedTab == tabDB) tabDB_Start();
-            else tabTools_Start();
-
-        }
-        private void openTabs()
-        {
-            if (activeDB == 1) tabControl1.TabPages.Add(tabTools);
-            if (activeDB == 2) tabControl1.TabPages.Add(tabOffSeason);
-        }
-        private void tabTools_Start()
-        {
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
-            TablePropsgroupBox.Visible = false;
-            FieldsPropsgroupBox.Visible = false;
-        }
-
-        private void tabDB_Start()
-        {
-            progressBar1.Visible = true;
-            progressBar1.Value = 0;
-            TablePropsgroupBox.Visible = true;
-            FieldsPropsgroupBox.Visible = true;
-            TableGridView_SelectionChanged(null,null);
-        }
-        #endregion
-
-
-        /* 
-         * DB TOOLS TAB AREA
-         */
-        #region MAIN DB TOOLS
-
-        //Medical Redshirt - If player's INJL = 254, they are out of season. Let's give them a medical year!
-        private void medRS_Click(object sender, EventArgs e)
-        {
-            medicalRedshirt();
-        }
-        private void medicalRedshirt()
-        {
-            progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = TDB.TableRecordCount(currentDBfileIndex, "INJY");
-            string names = "";
-            //looks at INJY table
-            for (int i = 0; i < TDB.TableRecordCount(currentDBfileIndex, "INJY"); i++)
-            {
-                string tmpRec = TDB.FieldValue(currentDBfileIndex, "INJY", "INJL", i);
-                //check to see if value is greater than 225
-                /* 254 = Season Ending
-                 * 196 = 10 weeks
-                 * 
-                 * 
-                 * 
-                 * 
-                 */
-                if (Convert.ToInt32(tmpRec) >= 196)
-                {
-                    //find the corresponding PGID
-                    string PGID = TDB.FieldValue(currentDBfileIndex, "INJY", "PGID", i);
-                    //find the corresponding recNo of the PGID in PLAY
-                    for (int j = 0; j < TDB.TableRecordCount(currentDBfileIndex, "PLAY"); j++)
-                    {
-                        if (PGID == TDB.FieldValue(currentDBfileIndex, "PLAY", "PGID", j))
-                        {
-                            //checks to see if player has only played 4 or less games
-                            if (Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "PLAY", "PL13", j)) <= 4)
-                            {
-                                //changes redshirt status to "1" (active redshirt)
-                                TDB.NewfieldValue(currentDBfileIndex, "PLAY", "PRSD", j, "1");
-                                string team = getTeamName(Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "PLAY", "PGID", j)) / 70);
-
-                                names += "\n * " + convertFN_IntToString(j) + " " + convertLN_IntToString(j) + " (" + team + ")";
-                            }
-
-                            break;
-                        }
-                    }
-
-                }
-                progressBar1.PerformStep();
-            }
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
-
-            MessageBox.Show("The NCAA has approved the following Medical Redshirts:\n\r" + names);
-        }
-
-        //Coaching Progression -- useful for "Contracts Off" dynasty setting where coaching progression is disabled
-        /* 
-        Use current TEAM's TMPR and COCH's CTOP to make CPRE updated, then update CTOP to match previous TMPR
-        */
-        private void coachProg_Click(object sender, EventArgs e)
-        {
-            coachPrestigeProgression();
-        }
-        private void coachPrestigeProgression()
-        {
-            progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = TDB.TableRecordCount(currentDBfileIndex, "COCH");
-
-            string coach = "";
-            for (int i = 0; i < TDB.TableRecordCount(currentDBfileIndex, "COCH"); i++)
-            {
-                if (TDB.FieldValue(currentDBfileIndex, "COCH", "TGID", i) != "511")
-                {
-                    string TGID = TDB.FieldValue(currentDBfileIndex, "COCH", "TGID", i);
-                    int newPrestige = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "COCH", "CPRE", i));
-                    int oldPrestige = newPrestige;
-                    int CTOP = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "COCH", "CTOP", i));
-
-                    for (int j = 0; j < TDB.TableRecordCount(currentDBfileIndex, "TEAM"); j++)
-                    {
-                        if (TGID == TDB.FieldValue(currentDBfileIndex, "TEAM", "TGID", j))
-                        {
-                            newPrestige += Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "TEAM", "TMPR", j)) - CTOP;
-                            if (newPrestige > 6) newPrestige = 6;
-                            if (newPrestige < 1) newPrestige = 1;
-                            if (newPrestige > oldPrestige)
-                            {
-                                coach += "\n* " + getTeamName(Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "COCH", "TGID", i))) + ": " + TDB.FieldValue(currentDBfileIndex, "COCH", "CLFN", i) + " " + TDB.FieldValue(currentDBfileIndex, "COCH", "CLLN", i) + " (+" + (newPrestige - oldPrestige) + ")";
-                            }
-                            else if (newPrestige < oldPrestige)
-                            {
-                                coach += "\n* " + getTeamName(Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "COCH", "TGID", i))) + ": " + TDB.FieldValue(currentDBfileIndex, "COCH", "CLFN", i) + " " + TDB.FieldValue(currentDBfileIndex, "COCH", "CLLN", i) + " (" + (newPrestige - oldPrestige) + ")";
-                            }
-                            TDB.NewfieldValue(currentDBfileIndex, "COCH", "CPRE", i, Convert.ToString(newPrestige));
-                            TDB.NewfieldValue(currentDBfileIndex, "COCH", "CTOP", i, TDB.FieldValue(currentDBfileIndex, "TEAM", "TMPR", j));
-                            break;
-                        }
-                    }
-
-                }
-                progressBar1.PerformStep();
-            }
-
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
-
-            MessageBox.Show("Coach Prestige Changes:\n\n" + coach);
-        }
-
-        //Fixes Body Size Models if user does manipulation of the player attributes in the in-game player editor
-        private void bodyFix_Click(object sender, EventArgs e)
-        {
-            recalculateBMI("PLAY");
-        }
-        private void recalculateBMI(string tableName)
-        {
-            string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            string csvLocation = Path.Combine(executableLocation, @"resources\BMI-Calc.csv");
-            //string csvLocation = Properties.Resources.BMI_Calc;
-
-
-            string filePath = csvLocation;
-            StreamReader sr = new StreamReader(filePath);
-            string[,] strArray = null;
-            int Row = 0;
-            while (!sr.EndOfStream)
-            {
-                string[] Line = sr.ReadLine().Split(',');
-                if (Row == 0)
-                {
-                    strArray = new string[402, Line.Length];
-                }
-                for (int column = 0; column < Line.Length; column++)
-                {
-                    strArray[Row, column] = Line[column];
-                }
-                Row++;
-            }
-            sr.Close();
-
-            progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = TDB.TableRecordCount(currentDBfileIndex, tableName);
-            progressBar1.Step = 1;
-
-            for (int i = 0; i < TDB.TableRecordCount(currentDBfileIndex, tableName); i++)
-            {
-                double bmi = Math.Round(Convert.ToDouble(TDB.FieldValue(currentDBfileIndex, tableName, "PWGT", i)) / Convert.ToDouble(TDB.FieldValue(currentDBfileIndex, tableName, "PHGT", i)), 2); 
-
-                for (int j = 0; j < 401; j++)
-                {
-                    if (Convert.ToString(bmi) == strArray[j, 0])
-                    {
-                        TDB.NewfieldValue(currentDBfileIndex, tableName, "PFSH", i, strArray[j, 1]);
-                        TDB.NewfieldValue(currentDBfileIndex, tableName, "PMSH", i, strArray[j, 2]);
-                        TDB.NewfieldValue(currentDBfileIndex, tableName, "PSSH", i, strArray[j, 3]);
-                        break;
-                    }
-                }
-                progressBar1.PerformStep();
-            }
-
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
-
-            MessageBox.Show("Body Model updates are complete!");
-        }
-
-        //Increases minium speed for skill positions to 80
-        private void increaseSpeed_Click(object sender, EventArgs e)
-        {
-            increaseMinimumSpeed();
-        }
-        private void increaseMinimumSpeed()
-        {
-            progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = TDB.TableRecordCount(currentDBfileIndex, "PLAY");
-            progressBar1.Step = 1;
-
-            for (int i = 0; i < TDB.TableRecordCount(currentDBfileIndex, "PLAY"); i++)
-            {
-                if (TDB.FieldValue(currentDBfileIndex, "PLAY", "PPOS", i) == "1" || TDB.FieldValue(currentDBfileIndex, "PLAY", "PPOS", i) == "3"
-                    || TDB.FieldValue(currentDBfileIndex, "PLAY", "PPOS", i) == "16" || TDB.FieldValue(currentDBfileIndex, "PLAY", "PPOS", i) == "17" || TDB.FieldValue(currentDBfileIndex, "PLAY", "PPOS", i) == "18")
-                {
-                    if (Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "PLAY", "PSPD", i)) < 14)
-                    {
-                        TDB.NewfieldValue(currentDBfileIndex, "PLAY", "PSPD", i, "14");
-                    }
-                }
-                progressBar1.PerformStep();
-            }
-
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
-            MessageBox.Show("Speed updates are complete!");
-        }
-
-        //Recalculates QB Tendencies based on original game criteria
-        private void qbTend_Click(object sender, EventArgs e)
-        {
-            recalculateQBTendencies();
-        }
-        private void recalculateQBTendencies()
-        {
-            progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = TDB.TableRecordCount(currentDBfileIndex, "PLAY");
-            progressBar1.Step = 1;
-
-            int pocket = 0;
-            int balanced = 0;
-            int scrambler = 0;
-
-
-            for (int i = 0; i < TDB.TableRecordCount(currentDBfileIndex, "PLAY"); i++)
-            {
-                if (TDB.FieldValue(currentDBfileIndex, "PLAY", "PPOS", i) == "0")
-                {
-                    int tendies;
-                    int speed = convertRating(Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "PLAY", "PSPD", i)));
-                    int acceleration = convertRating(Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "PLAY", "PACC", i)));
-                    int agility = convertRating(Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "PLAY", "PAGI", i)));
-                    int ThPow = convertRating(Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "PLAY", "PTHP", i)));
-                    int ThAcc = convertRating(Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "PLAY", "PTHA", i)));
-
-
-                    tendies = (100 + 10 * speed + acceleration + agility - 3 * ThPow - 5 * ThAcc) / 20;
-
-                    if (tendies > 31) tendies = 31;
-                    if (tendies < 0) tendies = 0;
-
-                    TDB.NewfieldValue(currentDBfileIndex, "PLAY", "PTEN", i, Convert.ToString(tendies));
-
-                    if (tendies < 10) pocket++;
-                    else if (tendies > 19) scrambler++;
-                    else balanced++;
-
-                }
-                progressBar1.PerformStep();
-            }
-
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
-            MessageBox.Show("QB updates are complete!\n\nThe Stats:\n\n* Pocket-Passers: " + pocket + "\n\n* Balanced: " + balanced + "\n\n* Scramblers: " + scrambler);
-        }
-
-
-        //Randomizes the Coaching Budgets - Must be done prior to 1st Off-Season Task
-
-        private void buttonRandomBudgets_Click(object sender, EventArgs e)
-        {
-            randomizeBudgets();
-        }
-        private void randomizeBudgets()
-        {
-            progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = TDB.TableRecordCount(currentDBfileIndex, "COCH");
-
-            for (int i = 0; i < TDB.TableRecordCount(currentDBfileIndex, "COCH"); i++)
-            {
-                //CDPC, CRPC, CTPC
-                int CDPC, CRPC, CTPC;
-                CRPC = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "COCH", "CRPC", i));
-                CTPC = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "COCH", "CTPC", i));
-                CDPC = 0;
-
-                while (CDPC < 15 || CDPC > 25) {
-                    CTPC += rand.Next(-4, 5);
-                    CRPC += rand.Next(-4, 5);
-                    CDPC = 100 - CTPC - CRPC;
-                }
-
-                TDB.NewfieldValue(currentDBfileIndex, "COCH", "CDPC", i, Convert.ToString(CDPC));
-                TDB.NewfieldValue(currentDBfileIndex, "COCH", "CRPC", i, Convert.ToString(CRPC));
-                TDB.NewfieldValue(currentDBfileIndex, "COCH", "CTPC", i, Convert.ToString(CTPC));
-
-                progressBar1.PerformStep();
-            }
-
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
-
-            MessageBox.Show("Team Budgets Changed!");
-        }
-
-        //Transfer Portal Chaos Mode -- Must be done at Players Leaving stage
-        private void chaosTransfers()
-        {
-
-        }
-
-        //Coaching Carousel -- Must be done at end of Season
-        private void coachCarousel()
-        {
-
-        }
-
-        //Pre-Season Injuries -- randomly give injuries to players in pre-season
-
-        #endregion
-
-
-        /* 
-        * OFF-SEASON RECRUITING TAB AREA
-        */
-        #region RECRUITING TOOLS
-
-
-
-        //Raise minimum recruiting point allocation and off-season TPRA values -- Must be done at start of Recruiting
-        private void buttonMinRecruitingPts_Click(object sender, EventArgs e)
-        {
-            bool correctWeek = false;
-            for (int i = 0; i < TDB.TableRecordCount(currentDBfileIndex, "RCYR"); i++)
-            {
-                if (Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCYR", "SEWN", i)) >= 1)
-                {
-                    raiseMinimumRecruitingPoints();
-                    correctWeek = true;
-                }
-            }
-            if (!correctWeek)
-            {
-                MessageBox.Show("Please use this feature at the beginning of Recruiting Stage!");
-            }
-        }
-        private void raiseMinimumRecruitingPoints()
-        {
-            progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = TDB.TableRecordCount(currentDBfileIndex, "RTRI");
-
-            Random rand = new Random();
-
-            for (int i = 0; i < TDB.TableRecordCount(currentDBfileIndex, "RTRI"); i++)
-            {
-                int TRPA, TRPR;
-                TRPA = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RTRI", "TRPA", i));
-                TRPR = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RTRI", "TRPR", i));
-
-                if (TRPR < (int)minRecPts.Value) TRPR = (int)minRecPts.Value;
-                if (TRPA < (int)minTRPA.Value) TRPA = (int)minTRPA.Value;
-
-                TDB.NewfieldValue(currentDBfileIndex, "RTRI", "TRPA", i, Convert.ToString(TRPA));
-                TDB.NewfieldValue(currentDBfileIndex, "RTRI", "TRPR", i, Convert.ToString(TRPR));
-
-                progressBar1.PerformStep();
-            }
-
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
-
-            MessageBox.Show("Team Budgets Changed!");
-        }
-
-        //Randomize or Remove Recruiting Interested Teams
-        private void buttonInterestedTeams_Click(object sender, EventArgs e)
-        {
-            bool correctWeek = false;
-            for (int i = 0; i < TDB.TableRecordCount(currentDBfileIndex, "RCYR"); i++)
-            {
-                if (TDB.FieldValue(currentDBfileIndex, "RCYR", "SEWN", i) == "1")
-                {
-                    removeInterestedTeams();
-                    correctWeek = true;
-                }
-            }
-            if (!correctWeek)
-            {
-                MessageBox.Show("Please use this feature at the beginning of Recruiting Stage!");
-            }
-        }
-
-        private void randomizeInterestedTeams()
-        {
-
-        }
-
-        private void removeInterestedTeams()
-        {
-            progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = TDB.TableRecordCount(currentDBfileIndex, "RCPR");
-
-            Random rand = new Random();
-
-            for (int i = 0; i < TDB.TableRecordCount(currentDBfileIndex, "RCPR"); i++)
-            {
-                
-
-                for (int j = (int)removeInterestTeams.Value - 1; j < 11; j++)
-                {
-                    if (j < 10)
-                    {
-                        TDB.NewfieldValue(currentDBfileIndex, "RCPR", "PS0" + j, i, "0");
-                        TDB.NewfieldValue(currentDBfileIndex, "RCPR", "PT0" + j, i, "511");
-                    } else
-                    {
-                        TDB.NewfieldValue(currentDBfileIndex, "RCPR", "PS" + j, i, "0");
-                        TDB.NewfieldValue(currentDBfileIndex, "RCPR", "PT" + j, i, "511");
-                    }
-                }
-
-                progressBar1.PerformStep();
-            }
-
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
-
-            MessageBox.Show("Recruit Interested Teams Changed!");
-        }
-
-        //Randomize the Recruits to give a little bit more variety and evaluation randomness -- Must be done at start of Recruiting
-        private void buttonRandRecruits_Click(object sender, EventArgs e)
-        {
-            bool correctWeek = false;
-            for (int i = 0; i < TDB.TableRecordCount(currentDBfileIndex, "RCYR"); i++)
-            {
-                if (TDB.FieldValue(currentDBfileIndex, "RCYR", "SEWN", i) == "1")
-                {
-                    randomizeRecruitDB();
-                    correctWeek = true;
-                }
-            }
-            if (!correctWeek)
-            {
-                MessageBox.Show("Please use this feature at the beginning of Recruiting Stage!");
-            }
-
-        }
-        private void randomizeRecruitDB()
-        {
-            progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = TDB.TableRecordCount(currentDBfileIndex, "RCPT");
-
-            int tol =  (int)recruitTolerance.Value;
-            int tolA = 2;
-
-            for (int i = 0; i < TDB.TableRecordCount(currentDBfileIndex, "RCPT"); i++)
-            {
-                if(Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PRID", i)) < 21000)  //skips transfers
-                {
-                    //PTHA	PSTA	PKAC	PACC	PSPD	PPOE	PCTH	PAGI	PINJ	PTAK	PPBK	PRBK	PBTK	PTHP	PJMP	PCAR	PKPR	PSTR	PAWR
-                    //PPOE, PINJ, PAWR
-
-                    int PBRE, PEYE, PPOE, PINJ, PAWR, PWGT, PHGT, PTHA, PSTA, PKAC, PACC, PSPD, PCTH, PAGI, PTAK, PPBK, PRBK, PBTK, PTHP, PJMP, PCAR, PKPR, PSTR;
-
-                    PHGT = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PHGT", i));
-                    PWGT = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PWGT", i));
-                    PAWR = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PAWR", i));
-
-                    PTHA = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PTHA", i));
-                    PSTA = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PSTA", i));
-                    PKAC = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PKAC", i));
-                    PACC = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PACC", i));
-                    PSPD = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PSPD", i));
-                    PCTH = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PCTH", i));
-                    PAGI = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PAGI", i));
-                    PTAK = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PTAK", i));
-                    PPBK = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PPBK", i));
-                    PRBK = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PRBK", i));
-                    PBTK = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PBTK", i));
-                    PTHP = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PTHP", i));
-                    PJMP = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PJMP", i));
-                    PCAR = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PCAR", i));
-                    PKPR = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PKPR", i));
-                    PSTR = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PSTR", i));
-
-                    PBRE = rand.Next(0, 2);
-                    PEYE = rand.Next(0, 2);
-                    PHGT += rand.Next(-1, 2);
-                    PWGT += rand.Next(-8, 9);
-                    if (PWGT < 0) PWGT = 0;
-                    if (PHGT > 82) PHGT = 82;
-                    PPOE = rand.Next(1, 30);
-                    PINJ = rand.Next(1, 30);
-                    PAWR = getRandomAttribute(PAWR, tolA);
-
-                    PTHA = getRandomAttribute(PTHA, tol);
-                    PSTA = getRandomAttribute(PSTA, tol);
-                    PKAC = getRandomAttribute(PKAC, tol);
-                    PACC = getRandomAttribute(PACC, tol);
-                    PSPD = getRandomAttribute(PSPD, tol);
-                    PCTH = getRandomAttribute(PCTH, tol);
-                    PAGI = getRandomAttribute(PAGI, tol);
-                    PTAK = getRandomAttribute(PTAK, tol);
-                    PPBK = getRandomAttribute(PPBK, tol);
-                    PRBK = getRandomAttribute(PRBK, tol);
-                    PBTK = getRandomAttribute(PBTK, tol);
-                    PTHP = getRandomAttribute(PTHP, tol);
-                    PJMP = getRandomAttribute(PJMP, tol);
-                    PCAR = getRandomAttribute(PCAR, tol);
-                    PKPR = getRandomAttribute(PKPR, tol);
-                    PSTR = getRandomAttribute(PSTR, tol);
-
-                    TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PBRE", i, Convert.ToString(PBRE));
-                    TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PEYE", i, Convert.ToString(PEYE));
-                    TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PPOE", i, Convert.ToString(PPOE));
-                    TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PINJ", i, Convert.ToString(PINJ));
-                    TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PAWR", i, Convert.ToString(PAWR));
-                    TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PHGT", i, Convert.ToString(PHGT));
-                    TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PWGT", i, Convert.ToString(PWGT));
-
-
-                    TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PTHA", i, Convert.ToString(PTHA));
-                    TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PSTA", i, Convert.ToString(PSTA));
-                    TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PKAC", i, Convert.ToString(PKAC));
-                    TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PACC", i, Convert.ToString(PACC));
-                    TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PSPD", i, Convert.ToString(PSPD));
-                    TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PCTH", i, Convert.ToString(PCTH));
-                    TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PAGI", i, Convert.ToString(PAGI));
-                    TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PTAK", i, Convert.ToString(PTAK));
-                    TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PPBK", i, Convert.ToString(PPBK));
-                    TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PRBK", i, Convert.ToString(PRBK));
-                    TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PBTK", i, Convert.ToString(PBTK));
-                    TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PTHP", i, Convert.ToString(PTHP));
-                    TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PJMP", i, Convert.ToString(PJMP));
-                    TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PCAR", i, Convert.ToString(PCAR));
-                    TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PKPR", i, Convert.ToString(PKPR));
-                    TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PSTR", i, Convert.ToString(PKPR));
-                }
-
-
-                progressBar1.PerformStep();
-            }
-
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
-
-            MessageBox.Show("Recruits Randomized!");
-
-            recalculateBMI("RCPT");
-        }
-
-        //Randomize Walk-On Database -- Must be done prior to Cut Players stage
-        private void buttonRandWalkOns_Click(object sender, EventArgs e)
-        {
-            randomizeWalkOnDB();
-        }
-        private void randomizeWalkOnDB()
-        {
-            progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = TDB.TableRecordCount(currentDBfileIndex, "WKON");
-
-            int tol = (int)toleranceWalkOn.Value;
-
-            for (int i = 0; i < TDB.TableRecordCount(currentDBfileIndex, "WKON"); i++)
-            {
-                //PTHA	PSTA	PKAC	PACC	PSPD	PPOE	PCTH	PAGI	PINJ	PTAK	PPBK	PRBK	PBTK	PTHP	PJMP	PCAR	PKPR	PSTR	PAWR
-                //PPOE, PINJ, PAWR
-
-                int PBRE, PEYE, PPOE, PINJ, PAWR, PWGT, PHGT, PTHA, PSTA, PKAC, PACC, PSPD, PCTH, PAGI, PTAK, PPBK, PRBK, PBTK, PTHP, PJMP, PCAR, PKPR, PSTR;
-
-                PHGT = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "WKON", "PHGT", i));
-                PWGT = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "WKON", "PWGT", i));
-
-                PTHA = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "WKON", "PTHA", i));
-                PSTA = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "WKON", "PSTA", i));
-                PKAC = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "WKON", "PKAC", i));
-                PACC = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "WKON", "PACC", i));
-                PSPD = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "WKON", "PSPD", i));
-                PCTH = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "WKON", "PCTH", i));
-                PAGI = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "WKON", "PAGI", i));
-                PTAK = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "WKON", "PTAK", i));
-                PPBK = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "WKON", "PPBK", i));
-                PRBK = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "WKON", "PRBK", i));
-                PBTK = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "WKON", "PBTK", i));
-                PTHP = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "WKON", "PTHP", i));
-                PJMP = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "WKON", "PJMP", i));
-                PCAR = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "WKON", "PCAR", i));
-                PKPR = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "WKON", "PKPR", i));
-                PSTR = Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "WKON", "PSTR", i));
-
-                PBRE = rand.Next(0, 2);
-                PEYE = rand.Next(0, 2);
-                PHGT += rand.Next(-2, 3);
-                PWGT += rand.Next(-12, 13);
-                if (PWGT < 0) PWGT = 0;
-                if (PHGT > 82) PHGT = 82;
-                PPOE = rand.Next(1, 31);
-                PINJ = rand.Next(1, 31);
-                PAWR = rand.Next(1, 31);
-
-                PTHA = getRandomAttribute(PTHA, tol);
-                PSTA = getRandomAttribute(PSTA, tol);
-                PKAC = getRandomAttribute(PKAC, tol);
-                PACC = getRandomAttribute(PACC, tol);
-                PSPD = getRandomAttribute(PSPD, tol);
-                PCTH = getRandomAttribute(PCTH, tol);
-                PAGI = getRandomAttribute(PAGI, tol);
-                PTAK = getRandomAttribute(PTAK, tol);
-                PPBK = getRandomAttribute(PPBK, tol);
-                PRBK = getRandomAttribute(PRBK, tol);
-                PBTK = getRandomAttribute(PBTK, tol);
-                PTHP = getRandomAttribute(PTHP, tol);
-                PJMP = getRandomAttribute(PJMP, tol);
-                PCAR = getRandomAttribute(PCAR, tol);
-                PKPR = getRandomAttribute(PKPR, tol);
-                PSTR = getRandomAttribute(PSTR, tol);
-
-                TDB.NewfieldValue(currentDBfileIndex, "WKON", "PBRE", i, Convert.ToString(PBRE));
-                TDB.NewfieldValue(currentDBfileIndex, "WKON", "PEYE", i, Convert.ToString(PEYE));
-                TDB.NewfieldValue(currentDBfileIndex, "WKON", "PPOE", i, Convert.ToString(PPOE));
-                TDB.NewfieldValue(currentDBfileIndex, "WKON", "PINJ", i, Convert.ToString(PINJ));
-                TDB.NewfieldValue(currentDBfileIndex, "WKON", "PAWR", i, Convert.ToString(PAWR));
-                TDB.NewfieldValue(currentDBfileIndex, "WKON", "PHGT", i, Convert.ToString(PHGT));
-                TDB.NewfieldValue(currentDBfileIndex, "WKON", "PWGT", i, Convert.ToString(PWGT));
-
-                TDB.NewfieldValue(currentDBfileIndex, "WKON", "PTHA", i, Convert.ToString(PTHA));
-                TDB.NewfieldValue(currentDBfileIndex, "WKON", "PSTA", i, Convert.ToString(PSTA));
-                TDB.NewfieldValue(currentDBfileIndex, "WKON", "PKAC", i, Convert.ToString(PKAC));
-                TDB.NewfieldValue(currentDBfileIndex, "WKON", "PACC", i, Convert.ToString(PACC));
-                TDB.NewfieldValue(currentDBfileIndex, "WKON", "PSPD", i, Convert.ToString(PSPD));
-                TDB.NewfieldValue(currentDBfileIndex, "WKON", "PCTH", i, Convert.ToString(PCTH));
-                TDB.NewfieldValue(currentDBfileIndex, "WKON", "PAGI", i, Convert.ToString(PAGI));
-                TDB.NewfieldValue(currentDBfileIndex, "WKON", "PTAK", i, Convert.ToString(PTAK));
-                TDB.NewfieldValue(currentDBfileIndex, "WKON", "PPBK", i, Convert.ToString(PPBK));
-                TDB.NewfieldValue(currentDBfileIndex, "WKON", "PRBK", i, Convert.ToString(PRBK));
-                TDB.NewfieldValue(currentDBfileIndex, "WKON", "PBTK", i, Convert.ToString(PBTK));
-                TDB.NewfieldValue(currentDBfileIndex, "WKON", "PTHP", i, Convert.ToString(PTHP));
-                TDB.NewfieldValue(currentDBfileIndex, "WKON", "PJMP", i, Convert.ToString(PJMP));
-                TDB.NewfieldValue(currentDBfileIndex, "WKON", "PCAR", i, Convert.ToString(PCAR));
-                TDB.NewfieldValue(currentDBfileIndex, "WKON", "PKPR", i, Convert.ToString(PKPR));
-                TDB.NewfieldValue(currentDBfileIndex, "WKON", "PSTR", i, Convert.ToString(PKPR));
-
-                progressBar1.PerformStep();
-            }
-
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
-
-            MessageBox.Show("Walk-Ons Randomized!");
-            recalculateBMI("WKON");
-        }
-
-        private int getRandomAttribute(int attribute, int tol)
-        {
-            Random rand = new Random();
-
-            attribute += rand.Next(tol, tol + 1);
-
-            if (attribute < 0) attribute = 0; if (attribute > 31) attribute = 31;
-
-            return attribute;
-        }
-
-        //Polynesian Surname Generator
-        private void polyNames_Click(object sender, EventArgs e)
-        {
-            polynesianNameGenerator();
-        }
-        private void polynesianNameGenerator()
-        {
-            string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            string csvLocation = Path.Combine(executableLocation, @"resources\poly-surnames.csv");
-
-            string filePath = csvLocation;
-            StreamReader sr = new StreamReader(filePath);
-            List<string> surnames = new List<string>();
-            while (!sr.EndOfStream)
-            {
-                surnames.Add(sr.ReadLine());
-            }
-            sr.Close();
-
-            progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = TDB.TableRecordCount(currentDBfileIndex, "RCPT");
-            progressBar1.Step = 1;
-
-            /*States STID
-             * Hawaii 10
-             * California 4
-             * Utah 43
-             * Washington 46
-             * Arizona 2
-             */
-
-            for (int i = 0; i < TDB.TableRecordCount(currentDBfileIndex, "RCPT"); i++)
-            {
-                //Check for Hawaii recruits (256 x 10 - 2560)
-                if(Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "RCHD", i)) >= 2560 && Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "RCHD", i)) < 2816)
-                {
-                    if (rand.Next(0,100) < polyNamesPCT.Value && Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PRID", i)) < 21000)
-                    {
-                        int x = rand.Next(0, surnames.Count);
-                        string newName = surnames[x];
-                        TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PLNA", i, newName);
-                        TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PSKI", i, "2");
-                        TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PFMP", i, Convert.ToString(rand.Next(16, 24)));
-                    }
-                } 
-                //Check for California 4 
-                else if (Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "RCHD", i)) >= 1024 && Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "RCHD", i)) < 1280)
-                {
-                    if (rand.Next(0, 100) < 0.25 && Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PRID", i)) < 21000)
-                    {
-                        int x = rand.Next(0, surnames.Count);
-                        string newName = surnames[x];
-                        TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PLNA", i, newName);
-                        TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PSKI", i, "2");
-                        TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PFMP", i, Convert.ToString(rand.Next(16, 24)));
-                    }
-                }
-                //Check for Utah 43
-                else if (Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "RCHD", i)) >= 11008 && Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "RCHD", i)) < 11264)
-                {
-                    if (rand.Next(0, 100) < 0.25 && Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PRID", i)) < 21000)
-                    {
-                        int x = rand.Next(0, surnames.Count);
-                        string newName = surnames[x];
-                        TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PLNA", i, newName);
-                        TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PSKI", i, "2");
-                        TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PFMP", i, Convert.ToString(rand.Next(16, 24)));
-                    }
-                }
-                //Check for Washington  46
-                else if (Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "RCHD", i)) >= 11776 && Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "RCHD", i)) < 12032)
-                {
-                    if (rand.Next(0, 100) < 0.15 && Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PRID", i)) < 21000)
-                    {
-                        int x = rand.Next(0, surnames.Count);
-                        string newName = surnames[x];
-                        TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PLNA", i, newName);
-                        TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PSKI", i, "2");
-                        TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PFMP", i, Convert.ToString(rand.Next(16, 24)));
-                    }
-                }
-                //Check for Arizona  2
-                else if (Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "RCHD", i)) >= 512 && Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "RCHD", i)) < 768)
-                {
-                    if (rand.Next(0, 100) < 0.15 && Convert.ToInt32(TDB.FieldValue(currentDBfileIndex, "RCPT", "PRID", i)) < 21000)
-                    {
-                        int x = rand.Next(0, surnames.Count);
-                        string newName = surnames[x];
-                        TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PLNA", i, newName);
-                        TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PSKI", i, "2");
-                        TDB.NewfieldValue(currentDBfileIndex, "RCPT", "PFMP", i, Convert.ToString(rand.Next(16, 24)));
-                    }
-                }
-
-
-                progressBar1.PerformStep();
-            }
-
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
-
-            MessageBox.Show("Surname updates are complete!");
-
-        }
-
-
-        #endregion
-
-
 
 
     }
