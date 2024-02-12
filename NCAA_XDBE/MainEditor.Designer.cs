@@ -114,6 +114,12 @@ namespace DB_EDITOR
             this.PLNAtextBox = new System.Windows.Forms.TextBox();
             this.PFNAtextBox = new System.Windows.Forms.TextBox();
             this.tabTools = new System.Windows.Forms.TabPage();
+            this.checkBoxMedRSNEXT = new System.Windows.Forms.CheckBox();
+            this.labelPoaching = new System.Windows.Forms.Label();
+            this.poachValue = new System.Windows.Forms.NumericUpDown();
+            this.labelJobSecurity = new System.Windows.Forms.Label();
+            this.jobSecurityValue = new System.Windows.Forms.NumericUpDown();
+            this.buttonCarousel = new System.Windows.Forms.Button();
             this.labelSkillDrop = new System.Windows.Forms.Label();
             this.skillDrop = new System.Windows.Forms.NumericUpDown();
             this.checkBoxInjuryRatings = new System.Windows.Forms.CheckBox();
@@ -145,12 +151,6 @@ namespace DB_EDITOR
             this.buttonRandRecruits = new System.Windows.Forms.Button();
             this.buttonRandWalkOns = new System.Windows.Forms.Button();
             this.buttonMinRecruitingPts = new System.Windows.Forms.Button();
-            this.buttonCarousel = new System.Windows.Forms.Button();
-            this.jobSecurityValue = new System.Windows.Forms.NumericUpDown();
-            this.labelJobSecurity = new System.Windows.Forms.Label();
-            this.poachValue = new System.Windows.Forms.NumericUpDown();
-            this.labelPoaching = new System.Windows.Forms.Label();
-            this.checkBoxMedRSNEXT = new System.Windows.Forms.CheckBox();
             qbTend = new System.Windows.Forms.Button();
             this.mainMenu.SuspendLayout();
             this.tableMenu.SuspendLayout();
@@ -164,6 +164,8 @@ namespace DB_EDITOR
             this.tabTeams.SuspendLayout();
             this.tabPlayers.SuspendLayout();
             this.tabTools.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.poachValue)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jobSecurityValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.skillDrop)).BeginInit();
             this.tabOffSeason.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.polyNamesPCT)).BeginInit();
@@ -172,8 +174,6 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.minRecPts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.recruitTolerance)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toleranceWalkOn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.jobSecurityValue)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.poachValue)).BeginInit();
             this.SuspendLayout();
             // 
             // qbTend
@@ -441,7 +441,7 @@ namespace DB_EDITOR
             this.exportAllTableMenuItem.Name = "exportAllTableMenuItem";
             this.exportAllTableMenuItem.Size = new System.Drawing.Size(140, 22);
             this.exportAllTableMenuItem.Text = "Export All";
-            this.exportAllTableMenuItem.Click += new System.EventHandler(this.exportALLTableMenuItem_Click);
+            this.exportAllTableMenuItem.Click += new System.EventHandler(this.exportAllTableMenuItem_Click);
             // 
             // fieldMenu
             // 
@@ -938,6 +938,93 @@ namespace DB_EDITOR
             this.tabTools.TabIndex = 3;
             this.tabTools.Text = "dbTools";
             // 
+            // checkBoxMedRSNEXT
+            // 
+            this.checkBoxMedRSNEXT.AutoSize = true;
+            this.checkBoxMedRSNEXT.Checked = true;
+            this.checkBoxMedRSNEXT.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxMedRSNEXT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxMedRSNEXT.Location = new System.Drawing.Point(143, 150);
+            this.checkBoxMedRSNEXT.Name = "checkBoxMedRSNEXT";
+            this.checkBoxMedRSNEXT.Size = new System.Drawing.Size(104, 17);
+            this.checkBoxMedRSNEXT.TabIndex = 17;
+            this.checkBoxMedRSNEXT.Text = "NCAA Next Mod";
+            this.checkBoxMedRSNEXT.UseVisualStyleBackColor = true;
+            // 
+            // labelPoaching
+            // 
+            this.labelPoaching.AutoSize = true;
+            this.labelPoaching.Location = new System.Drawing.Point(386, 291);
+            this.labelPoaching.Name = "labelPoaching";
+            this.labelPoaching.Size = new System.Drawing.Size(78, 13);
+            this.labelPoaching.TabIndex = 16;
+            this.labelPoaching.Text = "Poach Chance";
+            // 
+            // poachValue
+            // 
+            this.poachValue.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.poachValue.Location = new System.Drawing.Point(390, 268);
+            this.poachValue.Maximum = new decimal(new int[] {
+            85,
+            0,
+            0,
+            0});
+            this.poachValue.Name = "poachValue";
+            this.poachValue.Size = new System.Drawing.Size(51, 20);
+            this.poachValue.TabIndex = 15;
+            this.poachValue.Value = new decimal(new int[] {
+            35,
+            0,
+            0,
+            0});
+            // 
+            // labelJobSecurity
+            // 
+            this.labelJobSecurity.AutoSize = true;
+            this.labelJobSecurity.Location = new System.Drawing.Point(389, 251);
+            this.labelJobSecurity.Name = "labelJobSecurity";
+            this.labelJobSecurity.Size = new System.Drawing.Size(65, 13);
+            this.labelJobSecurity.TabIndex = 14;
+            this.labelJobSecurity.Text = "Job Security";
+            // 
+            // jobSecurityValue
+            // 
+            this.jobSecurityValue.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.jobSecurityValue.Location = new System.Drawing.Point(389, 228);
+            this.jobSecurityValue.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.jobSecurityValue.Name = "jobSecurityValue";
+            this.jobSecurityValue.Size = new System.Drawing.Size(52, 20);
+            this.jobSecurityValue.TabIndex = 13;
+            this.jobSecurityValue.Value = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            // 
+            // buttonCarousel
+            // 
+            this.buttonCarousel.BackColor = System.Drawing.Color.HotPink;
+            this.buttonCarousel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCarousel.Location = new System.Drawing.Point(273, 219);
+            this.buttonCarousel.Name = "buttonCarousel";
+            this.buttonCarousel.Size = new System.Drawing.Size(110, 80);
+            this.buttonCarousel.TabIndex = 12;
+            this.buttonCarousel.Text = "Coaching Carousel";
+            this.buttonCarousel.UseVisualStyleBackColor = false;
+            this.buttonCarousel.Click += new System.EventHandler(this.buttonCarousel_Click);
+            // 
             // labelSkillDrop
             // 
             this.labelSkillDrop.AutoSize = true;
@@ -1372,93 +1459,6 @@ namespace DB_EDITOR
             this.buttonMinRecruitingPts.UseVisualStyleBackColor = false;
             this.buttonMinRecruitingPts.Click += new System.EventHandler(this.buttonMinRecruitingPts_Click);
             // 
-            // buttonCarousel
-            // 
-            this.buttonCarousel.BackColor = System.Drawing.Color.HotPink;
-            this.buttonCarousel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCarousel.Location = new System.Drawing.Point(273, 219);
-            this.buttonCarousel.Name = "buttonCarousel";
-            this.buttonCarousel.Size = new System.Drawing.Size(110, 80);
-            this.buttonCarousel.TabIndex = 12;
-            this.buttonCarousel.Text = "Coaching Carousel";
-            this.buttonCarousel.UseVisualStyleBackColor = false;
-            this.buttonCarousel.Click += new System.EventHandler(this.buttonCarousel_Click);
-            // 
-            // jobSecurityValue
-            // 
-            this.jobSecurityValue.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.jobSecurityValue.Location = new System.Drawing.Point(389, 228);
-            this.jobSecurityValue.Maximum = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
-            this.jobSecurityValue.Name = "jobSecurityValue";
-            this.jobSecurityValue.Size = new System.Drawing.Size(52, 20);
-            this.jobSecurityValue.TabIndex = 13;
-            this.jobSecurityValue.Value = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            // 
-            // labelJobSecurity
-            // 
-            this.labelJobSecurity.AutoSize = true;
-            this.labelJobSecurity.Location = new System.Drawing.Point(389, 251);
-            this.labelJobSecurity.Name = "labelJobSecurity";
-            this.labelJobSecurity.Size = new System.Drawing.Size(65, 13);
-            this.labelJobSecurity.TabIndex = 14;
-            this.labelJobSecurity.Text = "Job Security";
-            // 
-            // poachValue
-            // 
-            this.poachValue.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.poachValue.Location = new System.Drawing.Point(390, 268);
-            this.poachValue.Maximum = new decimal(new int[] {
-            85,
-            0,
-            0,
-            0});
-            this.poachValue.Name = "poachValue";
-            this.poachValue.Size = new System.Drawing.Size(51, 20);
-            this.poachValue.TabIndex = 15;
-            this.poachValue.Value = new decimal(new int[] {
-            35,
-            0,
-            0,
-            0});
-            // 
-            // labelPoaching
-            // 
-            this.labelPoaching.AutoSize = true;
-            this.labelPoaching.Location = new System.Drawing.Point(386, 291);
-            this.labelPoaching.Name = "labelPoaching";
-            this.labelPoaching.Size = new System.Drawing.Size(78, 13);
-            this.labelPoaching.TabIndex = 16;
-            this.labelPoaching.Text = "Poach Chance";
-            // 
-            // checkBoxMedRSNEXT
-            // 
-            this.checkBoxMedRSNEXT.AutoSize = true;
-            this.checkBoxMedRSNEXT.Checked = true;
-            this.checkBoxMedRSNEXT.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxMedRSNEXT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxMedRSNEXT.Location = new System.Drawing.Point(143, 150);
-            this.checkBoxMedRSNEXT.Name = "checkBoxMedRSNEXT";
-            this.checkBoxMedRSNEXT.Size = new System.Drawing.Size(104, 17);
-            this.checkBoxMedRSNEXT.TabIndex = 17;
-            this.checkBoxMedRSNEXT.Text = "NCAA Next Mod";
-            this.checkBoxMedRSNEXT.UseVisualStyleBackColor = true;
-            // 
             // MainEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1494,6 +1494,8 @@ namespace DB_EDITOR
             this.tabPlayers.PerformLayout();
             this.tabTools.ResumeLayout(false);
             this.tabTools.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.poachValue)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.jobSecurityValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.skillDrop)).EndInit();
             this.tabOffSeason.ResumeLayout(false);
             this.tabOffSeason.PerformLayout();
@@ -1503,8 +1505,6 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.minRecPts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.recruitTolerance)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.toleranceWalkOn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.jobSecurityValue)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.poachValue)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1518,122 +1518,122 @@ namespace DB_EDITOR
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip mainMenu;
-        private System.Windows.Forms.ToolStripMenuItem fileMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem openMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveAsMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem closeMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem exitMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aboutMenuItem;
-        private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.ToolStripMenuItem CSVMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem exportToolItem;
-        private System.Windows.Forms.ToolStripMenuItem importMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-        private System.Windows.Forms.ToolStripMenuItem exportAllMenuItem;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.Label TablePropsLabel;
-        private System.Windows.Forms.Label FieldsPropsLabel;
-        private System.Windows.Forms.GroupBox TablePropsgroupBox;
-        private System.Windows.Forms.GroupBox FieldsPropsgroupBox;
-        private System.Windows.Forms.ContextMenuStrip tableMenu;
-        private System.Windows.Forms.ToolStripMenuItem exportTableMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem importTableMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
-        private System.Windows.Forms.ToolStripMenuItem exportAllTableMenuItem;
-        private System.Windows.Forms.ContextMenuStrip fieldMenu;
-        private System.Windows.Forms.ToolStripMenuItem copyRecordsMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
-        private System.Windows.Forms.ToolStripMenuItem addRecordsMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deleteRecordsMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-        private System.Windows.Forms.ToolStripMenuItem exportRecordsMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem importRecordsMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
-        private System.Windows.Forms.ToolStripMenuItem addendumMenuItem;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
-        private System.Windows.Forms.ToolStripMenuItem definitionFileMenuItem;
-        private System.Windows.Forms.OpenFileDialog openFileDialog2;
-        private System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
-        private System.Windows.Forms.ToolStripMenuItem tabDelimitedMenuItem;
-        private System.Windows.Forms.TabPage tabDB;
-        private System.Windows.Forms.DataGridView tableGridView;
-        private System.Windows.Forms.DataGridView fieldsGridView;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.ToolStripMenuItem optionsMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tableFieldOrderMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem defaultFieldOrderMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem ascendingFieldOrderMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem customOrderMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem descendingFieldOrderMenuItem;
-        private System.Windows.Forms.TabPage tabTeams;
-        private System.Windows.Forms.TabPage tabPlayers;
-        private System.Windows.Forms.ListBox PGIDlistBox;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox PLNAtextBox;
-        private System.Windows.Forms.TextBox PFNAtextBox;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox TGIDplayerBox;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ListBox TGIDlistBox;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.ComboBox TTYPcomboBox;
-        private System.Windows.Forms.CheckBox MascotcheckBox;
-        private System.Windows.Forms.CheckBox LocationcheckBox;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.ComboBox DGIDcomboBox;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox CGIDcomboBox;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox LGIDcomboBox;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox TDNAtextBox;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox TLNAtextBox;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox TGIDtextBox;
-        private System.Windows.Forms.TabPage tabTools;
-        private System.Windows.Forms.Button medRS;
-        private System.Windows.Forms.Button coachProg;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox dbToolsInfo;
-        private System.Windows.Forms.Button bodyFix;
-        private System.Windows.Forms.Button increaseSpeed;
-        private System.Windows.Forms.ToolStripMenuItem enableOffSeasonMenuItem;
-        private System.Windows.Forms.TabPage tabOffSeason;
-        private System.Windows.Forms.Button buttonMinRecruitingPts;
-        private System.Windows.Forms.Button buttonRandomBudgets;
-        private System.Windows.Forms.Button buttonRandRecruits;
-        private System.Windows.Forms.Button buttonRandWalkOns;
-        private System.Windows.Forms.NumericUpDown toleranceWalkOn;
-        private System.Windows.Forms.Label wkonLabel;
-        private System.Windows.Forms.Label labelMinRecPts;
-        private System.Windows.Forms.NumericUpDown minRecPts;
-        private System.Windows.Forms.Label labelRecruit;
-        private System.Windows.Forms.NumericUpDown recruitTolerance;
-        private System.Windows.Forms.NumericUpDown minTRPA;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button buttonInterestedTeams;
-        private System.Windows.Forms.NumericUpDown removeInterestTeams;
-        private System.Windows.Forms.Label labelIntTeams;
-        private System.Windows.Forms.TextBox textBoxOffSeasonTitle;
-        private System.Windows.Forms.TextBox textBoxOffSeason;
-        private System.Windows.Forms.Button polyNames;
-        private System.Windows.Forms.NumericUpDown polyNamesPCT;
-        private System.Windows.Forms.Label labelPolyNamesPCT;
-        private System.Windows.Forms.Button buttonRandPotential;
-        private System.Windows.Forms.CheckBox checkBoxInjuryRatings;
-        private System.Windows.Forms.Label labelSkillDrop;
-        private System.Windows.Forms.NumericUpDown skillDrop;
-        private System.Windows.Forms.Button buttonCarousel;
-        private System.Windows.Forms.Label labelPoaching;
-        private System.Windows.Forms.NumericUpDown poachValue;
-        private System.Windows.Forms.Label labelJobSecurity;
-        private System.Windows.Forms.NumericUpDown jobSecurityValue;
-        private System.Windows.Forms.CheckBox checkBoxMedRSNEXT;
+        public System.Windows.Forms.MenuStrip mainMenu;
+        public System.Windows.Forms.ToolStripMenuItem fileMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem openMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem saveMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem saveAsMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem closeMenuItem;
+        public System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        public System.Windows.Forms.ToolStripMenuItem exitMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem aboutMenuItem;
+        public System.Windows.Forms.ProgressBar progressBar1;
+        public System.Windows.Forms.ToolStripMenuItem CSVMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem exportToolItem;
+        public System.Windows.Forms.ToolStripMenuItem importMenuItem;
+        public System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        public System.Windows.Forms.ToolStripMenuItem exportAllMenuItem;
+        public System.Windows.Forms.OpenFileDialog openFileDialog1;
+        public System.Windows.Forms.Label TablePropsLabel;
+        public System.Windows.Forms.Label FieldsPropsLabel;
+        public System.Windows.Forms.GroupBox TablePropsgroupBox;
+        public System.Windows.Forms.GroupBox FieldsPropsgroupBox;
+        public System.Windows.Forms.ContextMenuStrip tableMenu;
+        public System.Windows.Forms.ToolStripMenuItem exportTableMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem importTableMenuItem;
+        public System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+        public System.Windows.Forms.ToolStripMenuItem exportAllTableMenuItem;
+        public System.Windows.Forms.ContextMenuStrip fieldMenu;
+        public System.Windows.Forms.ToolStripMenuItem copyRecordsMenuItem;
+        public System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        public System.Windows.Forms.ToolStripMenuItem addRecordsMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem deleteRecordsMenuItem;
+        public System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        public System.Windows.Forms.ToolStripMenuItem exportRecordsMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem importRecordsMenuItem;
+        public System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        public System.Windows.Forms.ToolStripMenuItem addendumMenuItem;
+        public System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        public System.Windows.Forms.ToolStripMenuItem definitionFileMenuItem;
+        public System.Windows.Forms.OpenFileDialog openFileDialog2;
+        public System.Windows.Forms.ToolStripSeparator toolStripSeparator9;
+        public System.Windows.Forms.ToolStripMenuItem tabDelimitedMenuItem;
+        public System.Windows.Forms.TabPage tabDB;
+        public System.Windows.Forms.DataGridView tableGridView;
+        public System.Windows.Forms.DataGridView fieldsGridView;
+        public System.Windows.Forms.ToolStripMenuItem optionsMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem tableFieldOrderMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem defaultFieldOrderMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem ascendingFieldOrderMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem customOrderMenuItem;
+        public System.Windows.Forms.ToolStripMenuItem descendingFieldOrderMenuItem;
+        public System.Windows.Forms.TabPage tabTeams;
+        public System.Windows.Forms.TabPage tabPlayers;
+        public System.Windows.Forms.ListBox PGIDlistBox;
+        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.TextBox PLNAtextBox;
+        public System.Windows.Forms.TextBox PFNAtextBox;
+        public System.Windows.Forms.Label label3;
+        public System.Windows.Forms.ComboBox TGIDplayerBox;
+        public System.Windows.Forms.Label label4;
+        public System.Windows.Forms.ListBox TGIDlistBox;
+        public System.Windows.Forms.Label label5;
+        public System.Windows.Forms.ComboBox TTYPcomboBox;
+        public System.Windows.Forms.CheckBox MascotcheckBox;
+        public System.Windows.Forms.CheckBox LocationcheckBox;
+        public System.Windows.Forms.Label label8;
+        public System.Windows.Forms.ComboBox DGIDcomboBox;
+        public System.Windows.Forms.Label label7;
+        public System.Windows.Forms.ComboBox CGIDcomboBox;
+        public System.Windows.Forms.Label label6;
+        public System.Windows.Forms.ComboBox LGIDcomboBox;
+        public System.Windows.Forms.Label label10;
+        public System.Windows.Forms.TextBox TDNAtextBox;
+        public System.Windows.Forms.Label label9;
+        public System.Windows.Forms.TextBox TLNAtextBox;
+        public System.Windows.Forms.Label label11;
+        public System.Windows.Forms.TextBox TGIDtextBox;
+        public System.Windows.Forms.TabPage tabTools;
+        public System.Windows.Forms.Button medRS;
+        public System.Windows.Forms.Button coachProg;
+        public System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.TextBox dbToolsInfo;
+        public System.Windows.Forms.Button bodyFix;
+        public System.Windows.Forms.Button increaseSpeed;
+        public System.Windows.Forms.ToolStripMenuItem enableOffSeasonMenuItem;
+        public System.Windows.Forms.TabPage tabOffSeason;
+        public System.Windows.Forms.Button buttonMinRecruitingPts;
+        public System.Windows.Forms.Button buttonRandomBudgets;
+        public System.Windows.Forms.Button buttonRandRecruits;
+        public System.Windows.Forms.Button buttonRandWalkOns;
+        public System.Windows.Forms.NumericUpDown toleranceWalkOn;
+        public System.Windows.Forms.Label wkonLabel;
+        public System.Windows.Forms.Label labelMinRecPts;
+        public System.Windows.Forms.NumericUpDown minRecPts;
+        public System.Windows.Forms.Label labelRecruit;
+        public System.Windows.Forms.NumericUpDown recruitTolerance;
+        public System.Windows.Forms.NumericUpDown minTRPA;
+        public System.Windows.Forms.Label label12;
+        public System.Windows.Forms.Button buttonInterestedTeams;
+        public System.Windows.Forms.NumericUpDown removeInterestTeams;
+        public System.Windows.Forms.Label labelIntTeams;
+        public System.Windows.Forms.TextBox textBoxOffSeasonTitle;
+        public System.Windows.Forms.TextBox textBoxOffSeason;
+        public System.Windows.Forms.Button polyNames;
+        public System.Windows.Forms.NumericUpDown polyNamesPCT;
+        public System.Windows.Forms.Label labelPolyNamesPCT;
+        public System.Windows.Forms.Button buttonRandPotential;
+        public System.Windows.Forms.CheckBox checkBoxInjuryRatings;
+        public System.Windows.Forms.Label labelSkillDrop;
+        public System.Windows.Forms.NumericUpDown skillDrop;
+        public System.Windows.Forms.Button buttonCarousel;
+        public System.Windows.Forms.Label labelPoaching;
+        public System.Windows.Forms.NumericUpDown poachValue;
+        public System.Windows.Forms.Label labelJobSecurity;
+        public System.Windows.Forms.NumericUpDown jobSecurityValue;
+        public System.Windows.Forms.CheckBox checkBoxMedRSNEXT;
+        public System.Windows.Forms.TabControl tabControl1;
     }
 }
 

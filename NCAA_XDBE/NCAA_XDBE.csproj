@@ -74,6 +74,24 @@
     <Compile Include="AboutBox1.Designer.cs">
       <DependentUpon>AboutBox1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Conversions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dbTools.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ImportTool.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ExportTool.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RecruitingTools.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeamEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="MainEditor.cs">
       <SubType>Form</SubType>
     </Compile>
