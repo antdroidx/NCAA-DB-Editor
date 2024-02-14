@@ -27,7 +27,7 @@ namespace DB_EDITOR
                 /* 254 = Season Ending
                  * 196 = 10 weeks
                  */
-                if (Convert.ToInt32(tmpRec) >= 196)
+                if (Convert.ToInt32(tmpRec) >= 196 || Convert.ToInt32(TDB.FieldValue(dbIndex, "SEAI", "SEWN", 0)) >= 16 && checkBoxMedRSNEXT.Checked)
                 {
                     //find the corresponding PGID
                     string PGID = TDB.FieldValue(dbIndex, "INJY", "PGID", i);
@@ -525,7 +525,33 @@ namespace DB_EDITOR
         //Pre-Season Injuries -- randomly give injuries to players in pre-season
         private void preseasonInjuries()
         {
+            progressBar1.Visible = true;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = TDB.TableRecordCount(dbIndex, "PLAY");
+            progressBar1.Step = 1;
 
+            int inj = 0;
+
+                for (int i = 0; i < TDB.TableRecordCount(dbIndex, "PLAY"); i++)
+                {
+                    if (rand.Next(0, 8280) < numInjuries.Value && inj < 450)
+                    {
+                        int injl = rand.Next(50, 255);
+                        int injt = rand.Next(180, 221);
+                        TDB.TDBTableRecordAdd(dbIndex, "INJY", true);
+                        TDB.NewfieldValue(dbIndex, "INJY", "PGID", inj, TDB.FieldValue(dbIndex, "PLAY", "PGID", i));
+                        TDB.NewfieldValue(dbIndex, "INJY", "INJL", inj, Convert.ToString(injl));
+                        TDB.NewfieldValue(dbIndex, "INJY", "INJT", inj, Convert.ToString(injt));
+                        TDB.NewfieldValue(dbIndex, "INJY", "SEWN", inj, "0");
+                        reduceSkills(i);
+                        inj++;
+                    }
+                    progressBar1.PerformStep();
+                }
+
+            progressBar1.Visible = false;
+            progressBar1.Value = 0;
+            MessageBox.Show("Injury Distributions are complete!");
         }
 
 

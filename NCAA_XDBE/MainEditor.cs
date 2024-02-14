@@ -74,8 +74,9 @@ namespace DB_EDITOR
         int fCount_addon = 5; //number of extra columns (fields) to add to PLAY table
         int fCount_First = 4; //5-4 = 1 = 1st new column
         int fCount_Last = 3;
-        int fCount_Team = 2;
-        int fCount_Pos = 1;
+        int fCount_Pos = 2;
+        int fCount_Team = 1;
+
 
 
         string[] teamNameDB = new string[511]; //temporary holder of Team Names assigned by TGID location in the array
@@ -1149,13 +1150,13 @@ namespace DB_EDITOR
         {
             if (TDB.TableIndex(dbFILEindex, "PNLU") != -1)
             {
-                managPNLU(dbFILEindex, "PNLU", "PNNU");
-
+                //Creates a Name Conversion table from the Dynasty DB PNLU table
+                cloneNameConversionTable(dbFILEindex, "PNLU", "PNNU");
             }
             else
             {
-                // Clone PNLU table
-                clonePNLU();
+                //Creates a hard-coded Conversion Table
+                createNameConversionTable();
             }
 
             FieldNames.Clear();
@@ -1198,11 +1199,11 @@ namespace DB_EDITOR
                 if (TDB.TableIndex(dbFILEindex, "Last Name") == -1)
                     FieldNames.Add(FieldNames.Count, "Last Name");
 
-                if (TDB.TableIndex(dbFILEindex, "Team Name") == -1)
-                    FieldNames.Add(FieldNames.Count, "College");
-
                 if (TDB.TableIndex(dbFILEindex, "Position") == -1)
                     FieldNames.Add(FieldNames.Count, "Position");
+
+                if (TDB.TableIndex(dbFILEindex, "Team Name") == -1)
+                    FieldNames.Add(FieldNames.Count, "College");
             }
 
             sortFields();
@@ -1376,7 +1377,7 @@ namespace DB_EDITOR
 
                         DataGridRow[tmpf + 1] = intval;
 
-                        if (FieldProps.Name == "PGID" && TDB.TableIndex(dbIndex, "TEAM") == 1)
+                        if (FieldProps.Name == "PGID" && teamNameDB.Length > 0)
                         {
                             DataGridRow[fCount - fCount_Team] = getTeamName((int)intval / 70);
                         }
@@ -1833,6 +1834,12 @@ namespace DB_EDITOR
 
         #region MAIN DB TOOLS CLICKS
 
+        //Pre-Season Injury Distributor
+        private void buttonPSInjuries_Click(object sender, EventArgs e)
+        {
+            preseasonInjuries();
+        }
+
         //Medical Redshirt - If player's INJL = 254, they are out of season. Let's give them a medical year!
         private void medRS_Click(object sender, EventArgs e)
         {
@@ -1957,6 +1964,7 @@ namespace DB_EDITOR
         {
             polynesianNameGenerator();
         }
+
 
 
 

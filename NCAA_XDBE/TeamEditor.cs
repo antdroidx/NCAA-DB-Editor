@@ -150,31 +150,6 @@ namespace DB_EDITOR
 
         }
 
-        public void managPNLU(int tmpDBindex, string tmpTName, string tmpFName)
-        {
-
-            Alphabet.Clear();
-            AlphabetX.Clear();
-
-            int tmpRecCount = TDB.TableRecordCount(tmpDBindex, tmpTName);
-
-
-            for (int r = 0; r < tmpRecCount; r++)
-            {
-
-                // check if record is deleted, if so, skip
-                if (TDB.TDBTableRecordDeleted(tmpDBindex, tmpTName, r))
-                    continue;
-
-                string PNCH = TDB.FieldValue(tmpDBindex, tmpTName, "PNCH", r);
-                int PNNU = Convert.ToInt32(TDB.FieldValue(tmpDBindex, tmpTName, tmpFName, r));
-
-                Alphabet.Add(PNNU, PNCH);
-                AlphabetX.Add(PNCH, PNNU);
-
-            }
-
-        }
 
         public void mangTGID(int tmpDB)
         {
