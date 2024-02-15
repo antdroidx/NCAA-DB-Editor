@@ -47,7 +47,7 @@ namespace DB_EDITOR
 
                                     if (checkBoxInjuryRatings.Checked)
                                     {
-                                        reduceSkills(i);
+                                        reduceSkills(i, (int)skillDrop.Value);
                                     }
 
                                     names += "\n * " + convertFN_IntToString(j) + " " + convertLN_IntToString(j) + " (" + team + ")";
@@ -63,7 +63,7 @@ namespace DB_EDITOR
 
                                     if (checkBoxInjuryRatings.Checked)
                                     {
-                                        reduceSkills(i);
+                                        reduceSkills(i, (int)skillDrop.Value);
                                     }
 
                                     names += "\n * " + convertFN_IntToString(j) + " " + convertLN_IntToString(j) + " (" + team + ")";
@@ -83,10 +83,10 @@ namespace DB_EDITOR
             MessageBox.Show("The NCAA has approved the following Medical Redshirts:\n\r" + names);
         }
 
-        private void reduceSkills(int i)
+        private void reduceSkills(int i, int maxDrop)
         {
             int PPOE, PINJ, PSTA, PACC, PSPD, PAGI, PJMP, PSTR;
-            int tol = (int)skillDrop.Value;
+            int tol = maxDrop;
 
             PPOE = convertRating(Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PPOE", i)));
             PINJ = convertRating(Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PINJ", i)));
@@ -543,7 +543,7 @@ namespace DB_EDITOR
                         TDB.NewfieldValue(dbIndex, "INJY", "INJL", inj, Convert.ToString(injl));
                         TDB.NewfieldValue(dbIndex, "INJY", "INJT", inj, Convert.ToString(injt));
                         TDB.NewfieldValue(dbIndex, "INJY", "SEWN", inj, "0");
-                        reduceSkills(i);
+                        reduceSkills(i, (int)MaxSkillDropPS.Value);
                         inj++;
                     }
                     progressBar1.PerformStep();

@@ -114,6 +114,8 @@ namespace DB_EDITOR
             this.PLNAtextBox = new System.Windows.Forms.TextBox();
             this.PFNAtextBox = new System.Windows.Forms.TextBox();
             this.tabTools = new System.Windows.Forms.TabPage();
+            this.labelPSInjuries = new System.Windows.Forms.Label();
+            this.numInjuries = new System.Windows.Forms.NumericUpDown();
             this.buttonPSInjuries = new System.Windows.Forms.Button();
             this.checkBoxMedRSNEXT = new System.Windows.Forms.CheckBox();
             this.labelPoaching = new System.Windows.Forms.Label();
@@ -152,8 +154,8 @@ namespace DB_EDITOR
             this.buttonRandRecruits = new System.Windows.Forms.Button();
             this.buttonRandWalkOns = new System.Windows.Forms.Button();
             this.buttonMinRecruitingPts = new System.Windows.Forms.Button();
-            this.numInjuries = new System.Windows.Forms.NumericUpDown();
-            this.labelPSInjuries = new System.Windows.Forms.Label();
+            this.labelMaxSkilDrop_PS = new System.Windows.Forms.Label();
+            this.MaxSkillDropPS = new System.Windows.Forms.NumericUpDown();
             qbTend = new System.Windows.Forms.Button();
             this.mainMenu.SuspendLayout();
             this.tableMenu.SuspendLayout();
@@ -167,6 +169,7 @@ namespace DB_EDITOR
             this.tabTeams.SuspendLayout();
             this.tabPlayers.SuspendLayout();
             this.tabTools.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numInjuries)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.poachValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jobSecurityValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.skillDrop)).BeginInit();
@@ -177,7 +180,7 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.minRecPts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.recruitTolerance)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toleranceWalkOn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numInjuries)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MaxSkillDropPS)).BeginInit();
             this.SuspendLayout();
             // 
             // qbTend
@@ -917,6 +920,8 @@ namespace DB_EDITOR
             // tabTools
             // 
             this.tabTools.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.tabTools.Controls.Add(this.labelMaxSkilDrop_PS);
+            this.tabTools.Controls.Add(this.MaxSkillDropPS);
             this.tabTools.Controls.Add(this.labelPSInjuries);
             this.tabTools.Controls.Add(this.numInjuries);
             this.tabTools.Controls.Add(this.buttonPSInjuries);
@@ -944,6 +949,37 @@ namespace DB_EDITOR
             this.tabTools.Size = new System.Drawing.Size(976, 632);
             this.tabTools.TabIndex = 3;
             this.tabTools.Text = "dbTools";
+            // 
+            // labelPSInjuries
+            // 
+            this.labelPSInjuries.AutoSize = true;
+            this.labelPSInjuries.Location = new System.Drawing.Point(140, 111);
+            this.labelPSInjuries.Name = "labelPSInjuries";
+            this.labelPSInjuries.Size = new System.Drawing.Size(93, 13);
+            this.labelPSInjuries.TabIndex = 20;
+            this.labelPSInjuries.Text = "Number of Players";
+            // 
+            // numInjuries
+            // 
+            this.numInjuries.Increment = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.numInjuries.Location = new System.Drawing.Point(143, 88);
+            this.numInjuries.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
+            this.numInjuries.Name = "numInjuries";
+            this.numInjuries.Size = new System.Drawing.Size(60, 20);
+            this.numInjuries.TabIndex = 19;
+            this.numInjuries.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
             // 
             // buttonPSInjuries
             // 
@@ -1479,36 +1515,31 @@ namespace DB_EDITOR
             this.buttonMinRecruitingPts.UseVisualStyleBackColor = false;
             this.buttonMinRecruitingPts.Click += new System.EventHandler(this.buttonMinRecruitingPts_Click);
             // 
-            // numInjuries
+            // labelMaxSkilDrop_PS
             // 
-            this.numInjuries.Increment = new decimal(new int[] {
-            20,
+            this.labelMaxSkilDrop_PS.AutoSize = true;
+            this.labelMaxSkilDrop_PS.Location = new System.Drawing.Point(191, 140);
+            this.labelMaxSkilDrop_PS.Name = "labelMaxSkilDrop_PS";
+            this.labelMaxSkilDrop_PS.Size = new System.Drawing.Size(75, 13);
+            this.labelMaxSkilDrop_PS.TabIndex = 22;
+            this.labelMaxSkilDrop_PS.Text = "Max Skill Drop";
+            // 
+            // MaxSkillDropPS
+            // 
+            this.MaxSkillDropPS.Location = new System.Drawing.Point(143, 138);
+            this.MaxSkillDropPS.Maximum = new decimal(new int[] {
+            10,
             0,
             0,
             0});
-            this.numInjuries.Location = new System.Drawing.Point(143, 99);
-            this.numInjuries.Maximum = new decimal(new int[] {
-            300,
+            this.MaxSkillDropPS.Name = "MaxSkillDropPS";
+            this.MaxSkillDropPS.Size = new System.Drawing.Size(44, 20);
+            this.MaxSkillDropPS.TabIndex = 21;
+            this.MaxSkillDropPS.Value = new decimal(new int[] {
+            3,
             0,
             0,
             0});
-            this.numInjuries.Name = "numInjuries";
-            this.numInjuries.Size = new System.Drawing.Size(60, 20);
-            this.numInjuries.TabIndex = 19;
-            this.numInjuries.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            // 
-            // labelPSInjuries
-            // 
-            this.labelPSInjuries.AutoSize = true;
-            this.labelPSInjuries.Location = new System.Drawing.Point(140, 122);
-            this.labelPSInjuries.Name = "labelPSInjuries";
-            this.labelPSInjuries.Size = new System.Drawing.Size(93, 13);
-            this.labelPSInjuries.TabIndex = 20;
-            this.labelPSInjuries.Text = "Number of Players";
             // 
             // MainEditor
             // 
@@ -1545,6 +1576,7 @@ namespace DB_EDITOR
             this.tabPlayers.PerformLayout();
             this.tabTools.ResumeLayout(false);
             this.tabTools.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numInjuries)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.poachValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.jobSecurityValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.skillDrop)).EndInit();
@@ -1556,7 +1588,7 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.minRecPts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.recruitTolerance)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.toleranceWalkOn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numInjuries)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MaxSkillDropPS)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1689,6 +1721,8 @@ namespace DB_EDITOR
         public System.Windows.Forms.Button buttonPSInjuries;
         private System.Windows.Forms.NumericUpDown numInjuries;
         private System.Windows.Forms.Label labelPSInjuries;
+        public System.Windows.Forms.Label labelMaxSkilDrop_PS;
+        public System.Windows.Forms.NumericUpDown MaxSkillDropPS;
     }
 }
 
