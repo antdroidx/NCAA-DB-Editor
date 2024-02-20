@@ -1,11 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 using System.Windows.Forms;
 
 namespace DB_EDITOR
@@ -14,7 +10,7 @@ namespace DB_EDITOR
     {
 
         //Raise minimum recruiting point allocation and off-season TPRA values -- Must be done at start of Recruiting
-        private void raiseMinimumRecruitingPoints()
+        private void RaiseMinimumRecruitingPoints()
         {
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
@@ -44,7 +40,7 @@ namespace DB_EDITOR
         }
 
         //Randomize or Remove Recruiting Interested Teams
-        private void removeInterestedTeams()
+        private void RemoveInterestedTeams()
         {
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
@@ -80,7 +76,7 @@ namespace DB_EDITOR
         }
 
         //Randomize the Recruits to give a little bit more variety and evaluation randomness -- Must be done at start of Recruiting
-        private void randomizeRecruitDB()
+        private void RandomizeRecruitDB()
         {
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
@@ -127,24 +123,24 @@ namespace DB_EDITOR
                     if (PHGT > 82) PHGT = 82;
                     PPOE = rand.Next(1, 30);
                     PINJ = rand.Next(1, 30);
-                    PAWR = getRandomAttribute(PAWR, tolA);
+                    PAWR = GetRandomAttribute(PAWR, tolA);
 
-                    PTHA = getRandomAttribute(PTHA, tol);
-                    PSTA = getRandomAttribute(PSTA, tol);
-                    PKAC = getRandomAttribute(PKAC, tol);
-                    PACC = getRandomAttribute(PACC, tol);
-                    PSPD = getRandomAttribute(PSPD, tol);
-                    PCTH = getRandomAttribute(PCTH, tol);
-                    PAGI = getRandomAttribute(PAGI, tol);
-                    PTAK = getRandomAttribute(PTAK, tol);
-                    PPBK = getRandomAttribute(PPBK, tol);
-                    PRBK = getRandomAttribute(PRBK, tol);
-                    PBTK = getRandomAttribute(PBTK, tol);
-                    PTHP = getRandomAttribute(PTHP, tol);
-                    PJMP = getRandomAttribute(PJMP, tol);
-                    PCAR = getRandomAttribute(PCAR, tol);
-                    PKPR = getRandomAttribute(PKPR, tol);
-                    PSTR = getRandomAttribute(PSTR, tol);
+                    PTHA = GetRandomAttribute(PTHA, tol);
+                    PSTA = GetRandomAttribute(PSTA, tol);
+                    PKAC = GetRandomAttribute(PKAC, tol);
+                    PACC = GetRandomAttribute(PACC, tol);
+                    PSPD = GetRandomAttribute(PSPD, tol);
+                    PCTH = GetRandomAttribute(PCTH, tol);
+                    PAGI = GetRandomAttribute(PAGI, tol);
+                    PTAK = GetRandomAttribute(PTAK, tol);
+                    PPBK = GetRandomAttribute(PPBK, tol);
+                    PRBK = GetRandomAttribute(PRBK, tol);
+                    PBTK = GetRandomAttribute(PBTK, tol);
+                    PTHP = GetRandomAttribute(PTHP, tol);
+                    PJMP = GetRandomAttribute(PJMP, tol);
+                    PCAR = GetRandomAttribute(PCAR, tol);
+                    PKPR = GetRandomAttribute(PKPR, tol);
+                    PSTR = GetRandomAttribute(PSTR, tol);
 
                     TDB.NewfieldValue(dbIndex, "RCPT", "PBRE", i, Convert.ToString(PBRE));
                     TDB.NewfieldValue(dbIndex, "RCPT", "PEYE", i, Convert.ToString(PEYE));
@@ -182,11 +178,11 @@ namespace DB_EDITOR
 
             MessageBox.Show("Recruits Randomized!");
 
-            recalculateBMI("RCPT");
+            RecalculateBMI("RCPT");
         }
 
         //Randomize Walk-On Database -- Must be done prior to Cut Players stage
-        private void randomizeWalkOnDB()
+        private void RandomizeWalkOnDB()
         {
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
@@ -231,22 +227,22 @@ namespace DB_EDITOR
                 PINJ = rand.Next(1, 31);
                 PAWR = rand.Next(1, 31);
 
-                PTHA = getRandomAttribute(PTHA, tol);
-                PSTA = getRandomAttribute(PSTA, tol);
-                PKAC = getRandomAttribute(PKAC, tol);
-                PACC = getRandomAttribute(PACC, tol);
-                PSPD = getRandomAttribute(PSPD, tol);
-                PCTH = getRandomAttribute(PCTH, tol);
-                PAGI = getRandomAttribute(PAGI, tol);
-                PTAK = getRandomAttribute(PTAK, tol);
-                PPBK = getRandomAttribute(PPBK, tol);
-                PRBK = getRandomAttribute(PRBK, tol);
-                PBTK = getRandomAttribute(PBTK, tol);
-                PTHP = getRandomAttribute(PTHP, tol);
-                PJMP = getRandomAttribute(PJMP, tol);
-                PCAR = getRandomAttribute(PCAR, tol);
-                PKPR = getRandomAttribute(PKPR, tol);
-                PSTR = getRandomAttribute(PSTR, tol);
+                PTHA = GetRandomAttribute(PTHA, tol);
+                PSTA = GetRandomAttribute(PSTA, tol);
+                PKAC = GetRandomAttribute(PKAC, tol);
+                PACC = GetRandomAttribute(PACC, tol);
+                PSPD = GetRandomAttribute(PSPD, tol);
+                PCTH = GetRandomAttribute(PCTH, tol);
+                PAGI = GetRandomAttribute(PAGI, tol);
+                PTAK = GetRandomAttribute(PTAK, tol);
+                PPBK = GetRandomAttribute(PPBK, tol);
+                PRBK = GetRandomAttribute(PRBK, tol);
+                PBTK = GetRandomAttribute(PBTK, tol);
+                PTHP = GetRandomAttribute(PTHP, tol);
+                PJMP = GetRandomAttribute(PJMP, tol);
+                PCAR = GetRandomAttribute(PCAR, tol);
+                PKPR = GetRandomAttribute(PKPR, tol);
+                PSTR = GetRandomAttribute(PSTR, tol);
 
                 TDB.NewfieldValue(dbIndex, "WKON", "PBRE", i, Convert.ToString(PBRE));
                 TDB.NewfieldValue(dbIndex, "WKON", "PEYE", i, Convert.ToString(PEYE));
@@ -280,11 +276,11 @@ namespace DB_EDITOR
             progressBar1.Value = 0;
 
             MessageBox.Show("Walk-Ons Randomized!");
-            recalculateBMI("WKON");
+            RecalculateBMI("WKON");
         }
 
         //Polynesian Surname Generator
-        private void polynesianNameGenerator()
+        private void PolynesianNameGenerator()
         {
             string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             string csvLocation = Path.Combine(executableLocation, @"resources\poly-surnames.csv");
@@ -310,7 +306,7 @@ namespace DB_EDITOR
              * Washington 46
              * Arizona 2
              * */
-             
+
 
             for (int i = 0; i < TDB.TableRecordCount(dbIndex, "RCPT"); i++)
             {
@@ -319,7 +315,7 @@ namespace DB_EDITOR
                 {
                     if (rand.Next(0, 100) < 0.15 && Convert.ToInt32(TDB.FieldValue(dbIndex, "RCPT", "PRID", i)) < 21000)
                     {
-                        polynesianPlayerMaker(surnames, i);
+                        PolynesianPlayerMaker(surnames, i);
                     }
                 }
                 //Check for California 4 
@@ -327,7 +323,7 @@ namespace DB_EDITOR
                 {
                     if (rand.Next(0, 100) < 0.25 && Convert.ToInt32(TDB.FieldValue(dbIndex, "RCPT", "PRID", i)) < 21000)
                     {
-                        polynesianPlayerMaker(surnames, i);
+                        PolynesianPlayerMaker(surnames, i);
                     }
                 }
                 //Check for Hawaii recruits (256 x 10 - 2560)
@@ -335,7 +331,7 @@ namespace DB_EDITOR
                 {
                     if (rand.Next(0, 100) < polyNamesPCT.Value && Convert.ToInt32(TDB.FieldValue(dbIndex, "RCPT", "PRID", i)) < 21000)
                     {
-                        polynesianPlayerMaker(surnames, i);
+                        PolynesianPlayerMaker(surnames, i);
                     }
                 }
                 //Check for Utah 43
@@ -343,7 +339,7 @@ namespace DB_EDITOR
                 {
                     if (rand.Next(0, 100) < 0.25 && Convert.ToInt32(TDB.FieldValue(dbIndex, "RCPT", "PRID", i)) < 21000)
                     {
-                        polynesianPlayerMaker(surnames, i);
+                        PolynesianPlayerMaker(surnames, i);
                     }
                 }
                 //Check for Washington  46
@@ -351,7 +347,7 @@ namespace DB_EDITOR
                 {
                     if (rand.Next(0, 100) < 0.15 && Convert.ToInt32(TDB.FieldValue(dbIndex, "RCPT", "PRID", i)) < 21000)
                     {
-                        polynesianPlayerMaker(surnames, i);
+                        PolynesianPlayerMaker(surnames, i);
                     }
                 }
 
@@ -366,7 +362,7 @@ namespace DB_EDITOR
         }
 
         //Creates the Polynesian Player
-        private void polynesianPlayerMaker(List<string> surnames, int i)
+        private void PolynesianPlayerMaker(List<string> surnames, int i)
         {
             int x = rand.Next(0, surnames.Count);
             string newName = surnames[x];

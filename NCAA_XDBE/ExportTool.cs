@@ -1,18 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DB_EDITOR
 {
     public partial class MainEditor : Form
     {
-       
+
         //EXPORT - Main Menu
-        private void exportMain()
+        private void ExportMain()
         {
             string tmpReverse = "";
             string tmpcurrentDBfile = Path.GetFileNameWithoutExtension(dbFile);
@@ -170,16 +167,16 @@ namespace DB_EDITOR
                             if (TableProps.Name == "PLAY")
                             {
                                 hbuilder.Append(",");
-                                hbuilder.Append(convertFN_IntToString(r)); //write first name string to csv
+                                hbuilder.Append(ConvertFN_IntToString(r)); //write first name string to csv
                                 hbuilder.Append(",");
-                                hbuilder.Append(convertLN_IntToString(r)); //write last name string to csv
+                                hbuilder.Append(ConvertLN_IntToString(r)); //write last name string to csv
                                 hbuilder.Append(",");
                                 if (TDB.TableIndex(dbIndex, "TEAM") == 1)
                                 {
-                                    hbuilder.Append(getTeamName((int)tmpTGID)); //convert and write team name to csv
+                                    hbuilder.Append(GetTeamName((int)tmpTGID)); //convert and write team name to csv
                                     hbuilder.Append(",");
                                 }
-                                hbuilder.Append(getPlayerPosition((int)tmpPos)); //convert and write position name to csv
+                                hbuilder.Append(GetPositionName((int)tmpPos)); //convert and write position name to csv
                             }
 
                             progressBar1.PerformStep();
@@ -209,7 +206,7 @@ namespace DB_EDITOR
 
 
         //EXPORT - Field Menu
-        private void exportField()
+        private void ExportField()
         {
             string tmpReverse = "";
             string dbFile = "";

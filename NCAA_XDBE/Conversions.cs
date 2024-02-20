@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DB_EDITOR
@@ -17,7 +14,7 @@ namespace DB_EDITOR
         #region Player Names
 
 
-        public void cloneNameConversionTable(int tmpDBindex, string tmpTName, string tmpFName)
+        public void CloneNameConversionTable(int tmpDBindex, string tmpTName, string tmpFName)
         {
 
             Alphabet.Clear();
@@ -43,7 +40,7 @@ namespace DB_EDITOR
 
         }
 
-        private void createNameConversionTable()
+        private void CreateNameConversionTable()
         {
             Alphabet.Clear();
             AlphabetX.Clear();
@@ -115,7 +112,7 @@ namespace DB_EDITOR
 
         }
 
-        public string convertFN_IntToString(int tmpRecNo)
+        public string ConvertFN_IntToString(int tmpRecNo)
         {
 
             string tmpSTR = "";
@@ -123,35 +120,35 @@ namespace DB_EDITOR
 
             for (int PF = 1; PF <= maxNameChar; PF++)
             {
-                if (Alphabet[Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PF" + addLeadingZeros(Convert.ToString(PF), 2), tmpRecNo))] == "")
+                if (Alphabet[Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PF" + AddLeadingZeros(Convert.ToString(PF), 2), tmpRecNo))] == "")
                 {
                     break;
                 }
-                xPFNA = xPFNA + Alphabet[Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PF" + addLeadingZeros(Convert.ToString(PF), 2), tmpRecNo))];
+                xPFNA = xPFNA + Alphabet[Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PF" + AddLeadingZeros(Convert.ToString(PF), 2), tmpRecNo))];
 
             }
             tmpSTR = xPFNA;
             return tmpSTR;
         }
-        public string convertLN_IntToString(int tmpRecNo)
+        public string ConvertLN_IntToString(int tmpRecNo)
         {
             string tmpSTR = "";
             string xPLNA = "";
 
             for (int PL = 1; PL <= maxNameChar; PL++)
             {
-                if (Alphabet[Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PL" + addLeadingZeros(Convert.ToString(PL), 2), tmpRecNo))] == "")
+                if (Alphabet[Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PL" + AddLeadingZeros(Convert.ToString(PL), 2), tmpRecNo))] == "")
                 {
                     break;
                 }
-                xPLNA = xPLNA + Alphabet[Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PL" + addLeadingZeros(Convert.ToString(PL), 2), tmpRecNo))];
+                xPLNA = xPLNA + Alphabet[Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PL" + AddLeadingZeros(Convert.ToString(PL), 2), tmpRecNo))];
 
             }
             tmpSTR = xPLNA;
             return tmpSTR;
         }
 
-        private void importFN_StringToInt(string PFNA, int tmpRecNo, string tableName)
+        private void ImportFN_StringToInt(string PFNA, int tmpRecNo, string tableName)
         {
             for (int i = 1; i <= maxNameChar; i++)
             {
@@ -163,13 +160,13 @@ namespace DB_EDITOR
                 // MessageBox.Show(tmpSTR.ToString());
                 TDB.NewfieldValue(dbIndex,
                                   tableName,
-                                  "PF" + addLeadingZeros(Convert.ToString(i), 2),
+                                  "PF" + AddLeadingZeros(Convert.ToString(i), 2),
                                   tmpRecNo,
                                   Convert.ToString(tmpSTR));
 
             }
         }
-        private void importLN_StringToInt(string PLNA, int tmpRecNo, string tableName)
+        private void ImportLN_StringToInt(string PLNA, int tmpRecNo, string tableName)
         {
             for (int i = 1; i <= maxNameChar; i++)
             {
@@ -180,7 +177,7 @@ namespace DB_EDITOR
 
                 TDB.NewfieldValue(dbIndex,
                                   tableName,
-                                  "PL" + addLeadingZeros(Convert.ToString(i), 2),
+                                  "PL" + AddLeadingZeros(Convert.ToString(i), 2),
                                   tmpRecNo,
                                   Convert.ToString(tmpSTR));
 
@@ -188,7 +185,7 @@ namespace DB_EDITOR
             }
         }
 
-        private string addLeadingZeros(string tmpSTR, int tmpLen)
+        private string AddLeadingZeros(string tmpSTR, int tmpLen)
         {
             for (int i = 1; i < tmpLen; i++)
                 tmpSTR = "0" + tmpSTR;
@@ -203,7 +200,7 @@ namespace DB_EDITOR
 
         #region Positions
 
-        private void setPositions()
+        private void SetPositions()
         {
             Positions.Clear();
             PositionsX.Clear();
@@ -236,7 +233,7 @@ namespace DB_EDITOR
             }
         }
 
-        public string getPlayerPosition(int tmpRecNo)
+        public string GetPositionName(int tmpRecNo)
         {
 
             string tmpSTR = Positions[tmpRecNo];
@@ -247,7 +244,7 @@ namespace DB_EDITOR
 
         #region Ratings
 
-        private void createRatingsDB()
+        private void CreateRatingsDB()
         {
             Ratings.Clear();
             RatingsX.Clear();
@@ -291,12 +288,12 @@ namespace DB_EDITOR
             }
         }
 
-        public int convertRating(int value)
+        public int ConvertRating(int value)
         {
             return Ratings[value];
         }
 
-        public int revertRating(int value)
+        public int RevertRating(int value)
         {
             while (!RatingsX.ContainsKey(value))
             {
@@ -309,7 +306,7 @@ namespace DB_EDITOR
 
         #region Teams
 
-        public void createTeamDB()
+        public void CreateTeamDB()
         {
             for (int i = 0; i < maxTeamsDB; i++)
             {
@@ -319,14 +316,14 @@ namespace DB_EDITOR
             }
         }
 
-        public string getTeamName(int tmpRecNo)
+        public string GetTeamName(int tmpRecNo)
         {
 
             string tmpSTR = teamNameDB[tmpRecNo];
             return tmpSTR;
         }
 
-        private int findTeamPrestige(int TGID)
+        private int FindTeamPrestige(int TGID)
         {
             int TMPR = 0;
             for (int i = 0; i < TDB.TableRecordCount(dbIndex, "TEAM"); i++)
@@ -339,11 +336,28 @@ namespace DB_EDITOR
             return TMPR;
         }
 
+        private int GetTeamRanking(int i)
+        {
+            int teamRanking = 0;
+
+            teamRanking = Convert.ToInt32(TDB.FieldValue(dbIndex, "TEAM", "TCRK", i));
+
+            return teamRanking;
+        }
+
+        private int GetTeamTGIDfromRecord(int i)
+        {
+            i = Convert.ToInt32(TDB.FieldValue(dbIndex, "TEAM", "TGID", i));
+
+            return i;
+        }
+
+
         #endregion
 
         #region Coaches
 
-        private int findRecNumberCCID(int CCID)
+        private int FindRecNumberCCID(int CCID)
         {
             for (int i = 0; i < TDB.TableRecordCount(dbIndex, "COCH"); i++)
             {
@@ -358,9 +372,43 @@ namespace DB_EDITOR
 
         #endregion
 
+        #region Players
+
+        private int GetPGIDfromRecord(int i)
+        {
+            return Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PGID", i));
+
+        }
+
+        private int GetPPOSfromRecord(int i)
+        {
+            return Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PPOS", i));
+
+        }
+
+        private int GetPOVRfromRecord(int i)
+        {
+            return Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "POVR", i));
+
+        }
+
+        private int GetPTYPfromRecord(int i)
+        {
+            return Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PTYP", i));
+
+        }
+
+        private int GetPYERfromRecord(int i)
+        {
+            return Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PYER", i));
+
+        }
+
+        #endregion
+
         #region Skill Attributes
 
-        private int getRandomAttribute(int attribute, int tol)
+        private int GetRandomAttribute(int attribute, int tol)
         {
             Random rand = new Random();
 
@@ -371,7 +419,7 @@ namespace DB_EDITOR
             return attribute;
         }
 
-        private int getReducedAttribute(int attribute, int tol)
+        private int GetReducedAttribute(int attribute, int tol)
         {
             Random rand = new Random();
 

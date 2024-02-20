@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DB_EDITOR
@@ -13,7 +11,7 @@ namespace DB_EDITOR
     {
 
         //Medical Redshirt - If player's INJL = 254, they are out of season. Let's give them a medical year!
-        private void medicalRedshirt()
+        private void MedicalRedshirt()
         {
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
@@ -43,14 +41,14 @@ namespace DB_EDITOR
                                 {
                                     //changes redshirt status to "1" (active redshirt)
                                     TDB.NewfieldValue(dbIndex, "PLAY", "PRSD", j, "1");
-                                    string team = getTeamName(Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PGID", j)) / 70);
+                                    string team = GetTeamName(Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PGID", j)) / 70);
 
                                     if (checkBoxInjuryRatings.Checked)
                                     {
-                                        reduceSkills(i, (int)skillDrop.Value);
+                                        ReduceSkills(i, (int)skillDrop.Value);
                                     }
 
-                                    names += "\n * " + convertFN_IntToString(j) + " " + convertLN_IntToString(j) + " (" + team + ")";
+                                    names += "\n * " + ConvertFN_IntToString(j) + " " + ConvertLN_IntToString(j) + " (" + team + ")";
                                 }
                             }
                             else
@@ -59,14 +57,14 @@ namespace DB_EDITOR
                                 {
                                     //changes redshirt status to "1" (active redshirt)
                                     TDB.NewfieldValue(dbIndex, "PLAY", "PRSD", j, "1");
-                                    string team = getTeamName(Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PGID", j)) / 70);
+                                    string team = GetTeamName(Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PGID", j)) / 70);
 
                                     if (checkBoxInjuryRatings.Checked)
                                     {
-                                        reduceSkills(i, (int)skillDrop.Value);
+                                        ReduceSkills(i, (int)skillDrop.Value);
                                     }
 
-                                    names += "\n * " + convertFN_IntToString(j) + " " + convertLN_IntToString(j) + " (" + team + ")";
+                                    names += "\n * " + ConvertFN_IntToString(j) + " " + ConvertLN_IntToString(j) + " (" + team + ")";
                                 }
                             }
 
@@ -83,28 +81,28 @@ namespace DB_EDITOR
             MessageBox.Show("The NCAA has approved the following Medical Redshirts:\n\r" + names);
         }
 
-        private void reduceSkills(int i, int maxDrop)
+        private void ReduceSkills(int i, int maxDrop)
         {
             int PPOE, PINJ, PSTA, PACC, PSPD, PAGI, PJMP, PSTR;
             int tol = maxDrop;
 
-            PPOE = convertRating(Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PPOE", i)));
-            PINJ = convertRating(Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PINJ", i)));
-            PSTA = convertRating(Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PSTA", i)));
-            PACC = convertRating(Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PACC", i)));
-            PSPD = convertRating(Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PSPD", i)));
-            PAGI = convertRating(Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PAGI", i)));
-            PJMP = convertRating(Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PJMP", i)));
-            PSTR = convertRating(Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PSTR", i)));
+            PPOE = ConvertRating(Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PPOE", i)));
+            PINJ = ConvertRating(Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PINJ", i)));
+            PSTA = ConvertRating(Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PSTA", i)));
+            PACC = ConvertRating(Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PACC", i)));
+            PSPD = ConvertRating(Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PSPD", i)));
+            PAGI = ConvertRating(Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PAGI", i)));
+            PJMP = ConvertRating(Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PJMP", i)));
+            PSTR = ConvertRating(Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PSTR", i)));
 
-            PPOE = revertRating(getReducedAttribute(PPOE, tol));
-            PINJ = revertRating(getReducedAttribute(PINJ, tol));
-            PSTA = revertRating(getReducedAttribute(PSTA, tol));
-            PACC = revertRating(getReducedAttribute(PACC, tol));
-            PSPD = revertRating(getReducedAttribute(PSPD, tol));
-            PAGI = revertRating(getReducedAttribute(PAGI, tol));
-            PJMP = revertRating(getReducedAttribute(PJMP, tol));
-            PSTR = revertRating(getReducedAttribute(PSTR, tol));
+            PPOE = RevertRating(GetReducedAttribute(PPOE, tol));
+            PINJ = RevertRating(GetReducedAttribute(PINJ, tol));
+            PSTA = RevertRating(GetReducedAttribute(PSTA, tol));
+            PACC = RevertRating(GetReducedAttribute(PACC, tol));
+            PSPD = RevertRating(GetReducedAttribute(PSPD, tol));
+            PAGI = RevertRating(GetReducedAttribute(PAGI, tol));
+            PJMP = RevertRating(GetReducedAttribute(PJMP, tol));
+            PSTR = RevertRating(GetReducedAttribute(PSTR, tol));
 
             TDB.NewfieldValue(dbIndex, "PLAY", "PPOE", i, Convert.ToString(PPOE));
             TDB.NewfieldValue(dbIndex, "PLAY", "PINJ", i, Convert.ToString(PINJ));
@@ -120,7 +118,7 @@ namespace DB_EDITOR
         /* 
         Use current TEAM's TMPR and COCH's CTOP to make CPRE updated, then update CTOP to match previous TMPR
         */
-        private void coachPrestigeProgression()
+        private void CoachPrestigeProgression()
         {
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
@@ -139,7 +137,7 @@ namespace DB_EDITOR
 
                     if (CLTF > 6) CLTF = CTOP;
 
-                    newPrestige += findTeamPrestige(Convert.ToInt32(TGID)) - CLTF;
+                    newPrestige += FindTeamPrestige(Convert.ToInt32(TGID)) - CLTF;
 
                     if (newPrestige > 6) newPrestige = 6;
                     if (newPrestige < 1) newPrestige = 1;
@@ -147,14 +145,14 @@ namespace DB_EDITOR
 
                     if (newPrestige > oldPrestige)
                     {
-                        coach += "\n* " + getTeamName(Convert.ToInt32(TDB.FieldValue(dbIndex, "COCH", "TGID", i))) + ": " + TDB.FieldValue(dbIndex, "COCH", "CLFN", i) + " " + TDB.FieldValue(dbIndex, "COCH", "CLLN", i) + " (+" + (newPrestige - oldPrestige) + ")";
+                        coach += "\n* " + GetTeamName(Convert.ToInt32(TDB.FieldValue(dbIndex, "COCH", "TGID", i))) + ": " + TDB.FieldValue(dbIndex, "COCH", "CLFN", i) + " " + TDB.FieldValue(dbIndex, "COCH", "CLLN", i) + " (+" + (newPrestige - oldPrestige) + ")";
                     }
                     else if (newPrestige < oldPrestige)
                     {
-                        coach += "\n* " + getTeamName(Convert.ToInt32(TDB.FieldValue(dbIndex, "COCH", "TGID", i))) + ": " + TDB.FieldValue(dbIndex, "COCH", "CLFN", i) + " " + TDB.FieldValue(dbIndex, "COCH", "CLLN", i) + " (" + (newPrestige - oldPrestige) + ")";
+                        coach += "\n* " + GetTeamName(Convert.ToInt32(TDB.FieldValue(dbIndex, "COCH", "TGID", i))) + ": " + TDB.FieldValue(dbIndex, "COCH", "CLFN", i) + " " + TDB.FieldValue(dbIndex, "COCH", "CLLN", i) + " (" + (newPrestige - oldPrestige) + ")";
                     }
                     TDB.NewfieldValue(dbIndex, "COCH", "CPRE", i, Convert.ToString(newPrestige));
-                    TDB.NewfieldValue(dbIndex, "COCH", "CLTF", i, Convert.ToString(findTeamPrestige(Convert.ToInt32(TGID))));
+                    TDB.NewfieldValue(dbIndex, "COCH", "CLTF", i, Convert.ToString(FindTeamPrestige(Convert.ToInt32(TGID))));
 
 
 
@@ -172,10 +170,11 @@ namespace DB_EDITOR
             progressBar1.Value = 0;
 
             MessageBox.Show("Coach Prestige Changes:\n\n" + coach);
+            coachProgComplete = true;
         }
 
         //Fixes Body Size Models if user does manipulation of the player attributes in the in-game player editor
-        private void recalculateBMI(string tableName)
+        private void RecalculateBMI(string tableName)
         {
             string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             string csvLocation = Path.Combine(executableLocation, @"resources\BMI-Calc.csv");
@@ -230,7 +229,7 @@ namespace DB_EDITOR
         }
 
         //Increases minium speed for skill positions to 80
-        private void increaseMinimumSpeed()
+        private void IncreaseMinimumSpeed()
         {
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
@@ -256,7 +255,7 @@ namespace DB_EDITOR
         }
 
         //Recalculates QB Tendencies based on original game criteria
-        private void recalculateQBTendencies()
+        private void RecalculateQBTendencies()
         {
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
@@ -273,11 +272,11 @@ namespace DB_EDITOR
                 if (TDB.FieldValue(dbIndex, "PLAY", "PPOS", i) == "0")
                 {
                     int tendies;
-                    int speed = convertRating(Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PSPD", i)));
-                    int acceleration = convertRating(Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PACC", i)));
-                    int agility = convertRating(Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PAGI", i)));
-                    int ThPow = convertRating(Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PTHP", i)));
-                    int ThAcc = convertRating(Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PTHA", i)));
+                    int speed = ConvertRating(Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PSPD", i)));
+                    int acceleration = ConvertRating(Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PACC", i)));
+                    int agility = ConvertRating(Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PAGI", i)));
+                    int ThPow = ConvertRating(Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PTHP", i)));
+                    int ThAcc = ConvertRating(Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PTHA", i)));
 
 
                     tendies = (100 + 10 * speed + acceleration + agility - 3 * ThPow - 5 * ThAcc) / 20;
@@ -301,7 +300,7 @@ namespace DB_EDITOR
         }
 
         //Randomizes the Coaching Budgets - Must be done prior to 1st Off-Season Task
-        private void randomizeBudgets()
+        private void RandomizeBudgets()
         {
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
@@ -335,9 +334,8 @@ namespace DB_EDITOR
             MessageBox.Show("Team Budgets Changed!");
         }
 
-
         //Randomize Player Potential
-        private void randomizePotential()
+        private void RandomizePotential()
         {
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
@@ -359,8 +357,13 @@ namespace DB_EDITOR
         }
 
         //Coaching Carousel Mod
-        private void coachCarousel()
+        private void CoachCarousel()
         {
+            if (!coachProgComplete)
+            {
+                MessageBox.Show("Please run Coaching Progressions first before running this module.");
+                return;
+            }
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
             progressBar1.Maximum = TDB.TableRecordCount(dbIndex, "COCH");
@@ -396,13 +399,18 @@ namespace DB_EDITOR
 
                         string coachFN = TDB.FieldValue(dbIndex, "COCH", "CLFN", i);
                         string coachLN = TDB.FieldValue(dbIndex, "COCH", "CLLN", i);
-                        string teamID = getTeamName(Convert.ToInt32(TDB.FieldValue(dbIndex, "COCH", "TGID", i)));
+                        string teamID = GetTeamName(Convert.ToInt32(TDB.FieldValue(dbIndex, "COCH", "TGID", i)));
+
+
+                        if(checkBoxFiredTransfers.Checked)  CoachTransferPortal(Convert.ToInt32(TDB.FieldValue(dbIndex, "COCH", "TGID", i)), false);
+
 
                         news2 += "Fired: " + coachFN + " " + coachLN + " (" + teamID + ")\n\n";
 
                         TDB.NewfieldValue(dbIndex, "COCH", "TGID", i, "511");
                         TDB.NewfieldValue(dbIndex, "COCH", "CLTF", i, "511");
                         TDB.NewfieldValue(dbIndex, "COCH", "CCPO", i, "60");
+
                     }
                     //ADD COACHES TO CANDIDATE LIST
                     else if (CCPO > 99 && CTOP < CLTF && TDB.FieldValue(dbIndex, "COCH", "CFUC", i) != "1")
@@ -411,7 +419,7 @@ namespace DB_EDITOR
 
                         string coachFN = TDB.FieldValue(dbIndex, "COCH", "CLFN", i);
                         string coachLN = TDB.FieldValue(dbIndex, "COCH", "CLLN", i);
-                        string teamID = getTeamName(Convert.ToInt32(TDB.FieldValue(dbIndex, "COCH", "TGID", i)));
+                        string teamID = GetTeamName(Convert.ToInt32(TDB.FieldValue(dbIndex, "COCH", "TGID", i)));
                     }
                 }
                 progressBar1.PerformStep();
@@ -427,7 +435,7 @@ namespace DB_EDITOR
             while (TGID_VacancyList.Count > 0)
             {
                 int TGID = Convert.ToInt32(TGID_VacancyList[0]);
-                int TMPR = findTeamPrestige(TGID);
+                int TMPR = FindTeamPrestige(TGID);
                 bool hired = false;
                 int downgrade = 0;
 
@@ -438,7 +446,7 @@ namespace DB_EDITOR
                         int r = rand.Next(CCID_FAList.Count);
                         int CCID = Convert.ToInt32(CCID_FAList[r]);
 
-                        int x = findRecNumberCCID(CCID);
+                        int x = FindRecNumberCCID(CCID);
                         if (x == -1) MessageBox.Show("ERROR");
 
                         int CPRS = Convert.ToInt32(TDB.FieldValue(dbIndex, "COCH", "CPRS", x));
@@ -451,7 +459,7 @@ namespace DB_EDITOR
 
                             string coachFN = TDB.FieldValue(dbIndex, "COCH", "CLFN", x);
                             string coachLN = TDB.FieldValue(dbIndex, "COCH", "CLLN", x);
-                            string teamID = getTeamName(Convert.ToInt32(TDB.FieldValue(dbIndex, "COCH", "TGID", x)));
+                            string teamID = GetTeamName(Convert.ToInt32(TDB.FieldValue(dbIndex, "COCH", "TGID", x)));
 
                             news += "Hired: " + coachFN + " " + coachLN + " (" + teamID + ")\n\n";
 
@@ -467,12 +475,12 @@ namespace DB_EDITOR
                         int r = rand.Next(CCID_PromoteList.Count);
                         int CCID = Convert.ToInt32(CCID_PromoteList[r]);
 
-                        int x = findRecNumberCCID(CCID);
+                        int x = FindRecNumberCCID(CCID);
                         if (x == -1) MessageBox.Show("ERROR");
 
 
                         string currentTGID = TDB.FieldValue(dbIndex, "COCH", "TGID", x);
-                        int currentTMPR = findTeamPrestige(Convert.ToInt32(currentTGID));
+                        int currentTMPR = FindTeamPrestige(Convert.ToInt32(currentTGID));
 
                         if (currentTMPR < TMPR)
                         {
@@ -482,9 +490,10 @@ namespace DB_EDITOR
 
                             string coachFN = TDB.FieldValue(dbIndex, "COCH", "CLFN", x);
                             string coachLN = TDB.FieldValue(dbIndex, "COCH", "CLLN", x);
-                            string teamID = getTeamName(Convert.ToInt32(TDB.FieldValue(dbIndex, "COCH", "TGID", x)));
-                            string oldTeamID = getTeamName(Convert.ToInt32(currentTGID));
+                            string teamID = GetTeamName(Convert.ToInt32(TDB.FieldValue(dbIndex, "COCH", "TGID", x)));
+                            string oldTeamID = GetTeamName(Convert.ToInt32(currentTGID));
 
+                            CoachTransferPortal(Convert.ToInt32(currentTGID), true);
 
                             news += "Poached! " + coachFN + " " + coachLN + " (" + teamID + ") from (" + oldTeamID + ")\n\n";
 
@@ -510,20 +519,185 @@ namespace DB_EDITOR
             progressBar1.Value = 0;
         }
 
-
-        //Transfer Portal Chaos Mode -- Must be done at Players Leaving stage
-        private void chaosTransfers()
+        //Opens a Transfer Portal for Coach Firings
+        private void CoachTransferPortal(int teamRec, bool poached)
         {
             /*
-             *  For every G5 school, pick 2 starters
-             *  For every P5 school, pick 1 starter
-             *  Pick a random position, find the highest ranked active starter
+             *  Coach Transfer Portal
+             *  Since this is done before off-season, we need to evaluate whether the player will graduate and if they will go Pro anyway. 
+             *  
              */
+
+            int maxTransfers = 1520;
+            int currentRecCount = TDB.TableRecordCount(dbIndex, "TRAN");
+            string transferNews = "";
+            int xfers = (int)maxFiredTransfers.Value;
+
+            int[,] players = GetTeamPlayersList(teamRec);
+
+            for (int k = 0; k < xfers; k++)
+            {
+                if (currentRecCount >= maxTransfers) break;
+
+                if (rand.Next(1, 100) < 66 && currentRecCount < maxTransfers)
+                {
+                    int xfer = rand.Next(0, 70);
+                    int tgid = teamRec;
+
+                    if (players[xfer, 0] != 0 && GetPTYPfromRecord(players[xfer, 0]) == 0)
+                    {
+                        TransferPlayer(players[xfer, 0], players[xfer, 1]);
+
+                        transferNews += GetPositionName(GetPPOSfromRecord(players[xfer, 3])) + " " + ConvertFN_IntToString(players[xfer, 0]) + " " + ConvertLN_IntToString(players[xfer, 0]) + " (" + GetTeamName(tgid) + ") OVR: " + ConvertRating(players[xfer, 2]) + "\n\n";
+
+                        currentRecCount++;
+                    }
+                }
+            }
+            if (poached)
+            {
+                MessageBox.Show(transferNews, GetTeamName(teamRec) + " Resigns: TRANSFER PORTAL NEWS");
+            }
+            else
+            {
+                MessageBox.Show(transferNews, GetTeamName(teamRec) + " Firing: TRANSFER PORTAL NEWS");
+
+            }
 
         }
 
+        //Transfer Portal Chaos Mode -- Must be done at Players Leaving stage
+        private void ChaosTransfers()
+        {
+            /*
+             *  Use Rankings
+             *  Top 30 : 1 Starter
+             *  31-90 : 2 Starters
+             *  91-120 : 3 Starters
+             *  Pick a random position, find the highest ranked active starter
+             */
+
+            progressBar1.Visible = true;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = TDB.TableRecordCount(dbIndex, "TEAM");
+
+            int maxTransfers = 1520;
+            int currentRecCount = TDB.TableRecordCount(dbIndex, "TRAN");
+            string transferNews = "";
+
+            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "TEAM"); i++)
+            {
+                if (currentRecCount >= maxTransfers) break;
+
+                if (TDB.FieldValue(dbIndex, "TEAM", "TTYP", i) == "0")
+                {
+                    int xfers = 1;
+
+                    if (GetTeamRanking(i) < 30) xfers = 1;
+                    else if (GetTeamRanking(i) < 90) xfers = 2;
+                    else xfers = 3;
+
+
+                    for (int k = 0; k < xfers; k++)
+                    {
+                        if (rand.Next(1, 100) < 33 && currentRecCount < maxTransfers)
+                        {
+                            int xferPos = rand.Next(0, 19);
+                            int tgid = GetTeamTGIDfromRecord(i);
+                            int[,] players = GetPGIDPositionList(tgid, xferPos);
+                            int maxOVR = players[0, 2];
+                            int maxOVRid = 0;
+
+                            if (players[0, 0] != 0)
+                            {
+                                for (int j = 0; j < players.GetLength(0); j++)
+                                {
+                                    if (maxOVR < players[j, 2])
+                                    {
+                                        maxOVR = players[j, 2];
+                                        maxOVRid = j;
+                                    }
+                                }
+
+                                TransferPlayer(players[maxOVRid, 0], players[maxOVRid, 1]);
+
+                                transferNews += ConvertFN_IntToString(players[maxOVRid, 0]) + " " + ConvertLN_IntToString(players[maxOVRid, 0]) + " (" + GetTeamName(tgid) + ") OVR: " + ConvertRating(maxOVR) + "\n\n";
+
+                                currentRecCount++;
+                            }
+
+                        }
+                    }
+
+                }
+                progressBar1.PerformStep();
+            }
+
+
+            MessageBox.Show(transferNews, "TRANSFER PORTAL NEWS");
+
+            progressBar1.Visible = false;
+            progressBar1.Value = 0;
+        }
+
+        //Get a list of Players for the Coaching Portal
+        private int[,] GetTeamPlayersList(int tgid)
+        {
+            int[,] list = new int[70, 4];
+
+            int pgidStart = tgid * 70;
+            int j = 0;
+
+            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "PLAY"); i++)
+            {
+                if (GetPGIDfromRecord(i) >= pgidStart && GetPGIDfromRecord(i) < pgidStart + 70 && GetPTYPfromRecord(i) != 3 && GetPTYPfromRecord(i) != 1 && GetPYERfromRecord(i) < 3 && GetPOVRfromRecord(i) < 25)
+                {
+                    list[j, 0] = i;
+                    list[j, 1] = GetPGIDfromRecord(i);
+                    list[j, 2] = GetPOVRfromRecord(i);
+                    list[j, 3] = GetPPOSfromRecord(i);
+                    j++;
+                }
+            }
+
+            return list;
+        }
+
+        //Get a list of Players by Team at a specific Position for Chaos Transfers
+        private int[,] GetPGIDPositionList(int tgid, int pos)
+        {
+            int[,] list = new int[15, 3];  // record id, pgid, povr
+
+            int pgidStart = tgid * 70;
+            int j = 0;
+
+            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "PLAY"); i++)
+            {
+                if (GetPGIDfromRecord(i) >= pgidStart && GetPGIDfromRecord(i) < pgidStart + 70 && GetPPOSfromRecord(i) == pos && GetPTYPfromRecord(i) != 3 && GetPTYPfromRecord(i) != 1)
+                {
+                    list[j, 0] = i; 
+                    list[j, 1] = GetPGIDfromRecord(i);
+                    list[j, 2] = GetPOVRfromRecord(i);
+                    j++;
+                }
+            }
+
+            return list;
+        }
+
+        //Transfers Players - Updates TRAN table and sets PLAY-PTYP field to 1
+        private void TransferPlayer(int i, int PGID)
+        {
+            int row = TDB.TableRecordCount(dbIndex, "TRAN");
+            TDB.TDBTableRecordAdd(dbIndex, "TRAN", false);
+            TDB.NewfieldValue(dbIndex, "TRAN", "PGID", row, Convert.ToString(PGID));
+            TDB.NewfieldValue(dbIndex, "TRAN", "PTID", row, "300");
+            TDB.NewfieldValue(dbIndex, "TRAN", "TRYR", row, "0");
+            TDB.NewfieldValue(dbIndex, "PLAY", "PTYP", i, "1");
+        }
+
         //Pre-Season Injuries -- randomly give injuries to players in pre-season
-        private void preseasonInjuries()
+        private void PreseasonInjuries()
         {
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
@@ -532,22 +706,22 @@ namespace DB_EDITOR
 
             int inj = 0;
 
-                for (int i = 0; i < TDB.TableRecordCount(dbIndex, "PLAY"); i++)
+            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "PLAY"); i++)
+            {
+                if (rand.Next(0, 8280) < numInjuries.Value && inj < 450)
                 {
-                    if (rand.Next(0, 8280) < numInjuries.Value && inj < 450)
-                    {
-                        int injl = rand.Next(50, 255);
-                        int injt = rand.Next(180, 221);
-                        TDB.TDBTableRecordAdd(dbIndex, "INJY", true);
-                        TDB.NewfieldValue(dbIndex, "INJY", "PGID", inj, TDB.FieldValue(dbIndex, "PLAY", "PGID", i));
-                        TDB.NewfieldValue(dbIndex, "INJY", "INJL", inj, Convert.ToString(injl));
-                        TDB.NewfieldValue(dbIndex, "INJY", "INJT", inj, Convert.ToString(injt));
-                        TDB.NewfieldValue(dbIndex, "INJY", "SEWN", inj, "0");
-                        reduceSkills(i, (int)MaxSkillDropPS.Value);
-                        inj++;
-                    }
-                    progressBar1.PerformStep();
+                    int injl = rand.Next(50, 255);
+                    int injt = rand.Next(180, 221);
+                    TDB.TDBTableRecordAdd(dbIndex, "INJY", true);
+                    TDB.NewfieldValue(dbIndex, "INJY", "PGID", inj, TDB.FieldValue(dbIndex, "PLAY", "PGID", i));
+                    TDB.NewfieldValue(dbIndex, "INJY", "INJL", inj, Convert.ToString(injl));
+                    TDB.NewfieldValue(dbIndex, "INJY", "INJT", inj, Convert.ToString(injt));
+                    TDB.NewfieldValue(dbIndex, "INJY", "SEWN", inj, "0");
+                    ReduceSkills(i, (int)MaxSkillDropPS.Value);
+                    inj++;
                 }
+                progressBar1.PerformStep();
+            }
 
             progressBar1.Visible = false;
             progressBar1.Value = 0;

@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DB_EDITOR
@@ -12,7 +9,7 @@ namespace DB_EDITOR
     {
 
         //Import - Main Menu
-        private void importMain()
+        private void ImportMain()
         {
             Dictionary<string, int> AvailableFields = new Dictionary<string, int>();
             Dictionary<string, int> TableFields = new Dictionary<string, int>();
@@ -245,8 +242,8 @@ namespace DB_EDITOR
 
                         if (TableProps.Name == "PLAY")
                         {
-                            importFN_StringToInt(record[importtmpfieldindex + 1], recnum, "PLAY");
-                            importLN_StringToInt(record[importtmpfieldindex + 2], recnum, "PLAY");
+                            ImportFN_StringToInt(record[importtmpfieldindex + 1], recnum, "PLAY");
+                            ImportLN_StringToInt(record[importtmpfieldindex + 2], recnum, "PLAY");
                         }
 
                         recnum++;
@@ -261,7 +258,7 @@ namespace DB_EDITOR
 
                     DBModified = true;
                     saveMenuItem.Enabled = true;
-                    tablePropsLabel();
+                    GetTableProperties();
                     LoadFields();
 
                 }

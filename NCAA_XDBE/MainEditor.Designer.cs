@@ -114,6 +114,9 @@ namespace DB_EDITOR
             this.PLNAtextBox = new System.Windows.Forms.TextBox();
             this.PFNAtextBox = new System.Windows.Forms.TextBox();
             this.tabTools = new System.Windows.Forms.TabPage();
+            this.buttonChaosTransfers = new System.Windows.Forms.Button();
+            this.labelMaxSkilDrop_PS = new System.Windows.Forms.Label();
+            this.MaxSkillDropPS = new System.Windows.Forms.NumericUpDown();
             this.labelPSInjuries = new System.Windows.Forms.Label();
             this.numInjuries = new System.Windows.Forms.NumericUpDown();
             this.buttonPSInjuries = new System.Windows.Forms.Button();
@@ -154,8 +157,9 @@ namespace DB_EDITOR
             this.buttonRandRecruits = new System.Windows.Forms.Button();
             this.buttonRandWalkOns = new System.Windows.Forms.Button();
             this.buttonMinRecruitingPts = new System.Windows.Forms.Button();
-            this.labelMaxSkilDrop_PS = new System.Windows.Forms.Label();
-            this.MaxSkillDropPS = new System.Windows.Forms.NumericUpDown();
+            this.checkBoxFiredTransfers = new System.Windows.Forms.CheckBox();
+            this.maxFiredTransfers = new System.Windows.Forms.NumericUpDown();
+            this.labelMaxTransfers = new System.Windows.Forms.Label();
             qbTend = new System.Windows.Forms.Button();
             this.mainMenu.SuspendLayout();
             this.tableMenu.SuspendLayout();
@@ -169,6 +173,7 @@ namespace DB_EDITOR
             this.tabTeams.SuspendLayout();
             this.tabPlayers.SuspendLayout();
             this.tabTools.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MaxSkillDropPS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numInjuries)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.poachValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jobSecurityValue)).BeginInit();
@@ -180,7 +185,7 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.minRecPts)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.recruitTolerance)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toleranceWalkOn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MaxSkillDropPS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.maxFiredTransfers)).BeginInit();
             this.SuspendLayout();
             // 
             // qbTend
@@ -194,7 +199,7 @@ namespace DB_EDITOR
             qbTend.TabIndex = 6;
             qbTend.Text = "Calculate QB Tendencies";
             qbTend.UseVisualStyleBackColor = false;
-            qbTend.Click += new System.EventHandler(this.qbTend_Click);
+            qbTend.Click += new System.EventHandler(this.QB_Tend_Click);
             // 
             // mainMenu
             // 
@@ -232,7 +237,7 @@ namespace DB_EDITOR
             this.openMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
             this.openMenuItem.Size = new System.Drawing.Size(148, 22);
             this.openMenuItem.Text = "Open";
-            this.openMenuItem.Click += new System.EventHandler(this.openMenuItem_Click);
+            this.openMenuItem.Click += new System.EventHandler(this.OpenMenuItem_Click);
             // 
             // saveMenuItem
             // 
@@ -241,14 +246,14 @@ namespace DB_EDITOR
             this.saveMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
             this.saveMenuItem.Size = new System.Drawing.Size(148, 22);
             this.saveMenuItem.Text = "Save";
-            this.saveMenuItem.Click += new System.EventHandler(this.saveMenuItem_Click);
+            this.saveMenuItem.Click += new System.EventHandler(this.SaveMenuItem_Click);
             // 
             // saveAsMenuItem
             // 
             this.saveAsMenuItem.Name = "saveAsMenuItem";
             this.saveAsMenuItem.Size = new System.Drawing.Size(148, 22);
             this.saveAsMenuItem.Text = "Save As...";
-            this.saveAsMenuItem.Click += new System.EventHandler(this.saveAsMenuItem_Click);
+            this.saveAsMenuItem.Click += new System.EventHandler(this.SaveAsMenuItem_Click);
             // 
             // closeMenuItem
             // 
@@ -257,7 +262,7 @@ namespace DB_EDITOR
             this.closeMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.W)));
             this.closeMenuItem.Size = new System.Drawing.Size(148, 22);
             this.closeMenuItem.Text = "Close";
-            this.closeMenuItem.Click += new System.EventHandler(this.closeMenuItem_Click);
+            this.closeMenuItem.Click += new System.EventHandler(this.CloseMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
@@ -270,7 +275,7 @@ namespace DB_EDITOR
             this.definitionFileMenuItem.Name = "definitionFileMenuItem";
             this.definitionFileMenuItem.Size = new System.Drawing.Size(148, 22);
             this.definitionFileMenuItem.Text = "Definition File";
-            this.definitionFileMenuItem.Click += new System.EventHandler(this.definitionFileMenuItem_Click);
+            this.definitionFileMenuItem.Click += new System.EventHandler(this.DefinitionFileMenuItem_Click);
             // 
             // toolStripSeparator7
             // 
@@ -284,7 +289,7 @@ namespace DB_EDITOR
             this.exitMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
             this.exitMenuItem.Size = new System.Drawing.Size(148, 22);
             this.exitMenuItem.Text = "Exit";
-            this.exitMenuItem.Click += new System.EventHandler(this.exitToolItem_Click);
+            this.exitMenuItem.Click += new System.EventHandler(this.ExitToolItem_Click);
             // 
             // CSVMenuItem
             // 
@@ -395,14 +400,14 @@ namespace DB_EDITOR
             this.enableOffSeasonMenuItem.Name = "enableOffSeasonMenuItem";
             this.enableOffSeasonMenuItem.Size = new System.Drawing.Size(189, 22);
             this.enableOffSeasonMenuItem.Text = "Enable Off-Season DB";
-            this.enableOffSeasonMenuItem.Click += new System.EventHandler(this.enableOffSeasonDBMenuItem_Click);
+            this.enableOffSeasonMenuItem.Click += new System.EventHandler(this.EnableOffSeasonDBMenuItem_Click);
             // 
             // aboutMenuItem
             // 
             this.aboutMenuItem.Name = "aboutMenuItem";
             this.aboutMenuItem.Size = new System.Drawing.Size(52, 20);
             this.aboutMenuItem.Text = "About";
-            this.aboutMenuItem.Click += new System.EventHandler(this.aboutMenuItem_Click);
+            this.aboutMenuItem.Click += new System.EventHandler(this.AboutMenuItem_Click);
             // 
             // progressBar1
             // 
@@ -646,7 +651,7 @@ namespace DB_EDITOR
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(984, 661);
             this.tabControl1.TabIndex = 4;
-            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_IndexChange);
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.TabControl1_IndexChange);
             // 
             // tabTeams
             // 
@@ -920,6 +925,10 @@ namespace DB_EDITOR
             // tabTools
             // 
             this.tabTools.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.tabTools.Controls.Add(this.labelMaxTransfers);
+            this.tabTools.Controls.Add(this.maxFiredTransfers);
+            this.tabTools.Controls.Add(this.checkBoxFiredTransfers);
+            this.tabTools.Controls.Add(this.buttonChaosTransfers);
             this.tabTools.Controls.Add(this.labelMaxSkilDrop_PS);
             this.tabTools.Controls.Add(this.MaxSkillDropPS);
             this.tabTools.Controls.Add(this.labelPSInjuries);
@@ -949,6 +958,45 @@ namespace DB_EDITOR
             this.tabTools.Size = new System.Drawing.Size(976, 632);
             this.tabTools.TabIndex = 3;
             this.tabTools.Text = "dbTools";
+            // 
+            // buttonChaosTransfers
+            // 
+            this.buttonChaosTransfers.BackColor = System.Drawing.Color.LightGray;
+            this.buttonChaosTransfers.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonChaosTransfers.Location = new System.Drawing.Point(273, 84);
+            this.buttonChaosTransfers.Name = "buttonChaosTransfers";
+            this.buttonChaosTransfers.Size = new System.Drawing.Size(110, 80);
+            this.buttonChaosTransfers.TabIndex = 23;
+            this.buttonChaosTransfers.Text = "Transfer Chaos";
+            this.buttonChaosTransfers.UseVisualStyleBackColor = false;
+            this.buttonChaosTransfers.Visible = false;
+            this.buttonChaosTransfers.Click += new System.EventHandler(this.buttonChaosTransfers_Click);
+            // 
+            // labelMaxSkilDrop_PS
+            // 
+            this.labelMaxSkilDrop_PS.AutoSize = true;
+            this.labelMaxSkilDrop_PS.Location = new System.Drawing.Point(191, 140);
+            this.labelMaxSkilDrop_PS.Name = "labelMaxSkilDrop_PS";
+            this.labelMaxSkilDrop_PS.Size = new System.Drawing.Size(75, 13);
+            this.labelMaxSkilDrop_PS.TabIndex = 22;
+            this.labelMaxSkilDrop_PS.Text = "Max Skill Drop";
+            // 
+            // MaxSkillDropPS
+            // 
+            this.MaxSkillDropPS.Location = new System.Drawing.Point(143, 138);
+            this.MaxSkillDropPS.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.MaxSkillDropPS.Name = "MaxSkillDropPS";
+            this.MaxSkillDropPS.Size = new System.Drawing.Size(44, 20);
+            this.MaxSkillDropPS.TabIndex = 21;
+            this.MaxSkillDropPS.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
             // 
             // labelPSInjuries
             // 
@@ -992,7 +1040,7 @@ namespace DB_EDITOR
             this.buttonPSInjuries.TabIndex = 18;
             this.buttonPSInjuries.Text = "Pre-Season Injuries";
             this.buttonPSInjuries.UseVisualStyleBackColor = false;
-            this.buttonPSInjuries.Click += new System.EventHandler(this.buttonPSInjuries_Click);
+            this.buttonPSInjuries.Click += new System.EventHandler(this.ButtonPSInjuries_Click);
             // 
             // checkBoxMedRSNEXT
             // 
@@ -1063,11 +1111,6 @@ namespace DB_EDITOR
             this.jobSecurityValue.Name = "jobSecurityValue";
             this.jobSecurityValue.Size = new System.Drawing.Size(52, 20);
             this.jobSecurityValue.TabIndex = 13;
-            this.jobSecurityValue.Value = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
             // 
             // buttonCarousel
             // 
@@ -1079,7 +1122,7 @@ namespace DB_EDITOR
             this.buttonCarousel.TabIndex = 12;
             this.buttonCarousel.Text = "Coaching Carousel";
             this.buttonCarousel.UseVisualStyleBackColor = false;
-            this.buttonCarousel.Click += new System.EventHandler(this.buttonCarousel_Click);
+            this.buttonCarousel.Click += new System.EventHandler(this.ButtonCarousel_Click);
             // 
             // labelSkillDrop
             // 
@@ -1128,7 +1171,7 @@ namespace DB_EDITOR
             this.buttonRandPotential.TabIndex = 8;
             this.buttonRandPotential.Text = "Randomize Player Potential";
             this.buttonRandPotential.UseVisualStyleBackColor = false;
-            this.buttonRandPotential.Click += new System.EventHandler(this.buttonRandPotential_Click);
+            this.buttonRandPotential.Click += new System.EventHandler(this.ButtonRandPotential_Click);
             // 
             // buttonRandomBudgets
             // 
@@ -1140,7 +1183,7 @@ namespace DB_EDITOR
             this.buttonRandomBudgets.TabIndex = 7;
             this.buttonRandomBudgets.Text = "Randomize Coaching Budgets";
             this.buttonRandomBudgets.UseVisualStyleBackColor = false;
-            this.buttonRandomBudgets.Click += new System.EventHandler(this.buttonRandomBudgets_Click);
+            this.buttonRandomBudgets.Click += new System.EventHandler(this.ButtonRandomBudgets_Click);
             // 
             // increaseSpeed
             // 
@@ -1153,7 +1196,7 @@ namespace DB_EDITOR
             this.increaseSpeed.TabIndex = 5;
             this.increaseSpeed.Text = "Increase Minimum Skill Position Speed";
             this.increaseSpeed.UseVisualStyleBackColor = false;
-            this.increaseSpeed.Click += new System.EventHandler(this.increaseSpeed_Click);
+            this.increaseSpeed.Click += new System.EventHandler(this.IncreaseSpeed_Click);
             // 
             // bodyFix
             // 
@@ -1165,17 +1208,17 @@ namespace DB_EDITOR
             this.bodyFix.TabIndex = 4;
             this.bodyFix.Text = "Body Size Fixer";
             this.bodyFix.UseVisualStyleBackColor = false;
-            this.bodyFix.Click += new System.EventHandler(this.bodyFix_Click);
+            this.bodyFix.Click += new System.EventHandler(this.BodyFix_Click);
             // 
             // dbToolsInfo
             // 
             this.dbToolsInfo.BackColor = System.Drawing.Color.AntiqueWhite;
             this.dbToolsInfo.Enabled = false;
             this.dbToolsInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dbToolsInfo.Location = new System.Drawing.Point(527, 19);
+            this.dbToolsInfo.Location = new System.Drawing.Point(563, 19);
             this.dbToolsInfo.Multiline = true;
             this.dbToolsInfo.Name = "dbToolsInfo";
-            this.dbToolsInfo.Size = new System.Drawing.Size(430, 579);
+            this.dbToolsInfo.Size = new System.Drawing.Size(407, 589);
             this.dbToolsInfo.TabIndex = 3;
             this.dbToolsInfo.Text = resources.GetString("dbToolsInfo.Text");
             // 
@@ -1202,7 +1245,7 @@ namespace DB_EDITOR
             this.coachProg.TabIndex = 1;
             this.coachProg.Text = "Coach Progression";
             this.coachProg.UseVisualStyleBackColor = false;
-            this.coachProg.Click += new System.EventHandler(this.coachProg_Click);
+            this.coachProg.Click += new System.EventHandler(this.CoachProg_Click);
             // 
             // medRS
             // 
@@ -1215,7 +1258,7 @@ namespace DB_EDITOR
             this.medRS.TabIndex = 0;
             this.medRS.Text = "Medical Redshirt";
             this.medRS.UseVisualStyleBackColor = false;
-            this.medRS.Click += new System.EventHandler(this.medRS_Click);
+            this.medRS.Click += new System.EventHandler(this.MedRS_Click);
             // 
             // tabOffSeason
             // 
@@ -1283,7 +1326,7 @@ namespace DB_EDITOR
             this.polyNames.TabIndex = 17;
             this.polyNames.Text = "Polynesian Last Name Generator";
             this.polyNames.UseVisualStyleBackColor = false;
-            this.polyNames.Click += new System.EventHandler(this.polyNames_Click);
+            this.polyNames.Click += new System.EventHandler(this.PolyNames_Click);
             // 
             // textBoxOffSeason
             // 
@@ -1347,7 +1390,7 @@ namespace DB_EDITOR
             this.buttonInterestedTeams.TabIndex = 12;
             this.buttonInterestedTeams.Text = "Modify Recruiting Interested Teams";
             this.buttonInterestedTeams.UseVisualStyleBackColor = false;
-            this.buttonInterestedTeams.Click += new System.EventHandler(this.buttonInterestedTeams_Click);
+            this.buttonInterestedTeams.Click += new System.EventHandler(this.ButtonInterestedTeams_Click);
             // 
             // label12
             // 
@@ -1489,7 +1532,7 @@ namespace DB_EDITOR
             this.buttonRandRecruits.TabIndex = 3;
             this.buttonRandRecruits.Text = "Randomize Recruits";
             this.buttonRandRecruits.UseVisualStyleBackColor = false;
-            this.buttonRandRecruits.Click += new System.EventHandler(this.buttonRandRecruits_Click);
+            this.buttonRandRecruits.Click += new System.EventHandler(this.ButtonRandRecruits_Click);
             // 
             // buttonRandWalkOns
             // 
@@ -1501,7 +1544,7 @@ namespace DB_EDITOR
             this.buttonRandWalkOns.TabIndex = 2;
             this.buttonRandWalkOns.Text = "Randomize Walk-Ons";
             this.buttonRandWalkOns.UseVisualStyleBackColor = false;
-            this.buttonRandWalkOns.Click += new System.EventHandler(this.buttonRandWalkOns_Click);
+            this.buttonRandWalkOns.Click += new System.EventHandler(this.ButtonRandWalkOns_Click);
             // 
             // buttonMinRecruitingPts
             // 
@@ -1513,33 +1556,38 @@ namespace DB_EDITOR
             this.buttonMinRecruitingPts.TabIndex = 1;
             this.buttonMinRecruitingPts.Text = "Raise Minimum Recruiting Points";
             this.buttonMinRecruitingPts.UseVisualStyleBackColor = false;
-            this.buttonMinRecruitingPts.Click += new System.EventHandler(this.buttonMinRecruitingPts_Click);
+            this.buttonMinRecruitingPts.Click += new System.EventHandler(this.ButtonMinRecruitingPts_Click);
             // 
-            // labelMaxSkilDrop_PS
+            // checkBoxFiredTransfers
             // 
-            this.labelMaxSkilDrop_PS.AutoSize = true;
-            this.labelMaxSkilDrop_PS.Location = new System.Drawing.Point(191, 140);
-            this.labelMaxSkilDrop_PS.Name = "labelMaxSkilDrop_PS";
-            this.labelMaxSkilDrop_PS.Size = new System.Drawing.Size(75, 13);
-            this.labelMaxSkilDrop_PS.TabIndex = 22;
-            this.labelMaxSkilDrop_PS.Text = "Max Skill Drop";
+            this.checkBoxFiredTransfers.AutoSize = true;
+            this.checkBoxFiredTransfers.Location = new System.Drawing.Point(459, 317);
+            this.checkBoxFiredTransfers.Name = "checkBoxFiredTransfers";
+            this.checkBoxFiredTransfers.Size = new System.Drawing.Size(98, 17);
+            this.checkBoxFiredTransfers.TabIndex = 24;
+            this.checkBoxFiredTransfers.Text = "Transfer Chaos";
+            this.checkBoxFiredTransfers.UseVisualStyleBackColor = true;
             // 
-            // MaxSkillDropPS
+            // maxFiredTransfers
             // 
-            this.MaxSkillDropPS.Location = new System.Drawing.Point(143, 138);
-            this.MaxSkillDropPS.Maximum = new decimal(new int[] {
-            10,
+            this.maxFiredTransfers.Location = new System.Drawing.Point(460, 340);
+            this.maxFiredTransfers.Maximum = new decimal(new int[] {
+            15,
             0,
             0,
             0});
-            this.MaxSkillDropPS.Name = "MaxSkillDropPS";
-            this.MaxSkillDropPS.Size = new System.Drawing.Size(44, 20);
-            this.MaxSkillDropPS.TabIndex = 21;
-            this.MaxSkillDropPS.Value = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
+            this.maxFiredTransfers.Name = "maxFiredTransfers";
+            this.maxFiredTransfers.Size = new System.Drawing.Size(52, 20);
+            this.maxFiredTransfers.TabIndex = 25;
+            // 
+            // labelMaxTransfers
+            // 
+            this.labelMaxTransfers.AutoSize = true;
+            this.labelMaxTransfers.Location = new System.Drawing.Point(457, 364);
+            this.labelMaxTransfers.Name = "labelMaxTransfers";
+            this.labelMaxTransfers.Size = new System.Drawing.Size(74, 13);
+            this.labelMaxTransfers.TabIndex = 26;
+            this.labelMaxTransfers.Text = "Max Transfers";
             // 
             // MainEditor
             // 
@@ -1576,6 +1624,7 @@ namespace DB_EDITOR
             this.tabPlayers.PerformLayout();
             this.tabTools.ResumeLayout(false);
             this.tabTools.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MaxSkillDropPS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numInjuries)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.poachValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.jobSecurityValue)).EndInit();
@@ -1588,7 +1637,7 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.minRecPts)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.recruitTolerance)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.toleranceWalkOn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MaxSkillDropPS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.maxFiredTransfers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1596,7 +1645,7 @@ namespace DB_EDITOR
 
         private void MainEditor_FormClosing(object sender, System.Windows.Forms.FormClosingEventArgs e)
         {
-            this.closeMainEditor_Click();
+            this.CloseMainEditor_Click();
             //throw new NotImplementedException();
         }
 
@@ -1723,6 +1772,10 @@ namespace DB_EDITOR
         private System.Windows.Forms.Label labelPSInjuries;
         public System.Windows.Forms.Label labelMaxSkilDrop_PS;
         public System.Windows.Forms.NumericUpDown MaxSkillDropPS;
+        private System.Windows.Forms.Button buttonChaosTransfers;
+        private System.Windows.Forms.CheckBox checkBoxFiredTransfers;
+        public System.Windows.Forms.Label labelMaxTransfers;
+        public System.Windows.Forms.NumericUpDown maxFiredTransfers;
     }
 }
 

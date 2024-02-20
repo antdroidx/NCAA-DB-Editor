@@ -4,7 +4,6 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Text;
 using System.Windows.Forms;
 
@@ -31,6 +30,7 @@ namespace DB_EDITOR
         bool addendum = false;
         bool importRec = false;
         bool DoNotTrigger = false; //team/player editor
+        bool coachProgComplete = false;
 
         bool tabDelimited = false;
 
@@ -91,11 +91,11 @@ namespace DB_EDITOR
         public MainEditor()
         {
             InitializeComponent();
-            defaultSettings();
+            DefaultSettings();
 
         }
 
-        private void defaultSettings()
+        private void DefaultSettings()
         {
             this.Text = "NCAA Next DB Editor";
             dbFile = "";
@@ -153,7 +153,7 @@ namespace DB_EDITOR
 
         #region MAIN MENU ITEMS
         // menuStrip1 -- where the save file loading begins
-        private void openMenuItem_Click(object sender, EventArgs e)
+        private void OpenMenuItem_Click(object sender, EventArgs e)
         {
             //currentDBfile = GetFileName("", "All Files|*.*|Madden|*.ros; *.fra; *.dbt; *.db; *.pbd; *.pbo; *.rpl; *.spg; *.usr|Roster|*.ros|Franchise|*.fra|Teams|*.dbt|Database|*.db|Playbook|*.pbd; *.pbo|Replay|*.rpl|Spawn|*.spg|Users|*.usr|Console|*.mc02");
             dbFile = GetFileName("", "All Files|*.*|");
@@ -193,21 +193,21 @@ namespace DB_EDITOR
 
 
                 tabControl1.Visible = true;
-                openTabs();
+                OpenTabs();
 
                 #endregion
 
-                getTables(dbIndex);
-                loadTables();
+                GetTables(dbIndex);
+                LoadTables();
 
-                getFields(dbIndex, SelectedTableIndex);
+                GetFields(dbIndex, SelectedTableIndex);
                 LoadFields();
 
                 createConsoleData();
             }
         }
 
-        private void enableOffSeasonDBMenuItem_Click(object sender, EventArgs e)
+        private void EnableOffSeasonDBMenuItem_Click(object sender, EventArgs e)
         {
             if (enableOffSeasonMenuItem.Checked)
             {
@@ -223,7 +223,7 @@ namespace DB_EDITOR
 
 
         //SAVE FILE
-        private void saveMenuItem_Click(object sender, EventArgs e)
+        private void SaveMenuItem_Click(object sender, EventArgs e)
         {
             if (SaveDB(dbIndex))
             {
@@ -299,7 +299,7 @@ namespace DB_EDITOR
                 DBModified = false;
             }
         }
-        private void saveAsMenuItem_Click(object sender, EventArgs e)
+        private void SaveAsMenuItem_Click(object sender, EventArgs e)
         {
             openMenuItem.Enabled = false;
             saveMenuItem.Enabled = false;
@@ -307,7 +307,7 @@ namespace DB_EDITOR
             closeMenuItem.Enabled = true;
 
         }
-        private void closeMenuItem_Click(object sender, EventArgs e)
+        private void CloseMenuItem_Click(object sender, EventArgs e)
         {
             if (DBModified)
             {
@@ -329,12 +329,12 @@ namespace DB_EDITOR
 
             if (CloseDB(dbIndex))
             {
-                defaultSettings();
+                DefaultSettings();
             }
 
 
         }
-        private void definitionFileMenuItem_Click(object sender, EventArgs e)
+        private void DefinitionFileMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog2 = new OpenFileDialog();
             Stream myStream = null;
@@ -388,14 +388,14 @@ namespace DB_EDITOR
 
             MessageBox.Show(deflist.Count + " definitions loaded.", "Definition File");
 
-            sortTables();
-            loadTables();
+            SortTables();
+            LoadTables();
 
-            sortFields();
+            SortFields();
             LoadFields();
 
         }
-        private void exitToolItem_Click(object sender, EventArgs e)
+        private void ExitToolItem_Click(object sender, EventArgs e)
         {
             if (DBModified)
             {
@@ -418,12 +418,12 @@ namespace DB_EDITOR
             Close();
         }
 
-        private void closeMainEditor_Click()
+        private void CloseMainEditor_Click()
         {
             closeMenuItem.PerformClick();
         }
 
-        private void aboutMenuItem_Click(object sender, EventArgs e)
+        private void AboutMenuItem_Click(object sender, EventArgs e)
         {
             AboutBox1 AboutBox = new AboutBox1();
             AboutBox.ShowDialog();
@@ -435,11 +435,11 @@ namespace DB_EDITOR
         //mainMenuStrip
         private void exportMenuItem_Click(object sender, EventArgs e)
         {
-            exportMain();
+            ExportMain();
         }
         private void importMenuItem_Click(object sender, EventArgs e)
         {
-            importMain();
+            ImportMain();
         }
         private void exportAllMenuItem_Click(object sender, EventArgs e)
         {
@@ -483,7 +483,7 @@ namespace DB_EDITOR
         //fieldMenuStrip
         private void exportRecordsMenuItem_Click(object sender, EventArgs e)
         {
-            exportField();
+            ExportField();
         }
         private void importRecordsMenuItem_Click(object sender, EventArgs e)
         {
@@ -497,7 +497,7 @@ namespace DB_EDITOR
         private void addendumMenuItem_Click(object sender, EventArgs e)
         {
             addendum = true;
-            importMain();
+            ImportMain();
             addendum = false;
         }
         //
@@ -558,7 +558,7 @@ namespace DB_EDITOR
 
                 }
 
-                tablePropsLabel();
+                GetTableProperties();
                 DBModified = true;
                 // saveToolStripMenuItem.Enabled = true;
                 LoadFields();
@@ -585,7 +585,7 @@ namespace DB_EDITOR
 
                 DBModified = true;
                 saveMenuItem.Enabled = true;
-                tablePropsLabel();
+                GetTableProperties();
                 LoadFields();
             }
         }
@@ -610,7 +610,7 @@ namespace DB_EDITOR
                 DBModified = true;
                 saveMenuItem.Enabled = true;
                 TDB.TDBDatabaseCompact(dbIndex);
-                tablePropsLabel();
+                GetTableProperties();
                 LoadFields();
             }
         }
@@ -641,10 +641,10 @@ namespace DB_EDITOR
             descendingFieldOrderMenuItem.Checked = false;
             customOrderMenuItem.Checked = false;
 
-            getTables(dbIndex);
-            loadTables();
+            GetTables(dbIndex);
+            LoadTables();
 
-            getFields(dbIndex, SelectedTableIndex);
+            GetFields(dbIndex, SelectedTableIndex);
             LoadFields();
         }
         private void ascendingMenuItem_Click(object sender, EventArgs e)
@@ -655,11 +655,11 @@ namespace DB_EDITOR
             customOrderMenuItem.Checked = false;
 
             //getTABLES(currentDBfileIndex);
-            sortTables();
-            loadTables();
+            SortTables();
+            LoadTables();
 
             //getFIELDS(currentDBfileIndex, SelectedTableIndex);
-            sortFields();
+            SortFields();
             LoadFields();
         }
         private void descendingMenuItem_Click(object sender, EventArgs e)
@@ -670,11 +670,11 @@ namespace DB_EDITOR
             customOrderMenuItem.Checked = false;
 
             //getTABLES(currentDBfileIndex);
-            sortTables();
-            loadTables();
+            SortTables();
+            LoadTables();
 
             //getFIELDS(currentDBfileIndex, SelectedTableIndex);
-            sortFields();
+            SortFields();
             LoadFields();
         }
         private void customMenuItem_Click(object sender, EventArgs e)
@@ -981,7 +981,7 @@ namespace DB_EDITOR
 
         #region TDB DATA ACTIONS
 
-        private void getTables(int dbFILEindex)
+        private void GetTables(int dbFILEindex)
         {
             TableNames.Clear();
 
@@ -1016,10 +1016,10 @@ namespace DB_EDITOR
 
             }
             progressBar1.Value = 0;
-            sortTables();
+            SortTables();
 
         }
-        private void sortTables()
+        private void SortTables()
         {
             Dictionary<int, string> tmpTABLEnames = new Dictionary<int, string>();
 
@@ -1044,7 +1044,7 @@ namespace DB_EDITOR
             foreach (KeyValuePair<int, string> sortAZ in tmpTABLEnames)
                 TableNames.Add(sortAZ.Key, sortAZ.Value);
         }
-        private void loadTables()
+        private void LoadTables()
         {
 
             tableGridView.EnableHeadersVisualStyles = false;
@@ -1057,8 +1057,8 @@ namespace DB_EDITOR
             tableGridView.Columns[1].Name = "Name";
             tableGridView.Columns[1].Width = 47;
 
-            setPositions();
-            createRatingsDB();
+            SetPositions();
+            CreateRatingsDB();
 
             int tmpi = 0;
             foreach (KeyValuePair<int, string> TABLE in TableNames)
@@ -1070,7 +1070,7 @@ namespace DB_EDITOR
 
                 if (TABLE.Value == "TEAM")
                 {
-                    createTeamDB();
+                    CreateTeamDB();
 
                     //BOOKMARK TAB PAGES ON/OFF
 
@@ -1081,7 +1081,7 @@ namespace DB_EDITOR
                     //tabControl1.TabPages.Add(tabPlayers);
                 }
 
-                string tmpDef = fieldDEF(TABLE.Value);
+                string tmpDef = FieldDEF(TABLE.Value);
 
                 tableGridView.Rows.Add(DataGrid);
 
@@ -1125,15 +1125,15 @@ namespace DB_EDITOR
             exportToolItem.Text = exportTableMenuItem.Text;
             importMenuItem.Text = importTableMenuItem.Text;
 
-            tablePropsLabel();
+            GetTableProperties();
 
             // MessageBox.Show(SelectedTableName);
-            getFields(dbIndex, SelectedTableIndex);
+            GetFields(dbIndex, SelectedTableIndex);
             LoadFields();
 
 
         }
-        private void tablePropsLabel()
+        private void GetTableProperties()
         {
             TdbTableProperties TableProps = new TdbTableProperties();
             TableProps.Name = new string((char)0, 5);
@@ -1146,17 +1146,17 @@ namespace DB_EDITOR
 
         }
 
-        private void getFields(int dbFILEindex, int tmpTABLEindex)
+        private void GetFields(int dbFILEindex, int tmpTABLEindex)
         {
             if (TDB.TableIndex(dbFILEindex, "PNLU") != -1)
             {
                 //Creates a Name Conversion table from the Dynasty DB PNLU table
-                cloneNameConversionTable(dbFILEindex, "PNLU", "PNNU");
+                CloneNameConversionTable(dbFILEindex, "PNLU", "PNNU");
             }
             else
             {
                 //Creates a hard-coded Conversion Table
-                createNameConversionTable();
+                CreateNameConversionTable();
             }
 
             FieldNames.Clear();
@@ -1178,7 +1178,7 @@ namespace DB_EDITOR
                 TdbFieldProperties FieldProps = new TdbFieldProperties();
                 FieldProps.Name = new string((char)0, 5);
 
-                TDB.TDBFieldGetProperties(dbFILEindex, getTableName(dbFILEindex, tmpTABLEindex), i, ref FieldProps);
+                TDB.TDBFieldGetProperties(dbFILEindex, GetTableName(dbFILEindex, tmpTABLEindex), i, ref FieldProps);
 
                 string tmpFIELDname = FieldProps.Name;
                 if (BigEndian)
@@ -1206,9 +1206,9 @@ namespace DB_EDITOR
                     FieldNames.Add(FieldNames.Count, "College");
             }
 
-            sortFields();
+            SortFields();
         }
-        private void sortFields()
+        private void SortFields()
         {
             Dictionary<int, string> tmpFIELDnames = new Dictionary<int, string>();
 
@@ -1258,7 +1258,7 @@ namespace DB_EDITOR
                 fieldsGridView.Columns[tmpi + 1].Width = 47;
                 fieldsGridView.Columns[tmpi + 1].Name = sortAZ.Value;
 
-                string tmpDef = fieldDEF(sortAZ.Value);
+                string tmpDef = FieldDEF(sortAZ.Value);
 
                 fieldsGridView.Columns[tmpi + 1].ToolTipText = tmpDef;
 
@@ -1310,12 +1310,12 @@ namespace DB_EDITOR
                     if (TDB.FieldIndex(dbIndex, SelectedTableName, "First Name") == -1)
                     {
                         fieldsGridView.Columns[fCount - fCount_First].Width = 86;
-                        DataGridRow[fCount - fCount_First] = convertFN_IntToString(r);
+                        DataGridRow[fCount - fCount_First] = ConvertFN_IntToString(r);
                     }
                     if (TDB.FieldIndex(dbIndex, SelectedTableName, "Last Name") == -1)
                     {
                         fieldsGridView.Columns[fCount - fCount_Last].Width = 86;
-                        DataGridRow[fCount - fCount_Last] = convertLN_IntToString(r);
+                        DataGridRow[fCount - fCount_Last] = ConvertLN_IntToString(r);
                         fieldsGridView.Columns[fCount - fCount_Team].Width = 86;
                         fieldsGridView.Columns[fCount - fCount_Pos].Width = 86;
                     }
@@ -1377,14 +1377,14 @@ namespace DB_EDITOR
 
                         DataGridRow[tmpf + 1] = intval;
 
-                        if (FieldProps.Name == "PGID" && teamNameDB.Length > 0)
+                        if (FieldProps.Name == "PGID" && teamNameDB.Length > 0 && TableProps.Name == "PLAY")
                         {
-                            DataGridRow[fCount - fCount_Team] = getTeamName((int)intval / 70);
+                            DataGridRow[fCount - fCount_Team] = GetTeamName((int)intval / 70);
                         }
-                        else if (FieldProps.Name == "PPOS")
+                        else if (FieldProps.Name == "PPOS" && TableProps.Name == "PLAY")
                         {
                             pos = (UInt32)TDB.TDBFieldGetValueAsInteger(dbIndex, "PLAY", "PPOS", r);
-                            DataGridRow[fCount - fCount_Pos] = getPlayerPosition((int)pos);
+                            DataGridRow[fCount - fCount_Pos] = GetPositionName((int)pos);
                         }
                     }
                     else if (FieldProps.FieldType == TdbFieldType.tdbInt || FieldProps.FieldType == TdbFieldType.tdbSInt)
@@ -1478,7 +1478,7 @@ namespace DB_EDITOR
             FieldsPropsLabel.Text = "Field: " + fieldProps.Name.ToString() +
                                  "    Bits: " + fieldProps.Size.ToString() +
                                  "    Type: " + fieldProps.FieldType.ToString() +
-                                 "  MaxVal: " + bitMax(fieldProps.Size);
+                                 "  MaxVal: " + BitMax(fieldProps.Size);
 
         }
         private void FieldGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -1532,7 +1532,7 @@ namespace DB_EDITOR
                     string tmpPFNA = fieldsGridView.Rows[rownum].Cells[colnum].Value.ToString();
 
 
-                    importFN_StringToInt(tmpPFNA, tmpcol, "PLAY"); //converts name to digits
+                    ImportFN_StringToInt(tmpPFNA, tmpcol, "PLAY"); //converts name to digits
                     return;
                 }
 
@@ -1540,7 +1540,7 @@ namespace DB_EDITOR
                 {
                     string tmpPLNA = fieldsGridView.Rows[rownum].Cells[colnum].Value.ToString();
 
-                    importLN_StringToInt(tmpPLNA, tmpcol, "PLAY"); //converts name to digits
+                    ImportLN_StringToInt(tmpPLNA, tmpcol, "PLAY"); //converts name to digits
                     return;
                 }
 
@@ -1631,7 +1631,7 @@ namespace DB_EDITOR
 
         }
 
-        private string fieldDEF(string fieldname)
+        private string FieldDEF(string fieldname)
         {
             // MessageBox.Show(fieldname + " " + deflist.Count);
 
@@ -1658,7 +1658,7 @@ namespace DB_EDITOR
 
             return fieldname;
         }
-        private string bitMax(int bitsize)
+        private string BitMax(int bitsize)
         {
             int temp = (int)Math.Pow(2, bitsize) - 1;
             return temp.ToString();
@@ -1710,7 +1710,7 @@ namespace DB_EDITOR
                 return false;
             }
         }
-        private int getFieldIndex(string tmpFName)
+        private int GetFieldIndex(string tmpFName)
         {
             int tmpIndex = 0;
 
@@ -1735,7 +1735,7 @@ namespace DB_EDITOR
             // MessageBox.Show(tmpIndex + " ", tmpFName + " - " + FieldProps.Name);
             return tmpIndex;
         }
-        private string getTableName(int dbFILEindex, int tmpTABLEindex)
+        private string GetTableName(int dbFILEindex, int tmpTABLEindex)
         {
             // TdbTableProperties class
             TdbTableProperties TableProps = new TdbTableProperties();
@@ -1763,7 +1763,7 @@ namespace DB_EDITOR
             // MessageBox.Show(tmpTABLEname + "  index: " + tmpTABLEindex);
             return tmpTABLEname;
         }
-        private int getTableIndex(int dbFILEindex, string tmpTABLEname)
+        private int GetTableIndex(int dbFILEindex, string tmpTABLEname)
         {
             // TdbTableProperties class
             TdbTableProperties TableProps = new TdbTableProperties();
@@ -1801,19 +1801,19 @@ namespace DB_EDITOR
 
 
         #region TAB CONTROLS
-        private void tabControl1_IndexChange(object sender, EventArgs e)
+        private void TabControl1_IndexChange(object sender, EventArgs e)
         {
 
-            if (tabControl1.SelectedTab == tabDB) tabDB_Start();
-            else tabTools_Start();
+            if (tabControl1.SelectedTab == tabDB) TabDB_Start();
+            else TabTools_Start();
 
         }
-        private void openTabs()
+        private void OpenTabs()
         {
             if (activeDB == 1) tabControl1.TabPages.Add(tabTools);
             if (activeDB == 2) tabControl1.TabPages.Add(tabOffSeason);
         }
-        private void tabTools_Start()
+        private void TabTools_Start()
         {
             progressBar1.Visible = false;
             progressBar1.Value = 0;
@@ -1821,7 +1821,7 @@ namespace DB_EDITOR
             FieldsPropsgroupBox.Visible = false;
         }
 
-        private void tabDB_Start()
+        private void TabDB_Start()
         {
             progressBar1.Visible = true;
             progressBar1.Value = 0;
@@ -1835,61 +1835,61 @@ namespace DB_EDITOR
         #region MAIN DB TOOLS CLICKS
 
         //Pre-Season Injury Distributor
-        private void buttonPSInjuries_Click(object sender, EventArgs e)
+        private void ButtonPSInjuries_Click(object sender, EventArgs e)
         {
-            preseasonInjuries();
+            PreseasonInjuries();
         }
 
         //Medical Redshirt - If player's INJL = 254, they are out of season. Let's give them a medical year!
-        private void medRS_Click(object sender, EventArgs e)
+        private void MedRS_Click(object sender, EventArgs e)
         {
-            medicalRedshirt();
+            MedicalRedshirt();
         }
 
         //Coaching Progression -- useful for "Contracts Off" dynasty setting where coaching progression is disabled
         /* 
         Use current TEAM's TMPR and COCH's CTOP to make CPRE updated, then update CTOP to match previous TMPR
         */
-        private void coachProg_Click(object sender, EventArgs e)
+        private void CoachProg_Click(object sender, EventArgs e)
         {
-            coachPrestigeProgression();
+            CoachPrestigeProgression();
         }
 
         //Fixes Body Size Models if user does manipulation of the player attributes in the in-game player editor
-        private void bodyFix_Click(object sender, EventArgs e)
+        private void BodyFix_Click(object sender, EventArgs e)
         {
-            recalculateBMI("PLAY");
+            RecalculateBMI("PLAY");
         }
 
         //Increases minium speed for skill positions to 80
-        private void increaseSpeed_Click(object sender, EventArgs e)
+        private void IncreaseSpeed_Click(object sender, EventArgs e)
         {
-            increaseMinimumSpeed();
+            IncreaseMinimumSpeed();
         }
 
         //Recalculates QB Tendencies based on original game criteria
-        private void qbTend_Click(object sender, EventArgs e)
+        private void QB_Tend_Click(object sender, EventArgs e)
         {
-            recalculateQBTendencies();
+            RecalculateQBTendencies();
         }
 
         //Randomizes the Coaching Budgets - Must be done prior to 1st Off-Season Task
 
-        private void buttonRandomBudgets_Click(object sender, EventArgs e)
+        private void ButtonRandomBudgets_Click(object sender, EventArgs e)
         {
-            randomizeBudgets();
+            RandomizeBudgets();
         }
 
         //Randomize Player Potential
-        private void buttonRandPotential_Click(object sender, EventArgs e)
+        private void ButtonRandPotential_Click(object sender, EventArgs e)
         {
-            randomizePotential();
+            RandomizePotential();
         }
 
         //Coaching Carousel -- Must be done at end of Season
-        private void buttonCarousel_Click(object sender, EventArgs e)
+        private void ButtonCarousel_Click(object sender, EventArgs e)
         {
-            coachCarousel();
+            CoachCarousel();
         }
 
         #endregion
@@ -1899,14 +1899,14 @@ namespace DB_EDITOR
 
 
         //Raise minimum recruiting point allocation and off-season TPRA values -- Must be done at start of Recruiting
-        private void buttonMinRecruitingPts_Click(object sender, EventArgs e)
+        private void ButtonMinRecruitingPts_Click(object sender, EventArgs e)
         {
             bool correctWeek = false;
             for (int i = 0; i < TDB.TableRecordCount(dbIndex, "RCYR"); i++)
             {
                 if (Convert.ToInt32(TDB.FieldValue(dbIndex, "RCYR", "SEWN", i)) >= 1)
                 {
-                    raiseMinimumRecruitingPoints();
+                    RaiseMinimumRecruitingPoints();
                     correctWeek = true;
                 }
             }
@@ -1917,14 +1917,14 @@ namespace DB_EDITOR
         }
 
         //Randomize or Remove Recruiting Interested Teams
-        private void buttonInterestedTeams_Click(object sender, EventArgs e)
+        private void ButtonInterestedTeams_Click(object sender, EventArgs e)
         {
             bool correctWeek = false;
             for (int i = 0; i < TDB.TableRecordCount(dbIndex, "RCYR"); i++)
             {
                 if (TDB.FieldValue(dbIndex, "RCYR", "SEWN", i) == "1")
                 {
-                    removeInterestedTeams();
+                    RemoveInterestedTeams();
                     correctWeek = true;
                 }
             }
@@ -1935,14 +1935,14 @@ namespace DB_EDITOR
         }
 
         //Randomize the Recruits to give a little bit more variety and evaluation randomness -- Must be done at start of Recruiting
-        private void buttonRandRecruits_Click(object sender, EventArgs e)
+        private void ButtonRandRecruits_Click(object sender, EventArgs e)
         {
             bool correctWeek = false;
             for (int i = 0; i < TDB.TableRecordCount(dbIndex, "RCYR"); i++)
             {
                 if (TDB.FieldValue(dbIndex, "RCYR", "SEWN", i) == "1")
                 {
-                    randomizeRecruitDB();
+                    RandomizeRecruitDB();
                     correctWeek = true;
                 }
             }
@@ -1954,16 +1954,17 @@ namespace DB_EDITOR
         }
 
         //Randomize Walk-On Database -- Must be done prior to Cut Players stage
-        private void buttonRandWalkOns_Click(object sender, EventArgs e)
+        private void ButtonRandWalkOns_Click(object sender, EventArgs e)
         {
-            randomizeWalkOnDB();
+            RandomizeWalkOnDB();
         }
 
         //Polynesian Surname Generator
-        private void polyNames_Click(object sender, EventArgs e)
+        private void PolyNames_Click(object sender, EventArgs e)
         {
-            polynesianNameGenerator();
+            PolynesianNameGenerator();
         }
+
 
 
 
@@ -1971,7 +1972,10 @@ namespace DB_EDITOR
 
         #endregion
 
-
+        private void buttonChaosTransfers_Click(object sender, EventArgs e)
+        {
+            ChaosTransfers();
+        }
     }
 
 }

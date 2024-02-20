@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DB_EDITOR
@@ -16,13 +14,13 @@ namespace DB_EDITOR
         #region PLAYER/TEAM EDITOR - NOT COMPLETE
 
 
-        public void selectDBTabPage()
+        public void SelectDBTabPage()
         {
             // NB Find returns an array of controls - see the [0] at the end here...
             TabControl dbTabPage = (TabControl)this.Controls.Find(tabControl1.Name, true)[0];
-            dbTabPage.SelectedIndexChanged += dbTabPage_Click;
+            dbTabPage.SelectedIndexChanged += DbTabPage_Click;
         }
-        public void dbTabPage_Click(object sender, EventArgs e)
+        public void DbTabPage_Click(object sender, EventArgs e)
         {
             TabControl dbTabPage = (TabControl)this.Controls.Find(tabControl1.Name, true)[0];
             if (dbTabPage.TabPages.Count < 1)
@@ -37,14 +35,14 @@ namespace DB_EDITOR
                 if (TGIDrecNo.Count < 1)
                 {
                     Management(dbIndex, "TEAM", "TORD");  //Load Teams by their team order.
-                    mangTGID(dbIndex);
-                    loadTGIDlistBox(dbIndex, "TTYP", -1);  // -1 = to all teams.
+                    MangTGID(dbIndex);
+                    LoadTGIDlistBox(dbIndex, "TTYP", -1);  // -1 = to all teams.
 
                     // If table exixts in current DB.
                     if (TDB.TableIndex(dbIndex, "CONF") != -1)
                     {
                         Management(dbIndex, "CONF", "CGID");
-                        mangCONF();
+                        MangCONF();
                     }
                 }
 
@@ -54,7 +52,7 @@ namespace DB_EDITOR
                 if (PGIDrecNo.Count < 1)
                 {
                     Management(dbIndex, "PLAY", "POVR");  //Load players by their overall.
-                    mangPGID(dbIndex);
+                    MangPGID(dbIndex);
 
                 }
             }
@@ -71,7 +69,7 @@ namespace DB_EDITOR
             TableProps.Name = new string((char)0, 5);
 
             // Get Tableprops based on the selected table index
-            if (!TDB.TDBTableGetProperties(tmpDBindex, getTableIndex(tmpDBindex, tmpTName), ref TableProps))
+            if (!TDB.TDBTableGetProperties(tmpDBindex, GetTableIndex(tmpDBindex, tmpTName), ref TableProps))
                 return;
 
             for (int r = 0; r < TableProps.RecordCount; r++)
@@ -151,7 +149,7 @@ namespace DB_EDITOR
         }
 
 
-        public void mangTGID(int tmpDB)
+        public void MangTGID(int tmpDB)
         {
             // List<int> tmpTTYP = new List<int>();
             List<int> tmpTTYP = new List<int>();
@@ -311,7 +309,7 @@ namespace DB_EDITOR
 
             tmpManagement.Clear();
         }
-        public void loadTGIDlistBox(int tmpDB, string tmpBOX, int tmpVAL)
+        public void LoadTGIDlistBox(int tmpDB, string tmpBOX, int tmpVAL)
         {
             //mangTGID();
 
@@ -377,7 +375,7 @@ namespace DB_EDITOR
             //    TGIDlistBox.SelectedIndex = 0;
         }
 
-        public void mangPGID(int tmpDBindex)
+        public void MangPGID(int tmpDBindex)
         {
             PGIDrecNo.Clear();
 
@@ -434,7 +432,7 @@ namespace DB_EDITOR
 
             tmpManagement.Clear();
         }
-        public void loadPGIDlistBox(int tmpDBindex, int tmpTGID)
+        public void LoadPGIDlistBox(int tmpDBindex, int tmpTGID)
         {
             if (PGIDrecNo.Count < 1)
                 return;
@@ -463,8 +461,8 @@ namespace DB_EDITOR
                 {
                     tmpIndex = tmpIndex + 1;
 
-                    tmpPFNA = convertFN_IntToString(PGID.Key);
-                    tmpPLNA = convertLN_IntToString(PGID.Key);
+                    tmpPFNA = ConvertFN_IntToString(PGID.Key);
+                    tmpPLNA = ConvertLN_IntToString(PGID.Key);
 
                     PGIDlistBox.Items.Add(tmpPFNA + " " + tmpPLNA);
                     PGIDlist.Add(tmpIndex, PGID.Key);
@@ -483,7 +481,7 @@ namespace DB_EDITOR
 
         }
 
-        public void mangCONF()
+        public void MangCONF()
         {
             CONFrecNo.Clear();
             CONFlist.Clear();
@@ -508,7 +506,7 @@ namespace DB_EDITOR
 
 
 
-        public void editor_ConvertFN_InttoString(int tmpRecNo)
+        public void Editor_ConvertFN_InttoString(int tmpRecNo)
         {
             if (DoNotTrigger)
                 return;
@@ -526,7 +524,7 @@ namespace DB_EDITOR
 
                     TDB.NewfieldValue(dbIndex,
                                       "PLAY",
-                                      "PF" + addLeadingZeros(Convert.ToString(i), 2),
+                                      "PF" + AddLeadingZeros(Convert.ToString(i), 2),
                                       tmpRecNo,
                                       tmpSTR);
 
@@ -536,7 +534,7 @@ namespace DB_EDITOR
             if (PGIDlistBox.Items.Count > 0)
                 PGIDlistBox.Items[PGIDlistBox.SelectedIndex] = PFNAtextBox.Text + " " + PLNAtextBox.Text;
         }
-        public void editor_ConvertLN_IntToString(int tmpRecNo)
+        public void Editor_ConvertLN_IntToString(int tmpRecNo)
         {
             if (DoNotTrigger)
                 return;
@@ -554,7 +552,7 @@ namespace DB_EDITOR
 
                     TDB.NewfieldValue(dbIndex,
                                       "PLAY",
-                                      "PL" + addLeadingZeros(Convert.ToString(i), 2),
+                                      "PL" + AddLeadingZeros(Convert.ToString(i), 2),
                                       tmpRecNo,
                                       tmpSTR);
 
@@ -581,8 +579,8 @@ namespace DB_EDITOR
         {
             DoNotTrigger = true;
 
-            PFNAtextBox.Text = convertFN_IntToString(tmpRecNo); //...first name from numeric to text conversion
-            PLNAtextBox.Text = convertLN_IntToString(tmpRecNo); //...last name from numeric to text conversion
+            PFNAtextBox.Text = ConvertFN_IntToString(tmpRecNo); //...first name from numeric to text conversion
+            PLNAtextBox.Text = ConvertLN_IntToString(tmpRecNo); //...last name from numeric to text conversion
 
             DoNotTrigger = false;
         }
@@ -593,7 +591,7 @@ namespace DB_EDITOR
 
             TGIDlistBox.SelectedIndex = TGIDplayerBox.SelectedIndex;
 
-            loadPGIDlistBox(dbIndex, tmpTGID);
+            LoadPGIDlistBox(dbIndex, tmpTGID);
         }
 
         public void PFNAtextBox_TextChanged(object sender, EventArgs e)
@@ -603,7 +601,7 @@ namespace DB_EDITOR
 
             int tmpRecNo = PGIDlist[PGIDlistBox.SelectedIndex];
 
-            editor_ConvertFN_InttoString(tmpRecNo);  // ...first name from text to numeric conversion
+            Editor_ConvertFN_InttoString(tmpRecNo);  // ...first name from text to numeric conversion
 
         }
         public void PLNAtextBox_TextChanged(object sender, EventArgs e)
@@ -613,7 +611,7 @@ namespace DB_EDITOR
 
             int tmpRecNo = PGIDlist[PGIDlistBox.SelectedIndex];
 
-            editor_ConvertLN_IntToString(tmpRecNo);  // ...last name from text to numeric conversion
+            Editor_ConvertLN_IntToString(tmpRecNo);  // ...last name from text to numeric conversion
 
         }
 
@@ -634,7 +632,7 @@ namespace DB_EDITOR
             //TGRPcomboBox.SelectedIndex = -1;
 
 
-            loadTGIDlistBox(dbIndex, "TTYP", Convert.ToInt32(TTYPcomboBox.Items[TTYPcomboBox.SelectedIndex]));
+            LoadTGIDlistBox(dbIndex, "TTYP", Convert.ToInt32(TTYPcomboBox.Items[TTYPcomboBox.SelectedIndex]));
         }
         public void DGIDcomboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -652,7 +650,7 @@ namespace DB_EDITOR
             CGIDcomboBox.SelectedIndex = -1;
             //TGRPcomboBox.SelectedIndex = -1;
 
-            loadTGIDlistBox(dbIndex, "DGID", Convert.ToInt32(DGIDcomboBox.Items[DGIDcomboBox.SelectedIndex]));
+            LoadTGIDlistBox(dbIndex, "DGID", Convert.ToInt32(DGIDcomboBox.Items[DGIDcomboBox.SelectedIndex]));
         }
         public void LGIDcomboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -670,7 +668,7 @@ namespace DB_EDITOR
             CGIDcomboBox.SelectedIndex = -1;
             //TGRPcomboBox.SelectedIndex = -1;
 
-            loadTGIDlistBox(dbIndex, "LGID", Convert.ToInt32(LGIDcomboBox.Items[LGIDcomboBox.SelectedIndex]));
+            LoadTGIDlistBox(dbIndex, "LGID", Convert.ToInt32(LGIDcomboBox.Items[LGIDcomboBox.SelectedIndex]));
         }
         public void CGIDcomboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -688,7 +686,7 @@ namespace DB_EDITOR
             // CGIDcomboBox.SelectedIndex = -1;
             //TGRPcomboBox.SelectedIndex = -1;
 
-            loadTGIDlistBox(dbIndex, "CGID", Convert.ToInt32(CONFlist[CGIDcomboBox.SelectedIndex]));
+            LoadTGIDlistBox(dbIndex, "CGID", Convert.ToInt32(CONFlist[CGIDcomboBox.SelectedIndex]));
         }
 
         public void MascotcheckBox_CheckedChanged(object sender, EventArgs e)
