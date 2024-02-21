@@ -138,8 +138,9 @@ namespace DB_EDITOR
             tabControl1.Visible = false;
             tabControl1.TabPages.Remove(tabTeams);
             tabControl1.TabPages.Remove(tabPlayers);
-            tabControl1.TabPages.Remove(tabTools);
+            tabControl1.TabPages.Remove(tabSeason);
             tabControl1.TabPages.Remove(tabOffSeason);
+            tabControl1.TabPages.Remove(tabTools);
 
             tabDelimited = false;
 
@@ -1810,8 +1811,9 @@ namespace DB_EDITOR
         }
         private void OpenTabs()
         {
-            if (activeDB == 1) tabControl1.TabPages.Add(tabTools);
+            if (activeDB == 1) tabControl1.TabPages.Add(tabSeason);
             if (activeDB == 2) tabControl1.TabPages.Add(tabOffSeason);
+            tabControl1.TabPages.Add(tabTools);
         }
         private void TabTools_Start()
         {
@@ -1976,6 +1978,7 @@ namespace DB_EDITOR
         {
             ChaosTransfers();
         }
+
     }
 
 }

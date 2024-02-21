@@ -138,23 +138,22 @@
   <data name="dbToolsInfo.Text" xml:space="preserve">
     <value>This is a set of NCAA Football Modding Tools that add more realism to the game. 
 
+Use these at the beginning of a season:
+
+* Pre-Season Injuries - Randomly distributes injuries to players, with ability to have skill degradation. 
+
 Use these at the end of the Regular Season (or during Bowl Weeks)
 
 * Medical Redshirt - Grants Players that have Season Ending injuries a redshirt year
 
 It is recommended to use these tools after the completion of the National Championship game and before the start of the off-season.
 
-* Coach Progression - For use with NO CONTRACT dynasties. Changes User/CPU Coach Prestige value based on performance
+* Coach Progression - Changes User/CPU Coach Prestige value based on performance
+
+* Coaching Carousel - Fires and Hires Coaches automatically based on prestige and coaching score. Can also force transfers from teams that lose their head coach!
 
 * Randomize Coaching Budgets - Randomizes the discipline, recruiting and training budgets for every coach
-
-These tools can be used at any time.
-
-* Body Size Fixer - This recalculates the body models for each player
-
-* Calculate QB Tendencies - Re-Calculates QB for Scrambling, Balanced and Pocket Passers Traits
-
-* Increase Minimum Speed - This increases the minimum Speed attribute to 80 for HB, WR, CB and Safeties.</value>
+</value>
   </data>
   <data name="textBoxOffSeason.Text" xml:space="preserve">
     <value>This is the off-season toolbox for recruiting. Most of these tools can only occur during specific phases of the off-season.
@@ -173,6 +172,18 @@ This randomizes the walk-on attribute ratings. Use the toleranace to set the min
 
 Polynesian Surname Generator: 
 This changes recruits from Hawaii and western states to have polynesian surnames. The % Chance is for Hawaii, with 15-25% of CA, UT, WA and AZ states getting players of polynesian descent.</value>
+  </data>
+  <data name="textBox2.Text" xml:space="preserve">
+    <value>These tools can be used at any time.
+
+* Body Size Fixer - This recalculates the body models for each player
+
+* Calculate QB Tendencies - Re-Calculates QB for Scrambling, Balanced and Pocket Passers Traits
+
+* Increase Minimum Speed - This increases the minimum Speed attribute to 80 for HB, WR, CB and Safeties.
+
+* Randomize Player Potential - Randomizes from 40-99 every player's potential rating. Affects player progression.
+</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

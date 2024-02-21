@@ -74,6 +74,9 @@
     <Compile Include="AboutBox1.Designer.cs">
       <DependentUpon>AboutBox1.cs</DependentUpon>
     </Compile>
+    <Compile Include="DynastyTools.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Conversions.cs">
       <SubType>Form</SubType>
     </Compile>
