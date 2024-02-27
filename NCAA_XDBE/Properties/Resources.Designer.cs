@@ -173,14 +173,14 @@ namespace DB_EDITOR.Properties {
         ///Tuigamala
         ///Tuipulotu
         ///Lauti
-        ///Ma’afu
+        ///Maafu
         ///Tuisamoa
         ///Matagi
         ///Togia
         ///Malieitulua
         ///Tuakoi
         ///Tupou
-        ///Va’enuku
+        ///Vaenuku
         ///Taumalolo
         ///Vaihola
         ///Fonoti
@@ -199,7 +199,7 @@ namespace DB_EDITOR.Properties {
         ///Vakameilalo
         ///Uasike
         ///Savelio
-        ///Te’o
+        ///Teo
         ///Lavaka
         ///Katoa
         ///Niumatai
@@ -226,7 +226,8 @@ namespace DB_EDITOR.Properties {
         ///Vakauta
         ///Saumaki
         ///Likiliki
-        ///Tuitavake        /// [rest of string was truncated]&quot;;.
+        ///Tuitavake
+        ///Ta [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string poly_surnames {
             get {
@@ -241,6 +242,80 @@ namespace DB_EDITOR.Properties {
             get {
                 object obj = ResourceManager.GetObject("save3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to REGN,TMST,PTST
+        ///1,0,0
+        ///6,1,0
+        ///5,2,0
+        ///3,3,0
+        ///6,4,0
+        ///5,5,0
+        ///5,6,0
+        ///3,51,0
+        ///4,7,0
+        ///2,8,0
+        ///2,9,0
+        ///6,10,0
+        ///5,11,0
+        ///3,12,0
+        ///3,13,0
+        ///5,50,0
+        ///4,14,0
+        ///4,15,0
+        ///3,16,0
+        ///3,17,0
+        ///5,18,0
+        ///4,19,0
+        ///5,20,0
+        ///4,21,0
+        ///4,22,0
+        ///2,23,0
+        ///3,24,0
+        ///5,25,0
+        ///4,26,0
+        ///5,27,0
+        ///5,28,0
+        ///4,29,0
+        ///5,30,0
+        ///5,31,0
+        ///3,32,0
+        ///5,33,0
+        ///3,34,0
+        ///4,35,0
+        ///6,36,0
+        ///4,37,0
+        ///5,38,0
+        ///3,39,0
+        ///4,40,0
+        ///2,41,0
+        ///4,42,0
+        ///5,43,0
+        ///5,44,0
+        ///3,45,0
+        ///6,46,0
+        ///3,47,0
+        ///4,48,0
+        ///5,49,0
+        ///5,0,1
+        ///1,1,1
+        ///3,2,1
+        ///4,3,1
+        ///3,4,1
+        ///3,5,1
+        ///5,6,1
+        ///5,51,1
+        ///5,7,1
+        ///6,8,1
+        ///6,9,1
+        ///3,10,1
+        ///2,11 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string SRGN {
+            get {
+                return ResourceManager.GetString("SRGN", resourceCulture);
             }
         }
     }

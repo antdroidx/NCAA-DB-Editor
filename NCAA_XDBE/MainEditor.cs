@@ -41,7 +41,7 @@ namespace DB_EDITOR
         List<byte> psuExtras = new List<byte>(); // Holds remaining data from PSU saves
 
         bool offSeasonSave = false; //True if off-season save DB is present
-        int activeDB = 1; //1 - season, 2 - off-season
+        int activeDB = 0; //1 - season, 2 - off-season
 
         List<string> deflist = new List<string>();
 
@@ -149,6 +149,8 @@ namespace DB_EDITOR
             TGIDrecNo.Clear();
             PGIDrecNo.Clear();
 
+            activeDB = 0;
+            offSeasonSave = false; //True if off-season save DB is present
         }
 
 
@@ -889,7 +891,6 @@ namespace DB_EDITOR
 
                 //choose active DB
                 dbFile = filename + ".db";
-                activeDB = 1;
             }
 
             //File.Open(Path.ChangeExtension(currentDBfile, null) + ".db", FileMode.Open).Close();
@@ -1080,6 +1081,8 @@ namespace DB_EDITOR
                 if (TABLE.Value == "PLAY")
                 {
                     //tabControl1.TabPages.Add(tabPlayers);
+                    activeDB = 1;
+                    OpenTabs();
                 }
 
                 string tmpDef = FieldDEF(TABLE.Value);
@@ -1813,7 +1816,7 @@ namespace DB_EDITOR
         {
             if (activeDB == 1) tabControl1.TabPages.Add(tabSeason);
             if (activeDB == 2) tabControl1.TabPages.Add(tabOffSeason);
-            tabControl1.TabPages.Add(tabTools);
+            if (activeDB > 0) tabControl1.TabPages.Add(tabTools);
         }
         private void TabTools_Start()
         {
@@ -1979,6 +1982,10 @@ namespace DB_EDITOR
             ChaosTransfers();
         }
 
+        private void buttonRealignment_Click(object sender, EventArgs e)
+        {
+            ConfRealignment();
+        }
     }
 
 }

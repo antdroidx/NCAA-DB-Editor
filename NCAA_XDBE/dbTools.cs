@@ -16,8 +16,6 @@ namespace DB_EDITOR
         {
             string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             string csvLocation = Path.Combine(executableLocation, @"resources\BMI-Calc.csv");
-            //string csvLocation = Properties.Resources.BMI_Calc;
-
 
             string filePath = csvLocation;
             StreamReader sr = new StreamReader(filePath);
@@ -28,7 +26,7 @@ namespace DB_EDITOR
                 string[] Line = sr.ReadLine().Split(',');
                 if (Row == 0)
                 {
-                    strArray = new string[402, Line.Length];
+                    strArray = new string[432, Line.Length];
                 }
                 for (int column = 0; column < Line.Length; column++)
                 {
@@ -45,7 +43,7 @@ namespace DB_EDITOR
 
             for (int i = 0; i < TDB.TableRecordCount(dbIndex, tableName); i++)
             {
-                double bmi = Math.Round(Convert.ToDouble(TDB.FieldValue(dbIndex, tableName, "PWGT", i)) / Convert.ToDouble(TDB.FieldValue(dbIndex, tableName, "PHGT", i)), 2);
+                double bmi = (double)Math.Round(Convert.ToDouble(TDB.FieldValue(dbIndex, tableName, "PWGT", i)) / Convert.ToDouble(TDB.FieldValue(dbIndex, tableName, "PHGT", i)), 2);
 
                 for (int j = 0; j < 401; j++)
                 {

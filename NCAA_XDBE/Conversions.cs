@@ -11,6 +11,8 @@ namespace DB_EDITOR
         /*
          * CREATING NCAA SPECIFIC CONVERSION TABLES AND ACTIONS
          */
+
+
         #region Player Names
 
 
@@ -198,6 +200,40 @@ namespace DB_EDITOR
 
         #endregion
 
+        #region Players
+
+        private int GetPGIDfromRecord(int i)
+        {
+            return Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PGID", i));
+
+        }
+
+        private int GetPPOSfromRecord(int i)
+        {
+            return Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PPOS", i));
+
+        }
+
+        private int GetPOVRfromRecord(int i)
+        {
+            return Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "POVR", i));
+
+        }
+
+        private int GetPTYPfromRecord(int i)
+        {
+            return Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PTYP", i));
+
+        }
+
+        private int GetPYERfromRecord(int i)
+        {
+            return Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PYER", i));
+
+        }
+
+        #endregion
+
         #region Positions
 
         private void SetPositions()
@@ -304,6 +340,23 @@ namespace DB_EDITOR
 
         #endregion
 
+        #region Coaches
+
+        private int FindRecNumberCCID(int CCID)
+        {
+            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "COCH"); i++)
+            {
+                if (CCID == Convert.ToInt32(TDB.FieldValue(dbIndex, "COCH", "CCID", i)))
+                {
+                    return i;
+                }
+            }
+
+            return -1;
+        }
+
+        #endregion
+
         #region Teams
 
         public void CreateTeamDB()
@@ -352,16 +405,11 @@ namespace DB_EDITOR
             return i;
         }
 
-
-        #endregion
-
-        #region Coaches
-
-        private int FindRecNumberCCID(int CCID)
+        private int GetTeamCONFrecID(int cgid)
         {
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "COCH"); i++)
+            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "CONF"); i++)
             {
-                if (CCID == Convert.ToInt32(TDB.FieldValue(dbIndex, "COCH", "CCID", i)))
+                if (Convert.ToInt32(TDB.FieldValue(dbIndex, "CONF", "CGID", i)) == cgid)
                 {
                     return i;
                 }
@@ -370,41 +418,87 @@ namespace DB_EDITOR
             return -1;
         }
 
+        private int GetTeamPrestige(int rec)
+        {
+            return Convert.ToInt32(TDB.FieldValue(dbIndex, "TEAM", "TMPR", rec));
+
+        }
+        private int GetTeamCGID(int rec)
+        {
+            return Convert.ToInt32(TDB.FieldValue(dbIndex, "TEAM", "CGID", rec));
+
+        }
+
+        private int GetTeamDGID(int rec)
+        {
+            return Convert.ToInt32(TDB.FieldValue(dbIndex, "TEAM", "DGID", rec));
+
+        }
+
+        private int GetTeamStateID(int rec)
+        {
+            int stateID = -1;
+            string SGID = TDB.FieldValue(dbIndex, "TEAM", "SGID", rec);
+
+            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "STAD"); i++)
+            {
+                if (SGID == TDB.FieldValue(dbIndex, "STAD", "SGID", i))
+                {
+                    stateID = Convert.ToInt32(TDB.FieldValue(dbIndex, "STAD", "STID", i));
+                    break;
+                }
+
+            }
+
+            return stateID;
+        }
+
+
         #endregion
 
-        #region Players
+        #region Conferences
 
-        private int GetPGIDfromRecord(int i)
+        private int GetConfCGID(int rec)
         {
-            return Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PGID", i));
-
+            return Convert.ToInt32(TDB.FieldValue(dbIndex, "CONF", "CGID", rec));
         }
 
-        private int GetPPOSfromRecord(int i)
+        private int GetConfPrestige(int rec)
         {
-            return Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PPOS", i));
-
+            return Convert.ToInt32(TDB.FieldValue(dbIndex, "CONF", "CPRS", rec));
         }
 
-        private int GetPOVRfromRecord(int i)
+        private int GetConfLeague(int rec)
         {
-            return Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "POVR", i));
-
+            return Convert.ToInt32(TDB.FieldValue(dbIndex, "CONF", "LGID", rec));
         }
 
-        private int GetPTYPfromRecord(int i)
+        private int GetConfCMNP(int rec)
         {
-            return Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PTYP", i));
-
+            return Convert.ToInt32(TDB.FieldValue(dbIndex, "CONF", "CMNP", rec));
         }
 
-        private int GetPYERfromRecord(int i)
+        private int GetConfCMXP(int rec)
         {
-            return Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PYER", i));
+            return Convert.ToInt32(TDB.FieldValue(dbIndex, "CONF", "CMXP", rec));
+        }
 
+        private int GetConfPrestigeFromCGID(int cgid)
+        {
+            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "CONF"); i++)
+            {
+                if (Convert.ToInt32(TDB.FieldValue(dbIndex, "CONF", "CGID", i)) == cgid)
+                {
+                    return Convert.ToInt32(TDB.FieldValue(dbIndex, "CONF", "CPRS", i));
+                }
+            }
+
+            return -1;
         }
 
         #endregion
+
+
 
         #region Skill Attributes
 

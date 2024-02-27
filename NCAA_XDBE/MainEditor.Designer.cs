@@ -114,6 +114,8 @@ namespace DB_EDITOR
             this.PLNAtextBox = new System.Windows.Forms.TextBox();
             this.PFNAtextBox = new System.Windows.Forms.TextBox();
             this.tabSeason = new System.Windows.Forms.TabPage();
+            this.buttonRealignment = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
             this.labelMaxTransfers = new System.Windows.Forms.Label();
             this.maxFiredTransfers = new System.Windows.Forms.NumericUpDown();
             this.checkBoxFiredTransfers = new System.Windows.Forms.CheckBox();
@@ -163,7 +165,6 @@ namespace DB_EDITOR
             this.buttonRandPotential = new System.Windows.Forms.Button();
             this.increaseSpeed = new System.Windows.Forms.Button();
             this.bodyFix = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
             qbTend = new System.Windows.Forms.Button();
             this.mainMenu.SuspendLayout();
             this.tableMenu.SuspendLayout();
@@ -931,6 +932,7 @@ namespace DB_EDITOR
             // tabSeason
             // 
             this.tabSeason.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.tabSeason.Controls.Add(this.buttonRealignment);
             this.tabSeason.Controls.Add(this.label13);
             this.tabSeason.Controls.Add(this.labelMaxTransfers);
             this.tabSeason.Controls.Add(this.maxFiredTransfers);
@@ -961,6 +963,27 @@ namespace DB_EDITOR
             this.tabSeason.Size = new System.Drawing.Size(976, 632);
             this.tabSeason.TabIndex = 3;
             this.tabSeason.Text = "Dynasty";
+            // 
+            // buttonRealignment
+            // 
+            this.buttonRealignment.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.buttonRealignment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRealignment.Location = new System.Drawing.Point(392, 528);
+            this.buttonRealignment.Name = "buttonRealignment";
+            this.buttonRealignment.Size = new System.Drawing.Size(110, 80);
+            this.buttonRealignment.TabIndex = 28;
+            this.buttonRealignment.Text = "Auto Realignment";
+            this.buttonRealignment.UseVisualStyleBackColor = false;
+            this.buttonRealignment.Click += new System.EventHandler(this.buttonRealignment_Click);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(444, 375);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(100, 13);
+            this.label13.TabIndex = 27;
+            this.label13.Text = "NCAA NEXT ONLY";
             // 
             // labelMaxTransfers
             // 
@@ -997,7 +1020,7 @@ namespace DB_EDITOR
             // 
             this.buttonChaosTransfers.BackColor = System.Drawing.Color.LightGray;
             this.buttonChaosTransfers.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonChaosTransfers.Location = new System.Drawing.Point(245, 528);
+            this.buttonChaosTransfers.Location = new System.Drawing.Point(210, 528);
             this.buttonChaosTransfers.Name = "buttonChaosTransfers";
             this.buttonChaosTransfers.Size = new System.Drawing.Size(110, 80);
             this.buttonChaosTransfers.TabIndex = 23;
@@ -1632,15 +1655,6 @@ namespace DB_EDITOR
             this.bodyFix.UseVisualStyleBackColor = false;
             this.bodyFix.Click += new System.EventHandler(this.BodyFix_Click);
             // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(444, 375);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(100, 13);
-            this.label13.TabIndex = 27;
-            this.label13.Text = "NCAA NEXT ONLY";
-            // 
             // MainEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1834,6 +1848,7 @@ namespace DB_EDITOR
         public System.Windows.Forms.Button increaseSpeed;
         public System.Windows.Forms.Button bodyFix;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button buttonRealignment;
     }
 }
 

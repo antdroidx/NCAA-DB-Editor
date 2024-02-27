@@ -26,3 +26,4 @@ D:\Modding\NCAA_XDBE\NCAA_XDBE\obj\x86\Debug\NCAA_XDBE.exe
 D:\Modding\NCAA_XDBE\NCAA_XDBE\obj\x86\Debug\NCAA_XDBE.pdb
 D:\Modding\NCAA_XDBE\NCAA_XDBE\obj\x86\Debug\DB_EDITOR.MainEditor.resources
 D:\Modding\NCAA_XDBE\NCAA_XDBE\bin\Debug\Resources\poly-surnames.csv
+D:\Modding\NCAA_XDBE\NCAA_XDBE\bin\Debug\Resources\SRGN.csv

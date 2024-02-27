@@ -153,6 +153,8 @@ It is recommended to use these tools after the completion of the National Champi
 * Coaching Carousel - Fires and Hires Coaches automatically based on prestige and coaching score. Can also force transfers from teams that lose their head coach!
 
 * Randomize Coaching Budgets - Randomizes the discipline, recruiting and training budgets for every coach
+
+* Auto Realignment - This is a very primitive conference realignment algorithm based on regionality, prestige, and conference prestige.
 </value>
   </data>
   <data name="textBoxOffSeason.Text" xml:space="preserve">

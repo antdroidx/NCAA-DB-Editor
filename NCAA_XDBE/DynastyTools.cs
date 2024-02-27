@@ -240,9 +240,6 @@ namespace DB_EDITOR
             MessageBox.Show("Team Budgets Changed!");
         }
 
-
-
-
         //Coaching Carousel Mod
         private void CoachCarousel()
         {
@@ -279,7 +276,7 @@ namespace DB_EDITOR
                     int CCPO = Convert.ToInt32(TDB.FieldValue(dbIndex, "COCH", "CCPO", i));
 
                     //FIRE COACHES
-                    if (CCPO < (int)jobSecurityValue.Value && CTOP > CLTF && TDB.FieldValue(dbIndex, "COCH", "CFUC", i) != "1")
+                    if (CCPO < (int)jobSecurityValue.Value && CTOP > CLTF && TDB.FieldValue(dbIndex, "COCH", "CFUC", i) != "1" && rand.Next(0, 100) < 67)
                     {
                         CCID_FiredList.Add(TDB.FieldValue(dbIndex, "COCH", "CCID", i));
                         TGID_VacancyList.Add(TDB.FieldValue(dbIndex, "COCH", "TGID", i));
@@ -583,6 +580,156 @@ namespace DB_EDITOR
             TDB.NewfieldValue(dbIndex, "PLAY", "PTYP", i, "1");
         }
 
+        //Conference Realignment Mod
+        private void ConfRealignment()
+        {
+            List<int> PowerConfList = new List<int>(); //determines the Power Conferences
+            List<int> GroupConfList = new List<int>(); //determines the non-Power Conferences
+
+            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "CONF"); i++)
+            {
+                if (GetConfPrestige(i) < 3 && GetConfLeague(i) == 0)
+                {
+                    GroupConfList.Add(GetConfCGID(i));
+                }
+                else if (GetConfPrestige(i) == 3 && GetConfLeague(i) == 0)
+                {
+                    PowerConfList.Add(GetConfCGID(i));
+                }
+            }
+
+            //Create a list of Teams to Promote and Demote based on Team and Conf Prestige Requirements
+
+            List<int> PromoteTeamRecList = new List<int>();
+            List<int> DemoteTeamRecList = new List<int>();
+            string promote = "Promotion Qualified:\n\n";
+            string demote = "Demotion Qualified:\n\n";
+
+            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "TEAM"); i++)
+            {
+                int TMPR = GetTeamPrestige(i);
+                int CGID = GetTeamCGID(i);
+                int TeamCONFRecID = GetTeamCONFrecID(CGID);
+
+                if (GroupConfList.Contains(CGID) && TMPR >= GetConfCMXP(TeamCONFRecID))
+                {
+                    PromoteTeamRecList.Add(i);
+                    promote += GetTeamName(GetTeamTGIDfromRecord(i)) + "\n";
+                }
+
+                else if (PowerConfList.Contains(CGID) && TMPR <= GetConfCMNP(TeamCONFRecID))
+                {
+                    DemoteTeamRecList.Add(i);
+                    demote += GetTeamName(GetTeamTGIDfromRecord(i)) + "\n";
+                }
+
+            }
+
+            MessageBox.Show(promote + demote);
+
+            int[,] regionList = CreateRegionDB();
+            string news = "";
+
+            //Determine if there is a matching team/conf pair to swap
+            if (PromoteTeamRecList.Count > 0 && DemoteTeamRecList.Count > 0)
+            {
+                while (PromoteTeamRecList.Count > 0)
+                {
+                    if (rand.Next(0, 100) < 50)
+                    {
+                        int x = rand.Next(0, DemoteTeamRecList.Count);
+
+                        int pTeamStateID = GetTeamStateID(PromoteTeamRecList[0]);
+                        int dTeamStateID = GetTeamStateID(DemoteTeamRecList[x]);
+                        int region = GetRegionDifference(pTeamStateID, dTeamStateID, regionList);
+
+                        if (rand.Next(0, 100) < 50 && DemoteTeamRecList.Count > 0 && region <= 3)
+                        {
+
+                            SwapTeams(DemoteTeamRecList[x], PromoteTeamRecList[0]);
+
+                            news += GetTeamName(GetTeamTGIDfromRecord(DemoteTeamRecList[x])) + " swapped with " + GetTeamName(GetTeamTGIDfromRecord(PromoteTeamRecList[0])) + "\n\n";
+                            DemoteTeamRecList.RemoveAt(x);
+                        }
+                    }
+
+                    PromoteTeamRecList.RemoveAt(0);
+                }
+            }
+
+            if (news == "") news = "No Realignments this Cycle!";
+
+            MessageBox.Show(news);
+
+        }
+
+        private void SwapTeams(int teamA, int teamB)
+        {
+            int x = TDB.TableRecordCount(dbIndex, "TSWP");
+            TDB.TDBTableRecordAdd(dbIndex, "TSWP", false);
+            TDB.NewfieldValue(dbIndex, "TSWP", "TGID", x, Convert.ToString(GetTeamTGIDfromRecord(teamA)));
+            TDB.NewfieldValue(dbIndex, "TSWP", "TIDR", x, Convert.ToString(GetTeamTGIDfromRecord(teamB)));
+            TDB.NewfieldValue(dbIndex, "TSWP", "TORD", x, Convert.ToString(x));
+
+            int teamACGID = GetTeamCGID(teamA);
+            int teamADGID = GetTeamDGID(teamA);
+            int teamBCGID = GetTeamCGID(teamB);
+            int teamBDGID = GetTeamDGID(teamB);
+
+            TDB.NewfieldValue(dbIndex, "TEAM", "CGID", teamA, Convert.ToString(teamBCGID));
+            TDB.NewfieldValue(dbIndex, "TEAM", "CGID", teamB, Convert.ToString(teamACGID));
+            TDB.NewfieldValue(dbIndex, "TEAM", "DGID", teamA, Convert.ToString(teamBDGID));
+            TDB.NewfieldValue(dbIndex, "TEAM", "DGID", teamB, Convert.ToString(teamADGID));
+
+
+        }
+
+        private int[,] CreateRegionDB()
+        {
+
+            string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string csvLocation = Path.Combine(executableLocation, @"resources\SRGN.csv");
+
+            //SRGN == Region Distance, State A, State B
+
+            string filePath = csvLocation;
+            StreamReader sr = new StreamReader(filePath);
+            int[,] strArray = null;
+            int Row = 0;
+            while (!sr.EndOfStream)
+            {
+                string[] Line = sr.ReadLine().Split(',');
+                if (Row == 0)
+                {
+                    strArray = new int[2704, Line.Length];
+                }
+                for (int column = 0; column < Line.Length; column++)
+                {
+                    strArray[Row, column] = Convert.ToInt32(Line[column]);
+                }
+                Row++;
+            }
+            sr.Close();
+
+            return strArray;
+        }
+
+
+        private int GetRegionDifference(int a, int b, int[,] regionList)
+        {
+            int region = -1;
+
+            for (int i = 0; i < regionList.GetLength(0); i++) 
+            {
+                if (regionList[i,1] == a && regionList[i,2] == b)
+                {
+                    region = regionList[i, 0];
+                    break;
+                }
+            }
+
+            return region;
+        }
 
     }
 }
