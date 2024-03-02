@@ -52,12 +52,12 @@ namespace DB_EDITOR
             //looks at INJY table
             for (int i = 0; i < TDB.TableRecordCount(dbIndex, "INJY"); i++)
             {
-                string tmpRec = TDB.FieldValue(dbIndex, "INJY", "INJL", i);
+                string injLength = TDB.FieldValue(dbIndex, "INJY", "INJL", i);
                 //check to see if value is greater than 225
                 /* 254 = Season Ending
                  * 196 = 10 weeks
                  */
-                if (Convert.ToInt32(tmpRec) >= 196 || Convert.ToInt32(TDB.FieldValue(dbIndex, "SEAI", "SEWN", 0)) >= 16 && checkBoxMedRSNEXT.Checked)
+                if (Convert.ToInt32(injLength) >= 196 || Convert.ToInt32(TDB.FieldValue(dbIndex, "SEAI", "SEWN", 0)) >= 16)
                 {
                     //find the corresponding PGID
                     string PGID = TDB.FieldValue(dbIndex, "INJY", "PGID", i);
@@ -81,6 +81,7 @@ namespace DB_EDITOR
                                     }
 
                                     names += "\n * " + ConvertFN_IntToString(j) + " " + ConvertLN_IntToString(j) + " (" + team + ")";
+                                    break;
                                 }
                             }
                             else
@@ -97,6 +98,7 @@ namespace DB_EDITOR
                                     }
 
                                     names += "\n * " + ConvertFN_IntToString(j) + " " + ConvertLN_IntToString(j) + " (" + team + ")";
+                                    break;
                                 }
                             }
 

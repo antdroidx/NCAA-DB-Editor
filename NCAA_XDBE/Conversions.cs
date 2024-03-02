@@ -515,11 +515,10 @@ namespace DB_EDITOR
 
         private int GetReducedAttribute(int attribute, int tol)
         {
-            Random rand = new Random();
 
             attribute += rand.Next(0, tol + 1);
 
-            if (attribute < 0) attribute = 0; if (attribute > 31) attribute = 31;
+            if (attribute < 40) attribute = 40; if (attribute > 99) attribute = 99;
 
             return attribute;
         }

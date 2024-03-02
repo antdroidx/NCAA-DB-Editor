@@ -114,6 +114,7 @@ namespace DB_EDITOR
             this.PLNAtextBox = new System.Windows.Forms.TextBox();
             this.PFNAtextBox = new System.Windows.Forms.TextBox();
             this.tabSeason = new System.Windows.Forms.TabPage();
+            this.buttonScheduleGen = new System.Windows.Forms.Button();
             this.buttonRealignment = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.labelMaxTransfers = new System.Windows.Forms.Label();
@@ -932,6 +933,7 @@ namespace DB_EDITOR
             // tabSeason
             // 
             this.tabSeason.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.tabSeason.Controls.Add(this.buttonScheduleGen);
             this.tabSeason.Controls.Add(this.buttonRealignment);
             this.tabSeason.Controls.Add(this.label13);
             this.tabSeason.Controls.Add(this.labelMaxTransfers);
@@ -963,6 +965,19 @@ namespace DB_EDITOR
             this.tabSeason.Size = new System.Drawing.Size(976, 632);
             this.tabSeason.TabIndex = 3;
             this.tabSeason.Text = "Dynasty";
+            // 
+            // buttonScheduleGen
+            // 
+            this.buttonScheduleGen.BackColor = System.Drawing.Color.DarkOrange;
+            this.buttonScheduleGen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonScheduleGen.Location = new System.Drawing.Point(315, 82);
+            this.buttonScheduleGen.Name = "buttonScheduleGen";
+            this.buttonScheduleGen.Size = new System.Drawing.Size(110, 80);
+            this.buttonScheduleGen.TabIndex = 29;
+            this.buttonScheduleGen.Text = "Quick n Dirty Schedule Generator";
+            this.buttonScheduleGen.UseVisualStyleBackColor = false;
+            this.buttonScheduleGen.Visible = false;
+            this.buttonScheduleGen.Click += new System.EventHandler(this.buttonScheduleGen_Click);
             // 
             // buttonRealignment
             // 
@@ -1020,7 +1035,7 @@ namespace DB_EDITOR
             // 
             this.buttonChaosTransfers.BackColor = System.Drawing.Color.LightGray;
             this.buttonChaosTransfers.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonChaosTransfers.Location = new System.Drawing.Point(210, 528);
+            this.buttonChaosTransfers.Location = new System.Drawing.Point(206, 528);
             this.buttonChaosTransfers.Name = "buttonChaosTransfers";
             this.buttonChaosTransfers.Size = new System.Drawing.Size(110, 80);
             this.buttonChaosTransfers.TabIndex = 23;
@@ -1849,6 +1864,7 @@ namespace DB_EDITOR
         public System.Windows.Forms.Button bodyFix;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button buttonRealignment;
+        private System.Windows.Forms.Button buttonScheduleGen;
     }
 }
 

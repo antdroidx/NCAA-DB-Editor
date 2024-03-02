@@ -1839,6 +1839,35 @@ namespace DB_EDITOR
 
         #region MAIN DB TOOLS CLICKS
 
+        //Fixes Body Size Models if user does manipulation of the player attributes in the in-game player editor
+        private void BodyFix_Click(object sender, EventArgs e)
+        {
+            RecalculateBMI("PLAY");
+        }
+
+        //Increases minium speed for skill positions to 80
+        private void IncreaseSpeed_Click(object sender, EventArgs e)
+        {
+            IncreaseMinimumSpeed();
+        }
+
+        //Recalculates QB Tendencies based on original game criteria
+        private void QB_Tend_Click(object sender, EventArgs e)
+        {
+            RecalculateQBTendencies();
+        }
+
+        //Randomize Player Potential
+        private void ButtonRandPotential_Click(object sender, EventArgs e)
+        {
+            RandomizePotential();
+        }
+
+        #endregion
+
+        #region Dynasty Tools
+
+
         //Pre-Season Injury Distributor
         private void ButtonPSInjuries_Click(object sender, EventArgs e)
         {
@@ -1860,24 +1889,6 @@ namespace DB_EDITOR
             CoachPrestigeProgression();
         }
 
-        //Fixes Body Size Models if user does manipulation of the player attributes in the in-game player editor
-        private void BodyFix_Click(object sender, EventArgs e)
-        {
-            RecalculateBMI("PLAY");
-        }
-
-        //Increases minium speed for skill positions to 80
-        private void IncreaseSpeed_Click(object sender, EventArgs e)
-        {
-            IncreaseMinimumSpeed();
-        }
-
-        //Recalculates QB Tendencies based on original game criteria
-        private void QB_Tend_Click(object sender, EventArgs e)
-        {
-            RecalculateQBTendencies();
-        }
-
         //Randomizes the Coaching Budgets - Must be done prior to 1st Off-Season Task
 
         private void ButtonRandomBudgets_Click(object sender, EventArgs e)
@@ -1885,16 +1896,16 @@ namespace DB_EDITOR
             RandomizeBudgets();
         }
 
-        //Randomize Player Potential
-        private void ButtonRandPotential_Click(object sender, EventArgs e)
-        {
-            RandomizePotential();
-        }
-
         //Coaching Carousel -- Must be done at end of Season
         private void ButtonCarousel_Click(object sender, EventArgs e)
         {
             CoachCarousel();
+        }
+
+        //Conference Realignment
+        private void buttonRealignment_Click(object sender, EventArgs e)
+        {
+            ConfRealignment();
         }
 
         #endregion
@@ -1977,14 +1988,17 @@ namespace DB_EDITOR
 
         #endregion
 
+        //EXPERIMENTAL ITEMS -- WORK IN PROGRESS
+
         private void buttonChaosTransfers_Click(object sender, EventArgs e)
         {
             ChaosTransfers();
         }
 
-        private void buttonRealignment_Click(object sender, EventArgs e)
+
+        private void buttonScheduleGen_Click(object sender, EventArgs e)
         {
-            ConfRealignment();
+            ScheduleGenerator();
         }
     }
 
