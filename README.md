@@ -20,7 +20,7 @@ DB Tools
 * Randomize Player Potential
 
 Dynasty Tools (In-Season)
-* Add Pre-Season Injuries
+* Add Pre-Season Injuries with Player Regression
 * Medical Redshirting with Player Regression
 * Coaching Progression/Re-Rating for CPU
 * Coaching Carousel + Coach Leaving Transfer Portal
