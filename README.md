@@ -6,7 +6,7 @@ This editor was designed using original source code from Madden Xtreme DB Editor
 
 # New Features
 * Added better compatibility with NCAA PS2 Games and PS2 in general
-* Ability to view, edit and save NCAA off-season save files
+* Ability to view, edit and save NCAA off-season save files  (click Options, Load Off-Season Save, Reload save file)
 * Faster, more optimized database editing, loading, saving, etc.
 * Added DB Tools & Modules
 
