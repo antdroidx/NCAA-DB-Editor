@@ -9,7 +9,7 @@ This editor was designed using original source code from Madden Xtreme DB Editor
 * Ability to view, edit and save NCAA off-season save files  (click Options, Load Off-Season Save, Reload save file)
 * Faster, more optimized database editing, loading, saving, etc.
 * Added DB Tools & Modules
-* PLAY table player names now shown in normal alphanumerics for readability
+* PLAY table player names now shown
 
 # Available Modules
 
