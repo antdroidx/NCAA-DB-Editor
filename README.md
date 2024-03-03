@@ -23,7 +23,7 @@ Dynasty Tools (In-Season)
 * Add Pre-Season Injuries
 * Medical Redshirting with Player Regression
 * Coaching Progression/Re-Rating for CPU
-* Coaching Carousel + Transfer Portal
+* Coaching Carousel + Coach Leaving Transfer Portal
 * Randomize Coaching Budgets
 * Auto Conference Realignment
 
