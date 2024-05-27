@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace DB_EDITOR
@@ -11,10 +12,13 @@ namespace DB_EDITOR
         //Import - Main Menu
         private void ImportMain()
         {
+            bool roster = true;
+            if(TDB.TableCount(dbIndex) > 3) roster = false;
+
             Dictionary<string, int> AvailableFields = new Dictionary<string, int>();
             Dictionary<string, int> TableFields = new Dictionary<string, int>();
 
-            if (SelectedTableName == "TEAM" && TDB.TDBDatabaseGetTableCount(dbIndex) > 50)
+            if (SelectedTableName == "TEAM" && TDB.TDBDatabaseGetTableCount(dbIndex) > 50 && !addendum)
             {
                 MessageBox.Show("DO NOT USE IMPORT CSV FUNCTION FOR TEAM TABLE.\n\nPlease use Addendum instead and DO NOT IMPORT TPIP and JJNM COLUMNS!");
                 return;
@@ -240,7 +244,7 @@ namespace DB_EDITOR
 
                         }
 
-                        if (TableProps.Name == "PLAY")
+                        if (TableProps.Name == "PLAY" && !roster && record.Length > 97 || TableProps.Name == "PLAY" && roster && record.Length > 86)
                         {
                             ImportFN_StringToInt(record[importtmpfieldindex + 1], recnum, "PLAY");
                             ImportLN_StringToInt(record[importtmpfieldindex + 2], recnum, "PLAY");

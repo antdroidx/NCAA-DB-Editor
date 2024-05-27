@@ -157,7 +157,28 @@ namespace DB_EDITOR
             MessageBox.Show("Player Potential Updates are complete!");
         }
 
-    
+        //Recalculate Player Overalls
+        private void RecalculateOverall()
+        {
+            progressBar1.Visible = true;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = TDB.TableRecordCount(dbIndex, "PLAY");
+            progressBar1.Step = 1;
+
+            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "PLAY"); i++)
+            {
+                RecalculateOverallByRec(i);
+
+                progressBar1.PerformStep();
+            }
+
+            progressBar1.Visible = false;
+            progressBar1.Value = 0;
+            MessageBox.Show("Player Overall Calculations are complete!");
+        }
+
+
+        //Export Recruiting Class from Roster
 
 
     }

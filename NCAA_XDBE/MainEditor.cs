@@ -86,6 +86,8 @@ namespace DB_EDITOR
         Dictionary<int, int> Ratings = new Dictionary<int, int>(); //database of db rating, in-game rating
         Dictionary<int, int> RatingsX = new Dictionary<int, int>(); //database of in-game rating, db rating
 
+        double[,] POCI;
+
         #endregion
 
         public MainEditor()
@@ -150,7 +152,6 @@ namespace DB_EDITOR
             PGIDrecNo.Clear();
 
             activeDB = 0;
-            offSeasonSave = false; //True if off-season save DB is present
         }
 
 
@@ -1061,6 +1062,7 @@ namespace DB_EDITOR
 
             SetPositions();
             CreateRatingsDB();
+            CreatePOCItable();
 
             int tmpi = 0;
             foreach (KeyValuePair<int, string> TABLE in TableNames)
@@ -1863,6 +1865,12 @@ namespace DB_EDITOR
             RandomizePotential();
         }
 
+        //Recalculate Overall Ratings
+        private void buttonCalcOverall_Click(object sender, EventArgs e)
+        {
+            RecalculateOverall();
+        }
+
         #endregion
 
         #region Dynasty Tools
@@ -1906,6 +1914,13 @@ namespace DB_EDITOR
         private void buttonRealignment_Click(object sender, EventArgs e)
         {
             ConfRealignment();
+        }
+
+
+        //Players to Coaches
+        private void buttonPlayerCoach_Click(object sender, EventArgs e)
+        {
+            PlayerToCoach();
         }
 
         #endregion
@@ -2000,6 +2015,8 @@ namespace DB_EDITOR
         {
             ScheduleGenerator();
         }
+
+
     }
 
 }

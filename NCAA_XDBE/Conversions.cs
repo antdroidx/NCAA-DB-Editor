@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace DB_EDITOR
@@ -336,6 +338,86 @@ namespace DB_EDITOR
                 value--;
             }
             return RatingsX[value];
+        }
+
+        private void CreatePOCItable()
+        {
+            string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string csvLocation = Path.Combine(executableLocation, @"resources\POCI.csv");
+      
+            string filePath = csvLocation;
+            StreamReader sr = new StreamReader(filePath);
+            int Row = 0;
+            while (!sr.EndOfStream)
+            {
+                string[] Line = sr.ReadLine().Split(',');
+                if (Row == 0)
+                {
+                    POCI = new double[22, Line.Length];
+                }
+                for (int column = 0; column < Line.Length; column++)
+                {
+                    POCI[Row, column] = Convert.ToDouble(Line[column]);
+                }
+                Row++;
+            }
+            sr.Close();
+        }
+
+        private void RecalculateOverallByRec(int rec)
+        {
+            int ppos = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PPOS", rec));
+            double PCAR = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PCAR", rec)); //CAWT
+            double PKAC = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PKAC", rec)); //KAWT
+            double PTHA = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PTHA", rec)); //TAWT
+            double PPBK = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PPBK", rec)); //PBWT
+            double PRBK = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PRBK", rec)); //RBWT
+            double PACC = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PACC", rec)); //ACWT
+            double PAGI = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PAGI", rec)); //AGWT
+            double PTAK = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PTAK", rec)); //TKWT
+            double PINJ = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PINJ", rec)); //INWT
+            double PKPR = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PKPR", rec)); //KPWT
+            double PSPD = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PSPD", rec)); //SPWT
+            double PTHP = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PTHP", rec)); //TPWT
+            double PBKT = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PBTK", rec)); //BTWT
+            double PCTH = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PCTH", rec)); //CTWT
+            double PSTR = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PSTR", rec)); //STWT
+            double PJMP = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PJMP", rec)); //JUWT
+            double PAWR = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PAWR", rec)); //AWWT
+
+            double[] ratings = new double[] { PCAR, PKAC, PTHA, PPBK, PRBK, PACC, PAGI, PTAK, PINJ, PKPR, PSPD, PTHP, PBKT, PCTH, PSTR, PJMP, PAWR };
+
+            for(int i = 0; i < ratings.Length; i++)
+            {
+                ratings[i] = CalcOVRIndividuals(i + 3, ratings[i], ppos);
+            }
+
+            double newRating = 50;
+
+            for (int i = 0;i < ratings.Length; i++)
+            {
+                newRating += ratings[i];
+            }
+
+            int val = Convert.ToInt32(newRating);
+            if (val < 40) val = 40;
+            val = RevertRating(val);
+
+            TDB.NewfieldValue(dbIndex, "PLAY", "POVR", rec, Convert.ToString(val));
+  
+        }
+
+        private double CalcOVRIndividuals(int row, double val, int ppos)
+        {
+            double skillRating = (double)ConvertRating(Convert.ToInt32(val));
+
+            //attribute rating - (PLDH + PLDL)/2 * wtPts/total Pts * (99 / (PLDH-PLDL)
+            // row 20,   weight/row 21, row 22
+            // 
+
+            skillRating = (skillRating - POCI[ppos, 20]) * (POCI[ppos, row] / POCI[ppos, 21]) * POCI[ppos, 22];
+
+            return skillRating;
         }
 
         #endregion

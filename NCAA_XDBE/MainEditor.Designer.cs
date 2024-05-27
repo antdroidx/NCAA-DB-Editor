@@ -1,5 +1,6 @@
 ﻿using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System;
+using System.Windows.Forms;
 
 namespace DB_EDITOR
 {
@@ -114,6 +115,9 @@ namespace DB_EDITOR
             this.PLNAtextBox = new System.Windows.Forms.TextBox();
             this.PFNAtextBox = new System.Windows.Forms.TextBox();
             this.tabSeason = new System.Windows.Forms.TabPage();
+            this.label14 = new System.Windows.Forms.Label();
+            this.numberPlayerCoach = new System.Windows.Forms.NumericUpDown();
+            this.buttonPlayerCoach = new System.Windows.Forms.Button();
             this.buttonScheduleGen = new System.Windows.Forms.Button();
             this.buttonRealignment = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
@@ -161,6 +165,7 @@ namespace DB_EDITOR
             this.buttonRandWalkOns = new System.Windows.Forms.Button();
             this.buttonMinRecruitingPts = new System.Windows.Forms.Button();
             this.tabTools = new System.Windows.Forms.TabPage();
+            this.buttonCalcOverall = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.buttonRandPotential = new System.Windows.Forms.Button();
@@ -179,6 +184,7 @@ namespace DB_EDITOR
             this.tabTeams.SuspendLayout();
             this.tabPlayers.SuspendLayout();
             this.tabSeason.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numberPlayerCoach)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.maxFiredTransfers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MaxSkillDropPS)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numInjuries)).BeginInit();
@@ -933,6 +939,9 @@ namespace DB_EDITOR
             // tabSeason
             // 
             this.tabSeason.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.tabSeason.Controls.Add(this.label14);
+            this.tabSeason.Controls.Add(this.numberPlayerCoach);
+            this.tabSeason.Controls.Add(this.buttonPlayerCoach);
             this.tabSeason.Controls.Add(this.buttonScheduleGen);
             this.tabSeason.Controls.Add(this.buttonRealignment);
             this.tabSeason.Controls.Add(this.label13);
@@ -966,6 +975,39 @@ namespace DB_EDITOR
             this.tabSeason.TabIndex = 3;
             this.tabSeason.Text = "Dynasty";
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(431, 601);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(93, 13);
+            this.label14.TabIndex = 32;
+            this.label14.Text = "Number of Players";
+            // 
+            // numberPlayerCoach
+            // 
+            this.numberPlayerCoach.Location = new System.Drawing.Point(424, 578);
+            this.numberPlayerCoach.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numberPlayerCoach.Name = "numberPlayerCoach";
+            this.numberPlayerCoach.Size = new System.Drawing.Size(120, 20);
+            this.numberPlayerCoach.TabIndex = 31;
+            // 
+            // buttonPlayerCoach
+            // 
+            this.buttonPlayerCoach.BackColor = System.Drawing.Color.LightBlue;
+            this.buttonPlayerCoach.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPlayerCoach.Location = new System.Drawing.Point(424, 495);
+            this.buttonPlayerCoach.Name = "buttonPlayerCoach";
+            this.buttonPlayerCoach.Size = new System.Drawing.Size(110, 80);
+            this.buttonPlayerCoach.TabIndex = 30;
+            this.buttonPlayerCoach.Text = "Players to Coach";
+            this.buttonPlayerCoach.UseVisualStyleBackColor = false;
+            this.buttonPlayerCoach.Click += new System.EventHandler(this.buttonPlayerCoach_Click);
+            // 
             // buttonScheduleGen
             // 
             this.buttonScheduleGen.BackColor = System.Drawing.Color.DarkOrange;
@@ -983,7 +1025,7 @@ namespace DB_EDITOR
             // 
             this.buttonRealignment.BackColor = System.Drawing.Color.CornflowerBlue;
             this.buttonRealignment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRealignment.Location = new System.Drawing.Point(392, 528);
+            this.buttonRealignment.Location = new System.Drawing.Point(288, 495);
             this.buttonRealignment.Name = "buttonRealignment";
             this.buttonRealignment.Size = new System.Drawing.Size(110, 80);
             this.buttonRealignment.TabIndex = 28;
@@ -1035,7 +1077,7 @@ namespace DB_EDITOR
             // 
             this.buttonChaosTransfers.BackColor = System.Drawing.Color.LightGray;
             this.buttonChaosTransfers.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonChaosTransfers.Location = new System.Drawing.Point(206, 528);
+            this.buttonChaosTransfers.Location = new System.Drawing.Point(157, 495);
             this.buttonChaosTransfers.Name = "buttonChaosTransfers";
             this.buttonChaosTransfers.Size = new System.Drawing.Size(110, 80);
             this.buttonChaosTransfers.TabIndex = 23;
@@ -1170,13 +1212,13 @@ namespace DB_EDITOR
             // jobSecurityValue
             // 
             this.jobSecurityValue.Increment = new decimal(new int[] {
-            5,
+            3,
             0,
             0,
             0});
             this.jobSecurityValue.Location = new System.Drawing.Point(360, 377);
             this.jobSecurityValue.Maximum = new decimal(new int[] {
-            50,
+            30,
             0,
             0,
             0});
@@ -1237,7 +1279,7 @@ namespace DB_EDITOR
             // 
             this.buttonRandomBudgets.BackColor = System.Drawing.Color.SandyBrown;
             this.buttonRandomBudgets.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRandomBudgets.Location = new System.Drawing.Point(28, 528);
+            this.buttonRandomBudgets.Location = new System.Drawing.Point(28, 495);
             this.buttonRandomBudgets.Name = "buttonRandomBudgets";
             this.buttonRandomBudgets.Size = new System.Drawing.Size(110, 80);
             this.buttonRandomBudgets.TabIndex = 7;
@@ -1250,10 +1292,10 @@ namespace DB_EDITOR
             this.dbToolsInfo.BackColor = System.Drawing.Color.AntiqueWhite;
             this.dbToolsInfo.Enabled = false;
             this.dbToolsInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dbToolsInfo.Location = new System.Drawing.Point(563, 19);
+            this.dbToolsInfo.Location = new System.Drawing.Point(566, 6);
             this.dbToolsInfo.Multiline = true;
             this.dbToolsInfo.Name = "dbToolsInfo";
-            this.dbToolsInfo.Size = new System.Drawing.Size(407, 589);
+            this.dbToolsInfo.Size = new System.Drawing.Size(407, 620);
             this.dbToolsInfo.TabIndex = 3;
             this.dbToolsInfo.Text = resources.GetString("dbToolsInfo.Text");
             // 
@@ -1596,6 +1638,7 @@ namespace DB_EDITOR
             // tabTools
             // 
             this.tabTools.BackColor = System.Drawing.Color.PeachPuff;
+            this.tabTools.Controls.Add(this.buttonCalcOverall);
             this.tabTools.Controls.Add(this.textBox3);
             this.tabTools.Controls.Add(this.textBox2);
             this.tabTools.Controls.Add(this.buttonRandPotential);
@@ -1608,6 +1651,18 @@ namespace DB_EDITOR
             this.tabTools.Size = new System.Drawing.Size(976, 632);
             this.tabTools.TabIndex = 5;
             this.tabTools.Text = "dbTools";
+            // 
+            // buttonCalcOverall
+            // 
+            this.buttonCalcOverall.BackColor = System.Drawing.Color.DarkGray;
+            this.buttonCalcOverall.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCalcOverall.Location = new System.Drawing.Point(45, 346);
+            this.buttonCalcOverall.Name = "buttonCalcOverall";
+            this.buttonCalcOverall.Size = new System.Drawing.Size(110, 80);
+            this.buttonCalcOverall.TabIndex = 15;
+            this.buttonCalcOverall.Text = "Recalculate Player Overall";
+            this.buttonCalcOverall.UseVisualStyleBackColor = false;
+            this.buttonCalcOverall.Click += new System.EventHandler(this.buttonCalcOverall_Click);
             // 
             // textBox3
             // 
@@ -1687,6 +1742,7 @@ namespace DB_EDITOR
             this.Name = "MainEditor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "NCAA Xtreme Database Editor";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainEditor_FormClosing);
             this.mainMenu.ResumeLayout(false);
             this.mainMenu.PerformLayout();
             this.tableMenu.ResumeLayout(false);
@@ -1705,6 +1761,7 @@ namespace DB_EDITOR
             this.tabPlayers.PerformLayout();
             this.tabSeason.ResumeLayout(false);
             this.tabSeason.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numberPlayerCoach)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.maxFiredTransfers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MaxSkillDropPS)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numInjuries)).EndInit();
@@ -1865,6 +1922,10 @@ namespace DB_EDITOR
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Button buttonRealignment;
         private System.Windows.Forms.Button buttonScheduleGen;
+        public System.Windows.Forms.Button buttonCalcOverall;
+        private NumericUpDown numberPlayerCoach;
+        private System.Windows.Forms.Button buttonPlayerCoach;
+        private Label label14;
     }
 }
 
