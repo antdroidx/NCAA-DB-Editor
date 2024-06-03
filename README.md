@@ -26,6 +26,8 @@ Dynasty Tools (In-Season)
 * Coaching Carousel + Coach Leaving Transfer Portal
 * Randomize Coaching Budgets
 * Auto Conference Realignment
+* Transfer Chaos Mode
+* Players -> Coaches
 
 Recruiting Tools (DB2 save!)
 * Redistribute Recruiting Point Minimum
