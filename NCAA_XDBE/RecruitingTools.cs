@@ -194,19 +194,19 @@ namespace DB_EDITOR
                 {
 
                     //Randomizes Face Shape (PGFM)
-                    int shape = rand.Next(0, 15);
+                    int shape = rand.Next(0, 16);
                     TDB.NewfieldValue(dbIndex, "RCPT", "PFGM", i, Convert.ToString(shape));
 
                     //Finds current skin tone and randomizes within it's Light/Medium/Dark general tone (PSKI)
                     int skin = TDB.TDBFieldGetValueAsInteger(dbIndex, "RCPT", "PSKI", i);
-                    if (skin <= 1) rand.Next(0, 1);
-                    else if (skin <= 4) rand.Next(2, 4);
-                    else rand.Next(5, 7);
+                    if (skin <= 2) rand.Next(0, 3);
+                    else if (skin <= 6) rand.Next(3, 7);
+                    else rand.Next(8, 8);
 
                     TDB.NewfieldValue(dbIndex, "RCPT", "PSKI", i, Convert.ToString(skin));
 
                     //Randomizes Face Type based on new Skin Type
-                    int face = TDB.TDBFieldGetValueAsInteger(dbIndex, "RCPT", "PSKI", i) * 8 + rand.Next(0, 7);
+                    int face = TDB.TDBFieldGetValueAsInteger(dbIndex, "RCPT", "PSKI", i) * 8 + rand.Next(0, 8);
                     TDB.NewfieldValue(dbIndex, "RCPT", "PFMP", i, Convert.ToString(face));
 
                 }
