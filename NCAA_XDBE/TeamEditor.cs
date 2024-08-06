@@ -16,27 +16,14 @@ namespace DB_EDITOR
 
         public void SelectDBTabPage()
         {
-            // NB Find returns an array of controls - see the [0] at the end here...
-            TabControl dbTabPage = (TabControl)this.Controls.Find(tabControl1.Name, true)[0];
-            dbTabPage.SelectedIndexChanged += DbTabPage_Click;
-        }
-        public void DbTabPage_Click(object sender, EventArgs e)
-        {
-            TabControl dbTabPage = (TabControl)this.Controls.Find(tabControl1.Name, true)[0];
-            if (dbTabPage.TabPages.Count < 1)
-                return;
 
-            // this.Text = " [" + dbTabPage.SelectedTab.Text + "]";
-            // dbTabPage.SelectedIndex = SelectIndex;
-            // MessageBox.Show("triggered");
-
-            if (dbTabPage.SelectedTab.Text == "Teams")
+            if (tabControl1.SelectedTab.Text == "Teams")
             {
                 if (TGIDrecNo.Count < 1)
                 {
                     Management(dbIndex, "TEAM", "TORD");  //Load Teams by their team order.
                     MangTGID(dbIndex);
-                    LoadTGIDlistBox(dbIndex, "TTYP", -1);  // -1 = to all teams.
+                    //LoadTGIDlistBox(dbIndex, "TTYP", 0);  // -1 = to all teams.
 
                     // If table exixts in current DB.
                     if (TDB.TableIndex(dbIndex, "CONF") != -1)
@@ -46,14 +33,15 @@ namespace DB_EDITOR
                     }
                 }
 
+                LoadTGIDlistBox(dbIndex, "TTYP", 0);  // -1 = to all teams.
+
             }
-            else if (dbTabPage.SelectedTab.Text == "Players")
+            else if (tabControl1.SelectedTab.Text == "Players")
             {
                 if (PGIDrecNo.Count < 1)
                 {
                     Management(dbIndex, "PLAY", "POVR");  //Load players by their overall.
                     MangPGID(dbIndex);
-
                 }
             }
 
@@ -151,12 +139,10 @@ namespace DB_EDITOR
 
         public void MangTGID(int tmpDB)
         {
-            // List<int> tmpTTYP = new List<int>();
             List<int> tmpTTYP = new List<int>();
             List<int> tmpDGID = new List<int>();
             List<int> tmpLGID = new List<int>();
             List<int> tmpCGID = new List<int>();
-            List<int> tmpTGRP = new List<int>();
 
             var tmpList = new Dictionary<int, int>();
             tmpList.Clear();
@@ -181,14 +167,12 @@ namespace DB_EDITOR
                 if (TDB.TableIndex(dbIndex, "CONF") == -1)
                     tmpCGID.Add(Convert.ToInt32(TDB.FieldValue(tmpDB, "TEAM", "CGID", TGID.Key)));
 
-                //tmpTGRP.Add(Convert.ToInt32(TDB.FieldValue(tmpDB, "TEAM", "TGRP", TGID.Key)));
             }
             progressBar1.Value = 0;
             tmpTTYP.Sort();
             tmpDGID.Sort();
             tmpLGID.Sort();
             tmpCGID.Sort();
-            tmpTGRP.Sort();
 
             if (TDB.TableIndex(dbIndex, "CONF") == -1)
             {
@@ -228,11 +212,7 @@ namespace DB_EDITOR
             {
                 DGIDcomboBox.Items.Add(DGID.Key);
             }
-            //if (DGIDcomboBox.Items.Count > 0)
-            //{
-            //    TTYPcomboBox.Items.Add(-1);
-            //    TTYPcomboBox.SelectedIndex = TTYPcomboBox.Items.Count - 1;
-            //}
+
             tmpList.Clear();
             tmpDGID.Clear();
             #endregion
@@ -250,11 +230,7 @@ namespace DB_EDITOR
             {
                 LGIDcomboBox.Items.Add(LGID.Key);
             }
-            //if (DGIDcomboBox.Items.Count > 0)
-            //{
-            //    TTYPcomboBox.Items.Add(-1);
-            //    TTYPcomboBox.SelectedIndex = TTYPcomboBox.Items.Count - 1;
-            //}
+
             tmpList.Clear();
             tmpLGID.Clear();
             #endregion
@@ -276,51 +252,21 @@ namespace DB_EDITOR
                 tmpSelectedIndex = tmpSelectedIndex + 1;
                 CONFlist.Add(tmpSelectedIndex, CGID.Key);
             }
-            //if (DGIDcomboBox.Items.Count > 0)
-            //{
-            //    TTYPcomboBox.Items.Add(-1);
-            //    TTYPcomboBox.SelectedIndex = TTYPcomboBox.Items.Count - 1;
-            //}
+
             tmpList.Clear();
             tmpCGID.Clear();
             #endregion
 
-            #region Team Group Combo Box
-            // TGRP
-            // TGRPcomboBox.Items.Clear();
-            for (int i = 0; i < tmpTGRP.Count; i++)
-            {
-
-                tmpList.AddSafe(tmpTGRP[i], 0);
-
-            }
-            foreach (KeyValuePair<int, int> TGRP in tmpList)
-            {
-                //TGRPcomboBox.Items.Add(TGRP.Key);
-            }
-            //if (DGIDcomboBox.Items.Count > 0)
-            //{
-            //    TTYPcomboBox.Items.Add(-1);
-            //    TTYPcomboBox.SelectedIndex = TTYPcomboBox.Items.Count - 1;
-            //}
-            tmpList.Clear();
-            tmpTGRP.Clear();
-            #endregion
 
             tmpManagement.Clear();
         }
         public void LoadTGIDlistBox(int tmpDB, string tmpBOX, int tmpVAL)
         {
-            //mangTGID();
-
+ 
             TGIDlistBox.Items.Clear();
             TGIDplayerBox.Items.Clear();
-            //TGIDcoachBox.Items.Clear();
             TGIDlist.Clear();
 
-            //TRV1comboBox.Items.Clear();
-            //TRV2comboBox.Items.Clear();
-            //TRV3comboBox.Items.Clear();
 
             if (TGIDrecNo.Count < 1)
                 return;
@@ -361,18 +307,12 @@ namespace DB_EDITOR
                     tmpIndex = tmpIndex + 1;
                     TGIDlistBox.Items.Add(tmpFULL);
                     TGIDplayerBox.Items.Add(tmpFULL);
-                    //TGIDcoachBox.Items.Add(tmpFULL);
                     TGIDlist.Add(tmpIndex, TGID.Key);
 
-                    //TRV1comboBox.Items.Add(tmpFULL);
-                    //TRV2comboBox.Items.Add(tmpFULL);
-                    //TRV3comboBox.Items.Add(tmpFULL);
                 }
             }
             progressBar1.Value = 0;
 
-            //if (TGIDlistBox.Items.Count > 0)
-            //    TGIDlistBox.SelectedIndex = 0;
         }
 
         public void MangPGID(int tmpDBindex)
@@ -475,9 +415,6 @@ namespace DB_EDITOR
 
             label4.Text = "Roster Size: " + Convert.ToString(PGIDlistBox.Items.Count);
             progressBar1.Value = 0;
-
-            //if (PGIDlistBox.Items.Count > 0)
-            //    PGIDlistBox.SelectedIndex = 0;
 
         }
 
@@ -620,17 +557,9 @@ namespace DB_EDITOR
             if (TTYPcomboBox.SelectedIndex == -1 || DoNotTrigger)
                 return;
 
-            //TRV1comboBox.SelectedIndex = -1;
-            //TRV2comboBox.SelectedIndex = -1;
-            //TRV3comboBox.SelectedIndex = -1;
-
-
-            // TTYPcomboBox.SelectedIndex = -1;
             DGIDcomboBox.SelectedIndex = -1;
             LGIDcomboBox.SelectedIndex = -1;
             CGIDcomboBox.SelectedIndex = -1;
-            //TGRPcomboBox.SelectedIndex = -1;
-
 
             LoadTGIDlistBox(dbIndex, "TTYP", Convert.ToInt32(TTYPcomboBox.Items[TTYPcomboBox.SelectedIndex]));
         }
@@ -639,16 +568,10 @@ namespace DB_EDITOR
             if (DGIDcomboBox.SelectedIndex == -1 || DoNotTrigger)
                 return;
 
-            //TRV1comboBox.SelectedIndex = -1;
-            //TRV2comboBox.SelectedIndex = -1;
-            //TRV3comboBox.SelectedIndex = -1;
-
-
             TTYPcomboBox.SelectedIndex = -1;
-            // DGIDcomboBox.SelectedIndex = -1;
             LGIDcomboBox.SelectedIndex = -1;
             CGIDcomboBox.SelectedIndex = -1;
-            //TGRPcomboBox.SelectedIndex = -1;
+
 
             LoadTGIDlistBox(dbIndex, "DGID", Convert.ToInt32(DGIDcomboBox.Items[DGIDcomboBox.SelectedIndex]));
         }
@@ -657,16 +580,10 @@ namespace DB_EDITOR
             if (LGIDcomboBox.SelectedIndex == -1 || DoNotTrigger)
                 return;
 
-            //TRV1comboBox.SelectedIndex = -1;
-            //TRV2comboBox.SelectedIndex = -1;
-            //TRV3comboBox.SelectedIndex = -1;
-
-
             TTYPcomboBox.SelectedIndex = -1;
             DGIDcomboBox.SelectedIndex = -1;
-            // LGIDcomboBox.SelectedIndex = -1;
             CGIDcomboBox.SelectedIndex = -1;
-            //TGRPcomboBox.SelectedIndex = -1;
+
 
             LoadTGIDlistBox(dbIndex, "LGID", Convert.ToInt32(LGIDcomboBox.Items[LGIDcomboBox.SelectedIndex]));
         }
@@ -675,16 +592,9 @@ namespace DB_EDITOR
             if (CGIDcomboBox.SelectedIndex == -1 || DoNotTrigger)
                 return;
 
-            //TRV1comboBox.SelectedIndex = -1;
-            //TRV2comboBox.SelectedIndex = -1;
-            //TRV3comboBox.SelectedIndex = -1;
-
-
             TTYPcomboBox.SelectedIndex = -1;
             DGIDcomboBox.SelectedIndex = -1;
             LGIDcomboBox.SelectedIndex = -1;
-            // CGIDcomboBox.SelectedIndex = -1;
-            //TGRPcomboBox.SelectedIndex = -1;
 
             LoadTGIDlistBox(dbIndex, "CGID", Convert.ToInt32(CONFlist[CGIDcomboBox.SelectedIndex]));
         }
@@ -737,25 +647,13 @@ namespace DB_EDITOR
             DoNotTrigger = true;
 
             TGIDtextBox.Text = TDB.FieldValue(dbIndex, "TEAM", "TGID", tmpRecNo);
-
-            TLNAtextBox.Text = TDB.FieldValue(dbIndex, "TEAM", "TDNA", tmpRecNo);
-            TDNAtextBox.Text = TDB.FieldValue(dbIndex, "TEAM", "TMNA", tmpRecNo);
+            TDNAtextBox.Text = TDB.FieldValue(dbIndex, "TEAM", "TDNA", tmpRecNo);
+            TMNAtextBox.Text = TDB.FieldValue(dbIndex, "TEAM", "TMNA", tmpRecNo);
 
             DoNotTrigger = false;
         }
 
 
-        public void TLNAtextBox_TextChanged(object sender, EventArgs e)
-        {
-            if (DoNotTrigger)
-                return;
-
-            int tmpRecNo = TGIDlist[TGIDlistBox.SelectedIndex];
-
-            TDB.NewfieldValue(dbIndex, "TEAM", "TDNA", tmpRecNo, TLNAtextBox.Text);
-            TGIDlistBox.Items[TGIDlistBox.SelectedIndex] = TLNAtextBox.Text + " " + TDNAtextBox.Text;
-
-        }
         public void TDNAtextBox_TextChanged(object sender, EventArgs e)
         {
             if (DoNotTrigger)
@@ -763,8 +661,19 @@ namespace DB_EDITOR
 
             int tmpRecNo = TGIDlist[TGIDlistBox.SelectedIndex];
 
-            TDB.NewfieldValue(dbIndex, "TEAM", "TMNA", tmpRecNo, TDNAtextBox.Text);
-            TGIDlistBox.Items[TGIDlistBox.SelectedIndex] = TLNAtextBox.Text + " " + TDNAtextBox.Text;
+            TDB.NewfieldValue(dbIndex, "TEAM", "TDNA", tmpRecNo, TDNAtextBox.Text);
+            TGIDlistBox.Items[TGIDlistBox.SelectedIndex] = TDNAtextBox.Text + " " + TMNAtextBox.Text;
+
+        }
+        public void TMNAtextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger)
+                return;
+
+            int tmpRecNo = TGIDlist[TGIDlistBox.SelectedIndex];
+
+            TDB.NewfieldValue(dbIndex, "TEAM", "TMNA", tmpRecNo, TMNAtextBox.Text);
+            TGIDlistBox.Items[TGIDlistBox.SelectedIndex] = TDNAtextBox.Text + " " + TMNAtextBox.Text;
 
         }
 

@@ -181,6 +181,45 @@ namespace DB_EDITOR
             RecalculateBMI("RCPT");
         }
 
+        //Randomize the Recruits Skin Tone, Face and Face Shape
+        private void RandomizeRecruitFace()
+        {
+            progressBar1.Visible = true;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = TDB.TableRecordCount(dbIndex, "RCPT");
+
+            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "RCPT"); i++)
+            {
+                if (Convert.ToInt32(TDB.FieldValue(dbIndex, "RCPT", "PRID", i)) < 21000)  //skips transfers
+                {
+
+                    //Randomizes Face Shape (PGFM)
+                    int shape = rand.Next(0, 15);
+                    TDB.NewfieldValue(dbIndex, "RCPT", "PFGM", i, Convert.ToString(shape));
+
+                    //Finds current skin tone and randomizes within it's Light/Medium/Dark general tone (PSKI)
+                    int skin = TDB.TDBFieldGetValueAsInteger(dbIndex, "RCPT", "PSKI", i);
+                    if (skin <= 1) rand.Next(0, 1);
+                    else if (skin <= 4) rand.Next(2, 4);
+                    else rand.Next(5, 7);
+
+                    TDB.NewfieldValue(dbIndex, "RCPT", "PSKI", i, Convert.ToString(skin));
+
+                    //Randomizes Face Type based on new Skin Type
+                    int face = TDB.TDBFieldGetValueAsInteger(dbIndex, "RCPT", "PSKI", i) * 8 + rand.Next(0, 7);
+                    TDB.NewfieldValue(dbIndex, "RCPT", "PFMP", i, Convert.ToString(face));
+
+                }
+
+                progressBar1.PerformStep();
+            }
+
+            progressBar1.Visible = false;
+            progressBar1.Value = 0;
+
+            MessageBox.Show("Recruits Randomized!");
+        }
+
         //Randomize Walk-On Database -- Must be done prior to Cut Players stage
         private void RandomizeWalkOnDB()
         {

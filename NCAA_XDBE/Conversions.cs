@@ -471,6 +471,19 @@ namespace DB_EDITOR
             return TMPR;
         }
 
+        private int FindTeamRanking(int TGID)
+        {
+            int TCRK = 0;
+            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "TEAM"); i++)
+            {
+                if (TGID == Convert.ToInt32(TDB.FieldValue(dbIndex, "TEAM", "TGID", i)))
+                {
+                    TCRK = Convert.ToInt32(TDB.FieldValue(dbIndex, "TEAM", "TCRK", i));
+                }
+            }
+            return TCRK;
+        }
+
         private int GetTeamRanking(int i)
         {
             int teamRanking = 0;

@@ -164,6 +164,25 @@ namespace DB_EDITOR
             progressBar1.Minimum = 0;
             progressBar1.Maximum = TDB.TableRecordCount(dbIndex, "COCH");
 
+
+        /* new method idea: 
+         * look and compare team prestige and team rankings
+         * 
+         * team prestige categories:
+         * 0-2
+         * 3-4
+         * 5-6
+         * 
+         * rankings:
+         * 0-10 6
+         * 11-20 5
+         * 21-35 4
+         * 36-60 3
+         * 61-90 2
+         * 76-90 1
+         * 91-120 0
+         * */
+
             string coach = "";
             for (int i = 0; i < TDB.TableRecordCount(dbIndex, "COCH"); i++)
             {
@@ -172,12 +191,21 @@ namespace DB_EDITOR
                     string TGID = TDB.FieldValue(dbIndex, "COCH", "TGID", i);
                     int oldPrestige = Convert.ToInt32(TDB.FieldValue(dbIndex, "COCH", "CPRE", i));
                     int newPrestige = oldPrestige;
-                    int CTOP = Convert.ToInt32(TDB.FieldValue(dbIndex, "COCH", "CTOP", i));
-                    int CLTF = Convert.ToInt32(TDB.FieldValue(dbIndex, "COCH", "CLTF", i));
 
-                    if (CLTF > 6) CLTF = CTOP;
+                    int TMPR = FindTeamPrestige(Convert.ToInt32(TGID));
+                    int TMRK = FindTeamRanking(Convert.ToInt32(TGID));
+                    int prestigePerformed = 0;
 
-                    newPrestige += FindTeamPrestige(Convert.ToInt32(TGID)) - CLTF;
+                    //calculate the prestige level of the team's season performance
+                    if (TMRK <= 15) prestigePerformed = 6;
+                    else if (TMRK <= 25) prestigePerformed = 5;
+                    else if (TMRK <= 40) prestigePerformed = 4;
+                    else if (TMRK <= 65) prestigePerformed = 3;
+                    else if (TMRK <= 90) prestigePerformed = 2; 
+                    else prestigePerformed = 1;
+
+                    if (TMPR > prestigePerformed) newPrestige--;
+                    if (TMPR < prestigePerformed) newPrestige++;
 
                     if (newPrestige > 6) newPrestige = 6;
                     if (newPrestige < 1) newPrestige = 1;
@@ -192,14 +220,9 @@ namespace DB_EDITOR
                         coach += "\n* " + GetTeamName(Convert.ToInt32(TDB.FieldValue(dbIndex, "COCH", "TGID", i))) + ": " + TDB.FieldValue(dbIndex, "COCH", "CLFN", i) + " " + TDB.FieldValue(dbIndex, "COCH", "CLLN", i) + " (" + (newPrestige - oldPrestige) + ")";
                     }
                     TDB.NewfieldValue(dbIndex, "COCH", "CPRE", i, Convert.ToString(newPrestige));
-                    TDB.NewfieldValue(dbIndex, "COCH", "CLTF", i, Convert.ToString(FindTeamPrestige(Convert.ToInt32(TGID))));
-
-
-
                 }
                 else
                 {
-                    TDB.NewfieldValue(dbIndex, "COCH", "CLTF", i, "511"); //resets their value
                     TDB.NewfieldValue(dbIndex, "COCH", "CCPO", i, "60"); //fixes coach status
                 }
 
@@ -279,12 +302,13 @@ namespace DB_EDITOR
                 }
                 else
                 {
+                    string TGID = TDB.FieldValue(dbIndex, "COCH", "TGID", i);
                     int CTOP = Convert.ToInt32(TDB.FieldValue(dbIndex, "COCH", "CTOP", i));
-                    int CLTF = Convert.ToInt32(TDB.FieldValue(dbIndex, "COCH", "CLTF", i));
+                    int TMPR = FindTeamPrestige(Convert.ToInt32(TGID));
                     int CCPO = Convert.ToInt32(TDB.FieldValue(dbIndex, "COCH", "CCPO", i));
 
                     //FIRE COACHES
-                    if (CCPO < jobSecurityValue.Value && CTOP > CLTF && TDB.FieldValue(dbIndex, "COCH", "CFUC", i) != "1" && rand.Next(0, 100) < (50 + jobSecurityValue.Value - CCPO))
+                    if (CCPO < jobSecurityValue.Value && CTOP > TMPR && TDB.FieldValue(dbIndex, "COCH", "CFUC", i) != "1" && rand.Next(0, 100) < (50 + jobSecurityValue.Value - CCPO))
                     {
                         CCID_FiredList.Add(TDB.FieldValue(dbIndex, "COCH", "CCID", i));
                         TGID_VacancyList.Add(TDB.FieldValue(dbIndex, "COCH", "TGID", i));
@@ -307,7 +331,7 @@ namespace DB_EDITOR
 
                     }
                     //ADD COACHES TO CANDIDATE LIST
-                    else if (CCPO > 99 && CTOP < CLTF && TDB.FieldValue(dbIndex, "COCH", "CFUC", i) != "1")
+                    else if (CCPO > 99 && CTOP < TMPR && TDB.FieldValue(dbIndex, "COCH", "CFUC", i) != "1")
                     {
                         CCID_PromoteList.Add(TDB.FieldValue(dbIndex, "COCH", "CCID", i));
 

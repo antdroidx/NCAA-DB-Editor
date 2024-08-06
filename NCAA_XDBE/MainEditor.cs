@@ -1078,11 +1078,11 @@ namespace DB_EDITOR
 
                     //BOOKMARK TAB PAGES ON/OFF
 
-                    //tabControl1.TabPages.Add(tabTeams);
+                    tabControl1.TabPages.Add(tabTeams);
                 }
                 if (TABLE.Value == "PLAY")
                 {
-                    //tabControl1.TabPages.Add(tabPlayers);
+                    tabControl1.TabPages.Add(tabPlayers);
                     activeDB = 1;
                     OpenTabs();
                 }
@@ -1811,6 +1811,7 @@ namespace DB_EDITOR
         {
 
             if (tabControl1.SelectedTab == tabDB) TabDB_Start();
+            if (tabControl1.SelectedTab == tabTeams || tabControl1.SelectedTab == tabPlayers) SelectDBTabPage();
             else TabTools_Start();
 
         }
@@ -1869,6 +1870,16 @@ namespace DB_EDITOR
         private void buttonCalcOverall_Click(object sender, EventArgs e)
         {
             RecalculateOverall();
+        }
+
+        private void TYDNButton_Click(object sender, EventArgs e)
+        {
+            CalculateTYDNRatings();
+        }
+
+        private void buttonImpactPlayers_Click(object sender, EventArgs e)
+        {
+            DetermineImpactPlayers();
         }
 
         #endregion
@@ -2010,13 +2021,15 @@ namespace DB_EDITOR
             ChaosTransfers();
         }
 
-
         private void buttonScheduleGen_Click(object sender, EventArgs e)
         {
             ScheduleGenerator();
         }
 
-
+        private void buttonRandomizeFaceSkin_Click(object sender, EventArgs e)
+        {
+            RandomizeRecruitFace();
+        }
     }
 
 }
