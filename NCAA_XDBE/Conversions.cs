@@ -627,11 +627,33 @@ namespace DB_EDITOR
 
         public void CreateTeamDB()
         {
-            for (int i = 0; i < maxTeamsDB; i++)
+            if (TEAM)
             {
-                int j = Convert.ToInt32(TDB.FieldValue(dbIndex, "TEAM", "TGID", i));
+                for (int i = 0; i < maxTeamsDB; i++)
+                {
+                    int j = Convert.ToInt32(TDB.FieldValue(dbIndex, "TEAM", "TGID", i));
 
-                teamNameDB[j] = Convert.ToString(TDB.FieldValue(dbIndex, "TEAM", "TDNA", i));
+                    teamNameDB[j] = Convert.ToString(TDB.FieldValue(dbIndex, "TEAM", "TDNA", i));
+                }
+            }
+            else if (TDYN)
+            {
+                string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+                string csvLocation = Path.Combine(executableLocation, @"Resources\TeamDB.csv");
+
+                string filePath = csvLocation;
+                StreamReader sr = new StreamReader(filePath);
+                int Row = 0;
+                while (!sr.EndOfStream)
+                {
+                    string[] Line = sr.ReadLine().Split(',');
+                    {
+                        teamNameDB[Convert.ToInt32(Line[0])] = Line[1];
+                    }
+
+                    Row++;
+                }
+                sr.Close();
             }
         }
 

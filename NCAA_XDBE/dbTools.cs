@@ -629,7 +629,7 @@ namespace DB_EDITOR
             RandomizeRecruitFace("PLAY");
             RecalculateBMI("PLAY");
             RecalculateQBTendencies();
-            CalculateTYDNRatings();
+            if(TDYN) CalculateTYDNRatings();
 
 
             progressBar1.Visible = false;
@@ -703,7 +703,7 @@ namespace DB_EDITOR
         //Randomize the Players to give a little bit more variety and evaluation randomness
         private void RandomizeAttribute(string FieldName, int rec, int tol)
         {
-            int tolA = 2;
+            int tolB = tol / 2;  //half the tolerance for specific attributes
 
             //PTHA	PSTA	PKAC	PACC	PSPD	PPOE	PCTH	PAGI	PINJ	PTAK	PPBK	PRBK	PBTK	PTHP	PJMP	PCAR	PKPR	PSTR	PAWR
             //PPOE, PINJ, PAWR
@@ -743,14 +743,14 @@ namespace DB_EDITOR
             PPOE = rand.Next(1, 30);
             PINJ = rand.Next(1, 30);
             PIMP = rand.Next(1, 30);
-            PAWR = GetRandomPositiveAttribute(PAWR, tolA);
+            PAWR = GetRandomPositiveAttribute(PAWR, tolB);
 
             PSTA = GetRandomPositiveAttribute(PSTA, tol);
             PKAC = GetRandomPositiveAttribute(PKAC, tol);
-            PACC = GetRandomPositiveAttribute(PACC, tol);
-            PSPD = GetRandomPositiveAttribute(PSPD, tol);
+            PACC = GetRandomPositiveAttribute(PACC, tolB);
+            PSPD = GetRandomPositiveAttribute(PSPD, tolB);
             PCTH = GetRandomPositiveAttribute(PCTH, tol);
-            PAGI = GetRandomPositiveAttribute(PAGI, tol);
+            PAGI = GetRandomPositiveAttribute(PAGI, tolB);
             PTAK = GetRandomPositiveAttribute(PTAK, tol);
             PPBK = GetRandomPositiveAttribute(PPBK, tol);
             PRBK = GetRandomPositiveAttribute(PRBK, tol);

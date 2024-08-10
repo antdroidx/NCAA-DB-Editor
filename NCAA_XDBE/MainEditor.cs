@@ -31,6 +31,8 @@ namespace DB_EDITOR
         bool importRec = false;
         bool DoNotTrigger = false; //team/player editor
         bool coachProgComplete = false;
+        bool TDYN = false;
+        bool TEAM = false;
 
         bool tabDelimited = false;
 
@@ -107,6 +109,7 @@ namespace DB_EDITOR
             TablePropsLabel.Text = "";
             FieldsPropsLabel.Text = "";
             dbIndex = -1;
+            
 
             toolStripSeparator1.Enabled = true;
             saveMenuItem.Enabled = false;
@@ -1078,6 +1081,7 @@ namespace DB_EDITOR
                 if (TABLE.Value == "TEAM")
                 {
                     CreateTeamDB();
+                    TEAM = true;
 
                     //BOOKMARK TAB PAGES ON/OFF
 
@@ -1088,6 +1092,11 @@ namespace DB_EDITOR
                     tabControl1.TabPages.Add(tabPlayers);
                     activeDB = 1;
                     OpenTabs();
+                }
+                if (TABLE.Value == "TDYN")
+                {
+                    TDYN = true;
+                    CreateTeamDB();
                 }
 
                 string tmpDef = FieldDEF(TABLE.Value);

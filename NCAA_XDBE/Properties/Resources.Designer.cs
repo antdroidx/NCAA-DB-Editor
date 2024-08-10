@@ -648,5 +648,53 @@ namespace DB_EDITOR.Properties {
                 return ResourceManager.GetString("SRGN", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TGID,TDNA
+        ///1,Air Force
+        ///2,Akron
+        ///3,Alabama
+        ///4,Arizona
+        ///5,Arizona State
+        ///6,Arkansas
+        ///7,Arkansas State
+        ///8,Army
+        ///9,Auburn
+        ///10,Ball State
+        ///11,Baylor
+        ///12,Boise State
+        ///13,Boston College
+        ///14,Bowling Green
+        ///15,Buffalo
+        ///16,BYU
+        ///17,Cal
+        ///18,UCF
+        ///19,Central Michigan
+        ///20,Cincinnati
+        ///21,Clemson
+        ///22,Colorado
+        ///23,Colorado State
+        ///24,Duke
+        ///25,ECU
+        ///26,Eastern Michigan
+        ///27,Florida
+        ///28,Florida State
+        ///29,Fresno State
+        ///30,Georgia
+        ///31,Georgia Tech
+        ///32,Hawaii
+        ///33,Houston
+        ///34,Idaho
+        ///35,Illinois
+        ///36,Indiana
+        ///37,Iowa
+        ///38,Iowa State
+        ///3 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TeamDB {
+            get {
+                return ResourceManager.GetString("TeamDB", resourceCulture);
+            }
+        }
     }
 }

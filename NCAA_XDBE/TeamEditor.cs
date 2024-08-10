@@ -319,7 +319,7 @@ namespace DB_EDITOR
         {
             PGIDrecNo.Clear();
 
-            var TGIDd = new Dictionary<int, int>();
+            var TGIDd = new Dictionary<int, string>();
             bool tmpDIC = false;
             int tmpSelectIndex = -1;
 
@@ -347,8 +347,8 @@ namespace DB_EDITOR
                 #region Add team's TGID if no TEAM table
                 if (tmpDIC)
                 {
-
-                    TGIDd.AddSafe(tmpTGID, tmpTGID);
+                    if(!TGIDd.ContainsKey(tmpTGID))
+                    TGIDd.Add(tmpTGID, teamNameDB[tmpTGID]);
 
                 }
                 #endregion
@@ -358,13 +358,13 @@ namespace DB_EDITOR
 
             if (tmpDIC)
             {
-                foreach (KeyValuePair<int, int> TGID in TGIDd.OrderBy(key => key.Key))
+                foreach (KeyValuePair<int, string> TGID in TGIDd.OrderBy(key => key.Key))
                 {
                     tmpSelectIndex = tmpSelectIndex + 1;
-                    TGIDrecNo.Add(TGID.Key, TGID.Value);
-                    TGIDplayerBox.Items.Add(TGID.Key);
+                    TGIDrecNo.Add(TGID.Key, TGID.Key);
+                    TGIDplayerBox.Items.Add(TGID.Value);
                     TGIDlist.Add(tmpSelectIndex, TGID.Key);
-                    TGIDlistBox.Items.Add(TGID.Key);
+                    TGIDlistBox.Items.Add(TGID.Value);
                 }
             }
 
