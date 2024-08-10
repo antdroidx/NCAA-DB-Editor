@@ -32,3 +32,6 @@ D:\Modding\NCAA_XDBE\NCAA_XDBE\bin\Debug\Resources\POCI.csv
 D:\Modding\NCAA_XDBE\NCAA_XDBE\bin\Debug\Resources\RCAT.csv
 D:\Modding\NCAA_XDBE\NCAA_XDBE\bin\Debug\Resources\RCFN.csv
 D:\Modding\NCAA_XDBE\NCAA_XDBE\bin\Debug\Resources\RCLN.csv
+D:\Modding\NCAA_XDBE\NCAA_XDBE\bin\Debug\Resources\RCAT-MAPPER.csv
+D:\Modding\NCAA_XDBE\NCAA_XDBE\bin\Debug\Resources\FantasyGenData.csv
+D:\Modding\NCAA_XDBE\NCAA_XDBE\bin\Debug\Resources\PJEN.csv

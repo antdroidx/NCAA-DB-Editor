@@ -87,6 +87,8 @@ namespace DB_EDITOR
             this.tableGridView = new System.Windows.Forms.DataGridView();
             this.fieldsGridView = new System.Windows.Forms.DataGridView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabHome = new System.Windows.Forms.TabPage();
+            this.HomeTextBox = new System.Windows.Forms.TextBox();
             this.tabTeams = new System.Windows.Forms.TabPage();
             this.label11 = new System.Windows.Forms.Label();
             this.TGIDtextBox = new System.Windows.Forms.TextBox();
@@ -145,6 +147,7 @@ namespace DB_EDITOR
             this.coachProg = new System.Windows.Forms.Button();
             this.medRS = new System.Windows.Forms.Button();
             this.tabOffSeason = new System.Windows.Forms.TabPage();
+            this.buttonRandomizeFaceShape = new System.Windows.Forms.Button();
             this.labelPolyNamesPCT = new System.Windows.Forms.Label();
             this.polyNamesPCT = new System.Windows.Forms.NumericUpDown();
             this.polyNames = new System.Windows.Forms.Button();
@@ -165,6 +168,8 @@ namespace DB_EDITOR
             this.buttonRandWalkOns = new System.Windows.Forms.Button();
             this.buttonMinRecruitingPts = new System.Windows.Forms.Button();
             this.tabTools = new System.Windows.Forms.TabPage();
+            this.buttonAutoDepthChart = new System.Windows.Forms.Button();
+            this.buttonFantasyRoster = new System.Windows.Forms.Button();
             this.buttonImpactPlayers = new System.Windows.Forms.Button();
             this.TYDNButton = new System.Windows.Forms.Button();
             this.buttonCalcOverall = new System.Windows.Forms.Button();
@@ -173,7 +178,6 @@ namespace DB_EDITOR
             this.buttonRandPotential = new System.Windows.Forms.Button();
             this.increaseSpeed = new System.Windows.Forms.Button();
             this.bodyFix = new System.Windows.Forms.Button();
-            this.buttonRandomizeFaceShape = new System.Windows.Forms.Button();
             qbTend = new System.Windows.Forms.Button();
             this.mainMenu.SuspendLayout();
             this.tableMenu.SuspendLayout();
@@ -184,6 +188,7 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.tableGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fieldsGridView)).BeginInit();
             this.tabControl1.SuspendLayout();
+            this.tabHome.SuspendLayout();
             this.tabTeams.SuspendLayout();
             this.tabPlayers.SuspendLayout();
             this.tabSeason.SuspendLayout();
@@ -657,6 +662,7 @@ namespace DB_EDITOR
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
+            this.tabControl1.Controls.Add(this.tabHome);
             this.tabControl1.Controls.Add(this.tabDB);
             this.tabControl1.Controls.Add(this.tabTeams);
             this.tabControl1.Controls.Add(this.tabPlayers);
@@ -669,6 +675,29 @@ namespace DB_EDITOR
             this.tabControl1.Size = new System.Drawing.Size(984, 661);
             this.tabControl1.TabIndex = 4;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.TabControl1_IndexChange);
+            // 
+            // tabHome
+            // 
+            this.tabHome.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.tabHome.Controls.Add(this.HomeTextBox);
+            this.tabHome.Location = new System.Drawing.Point(4, 25);
+            this.tabHome.Name = "tabHome";
+            this.tabHome.Padding = new System.Windows.Forms.Padding(3);
+            this.tabHome.Size = new System.Drawing.Size(976, 632);
+            this.tabHome.TabIndex = 6;
+            this.tabHome.Text = "Home";
+            // 
+            // HomeTextBox
+            // 
+            this.HomeTextBox.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.HomeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HomeTextBox.Location = new System.Drawing.Point(162, 152);
+            this.HomeTextBox.Name = "HomeTextBox";
+            this.HomeTextBox.ReadOnly = true;
+            this.HomeTextBox.Size = new System.Drawing.Size(647, 62);
+            this.HomeTextBox.TabIndex = 0;
+            this.HomeTextBox.Text = "NCAA Database Editor";
+            this.HomeTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tabTeams
             // 
@@ -1371,6 +1400,18 @@ namespace DB_EDITOR
             this.tabOffSeason.TabIndex = 4;
             this.tabOffSeason.Text = "Recruiting";
             // 
+            // buttonRandomizeFaceShape
+            // 
+            this.buttonRandomizeFaceShape.BackColor = System.Drawing.Color.Moccasin;
+            this.buttonRandomizeFaceShape.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRandomizeFaceShape.Location = new System.Drawing.Point(144, 363);
+            this.buttonRandomizeFaceShape.Name = "buttonRandomizeFaceShape";
+            this.buttonRandomizeFaceShape.Size = new System.Drawing.Size(110, 80);
+            this.buttonRandomizeFaceShape.TabIndex = 20;
+            this.buttonRandomizeFaceShape.Text = "Randomize Recruits Face/Skin";
+            this.buttonRandomizeFaceShape.UseVisualStyleBackColor = false;
+            this.buttonRandomizeFaceShape.Click += new System.EventHandler(this.buttonRandomizeFaceSkin_Click);
+            // 
             // labelPolyNamesPCT
             // 
             this.labelPolyNamesPCT.AutoSize = true;
@@ -1643,6 +1684,8 @@ namespace DB_EDITOR
             // tabTools
             // 
             this.tabTools.BackColor = System.Drawing.Color.PeachPuff;
+            this.tabTools.Controls.Add(this.buttonAutoDepthChart);
+            this.tabTools.Controls.Add(this.buttonFantasyRoster);
             this.tabTools.Controls.Add(this.buttonImpactPlayers);
             this.tabTools.Controls.Add(this.TYDNButton);
             this.tabTools.Controls.Add(this.buttonCalcOverall);
@@ -1659,11 +1702,35 @@ namespace DB_EDITOR
             this.tabTools.TabIndex = 5;
             this.tabTools.Text = "dbTools";
             // 
+            // buttonAutoDepthChart
+            // 
+            this.buttonAutoDepthChart.BackColor = System.Drawing.Color.DarkGray;
+            this.buttonAutoDepthChart.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAutoDepthChart.Location = new System.Drawing.Point(290, 534);
+            this.buttonAutoDepthChart.Name = "buttonAutoDepthChart";
+            this.buttonAutoDepthChart.Size = new System.Drawing.Size(110, 80);
+            this.buttonAutoDepthChart.TabIndex = 19;
+            this.buttonAutoDepthChart.Text = "Auto-Set Depth Chart";
+            this.buttonAutoDepthChart.UseVisualStyleBackColor = false;
+            this.buttonAutoDepthChart.Click += new System.EventHandler(this.buttonAutoDepthChart_Click);
+            // 
+            // buttonFantasyRoster
+            // 
+            this.buttonFantasyRoster.BackColor = System.Drawing.Color.DarkGray;
+            this.buttonFantasyRoster.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonFantasyRoster.Location = new System.Drawing.Point(290, 414);
+            this.buttonFantasyRoster.Name = "buttonFantasyRoster";
+            this.buttonFantasyRoster.Size = new System.Drawing.Size(110, 80);
+            this.buttonFantasyRoster.TabIndex = 18;
+            this.buttonFantasyRoster.Text = "Generate Fantasy Roster";
+            this.buttonFantasyRoster.UseVisualStyleBackColor = false;
+            this.buttonFantasyRoster.Click += new System.EventHandler(this.buttonFantasyRoster_Click);
+            // 
             // buttonImpactPlayers
             // 
             this.buttonImpactPlayers.BackColor = System.Drawing.Color.DarkGray;
             this.buttonImpactPlayers.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonImpactPlayers.Location = new System.Drawing.Point(45, 470);
+            this.buttonImpactPlayers.Location = new System.Drawing.Point(45, 414);
             this.buttonImpactPlayers.Name = "buttonImpactPlayers";
             this.buttonImpactPlayers.Size = new System.Drawing.Size(110, 80);
             this.buttonImpactPlayers.TabIndex = 17;
@@ -1675,7 +1742,7 @@ namespace DB_EDITOR
             // 
             this.TYDNButton.BackColor = System.Drawing.Color.DarkGray;
             this.TYDNButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TYDNButton.Location = new System.Drawing.Point(290, 346);
+            this.TYDNButton.Location = new System.Drawing.Point(290, 290);
             this.TYDNButton.Name = "TYDNButton";
             this.TYDNButton.Size = new System.Drawing.Size(110, 80);
             this.TYDNButton.TabIndex = 16;
@@ -1687,7 +1754,7 @@ namespace DB_EDITOR
             // 
             this.buttonCalcOverall.BackColor = System.Drawing.Color.DarkGray;
             this.buttonCalcOverall.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCalcOverall.Location = new System.Drawing.Point(45, 346);
+            this.buttonCalcOverall.Location = new System.Drawing.Point(45, 290);
             this.buttonCalcOverall.Name = "buttonCalcOverall";
             this.buttonCalcOverall.Size = new System.Drawing.Size(110, 80);
             this.buttonCalcOverall.TabIndex = 15;
@@ -1700,7 +1767,7 @@ namespace DB_EDITOR
             this.textBox3.BackColor = System.Drawing.SystemColors.Info;
             this.textBox3.Enabled = false;
             this.textBox3.Font = new System.Drawing.Font("Corbel", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(45, 271);
+            this.textBox3.Location = new System.Drawing.Point(45, 236);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(355, 33);
             this.textBox3.TabIndex = 14;
@@ -1756,18 +1823,6 @@ namespace DB_EDITOR
             this.bodyFix.UseVisualStyleBackColor = false;
             this.bodyFix.Click += new System.EventHandler(this.BodyFix_Click);
             // 
-            // buttonRandomizeFaceShape
-            // 
-            this.buttonRandomizeFaceShape.BackColor = System.Drawing.Color.Moccasin;
-            this.buttonRandomizeFaceShape.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRandomizeFaceShape.Location = new System.Drawing.Point(144, 363);
-            this.buttonRandomizeFaceShape.Name = "buttonRandomizeFaceShape";
-            this.buttonRandomizeFaceShape.Size = new System.Drawing.Size(110, 80);
-            this.buttonRandomizeFaceShape.TabIndex = 20;
-            this.buttonRandomizeFaceShape.Text = "Randomize Recruits Face/Skin";
-            this.buttonRandomizeFaceShape.UseVisualStyleBackColor = false;
-            this.buttonRandomizeFaceShape.Click += new System.EventHandler(this.buttonRandomizeFaceSkin_Click);
-            // 
             // MainEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1798,6 +1853,8 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.tableGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fieldsGridView)).EndInit();
             this.tabControl1.ResumeLayout(false);
+            this.tabHome.ResumeLayout(false);
+            this.tabHome.PerformLayout();
             this.tabTeams.ResumeLayout(false);
             this.tabTeams.PerformLayout();
             this.tabPlayers.ResumeLayout(false);
@@ -1972,6 +2029,10 @@ namespace DB_EDITOR
         public System.Windows.Forms.Button TYDNButton;
         public System.Windows.Forms.Button buttonImpactPlayers;
         public System.Windows.Forms.Button buttonRandomizeFaceShape;
+        public System.Windows.Forms.Button buttonFantasyRoster;
+        private TabPage tabHome;
+        private System.Windows.Forms.TextBox HomeTextBox;
+        public System.Windows.Forms.Button buttonAutoDepthChart;
     }
 }
 

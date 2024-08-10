@@ -137,6 +137,116 @@ namespace DB_EDITOR.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to TGID,TEAM,PRESTIGE,League
+        ///1,Air Force,2,0
+        ///3,Alabama,6,0
+        ///188,Appalachian State,3,0
+        ///4,Arizona,4,0
+        ///5,Arizona State,3,0
+        ///6,Arkansas,4,0
+        ///7,Arkansas State,2,0
+        ///8,Army,2,0
+        ///9,Auburn,4,0
+        ///11,Baylor,4,0
+        ///12,Boise State,3,0
+        ///13,Boston College,3,0
+        ///16,BYU,4,0
+        ///17,Cal,3,0
+        ///183,Charlotte,2,0
+        ///20,Cincinnati,4,0
+        ///21,Clemson,5,0
+        ///178,Coastal Carolina,3,0
+        ///22,Colorado,4,0
+        ///23,Colorado State,2,0
+        ///24,Duke,3,0
+        ///25,ECU,3,0
+        ///230,FIU,2,0
+        ///27,Florida,4,0
+        ///229,Florida Atlantic,2,0
+        ///28,Florida State,5,0
+        ///29,Fresno State,3,0
+        ///3 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string FantasyGenData {
+            get {
+                return ResourceManager.GetString("FantasyGenData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LIMD,PSKI,PFMP
+        ///0,0,0
+        ///0,0,1
+        ///0,0,2
+        ///0,0,3
+        ///0,0,4
+        ///0,0,5
+        ///0,0,6
+        ///0,0,7
+        ///0,1,8
+        ///0,1,9
+        ///0,1,10
+        ///0,1,11
+        ///0,1,12
+        ///0,1,13
+        ///0,1,14
+        ///0,1,15
+        ///1,2,16
+        ///1,2,17
+        ///1,2,18
+        ///1,2,19
+        ///1,2,20
+        ///1,2,21
+        ///1,2,22
+        ///1,2,23
+        ///1,3,24
+        ///1,3,25
+        ///1,3,26
+        ///1,3,27
+        ///1,3,28
+        ///1,3,29
+        ///1,3,30
+        ///1,3,31
+        ///2,4,32
+        ///2,4,33
+        ///2,4,34
+        ///2,4,35
+        ///2,4,36
+        ///2,4,37
+        ///2,4,38
+        ///2,4,39
+        ///2,5,40
+        ///2,5,41
+        ///2,5,42
+        ///2,5,43
+        ///2,5,44
+        ///2,5,45
+        ///2,5,46
+        ///2,5,47
+        ///2,6,48
+        ///2,6,49
+        ///2,6,50
+        ///2,6,51
+        ///2,6,52
+        ///2,6,53
+        ///2,6,54
+        ///2,6,55
+        ///1,7,56
+        ///1,7,57
+        ///1,7,58
+        ///1,7,59
+        ///1,7,60
+        ///1,7,61
+        ///1,7,62
+        ///1, [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string FCSK {
+            get {
+                return ResourceManager.GetString("FCSK", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         internal static System.Drawing.Icon ncaa_db_editor_icon1 {
@@ -163,6 +273,56 @@ namespace DB_EDITOR.Properties {
             get {
                 object obj = ResourceManager.GetObject("open2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PPOS,PPST,MIN,MAX
+        ///0,QB,0,9
+        ///1,HB,20,29
+        ///2,FB,40,49
+        ///3,WR,80,90
+        ///4,TE,40,49
+        ///5,LT,60,79
+        ///6,LG,60,79
+        ///7,C,60,79
+        ///8,RG,60,79
+        ///9,RT,60,79
+        ///10,LE,90,99
+        ///11,RE,90,99
+        ///12,DT,90,99
+        ///13,LOLB,40,59
+        ///14,MLB,40,59
+        ///15,ROLB,40,59
+        ///16,CB,10,19
+        ///17,FS,30,39
+        ///18,SS,30,39
+        ///19,K,0,9
+        ///20,P,0,9
+        ///.
+        /// </summary>
+        internal static string PJEN {
+            get {
+                return ResourceManager.GetString("PJEN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PLDH,PLDL,PPOS,CAWT,KAWT,TAWT,PBWT,RBWT,ACWT,AGWT,TKWT,INWT,KPWT,SPWT,TPWT,BTWT,CTWT,STWT,JUWT,AWWT
+        ///92,35,0,0,0,30,0,0,6,6,0,0,0,14,26,0,0,0,0,20
+        ///93,35,1,10,0,0,2,0,18,18,0,0,0,25,0,15,5,2,0,5
+        ///80,35,2,2,0,0,1,8,2,1,0,0,0,2,0,2,6,2,0,3
+        ///96,35,3,0,0,0,0,0,10,10,0,0,0,25,0,5,30,0,5,5
+        ///85,35,4,0,0,0,1,3,2,2,0,0,0,4,0,1,5,3,0,3
+        ///95,35,5,0,0,0,6,5,1,1,0,0,0,1,0,0,0,4,0,4
+        ///91,35,6,0,0,0,4,6,2,1,0,0,0,2,0,0,0,4,0,4
+        ///91,35,7,0,0,0,4,6,2,1,0,0,0,2,0,0,0,4,0,4
+        ///91,35,8,0,0,0,4,6,2,1,0,0,0,2,0,0,0,4,0,4
+        ///95,35,9,0,0 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string POCI {
+            get {
+                return ResourceManager.GetString("POCI", resourceCulture);
             }
         }
         
@@ -236,6 +396,175 @@ namespace DB_EDITOR.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 0,PTHA
+        ///1,PSTA
+        ///2,PLEB
+        ///3,PREB
+        ///4,PKAC
+        ///5,PACC
+        ///6,PHED
+        ///7,PSPD
+        ///8,PPOE
+        ///9,PBRE
+        ///10,PEYE
+        ///11,PFSH
+        ///12,PLSH
+        ///13,PMSH
+        ///14,PRSH
+        ///15,PSSH
+        ///17,PCTH
+        ///18,PAGI
+        ///19,PSKI
+        ///20,PINJ
+        ///21,PTAK
+        ///22,PPBK
+        ///23,PRBK
+        ///24,PNEK
+        ///25,PFMK
+        ///26,PBTK
+        ///27,PHCL
+        ///29,HELM
+        ///30,PHAN
+        ///31,PLHN
+        ///32,PRHN
+        ///33,PSLO
+        ///34,PTTO
+        ///35,PLFP
+        ///36,PTHP
+        ///37,PJMP
+        ///38,PCAR
+        ///39,PKPR
+        ///40,PSTR
+        ///41,PAWR
+        ///43,PVIS
+        ///44,PFJS
+        ///45,PPOS
+        ///46,PLWS
+        ///47,PRWS
+        ///49,PHGT
+        ///50,PWGT
+        ///51,PSLT
+        ///.
+        /// </summary>
+        internal static string RCAT_MAPPER {
+            get {
+                return ResourceManager.GetString("RCAT_MAPPER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SPSL,SPFN
+        ///0,Vince
+        ///1,Kenny
+        ///2,Noah
+        ///3,Emmanuel
+        ///4,Isaac
+        ///5,James
+        ///6,Kyle
+        ///7,Tre
+        ///8,Christophe
+        ///9,Luke
+        ///10,Ryan
+        ///11,Johnathan
+        ///12,Benjamin
+        ///13,David
+        ///14,Camby
+        ///15,Caleb
+        ///16,Trey
+        ///17,John Lee
+        ///18,Jacob
+        ///19,Matthew
+        ///20,Elijah
+        ///21,Jayden
+        ///22,Ayden
+        ///23,Everett
+        ///24,Jorden
+        ///25,Brandon
+        ///26,Troy
+        ///27,Alec
+        ///28,Hawk
+        ///29,Brad
+        ///30,Corvan
+        ///31,Michael
+        ///32,Eian
+        ///33,Haaziq
+        ///34,Omar
+        ///35,Nasir
+        ///36,Micah
+        ///37,Dane
+        ///38,Thor
+        ///39,McKenly
+        ///40,Zachary
+        ///41,Warren
+        ///42,Kaleb
+        ///43,Jensen
+        ///44,Nate
+        ///45,Mason
+        ///46,Kalawaia
+        ///47,Dalton
+        ///48,Bra [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string RCFN {
+            get {
+                return ResourceManager.GetString("RCFN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SPSL,SPLN
+        ///0,Sanford
+        ///1,Ngaima
+        ///2,Bush
+        ///4,Michel
+        ///5,Cochran
+        ///6,Jones
+        ///7,Patterson
+        ///8,Bugg
+        ///9,Herrera
+        ///10,Hallstrom
+        ///11,Booth
+        ///12,Youngblood
+        ///13,Mercer
+        ///14,Eure
+        ///15,Goff
+        ///16,Humphrey
+        ///17,Taylor
+        ///18,Eldridge
+        ///19,Trach
+        ///20,Malloy
+        ///21,Brockman
+        ///22,Thiergood
+        ///23,McCollough
+        ///24,Smalley
+        ///25,Gidrey
+        ///26,Lewis
+        ///27,Blackmon
+        ///28,Mock
+        ///29,Wimmer
+        ///30,Roberts
+        ///31,Taylor
+        ///32,Mack
+        ///33,Castonguay
+        ///34,Daniels
+        ///35,Fattah
+        ///36,Rashid
+        ///37,Davis
+        ///38,Kinamon
+        ///39,Paglialong
+        ///40,O&apos;Neal
+        ///41,Larrier
+        ///42,Bryan
+        ///43,Holcomb
+        ///44,Jones
+        ///45, [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string RCLN {
+            get {
+                return ResourceManager.GetString("RCLN", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap save3 {
@@ -246,8 +575,7 @@ namespace DB_EDITOR.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to REGN,TMST,PTST
-        ///1,0,0
+        ///   Looks up a localized string similar to 1,0,0
         ///6,1,0
         ///5,2,0
         ///3,3,0
@@ -311,7 +639,9 @@ namespace DB_EDITOR.Properties {
         ///6,8,1
         ///6,9,1
         ///3,10,1
-        ///2,11 [rest of string was truncated]&quot;;.
+        ///2,11,1
+        ///4,12,1
+        ///4,13 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string SRGN {
             get {

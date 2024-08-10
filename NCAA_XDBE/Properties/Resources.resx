@@ -148,4 +148,25 @@
   <data name="SRGN" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SRGN.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
+  <data name="FantasyGenData" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FantasyGenData.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="FCSK" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FCSK.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="PJEN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PJEN.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="POCI" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\POCI.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="RCAT_MAPPER" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RCAT-MAPPER.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="RCFN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RCFN.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="RCLN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RCLN.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
 </root>

@@ -493,5 +493,483 @@ namespace DB_EDITOR
             MessageBox.Show("Impact Players are Set!");
         }
 
+        //Fantasy Roster Generator
+        private void FantasyRosterGenerator()
+        {
+            /* Creates a fantasy roster from team overall rating
+             * Use RCAT, sort by position, count position players
+             * randomize each raing + random from 0 to overall rating/10
+             * make sure there's a mininum number of positions then randomize rest
+             */
+
+
+            //Setup Progress bar
+            progressBar1.Visible = true;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = TDB.TableRecordCount(dbIndex, "TYDN");
+            progressBar1.Step = 1;
+            progressBar1.Value = 0;
+
+
+            //Clear PLAY Table
+            for (int i = TDB.TableRecordCount(dbIndex, "PLAY"); i != -1; i--)
+            {
+                TDB.TDBTableRecordRemove(dbIndex, "PLAY", i);
+            }
+            CreateRCATtable();
+            CreateFirstNamesDB();
+            CreateLastNamesDB();
+            List<List<int>> PJEN = CreateJerseyNumberDB();
+
+            List<List<string>> RCATmapper = new List<List<string>>();
+            RCATmapper = CreateStringListfromCSV(@"resources\RCAT-MAPPER.csv");
+
+            List<List<string>> teamData = new List<List<string>>();
+            teamData = CreateStringListfromCSV(@"resources\FantasyGenData.csv");
+
+            int rec = 0;
+
+            //sort RCAT by positions
+            //RCAT.Sort((player1, player2) => player2[45].CompareTo(player1[45]));
+
+
+            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "TDYN"); i++)
+            {
+                int TOID = TDB.TDBFieldGetValueAsInteger(dbIndex, "TDYN", "TOID", i);
+                int PGIDbeg = TOID * 70;
+                int PGIDend = PGIDbeg + 69;
+                int rating = GetFantasyTeamRating(teamData, TOID);
+
+                for (int j = 0; j < 68; j++)
+                {
+                    //Add a record
+                    TDB.TDBTableRecordAdd(dbIndex, "PLAY", false);
+
+                    //QB
+                    if (j < 3) TransferRCATtoPLAY(rec, 0, PGIDbeg+j, RCATmapper, PJEN);
+
+                    //RB
+                    else if (j < 6) TransferRCATtoPLAY(rec, 1, PGIDbeg + j, RCATmapper, PJEN);
+
+                    //FB
+                    else if (j < 7) TransferRCATtoPLAY(rec, 2, PGIDbeg + j, RCATmapper, PJEN);
+
+                    //WR
+                    else if (j < 13) TransferRCATtoPLAY(rec, 3, PGIDbeg + j, RCATmapper, PJEN);
+
+                    //TE
+                    else if (j < 16) TransferRCATtoPLAY(rec, 4, PGIDbeg + j, RCATmapper, PJEN);
+
+                    //LT
+                    else if (j < 18) TransferRCATtoPLAY(rec, 5, PGIDbeg + j, RCATmapper, PJEN);
+
+                    //LG
+                    else if (j < 20) TransferRCATtoPLAY(rec, 6, PGIDbeg + j, RCATmapper, PJEN);
+
+                    //C
+                    else if (j < 22) TransferRCATtoPLAY(rec, 7, PGIDbeg + j, RCATmapper, PJEN);
+
+                    //RG
+                    else if (j < 24) TransferRCATtoPLAY(rec, 8, PGIDbeg + j, RCATmapper, PJEN);
+
+                    //RT
+                    else if (j < 26) TransferRCATtoPLAY(rec, 9, PGIDbeg + j, RCATmapper, PJEN);
+
+                    //LE
+                    else if (j < 28) TransferRCATtoPLAY(rec, 10, PGIDbeg + j, RCATmapper, PJEN);
+
+                    //DT
+                    else if (j < 32) TransferRCATtoPLAY(rec, 11, PGIDbeg + j, RCATmapper, PJEN);
+
+                    //RE
+                    else if (j < 34) TransferRCATtoPLAY(rec, 12, PGIDbeg + j, RCATmapper, PJEN);
+
+                    //LOLB
+                    else if (j < 36) TransferRCATtoPLAY(rec, 13, PGIDbeg + j, RCATmapper, PJEN);
+
+                    //MLB
+                    else if (j < 39) TransferRCATtoPLAY(rec, 14, PGIDbeg + j, RCATmapper, PJEN);
+
+                    //ROLB
+                    else if (j < 41) TransferRCATtoPLAY(rec, 15, PGIDbeg + j, RCATmapper, PJEN);
+
+                    //CB
+                    else if (j < 46) TransferRCATtoPLAY(rec, 16, PGIDbeg + j, RCATmapper, PJEN);
+
+                    //SS
+                    else if (j < 48) TransferRCATtoPLAY(rec, 17, PGIDbeg + j, RCATmapper, PJEN);
+
+                    //FS
+                    else if (j < 50) TransferRCATtoPLAY(rec, 18, PGIDbeg + j, RCATmapper, PJEN);
+
+                    //K
+                    else if (j < 51) TransferRCATtoPLAY(rec, 19, PGIDbeg + j, RCATmapper, PJEN);
+
+                    //P
+                    else if (j < 52) TransferRCATtoPLAY(rec, 20, PGIDbeg + j, RCATmapper, PJEN);
+
+                    else TransferRCATtoPLAY(rec, rand.Next(0, 21), PGIDbeg + j, RCATmapper, PJEN);
+
+                    //randomizes the attributes from team overall
+                    RandomizeAttribute("PLAY", rec, rating + TDB.TDBFieldGetValueAsInteger(dbIndex, "PLAY", "PYER", rec));
+
+
+                    rec++;
+                }
+
+                //Finish team and perform step counter
+                progressBar1.PerformStep();
+            }
+
+            progressBar1.Visible = false;
+            progressBar1.Value = 0;
+            MessageBox.Show("Fantasy Players Created!");
+
+            RecalculateOverall();
+            RandomizeRecruitFace("PLAY");
+            RecalculateBMI("PLAY");
+            RecalculateQBTendencies();
+            CalculateTYDNRatings();
+
+
+            progressBar1.Visible = false;
+            progressBar1.Value = 0;
+            MessageBox.Show("Fantasy Roster Generation is complete!");
+
+        }
+
+        private int GetFantasyTeamRating(List<List<String>> teamData, int TGID)
+        {
+            int value = 0;
+
+            for(int i = 0; i < teamData.Count; i++)
+            {
+                if (teamData[i][0] == Convert.ToString(TGID))
+                {
+                    return Convert.ToInt32(teamData[i][2]);
+                }
+            }
+
+            return value;
+        }
+
+        //Transfers RCAT to PLAY field
+        private void TransferRCATtoPLAY(int rec, int ppos, int PGID, List<List<string>> map, List<List<int>> PJEN)
+        {
+            bool x = true;
+            while (x)
+            {
+                int r = rand.Next(0, RCAT.Count);
+                if (RCAT[r][45] == ppos)
+                {
+                    for (int i = 0; i < map.Count; i++)
+                    {
+                        int RCATcol = Convert.ToInt32(map[i][0]); //finds the column number that the RCAT attribute value lives in
+                        string field = map[i][1]; //finds the name of the attribute
+
+                        TDB.NewfieldValue(dbIndex, "PLAY", field, rec, Convert.ToString(RCAT[r][RCATcol]));
+                    }
+
+
+                    TDB.NewfieldValue(dbIndex, "PLAY", "RCHD", rec, Convert.ToString(rand.Next(0,12864))); //hometown
+                    TDB.NewfieldValue(dbIndex, "PLAY", "PGID", rec, Convert.ToString(PGID)); //player id
+                    TDB.NewfieldValue(dbIndex, "PLAY", "PHPD", rec, "0"); //PHPD
+                    TDB.NewfieldValue(dbIndex, "PLAY", "PRSD", rec, "0"); //Redshirt
+                    TDB.NewfieldValue(dbIndex, "PLAY", "PLMG", rec, "0"); //Mouthguard
+                    TDB.NewfieldValue(dbIndex, "PLAY", "PFGM", rec, "0"); //face shape (to be calculated later)
+                    TDB.NewfieldValue(dbIndex, "PLAY", "PJEN", rec, Convert.ToString(ChooseJerseyNumber(ppos, PJEN))); //jersey num
+                    TDB.NewfieldValue(dbIndex, "PLAY", "PTEN", rec, "0"); //tendency (to be calculated later)
+                    TDB.NewfieldValue(dbIndex, "PLAY", "PFMP", rec, "0"); //face (to be calculated later)
+                    TDB.NewfieldValue(dbIndex, "PLAY", "PIMP", rec, "0"); //importance (to be calculated later)
+                    TDB.NewfieldValue(dbIndex, "PLAY", "PTYP", rec, "0"); //player type (graduation/nfl,etc)
+                    TDB.NewfieldValue(dbIndex, "PLAY", "PYER", rec, Convert.ToString(rand.Next(0,4))); //year/class
+                    TDB.NewfieldValue(dbIndex, "PLAY", "POVR", rec, "0"); //overall, to be calculated later
+                    TDB.NewfieldValue(dbIndex, "PLAY", "PSLY", rec, "0"); //PSLY
+                    TDB.NewfieldValue(dbIndex, "PLAY", "PRST", rec, "0"); //PRST
+
+                    string FN, LN;
+
+                    FN = FirstNames[rand.Next(0, FirstNames.Count)];
+                    LN = LastNames[rand.Next(0, LastNames.Count)];
+
+                    ImportFN_StringToInt(FN, rec, "PLAY");
+                    ImportLN_StringToInt(LN, rec, "PLAY");
+
+                    x = false;
+                }
+            }
+        }
+
+        //Randomize the Players to give a little bit more variety and evaluation randomness
+        private void RandomizeAttribute(string FieldName, int rec, int tol)
+        {
+            int tolA = 2;
+
+            //PTHA	PSTA	PKAC	PACC	PSPD	PPOE	PCTH	PAGI	PINJ	PTAK	PPBK	PRBK	PBTK	PTHP	PJMP	PCAR	PKPR	PSTR	PAWR
+            //PPOE, PINJ, PAWR
+
+            int PBRE, PEYE, PPOE, PINJ, PAWR, PWGT, PHGT, PTHA, PSTA, PKAC, PACC, PSPD, PCTH, PAGI, PTAK, PPBK, PRBK, PBTK, PTHP, PJMP, PCAR, PKPR, PSTR, PIMP;
+
+            PHGT = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PHGT", rec));
+            PWGT = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PWGT", rec));
+            PAWR = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PAWR", rec));
+
+            PTHA = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PTHA", rec));
+            PSTA = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PSTA", rec));
+            PKAC = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PKAC", rec));
+            PACC = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PACC", rec));
+            PSPD = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PSPD", rec));
+            PCTH = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PCTH", rec));
+            PAGI = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PAGI", rec));
+            PTAK = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PTAK", rec));
+            PPBK = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PPBK", rec));
+            PRBK = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PRBK", rec));
+            PBTK = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PBTK", rec));
+            PTHP = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PTHP", rec));
+            PJMP = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PJMP", rec));
+            PCAR = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PCAR", rec));
+            PKPR = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PKPR", rec));
+            PSTR = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PSTR", rec));
+
+            PBRE = rand.Next(0, 2);
+            PEYE = rand.Next(0, 2);
+            PHGT += rand.Next(-1, 2);
+            PWGT += rand.Next(-8, 9);
+            if (PWGT < 0) PWGT = 0;
+            if (PWGT > 340) PWGT = 340;
+            if (PHGT > 82) PHGT = 82;
+            if (PHGT < 0) PHGT = 0;
+
+            PPOE = rand.Next(1, 30);
+            PINJ = rand.Next(1, 30);
+            PIMP = rand.Next(1, 30);
+            PAWR = GetRandomPositiveAttribute(PAWR, tolA);
+
+            PSTA = GetRandomPositiveAttribute(PSTA, tol);
+            PKAC = GetRandomPositiveAttribute(PKAC, tol);
+            PACC = GetRandomPositiveAttribute(PACC, tol);
+            PSPD = GetRandomPositiveAttribute(PSPD, tol);
+            PCTH = GetRandomPositiveAttribute(PCTH, tol);
+            PAGI = GetRandomPositiveAttribute(PAGI, tol);
+            PTAK = GetRandomPositiveAttribute(PTAK, tol);
+            PPBK = GetRandomPositiveAttribute(PPBK, tol);
+            PRBK = GetRandomPositiveAttribute(PRBK, tol);
+            PBTK = GetRandomPositiveAttribute(PBTK, tol);
+
+            PJMP = GetRandomPositiveAttribute(PJMP, tol);
+            PCAR = GetRandomPositiveAttribute(PCAR, tol);
+            PKPR = GetRandomPositiveAttribute(PKPR, tol);
+            PSTR = GetRandomPositiveAttribute(PSTR, tol);
+
+            if(TDB.TDBFieldGetValueAsInteger(dbIndex, "PLAY", "PPOS", rec) == 0) 
+            {
+                PTHA = GetRandomPositiveAttribute(PTHA, tol);
+                PTHP = GetRandomPositiveAttribute(PTHP, tol);
+            }
+
+
+            TDB.NewfieldValue(dbIndex, FieldName, "PBRE", rec, Convert.ToString(PBRE));
+            TDB.NewfieldValue(dbIndex, FieldName, "PEYE", rec, Convert.ToString(PEYE));
+            TDB.NewfieldValue(dbIndex, FieldName, "PPOE", rec, Convert.ToString(PPOE));
+            TDB.NewfieldValue(dbIndex, FieldName, "PINJ", rec, Convert.ToString(PINJ));
+            TDB.NewfieldValue(dbIndex, FieldName, "PAWR", rec, Convert.ToString(PAWR));
+            TDB.NewfieldValue(dbIndex, FieldName, "PHGT", rec, Convert.ToString(PHGT));
+            TDB.NewfieldValue(dbIndex, FieldName, "PWGT", rec, Convert.ToString(PWGT));
+
+
+            TDB.NewfieldValue(dbIndex, FieldName, "PTHA", rec, Convert.ToString(PTHA));
+            TDB.NewfieldValue(dbIndex, FieldName, "PSTA", rec, Convert.ToString(PSTA));
+            TDB.NewfieldValue(dbIndex, FieldName, "PKAC", rec, Convert.ToString(PKAC));
+            TDB.NewfieldValue(dbIndex, FieldName, "PACC", rec, Convert.ToString(PACC));
+            TDB.NewfieldValue(dbIndex, FieldName, "PSPD", rec, Convert.ToString(PSPD));
+            TDB.NewfieldValue(dbIndex, FieldName, "PCTH", rec, Convert.ToString(PCTH));
+            TDB.NewfieldValue(dbIndex, FieldName, "PAGI", rec, Convert.ToString(PAGI));
+            TDB.NewfieldValue(dbIndex, FieldName, "PTAK", rec, Convert.ToString(PTAK));
+            TDB.NewfieldValue(dbIndex, FieldName, "PPBK", rec, Convert.ToString(PPBK));
+            TDB.NewfieldValue(dbIndex, FieldName, "PRBK", rec, Convert.ToString(PRBK));
+            TDB.NewfieldValue(dbIndex, FieldName, "PBTK", rec, Convert.ToString(PBTK));
+            TDB.NewfieldValue(dbIndex, FieldName, "PTHP", rec, Convert.ToString(PTHP));
+            TDB.NewfieldValue(dbIndex, FieldName, "PJMP", rec, Convert.ToString(PJMP));
+            TDB.NewfieldValue(dbIndex, FieldName, "PCAR", rec, Convert.ToString(PCAR));
+            TDB.NewfieldValue(dbIndex, FieldName, "PKPR", rec, Convert.ToString(PKPR));
+            TDB.NewfieldValue(dbIndex, FieldName, "PSTR", rec, Convert.ToString(PSTR));
+            TDB.NewfieldValue(dbIndex, FieldName, "PIMP", rec, Convert.ToString(PIMP));
+        }
+
+        private int ChooseJerseyNumber(int PPOS, List<List<int>> PJEN)
+        {
+            int jersey = 99;
+
+            for(int i = 0; i < PJEN.Count; i++)
+            {
+                if (PJEN[i][0] == PPOS)
+                {
+                    return rand.Next(PJEN[i][1], PJEN[i][2]+1);
+                }
+            }
+
+            return jersey;
+        }
+
+        private void DepthChartMaker()
+        {
+            progressBar1.Visible = true;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = TDB.TableRecordCount(dbIndex, "TYDN");
+            progressBar1.Step = 1;
+
+            //clear DCHT
+            for (int i = TDB.TableRecordCount(dbIndex, "DCHT"); i != -1; i--)
+            {
+                TDB.TDBTableRecordRemove(dbIndex, "DCHT", i);
+            }
+
+
+            int count;
+            int rec = 0;
+
+            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "TDYN"); i++)
+            {
+                int TOID = TDB.TDBFieldGetValueAsInteger(dbIndex, "TDYN", "TOID", i);
+                int PGIDbeg = TOID * 70;
+                int PGIDend = PGIDbeg + 69;
+                count = 0;
+                List<List<int>> roster = new List<List<int>>();
+
+                for (int j = 0; j < TDB.TableRecordCount(dbIndex, "PLAY"); j++)
+                {
+                    int PGID = TDB.TDBFieldGetValueAsInteger(dbIndex, "PLAY", "PGID", j);
+
+                    if (PGID >= PGIDbeg && PGID <= PGIDend)
+                    {
+                        int POVR = TDB.TDBFieldGetValueAsInteger(dbIndex, "PLAY", "POVR", j);
+                        int PPOS = TDB.TDBFieldGetValueAsInteger(dbIndex, "PLAY", "PPOS", j);
+
+                        List<int> player = new List<int>();
+                        roster.Add(player);
+                        roster[count].Add(j);
+                        roster[count].Add(PGID);
+                        roster[count].Add(PPOS);
+                        count++;
+                    }
+                }
+                //roster.Sort((player1, player2) => player2[0].CompareTo(player1[0]));
+
+                //Sort Depth Chart  KR = 21 PR = 22 KOS = 23 LS = 24
+
+                //QBs
+                rec = AddDCHTrecord(rec, 0, 3, roster);
+                //RBs
+                rec = AddDCHTrecord(rec, 1, 4, roster);
+                //FBs
+                rec = AddDCHTrecord(rec, 2, 3, roster);
+                //WRs
+                rec = AddDCHTrecord(rec, 3, 6, roster);
+                //TEs
+                rec = AddDCHTrecord(rec, 4, 3, roster);
+                //LTs
+                rec = AddDCHTrecord(rec, 5, 3, roster);
+                //LGs
+                rec = AddDCHTrecord(rec, 6, 3, roster);
+                //Cs
+                rec = AddDCHTrecord(rec, 7, 3, roster);
+                //RG
+                rec = AddDCHTrecord(rec, 8, 3, roster);
+                //RTs
+                rec = AddDCHTrecord(rec, 9, 3, roster);
+                //LEs
+                rec = AddDCHTrecord(rec, 10, 3, roster);
+                //RE
+                rec = AddDCHTrecord(rec, 11, 3, roster);
+                //DT
+                rec = AddDCHTrecord(rec, 12, 5, roster);
+                //LOLBs
+                rec = AddDCHTrecord(rec, 13, 3, roster);
+                //MLBs
+                rec = AddDCHTrecord(rec, 14, 4, roster);
+                //ROLBs
+                rec = AddDCHTrecord(rec, 15, 3, roster);
+                //CBs
+                rec = AddDCHTrecord(rec, 16, 5, roster);
+                //SSs
+                rec = AddDCHTrecord(rec, 17, 3, roster);
+                //FSs
+                rec = AddDCHTrecord(rec, 18, 3, roster);
+                //Ks
+                rec = AddDCHTrecord(rec, 19, 3, roster);
+                //Ps
+                rec = AddDCHTrecord(rec, 20, 3, roster);
+                //KRs
+                rec = AddDCHTrecord(rec, 21, 5, roster);
+                //PRs
+                rec = AddDCHTrecord(rec, 22, 5, roster);
+                //KOSs
+                rec = AddDCHTrecord(rec, 23, 3, roster);
+                //LSs
+                rec = AddDCHTrecord(rec, 24, 3, roster);
+
+                progressBar1.PerformStep();
+
+            }
+
+
+            progressBar1.Visible = false;
+            progressBar1.Value = 0;
+            MessageBox.Show("Depth Charts are complete!");
+        }
+
+        private int AddDCHTrecord(int rec, int ppos, int depthCount, List<List<int>> roster)
+        {
+            //Determine Position Ratings and sort by Position Overall Rating
+            List<List<int>> PosRating = new List<List<int>>();
+            int rating = 0;
+
+            for(int k = 0; k < roster.Count; k++)
+            {
+                if(ppos <= 20)  rating = CalculatePositionRating(roster[k][0], ppos);
+                else if (ppos == 21) rating = CalculatePositionRating(roster[k][0], 3);
+                else if (ppos == 22) rating = CalculatePositionRating(roster[k][0], 3);
+                else if (ppos == 23) rating = CalculatePositionRating(roster[k][0], 19);
+                else if (ppos == 24) rating = CalculatePositionRating(roster[k][0], 5);
+                PosRating.Add(new List<int>());
+                if (roster[k][2] == ppos) rating += 15;
+                PosRating[k].Add(rating);
+                PosRating[k].Add(roster[k][1]);
+                PosRating[k].Add(roster[k][2]);
+
+            }
+
+            //sort by rating
+            PosRating.Sort((player1, player2) => player2[0].CompareTo(player1[0]));
+
+            int count = 0;
+            int i = 0;
+            while (count < depthCount)
+            {
+                TDB.TDBTableRecordAdd(dbIndex, "DCHT", false);
+
+                if (ppos > 20 || !IsStarter(PosRating[i][1])) 
+                {
+                    int pgid = PosRating[i][1];
+                    TDB.NewfieldValue(dbIndex, "DCHT", "PGID", rec, Convert.ToString(pgid));
+                    TDB.NewfieldValue(dbIndex, "DCHT", "PPOS", rec, Convert.ToString(ppos));
+                    TDB.NewfieldValue(dbIndex, "DCHT", "ddep", rec, Convert.ToString(count));
+                    count++;
+                    rec++;
+                }
+                i++;
+            }
+
+            return rec;
+        }
+
+        private bool IsStarter(int pgid)
+        {
+            for(int i = 0; i < TDB.TableRecordCount(dbIndex, "DCHT"); i++) {
+                if (TDB.TDBFieldGetValueAsInteger(dbIndex, "DCHT", "PGID", i) == pgid && TDB.TDBFieldGetValueAsInteger(dbIndex, "DCHT", "ddep", i) == 0) return true;
+            }
+            return false;
+        }
+
     }
 }

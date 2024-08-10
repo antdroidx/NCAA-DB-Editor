@@ -234,6 +234,130 @@ namespace DB_EDITOR
 
         }
 
+        private void CreateRCATtable()
+        {
+            RCAT = new List<List<int>>();
+            string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string csvLocation = Path.Combine(executableLocation, @"resources\RCAT.csv");
+
+            string filePath = csvLocation;
+            StreamReader sr = new StreamReader(filePath);
+            int Row = 0;
+            while (!sr.EndOfStream)
+            {
+                string[] Line = sr.ReadLine().Split(',');
+                if (Row == 0)
+                {
+                    //skip header
+                }
+                else
+                {
+                    RCAT.Add(new List<int>());
+                    for (int column = 0; column < Line.Length; column++)
+                    {
+                        RCAT[Row-1].Add(Convert.ToInt32(Line[column]));
+                    }
+                }
+
+                Row++;
+            }
+            sr.Close();
+        }
+
+        private void CreateFirstNamesDB()
+        {
+            FirstNames = new List<string>();
+            string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string csvLocation = Path.Combine(executableLocation, @"resources\RCFN.csv");
+
+            string filePath = csvLocation;
+            StreamReader sr = new StreamReader(filePath);
+            int Row = 0;
+            while (!sr.EndOfStream)
+            {
+                string[] Line = sr.ReadLine().Split(',');
+                if (Row == 0)
+                {
+                    //skip header
+                }
+                else
+                {
+                    for (int column = 0; column < Line.Length; column++)
+                    {
+                        if (column == 1) FirstNames.Add(Line[column]);
+                    }
+                }
+
+                Row++;
+            }
+            sr.Close();
+        }
+
+        private void CreateLastNamesDB()
+        {
+            LastNames = new List<string>();
+            string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string csvLocation = Path.Combine(executableLocation, @"resources\RCLN.csv");
+
+            string filePath = csvLocation;
+            StreamReader sr = new StreamReader(filePath);
+            int Row = 0;
+            while (!sr.EndOfStream)
+            {
+                string[] Line = sr.ReadLine().Split(',');
+                if (Row == 0)
+                {
+                    //skip header
+                }
+                else
+                {
+                    for (int column = 0; column < Line.Length; column++)
+                    {
+                        if (column == 1) LastNames.Add(Line[column]);
+                    }
+                }
+
+                Row++;
+            }
+            sr.Close();
+        }
+
+        private List<List<int>> CreateJerseyNumberDB()
+        {
+            List<List<int>> PJEN = new List<List<int>>();
+            string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string csvLocation = Path.Combine(executableLocation, @"resources\PJEN.csv");
+
+            string filePath = csvLocation;
+            StreamReader sr = new StreamReader(filePath);
+            int Row = 0;
+            while (!sr.EndOfStream)
+            {
+                string[] Line = sr.ReadLine().Split(',');
+                if (Row == 0)
+                {
+                    //skip header
+                }
+                else
+                {
+                    for (int column = 0; column < Line.Length; column++)
+                    {
+                        if (column != 1)
+                        {
+                            PJEN.Add(new List<int>());
+                            PJEN[Row-1].Add(Convert.ToInt32(Line[column]));
+                        }
+
+                    }
+                }
+
+                Row++;
+            }
+            sr.Close();
+
+            return PJEN;
+        }
+
         #endregion
 
         #region Positions
@@ -348,16 +472,36 @@ namespace DB_EDITOR
             string filePath = csvLocation;
             StreamReader sr = new StreamReader(filePath);
             int Row = 0;
+            double sum = 0;
             while (!sr.EndOfStream)
             {
                 string[] Line = sr.ReadLine().Split(',');
                 if (Row == 0)
                 {
-                    POCI = new double[22, Line.Length];
+                    POCI = new double[22, Line.Length+3];
                 }
-                for (int column = 0; column < Line.Length; column++)
+                else
                 {
-                    POCI[Row, column] = Convert.ToDouble(Line[column]);
+                    for (int column = 0; column < Line.Length; column++)
+                    {
+                        POCI[Row-1, column] = Convert.ToDouble(Line[column]);
+                    }
+
+                    //Add Average of High/Low Rating
+                    POCI[Row - 1, Line.Length] = (POCI[Row - 1, 0] + POCI[Row - 1, 1]) / 2;
+
+                    //Add Sum of Weighed Values
+                    sum = 0;
+
+                    for (int j = 3; j < Line.Length; j++)
+                    {
+                        sum += POCI[Row - 1, j];
+                    }
+                    POCI[Row - 1, Line.Length + 1] = sum;
+
+                    //Add 99 - (High - Low)
+                    POCI[Row - 1, Line.Length + 2] = 100/(POCI[Row - 1, 0] - POCI[Row - 1, 1]);
+
                 }
                 Row++;
             }
@@ -405,6 +549,46 @@ namespace DB_EDITOR
 
             TDB.NewfieldValue(dbIndex, "PLAY", "POVR", rec, Convert.ToString(val));
   
+        }
+
+        private int CalculatePositionRating(int rec, int ppos)
+        {
+            double PCAR = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PCAR", rec)); //CAWT
+            double PKAC = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PKAC", rec)); //KAWT
+            double PTHA = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PTHA", rec)); //TAWT
+            double PPBK = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PPBK", rec)); //PBWT
+            double PRBK = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PRBK", rec)); //RBWT
+            double PACC = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PACC", rec)); //ACWT
+            double PAGI = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PAGI", rec)); //AGWT
+            double PTAK = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PTAK", rec)); //TKWT
+            double PINJ = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PINJ", rec)); //INWT
+            double PKPR = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PKPR", rec)); //KPWT
+            double PSPD = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PSPD", rec)); //SPWT
+            double PTHP = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PTHP", rec)); //TPWT
+            double PBKT = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PBTK", rec)); //BTWT
+            double PCTH = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PCTH", rec)); //CTWT
+            double PSTR = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PSTR", rec)); //STWT
+            double PJMP = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PJMP", rec)); //JUWT
+            double PAWR = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PAWR", rec)); //AWWT
+
+            double[] ratings = new double[] { PCAR, PKAC, PTHA, PPBK, PRBK, PACC, PAGI, PTAK, PINJ, PKPR, PSPD, PTHP, PBKT, PCTH, PSTR, PJMP, PAWR };
+
+            for (int i = 0; i < ratings.Length; i++)
+            {
+                ratings[i] = CalcOVRIndividuals(i + 3, ratings[i], ppos);
+            }
+
+            double newRating = 50;
+
+            for (int i = 0; i < ratings.Length; i++)
+            {
+                newRating += ratings[i];
+            }
+
+            int val = Convert.ToInt32(newRating);
+
+            return val;
+
         }
 
         private double CalcOVRIndividuals(int row, double val, int ppos)
@@ -601,7 +785,18 @@ namespace DB_EDITOR
         {
             Random rand = new Random();
 
-            attribute += rand.Next(tol, tol + 1);
+            attribute += rand.Next(-tol, tol + 1);
+
+            if (attribute < 0) attribute = 0; if (attribute > 31) attribute = 31;
+
+            return attribute;
+        }
+
+        private int GetRandomPositiveAttribute(int attribute, int tol)
+        {
+            Random rand = new Random();
+
+            attribute += rand.Next(0, tol + 1);
 
             if (attribute < 0) attribute = 0; if (attribute > 31) attribute = 31;
 
@@ -616,6 +811,37 @@ namespace DB_EDITOR
             if (attribute < 40) attribute = 40; if (attribute > 99) attribute = 99;
 
             return attribute;
+        }
+
+        #endregion
+
+        #region CSV Tools
+
+        private List<List<string>> CreateStringListfromCSV(string location)
+        {
+            List<List<string>> list = new List<List<string>>();
+            string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string csvLocation = Path.Combine(executableLocation, location);
+
+            string filePath = csvLocation;
+            StreamReader sr = new StreamReader(filePath);
+            int Row = 0;
+            while (!sr.EndOfStream)
+            {
+                string[] Line = sr.ReadLine().Split(',');
+                {
+                    list.Add(new List<string>());
+                    for (int column = 0; column < Line.Length; column++)
+                    {
+                        list[Row].Add(Line[column]);
+                    }
+                }
+
+                Row++;
+            }
+            sr.Close();
+
+            return list;
         }
 
         #endregion

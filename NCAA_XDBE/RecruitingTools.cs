@@ -76,51 +76,53 @@ namespace DB_EDITOR
         }
 
         //Randomize the Recruits to give a little bit more variety and evaluation randomness -- Must be done at start of Recruiting
-        private void RandomizeRecruitDB()
+        private void RandomizeRecruitDB(string FieldName)
         {
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
-            progressBar1.Maximum = TDB.TableRecordCount(dbIndex, "RCPT");
+            progressBar1.Maximum = TDB.TableRecordCount(dbIndex, FieldName);
 
             int tol = (int)recruitTolerance.Value;
             int tolA = 2;
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "RCPT"); i++)
+            for (int i = 0; i < TDB.TableRecordCount(dbIndex, FieldName); i++)
             {
-                if (Convert.ToInt32(TDB.FieldValue(dbIndex, "RCPT", "PRID", i)) < 21000)  //skips transfers
+                if (Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PRID", i)) < 21000)  //skips transfers
                 {
                     //PTHA	PSTA	PKAC	PACC	PSPD	PPOE	PCTH	PAGI	PINJ	PTAK	PPBK	PRBK	PBTK	PTHP	PJMP	PCAR	PKPR	PSTR	PAWR
                     //PPOE, PINJ, PAWR
 
                     int PBRE, PEYE, PPOE, PINJ, PAWR, PWGT, PHGT, PTHA, PSTA, PKAC, PACC, PSPD, PCTH, PAGI, PTAK, PPBK, PRBK, PBTK, PTHP, PJMP, PCAR, PKPR, PSTR;
 
-                    PHGT = Convert.ToInt32(TDB.FieldValue(dbIndex, "RCPT", "PHGT", i));
-                    PWGT = Convert.ToInt32(TDB.FieldValue(dbIndex, "RCPT", "PWGT", i));
-                    PAWR = Convert.ToInt32(TDB.FieldValue(dbIndex, "RCPT", "PAWR", i));
+                    PHGT = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PHGT", i));
+                    PWGT = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PWGT", i));
+                    PAWR = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PAWR", i));
 
-                    PTHA = Convert.ToInt32(TDB.FieldValue(dbIndex, "RCPT", "PTHA", i));
-                    PSTA = Convert.ToInt32(TDB.FieldValue(dbIndex, "RCPT", "PSTA", i));
-                    PKAC = Convert.ToInt32(TDB.FieldValue(dbIndex, "RCPT", "PKAC", i));
-                    PACC = Convert.ToInt32(TDB.FieldValue(dbIndex, "RCPT", "PACC", i));
-                    PSPD = Convert.ToInt32(TDB.FieldValue(dbIndex, "RCPT", "PSPD", i));
-                    PCTH = Convert.ToInt32(TDB.FieldValue(dbIndex, "RCPT", "PCTH", i));
-                    PAGI = Convert.ToInt32(TDB.FieldValue(dbIndex, "RCPT", "PAGI", i));
-                    PTAK = Convert.ToInt32(TDB.FieldValue(dbIndex, "RCPT", "PTAK", i));
-                    PPBK = Convert.ToInt32(TDB.FieldValue(dbIndex, "RCPT", "PPBK", i));
-                    PRBK = Convert.ToInt32(TDB.FieldValue(dbIndex, "RCPT", "PRBK", i));
-                    PBTK = Convert.ToInt32(TDB.FieldValue(dbIndex, "RCPT", "PBTK", i));
-                    PTHP = Convert.ToInt32(TDB.FieldValue(dbIndex, "RCPT", "PTHP", i));
-                    PJMP = Convert.ToInt32(TDB.FieldValue(dbIndex, "RCPT", "PJMP", i));
-                    PCAR = Convert.ToInt32(TDB.FieldValue(dbIndex, "RCPT", "PCAR", i));
-                    PKPR = Convert.ToInt32(TDB.FieldValue(dbIndex, "RCPT", "PKPR", i));
-                    PSTR = Convert.ToInt32(TDB.FieldValue(dbIndex, "RCPT", "PSTR", i));
+                    PTHA = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PTHA", i));
+                    PSTA = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PSTA", i));
+                    PKAC = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PKAC", i));
+                    PACC = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PACC", i));
+                    PSPD = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PSPD", i));
+                    PCTH = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PCTH", i));
+                    PAGI = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PAGI", i));
+                    PTAK = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PTAK", i));
+                    PPBK = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PPBK", i));
+                    PRBK = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PRBK", i));
+                    PBTK = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PBTK", i));
+                    PTHP = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PTHP", i));
+                    PJMP = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PJMP", i));
+                    PCAR = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PCAR", i));
+                    PKPR = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PKPR", i));
+                    PSTR = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PSTR", i));
 
                     PBRE = rand.Next(0, 2);
                     PEYE = rand.Next(0, 2);
                     PHGT += rand.Next(-1, 2);
                     PWGT += rand.Next(-8, 9);
                     if (PWGT < 0) PWGT = 0;
+                    if (PWGT > 340) PWGT = 340;
                     if (PHGT > 82) PHGT = 82;
+                    if (PHGT < 0) PHGT = 0;
                     PPOE = rand.Next(1, 30);
                     PINJ = rand.Next(1, 30);
                     PAWR = GetRandomAttribute(PAWR, tolA);
@@ -142,31 +144,31 @@ namespace DB_EDITOR
                     PKPR = GetRandomAttribute(PKPR, tol);
                     PSTR = GetRandomAttribute(PSTR, tol);
 
-                    TDB.NewfieldValue(dbIndex, "RCPT", "PBRE", i, Convert.ToString(PBRE));
-                    TDB.NewfieldValue(dbIndex, "RCPT", "PEYE", i, Convert.ToString(PEYE));
-                    TDB.NewfieldValue(dbIndex, "RCPT", "PPOE", i, Convert.ToString(PPOE));
-                    TDB.NewfieldValue(dbIndex, "RCPT", "PINJ", i, Convert.ToString(PINJ));
-                    TDB.NewfieldValue(dbIndex, "RCPT", "PAWR", i, Convert.ToString(PAWR));
-                    TDB.NewfieldValue(dbIndex, "RCPT", "PHGT", i, Convert.ToString(PHGT));
-                    TDB.NewfieldValue(dbIndex, "RCPT", "PWGT", i, Convert.ToString(PWGT));
+                    TDB.NewfieldValue(dbIndex, FieldName, "PBRE", i, Convert.ToString(PBRE));
+                    TDB.NewfieldValue(dbIndex, FieldName, "PEYE", i, Convert.ToString(PEYE));
+                    TDB.NewfieldValue(dbIndex, FieldName, "PPOE", i, Convert.ToString(PPOE));
+                    TDB.NewfieldValue(dbIndex, FieldName, "PINJ", i, Convert.ToString(PINJ));
+                    TDB.NewfieldValue(dbIndex, FieldName, "PAWR", i, Convert.ToString(PAWR));
+                    TDB.NewfieldValue(dbIndex, FieldName, "PHGT", i, Convert.ToString(PHGT));
+                    TDB.NewfieldValue(dbIndex, FieldName, "PWGT", i, Convert.ToString(PWGT));
 
 
-                    TDB.NewfieldValue(dbIndex, "RCPT", "PTHA", i, Convert.ToString(PTHA));
-                    TDB.NewfieldValue(dbIndex, "RCPT", "PSTA", i, Convert.ToString(PSTA));
-                    TDB.NewfieldValue(dbIndex, "RCPT", "PKAC", i, Convert.ToString(PKAC));
-                    TDB.NewfieldValue(dbIndex, "RCPT", "PACC", i, Convert.ToString(PACC));
-                    TDB.NewfieldValue(dbIndex, "RCPT", "PSPD", i, Convert.ToString(PSPD));
-                    TDB.NewfieldValue(dbIndex, "RCPT", "PCTH", i, Convert.ToString(PCTH));
-                    TDB.NewfieldValue(dbIndex, "RCPT", "PAGI", i, Convert.ToString(PAGI));
-                    TDB.NewfieldValue(dbIndex, "RCPT", "PTAK", i, Convert.ToString(PTAK));
-                    TDB.NewfieldValue(dbIndex, "RCPT", "PPBK", i, Convert.ToString(PPBK));
-                    TDB.NewfieldValue(dbIndex, "RCPT", "PRBK", i, Convert.ToString(PRBK));
-                    TDB.NewfieldValue(dbIndex, "RCPT", "PBTK", i, Convert.ToString(PBTK));
-                    TDB.NewfieldValue(dbIndex, "RCPT", "PTHP", i, Convert.ToString(PTHP));
-                    TDB.NewfieldValue(dbIndex, "RCPT", "PJMP", i, Convert.ToString(PJMP));
-                    TDB.NewfieldValue(dbIndex, "RCPT", "PCAR", i, Convert.ToString(PCAR));
-                    TDB.NewfieldValue(dbIndex, "RCPT", "PKPR", i, Convert.ToString(PKPR));
-                    TDB.NewfieldValue(dbIndex, "RCPT", "PSTR", i, Convert.ToString(PKPR));
+                    TDB.NewfieldValue(dbIndex, FieldName, "PTHA", i, Convert.ToString(PTHA));
+                    TDB.NewfieldValue(dbIndex, FieldName, "PSTA", i, Convert.ToString(PSTA));
+                    TDB.NewfieldValue(dbIndex, FieldName, "PKAC", i, Convert.ToString(PKAC));
+                    TDB.NewfieldValue(dbIndex, FieldName, "PACC", i, Convert.ToString(PACC));
+                    TDB.NewfieldValue(dbIndex, FieldName, "PSPD", i, Convert.ToString(PSPD));
+                    TDB.NewfieldValue(dbIndex, FieldName, "PCTH", i, Convert.ToString(PCTH));
+                    TDB.NewfieldValue(dbIndex, FieldName, "PAGI", i, Convert.ToString(PAGI));
+                    TDB.NewfieldValue(dbIndex, FieldName, "PTAK", i, Convert.ToString(PTAK));
+                    TDB.NewfieldValue(dbIndex, FieldName, "PPBK", i, Convert.ToString(PPBK));
+                    TDB.NewfieldValue(dbIndex, FieldName, "PRBK", i, Convert.ToString(PRBK));
+                    TDB.NewfieldValue(dbIndex, FieldName, "PBTK", i, Convert.ToString(PBTK));
+                    TDB.NewfieldValue(dbIndex, FieldName, "PTHP", i, Convert.ToString(PTHP));
+                    TDB.NewfieldValue(dbIndex, FieldName, "PJMP", i, Convert.ToString(PJMP));
+                    TDB.NewfieldValue(dbIndex, FieldName, "PCAR", i, Convert.ToString(PCAR));
+                    TDB.NewfieldValue(dbIndex, FieldName, "PKPR", i, Convert.ToString(PKPR));
+                    TDB.NewfieldValue(dbIndex, FieldName, "PSTR", i, Convert.ToString(PSTR));
                 }
 
 
@@ -178,36 +180,36 @@ namespace DB_EDITOR
 
             MessageBox.Show("Recruits Randomized!");
 
-            RecalculateBMI("RCPT");
+            RecalculateBMI(FieldName);
         }
 
         //Randomize the Recruits Skin Tone, Face and Face Shape
-        private void RandomizeRecruitFace()
+        private void RandomizeRecruitFace(string tableName)
         {
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
-            progressBar1.Maximum = TDB.TableRecordCount(dbIndex, "RCPT");
+            progressBar1.Maximum = TDB.TableRecordCount(dbIndex, tableName);
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "RCPT"); i++)
+            for (int i = 0; i < TDB.TableRecordCount(dbIndex, tableName); i++)
             {
-                if (Convert.ToInt32(TDB.FieldValue(dbIndex, "RCPT", "PRID", i)) < 21000)  //skips transfers
+                if (tableName != "RCPT" || Convert.ToInt32(TDB.FieldValue(dbIndex, tableName, "PRID", i)) < 21000)  //skips transfers
                 {
 
                     //Randomizes Face Shape (PGFM)
                     int shape = rand.Next(0, 16);
-                    TDB.NewfieldValue(dbIndex, "RCPT", "PFGM", i, Convert.ToString(shape));
+                    TDB.NewfieldValue(dbIndex, tableName, "PFGM", i, Convert.ToString(shape));
 
                     //Finds current skin tone and randomizes within it's Light/Medium/Dark general tone (PSKI)
-                    int skin = TDB.TDBFieldGetValueAsInteger(dbIndex, "RCPT", "PSKI", i);
+                    int skin = TDB.TDBFieldGetValueAsInteger(dbIndex, tableName, "PSKI", i);
                     if (skin <= 2) rand.Next(0, 3);
                     else if (skin <= 6) rand.Next(3, 7);
                     else rand.Next(8, 8);
 
-                    TDB.NewfieldValue(dbIndex, "RCPT", "PSKI", i, Convert.ToString(skin));
+                    TDB.NewfieldValue(dbIndex, tableName, "PSKI", i, Convert.ToString(skin));
 
                     //Randomizes Face Type based on new Skin Type
-                    int face = TDB.TDBFieldGetValueAsInteger(dbIndex, "RCPT", "PSKI", i) * 8 + rand.Next(0, 8);
-                    TDB.NewfieldValue(dbIndex, "RCPT", "PFMP", i, Convert.ToString(face));
+                    int face = TDB.TDBFieldGetValueAsInteger(dbIndex, tableName, "PSKI", i) * 8 + rand.Next(0, 8);
+                    TDB.NewfieldValue(dbIndex, tableName, "PFMP", i, Convert.ToString(face));
 
                 }
 
@@ -217,7 +219,7 @@ namespace DB_EDITOR
             progressBar1.Visible = false;
             progressBar1.Value = 0;
 
-            MessageBox.Show("Recruits Randomized!");
+            MessageBox.Show("Faces & Skin Tones Randomized!");
         }
 
         //Randomize Walk-On Database -- Must be done prior to Cut Players stage

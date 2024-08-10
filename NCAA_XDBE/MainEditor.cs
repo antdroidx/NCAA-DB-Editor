@@ -87,6 +87,9 @@ namespace DB_EDITOR
         Dictionary<int, int> RatingsX = new Dictionary<int, int>(); //database of in-game rating, db rating
 
         double[,] POCI;
+        List<List<int>> RCAT;
+        List<string> FirstNames;
+        List<string> LastNames;
 
         #endregion
 
@@ -1823,10 +1826,12 @@ namespace DB_EDITOR
         }
         private void TabTools_Start()
         {
+            /*
             progressBar1.Visible = false;
             progressBar1.Value = 0;
             TablePropsgroupBox.Visible = false;
             FieldsPropsgroupBox.Visible = false;
+            */
         }
 
         private void TabDB_Start()
@@ -1984,7 +1989,7 @@ namespace DB_EDITOR
             {
                 if (TDB.FieldValue(dbIndex, "RCYR", "SEWN", i) == "1")
                 {
-                    RandomizeRecruitDB();
+                    RandomizeRecruitDB("RCPT");
                     correctWeek = true;
                 }
             }
@@ -2028,7 +2033,17 @@ namespace DB_EDITOR
 
         private void buttonRandomizeFaceSkin_Click(object sender, EventArgs e)
         {
-            RandomizeRecruitFace();
+            RandomizeRecruitFace("RCPT");
+        }
+
+        private void buttonFantasyRoster_Click(object sender, EventArgs e)
+        {
+            FantasyRosterGenerator();
+        }
+
+        private void buttonAutoDepthChart_Click(object sender, EventArgs e)
+        {
+            DepthChartMaker();
         }
     }
 
