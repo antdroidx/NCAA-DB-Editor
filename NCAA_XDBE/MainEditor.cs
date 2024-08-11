@@ -22,7 +22,7 @@ namespace DB_EDITOR
         int dbIndex = -1;  // 0 = Open/Save, 1 = Save As..., 2 = settings.db, 3 = streameddata.db, 4 = 00012-DB_TEMPLATES.db
 
         string SelectedTableName = "";
-        int SelectedTableIndex = 0;
+        int SelectedTableIndex = -1;
 
         bool DBModified = false;
         bool exportAll = false;
@@ -142,6 +142,10 @@ namespace DB_EDITOR
 
             DoNotTrigger = false;
 
+            coachProgComplete = false;
+            TDYN = false;
+            TEAM = false;
+
 
             tabControl1.Visible = false;
             tabControl1.TabPages.Remove(tabTeams);
@@ -165,6 +169,8 @@ namespace DB_EDITOR
         // menuStrip1 -- where the save file loading begins
         private void OpenMenuItem_Click(object sender, EventArgs e)
         {
+            tabControl1.SelectTab(tabHome);
+
             //currentDBfile = GetFileName("", "All Files|*.*|Madden|*.ros; *.fra; *.dbt; *.db; *.pbd; *.pbo; *.rpl; *.spg; *.usr|Roster|*.ros|Franchise|*.fra|Teams|*.dbt|Database|*.db|Playbook|*.pbd; *.pbo|Replay|*.rpl|Spawn|*.spg|Users|*.usr|Console|*.mc02");
             dbFile = GetFileName("", "All Files|*.*|");
 
@@ -214,6 +220,7 @@ namespace DB_EDITOR
                 LoadFields();
 
                 createConsoleData();
+
             }
         }
 
@@ -1080,9 +1087,9 @@ namespace DB_EDITOR
 
                 if (TABLE.Value == "TEAM")
                 {
-                    CreateTeamDB();
                     TEAM = true;
-
+                    CreateTeamDB();
+                    
                     //BOOKMARK TAB PAGES ON/OFF
 
                     tabControl1.TabPages.Add(tabTeams);
@@ -1888,7 +1895,8 @@ namespace DB_EDITOR
 
         private void TYDNButton_Click(object sender, EventArgs e)
         {
-            CalculateTYDNRatings();
+            if (TEAM) CalculateTeamRatings("TEAM");
+            if (TDYN) CalculateTeamRatings("TDYN");
         }
 
         private void buttonImpactPlayers_Click(object sender, EventArgs e)
@@ -2047,12 +2055,26 @@ namespace DB_EDITOR
 
         private void buttonFantasyRoster_Click(object sender, EventArgs e)
         {
-            FantasyRosterGenerator();
+            if (TDYN)
+                FantasyRosterGenerator("TDYN");
+            else if (TEAM)
+                FantasyRosterGenerator("TEAM");
         }
 
         private void buttonAutoDepthChart_Click(object sender, EventArgs e)
         {
-            DepthChartMaker();
+            if (TDYN)
+                DepthChartMaker("TDYN");
+            else if (TEAM)
+                DepthChartMaker("TEAM");
+        }
+
+        private void buttonFillRosters_Click(object sender, EventArgs e)
+        {
+            if (TDYN)
+                FillRosters("TDYN");
+            else if (TEAM)
+                FillRosters("TEAM");
         }
     }
 

@@ -181,220 +181,224 @@ namespace DB_EDITOR
         //Export Recruiting Class from Roster
 
         //Calculate Team Ratings
-        private void CalculateTYDNRatings()
+        private void CalculateTeamRatings(string tableName)
         {
 
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
-            progressBar1.Maximum = TDB.TableRecordCount(dbIndex, "TYDN");
+            progressBar1.Maximum = TDB.TableRecordCount(dbIndex, tableName);
             progressBar1.Step = 1;
 
 
             int rating, count;
-            int bonus = 3;
+            int bonus = 2;
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "TDYN"); i++)
+            for (int i = 0; i < TDB.TableRecordCount(dbIndex, tableName); i++)
             {
-                int TOID = TDB.TDBFieldGetValueAsInteger(dbIndex, "TDYN", "TOID", i);
-                int PGIDbeg = TOID * 70;
-                int PGIDend = PGIDbeg + 69;
-                count = 0;
-                List<List<int>> roster = new List<List<int>>();
-
-                for (int j = 0; j < TDB.TableRecordCount(dbIndex, "PLAY"); j++)
+                if(TDYN || TDB.TDBFieldGetValueAsInteger(dbIndex, tableName, "TTYP", i) == 0)
                 {
-                    int PGID = TDB.TDBFieldGetValueAsInteger(dbIndex, "PLAY", "PGID", j);
+                    int TOID = TDB.TDBFieldGetValueAsInteger(dbIndex, tableName, "TOID", i);
+                    int PGIDbeg = TOID * 70;
+                    int PGIDend = PGIDbeg + 69;
+                    count = 0;
+                    List<List<int>> roster = new List<List<int>>();
 
-                    if (PGID >= PGIDbeg && PGID <= PGIDend)
+                    for (int j = 0; j < TDB.TableRecordCount(dbIndex, "PLAY"); j++)
                     {
-                        int POVR = TDB.TDBFieldGetValueAsInteger(dbIndex, "PLAY", "POVR", j);
-                        int PPOS = TDB.TDBFieldGetValueAsInteger(dbIndex, "PLAY", "PPOS", j);
-                        List<int> player = new List<int>();
-                        roster.Add(player);
-                        roster[count].Add(POVR);
-                        roster[count].Add(PPOS);
-                        count++;
+                        int PGID = TDB.TDBFieldGetValueAsInteger(dbIndex, "PLAY", "PGID", j);
+
+                        if (PGID >= PGIDbeg && PGID <= PGIDend)
+                        {
+                            int POVR = TDB.TDBFieldGetValueAsInteger(dbIndex, "PLAY", "POVR", j);
+                            int PPOS = TDB.TDBFieldGetValueAsInteger(dbIndex, "PLAY", "PPOS", j);
+                            List<int> player = new List<int>();
+                            roster.Add(player);
+                            roster[count].Add(POVR);
+                            roster[count].Add(PPOS);
+                            count++;
+                        }
                     }
-                }
-                roster.Sort((player1, player2) => player2[0].CompareTo(player1[0]));
+                    roster.Sort((player1, player2) => player2[0].CompareTo(player1[0]));
 
 
-                //TRDB - Defensive Backs  PPOS = 16, 17, 18
-                rating = 0;
-                count = 0;
-                for (int j = 0; j < roster.Count; j++)
-                {
-                    int PPOS = roster[j][1];
-
-                    if (PPOS >= 16 && PPOS <= 18)
+                    //TRDB - Defensive Backs  PPOS = 16, 17, 18
+                    rating = 0;
+                    count = 0;
+                    for (int j = 0; j < roster.Count; j++)
                     {
-                        rating += roster[j][0];
-                        count++;
+                        int PPOS = roster[j][1];
+
+                        if (PPOS >= 16 && PPOS <= 18)
+                        {
+                            rating += roster[j][0];
+                            count++;
+                        }
+                        if (count >= 5) break;
                     }
-                    if (count >= 5) break;
-                }
 
-                rating = ConvertRating(rating / count) + bonus;
+                    rating = ConvertRating(rating / count) + bonus;
 
-                TDB.NewfieldValue(dbIndex, "TYDN", "TRDB", i, Convert.ToString(rating));
+                    TDB.NewfieldValue(dbIndex, tableName, "TRDB", i, Convert.ToString(rating));
 
 
-                //TRLB - Linebackers 13, 14, 15
-                rating = 0;
-                count = 0;
-                for (int j = 0; j < roster.Count; j++)
-                {
-                    int PPOS = roster[j][1];
-
-                    if (PPOS >= 13 && PPOS <= 15)
+                    //TRLB - Linebackers 13, 14, 15
+                    rating = 0;
+                    count = 0;
+                    for (int j = 0; j < roster.Count; j++)
                     {
-                        rating += roster[j][0];
-                        count++;
+                        int PPOS = roster[j][1];
+
+                        if (PPOS >= 13 && PPOS <= 15)
+                        {
+                            rating += roster[j][0];
+                            count++;
+                        }
+                        if (count >= 4) break;
                     }
-                    if (count >= 4) break;
-                }
 
-                rating = ConvertRating(rating / count) + bonus;
+                    rating = ConvertRating(rating / count) + bonus;
 
-                TDB.NewfieldValue(dbIndex, "TYDN", "TRLB", i, Convert.ToString(rating));
+                    TDB.NewfieldValue(dbIndex, tableName, "TRLB", i, Convert.ToString(rating));
 
 
 
-                //TRQB - Quarterbacks 0
-                rating = 0;
-                count = 0;
-                for (int j = 0; j < roster.Count; j++)
-                {
-                    int PPOS = roster[j][1];
-
-                    if (PPOS == 0)
+                    //TRQB - Quarterbacks 0
+                    rating = 0;
+                    count = 0;
+                    for (int j = 0; j < roster.Count; j++)
                     {
-                        rating += roster[j][0];
-                        count++;
+                        int PPOS = roster[j][1];
+
+                        if (PPOS == 0)
+                        {
+                            rating += roster[j][0];
+                            count++;
+                        }
+                        if (count >= 1) break;
                     }
-                    if (count >= 1) break;
-                }
 
-                rating = ConvertRating(rating / count) + bonus;
+                    rating = ConvertRating(rating / count) + bonus;
 
-                TDB.NewfieldValue(dbIndex, "TYDN", "TRQB", i, Convert.ToString(rating));
+                    TDB.NewfieldValue(dbIndex, tableName, "TRQB", i, Convert.ToString(rating));
 
 
-                //TRRB - Running Backs 1, 2
-                rating = 0;
-                count = 0;
-                for (int j = 0; j < roster.Count; j++)
-                {
-                    int PPOS = roster[j][1];
-
-                    if (PPOS >= 1 && PPOS <= 2)
+                    //TRRB - Running Backs 1, 2
+                    rating = 0;
+                    count = 0;
+                    for (int j = 0; j < roster.Count; j++)
                     {
-                        rating += roster[j][0];
-                        count++;
+                        int PPOS = roster[j][1];
+
+                        if (PPOS >= 1 && PPOS <= 2)
+                        {
+                            rating += roster[j][0];
+                            count++;
+                        }
+                        if (count >= 3) break;
                     }
-                    if (count >= 3) break;
-                }
 
-                rating = ConvertRating(rating / count) + bonus;
+                    rating = ConvertRating(rating / count) + bonus;
 
-                TDB.NewfieldValue(dbIndex, "TYDN", "TRRB", i, Convert.ToString(rating));
+                    TDB.NewfieldValue(dbIndex, tableName, "TRRB", i, Convert.ToString(rating));
 
-                //TRDL - Defensive Line 10, 11, 12
-                rating = 0;
-                count = 0;
-                for (int j = 0; j < roster.Count; j++)
-                {
-                    int PPOS = roster[j][1];
-
-                    if (PPOS >= 10 && PPOS <= 12)
+                    //TRDL - Defensive Line 10, 11, 12
+                    rating = 0;
+                    count = 0;
+                    for (int j = 0; j < roster.Count; j++)
                     {
-                        rating += roster[j][0];
-                        count++;
+                        int PPOS = roster[j][1];
+
+                        if (PPOS >= 10 && PPOS <= 12)
+                        {
+                            rating += roster[j][0];
+                            count++;
+                        }
+                        if (count >= 4) break;
                     }
-                    if (count >= 4) break;
-                }
 
-                rating = ConvertRating(rating / count) + bonus;
+                    rating = ConvertRating(rating / count) + bonus;
 
-                TDB.NewfieldValue(dbIndex, "TYDN", "TRDL", i, Convert.ToString(rating));
+                    TDB.NewfieldValue(dbIndex, tableName, "TRDL", i, Convert.ToString(rating));
 
-                //TROL - Offensive Line 5 - 9
-                rating = 0;
-                count = 0;
-                for (int j = 0; j < roster.Count; j++)
-                {
-                    int PPOS = roster[j][1];
-
-                    if (PPOS >= 5 && PPOS <= 9)
+                    //TROL - Offensive Line 5 - 9
+                    rating = 0;
+                    count = 0;
+                    for (int j = 0; j < roster.Count; j++)
                     {
-                        rating += roster[j][0];
-                        count++;
+                        int PPOS = roster[j][1];
+
+                        if (PPOS >= 5 && PPOS <= 9)
+                        {
+                            rating += roster[j][0];
+                            count++;
+                        }
+                        if (count >= 6) break;
                     }
-                    if (count >= 6) break;
-                }
 
-                rating = ConvertRating(rating / count) + bonus;
+                    rating = ConvertRating(rating / count) + bonus;
 
-                TDB.NewfieldValue(dbIndex, "TYDN", "TROL", i, Convert.ToString(rating));
+                    TDB.NewfieldValue(dbIndex, tableName, "TROL", i, Convert.ToString(rating));
 
-                //TWRR - Wide Receivers 3, 4
-                rating = 0;
-                count = 0;
-                for (int j = 0; j < roster.Count; j++)
-                {
-                    int PPOS = roster[j][1];
-
-                    if (PPOS >= 3 && PPOS <= 4)
+                    //TWRR - Wide Receivers 3, 4
+                    rating = 0;
+                    count = 0;
+                    for (int j = 0; j < roster.Count; j++)
                     {
-                        rating += roster[j][0];
-                        count++;
+                        int PPOS = roster[j][1];
+
+                        if (PPOS >= 3 && PPOS <= 4)
+                        {
+                            rating += roster[j][0];
+                            count++;
+                        }
+                        if (count >= 5) break;
                     }
-                    if (count >= 5) break;
-                }
 
-                rating = ConvertRating(rating / count) + bonus;
+                    rating = ConvertRating(rating / count) + bonus;
 
-                TDB.NewfieldValue(dbIndex, "TYDN", "TWRR", i, Convert.ToString(rating));
+                    TDB.NewfieldValue(dbIndex, tableName, "TWRR", i, Convert.ToString(rating));
 
-                //TRST - Special Teams 19, 20
-                rating = 0;
-                count = 0;
-                for (int j = 0; j < roster.Count; j++)
-                {
-                    int PPOS = roster[j][1];
-
-                    if (PPOS >= 19 && PPOS <= 20)
+                    //TRST - Special Teams 19, 20
+                    rating = 0;
+                    count = 0;
+                    for (int j = 0; j < roster.Count; j++)
                     {
-                        rating += roster[j][0];
-                        count++;
+                        int PPOS = roster[j][1];
+
+                        if (PPOS >= 19 && PPOS <= 20)
+                        {
+                            rating += roster[j][0];
+                            count++;
+                        }
+                        if (count >= 2) break;
                     }
-                    if (count >= 2) break;
+
+                    rating = ConvertRating(rating / count) + bonus;
+
+                    TDB.NewfieldValue(dbIndex, tableName, "TRST", i, Convert.ToString(rating));
+
+
+                    //TRDE - Defense 10 - 18, 20
+                    rating = (Convert.ToInt32(TDB.FieldValue(dbIndex, tableName, "TRDB", i)) + Convert.ToInt32(TDB.FieldValue(dbIndex, tableName, "TRLB", i)) + Convert.ToInt32(TDB.FieldValue(dbIndex, tableName, "TRDL", i))) / 3;
+
+                    TDB.NewfieldValue(dbIndex, tableName, "TRDE", i, Convert.ToString(rating));
+
+                    //TROF - Offense 0 - 9, 19
+                    rating = (Convert.ToInt32(TDB.FieldValue(dbIndex, tableName, "TRQB", i)) * 2 + Convert.ToInt32(TDB.FieldValue(dbIndex, tableName, "TRRB", i)) + Convert.ToInt32(TDB.FieldValue(dbIndex, tableName, "TWRR", i)) + Convert.ToInt32(TDB.FieldValue(dbIndex, tableName, "TROL", i))) / 5;
+
+                    TDB.NewfieldValue(dbIndex, tableName, "TROF", i, Convert.ToString(rating));
+
+                    //TROV - Team Overall
+                    rating = (Convert.ToInt32(TDB.FieldValue(dbIndex, tableName, "TROF", i)) + Convert.ToInt32(TDB.FieldValue(dbIndex, tableName, "TRDE", i))) / 2;
+
+                    TDB.NewfieldValue(dbIndex, tableName, "TROV", i, Convert.ToString(rating));
+
+
+                    progressBar1.PerformStep();
+
                 }
-
-                rating = ConvertRating(rating / count) + bonus;
-
-                TDB.NewfieldValue(dbIndex, "TYDN", "TRST", i, Convert.ToString(rating));
-
-
-                //TRDE - Defense 10 - 18, 20
-                rating = (Convert.ToInt32(TDB.FieldValue(dbIndex,"TYDN","TRDB",i)) + Convert.ToInt32(TDB.FieldValue(dbIndex, "TYDN", "TRLB", i)) + Convert.ToInt32(TDB.FieldValue(dbIndex, "TYDN", "TRDL", i))) / 3;
-
-                TDB.NewfieldValue(dbIndex, "TYDN", "TRDE", i, Convert.ToString(rating));
-
-                //TROF - Offense 0 - 9, 19
-                rating = (Convert.ToInt32(TDB.FieldValue(dbIndex, "TYDN", "TRQB", i))*2 + Convert.ToInt32(TDB.FieldValue(dbIndex, "TYDN", "TRRB", i)) + Convert.ToInt32(TDB.FieldValue(dbIndex, "TYDN", "TWRR", i)) + Convert.ToInt32(TDB.FieldValue(dbIndex, "TYDN", "TROL", i))) / 5;
-
-                TDB.NewfieldValue(dbIndex, "TYDN", "TROF", i, Convert.ToString(rating));
-
-                //TROV - Team Overall
-                rating = (Convert.ToInt32(TDB.FieldValue(dbIndex, "TYDN", "TROF", i)) + Convert.ToInt32(TDB.FieldValue(dbIndex, "TYDN", "TRDE", i)))/2;
-
-                TDB.NewfieldValue(dbIndex, "TYDN", "TROV", i, Convert.ToString(rating));
-
-
-                progressBar1.PerformStep();
-
             }
+                
 
             progressBar1.Visible = false;
             progressBar1.Value = 0;
@@ -494,7 +498,8 @@ namespace DB_EDITOR
         }
 
         //Fantasy Roster Generator
-        private void FantasyRosterGenerator()
+        #region Fantasy Roster Generator
+        private void FantasyRosterGenerator(string tableName)
         {
             /* Creates a fantasy roster from team overall rating
              * Use RCAT, sort by position, count position players
@@ -506,7 +511,7 @@ namespace DB_EDITOR
             //Setup Progress bar
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
-            progressBar1.Maximum = TDB.TableRecordCount(dbIndex, "TYDN");
+            progressBar1.Maximum = TDB.TableRecordCount(dbIndex, tableName);
             progressBar1.Step = 1;
             progressBar1.Value = 0;
 
@@ -533,93 +538,97 @@ namespace DB_EDITOR
             //RCAT.Sort((player1, player2) => player2[45].CompareTo(player1[45]));
 
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "TDYN"); i++)
+            for (int i = 0; i < TDB.TableRecordCount(dbIndex, tableName); i++)
             {
-                int TOID = TDB.TDBFieldGetValueAsInteger(dbIndex, "TDYN", "TOID", i);
-                int PGIDbeg = TOID * 70;
-                int PGIDend = PGIDbeg + 69;
-                int rating = GetFantasyTeamRating(teamData, TOID);
-
-                for (int j = 0; j < 68; j++)
+                if (TDYN || TDB.TDBFieldGetValueAsInteger(dbIndex, tableName, "TTYP", i) == 0)
                 {
-                    //Add a record
-                    TDB.TDBTableRecordAdd(dbIndex, "PLAY", false);
+                    int TOID = TDB.TDBFieldGetValueAsInteger(dbIndex, tableName, "TOID", i);
+                    int PGIDbeg = TOID * 70;
+                    int PGIDend = PGIDbeg + 69;
+                    int rating = GetFantasyTeamRating(teamData, TOID);
 
-                    //QB
-                    if (j < 3) TransferRCATtoPLAY(rec, 0, PGIDbeg+j, RCATmapper, PJEN);
+                    for (int j = 0; j < 68; j++)
+                    {
+                        //Add a record
+                        TDB.TDBTableRecordAdd(dbIndex, "PLAY", false);
 
-                    //RB
-                    else if (j < 6) TransferRCATtoPLAY(rec, 1, PGIDbeg + j, RCATmapper, PJEN);
+                        //QB
+                        if (j < 3) TransferRCATtoPLAY(rec, 0, PGIDbeg + j, RCATmapper, PJEN);
 
-                    //FB
-                    else if (j < 7) TransferRCATtoPLAY(rec, 2, PGIDbeg + j, RCATmapper, PJEN);
+                        //RB
+                        else if (j < 6) TransferRCATtoPLAY(rec, 1, PGIDbeg + j, RCATmapper, PJEN);
 
-                    //WR
-                    else if (j < 13) TransferRCATtoPLAY(rec, 3, PGIDbeg + j, RCATmapper, PJEN);
+                        //FB
+                        else if (j < 7) TransferRCATtoPLAY(rec, 2, PGIDbeg + j, RCATmapper, PJEN);
 
-                    //TE
-                    else if (j < 16) TransferRCATtoPLAY(rec, 4, PGIDbeg + j, RCATmapper, PJEN);
+                        //WR
+                        else if (j < 13) TransferRCATtoPLAY(rec, 3, PGIDbeg + j, RCATmapper, PJEN);
 
-                    //LT
-                    else if (j < 18) TransferRCATtoPLAY(rec, 5, PGIDbeg + j, RCATmapper, PJEN);
+                        //TE
+                        else if (j < 16) TransferRCATtoPLAY(rec, 4, PGIDbeg + j, RCATmapper, PJEN);
 
-                    //LG
-                    else if (j < 20) TransferRCATtoPLAY(rec, 6, PGIDbeg + j, RCATmapper, PJEN);
+                        //LT
+                        else if (j < 18) TransferRCATtoPLAY(rec, 5, PGIDbeg + j, RCATmapper, PJEN);
 
-                    //C
-                    else if (j < 22) TransferRCATtoPLAY(rec, 7, PGIDbeg + j, RCATmapper, PJEN);
+                        //LG
+                        else if (j < 20) TransferRCATtoPLAY(rec, 6, PGIDbeg + j, RCATmapper, PJEN);
 
-                    //RG
-                    else if (j < 24) TransferRCATtoPLAY(rec, 8, PGIDbeg + j, RCATmapper, PJEN);
+                        //C
+                        else if (j < 22) TransferRCATtoPLAY(rec, 7, PGIDbeg + j, RCATmapper, PJEN);
 
-                    //RT
-                    else if (j < 26) TransferRCATtoPLAY(rec, 9, PGIDbeg + j, RCATmapper, PJEN);
+                        //RG
+                        else if (j < 24) TransferRCATtoPLAY(rec, 8, PGIDbeg + j, RCATmapper, PJEN);
 
-                    //LE
-                    else if (j < 28) TransferRCATtoPLAY(rec, 10, PGIDbeg + j, RCATmapper, PJEN);
+                        //RT
+                        else if (j < 26) TransferRCATtoPLAY(rec, 9, PGIDbeg + j, RCATmapper, PJEN);
 
-                    //DT
-                    else if (j < 32) TransferRCATtoPLAY(rec, 11, PGIDbeg + j, RCATmapper, PJEN);
+                        //LE
+                        else if (j < 28) TransferRCATtoPLAY(rec, 10, PGIDbeg + j, RCATmapper, PJEN);
 
-                    //RE
-                    else if (j < 34) TransferRCATtoPLAY(rec, 12, PGIDbeg + j, RCATmapper, PJEN);
+                        //DT
+                        else if (j < 32) TransferRCATtoPLAY(rec, 11, PGIDbeg + j, RCATmapper, PJEN);
 
-                    //LOLB
-                    else if (j < 36) TransferRCATtoPLAY(rec, 13, PGIDbeg + j, RCATmapper, PJEN);
+                        //RE
+                        else if (j < 34) TransferRCATtoPLAY(rec, 12, PGIDbeg + j, RCATmapper, PJEN);
 
-                    //MLB
-                    else if (j < 39) TransferRCATtoPLAY(rec, 14, PGIDbeg + j, RCATmapper, PJEN);
+                        //LOLB
+                        else if (j < 36) TransferRCATtoPLAY(rec, 13, PGIDbeg + j, RCATmapper, PJEN);
 
-                    //ROLB
-                    else if (j < 41) TransferRCATtoPLAY(rec, 15, PGIDbeg + j, RCATmapper, PJEN);
+                        //MLB
+                        else if (j < 39) TransferRCATtoPLAY(rec, 14, PGIDbeg + j, RCATmapper, PJEN);
 
-                    //CB
-                    else if (j < 46) TransferRCATtoPLAY(rec, 16, PGIDbeg + j, RCATmapper, PJEN);
+                        //ROLB
+                        else if (j < 41) TransferRCATtoPLAY(rec, 15, PGIDbeg + j, RCATmapper, PJEN);
 
-                    //SS
-                    else if (j < 48) TransferRCATtoPLAY(rec, 17, PGIDbeg + j, RCATmapper, PJEN);
+                        //CB
+                        else if (j < 46) TransferRCATtoPLAY(rec, 16, PGIDbeg + j, RCATmapper, PJEN);
 
-                    //FS
-                    else if (j < 50) TransferRCATtoPLAY(rec, 18, PGIDbeg + j, RCATmapper, PJEN);
+                        //SS
+                        else if (j < 48) TransferRCATtoPLAY(rec, 17, PGIDbeg + j, RCATmapper, PJEN);
 
-                    //K
-                    else if (j < 51) TransferRCATtoPLAY(rec, 19, PGIDbeg + j, RCATmapper, PJEN);
+                        //FS
+                        else if (j < 50) TransferRCATtoPLAY(rec, 18, PGIDbeg + j, RCATmapper, PJEN);
 
-                    //P
-                    else if (j < 52) TransferRCATtoPLAY(rec, 20, PGIDbeg + j, RCATmapper, PJEN);
+                        //K
+                        else if (j < 51) TransferRCATtoPLAY(rec, 19, PGIDbeg + j, RCATmapper, PJEN);
 
-                    else TransferRCATtoPLAY(rec, rand.Next(0, 21), PGIDbeg + j, RCATmapper, PJEN);
+                        //P
+                        else if (j < 52) TransferRCATtoPLAY(rec, 20, PGIDbeg + j, RCATmapper, PJEN);
 
-                    //randomizes the attributes from team overall
-                    RandomizeAttribute("PLAY", rec, rating + TDB.TDBFieldGetValueAsInteger(dbIndex, "PLAY", "PYER", rec));
+                        else TransferRCATtoPLAY(rec, rand.Next(0, 21), PGIDbeg + j, RCATmapper, PJEN);
+
+                        //randomizes the attributes from team overall
+                        RandomizeAttribute("PLAY", rec, rating + TDB.TDBFieldGetValueAsInteger(dbIndex, "PLAY", "PYER", rec));
 
 
-                    rec++;
-                }
+                        rec++;
+                    }
 
-                //Finish team and perform step counter
-                progressBar1.PerformStep();
+                    //Finish team and perform step counter
+                    progressBar1.PerformStep();
+                }   
             }
+                   
 
             progressBar1.Visible = false;
             progressBar1.Value = 0;
@@ -629,11 +638,8 @@ namespace DB_EDITOR
             RandomizeRecruitFace("PLAY");
             RecalculateBMI("PLAY");
             RecalculateQBTendencies();
-            if(TDYN) CalculateTYDNRatings();
+            CalculateTeamRatings(tableName);
 
-
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
             MessageBox.Show("Fantasy Roster Generation is complete!");
 
         }
@@ -670,17 +676,19 @@ namespace DB_EDITOR
                         TDB.NewfieldValue(dbIndex, "PLAY", field, rec, Convert.ToString(RCAT[r][RCATcol]));
                     }
 
+                    string redshirt = "0";
+                    if (rand.Next(0, 3) > 2) redshirt = "2";
 
                     TDB.NewfieldValue(dbIndex, "PLAY", "RCHD", rec, Convert.ToString(rand.Next(0,12864))); //hometown
                     TDB.NewfieldValue(dbIndex, "PLAY", "PGID", rec, Convert.ToString(PGID)); //player id
                     TDB.NewfieldValue(dbIndex, "PLAY", "PHPD", rec, "0"); //PHPD
-                    TDB.NewfieldValue(dbIndex, "PLAY", "PRSD", rec, "0"); //Redshirt
+                    TDB.NewfieldValue(dbIndex, "PLAY", "PRSD", rec, redshirt); //Redshirt
                     TDB.NewfieldValue(dbIndex, "PLAY", "PLMG", rec, "0"); //Mouthguard
                     TDB.NewfieldValue(dbIndex, "PLAY", "PFGM", rec, "0"); //face shape (to be calculated later)
                     TDB.NewfieldValue(dbIndex, "PLAY", "PJEN", rec, Convert.ToString(ChooseJerseyNumber(ppos, PJEN))); //jersey num
                     TDB.NewfieldValue(dbIndex, "PLAY", "PTEN", rec, "0"); //tendency (to be calculated later)
                     TDB.NewfieldValue(dbIndex, "PLAY", "PFMP", rec, "0"); //face (to be calculated later)
-                    TDB.NewfieldValue(dbIndex, "PLAY", "PIMP", rec, "0"); //importance (to be calculated later)
+                    TDB.NewfieldValue(dbIndex, "PLAY", "PIMP", rec, Convert.ToString(rand.Next(0,32))); //importance (to be re-calculated later)
                     TDB.NewfieldValue(dbIndex, "PLAY", "PTYP", rec, "0"); //player type (graduation/nfl,etc)
                     TDB.NewfieldValue(dbIndex, "PLAY", "PYER", rec, Convert.ToString(rand.Next(0,4))); //year/class
                     TDB.NewfieldValue(dbIndex, "PLAY", "POVR", rec, "0"); //overall, to be calculated later
@@ -708,7 +716,7 @@ namespace DB_EDITOR
             //PTHA	PSTA	PKAC	PACC	PSPD	PPOE	PCTH	PAGI	PINJ	PTAK	PPBK	PRBK	PBTK	PTHP	PJMP	PCAR	PKPR	PSTR	PAWR
             //PPOE, PINJ, PAWR
 
-            int PBRE, PEYE, PPOE, PINJ, PAWR, PWGT, PHGT, PTHA, PSTA, PKAC, PACC, PSPD, PCTH, PAGI, PTAK, PPBK, PRBK, PBTK, PTHP, PJMP, PCAR, PKPR, PSTR, PIMP;
+            int PBRE, PEYE, PPOE, PINJ, PAWR, PWGT, PHGT, PTHA, PSTA, PKAC, PACC, PSPD, PCTH, PAGI, PTAK, PPBK, PRBK, PBTK, PTHP, PJMP, PCAR, PKPR, PSTR, PIMP, PDIS;
 
             PHGT = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PHGT", rec));
             PWGT = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PWGT", rec));
@@ -730,6 +738,7 @@ namespace DB_EDITOR
             PCAR = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PCAR", rec));
             PKPR = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PKPR", rec));
             PSTR = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PSTR", rec));
+            PDIS = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PDIS", rec));
 
             PBRE = rand.Next(0, 2);
             PEYE = rand.Next(0, 2);
@@ -744,6 +753,7 @@ namespace DB_EDITOR
             PINJ = rand.Next(1, 30);
             PIMP = rand.Next(1, 30);
             PAWR = GetRandomPositiveAttribute(PAWR, tolB);
+            PDIS = rand.Next(2, 7);
 
             PSTA = GetRandomPositiveAttribute(PSTA, tol);
             PKAC = GetRandomPositiveAttribute(PKAC, tol);
@@ -794,6 +804,7 @@ namespace DB_EDITOR
             TDB.NewfieldValue(dbIndex, FieldName, "PKPR", rec, Convert.ToString(PKPR));
             TDB.NewfieldValue(dbIndex, FieldName, "PSTR", rec, Convert.ToString(PSTR));
             TDB.NewfieldValue(dbIndex, FieldName, "PIMP", rec, Convert.ToString(PIMP));
+            TDB.NewfieldValue(dbIndex, FieldName, "PDIS", rec, Convert.ToString(PDIS));
         }
 
         private int ChooseJerseyNumber(int PPOS, List<List<int>> PJEN)
@@ -810,12 +821,16 @@ namespace DB_EDITOR
 
             return jersey;
         }
+        #endregion
 
-        private void DepthChartMaker()
+        //Depth Chart Maker
+        #region Depth Chart Maker
+
+        private void DepthChartMaker(string tableName)
         {
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
-            progressBar1.Maximum = TDB.TableRecordCount(dbIndex, "TYDN");
+            progressBar1.Maximum = TDB.TableRecordCount(dbIndex, tableName);
             progressBar1.Step = 1;
 
             //clear DCHT
@@ -828,90 +843,92 @@ namespace DB_EDITOR
             int count;
             int rec = 0;
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "TDYN"); i++)
+            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "tableName"); i++)
             {
-                int TOID = TDB.TDBFieldGetValueAsInteger(dbIndex, "TDYN", "TOID", i);
-                int PGIDbeg = TOID * 70;
-                int PGIDend = PGIDbeg + 69;
-                count = 0;
-                List<List<int>> roster = new List<List<int>>();
-
-                for (int j = 0; j < TDB.TableRecordCount(dbIndex, "PLAY"); j++)
+                if (TDYN || TDB.TDBFieldGetValueAsInteger(dbIndex, tableName, "TTYP", i) == 0)
                 {
-                    int PGID = TDB.TDBFieldGetValueAsInteger(dbIndex, "PLAY", "PGID", j);
+                    int TOID = TDB.TDBFieldGetValueAsInteger(dbIndex, "tableName", "TOID", i);
+                    int PGIDbeg = TOID * 70;
+                    int PGIDend = PGIDbeg + 69;
+                    count = 0;
+                    List<List<int>> roster = new List<List<int>>();
 
-                    if (PGID >= PGIDbeg && PGID <= PGIDend)
+                    for (int j = 0; j < TDB.TableRecordCount(dbIndex, "PLAY"); j++)
                     {
-                        int POVR = TDB.TDBFieldGetValueAsInteger(dbIndex, "PLAY", "POVR", j);
-                        int PPOS = TDB.TDBFieldGetValueAsInteger(dbIndex, "PLAY", "PPOS", j);
+                        int PGID = TDB.TDBFieldGetValueAsInteger(dbIndex, "PLAY", "PGID", j);
 
-                        List<int> player = new List<int>();
-                        roster.Add(player);
-                        roster[count].Add(j);
-                        roster[count].Add(PGID);
-                        roster[count].Add(PPOS);
-                        count++;
+                        if (PGID >= PGIDbeg && PGID <= PGIDend)
+                        {
+                            int POVR = TDB.TDBFieldGetValueAsInteger(dbIndex, "PLAY", "POVR", j);
+                            int PPOS = TDB.TDBFieldGetValueAsInteger(dbIndex, "PLAY", "PPOS", j);
+
+                            List<int> player = new List<int>();
+                            roster.Add(player);
+                            roster[count].Add(j);
+                            roster[count].Add(PGID);
+                            roster[count].Add(PPOS);
+                            count++;
+                        }
                     }
+                    //roster.Sort((player1, player2) => player2[0].CompareTo(player1[0]));
+
+                    //Sort Depth Chart  KR = 21 PR = 22 KOS = 23 LS = 24
+
+                    //QBs
+                    rec = AddDCHTrecord(rec, 0, 3, roster);
+                    //RBs
+                    rec = AddDCHTrecord(rec, 1, 4, roster);
+                    //FBs
+                    rec = AddDCHTrecord(rec, 2, 3, roster);
+                    //WRs
+                    rec = AddDCHTrecord(rec, 3, 6, roster);
+                    //TEs
+                    rec = AddDCHTrecord(rec, 4, 3, roster);
+                    //LTs
+                    rec = AddDCHTrecord(rec, 5, 3, roster);
+                    //LGs
+                    rec = AddDCHTrecord(rec, 6, 3, roster);
+                    //Cs
+                    rec = AddDCHTrecord(rec, 7, 3, roster);
+                    //RG
+                    rec = AddDCHTrecord(rec, 8, 3, roster);
+                    //RTs
+                    rec = AddDCHTrecord(rec, 9, 3, roster);
+                    //LEs
+                    rec = AddDCHTrecord(rec, 10, 3, roster);
+                    //RE
+                    rec = AddDCHTrecord(rec, 11, 3, roster);
+                    //DT
+                    rec = AddDCHTrecord(rec, 12, 5, roster);
+                    //LOLBs
+                    rec = AddDCHTrecord(rec, 13, 3, roster);
+                    //MLBs
+                    rec = AddDCHTrecord(rec, 14, 4, roster);
+                    //ROLBs
+                    rec = AddDCHTrecord(rec, 15, 3, roster);
+                    //CBs
+                    rec = AddDCHTrecord(rec, 16, 5, roster);
+                    //SSs
+                    rec = AddDCHTrecord(rec, 17, 3, roster);
+                    //FSs
+                    rec = AddDCHTrecord(rec, 18, 3, roster);
+                    //Ks
+                    rec = AddDCHTrecord(rec, 19, 3, roster);
+                    //Ps
+                    rec = AddDCHTrecord(rec, 20, 3, roster);
+                    //KRs
+                    rec = AddDCHTrecord(rec, 21, 5, roster);
+                    //PRs
+                    rec = AddDCHTrecord(rec, 22, 5, roster);
+                    //KOSs
+                    rec = AddDCHTrecord(rec, 23, 3, roster);
+                    //LSs
+                    rec = AddDCHTrecord(rec, 24, 3, roster);
+
+                    progressBar1.PerformStep();
+
                 }
-                //roster.Sort((player1, player2) => player2[0].CompareTo(player1[0]));
-
-                //Sort Depth Chart  KR = 21 PR = 22 KOS = 23 LS = 24
-
-                //QBs
-                rec = AddDCHTrecord(rec, 0, 3, roster);
-                //RBs
-                rec = AddDCHTrecord(rec, 1, 4, roster);
-                //FBs
-                rec = AddDCHTrecord(rec, 2, 3, roster);
-                //WRs
-                rec = AddDCHTrecord(rec, 3, 6, roster);
-                //TEs
-                rec = AddDCHTrecord(rec, 4, 3, roster);
-                //LTs
-                rec = AddDCHTrecord(rec, 5, 3, roster);
-                //LGs
-                rec = AddDCHTrecord(rec, 6, 3, roster);
-                //Cs
-                rec = AddDCHTrecord(rec, 7, 3, roster);
-                //RG
-                rec = AddDCHTrecord(rec, 8, 3, roster);
-                //RTs
-                rec = AddDCHTrecord(rec, 9, 3, roster);
-                //LEs
-                rec = AddDCHTrecord(rec, 10, 3, roster);
-                //RE
-                rec = AddDCHTrecord(rec, 11, 3, roster);
-                //DT
-                rec = AddDCHTrecord(rec, 12, 5, roster);
-                //LOLBs
-                rec = AddDCHTrecord(rec, 13, 3, roster);
-                //MLBs
-                rec = AddDCHTrecord(rec, 14, 4, roster);
-                //ROLBs
-                rec = AddDCHTrecord(rec, 15, 3, roster);
-                //CBs
-                rec = AddDCHTrecord(rec, 16, 5, roster);
-                //SSs
-                rec = AddDCHTrecord(rec, 17, 3, roster);
-                //FSs
-                rec = AddDCHTrecord(rec, 18, 3, roster);
-                //Ks
-                rec = AddDCHTrecord(rec, 19, 3, roster);
-                //Ps
-                rec = AddDCHTrecord(rec, 20, 3, roster);
-                //KRs
-                rec = AddDCHTrecord(rec, 21, 5, roster);
-                //PRs
-                rec = AddDCHTrecord(rec, 22, 5, roster);
-                //KOSs
-                rec = AddDCHTrecord(rec, 23, 3, roster);
-                //LSs
-                rec = AddDCHTrecord(rec, 24, 3, roster);
-
-                progressBar1.PerformStep();
-
             }
-
 
             progressBar1.Visible = false;
             progressBar1.Value = 0;
@@ -969,6 +986,102 @@ namespace DB_EDITOR
                 if (TDB.TDBFieldGetValueAsInteger(dbIndex, "DCHT", "PGID", i) == pgid && TDB.TDBFieldGetValueAsInteger(dbIndex, "DCHT", "ddep", i) == 0) return true;
             }
             return false;
+        }
+        #endregion
+
+
+        //Fill Rosters
+        private void FillRosters(string tableName)
+        {
+            //Setup
+            CreateRCATtable();
+            CreateFirstNamesDB();
+            CreateLastNamesDB();
+            List<List<int>> PJEN = CreateJerseyNumberDB();
+
+            List<List<string>> RCATmapper = new List<List<string>>();
+            RCATmapper = CreateStringListfromCSV(@"resources\RCAT-MAPPER.csv");
+
+            TdbTableProperties TableProps = new TdbTableProperties();
+            TableProps.Name = new string((char)0, 5);
+
+            SelectedTableIndex = TDB.TableIndex(dbIndex, "PLAY");
+            // Get Tableprops based on the selected index
+            TDB.TDBTableGetProperties(dbIndex, SelectedTableIndex, ref TableProps);
+
+
+            int recCounter = TDB.TableRecordCount(dbIndex, "PLAY");
+            int maxRecords = TableProps.Capacity;
+            int created = 0;
+
+            //Create a list of PGIDs in the database
+            //bool[] rosters = new bool[511*70];
+            List<int> rosters = new List<int>();
+            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "PLAY"); i++)
+            {
+                rosters.Add(TDB.TDBFieldGetValueAsInteger(dbIndex, "PLAY", "PGID", i));
+            }
+
+
+            //Setup Progress bar
+            progressBar1.Visible = true;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = TDB.TableRecordCount(dbIndex, tableName);
+            progressBar1.Step = 1;
+            progressBar1.Value = 0;
+
+            //Go through each team and find missing PGID
+            for (int i = 0; i < TDB.TableRecordCount(dbIndex, tableName); i++)
+            {
+                if(TDYN || TDB.TDBFieldGetValueAsInteger(dbIndex, tableName, "TTYP", i) == 0)
+                {
+                    int tgid = TDB.TDBFieldGetValueAsInteger(dbIndex, tableName, "TOID", i);
+                    int pgidSTART = tgid * 70;
+                    int pgidEND = pgidSTART + 70;
+
+                    for (int j = pgidSTART ; j < pgidEND  ; j++ )
+                    {
+                        if (!rosters.Contains(j) && recCounter < maxRecords) 
+                        {
+                            TDB.TDBTableRecordAdd(dbIndex, "PLAY", false);
+                            TransferRCATtoPLAY(recCounter, rand.Next(0, 21), j, RCATmapper, PJEN);
+                            RandomizePlayerFace("PLAY", recCounter);
+
+                            recCounter++;
+                            created++;
+                        }
+                    }
+                }
+                progressBar1.PerformStep();
+            }
+
+            RecalculateBMI("PLAY");
+            RecalculateOverall();
+            RecalculateQBTendencies();
+
+            progressBar1.Visible = false;
+            progressBar1.Value = 0;
+            MessageBox.Show("Team Roster Filled in! " + created + " players created!");
+        }
+
+        //Randomizes a specific player face based on record, i
+        private void RandomizePlayerFace(string tableName, int i)
+        {
+            //Randomizes Face Shape (PGFM)
+            int shape = rand.Next(0, 16);
+            TDB.NewfieldValue(dbIndex, tableName, "PFGM", i, Convert.ToString(shape));
+
+            //Finds current skin tone and randomizes within it's Light/Medium/Dark general tone (PSKI)
+            int skin = TDB.TDBFieldGetValueAsInteger(dbIndex, tableName, "PSKI", i);
+            if (skin <= 2) rand.Next(0, 3);
+            else if (skin <= 6) rand.Next(3, 7);
+            else rand.Next(8, 8);
+
+            TDB.NewfieldValue(dbIndex, tableName, "PSKI", i, Convert.ToString(skin));
+
+            //Randomizes Face Type based on new Skin Type
+            int face = TDB.TDBFieldGetValueAsInteger(dbIndex, tableName, "PSKI", i) * 8 + rand.Next(0, 8);
+            TDB.NewfieldValue(dbIndex, tableName, "PFMP", i, Convert.ToString(face));
         }
 
     }

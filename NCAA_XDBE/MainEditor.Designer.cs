@@ -88,7 +88,7 @@ namespace DB_EDITOR
             this.fieldsGridView = new System.Windows.Forms.DataGridView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabHome = new System.Windows.Forms.TabPage();
-            this.HomeTextBox = new System.Windows.Forms.TextBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabTeams = new System.Windows.Forms.TabPage();
             this.label11 = new System.Windows.Forms.Label();
             this.TGIDtextBox = new System.Windows.Forms.TextBox();
@@ -117,6 +117,7 @@ namespace DB_EDITOR
             this.PLNAtextBox = new System.Windows.Forms.TextBox();
             this.PFNAtextBox = new System.Windows.Forms.TextBox();
             this.tabSeason = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.numberPlayerCoach = new System.Windows.Forms.NumericUpDown();
             this.buttonPlayerCoach = new System.Windows.Forms.Button();
@@ -168,6 +169,7 @@ namespace DB_EDITOR
             this.buttonRandWalkOns = new System.Windows.Forms.Button();
             this.buttonMinRecruitingPts = new System.Windows.Forms.Button();
             this.tabTools = new System.Windows.Forms.TabPage();
+            this.buttonFillRosters = new System.Windows.Forms.Button();
             this.buttonAutoDepthChart = new System.Windows.Forms.Button();
             this.buttonFantasyRoster = new System.Windows.Forms.Button();
             this.buttonImpactPlayers = new System.Windows.Forms.Button();
@@ -189,6 +191,7 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.fieldsGridView)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabHome.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabTeams.SuspendLayout();
             this.tabPlayers.SuspendLayout();
             this.tabSeason.SuspendLayout();
@@ -679,7 +682,7 @@ namespace DB_EDITOR
             // tabHome
             // 
             this.tabHome.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.tabHome.Controls.Add(this.HomeTextBox);
+            this.tabHome.Controls.Add(this.pictureBox1);
             this.tabHome.Location = new System.Drawing.Point(4, 25);
             this.tabHome.Name = "tabHome";
             this.tabHome.Padding = new System.Windows.Forms.Padding(3);
@@ -687,17 +690,15 @@ namespace DB_EDITOR
             this.tabHome.TabIndex = 6;
             this.tabHome.Text = "Home";
             // 
-            // HomeTextBox
+            // pictureBox1
             // 
-            this.HomeTextBox.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.HomeTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HomeTextBox.Location = new System.Drawing.Point(162, 152);
-            this.HomeTextBox.Name = "HomeTextBox";
-            this.HomeTextBox.ReadOnly = true;
-            this.HomeTextBox.Size = new System.Drawing.Size(647, 62);
-            this.HomeTextBox.TabIndex = 0;
-            this.HomeTextBox.Text = "NCAA Database Editor";
-            this.HomeTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.pictureBox1.Image = global::DB_EDITOR.Properties.Resources.ncaa_db_editor_TITLE;
+            this.pictureBox1.Location = new System.Drawing.Point(200, 43);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(550, 550);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
             // 
             // tabTeams
             // 
@@ -972,6 +973,7 @@ namespace DB_EDITOR
             // tabSeason
             // 
             this.tabSeason.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.tabSeason.Controls.Add(this.button1);
             this.tabSeason.Controls.Add(this.label14);
             this.tabSeason.Controls.Add(this.numberPlayerCoach);
             this.tabSeason.Controls.Add(this.buttonPlayerCoach);
@@ -1007,6 +1009,18 @@ namespace DB_EDITOR
             this.tabSeason.Size = new System.Drawing.Size(976, 632);
             this.tabSeason.TabIndex = 3;
             this.tabSeason.Text = "Dynasty";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Peru;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(315, 219);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(110, 80);
+            this.button1.TabIndex = 33;
+            this.button1.Text = "Fill Rosters";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Visible = false;
             // 
             // label14
             // 
@@ -1684,6 +1698,7 @@ namespace DB_EDITOR
             // tabTools
             // 
             this.tabTools.BackColor = System.Drawing.Color.PeachPuff;
+            this.tabTools.Controls.Add(this.buttonFillRosters);
             this.tabTools.Controls.Add(this.buttonAutoDepthChart);
             this.tabTools.Controls.Add(this.buttonFantasyRoster);
             this.tabTools.Controls.Add(this.buttonImpactPlayers);
@@ -1701,6 +1716,18 @@ namespace DB_EDITOR
             this.tabTools.Size = new System.Drawing.Size(976, 632);
             this.tabTools.TabIndex = 5;
             this.tabTools.Text = "dbTools";
+            // 
+            // buttonFillRosters
+            // 
+            this.buttonFillRosters.BackColor = System.Drawing.Color.DarkGray;
+            this.buttonFillRosters.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonFillRosters.Location = new System.Drawing.Point(45, 534);
+            this.buttonFillRosters.Name = "buttonFillRosters";
+            this.buttonFillRosters.Size = new System.Drawing.Size(110, 80);
+            this.buttonFillRosters.TabIndex = 20;
+            this.buttonFillRosters.Text = "Fill Rosters";
+            this.buttonFillRosters.UseVisualStyleBackColor = false;
+            this.buttonFillRosters.Click += new System.EventHandler(this.buttonFillRosters_Click);
             // 
             // buttonAutoDepthChart
             // 
@@ -1746,7 +1773,7 @@ namespace DB_EDITOR
             this.TYDNButton.Name = "TYDNButton";
             this.TYDNButton.Size = new System.Drawing.Size(110, 80);
             this.TYDNButton.TabIndex = 16;
-            this.TYDNButton.Text = "Recalculate TYDN Ratings";
+            this.TYDNButton.Text = "Recalculate Team Ratings";
             this.TYDNButton.UseVisualStyleBackColor = false;
             this.TYDNButton.Click += new System.EventHandler(this.TYDNButton_Click);
             // 
@@ -1834,6 +1861,7 @@ namespace DB_EDITOR
             this.Controls.Add(this.mainMenu);
             this.Controls.Add(this.TablePropsgroupBox);
             this.Controls.Add(this.FieldsPropsgroupBox);
+            this.DoubleBuffered = true;
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.mainMenu;
@@ -1854,7 +1882,7 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.fieldsGridView)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabHome.ResumeLayout(false);
-            this.tabHome.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabTeams.ResumeLayout(false);
             this.tabTeams.PerformLayout();
             this.tabPlayers.ResumeLayout(false);
@@ -2031,8 +2059,10 @@ namespace DB_EDITOR
         public System.Windows.Forms.Button buttonRandomizeFaceShape;
         public System.Windows.Forms.Button buttonFantasyRoster;
         private TabPage tabHome;
-        private System.Windows.Forms.TextBox HomeTextBox;
         public System.Windows.Forms.Button buttonAutoDepthChart;
+        private PictureBox pictureBox1;
+        private System.Windows.Forms.Button button1;
+        public System.Windows.Forms.Button buttonFillRosters;
     }
 }
 

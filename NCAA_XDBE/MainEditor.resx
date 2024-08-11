@@ -194,7 +194,13 @@ This changes recruits from Hawaii and western states to have polynesian surnames
 
 * Determine Impact Players - Picks 4 Impact Players in a Dynasty Save file based on overall (2 x Offense, 2 x Defense)
 
-* Recalculate TYDN - Recalculates Team Ratings for a Roster Save</value>
+* Recalculate Team Ratings - Recalculates Team Ratings (Approximately)
+
+* Fantasy Roster Generator - Creates a fantasy roster for Roster or Dynasty saves. Will run through a series of modules.
+
+* Fill Rosters - Generates random players to fill every team to 70, or until DB capacity runs out.
+
+* Auto-Set Depth Chart - Creates a depth chart based on position ratings</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
