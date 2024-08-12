@@ -80,7 +80,7 @@ namespace DB_EDITOR
                                         ReduceSkills(i, (int)skillDrop.Value);
                                     }
 
-                                    names += "\n * " + ConvertFN_IntToString(j) + " " + ConvertLN_IntToString(j) + " (" + team + ")";
+                                    names += "\n * " + GetFirstNameFromRecord(j) + " " + GetLastNameFromRecord(j) + " (" + team + ")";
                                     break;
                                 }
                             }
@@ -97,7 +97,7 @@ namespace DB_EDITOR
                                         ReduceSkills(i, (int)skillDrop.Value);
                                     }
 
-                                    names += "\n * " + ConvertFN_IntToString(j) + " " + ConvertLN_IntToString(j) + " (" + team + ")";
+                                    names += "\n * " + GetFirstNameFromRecord(j) + " " + GetLastNameFromRecord(j) + " (" + team + ")";
                                     break;
                                 }
                             }
@@ -472,7 +472,7 @@ namespace DB_EDITOR
                     {
                         TransferPlayer(players[xfer, 0], players[xfer, 1]);
 
-                        transferNews += GetPositionName(GetPPOSfromRecord(players[xfer, 3])) + " " + ConvertFN_IntToString(players[xfer, 0]) + " " + ConvertLN_IntToString(players[xfer, 0]) + " (" + GetTeamName(tgid) + ") OVR: " + ConvertRating(players[xfer, 2]) + "\n\n";
+                        transferNews += GetPositionName(GetPPOSfromRecord(players[xfer, 3])) + " " + GetFirstNameFromRecord(players[xfer, 0]) + " " + GetLastNameFromRecord(players[xfer, 0]) + " (" + GetTeamName(tgid) + ") OVR: " + ConvertRating(players[xfer, 2]) + "\n\n";
 
                         currentRecCount++;
                     }
@@ -505,7 +505,7 @@ namespace DB_EDITOR
             progressBar1.Minimum = 0;
             progressBar1.Maximum = TDB.TableRecordCount(dbIndex, "TEAM");
 
-            int maxTransfers = 1520;
+            int maxTransfers = 500;
             int currentRecCount = TDB.TableRecordCount(dbIndex, "TRAN");
             string transferNews = "";
 
@@ -545,7 +545,7 @@ namespace DB_EDITOR
 
                                 TransferPlayer(players[maxOVRid, 0], players[maxOVRid, 1]);
 
-                                transferNews += ConvertFN_IntToString(players[maxOVRid, 0]) + " " + ConvertLN_IntToString(players[maxOVRid, 0]) + " (" + GetTeamName(tgid) + ") OVR: " + ConvertRating(maxOVR) + "\n\n";
+                                transferNews += GetFirstNameFromRecord(players[maxOVRid, 0]) + " " + GetLastNameFromRecord(players[maxOVRid, 0]) + " (" + GetTeamName(tgid) + ") OVR: " + ConvertRating(maxOVR) + "\n\n";
 
                                 currentRecCount++;
                             }
@@ -842,8 +842,8 @@ namespace DB_EDITOR
                     int y = rand.Next(0, PGID_List.Count);
                     int recP = PGID_List[y];
 
-                    string playFN = ConvertFN_IntToString(recP);
-                    string playLN = ConvertLN_IntToString(recP);
+                    string playFN = GetFirstNameFromRecord(recP);
+                    string playLN = GetLastNameFromRecord(recP);
                     string team = GetTeamName(Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PGID", recP))/70);
                     PGID_List.RemoveAt(y);
 

@@ -1335,12 +1335,12 @@ namespace DB_EDITOR
                     if (TDB.FieldIndex(dbIndex, SelectedTableName, "First Name") == -1)
                     {
                         fieldsGridView.Columns[fCount - fCount_First].Width = 86;
-                        DataGridRow[fCount - fCount_First] = ConvertFN_IntToString(r);
+                        DataGridRow[fCount - fCount_First] = GetFirstNameFromRecord(r);
                     }
                     if (TDB.FieldIndex(dbIndex, SelectedTableName, "Last Name") == -1)
                     {
                         fieldsGridView.Columns[fCount - fCount_Last].Width = 86;
-                        DataGridRow[fCount - fCount_Last] = ConvertLN_IntToString(r);
+                        DataGridRow[fCount - fCount_Last] = GetLastNameFromRecord(r);
                         fieldsGridView.Columns[fCount - fCount_Team].Width = 86;
                         fieldsGridView.Columns[fCount - fCount_Pos].Width = 86;
                     }
@@ -1557,7 +1557,7 @@ namespace DB_EDITOR
                     string tmpPFNA = fieldsGridView.Rows[rownum].Cells[colnum].Value.ToString();
 
 
-                    ImportFN_StringToInt(tmpPFNA, tmpcol, "PLAY"); //converts name to digits
+                    ConvertFirstNameStringToInt(tmpPFNA, tmpcol, "PLAY"); //converts name to digits
                     return;
                 }
 
@@ -1565,7 +1565,7 @@ namespace DB_EDITOR
                 {
                     string tmpPLNA = fieldsGridView.Rows[rownum].Cells[colnum].Value.ToString();
 
-                    ImportLN_StringToInt(tmpPLNA, tmpcol, "PLAY"); //converts name to digits
+                    ConvertLastNameStringToInt(tmpPLNA, tmpcol, "PLAY"); //converts name to digits
                     return;
                 }
 
@@ -1830,8 +1830,41 @@ namespace DB_EDITOR
         {
 
             if (tabControl1.SelectedTab == tabDB) TabDB_Start();
-            if (tabControl1.SelectedTab == tabTeams || tabControl1.SelectedTab == tabPlayers) SelectDBTabPage();
+            if (tabControl1.SelectedTab == tabTeams || tabControl1.SelectedTab == tabPlayers) EditorTabs();
             else TabTools_Start();
+
+        }
+
+        public void EditorTabs()
+        {
+
+            if (tabControl1.SelectedTab == tabTeams)
+            {
+                if (TGIDrecNo.Count < 1)
+                {
+                    Management(dbIndex, "TEAM", "TORD");  //Load Teams by their team order.
+                    StartTeamEditor(dbIndex);
+                    //LoadTGIDlistBox(dbIndex, "TTYP", 0);  // -1 = to all teams.
+
+                    // If table exixts in current DB.
+                    if (TDB.TableIndex(dbIndex, "CONF") != -1)
+                    {
+                        Management(dbIndex, "CONF", "CGID");
+                        GetEditorConfList();
+                    }
+                }
+
+                LoadTGIDlistBox(dbIndex, "TTYP", 0);  // -1 = to all teams.
+
+            }
+            else if (tabControl1.SelectedTab == tabPlayers)
+            {
+                if (PGIDrecNo.Count < 1)
+                {
+                    Management(dbIndex, "PLAY", "POVR");  //Load players by their overall.
+                    StartPlayerEditor(dbIndex);
+                }
+            }
 
         }
         private void OpenTabs()
@@ -2076,6 +2109,8 @@ namespace DB_EDITOR
             else if (TEAM)
                 FillRosters("TEAM");
         }
+
+
     }
 
 }

@@ -11,41 +11,8 @@ namespace DB_EDITOR
         /*
         * PLAYER & TEAM EDITOR (work from elguapo - not used currently)
         */
-        #region PLAYER/TEAM EDITOR - NOT COMPLETE
+        #region TEAM EDITOR - NOT COMPLETE
 
-
-        public void SelectDBTabPage()
-        {
-
-            if (tabControl1.SelectedTab.Text == "Teams")
-            {
-                if (TGIDrecNo.Count < 1)
-                {
-                    Management(dbIndex, "TEAM", "TORD");  //Load Teams by their team order.
-                    MangTGID(dbIndex);
-                    //LoadTGIDlistBox(dbIndex, "TTYP", 0);  // -1 = to all teams.
-
-                    // If table exixts in current DB.
-                    if (TDB.TableIndex(dbIndex, "CONF") != -1)
-                    {
-                        Management(dbIndex, "CONF", "CGID");
-                        MangCONF();
-                    }
-                }
-
-                LoadTGIDlistBox(dbIndex, "TTYP", 0);  // -1 = to all teams.
-
-            }
-            else if (tabControl1.SelectedTab.Text == "Players")
-            {
-                if (PGIDrecNo.Count < 1)
-                {
-                    Management(dbIndex, "PLAY", "POVR");  //Load players by their overall.
-                    MangPGID(dbIndex);
-                }
-            }
-
-        }
 
         public void Management(int tmpDBindex, string tmpTName, string tmpFName)
         {
@@ -136,8 +103,7 @@ namespace DB_EDITOR
 
         }
 
-
-        public void MangTGID(int tmpDB)
+        public void StartTeamEditor(int tmpDB)
         {
             List<int> tmpTTYP = new List<int>();
             List<int> tmpDGID = new List<int>();
@@ -315,110 +281,7 @@ namespace DB_EDITOR
 
         }
 
-        public void MangPGID(int tmpDBindex)
-        {
-            PGIDrecNo.Clear();
-
-            var TGIDd = new Dictionary<int, string>();
-            bool tmpDIC = false;
-            int tmpSelectIndex = -1;
-
-
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = tmpManagement.Count;
-            progressBar1.Step = 1;
-
-            if (TDB.TableIndex(dbIndex, "TEAM") == -1)
-            {
-                tmpDIC = true;
-                TGIDplayerBox.Items.Clear();
-                TGIDrecNo.Clear();
-            }
-
-            foreach (KeyValuePair<int, int> PGID in tmpManagement.OrderByDescending(key => key.Value))
-            {
-                progressBar1.PerformStep();
-
-                int tmpPGID = Convert.ToInt32(TDB.FieldValue(tmpDBindex, "PLAY", "PGID", PGID.Key));
-                int tmpTGID = (int)tmpPGID / 70;
-
-                PGIDrecNo.Add(PGID.Key, tmpPGID);
-
-                #region Add team's TGID if no TEAM table
-                if (tmpDIC)
-                {
-                    if(!TGIDd.ContainsKey(tmpTGID))
-                    TGIDd.Add(tmpTGID, teamNameDB[tmpTGID]);
-
-                }
-                #endregion
-
-            }
-            progressBar1.Value = 0;
-
-            if (tmpDIC)
-            {
-                foreach (KeyValuePair<int, string> TGID in TGIDd.OrderBy(key => key.Key))
-                {
-                    tmpSelectIndex = tmpSelectIndex + 1;
-                    TGIDrecNo.Add(TGID.Key, TGID.Key);
-                    TGIDplayerBox.Items.Add(TGID.Value);
-                    TGIDlist.Add(tmpSelectIndex, TGID.Key);
-                    TGIDlistBox.Items.Add(TGID.Value);
-                }
-            }
-
-            TGIDd.Clear();
-
-            tmpManagement.Clear();
-        }
-        public void LoadPGIDlistBox(int tmpDBindex, int tmpTGID)
-        {
-            if (PGIDrecNo.Count < 1)
-                return;
-
-
-
-            int tmpIndex = -1;
-            string tmpPFNA = "";
-            string tmpPLNA = "";
-
-            PGIDlistBox.Items.Clear();
-            PGIDlist.Clear();
-            ROSrecNo.Clear();
-
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = PGIDrecNo.Count;
-            progressBar1.Step = 1;
-
-            foreach (KeyValuePair<int, int> PGID in PGIDrecNo)
-            {
-                progressBar1.PerformStep();
-
-                int TGID = (int)PGID.Value / 70;
-
-                if (tmpTGID == TGID)
-                {
-                    tmpIndex = tmpIndex + 1;
-
-                    tmpPFNA = ConvertFN_IntToString(PGID.Key);
-                    tmpPLNA = ConvertLN_IntToString(PGID.Key);
-
-                    PGIDlistBox.Items.Add(tmpPFNA + " " + tmpPLNA);
-                    PGIDlist.Add(tmpIndex, PGID.Key);
-                    ROSrecNo.Add(PGID.Key, PGID.Value);
-                }
-
-            }
-
-
-
-            label4.Text = "Roster Size: " + Convert.ToString(PGIDlistBox.Items.Count);
-            progressBar1.Value = 0;
-
-        }
-
-        public void MangCONF()
+        public void GetEditorConfList()
         {
             CONFrecNo.Clear();
             CONFlist.Clear();
@@ -439,117 +302,6 @@ namespace DB_EDITOR
                 CGIDcomboBox.Items.Add(tmpVal);
             }
             tmpManagement.Clear();
-        }
-
-
-
-        public void Editor_ConvertFN_InttoString(int tmpRecNo)
-        {
-            if (DoNotTrigger)
-                return;
-
-            for (int i = 1; i <= maxNameChar; i++)
-            {
-                string tmpSTR = "0";
-
-                foreach (KeyValuePair<int, string> CHAR in Alphabet)
-                {
-
-                    if (i <= PFNAtextBox.Text.Length)
-                        if (CHAR.Value == PFNAtextBox.Text.Substring(i - 1, 1))
-                            tmpSTR = Convert.ToString(CHAR.Key);
-
-                    TDB.NewfieldValue(dbIndex,
-                                      "PLAY",
-                                      "PF" + AddLeadingZeros(Convert.ToString(i), 2),
-                                      tmpRecNo,
-                                      tmpSTR);
-
-                }
-
-            }
-            if (PGIDlistBox.Items.Count > 0)
-                PGIDlistBox.Items[PGIDlistBox.SelectedIndex] = PFNAtextBox.Text + " " + PLNAtextBox.Text;
-        }
-        public void Editor_ConvertLN_IntToString(int tmpRecNo)
-        {
-            if (DoNotTrigger)
-                return;
-
-            for (int i = 1; i <= maxNameChar; i++)
-            {
-                string tmpSTR = "0";
-
-                foreach (KeyValuePair<int, string> CHAR in Alphabet)
-                {
-
-                    if (i <= PLNAtextBox.Text.Length)
-                        if (CHAR.Value == PLNAtextBox.Text.Substring(i - 1, 1))
-                            tmpSTR = Convert.ToString(CHAR.Key);
-
-                    TDB.NewfieldValue(dbIndex,
-                                      "PLAY",
-                                      "PL" + AddLeadingZeros(Convert.ToString(i), 2),
-                                      tmpRecNo,
-                                      tmpSTR);
-
-                }
-
-            }
-            if (PGIDlistBox.Items.Count > 0)
-                PGIDlistBox.Items[PGIDlistBox.SelectedIndex] = PFNAtextBox.Text + " " + PLNAtextBox.Text;
-        }
-
-
-
-        public void PGIDlistBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (PGIDlistBox.SelectedIndex == -1)
-                return;
-
-            int tmpRecNo = PGIDlist[PGIDlistBox.SelectedIndex];
-
-            GetPGID(tmpRecNo);
-        }
-
-        public void GetPGID(int tmpRecNo)
-        {
-            DoNotTrigger = true;
-
-            PFNAtextBox.Text = ConvertFN_IntToString(tmpRecNo); //...first name from numeric to text conversion
-            PLNAtextBox.Text = ConvertLN_IntToString(tmpRecNo); //...last name from numeric to text conversion
-
-            DoNotTrigger = false;
-        }
-
-        public void TGIDplayerBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int tmpTGID = TGIDrecNo[TGIDlist[TGIDplayerBox.SelectedIndex]];
-
-            TGIDlistBox.SelectedIndex = TGIDplayerBox.SelectedIndex;
-
-            LoadPGIDlistBox(dbIndex, tmpTGID);
-        }
-
-        public void PFNAtextBox_TextChanged(object sender, EventArgs e)
-        {
-            if (PGIDlistBox.Items.Count < 1)
-                return;
-
-            int tmpRecNo = PGIDlist[PGIDlistBox.SelectedIndex];
-
-            Editor_ConvertFN_InttoString(tmpRecNo);  // ...first name from text to numeric conversion
-
-        }
-        public void PLNAtextBox_TextChanged(object sender, EventArgs e)
-        {
-            if (PGIDlistBox.Items.Count < 1)
-                return;
-
-            int tmpRecNo = PGIDlist[PGIDlistBox.SelectedIndex];
-
-            Editor_ConvertLN_IntToString(tmpRecNo);  // ...last name from text to numeric conversion
-
         }
 
         public void TTYPcomboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -639,10 +391,12 @@ namespace DB_EDITOR
 
             TGIDplayerBox.SelectedIndex = TGIDlistBox.SelectedIndex;
 
-            GetTGID(tmpRecNo);
+            GetTeamEditorData(tmpRecNo);
 
         }
-        public void GetTGID(int tmpRecNo)
+
+
+        public void GetTeamEditorData(int tmpRecNo)
         {
             DoNotTrigger = true;
 
@@ -650,9 +404,23 @@ namespace DB_EDITOR
             TDNAtextBox.Text = TDB.FieldValue(dbIndex, "TEAM", "TDNA", tmpRecNo);
             TMNAtextBox.Text = TDB.FieldValue(dbIndex, "TEAM", "TMNA", tmpRecNo);
 
+            TeamOVRtextbox.Text = TDB.FieldValue(dbIndex, "TEAM", "TROV", tmpRecNo);
+            TMPRbox.Text = TDB.FieldValue(dbIndex, "TEAM", "TMPR", tmpRecNo);
+            TMARbox.Text = TDB.FieldValue(dbIndex, "TEAM", "TMAR", tmpRecNo);
+
+
+            TeamCaptain1box.Text = GetTeamImpactPlayer(tmpRecNo, "OCAP");
+            TeamCaptain2box.Text = GetTeamImpactPlayer(tmpRecNo, "DCAP");
+
+            TPIOtextbox.Text = GetTeamImpactPlayer(tmpRecNo, "TPIO");
+            TPIDtextbox.Text = GetTeamImpactPlayer(tmpRecNo, "TPID");
+            TSI1textbox.Text = GetTeamImpactPlayer(tmpRecNo, "TSI1");
+            TSI2textbox.Text = GetTeamImpactPlayer(tmpRecNo, "TSI2");
+
+
+
             DoNotTrigger = false;
         }
-
 
         public void TDNAtextBox_TextChanged(object sender, EventArgs e)
         {

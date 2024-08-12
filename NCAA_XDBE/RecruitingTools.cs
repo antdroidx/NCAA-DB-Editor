@@ -203,7 +203,7 @@ namespace DB_EDITOR
                     int skin = TDB.TDBFieldGetValueAsInteger(dbIndex, tableName, "PSKI", i);
                     if (skin <= 2) rand.Next(0, 3);
                     else if (skin <= 6) rand.Next(3, 7);
-                    else rand.Next(8, 8);
+                    else rand.Next(7, 8);
 
                     TDB.NewfieldValue(dbIndex, tableName, "PSKI", i, Convert.ToString(skin));
 

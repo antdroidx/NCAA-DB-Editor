@@ -700,8 +700,8 @@ namespace DB_EDITOR
                     FN = FirstNames[rand.Next(0, FirstNames.Count)];
                     LN = LastNames[rand.Next(0, LastNames.Count)];
 
-                    ImportFN_StringToInt(FN, rec, "PLAY");
-                    ImportLN_StringToInt(LN, rec, "PLAY");
+                    ConvertFirstNameStringToInt(FN, rec, "PLAY");
+                    ConvertLastNameStringToInt(LN, rec, "PLAY");
 
                     x = false;
                 }
@@ -1075,7 +1075,7 @@ namespace DB_EDITOR
             int skin = TDB.TDBFieldGetValueAsInteger(dbIndex, tableName, "PSKI", i);
             if (skin <= 2) rand.Next(0, 3);
             else if (skin <= 6) rand.Next(3, 7);
-            else rand.Next(8, 8);
+            else rand.Next(7, 8);
 
             TDB.NewfieldValue(dbIndex, tableName, "PSKI", i, Convert.ToString(skin));
 

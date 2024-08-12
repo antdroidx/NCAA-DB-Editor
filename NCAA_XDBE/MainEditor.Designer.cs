@@ -90,6 +90,20 @@ namespace DB_EDITOR
             this.tabHome = new System.Windows.Forms.TabPage();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabTeams = new System.Windows.Forms.TabPage();
+            this.label21 = new System.Windows.Forms.Label();
+            this.TMARbox = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.TMPRbox = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.TeamOVRtextbox = new System.Windows.Forms.TextBox();
+            this.TSI1textbox = new System.Windows.Forms.TextBox();
+            this.TSI2textbox = new System.Windows.Forms.TextBox();
+            this.TPIDtextbox = new System.Windows.Forms.TextBox();
+            this.TPIOtextbox = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.TGIDtextBox = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
@@ -117,7 +131,6 @@ namespace DB_EDITOR
             this.PLNAtextBox = new System.Windows.Forms.TextBox();
             this.PFNAtextBox = new System.Windows.Forms.TextBox();
             this.tabSeason = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.numberPlayerCoach = new System.Windows.Forms.NumericUpDown();
             this.buttonPlayerCoach = new System.Windows.Forms.Button();
@@ -180,6 +193,10 @@ namespace DB_EDITOR
             this.buttonRandPotential = new System.Windows.Forms.Button();
             this.increaseSpeed = new System.Windows.Forms.Button();
             this.bodyFix = new System.Windows.Forms.Button();
+            this.TeamCaptain2box = new System.Windows.Forms.TextBox();
+            this.TeamCaptain1box = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
             qbTend = new System.Windows.Forms.Button();
             this.mainMenu.SuspendLayout();
             this.tableMenu.SuspendLayout();
@@ -693,7 +710,9 @@ namespace DB_EDITOR
             // pictureBox1
             // 
             this.pictureBox1.Image = global::DB_EDITOR.Properties.Resources.ncaa_db_editor_TITLE;
-            this.pictureBox1.Location = new System.Drawing.Point(200, 43);
+            this.pictureBox1.Location = new System.Drawing.Point(200, 45);
+            this.pictureBox1.MaximumSize = new System.Drawing.Size(1000, 1000);
+            this.pictureBox1.MinimumSize = new System.Drawing.Size(550, 550);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(550, 550);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -703,6 +722,24 @@ namespace DB_EDITOR
             // tabTeams
             // 
             this.tabTeams.BackColor = System.Drawing.SystemColors.Control;
+            this.tabTeams.Controls.Add(this.TeamCaptain2box);
+            this.tabTeams.Controls.Add(this.TeamCaptain1box);
+            this.tabTeams.Controls.Add(this.label22);
+            this.tabTeams.Controls.Add(this.label23);
+            this.tabTeams.Controls.Add(this.label21);
+            this.tabTeams.Controls.Add(this.TMARbox);
+            this.tabTeams.Controls.Add(this.label20);
+            this.tabTeams.Controls.Add(this.TMPRbox);
+            this.tabTeams.Controls.Add(this.label19);
+            this.tabTeams.Controls.Add(this.TeamOVRtextbox);
+            this.tabTeams.Controls.Add(this.TSI1textbox);
+            this.tabTeams.Controls.Add(this.TSI2textbox);
+            this.tabTeams.Controls.Add(this.TPIDtextbox);
+            this.tabTeams.Controls.Add(this.TPIOtextbox);
+            this.tabTeams.Controls.Add(this.label18);
+            this.tabTeams.Controls.Add(this.label17);
+            this.tabTeams.Controls.Add(this.label16);
+            this.tabTeams.Controls.Add(this.label15);
             this.tabTeams.Controls.Add(this.label11);
             this.tabTeams.Controls.Add(this.TGIDtextBox);
             this.tabTeams.Controls.Add(this.label10);
@@ -726,6 +763,126 @@ namespace DB_EDITOR
             this.tabTeams.TabIndex = 1;
             this.tabTeams.Text = "Teams";
             // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(317, 165);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(95, 13);
+            this.label21.TabIndex = 35;
+            this.label21.Text = "Academic Prestige";
+            // 
+            // TMARbox
+            // 
+            this.TMARbox.Location = new System.Drawing.Point(317, 181);
+            this.TMARbox.Name = "TMARbox";
+            this.TMARbox.Size = new System.Drawing.Size(75, 20);
+            this.TMARbox.TabIndex = 34;
+            this.TMARbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(213, 165);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(75, 13);
+            this.label20.TabIndex = 33;
+            this.label20.Text = "Team Prestige";
+            // 
+            // TMPRbox
+            // 
+            this.TMPRbox.Location = new System.Drawing.Point(213, 181);
+            this.TMPRbox.Name = "TMPRbox";
+            this.TMPRbox.Size = new System.Drawing.Size(75, 20);
+            this.TMPRbox.TabIndex = 32;
+            this.TMPRbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(312, 76);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(68, 13);
+            this.label19.TabIndex = 31;
+            this.label19.Text = "Team Rating";
+            // 
+            // TeamOVRtextbox
+            // 
+            this.TeamOVRtextbox.Location = new System.Drawing.Point(312, 92);
+            this.TeamOVRtextbox.Name = "TeamOVRtextbox";
+            this.TeamOVRtextbox.ReadOnly = true;
+            this.TeamOVRtextbox.Size = new System.Drawing.Size(100, 20);
+            this.TeamOVRtextbox.TabIndex = 30;
+            this.TeamOVRtextbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // TSI1textbox
+            // 
+            this.TSI1textbox.Location = new System.Drawing.Point(469, 181);
+            this.TSI1textbox.Name = "TSI1textbox";
+            this.TSI1textbox.ReadOnly = true;
+            this.TSI1textbox.Size = new System.Drawing.Size(138, 20);
+            this.TSI1textbox.TabIndex = 29;
+            // 
+            // TSI2textbox
+            // 
+            this.TSI2textbox.Location = new System.Drawing.Point(669, 181);
+            this.TSI2textbox.Name = "TSI2textbox";
+            this.TSI2textbox.ReadOnly = true;
+            this.TSI2textbox.Size = new System.Drawing.Size(138, 20);
+            this.TSI2textbox.TabIndex = 28;
+            // 
+            // TPIDtextbox
+            // 
+            this.TPIDtextbox.Location = new System.Drawing.Point(669, 137);
+            this.TPIDtextbox.Name = "TPIDtextbox";
+            this.TPIDtextbox.ReadOnly = true;
+            this.TPIDtextbox.Size = new System.Drawing.Size(138, 20);
+            this.TPIDtextbox.TabIndex = 27;
+            // 
+            // TPIOtextbox
+            // 
+            this.TPIOtextbox.Location = new System.Drawing.Point(469, 137);
+            this.TPIOtextbox.Name = "TPIOtextbox";
+            this.TPIOtextbox.ReadOnly = true;
+            this.TPIOtextbox.Size = new System.Drawing.Size(138, 20);
+            this.TPIOtextbox.TabIndex = 26;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(666, 165);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(71, 13);
+            this.label18.TabIndex = 25;
+            this.label18.Text = "Impact Player";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(466, 165);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(71, 13);
+            this.label17.TabIndex = 23;
+            this.label17.Text = "Impact Player";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(666, 121);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(120, 13);
+            this.label16.TabIndex = 21;
+            this.label16.Text = "Impact Player - Defense";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(466, 121);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(117, 13);
+            this.label15.TabIndex = 19;
+            this.label15.Text = "Impact Player - Offense";
+            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -747,7 +904,7 @@ namespace DB_EDITOR
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(312, 119);
+            this.label10.Location = new System.Drawing.Point(315, 121);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(65, 13);
             this.label10.TabIndex = 15;
@@ -755,7 +912,7 @@ namespace DB_EDITOR
             // 
             // TMNAtextBox
             // 
-            this.TMNAtextBox.Location = new System.Drawing.Point(312, 135);
+            this.TMNAtextBox.Location = new System.Drawing.Point(315, 137);
             this.TMNAtextBox.Name = "TMNAtextBox";
             this.TMNAtextBox.Size = new System.Drawing.Size(100, 20);
             this.TMNAtextBox.TabIndex = 14;
@@ -764,7 +921,7 @@ namespace DB_EDITOR
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(206, 119);
+            this.label9.Location = new System.Drawing.Point(209, 121);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(73, 13);
             this.label9.TabIndex = 13;
@@ -772,7 +929,7 @@ namespace DB_EDITOR
             // 
             // TDNAtextBox
             // 
-            this.TDNAtextBox.Location = new System.Drawing.Point(206, 135);
+            this.TDNAtextBox.Location = new System.Drawing.Point(209, 137);
             this.TDNAtextBox.Name = "TDNAtextBox";
             this.TDNAtextBox.Size = new System.Drawing.Size(100, 20);
             this.TDNAtextBox.TabIndex = 12;
@@ -973,7 +1130,6 @@ namespace DB_EDITOR
             // tabSeason
             // 
             this.tabSeason.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.tabSeason.Controls.Add(this.button1);
             this.tabSeason.Controls.Add(this.label14);
             this.tabSeason.Controls.Add(this.numberPlayerCoach);
             this.tabSeason.Controls.Add(this.buttonPlayerCoach);
@@ -1009,18 +1165,6 @@ namespace DB_EDITOR
             this.tabSeason.Size = new System.Drawing.Size(976, 632);
             this.tabSeason.TabIndex = 3;
             this.tabSeason.Text = "Dynasty";
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Peru;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(315, 219);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(110, 80);
-            this.button1.TabIndex = 33;
-            this.button1.Text = "Fill Rosters";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Visible = false;
             // 
             // label14
             // 
@@ -1083,11 +1227,11 @@ namespace DB_EDITOR
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(444, 375);
+            this.label13.Location = new System.Drawing.Point(433, 375);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(100, 13);
+            this.label13.Size = new System.Drawing.Size(115, 13);
             this.label13.TabIndex = 27;
-            this.label13.Text = "NCAA NEXT ONLY";
+            this.label13.Text = "NCAA NEXT 24 ONLY";
             // 
             // labelMaxTransfers
             // 
@@ -1850,6 +1994,40 @@ namespace DB_EDITOR
             this.bodyFix.UseVisualStyleBackColor = false;
             this.bodyFix.Click += new System.EventHandler(this.BodyFix_Click);
             // 
+            // TeamCaptain2box
+            // 
+            this.TeamCaptain2box.Location = new System.Drawing.Point(669, 92);
+            this.TeamCaptain2box.Name = "TeamCaptain2box";
+            this.TeamCaptain2box.ReadOnly = true;
+            this.TeamCaptain2box.Size = new System.Drawing.Size(138, 20);
+            this.TeamCaptain2box.TabIndex = 39;
+            // 
+            // TeamCaptain1box
+            // 
+            this.TeamCaptain1box.Location = new System.Drawing.Point(469, 92);
+            this.TeamCaptain1box.Name = "TeamCaptain1box";
+            this.TeamCaptain1box.ReadOnly = true;
+            this.TeamCaptain1box.Size = new System.Drawing.Size(138, 20);
+            this.TeamCaptain1box.TabIndex = 38;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(666, 75);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(122, 13);
+            this.label22.TabIndex = 37;
+            this.label22.Text = "Team Captain - Defense";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(466, 76);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(119, 13);
+            this.label23.TabIndex = 36;
+            this.label23.Text = "Team Captain - Offense";
+            // 
             // MainEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1968,7 +2146,6 @@ namespace DB_EDITOR
         public System.Windows.Forms.ToolStripMenuItem ascendingFieldOrderMenuItem;
         public System.Windows.Forms.ToolStripMenuItem customOrderMenuItem;
         public System.Windows.Forms.ToolStripMenuItem descendingFieldOrderMenuItem;
-        public System.Windows.Forms.TabPage tabTeams;
         public System.Windows.Forms.TabPage tabPlayers;
         public System.Windows.Forms.ListBox PGIDlistBox;
         public System.Windows.Forms.Label label2;
@@ -1978,21 +2155,6 @@ namespace DB_EDITOR
         public System.Windows.Forms.Label label3;
         public System.Windows.Forms.ComboBox TGIDplayerBox;
         public System.Windows.Forms.Label label4;
-        public System.Windows.Forms.ListBox TGIDlistBox;
-        public System.Windows.Forms.CheckBox MascotcheckBox;
-        public System.Windows.Forms.CheckBox LocationcheckBox;
-        public System.Windows.Forms.Label label8;
-        public System.Windows.Forms.ComboBox DGIDcomboBox;
-        public System.Windows.Forms.Label label7;
-        public System.Windows.Forms.ComboBox CGIDcomboBox;
-        public System.Windows.Forms.Label label6;
-        public System.Windows.Forms.ComboBox LGIDcomboBox;
-        public System.Windows.Forms.Label label10;
-        public System.Windows.Forms.TextBox TMNAtextBox;
-        public System.Windows.Forms.Label label9;
-        public System.Windows.Forms.TextBox TDNAtextBox;
-        public System.Windows.Forms.Label label11;
-        public System.Windows.Forms.TextBox TGIDtextBox;
         public System.Windows.Forms.TabPage tabSeason;
         public System.Windows.Forms.Button medRS;
         public System.Windows.Forms.Button coachProg;
@@ -2052,8 +2214,6 @@ namespace DB_EDITOR
         private NumericUpDown numberPlayerCoach;
         private System.Windows.Forms.Button buttonPlayerCoach;
         private Label label14;
-        public Label label5;
-        public System.Windows.Forms.ComboBox TTYPcomboBox;
         public System.Windows.Forms.Button TYDNButton;
         public System.Windows.Forms.Button buttonImpactPlayers;
         public System.Windows.Forms.Button buttonRandomizeFaceShape;
@@ -2061,8 +2221,43 @@ namespace DB_EDITOR
         private TabPage tabHome;
         public System.Windows.Forms.Button buttonAutoDepthChart;
         private PictureBox pictureBox1;
-        private System.Windows.Forms.Button button1;
         public System.Windows.Forms.Button buttonFillRosters;
+        public TabPage tabTeams;
+        public Label label20;
+        public System.Windows.Forms.TextBox TMPRbox;
+        public Label label19;
+        public System.Windows.Forms.TextBox TeamOVRtextbox;
+        public System.Windows.Forms.TextBox TSI1textbox;
+        public System.Windows.Forms.TextBox TSI2textbox;
+        public System.Windows.Forms.TextBox TPIDtextbox;
+        public System.Windows.Forms.TextBox TPIOtextbox;
+        public Label label18;
+        public Label label17;
+        public Label label16;
+        public Label label15;
+        public Label label11;
+        public System.Windows.Forms.TextBox TGIDtextBox;
+        public Label label10;
+        public System.Windows.Forms.TextBox TMNAtextBox;
+        public Label label9;
+        public System.Windows.Forms.TextBox TDNAtextBox;
+        public Label label8;
+        public System.Windows.Forms.ComboBox DGIDcomboBox;
+        public Label label7;
+        public System.Windows.Forms.ComboBox CGIDcomboBox;
+        public Label label6;
+        public System.Windows.Forms.ComboBox LGIDcomboBox;
+        public CheckBox LocationcheckBox;
+        public CheckBox MascotcheckBox;
+        public Label label5;
+        public System.Windows.Forms.ComboBox TTYPcomboBox;
+        public ListBox TGIDlistBox;
+        public Label label21;
+        public System.Windows.Forms.TextBox TMARbox;
+        public System.Windows.Forms.TextBox TeamCaptain2box;
+        public System.Windows.Forms.TextBox TeamCaptain1box;
+        public Label label22;
+        public Label label23;
     }
 }
 

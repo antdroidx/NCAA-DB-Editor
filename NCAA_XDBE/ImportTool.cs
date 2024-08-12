@@ -246,8 +246,8 @@ namespace DB_EDITOR
 
                         if (TableProps.Name == "PLAY" && !roster && record.Length > 97 || TableProps.Name == "PLAY" && roster && record.Length > 86)
                         {
-                            ImportFN_StringToInt(record[importtmpfieldindex + 1], recnum, "PLAY");
-                            ImportLN_StringToInt(record[importtmpfieldindex + 2], recnum, "PLAY");
+                            ConvertFirstNameStringToInt(record[importtmpfieldindex + 1], recnum, "PLAY");
+                            ConvertLastNameStringToInt(record[importtmpfieldindex + 2], recnum, "PLAY");
                         }
 
                         recnum++;

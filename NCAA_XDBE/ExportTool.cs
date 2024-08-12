@@ -167,9 +167,9 @@ namespace DB_EDITOR
                             if (TableProps.Name == "PLAY")
                             {
                                 hbuilder.Append(",");
-                                hbuilder.Append(ConvertFN_IntToString(r)); //write first name string to csv
+                                hbuilder.Append(GetFirstNameFromRecord(r)); //write first name string to csv
                                 hbuilder.Append(",");
-                                hbuilder.Append(ConvertLN_IntToString(r)); //write last name string to csv
+                                hbuilder.Append(GetLastNameFromRecord(r)); //write last name string to csv
                                 hbuilder.Append(",");
                                 if (TDB.TableIndex(dbIndex, "TEAM") == 1)
                                 {

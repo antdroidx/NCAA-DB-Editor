@@ -116,7 +116,7 @@ namespace DB_EDITOR
 
         }
 
-        public string ConvertFN_IntToString(int tmpRecNo)
+        public string GetFirstNameFromRecord(int tmpRecNo)
         {
 
             string tmpSTR = "";
@@ -134,7 +134,7 @@ namespace DB_EDITOR
             tmpSTR = xPFNA;
             return tmpSTR;
         }
-        public string ConvertLN_IntToString(int tmpRecNo)
+        public string GetLastNameFromRecord(int tmpRecNo)
         {
             string tmpSTR = "";
             string xPLNA = "";
@@ -152,7 +152,7 @@ namespace DB_EDITOR
             return tmpSTR;
         }
 
-        private void ImportFN_StringToInt(string PFNA, int tmpRecNo, string tableName)
+        private void ConvertFirstNameStringToInt(string PFNA, int tmpRecNo, string tableName)
         {
             for (int i = 1; i <= maxNameChar; i++)
             {
@@ -170,7 +170,7 @@ namespace DB_EDITOR
 
             }
         }
-        private void ImportLN_StringToInt(string PLNA, int tmpRecNo, string tableName)
+        private void ConvertLastNameStringToInt(string PLNA, int tmpRecNo, string tableName)
         {
             for (int i = 1; i <= maxNameChar; i++)
             {
@@ -357,6 +357,31 @@ namespace DB_EDITOR
 
             return PJEN;
         }
+
+        private string GetPlayerNamefromPGID(int pgid)
+        {
+            string playername = "";
+
+            int rec = FindPGIDRecord(pgid);
+
+            String FN = GetFirstNameFromRecord(rec);
+            String LN = GetLastNameFromRecord(rec);
+
+            playername = FN + " " + LN;
+
+            return playername;
+        }
+
+        private int FindPGIDRecord(int PGID)
+        {
+            int rec = -1;
+            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "PLAY"); i++)
+            {
+                if (TDB.TDBFieldGetValueAsInteger(dbIndex, "PLAY", "PGID", i) == PGID) return i;
+            }
+            return rec;
+        }
+
 
         #endregion
 
@@ -754,6 +779,20 @@ namespace DB_EDITOR
             return stateID;
         }
 
+        private string GetTeamImpactPlayer(int rec, string field)
+        {
+            string playername = "";
+
+            int tgid = TDB.TDBFieldGetValueAsInteger(dbIndex, "TEAM", "TGID", rec);
+            int impactNo = TDB.TDBFieldGetValueAsInteger(dbIndex, "TEAM", field, rec);
+
+            int pgid = tgid*70 + impactNo;
+
+            playername = GetPlayerNamefromPGID(pgid);
+
+            return playername;
+
+        }
 
         #endregion
 
