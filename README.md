@@ -14,6 +14,10 @@ This editor was designed using original source code from Madden Xtreme DB Editor
 # Available Modules
 
 DB Tools
+* Fantasy Roster Generator
+* Depth Chart Automatated Setter
+* Team Rating Calculation
+* Roster Filler
 * Body Size Fixer
 * Speed Enhancer
 * QB Tendency Fixer
