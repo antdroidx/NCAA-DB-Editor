@@ -58,5 +58,5 @@ Dev Tool - 2024 Roster Generator
 * csv files are editable
 
 
-##Notes
+## Notes
 If you are using NCAA NEXT 25 Beta 6+, you can change the Overall and Recruiting Database by going into the resources folder and running the NEXT25Database.bat file!
