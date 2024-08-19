@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -11,7 +12,7 @@ namespace DB_EDITOR
         /*
         * PLAYER & TEAM EDITOR (work from elguapo - not used currently)
         */
-        #region TEAM EDITOR - NOT COMPLETE
+        #region TEAM EDITOR - STARTUP
 
 
         public void Management(int tmpDBindex, string tmpTName, string tmpFName)
@@ -297,7 +298,7 @@ namespace DB_EDITOR
 
             foreach (KeyValuePair<int, int> CGID in CONFrecNo)
             {
-                string tmpVal = TDB.FieldValue(dbIndex, "CONF", "CNAM", CGID.Key);
+                string tmpVal = GetDBValue("CONF", "CNAM", CGID.Key);
 
                 CGIDcomboBox.Items.Add(tmpVal);
             }
@@ -387,49 +388,236 @@ namespace DB_EDITOR
             if (TGIDlistBox.Items.Count < 1 || TGIDlistBox.SelectedIndex == -1)
                 return;
 
-            int tmpRecNo = TGIDlist[TGIDlistBox.SelectedIndex];
+            EditorIndex = TGIDlist[TGIDlistBox.SelectedIndex];
 
             TGIDplayerBox.SelectedIndex = TGIDlistBox.SelectedIndex;
 
-            GetTeamEditorData(tmpRecNo);
+            GetTeamEditorData(EditorIndex);
 
         }
 
+        #endregion
 
-        public void GetTeamEditorData(int tmpRecNo)
+        //GET DATA
+        #region Load Team Data
+
+        public void GetTeamEditorData(int EditorIndex)
         {
             DoNotTrigger = true;
 
-            TGIDtextBox.Text = TDB.FieldValue(dbIndex, "TEAM", "TGID", tmpRecNo);
-            TDNAtextBox.Text = TDB.FieldValue(dbIndex, "TEAM", "TDNA", tmpRecNo);
-            TMNAtextBox.Text = TDB.FieldValue(dbIndex, "TEAM", "TMNA", tmpRecNo);
+            progressBar1.Visible = true;
+            progressBar1.Value = 0;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = 11;
+            progressBar1.Step = 1;
 
-            TeamOVRtextbox.Text = TDB.FieldValue(dbIndex, "TEAM", "TROV", tmpRecNo);
-            TMPRbox.Text = TDB.FieldValue(dbIndex, "TEAM", "TMPR", tmpRecNo);
-            TMARbox.Text = TDB.FieldValue(dbIndex, "TEAM", "TMAR", tmpRecNo);
+            progressBar1.PerformStep();
+
+            //User Coach
+            if (GetDBValue("COCH", "CFUC", GetCOCHrecFromTeamRec(EditorIndex)) == "1") UserCoachCheckBox.Checked = true;
+            else UserCoachCheckBox.Checked = false;
+
+            //Affiliation Info
+            LeagueBox.Text = GetLeaguefromTTYP(GetDBValueInt("TEAM", "TTYP", EditorIndex));
+            TeamConferenceBox.Text = GetConfNameFromCGID(GetDBValueInt("TEAM", "CGID", EditorIndex));
+            TeamDivisionBox.Text = GetDivisionNamefromDGID(GetDBValueInt("TEAM", "DGID", EditorIndex));
+
+            progressBar1.PerformStep();
+
+            //Team Name
+            TGIDtextBox.Text = GetDBValue("TEAM", "TGID", EditorIndex);
+            TDNAtextBox.Text = GetDBValue("TEAM", "TDNA", EditorIndex);
+            TMNAtextBox.Text = GetDBValue("TEAM", "TMNA", EditorIndex);
+            TSNAtextBox.Text = GetDBValue("TEAM", "TSNA", EditorIndex);
+
+            progressBar1.PerformStep();
+
+            //Team Ratings
+            TeamOVRtextbox.Text = GetDBValue("TEAM", "TROV", EditorIndex);
+            TMPRNumBox.Value = GetDBValueInt("TEAM", "TMPR", EditorIndex);
+            TMARNumBox.Value = GetDBValueInt("TEAM", "TMAR", EditorIndex);
+
+            progressBar1.PerformStep();
+
+            //Season Records
+            APPollBox.Text = GetDBValue("TEAM", "TMRK", EditorIndex);
+            CoachPollBox.Text = GetDBValue("TEAM", "TCRK", EditorIndex);
+            SeasonRecordBox.Text = GetDBValue("TEAM", "tsdw", EditorIndex) + " - " + GetDBValue("TEAM", "tsdl", EditorIndex);
+            ConfRecordBox.Text = GetDBValue("TEAM", "tscw", EditorIndex) + " - " + GetDBValue("TEAM", "tscl", EditorIndex);
+
+            progressBar1.PerformStep();
+
+            //NCAA Investigation
+            INPOnumbox.Value = GetDBValueInt("TEAM", "INPO", EditorIndex);
+            NCDPnumbox.Value = GetDBValueInt("TEAM", "NCDP", EditorIndex);
+            SDURnumbox.Value = GetDBValueInt("TEAM", "SDUR", EditorIndex);
+            SNCTnumbox.Value = GetDBValueInt("TEAM", "SNCT", EditorIndex);
+            
+            progressBar1.PerformStep();
+
+            //Head Coach Info
+            HCFirstNameBox.Text = GetCoachFirstNamefromRec(GetCOCHrecFromTeamRec(EditorIndex));
+            HCLastNameBox.Text = GetCoachLastNamefromRec(GetCOCHrecFromTeamRec(EditorIndex));
+            TeamHCPrestigeNumBox.Value = GetDBValueInt("COCH", "CPRE", GetCOCHrecFromTeamRec(EditorIndex));
+            TeamCCPONumBox.Value = GetDBValueInt("COCH", "CCPO", GetCOCHrecFromTeamRec(EditorIndex));
+            GetCCPOboxColor();
+
+            progressBar1.PerformStep();
+
+            //Off-Season Budgets
+            TeamCDPCBox.Text = GetDBValue("COCH", "CDPC", GetCOCHrecFromTeamRec(EditorIndex));
+            TeamCTPCNumber.Value = GetDBValueInt("COCH", "CTPC", GetCOCHrecFromTeamRec(EditorIndex));
+            TeamCRPCNumber.Value = GetDBValueInt("COCH", "CRPC", GetCOCHrecFromTeamRec(EditorIndex));
+
+            progressBar1.PerformStep();
+
+            //Playbook & Strategies
+            GetPlaybookItems();
+            PlaybookSelectBox.SelectedIndex = GetPlaybookSelectedIndex();
 
 
-            TeamCaptain1box.Text = GetTeamImpactPlayer(tmpRecNo, "OCAP");
-            TeamCaptain2box.Text = GetTeamImpactPlayer(tmpRecNo, "DCAP");
+            GetOffTypeItems();
+            OffTypeSelectBox.SelectedIndex = GetDBValueInt("COCH", "COST", GetCOCHrecFromTeamRec(EditorIndex));
 
-            TPIOtextbox.Text = GetTeamImpactPlayer(tmpRecNo, "TPIO");
-            TPIDtextbox.Text = GetTeamImpactPlayer(tmpRecNo, "TPID");
-            TSI1textbox.Text = GetTeamImpactPlayer(tmpRecNo, "TSI1");
-            TSI2textbox.Text = GetTeamImpactPlayer(tmpRecNo, "TSI2");
+            GetDefTypeItems();
+            DefTypeSelectBox.SelectedIndex = GetDBValueInt("COCH", "CDST", GetCOCHrecFromTeamRec(EditorIndex));
+
+            //OffTypeBox.Text = GetOffTypeName(GetDBValueInt("COCH", "COST", GetCOCHrecFromTeamRec(EditorIndex)));
+            //BaseDefBox.Text = GetDefTypeName(GetDBValueInt("COCH", "CDST", GetCOCHrecFromTeamRec(EditorIndex)));
+            
+            TeamCOTRbox.Value = GetDBValueInt("COCH", "COTR", GetCOCHrecFromTeamRec(EditorIndex));
+            TeamCOTAbox.Value = GetDBValueInt("COCH", "COTA", GetCOCHrecFromTeamRec(EditorIndex));
+            TeamCOTSbox.Value = GetDBValueInt("COCH", "COTS", GetCOCHrecFromTeamRec(EditorIndex));
+            TeamCDTRbox.Value = GetDBValueInt("COCH", "CDTR", GetCOCHrecFromTeamRec(EditorIndex));
+            TeamCDTAbox.Value = GetDBValueInt("COCH", "CDTA", GetCOCHrecFromTeamRec(EditorIndex));
+            TeamCDTSbox.Value = GetDBValueInt("COCH", "CDTS", GetCOCHrecFromTeamRec(EditorIndex));
+
+            progressBar1.PerformStep();
+
+            //Team Captains & Impact Players
+            TeamCaptain1box.Text = GetTeamImpactPlayer(EditorIndex, "OCAP");
+            TeamCaptain2box.Text = GetTeamImpactPlayer(EditorIndex, "DCAP");
+            TPIOtextbox.Text = GetTeamImpactPlayer(EditorIndex, "TPIO");
+            TPIDtextbox.Text = GetTeamImpactPlayer(EditorIndex, "TPID");
+            TSI1textbox.Text = GetTeamImpactPlayer(EditorIndex, "TSI1");
+            TSI2textbox.Text = GetTeamImpactPlayer(EditorIndex, "TSI2");
+
+            progressBar1.PerformStep();
+
+            //Team Colors
+            TeamColor1Button.BackColor = Color.FromArgb(GetDBValueInt("TEAM", "TFRD", EditorIndex), GetDBValueInt("TEAM", "TFFG", EditorIndex), GetDBValueInt("TEAM", "TFFB", EditorIndex));
+            TeamColor2Button.BackColor = Color.FromArgb(GetDBValueInt("TEAM", "TFOR", EditorIndex), GetDBValueInt("TEAM", "TFOG", EditorIndex), GetDBValueInt("TEAM", "TFOB", EditorIndex));
+            primary = TeamColor1Button.BackColor;
+            secondary = TeamColor2Button.BackColor;
+
+            progressBar1.PerformStep();
+
+            //City, State, Stadium Info
+            stadiumNameBox.Text = GetDBValue("STAD", "SNAM", FindSTADrecFromTEAMrec(EditorIndex));
+            CityNameBox.Text = GetDBValue("STAD", "SCIT", FindSTADrecFromTEAMrec(EditorIndex));
+            GetStateBoxItems();
+            StateBox.SelectedIndex = GetDBValueInt("STAD", "STID", FindSTADrecFromTEAMrec(EditorIndex));
+
+            AttendanceNumBox.Value = GetDBValueInt("TEAM", "TMAA", EditorIndex);
+            CapacityNumbox.Value = GetDBValueInt("STAD", "SCAP", FindSTADrecFromTEAMrec(EditorIndex));
 
 
 
             DoNotTrigger = false;
+            progressBar1.Value = 0;
         }
 
+        private void GetStateBoxItems()
+        {
+            StateBox.Items.Clear();
+            List<string> states = CreateStringListfromCSV(@"resources\RCST.csv", true);
+
+            foreach (string state in states)
+            {
+                StateBox.Items.Add(state);
+            }
+        }
+
+        private void GetPlaybookItems()
+        {
+            List<List<string>> pb = CreatePlaybookNames();
+            //136-158 next ||  124 and below is vanilla
+
+            if (GetDBValueInt("COCH", "CPID", GetCOCHrecFromTeamRec(EditorIndex)) > 135)
+            {
+                for(int i = 136; i <= 158; i++)
+                {
+                    PlaybookSelectBox.Items.Add(pb[i][1]);
+                }
+            }
+            else
+            {
+                for (int i = 0; i <= 124; i++)
+                {
+                    PlaybookSelectBox.Items.Add(pb[i][1]);
+                }
+            }
+
+        }
+
+        private int GetPlaybookSelectedIndex()
+        {
+            int pbVal = GetDBValueInt("COCH", "CPID", GetCOCHrecFromTeamRec(EditorIndex));
+
+            //136-158 next ||  124 and below is vanilla
+            if (pbVal > 135) pbVal = pbVal - 136;
+           
+            return pbVal;
+        }
+
+        private void GetOffTypeItems()
+        {
+            OffTypeSelectBox.Items.Clear();
+            List<string> OffTypes = CreateOffTypes();
+
+
+            foreach (string name in OffTypes)
+            {
+                OffTypeSelectBox.Items.Add(name);
+            }
+        }
+
+        private void GetDefTypeItems()
+        {
+            DefTypeSelectBox.Items.Clear();
+            List<string> DefTypes = CreateBaseDef();
+
+
+            foreach (string name in DefTypes)
+            {
+                DefTypeSelectBox.Items.Add(name);
+            }
+        }
+
+        #endregion
+
+        //Text Change Triggers
+        #region Text Box Changes
+
+        //User Coach
+        private void UserCoachCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger) return;
+
+            if (UserCoachCheckBox.Checked) ChangeDBInt("COCH", "CFUC", GetCOCHrecFromTeamRec(EditorIndex), 1);
+            else if (!UserCoachCheckBox.Checked) ChangeDBInt("COCH", "CFUC", GetCOCHrecFromTeamRec(EditorIndex), 0);
+
+        }
+
+        //Team Name
         public void TDNAtextBox_TextChanged(object sender, EventArgs e)
         {
             if (DoNotTrigger)
                 return;
 
-            int tmpRecNo = TGIDlist[TGIDlistBox.SelectedIndex];
 
-            TDB.NewfieldValue(dbIndex, "TEAM", "TDNA", tmpRecNo, TDNAtextBox.Text);
+
+            ChangeDBString("TEAM", "TDNA", EditorIndex, TDNAtextBox.Text);
             TGIDlistBox.Items[TGIDlistBox.SelectedIndex] = TDNAtextBox.Text + " " + TMNAtextBox.Text;
 
         }
@@ -438,13 +626,358 @@ namespace DB_EDITOR
             if (DoNotTrigger)
                 return;
 
-            int tmpRecNo = TGIDlist[TGIDlistBox.SelectedIndex];
 
-            TDB.NewfieldValue(dbIndex, "TEAM", "TMNA", tmpRecNo, TMNAtextBox.Text);
+
+            ChangeDBString("TEAM", "TMNA", EditorIndex, TMNAtextBox.Text);
             TGIDlistBox.Items[TGIDlistBox.SelectedIndex] = TDNAtextBox.Text + " " + TMNAtextBox.Text;
 
         }
 
+
+        //Team Prestige
+        private void TMPRNumBox_ValueChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger)
+                return;
+
+            ChangeDBString("TEAM", "TMPR", EditorIndex, Convert.ToString(TMPRNumBox.Value));
+        }
+        //Team Academics
+        private void TMARNumBox_ValueChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger)
+                return;
+
+            ChangeDBString("TEAM", "TMAR", EditorIndex, Convert.ToString(TMARNumBox.Value));
+        }
+
+        //NCAA Investigation
+        private void INPOnumbox_ValueChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger)
+                return;
+
+            ChangeDBString("TEAM", "INPO", EditorIndex, Convert.ToString(INPOnumbox.Value));
+        }
+
+        //Discipline Points
+
+        private void NCDPnumbox_ValueChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger)
+                return;
+
+            ChangeDBString("TEAM", "NCDP", EditorIndex, Convert.ToString(NCDPnumbox.Value));
+        }
+
+        //NCAA Sanction
+
+        private void SNCTnumbox_ValueChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger)
+                return;
+
+            ChangeDBString("TEAM", "SNCT", EditorIndex, Convert.ToString(SNCTnumbox.Value));
+        }
+
+        //Sanction Duration
+
+        private void SDURnumbox_ValueChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger)
+                return;
+
+            ChangeDBString("TEAM", "SDUR", EditorIndex, Convert.ToString(SDURnumbox.Value));
+        }
+
+        //Head Coach First Name
+        private void HCFirstNameBox_TextChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger)
+                return;
+
+            ChangeDBString("COCH", "CLFN", GetCOCHrecFromTeamRec(EditorIndex), HCFirstNameBox.Text);
+        }
+
+        //Head Coach Last Name
+        private void HCLastNameBox_TextChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger)
+                return;
+
+            ChangeDBString("COCH", "CLLN", GetCOCHrecFromTeamRec(EditorIndex), HCLastNameBox.Text);
+        }
+
+        //Head Coach Prestige
+        private void TeamHCPrestigeNumBox_ValueChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger)
+                return;
+
+            ChangeDBString("COCH", "CPRE", GetCOCHrecFromTeamRec(EditorIndex), Convert.ToString(TeamHCPrestigeNumBox.Value));
+        }
+
+        //Coach Performance
+        private void TeamCCPONumBox_ValueChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger) return;
+
+            ChangeDBString("COCH", "CCPO", GetCOCHrecFromTeamRec(EditorIndex), Convert.ToString(TeamCCPONumBox.Value));
+            GetCCPOboxColor();
+        }
+
+        //Training
+        private void TeamCTPCNumber_ValueChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger) return;
+
+            if (TeamCRPCNumber.Value + TeamCTPCNumber.Value < 100)
+            {
+                ChangeDBString("COCH", "CTPC", GetCOCHrecFromTeamRec(EditorIndex), Convert.ToString(TeamCTPCNumber.Value));
+                int discpts = 100 - (GetDBValueInt("COCH", "CTPC", GetCOCHrecFromTeamRec(EditorIndex)) + GetDBValueInt("COCH", "CRPC", GetCOCHrecFromTeamRec(EditorIndex)));
+                ChangeDBString("COCH", "CDPC", GetCOCHrecFromTeamRec(EditorIndex), Convert.ToString(discpts));
+
+                TeamCDPCBox.Text = GetDBValue("COCH", "CDPC", GetCOCHrecFromTeamRec(EditorIndex));
+            }
+            else
+            {
+                TeamCTPCNumber.Value = GetDBValueInt("COCH", "CTPC", GetCOCHrecFromTeamRec(EditorIndex));
+            }
+        }
+
+        //Recruiting
+        private void TeamCRPCNumber_ValueChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger) return;
+
+            if (TeamCRPCNumber.Value + TeamCTPCNumber.Value < 100)
+            {
+                ChangeDBString("COCH", "CRPC", GetCOCHrecFromTeamRec(EditorIndex), Convert.ToString(TeamCRPCNumber.Value));
+                int discpts = 100 - (GetDBValueInt("COCH", "CTPC", GetCOCHrecFromTeamRec(EditorIndex)) + GetDBValueInt("COCH", "CRPC", GetCOCHrecFromTeamRec(EditorIndex)));
+                ChangeDBString("COCH", "CDPC", GetCOCHrecFromTeamRec(EditorIndex), Convert.ToString(discpts));
+
+                TeamCDPCBox.Text = GetDBValue("COCH", "CDPC", GetCOCHrecFromTeamRec(EditorIndex));
+            }
+
+            else
+            {
+                TeamCRPCNumber.Value = GetDBValueInt("COCH", "CRPC", GetCOCHrecFromTeamRec(EditorIndex));
+            }
+        }
+
+
+        //Strategy
+
+        //Playbook Selection
+        private void PlaybookSelectBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger) return;
+
+            int pbVal = 0;
+
+            List<List<string>> pb = CreatePlaybookNames();
+            //136-158 next ||  124 and below is vanilla
+
+            if (GetDBValueInt("COCH", "CPID", GetCOCHrecFromTeamRec(EditorIndex)) > 135)
+            {
+                pbVal = PlaybookSelectBox.SelectedIndex + 136;
+            }
+            else
+            {
+                pbVal = PlaybookSelectBox.SelectedIndex;
+            }
+
+
+            ChangeDBInt("COCH", "CPID", GetCOCHrecFromTeamRec(EditorIndex), pbVal);
+        }
+
+        //Off Type Selection
+        private void OffTypeSelectBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger) return;
+            ChangeDBInt("COCH", "COST", GetCOCHrecFromTeamRec(EditorIndex), OffTypeSelectBox.SelectedIndex);
+        }
+        //Def Type Selection
+
+        private void DefTypeSelectBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger) return;
+            ChangeDBInt("COCH", "CDST", GetCOCHrecFromTeamRec(EditorIndex), DefTypeSelectBox.SelectedIndex);
+        }
+
+        //Off Passing Strategy 
+        private void TeamCOTRbox_ValueChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger) return;
+            ChangeDBInt("COCH", "COTR", GetCOCHrecFromTeamRec(EditorIndex), Convert.ToInt32(TeamCOTRbox.Value));
+        }
+
+        //Off Aggressiveness
+        private void TeamCOTAbox_ValueChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger) return;
+            ChangeDBInt("COCH", "COTA", GetCOCHrecFromTeamRec(EditorIndex), Convert.ToInt32(TeamCOTAbox.Value));
+        }
+
+        //Off Subs
+        private void TeamCOTSbox_ValueChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger) return;
+            ChangeDBInt("COCH", "COTS", GetCOCHrecFromTeamRec(EditorIndex), Convert.ToInt32(TeamCOTSbox.Value));
+        }
+
+        //Def Passing Strategy
+        private void TeamCDTRbox_ValueChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger) return;
+            ChangeDBInt("COCH", "CDTR", GetCOCHrecFromTeamRec(EditorIndex), Convert.ToInt32(TeamCDTRbox.Value));
+        }
+
+        //Def Aggessiveness
+        private void TeamCDTAbox_ValueChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger) return;
+            ChangeDBInt("COCH", "CDTA", GetCOCHrecFromTeamRec(EditorIndex), Convert.ToInt32(TeamCDTAbox.Value));
+        }
+
+        //Def Subs
+        private void TeamCDTSbox_ValueChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger) return;
+            ChangeDBInt("COCH", "CDTS", GetCOCHrecFromTeamRec(EditorIndex), Convert.ToInt32(TeamCDTSbox.Value));
+        }
+
+
+
+
+
+        //Avg Attendance
+        private void AttendanceNumBox_ValueChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger) return;
+            ChangeDBInt("TEAM", "TMAA", EditorIndex, Convert.ToInt32(AttendanceNumBox.Value));
+            if( AttendanceNumBox.Value > CapacityNumbox.Value)
+            {
+                CapacityNumbox.Value = AttendanceNumBox.Value;
+                ChangeDBInt("STAD", "SCAP", FindSTADrecFromTEAMrec(EditorIndex), Convert.ToInt32(CapacityNumbox.Value));
+
+            }
+
+        }
+
+        //Stadium Capacity
+        private void CapacityNumbox_ValueChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger) return;
+            ChangeDBInt("STAD", "SCAP", FindSTADrecFromTEAMrec(EditorIndex), Convert.ToInt32(CapacityNumbox.Value));
+        }
+
+        private void StateBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger) return;
+            ChangeDBInt("STAD", "STID", FindSTADrecFromTEAMrec(EditorIndex), StateBox.SelectedIndex);
+        }
+
         #endregion
+
+        //Team Primary Color
+        private void TeamColor1Button_Click(object sender, EventArgs e)
+        {
+            colorDialog1.CustomColors = new int[] { ColorTranslator.ToOle(primary), ColorTranslator.ToOle(secondary), };
+            colorDialog1.ShowDialog();
+            TeamColor1Button.BackColor = colorDialog1.Color;
+
+            ChangeDBString("TEAM", "TFRD", EditorIndex, Convert.ToString(Convert.ToDecimal(TeamColor1Button.BackColor.R)));
+            ChangeDBString("TEAM", "TFFG", EditorIndex, Convert.ToString(Convert.ToDecimal(TeamColor1Button.BackColor.G)));
+            ChangeDBString("TEAM", "TFFB", EditorIndex, Convert.ToString(Convert.ToDecimal(TeamColor1Button.BackColor.B)));
+
+        }
+
+        //Team Secondary Color
+        private void TeamColor2Button_Click(object sender, EventArgs e)
+        {
+            colorDialog1.CustomColors = new int[] { ColorTranslator.ToOle(primary), ColorTranslator.ToOle(secondary), };
+            colorDialog1.ShowDialog();
+            TeamColor2Button.BackColor = colorDialog1.Color;
+
+            ChangeDBString("TEAM", "TFOR", EditorIndex, Convert.ToString(Convert.ToDecimal(TeamColor2Button.BackColor.R)));
+            ChangeDBString("TEAM", "TFOG", EditorIndex, Convert.ToString(Convert.ToDecimal(TeamColor2Button.BackColor.G)));
+            ChangeDBString("TEAM", "TFOB", EditorIndex, Convert.ToString(Convert.ToDecimal(TeamColor2Button.BackColor.B)));
+        }
+
+        //Reset Primary Color
+        private void ResetPrimaryColorButton_Click(object sender, EventArgs e)
+        {
+            TeamColor1Button.BackColor = primary;
+
+            ChangeDBString("TEAM", "TFRD", EditorIndex, Convert.ToString(Convert.ToDecimal(TeamColor1Button.BackColor.R)));
+            ChangeDBString("TEAM", "TFFG", EditorIndex, Convert.ToString(Convert.ToDecimal(TeamColor1Button.BackColor.G)));
+            ChangeDBString("TEAM", "TFFB", EditorIndex, Convert.ToString(Convert.ToDecimal(TeamColor1Button.BackColor.B)));
+        }
+
+        //Reset Secondary Color
+        private void ResetSecondaryColorButton_Click(object sender, EventArgs e)
+        {
+            TeamColor2Button.BackColor = secondary;
+
+            ChangeDBString("TEAM", "TFOR", EditorIndex, Convert.ToString(Convert.ToDecimal(TeamColor2Button.BackColor.R)));
+            ChangeDBString("TEAM", "TFOG", EditorIndex, Convert.ToString(Convert.ToDecimal(TeamColor2Button.BackColor.G)));
+            ChangeDBString("TEAM", "TFOB", EditorIndex, Convert.ToString(Convert.ToDecimal(TeamColor2Button.BackColor.B)));
+        }
+
+
+        private void GetCCPOboxColor()
+        {
+            if(TeamCCPONumBox.Value <= 5) TeamCCPONumBox.BackColor = Color.FromArgb(255, 199, 206);
+            else if(TeamCCPONumBox.Value <= 25) TeamCCPONumBox.BackColor = Color.Orange;
+            else if (TeamCCPONumBox.Value <= 49) TeamCCPONumBox.BackColor = Color.LightGoldenrodYellow;
+            else if (TeamCCPONumBox.Value < 75) TeamCCPONumBox.BackColor = Color.LightGreen;
+            else TeamCCPONumBox.BackColor = Color.LightBlue;
+        }
+
+
+        //Fire Single Head Coach
+
+        private void FireHeadCoach()
+        {
+            if (UserCoachCheckBox.Checked)
+            {
+                MessageBox.Show("User Coach cannot be fired.");
+                return;
+            }
+
+            var result = MessageBox.Show("Are you sure?", "Fire Head Coach", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+
+                int tgid = GetDBValueInt("TEAM", "TGID", EditorIndex);
+
+                bool hired = false;
+
+                while (!hired)
+                {
+                    int applicant = rand.Next(0, TDB.TableRecordCount(dbIndex, "COCH"));
+                    if (GetDBValueInt("COCH", "TGID", applicant) == 511)
+                    {
+                        ChangeDBInt("COCH", "TGID", GetCOCHrecFromTeamRec(EditorIndex), 511);
+                        ChangeDBInt("COCH", "CCPO", GetCOCHrecFromTeamRec(EditorIndex), 65);
+
+                        ChangeDBInt("COCH", "TGID", applicant, tgid);
+                        ChangeDBInt("COCH", "CCPO", applicant, 65);
+
+                        GetTeamEditorData(EditorIndex);
+
+                        hired = true;
+                        MessageBox.Show(GetDBValue("COCH", "CLFN", applicant) + " " + GetDBValue("COCH", "CLLN", applicant) + " was hired!");
+
+                    }
+                }
+            }
+
+        }
+
+
+
     }
 }

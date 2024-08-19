@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace DB_EDITOR
 {
@@ -43,15 +45,15 @@ namespace DB_EDITOR
 
             for (int i = 0; i < TDB.TableRecordCount(dbIndex, tableName); i++)
             {
-                double bmi = (double)Math.Round(Convert.ToDouble(TDB.FieldValue(dbIndex, tableName, "PWGT", i)) / Convert.ToDouble(TDB.FieldValue(dbIndex, tableName, "PHGT", i)), 2);
+                double bmi = (double)Math.Round(Convert.ToDouble(GetDBValue(tableName, "PWGT", i)) / Convert.ToDouble(GetDBValue(tableName, "PHGT", i)), 2);
 
                 for (int j = 0; j < 401; j++)
                 {
                     if (Convert.ToString(bmi) == strArray[j, 0])
                     {
-                        TDB.NewfieldValue(dbIndex, tableName, "PFSH", i, strArray[j, 1]);
-                        TDB.NewfieldValue(dbIndex, tableName, "PMSH", i, strArray[j, 2]);
-                        TDB.NewfieldValue(dbIndex, tableName, "PSSH", i, strArray[j, 3]);
+                        ChangeDBString(tableName, "PFSH", i, strArray[j, 1]);
+                        ChangeDBString(tableName, "PMSH", i, strArray[j, 2]);
+                        ChangeDBString(tableName, "PSSH", i, strArray[j, 3]);
                         break;
                     }
                 }
@@ -74,12 +76,12 @@ namespace DB_EDITOR
 
             for (int i = 0; i < TDB.TableRecordCount(dbIndex, "PLAY"); i++)
             {
-                if (TDB.FieldValue(dbIndex, "PLAY", "PPOS", i) == "1" || TDB.FieldValue(dbIndex, "PLAY", "PPOS", i) == "3"
-                    || TDB.FieldValue(dbIndex, "PLAY", "PPOS", i) == "16" || TDB.FieldValue(dbIndex, "PLAY", "PPOS", i) == "17" || TDB.FieldValue(dbIndex, "PLAY", "PPOS", i) == "18")
+                if (GetDBValue("PLAY", "PPOS", i) == "1" || GetDBValue("PLAY", "PPOS", i) == "3"
+                    || GetDBValue("PLAY", "PPOS", i) == "16" || GetDBValue("PLAY", "PPOS", i) == "17" || GetDBValue("PLAY", "PPOS", i) == "18")
                 {
-                    if (Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PSPD", i)) < 14)
+                    if (Convert.ToInt32(GetDBValue("PLAY", "PSPD", i)) < 14)
                     {
-                        TDB.NewfieldValue(dbIndex, "PLAY", "PSPD", i, "14");
+                        ChangeDBString("PLAY", "PSPD", i, "14");
                     }
                 }
                 progressBar1.PerformStep();
@@ -105,14 +107,14 @@ namespace DB_EDITOR
 
             for (int i = 0; i < TDB.TableRecordCount(dbIndex, "PLAY"); i++)
             {
-                if (TDB.FieldValue(dbIndex, "PLAY", "PPOS", i) == "0")
+                if (GetDBValue("PLAY", "PPOS", i) == "0")
                 {
                     int tendies;
-                    int speed = ConvertRating(Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PSPD", i)));
-                    int acceleration = ConvertRating(Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PACC", i)));
-                    int agility = ConvertRating(Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PAGI", i)));
-                    int ThPow = ConvertRating(Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PTHP", i)));
-                    int ThAcc = ConvertRating(Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PTHA", i)));
+                    int speed = ConvertRating(Convert.ToInt32(GetDBValue("PLAY", "PSPD", i)));
+                    int acceleration = ConvertRating(Convert.ToInt32(GetDBValue("PLAY", "PACC", i)));
+                    int agility = ConvertRating(Convert.ToInt32(GetDBValue("PLAY", "PAGI", i)));
+                    int ThPow = ConvertRating(Convert.ToInt32(GetDBValue("PLAY", "PTHP", i)));
+                    int ThAcc = ConvertRating(Convert.ToInt32(GetDBValue("PLAY", "PTHA", i)));
 
 
                     tendies = (100 + 10 * speed + acceleration + agility - 3 * ThPow - 5 * ThAcc) / 20;
@@ -120,7 +122,7 @@ namespace DB_EDITOR
                     if (tendies > 31) tendies = 31;
                     if (tendies < 0) tendies = 0;
 
-                    TDB.NewfieldValue(dbIndex, "PLAY", "PTEN", i, Convert.ToString(tendies));
+                    ChangeDBString("PLAY", "PTEN", i, Convert.ToString(tendies));
 
                     if (tendies < 10) pocket++;
                     else if (tendies > 19) scrambler++;
@@ -147,7 +149,7 @@ namespace DB_EDITOR
             {
                 int x = rand.Next(0, 32);
 
-                TDB.NewfieldValue(dbIndex, "PLAY", "PPOE", i, Convert.ToString(x));
+                ChangeDBString("PLAY", "PPOE", i, Convert.ToString(x));
 
                 progressBar1.PerformStep();
             }
@@ -177,6 +179,29 @@ namespace DB_EDITOR
             MessageBox.Show("Player Overall Calculations are complete!");
         }
 
+        //Assign Random Coach Prestige to Free Agents
+        private void AssignCoachPrestigeFreeAgents()
+        {
+            progressBar1.Visible = true;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = TDB.TableRecordCount(dbIndex, "COCH");
+            progressBar1.Step = 1;
+            progressBar1.Value = 0;
+
+            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "COCH"); i++)
+            {
+                if(GetDBValueInt("COCH", "TGID", i) == 511)
+                {
+                    ChangeDBInt("COCH", "CPRE", i, rand.Next(1, 4));
+                }
+                progressBar1.PerformStep();
+            }
+
+            MessageBox.Show("Free Agent Coaches now have prestige!");
+            progressBar1.Value = 0; 
+        }
+
+
 
         //Export Recruiting Class from Roster
 
@@ -195,9 +220,9 @@ namespace DB_EDITOR
 
             for (int i = 0; i < TDB.TableRecordCount(dbIndex, tableName); i++)
             {
-                if(TDYN || TDB.TDBFieldGetValueAsInteger(dbIndex, tableName, "TTYP", i) == 0)
+                if(TDYN || GetDBValueInt(tableName, "TTYP", i) == 0)
                 {
-                    int TOID = TDB.TDBFieldGetValueAsInteger(dbIndex, tableName, "TOID", i);
+                    int TOID = GetDBValueInt(tableName, "TOID", i);
                     int PGIDbeg = TOID * 70;
                     int PGIDend = PGIDbeg + 69;
                     count = 0;
@@ -205,12 +230,12 @@ namespace DB_EDITOR
 
                     for (int j = 0; j < TDB.TableRecordCount(dbIndex, "PLAY"); j++)
                     {
-                        int PGID = TDB.TDBFieldGetValueAsInteger(dbIndex, "PLAY", "PGID", j);
+                        int PGID = GetDBValueInt("PLAY", "PGID", j);
 
                         if (PGID >= PGIDbeg && PGID <= PGIDend)
                         {
-                            int POVR = TDB.TDBFieldGetValueAsInteger(dbIndex, "PLAY", "POVR", j);
-                            int PPOS = TDB.TDBFieldGetValueAsInteger(dbIndex, "PLAY", "PPOS", j);
+                            int POVR = GetDBValueInt("PLAY", "POVR", j);
+                            int PPOS = GetDBValueInt("PLAY", "PPOS", j);
                             List<int> player = new List<int>();
                             roster.Add(player);
                             roster[count].Add(POVR);
@@ -238,7 +263,7 @@ namespace DB_EDITOR
 
                     rating = ConvertRating(rating / count) + bonus;
 
-                    TDB.NewfieldValue(dbIndex, tableName, "TRDB", i, Convert.ToString(rating));
+                    ChangeDBString(tableName, "TRDB", i, Convert.ToString(rating));
 
 
                     //TRLB - Linebackers 13, 14, 15
@@ -258,7 +283,7 @@ namespace DB_EDITOR
 
                     rating = ConvertRating(rating / count) + bonus;
 
-                    TDB.NewfieldValue(dbIndex, tableName, "TRLB", i, Convert.ToString(rating));
+                    ChangeDBString(tableName, "TRLB", i, Convert.ToString(rating));
 
 
 
@@ -279,7 +304,7 @@ namespace DB_EDITOR
 
                     rating = ConvertRating(rating / count) + bonus;
 
-                    TDB.NewfieldValue(dbIndex, tableName, "TRQB", i, Convert.ToString(rating));
+                    ChangeDBString(tableName, "TRQB", i, Convert.ToString(rating));
 
 
                     //TRRB - Running Backs 1, 2
@@ -299,7 +324,7 @@ namespace DB_EDITOR
 
                     rating = ConvertRating(rating / count) + bonus;
 
-                    TDB.NewfieldValue(dbIndex, tableName, "TRRB", i, Convert.ToString(rating));
+                    ChangeDBString(tableName, "TRRB", i, Convert.ToString(rating));
 
                     //TRDL - Defensive Line 10, 11, 12
                     rating = 0;
@@ -318,7 +343,7 @@ namespace DB_EDITOR
 
                     rating = ConvertRating(rating / count) + bonus;
 
-                    TDB.NewfieldValue(dbIndex, tableName, "TRDL", i, Convert.ToString(rating));
+                    ChangeDBString(tableName, "TRDL", i, Convert.ToString(rating));
 
                     //TROL - Offensive Line 5 - 9
                     rating = 0;
@@ -337,7 +362,7 @@ namespace DB_EDITOR
 
                     rating = ConvertRating(rating / count) + bonus;
 
-                    TDB.NewfieldValue(dbIndex, tableName, "TROL", i, Convert.ToString(rating));
+                    ChangeDBString(tableName, "TROL", i, Convert.ToString(rating));
 
                     //TWRR - Wide Receivers 3, 4
                     rating = 0;
@@ -356,7 +381,7 @@ namespace DB_EDITOR
 
                     rating = ConvertRating(rating / count) + bonus;
 
-                    TDB.NewfieldValue(dbIndex, tableName, "TWRR", i, Convert.ToString(rating));
+                    ChangeDBString(tableName, "TWRR", i, Convert.ToString(rating));
 
                     //TRST - Special Teams 19, 20
                     rating = 0;
@@ -375,23 +400,23 @@ namespace DB_EDITOR
 
                     rating = ConvertRating(rating / count) + bonus;
 
-                    TDB.NewfieldValue(dbIndex, tableName, "TRST", i, Convert.ToString(rating));
+                    ChangeDBString(tableName, "TRST", i, Convert.ToString(rating));
 
 
                     //TRDE - Defense 10 - 18, 20
-                    rating = (Convert.ToInt32(TDB.FieldValue(dbIndex, tableName, "TRDB", i)) + Convert.ToInt32(TDB.FieldValue(dbIndex, tableName, "TRLB", i)) + Convert.ToInt32(TDB.FieldValue(dbIndex, tableName, "TRDL", i))) / 3;
+                    rating = (Convert.ToInt32(GetDBValue(tableName, "TRDB", i)) + Convert.ToInt32(GetDBValue(tableName, "TRLB", i)) + Convert.ToInt32(GetDBValue(tableName, "TRDL", i))) / 3;
 
-                    TDB.NewfieldValue(dbIndex, tableName, "TRDE", i, Convert.ToString(rating));
+                    ChangeDBString(tableName, "TRDE", i, Convert.ToString(rating));
 
                     //TROF - Offense 0 - 9, 19
-                    rating = (Convert.ToInt32(TDB.FieldValue(dbIndex, tableName, "TRQB", i)) * 2 + Convert.ToInt32(TDB.FieldValue(dbIndex, tableName, "TRRB", i)) + Convert.ToInt32(TDB.FieldValue(dbIndex, tableName, "TWRR", i)) + Convert.ToInt32(TDB.FieldValue(dbIndex, tableName, "TROL", i))) / 5;
+                    rating = (Convert.ToInt32(GetDBValue(tableName, "TRQB", i)) * 2 + Convert.ToInt32(GetDBValue(tableName, "TRRB", i)) + Convert.ToInt32(GetDBValue(tableName, "TWRR", i)) + Convert.ToInt32(GetDBValue(tableName, "TROL", i))) / 5;
 
-                    TDB.NewfieldValue(dbIndex, tableName, "TROF", i, Convert.ToString(rating));
+                    ChangeDBString(tableName, "TROF", i, Convert.ToString(rating));
 
                     //TROV - Team Overall
-                    rating = (Convert.ToInt32(TDB.FieldValue(dbIndex, tableName, "TROF", i)) + Convert.ToInt32(TDB.FieldValue(dbIndex, tableName, "TRDE", i))) / 2;
+                    rating = (Convert.ToInt32(GetDBValue(tableName, "TROF", i)) + Convert.ToInt32(GetDBValue(tableName, "TRDE", i))) / 2;
 
-                    TDB.NewfieldValue(dbIndex, tableName, "TROV", i, Convert.ToString(rating));
+                    ChangeDBString(tableName, "TROV", i, Convert.ToString(rating));
 
 
                     progressBar1.PerformStep();
@@ -415,7 +440,7 @@ namespace DB_EDITOR
 
             for (int i = 0; i < TDB.TableRecordCount(dbIndex, "TEAM"); i++)
             {
-                int TGID = TDB.TDBFieldGetValueAsInteger(dbIndex, "TEAM", "TGID", i);
+                int TGID = GetDBValueInt("TEAM", "TGID", i);
                 int PGIDbeg = TGID * 70;
                 int PGIDend = PGIDbeg + 69;
                 int count = 0;
@@ -423,12 +448,12 @@ namespace DB_EDITOR
 
                 for (int j = 0; j < TDB.TableRecordCount(dbIndex, "PLAY"); j++)
                 {
-                    int PGID = TDB.TDBFieldGetValueAsInteger(dbIndex, "PLAY", "PGID", j);
+                    int PGID = GetDBValueInt("PLAY", "PGID", j);
 
                     if (PGID >= PGIDbeg && PGID <= PGIDend)
                     {
-                        int POVR = TDB.TDBFieldGetValueAsInteger(dbIndex, "PLAY", "POVR", j);
-                        int PPOS = TDB.TDBFieldGetValueAsInteger(dbIndex, "PLAY", "PPOS", j);
+                        int POVR = GetDBValueInt("PLAY", "POVR", j);
+                        int PPOS = GetDBValueInt("PLAY", "PPOS", j);
 
                         List<int> player = new List<int>();
                         roster.Add(player);
@@ -457,12 +482,12 @@ namespace DB_EDITOR
                             if (countOff == 0)
                             {
                                 int impactID = roster[j][2] - PGIDbeg;
-                                TDB.NewfieldValue(dbIndex, "TEAM", "TPIO", i, Convert.ToString(impactID));
+                                ChangeDBString("TEAM", "TPIO", i, Convert.ToString(impactID));
                             }
                             if (countOff == 1)
                             {
                                 int impactID = roster[j][2] - PGIDbeg;
-                                TDB.NewfieldValue(dbIndex, "TEAM", "TSI1", i, Convert.ToString(impactID));
+                                ChangeDBString("TEAM", "TSI1", i, Convert.ToString(impactID));
                             }
                             countOff++;
                         }
@@ -473,12 +498,12 @@ namespace DB_EDITOR
                             if (countDef == 0)
                             {
                                 int impactID = roster[j][2] - PGIDbeg;
-                                TDB.NewfieldValue(dbIndex, "TEAM", "TPID", i, Convert.ToString(impactID));
+                                ChangeDBString("TEAM", "TPID", i, Convert.ToString(impactID));
                             }
                             if (countDef == 1)
                             {
                                 int impactID = roster[j][2] - PGIDbeg;
-                                TDB.NewfieldValue(dbIndex, "TEAM", "TSI2", i, Convert.ToString(impactID));
+                                ChangeDBString("TEAM", "TSI2", i, Convert.ToString(impactID));
                             }
                             countDef++;
                         }
@@ -526,11 +551,10 @@ namespace DB_EDITOR
             CreateLastNamesDB();
             List<List<int>> PJEN = CreateJerseyNumberDB();
 
-            List<List<string>> RCATmapper = new List<List<string>>();
-            RCATmapper = CreateStringListfromCSV(@"resources\RCAT-MAPPER.csv");
+            List<List<string>> RCATmapper = CreateStringListsFromCSV(@"resources\RCAT-MAPPER.csv", false);
 
             List<List<string>> teamData = new List<List<string>>();
-            teamData = CreateStringListfromCSV(@"resources\FantasyGenData.csv");
+            teamData = CreateStringListsFromCSV(@"resources\FantasyGenData.csv", true);
 
             int rec = 0;
 
@@ -540,12 +564,15 @@ namespace DB_EDITOR
 
             for (int i = 0; i < TDB.TableRecordCount(dbIndex, tableName); i++)
             {
-                if (TDYN || TDB.TDBFieldGetValueAsInteger(dbIndex, tableName, "TTYP", i) == 0)
+                if (TDYN || GetDBValueInt(tableName, "TTYP", i) == 0)
                 {
-                    int TOID = TDB.TDBFieldGetValueAsInteger(dbIndex, tableName, "TOID", i);
+                    int TOID = GetDBValueInt(tableName, "TOID", i);
                     int PGIDbeg = TOID * 70;
                     int PGIDend = PGIDbeg + 69;
                     int rating = GetFantasyTeamRating(teamData, TOID);
+                    int ST = 0;
+                    int freshmanPCT = 25;
+
 
                     for (int j = 0; j < 68; j++)
                     {
@@ -553,72 +580,80 @@ namespace DB_EDITOR
                         TDB.TDBTableRecordAdd(dbIndex, "PLAY", false);
 
                         //QB
-                        if (j < 3) TransferRCATtoPLAY(rec, 0, PGIDbeg + j, RCATmapper, PJEN);
+                        if (j < 3) TransferRCATtoPLAY(rec, 0, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
 
                         //RB
-                        else if (j < 6) TransferRCATtoPLAY(rec, 1, PGIDbeg + j, RCATmapper, PJEN);
+                        else if (j < 6) TransferRCATtoPLAY(rec, 1, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
 
                         //FB
-                        else if (j < 7) TransferRCATtoPLAY(rec, 2, PGIDbeg + j, RCATmapper, PJEN);
+                        else if (j < 7) TransferRCATtoPLAY(rec, 2, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
 
                         //WR
-                        else if (j < 13) TransferRCATtoPLAY(rec, 3, PGIDbeg + j, RCATmapper, PJEN);
+                        else if (j < 13) TransferRCATtoPLAY(rec, 3, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
 
                         //TE
-                        else if (j < 16) TransferRCATtoPLAY(rec, 4, PGIDbeg + j, RCATmapper, PJEN);
+                        else if (j < 16) TransferRCATtoPLAY(rec, 4, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
 
                         //LT
-                        else if (j < 18) TransferRCATtoPLAY(rec, 5, PGIDbeg + j, RCATmapper, PJEN);
+                        else if (j < 18) TransferRCATtoPLAY(rec, 5, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
 
                         //LG
-                        else if (j < 20) TransferRCATtoPLAY(rec, 6, PGIDbeg + j, RCATmapper, PJEN);
+                        else if (j < 20) TransferRCATtoPLAY(rec, 6, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
 
                         //C
-                        else if (j < 22) TransferRCATtoPLAY(rec, 7, PGIDbeg + j, RCATmapper, PJEN);
+                        else if (j < 22) TransferRCATtoPLAY(rec, 7, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
 
                         //RG
-                        else if (j < 24) TransferRCATtoPLAY(rec, 8, PGIDbeg + j, RCATmapper, PJEN);
+                        else if (j < 24) TransferRCATtoPLAY(rec, 8, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
 
                         //RT
-                        else if (j < 26) TransferRCATtoPLAY(rec, 9, PGIDbeg + j, RCATmapper, PJEN);
+                        else if (j < 26) TransferRCATtoPLAY(rec, 9, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
 
                         //LE
-                        else if (j < 28) TransferRCATtoPLAY(rec, 10, PGIDbeg + j, RCATmapper, PJEN);
+                        else if (j < 28) TransferRCATtoPLAY(rec, 10, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
 
                         //DT
-                        else if (j < 32) TransferRCATtoPLAY(rec, 11, PGIDbeg + j, RCATmapper, PJEN);
+                        else if (j < 32) TransferRCATtoPLAY(rec, 11, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
 
                         //RE
-                        else if (j < 34) TransferRCATtoPLAY(rec, 12, PGIDbeg + j, RCATmapper, PJEN);
+                        else if (j < 34) TransferRCATtoPLAY(rec, 12, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
 
                         //LOLB
-                        else if (j < 36) TransferRCATtoPLAY(rec, 13, PGIDbeg + j, RCATmapper, PJEN);
+                        else if (j < 36) TransferRCATtoPLAY(rec, 13, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
 
                         //MLB
-                        else if (j < 39) TransferRCATtoPLAY(rec, 14, PGIDbeg + j, RCATmapper, PJEN);
+                        else if (j < 39) TransferRCATtoPLAY(rec, 14, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
 
                         //ROLB
-                        else if (j < 41) TransferRCATtoPLAY(rec, 15, PGIDbeg + j, RCATmapper, PJEN);
+                        else if (j < 41) TransferRCATtoPLAY(rec, 15, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
 
                         //CB
-                        else if (j < 46) TransferRCATtoPLAY(rec, 16, PGIDbeg + j, RCATmapper, PJEN);
+                        else if (j < 46) TransferRCATtoPLAY(rec, 16, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
 
                         //SS
-                        else if (j < 48) TransferRCATtoPLAY(rec, 17, PGIDbeg + j, RCATmapper, PJEN);
+                        else if (j < 48) TransferRCATtoPLAY(rec, 17, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
 
                         //FS
-                        else if (j < 50) TransferRCATtoPLAY(rec, 18, PGIDbeg + j, RCATmapper, PJEN);
+                        else if (j < 50) TransferRCATtoPLAY(rec, 18, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
 
                         //K
-                        else if (j < 51) TransferRCATtoPLAY(rec, 19, PGIDbeg + j, RCATmapper, PJEN);
+                        else if (j < 51) TransferRCATtoPLAY(rec, 19, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
 
                         //P
-                        else if (j < 52) TransferRCATtoPLAY(rec, 20, PGIDbeg + j, RCATmapper, PJEN);
+                        else if (j < 52) TransferRCATtoPLAY(rec, 20, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
 
-                        else TransferRCATtoPLAY(rec, rand.Next(0, 21), PGIDbeg + j, RCATmapper, PJEN);
+                        else
+                        {
+                            if (ST < 1)
+                            {
+                                TransferRCATtoPLAY(rec, rand.Next(0, 21), PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
+                                ST++;
+                            }
+                            else TransferRCATtoPLAY(rec, rand.Next(0, 19), PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
+                        }
 
                         //randomizes the attributes from team overall
-                        RandomizeAttribute("PLAY", rec, rating + TDB.TDBFieldGetValueAsInteger(dbIndex, "PLAY", "PYER", rec));
+                        RandomizeAttribute("PLAY", rec, rating + GetDBValueInt("PLAY", "PYER", rec)-1);
 
 
                         rec++;
@@ -660,7 +695,7 @@ namespace DB_EDITOR
         }
 
         //Transfers RCAT to PLAY field
-        private void TransferRCATtoPLAY(int rec, int ppos, int PGID, List<List<string>> map, List<List<int>> PJEN)
+        private void TransferRCATtoPLAY(int rec, int ppos, int PGID, List<List<string>> map, List<List<int>> PJEN, int FreshmanPCT)
         {
             bool x = true;
             while (x)
@@ -673,27 +708,29 @@ namespace DB_EDITOR
                         int RCATcol = Convert.ToInt32(map[i][0]); //finds the column number that the RCAT attribute value lives in
                         string field = map[i][1]; //finds the name of the attribute
 
-                        TDB.NewfieldValue(dbIndex, "PLAY", field, rec, Convert.ToString(RCAT[r][RCATcol]));
+                        ChangeDBString("PLAY", field, rec, Convert.ToString(RCAT[r][RCATcol]));
                     }
 
                     string redshirt = "0";
                     if (rand.Next(0, 3) > 2) redshirt = "2";
 
-                    TDB.NewfieldValue(dbIndex, "PLAY", "RCHD", rec, Convert.ToString(rand.Next(0,12864))); //hometown
-                    TDB.NewfieldValue(dbIndex, "PLAY", "PGID", rec, Convert.ToString(PGID)); //player id
-                    TDB.NewfieldValue(dbIndex, "PLAY", "PHPD", rec, "0"); //PHPD
-                    TDB.NewfieldValue(dbIndex, "PLAY", "PRSD", rec, redshirt); //Redshirt
-                    TDB.NewfieldValue(dbIndex, "PLAY", "PLMG", rec, "0"); //Mouthguard
-                    TDB.NewfieldValue(dbIndex, "PLAY", "PFGM", rec, "0"); //face shape (to be calculated later)
-                    TDB.NewfieldValue(dbIndex, "PLAY", "PJEN", rec, Convert.ToString(ChooseJerseyNumber(ppos, PJEN))); //jersey num
-                    TDB.NewfieldValue(dbIndex, "PLAY", "PTEN", rec, "0"); //tendency (to be calculated later)
-                    TDB.NewfieldValue(dbIndex, "PLAY", "PFMP", rec, "0"); //face (to be calculated later)
-                    TDB.NewfieldValue(dbIndex, "PLAY", "PIMP", rec, Convert.ToString(rand.Next(0,32))); //importance (to be re-calculated later)
-                    TDB.NewfieldValue(dbIndex, "PLAY", "PTYP", rec, "0"); //player type (graduation/nfl,etc)
-                    TDB.NewfieldValue(dbIndex, "PLAY", "PYER", rec, Convert.ToString(rand.Next(0,4))); //year/class
-                    TDB.NewfieldValue(dbIndex, "PLAY", "POVR", rec, "0"); //overall, to be calculated later
-                    TDB.NewfieldValue(dbIndex, "PLAY", "PSLY", rec, "0"); //PSLY
-                    TDB.NewfieldValue(dbIndex, "PLAY", "PRST", rec, "0"); //PRST
+                    ChangeDBInt("PLAY", "RCHD", rec, rand.Next(0,12864)); //hometown
+                    ChangeDBString("PLAY", "PGID", rec, Convert.ToString(PGID)); //player id
+                    ChangeDBString("PLAY", "PHPD", rec, "0"); //PHPD
+                    ChangeDBString("PLAY", "PRSD", rec, redshirt); //Redshirt
+                    ChangeDBString("PLAY", "PLMG", rec, "0"); //Mouthguard
+                    ChangeDBString("PLAY", "PFGM", rec, "0"); //face shape (to be calculated later)
+                    ChangeDBInt("PLAY", "PJEN", rec, ChooseJerseyNumber(ppos, PJEN)); //jersey num
+                    ChangeDBString("PLAY", "PTEN", rec, "0"); //tendency (to be calculated later)
+                    ChangeDBString("PLAY", "PFMP", rec, "0"); //face (to be calculated later)
+                    ChangeDBInt("PLAY", "PIMP", rec, rand.Next(0,32)); //importance (to be re-calculated later)
+                    ChangeDBString("PLAY", "PTYP", rec, "0"); //player type (graduation/nfl,etc)
+                    ChangeDBString("PLAY", "POVR", rec, "0"); //overall, to be calculated later
+                    ChangeDBString("PLAY", "PSLY", rec, "0"); //PSLY
+                    ChangeDBString("PLAY", "PRST", rec, "0"); //PRST
+
+                    if(rand.Next(1,101) < FreshmanPCT) ChangeDBInt("PLAY", "PYER", rec, 0); //year/class
+                    else ChangeDBInt("PLAY", "PYER", rec, rand.Next(1, 4)); //year/class
 
                     string FN, LN;
 
@@ -709,8 +746,10 @@ namespace DB_EDITOR
         }
 
         //Randomize the Players to give a little bit more variety and evaluation randomness
-        private void RandomizeAttribute(string FieldName, int rec, int tol)
+        private void RandomizeAttribute(string TableName, int rec, int tol)
         {
+            tol += 3 - GetDBValueInt("PLAY", "PYER", rec);
+
             int tolB = tol / 2;  //half the tolerance for specific attributes
 
             //PTHA	PSTA	PKAC	PACC	PSPD	PPOE	PCTH	PAGI	PINJ	PTAK	PPBK	PRBK	PBTK	PTHP	PJMP	PCAR	PKPR	PSTR	PAWR
@@ -718,36 +757,36 @@ namespace DB_EDITOR
 
             int PBRE, PEYE, PPOE, PINJ, PAWR, PWGT, PHGT, PTHA, PSTA, PKAC, PACC, PSPD, PCTH, PAGI, PTAK, PPBK, PRBK, PBTK, PTHP, PJMP, PCAR, PKPR, PSTR, PIMP, PDIS;
 
-            PHGT = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PHGT", rec));
-            PWGT = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PWGT", rec));
-            PAWR = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PAWR", rec));
+            PHGT = Convert.ToInt32(GetDBValue(TableName, "PHGT", rec));
+            PWGT = Convert.ToInt32(GetDBValue(TableName, "PWGT", rec));
+            PAWR = Convert.ToInt32(GetDBValue(TableName, "PAWR", rec));
 
-            PTHA = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PTHA", rec));
-            PSTA = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PSTA", rec));
-            PKAC = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PKAC", rec));
-            PACC = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PACC", rec));
-            PSPD = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PSPD", rec));
-            PCTH = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PCTH", rec));
-            PAGI = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PAGI", rec));
-            PTAK = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PTAK", rec));
-            PPBK = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PPBK", rec));
-            PRBK = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PRBK", rec));
-            PBTK = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PBTK", rec));
-            PTHP = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PTHP", rec));
-            PJMP = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PJMP", rec));
-            PCAR = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PCAR", rec));
-            PKPR = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PKPR", rec));
-            PSTR = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PSTR", rec));
-            PDIS = Convert.ToInt32(TDB.FieldValue(dbIndex, FieldName, "PDIS", rec));
+            PTHA = Convert.ToInt32(GetDBValue(TableName, "PTHA", rec));
+            PSTA = Convert.ToInt32(GetDBValue(TableName, "PSTA", rec));
+            PKAC = Convert.ToInt32(GetDBValue(TableName, "PKAC", rec));
+            PACC = Convert.ToInt32(GetDBValue(TableName, "PACC", rec));
+            PSPD = Convert.ToInt32(GetDBValue(TableName, "PSPD", rec));
+            PCTH = Convert.ToInt32(GetDBValue(TableName, "PCTH", rec));
+            PAGI = Convert.ToInt32(GetDBValue(TableName, "PAGI", rec));
+            PTAK = Convert.ToInt32(GetDBValue(TableName, "PTAK", rec));
+            PPBK = Convert.ToInt32(GetDBValue(TableName, "PPBK", rec));
+            PRBK = Convert.ToInt32(GetDBValue(TableName, "PRBK", rec));
+            PBTK = Convert.ToInt32(GetDBValue(TableName, "PBTK", rec));
+            PTHP = Convert.ToInt32(GetDBValue(TableName, "PTHP", rec));
+            PJMP = Convert.ToInt32(GetDBValue(TableName, "PJMP", rec));
+            PCAR = Convert.ToInt32(GetDBValue(TableName, "PCAR", rec));
+            PKPR = Convert.ToInt32(GetDBValue(TableName, "PKPR", rec));
+            PSTR = Convert.ToInt32(GetDBValue(TableName, "PSTR", rec));
+            PDIS = Convert.ToInt32(GetDBValue(TableName, "PDIS", rec));
 
             PBRE = rand.Next(0, 2);
             PEYE = rand.Next(0, 2);
-            PHGT += rand.Next(-1, 2);
-            PWGT += rand.Next(-8, 9);
-            if (PWGT < 0) PWGT = 0;
-            if (PWGT > 340) PWGT = 340;
-            if (PHGT > 82) PHGT = 82;
-            if (PHGT < 0) PHGT = 0;
+            //PHGT += rand.Next(-1, 2);
+            //PWGT += rand.Next(-8, 9);
+            //if (PWGT < 0) PWGT = 0;
+            //if (PWGT > 340) PWGT = 340;
+            //if (PHGT > 82) PHGT = 82;
+            //if (PHGT < 0) PHGT = 0;
 
             PPOE = rand.Next(1, 30);
             PINJ = rand.Next(1, 30);
@@ -771,40 +810,40 @@ namespace DB_EDITOR
             PKPR = GetRandomPositiveAttribute(PKPR, tol);
             PSTR = GetRandomPositiveAttribute(PSTR, tol);
 
-            if(TDB.TDBFieldGetValueAsInteger(dbIndex, "PLAY", "PPOS", rec) == 0) 
+            if(GetDBValueInt("PLAY", "PPOS", rec) == 0) 
             {
                 PTHA = GetRandomPositiveAttribute(PTHA, tol);
                 PTHP = GetRandomPositiveAttribute(PTHP, tol);
             }
 
 
-            TDB.NewfieldValue(dbIndex, FieldName, "PBRE", rec, Convert.ToString(PBRE));
-            TDB.NewfieldValue(dbIndex, FieldName, "PEYE", rec, Convert.ToString(PEYE));
-            TDB.NewfieldValue(dbIndex, FieldName, "PPOE", rec, Convert.ToString(PPOE));
-            TDB.NewfieldValue(dbIndex, FieldName, "PINJ", rec, Convert.ToString(PINJ));
-            TDB.NewfieldValue(dbIndex, FieldName, "PAWR", rec, Convert.ToString(PAWR));
-            TDB.NewfieldValue(dbIndex, FieldName, "PHGT", rec, Convert.ToString(PHGT));
-            TDB.NewfieldValue(dbIndex, FieldName, "PWGT", rec, Convert.ToString(PWGT));
+            ChangeDBString(TableName, "PBRE", rec, Convert.ToString(PBRE));
+            ChangeDBString(TableName, "PEYE", rec, Convert.ToString(PEYE));
+            ChangeDBString(TableName, "PPOE", rec, Convert.ToString(PPOE));
+            ChangeDBString(TableName, "PINJ", rec, Convert.ToString(PINJ));
+            ChangeDBString(TableName, "PAWR", rec, Convert.ToString(PAWR));
+            ChangeDBString(TableName, "PHGT", rec, Convert.ToString(PHGT));
+            ChangeDBString(TableName, "PWGT", rec, Convert.ToString(PWGT));
 
 
-            TDB.NewfieldValue(dbIndex, FieldName, "PTHA", rec, Convert.ToString(PTHA));
-            TDB.NewfieldValue(dbIndex, FieldName, "PSTA", rec, Convert.ToString(PSTA));
-            TDB.NewfieldValue(dbIndex, FieldName, "PKAC", rec, Convert.ToString(PKAC));
-            TDB.NewfieldValue(dbIndex, FieldName, "PACC", rec, Convert.ToString(PACC));
-            TDB.NewfieldValue(dbIndex, FieldName, "PSPD", rec, Convert.ToString(PSPD));
-            TDB.NewfieldValue(dbIndex, FieldName, "PCTH", rec, Convert.ToString(PCTH));
-            TDB.NewfieldValue(dbIndex, FieldName, "PAGI", rec, Convert.ToString(PAGI));
-            TDB.NewfieldValue(dbIndex, FieldName, "PTAK", rec, Convert.ToString(PTAK));
-            TDB.NewfieldValue(dbIndex, FieldName, "PPBK", rec, Convert.ToString(PPBK));
-            TDB.NewfieldValue(dbIndex, FieldName, "PRBK", rec, Convert.ToString(PRBK));
-            TDB.NewfieldValue(dbIndex, FieldName, "PBTK", rec, Convert.ToString(PBTK));
-            TDB.NewfieldValue(dbIndex, FieldName, "PTHP", rec, Convert.ToString(PTHP));
-            TDB.NewfieldValue(dbIndex, FieldName, "PJMP", rec, Convert.ToString(PJMP));
-            TDB.NewfieldValue(dbIndex, FieldName, "PCAR", rec, Convert.ToString(PCAR));
-            TDB.NewfieldValue(dbIndex, FieldName, "PKPR", rec, Convert.ToString(PKPR));
-            TDB.NewfieldValue(dbIndex, FieldName, "PSTR", rec, Convert.ToString(PSTR));
-            TDB.NewfieldValue(dbIndex, FieldName, "PIMP", rec, Convert.ToString(PIMP));
-            TDB.NewfieldValue(dbIndex, FieldName, "PDIS", rec, Convert.ToString(PDIS));
+            ChangeDBString(TableName, "PTHA", rec, Convert.ToString(PTHA));
+            ChangeDBString(TableName, "PSTA", rec, Convert.ToString(PSTA));
+            ChangeDBString(TableName, "PKAC", rec, Convert.ToString(PKAC));
+            ChangeDBString(TableName, "PACC", rec, Convert.ToString(PACC));
+            ChangeDBString(TableName, "PSPD", rec, Convert.ToString(PSPD));
+            ChangeDBString(TableName, "PCTH", rec, Convert.ToString(PCTH));
+            ChangeDBString(TableName, "PAGI", rec, Convert.ToString(PAGI));
+            ChangeDBString(TableName, "PTAK", rec, Convert.ToString(PTAK));
+            ChangeDBString(TableName, "PPBK", rec, Convert.ToString(PPBK));
+            ChangeDBString(TableName, "PRBK", rec, Convert.ToString(PRBK));
+            ChangeDBString(TableName, "PBTK", rec, Convert.ToString(PBTK));
+            ChangeDBString(TableName, "PTHP", rec, Convert.ToString(PTHP));
+            ChangeDBString(TableName, "PJMP", rec, Convert.ToString(PJMP));
+            ChangeDBString(TableName, "PCAR", rec, Convert.ToString(PCAR));
+            ChangeDBString(TableName, "PKPR", rec, Convert.ToString(PKPR));
+            ChangeDBString(TableName, "PSTR", rec, Convert.ToString(PSTR));
+            ChangeDBString(TableName, "PIMP", rec, Convert.ToString(PIMP));
+            ChangeDBString(TableName, "PDIS", rec, Convert.ToString(PDIS));
         }
 
         private int ChooseJerseyNumber(int PPOS, List<List<int>> PJEN)
@@ -845,9 +884,9 @@ namespace DB_EDITOR
 
             for (int i = 0; i < TDB.TableRecordCount(dbIndex, "tableName"); i++)
             {
-                if (TDYN || TDB.TDBFieldGetValueAsInteger(dbIndex, tableName, "TTYP", i) == 0)
+                if (TDYN || GetDBValueInt(tableName, "TTYP", i) == 0)
                 {
-                    int TOID = TDB.TDBFieldGetValueAsInteger(dbIndex, "tableName", "TOID", i);
+                    int TOID = GetDBValueInt(tableName, "TOID", i);
                     int PGIDbeg = TOID * 70;
                     int PGIDend = PGIDbeg + 69;
                     count = 0;
@@ -855,12 +894,12 @@ namespace DB_EDITOR
 
                     for (int j = 0; j < TDB.TableRecordCount(dbIndex, "PLAY"); j++)
                     {
-                        int PGID = TDB.TDBFieldGetValueAsInteger(dbIndex, "PLAY", "PGID", j);
+                        int PGID = GetDBValueInt("PLAY", "PGID", j);
 
                         if (PGID >= PGIDbeg && PGID <= PGIDend)
                         {
-                            int POVR = TDB.TDBFieldGetValueAsInteger(dbIndex, "PLAY", "POVR", j);
-                            int PPOS = TDB.TDBFieldGetValueAsInteger(dbIndex, "PLAY", "PPOS", j);
+                            int POVR = GetDBValueInt("PLAY", "POVR", j);
+                            int PPOS = GetDBValueInt("PLAY", "PPOS", j);
 
                             List<int> player = new List<int>();
                             roster.Add(player);
@@ -968,9 +1007,9 @@ namespace DB_EDITOR
                 if (ppos > 20 || !IsStarter(PosRating[i][1])) 
                 {
                     int pgid = PosRating[i][1];
-                    TDB.NewfieldValue(dbIndex, "DCHT", "PGID", rec, Convert.ToString(pgid));
-                    TDB.NewfieldValue(dbIndex, "DCHT", "PPOS", rec, Convert.ToString(ppos));
-                    TDB.NewfieldValue(dbIndex, "DCHT", "ddep", rec, Convert.ToString(count));
+                    ChangeDBString("DCHT", "PGID", rec, Convert.ToString(pgid));
+                    ChangeDBString("DCHT", "PPOS", rec, Convert.ToString(ppos));
+                    ChangeDBString("DCHT", "ddep", rec, Convert.ToString(count));
                     count++;
                     rec++;
                 }
@@ -983,7 +1022,7 @@ namespace DB_EDITOR
         private bool IsStarter(int pgid)
         {
             for(int i = 0; i < TDB.TableRecordCount(dbIndex, "DCHT"); i++) {
-                if (TDB.TDBFieldGetValueAsInteger(dbIndex, "DCHT", "PGID", i) == pgid && TDB.TDBFieldGetValueAsInteger(dbIndex, "DCHT", "ddep", i) == 0) return true;
+                if (GetDBValueInt("DCHT", "PGID", i) == pgid && GetDBValueInt("DCHT", "ddep", i) == 0) return true;
             }
             return false;
         }
@@ -991,7 +1030,7 @@ namespace DB_EDITOR
 
 
         //Fill Rosters
-        private void FillRosters(string tableName)
+        private void FillRosters(string tableName, int FreshmanPCT)
         {
             //Setup
             CreateRCATtable();
@@ -1000,7 +1039,7 @@ namespace DB_EDITOR
             List<List<int>> PJEN = CreateJerseyNumberDB();
 
             List<List<string>> RCATmapper = new List<List<string>>();
-            RCATmapper = CreateStringListfromCSV(@"resources\RCAT-MAPPER.csv");
+            RCATmapper = CreateStringListsFromCSV(@"resources\RCAT-MAPPER.csv", false);
 
             TdbTableProperties TableProps = new TdbTableProperties();
             TableProps.Name = new string((char)0, 5);
@@ -1015,11 +1054,11 @@ namespace DB_EDITOR
             int created = 0;
 
             //Create a list of PGIDs in the database
-            //bool[] rosters = new bool[511*70];
+
             List<int> rosters = new List<int>();
             for (int i = 0; i < TDB.TableRecordCount(dbIndex, "PLAY"); i++)
             {
-                rosters.Add(TDB.TDBFieldGetValueAsInteger(dbIndex, "PLAY", "PGID", i));
+                rosters.Add(GetDBValueInt("PLAY", "PGID", i));
             }
 
 
@@ -1033,27 +1072,133 @@ namespace DB_EDITOR
             //Go through each team and find missing PGID
             for (int i = 0; i < TDB.TableRecordCount(dbIndex, tableName); i++)
             {
-                if(TDYN || TDB.TDBFieldGetValueAsInteger(dbIndex, tableName, "TTYP", i) == 0)
+                if(TDYN || GetDBValueInt(tableName, "TTYP", i) == 0)
                 {
-                    int tgid = TDB.TDBFieldGetValueAsInteger(dbIndex, tableName, "TOID", i);
+                    int tgid = GetDBValueInt(tableName, "TOID", i);
                     int pgidSTART = tgid * 70;
-                    int pgidEND = pgidSTART + 70;
+                    int pgidEND = pgidSTART + 69;
 
                     for (int j = pgidSTART ; j < pgidEND  ; j++ )
                     {
                         if (!rosters.Contains(j) && recCounter < maxRecords) 
                         {
+                            List<int> POSG = new List<int> { 3, 5, 6, 3, 12, 12, 7, 11, 2, 1};
+                            List<int> TeamPos = new List<int> { 0,0,0,0,0,0,0,0,0,0 }; 
+
+                            for (int k = 0; k < TDB.TableRecordCount(dbIndex, "PLAY"); k++)
+                            {
+                                int pgid = GetDBValueInt("PLAY", "PGID", k);
+                                if (pgid >= pgidSTART && pgid < pgidEND) 
+                                {
+                                    if (GetDBValueInt("PLAY", "PPOS", k) == 0) TeamPos[0]++;
+                                    else if (GetDBValueInt("PLAY", "PPOS", k) <= 2) TeamPos[1]++;
+                                    else if (GetDBValueInt("PLAY", "PPOS", k) == 3) TeamPos[2]++;
+                                    else if (GetDBValueInt("PLAY", "PPOS", k) == 4) TeamPos[3]++;
+                                    else if (GetDBValueInt("PLAY", "PPOS", k) <= 9) TeamPos[4]++;
+                                    else if (GetDBValueInt("PLAY", "PPOS", k) <= 12) TeamPos[5]++;
+                                    else if (GetDBValueInt("PLAY", "PPOS", k) <= 15) TeamPos[6]++;
+                                    else if (GetDBValueInt("PLAY", "PPOS", k) <= 18) TeamPos[7]++;
+                                    else if (GetDBValueInt("PLAY", "PPOS", k) == 19) TeamPos[8]++;
+                                    else if (GetDBValueInt("PLAY", "PPOS", k) == 20) TeamPos[9]++;
+                                }
+                            }
+
                             TDB.TDBTableRecordAdd(dbIndex, "PLAY", false);
-                            TransferRCATtoPLAY(recCounter, rand.Next(0, 21), j, RCATmapper, PJEN);
-                            RandomizePlayerFace("PLAY", recCounter);
+
+
+                            if (TeamPos[8] < POSG[8]) TransferRCATtoPLAY(recCounter, 19, j, RCATmapper, PJEN, FreshmanPCT);
+                            else if (TeamPos[9] < POSG[9]) TransferRCATtoPLAY(recCounter, 20, j, RCATmapper, PJEN, FreshmanPCT);
+                            else if (TeamPos[0] < POSG[0]) TransferRCATtoPLAY(recCounter, 0, j, RCATmapper, PJEN, FreshmanPCT);
+                            else if (TeamPos[1] < POSG[1]) TransferRCATtoPLAY(recCounter, 1, j, RCATmapper, PJEN, FreshmanPCT);
+                            else if (TeamPos[2] < POSG[2]) TransferRCATtoPLAY(recCounter, 3, j, RCATmapper, PJEN, FreshmanPCT);
+                            else if (TeamPos[3] < POSG[3]) TransferRCATtoPLAY(recCounter, 4, j, RCATmapper, PJEN, FreshmanPCT);
+                            else if (TeamPos[4] < POSG[4]) TransferRCATtoPLAY(recCounter, rand.Next(5,10), j, RCATmapper, PJEN, FreshmanPCT);
+                            else if (TeamPos[5] < POSG[5]) TransferRCATtoPLAY(recCounter, rand.Next(10,13), j, RCATmapper, PJEN, FreshmanPCT);
+                            else if (TeamPos[6] < POSG[6]) TransferRCATtoPLAY(recCounter, rand.Next(13, 16), j, RCATmapper, PJEN, FreshmanPCT);
+                            else if (TeamPos[7] < POSG[7]) TransferRCATtoPLAY(recCounter, rand.Next(16, 19), j, RCATmapper, PJEN, FreshmanPCT);
+
+                            else TransferRCATtoPLAY(recCounter, rand.Next(0, 19), j, RCATmapper, PJEN, FreshmanPCT);
+
+
+                            RandomizePlayerHead("PLAY", recCounter);
 
                             recCounter++;
                             created++;
                         }
                     }
+
+
+                    //Check for Kickers and Punters
+                    List<int> POSG2 = new List<int> { 3, 5, 6, 3, 12, 12, 7, 11, 2, 1 };
+                    List<int> TeamPos2 = new List<int> { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+                    List<List<int>> Diff = new List<List<int>>();
+                    List<List<int>> list = new List<List<int>>();
+                    int rowx = 0;
+                    for (int k = 0; k < TDB.TableRecordCount(dbIndex, "PLAY"); k++)
+                    {
+                        int pgid = GetDBValueInt("PLAY", "PGID", k);
+                        if (pgid >= pgidSTART && pgid < pgidEND)
+                        {
+                            if (GetDBValueInt("PLAY", "PPOS", k) == 0) TeamPos2[0]++;
+                            else if (GetDBValueInt("PLAY", "PPOS", k) <= 2) TeamPos2[1]++;
+                            else if (GetDBValueInt("PLAY", "PPOS", k) == 3) TeamPos2[2]++;
+                            else if (GetDBValueInt("PLAY", "PPOS", k) == 4) TeamPos2[3]++;
+                            else if (GetDBValueInt("PLAY", "PPOS", k) <= 9) TeamPos2[4]++;
+                            else if (GetDBValueInt("PLAY", "PPOS", k) <= 12) TeamPos2[5]++;
+                            else if (GetDBValueInt("PLAY", "PPOS", k) <= 15) TeamPos2[6]++;
+                            else if (GetDBValueInt("PLAY", "PPOS", k) <= 18) TeamPos2[7]++;
+                            else if (GetDBValueInt("PLAY", "PPOS", k) == 19) TeamPos2[8]++;
+                            else if (GetDBValueInt("PLAY", "PPOS", k) == 20) TeamPos2[9]++;
+
+                            list.Add(new List<int>());
+                            list[rowx].Add(GetDBValueInt("PLAY", "POVR", k));
+                            list[rowx].Add(GetDBValueInt("PLAY", "PPOS", k));
+                            list[rowx].Add(k);
+                            list[rowx].Add(GetDBValueInt("PLAY", "PGID", k));
+
+
+                            rowx++;
+
+                        }
+                    }
+
+                    
+                    for(int k = 0; k < 10; k++)
+                    {
+                        Diff.Add(new List<int>());
+                        Diff[k].Add(POSG2[k] - TeamPos2[k]);
+                    }
+                    
+
+                    //Diff.Sort();
+                    //Diff.Sort((player1, player2) => player2[0].CompareTo(player1[0]));
+
+                    for (int k = 9; k >= 0; k--)
+                    {
+                        if (Diff[k][0] > 0)
+                        {
+                            list.Sort((player1, player2) => player2[0].CompareTo(player1[0]));
+                            for(int x = list.Count-1; x >= 0; x--)
+                            {
+                                if (list[x][1] != 19 && list[x][1] != 20)
+                                {
+                                    TransferRCATtoPLAY(list[x][2], ChooseRandomPosFromPOSG(k), list[x][3], RCATmapper, PJEN, 50);
+                                    RandomizePlayerHead("PLAY", Convert.ToInt32(list[x][2]));
+                                    list.RemoveAt(x);
+                                    break;
+                                }
+                            }
+                        }
+                    }
                 }
                 progressBar1.PerformStep();
             }
+
+
+
+
+
+
 
             RecalculateBMI("PLAY");
             RecalculateOverall();
@@ -1065,23 +1210,46 @@ namespace DB_EDITOR
         }
 
         //Randomizes a specific player face based on record, i
-        private void RandomizePlayerFace(string tableName, int i)
+        private void RandomizePlayerHead(string tableName, int i)
         {
             //Randomizes Face Shape (PGFM)
             int shape = rand.Next(0, 16);
-            TDB.NewfieldValue(dbIndex, tableName, "PFGM", i, Convert.ToString(shape));
+            ChangeDBString(tableName, "PFGM", i, Convert.ToString(shape));
 
             //Finds current skin tone and randomizes within it's Light/Medium/Dark general tone (PSKI)
-            int skin = TDB.TDBFieldGetValueAsInteger(dbIndex, tableName, "PSKI", i);
-            if (skin <= 2) rand.Next(0, 3);
-            else if (skin <= 6) rand.Next(3, 7);
-            else rand.Next(7, 8);
+            int skin = GetDBValueInt(tableName, "PSKI", i);
+            if (skin <= 2) skin = rand.Next(0, 3);
+            else if (skin <= 6) skin = rand.Next(3, 7);
+            else skin = rand.Next(7, 8);
 
-            TDB.NewfieldValue(dbIndex, tableName, "PSKI", i, Convert.ToString(skin));
+            ChangeDBString(tableName, "PSKI", i, Convert.ToString(skin));
 
             //Randomizes Face Type based on new Skin Type
-            int face = TDB.TDBFieldGetValueAsInteger(dbIndex, tableName, "PSKI", i) * 8 + rand.Next(0, 8);
-            TDB.NewfieldValue(dbIndex, tableName, "PFMP", i, Convert.ToString(face));
+            int face = GetDBValueInt(tableName, "PSKI", i) * 8 + rand.Next(0, 8);
+            ChangeDBString(tableName, "PFMP", i, Convert.ToString(face));
+
+            //Randomize Hair Color
+            int hcl = 0;
+            if(skin < 3)
+            {
+                hcl = rand.Next(1, 101);
+                if (hcl <= 55) hcl = 2; //brown
+                else if (hcl <= 65) hcl = 0; //black
+                else if (hcl <= 80) hcl = 1; //blonde
+                else if (hcl <= 95) hcl = 4; //light brown
+                else hcl = 3; //red
+            } else
+            {
+                hcl = rand.Next(1, 101);
+                if (hcl <= 92) hcl = 0;
+                else hcl = rand.Next(1, 6);
+            }
+            ChangeDBString(tableName, "PHCL", i, Convert.ToString(hcl));
+
+            //Randomize Hair Style
+
+
+
         }
 
     }

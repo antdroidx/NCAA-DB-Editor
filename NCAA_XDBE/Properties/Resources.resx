@@ -145,14 +145,8 @@
   <data name="poly_surnames" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\poly-surnames.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="SRGN" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\SRGN.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
   <data name="FantasyGenData" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\FantasyGenData.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="FCSK" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FCSK.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="PJEN" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PJEN.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -171,5 +165,20 @@
   </data>
   <data name="TeamDB" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\TeamDB.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="PlaybookNames" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PlaybookNames.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="transfers" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\transfers.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="recruits" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\recruits.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="transfers_gen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\transfers-gen.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="RCST" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RCST.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
 </root>

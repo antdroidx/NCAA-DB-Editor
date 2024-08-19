@@ -26,8 +26,6 @@ D:\Modding\NCAA_XDBE\NCAA_XDBE\obj\x86\Debug\NCAA_XDBE.exe
 D:\Modding\NCAA_XDBE\NCAA_XDBE\obj\x86\Debug\NCAA_XDBE.pdb
 D:\Modding\NCAA_XDBE\NCAA_XDBE\obj\x86\Debug\DB_EDITOR.MainEditor.resources
 D:\Modding\NCAA_XDBE\NCAA_XDBE\bin\Debug\Resources\poly-surnames.csv
-D:\Modding\NCAA_XDBE\NCAA_XDBE\bin\Debug\Resources\SRGN.csv
-D:\Modding\NCAA_XDBE\NCAA_XDBE\bin\Debug\Resources\FCSK.csv
 D:\Modding\NCAA_XDBE\NCAA_XDBE\bin\Debug\Resources\POCI.csv
 D:\Modding\NCAA_XDBE\NCAA_XDBE\bin\Debug\Resources\RCAT.csv
 D:\Modding\NCAA_XDBE\NCAA_XDBE\bin\Debug\Resources\RCFN.csv
@@ -35,3 +33,9 @@ D:\Modding\NCAA_XDBE\NCAA_XDBE\bin\Debug\Resources\RCLN.csv
 D:\Modding\NCAA_XDBE\NCAA_XDBE\bin\Debug\Resources\RCAT-MAPPER.csv
 D:\Modding\NCAA_XDBE\NCAA_XDBE\bin\Debug\Resources\FantasyGenData.csv
 D:\Modding\NCAA_XDBE\NCAA_XDBE\bin\Debug\Resources\PJEN.csv
+D:\Modding\NCAA_XDBE\NCAA_XDBE\bin\Debug\Resources\TeamDB.csv
+D:\Modding\NCAA_XDBE\NCAA_XDBE\bin\Debug\Resources\PlaybookNames.csv
+D:\Modding\NCAA_XDBE\NCAA_XDBE\bin\Debug\Resources\transfers.csv
+D:\Modding\NCAA_XDBE\NCAA_XDBE\bin\Debug\Resources\recruits.csv
+D:\Modding\NCAA_XDBE\NCAA_XDBE\bin\Debug\Resources\transfers-gen.csv
+D:\Modding\NCAA_XDBE\NCAA_XDBE\bin\Debug\Resources\RCST.csv

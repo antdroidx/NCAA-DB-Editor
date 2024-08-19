@@ -83,6 +83,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="RosterTools.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Schedule.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -142,10 +145,10 @@
     <None Include="Resources\FantasyGenData.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\FCSK.csv">
+    <None Include="Resources\PJEN.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\PJEN.csv">
+    <None Include="Resources\PlaybookNames.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Resources\POCI.csv">
@@ -163,10 +166,19 @@
     <None Include="Resources\RCLN.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\SRGN.csv">
+    <None Include="Resources\RCST.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\recruits.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Resources\TeamDB.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\transfers-gen.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\transfers.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
+using System.Runtime.Versioning;
 using System.Windows.Forms;
 
 namespace DB_EDITOR
@@ -124,11 +125,11 @@ namespace DB_EDITOR
 
             for (int PF = 1; PF <= maxNameChar; PF++)
             {
-                if (Alphabet[Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PF" + AddLeadingZeros(Convert.ToString(PF), 2), tmpRecNo))] == "")
+                if (Alphabet[Convert.ToInt32(GetDBValue("PLAY", "PF" + AddLeadingZeros(Convert.ToString(PF), 2), tmpRecNo))] == "")
                 {
                     break;
                 }
-                xPFNA = xPFNA + Alphabet[Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PF" + AddLeadingZeros(Convert.ToString(PF), 2), tmpRecNo))];
+                xPFNA = xPFNA + Alphabet[Convert.ToInt32(GetDBValue("PLAY", "PF" + AddLeadingZeros(Convert.ToString(PF), 2), tmpRecNo))];
 
             }
             tmpSTR = xPFNA;
@@ -141,11 +142,11 @@ namespace DB_EDITOR
 
             for (int PL = 1; PL <= maxNameChar; PL++)
             {
-                if (Alphabet[Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PL" + AddLeadingZeros(Convert.ToString(PL), 2), tmpRecNo))] == "")
+                if (Alphabet[Convert.ToInt32(GetDBValue("PLAY", "PL" + AddLeadingZeros(Convert.ToString(PL), 2), tmpRecNo))] == "")
                 {
                     break;
                 }
-                xPLNA = xPLNA + Alphabet[Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PL" + AddLeadingZeros(Convert.ToString(PL), 2), tmpRecNo))];
+                xPLNA = xPLNA + Alphabet[Convert.ToInt32(GetDBValue("PLAY", "PL" + AddLeadingZeros(Convert.ToString(PL), 2), tmpRecNo))];
 
             }
             tmpSTR = xPLNA;
@@ -206,31 +207,31 @@ namespace DB_EDITOR
 
         private int GetPGIDfromRecord(int i)
         {
-            return Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PGID", i));
+            return Convert.ToInt32(GetDBValue("PLAY", "PGID", i));
 
         }
 
         private int GetPPOSfromRecord(int i)
         {
-            return Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PPOS", i));
+            return Convert.ToInt32(GetDBValue("PLAY", "PPOS", i));
 
         }
 
         private int GetPOVRfromRecord(int i)
         {
-            return Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "POVR", i));
+            return Convert.ToInt32(GetDBValue("PLAY", "POVR", i));
 
         }
 
         private int GetPTYPfromRecord(int i)
         {
-            return Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PTYP", i));
+            return Convert.ToInt32(GetDBValue("PLAY", "PTYP", i));
 
         }
 
         private int GetPYERfromRecord(int i)
         {
-            return Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PYER", i));
+            return Convert.ToInt32(GetDBValue("PLAY", "PYER", i));
 
         }
 
@@ -267,59 +268,14 @@ namespace DB_EDITOR
         private void CreateFirstNamesDB()
         {
             FirstNames = new List<string>();
-            string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            string csvLocation = Path.Combine(executableLocation, @"resources\RCFN.csv");
 
-            string filePath = csvLocation;
-            StreamReader sr = new StreamReader(filePath);
-            int Row = 0;
-            while (!sr.EndOfStream)
-            {
-                string[] Line = sr.ReadLine().Split(',');
-                if (Row == 0)
-                {
-                    //skip header
-                }
-                else
-                {
-                    for (int column = 0; column < Line.Length; column++)
-                    {
-                        if (column == 1) FirstNames.Add(Line[column]);
-                    }
-                }
-
-                Row++;
-            }
-            sr.Close();
+            FirstNames = CreateStringListfromCSV(@"resources\RCFN.csv", true);
         }
 
         private void CreateLastNamesDB()
-        {
+        { 
             LastNames = new List<string>();
-            string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            string csvLocation = Path.Combine(executableLocation, @"resources\RCLN.csv");
-
-            string filePath = csvLocation;
-            StreamReader sr = new StreamReader(filePath);
-            int Row = 0;
-            while (!sr.EndOfStream)
-            {
-                string[] Line = sr.ReadLine().Split(',');
-                if (Row == 0)
-                {
-                    //skip header
-                }
-                else
-                {
-                    for (int column = 0; column < Line.Length; column++)
-                    {
-                        if (column == 1) LastNames.Add(Line[column]);
-                    }
-                }
-
-                Row++;
-            }
-            sr.Close();
+            LastNames = CreateStringListfromCSV(@"resources\RCLN.csv", true);
         }
 
         private List<List<int>> CreateJerseyNumberDB()
@@ -377,7 +333,7 @@ namespace DB_EDITOR
             int rec = -1;
             for (int i = 0; i < TDB.TableRecordCount(dbIndex, "PLAY"); i++)
             {
-                if (TDB.TDBFieldGetValueAsInteger(dbIndex, "PLAY", "PGID", i) == PGID) return i;
+                if (GetDBValueInt("PLAY", "PGID", i) == PGID) return i;
             }
             return rec;
         }
@@ -425,6 +381,20 @@ namespace DB_EDITOR
 
             string tmpSTR = Positions[tmpRecNo];
             return tmpSTR;
+        }
+
+        private int ChooseRandomPosFromPOSG(int posg)
+        {
+            int ppos = posg;
+
+            if (posg == 4) ppos = rand.Next(5, 10);
+            else if (posg == 5) ppos = rand.Next(10, 13);
+            else if (posg == 6) ppos = rand.Next(13, 16);
+            else if (posg == 7) ppos = rand.Next(16, 19);
+            else if (posg == 8) ppos = 19;
+            else if (posg == 9) ppos = 20;
+            else if (posg >= 10) ppos = 7;
+            return ppos;
         }
 
         #endregion
@@ -535,24 +505,24 @@ namespace DB_EDITOR
 
         private void RecalculateOverallByRec(int rec)
         {
-            int ppos = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PPOS", rec));
-            double PCAR = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PCAR", rec)); //CAWT
-            double PKAC = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PKAC", rec)); //KAWT
-            double PTHA = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PTHA", rec)); //TAWT
-            double PPBK = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PPBK", rec)); //PBWT
-            double PRBK = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PRBK", rec)); //RBWT
-            double PACC = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PACC", rec)); //ACWT
-            double PAGI = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PAGI", rec)); //AGWT
-            double PTAK = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PTAK", rec)); //TKWT
-            double PINJ = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PINJ", rec)); //INWT
-            double PKPR = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PKPR", rec)); //KPWT
-            double PSPD = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PSPD", rec)); //SPWT
-            double PTHP = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PTHP", rec)); //TPWT
-            double PBKT = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PBTK", rec)); //BTWT
-            double PCTH = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PCTH", rec)); //CTWT
-            double PSTR = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PSTR", rec)); //STWT
-            double PJMP = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PJMP", rec)); //JUWT
-            double PAWR = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PAWR", rec)); //AWWT
+            int ppos = Convert.ToInt32(GetDBValue("PLAY", "PPOS", rec));
+            double PCAR = Convert.ToInt32(GetDBValue("PLAY", "PCAR", rec)); //CAWT
+            double PKAC = Convert.ToInt32(GetDBValue("PLAY", "PKAC", rec)); //KAWT
+            double PTHA = Convert.ToInt32(GetDBValue("PLAY", "PTHA", rec)); //TAWT
+            double PPBK = Convert.ToInt32(GetDBValue("PLAY", "PPBK", rec)); //PBWT
+            double PRBK = Convert.ToInt32(GetDBValue("PLAY", "PRBK", rec)); //RBWT
+            double PACC = Convert.ToInt32(GetDBValue("PLAY", "PACC", rec)); //ACWT
+            double PAGI = Convert.ToInt32(GetDBValue("PLAY", "PAGI", rec)); //AGWT
+            double PTAK = Convert.ToInt32(GetDBValue("PLAY", "PTAK", rec)); //TKWT
+            double PINJ = Convert.ToInt32(GetDBValue("PLAY", "PINJ", rec)); //INWT
+            double PKPR = Convert.ToInt32(GetDBValue("PLAY", "PKPR", rec)); //KPWT
+            double PSPD = Convert.ToInt32(GetDBValue("PLAY", "PSPD", rec)); //SPWT
+            double PTHP = Convert.ToInt32(GetDBValue("PLAY", "PTHP", rec)); //TPWT
+            double PBKT = Convert.ToInt32(GetDBValue("PLAY", "PBTK", rec)); //BTWT
+            double PCTH = Convert.ToInt32(GetDBValue("PLAY", "PCTH", rec)); //CTWT
+            double PSTR = Convert.ToInt32(GetDBValue("PLAY", "PSTR", rec)); //STWT
+            double PJMP = Convert.ToInt32(GetDBValue("PLAY", "PJMP", rec)); //JUWT
+            double PAWR = Convert.ToInt32(GetDBValue("PLAY", "PAWR", rec)); //AWWT
 
             double[] ratings = new double[] { PCAR, PKAC, PTHA, PPBK, PRBK, PACC, PAGI, PTAK, PINJ, PKPR, PSPD, PTHP, PBKT, PCTH, PSTR, PJMP, PAWR };
 
@@ -572,29 +542,29 @@ namespace DB_EDITOR
             if (val < 40) val = 40;
             val = RevertRating(val);
 
-            TDB.NewfieldValue(dbIndex, "PLAY", "POVR", rec, Convert.ToString(val));
+            ChangeDBString("PLAY", "POVR", rec, Convert.ToString(val));
   
         }
 
         private int CalculatePositionRating(int rec, int ppos)
         {
-            double PCAR = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PCAR", rec)); //CAWT
-            double PKAC = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PKAC", rec)); //KAWT
-            double PTHA = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PTHA", rec)); //TAWT
-            double PPBK = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PPBK", rec)); //PBWT
-            double PRBK = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PRBK", rec)); //RBWT
-            double PACC = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PACC", rec)); //ACWT
-            double PAGI = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PAGI", rec)); //AGWT
-            double PTAK = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PTAK", rec)); //TKWT
-            double PINJ = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PINJ", rec)); //INWT
-            double PKPR = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PKPR", rec)); //KPWT
-            double PSPD = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PSPD", rec)); //SPWT
-            double PTHP = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PTHP", rec)); //TPWT
-            double PBKT = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PBTK", rec)); //BTWT
-            double PCTH = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PCTH", rec)); //CTWT
-            double PSTR = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PSTR", rec)); //STWT
-            double PJMP = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PJMP", rec)); //JUWT
-            double PAWR = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PAWR", rec)); //AWWT
+            double PCAR = Convert.ToInt32(GetDBValue("PLAY", "PCAR", rec)); //CAWT
+            double PKAC = Convert.ToInt32(GetDBValue("PLAY", "PKAC", rec)); //KAWT
+            double PTHA = Convert.ToInt32(GetDBValue("PLAY", "PTHA", rec)); //TAWT
+            double PPBK = Convert.ToInt32(GetDBValue("PLAY", "PPBK", rec)); //PBWT
+            double PRBK = Convert.ToInt32(GetDBValue("PLAY", "PRBK", rec)); //RBWT
+            double PACC = Convert.ToInt32(GetDBValue("PLAY", "PACC", rec)); //ACWT
+            double PAGI = Convert.ToInt32(GetDBValue("PLAY", "PAGI", rec)); //AGWT
+            double PTAK = Convert.ToInt32(GetDBValue("PLAY", "PTAK", rec)); //TKWT
+            double PINJ = Convert.ToInt32(GetDBValue("PLAY", "PINJ", rec)); //INWT
+            double PKPR = Convert.ToInt32(GetDBValue("PLAY", "PKPR", rec)); //KPWT
+            double PSPD = Convert.ToInt32(GetDBValue("PLAY", "PSPD", rec)); //SPWT
+            double PTHP = Convert.ToInt32(GetDBValue("PLAY", "PTHP", rec)); //TPWT
+            double PBKT = Convert.ToInt32(GetDBValue("PLAY", "PBTK", rec)); //BTWT
+            double PCTH = Convert.ToInt32(GetDBValue("PLAY", "PCTH", rec)); //CTWT
+            double PSTR = Convert.ToInt32(GetDBValue("PLAY", "PSTR", rec)); //STWT
+            double PJMP = Convert.ToInt32(GetDBValue("PLAY", "PJMP", rec)); //JUWT
+            double PAWR = Convert.ToInt32(GetDBValue("PLAY", "PAWR", rec)); //AWWT
 
             double[] ratings = new double[] { PCAR, PKAC, PTHA, PPBK, PRBK, PACC, PAGI, PTAK, PINJ, PKPR, PSPD, PTHP, PBKT, PCTH, PSTR, PJMP, PAWR };
 
@@ -637,7 +607,7 @@ namespace DB_EDITOR
         {
             for (int i = 0; i < TDB.TableRecordCount(dbIndex, "COCH"); i++)
             {
-                if (CCID == Convert.ToInt32(TDB.FieldValue(dbIndex, "COCH", "CCID", i)))
+                if (CCID == Convert.ToInt32(GetDBValue("COCH", "CCID", i)))
                 {
                     return i;
                 }
@@ -645,6 +615,76 @@ namespace DB_EDITOR
 
             return -1;
         }
+        private int FindCOCHRecordfromTeamTGID(int tgid)
+        {
+            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "COCH"); i++)
+            {
+                if (tgid == Convert.ToInt32(GetDBValue("COCH", "TGID", i)))
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        private string GetCoachFirstNamefromRec(int rec)
+        {
+            return GetDBValue("COCH", "CLFN", rec);
+        }
+
+        private string GetCoachLastNamefromRec(int rec)
+        {
+            return GetDBValue("COCH", "CLLN", rec);
+        }
+
+        private List<string> CreateOffTypes()
+        {
+            List<string> ret = new List<string>() { "Option Run", "Spread", "Balanced", "Flexbone", "West Coast" };
+
+            return ret;
+        }
+
+        private List<string> CreateBaseDef()
+        {
+            List<string> ret = new List<string>() { "3-4", "3-3-5 Stack", "4-2-5", "4-3", "4-4" };
+
+            return ret;
+        }
+
+        private string GetOffTypeName(int i)
+        {
+            List<string> OffTypes = CreateOffTypes();
+
+            return OffTypes[i];
+
+        }
+
+        private string GetDefTypeName(int i)
+        {
+            List<string> DefTypes = CreateBaseDef();
+
+            return DefTypes[i];
+
+        }
+
+        private List<List<string>> CreatePlaybookNames()
+        {
+            List<List<string>> pb = CreateStringListsFromCSV(@"resources\PlaybookNames.csv", false);
+
+            return pb;
+        }
+
+        private string GetPlaybookName(int i)
+        {
+            List<List<string>> pb = CreatePlaybookNames();
+            return pb[i][1];
+        }
+
+        private int GetCOCHrecFromTeamRec(int i)
+        {
+            return FindCOCHRecordfromTeamTGID(GetTeamTGIDfromRecord(i));
+        }
+
 
         #endregion
 
@@ -656,29 +696,28 @@ namespace DB_EDITOR
             {
                 for (int i = 0; i < maxTeamsDB; i++)
                 {
-                    int j = Convert.ToInt32(TDB.FieldValue(dbIndex, "TEAM", "TGID", i));
+                    int j = Convert.ToInt32(GetDBValue("TEAM", "TGID", i));
 
-                    teamNameDB[j] = Convert.ToString(TDB.FieldValue(dbIndex, "TEAM", "TDNA", i));
+                    teamNameDB[j] = Convert.ToString(GetDBValue("TEAM", "TDNA", i));
                 }
             }
             else if (TDYN)
             {
+
                 string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
                 string csvLocation = Path.Combine(executableLocation, @"Resources\TeamDB.csv");
 
                 string filePath = csvLocation;
                 StreamReader sr = new StreamReader(filePath);
-                int Row = 0;
                 while (!sr.EndOfStream)
                 {
                     string[] Line = sr.ReadLine().Split(',');
                     {
                         teamNameDB[Convert.ToInt32(Line[0])] = Line[1];
                     }
-
-                    Row++;
                 }
                 sr.Close();
+               
             }
         }
 
@@ -694,9 +733,9 @@ namespace DB_EDITOR
             int TMPR = 0;
             for (int i = 0; i < TDB.TableRecordCount(dbIndex, "TEAM"); i++)
             {
-                if (TGID == Convert.ToInt32(TDB.FieldValue(dbIndex, "TEAM", "TGID", i)))
+                if (TGID == Convert.ToInt32(GetDBValue("TEAM", "TGID", i)))
                 {
-                    TMPR = Convert.ToInt32(TDB.FieldValue(dbIndex, "TEAM", "TMPR", i));
+                    TMPR = Convert.ToInt32(GetDBValue("TEAM", "TMPR", i));
                 }
             }
             return TMPR;
@@ -707,9 +746,9 @@ namespace DB_EDITOR
             int TCRK = 0;
             for (int i = 0; i < TDB.TableRecordCount(dbIndex, "TEAM"); i++)
             {
-                if (TGID == Convert.ToInt32(TDB.FieldValue(dbIndex, "TEAM", "TGID", i)))
+                if (TGID == Convert.ToInt32(GetDBValue("TEAM", "TGID", i)))
                 {
-                    TCRK = Convert.ToInt32(TDB.FieldValue(dbIndex, "TEAM", "TCRK", i));
+                    TCRK = Convert.ToInt32(GetDBValue("TEAM", "TCRK", i));
                 }
             }
             return TCRK;
@@ -719,14 +758,14 @@ namespace DB_EDITOR
         {
             int teamRanking = 0;
 
-            teamRanking = Convert.ToInt32(TDB.FieldValue(dbIndex, "TEAM", "TCRK", i));
+            teamRanking = Convert.ToInt32(GetDBValue("TEAM", "TCRK", i));
 
             return teamRanking;
         }
 
         private int GetTeamTGIDfromRecord(int i)
         {
-            i = Convert.ToInt32(TDB.FieldValue(dbIndex, "TEAM", "TGID", i));
+            i = Convert.ToInt32(GetDBValue("TEAM", "TGID", i));
 
             return i;
         }
@@ -735,7 +774,7 @@ namespace DB_EDITOR
         {
             for (int i = 0; i < TDB.TableRecordCount(dbIndex, "CONF"); i++)
             {
-                if (Convert.ToInt32(TDB.FieldValue(dbIndex, "CONF", "CGID", i)) == cgid)
+                if (Convert.ToInt32(GetDBValue("CONF", "CGID", i)) == cgid)
                 {
                     return i;
                 }
@@ -746,31 +785,31 @@ namespace DB_EDITOR
 
         private int GetTeamPrestige(int rec)
         {
-            return Convert.ToInt32(TDB.FieldValue(dbIndex, "TEAM", "TMPR", rec));
+            return Convert.ToInt32(GetDBValue("TEAM", "TMPR", rec));
 
         }
         private int GetTeamCGID(int rec)
         {
-            return Convert.ToInt32(TDB.FieldValue(dbIndex, "TEAM", "CGID", rec));
+            return Convert.ToInt32(GetDBValue("TEAM", "CGID", rec));
 
         }
 
         private int GetTeamDGID(int rec)
         {
-            return Convert.ToInt32(TDB.FieldValue(dbIndex, "TEAM", "DGID", rec));
+            return Convert.ToInt32(GetDBValue("TEAM", "DGID", rec));
 
         }
 
         private int GetTeamStateID(int rec)
         {
             int stateID = -1;
-            string SGID = TDB.FieldValue(dbIndex, "TEAM", "SGID", rec);
+            string SGID = GetDBValue("TEAM", "SGID", rec);
 
             for (int i = 0; i < TDB.TableRecordCount(dbIndex, "STAD"); i++)
             {
-                if (SGID == TDB.FieldValue(dbIndex, "STAD", "SGID", i))
+                if (SGID == GetDBValue("STAD", "SGID", i))
                 {
-                    stateID = Convert.ToInt32(TDB.FieldValue(dbIndex, "STAD", "STID", i));
+                    stateID = Convert.ToInt32(GetDBValue("STAD", "STID", i));
                     break;
                 }
 
@@ -783,8 +822,8 @@ namespace DB_EDITOR
         {
             string playername = "";
 
-            int tgid = TDB.TDBFieldGetValueAsInteger(dbIndex, "TEAM", "TGID", rec);
-            int impactNo = TDB.TDBFieldGetValueAsInteger(dbIndex, "TEAM", field, rec);
+            int tgid = GetDBValueInt("TEAM", "TGID", rec);
+            int impactNo = GetDBValueInt("TEAM", field, rec);
 
             int pgid = tgid*70 + impactNo;
 
@@ -794,46 +833,94 @@ namespace DB_EDITOR
 
         }
 
+        private int FindSTADrecFromTEAMrec(int tmRec)
+        {
+            int sgid = GetDBValueInt("TEAM", "SGID", tmRec);
+
+            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "STAD"); i++)
+            {
+                if (GetDBValueInt("STAD", "SGID", i) == sgid)
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
         #endregion
 
         #region Conferences
 
         private int GetConfCGID(int rec)
         {
-            return Convert.ToInt32(TDB.FieldValue(dbIndex, "CONF", "CGID", rec));
+            return Convert.ToInt32(GetDBValue("CONF", "CGID", rec));
         }
 
         private int GetConfPrestige(int rec)
         {
-            return Convert.ToInt32(TDB.FieldValue(dbIndex, "CONF", "CPRS", rec));
+            return Convert.ToInt32(GetDBValue("CONF", "CPRS", rec));
         }
 
         private int GetConfLeague(int rec)
         {
-            return Convert.ToInt32(TDB.FieldValue(dbIndex, "CONF", "LGID", rec));
+            return Convert.ToInt32(GetDBValue("CONF", "LGID", rec));
         }
 
         private int GetConfCMNP(int rec)
         {
-            return Convert.ToInt32(TDB.FieldValue(dbIndex, "CONF", "CMNP", rec));
+            return Convert.ToInt32(GetDBValue("CONF", "CMNP", rec));
         }
 
         private int GetConfCMXP(int rec)
         {
-            return Convert.ToInt32(TDB.FieldValue(dbIndex, "CONF", "CMXP", rec));
+            return Convert.ToInt32(GetDBValue("CONF", "CMXP", rec));
         }
 
         private int GetConfPrestigeFromCGID(int cgid)
         {
             for (int i = 0; i < TDB.TableRecordCount(dbIndex, "CONF"); i++)
             {
-                if (Convert.ToInt32(TDB.FieldValue(dbIndex, "CONF", "CGID", i)) == cgid)
+                if (Convert.ToInt32(GetDBValue("CONF", "CGID", i)) == cgid)
                 {
-                    return Convert.ToInt32(TDB.FieldValue(dbIndex, "CONF", "CPRS", i));
+                    return Convert.ToInt32(GetDBValue("CONF", "CPRS", i));
                 }
             }
 
             return -1;
+        }
+
+        private string GetConfNameFromCGID(int cgid)
+        {
+            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "CONF"); i++)
+            {
+                if (Convert.ToInt32(GetDBValue("CONF", "CGID", i)) == cgid)
+                {
+                    return GetDBValue("CONF", "CNAM", i);
+                }
+            }
+
+            return "";
+        }
+
+        private string GetDivisionNamefromDGID(int dgid)
+        {
+            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "DIVI"); i++)
+            {
+                if (Convert.ToInt32(GetDBValue("DIVI", "DGID", i)) == dgid)
+                {
+                    return GetDBValue("DIVI", "DNAM", i);
+                }
+            }
+
+            return "";
+        }
+
+        private string GetLeaguefromTTYP(int ttyp)
+        {
+            if (ttyp == 0) return "FBS";
+            else if (ttyp == 1) return "FCS";
+            else if (ttyp == 2) return "Custom";
+            else return "";
         }
 
         #endregion
@@ -876,11 +963,47 @@ namespace DB_EDITOR
 
         #endregion
 
+
+
+
         #region CSV Tools
 
-        private List<List<string>> CreateStringListfromCSV(string location)
+        private List<List<string>> CreateStringListsFromCSV(string location, bool skipFirstRow)
         {
             List<List<string>> list = new List<List<string>>();
+            string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string csvLocation = Path.Combine(executableLocation, location);
+
+            string filePath = csvLocation;
+            StreamReader sr = new StreamReader(filePath);
+            int Row = 0;
+            int skip = 0;
+            if (skipFirstRow) skip = -1;
+            while (!sr.EndOfStream)
+            {
+                string[] Line = sr.ReadLine().Split(',');
+                {
+                    if (skipFirstRow && Row == 0) /*do nothing*/;
+                    else
+                    {
+                        list.Add(new List<string>());
+                        for (int column = 0; column < Line.Length; column++)
+                        {
+                            list[Row + skip].Add(Line[column]);
+                        }
+                    }
+                }
+
+                Row++;
+            }
+            sr.Close();
+
+            return list;
+        }
+
+        private List<string> CreateStringListfromCSV(string location, bool skipFirstRow)
+        {
+            List<string> list = new List<string>();
             string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             string csvLocation = Path.Combine(executableLocation, location);
 
@@ -890,11 +1013,78 @@ namespace DB_EDITOR
             while (!sr.EndOfStream)
             {
                 string[] Line = sr.ReadLine().Split(',');
+                if (Row == 0 && skipFirstRow)
                 {
-                    list.Add(new List<string>());
+                    //skip header
+                }
+                else
+                {
+                    list.Add(Line[0]);
+                }
+
+                Row++;
+            }
+            sr.Close();
+
+            return list;
+        }
+
+
+        private List<List<int>> CreateIntListsFromCSV(string location, bool skipFirstRow)
+        {
+            List<List<int>> list = new List<List<int>>();
+            string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string csvLocation = Path.Combine(executableLocation, location);
+
+            string filePath = csvLocation;
+            StreamReader sr = new StreamReader(filePath);
+            int Row = 0;
+            int skip = 0;
+            if (skipFirstRow) skip = -1;
+            while (!sr.EndOfStream)
+            {
+                string[] Line = sr.ReadLine().Split(',');
+                {
+                    if (skipFirstRow && Row == 0) ;
+                    else
+                    {
+                        list.Add(new List<int>());
+                        for (int column = 0; column < Line.Length; column++)
+                        {
+                            list[Row + skip].Add(Convert.ToInt32(Line[column]));
+                        }
+                    }
+
+                }
+
+                Row++;
+            }
+            sr.Close();
+
+            return list;
+        }
+
+        private List<int> CreateIntListfromCSV(string location, bool skipFirstRow)
+        {
+            List<int> list = new List<int>();
+            string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string csvLocation = Path.Combine(executableLocation, location);
+
+            string filePath = csvLocation;
+            StreamReader sr = new StreamReader(filePath);
+            int Row = 0;
+            while (!sr.EndOfStream)
+            {
+                string[] Line = sr.ReadLine().Split(',');
+                if (Row == 0 && skipFirstRow)
+                {
+                    //skip header
+                }
+                else
+                {
                     for (int column = 0; column < Line.Length; column++)
                     {
-                        list[Row].Add(Line[column]);
+                        if (column == 1) list.Add(Convert.ToInt32(Line[column]));
                     }
                 }
 
@@ -907,5 +1097,34 @@ namespace DB_EDITOR
 
         #endregion
 
+
+
+
+        #region TDB Functions
+
+        private void ChangeDBString(string table, string field, int rec, string value)
+        {
+            TDB.NewfieldValue(dbIndex, table, field, rec, value);
+        }
+
+        private void ChangeDBInt(string table, string field, int rec, int value)
+        {
+            TDB.NewfieldValue(dbIndex, table, field, rec, Convert.ToString(value));
+
+        }
+
+        private string GetDBValue(string table, string field, int rec)
+        {
+            return TDB.FieldValue(dbIndex, table, field, rec);
+        }
+
+        private int GetDBValueInt(string table, string field, int rec)
+        {
+            return TDB.TDBFieldGetValueAsInteger(dbIndex, table, field, rec);
+        }
+
+
+
+        #endregion
     }
 }

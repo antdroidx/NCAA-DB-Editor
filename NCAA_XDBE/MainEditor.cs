@@ -33,6 +33,9 @@ namespace DB_EDITOR
         bool coachProgComplete = false;
         bool TDYN = false;
         bool TEAM = false;
+        int EditorIndex;
+        Color primary = Color.Black;
+        Color secondary = Color.White;
 
         bool tabDelimited = false;
 
@@ -133,7 +136,6 @@ namespace DB_EDITOR
             FieldsPropsgroupBox.Visible = false;
             progressBar1.Visible = false;
 
-
             DBModified = false;
             exportAll = false;
             BigEndian = false;
@@ -145,6 +147,7 @@ namespace DB_EDITOR
             coachProgComplete = false;
             TDYN = false;
             TEAM = false;
+            EditorIndex = -1;
 
 
             tabControl1.Visible = false;
@@ -153,10 +156,19 @@ namespace DB_EDITOR
             tabControl1.TabPages.Remove(tabSeason);
             tabControl1.TabPages.Remove(tabOffSeason);
             tabControl1.TabPages.Remove(tabTools);
+            tabControl1.TabPages.Remove(tabCoaches);
+
+            //DEVELOPMENTAL TAB
+            //tabControl1.TabPages.Add(tabDev);
+
 
             tabDelimited = false;
 
-            //selectDBTabPage();
+            //ColorDialog
+            colorDialog1.AnyColor = true;
+            colorDialog1.AllowFullOpen = true;
+            colorDialog1.SolidColorOnly = false;
+
 
             TGIDrecNo.Clear();
             PGIDrecNo.Clear();
@@ -1398,7 +1410,7 @@ namespace DB_EDITOR
                     {
                         UInt32 intval;
                         UInt32 pos;
-                        intval = (UInt32)TDB.TDBFieldGetValueAsInteger(dbIndex, TableProps.Name, FieldProps.Name, r);
+                        intval = (UInt32)GetDBValueInt(TableProps.Name, FieldProps.Name, r);
 
                         DataGridRow[tmpf + 1] = intval;
 
@@ -1408,14 +1420,14 @@ namespace DB_EDITOR
                         }
                         else if (FieldProps.Name == "PPOS" && TableProps.Name == "PLAY")
                         {
-                            pos = (UInt32)TDB.TDBFieldGetValueAsInteger(dbIndex, "PLAY", "PPOS", r);
+                            pos = (UInt32)GetDBValueInt("PLAY", "PPOS", r);
                             DataGridRow[fCount - fCount_Pos] = GetPositionName((int)pos);
                         }
                     }
                     else if (FieldProps.FieldType == TdbFieldType.tdbInt || FieldProps.FieldType == TdbFieldType.tdbSInt)
                     {
                         Int32 signedval;
-                        signedval = TDB.TDBFieldGetValueAsInteger(dbIndex, TableProps.Name, FieldProps.Name, r);
+                        signedval = GetDBValueInt(TableProps.Name, FieldProps.Name, r);
 
                         DataGridRow[tmpf + 1] = signedval;
                     }
@@ -1920,22 +1932,58 @@ namespace DB_EDITOR
             RandomizePotential();
         }
 
+        //Randomize Player Faces/Heads
+        private void RandomizeHeadButton_Click(object sender, EventArgs e)
+        {
+            RandomizeRecruitFace("PLAY");
+        }
+
         //Recalculate Overall Ratings
         private void buttonCalcOverall_Click(object sender, EventArgs e)
         {
             RecalculateOverall();
         }
 
+        //Recalculate Team Overalls
         private void TYDNButton_Click(object sender, EventArgs e)
         {
             if (TEAM) CalculateTeamRatings("TEAM");
             if (TDYN) CalculateTeamRatings("TDYN");
         }
 
+        //Determine Impact Players
         private void buttonImpactPlayers_Click(object sender, EventArgs e)
         {
             DetermineImpactPlayers();
         }
+
+        //Fantasy Roster Generator
+        private void buttonFantasyRoster_Click(object sender, EventArgs e)
+        {
+            if (TDYN)
+                FantasyRosterGenerator("TDYN");
+            else if (TEAM)
+                FantasyRosterGenerator("TEAM");
+        }
+
+        //Depth Chart Generator
+        private void buttonAutoDepthChart_Click(object sender, EventArgs e)
+        {
+            if (TDYN)
+                DepthChartMaker("TDYN");
+            else if (TEAM)
+                DepthChartMaker("TEAM");
+        }
+
+        //Fill Rosters
+        private void buttonFillRosters_Click(object sender, EventArgs e)
+        {
+            if (TDYN)
+                FillRosters("TDYN", Convert.ToInt32(FillRosterPCT.Value));
+            else if (TEAM)
+                FillRosters("TEAM", Convert.ToInt32(FillRosterPCT.Value));
+        }
+
 
         #endregion
 
@@ -1989,6 +2037,13 @@ namespace DB_EDITOR
             PlayerToCoach();
         }
 
+
+        //Randomly Generate Coach Prestiges for Free Agents
+        private void CoachPrestigeButton_Click(object sender, EventArgs e)
+        {
+            AssignCoachPrestigeFreeAgents();
+        }
+
         #endregion
 
 
@@ -2001,7 +2056,7 @@ namespace DB_EDITOR
             bool correctWeek = false;
             for (int i = 0; i < TDB.TableRecordCount(dbIndex, "RCYR"); i++)
             {
-                if (Convert.ToInt32(TDB.FieldValue(dbIndex, "RCYR", "SEWN", i)) >= 1)
+                if (Convert.ToInt32(GetDBValue("RCYR", "SEWN", i)) >= 1)
                 {
                     RaiseMinimumRecruitingPoints();
                     correctWeek = true;
@@ -2019,7 +2074,7 @@ namespace DB_EDITOR
             bool correctWeek = false;
             for (int i = 0; i < TDB.TableRecordCount(dbIndex, "RCYR"); i++)
             {
-                if (TDB.FieldValue(dbIndex, "RCYR", "SEWN", i) == "1")
+                if (GetDBValue("RCYR", "SEWN", i) == "1")
                 {
                     RemoveInterestedTeams();
                     correctWeek = true;
@@ -2037,7 +2092,7 @@ namespace DB_EDITOR
             bool correctWeek = false;
             for (int i = 0; i < TDB.TableRecordCount(dbIndex, "RCYR"); i++)
             {
-                if (TDB.FieldValue(dbIndex, "RCYR", "SEWN", i) == "1")
+                if (GetDBValue("RCYR", "SEWN", i) == "1")
                 {
                     RandomizeRecruitDB("RCPT");
                     correctWeek = true;
@@ -2062,12 +2117,74 @@ namespace DB_EDITOR
             PolynesianNameGenerator();
         }
 
-
+        //Randomize Face & Skins
+        private void buttonRandomizeFaceSkin_Click(object sender, EventArgs e)
+        {
+            RandomizeRecruitFace("RCPT");
+        }
 
 
 
 
         #endregion
+
+        //DEV TAB TOOLS
+
+        #region DEV TOOLS
+
+        //Graduate/Transfer Players (DEV ONLY)
+        private void GraduateButton_Click(object sender, EventArgs e)
+        {
+            GraduateAndTransferPlayers();
+        }
+
+        private void ImportRecruitsButton_Click(object sender, EventArgs e)
+        {
+            CreateRecruitsFromCSV();
+        }
+
+        private void FireCoachButton_Click(object sender, EventArgs e)
+        {
+            FireHeadCoach();
+        }
+
+
+        //Create Transfers from CSV File
+        private void CreateTransfersCSVButton_Click(object sender, EventArgs e)
+        {
+            CreateTransfersFromCSV();
+        }
+
+        private void DevFillRosterButton_Click(object sender, EventArgs e)
+        {
+            FillRosters("TDYN", 85);
+        }
+
+        private void DevCalcTeamRatingsButton_Click(object sender, EventArgs e)
+        {
+            CalculateTeamRatings("TDYN");
+        }
+
+        private void DevDepthChartButton_Click(object sender, EventArgs e)
+        {
+            DepthChartMaker("TDYN");
+        }
+
+        private void DevRandomizeFaceButton_Click(object sender, EventArgs e)
+        {
+            RandomizeRecruitFace("PLAY");
+        }
+
+        private void DevCalcOVRButton_Click(object sender, EventArgs e)
+        {
+            RecalculateOverall();
+        }
+
+        #endregion
+
+
+
+
 
         //EXPERIMENTAL ITEMS -- WORK IN PROGRESS
 
@@ -2081,34 +2198,6 @@ namespace DB_EDITOR
             ScheduleGenerator();
         }
 
-        private void buttonRandomizeFaceSkin_Click(object sender, EventArgs e)
-        {
-            RandomizeRecruitFace("RCPT");
-        }
-
-        private void buttonFantasyRoster_Click(object sender, EventArgs e)
-        {
-            if (TDYN)
-                FantasyRosterGenerator("TDYN");
-            else if (TEAM)
-                FantasyRosterGenerator("TEAM");
-        }
-
-        private void buttonAutoDepthChart_Click(object sender, EventArgs e)
-        {
-            if (TDYN)
-                DepthChartMaker("TDYN");
-            else if (TEAM)
-                DepthChartMaker("TEAM");
-        }
-
-        private void buttonFillRosters_Click(object sender, EventArgs e)
-        {
-            if (TDYN)
-                FillRosters("TDYN");
-            else if (TEAM)
-                FillRosters("TEAM");
-        }
 
 
     }

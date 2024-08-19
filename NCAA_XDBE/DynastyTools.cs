@@ -27,10 +27,10 @@ namespace DB_EDITOR
                     int injl = rand.Next(50, 255);
                     int injt = rand.Next(180, 221);
                     TDB.TDBTableRecordAdd(dbIndex, "INJY", true);
-                    TDB.NewfieldValue(dbIndex, "INJY", "PGID", inj, TDB.FieldValue(dbIndex, "PLAY", "PGID", i));
-                    TDB.NewfieldValue(dbIndex, "INJY", "INJL", inj, Convert.ToString(injl));
-                    TDB.NewfieldValue(dbIndex, "INJY", "INJT", inj, Convert.ToString(injt));
-                    TDB.NewfieldValue(dbIndex, "INJY", "SEWN", inj, "0");
+                    ChangeDBString("INJY", "PGID", inj, GetDBValue("PLAY", "PGID", i));
+                    ChangeDBString("INJY", "INJL", inj, Convert.ToString(injl));
+                    ChangeDBString("INJY", "INJT", inj, Convert.ToString(injt));
+                    ChangeDBString("INJY", "SEWN", inj, "0");
                     ReduceSkills(i, (int)MaxSkillDropPS.Value);
                     inj++;
                 }
@@ -52,28 +52,28 @@ namespace DB_EDITOR
             //looks at INJY table
             for (int i = 0; i < TDB.TableRecordCount(dbIndex, "INJY"); i++)
             {
-                string injLength = TDB.FieldValue(dbIndex, "INJY", "INJL", i);
+                string injLength = GetDBValue("INJY", "INJL", i);
                 //check to see if value is greater than 225
                 /* 254 = Season Ending
                  * 196 = 10 weeks
                  */
-                if (Convert.ToInt32(injLength) >= 196 || Convert.ToInt32(TDB.FieldValue(dbIndex, "SEAI", "SEWN", 0)) >= 16)
+                if (Convert.ToInt32(injLength) >= 196 || Convert.ToInt32(GetDBValue("SEAI", "SEWN", 0)) >= 16)
                 {
                     //find the corresponding PGID
-                    string PGID = TDB.FieldValue(dbIndex, "INJY", "PGID", i);
+                    string PGID = GetDBValue("INJY", "PGID", i);
                     //find the corresponding recNo of the PGID in PLAY
                     for (int j = 0; j < TDB.TableRecordCount(dbIndex, "PLAY"); j++)
                     {
-                        if (PGID == TDB.FieldValue(dbIndex, "PLAY", "PGID", j))
+                        if (PGID == GetDBValue("PLAY", "PGID", j))
                         {
                             //checks to see if player has only played 4 or less games
                             if (checkBoxMedRSNEXT.Checked)
                             {
-                                if (Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PL13", j)) <= 4 && TDB.FieldValue(dbIndex, "PLAY", "PRSD", j) != "1")
+                                if (Convert.ToInt32(GetDBValue("PLAY", "PL13", j)) <= 4 && GetDBValue("PLAY", "PRSD", j) != "1")
                                 {
                                     //changes redshirt status to "1" (active redshirt)
-                                    TDB.NewfieldValue(dbIndex, "PLAY", "PRSD", j, "1");
-                                    string team = GetTeamName(Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PGID", j)) / 70);
+                                    ChangeDBString("PLAY", "PRSD", j, "1");
+                                    string team = GetTeamName(Convert.ToInt32(GetDBValue("PLAY", "PGID", j)) / 70);
 
                                     if (checkBoxInjuryRatings.Checked)
                                     {
@@ -86,11 +86,11 @@ namespace DB_EDITOR
                             }
                             else
                             {
-                                if (TDB.FieldValue(dbIndex, "PLAY", "PRSD", j) != "1")
+                                if (GetDBValue("PLAY", "PRSD", j) != "1")
                                 {
                                     //changes redshirt status to "1" (active redshirt)
-                                    TDB.NewfieldValue(dbIndex, "PLAY", "PRSD", j, "1");
-                                    string team = GetTeamName(Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PGID", j)) / 70);
+                                    ChangeDBString("PLAY", "PRSD", j, "1");
+                                    string team = GetTeamName(Convert.ToInt32(GetDBValue("PLAY", "PGID", j)) / 70);
 
                                     if (checkBoxInjuryRatings.Checked)
                                     {
@@ -121,14 +121,14 @@ namespace DB_EDITOR
             //int PACC, PSPD, PAGI, PJMP;
             int tol = maxDrop;
 
-            PPOE = ConvertRating(Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PPOE", i)));
-            PINJ = ConvertRating(Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PINJ", i)));
-            PSTA = ConvertRating(Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PSTA", i)));
-            PSTR = ConvertRating(Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PSTR", i)));
-            //PACC = ConvertRating(Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PACC", i)));
-            //PSPD = ConvertRating(Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PSPD", i)));
-            //PAGI = ConvertRating(Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PAGI", i)));
-            //PJMP = ConvertRating(Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PJMP", i)));
+            PPOE = ConvertRating(Convert.ToInt32(GetDBValue("PLAY", "PPOE", i)));
+            PINJ = ConvertRating(Convert.ToInt32(GetDBValue("PLAY", "PINJ", i)));
+            PSTA = ConvertRating(Convert.ToInt32(GetDBValue("PLAY", "PSTA", i)));
+            PSTR = ConvertRating(Convert.ToInt32(GetDBValue("PLAY", "PSTR", i)));
+            //PACC = ConvertRating(Convert.ToInt32(GetDBValue("PLAY", "PACC", i)));
+            //PSPD = ConvertRating(Convert.ToInt32(GetDBValue("PLAY", "PSPD", i)));
+            //PAGI = ConvertRating(Convert.ToInt32(GetDBValue("PLAY", "PAGI", i)));
+            //PJMP = ConvertRating(Convert.ToInt32(GetDBValue("PLAY", "PJMP", i)));
 
 
             PPOE = RevertRating(GetReducedAttribute(PPOE, tol));
@@ -141,14 +141,14 @@ namespace DB_EDITOR
             //PJMP = RevertRating(GetReducedAttribute(PJMP, tol));
 
 
-            TDB.NewfieldValue(dbIndex, "PLAY", "PPOE", i, Convert.ToString(PPOE));
-            TDB.NewfieldValue(dbIndex, "PLAY", "PINJ", i, Convert.ToString(PINJ));
-            TDB.NewfieldValue(dbIndex, "PLAY", "PSTA", i, Convert.ToString(PSTA));
-            TDB.NewfieldValue(dbIndex, "PLAY", "PSTR", i, Convert.ToString(PSTR));
-            //TDB.NewfieldValue(dbIndex, "PLAY", "PACC", i, Convert.ToString(PACC));
-            //TDB.NewfieldValue(dbIndex, "PLAY", "PSPD", i, Convert.ToString(PSPD));
-            //TDB.NewfieldValue(dbIndex, "PLAY", "PAGI", i, Convert.ToString(PAGI));
-            //TDB.NewfieldValue(dbIndex, "PLAY", "PJMP", i, Convert.ToString(PJMP));
+            ChangeDBString("PLAY", "PPOE", i, Convert.ToString(PPOE));
+            ChangeDBString("PLAY", "PINJ", i, Convert.ToString(PINJ));
+            ChangeDBString("PLAY", "PSTA", i, Convert.ToString(PSTA));
+            ChangeDBString("PLAY", "PSTR", i, Convert.ToString(PSTR));
+            //ChangeDBString("PLAY", "PACC", i, Convert.ToString(PACC));
+            //ChangeDBString("PLAY", "PSPD", i, Convert.ToString(PSPD));
+            //ChangeDBString("PLAY", "PAGI", i, Convert.ToString(PAGI));
+            //ChangeDBString("PLAY", "PJMP", i, Convert.ToString(PJMP));
 
             RecalculateOverallByRec(i);
 
@@ -186,10 +186,10 @@ namespace DB_EDITOR
             string coach = "";
             for (int i = 0; i < TDB.TableRecordCount(dbIndex, "COCH"); i++)
             {
-                if (TDB.FieldValue(dbIndex, "COCH", "TGID", i) != "511")
+                if (GetDBValue("COCH", "TGID", i) != "511")
                 {
-                    string TGID = TDB.FieldValue(dbIndex, "COCH", "TGID", i);
-                    int oldPrestige = Convert.ToInt32(TDB.FieldValue(dbIndex, "COCH", "CPRE", i));
+                    string TGID = GetDBValue("COCH", "TGID", i);
+                    int oldPrestige = Convert.ToInt32(GetDBValue("COCH", "CPRE", i));
                     int newPrestige = oldPrestige;
 
                     int TMPR = FindTeamPrestige(Convert.ToInt32(TGID));
@@ -213,17 +213,17 @@ namespace DB_EDITOR
 
                     if (newPrestige > oldPrestige)
                     {
-                        coach += "\n* " + GetTeamName(Convert.ToInt32(TDB.FieldValue(dbIndex, "COCH", "TGID", i))) + ": " + TDB.FieldValue(dbIndex, "COCH", "CLFN", i) + " " + TDB.FieldValue(dbIndex, "COCH", "CLLN", i) + " (+" + (newPrestige - oldPrestige) + ")";
+                        coach += "\n* " + GetTeamName(Convert.ToInt32(GetDBValue("COCH", "TGID", i))) + ": " + GetDBValue("COCH", "CLFN", i) + " " + GetDBValue("COCH", "CLLN", i) + " (+" + (newPrestige - oldPrestige) + ")";
                     }
                     else if (newPrestige < oldPrestige)
                     {
-                        coach += "\n* " + GetTeamName(Convert.ToInt32(TDB.FieldValue(dbIndex, "COCH", "TGID", i))) + ": " + TDB.FieldValue(dbIndex, "COCH", "CLFN", i) + " " + TDB.FieldValue(dbIndex, "COCH", "CLLN", i) + " (" + (newPrestige - oldPrestige) + ")";
+                        coach += "\n* " + GetTeamName(Convert.ToInt32(GetDBValue("COCH", "TGID", i))) + ": " + GetDBValue("COCH", "CLFN", i) + " " + GetDBValue("COCH", "CLLN", i) + " (" + (newPrestige - oldPrestige) + ")";
                     }
-                    TDB.NewfieldValue(dbIndex, "COCH", "CPRE", i, Convert.ToString(newPrestige));
+                    ChangeDBString("COCH", "CPRE", i, Convert.ToString(newPrestige));
                 }
                 else
                 {
-                    TDB.NewfieldValue(dbIndex, "COCH", "CCPO", i, "60"); //fixes coach status
+                    ChangeDBString("COCH", "CCPO", i, "60"); //fixes coach status
                 }
 
                 progressBar1.PerformStep();
@@ -247,8 +247,8 @@ namespace DB_EDITOR
             {
                 //CDPC, CRPC, CTPC
                 int CDPC, CRPC, CTPC;
-                CRPC = Convert.ToInt32(TDB.FieldValue(dbIndex, "COCH", "CRPC", i));
-                CTPC = Convert.ToInt32(TDB.FieldValue(dbIndex, "COCH", "CTPC", i));
+                CRPC = Convert.ToInt32(GetDBValue("COCH", "CRPC", i));
+                CTPC = Convert.ToInt32(GetDBValue("COCH", "CTPC", i));
                 CDPC = 0;
 
                 while (CDPC < 15 || CDPC > 25)
@@ -258,9 +258,9 @@ namespace DB_EDITOR
                     CDPC = 100 - CTPC - CRPC;
                 }
 
-                TDB.NewfieldValue(dbIndex, "COCH", "CDPC", i, Convert.ToString(CDPC));
-                TDB.NewfieldValue(dbIndex, "COCH", "CRPC", i, Convert.ToString(CRPC));
-                TDB.NewfieldValue(dbIndex, "COCH", "CTPC", i, Convert.ToString(CTPC));
+                ChangeDBString("COCH", "CDPC", i, Convert.ToString(CDPC));
+                ChangeDBString("COCH", "CRPC", i, Convert.ToString(CRPC));
+                ChangeDBString("COCH", "CTPC", i, Convert.ToString(CTPC));
 
                 progressBar1.PerformStep();
             }
@@ -296,48 +296,48 @@ namespace DB_EDITOR
             for (int i = 0; i < TDB.TableRecordCount(dbIndex, "COCH"); i++)
             {
                 //ADD COACHING FREE AGENCY POOL TO THE LIST
-                if (TDB.FieldValue(dbIndex, "COCH", "TGID", i) == "511")
+                if (GetDBValue("COCH", "TGID", i) == "511")
                 {
-                    CCID_FAList.Add(TDB.FieldValue(dbIndex, "COCH", "CCID", i));
+                    CCID_FAList.Add(GetDBValue("COCH", "CCID", i));
                 }
                 else
                 {
-                    string TGID = TDB.FieldValue(dbIndex, "COCH", "TGID", i);
-                    int CTOP = Convert.ToInt32(TDB.FieldValue(dbIndex, "COCH", "CTOP", i));
+                    string TGID = GetDBValue("COCH", "TGID", i);
+                    int CTOP = Convert.ToInt32(GetDBValue("COCH", "CTOP", i));
                     int TMPR = FindTeamPrestige(Convert.ToInt32(TGID));
-                    int CCPO = Convert.ToInt32(TDB.FieldValue(dbIndex, "COCH", "CCPO", i));
+                    int CCPO = Convert.ToInt32(GetDBValue("COCH", "CCPO", i));
 
                     //FIRE COACHES
-                    if (CCPO < jobSecurityValue.Value && CTOP > TMPR && TDB.FieldValue(dbIndex, "COCH", "CFUC", i) != "1" && rand.Next(0, 100) < (50 + jobSecurityValue.Value - CCPO))
+                    if (CCPO < jobSecurityValue.Value && CTOP > TMPR && GetDBValue("COCH", "CFUC", i) != "1" && rand.Next(0, 100) < (50 + jobSecurityValue.Value - CCPO))
                     {
-                        CCID_FiredList.Add(TDB.FieldValue(dbIndex, "COCH", "CCID", i));
-                        TGID_VacancyList.Add(TDB.FieldValue(dbIndex, "COCH", "TGID", i));
+                        CCID_FiredList.Add(GetDBValue("COCH", "CCID", i));
+                        TGID_VacancyList.Add(GetDBValue("COCH", "TGID", i));
 
-                        string coachFN = TDB.FieldValue(dbIndex, "COCH", "CLFN", i);
-                        string coachLN = TDB.FieldValue(dbIndex, "COCH", "CLLN", i);
-                        string teamID = GetTeamName(Convert.ToInt32(TDB.FieldValue(dbIndex, "COCH", "TGID", i)));
+                        string coachFN = GetDBValue("COCH", "CLFN", i);
+                        string coachLN = GetDBValue("COCH", "CLLN", i);
+                        string teamID = GetTeamName(Convert.ToInt32(GetDBValue("COCH", "TGID", i)));
 
 
-                        if (checkBoxFiredTransfers.Checked) CoachTransferPortal(Convert.ToInt32(TDB.FieldValue(dbIndex, "COCH", "TGID", i)), false);
+                        if (checkBoxFiredTransfers.Checked) CoachTransferPortal(Convert.ToInt32(GetDBValue("COCH", "TGID", i)), false);
 
 
                         news2 += "Fired: " + coachFN + " " + coachLN + " (" + teamID + ")\n\n";
 
-                        TDB.NewfieldValue(dbIndex, "COCH", "TGID", i, "511");
-                        TDB.NewfieldValue(dbIndex, "COCH", "CLTF", i, "511");
-                        TDB.NewfieldValue(dbIndex, "COCH", "CCPO", i, "60");
-                        TDB.NewfieldValue(dbIndex, "COCH", "CTYR", i, "0");
+                        ChangeDBString("COCH", "TGID", i, "511");
+                        ChangeDBString("COCH", "CLTF", i, "511");
+                        ChangeDBString("COCH", "CCPO", i, "60");
+                        ChangeDBString("COCH", "CTYR", i, "0");
 
 
                     }
                     //ADD COACHES TO CANDIDATE LIST
-                    else if (CCPO > 99 && CTOP < TMPR && TDB.FieldValue(dbIndex, "COCH", "CFUC", i) != "1")
+                    else if (CCPO > 99 && CTOP < TMPR && GetDBValue("COCH", "CFUC", i) != "1")
                     {
-                        CCID_PromoteList.Add(TDB.FieldValue(dbIndex, "COCH", "CCID", i));
+                        CCID_PromoteList.Add(GetDBValue("COCH", "CCID", i));
 
-                        string coachFN = TDB.FieldValue(dbIndex, "COCH", "CLFN", i);
-                        string coachLN = TDB.FieldValue(dbIndex, "COCH", "CLLN", i);
-                        string teamID = GetTeamName(Convert.ToInt32(TDB.FieldValue(dbIndex, "COCH", "TGID", i)));
+                        string coachFN = GetDBValue("COCH", "CLFN", i);
+                        string coachLN = GetDBValue("COCH", "CLLN", i);
+                        string teamID = GetTeamName(Convert.ToInt32(GetDBValue("COCH", "TGID", i)));
 
                     }
                 }
@@ -368,19 +368,19 @@ namespace DB_EDITOR
                         int x = FindRecNumberCCID(CCID);
                         if (x == -1) MessageBox.Show("ERROR");
 
-                        int CPRS = Convert.ToInt32(TDB.FieldValue(dbIndex, "COCH", "CPRS", x));
+                        int CPRS = Convert.ToInt32(GetDBValue("COCH", "CPRS", x));
                         if (CPRS >= TMPR - downgrade)
                         {
 
-                            TDB.NewfieldValue(dbIndex, "COCH", "TGID", x, Convert.ToString(TGID));
-                            TDB.NewfieldValue(dbIndex, "COCH", "CLTF", x, Convert.ToString(TMPR));
-                            TDB.NewfieldValue(dbIndex, "COCH", "CCPO", x, "60");
-                            TDB.NewfieldValue(dbIndex, "COCH", "CTYR", x, "0");
+                            ChangeDBString("COCH", "TGID", x, Convert.ToString(TGID));
+                            ChangeDBString("COCH", "CLTF", x, Convert.ToString(TMPR));
+                            ChangeDBString("COCH", "CCPO", x, "60");
+                            ChangeDBString("COCH", "CTYR", x, "0");
 
 
-                            string coachFN = TDB.FieldValue(dbIndex, "COCH", "CLFN", x);
-                            string coachLN = TDB.FieldValue(dbIndex, "COCH", "CLLN", x);
-                            string teamID = GetTeamName(Convert.ToInt32(TDB.FieldValue(dbIndex, "COCH", "TGID", x)));
+                            string coachFN = GetDBValue("COCH", "CLFN", x);
+                            string coachLN = GetDBValue("COCH", "CLLN", x);
+                            string teamID = GetTeamName(Convert.ToInt32(GetDBValue("COCH", "TGID", x)));
 
                             news += "Hired: " + coachFN + " " + coachLN + " (" + teamID + ")\n\n";
 
@@ -400,20 +400,20 @@ namespace DB_EDITOR
                         if (x == -1) MessageBox.Show("ERROR");
 
 
-                        string currentTGID = TDB.FieldValue(dbIndex, "COCH", "TGID", x);
+                        string currentTGID = GetDBValue("COCH", "TGID", x);
                         int currentTMPR = FindTeamPrestige(Convert.ToInt32(currentTGID));
 
                         if (currentTMPR < TMPR)
                         {
-                            TDB.NewfieldValue(dbIndex, "COCH", "TGID", x, Convert.ToString(TGID));
-                            TDB.NewfieldValue(dbIndex, "COCH", "CLTF", x, Convert.ToString(TMPR));
-                            TDB.NewfieldValue(dbIndex, "COCH", "CCPO", x, "60");
-                            TDB.NewfieldValue(dbIndex, "COCH", "CTYR", x, "0");
+                            ChangeDBString("COCH", "TGID", x, Convert.ToString(TGID));
+                            ChangeDBString("COCH", "CLTF", x, Convert.ToString(TMPR));
+                            ChangeDBString("COCH", "CCPO", x, "60");
+                            ChangeDBString("COCH", "CTYR", x, "0");
 
 
-                            string coachFN = TDB.FieldValue(dbIndex, "COCH", "CLFN", x);
-                            string coachLN = TDB.FieldValue(dbIndex, "COCH", "CLLN", x);
-                            string teamID = GetTeamName(Convert.ToInt32(TDB.FieldValue(dbIndex, "COCH", "TGID", x)));
+                            string coachFN = GetDBValue("COCH", "CLFN", x);
+                            string coachLN = GetDBValue("COCH", "CLLN", x);
+                            string teamID = GetTeamName(Convert.ToInt32(GetDBValue("COCH", "TGID", x)));
                             string oldTeamID = GetTeamName(Convert.ToInt32(currentTGID));
 
                             CoachTransferPortal(Convert.ToInt32(currentTGID), true);
@@ -513,7 +513,7 @@ namespace DB_EDITOR
             {
                 if (currentRecCount >= maxTransfers) break;
 
-                if (TDB.FieldValue(dbIndex, "TEAM", "TTYP", i) == "0")
+                if (GetDBValue("TEAM", "TTYP", i) == "0")
                 {
                     int xfers = 1;
 
@@ -614,10 +614,10 @@ namespace DB_EDITOR
         {
             int row = TDB.TableRecordCount(dbIndex, "TRAN");
             TDB.TDBTableRecordAdd(dbIndex, "TRAN", false);
-            TDB.NewfieldValue(dbIndex, "TRAN", "PGID", row, Convert.ToString(PGID));
-            TDB.NewfieldValue(dbIndex, "TRAN", "PTID", row, "300");
-            TDB.NewfieldValue(dbIndex, "TRAN", "TRYR", row, "0");
-            TDB.NewfieldValue(dbIndex, "PLAY", "PTYP", i, "1");
+            ChangeDBString("TRAN", "PGID", row, Convert.ToString(PGID));
+            ChangeDBString("TRAN", "PTID", row, "300");
+            ChangeDBString("TRAN", "TRYR", row, "0");
+            ChangeDBString("PLAY", "PTYP", i, "1");
         }
 
         //Conference Realignment Mod
@@ -715,19 +715,19 @@ namespace DB_EDITOR
         {
             int x = TDB.TableRecordCount(dbIndex, "TSWP");
             TDB.TDBTableRecordAdd(dbIndex, "TSWP", false);
-            TDB.NewfieldValue(dbIndex, "TSWP", "TGID", x, Convert.ToString(GetTeamTGIDfromRecord(teamA)));
-            TDB.NewfieldValue(dbIndex, "TSWP", "TIDR", x, Convert.ToString(GetTeamTGIDfromRecord(teamB)));
-            TDB.NewfieldValue(dbIndex, "TSWP", "TORD", x, Convert.ToString(x));
+            ChangeDBString("TSWP", "TGID", x, Convert.ToString(GetTeamTGIDfromRecord(teamA)));
+            ChangeDBString("TSWP", "TIDR", x, Convert.ToString(GetTeamTGIDfromRecord(teamB)));
+            ChangeDBString("TSWP", "TORD", x, Convert.ToString(x));
 
             int teamACGID = GetTeamCGID(teamA);
             int teamADGID = GetTeamDGID(teamA);
             int teamBCGID = GetTeamCGID(teamB);
             int teamBDGID = GetTeamDGID(teamB);
 
-            TDB.NewfieldValue(dbIndex, "TEAM", "CGID", teamA, Convert.ToString(teamBCGID));
-            TDB.NewfieldValue(dbIndex, "TEAM", "CGID", teamB, Convert.ToString(teamACGID));
-            TDB.NewfieldValue(dbIndex, "TEAM", "DGID", teamA, Convert.ToString(teamBDGID));
-            TDB.NewfieldValue(dbIndex, "TEAM", "DGID", teamB, Convert.ToString(teamADGID));
+            ChangeDBString("TEAM", "CGID", teamA, Convert.ToString(teamBCGID));
+            ChangeDBString("TEAM", "CGID", teamB, Convert.ToString(teamACGID));
+            ChangeDBString("TEAM", "DGID", teamA, Convert.ToString(teamBDGID));
+            ChangeDBString("TEAM", "DGID", teamB, Convert.ToString(teamADGID));
 
 
         }
@@ -797,9 +797,9 @@ namespace DB_EDITOR
             for (int i = 0; i < TDB.TableRecordCount(dbIndex, "COCH"); i++)
             {
                 //ADD COACHING FREE AGENCY POOL TO THE LIST
-                if (TDB.FieldValue(dbIndex, "COCH", "TGID", i) == "511" && Convert.ToInt32(TDB.FieldValue(dbIndex, "COCH", "CPRE", i)) < 2)
+                if (GetDBValue("COCH", "TGID", i) == "511" && Convert.ToInt32(GetDBValue("COCH", "CPRE", i)) < 2)
                 {
-                    CCID_FAList.Add(TDB.FieldValue(dbIndex, "COCH", "CCID", i));
+                    CCID_FAList.Add(GetDBValue("COCH", "CCID", i));
                 }
                 progressBar1.PerformStep();
             }
@@ -813,7 +813,7 @@ namespace DB_EDITOR
             for (int i = 0; i < TDB.TableRecordCount(dbIndex, "PLAY"); i++)
             {
                 //Create a list of Players that are seniors and have high awareness
-                if (Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PAWR", i)) >= 20 && TDB.FieldValue(dbIndex, "PLAY", "PYER", i) == "3")
+                if (Convert.ToInt32(GetDBValue("PLAY", "PAWR", i)) >= 20 && GetDBValue("PLAY", "PYER", i) == "3")
                 {
                     PGID_List.Add(i);
                 }
@@ -832,8 +832,8 @@ namespace DB_EDITOR
                     int rec = FindRecNumberCCID(Convert.ToInt32(ccid));
 
 
-                    string coachFN = TDB.FieldValue(dbIndex, "COCH", "CLFN", rec);
-                    string coachLN = TDB.FieldValue(dbIndex, "COCH", "CLLN", rec);
+                    string coachFN = GetDBValue("COCH", "CLFN", rec);
+                    string coachLN = GetDBValue("COCH", "CLLN", rec);
 
                     news += "Removed: " + coachFN + " " + coachLN + "\n\n";
 
@@ -844,18 +844,18 @@ namespace DB_EDITOR
 
                     string playFN = GetFirstNameFromRecord(recP);
                     string playLN = GetLastNameFromRecord(recP);
-                    string team = GetTeamName(Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PGID", recP))/70);
+                    string team = GetTeamName(Convert.ToInt32(GetDBValue("PLAY", "PGID", recP))/70);
                     PGID_List.RemoveAt(y);
 
-                    TDB.NewfieldValue(dbIndex, "COCH", "CLFN", rec, playFN);
-                    TDB.NewfieldValue(dbIndex, "COCH", "CLLN", rec, playLN);
+                    ChangeDBString("COCH", "CLFN", rec, playFN);
+                    ChangeDBString("COCH", "CLLN", rec, playLN);
 
                     //SKIN COLOR, need to convert to 0, 1, 5
 
-                    int skin = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PSKI", recP));
+                    int skin = Convert.ToInt32(GetDBValue("PLAY", "PSKI", recP));
                     if (skin > 1) skin = 5;
 
-                    TDB.NewfieldValue(dbIndex, "COCH", "CSKI", rec, Convert.ToString(skin));
+                    ChangeDBString("COCH", "CSKI", rec, Convert.ToString(skin));
 
 
                     news += "Added: " + playFN + " " + playLN + " (" + team + ")\n\n";
@@ -867,23 +867,23 @@ namespace DB_EDITOR
 
 
                     //Calculate COCH PRESTIGE
-                    int prestige = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "POVR", recP));
+                    int prestige = Convert.ToInt32(GetDBValue("PLAY", "POVR", recP));
 
                     if (prestige > 27) prestige = 4;
                     else if (prestige > 24) prestige = 3;
                     else if (prestige > 21) prestige = 2;
                     else prestige = 1;
 
-                    TDB.NewfieldValue(dbIndex, "COCH", "CPRE", rec, Convert.ToString(prestige));
+                    ChangeDBString("COCH", "CPRE", rec, Convert.ToString(prestige));
 
 
                     //Determine Coaching Playbook and Strategies
-                    int TGID = Convert.ToInt32(TDB.FieldValue(dbIndex, "PLAY", "PGID", recP)) / 70;
+                    int TGID = Convert.ToInt32(GetDBValue("PLAY", "PGID", recP)) / 70;
                     int recCOCH = -1;
                     
                     for(int j = 0; j < TDB.TableRecordCount(dbIndex, "COCH"); j++)
                     {
-                        if(TDB.FieldValue(dbIndex, "COCH", "TGID", j) == Convert.ToString(TGID))
+                        if(GetDBValue("COCH", "TGID", j) == Convert.ToString(TGID))
                         {
                             recCOCH = j;
                         }
@@ -909,72 +909,72 @@ namespace DB_EDITOR
 
         private void ClearCoachStats(int rec)
         {
-            TDB.NewfieldValue(dbIndex, "COCH", "CT05", rec, "0");
-            TDB.NewfieldValue(dbIndex, "COCH", "CT15", rec, "0");
-            TDB.NewfieldValue(dbIndex, "COCH", "CT25", rec, "0");
-            TDB.NewfieldValue(dbIndex, "COCH", "CCBB", rec, "0");
-            TDB.NewfieldValue(dbIndex, "COCH", "CFUC", rec, "0");
-            TDB.NewfieldValue(dbIndex, "COCH", "CCWI", rec, "0");
-            TDB.NewfieldValue(dbIndex, "COCH", "CSWI", rec, "0");
-            TDB.NewfieldValue(dbIndex, "COCH", "C25L", rec, "0");
-            TDB.NewfieldValue(dbIndex, "COCH", "CBLL", rec, "0");
-            TDB.NewfieldValue(dbIndex, "COCH", "CCOL", rec, "0");
-            TDB.NewfieldValue(dbIndex, "COCH", "CCRL", rec, "0");
-            TDB.NewfieldValue(dbIndex, "COCH", "CNTL", rec, "0");
-            TDB.NewfieldValue(dbIndex, "COCH", "CRVL", rec, "0");
-            TDB.NewfieldValue(dbIndex, "COCH", "CCWN", rec, "0");
-            TDB.NewfieldValue(dbIndex, "COCH", "CTWN", rec, "0");
-            TDB.NewfieldValue(dbIndex, "COCH", "CCLO", rec, "0");
-            TDB.NewfieldValue(dbIndex, "COCH", "CSLO", rec, "0");
-            TDB.NewfieldValue(dbIndex, "COCH", "CCPO", rec, "60");
-            TDB.NewfieldValue(dbIndex, "COCH", "CTOP", rec, "0");
-            TDB.NewfieldValue(dbIndex, "COCH", "CCTP", rec, "0");
-            TDB.NewfieldValue(dbIndex, "COCH", "CCYR", rec, "0");
-            TDB.NewfieldValue(dbIndex, "COCH", "CTYR", rec, "0");
-            TDB.NewfieldValue(dbIndex, "COCH", "COFS", rec, "0");
-            TDB.NewfieldValue(dbIndex, "COCH", "CCLS", rec, "0");
-            TDB.NewfieldValue(dbIndex, "COCH", "CSLS", rec, "0");
-            TDB.NewfieldValue(dbIndex, "COCH", "CTLS", rec, "0");
-            TDB.NewfieldValue(dbIndex, "COCH", "CCWS", rec, "0");
-            TDB.NewfieldValue(dbIndex, "COCH", "CRWS", rec, "0");
-            TDB.NewfieldValue(dbIndex, "COCH", "CSWS", rec, "0");
-            TDB.NewfieldValue(dbIndex, "COCH", "CCCT", rec, "0");
-            TDB.NewfieldValue(dbIndex, "COCH", "CCNT", rec, "0");
-            TDB.NewfieldValue(dbIndex, "COCH", "CWST", rec, "0");
-            TDB.NewfieldValue(dbIndex, "COCH", "C25W", rec, "0");
-            TDB.NewfieldValue(dbIndex, "COCH", "CBLW", rec, "0");
-            TDB.NewfieldValue(dbIndex, "COCH", "CCRW", rec, "0");
-            TDB.NewfieldValue(dbIndex, "COCH", "CCSW", rec, "0");
-            TDB.NewfieldValue(dbIndex, "COCH", "CCTW", rec, "0");
-            TDB.NewfieldValue(dbIndex, "COCH", "CNTW", rec, "0");
-            TDB.NewfieldValue(dbIndex, "COCH", "CRTW", rec, "0");
-            TDB.NewfieldValue(dbIndex, "COCH", "CTTW", rec, "0");
-            TDB.NewfieldValue(dbIndex, "COCH", "CNVW", rec, "0");
-            TDB.NewfieldValue(dbIndex, "COCH", "CRVW", rec, "0");
-            TDB.NewfieldValue(dbIndex, "COCH", "CCFY", rec, "0");
-            TDB.NewfieldValue(dbIndex, "COCH", "COTY", rec, "0");
+            ChangeDBString("COCH", "CT05", rec, "0");
+            ChangeDBString("COCH", "CT15", rec, "0");
+            ChangeDBString("COCH", "CT25", rec, "0");
+            ChangeDBString("COCH", "CCBB", rec, "0");
+            ChangeDBString("COCH", "CFUC", rec, "0");
+            ChangeDBString("COCH", "CCWI", rec, "0");
+            ChangeDBString("COCH", "CSWI", rec, "0");
+            ChangeDBString("COCH", "C25L", rec, "0");
+            ChangeDBString("COCH", "CBLL", rec, "0");
+            ChangeDBString("COCH", "CCOL", rec, "0");
+            ChangeDBString("COCH", "CCRL", rec, "0");
+            ChangeDBString("COCH", "CNTL", rec, "0");
+            ChangeDBString("COCH", "CRVL", rec, "0");
+            ChangeDBString("COCH", "CCWN", rec, "0");
+            ChangeDBString("COCH", "CTWN", rec, "0");
+            ChangeDBString("COCH", "CCLO", rec, "0");
+            ChangeDBString("COCH", "CSLO", rec, "0");
+            ChangeDBString("COCH", "CCPO", rec, "60");
+            ChangeDBString("COCH", "CTOP", rec, "0");
+            ChangeDBString("COCH", "CCTP", rec, "0");
+            ChangeDBString("COCH", "CCYR", rec, "0");
+            ChangeDBString("COCH", "CTYR", rec, "0");
+            ChangeDBString("COCH", "COFS", rec, "0");
+            ChangeDBString("COCH", "CCLS", rec, "0");
+            ChangeDBString("COCH", "CSLS", rec, "0");
+            ChangeDBString("COCH", "CTLS", rec, "0");
+            ChangeDBString("COCH", "CCWS", rec, "0");
+            ChangeDBString("COCH", "CRWS", rec, "0");
+            ChangeDBString("COCH", "CSWS", rec, "0");
+            ChangeDBString("COCH", "CCCT", rec, "0");
+            ChangeDBString("COCH", "CCNT", rec, "0");
+            ChangeDBString("COCH", "CWST", rec, "0");
+            ChangeDBString("COCH", "C25W", rec, "0");
+            ChangeDBString("COCH", "CBLW", rec, "0");
+            ChangeDBString("COCH", "CCRW", rec, "0");
+            ChangeDBString("COCH", "CCSW", rec, "0");
+            ChangeDBString("COCH", "CCTW", rec, "0");
+            ChangeDBString("COCH", "CNTW", rec, "0");
+            ChangeDBString("COCH", "CRTW", rec, "0");
+            ChangeDBString("COCH", "CTTW", rec, "0");
+            ChangeDBString("COCH", "CNVW", rec, "0");
+            ChangeDBString("COCH", "CRVW", rec, "0");
+            ChangeDBString("COCH", "CCFY", rec, "0");
+            ChangeDBString("COCH", "COTY", rec, "0");
 
         }
 
         private void AssignPlayerCoachStrategies(int recCOCH, int rec)
         {
-            TDB.NewfieldValue(dbIndex, "COCH", "CDTA", rec, Convert.ToString(Convert.ToInt32(TDB.FieldValue(dbIndex, "COCH", "CDTA", recCOCH)) + rand.Next(-3,4)));
-            TDB.NewfieldValue(dbIndex, "COCH", "COTA", rec, Convert.ToString(Convert.ToInt32(TDB.FieldValue(dbIndex, "COCH", "COTA", recCOCH)) + rand.Next(-3, 4)));
+            ChangeDBString("COCH", "CDTA", rec, Convert.ToString(Convert.ToInt32(GetDBValue("COCH", "CDTA", recCOCH)) + rand.Next(-3,4)));
+            ChangeDBString("COCH", "COTA", rec, Convert.ToString(Convert.ToInt32(GetDBValue("COCH", "COTA", recCOCH)) + rand.Next(-3, 4)));
 
-            TDB.NewfieldValue(dbIndex, "COCH", "CDST", rec, TDB.FieldValue(dbIndex, "COCH", "CDST", recCOCH));
-            TDB.NewfieldValue(dbIndex, "COCH", "COST", rec, TDB.FieldValue(dbIndex, "COCH", "COST", recCOCH));
-            TDB.NewfieldValue(dbIndex, "COCH", "CPID", rec, TDB.FieldValue(dbIndex, "COCH", "CPID", recCOCH));
+            ChangeDBString("COCH", "CDST", rec, GetDBValue("COCH", "CDST", recCOCH));
+            ChangeDBString("COCH", "COST", rec, GetDBValue("COCH", "COST", recCOCH));
+            ChangeDBString("COCH", "CPID", rec, GetDBValue("COCH", "CPID", recCOCH));
 
-            TDB.NewfieldValue(dbIndex, "COCH", "CDTR", rec, Convert.ToString(Convert.ToInt32(TDB.FieldValue(dbIndex, "COCH", "CDTR", recCOCH)) + rand.Next(-3, 4)));
-            TDB.NewfieldValue(dbIndex, "COCH", "COTR", rec, Convert.ToString(Convert.ToInt32(TDB.FieldValue(dbIndex, "COCH", "COTR", recCOCH)) + rand.Next(-3, 4)));
+            ChangeDBString("COCH", "CDTR", rec, Convert.ToString(Convert.ToInt32(GetDBValue("COCH", "CDTR", recCOCH)) + rand.Next(-3, 4)));
+            ChangeDBString("COCH", "COTR", rec, Convert.ToString(Convert.ToInt32(GetDBValue("COCH", "COTR", recCOCH)) + rand.Next(-3, 4)));
 
-            TDB.NewfieldValue(dbIndex, "COCH", "CDTS", rec, Convert.ToString(Convert.ToInt32(TDB.FieldValue(dbIndex, "COCH", "CDTS", recCOCH)) + rand.Next(-3, 4)));
-            TDB.NewfieldValue(dbIndex, "COCH", "COTS", rec, Convert.ToString(Convert.ToInt32(TDB.FieldValue(dbIndex, "COCH", "COTS", recCOCH)) + rand.Next(-3, 4)));
+            ChangeDBString("COCH", "CDTS", rec, Convert.ToString(Convert.ToInt32(GetDBValue("COCH", "CDTS", recCOCH)) + rand.Next(-3, 4)));
+            ChangeDBString("COCH", "COTS", rec, Convert.ToString(Convert.ToInt32(GetDBValue("COCH", "COTS", recCOCH)) + rand.Next(-3, 4)));
 
             //CDPC, CRPC, CTPC
             int CDPC, CRPC, CTPC;
-            CRPC = Convert.ToInt32(TDB.FieldValue(dbIndex, "COCH", "CRPC", rec));
-            CTPC = Convert.ToInt32(TDB.FieldValue(dbIndex, "COCH", "CTPC", rec));
+            CRPC = Convert.ToInt32(GetDBValue("COCH", "CRPC", rec));
+            CTPC = Convert.ToInt32(GetDBValue("COCH", "CTPC", rec));
             CDPC = 0;
 
             while (CDPC < 15 || CDPC > 25)
@@ -984,9 +984,9 @@ namespace DB_EDITOR
                 CDPC = 100 - CTPC - CRPC;
             }
 
-            TDB.NewfieldValue(dbIndex, "COCH", "CDPC", rec, Convert.ToString(CDPC));
-            TDB.NewfieldValue(dbIndex, "COCH", "CRPC", rec, Convert.ToString(CRPC));
-            TDB.NewfieldValue(dbIndex, "COCH", "CTPC", rec, Convert.ToString(CTPC));
+            ChangeDBString("COCH", "CDPC", rec, Convert.ToString(CDPC));
+            ChangeDBString("COCH", "CRPC", rec, Convert.ToString(CRPC));
+            ChangeDBString("COCH", "CTPC", rec, Convert.ToString(CTPC));
 
         }
 
