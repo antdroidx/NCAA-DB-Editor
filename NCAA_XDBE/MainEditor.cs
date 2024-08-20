@@ -33,9 +33,16 @@ namespace DB_EDITOR
         bool coachProgComplete = false;
         bool TDYN = false;
         bool TEAM = false;
+
+
         int EditorIndex;
         Color primary = Color.Black;
         Color secondary = Color.White;
+        List<List<string>> AllTeamPlayers;
+        List<List<string>> OffPlayers;
+        List<List<string>> DefPlayers;
+        int OCAPmem, DCAPmem, TSI1mem, TSI2mem, TPIOmem, TPIDmem;
+
 
         bool tabDelimited = false;
 
@@ -2185,7 +2192,7 @@ namespace DB_EDITOR
 
 
 
-
+        
         //EXPERIMENTAL ITEMS -- WORK IN PROGRESS
 
         private void buttonChaosTransfers_Click(object sender, EventArgs e)

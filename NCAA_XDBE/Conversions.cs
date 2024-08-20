@@ -376,10 +376,10 @@ namespace DB_EDITOR
             }
         }
 
-        public string GetPositionName(int tmpRecNo)
+        public string GetPositionName(int ppos)
         {
 
-            string tmpSTR = Positions[tmpRecNo];
+            string tmpSTR = Positions[ppos];
             return tmpSTR;
         }
 
@@ -983,7 +983,7 @@ namespace DB_EDITOR
             {
                 string[] Line = sr.ReadLine().Split(',');
                 {
-                    if (skipFirstRow && Row == 0) /*do nothing*/;
+                    if (skipFirstRow && Row == 0) continue;
                     else
                     {
                         list.Add(new List<string>());
@@ -1045,7 +1045,7 @@ namespace DB_EDITOR
             {
                 string[] Line = sr.ReadLine().Split(',');
                 {
-                    if (skipFirstRow && Row == 0) ;
+                    if (skipFirstRow && Row == 0) continue;
                     else
                     {
                         list.Add(new List<int>());

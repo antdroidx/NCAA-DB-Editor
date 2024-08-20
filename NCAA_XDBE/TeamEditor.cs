@@ -106,9 +106,6 @@ namespace DB_EDITOR
 
         public void StartTeamEditor(int tmpDB)
         {
-            List<int> tmpTTYP = new List<int>();
-            List<int> tmpDGID = new List<int>();
-            List<int> tmpLGID = new List<int>();
             List<int> tmpCGID = new List<int>();
 
             var tmpList = new Dictionary<int, int>();
@@ -125,20 +122,11 @@ namespace DB_EDITOR
                 progressBar1.PerformStep();
                 TGIDrecNo.Add(TGID.Key, Convert.ToInt32(TDB.FieldValue(tmpDB, "TEAM", "TGID", TGID.Key)));
 
-                tmpTTYP.Add(Convert.ToInt32(TDB.FieldValue(tmpDB, "TEAM", "TTYP", TGID.Key)));
-
-                tmpDGID.Add(Convert.ToInt32(TDB.FieldValue(tmpDB, "TEAM", "DGID", TGID.Key)));
-
-                tmpLGID.Add(Convert.ToInt32(TDB.FieldValue(tmpDB, "TEAM", "LGID", TGID.Key)));
-
                 if (TDB.TableIndex(dbIndex, "CONF") == -1)
                     tmpCGID.Add(Convert.ToInt32(TDB.FieldValue(tmpDB, "TEAM", "CGID", TGID.Key)));
 
             }
             progressBar1.Value = 0;
-            tmpTTYP.Sort();
-            tmpDGID.Sort();
-            tmpLGID.Sort();
             tmpCGID.Sort();
 
             if (TDB.TableIndex(dbIndex, "CONF") == -1)
@@ -146,60 +134,12 @@ namespace DB_EDITOR
                 CONFlist.Clear();
             }
 
-            #region Team Type Combo Box
-            // TTYP
-            TTYPcomboBox.Items.Clear();
-            for (int i = 0; i < tmpTTYP.Count; i++)
-            {
-                tmpList.AddSafe(tmpTTYP[i], 0);
-            }
-            foreach (KeyValuePair<int, int> TTYP in tmpList)
-            {
-                TTYPcomboBox.Items.Add(TTYP.Key);
-            }
-            if (TTYPcomboBox.Items.Count > 0)
-            {
-                TTYPcomboBox.Items.Add(-1);
-                TTYPcomboBox.SelectedIndex = TTYPcomboBox.Items.Count - 1;
-            }
-            tmpList.Clear();
-            tmpTTYP.Clear();
-            #endregion
-
-            #region Team Division Combo Box
-            // DGID
-            DGIDcomboBox.Items.Clear();
-            for (int i = 0; i < tmpDGID.Count; i++)
-            {
-
-                tmpList.AddSafe(tmpDGID[i], 0);
-
-            }
-            foreach (KeyValuePair<int, int> DGID in tmpList)
-            {
-                DGIDcomboBox.Items.Add(DGID.Key);
-            }
-
-            tmpList.Clear();
-            tmpDGID.Clear();
-            #endregion
-
             #region Team League Combo Box
             // LGID
             LGIDcomboBox.Items.Clear();
-            for (int i = 0; i < tmpLGID.Count; i++)
-            {
-
-                tmpList.AddSafe(tmpLGID[i], 0);
-
-            }
-            foreach (KeyValuePair<int, int> LGID in tmpList)
-            {
-                LGIDcomboBox.Items.Add(LGID.Key);
-            }
-
-            tmpList.Clear();
-            tmpLGID.Clear();
+            LGIDcomboBox.Items.Add("ALL");
+            LGIDcomboBox.Items.Add("FBS");
+            LGIDcomboBox.Items.Add("FCS");
             #endregion
 
             #region Team Conference Combo Box
@@ -256,15 +196,7 @@ namespace DB_EDITOR
                 tmpTLNA = TDB.FieldValue(tmpDB, "TEAM", "TDNA", TGID.Key) + " ";
                 tmpFIELD = Convert.ToInt32(TDB.FieldValue(tmpDB, "TEAM", tmpBOX, TGID.Key));
 
-                if (LocationcheckBox.Checked)
-                {
-                    tmpFULL = tmpTLNA;
-                }
-                else if (MascotcheckBox.Checked)
-                {
-                    tmpFULL = tmpTDNA;
-                }
-                else tmpFULL = tmpTLNA + tmpTDNA;
+                tmpFULL = tmpTLNA + tmpTDNA;
 
                 if (tmpVAL == -1)
                     tmpFIELD = -1;
@@ -304,85 +236,22 @@ namespace DB_EDITOR
             }
             tmpManagement.Clear();
         }
-
-        public void TTYPcomboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (TTYPcomboBox.SelectedIndex == -1 || DoNotTrigger)
-                return;
-
-            DGIDcomboBox.SelectedIndex = -1;
-            LGIDcomboBox.SelectedIndex = -1;
-            CGIDcomboBox.SelectedIndex = -1;
-
-            LoadTGIDlistBox(dbIndex, "TTYP", Convert.ToInt32(TTYPcomboBox.Items[TTYPcomboBox.SelectedIndex]));
-        }
-        public void DGIDcomboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (DGIDcomboBox.SelectedIndex == -1 || DoNotTrigger)
-                return;
-
-            TTYPcomboBox.SelectedIndex = -1;
-            LGIDcomboBox.SelectedIndex = -1;
-            CGIDcomboBox.SelectedIndex = -1;
-
-
-            LoadTGIDlistBox(dbIndex, "DGID", Convert.ToInt32(DGIDcomboBox.Items[DGIDcomboBox.SelectedIndex]));
-        }
         public void LGIDcomboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (LGIDcomboBox.SelectedIndex == -1 || DoNotTrigger)
                 return;
-
-            TTYPcomboBox.SelectedIndex = -1;
-            DGIDcomboBox.SelectedIndex = -1;
             CGIDcomboBox.SelectedIndex = -1;
 
-
-            LoadTGIDlistBox(dbIndex, "LGID", Convert.ToInt32(LGIDcomboBox.Items[LGIDcomboBox.SelectedIndex]));
+            LoadTGIDlistBox(dbIndex, "TTYP", LGIDcomboBox.SelectedIndex-1);
         }
         public void CGIDcomboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (CGIDcomboBox.SelectedIndex == -1 || DoNotTrigger)
                 return;
-
-            TTYPcomboBox.SelectedIndex = -1;
-            DGIDcomboBox.SelectedIndex = -1;
             LGIDcomboBox.SelectedIndex = -1;
 
             LoadTGIDlistBox(dbIndex, "CGID", Convert.ToInt32(CONFlist[CGIDcomboBox.SelectedIndex]));
         }
-
-        public void MascotcheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            if (DoNotTrigger)
-                return;
-
-            DoNotTrigger = true;
-            LocationcheckBox.Checked = false;
-
-            int tmpSelectedIndex = TGIDlistBox.SelectedIndex;
-
-            TTYPcomboBox_SelectedIndexChanged(null, null);
-
-            TGIDlistBox.SelectedIndex = tmpSelectedIndex;
-            DoNotTrigger = false;
-        }
-        public void LocationcheckBox_CheckedChanged(object sender, EventArgs e)
-        {
-            if (DoNotTrigger)
-                return;
-
-            DoNotTrigger = true;
-            MascotcheckBox.Checked = false;
-
-            int tmpSelectedIndex = TGIDlistBox.SelectedIndex;
-
-            TTYPcomboBox_SelectedIndexChanged(null, null);
-
-            TGIDlistBox.SelectedIndex = tmpSelectedIndex;
-            DoNotTrigger = false;
-        }
-
         public void TGIDlistBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (TGIDlistBox.Items.Count < 1 || TGIDlistBox.SelectedIndex == -1)
@@ -455,6 +324,21 @@ namespace DB_EDITOR
             
             progressBar1.PerformStep();
 
+
+            //Team Captains & Impact Players
+
+            CreateTeamPlayerList();
+            SetCaptainAndImpactItems();
+            GetCaptainAndImpactPlayersToMemory();
+            CaptainOffSelectBox.SelectedIndex = FindCaptainImpactOffPlayer(GetDBValueInt("TEAM", "OCAP", EditorIndex));
+            CaptainDefSelectBox.SelectedIndex = FindCaptainImpactDefPlayer(GetDBValueInt("TEAM", "DCAP", EditorIndex));
+            ImpactTPIOSelect.SelectedIndex = FindCaptainImpactOffPlayer(GetDBValueInt("TEAM", "TPIO", EditorIndex));
+            ImpactTPIDSelect.SelectedIndex = FindCaptainImpactDefPlayer(GetDBValueInt("TEAM", "TPID", EditorIndex));
+            ImpactTSI1Select.SelectedIndex = FindImpactTSIPlayer(GetDBValueInt("TEAM", "TSI1", EditorIndex));
+            ImpactTSI2Select.SelectedIndex = FindImpactTSIPlayer(GetDBValueInt("TEAM", "TSI2", EditorIndex));
+
+            progressBar1.PerformStep();
+
             //Head Coach Info
             HCFirstNameBox.Text = GetCoachFirstNamefromRec(GetCOCHrecFromTeamRec(EditorIndex));
             HCLastNameBox.Text = GetCoachLastNamefromRec(GetCOCHrecFromTeamRec(EditorIndex));
@@ -475,15 +359,11 @@ namespace DB_EDITOR
             GetPlaybookItems();
             PlaybookSelectBox.SelectedIndex = GetPlaybookSelectedIndex();
 
-
             GetOffTypeItems();
             OffTypeSelectBox.SelectedIndex = GetDBValueInt("COCH", "COST", GetCOCHrecFromTeamRec(EditorIndex));
 
             GetDefTypeItems();
             DefTypeSelectBox.SelectedIndex = GetDBValueInt("COCH", "CDST", GetCOCHrecFromTeamRec(EditorIndex));
-
-            //OffTypeBox.Text = GetOffTypeName(GetDBValueInt("COCH", "COST", GetCOCHrecFromTeamRec(EditorIndex)));
-            //BaseDefBox.Text = GetDefTypeName(GetDBValueInt("COCH", "CDST", GetCOCHrecFromTeamRec(EditorIndex)));
             
             TeamCOTRbox.Value = GetDBValueInt("COCH", "COTR", GetCOCHrecFromTeamRec(EditorIndex));
             TeamCOTAbox.Value = GetDBValueInt("COCH", "COTA", GetCOCHrecFromTeamRec(EditorIndex));
@@ -494,15 +374,6 @@ namespace DB_EDITOR
 
             progressBar1.PerformStep();
 
-            //Team Captains & Impact Players
-            TeamCaptain1box.Text = GetTeamImpactPlayer(EditorIndex, "OCAP");
-            TeamCaptain2box.Text = GetTeamImpactPlayer(EditorIndex, "DCAP");
-            TPIOtextbox.Text = GetTeamImpactPlayer(EditorIndex, "TPIO");
-            TPIDtextbox.Text = GetTeamImpactPlayer(EditorIndex, "TPID");
-            TSI1textbox.Text = GetTeamImpactPlayer(EditorIndex, "TSI1");
-            TSI2textbox.Text = GetTeamImpactPlayer(EditorIndex, "TSI2");
-
-            progressBar1.PerformStep();
 
             //Team Colors
             TeamColor1Button.BackColor = Color.FromArgb(GetDBValueInt("TEAM", "TFRD", EditorIndex), GetDBValueInt("TEAM", "TFFG", EditorIndex), GetDBValueInt("TEAM", "TFFB", EditorIndex));
@@ -541,23 +412,22 @@ namespace DB_EDITOR
         private void GetPlaybookItems()
         {
             List<List<string>> pb = CreatePlaybookNames();
-            //136-158 next ||  124 and below is vanilla
+                //136-158 next ||  124 and below is vanilla
 
-            if (GetDBValueInt("COCH", "CPID", GetCOCHrecFromTeamRec(EditorIndex)) > 135)
-            {
-                for(int i = 136; i <= 158; i++)
+                if (GetDBValueInt("COCH", "CPID", GetCOCHrecFromTeamRec(EditorIndex)) > 135)
                 {
-                    PlaybookSelectBox.Items.Add(pb[i][1]);
+                    for (int i = 136; i <= 158; i++)
+                    {
+                        PlaybookSelectBox.Items.Add(pb[i][1]);
+                    }
                 }
-            }
-            else
-            {
-                for (int i = 0; i <= 124; i++)
+                else
                 {
-                    PlaybookSelectBox.Items.Add(pb[i][1]);
+                    for (int i = 0; i <= 124; i++)
+                    {
+                        PlaybookSelectBox.Items.Add(pb[i][1]);
+                    }
                 }
-            }
-
         }
 
         private int GetPlaybookSelectedIndex()
@@ -575,11 +445,11 @@ namespace DB_EDITOR
             OffTypeSelectBox.Items.Clear();
             List<string> OffTypes = CreateOffTypes();
 
-
             foreach (string name in OffTypes)
             {
                 OffTypeSelectBox.Items.Add(name);
             }
+
         }
 
         private void GetDefTypeItems()
@@ -592,9 +462,152 @@ namespace DB_EDITOR
             {
                 DefTypeSelectBox.Items.Add(name);
             }
+
+        }
+
+        private void CreateTeamPlayerList()
+        {
+            AllTeamPlayers = new List<List<string>>();
+            OffPlayers = new List<List<string>>();
+            DefPlayers = new List<List<string>>();
+
+            int tgid = GetDBValueInt("TEAM", "TGID", EditorIndex);
+            int pgidBeg = tgid * 70;
+            int pgidEnd = tgid * 70 + 69;
+            int row = 0;
+            int rowOff = 0;
+            int rowDef = 0;
+
+            for(int i = 0; i < TDB.TableRecordCount(dbIndex, "PLAY"); i++)
+            {
+                if(GetDBValueInt("PLAY", "PGID", i) >= pgidBeg && GetDBValueInt("PLAY", "PGID", i) <= pgidEnd)
+                {
+                    AllTeamPlayers.Add(new List<string>());
+                    AllTeamPlayers[row].Add(GetFirstNameFromRecord(i));
+                    AllTeamPlayers[row].Add(GetLastNameFromRecord(i));
+                    AllTeamPlayers[row].Add(GetDBValue("PLAY", "PPOS", i));
+                    AllTeamPlayers[row].Add(GetDBValue("PLAY", "POVR", i));
+                    AllTeamPlayers[row].Add(GetDBValue("PLAY", "PGID", i));
+                    AllTeamPlayers[row].Add(Convert.ToString(i));
+
+                    // 0 First Name  1 Last Name 2 Position 3 Overall 4 PGID 5 rec
+                     
+
+                    //Create offense and defense player lists
+                    if (GetDBValueInt("PLAY", "PPOS", i) <= 9)
+                    {
+                        OffPlayers.Add(new List<string>());
+                        OffPlayers[rowOff] = AllTeamPlayers[row];
+                        rowOff++;
+                    }
+                    else if (GetDBValueInt("PLAY", "PPOS", i) > 9 && GetDBValueInt("PLAY", "PPOS", i) <= 18)
+                    {
+                        DefPlayers.Add(new List<string>());
+                        DefPlayers[rowDef] = AllTeamPlayers[row];
+                        rowDef++;
+                    }
+
+                    row++;
+                }
+            }
+
+            AllTeamPlayers.Sort((player1, player2) => player1[0].CompareTo(player2[0]));
+            OffPlayers.Sort((player1, player2) => player1[0].CompareTo(player2[0]));
+            DefPlayers.Sort((player1, player2) => player1[0].CompareTo(player2[0]));
+
+            if (AllTeamPlayers.Count < 1) ClearTeamComboBoxes();
+        }
+
+        private void SetCaptainAndImpactItems()
+        {
+            CaptainOffSelectBox.Items.Clear(); 
+            CaptainDefSelectBox.Items.Clear();
+            ImpactTPIDSelect.Items.Clear();
+            ImpactTPIOSelect.Items.Clear();
+            ImpactTSI1Select.Items.Clear();
+            ImpactTSI2Select.Items.Clear();
+
+            foreach (var players in AllTeamPlayers)
+            {
+                ImpactTSI1Select.Items.Add(players[0] + " " + players[1] + " | " + GetPositionName(Convert.ToInt32(players[2])) + " [" + ConvertRating(Convert.ToInt32(players[3])) + "]");
+                ImpactTSI2Select.Items.Add(players[0] + " " + players[1] + " | " + GetPositionName(Convert.ToInt32(players[2])) + " [" + ConvertRating(Convert.ToInt32(players[3])) + "]");
+            }
+
+            foreach (var players in OffPlayers)
+            {
+                CaptainOffSelectBox.Items.Add(players[0] + " " + players[1] + " | " + GetPositionName(Convert.ToInt32(players[2])) + " [" + ConvertRating(Convert.ToInt32(players[3])) + "]");
+                ImpactTPIOSelect.Items.Add(players[0] + " " + players[1] + " | " + GetPositionName(Convert.ToInt32(players[2])) + " [" + ConvertRating(Convert.ToInt32(players[3])) + "]");
+            }
+            foreach (var players in DefPlayers)
+            {
+                CaptainDefSelectBox.Items.Add(players[0] + " " + players[1] + " | " + GetPositionName(Convert.ToInt32(players[2])) + " [" + ConvertRating(Convert.ToInt32(players[3])) + "]");
+                ImpactTPIDSelect.Items.Add(players[0] + " " + players[1] + " | " + GetPositionName(Convert.ToInt32(players[2])) + " [" + ConvertRating(Convert.ToInt32(players[3])) + "]");
+            }
+        }
+
+        private void GetCaptainAndImpactPlayersToMemory()
+        {
+            OCAPmem = GetDBValueInt("TEAM", "OCAP", EditorIndex);
+            DCAPmem = GetDBValueInt("TEAM", "DCAP", EditorIndex);
+            TSI1mem = GetDBValueInt("TEAM", "TSI1", EditorIndex);
+            TSI2mem = GetDBValueInt("TEAM", "TSI2", EditorIndex);
+            TPIOmem = GetDBValueInt("TEAM", "TPIO", EditorIndex);
+            TPIDmem = GetDBValueInt("TEAM", "TPID", EditorIndex);
+        }
+
+        private int FindCaptainImpactOffPlayer(int ocap)
+        {
+            int tgid = GetDBValueInt("TEAM", "TGID", EditorIndex);
+            int pgid = ocap + (tgid*70);
+
+            for(int i = 0; i < OffPlayers.Count; i++)
+            {
+                if (OffPlayers[i][4] == Convert.ToString(pgid)) return i;
+            }
+
+            return -1;
+        }
+
+        private int FindCaptainImpactDefPlayer(int dcap)
+        {
+            int tgid = GetDBValueInt("TEAM", "TGID", EditorIndex);
+            int pgid = dcap + (tgid * 70);
+
+            for (int i = 0; i < DefPlayers.Count; i++)
+            {
+                if (DefPlayers[i][4] == Convert.ToString(pgid)) return i;
+            }
+
+            return -1;
+        }
+
+        private int FindImpactTSIPlayer(int ocap)
+        {
+            int tgid = GetDBValueInt("TEAM", "TGID", EditorIndex);
+            int pgid = ocap + (tgid * 70);
+
+            for (int i = 0; i < AllTeamPlayers.Count; i++)
+            {
+                if (AllTeamPlayers[i][4] == Convert.ToString(pgid)) return i;
+            }
+
+            return -1;
+        }
+
+        private void ClearTeamComboBoxes()
+        {
+            CaptainOffSelectBox.Text = String.Empty;
+            CaptainDefSelectBox.Text = String.Empty; 
+            ImpactTPIOSelect.Text = String.Empty;
+            ImpactTPIDSelect.Text = String.Empty;
+            ImpactTSI1Select.Text = String.Empty;
+            ImpactTSI2Select.Text = String.Empty;
+
         }
 
         #endregion
+
+
 
         //Text Change Triggers
         #region Text Box Changes
@@ -632,6 +645,94 @@ namespace DB_EDITOR
             TGIDlistBox.Items[TGIDlistBox.SelectedIndex] = TDNAtextBox.Text + " " + TMNAtextBox.Text;
 
         }
+
+
+
+        private void CaptainOffSelectBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger)
+                return;
+
+            int sel = CaptainOffSelectBox.SelectedIndex;
+            int tgid = GetDBValueInt("TEAM", "TGID", EditorIndex);
+            int pgid = Convert.ToInt32(OffPlayers[sel][4]);
+            int val = pgid - tgid * 70;
+
+            SetImpactorCaptain("OCAP", val);
+
+        }
+
+        private void CaptainDefSelectBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger)
+                return;
+
+            int sel = CaptainDefSelectBox.SelectedIndex;
+            int tgid = GetDBValueInt("TEAM", "TGID", EditorIndex);
+            int pgid = Convert.ToInt32(DefPlayers[sel][4]);
+            int val = pgid - tgid * 70;
+
+            SetImpactorCaptain("DCAP", val);
+
+        }
+
+        private void ImpactTPIOSelect_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger)
+                return;
+
+            int sel = ImpactTPIOSelect.SelectedIndex;
+            int tgid = GetDBValueInt("TEAM", "TGID", EditorIndex);
+            int pgid = Convert.ToInt32(OffPlayers[sel][4]);
+            int val = pgid - tgid * 70;
+
+            SetImpactorCaptain("TPIO", val);
+        }
+
+        private void ImpactTPIDSelect_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger)
+                return;
+
+            int sel = ImpactTPIDSelect.SelectedIndex;
+            int tgid = GetDBValueInt("TEAM", "TGID", EditorIndex);
+            int pgid = Convert.ToInt32(DefPlayers[sel][4]);
+            int val = pgid - tgid * 70;
+
+            SetImpactorCaptain("TPID", val);
+        }
+
+        private void ImpactTSI2Select_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger)
+                return;
+
+            int sel = ImpactTSI2Select.SelectedIndex;
+            int tgid = GetDBValueInt("TEAM", "TGID", EditorIndex);
+            int pgid = Convert.ToInt32(AllTeamPlayers[sel][4]);
+            int val = pgid - tgid * 70;
+
+            SetImpactorCaptain("TSI2", val);
+        }
+
+        private void ImpactTSI1Select_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger)
+                return;
+
+            int sel = ImpactTSI1Select.SelectedIndex;
+            int tgid = GetDBValueInt("TEAM", "TGID", EditorIndex);
+            int pgid = Convert.ToInt32(AllTeamPlayers[sel][4]);
+            int val = pgid - tgid * 70;
+
+            SetImpactorCaptain("TSI1", val);
+        }
+        private void SetImpactorCaptain(string FieldName, int val)
+        {
+            ChangeDBInt("TEAM", FieldName, EditorIndex, val);
+
+        }
+
 
 
         //Team Prestige
@@ -878,7 +979,8 @@ namespace DB_EDITOR
             ChangeDBInt("STAD", "STID", FindSTADrecFromTEAMrec(EditorIndex), StateBox.SelectedIndex);
         }
 
-        #endregion
+
+
 
         //Team Primary Color
         private void TeamColor1Button_Click(object sender, EventArgs e)
@@ -925,6 +1027,8 @@ namespace DB_EDITOR
             ChangeDBString("TEAM", "TFOB", EditorIndex, Convert.ToString(Convert.ToDecimal(TeamColor2Button.BackColor.B)));
         }
 
+
+        #endregion
 
         private void GetCCPOboxColor()
         {
@@ -976,8 +1080,21 @@ namespace DB_EDITOR
             }
 
         }
+        
+        //Reset Impact Players
+        private void ResetImpactPlayers_Click(object sender, EventArgs e)
+        {
+            ChangeDBInt("TEAM", "OCAP", EditorIndex, OCAPmem);
+            ChangeDBInt("TEAM", "DCAP", EditorIndex, DCAPmem);
 
+            ChangeDBInt("TEAM", "TPIO", EditorIndex, TPIOmem);
+            ChangeDBInt("TEAM", "TPID", EditorIndex, TPIDmem);
+            ChangeDBInt("TEAM", "TSI1", EditorIndex, TSI1mem);
+            ChangeDBInt("TEAM", "TSI2", EditorIndex, TSI2mem);
 
+            GetTeamEditorData(EditorIndex);
+
+        }
 
     }
 }

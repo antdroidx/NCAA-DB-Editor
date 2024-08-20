@@ -152,7 +152,11 @@ namespace DB_EDITOR
                     TDB.TDBTableRecordChangeDeleted(dbIndex, "PLAY", i, true);
                     nottransferred++;
                 }
-                else RandomizeAttribute("PLAY", i, 4);
+                else
+                {
+                    ChangeDBInt("PLAY", "PTYP", i, 0);
+                    RandomizeAttribute("PLAY", i, 4);
+                }
 
                 progressBar1.PerformStep();
             }
@@ -431,6 +435,8 @@ namespace DB_EDITOR
 
 
             int recruitsCreated = 0;
+            double totalRecruits = RecruitsList.Count; 
+
 
             for (int i = 0; i < RecruitsList.Count; i++)
             {
@@ -440,6 +446,7 @@ namespace DB_EDITOR
                 int team = Convert.ToInt32(RecruitsList[i][3]);
                 int height = Convert.ToInt32(RecruitsList[i][4]);
                 int weight = Convert.ToInt32(RecruitsList[i][5]);
+                int rating = Convert.ToInt32(Math.Round(5 * ((totalRecruits - Convert.ToDouble(i)) / totalRecruits))); 
 
                 if (teamList.Contains(team))
                 {
@@ -457,7 +464,7 @@ namespace DB_EDITOR
                         {
                             int rec = TDB.TableRecordCount(dbIndex, "PLAY");
                             TDB.TDBTableRecordAdd(dbIndex, "PLAY", false);
-                            CreateNamedRecruitfromRCAT(rec, position, j, RCATmapper, PJEN, 100, FN, LN, height, weight);
+                            CreateNamedRecruitfromRCAT(rec, position, j, RCATmapper, PJEN, 100, FN, LN, height, weight, rating);
                             recruitsCreated++;
                             break;
                         }
@@ -473,7 +480,7 @@ namespace DB_EDITOR
         }
 
         //CSV Recruits RCAT to PLAY field
-        private void CreateNamedRecruitfromRCAT(int rec, int ppos, int PGID, List<List<string>> map, List<List<int>> PJEN, int FreshmanPCT, string FN, string LN, int height, int weight)
+        private void CreateNamedRecruitfromRCAT(int rec, int ppos, int PGID, List<List<string>> map, List<List<int>> PJEN, int FreshmanPCT, string FN, string LN, int height, int weight, int rating)
         {
             bool x = true;
             while (x)
@@ -511,12 +518,13 @@ namespace DB_EDITOR
                     else ChangeDBInt("PLAY", "PYER", rec, rand.Next(1, 4)); //year/class
 
                     ChangeDBInt("PLAY", "PHGT", rec, height); //Height
-                    ChangeDBInt("PLAY", "PWGT", rec, weight); //Weight
+
+                    if(weight>0) ChangeDBInt("PLAY", "PWGT", rec, weight); //Weight
 
                     ConvertFirstNameStringToInt(FN, rec, "PLAY");
                     ConvertLastNameStringToInt(LN, rec, "PLAY");
 
-                    RandomizeAttribute("PLAY", rec, 2);
+                    RandomizeAttribute("PLAY", rec, rating);
                     RandomizePlayerHead("PLAY", rec);
 
                     x = false;
