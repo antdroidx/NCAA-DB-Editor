@@ -13,6 +13,17 @@ This editor was designed using original source code from Madden Xtreme DB Editor
 
 # Available Modules
 
+Team Editor
+* Fully working Team Editor tab
+* Change College Names
+* Change Prestige Ratings
+* Update NCAA Investigation & Sanctions
+* Stadium Updater
+* Head Coach Editor
+* Playbook and Strategy Editor
+* FIRE COACH button
+* Change User Coach/Team
+
 DB Tools
 * Fantasy Roster Generator
 * Depth Chart Automatated Setter
@@ -22,6 +33,7 @@ DB Tools
 * Speed Enhancer
 * QB Tendency Fixer
 * Randomize Player Potential
+* Randomize Face/Hair/Head
 
 Dynasty Tools (In-Season)
 * Add Pre-Season Injuries with Player Regression
@@ -32,6 +44,7 @@ Dynasty Tools (In-Season)
 * Auto Conference Realignment
 * Transfer Chaos Mode
 * Players -> Coaches
+* Randomize "Free Agent" Coach Prestige
 
 Recruiting Tools (DB2 save!)
 * Redistribute Recruiting Point Minimum
@@ -39,3 +52,11 @@ Recruiting Tools (DB2 save!)
 * Randomize Recruits
 * Randomize Walk-Ons
 
+Dev Tool - 2024 Roster Generator
+* A series of tools and csv files to create a 2024 season roster
+* Uses a mix of real world data and fantasy roster generation tools
+* csv files are editable
+
+
+## Notes
+If you are using NCAA NEXT 25 Beta 6+, you can change the Overall and Recruiting Database by going into the resources folder and running the NEXT25Database.bat file!
