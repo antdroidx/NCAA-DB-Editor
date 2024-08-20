@@ -23,6 +23,8 @@ Team Editor
 * Playbook and Strategy Editor
 * FIRE COACH button
 * Change User Coach/Team
+* Select Team Captains
+* Select 4 Impact Players
 
 DB Tools
 * Fantasy Roster Generator
