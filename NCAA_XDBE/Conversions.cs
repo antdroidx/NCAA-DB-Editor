@@ -256,7 +256,7 @@ namespace DB_EDITOR
                     RCAT.Add(new List<int>());
                     for (int column = 0; column < Line.Length; column++)
                     {
-                        RCAT[Row-1].Add(Convert.ToInt32(Line[column]));
+                        RCAT[Row - 1].Add(Convert.ToInt32(Line[column]));
                     }
                 }
 
@@ -273,7 +273,7 @@ namespace DB_EDITOR
         }
 
         private void CreateLastNamesDB()
-        { 
+        {
             LastNames = new List<string>();
             LastNames = CreateStringListfromCSV(@"resources\RCLN.csv", true);
         }
@@ -301,7 +301,7 @@ namespace DB_EDITOR
                         if (column != 1)
                         {
                             PJEN.Add(new List<int>());
-                            PJEN[Row-1].Add(Convert.ToInt32(Line[column]));
+                            PJEN[Row - 1].Add(Convert.ToInt32(Line[column]));
                         }
 
                     }
@@ -463,7 +463,7 @@ namespace DB_EDITOR
         {
             string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             string csvLocation = Path.Combine(executableLocation, @"resources\POCI.csv");
-      
+
             string filePath = csvLocation;
             StreamReader sr = new StreamReader(filePath);
             int Row = 0;
@@ -473,13 +473,13 @@ namespace DB_EDITOR
                 string[] Line = sr.ReadLine().Split(',');
                 if (Row == 0)
                 {
-                    POCI = new double[22, Line.Length+3];
+                    POCI = new double[22, Line.Length + 3];
                 }
                 else
                 {
                     for (int column = 0; column < Line.Length; column++)
                     {
-                        POCI[Row-1, column] = Convert.ToDouble(Line[column]);
+                        POCI[Row - 1, column] = Convert.ToDouble(Line[column]);
                     }
 
                     //Add Average of High/Low Rating
@@ -495,7 +495,7 @@ namespace DB_EDITOR
                     POCI[Row - 1, Line.Length + 1] = sum;
 
                     //Add 99 - (High - Low)
-                    POCI[Row - 1, Line.Length + 2] = 100/(POCI[Row - 1, 0] - POCI[Row - 1, 1]);
+                    POCI[Row - 1, Line.Length + 2] = 100 / (POCI[Row - 1, 0] - POCI[Row - 1, 1]);
 
                 }
                 Row++;
@@ -526,14 +526,14 @@ namespace DB_EDITOR
 
             double[] ratings = new double[] { PCAR, PKAC, PTHA, PPBK, PRBK, PACC, PAGI, PTAK, PINJ, PKPR, PSPD, PTHP, PBKT, PCTH, PSTR, PJMP, PAWR };
 
-            for(int i = 0; i < ratings.Length; i++)
+            for (int i = 0; i < ratings.Length; i++)
             {
                 ratings[i] = CalcOVRIndividuals(i + 3, ratings[i], ppos);
             }
 
             double newRating = 50;
 
-            for (int i = 0;i < ratings.Length; i++)
+            for (int i = 0; i < ratings.Length; i++)
             {
                 newRating += ratings[i];
             }
@@ -543,7 +543,7 @@ namespace DB_EDITOR
             val = RevertRating(val);
 
             ChangeDBString("PLAY", "POVR", rec, Convert.ToString(val));
-  
+
         }
 
         private int CalculatePositionRating(int rec, int ppos)
@@ -699,6 +699,7 @@ namespace DB_EDITOR
                     int j = Convert.ToInt32(GetDBValue("TEAM", "TGID", i));
 
                     teamNameDB[j] = Convert.ToString(GetDBValue("TEAM", "TDNA", i));
+                    teamMascot[j] = Convert.ToString(GetDBValue("TEAM", "TMNA", i));
                 }
             }
             else if (TDYN)
@@ -714,10 +715,11 @@ namespace DB_EDITOR
                     string[] Line = sr.ReadLine().Split(',');
                     {
                         teamNameDB[Convert.ToInt32(Line[0])] = Line[1];
+                        teamMascot[Convert.ToInt32(Line[0])] = Line[2];
                     }
                 }
                 sr.Close();
-               
+
             }
         }
 
@@ -825,7 +827,7 @@ namespace DB_EDITOR
             int tgid = GetDBValueInt("TEAM", "TGID", rec);
             int impactNo = GetDBValueInt("TEAM", field, rec);
 
-            int pgid = tgid*70 + impactNo;
+            int pgid = tgid * 70 + impactNo;
 
             playername = GetPlayerNamefromPGID(pgid);
 
@@ -846,6 +848,23 @@ namespace DB_EDITOR
             }
             return -1;
         }
+
+        private int FindTeamRecfromTeamName(string tmName)
+        {
+            int tgid = -1;
+            for(int i = 0; i < TDB.TableRecordCount(dbIndex,"TEAM"); i++)
+            {
+                if(GetDBValue("TEAM", "TDNA", i) == tmName)
+                {
+                    tgid = i; 
+                    break;
+                }
+            }
+
+            return tgid;
+        }
+
+
 
         #endregion
 

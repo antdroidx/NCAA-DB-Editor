@@ -260,6 +260,7 @@ namespace DB_EDITOR
             this.buttonRandWalkOns = new System.Windows.Forms.Button();
             this.buttonMinRecruitingPts = new System.Windows.Forms.Button();
             this.tabTools = new System.Windows.Forms.TabPage();
+            this.CFUSAexportButton = new System.Windows.Forms.Button();
             this.RandomizeHeadButton = new System.Windows.Forms.Button();
             this.label58 = new System.Windows.Forms.Label();
             this.FillRosterPCT = new System.Windows.Forms.NumericUpDown();
@@ -300,6 +301,33 @@ namespace DB_EDITOR
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.ImportRecruitsButton = new System.Windows.Forms.Button();
             this.GraduateButton = new System.Windows.Forms.Button();
+            this.tabConf = new System.Windows.Forms.TabPage();
+            this.DeselectTeamsButton = new System.Windows.Forms.Button();
+            this.SwapButton = new System.Windows.Forms.Button();
+            this.ConfName12 = new System.Windows.Forms.Label();
+            this.ConfName11 = new System.Windows.Forms.Label();
+            this.ConfName10 = new System.Windows.Forms.Label();
+            this.ConfName9 = new System.Windows.Forms.Label();
+            this.ConfName8 = new System.Windows.Forms.Label();
+            this.ConfName7 = new System.Windows.Forms.Label();
+            this.ConfName6 = new System.Windows.Forms.Label();
+            this.ConfName5 = new System.Windows.Forms.Label();
+            this.ConfName4 = new System.Windows.Forms.Label();
+            this.ConfName3 = new System.Windows.Forms.Label();
+            this.ConfName2 = new System.Windows.Forms.Label();
+            this.ConfName1 = new System.Windows.Forms.Label();
+            this.conf12 = new System.Windows.Forms.CheckedListBox();
+            this.conf11 = new System.Windows.Forms.CheckedListBox();
+            this.conf10 = new System.Windows.Forms.CheckedListBox();
+            this.conf9 = new System.Windows.Forms.CheckedListBox();
+            this.conf8 = new System.Windows.Forms.CheckedListBox();
+            this.conf7 = new System.Windows.Forms.CheckedListBox();
+            this.conf6 = new System.Windows.Forms.CheckedListBox();
+            this.conf5 = new System.Windows.Forms.CheckedListBox();
+            this.conf4 = new System.Windows.Forms.CheckedListBox();
+            this.conf3 = new System.Windows.Forms.CheckedListBox();
+            this.conf2 = new System.Windows.Forms.CheckedListBox();
+            this.conf1 = new System.Windows.Forms.CheckedListBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             qbTend = new System.Windows.Forms.Button();
             this.mainMenu.SuspendLayout();
@@ -351,6 +379,7 @@ namespace DB_EDITOR
             this.tabTools.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FillRosterPCT)).BeginInit();
             this.tabDev.SuspendLayout();
+            this.tabConf.SuspendLayout();
             this.SuspendLayout();
             // 
             // qbTend
@@ -751,10 +780,10 @@ namespace DB_EDITOR
             this.tabDB.BackColor = System.Drawing.SystemColors.Control;
             this.tabDB.Controls.Add(this.tableGridView);
             this.tabDB.Controls.Add(this.fieldsGridView);
-            this.tabDB.Location = new System.Drawing.Point(4, 25);
+            this.tabDB.Location = new System.Drawing.Point(4, 24);
             this.tabDB.Name = "tabDB";
             this.tabDB.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDB.Size = new System.Drawing.Size(976, 632);
+            this.tabDB.Size = new System.Drawing.Size(976, 633);
             this.tabDB.TabIndex = 0;
             this.tabDB.Text = "DB Editor";
             // 
@@ -814,10 +843,14 @@ namespace DB_EDITOR
             this.tabControl1.Controls.Add(this.tabOffSeason);
             this.tabControl1.Controls.Add(this.tabTools);
             this.tabControl1.Controls.Add(this.tabDev);
+            this.tabControl1.Controls.Add(this.tabConf);
+            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabControl1.ItemSize = new System.Drawing.Size(75, 20);
             this.tabControl1.Location = new System.Drawing.Point(12, 27);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(984, 661);
+            this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 4;
             this.tabControl1.Visible = false;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.TabControl1_IndexChange);
@@ -826,12 +859,13 @@ namespace DB_EDITOR
             // 
             this.tabHome.BackColor = System.Drawing.Color.DarkSlateBlue;
             this.tabHome.Controls.Add(this.pictureBox1);
-            this.tabHome.Location = new System.Drawing.Point(4, 25);
+            this.tabHome.Location = new System.Drawing.Point(4, 24);
             this.tabHome.Name = "tabHome";
             this.tabHome.Padding = new System.Windows.Forms.Padding(3);
-            this.tabHome.Size = new System.Drawing.Size(976, 632);
+            this.tabHome.Size = new System.Drawing.Size(976, 633);
             this.tabHome.TabIndex = 6;
             this.tabHome.Text = "Home";
+            this.tabHome.UseVisualStyleBackColor = true;
             // 
             // pictureBox1
             // 
@@ -953,9 +987,10 @@ namespace DB_EDITOR
             this.tabTeams.Controls.Add(this.label6);
             this.tabTeams.Controls.Add(this.LGIDcomboBox);
             this.tabTeams.Controls.Add(this.TGIDlistBox);
-            this.tabTeams.Location = new System.Drawing.Point(4, 25);
+            this.tabTeams.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabTeams.Location = new System.Drawing.Point(4, 24);
             this.tabTeams.Name = "tabTeams";
-            this.tabTeams.Size = new System.Drawing.Size(976, 632);
+            this.tabTeams.Size = new System.Drawing.Size(976, 633);
             this.tabTeams.TabIndex = 1;
             this.tabTeams.Text = "Teams";
             // 
@@ -1435,6 +1470,11 @@ namespace DB_EDITOR
             // NCDPnumbox
             // 
             this.NCDPnumbox.Location = new System.Drawing.Point(290, 289);
+            this.NCDPnumbox.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
             this.NCDPnumbox.Name = "NCDPnumbox";
             this.NCDPnumbox.Size = new System.Drawing.Size(50, 20);
             this.NCDPnumbox.TabIndex = 85;
@@ -1444,6 +1484,11 @@ namespace DB_EDITOR
             // INPOnumbox
             // 
             this.INPOnumbox.Location = new System.Drawing.Point(210, 289);
+            this.INPOnumbox.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
             this.INPOnumbox.Name = "INPOnumbox";
             this.INPOnumbox.Size = new System.Drawing.Size(50, 20);
             this.INPOnumbox.TabIndex = 84;
@@ -1466,7 +1511,7 @@ namespace DB_EDITOR
             // 
             // TMARNumBox
             // 
-            this.TMARNumBox.Location = new System.Drawing.Point(290, 237);
+            this.TMARNumBox.Location = new System.Drawing.Point(373, 236);
             this.TMARNumBox.Maximum = new decimal(new int[] {
             6,
             0,
@@ -1480,7 +1525,7 @@ namespace DB_EDITOR
             // 
             // TMPRNumBox
             // 
-            this.TMPRNumBox.Location = new System.Drawing.Point(210, 237);
+            this.TMPRNumBox.Location = new System.Drawing.Point(210, 236);
             this.TMPRNumBox.Maximum = new decimal(new int[] {
             6,
             0,
@@ -1821,7 +1866,7 @@ namespace DB_EDITOR
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(287, 221);
+            this.label21.Location = new System.Drawing.Point(370, 220);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(95, 13);
             this.label21.TabIndex = 35;
@@ -1830,7 +1875,8 @@ namespace DB_EDITOR
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(207, 221);
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(207, 220);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(75, 13);
             this.label20.TabIndex = 33;
@@ -2001,9 +2047,9 @@ namespace DB_EDITOR
             this.tabPlayers.Controls.Add(this.PLNAtextBox);
             this.tabPlayers.Controls.Add(this.PFNAtextBox);
             this.tabPlayers.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.tabPlayers.Location = new System.Drawing.Point(4, 25);
+            this.tabPlayers.Location = new System.Drawing.Point(4, 24);
             this.tabPlayers.Name = "tabPlayers";
-            this.tabPlayers.Size = new System.Drawing.Size(976, 632);
+            this.tabPlayers.Size = new System.Drawing.Size(976, 633);
             this.tabPlayers.TabIndex = 2;
             this.tabPlayers.Text = "Players";
             // 
@@ -2099,10 +2145,10 @@ namespace DB_EDITOR
             // 
             // tabCoaches
             // 
-            this.tabCoaches.Location = new System.Drawing.Point(4, 25);
+            this.tabCoaches.Location = new System.Drawing.Point(4, 24);
             this.tabCoaches.Name = "tabCoaches";
             this.tabCoaches.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCoaches.Size = new System.Drawing.Size(976, 632);
+            this.tabCoaches.Size = new System.Drawing.Size(976, 633);
             this.tabCoaches.TabIndex = 7;
             this.tabCoaches.Text = "Coaches";
             this.tabCoaches.UseVisualStyleBackColor = true;
@@ -2140,10 +2186,10 @@ namespace DB_EDITOR
             this.tabSeason.Controls.Add(this.textBox1);
             this.tabSeason.Controls.Add(this.coachProg);
             this.tabSeason.Controls.Add(this.medRS);
-            this.tabSeason.Location = new System.Drawing.Point(4, 25);
+            this.tabSeason.Location = new System.Drawing.Point(4, 24);
             this.tabSeason.Name = "tabSeason";
             this.tabSeason.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSeason.Size = new System.Drawing.Size(976, 632);
+            this.tabSeason.Size = new System.Drawing.Size(976, 633);
             this.tabSeason.TabIndex = 3;
             this.tabSeason.Text = "Dynasty";
             // 
@@ -2544,10 +2590,10 @@ namespace DB_EDITOR
             this.tabOffSeason.Controls.Add(this.buttonRandRecruits);
             this.tabOffSeason.Controls.Add(this.buttonRandWalkOns);
             this.tabOffSeason.Controls.Add(this.buttonMinRecruitingPts);
-            this.tabOffSeason.Location = new System.Drawing.Point(4, 25);
+            this.tabOffSeason.Location = new System.Drawing.Point(4, 24);
             this.tabOffSeason.Name = "tabOffSeason";
             this.tabOffSeason.Padding = new System.Windows.Forms.Padding(3);
-            this.tabOffSeason.Size = new System.Drawing.Size(976, 632);
+            this.tabOffSeason.Size = new System.Drawing.Size(976, 633);
             this.tabOffSeason.TabIndex = 4;
             this.tabOffSeason.Text = "Recruiting";
             // 
@@ -2835,6 +2881,7 @@ namespace DB_EDITOR
             // tabTools
             // 
             this.tabTools.BackColor = System.Drawing.Color.PeachPuff;
+            this.tabTools.Controls.Add(this.CFUSAexportButton);
             this.tabTools.Controls.Add(this.RandomizeHeadButton);
             this.tabTools.Controls.Add(this.label58);
             this.tabTools.Controls.Add(this.FillRosterPCT);
@@ -2850,12 +2897,24 @@ namespace DB_EDITOR
             this.tabTools.Controls.Add(qbTend);
             this.tabTools.Controls.Add(this.increaseSpeed);
             this.tabTools.Controls.Add(this.bodyFix);
-            this.tabTools.Location = new System.Drawing.Point(4, 25);
+            this.tabTools.Location = new System.Drawing.Point(4, 24);
             this.tabTools.Name = "tabTools";
             this.tabTools.Padding = new System.Windows.Forms.Padding(3);
-            this.tabTools.Size = new System.Drawing.Size(976, 632);
+            this.tabTools.Size = new System.Drawing.Size(976, 633);
             this.tabTools.TabIndex = 5;
             this.tabTools.Text = "dbTools";
+            // 
+            // CFUSAexportButton
+            // 
+            this.CFUSAexportButton.BackColor = System.Drawing.Color.Pink;
+            this.CFUSAexportButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CFUSAexportButton.Location = new System.Drawing.Point(290, 490);
+            this.CFUSAexportButton.Name = "CFUSAexportButton";
+            this.CFUSAexportButton.Size = new System.Drawing.Size(110, 80);
+            this.CFUSAexportButton.TabIndex = 25;
+            this.CFUSAexportButton.Text = "Export to CFB USA 97";
+            this.CFUSAexportButton.UseVisualStyleBackColor = false;
+            this.CFUSAexportButton.Click += new System.EventHandler(this.CFUSAexportButton_Click);
             // 
             // RandomizeHeadButton
             // 
@@ -3056,10 +3115,10 @@ namespace DB_EDITOR
             this.tabDev.Controls.Add(this.textBox6);
             this.tabDev.Controls.Add(this.ImportRecruitsButton);
             this.tabDev.Controls.Add(this.GraduateButton);
-            this.tabDev.Location = new System.Drawing.Point(4, 25);
+            this.tabDev.Location = new System.Drawing.Point(4, 24);
             this.tabDev.Name = "tabDev";
             this.tabDev.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDev.Size = new System.Drawing.Size(976, 632);
+            this.tabDev.Size = new System.Drawing.Size(976, 633);
             this.tabDev.TabIndex = 8;
             this.tabDev.Text = "Dev";
             // 
@@ -3375,6 +3434,308 @@ namespace DB_EDITOR
             this.GraduateButton.UseVisualStyleBackColor = false;
             this.GraduateButton.Click += new System.EventHandler(this.GraduateButton_Click);
             // 
+            // tabConf
+            // 
+            this.tabConf.Controls.Add(this.DeselectTeamsButton);
+            this.tabConf.Controls.Add(this.SwapButton);
+            this.tabConf.Controls.Add(this.ConfName12);
+            this.tabConf.Controls.Add(this.ConfName11);
+            this.tabConf.Controls.Add(this.ConfName10);
+            this.tabConf.Controls.Add(this.ConfName9);
+            this.tabConf.Controls.Add(this.ConfName8);
+            this.tabConf.Controls.Add(this.ConfName7);
+            this.tabConf.Controls.Add(this.ConfName6);
+            this.tabConf.Controls.Add(this.ConfName5);
+            this.tabConf.Controls.Add(this.ConfName4);
+            this.tabConf.Controls.Add(this.ConfName3);
+            this.tabConf.Controls.Add(this.ConfName2);
+            this.tabConf.Controls.Add(this.ConfName1);
+            this.tabConf.Controls.Add(this.conf12);
+            this.tabConf.Controls.Add(this.conf11);
+            this.tabConf.Controls.Add(this.conf10);
+            this.tabConf.Controls.Add(this.conf9);
+            this.tabConf.Controls.Add(this.conf8);
+            this.tabConf.Controls.Add(this.conf7);
+            this.tabConf.Controls.Add(this.conf6);
+            this.tabConf.Controls.Add(this.conf5);
+            this.tabConf.Controls.Add(this.conf4);
+            this.tabConf.Controls.Add(this.conf3);
+            this.tabConf.Controls.Add(this.conf2);
+            this.tabConf.Controls.Add(this.conf1);
+            this.tabConf.Location = new System.Drawing.Point(4, 24);
+            this.tabConf.Name = "tabConf";
+            this.tabConf.Padding = new System.Windows.Forms.Padding(3);
+            this.tabConf.Size = new System.Drawing.Size(976, 633);
+            this.tabConf.TabIndex = 9;
+            this.tabConf.Text = "Conferences";
+            this.tabConf.UseVisualStyleBackColor = true;
+            // 
+            // DeselectTeamsButton
+            // 
+            this.DeselectTeamsButton.BackColor = System.Drawing.Color.RoyalBlue;
+            this.DeselectTeamsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeselectTeamsButton.ForeColor = System.Drawing.SystemColors.Control;
+            this.DeselectTeamsButton.Location = new System.Drawing.Point(647, 593);
+            this.DeselectTeamsButton.Name = "DeselectTeamsButton";
+            this.DeselectTeamsButton.Size = new System.Drawing.Size(150, 37);
+            this.DeselectTeamsButton.TabIndex = 25;
+            this.DeselectTeamsButton.Text = "DESELECT TEAMS";
+            this.DeselectTeamsButton.UseVisualStyleBackColor = false;
+            this.DeselectTeamsButton.Click += new System.EventHandler(this.DeselectTeamsButton_Click);
+            // 
+            // SwapButton
+            // 
+            this.SwapButton.BackColor = System.Drawing.Color.Crimson;
+            this.SwapButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SwapButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.SwapButton.Location = new System.Drawing.Point(803, 593);
+            this.SwapButton.Name = "SwapButton";
+            this.SwapButton.Size = new System.Drawing.Size(150, 37);
+            this.SwapButton.TabIndex = 24;
+            this.SwapButton.Text = "SWAP TEAMS";
+            this.SwapButton.UseVisualStyleBackColor = false;
+            this.SwapButton.Click += new System.EventHandler(this.SwapButton_Click);
+            // 
+            // ConfName12
+            // 
+            this.ConfName12.AutoSize = true;
+            this.ConfName12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConfName12.Location = new System.Drawing.Point(803, 300);
+            this.ConfName12.Name = "ConfName12";
+            this.ConfName12.Size = new System.Drawing.Size(80, 15);
+            this.ConfName12.TabIndex = 23;
+            this.ConfName12.Text = "Conference";
+            // 
+            // ConfName11
+            // 
+            this.ConfName11.AutoSize = true;
+            this.ConfName11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConfName11.Location = new System.Drawing.Point(647, 300);
+            this.ConfName11.Name = "ConfName11";
+            this.ConfName11.Size = new System.Drawing.Size(80, 15);
+            this.ConfName11.TabIndex = 22;
+            this.ConfName11.Text = "Conference";
+            // 
+            // ConfName10
+            // 
+            this.ConfName10.AutoSize = true;
+            this.ConfName10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConfName10.Location = new System.Drawing.Point(491, 300);
+            this.ConfName10.Name = "ConfName10";
+            this.ConfName10.Size = new System.Drawing.Size(80, 15);
+            this.ConfName10.TabIndex = 21;
+            this.ConfName10.Text = "Conference";
+            // 
+            // ConfName9
+            // 
+            this.ConfName9.AutoSize = true;
+            this.ConfName9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConfName9.Location = new System.Drawing.Point(335, 300);
+            this.ConfName9.Name = "ConfName9";
+            this.ConfName9.Size = new System.Drawing.Size(80, 15);
+            this.ConfName9.TabIndex = 20;
+            this.ConfName9.Text = "Conference";
+            // 
+            // ConfName8
+            // 
+            this.ConfName8.AutoSize = true;
+            this.ConfName8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConfName8.Location = new System.Drawing.Point(179, 300);
+            this.ConfName8.Name = "ConfName8";
+            this.ConfName8.Size = new System.Drawing.Size(80, 15);
+            this.ConfName8.TabIndex = 19;
+            this.ConfName8.Text = "Conference";
+            // 
+            // ConfName7
+            // 
+            this.ConfName7.AutoSize = true;
+            this.ConfName7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConfName7.Location = new System.Drawing.Point(23, 300);
+            this.ConfName7.Name = "ConfName7";
+            this.ConfName7.Size = new System.Drawing.Size(80, 15);
+            this.ConfName7.TabIndex = 18;
+            this.ConfName7.Text = "Conference";
+            // 
+            // ConfName6
+            // 
+            this.ConfName6.AutoSize = true;
+            this.ConfName6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConfName6.Location = new System.Drawing.Point(800, 4);
+            this.ConfName6.Name = "ConfName6";
+            this.ConfName6.Size = new System.Drawing.Size(80, 15);
+            this.ConfName6.TabIndex = 17;
+            this.ConfName6.Text = "Conference";
+            // 
+            // ConfName5
+            // 
+            this.ConfName5.AutoSize = true;
+            this.ConfName5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConfName5.Location = new System.Drawing.Point(644, 4);
+            this.ConfName5.Name = "ConfName5";
+            this.ConfName5.Size = new System.Drawing.Size(80, 15);
+            this.ConfName5.TabIndex = 16;
+            this.ConfName5.Text = "Conference";
+            // 
+            // ConfName4
+            // 
+            this.ConfName4.AutoSize = true;
+            this.ConfName4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConfName4.Location = new System.Drawing.Point(488, 4);
+            this.ConfName4.Name = "ConfName4";
+            this.ConfName4.Size = new System.Drawing.Size(80, 15);
+            this.ConfName4.TabIndex = 15;
+            this.ConfName4.Text = "Conference";
+            // 
+            // ConfName3
+            // 
+            this.ConfName3.AutoSize = true;
+            this.ConfName3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConfName3.Location = new System.Drawing.Point(332, 4);
+            this.ConfName3.Name = "ConfName3";
+            this.ConfName3.Size = new System.Drawing.Size(80, 15);
+            this.ConfName3.TabIndex = 14;
+            this.ConfName3.Text = "Conference";
+            // 
+            // ConfName2
+            // 
+            this.ConfName2.AutoSize = true;
+            this.ConfName2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConfName2.Location = new System.Drawing.Point(176, 4);
+            this.ConfName2.Name = "ConfName2";
+            this.ConfName2.Size = new System.Drawing.Size(80, 15);
+            this.ConfName2.TabIndex = 13;
+            this.ConfName2.Text = "Conference";
+            // 
+            // ConfName1
+            // 
+            this.ConfName1.AutoSize = true;
+            this.ConfName1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ConfName1.Location = new System.Drawing.Point(20, 4);
+            this.ConfName1.Name = "ConfName1";
+            this.ConfName1.Size = new System.Drawing.Size(80, 15);
+            this.ConfName1.TabIndex = 12;
+            this.ConfName1.Text = "Conference";
+            // 
+            // conf12
+            // 
+            this.conf12.BackColor = System.Drawing.Color.Linen;
+            this.conf12.FormattingEnabled = true;
+            this.conf12.Location = new System.Drawing.Point(803, 316);
+            this.conf12.Name = "conf12";
+            this.conf12.Size = new System.Drawing.Size(150, 274);
+            this.conf12.TabIndex = 11;
+            this.conf12.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.TeamChecked);
+            // 
+            // conf11
+            // 
+            this.conf11.BackColor = System.Drawing.Color.Linen;
+            this.conf11.FormattingEnabled = true;
+            this.conf11.Location = new System.Drawing.Point(647, 316);
+            this.conf11.Name = "conf11";
+            this.conf11.Size = new System.Drawing.Size(150, 274);
+            this.conf11.TabIndex = 10;
+            this.conf11.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.TeamChecked);
+            // 
+            // conf10
+            // 
+            this.conf10.BackColor = System.Drawing.Color.Linen;
+            this.conf10.FormattingEnabled = true;
+            this.conf10.Location = new System.Drawing.Point(491, 316);
+            this.conf10.Name = "conf10";
+            this.conf10.Size = new System.Drawing.Size(150, 274);
+            this.conf10.TabIndex = 9;
+            this.conf10.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.TeamChecked);
+            // 
+            // conf9
+            // 
+            this.conf9.BackColor = System.Drawing.Color.Linen;
+            this.conf9.FormattingEnabled = true;
+            this.conf9.Location = new System.Drawing.Point(335, 316);
+            this.conf9.Name = "conf9";
+            this.conf9.Size = new System.Drawing.Size(150, 274);
+            this.conf9.TabIndex = 8;
+            this.conf9.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.TeamChecked);
+            // 
+            // conf8
+            // 
+            this.conf8.BackColor = System.Drawing.Color.Linen;
+            this.conf8.FormattingEnabled = true;
+            this.conf8.Location = new System.Drawing.Point(179, 316);
+            this.conf8.Name = "conf8";
+            this.conf8.Size = new System.Drawing.Size(150, 274);
+            this.conf8.TabIndex = 7;
+            this.conf8.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.TeamChecked);
+            // 
+            // conf7
+            // 
+            this.conf7.BackColor = System.Drawing.Color.Linen;
+            this.conf7.FormattingEnabled = true;
+            this.conf7.Location = new System.Drawing.Point(23, 316);
+            this.conf7.Name = "conf7";
+            this.conf7.Size = new System.Drawing.Size(150, 274);
+            this.conf7.TabIndex = 6;
+            this.conf7.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.TeamChecked);
+            // 
+            // conf6
+            // 
+            this.conf6.BackColor = System.Drawing.Color.Linen;
+            this.conf6.FormattingEnabled = true;
+            this.conf6.Location = new System.Drawing.Point(803, 20);
+            this.conf6.Name = "conf6";
+            this.conf6.Size = new System.Drawing.Size(150, 274);
+            this.conf6.TabIndex = 5;
+            this.conf6.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.TeamChecked);
+            // 
+            // conf5
+            // 
+            this.conf5.BackColor = System.Drawing.Color.Linen;
+            this.conf5.FormattingEnabled = true;
+            this.conf5.Location = new System.Drawing.Point(647, 20);
+            this.conf5.Name = "conf5";
+            this.conf5.Size = new System.Drawing.Size(150, 274);
+            this.conf5.TabIndex = 4;
+            this.conf5.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.TeamChecked);
+            // 
+            // conf4
+            // 
+            this.conf4.BackColor = System.Drawing.Color.Linen;
+            this.conf4.FormattingEnabled = true;
+            this.conf4.Location = new System.Drawing.Point(491, 20);
+            this.conf4.Name = "conf4";
+            this.conf4.Size = new System.Drawing.Size(150, 274);
+            this.conf4.TabIndex = 3;
+            this.conf4.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.TeamChecked);
+            // 
+            // conf3
+            // 
+            this.conf3.BackColor = System.Drawing.Color.Linen;
+            this.conf3.FormattingEnabled = true;
+            this.conf3.Location = new System.Drawing.Point(335, 20);
+            this.conf3.Name = "conf3";
+            this.conf3.Size = new System.Drawing.Size(150, 274);
+            this.conf3.TabIndex = 2;
+            this.conf3.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.TeamChecked);
+            // 
+            // conf2
+            // 
+            this.conf2.BackColor = System.Drawing.Color.Linen;
+            this.conf2.FormattingEnabled = true;
+            this.conf2.Location = new System.Drawing.Point(179, 20);
+            this.conf2.Name = "conf2";
+            this.conf2.Size = new System.Drawing.Size(150, 274);
+            this.conf2.TabIndex = 1;
+            this.conf2.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.TeamChecked);
+            // 
+            // conf1
+            // 
+            this.conf1.BackColor = System.Drawing.Color.Linen;
+            this.conf1.FormattingEnabled = true;
+            this.conf1.Location = new System.Drawing.Point(23, 20);
+            this.conf1.Name = "conf1";
+            this.conf1.Size = new System.Drawing.Size(150, 274);
+            this.conf1.TabIndex = 0;
+            this.conf1.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.TeamChecked);
+            // 
             // MainEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3452,6 +3813,8 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.FillRosterPCT)).EndInit();
             this.tabDev.ResumeLayout(false);
             this.tabDev.PerformLayout();
+            this.tabConf.ResumeLayout(false);
+            this.tabConf.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -3730,6 +4093,34 @@ namespace DB_EDITOR
         private System.Windows.Forms.ComboBox ImpactTPIOSelect;
         public Label label6;
         public System.Windows.Forms.ComboBox LGIDcomboBox;
+        public System.Windows.Forms.Button CFUSAexportButton;
+        private TabPage tabConf;
+        private CheckedListBox conf12;
+        private CheckedListBox conf11;
+        private CheckedListBox conf10;
+        private CheckedListBox conf9;
+        private CheckedListBox conf8;
+        private CheckedListBox conf7;
+        private CheckedListBox conf6;
+        private CheckedListBox conf5;
+        private CheckedListBox conf4;
+        private CheckedListBox conf3;
+        private CheckedListBox conf2;
+        private CheckedListBox conf1;
+        private Label ConfName4;
+        private Label ConfName3;
+        private Label ConfName2;
+        private Label ConfName1;
+        private Label ConfName6;
+        private Label ConfName5;
+        private Label ConfName12;
+        private Label ConfName11;
+        private Label ConfName10;
+        private Label ConfName9;
+        private Label ConfName8;
+        private Label ConfName7;
+        private System.Windows.Forms.Button SwapButton;
+        private System.Windows.Forms.Button DeselectTeamsButton;
     }
 }
 

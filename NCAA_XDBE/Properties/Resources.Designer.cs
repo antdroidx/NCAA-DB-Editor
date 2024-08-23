@@ -117,6 +117,31 @@ namespace DB_EDITOR.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to TGID,CFB-USA,TDNA
+        ///1,Air Force Falcons,Air Force
+        ///2,Akron Zips,Akron
+        ///3,Alabama Crimson Tide,Alabama
+        ///4,Arizona Wildcats,Arizona
+        ///5,Arizona State Sun Devils,Arizona State
+        ///6,Arkansas Razorbacks,Arkansas
+        ///7,Arkansas State Indians,Arkansas State
+        ///8,USMA Black Knights,Army
+        ///9,Auburn Tigers,Auburn
+        ///10,Ball State Cardinals,Ball State
+        ///11,Baylor Bears,Baylor
+        ///12,Boise State Broncos,Boise State
+        ///13,Boston College Eagles,Boston College
+        ///14,Bowling Green Falcons,Bowling Green
+        ///15,Brigham Young Cougars,BYU
+        ///16,Califo [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string college_football_usa {
+            get {
+                return ResourceManager.GetString("college_football_usa", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap def_file {
@@ -563,24 +588,25 @@ namespace DB_EDITOR.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to First Name,Last Name,PPOS,TGID,Height,Weight
-        ///Ellis,Robinson,16,30,73,20
-        ///Jaylen,Mbakwe,16,3,72,15
-        ///Ryan,Williams,3,3,73,10
-        ///Jeremiah,Smith,3,70,75,40
-        ///Cameron,Coleman,3,9,76,25
-        ///David,Stone,12,71,76,120
-        ///Justin,Williams,14,30,74,45
-        ///D.J.,Lagway,0,27,75,65
-        ///Julian,Sayin,0,70,74,30
-        ///L.J.,McCray,10,27,79,105
-        ///Dylan,Raiola,0,58,75,60
-        ///Colin,Simmons,11,92,75,65
-        ///Sammy,Brown,14,21,74,70
-        ///Dylan,Stewart,10,84,78,85
-        ///Kobe,Black,16,92,73,30
-        ///K.J.,Bolden,18,30,73,30
-        ///Dominick,McKinley,12,45,77,130
-        ///Terry,Bussey,3,93, [rest of string was truncated]&quot;;.
+        ///Jeremiah,Smith,3,70,75,55
+        ///Ellis,Robinson,16,30,72,20
+        ///Qua,Russiah,13,3,74,82
+        ///Sammy,Brown,14,21,74,75
+        ///DJ,Lagway,0,27,75,81
+        ///Milkin,Formby,9,3,79,160
+        ///TJ,Moore,3,21,75,30
+        ///KJ,Bolden,17,30,72,25
+        ///Ryan,Wingo,3,92,74,48
+        ///Julian,Sayn,0,70,73,43
+        ///Christopher,Vizzina,0,21,76,50
+        ///Luke,Reynolds,4,76,76,68
+        ///Zabien,Brown,16,3,72,20
+        ///Jordan,Ross,11,91,76,73
+        ///Jordan,Seaton,5,22,77,125
+        ///David,Stone,11,71,75,123
+        ///Mike,Matthews,3,91,73,0
+        ///Colin,Simmons,10,92,75,74
+        ///Jahlil,Hur [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string recruits {
             get {
@@ -599,46 +625,29 @@ namespace DB_EDITOR.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 1,Air Force
-        ///2,Akron
-        ///3,Alabama
-        ///4,Arizona
-        ///5,Arizona State
-        ///6,Arkansas
-        ///7,Arkansas State
-        ///8,Army
-        ///9,Auburn
-        ///10,Ball State
-        ///11,Baylor
-        ///12,Boise State
-        ///13,Boston College
-        ///14,Bowling Green
-        ///15,Buffalo
-        ///16,BYU
-        ///17,Cal
-        ///18,UCF
-        ///19,Central Michigan
-        ///20,Cincinnati
-        ///21,Clemson
-        ///22,Colorado
-        ///23,Colorado State
-        ///24,Duke
-        ///25,ECU
-        ///26,Eastern Michigan
-        ///27,Florida
-        ///28,Florida State
-        ///29,Fresno State
-        ///30,Georgia
-        ///31,Georgia Tech
-        ///32,Hawaii
-        ///33,Houston
-        ///34,Idaho
-        ///35,Illinois
-        ///36,Indiana
-        ///37,Iowa
-        ///38,Iowa State
-        ///39,Kansas
-        ///4 [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to 1,Air Force,Falcons
+        ///2,Akron,Zips
+        ///3,Alabama,Crimson Tide
+        ///4,Arizona,Wildcats
+        ///5,Arizona State,Sun Devils
+        ///6,Arkansas,Razorbacks
+        ///7,Arkansas State,Red Wolves
+        ///8,Army,Black Knights
+        ///9,Auburn,Tigers
+        ///10,Ball State,Cardinals
+        ///11,Baylor,Bears
+        ///12,Boise State,Broncos
+        ///13,Boston College,Eagles
+        ///14,Bowling Green,Falcons
+        ///15,Buffalo,Bulls
+        ///16,BYU,Cougars
+        ///17,Cal,Golden Bears
+        ///18,UCF,Golden Knights
+        ///19,Central Michigan,Chippewas
+        ///20,Cincinnati,Bearcats
+        ///21,Clemson,Tigers
+        ///22,Colorado,Buffaloes
+        ///23,Colorado State,Ram [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TeamDB {
             get {
@@ -675,31 +684,21 @@ namespace DB_EDITOR.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to FirstName,LastName,Pos Group,TGID
-        ///Jordon,Simmons,1,2
-        ///Dayne,Shor,4,2
-        ///Laurence,Seymoure,4,2
-        ///Eli,Fields,4,2
-        ///Da&apos;Quan,Thomas,4,2
-        ///Nathan,Kapongo,5,2
-        ///Paul,Lewis,7,2
-        ///Daymon,David,7,2
-        ///Naquil,Betrand,4,3
-        ///Graham,Nicholson,8,3
-        ///Charles,Wright,0,188
-        ///William,Fowles,2,188
-        ///Zavier,Short,2,188
-        ///Michael,Marotta,4,188
-        ///Luke,Burgess,4,188
-        ///Andres,Dewerk,4,188
-        ///Garner,Langlo,4,188
-        ///Thomas,Shrader,4,188
-        ///Joshua,Donald,5,188
-        ///Jason,Chambers,7,188
-        ///Myles,Farmer,7,188
-        ///Avarion,Cole,7,188
-        ///Seth,Robertson,7,188
-        ///Elijah,Mc- [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to FirstName,LastName,Pos Group,TGID,
+        ///Jordon,Simmons,1,2,Jordon Simmons
+        ///Dayne,Shor,4,2,Dayne Shor
+        ///Laurence,Seymoure,4,2,Laurence Seymoure
+        ///Eli,Fields,4,2,Eli Fields
+        ///Da&apos;Quan,Thomas,4,2,Da&apos;Quan Thomas
+        ///Nathan,Kapongo,5,2,Nathan Kapongo
+        ///Paul,Lewis,7,2,Paul Lewis
+        ///Daymon,David,7,2,Daymon David
+        ///Naquil,Betrand,4,3,Naquil Betrand
+        ///Graham,Nicholson,8,3,Graham Nicholson
+        ///Charles,Wright,0,188,Charles Wright
+        ///William,Fowles,2,188,William Fowles
+        ///Zavier,Short,2,188,Zavier Short
+        ///Michael,Marotta,4,188,Michael Marotta [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string transfers_gen {
             get {

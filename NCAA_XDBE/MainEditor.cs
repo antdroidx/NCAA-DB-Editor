@@ -92,6 +92,7 @@ namespace DB_EDITOR
 
 
         string[] teamNameDB = new string[511]; //temporary holder of Team Names assigned by TGID location in the array
+        string[] teamMascot = new string[511]; //temporary holder of Team Names assigned by TGID location in the array
         int maxNameChar = 10; //maximum number of name characters (reserving extra last name letters for modding)
         Dictionary<int, string> Positions = new Dictionary<int, string>(); //database of ppos id,position name
         Dictionary<string, int> PositionsX = new Dictionary<string, int>(); //database of position name, ppos id
@@ -119,7 +120,7 @@ namespace DB_EDITOR
             TablePropsLabel.Text = "";
             FieldsPropsLabel.Text = "";
             dbIndex = -1;
-            
+
 
             toolStripSeparator1.Enabled = true;
             saveMenuItem.Enabled = false;
@@ -158,15 +159,27 @@ namespace DB_EDITOR
 
 
             tabControl1.Visible = false;
+
             tabControl1.TabPages.Remove(tabTeams);
             tabControl1.TabPages.Remove(tabPlayers);
             tabControl1.TabPages.Remove(tabSeason);
             tabControl1.TabPages.Remove(tabOffSeason);
             tabControl1.TabPages.Remove(tabTools);
             tabControl1.TabPages.Remove(tabCoaches);
+            tabControl1.TabPages.Remove(tabConf);
+            tabControl1.TabPages.Remove(tabDev);
 
-            //DEVELOPMENTAL TAB
-            //tabControl1.TabPages.Add(tabDev);
+
+            /*
+            tabControl1.TabPages["tabTeams"].Enabled = false;
+            tabControl1.TabPages["tabPlayers"].Enabled = false;
+            tabControl1.TabPages["tabSeason"].Enabled = false;
+            tabControl1.TabPages["tabCoaches"].Enabled = false;
+            tabControl1.TabPages["tabConf"].Enabled = false;
+            tabControl1.TabPages["tabOffSeason"].Enabled = false;
+            tabControl1.TabPages["tabTools"].Enabled = false;
+            tabControl1.TabPages["tabDev"].Enabled = false;
+            */
 
 
             tabDelimited = false;
@@ -1108,7 +1121,7 @@ namespace DB_EDITOR
                 {
                     TEAM = true;
                     CreateTeamDB();
-                    
+
                     //BOOKMARK TAB PAGES ON/OFF
 
                     tabControl1.TabPages.Add(tabTeams);
@@ -1123,7 +1136,17 @@ namespace DB_EDITOR
                 {
                     TDYN = true;
                     CreateTeamDB();
+                    tabControl1.TabPages.Add(tabDev);
                 }
+                if (TABLE.Value == "CONF")
+                {
+                    tabControl1.TabPages.Add(tabConf);
+                }
+                if (TABLE.Value == "COCH")
+                {
+                    //tabControl1.TabPages.Add(tabCoaches);
+                }
+
 
                 string tmpDef = FieldDEF(TABLE.Value);
 
@@ -1850,6 +1873,7 @@ namespace DB_EDITOR
 
             if (tabControl1.SelectedTab == tabDB) TabDB_Start();
             if (tabControl1.SelectedTab == tabTeams || tabControl1.SelectedTab == tabPlayers) EditorTabs();
+            if (tabControl1.SelectedTab == tabConf) ConferenceSetup();
             else TabTools_Start();
 
         }
@@ -2172,10 +2196,12 @@ namespace DB_EDITOR
             CalculateTeamRatings("TDYN");
         }
 
+
         private void DevDepthChartButton_Click(object sender, EventArgs e)
         {
             DepthChartMaker("TDYN");
         }
+
 
         private void DevRandomizeFaceButton_Click(object sender, EventArgs e)
         {
@@ -2192,7 +2218,7 @@ namespace DB_EDITOR
 
 
 
-        
+
         //EXPERIMENTAL ITEMS -- WORK IN PROGRESS
 
         private void buttonChaosTransfers_Click(object sender, EventArgs e)
@@ -2205,6 +2231,10 @@ namespace DB_EDITOR
             ScheduleGenerator();
         }
 
+        private void CFUSAexportButton_Click(object sender, EventArgs e)
+        {
+            ExportToCollegeFootballUSA();
+        }
 
 
     }
