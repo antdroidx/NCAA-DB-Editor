@@ -142,6 +142,40 @@ namespace DB_EDITOR.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to TDNA,TGID,TMCP,TCRP
+        ///Air Force,1,0,0
+        ///Akron,2,1,1
+        ///Alabama,3,2,3
+        ///Alabama A&amp;M,116,115,2
+        ///Alabama State,117,116,5
+        ///Alcorn State,118,117,4
+        ///Appalachian State,188,155,159
+        ///Arizona,4,3,6
+        ///Arizona State,5,4,12
+        ///Ark - Pine Bluff,119,118,8
+        ///Arkansas,6,5,7
+        ///Arkansas State,7,6,9
+        ///Army,8,7,10
+        ///Auburn,9,8,11
+        ///Ball State,10,9,13
+        ///Baylor,11,10,14
+        ///Bethune-Cookman,120,119,15
+        ///Boise State,12,11,16
+        ///Boston College,13,12,17
+        ///Bowling Green,14,13,18
+        ///Brown,121,120,19
+        ///Buffalo,15,14,20
+        ///BYU,16,15,21
+        ///Cal,17,16,22
+        ///Central Mich [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Color_Palettes {
+            get {
+                return ResourceManager.GetString("Color_Palettes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap def_file {

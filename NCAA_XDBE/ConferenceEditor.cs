@@ -55,7 +55,16 @@ namespace DB_EDITOR
         //Clear and Setup Tab Page
         private void ConferenceSetup()
         {
-            List<CheckedListBox> confBoxes = GetConfBoxObjects();
+            if(GetDBValueInt("SEAI","SEWN", 0) > 0 && GetDBValueInt("SEAI", "SEWN", 0) < 22)
+            {
+                MessageBox.Show("Please only make conference edits during pre-season, at end of season, or in off-season!");
+                tabConf.Enabled = false;
+            } else
+            {
+                tabConf.Enabled = true;
+            }
+
+                List<CheckedListBox> confBoxes = GetConfBoxObjects();
             List<Label> confNames = GetConfNameLabels();
 
             foreach (var c in confBoxes)
@@ -199,14 +208,33 @@ namespace DB_EDITOR
             ChangeDBInt("TEAM", "CGID", recB, cgidA);
             ChangeDBInt("TEAM", "DGIG", recB, dgidA);
 
-            MessageBox.Show(TeamA + " and " + TeamB + " have been swapped!");
+
+            if(GetDBValueInt("SEAI", "SEWN", 0) == 0)
+            {
+                SwapSchedule(GetDBValueInt("TEAM", "TGID", recA), GetDBValueInt("TEAM", "TGID", recB), TeamA, TeamB);
+            } else
+            {
+                MessageBox.Show(TeamA + " and " + TeamB + " have been swapped!");
+            }
 
         }
 
         //Swap Teams in the Schedule if in Pre-Season
-        private void SwapSchedule()
+        private void SwapSchedule(int tgidA, int tgidB, string TeamA, string TeamB)
         {
+            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "SCHD"); i++)
+            {
+                if (GetDBValueInt("SCHD", "GATG", i) == tgidA) ChangeDBInt("SCHD", "GATG", i, tgidB);
+                else if (GetDBValueInt("SCHD", "GATG", i) == tgidB) ChangeDBInt("SCHD", "GATG", i, tgidA);
+            }
 
+            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "SCHD"); i++)
+            {
+                if (GetDBValueInt("SCHD", "GHTG", i) == tgidA) ChangeDBInt("SCHD", "GHTG", i, tgidB);
+                else if (GetDBValueInt("SCHD", "GHTG", i) == tgidB) ChangeDBInt("SCHD", "GHTG", i, tgidA);
+            }
+
+            MessageBox.Show(TeamA + " and " + TeamB + " have been swapped!");
         }
 
 

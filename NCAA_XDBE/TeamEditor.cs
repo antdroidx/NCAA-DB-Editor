@@ -166,6 +166,8 @@ namespace DB_EDITOR
 
 
             tmpManagement.Clear();
+
+            CreateTeamColorPalettes();
         }
         public void LoadTGIDlistBox(int tmpDB, string tmpBOX, int tmpVAL)
         {
@@ -380,6 +382,11 @@ namespace DB_EDITOR
             TeamColor2Button.BackColor = Color.FromArgb(GetDBValueInt("TEAM", "TFOR", EditorIndex), GetDBValueInt("TEAM", "TFOG", EditorIndex), GetDBValueInt("TEAM", "TFOB", EditorIndex));
             primary = TeamColor1Button.BackColor;
             secondary = TeamColor2Button.BackColor;
+
+            GetCrowdColorPaletteItems();
+            GetCheerColorPaletteItems();
+            CrowdBox.SelectedIndex = FindTeamIndexfromPalette(GetDBValueInt("TEAM", "TCRP", EditorIndex), "crowd");
+            CheerleaderBox.SelectedIndex = FindTeamIndexfromPalette(GetDBValueInt("TEAM", "TMCP", EditorIndex), "cheer");
 
             progressBar1.PerformStep();
 
@@ -605,7 +612,52 @@ namespace DB_EDITOR
 
         }
 
+        private void GetCrowdColorPaletteItems()
+        {
+            CrowdBox.Items.Clear();
+            for(int i = 0; i < TeamColorPalettes.Count; i++) 
+            {
+                CrowdBox.Items.Add(TeamColorPalettes[i][0]);
+            }
+        }
+
+        private void GetCheerColorPaletteItems()
+        {
+            CheerleaderBox.Items.Clear();
+            for (int i = 0; i < TeamColorPalettes.Count; i++)
+            {
+                CheerleaderBox.Items.Add(TeamColorPalettes[i][0]);
+            }
+        }
+
+        private int FindTeamIndexfromPalette(int pal, string type)
+        {
+            if(type == "crowd")
+            {
+                for (int i = 0; i < TeamColorPalettes.Count; i++)
+                {
+                    if (Convert.ToInt32(TeamColorPalettes[i][3]) == pal)
+                    {
+                        return i;
+                    }
+                }
+            }
+            else if (type == "cheer")
+            {
+                for (int i = 0; i < TeamColorPalettes.Count; i++)
+                {
+                    if (Convert.ToInt32(TeamColorPalettes[i][2]) == pal)
+                    {
+                        return i;
+                    }
+                }
+            }
+
+            return -1;
+        }
+
         #endregion
+
 
 
 
@@ -1027,6 +1079,18 @@ namespace DB_EDITOR
             ChangeDBString("TEAM", "TFOB", EditorIndex, Convert.ToString(Convert.ToDecimal(TeamColor2Button.BackColor.B)));
         }
 
+
+        private void CrowdBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string val = TeamColorPalettes[CrowdBox.SelectedIndex][3];
+            ChangeDBString("TEAM", "TCRP", EditorIndex, val);
+        }
+
+        private void CheerleaderBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string val = TeamColorPalettes[CheerleaderBox.SelectedIndex][2];
+            ChangeDBString("TEAM", "TMCP", EditorIndex, val);
+        }
 
         #endregion
 

@@ -41,6 +41,9 @@ namespace DB_EDITOR
         List<List<string>> AllTeamPlayers;
         List<List<string>> OffPlayers;
         List<List<string>> DefPlayers;
+        List<List<string>> TeamColorPalettes = new List<List<string>>();
+
+
         int OCAPmem, DCAPmem, TSI1mem, TSI2mem, TPIOmem, TPIDmem;
 
 
@@ -2201,6 +2204,8 @@ namespace DB_EDITOR
         {
             DepthChartMaker("TDYN");
         }
+
+
 
 
         private void DevRandomizeFaceButton_Click(object sender, EventArgs e)

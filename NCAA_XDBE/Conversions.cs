@@ -723,6 +723,11 @@ namespace DB_EDITOR
             }
         }
 
+        public void CreateTeamColorPalettes()
+        {
+            TeamColorPalettes = CreateStringListsFromCSV(@"resources\Color-Palettes.csv", true);
+        }
+
         public string GetTeamName(int tmpRecNo)
         {
 
@@ -1001,15 +1006,13 @@ namespace DB_EDITOR
             while (!sr.EndOfStream)
             {
                 string[] Line = sr.ReadLine().Split(',');
+                if (skipFirstRow && Row == 0) /*do nothing*/;
+                else
                 {
-                    if (skipFirstRow && Row == 0) continue;
-                    else
+                    list.Add(new List<string>());
+                    for (int column = 0; column < Line.Length; column++)
                     {
-                        list.Add(new List<string>());
-                        for (int column = 0; column < Line.Length; column++)
-                        {
-                            list[Row + skip].Add(Line[column]);
-                        }
+                        list[Row + skip].Add(Line[column]);
                     }
                 }
 
@@ -1063,17 +1066,14 @@ namespace DB_EDITOR
             while (!sr.EndOfStream)
             {
                 string[] Line = sr.ReadLine().Split(',');
+                if (skipFirstRow && Row == 0) /*do nothing*/;
+                else
                 {
-                    if (skipFirstRow && Row == 0) continue;
-                    else
+                    list.Add(new List<int>());
+                    for (int column = 0; column < Line.Length; column++)
                     {
-                        list.Add(new List<int>());
-                        for (int column = 0; column < Line.Length; column++)
-                        {
-                            list[Row + skip].Add(Convert.ToInt32(Line[column]));
-                        }
+                        list[Row + skip].Add(Convert.ToInt32(Line[column]));
                     }
-
                 }
 
                 Row++;

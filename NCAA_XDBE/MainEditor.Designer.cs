@@ -90,6 +90,10 @@ namespace DB_EDITOR
             this.tabHome = new System.Windows.Forms.TabPage();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabTeams = new System.Windows.Forms.TabPage();
+            this.CheerleaderBox = new System.Windows.Forms.ComboBox();
+            this.CrowdBox = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.ImpactTSI2Select = new System.Windows.Forms.ComboBox();
             this.ImpactTSI1Select = new System.Windows.Forms.ComboBox();
             this.ImpactTPIDSelect = new System.Windows.Forms.ComboBox();
@@ -882,6 +886,10 @@ namespace DB_EDITOR
             // tabTeams
             // 
             this.tabTeams.BackColor = System.Drawing.SystemColors.Control;
+            this.tabTeams.Controls.Add(this.CheerleaderBox);
+            this.tabTeams.Controls.Add(this.CrowdBox);
+            this.tabTeams.Controls.Add(this.label5);
+            this.tabTeams.Controls.Add(this.label8);
             this.tabTeams.Controls.Add(this.ImpactTSI2Select);
             this.tabTeams.Controls.Add(this.ImpactTSI1Select);
             this.tabTeams.Controls.Add(this.ImpactTPIDSelect);
@@ -993,6 +1001,47 @@ namespace DB_EDITOR
             this.tabTeams.Size = new System.Drawing.Size(976, 633);
             this.tabTeams.TabIndex = 1;
             this.tabTeams.Text = "Teams";
+            // 
+            // CheerleaderBox
+            // 
+            this.CheerleaderBox.FormattingEnabled = true;
+            this.CheerleaderBox.Location = new System.Drawing.Point(351, 466);
+            this.CheerleaderBox.MaxLength = 2;
+            this.CheerleaderBox.Name = "CheerleaderBox";
+            this.CheerleaderBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.CheerleaderBox.Size = new System.Drawing.Size(138, 21);
+            this.CheerleaderBox.TabIndex = 137;
+            this.CheerleaderBox.Tag = "x";
+            this.CheerleaderBox.SelectedIndexChanged += new System.EventHandler(this.CheerleaderBox_SelectedIndexChanged);
+            // 
+            // CrowdBox
+            // 
+            this.CrowdBox.FormattingEnabled = true;
+            this.CrowdBox.Location = new System.Drawing.Point(210, 466);
+            this.CrowdBox.MaxLength = 2;
+            this.CrowdBox.Name = "CrowdBox";
+            this.CrowdBox.Size = new System.Drawing.Size(138, 21);
+            this.CrowdBox.TabIndex = 136;
+            this.CrowdBox.Tag = "x";
+            this.CrowdBox.SelectedIndexChanged += new System.EventHandler(this.CrowdBox_SelectedIndexChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(243, 450);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(73, 13);
+            this.label5.TabIndex = 135;
+            this.label5.Text = "Crowd Palette";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(370, 450);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(100, 13);
+            this.label8.TabIndex = 134;
+            this.label8.Text = "Cheerleader Palette";
             // 
             // ImpactTSI2Select
             // 
@@ -1117,7 +1166,7 @@ namespace DB_EDITOR
             // 
             // CapacityNumbox
             // 
-            this.CapacityNumbox.Location = new System.Drawing.Point(323, 532);
+            this.CapacityNumbox.Location = new System.Drawing.Point(323, 600);
             this.CapacityNumbox.Maximum = new decimal(new int[] {
             150000,
             0,
@@ -1131,7 +1180,7 @@ namespace DB_EDITOR
             // 
             // AttendanceNumBox
             // 
-            this.AttendanceNumBox.Location = new System.Drawing.Point(213, 532);
+            this.AttendanceNumBox.Location = new System.Drawing.Point(213, 600);
             this.AttendanceNumBox.Maximum = new decimal(new int[] {
             150000,
             0,
@@ -1146,7 +1195,7 @@ namespace DB_EDITOR
             // label59
             // 
             this.label59.AutoSize = true;
-            this.label59.Location = new System.Drawing.Point(324, 516);
+            this.label59.Location = new System.Drawing.Point(324, 584);
             this.label59.Name = "label59";
             this.label59.Size = new System.Drawing.Size(48, 13);
             this.label59.TabIndex = 121;
@@ -1155,7 +1204,7 @@ namespace DB_EDITOR
             // label60
             // 
             this.label60.AutoSize = true;
-            this.label60.Location = new System.Drawing.Point(214, 516);
+            this.label60.Location = new System.Drawing.Point(214, 584);
             this.label60.Name = "label60";
             this.label60.Size = new System.Drawing.Size(62, 13);
             this.label60.TabIndex = 120;
@@ -1164,7 +1213,7 @@ namespace DB_EDITOR
             // label57
             // 
             this.label57.AutoSize = true;
-            this.label57.Location = new System.Drawing.Point(450, 473);
+            this.label57.Location = new System.Drawing.Point(450, 541);
             this.label57.Name = "label57";
             this.label57.Size = new System.Drawing.Size(32, 13);
             this.label57.TabIndex = 119;
@@ -1173,7 +1222,7 @@ namespace DB_EDITOR
             // StateBox
             // 
             this.StateBox.FormattingEnabled = true;
-            this.StateBox.Location = new System.Drawing.Point(450, 488);
+            this.StateBox.Location = new System.Drawing.Point(450, 556);
             this.StateBox.MaxLength = 2;
             this.StateBox.Name = "StateBox";
             this.StateBox.Size = new System.Drawing.Size(44, 21);
@@ -1183,7 +1232,7 @@ namespace DB_EDITOR
             // label56
             // 
             this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(353, 473);
+            this.label56.Location = new System.Drawing.Point(353, 541);
             this.label56.Name = "label56";
             this.label56.Size = new System.Drawing.Size(24, 13);
             this.label56.TabIndex = 117;
@@ -1191,7 +1240,7 @@ namespace DB_EDITOR
             // 
             // CityNameBox
             // 
-            this.CityNameBox.Location = new System.Drawing.Point(347, 489);
+            this.CityNameBox.Location = new System.Drawing.Point(347, 557);
             this.CityNameBox.Name = "CityNameBox";
             this.CityNameBox.Size = new System.Drawing.Size(95, 20);
             this.CityNameBox.TabIndex = 116;
@@ -1200,7 +1249,7 @@ namespace DB_EDITOR
             // label55
             // 
             this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(214, 473);
+            this.label55.Location = new System.Drawing.Point(214, 541);
             this.label55.Name = "label55";
             this.label55.Size = new System.Drawing.Size(76, 13);
             this.label55.TabIndex = 115;
@@ -1208,7 +1257,7 @@ namespace DB_EDITOR
             // 
             // stadiumNameBox
             // 
-            this.stadiumNameBox.Location = new System.Drawing.Point(213, 489);
+            this.stadiumNameBox.Location = new System.Drawing.Point(213, 557);
             this.stadiumNameBox.Name = "stadiumNameBox";
             this.stadiumNameBox.Size = new System.Drawing.Size(127, 20);
             this.stadiumNameBox.TabIndex = 114;
@@ -1219,7 +1268,7 @@ namespace DB_EDITOR
             this.label54.AutoSize = true;
             this.label54.BackColor = System.Drawing.SystemColors.Control;
             this.label54.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label54.Location = new System.Drawing.Point(285, 439);
+            this.label54.Location = new System.Drawing.Point(285, 507);
             this.label54.Name = "label54";
             this.label54.Size = new System.Drawing.Size(143, 25);
             this.label54.TabIndex = 113;
@@ -1457,7 +1506,7 @@ namespace DB_EDITOR
             // 
             this.SNCTnumbox.Location = new System.Drawing.Point(373, 289);
             this.SNCTnumbox.Maximum = new decimal(new int[] {
-            4,
+            7,
             0,
             0,
             0});
@@ -1605,7 +1654,7 @@ namespace DB_EDITOR
             // 
             this.label38.AutoSize = true;
             this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.Location = new System.Drawing.Point(300, 322);
+            this.label38.Location = new System.Drawing.Point(295, 325);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(109, 20);
             this.label38.TabIndex = 71;
@@ -4121,6 +4170,10 @@ namespace DB_EDITOR
         private Label ConfName7;
         private System.Windows.Forms.Button SwapButton;
         private System.Windows.Forms.Button DeselectTeamsButton;
+        private System.Windows.Forms.ComboBox CheerleaderBox;
+        private System.Windows.Forms.ComboBox CrowdBox;
+        public Label label5;
+        public Label label8;
     }
 }
 
