@@ -44,6 +44,8 @@ namespace DB_EDITOR
         List<List<string>> OffPlayers;
         List<List<string>> DefPlayers;
         List<List<string>> TeamColorPalettes = new List<List<string>>();
+        List<List<string>> PlayerEditorList;
+
 
 
         int OCAPmem, DCAPmem, TSI1mem, TSI2mem, TPIOmem, TPIDmem;
@@ -67,21 +69,9 @@ namespace DB_EDITOR
         Dictionary<int, string> TableNames = new Dictionary<int, string>();
         Dictionary<int, string> FieldNames = new Dictionary<int, string>();
 
-        // current table's Fields Index  string = FieldName, int = FieldIndex
-        Dictionary<string, int> ctFieldsID = new Dictionary<string, int>();
 
-        // 
         Dictionary<int, int> ReorderedTableData = new Dictionary<int, int>();
 
-        Dictionary<int, int> TGIDrecNo = new Dictionary<int, int>();  //  RecNo/TGID
-        Dictionary<int, int> TGIDlist = new Dictionary<int, int>();   //  SelectedIndex/Recno
-
-        Dictionary<int, int> PGIDrecNo = new Dictionary<int, int>();  //  RecNo/PGID
-        Dictionary<int, int> PGIDlist = new Dictionary<int, int>();   //  SelectedIndex/RecNo
-        Dictionary<int, int> ROSrecNo = new Dictionary<int, int>();   //  RecNo/PGID
-
-        Dictionary<int, int> CONFrecNo = new Dictionary<int, int>();  //  RecNo/CONF
-        Dictionary<int, int> CONFlist = new Dictionary<int, int>();   //  SelectedIndex/Recno
 
         Dictionary<int, string> Alphabet = new Dictionary<int, string>();
         Dictionary<string, int> AlphabetX = new Dictionary<string, int>();
@@ -193,10 +183,6 @@ namespace DB_EDITOR
             colorDialog1.AnyColor = true;
             colorDialog1.AllowFullOpen = true;
             colorDialog1.SolidColorOnly = false;
-
-
-            TGIDrecNo.Clear();
-            PGIDrecNo.Clear();
 
             activeDB = 0;
         }
@@ -1877,62 +1863,17 @@ namespace DB_EDITOR
         {
 
             if (tabControl1.SelectedTab == tabDB) TabDB_Start();
-            if (tabControl1.SelectedTab == tabTeams || tabControl1.SelectedTab == tabPlayers) EditorTabs();
-            if (tabControl1.SelectedTab == tabConf) ConferenceSetup();
-            else TabTools_Start();
+            else if (tabControl1.SelectedTab == tabTeams) StartTeamEditor();
+            else if (tabControl1.SelectedTab == tabPlayers) StartPlayerEditor();
+            else if (tabControl1.SelectedTab == tabConf) ConferenceSetup();
 
         }
 
-        public void EditorTabs()
-        {
-
-            if (tabControl1.SelectedTab == tabTeams)
-            {
-                if (TGIDrecNo.Count < 1)
-                {
-                    Management(dbIndex, "TEAM", "TORD");  //Load Teams by their team order.
-                    StartTeamEditor(dbIndex);
-                    //LoadTGIDlistBox(dbIndex, "TTYP", 0);  // -1 = to all teams.
-
-                    // If table exixts in current DB.
-                    if (TDB.TableIndex(dbIndex, "CONF") != -1)
-                    {
-                        Management(dbIndex, "CONF", "CGID");
-                        GetEditorConfList();
-                    }
-                }
-
-                LoadTGIDlistBox(dbIndex, "TTYP", 0);  // -1 = to all teams.
-
-            }
-            else if (tabControl1.SelectedTab == tabPlayers)
-            {
-                if (PGIDrecNo.Count < 1)
-                {
-                    Management(dbIndex, "TEAM", "TORD");  //Load Teams by their team order.
-                    StartTeamEditor(dbIndex);
-                    
-                    Management(dbIndex, "PLAY", "POVR");  //Load players by their overall.
-                    StartPlayerEditor();
-                }
-                //LoadTGIDlistBox(dbIndex, "TTYP", 0);  // -1 = to all teams.
-            }
-
-        }
         private void OpenTabs()
         {
             if (activeDB == 1) tabControl1.TabPages.Add(tabSeason);
             if (activeDB == 2) tabControl1.TabPages.Add(tabOffSeason);
             if (activeDB > 0) tabControl1.TabPages.Add(tabTools);
-        }
-        private void TabTools_Start()
-        {
-            /*
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
-            TablePropsgroupBox.Visible = false;
-            FieldsPropsgroupBox.Visible = false;
-            */
         }
 
         private void TabDB_Start()
@@ -2094,7 +2035,7 @@ namespace DB_EDITOR
         private void ButtonMinRecruitingPts_Click(object sender, EventArgs e)
         {
             bool correctWeek = false;
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "RCYR"); i++)
+            for (int i = 0; i < GetTableRecCount("RCYR"); i++)
             {
                 if (Convert.ToInt32(GetDBValue("RCYR", "SEWN", i)) >= 1)
                 {
@@ -2112,7 +2053,7 @@ namespace DB_EDITOR
         private void ButtonInterestedTeams_Click(object sender, EventArgs e)
         {
             bool correctWeek = false;
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "RCYR"); i++)
+            for (int i = 0; i < GetTableRecCount("RCYR"); i++)
             {
                 if (GetDBValue("RCYR", "SEWN", i) == "1")
                 {
@@ -2130,7 +2071,7 @@ namespace DB_EDITOR
         private void ButtonRandRecruits_Click(object sender, EventArgs e)
         {
             bool correctWeek = false;
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "RCYR"); i++)
+            for (int i = 0; i < GetTableRecCount("RCYR"); i++)
             {
                 if (GetDBValue("RCYR", "SEWN", i) == "1")
                 {

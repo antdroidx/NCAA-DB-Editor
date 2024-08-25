@@ -34,7 +34,7 @@ namespace DB_EDITOR
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Button qbTend;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainEditor));
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -90,6 +90,7 @@ namespace DB_EDITOR
             this.tabHome = new System.Windows.Forms.TabPage();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabTeams = new System.Windows.Forms.TabPage();
+            this.TeamRosterSizeLabel = new System.Windows.Forms.Label();
             this.CheerleaderBox = new System.Windows.Forms.ComboBox();
             this.CrowdBox = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -282,7 +283,7 @@ namespace DB_EDITOR
             this.PPOSBox = new System.Windows.Forms.ComboBox();
             this.label61 = new System.Windows.Forms.Label();
             this.POVRbox = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
+            this.RosterSizeLabel = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.TGIDplayerBox = new System.Windows.Forms.ComboBox();
             this.PGIDlistBox = new System.Windows.Forms.ListBox();
@@ -914,8 +915,8 @@ namespace DB_EDITOR
             // 
             this.fieldsGridView.AllowDrop = true;
             this.fieldsGridView.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            this.fieldsGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            this.fieldsGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.fieldsGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -987,6 +988,7 @@ namespace DB_EDITOR
             // tabTeams
             // 
             this.tabTeams.BackColor = System.Drawing.SystemColors.Control;
+            this.tabTeams.Controls.Add(this.TeamRosterSizeLabel);
             this.tabTeams.Controls.Add(this.CheerleaderBox);
             this.tabTeams.Controls.Add(this.CrowdBox);
             this.tabTeams.Controls.Add(this.label5);
@@ -1102,6 +1104,15 @@ namespace DB_EDITOR
             this.tabTeams.Size = new System.Drawing.Size(976, 633);
             this.tabTeams.TabIndex = 1;
             this.tabTeams.Text = "Teams";
+            // 
+            // TeamRosterSizeLabel
+            // 
+            this.TeamRosterSizeLabel.AutoSize = true;
+            this.TeamRosterSizeLabel.Location = new System.Drawing.Point(865, 38);
+            this.TeamRosterSizeLabel.Name = "TeamRosterSizeLabel";
+            this.TeamRosterSizeLabel.Size = new System.Drawing.Size(64, 13);
+            this.TeamRosterSizeLabel.TabIndex = 138;
+            this.TeamRosterSizeLabel.Text = "Roster Size:";
             // 
             // CheerleaderBox
             // 
@@ -2268,7 +2279,7 @@ namespace DB_EDITOR
             this.tabPlayers.Controls.Add(this.PPOSBox);
             this.tabPlayers.Controls.Add(this.label61);
             this.tabPlayers.Controls.Add(this.POVRbox);
-            this.tabPlayers.Controls.Add(this.label4);
+            this.tabPlayers.Controls.Add(this.RosterSizeLabel);
             this.tabPlayers.Controls.Add(this.label3);
             this.tabPlayers.Controls.Add(this.TGIDplayerBox);
             this.tabPlayers.Controls.Add(this.PGIDlistBox);
@@ -3183,14 +3194,14 @@ namespace DB_EDITOR
             this.POVRbox.TabIndex = 8;
             this.POVRbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label4
+            // RosterSizeLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(106, 39);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 13);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Roster Size:";
+            this.RosterSizeLabel.AutoSize = true;
+            this.RosterSizeLabel.Location = new System.Drawing.Point(87, 39);
+            this.RosterSizeLabel.Name = "RosterSizeLabel";
+            this.RosterSizeLabel.Size = new System.Drawing.Size(64, 13);
+            this.RosterSizeLabel.TabIndex = 7;
+            this.RosterSizeLabel.Text = "Roster Size:";
             // 
             // label3
             // 
@@ -5022,7 +5033,7 @@ namespace DB_EDITOR
         public System.Windows.Forms.TextBox PFNAtextBox;
         public System.Windows.Forms.Label label3;
         public System.Windows.Forms.ComboBox TGIDplayerBox;
-        public System.Windows.Forms.Label label4;
+        public System.Windows.Forms.Label RosterSizeLabel;
         public System.Windows.Forms.TabPage tabSeason;
         public System.Windows.Forms.Button medRS;
         public System.Windows.Forms.Button coachProg;
@@ -5342,6 +5353,7 @@ namespace DB_EDITOR
         public Label label93;
         private System.Windows.Forms.ComboBox PTYPBox;
         private NumericUpDown PPOEBox;
+        public Label TeamRosterSizeLabel;
     }
 }
 

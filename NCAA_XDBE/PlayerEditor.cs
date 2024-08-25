@@ -15,7 +15,7 @@ namespace DB_EDITOR
 
         public void StartPlayerEditor()
         {
-
+            
             LoadPlayerTGIDBox();
 
         }
@@ -52,7 +52,7 @@ namespace DB_EDITOR
 
         public void LoadPGIDlistBox()
         {
-            AllTeamPlayers = new List<List<string>>();
+            PlayerEditorList = new List<List<string>>();
             int pgidBeg;
             int pgidEnd;
 
@@ -82,13 +82,13 @@ namespace DB_EDITOR
             {
                 if (GetDBValueInt("PLAY", "PGID", i) >= pgidBeg && GetDBValueInt("PLAY", "PGID", i) <= pgidEnd)
                 {
-                    AllTeamPlayers.Add(new List<string>());
-                    AllTeamPlayers[row].Add(GetFirstNameFromRecord(i));
-                    AllTeamPlayers[row].Add(GetLastNameFromRecord(i));
-                    AllTeamPlayers[row].Add(GetDBValue("PLAY", "PPOS", i));
-                    AllTeamPlayers[row].Add(GetDBValue("PLAY", "POVR", i));
-                    AllTeamPlayers[row].Add(GetDBValue("PLAY", "PGID", i));
-                    AllTeamPlayers[row].Add(Convert.ToString(i));
+                    PlayerEditorList.Add(new List<string>());
+                    PlayerEditorList[row].Add(GetFirstNameFromRecord(i));
+                    PlayerEditorList[row].Add(GetLastNameFromRecord(i));
+                    PlayerEditorList[row].Add(GetDBValue("PLAY", "PPOS", i));
+                    PlayerEditorList[row].Add(GetDBValue("PLAY", "POVR", i));
+                    PlayerEditorList[row].Add(GetDBValue("PLAY", "PGID", i));
+                    PlayerEditorList[row].Add(Convert.ToString(i));
 
                     // 0 First Name  1 Last Name 2 Position 3 Overall 4 PGID 5 rec
 
@@ -96,15 +96,15 @@ namespace DB_EDITOR
                 }
             }
 
-            AllTeamPlayers.Sort((player1, player2) => player1[0].CompareTo(player2[0]));
+            PlayerEditorList.Sort((player1, player2) => player1[0].CompareTo(player2[0]));
 
             PGIDlistBox.Items.Clear();
-            foreach (var player in AllTeamPlayers)
+            foreach (var player in PlayerEditorList)
             {
                 PGIDlistBox.Items.Add(player[0] + " " + player[1]);
             }
 
-
+            RosterSizeLabel.Text = "Roster Size: " + Convert.ToString(PlayerEditorList.Count);
         }
 
         //Player Selection
@@ -113,7 +113,7 @@ namespace DB_EDITOR
             if (PGIDlistBox.SelectedIndex == -1)
                 return;
 
-            PlayerIndex = Convert.ToInt32(AllTeamPlayers[PGIDlistBox.SelectedIndex][5]);
+            PlayerIndex = Convert.ToInt32(PlayerEditorList[PGIDlistBox.SelectedIndex][5]);
 
             LoadPlayerData();
         }

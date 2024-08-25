@@ -467,7 +467,11 @@ namespace DB_EDITOR
             OffPlayers.Sort((player1, player2) => player1[0].CompareTo(player2[0]));
             DefPlayers.Sort((player1, player2) => player1[0].CompareTo(player2[0]));
 
+
             if (AllTeamPlayers.Count < 1) ClearTeamComboBoxes();
+
+            TeamRosterSizeLabel.Text = "Roster Size: " + Convert.ToString(AllTeamPlayers.Count);
+
         }
 
         private void SetCaptainAndImpactItems()
