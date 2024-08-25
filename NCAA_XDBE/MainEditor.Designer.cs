@@ -200,6 +200,86 @@ namespace DB_EDITOR
             this.LGIDcomboBox = new System.Windows.Forms.ComboBox();
             this.TGIDlistBox = new System.Windows.Forms.ListBox();
             this.tabPlayers = new System.Windows.Forms.TabPage();
+            this.label93 = new System.Windows.Forms.Label();
+            this.PTYPBox = new System.Windows.Forms.ComboBox();
+            this.label92 = new System.Windows.Forms.Label();
+            this.PRSDBox = new System.Windows.Forms.ComboBox();
+            this.label91 = new System.Windows.Forms.Label();
+            this.PYERBox = new System.Windows.Forms.ComboBox();
+            this.label89 = new System.Windows.Forms.Label();
+            this.PWGTBox = new System.Windows.Forms.NumericUpDown();
+            this.label90 = new System.Windows.Forms.Label();
+            this.PHGTBox = new System.Windows.Forms.NumericUpDown();
+            this.label88 = new System.Windows.Forms.Label();
+            this.label87 = new System.Windows.Forms.Label();
+            this.PHEDBox = new System.Windows.Forms.ComboBox();
+            this.label86 = new System.Windows.Forms.Label();
+            this.PHCLBox = new System.Windows.Forms.ComboBox();
+            this.label85 = new System.Windows.Forms.Label();
+            this.PFMPBox = new System.Windows.Forms.ComboBox();
+            this.label84 = new System.Windows.Forms.Label();
+            this.PFGMBox = new System.Windows.Forms.ComboBox();
+            this.label83 = new System.Windows.Forms.Label();
+            this.PSKIBox = new System.Windows.Forms.ComboBox();
+            this.PKACtext = new System.Windows.Forms.TextBox();
+            this.label79 = new System.Windows.Forms.Label();
+            this.PKACBox = new System.Windows.Forms.NumericUpDown();
+            this.PKPRtext = new System.Windows.Forms.TextBox();
+            this.label81 = new System.Windows.Forms.Label();
+            this.PKPRBox = new System.Windows.Forms.NumericUpDown();
+            this.PTAKtext = new System.Windows.Forms.TextBox();
+            this.label82 = new System.Windows.Forms.Label();
+            this.PTAKBox = new System.Windows.Forms.NumericUpDown();
+            this.PPBKtext = new System.Windows.Forms.TextBox();
+            this.label71 = new System.Windows.Forms.Label();
+            this.PPBKBox = new System.Windows.Forms.NumericUpDown();
+            this.PTHAtext = new System.Windows.Forms.TextBox();
+            this.label72 = new System.Windows.Forms.Label();
+            this.PTHABox = new System.Windows.Forms.NumericUpDown();
+            this.PCARtext = new System.Windows.Forms.TextBox();
+            this.label73 = new System.Windows.Forms.Label();
+            this.PCARBox = new System.Windows.Forms.NumericUpDown();
+            this.PCTHtext = new System.Windows.Forms.TextBox();
+            this.label74 = new System.Windows.Forms.Label();
+            this.PCTHBox = new System.Windows.Forms.NumericUpDown();
+            this.PJMPtext = new System.Windows.Forms.TextBox();
+            this.label75 = new System.Windows.Forms.Label();
+            this.PJMPBox = new System.Windows.Forms.NumericUpDown();
+            this.PAGItext = new System.Windows.Forms.TextBox();
+            this.label76 = new System.Windows.Forms.Label();
+            this.PAGIBox = new System.Windows.Forms.NumericUpDown();
+            this.PAWRtext = new System.Windows.Forms.TextBox();
+            this.label77 = new System.Windows.Forms.Label();
+            this.PAWRBox = new System.Windows.Forms.NumericUpDown();
+            this.PPOEtext = new System.Windows.Forms.TextBox();
+            this.label78 = new System.Windows.Forms.Label();
+            this.PPOEBox = new System.Windows.Forms.NumericUpDown();
+            this.PRBKtext = new System.Windows.Forms.TextBox();
+            this.label67 = new System.Windows.Forms.Label();
+            this.PRBKBox = new System.Windows.Forms.NumericUpDown();
+            this.PTHPtext = new System.Windows.Forms.TextBox();
+            this.label68 = new System.Windows.Forms.Label();
+            this.PTHPBox = new System.Windows.Forms.NumericUpDown();
+            this.PBTKtext = new System.Windows.Forms.TextBox();
+            this.label69 = new System.Windows.Forms.Label();
+            this.PBTKBox = new System.Windows.Forms.NumericUpDown();
+            this.PSTRtext = new System.Windows.Forms.TextBox();
+            this.label70 = new System.Windows.Forms.Label();
+            this.PSTRBox = new System.Windows.Forms.NumericUpDown();
+            this.PACCtext = new System.Windows.Forms.TextBox();
+            this.label66 = new System.Windows.Forms.Label();
+            this.PACCBox = new System.Windows.Forms.NumericUpDown();
+            this.PSPDtext = new System.Windows.Forms.TextBox();
+            this.label65 = new System.Windows.Forms.Label();
+            this.PSPDBox = new System.Windows.Forms.NumericUpDown();
+            this.PINJtext = new System.Windows.Forms.TextBox();
+            this.label64 = new System.Windows.Forms.Label();
+            this.PINJBox = new System.Windows.Forms.NumericUpDown();
+            this.PIMPtext = new System.Windows.Forms.TextBox();
+            this.label63 = new System.Windows.Forms.Label();
+            this.PIMPBox = new System.Windows.Forms.NumericUpDown();
+            this.label62 = new System.Windows.Forms.Label();
+            this.PPOSBox = new System.Windows.Forms.ComboBox();
             this.label61 = new System.Windows.Forms.Label();
             this.POVRbox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -365,6 +445,27 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.TeamCRPCNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TeamCTPCNumber)).BeginInit();
             this.tabPlayers.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PWGTBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PHGTBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PKACBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PKPRBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PTAKBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PPBKBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PTHABox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PCARBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PCTHBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PJMPBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PAGIBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PAWRBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PPOEBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PRBKBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PTHPBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PBTKBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PSTRBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PACCBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PSPDBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PINJBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PIMPBox)).BeginInit();
             this.tabSeason.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numberPlayerCoach)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.maxFiredTransfers)).BeginInit();
@@ -2085,6 +2186,86 @@ namespace DB_EDITOR
             // tabPlayers
             // 
             this.tabPlayers.BackColor = System.Drawing.Color.LightGray;
+            this.tabPlayers.Controls.Add(this.label93);
+            this.tabPlayers.Controls.Add(this.PTYPBox);
+            this.tabPlayers.Controls.Add(this.label92);
+            this.tabPlayers.Controls.Add(this.PRSDBox);
+            this.tabPlayers.Controls.Add(this.label91);
+            this.tabPlayers.Controls.Add(this.PYERBox);
+            this.tabPlayers.Controls.Add(this.label89);
+            this.tabPlayers.Controls.Add(this.PWGTBox);
+            this.tabPlayers.Controls.Add(this.label90);
+            this.tabPlayers.Controls.Add(this.PHGTBox);
+            this.tabPlayers.Controls.Add(this.label88);
+            this.tabPlayers.Controls.Add(this.label87);
+            this.tabPlayers.Controls.Add(this.PHEDBox);
+            this.tabPlayers.Controls.Add(this.label86);
+            this.tabPlayers.Controls.Add(this.PHCLBox);
+            this.tabPlayers.Controls.Add(this.label85);
+            this.tabPlayers.Controls.Add(this.PFMPBox);
+            this.tabPlayers.Controls.Add(this.label84);
+            this.tabPlayers.Controls.Add(this.PFGMBox);
+            this.tabPlayers.Controls.Add(this.label83);
+            this.tabPlayers.Controls.Add(this.PSKIBox);
+            this.tabPlayers.Controls.Add(this.PKACtext);
+            this.tabPlayers.Controls.Add(this.label79);
+            this.tabPlayers.Controls.Add(this.PKACBox);
+            this.tabPlayers.Controls.Add(this.PKPRtext);
+            this.tabPlayers.Controls.Add(this.label81);
+            this.tabPlayers.Controls.Add(this.PKPRBox);
+            this.tabPlayers.Controls.Add(this.PTAKtext);
+            this.tabPlayers.Controls.Add(this.label82);
+            this.tabPlayers.Controls.Add(this.PTAKBox);
+            this.tabPlayers.Controls.Add(this.PPBKtext);
+            this.tabPlayers.Controls.Add(this.label71);
+            this.tabPlayers.Controls.Add(this.PPBKBox);
+            this.tabPlayers.Controls.Add(this.PTHAtext);
+            this.tabPlayers.Controls.Add(this.label72);
+            this.tabPlayers.Controls.Add(this.PTHABox);
+            this.tabPlayers.Controls.Add(this.PCARtext);
+            this.tabPlayers.Controls.Add(this.label73);
+            this.tabPlayers.Controls.Add(this.PCARBox);
+            this.tabPlayers.Controls.Add(this.PCTHtext);
+            this.tabPlayers.Controls.Add(this.label74);
+            this.tabPlayers.Controls.Add(this.PCTHBox);
+            this.tabPlayers.Controls.Add(this.PJMPtext);
+            this.tabPlayers.Controls.Add(this.label75);
+            this.tabPlayers.Controls.Add(this.PJMPBox);
+            this.tabPlayers.Controls.Add(this.PAGItext);
+            this.tabPlayers.Controls.Add(this.label76);
+            this.tabPlayers.Controls.Add(this.PAGIBox);
+            this.tabPlayers.Controls.Add(this.PAWRtext);
+            this.tabPlayers.Controls.Add(this.label77);
+            this.tabPlayers.Controls.Add(this.PAWRBox);
+            this.tabPlayers.Controls.Add(this.PPOEtext);
+            this.tabPlayers.Controls.Add(this.label78);
+            this.tabPlayers.Controls.Add(this.PPOEBox);
+            this.tabPlayers.Controls.Add(this.PRBKtext);
+            this.tabPlayers.Controls.Add(this.label67);
+            this.tabPlayers.Controls.Add(this.PRBKBox);
+            this.tabPlayers.Controls.Add(this.PTHPtext);
+            this.tabPlayers.Controls.Add(this.label68);
+            this.tabPlayers.Controls.Add(this.PTHPBox);
+            this.tabPlayers.Controls.Add(this.PBTKtext);
+            this.tabPlayers.Controls.Add(this.label69);
+            this.tabPlayers.Controls.Add(this.PBTKBox);
+            this.tabPlayers.Controls.Add(this.PSTRtext);
+            this.tabPlayers.Controls.Add(this.label70);
+            this.tabPlayers.Controls.Add(this.PSTRBox);
+            this.tabPlayers.Controls.Add(this.PACCtext);
+            this.tabPlayers.Controls.Add(this.label66);
+            this.tabPlayers.Controls.Add(this.PACCBox);
+            this.tabPlayers.Controls.Add(this.PSPDtext);
+            this.tabPlayers.Controls.Add(this.label65);
+            this.tabPlayers.Controls.Add(this.PSPDBox);
+            this.tabPlayers.Controls.Add(this.PINJtext);
+            this.tabPlayers.Controls.Add(this.label64);
+            this.tabPlayers.Controls.Add(this.PINJBox);
+            this.tabPlayers.Controls.Add(this.PIMPtext);
+            this.tabPlayers.Controls.Add(this.label63);
+            this.tabPlayers.Controls.Add(this.PIMPBox);
+            this.tabPlayers.Controls.Add(this.label62);
+            this.tabPlayers.Controls.Add(this.PPOSBox);
             this.tabPlayers.Controls.Add(this.label61);
             this.tabPlayers.Controls.Add(this.POVRbox);
             this.tabPlayers.Controls.Add(this.label4);
@@ -2102,21 +2283,901 @@ namespace DB_EDITOR
             this.tabPlayers.TabIndex = 2;
             this.tabPlayers.Text = "Players";
             // 
+            // label93
+            // 
+            this.label93.AutoSize = true;
+            this.label93.Location = new System.Drawing.Point(217, 583);
+            this.label93.Name = "label93";
+            this.label93.Size = new System.Drawing.Size(87, 13);
+            this.label93.TabIndex = 93;
+            this.label93.Text = "Off-Season Type";
+            // 
+            // PTYPBox
+            // 
+            this.PTYPBox.DropDownWidth = 150;
+            this.PTYPBox.FormattingEnabled = true;
+            this.PTYPBox.Location = new System.Drawing.Point(218, 598);
+            this.PTYPBox.Name = "PTYPBox";
+            this.PTYPBox.Size = new System.Drawing.Size(150, 21);
+            this.PTYPBox.TabIndex = 92;
+            this.PTYPBox.SelectedIndexChanged += new System.EventHandler(this.PTYPBox_SelectedIndexChanged);
+            // 
+            // label92
+            // 
+            this.label92.AutoSize = true;
+            this.label92.Location = new System.Drawing.Point(300, 94);
+            this.label92.Name = "label92";
+            this.label92.Size = new System.Drawing.Size(46, 13);
+            this.label92.TabIndex = 91;
+            this.label92.Text = "Redshirt";
+            // 
+            // PRSDBox
+            // 
+            this.PRSDBox.FormattingEnabled = true;
+            this.PRSDBox.Location = new System.Drawing.Point(303, 110);
+            this.PRSDBox.Name = "PRSDBox";
+            this.PRSDBox.Size = new System.Drawing.Size(79, 21);
+            this.PRSDBox.TabIndex = 90;
+            this.PRSDBox.SelectedIndexChanged += new System.EventHandler(this.PRSDBox_SelectedIndexChanged);
+            // 
+            // label91
+            // 
+            this.label91.AutoSize = true;
+            this.label91.Location = new System.Drawing.Point(217, 95);
+            this.label91.Name = "label91";
+            this.label91.Size = new System.Drawing.Size(29, 13);
+            this.label91.TabIndex = 89;
+            this.label91.Text = "Year";
+            // 
+            // PYERBox
+            // 
+            this.PYERBox.FormattingEnabled = true;
+            this.PYERBox.Location = new System.Drawing.Point(218, 110);
+            this.PYERBox.Name = "PYERBox";
+            this.PYERBox.Size = new System.Drawing.Size(79, 21);
+            this.PYERBox.TabIndex = 88;
+            this.PYERBox.SelectedIndexChanged += new System.EventHandler(this.PYERBox_SelectedIndexChanged);
+            // 
+            // label89
+            // 
+            this.label89.AutoSize = true;
+            this.label89.Location = new System.Drawing.Point(533, 95);
+            this.label89.Name = "label89";
+            this.label89.Size = new System.Drawing.Size(41, 13);
+            this.label89.TabIndex = 87;
+            this.label89.Text = "Weight";
+            this.label89.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // PWGTBox
+            // 
+            this.PWGTBox.Location = new System.Drawing.Point(532, 110);
+            this.PWGTBox.Maximum = new decimal(new int[] {
+            415,
+            0,
+            0,
+            0});
+            this.PWGTBox.Minimum = new decimal(new int[] {
+            160,
+            0,
+            0,
+            0});
+            this.PWGTBox.Name = "PWGTBox";
+            this.PWGTBox.Size = new System.Drawing.Size(57, 20);
+            this.PWGTBox.TabIndex = 86;
+            this.PWGTBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.PWGTBox.Value = new decimal(new int[] {
+            160,
+            0,
+            0,
+            0});
+            // 
+            // label90
+            // 
+            this.label90.AutoSize = true;
+            this.label90.Location = new System.Drawing.Point(466, 95);
+            this.label90.Name = "label90";
+            this.label90.Size = new System.Drawing.Size(38, 13);
+            this.label90.TabIndex = 84;
+            this.label90.Text = "Height";
+            this.label90.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // PHGTBox
+            // 
+            this.PHGTBox.Location = new System.Drawing.Point(469, 110);
+            this.PHGTBox.Maximum = new decimal(new int[] {
+            127,
+            0,
+            0,
+            0});
+            this.PHGTBox.Name = "PHGTBox";
+            this.PHGTBox.Size = new System.Drawing.Size(57, 20);
+            this.PHGTBox.TabIndex = 83;
+            this.PHGTBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label88
+            // 
+            this.label88.AutoSize = true;
+            this.label88.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label88.Location = new System.Drawing.Point(215, 188);
+            this.label88.Name = "label88";
+            this.label88.Size = new System.Drawing.Size(121, 16);
+            this.label88.TabIndex = 82;
+            this.label88.Text = "Player Attributes";
+            // 
+            // label87
+            // 
+            this.label87.AutoSize = true;
+            this.label87.Location = new System.Drawing.Point(496, 135);
+            this.label87.Name = "label87";
+            this.label87.Size = new System.Drawing.Size(52, 13);
+            this.label87.TabIndex = 81;
+            this.label87.Text = "Hair Style";
+            // 
+            // PHEDBox
+            // 
+            this.PHEDBox.FormattingEnabled = true;
+            this.PHEDBox.Location = new System.Drawing.Point(499, 151);
+            this.PHEDBox.Name = "PHEDBox";
+            this.PHEDBox.Size = new System.Drawing.Size(90, 21);
+            this.PHEDBox.TabIndex = 80;
+            this.PHEDBox.SelectedIndexChanged += new System.EventHandler(this.PHEDBox_SelectedIndexChanged);
+            // 
+            // label86
+            // 
+            this.label86.AutoSize = true;
+            this.label86.Location = new System.Drawing.Point(396, 135);
+            this.label86.Name = "label86";
+            this.label86.Size = new System.Drawing.Size(53, 13);
+            this.label86.TabIndex = 79;
+            this.label86.Text = "Hair Color";
+            // 
+            // PHCLBox
+            // 
+            this.PHCLBox.FormattingEnabled = true;
+            this.PHCLBox.Location = new System.Drawing.Point(399, 151);
+            this.PHCLBox.Name = "PHCLBox";
+            this.PHCLBox.Size = new System.Drawing.Size(94, 21);
+            this.PHCLBox.TabIndex = 78;
+            this.PHCLBox.SelectedIndexChanged += new System.EventHandler(this.PHCLBox_SelectedIndexChanged);
+            // 
+            // label85
+            // 
+            this.label85.AutoSize = true;
+            this.label85.Location = new System.Drawing.Point(339, 134);
+            this.label85.Name = "label85";
+            this.label85.Size = new System.Drawing.Size(31, 13);
+            this.label85.TabIndex = 77;
+            this.label85.Text = "Face";
+            // 
+            // PFMPBox
+            // 
+            this.PFMPBox.FormattingEnabled = true;
+            this.PFMPBox.Location = new System.Drawing.Point(342, 151);
+            this.PFMPBox.Name = "PFMPBox";
+            this.PFMPBox.Size = new System.Drawing.Size(51, 21);
+            this.PFMPBox.TabIndex = 76;
+            this.PFMPBox.SelectedIndexChanged += new System.EventHandler(this.PFMPBox_SelectedIndexChanged);
+            // 
+            // label84
+            // 
+            this.label84.AutoSize = true;
+            this.label84.Location = new System.Drawing.Point(288, 134);
+            this.label84.Name = "label84";
+            this.label84.Size = new System.Drawing.Size(38, 13);
+            this.label84.TabIndex = 75;
+            this.label84.Text = "Shape";
+            // 
+            // PFGMBox
+            // 
+            this.PFGMBox.FormattingEnabled = true;
+            this.PFGMBox.Location = new System.Drawing.Point(291, 151);
+            this.PFGMBox.Name = "PFGMBox";
+            this.PFGMBox.Size = new System.Drawing.Size(45, 21);
+            this.PFGMBox.TabIndex = 74;
+            this.PFGMBox.SelectedIndexChanged += new System.EventHandler(this.PFGMBox_SelectedIndexChanged);
+            // 
+            // label83
+            // 
+            this.label83.AutoSize = true;
+            this.label83.Location = new System.Drawing.Point(219, 134);
+            this.label83.Name = "label83";
+            this.label83.Size = new System.Drawing.Size(56, 13);
+            this.label83.TabIndex = 73;
+            this.label83.Text = "Skin Tone";
+            // 
+            // PSKIBox
+            // 
+            this.PSKIBox.FormattingEnabled = true;
+            this.PSKIBox.Location = new System.Drawing.Point(218, 151);
+            this.PSKIBox.Name = "PSKIBox";
+            this.PSKIBox.Size = new System.Drawing.Size(67, 21);
+            this.PSKIBox.TabIndex = 72;
+            this.PSKIBox.SelectedIndexChanged += new System.EventHandler(this.PSKIBox_SelectedIndexChanged);
+            // 
+            // PKACtext
+            // 
+            this.PKACtext.BackColor = System.Drawing.SystemColors.Info;
+            this.PKACtext.Location = new System.Drawing.Point(487, 539);
+            this.PKACtext.Name = "PKACtext";
+            this.PKACtext.ReadOnly = true;
+            this.PKACtext.Size = new System.Drawing.Size(39, 20);
+            this.PKACtext.TabIndex = 71;
+            this.PKACtext.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label79
+            // 
+            this.label79.AutoSize = true;
+            this.label79.Location = new System.Drawing.Point(407, 543);
+            this.label79.Name = "label79";
+            this.label79.Size = new System.Drawing.Size(76, 13);
+            this.label79.TabIndex = 70;
+            this.label79.Text = "Kick Accuracy";
+            this.label79.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // PKACBox
+            // 
+            this.PKACBox.Location = new System.Drawing.Point(532, 539);
+            this.PKACBox.Maximum = new decimal(new int[] {
+            31,
+            0,
+            0,
+            0});
+            this.PKACBox.Name = "PKACBox";
+            this.PKACBox.Size = new System.Drawing.Size(57, 20);
+            this.PKACBox.TabIndex = 69;
+            this.PKACBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.PKACBox.ValueChanged += new System.EventHandler(this.PKACBox_ValueChanged);
+            // 
+            // PKPRtext
+            // 
+            this.PKPRtext.BackColor = System.Drawing.SystemColors.Info;
+            this.PKPRtext.Location = new System.Drawing.Point(287, 540);
+            this.PKPRtext.Name = "PKPRtext";
+            this.PKPRtext.ReadOnly = true;
+            this.PKPRtext.Size = new System.Drawing.Size(39, 20);
+            this.PKPRtext.TabIndex = 65;
+            this.PKPRtext.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label81
+            // 
+            this.label81.AutoSize = true;
+            this.label81.Location = new System.Drawing.Point(224, 543);
+            this.label81.Name = "label81";
+            this.label81.Size = new System.Drawing.Size(61, 13);
+            this.label81.TabIndex = 64;
+            this.label81.Text = "Kick Power";
+            this.label81.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // PKPRBox
+            // 
+            this.PKPRBox.Location = new System.Drawing.Point(332, 540);
+            this.PKPRBox.Maximum = new decimal(new int[] {
+            31,
+            0,
+            0,
+            0});
+            this.PKPRBox.Name = "PKPRBox";
+            this.PKPRBox.Size = new System.Drawing.Size(57, 20);
+            this.PKPRBox.TabIndex = 63;
+            this.PKPRBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.PKPRBox.ValueChanged += new System.EventHandler(this.PKPRBox_ValueChanged);
+            // 
+            // PTAKtext
+            // 
+            this.PTAKtext.BackColor = System.Drawing.SystemColors.Info;
+            this.PTAKtext.Location = new System.Drawing.Point(486, 506);
+            this.PTAKtext.Name = "PTAKtext";
+            this.PTAKtext.ReadOnly = true;
+            this.PTAKtext.Size = new System.Drawing.Size(39, 20);
+            this.PTAKtext.TabIndex = 62;
+            this.PTAKtext.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label82
+            // 
+            this.label82.AutoSize = true;
+            this.label82.Location = new System.Drawing.Point(436, 506);
+            this.label82.Name = "label82";
+            this.label82.Size = new System.Drawing.Size(48, 13);
+            this.label82.TabIndex = 61;
+            this.label82.Text = "Tackling";
+            this.label82.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // PTAKBox
+            // 
+            this.PTAKBox.Location = new System.Drawing.Point(531, 506);
+            this.PTAKBox.Maximum = new decimal(new int[] {
+            31,
+            0,
+            0,
+            0});
+            this.PTAKBox.Name = "PTAKBox";
+            this.PTAKBox.Size = new System.Drawing.Size(57, 20);
+            this.PTAKBox.TabIndex = 60;
+            this.PTAKBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.PTAKBox.ValueChanged += new System.EventHandler(this.PTAKBox_ValueChanged);
+            // 
+            // PPBKtext
+            // 
+            this.PPBKtext.BackColor = System.Drawing.SystemColors.Info;
+            this.PPBKtext.Location = new System.Drawing.Point(487, 469);
+            this.PPBKtext.Name = "PPBKtext";
+            this.PPBKtext.ReadOnly = true;
+            this.PPBKtext.Size = new System.Drawing.Size(39, 20);
+            this.PPBKtext.TabIndex = 59;
+            this.PPBKtext.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label71
+            // 
+            this.label71.AutoSize = true;
+            this.label71.Location = new System.Drawing.Point(412, 473);
+            this.label71.Name = "label71";
+            this.label71.Size = new System.Drawing.Size(74, 13);
+            this.label71.TabIndex = 58;
+            this.label71.Text = "Pass Blocking";
+            this.label71.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // PPBKBox
+            // 
+            this.PPBKBox.Location = new System.Drawing.Point(532, 469);
+            this.PPBKBox.Maximum = new decimal(new int[] {
+            31,
+            0,
+            0,
+            0});
+            this.PPBKBox.Name = "PPBKBox";
+            this.PPBKBox.Size = new System.Drawing.Size(57, 20);
+            this.PPBKBox.TabIndex = 57;
+            this.PPBKBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.PPBKBox.ValueChanged += new System.EventHandler(this.PPBKBox_ValueChanged);
+            // 
+            // PTHAtext
+            // 
+            this.PTHAtext.BackColor = System.Drawing.SystemColors.Info;
+            this.PTHAtext.Location = new System.Drawing.Point(487, 398);
+            this.PTHAtext.Name = "PTHAtext";
+            this.PTHAtext.ReadOnly = true;
+            this.PTHAtext.Size = new System.Drawing.Size(39, 20);
+            this.PTHAtext.TabIndex = 56;
+            this.PTHAtext.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label72
+            // 
+            this.label72.AutoSize = true;
+            this.label72.Location = new System.Drawing.Point(402, 403);
+            this.label72.Name = "label72";
+            this.label72.Size = new System.Drawing.Size(85, 13);
+            this.label72.TabIndex = 55;
+            this.label72.Text = "Throw Accuracy";
+            this.label72.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // PTHABox
+            // 
+            this.PTHABox.Location = new System.Drawing.Point(532, 398);
+            this.PTHABox.Maximum = new decimal(new int[] {
+            31,
+            0,
+            0,
+            0});
+            this.PTHABox.Name = "PTHABox";
+            this.PTHABox.Size = new System.Drawing.Size(57, 20);
+            this.PTHABox.TabIndex = 54;
+            this.PTHABox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.PTHABox.ValueChanged += new System.EventHandler(this.PTHABox_ValueChanged);
+            // 
+            // PCARtext
+            // 
+            this.PCARtext.BackColor = System.Drawing.SystemColors.Info;
+            this.PCARtext.Location = new System.Drawing.Point(487, 433);
+            this.PCARtext.Name = "PCARtext";
+            this.PCARtext.ReadOnly = true;
+            this.PCARtext.Size = new System.Drawing.Size(39, 20);
+            this.PCARtext.TabIndex = 53;
+            this.PCARtext.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label73
+            // 
+            this.label73.AutoSize = true;
+            this.label73.Location = new System.Drawing.Point(417, 438);
+            this.label73.Name = "label73";
+            this.label73.Size = new System.Drawing.Size(65, 13);
+            this.label73.TabIndex = 52;
+            this.label73.Text = "Ball Carrying";
+            this.label73.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // PCARBox
+            // 
+            this.PCARBox.Location = new System.Drawing.Point(532, 433);
+            this.PCARBox.Maximum = new decimal(new int[] {
+            31,
+            0,
+            0,
+            0});
+            this.PCARBox.Name = "PCARBox";
+            this.PCARBox.Size = new System.Drawing.Size(57, 20);
+            this.PCARBox.TabIndex = 51;
+            this.PCARBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.PCARBox.ValueChanged += new System.EventHandler(this.PCARBox_ValueChanged);
+            // 
+            // PCTHtext
+            // 
+            this.PCTHtext.BackColor = System.Drawing.SystemColors.Info;
+            this.PCTHtext.Location = new System.Drawing.Point(286, 504);
+            this.PCTHtext.Name = "PCTHtext";
+            this.PCTHtext.ReadOnly = true;
+            this.PCTHtext.Size = new System.Drawing.Size(39, 20);
+            this.PCTHtext.TabIndex = 50;
+            this.PCTHtext.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label74
+            // 
+            this.label74.AutoSize = true;
+            this.label74.Location = new System.Drawing.Point(232, 506);
+            this.label74.Name = "label74";
+            this.label74.Size = new System.Drawing.Size(49, 13);
+            this.label74.TabIndex = 49;
+            this.label74.Text = "Catching";
+            this.label74.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // PCTHBox
+            // 
+            this.PCTHBox.Location = new System.Drawing.Point(331, 504);
+            this.PCTHBox.Maximum = new decimal(new int[] {
+            31,
+            0,
+            0,
+            0});
+            this.PCTHBox.Name = "PCTHBox";
+            this.PCTHBox.Size = new System.Drawing.Size(57, 20);
+            this.PCTHBox.TabIndex = 48;
+            this.PCTHBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.PCTHBox.ValueChanged += new System.EventHandler(this.PCTHBox_ValueChanged);
+            // 
+            // PJMPtext
+            // 
+            this.PJMPtext.BackColor = System.Drawing.SystemColors.Info;
+            this.PJMPtext.Location = new System.Drawing.Point(487, 324);
+            this.PJMPtext.Name = "PJMPtext";
+            this.PJMPtext.ReadOnly = true;
+            this.PJMPtext.Size = new System.Drawing.Size(39, 20);
+            this.PJMPtext.TabIndex = 47;
+            this.PJMPtext.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label75
+            // 
+            this.label75.AutoSize = true;
+            this.label75.Location = new System.Drawing.Point(436, 329);
+            this.label75.Name = "label75";
+            this.label75.Size = new System.Drawing.Size(46, 13);
+            this.label75.TabIndex = 46;
+            this.label75.Text = "Jumping";
+            this.label75.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // PJMPBox
+            // 
+            this.PJMPBox.Location = new System.Drawing.Point(532, 324);
+            this.PJMPBox.Maximum = new decimal(new int[] {
+            31,
+            0,
+            0,
+            0});
+            this.PJMPBox.Name = "PJMPBox";
+            this.PJMPBox.Size = new System.Drawing.Size(57, 20);
+            this.PJMPBox.TabIndex = 45;
+            this.PJMPBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.PJMPBox.ValueChanged += new System.EventHandler(this.PJMPBox_ValueChanged);
+            // 
+            // PAGItext
+            // 
+            this.PAGItext.BackColor = System.Drawing.SystemColors.Info;
+            this.PAGItext.Location = new System.Drawing.Point(487, 289);
+            this.PAGItext.Name = "PAGItext";
+            this.PAGItext.ReadOnly = true;
+            this.PAGItext.Size = new System.Drawing.Size(39, 20);
+            this.PAGItext.TabIndex = 44;
+            this.PAGItext.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label76
+            // 
+            this.label76.AutoSize = true;
+            this.label76.Location = new System.Drawing.Point(448, 294);
+            this.label76.Name = "label76";
+            this.label76.Size = new System.Drawing.Size(34, 13);
+            this.label76.TabIndex = 43;
+            this.label76.Text = "Agility";
+            this.label76.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // PAGIBox
+            // 
+            this.PAGIBox.Location = new System.Drawing.Point(532, 289);
+            this.PAGIBox.Maximum = new decimal(new int[] {
+            31,
+            0,
+            0,
+            0});
+            this.PAGIBox.Name = "PAGIBox";
+            this.PAGIBox.Size = new System.Drawing.Size(57, 20);
+            this.PAGIBox.TabIndex = 42;
+            this.PAGIBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.PAGIBox.ValueChanged += new System.EventHandler(this.PAGIBox_ValueChanged);
+            // 
+            // PAWRtext
+            // 
+            this.PAWRtext.BackColor = System.Drawing.SystemColors.Info;
+            this.PAWRtext.Location = new System.Drawing.Point(487, 252);
+            this.PAWRtext.Name = "PAWRtext";
+            this.PAWRtext.ReadOnly = true;
+            this.PAWRtext.Size = new System.Drawing.Size(39, 20);
+            this.PAWRtext.TabIndex = 41;
+            this.PAWRtext.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label77
+            // 
+            this.label77.AutoSize = true;
+            this.label77.Location = new System.Drawing.Point(423, 256);
+            this.label77.Name = "label77";
+            this.label77.Size = new System.Drawing.Size(59, 13);
+            this.label77.TabIndex = 40;
+            this.label77.Text = "Awareness";
+            this.label77.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // PAWRBox
+            // 
+            this.PAWRBox.Location = new System.Drawing.Point(532, 252);
+            this.PAWRBox.Maximum = new decimal(new int[] {
+            31,
+            0,
+            0,
+            0});
+            this.PAWRBox.Name = "PAWRBox";
+            this.PAWRBox.Size = new System.Drawing.Size(57, 20);
+            this.PAWRBox.TabIndex = 39;
+            this.PAWRBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.PAWRBox.ValueChanged += new System.EventHandler(this.PAWRBox_ValueChanged);
+            // 
+            // PPOEtext
+            // 
+            this.PPOEtext.BackColor = System.Drawing.SystemColors.Info;
+            this.PPOEtext.Location = new System.Drawing.Point(487, 216);
+            this.PPOEtext.Name = "PPOEtext";
+            this.PPOEtext.ReadOnly = true;
+            this.PPOEtext.Size = new System.Drawing.Size(39, 20);
+            this.PPOEtext.TabIndex = 38;
+            this.PPOEtext.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label78
+            // 
+            this.label78.AutoSize = true;
+            this.label78.Location = new System.Drawing.Point(435, 221);
+            this.label78.Name = "label78";
+            this.label78.Size = new System.Drawing.Size(48, 13);
+            this.label78.TabIndex = 37;
+            this.label78.Text = "Potential";
+            this.label78.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // PPOEBox
+            // 
+            this.PPOEBox.Location = new System.Drawing.Point(532, 216);
+            this.PPOEBox.Maximum = new decimal(new int[] {
+            31,
+            0,
+            0,
+            0});
+            this.PPOEBox.Name = "PPOEBox";
+            this.PPOEBox.Size = new System.Drawing.Size(57, 20);
+            this.PPOEBox.TabIndex = 36;
+            this.PPOEBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.PPOEBox.ValueChanged += new System.EventHandler(this.PPOEBox_ValueChanged);
+            // 
+            // PRBKtext
+            // 
+            this.PRBKtext.BackColor = System.Drawing.SystemColors.Info;
+            this.PRBKtext.Location = new System.Drawing.Point(287, 470);
+            this.PRBKtext.Name = "PRBKtext";
+            this.PRBKtext.ReadOnly = true;
+            this.PRBKtext.Size = new System.Drawing.Size(39, 20);
+            this.PRBKtext.TabIndex = 35;
+            this.PRBKtext.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Location = new System.Drawing.Point(215, 472);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(71, 13);
+            this.label67.TabIndex = 34;
+            this.label67.Text = "Run Blocking";
+            this.label67.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // PRBKBox
+            // 
+            this.PRBKBox.Location = new System.Drawing.Point(332, 470);
+            this.PRBKBox.Maximum = new decimal(new int[] {
+            31,
+            0,
+            0,
+            0});
+            this.PRBKBox.Name = "PRBKBox";
+            this.PRBKBox.Size = new System.Drawing.Size(57, 20);
+            this.PRBKBox.TabIndex = 33;
+            this.PRBKBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.PRBKBox.ValueChanged += new System.EventHandler(this.PRBKBox_ValueChanged);
+            // 
+            // PTHPtext
+            // 
+            this.PTHPtext.BackColor = System.Drawing.SystemColors.Info;
+            this.PTHPtext.Location = new System.Drawing.Point(287, 399);
+            this.PTHPtext.Name = "PTHPtext";
+            this.PTHPtext.ReadOnly = true;
+            this.PTHPtext.Size = new System.Drawing.Size(39, 20);
+            this.PTHPtext.TabIndex = 32;
+            this.PTHPtext.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label68
+            // 
+            this.label68.AutoSize = true;
+            this.label68.Location = new System.Drawing.Point(215, 401);
+            this.label68.Name = "label68";
+            this.label68.Size = new System.Drawing.Size(70, 13);
+            this.label68.TabIndex = 31;
+            this.label68.Text = "Throw Power";
+            this.label68.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // PTHPBox
+            // 
+            this.PTHPBox.Location = new System.Drawing.Point(332, 399);
+            this.PTHPBox.Maximum = new decimal(new int[] {
+            31,
+            0,
+            0,
+            0});
+            this.PTHPBox.Name = "PTHPBox";
+            this.PTHPBox.Size = new System.Drawing.Size(57, 20);
+            this.PTHPBox.TabIndex = 30;
+            this.PTHPBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.PTHPBox.ValueChanged += new System.EventHandler(this.PTHPBox_ValueChanged);
+            // 
+            // PBTKtext
+            // 
+            this.PBTKtext.BackColor = System.Drawing.SystemColors.Info;
+            this.PBTKtext.Location = new System.Drawing.Point(287, 434);
+            this.PBTKtext.Name = "PBTKtext";
+            this.PBTKtext.ReadOnly = true;
+            this.PBTKtext.Size = new System.Drawing.Size(39, 20);
+            this.PBTKtext.TabIndex = 29;
+            this.PBTKtext.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label69
+            // 
+            this.label69.AutoSize = true;
+            this.label69.Location = new System.Drawing.Point(215, 436);
+            this.label69.Name = "label69";
+            this.label69.Size = new System.Drawing.Size(71, 13);
+            this.label69.TabIndex = 28;
+            this.label69.Text = "Break Tackle";
+            this.label69.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // PBTKBox
+            // 
+            this.PBTKBox.Location = new System.Drawing.Point(332, 434);
+            this.PBTKBox.Maximum = new decimal(new int[] {
+            31,
+            0,
+            0,
+            0});
+            this.PBTKBox.Name = "PBTKBox";
+            this.PBTKBox.Size = new System.Drawing.Size(57, 20);
+            this.PBTKBox.TabIndex = 27;
+            this.PBTKBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.PBTKBox.ValueChanged += new System.EventHandler(this.PBTKBox_ValueChanged);
+            // 
+            // PSTRtext
+            // 
+            this.PSTRtext.BackColor = System.Drawing.SystemColors.Info;
+            this.PSTRtext.Location = new System.Drawing.Point(287, 362);
+            this.PSTRtext.Name = "PSTRtext";
+            this.PSTRtext.ReadOnly = true;
+            this.PSTRtext.Size = new System.Drawing.Size(39, 20);
+            this.PSTRtext.TabIndex = 26;
+            this.PSTRtext.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label70
+            // 
+            this.label70.AutoSize = true;
+            this.label70.Location = new System.Drawing.Point(238, 364);
+            this.label70.Name = "label70";
+            this.label70.Size = new System.Drawing.Size(47, 13);
+            this.label70.TabIndex = 25;
+            this.label70.Text = "Strength";
+            this.label70.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // PSTRBox
+            // 
+            this.PSTRBox.Location = new System.Drawing.Point(332, 362);
+            this.PSTRBox.Maximum = new decimal(new int[] {
+            31,
+            0,
+            0,
+            0});
+            this.PSTRBox.Name = "PSTRBox";
+            this.PSTRBox.Size = new System.Drawing.Size(57, 20);
+            this.PSTRBox.TabIndex = 24;
+            this.PSTRBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.PSTRBox.ValueChanged += new System.EventHandler(this.PSTRBox_ValueChanged);
+            // 
+            // PACCtext
+            // 
+            this.PACCtext.BackColor = System.Drawing.SystemColors.Info;
+            this.PACCtext.Location = new System.Drawing.Point(287, 325);
+            this.PACCtext.Name = "PACCtext";
+            this.PACCtext.ReadOnly = true;
+            this.PACCtext.Size = new System.Drawing.Size(39, 20);
+            this.PACCtext.TabIndex = 23;
+            this.PACCtext.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.Location = new System.Drawing.Point(219, 327);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(66, 13);
+            this.label66.TabIndex = 22;
+            this.label66.Text = "Acceleration";
+            this.label66.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // PACCBox
+            // 
+            this.PACCBox.Location = new System.Drawing.Point(332, 325);
+            this.PACCBox.Maximum = new decimal(new int[] {
+            31,
+            0,
+            0,
+            0});
+            this.PACCBox.Name = "PACCBox";
+            this.PACCBox.Size = new System.Drawing.Size(57, 20);
+            this.PACCBox.TabIndex = 21;
+            this.PACCBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.PACCBox.ValueChanged += new System.EventHandler(this.PACCBox_ValueChanged);
+            // 
+            // PSPDtext
+            // 
+            this.PSPDtext.BackColor = System.Drawing.SystemColors.Info;
+            this.PSPDtext.Location = new System.Drawing.Point(287, 290);
+            this.PSPDtext.Name = "PSPDtext";
+            this.PSPDtext.ReadOnly = true;
+            this.PSPDtext.Size = new System.Drawing.Size(39, 20);
+            this.PSPDtext.TabIndex = 20;
+            this.PSPDtext.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Location = new System.Drawing.Point(247, 293);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(38, 13);
+            this.label65.TabIndex = 19;
+            this.label65.Text = "Speed";
+            this.label65.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // PSPDBox
+            // 
+            this.PSPDBox.Location = new System.Drawing.Point(332, 290);
+            this.PSPDBox.Maximum = new decimal(new int[] {
+            31,
+            0,
+            0,
+            0});
+            this.PSPDBox.Name = "PSPDBox";
+            this.PSPDBox.Size = new System.Drawing.Size(57, 20);
+            this.PSPDBox.TabIndex = 18;
+            this.PSPDBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.PSPDBox.ValueChanged += new System.EventHandler(this.PSPDBox_ValueChanged);
+            // 
+            // PINJtext
+            // 
+            this.PINJtext.BackColor = System.Drawing.SystemColors.Info;
+            this.PINJtext.Location = new System.Drawing.Point(287, 253);
+            this.PINJtext.Name = "PINJtext";
+            this.PINJtext.ReadOnly = true;
+            this.PINJtext.Size = new System.Drawing.Size(39, 20);
+            this.PINJtext.TabIndex = 17;
+            this.PINJtext.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label64
+            // 
+            this.label64.AutoSize = true;
+            this.label64.Location = new System.Drawing.Point(222, 255);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(63, 13);
+            this.label64.TabIndex = 16;
+            this.label64.Text = "Injury Prone";
+            this.label64.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // PINJBox
+            // 
+            this.PINJBox.Location = new System.Drawing.Point(332, 253);
+            this.PINJBox.Maximum = new decimal(new int[] {
+            31,
+            0,
+            0,
+            0});
+            this.PINJBox.Name = "PINJBox";
+            this.PINJBox.Size = new System.Drawing.Size(57, 20);
+            this.PINJBox.TabIndex = 15;
+            this.PINJBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.PINJBox.ValueChanged += new System.EventHandler(this.PINJBox_ValueChanged);
+            // 
+            // PIMPtext
+            // 
+            this.PIMPtext.BackColor = System.Drawing.SystemColors.Info;
+            this.PIMPtext.Location = new System.Drawing.Point(287, 217);
+            this.PIMPtext.Name = "PIMPtext";
+            this.PIMPtext.ReadOnly = true;
+            this.PIMPtext.Size = new System.Drawing.Size(39, 20);
+            this.PIMPtext.TabIndex = 14;
+            this.PIMPtext.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Location = new System.Drawing.Point(225, 219);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(60, 13);
+            this.label63.TabIndex = 13;
+            this.label63.Text = "Importance";
+            this.label63.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // PIMPBox
+            // 
+            this.PIMPBox.Location = new System.Drawing.Point(332, 217);
+            this.PIMPBox.Maximum = new decimal(new int[] {
+            31,
+            0,
+            0,
+            0});
+            this.PIMPBox.Name = "PIMPBox";
+            this.PIMPBox.Size = new System.Drawing.Size(57, 20);
+            this.PIMPBox.TabIndex = 12;
+            this.PIMPBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.PIMPBox.ValueChanged += new System.EventHandler(this.PIMPBox_ValueChanged);
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label62.Location = new System.Drawing.Point(449, 40);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(63, 16);
+            this.label62.TabIndex = 11;
+            this.label62.Text = "Position";
+            // 
+            // PPOSBox
+            // 
+            this.PPOSBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PPOSBox.FormattingEnabled = true;
+            this.PPOSBox.Location = new System.Drawing.Point(452, 58);
+            this.PPOSBox.Name = "PPOSBox";
+            this.PPOSBox.Size = new System.Drawing.Size(60, 24);
+            this.PPOSBox.TabIndex = 10;
+            this.PPOSBox.SelectedIndexChanged += new System.EventHandler(this.PPOSBox_SelectedIndexChanged);
+            // 
             // label61
             // 
             this.label61.AutoSize = true;
-            this.label61.Location = new System.Drawing.Point(422, 39);
+            this.label61.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label61.Location = new System.Drawing.Point(526, 40);
             this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(40, 13);
+            this.label61.Size = new System.Drawing.Size(57, 16);
             this.label61.TabIndex = 9;
             this.label61.Text = "Overall";
             // 
             // POVRbox
             // 
-            this.POVRbox.Location = new System.Drawing.Point(422, 56);
+            this.POVRbox.BackColor = System.Drawing.SystemColors.Info;
+            this.POVRbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.POVRbox.Location = new System.Drawing.Point(529, 60);
             this.POVRbox.Name = "POVRbox";
             this.POVRbox.ReadOnly = true;
-            this.POVRbox.Size = new System.Drawing.Size(40, 20);
+            this.POVRbox.Size = new System.Drawing.Size(53, 22);
             this.POVRbox.TabIndex = 8;
             this.POVRbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -2161,34 +3222,38 @@ namespace DB_EDITOR
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(316, 40);
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(329, 40);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 13);
+            this.label2.Size = new System.Drawing.Size(81, 16);
             this.label2.TabIndex = 3;
             this.label2.Text = "Last Name";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(210, 40);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 13);
+            this.label1.Size = new System.Drawing.Size(82, 16);
             this.label1.TabIndex = 2;
             this.label1.Text = "First Name";
             // 
             // PLNAtextBox
             // 
-            this.PLNAtextBox.Location = new System.Drawing.Point(316, 56);
+            this.PLNAtextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PLNAtextBox.Location = new System.Drawing.Point(332, 60);
             this.PLNAtextBox.Name = "PLNAtextBox";
-            this.PLNAtextBox.Size = new System.Drawing.Size(100, 20);
+            this.PLNAtextBox.Size = new System.Drawing.Size(111, 22);
             this.PLNAtextBox.TabIndex = 1;
             this.PLNAtextBox.TextChanged += new System.EventHandler(this.PLNAtextBox_TextChanged);
             // 
             // PFNAtextBox
             // 
-            this.PFNAtextBox.Location = new System.Drawing.Point(210, 56);
+            this.PFNAtextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PFNAtextBox.Location = new System.Drawing.Point(210, 60);
             this.PFNAtextBox.Name = "PFNAtextBox";
-            this.PFNAtextBox.Size = new System.Drawing.Size(100, 20);
+            this.PFNAtextBox.Size = new System.Drawing.Size(116, 22);
             this.PFNAtextBox.TabIndex = 0;
             this.PFNAtextBox.TextChanged += new System.EventHandler(this.PFNAtextBox_TextChanged);
             // 
@@ -3840,6 +4905,27 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.TeamCTPCNumber)).EndInit();
             this.tabPlayers.ResumeLayout(false);
             this.tabPlayers.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PWGTBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PHGTBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PKACBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PKPRBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PTAKBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PPBKBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PTHABox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PCARBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PCTHBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PJMPBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PAGIBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PAWRBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PPOEBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PRBKBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PTHPBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PBTKBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PSTRBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PACCBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PSPDBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PINJBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PIMPBox)).EndInit();
             this.tabSeason.ResumeLayout(false);
             this.tabSeason.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numberPlayerCoach)).EndInit();
@@ -4174,6 +5260,86 @@ namespace DB_EDITOR
         private System.Windows.Forms.ComboBox CrowdBox;
         public Label label5;
         public Label label8;
+        public Label label62;
+        private System.Windows.Forms.ComboBox PPOSBox;
+        private NumericUpDown PIMPBox;
+        private System.Windows.Forms.TextBox PPBKtext;
+        private Label label71;
+        private NumericUpDown PPBKBox;
+        private System.Windows.Forms.TextBox PTHAtext;
+        private Label label72;
+        private NumericUpDown PTHABox;
+        private System.Windows.Forms.TextBox PCARtext;
+        private Label label73;
+        private NumericUpDown PCARBox;
+        private System.Windows.Forms.TextBox PCTHtext;
+        private Label label74;
+        private NumericUpDown PCTHBox;
+        private System.Windows.Forms.TextBox PJMPtext;
+        private Label label75;
+        private NumericUpDown PJMPBox;
+        private System.Windows.Forms.TextBox PAGItext;
+        private Label label76;
+        private NumericUpDown PAGIBox;
+        private System.Windows.Forms.TextBox PAWRtext;
+        private Label label77;
+        private NumericUpDown PAWRBox;
+        private System.Windows.Forms.TextBox PPOEtext;
+        private Label label78;
+        private System.Windows.Forms.TextBox PRBKtext;
+        private Label label67;
+        private NumericUpDown PRBKBox;
+        private System.Windows.Forms.TextBox PTHPtext;
+        private Label label68;
+        private NumericUpDown PTHPBox;
+        private System.Windows.Forms.TextBox PBTKtext;
+        private Label label69;
+        private NumericUpDown PBTKBox;
+        private System.Windows.Forms.TextBox PSTRtext;
+        private Label label70;
+        private NumericUpDown PSTRBox;
+        private System.Windows.Forms.TextBox PACCtext;
+        private Label label66;
+        private NumericUpDown PACCBox;
+        private System.Windows.Forms.TextBox PSPDtext;
+        private Label label65;
+        private NumericUpDown PSPDBox;
+        private System.Windows.Forms.TextBox PINJtext;
+        private Label label64;
+        private NumericUpDown PINJBox;
+        private System.Windows.Forms.TextBox PIMPtext;
+        private Label label63;
+        public Label label87;
+        private System.Windows.Forms.ComboBox PHEDBox;
+        public Label label86;
+        private System.Windows.Forms.ComboBox PHCLBox;
+        public Label label85;
+        private System.Windows.Forms.ComboBox PFMPBox;
+        public Label label84;
+        private System.Windows.Forms.ComboBox PFGMBox;
+        public Label label83;
+        private System.Windows.Forms.ComboBox PSKIBox;
+        private System.Windows.Forms.TextBox PKACtext;
+        private Label label79;
+        private NumericUpDown PKACBox;
+        private System.Windows.Forms.TextBox PKPRtext;
+        private Label label81;
+        private NumericUpDown PKPRBox;
+        private System.Windows.Forms.TextBox PTAKtext;
+        private Label label82;
+        private NumericUpDown PTAKBox;
+        public Label label88;
+        private Label label89;
+        private NumericUpDown PWGTBox;
+        private Label label90;
+        private NumericUpDown PHGTBox;
+        public Label label92;
+        private System.Windows.Forms.ComboBox PRSDBox;
+        public Label label91;
+        private System.Windows.Forms.ComboBox PYERBox;
+        public Label label93;
+        private System.Windows.Forms.ComboBox PTYPBox;
+        private NumericUpDown PPOEBox;
     }
 }
 

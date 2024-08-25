@@ -35,7 +35,9 @@ namespace DB_EDITOR
         bool TEAM = false;
 
 
-        int EditorIndex;
+        int TeamIndex;
+        int PlayerIndex;
+
         Color primary = Color.Black;
         Color secondary = Color.White;
         List<List<string>> AllTeamPlayers;
@@ -158,7 +160,7 @@ namespace DB_EDITOR
             coachProgComplete = false;
             TDYN = false;
             TEAM = false;
-            EditorIndex = -1;
+            TeamIndex = -1;
 
 
             tabControl1.Visible = false;
@@ -1907,9 +1909,13 @@ namespace DB_EDITOR
             {
                 if (PGIDrecNo.Count < 1)
                 {
+                    Management(dbIndex, "TEAM", "TORD");  //Load Teams by their team order.
+                    StartTeamEditor(dbIndex);
+                    
                     Management(dbIndex, "PLAY", "POVR");  //Load players by their overall.
-                    StartPlayerEditor(dbIndex);
+                    StartPlayerEditor();
                 }
+                LoadTGIDlistBox(dbIndex, "TTYP", 0);  // -1 = to all teams.
             }
 
         }
@@ -2206,8 +2212,6 @@ namespace DB_EDITOR
         }
 
 
-
-
         private void DevRandomizeFaceButton_Click(object sender, EventArgs e)
         {
             RandomizeRecruitFace("PLAY");
@@ -2219,9 +2223,6 @@ namespace DB_EDITOR
         }
 
         #endregion
-
-
-
 
 
         //EXPERIMENTAL ITEMS -- WORK IN PROGRESS
@@ -2240,6 +2241,10 @@ namespace DB_EDITOR
         {
             ExportToCollegeFootballUSA();
         }
+
+
+        //
+
 
 
     }

@@ -338,6 +338,86 @@ namespace DB_EDITOR
             return rec;
         }
 
+        private List<string> CreateRedshirtStatus()
+        {
+            List<string> status = new List<string>();
+
+            status.Add("None");
+            status.Add("Current");
+            status.Add("Redshirted");
+            return status;
+        }
+
+        private List<string> CreateClassYears()
+        {
+            List<string> status = new List<string>();
+
+            status.Add("Freshman");
+            status.Add("Sophomore");
+            status.Add("Junior");
+            status.Add("Senior");
+            return status;
+        }
+
+        private List<string> CreateOffSeasonPTYP()
+        {
+            List<string> status = new List<string>();
+
+            status.Add("None");
+            status.Add("Transferring");
+            status.Add("Created Player (Do not use!)"); //Do not use
+            status.Add("Graduating / Going Pro");
+            return status;
+        }
+        private List<string> CreateSkinColorDB()
+        {
+            List<string> skinColors = new List<string>();
+
+            skinColors.Add("Light - 0");
+            skinColors.Add("Light - 1");
+            skinColors.Add("Medium - 2");
+            skinColors.Add("Dark - 3");
+            skinColors.Add("Dark - 4");
+            skinColors.Add("Dark - 5");
+            skinColors.Add("Dark - 6");
+            skinColors.Add("Light - 7");
+            return skinColors;
+        }
+
+        private List<string> CreatePHCL()
+        {
+            List<string> colors = new List<string>();
+
+            colors.Add("Black");
+            colors.Add("Blonde");
+            colors.Add("Brown");
+            colors.Add("Red");
+            colors.Add("Light Brown");
+            colors.Add("Grey");
+            return colors;
+        }
+
+        private List<string> CreateHair()
+        {
+            List<string> hair = new List<string>();
+
+            hair.Add("Bald");
+            hair.Add("Corn Rows");
+            hair.Add("Afro");
+            hair.Add("Flat Top");
+            hair.Add("Buzzcut");
+            hair.Add("Fade");
+            hair.Add("Balding");
+            hair.Add("Close Crop");
+            hair.Add("Bald (Hidden)");
+            hair.Add("Bald 2");
+            hair.Add("Balding 2");
+            hair.Add("Buzzcut 2");
+            hair.Add("Fade 2");
+            hair.Add("Mullet");
+            hair.Add("Dreadlocks");
+            return hair;
+        }
 
         #endregion
 
