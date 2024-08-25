@@ -28,11 +28,11 @@ namespace DB_EDITOR
             //Setup Progress bar
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
-            progressBar1.Maximum = TDB.TableRecordCount(dbIndex, "PLAY");
+            progressBar1.Maximum = GetTableRecCount("PLAY");
             progressBar1.Step = 1;
             progressBar1.Value = 0;
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "PLAY"); i++)
+            for (int i = 0; i < GetTableRecCount("PLAY"); i++)
             {
                 if (GetDBValueInt("PLAY", "PTYP", i) == 3)
                 {
@@ -89,7 +89,7 @@ namespace DB_EDITOR
             progressBar1.Step = 1;
             progressBar1.Value = 0;
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "TDYN"); i++)
+            for (int i = 0; i < GetTableRecCount("TDYN"); i++)
             {
                 teamList.Add(GetDBValue("TDYN", "TOID", i));
             }
@@ -106,7 +106,7 @@ namespace DB_EDITOR
 
                     //Create a list of PGIDs in the database for team
                     List<int> rosters = new List<int>();
-                    for (int j = 0; j < TDB.TableRecordCount(dbIndex, "PLAY"); j++)
+                    for (int j = 0; j < GetTableRecCount("PLAY"); j++)
                     {
                         if (GetDBValueInt("PLAY", "PGID", j) >= team * 70 && GetDBValueInt("PLAY", "PGID", j) < team * 70 + 69) rosters.Add(GetDBValueInt("PLAY", "PGID", j));
                     }
@@ -115,7 +115,7 @@ namespace DB_EDITOR
                     {
                         if (!rosters.Contains(j))
                         {
-                            for (int k = 0; k < TDB.TableRecordCount(dbIndex, "PLAY"); k++)
+                            for (int k = 0; k < GetTableRecCount("PLAY"); k++)
                             {
                                 if (GetDBValueInt("PLAY", "PGID", k) == tmpPGID)
                                 {
@@ -140,12 +140,12 @@ namespace DB_EDITOR
             //Setup Progress bar
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
-            progressBar1.Maximum = TDB.TableRecordCount(dbIndex, "PLAY");
+            progressBar1.Maximum = GetTableRecCount("PLAY");
             progressBar1.Step = 1;
             progressBar1.Value = 0;
 
             //increase ratings 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "PLAY"); i++)
+            for (int i = 0; i < GetTableRecCount("PLAY"); i++)
             {
                 if (GetDBValueInt("PLAY", "PGID", i) >= 30000)
                 {
@@ -174,49 +174,49 @@ namespace DB_EDITOR
 
         private void ClearPlayerStats(int pgid)
         {
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "PSDE"); i++)
+            for (int i = 0; i < GetTableRecCount("PSDE"); i++)
             {
                 if (GetDBValueInt("PSDE", "PGID", i) == pgid) TDB.TDBTableRecordChangeDeleted(dbIndex, "PSDE", i, true);
                 break;
             }
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "PSKI"); i++)
+            for (int i = 0; i < GetTableRecCount("PSKI"); i++)
             {
                 if (GetDBValueInt("PSKI", "PGID", i) == pgid) TDB.TDBTableRecordChangeDeleted(dbIndex, "PSKI", i, true);
                 break;
             }
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "PSKP"); i++)
+            for (int i = 0; i < GetTableRecCount("PSKP"); i++)
             {
                 if (GetDBValueInt("PSKP", "PGID", i) == pgid) TDB.TDBTableRecordChangeDeleted(dbIndex, "PSKP", i, true);
                 break;
             }
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "PSOF"); i++)
+            for (int i = 0; i < GetTableRecCount("PSOF"); i++)
             {
                 if (GetDBValueInt("PSOF", "PGID", i) == pgid) TDB.TDBTableRecordChangeDeleted(dbIndex, "PSOF", i, true);
                 break;
             }
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "PSOL"); i++)
+            for (int i = 0; i < GetTableRecCount("PSOL"); i++)
             {
                 if (GetDBValueInt("PSOL", "PGID", i) == pgid) TDB.TDBTableRecordChangeDeleted(dbIndex, "PSOL", i, true);
                 break;
             }
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "PSRC"); i++)
+            for (int i = 0; i < GetTableRecCount("PSRC"); i++)
             {
                 if (GetDBValueInt("PSRC", "PGID", i) == pgid) TDB.TDBTableRecordChangeDeleted(dbIndex, "PSRC", i, true);
                 break;
             }
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "PSRN"); i++)
+            for (int i = 0; i < GetTableRecCount("PSRN"); i++)
             {
                 if (GetDBValueInt("PSRN", "PGID", i) == pgid) TDB.TDBTableRecordChangeDeleted(dbIndex, "PSRN", i, true);
                 break;
             }
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "PSRT"); i++)
+            for (int i = 0; i < GetTableRecCount("PSRT"); i++)
             {
                 if (GetDBValueInt("PSRT", "PGID", i) == pgid) TDB.TDBTableRecordChangeDeleted(dbIndex, "PSRT", i, true);
                 break;
@@ -226,49 +226,49 @@ namespace DB_EDITOR
 
         private void ChangePlayerStatsID(int pgid, int newpgid)
         {
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "PSDE"); i++)
+            for (int i = 0; i < GetTableRecCount("PSDE"); i++)
             {
                 if (GetDBValueInt("PSDE", "PGID", i) == pgid) ChangeDBInt("PSDE", "PGID", i, newpgid);
                 break;
             }
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "PSKI"); i++)
+            for (int i = 0; i < GetTableRecCount("PSKI"); i++)
             {
                 if (GetDBValueInt("PSKI", "PGID", i) == pgid) ChangeDBInt("PSKI", "PGID", i, newpgid);
                 break;
             }
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "PSKP"); i++)
+            for (int i = 0; i < GetTableRecCount("PSKP"); i++)
             {
                 if (GetDBValueInt("PSKP", "PGID", i) == pgid) ChangeDBInt("PSKP", "PGID", i, newpgid);
                 break;
             }
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "PSOF"); i++)
+            for (int i = 0; i < GetTableRecCount("PSOF"); i++)
             {
                 if (GetDBValueInt("PSOF", "PGID", i) == pgid) ChangeDBInt("PSOF", "PGID", i, newpgid);
                 break;
             }
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "PSOL"); i++)
+            for (int i = 0; i < GetTableRecCount("PSOL"); i++)
             {
                 if (GetDBValueInt("PSOL", "PGID", i) == pgid) ChangeDBInt("PSOL", "PGID", i, newpgid);
                 break;
             }
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "PSRC"); i++)
+            for (int i = 0; i < GetTableRecCount("PSRC"); i++)
             {
                 if (GetDBValueInt("PSRC", "PGID", i) == pgid) ChangeDBInt("PSRC", "PGID", i, newpgid);
                 break;
             }
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "PSRN"); i++)
+            for (int i = 0; i < GetTableRecCount("PSRN"); i++)
             {
                 if (GetDBValueInt("PSRN", "PGID", i) == pgid) ChangeDBInt("PSRN", "PGID", i, newpgid);
                 break;
             }
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "PSRT"); i++)
+            for (int i = 0; i < GetTableRecCount("PSRT"); i++)
             {
                 if (GetDBValueInt("PSRT", "PGID", i) == pgid) ChangeDBInt("PSRT", "PGID", i, newpgid);
                 break;
@@ -311,7 +311,7 @@ namespace DB_EDITOR
             progressBar1.Step = 1;
             progressBar1.Value = 0;
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "TDYN"); i++)
+            for (int i = 0; i < GetTableRecCount("TDYN"); i++)
             {
                 teamList.Add(GetDBValueInt("TDYN", "TOID", i));
             }
@@ -327,7 +327,7 @@ namespace DB_EDITOR
                 {
                     //Create a list of PGIDs in the database for team
                     List<int> rosters = new List<int>();
-                    for (int j = 0; j < TDB.TableRecordCount(dbIndex, "PLAY"); j++)
+                    for (int j = 0; j < GetTableRecCount("PLAY"); j++)
                     {
                         if (GetDBValueInt("PLAY", "PGID", j) >= team * 70 && GetDBValueInt("PLAY", "PGID", j) < team * 70 + 70) rosters.Add(GetDBValueInt("PLAY", "PGID", j));
                     }
@@ -337,7 +337,7 @@ namespace DB_EDITOR
                     {
                         if (!rosters.Contains(j))
                         {
-                            int rec = TDB.TableRecordCount(dbIndex, "PLAY");
+                            int rec = GetTableRecCount("PLAY");
                             TDB.TDBTableRecordAdd(dbIndex, "PLAY", false);
                             position = ChooseRandomPosFromPOSG(position);
                             CreateNamedTransfersfromRCAT(rec, position, j, RCATmapper, PJEN, 50, FN, LN);
@@ -420,7 +420,7 @@ namespace DB_EDITOR
 
             //Create a list of Active Teams
             List<int> teamList = new List<int>();
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "TDYN"); i++)
+            for (int i = 0; i < GetTableRecCount("TDYN"); i++)
             {
                 teamList.Add(GetDBValueInt("TDYN", "TOID", i));
             }
@@ -452,7 +452,7 @@ namespace DB_EDITOR
                 {
                     //Create a list of PGIDs in the database for team
                     List<int> rosters = new List<int>();
-                    for (int j = 0; j < TDB.TableRecordCount(dbIndex, "PLAY"); j++)
+                    for (int j = 0; j < GetTableRecCount("PLAY"); j++)
                     {
                         if (GetDBValueInt("PLAY", "PGID", j) >= team * 70 && GetDBValueInt("PLAY", "PGID", j) < team * 70 + 70) rosters.Add(GetDBValueInt("PLAY", "PGID", j));
                     }
@@ -462,7 +462,7 @@ namespace DB_EDITOR
                     {
                         if (!rosters.Contains(j))
                         {
-                            int rec = TDB.TableRecordCount(dbIndex, "PLAY");
+                            int rec = GetTableRecCount("PLAY");
                             TDB.TDBTableRecordAdd(dbIndex, "PLAY", false);
                             CreateNamedRecruitfromRCAT(rec, position, j, RCATmapper, PJEN, 100, FN, LN, height, weight, rating);
                             recruitsCreated++;

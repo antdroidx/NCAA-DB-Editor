@@ -14,11 +14,11 @@ namespace DB_EDITOR
         {
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
-            progressBar1.Maximum = TDB.TableRecordCount(dbIndex, "RTRI");
+            progressBar1.Maximum = GetTableRecCount("RTRI");
 
             Random rand = new Random();
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "RTRI"); i++)
+            for (int i = 0; i < GetTableRecCount("RTRI"); i++)
             {
                 int TRPA, TRPR;
                 TRPA = GetDBValueInt("RTRI", "TRPA", i);
@@ -44,11 +44,11 @@ namespace DB_EDITOR
         {
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
-            progressBar1.Maximum = TDB.TableRecordCount(dbIndex, "RCPR");
+            progressBar1.Maximum = GetTableRecCount("RCPR");
 
             Random rand = new Random();
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "RCPR"); i++)
+            for (int i = 0; i < GetTableRecCount("RCPR"); i++)
             {
 
 
@@ -80,12 +80,12 @@ namespace DB_EDITOR
         {
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
-            progressBar1.Maximum = TDB.TableRecordCount(dbIndex, FieldName);
+            progressBar1.Maximum = GetTableRecCount(FieldName);
 
             int tol = (int)recruitTolerance.Value;
             int tolA = 2;
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, FieldName); i++)
+            for (int i = 0; i < GetTableRecCount(FieldName); i++)
             {
                 if (GetDBValueInt(FieldName, "PRID", i) < 21000)  //skips transfers
                 {
@@ -188,9 +188,9 @@ namespace DB_EDITOR
         {
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
-            progressBar1.Maximum = TDB.TableRecordCount(dbIndex, tableName);
+            progressBar1.Maximum = GetTableRecCount(tableName);
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, tableName); i++)
+            for (int i = 0; i < GetTableRecCount(tableName); i++)
             {
                 if (tableName != "RCPT" || GetDBValueInt(tableName, "PRID", i) < 21000)  //skips transfers
                 {
@@ -246,11 +246,11 @@ namespace DB_EDITOR
         {
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
-            progressBar1.Maximum = TDB.TableRecordCount(dbIndex, "WKON");
+            progressBar1.Maximum = GetTableRecCount("WKON");
 
             int tol = (int)toleranceWalkOn.Value;
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "WKON"); i++)
+            for (int i = 0; i < GetTableRecCount("WKON"); i++)
             {
                 //PTHA	PSTA	PKAC	PACC	PSPD	PPOE	PCTH	PAGI	PINJ	PTAK	PPBK	PRBK	PBTK	PTHP	PJMP	PCAR	PKPR	PSTR	PAWR
                 //PPOE, PINJ, PAWR
@@ -356,7 +356,7 @@ namespace DB_EDITOR
 
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
-            progressBar1.Maximum = TDB.TableRecordCount(dbIndex, "RCPT");
+            progressBar1.Maximum = GetTableRecCount("RCPT");
             progressBar1.Step = 1;
 
             /*States STID
@@ -368,7 +368,7 @@ namespace DB_EDITOR
              * */
 
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "RCPT"); i++)
+            for (int i = 0; i < GetTableRecCount("RCPT"); i++)
             {
                 //Check for Arizona  2
                 if (GetDBValueInt("RCPT", "RCHD", i) >= 512 && GetDBValueInt("RCPT", "RCHD", i) < 768)

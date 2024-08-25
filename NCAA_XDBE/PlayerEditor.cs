@@ -15,104 +15,95 @@ namespace DB_EDITOR
 
         public void StartPlayerEditor()
         {
-            PGIDrecNo.Clear();
 
-            var TGIDd = new Dictionary<int, string>();
-            bool tmpDIC = false;
-            int tmpSelectIndex = -1;
+            LoadPlayerTGIDBox();
 
-
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = ReorderedTableData.Count;
-            progressBar1.Step = 1;
-
-            if (TDB.TableIndex(dbIndex, "TEAM") == -1)
-            {
-                tmpDIC = true;
-                TGIDplayerBox.Items.Clear();
-                TGIDrecNo.Clear();
-            }
-
-            foreach (KeyValuePair<int, int> PGID in ReorderedTableData.OrderByDescending(key => key.Value))
-            {
-                progressBar1.PerformStep();
-
-                int tmpPGID = GetDBValueInt("PLAY", "PGID", PGID.Key);
-                int tmpTGID = (int)tmpPGID / 70;
-
-                PGIDrecNo.Add(PGID.Key, tmpPGID);
-
-                #region Add team's TGID if no TEAM table
-                if (tmpDIC)
-                {
-                    if (!TGIDd.ContainsKey(tmpTGID))
-                        TGIDd.Add(tmpTGID, teamNameDB[tmpTGID]);
-
-                }
-                #endregion
-
-            }
-            progressBar1.Value = 0;
-
-            if (tmpDIC)
-            {
-                foreach (KeyValuePair<int, string> TGID in TGIDd.OrderBy(key => key.Key))
-                {
-                    tmpSelectIndex = tmpSelectIndex + 1;
-                    TGIDrecNo.Add(TGID.Key, TGID.Key);
-                    TGIDplayerBox.Items.Add(TGID.Value);
-                    TGIDlist.Add(tmpSelectIndex, TGID.Key);
-                    TGIDlistBox.Items.Add(TGID.Value);
-                }
-            }
-
-            TGIDd.Clear();
-
-            ReorderedTableData.Clear();
         }
-        public void LoadPGIDlistBox(int tmpDBindex, int tmpTGID)
+
+        private void LoadPlayerTGIDBox()
         {
-            if (PGIDrecNo.Count < 1)
-                return;
+            TGIDplayerBox.Items.Clear();
+            List<string> teamList = new List<string>();
+            if (TDYN)
+            {
+                for (int i = 0; i < GetTableRecCount("TDYN"); i++)
+                {
+                    teamList.Add(teamNameDB[GetDBValueInt("TDYN", "TOID", i)]);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < GetTableRecCount("TEAM"); i++)
+                {
+                    if (GetDBValueInt("TEAM", "TTYP", i) == 0)
+                        teamList.Add(teamNameDB[GetDBValueInt("TEAM", "TGID", i)]);
+                }
+            }
+            teamList.Add("_ALL PLAYERS_");
 
+            teamList.Sort();
 
+            for (int i = 0; i < teamList.Count; i++)
+            {
+                if (teamList[i] != null) TGIDplayerBox.Items.Add(teamList[i]);
+            }
 
-            int tmpIndex = -1;
-            string tmpPFNA = "";
-            string tmpPLNA = "";
+        }
+
+        public void LoadPGIDlistBox()
+        {
+            AllTeamPlayers = new List<List<string>>();
+            int pgidBeg;
+            int pgidEnd;
+
+            if (TGIDplayerBox.Text != "_ALL PLAYERS_")
+            {
+                int tgid = -1;
+                for (int i = 0; i < teamNameDB.Length; i++)
+                {
+                    if (TGIDplayerBox.Text == teamNameDB[i])
+                    {
+                        tgid = i;
+                        break;
+                    }
+                }
+
+                pgidBeg = tgid * 70;
+                pgidEnd = tgid * 70 + 69;
+            }
+            else
+            {
+                pgidBeg = 0;
+                pgidEnd = 8400;
+            }
+
+            int row = 0;
+            for (int i = 0; i < GetTableRecCount("PLAY"); i++)
+            {
+                if (GetDBValueInt("PLAY", "PGID", i) >= pgidBeg && GetDBValueInt("PLAY", "PGID", i) <= pgidEnd)
+                {
+                    AllTeamPlayers.Add(new List<string>());
+                    AllTeamPlayers[row].Add(GetFirstNameFromRecord(i));
+                    AllTeamPlayers[row].Add(GetLastNameFromRecord(i));
+                    AllTeamPlayers[row].Add(GetDBValue("PLAY", "PPOS", i));
+                    AllTeamPlayers[row].Add(GetDBValue("PLAY", "POVR", i));
+                    AllTeamPlayers[row].Add(GetDBValue("PLAY", "PGID", i));
+                    AllTeamPlayers[row].Add(Convert.ToString(i));
+
+                    // 0 First Name  1 Last Name 2 Position 3 Overall 4 PGID 5 rec
+
+                    row++;
+                }
+            }
+
+            AllTeamPlayers.Sort((player1, player2) => player1[0].CompareTo(player2[0]));
 
             PGIDlistBox.Items.Clear();
-            PGIDlist.Clear();
-            ROSrecNo.Clear();
-
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = PGIDrecNo.Count;
-            progressBar1.Step = 1;
-
-            foreach (KeyValuePair<int, int> PGID in PGIDrecNo)
+            foreach (var player in AllTeamPlayers)
             {
-                progressBar1.PerformStep();
-
-                int TGID = (int)PGID.Value / 70;
-
-                if (tmpTGID == TGID)
-                {
-                    tmpIndex = tmpIndex + 1;
-
-                    tmpPFNA = GetFirstNameFromRecord(PGID.Key);
-                    tmpPLNA = GetLastNameFromRecord(PGID.Key);
-
-                    PGIDlistBox.Items.Add(tmpPFNA + " " + tmpPLNA);
-                    PGIDlist.Add(tmpIndex, PGID.Key);
-                    ROSrecNo.Add(PGID.Key, PGID.Value);
-                }
-
+                PGIDlistBox.Items.Add(player[0] + " " + player[1]);
             }
 
-
-
-            label4.Text = "Roster Size: " + Convert.ToString(PGIDlistBox.Items.Count);
-            progressBar1.Value = 0;
 
         }
 
@@ -122,7 +113,7 @@ namespace DB_EDITOR
             if (PGIDlistBox.SelectedIndex == -1)
                 return;
 
-            PlayerIndex = PGIDlist[PGIDlistBox.SelectedIndex];
+            PlayerIndex = Convert.ToInt32(AllTeamPlayers[PGIDlistBox.SelectedIndex][5]);
 
             LoadPlayerData();
         }
@@ -152,7 +143,7 @@ namespace DB_EDITOR
 
 
             //Height & Weight
-            PHGTBox.Value = GetDBValueInt("PLAY", "PGHT", PlayerIndex);
+            PHGTBox.Value = GetDBValueInt("PLAY", "PHGT", PlayerIndex);
             PWGTBox.Value = GetDBValueInt("PLAY", "PWGT", PlayerIndex) + 160;
 
             //Head Appearance
@@ -313,8 +304,8 @@ namespace DB_EDITOR
         private void AddFaceShapeItems()
         {
             PFGMBox.Items.Clear();
-            
-            for(int i = 0; i < 16; i++)
+
+            for (int i = 0; i < 16; i++)
             {
                 PFGMBox.Items.Add(i);
             }
@@ -328,7 +319,7 @@ namespace DB_EDITOR
 
             for (int i = 0; i < 8; i++)
             {
-                PFMPBox.Items.Add(skin*8 + i);
+                PFMPBox.Items.Add(skin * 8 + i);
             }
         }
 
@@ -371,11 +362,8 @@ namespace DB_EDITOR
         //Change Selected Player
         public void TGIDplayerBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int tmpTGID = TGIDrecNo[TGIDlist[TGIDplayerBox.SelectedIndex]];
 
-            TGIDlistBox.SelectedIndex = TGIDplayerBox.SelectedIndex;
-
-            LoadPGIDlistBox(dbIndex, tmpTGID);
+            LoadPGIDlistBox();
         }
 
         //Change Name
@@ -384,9 +372,7 @@ namespace DB_EDITOR
             if (PGIDlistBox.Items.Count < 1)
                 return;
 
-            int tmpRecNo = PGIDlist[PGIDlistBox.SelectedIndex];
-
-            Editor_ConvertFN_InttoString(tmpRecNo);  // ...first name from text to numeric conversion
+            Editor_ConvertFN_InttoString(PlayerIndex);  // ...first name from text to numeric conversion
 
         }
         public void PLNAtextBox_TextChanged(object sender, EventArgs e)
@@ -394,9 +380,7 @@ namespace DB_EDITOR
             if (PGIDlistBox.Items.Count < 1)
                 return;
 
-            int tmpRecNo = PGIDlist[PGIDlistBox.SelectedIndex];
-
-            Editor_ConvertLN_IntToString(tmpRecNo);  // ...last name from text to numeric conversion
+            Editor_ConvertLN_IntToString(PlayerIndex);  // ...last name from text to numeric conversion
 
         }
 
@@ -429,6 +413,28 @@ namespace DB_EDITOR
             ChangeDBInt("PLAY", "PYER", PlayerIndex, PYERBox.SelectedIndex);
         }
 
+        //Height and Weight
+
+        private void PHGTBox_ValueChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger)
+                return;
+
+            ChangeDBInt("PLAY", "PHGT", PlayerIndex, Convert.ToInt32(PHGTBox.Value));
+            RecalculateIndividualBMI(PlayerIndex);
+        }
+
+        private void PWGTBox_ValueChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger)
+                return;
+
+            ChangeDBInt("PLAY", "PWGT", PlayerIndex, Convert.ToInt32(PWGTBox.Value) - 160);
+            RecalculateIndividualBMI(PlayerIndex);
+
+        }
+
+
         //Change Skin/Head Apperance
 
         private void PSKIBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -455,7 +461,7 @@ namespace DB_EDITOR
             if (DoNotTrigger)
                 return;
 
-            ChangeDBInt("PLAY", "PFMP", PlayerIndex, PSKIBox.SelectedIndex*8 + PFMPBox.SelectedIndex);
+            ChangeDBInt("PLAY", "PFMP", PlayerIndex, PSKIBox.SelectedIndex * 8 + PFMPBox.SelectedIndex);
         }
 
         private void PHCLBox_SelectedIndexChanged(object sender, EventArgs e)

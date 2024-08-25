@@ -89,7 +89,7 @@ namespace DB_EDITOR
 
 
             int box = 0;
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "CONF"); i++)
+            for (int i = 0; i < GetTableRecCount("CONF"); i++)
             {
                 if (GetDBValueInt("CONF", "LGID", i) == 0)
                 {
@@ -109,7 +109,7 @@ namespace DB_EDITOR
         //Add Teams to Conferences and Label the Conference
         private void AddTeamsToConfSetup(int conf, CheckedListBox conferenceBox, int confRec, Label confName)
         {
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "TEAM"); i++)
+            for (int i = 0; i < GetTableRecCount("TEAM"); i++)
             {
                 if (GetDBValueInt("TEAM", "CGID", i) == conf)
                 {
@@ -191,7 +191,7 @@ namespace DB_EDITOR
             int recA = FindTeamRecfromTeamName(TeamA);
             int recB = FindTeamRecfromTeamName(TeamB);
 
-            int swor = TDB.TableRecordCount(dbIndex, "TSWP");
+            int swor = GetTableRecCount("TSWP");
 
             TDB.TDBTableRecordAdd(dbIndex, "TSWP", false);
             ChangeDBString("TSWP", "TGID", swor, GetDBValue("TEAM", "TGID", recA));
@@ -222,13 +222,13 @@ namespace DB_EDITOR
         //Swap Teams in the Schedule if in Pre-Season
         private void SwapSchedule(int tgidA, int tgidB, string TeamA, string TeamB)
         {
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "SCHD"); i++)
+            for (int i = 0; i < GetTableRecCount("SCHD"); i++)
             {
                 if (GetDBValueInt("SCHD", "GATG", i) == tgidA) ChangeDBInt("SCHD", "GATG", i, tgidB);
                 else if (GetDBValueInt("SCHD", "GATG", i) == tgidB) ChangeDBInt("SCHD", "GATG", i, tgidA);
             }
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "SCHD"); i++)
+            for (int i = 0; i < GetTableRecCount("SCHD"); i++)
             {
                 if (GetDBValueInt("SCHD", "GHTG", i) == tgidA) ChangeDBInt("SCHD", "GHTG", i, tgidB);
                 else if (GetDBValueInt("SCHD", "GHTG", i) == tgidB) ChangeDBInt("SCHD", "GHTG", i, tgidA);

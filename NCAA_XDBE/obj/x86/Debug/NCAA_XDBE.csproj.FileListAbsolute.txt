@@ -40,3 +40,4 @@ D:\Modding\NCAA_XDBE\NCAA_XDBE\bin\Debug\Resources\recruits.csv
 D:\Modding\NCAA_XDBE\NCAA_XDBE\bin\Debug\Resources\transfers-gen.csv
 D:\Modding\NCAA_XDBE\NCAA_XDBE\bin\Debug\Resources\RCST.csv
 D:\Modding\NCAA_XDBE\NCAA_XDBE\bin\Debug\Resources\college-football-usa.csv
+D:\Modding\NCAA_XDBE\NCAA_XDBE\bin\Debug\Resources\Color-Palettes.csv

@@ -104,147 +104,82 @@ namespace DB_EDITOR
 
         }
 
-        public void StartTeamEditor(int tmpDB)
+        public void StartTeamEditor()
+        { 
+            LoadLeagueListBox();
+            LoadCGIDListBox();
+            CreateTeamColorPalettes();
+            LoadTGIDlistBox(-1, 2);  // 2 = to all teams.
+        }
+        private void LoadLeagueListBox()
         {
-            List<int> cgidList = new List<int>();
-
-            var tmpList = new Dictionary<int, int>();
-            tmpList.Clear();
-            TGIDrecNo.Clear();
-
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = ReorderedTableData.Count;
-            progressBar1.Step = 1;
-
-            // TORD
-            foreach (KeyValuePair<int, int> TGID in ReorderedTableData.OrderBy(key => key.Value))
-            {
-                progressBar1.PerformStep();
-                TGIDrecNo.Add(TGID.Key, Convert.ToInt32(TDB.FieldValue(tmpDB, "TEAM", "TGID", TGID.Key)));
-
-                if (TDB.TableIndex(dbIndex, "CONF") == -1)
-                    cgidList.Add(Convert.ToInt32(TDB.FieldValue(tmpDB, "TEAM", "CGID", TGID.Key)));
-
-            }
-            progressBar1.Value = 0;
-            cgidList.Sort();
-
-            if (TDB.TableIndex(dbIndex, "CONF") == -1)
-            {
-                CONFlist.Clear();
-            }
-
-            #region Team League Combo Box
-            // LGID
             LGIDcomboBox.Items.Clear();
-            LGIDcomboBox.Items.Add("ALL");
             LGIDcomboBox.Items.Add("FBS");
             LGIDcomboBox.Items.Add("FCS");
-            #endregion
-
-            #region Team Conference Combo Box
-            // CGID
-            CGIDcomboBox.Items.Clear();
-            CONFlist.Clear();
-            for (int i = 0; i < cgidList.Count; i++)
-            {
-                tmpList.AddSafe(cgidList[i], 0);
-            }
-
-            int tmpSelectedIndex = -1;
-            foreach (KeyValuePair<int, int> CGID in tmpList)
-            {
-                CGIDcomboBox.Items.Add(CGID.Key);
-
-                tmpSelectedIndex = tmpSelectedIndex + 1;
-                CONFlist.Add(tmpSelectedIndex, CGID.Key);
-            }
-
-            tmpList.Clear();
-            cgidList.Clear();
-            #endregion
-
-
-            ReorderedTableData.Clear();
-
-            CreateTeamColorPalettes();
+            LGIDcomboBox.Items.Add("ALL");
         }
-        public void LoadTGIDlistBox(int tmpDB, string tmpBOX, int tmpVAL)
+
+        private void LoadCGIDListBox()
         {
- 
-            TGIDlistBox.Items.Clear();
-            TGIDplayerBox.Items.Clear();
-            TGIDlist.Clear();
-
-
-            if (TGIDrecNo.Count < 1)
-                return;
-
-            int tmpIndex = -1;
-            string tmpTDNA = "";
-            string tmpTLNA = "";
-            string tmpFULL = "";
-            int tmpFIELD = -1;
-
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = TGIDrecNo.Count;
-            progressBar1.Step = 1;
-
-            foreach (KeyValuePair<int, int> TGID in TGIDrecNo)
+            CGIDcomboBox.Items.Clear();
+            List<string> confs = new List<string>();
+            for(int i = 0; i < GetTableRecCount("CONF"); i++)
             {
-                progressBar1.PerformStep();
-
-                tmpTDNA = TDB.FieldValue(tmpDB, "TEAM", "TMNA", TGID.Key);
-                tmpTLNA = TDB.FieldValue(tmpDB, "TEAM", "TDNA", TGID.Key) + " ";
-                tmpFIELD = Convert.ToInt32(TDB.FieldValue(tmpDB, "TEAM", tmpBOX, TGID.Key));
-
-                tmpFULL = tmpTLNA + tmpTDNA;
-
-                if (tmpVAL == -1)
-                    tmpFIELD = -1;
-
-                if (tmpFIELD == tmpVAL)
+                if(GetDBValueInt("CONF", "LGID", i) < 2)
                 {
-                    tmpIndex = tmpIndex + 1;
-                    TGIDlistBox.Items.Add(tmpFULL);
-                    TGIDplayerBox.Items.Add(tmpFULL);
-                    TGIDlist.Add(tmpIndex, TGID.Key);
-
+                    confs.Add(GetDBValue("CONF", "CNAM", i));
                 }
             }
-            progressBar1.Value = 0;
+
+            confs.Sort();
+
+            foreach (var c in confs)
+            {
+                CGIDcomboBox.Items.Add(c);
+            }
 
         }
 
-        public void GetEditorConfList()
+        public void LoadTGIDlistBox(int cgid, int lgid)
         {
-            CONFrecNo.Clear();
-            CONFlist.Clear();
-            CGIDcomboBox.Items.Clear();
+            TGIDlistBox.Items.Clear();
+            List<string> teamList = new List<string>();
 
-            int tmpSelectedIndex = -1;
-            foreach (KeyValuePair<int, int> CGID in ReorderedTableData.OrderBy(key => key.Value))
+            if (cgid > -1)
             {
-                tmpSelectedIndex = tmpSelectedIndex + 1;
-                CONFrecNo.Add(CGID.Key, CGID.Value);
-                CONFlist.Add(tmpSelectedIndex, CGID.Value);
+                for (int i = 0; i < GetTableRecCount("TEAM"); i++)
+                {
+                    if (GetDBValueInt("TEAM", "CGID", i) == cgid)
+                        teamList.Add(teamNameDB[GetDBValueInt("TEAM", "TGID", i)]);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < GetTableRecCount("TEAM"); i++)
+                {
+                    if (lgid == 2 || GetDBValueInt("TEAM", "TTYP", i) == lgid)
+                        teamList.Add(teamNameDB[GetDBValueInt("TEAM", "TGID", i)]);
+                }
             }
 
-            foreach (KeyValuePair<int, int> CGID in CONFrecNo)
-            {
-                string tmpVal = GetDBValue("CONF", "CNAM", CGID.Key);
+            teamList.Sort();
 
-                CGIDcomboBox.Items.Add(tmpVal);
+            for (int i = 0; i < teamList.Count; i++)
+            {
+                if (teamList[i] != null) TGIDlistBox.Items.Add(teamList[i]);
             }
-            ReorderedTableData.Clear();
+
+
         }
+
+
         public void LGIDcomboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (LGIDcomboBox.SelectedIndex == -1 || DoNotTrigger)
                 return;
             CGIDcomboBox.SelectedIndex = -1;
 
-            LoadTGIDlistBox(dbIndex, "TTYP", LGIDcomboBox.SelectedIndex-1);
+            LoadTGIDlistBox(-1, LGIDcomboBox.SelectedIndex);
         }
         public void CGIDcomboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -252,16 +187,26 @@ namespace DB_EDITOR
                 return;
             LGIDcomboBox.SelectedIndex = -1;
 
-            LoadTGIDlistBox(dbIndex, "CGID", Convert.ToInt32(CONFlist[CGIDcomboBox.SelectedIndex]));
+            int cgid = GetCONFrecFromCNAM(CGIDcomboBox.Text);
+            
+            LoadTGIDlistBox(cgid, -1);
         }
         public void TGIDlistBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (TGIDlistBox.Items.Count < 1 || TGIDlistBox.SelectedIndex == -1)
                 return;
 
-            TeamIndex = TGIDlist[TGIDlistBox.SelectedIndex];
+            int tgid = -1;
+            for (int i = 0; i < teamNameDB.Length; i++)
+            {
+                if (TGIDplayerBox.Text == teamNameDB[i])
+                {
+                    tgid = i;
+                    break;
+                }
+            }
 
-            TGIDplayerBox.SelectedIndex = TGIDlistBox.SelectedIndex;
+            TeamIndex = FindTeamRecfromTeamName(TGIDlistBox.Text);
 
             GetTeamEditorData(TeamIndex);
 
@@ -485,7 +430,7 @@ namespace DB_EDITOR
             int rowOff = 0;
             int rowDef = 0;
 
-            for(int i = 0; i < TDB.TableRecordCount(dbIndex, "PLAY"); i++)
+            for(int i = 0; i < GetTableRecCount("PLAY"); i++)
             {
                 if(GetDBValueInt("PLAY", "PGID", i) >= pgidBeg && GetDBValueInt("PLAY", "PGID", i) <= pgidEnd)
                 {
@@ -1125,7 +1070,7 @@ namespace DB_EDITOR
 
                 while (!hired)
                 {
-                    int applicant = rand.Next(0, TDB.TableRecordCount(dbIndex, "COCH"));
+                    int applicant = rand.Next(0, GetTableRecCount("COCH"));
                     if (GetDBValueInt("COCH", "TGID", applicant) == 511)
                     {
                         ChangeDBInt("COCH", "TGID", GetCOCHrecFromTeamRec(TeamIndex), 511);

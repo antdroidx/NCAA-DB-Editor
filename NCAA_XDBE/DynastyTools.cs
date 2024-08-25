@@ -15,12 +15,12 @@ namespace DB_EDITOR
         {
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
-            progressBar1.Maximum = TDB.TableRecordCount(dbIndex, "PLAY");
+            progressBar1.Maximum = GetTableRecCount("PLAY");
             progressBar1.Step = 1;
 
             int inj = 0;
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "PLAY"); i++)
+            for (int i = 0; i < GetTableRecCount("PLAY"); i++)
             {
                 if (rand.Next(0, 8280) < numInjuries.Value && inj < 450)
                 {
@@ -47,10 +47,10 @@ namespace DB_EDITOR
         {
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
-            progressBar1.Maximum = TDB.TableRecordCount(dbIndex, "INJY");
+            progressBar1.Maximum = GetTableRecCount("INJY");
             string names = "";
             //looks at INJY table
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "INJY"); i++)
+            for (int i = 0; i < GetTableRecCount("INJY"); i++)
             {
                 string injLength = GetDBValue("INJY", "INJL", i);
                 //check to see if value is greater than 225
@@ -62,7 +62,7 @@ namespace DB_EDITOR
                     //find the corresponding PGID
                     string PGID = GetDBValue("INJY", "PGID", i);
                     //find the corresponding recNo of the PGID in PLAY
-                    for (int j = 0; j < TDB.TableRecordCount(dbIndex, "PLAY"); j++)
+                    for (int j = 0; j < GetTableRecCount("PLAY"); j++)
                     {
                         if (PGID == GetDBValue("PLAY", "PGID", j))
                         {
@@ -162,7 +162,7 @@ namespace DB_EDITOR
         {
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
-            progressBar1.Maximum = TDB.TableRecordCount(dbIndex, "COCH");
+            progressBar1.Maximum = GetTableRecCount("COCH");
 
 
         /* new method idea: 
@@ -184,7 +184,7 @@ namespace DB_EDITOR
          * */
 
             string coach = "";
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "COCH"); i++)
+            for (int i = 0; i < GetTableRecCount("COCH"); i++)
             {
                 if (GetDBValue("COCH", "TGID", i) != "511")
                 {
@@ -241,9 +241,9 @@ namespace DB_EDITOR
         {
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
-            progressBar1.Maximum = TDB.TableRecordCount(dbIndex, "COCH");
+            progressBar1.Maximum = GetTableRecCount("COCH");
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "COCH"); i++)
+            for (int i = 0; i < GetTableRecCount("COCH"); i++)
             {
                 //CDPC, CRPC, CTPC
                 int CDPC, CRPC, CTPC;
@@ -281,7 +281,7 @@ namespace DB_EDITOR
             }
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
-            progressBar1.Maximum = TDB.TableRecordCount(dbIndex, "COCH");
+            progressBar1.Maximum = GetTableRecCount("COCH");
 
             List<string> CCID_FAList = new List<string>();
             List<string> CCID_FiredList = new List<string>();
@@ -293,7 +293,7 @@ namespace DB_EDITOR
             string news2 = "";
 
             //Get List of Coaches and Fire Some
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "COCH"); i++)
+            for (int i = 0; i < GetTableRecCount("COCH"); i++)
             {
                 //ADD COACHING FREE AGENCY POOL TO THE LIST
                 if (GetDBValue("COCH", "TGID", i) == "511")
@@ -453,7 +453,7 @@ namespace DB_EDITOR
              */
 
             int maxTransfers = 1520;
-            int currentRecCount = TDB.TableRecordCount(dbIndex, "TRAN");
+            int currentRecCount = GetTableRecCount("TRAN");
             string transferNews = "";
             int xfers = (int)maxFiredTransfers.Value;
 
@@ -503,13 +503,13 @@ namespace DB_EDITOR
 
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
-            progressBar1.Maximum = TDB.TableRecordCount(dbIndex, "TEAM");
+            progressBar1.Maximum = GetTableRecCount("TEAM");
 
             int maxTransfers = 500;
-            int currentRecCount = TDB.TableRecordCount(dbIndex, "TRAN");
+            int currentRecCount = GetTableRecCount("TRAN");
             string transferNews = "";
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "TEAM"); i++)
+            for (int i = 0; i < GetTableRecCount("TEAM"); i++)
             {
                 if (currentRecCount >= maxTransfers) break;
 
@@ -572,7 +572,7 @@ namespace DB_EDITOR
             int pgidStart = tgid * 70;
             int j = 0;
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "PLAY"); i++)
+            for (int i = 0; i < GetTableRecCount("PLAY"); i++)
             {
                 if (GetPGIDfromRecord(i) >= pgidStart && GetPGIDfromRecord(i) < pgidStart + 70 && GetPTYPfromRecord(i) != 3 && GetPTYPfromRecord(i) != 1 && GetPYERfromRecord(i) < 3 && GetPOVRfromRecord(i) < 25)
                 {
@@ -595,7 +595,7 @@ namespace DB_EDITOR
             int pgidStart = tgid * 70;
             int j = 0;
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "PLAY"); i++)
+            for (int i = 0; i < GetTableRecCount("PLAY"); i++)
             {
                 if (GetPGIDfromRecord(i) >= pgidStart && GetPGIDfromRecord(i) < pgidStart + 70 && GetPPOSfromRecord(i) == pos && GetPTYPfromRecord(i) != 3 && GetPTYPfromRecord(i) != 1)
                 {
@@ -612,7 +612,7 @@ namespace DB_EDITOR
         //Transfers Players - Updates TRAN table and sets PLAY-PTYP field to 1
         private void TransferPlayer(int i, int PGID)
         {
-            int row = TDB.TableRecordCount(dbIndex, "TRAN");
+            int row = GetTableRecCount("TRAN");
             TDB.TDBTableRecordAdd(dbIndex, "TRAN", false);
             ChangeDBString("TRAN", "PGID", row, Convert.ToString(PGID));
             ChangeDBString("TRAN", "PTID", row, "300");
@@ -628,13 +628,13 @@ namespace DB_EDITOR
             int maxPrestige = 0;
 
             //determines what power conference prestige value is...
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "CONF"); i++)
+            for (int i = 0; i < GetTableRecCount("CONF"); i++)
             {
                 if (GetConfPrestige(i) < maxPrestige) maxPrestige = GetConfPrestige(i);
             }
 
             //creates a list of power and non-power conferences
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "CONF"); i++)
+            for (int i = 0; i < GetTableRecCount("CONF"); i++)
             {
                 if (GetConfPrestige(i) < maxPrestige && GetConfLeague(i) == 0)
                 {
@@ -653,7 +653,7 @@ namespace DB_EDITOR
             string promote = "Promotion Qualified:\n\n";
             string demote = "Demotion Qualified:\n\n";
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "TEAM"); i++)
+            for (int i = 0; i < GetTableRecCount("TEAM"); i++)
             {
                 int TMPR = GetTeamPrestige(i);
                 int CGID = GetTeamCGID(i);
@@ -713,7 +713,7 @@ namespace DB_EDITOR
 
         private void SwapTeams(int teamA, int teamB)
         {
-            int x = TDB.TableRecordCount(dbIndex, "TSWP");
+            int x = GetTableRecCount("TSWP");
             TDB.TDBTableRecordAdd(dbIndex, "TSWP", false);
             ChangeDBString("TSWP", "TGID", x, Convert.ToString(GetTeamTGIDfromRecord(teamA)));
             ChangeDBString("TSWP", "TIDR", x, Convert.ToString(GetTeamTGIDfromRecord(teamB)));
@@ -792,9 +792,9 @@ namespace DB_EDITOR
 
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
-            progressBar1.Maximum = TDB.TableRecordCount(dbIndex, "COCH");
+            progressBar1.Maximum = GetTableRecCount("COCH");
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "COCH"); i++)
+            for (int i = 0; i < GetTableRecCount("COCH"); i++)
             {
                 //ADD COACHING FREE AGENCY POOL TO THE LIST
                 if (GetDBValue("COCH", "TGID", i) == "511" && Convert.ToInt32(GetDBValue("COCH", "CPRE", i)) < 2)
@@ -808,9 +808,9 @@ namespace DB_EDITOR
             //Create a list of graduating players
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
-            progressBar1.Maximum = TDB.TableRecordCount(dbIndex, "PLAY");
+            progressBar1.Maximum = GetTableRecCount("PLAY");
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "PLAY"); i++)
+            for (int i = 0; i < GetTableRecCount("PLAY"); i++)
             {
                 //Create a list of Players that are seniors and have high awareness
                 if (Convert.ToInt32(GetDBValue("PLAY", "PAWR", i)) >= 20 && GetDBValue("PLAY", "PYER", i) == "3")
@@ -881,7 +881,7 @@ namespace DB_EDITOR
                     int TGID = Convert.ToInt32(GetDBValue("PLAY", "PGID", recP)) / 70;
                     int recCOCH = -1;
                     
-                    for(int j = 0; j < TDB.TableRecordCount(dbIndex, "COCH"); j++)
+                    for(int j = 0; j < GetTableRecCount("COCH"); j++)
                     {
                         if(GetDBValue("COCH", "TGID", j) == Convert.ToString(TGID))
                         {

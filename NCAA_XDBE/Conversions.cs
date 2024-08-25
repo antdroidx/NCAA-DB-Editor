@@ -331,7 +331,7 @@ namespace DB_EDITOR
         private int FindPGIDRecord(int PGID)
         {
             int rec = -1;
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "PLAY"); i++)
+            for (int i = 0; i < GetTableRecCount("PLAY"); i++)
             {
                 if (GetDBValueInt("PLAY", "PGID", i) == PGID) return i;
             }
@@ -685,7 +685,7 @@ namespace DB_EDITOR
 
         private int FindRecNumberCCID(int CCID)
         {
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "COCH"); i++)
+            for (int i = 0; i < GetTableRecCount("COCH"); i++)
             {
                 if (CCID == Convert.ToInt32(GetDBValue("COCH", "CCID", i)))
                 {
@@ -697,7 +697,7 @@ namespace DB_EDITOR
         }
         private int FindCOCHRecordfromTeamTGID(int tgid)
         {
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "COCH"); i++)
+            for (int i = 0; i < GetTableRecCount("COCH"); i++)
             {
                 if (tgid == Convert.ToInt32(GetDBValue("COCH", "TGID", i)))
                 {
@@ -818,7 +818,7 @@ namespace DB_EDITOR
         private int FindTeamPrestige(int TGID)
         {
             int TMPR = 0;
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "TEAM"); i++)
+            for (int i = 0; i < GetTableRecCount("TEAM"); i++)
             {
                 if (TGID == Convert.ToInt32(GetDBValue("TEAM", "TGID", i)))
                 {
@@ -831,7 +831,7 @@ namespace DB_EDITOR
         private int FindTeamRanking(int TGID)
         {
             int TCRK = 0;
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "TEAM"); i++)
+            for (int i = 0; i < GetTableRecCount("TEAM"); i++)
             {
                 if (TGID == Convert.ToInt32(GetDBValue("TEAM", "TGID", i)))
                 {
@@ -859,7 +859,7 @@ namespace DB_EDITOR
 
         private int GetTeamCONFrecID(int cgid)
         {
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "CONF"); i++)
+            for (int i = 0; i < GetTableRecCount("CONF"); i++)
             {
                 if (Convert.ToInt32(GetDBValue("CONF", "CGID", i)) == cgid)
                 {
@@ -892,7 +892,7 @@ namespace DB_EDITOR
             int stateID = -1;
             string SGID = GetDBValue("TEAM", "SGID", rec);
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "STAD"); i++)
+            for (int i = 0; i < GetTableRecCount("STAD"); i++)
             {
                 if (SGID == GetDBValue("STAD", "SGID", i))
                 {
@@ -924,7 +924,7 @@ namespace DB_EDITOR
         {
             int sgid = GetDBValueInt("TEAM", "SGID", tmRec);
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "STAD"); i++)
+            for (int i = 0; i < GetTableRecCount("STAD"); i++)
             {
                 if (GetDBValueInt("STAD", "SGID", i) == sgid)
                 {
@@ -982,7 +982,7 @@ namespace DB_EDITOR
 
         private int GetConfPrestigeFromCGID(int cgid)
         {
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "CONF"); i++)
+            for (int i = 0; i < GetTableRecCount("CONF"); i++)
             {
                 if (Convert.ToInt32(GetDBValue("CONF", "CGID", i)) == cgid)
                 {
@@ -995,7 +995,7 @@ namespace DB_EDITOR
 
         private string GetConfNameFromCGID(int cgid)
         {
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "CONF"); i++)
+            for (int i = 0; i < GetTableRecCount("CONF"); i++)
             {
                 if (Convert.ToInt32(GetDBValue("CONF", "CGID", i)) == cgid)
                 {
@@ -1008,7 +1008,7 @@ namespace DB_EDITOR
 
         private string GetDivisionNamefromDGID(int dgid)
         {
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "DIVI"); i++)
+            for (int i = 0; i < GetTableRecCount("DIVI"); i++)
             {
                 if (Convert.ToInt32(GetDBValue("DIVI", "DGID", i)) == dgid)
                 {
@@ -1027,6 +1027,15 @@ namespace DB_EDITOR
             else return "";
         }
 
+        private int GetCONFrecFromCNAM(string cnam)
+        {
+            for(int i = 0; i < GetTableRecCount("CONF"); i++)
+            {
+                if (GetDBValue("CONF", "CNAM", i) == cnam) return i;
+            }
+
+            return -1;
+        }
         #endregion
 
 
@@ -1222,7 +1231,10 @@ namespace DB_EDITOR
             return TDB.TDBFieldGetValueAsInteger(dbIndex, table, field, rec);
         }
 
-
+        private int GetTableRecCount(string table)
+        {
+            return TDB.TableRecordCount(dbIndex, table);
+        }
 
         #endregion
     }

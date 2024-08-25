@@ -2141,7 +2141,7 @@ namespace DB_EDITOR
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(137, 33);
+            this.label7.Location = new System.Drawing.Point(104, 33);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(62, 13);
             this.label7.TabIndex = 9;
@@ -2150,9 +2150,9 @@ namespace DB_EDITOR
             // CGIDcomboBox
             // 
             this.CGIDcomboBox.FormattingEnabled = true;
-            this.CGIDcomboBox.Location = new System.Drawing.Point(88, 49);
+            this.CGIDcomboBox.Location = new System.Drawing.Point(64, 49);
             this.CGIDcomboBox.Name = "CGIDcomboBox";
-            this.CGIDcomboBox.Size = new System.Drawing.Size(111, 21);
+            this.CGIDcomboBox.Size = new System.Drawing.Size(102, 21);
             this.CGIDcomboBox.TabIndex = 8;
             this.CGIDcomboBox.SelectedIndexChanged += new System.EventHandler(this.CGIDcomboBox_SelectedIndexChanged);
             // 
@@ -2170,7 +2170,7 @@ namespace DB_EDITOR
             this.LGIDcomboBox.FormattingEnabled = true;
             this.LGIDcomboBox.Location = new System.Drawing.Point(7, 49);
             this.LGIDcomboBox.Name = "LGIDcomboBox";
-            this.LGIDcomboBox.Size = new System.Drawing.Size(75, 21);
+            this.LGIDcomboBox.Size = new System.Drawing.Size(51, 21);
             this.LGIDcomboBox.TabIndex = 6;
             this.LGIDcomboBox.SelectedIndexChanged += new System.EventHandler(this.LGIDcomboBox_SelectedIndexChanged);
             // 
@@ -2179,7 +2179,7 @@ namespace DB_EDITOR
             this.TGIDlistBox.FormattingEnabled = true;
             this.TGIDlistBox.Location = new System.Drawing.Point(7, 76);
             this.TGIDlistBox.Name = "TGIDlistBox";
-            this.TGIDlistBox.Size = new System.Drawing.Size(192, 524);
+            this.TGIDlistBox.Size = new System.Drawing.Size(159, 524);
             this.TGIDlistBox.TabIndex = 0;
             this.TGIDlistBox.SelectedIndexChanged += new System.EventHandler(this.TGIDlistBox_SelectedIndexChanged);
             // 
@@ -2370,6 +2370,7 @@ namespace DB_EDITOR
             0,
             0,
             0});
+            this.PWGTBox.ValueChanged += new System.EventHandler(this.PWGTBox_ValueChanged);
             // 
             // label90
             // 
@@ -2393,6 +2394,7 @@ namespace DB_EDITOR
             this.PHGTBox.Size = new System.Drawing.Size(57, 20);
             this.PHGTBox.TabIndex = 83;
             this.PHGTBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.PHGTBox.ValueChanged += new System.EventHandler(this.PHGTBox_ValueChanged);
             // 
             // label88
             // 
@@ -3184,7 +3186,7 @@ namespace DB_EDITOR
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(118, 39);
+            this.label4.Location = new System.Drawing.Point(106, 39);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(64, 13);
             this.label4.TabIndex = 7;
@@ -3204,7 +3206,7 @@ namespace DB_EDITOR
             this.TGIDplayerBox.FormattingEnabled = true;
             this.TGIDplayerBox.Location = new System.Drawing.Point(12, 55);
             this.TGIDplayerBox.Name = "TGIDplayerBox";
-            this.TGIDplayerBox.Size = new System.Drawing.Size(192, 21);
+            this.TGIDplayerBox.Size = new System.Drawing.Size(158, 21);
             this.TGIDplayerBox.TabIndex = 5;
             this.TGIDplayerBox.SelectedIndexChanged += new System.EventHandler(this.TGIDplayerBox_SelectedIndexChanged);
             // 
@@ -3215,7 +3217,7 @@ namespace DB_EDITOR
             this.PGIDlistBox.FormattingEnabled = true;
             this.PGIDlistBox.Location = new System.Drawing.Point(12, 82);
             this.PGIDlistBox.Name = "PGIDlistBox";
-            this.PGIDlistBox.Size = new System.Drawing.Size(192, 537);
+            this.PGIDlistBox.Size = new System.Drawing.Size(158, 537);
             this.PGIDlistBox.TabIndex = 4;
             this.PGIDlistBox.SelectedIndexChanged += new System.EventHandler(this.PGIDlistBox_SelectedIndexChanged);
             // 

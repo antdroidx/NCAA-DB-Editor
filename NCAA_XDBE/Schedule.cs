@@ -24,7 +24,7 @@ namespace DB_EDITOR
             OutOfConferenceScheduling();
 
             //Pick a Conference & Schedule Games (Weeks 5-15) -- 9 games
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "CONF"); i++)
+            for (int i = 0; i < GetTableRecCount("CONF"); i++)
             {
                 if (TDB.FieldValue(dbIndex, "CONF", "LGID", i) == "0")
                 {
@@ -37,7 +37,7 @@ namespace DB_EDITOR
 
         private void ClearRegularSeasonSchedule()
         {
-            for(int i = 0; i < TDB.TableRecordCount(dbIndex, "SCHD"); i++)
+            for(int i = 0; i < GetTableRecCount("SCHD"); i++)
             {
                 if(Convert.ToInt32(TDB.FieldValue(dbIndex,"SCHD", "SEWN", i)) > 16)
                 {
@@ -52,7 +52,7 @@ namespace DB_EDITOR
             List<string> teamList = new List<string>();
             string CGID = TDB.FieldValue(dbIndex, "CONF", "CGID", ConfRec);
 
-            for (int x = 0; x < TDB.TableRecordCount(dbIndex, "TEAM"); x++)
+            for (int x = 0; x < GetTableRecCount("TEAM"); x++)
             {
                 if (TDB.FieldValue(dbIndex, "TEAM", "CGID", x) == CGID)
                 {
@@ -83,13 +83,13 @@ namespace DB_EDITOR
 
         private void CheckLeagueSetupForScheduling()
         {
-            if (Convert.ToInt32(TDB.TableRecordCount(dbIndex, "DIVI")) > 0)
+            if (Convert.ToInt32(GetTableRecCount("DIVI")) > 0)
             {
                 ScheduleError();
                 return;
             }
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "CONF"); i++)
+            for (int i = 0; i < GetTableRecCount("CONF"); i++)
             {
                 if (TDB.FieldValue(dbIndex, "CONF", "LGID", i) == "0")
                 {
@@ -107,7 +107,7 @@ namespace DB_EDITOR
             }
 
             int count = 0;
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "TEAM"); i++)
+            for (int i = 0; i < GetTableRecCount("TEAM"); i++)
             {
                 if (TDB.FieldValue(dbIndex, "TEAM", "TTYP", i) == "0")
                 {
@@ -126,7 +126,7 @@ namespace DB_EDITOR
         {
             string CGID = TDB.FieldValue(dbIndex, "CONF", "CGID", i);
             double count = 0;
-            for(int x = 0; x < TDB.TableRecordCount(dbIndex, "TEAM"); x++)
+            for(int x = 0; x < GetTableRecCount("TEAM"); x++)
             {
                 if(TDB.FieldValue(dbIndex, "TEAM", "CGID", x) == CGID)
                 {

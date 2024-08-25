@@ -43,10 +43,10 @@ namespace DB_EDITOR
 
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
-            progressBar1.Maximum = TDB.TableRecordCount(dbIndex, tableName);
+            progressBar1.Maximum = GetTableRecCount(tableName);
             progressBar1.Step = 1;
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, tableName); i++)
+            for (int i = 0; i < GetTableRecCount(tableName); i++)
             {
                 double bmi = (double)Math.Round(Convert.ToDouble(GetDBValue(tableName, "PWGT", i)) / Convert.ToDouble(GetDBValue(tableName, "PHGT", i)), 2);
 
@@ -69,15 +69,55 @@ namespace DB_EDITOR
             MessageBox.Show("Body Model updates are complete!");
         }
 
+        private void RecalculateIndividualBMI(int rec)
+        {
+            string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string csvLocation = Path.Combine(executableLocation, @"resources\BMI-Calc.csv");
+
+            string filePath = csvLocation;
+            StreamReader sr = new StreamReader(filePath);
+            string[,] strArray = null;
+            int Row = 0;
+            while (!sr.EndOfStream)
+            {
+                string[] Line = sr.ReadLine().Split(',');
+                if (Row == 0)
+                {
+                    strArray = new string[432, Line.Length];
+                }
+                for (int column = 0; column < Line.Length; column++)
+                {
+                    strArray[Row, column] = Line[column];
+                }
+                Row++;
+            }
+            sr.Close();
+
+
+
+            double bmi = (double)Math.Round(Convert.ToDouble(GetDBValue("PLAY", "PWGT", rec)) / Convert.ToDouble(GetDBValue("PLAY", "PHGT", rec)), 2);
+            for (int j = 0; j < 401; j++)
+            {
+                if (Convert.ToString(bmi) == strArray[j, 0])
+                {
+                    ChangeDBString("PLAY", "PFSH", rec, strArray[j, 1]);
+                    ChangeDBString("PLAY", "PMSH", rec, strArray[j, 2]);
+                    ChangeDBString("PLAY", "PSSH", rec, strArray[j, 3]);
+                    break;
+                }
+            }
+
+        }
+
         //Increases minium speed for skill positions to 80
         private void IncreaseMinimumSpeed()
         {
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
-            progressBar1.Maximum = TDB.TableRecordCount(dbIndex, "PLAY");
+            progressBar1.Maximum = GetTableRecCount("PLAY");
             progressBar1.Step = 1;
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "PLAY"); i++)
+            for (int i = 0; i < GetTableRecCount("PLAY"); i++)
             {
                 if (GetDBValue("PLAY", "PPOS", i) == "1" || GetDBValue("PLAY", "PPOS", i) == "3"
                     || GetDBValue("PLAY", "PPOS", i) == "16" || GetDBValue("PLAY", "PPOS", i) == "17" || GetDBValue("PLAY", "PPOS", i) == "18")
@@ -100,7 +140,7 @@ namespace DB_EDITOR
         {
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
-            progressBar1.Maximum = TDB.TableRecordCount(dbIndex, "PLAY");
+            progressBar1.Maximum = GetTableRecCount("PLAY");
             progressBar1.Step = 1;
 
             int pocket = 0;
@@ -108,7 +148,7 @@ namespace DB_EDITOR
             int scrambler = 0;
 
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "PLAY"); i++)
+            for (int i = 0; i < GetTableRecCount("PLAY"); i++)
             {
                 if (GetDBValue("PLAY", "PPOS", i) == "0")
                 {
@@ -145,10 +185,10 @@ namespace DB_EDITOR
         {
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
-            progressBar1.Maximum = TDB.TableRecordCount(dbIndex, "PLAY");
+            progressBar1.Maximum = GetTableRecCount("PLAY");
             progressBar1.Step = 1;
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "PLAY"); i++)
+            for (int i = 0; i < GetTableRecCount("PLAY"); i++)
             {
                 int x = rand.Next(0, 32);
 
@@ -167,10 +207,10 @@ namespace DB_EDITOR
         {
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
-            progressBar1.Maximum = TDB.TableRecordCount(dbIndex, "PLAY");
+            progressBar1.Maximum = GetTableRecCount("PLAY");
             progressBar1.Step = 1;
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "PLAY"); i++)
+            for (int i = 0; i < GetTableRecCount("PLAY"); i++)
             {
                 RecalculateOverallByRec(i);
 
@@ -187,11 +227,11 @@ namespace DB_EDITOR
         {
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
-            progressBar1.Maximum = TDB.TableRecordCount(dbIndex, "COCH");
+            progressBar1.Maximum = GetTableRecCount("COCH");
             progressBar1.Step = 1;
             progressBar1.Value = 0;
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "COCH"); i++)
+            for (int i = 0; i < GetTableRecCount("COCH"); i++)
             {
                 if (GetDBValueInt("COCH", "TGID", i) == 511)
                 {
@@ -214,14 +254,14 @@ namespace DB_EDITOR
 
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
-            progressBar1.Maximum = TDB.TableRecordCount(dbIndex, tableName);
+            progressBar1.Maximum = GetTableRecCount(tableName);
             progressBar1.Step = 1;
 
 
             int rating, count;
             int bonus = 2;
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, tableName); i++)
+            for (int i = 0; i < GetTableRecCount(tableName); i++)
             {
                 if (TDYN || GetDBValueInt(tableName, "TTYP", i) == 0)
                 {
@@ -231,7 +271,7 @@ namespace DB_EDITOR
                     count = 0;
                     List<List<int>> roster = new List<List<int>>();
 
-                    for (int j = 0; j < TDB.TableRecordCount(dbIndex, "PLAY"); j++)
+                    for (int j = 0; j < GetTableRecCount("PLAY"); j++)
                     {
                         int PGID = GetDBValueInt("PLAY", "PGID", j);
 
@@ -438,10 +478,10 @@ namespace DB_EDITOR
         {
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
-            progressBar1.Maximum = TDB.TableRecordCount(dbIndex, "TEAM");
+            progressBar1.Maximum = GetTableRecCount("TEAM");
             progressBar1.Step = 1;
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "TEAM"); i++)
+            for (int i = 0; i < GetTableRecCount("TEAM"); i++)
             {
                 int TGID = GetDBValueInt("TEAM", "TGID", i);
                 int PGIDbeg = TGID * 70;
@@ -449,7 +489,7 @@ namespace DB_EDITOR
                 int count = 0;
                 List<List<int>> roster = new List<List<int>>();
 
-                for (int j = 0; j < TDB.TableRecordCount(dbIndex, "PLAY"); j++)
+                for (int j = 0; j < GetTableRecCount("PLAY"); j++)
                 {
                     int PGID = GetDBValueInt("PLAY", "PGID", j);
 
@@ -539,13 +579,13 @@ namespace DB_EDITOR
             //Setup Progress bar
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
-            progressBar1.Maximum = TDB.TableRecordCount(dbIndex, tableName);
+            progressBar1.Maximum = GetTableRecCount(tableName);
             progressBar1.Step = 1;
             progressBar1.Value = 0;
 
 
             //Clear PLAY Table
-            for (int i = TDB.TableRecordCount(dbIndex, "PLAY"); i != -1; i--)
+            for (int i = GetTableRecCount("PLAY"); i != -1; i--)
             {
                 TDB.TDBTableRecordRemove(dbIndex, "PLAY", i);
             }
@@ -565,7 +605,7 @@ namespace DB_EDITOR
             //RCAT.Sort((player1, player2) => player2[45].CompareTo(player1[45]));
 
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, tableName); i++)
+            for (int i = 0; i < GetTableRecCount(tableName); i++)
             {
                 if (TDYN || GetDBValueInt(tableName, "TTYP", i) == 0)
                 {
@@ -872,11 +912,11 @@ namespace DB_EDITOR
         {
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
-            progressBar1.Maximum = TDB.TableRecordCount(dbIndex, tableName);
+            progressBar1.Maximum = GetTableRecCount(tableName);
             progressBar1.Step = 1;
 
             //clear DCHT
-            for (int i = TDB.TableRecordCount(dbIndex, "DCHT"); i != -1; i--)
+            for (int i = GetTableRecCount("DCHT"); i != -1; i--)
             {
                 TDB.TDBTableRecordRemove(dbIndex, "DCHT", i);
             }
@@ -885,7 +925,7 @@ namespace DB_EDITOR
             int count;
             int rec = 0;
 
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "tableName"); i++)
+            for (int i = 0; i < GetTableRecCount("tableName"); i++)
             {
                 if (TDYN || GetDBValueInt(tableName, "TTYP", i) == 0)
                 {
@@ -895,7 +935,7 @@ namespace DB_EDITOR
                     count = 0;
                     List<List<int>> roster = new List<List<int>>();
 
-                    for (int j = 0; j < TDB.TableRecordCount(dbIndex, "PLAY"); j++)
+                    for (int j = 0; j < GetTableRecCount("PLAY"); j++)
                     {
                         int PGID = GetDBValueInt("PLAY", "PGID", j);
 
@@ -1024,7 +1064,7 @@ namespace DB_EDITOR
 
         private bool IsStarter(int pgid)
         {
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "DCHT"); i++)
+            for (int i = 0; i < GetTableRecCount("DCHT"); i++)
             {
                 if (GetDBValueInt("DCHT", "PGID", i) == pgid && GetDBValueInt("DCHT", "ddep", i) == 0) return true;
             }
@@ -1053,14 +1093,14 @@ namespace DB_EDITOR
             TDB.TDBTableGetProperties(dbIndex, SelectedTableIndex, ref TableProps);
 
 
-            int recCounter = TDB.TableRecordCount(dbIndex, "PLAY");
+            int recCounter = GetTableRecCount("PLAY");
             int maxRecords = TableProps.Capacity;
             int created = 0;
 
             //Create a list of PGIDs in the database
 
             List<int> rosters = new List<int>();
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "PLAY"); i++)
+            for (int i = 0; i < GetTableRecCount("PLAY"); i++)
             {
                 rosters.Add(GetDBValueInt("PLAY", "PGID", i));
             }
@@ -1069,12 +1109,12 @@ namespace DB_EDITOR
             //Setup Progress bar
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
-            progressBar1.Maximum = TDB.TableRecordCount(dbIndex, tableName);
+            progressBar1.Maximum = GetTableRecCount(tableName);
             progressBar1.Step = 1;
             progressBar1.Value = 0;
 
             //Go through each team and find missing PGID
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, tableName); i++)
+            for (int i = 0; i < GetTableRecCount(tableName); i++)
             {
                 if (TDYN || GetDBValueInt(tableName, "TTYP", i) == 0)
                 {
@@ -1089,7 +1129,7 @@ namespace DB_EDITOR
                             List<int> POSG = new List<int> { 3, 5, 6, 3, 12, 12, 7, 11, 2, 1 };
                             List<int> TeamPos = new List<int> { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
-                            for (int k = 0; k < TDB.TableRecordCount(dbIndex, "PLAY"); k++)
+                            for (int k = 0; k < GetTableRecCount("PLAY"); k++)
                             {
                                 int pgid = GetDBValueInt("PLAY", "PGID", k);
                                 if (pgid >= pgidSTART && pgid < pgidEND)
@@ -1138,7 +1178,7 @@ namespace DB_EDITOR
                     List<List<int>> Diff = new List<List<int>>();
                     List<List<int>> list = new List<List<int>>();
                     int rowx = 0;
-                    for (int k = 0; k < TDB.TableRecordCount(dbIndex, "PLAY"); k++)
+                    for (int k = 0; k < GetTableRecCount("PLAY"); k++)
                     {
                         int pgid = GetDBValueInt("PLAY", "PGID", k);
                         if (pgid >= pgidSTART && pgid < pgidEND)
@@ -1266,7 +1306,7 @@ namespace DB_EDITOR
             //Setup Progress bar
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
-            progressBar1.Maximum = TDB.TableRecordCount(dbIndex, "TDYN");
+            progressBar1.Maximum = GetTableRecCount("TDYN");
             progressBar1.Step = 1;
             progressBar1.Value = 0;
 
@@ -1282,7 +1322,7 @@ namespace DB_EDITOR
             wText.WriteLine("Team Name,Pos,Name,Overall,No.,Awareness,Speed,Quickness,Power,Hands,Blocking,Tackling,QB Range,Kick Range,Kick Accuracy,Weight");
 
             //Get Roster Lists
-            for (int i = 0; i < TDB.TableRecordCount(dbIndex, "TDYN"); i++)
+            for (int i = 0; i < GetTableRecCount("TDYN"); i++)
             {
                 int TOID = GetDBValueInt("TDYN", "TOID", i);
 
@@ -1293,7 +1333,7 @@ namespace DB_EDITOR
                     int row = 0;
                     roster.Clear();
 
-                    for (int j = 0; j < TDB.TableRecordCount(dbIndex, "PLAY"); j++)
+                    for (int j = 0; j < GetTableRecCount("PLAY"); j++)
                     {
                         int PGID = GetDBValueInt("PLAY", "PGID", j);
 
