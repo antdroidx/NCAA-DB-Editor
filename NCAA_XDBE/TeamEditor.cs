@@ -19,7 +19,7 @@ namespace DB_EDITOR
         {
             string tmpVal = "";
 
-            tmpManagement.Clear();
+            ReorderedTableData.Clear();
 
             TdbTableProperties TableProps = new TdbTableProperties();
             TableProps.Name = new string((char)0, 5);
@@ -93,7 +93,7 @@ namespace DB_EDITOR
                             tmpVal = "NA";
 
                         }
-                        tmpManagement.Add(r, Convert.ToInt32(tmpVal));
+                        ReorderedTableData.Add(r, Convert.ToInt32(tmpVal));
                         break;
                     }
                     #endregion
@@ -106,28 +106,28 @@ namespace DB_EDITOR
 
         public void StartTeamEditor(int tmpDB)
         {
-            List<int> tmpCGID = new List<int>();
+            List<int> cgidList = new List<int>();
 
             var tmpList = new Dictionary<int, int>();
             tmpList.Clear();
             TGIDrecNo.Clear();
 
             progressBar1.Minimum = 0;
-            progressBar1.Maximum = tmpManagement.Count;
+            progressBar1.Maximum = ReorderedTableData.Count;
             progressBar1.Step = 1;
 
             // TORD
-            foreach (KeyValuePair<int, int> TGID in tmpManagement.OrderBy(key => key.Value))
+            foreach (KeyValuePair<int, int> TGID in ReorderedTableData.OrderBy(key => key.Value))
             {
                 progressBar1.PerformStep();
                 TGIDrecNo.Add(TGID.Key, Convert.ToInt32(TDB.FieldValue(tmpDB, "TEAM", "TGID", TGID.Key)));
 
                 if (TDB.TableIndex(dbIndex, "CONF") == -1)
-                    tmpCGID.Add(Convert.ToInt32(TDB.FieldValue(tmpDB, "TEAM", "CGID", TGID.Key)));
+                    cgidList.Add(Convert.ToInt32(TDB.FieldValue(tmpDB, "TEAM", "CGID", TGID.Key)));
 
             }
             progressBar1.Value = 0;
-            tmpCGID.Sort();
+            cgidList.Sort();
 
             if (TDB.TableIndex(dbIndex, "CONF") == -1)
             {
@@ -146,9 +146,9 @@ namespace DB_EDITOR
             // CGID
             CGIDcomboBox.Items.Clear();
             CONFlist.Clear();
-            for (int i = 0; i < tmpCGID.Count; i++)
+            for (int i = 0; i < cgidList.Count; i++)
             {
-                tmpList.AddSafe(tmpCGID[i], 0);
+                tmpList.AddSafe(cgidList[i], 0);
             }
 
             int tmpSelectedIndex = -1;
@@ -161,11 +161,11 @@ namespace DB_EDITOR
             }
 
             tmpList.Clear();
-            tmpCGID.Clear();
+            cgidList.Clear();
             #endregion
 
 
-            tmpManagement.Clear();
+            ReorderedTableData.Clear();
 
             CreateTeamColorPalettes();
         }
@@ -223,7 +223,7 @@ namespace DB_EDITOR
             CGIDcomboBox.Items.Clear();
 
             int tmpSelectedIndex = -1;
-            foreach (KeyValuePair<int, int> CGID in tmpManagement.OrderBy(key => key.Value))
+            foreach (KeyValuePair<int, int> CGID in ReorderedTableData.OrderBy(key => key.Value))
             {
                 tmpSelectedIndex = tmpSelectedIndex + 1;
                 CONFrecNo.Add(CGID.Key, CGID.Value);
@@ -236,7 +236,7 @@ namespace DB_EDITOR
 
                 CGIDcomboBox.Items.Add(tmpVal);
             }
-            tmpManagement.Clear();
+            ReorderedTableData.Clear();
         }
         public void LGIDcomboBox_SelectedIndexChanged(object sender, EventArgs e)
         {

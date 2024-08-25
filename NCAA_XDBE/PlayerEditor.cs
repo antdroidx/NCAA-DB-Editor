@@ -23,7 +23,7 @@ namespace DB_EDITOR
 
 
             progressBar1.Minimum = 0;
-            progressBar1.Maximum = tmpManagement.Count;
+            progressBar1.Maximum = ReorderedTableData.Count;
             progressBar1.Step = 1;
 
             if (TDB.TableIndex(dbIndex, "TEAM") == -1)
@@ -33,7 +33,7 @@ namespace DB_EDITOR
                 TGIDrecNo.Clear();
             }
 
-            foreach (KeyValuePair<int, int> PGID in tmpManagement.OrderByDescending(key => key.Value))
+            foreach (KeyValuePair<int, int> PGID in ReorderedTableData.OrderByDescending(key => key.Value))
             {
                 progressBar1.PerformStep();
 
@@ -68,7 +68,7 @@ namespace DB_EDITOR
 
             TGIDd.Clear();
 
-            tmpManagement.Clear();
+            ReorderedTableData.Clear();
         }
         public void LoadPGIDlistBox(int tmpDBindex, int tmpTGID)
         {
@@ -126,8 +126,6 @@ namespace DB_EDITOR
 
             LoadPlayerData();
         }
-
-
 
         public void LoadPlayerData()
         {

@@ -71,7 +71,7 @@ namespace DB_EDITOR
         Dictionary<string, int> ctFieldsID = new Dictionary<string, int>();
 
         // 
-        Dictionary<int, int> tmpManagement = new Dictionary<int, int>();
+        Dictionary<int, int> ReorderedTableData = new Dictionary<int, int>();
 
         Dictionary<int, int> TGIDrecNo = new Dictionary<int, int>();  //  RecNo/TGID
         Dictionary<int, int> TGIDlist = new Dictionary<int, int>();   //  SelectedIndex/Recno
@@ -1915,7 +1915,7 @@ namespace DB_EDITOR
                     Management(dbIndex, "PLAY", "POVR");  //Load players by their overall.
                     StartPlayerEditor();
                 }
-                LoadTGIDlistBox(dbIndex, "TTYP", 0);  // -1 = to all teams.
+                //LoadTGIDlistBox(dbIndex, "TTYP", 0);  // -1 = to all teams.
             }
 
         }
