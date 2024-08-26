@@ -1109,5 +1109,22 @@ namespace DB_EDITOR
 
         }
 
+        //Death Penalty Mode
+        private void DeathPenaltyButton_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("The DEATH PENALTY will remove all players from the team and give a 2 year sanction period. Are you sure you want to do this?", "The Death Penalty", MessageBoxButtons.OKCancel);
+            if (result == DialogResult.OK)
+            {
+                ClearTeamPlayers(GetDBValueInt("TEAM", "TGID", TeamIndex));
+                ClearOldTeamStats(GetDBValueInt("TEAM", "TGID", TeamIndex));
+                ChangeDBInt("TEAM", "SDUR", TeamIndex, 2);
+                ChangeDBInt("TEAM", "SNCT", TeamIndex, 4);
+                ChangeDBInt("TEAM", "INPO", TeamIndex, 0);
+                MessageBox.Show(GetDBValue("TEAM", "TDNA", TeamIndex) + " has been hit with the Death Penalty!");
+                GetTeamEditorData(TeamIndex);
+            }
+
+        }
+
     }
 }

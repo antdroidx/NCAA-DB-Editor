@@ -203,9 +203,10 @@ This changes recruits from Hawaii and western states to have polynesian surnames
 * Auto-Set Depth Chart - Creates a depth chart based on position ratings</value>
   </data>
   <data name="textBox6.Text" xml:space="preserve">
-    <value>Development Tools Only
+    <value>Development Tools Only -- NEXT 25 ONLY --
 
-This is for Roster Generation with internal imported spreadsheets. Recommend to avoid this unless you know what you're doing.
+
+This is for Roster Generation with internal imported spreadsheets. Recommend to avoid this unless you know what you're doing. 
 
 To Begin, Open a Roster Save and Load PLAY table. Then Import the 2024-PLAY-BASE.csv from the 2024-Roster-Base folder using DB Editor. 
 

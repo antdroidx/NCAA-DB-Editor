@@ -1964,7 +1964,10 @@ namespace DB_EDITOR
             else if (TEAM)
                 FillRosters("TEAM", Convert.ToInt32(FillRosterPCT.Value));
         }
-
+        private void TORDButton_Click(object sender, EventArgs e)
+        {
+            ReorderTORD();
+        }
 
         #endregion
 
@@ -2151,7 +2154,6 @@ namespace DB_EDITOR
         {
             DepthChartMaker("TDYN");
         }
-
 
         private void DevRandomizeFaceButton_Click(object sender, EventArgs e)
         {

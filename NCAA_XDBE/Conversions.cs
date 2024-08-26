@@ -949,7 +949,34 @@ namespace DB_EDITOR
             return tgid;
         }
 
+        private void ReorderTORD()
+        {
+            List<List<string>> teamList = new List<List<string>>();
+            int row = 0;
+            for (int i = 0; i < GetTableRecCount("TEAM"); i++)
+            {
+                teamList.Add(new List<string>());
+                string team = GetDBValue("TEAM", "TDNA", i);
+                if (GetDBValueInt("COCH", "CFUC", GetCOCHrecFromTeamRec(i)) == 1)
+                {
+                    team = "_" + team;
+                }
+                teamList[row].Add(team);
+                teamList[row].Add(Convert.ToString(i));
+                row++;
+            }
 
+            teamList.Sort((team1, team2) => team1[0].CompareTo(team2[0]));
+
+            int tord = 0;
+            for (int i = 0; i < teamList.Count; i++)
+            {
+                ChangeDBInt("TEAM", "TORD", Convert.ToInt32(teamList[i][1]), tord);
+                tord++;
+            }
+
+
+        }
 
         #endregion
 

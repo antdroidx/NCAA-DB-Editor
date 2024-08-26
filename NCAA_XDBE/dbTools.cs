@@ -601,10 +601,6 @@ namespace DB_EDITOR
 
             int rec = 0;
 
-            //sort RCAT by positions
-            //RCAT.Sort((player1, player2) => player2[45].CompareTo(player1[45]));
-
-
             for (int i = 0; i < GetTableRecCount(tableName); i++)
             {
                 if (TDYN || GetDBValueInt(tableName, "TTYP", i) == 0)
@@ -824,12 +820,12 @@ namespace DB_EDITOR
 
             PBRE = rand.Next(0, 2);
             PEYE = rand.Next(0, 2);
-            //PHGT += rand.Next(-1, 2);
-            //PWGT += rand.Next(-8, 9);
-            //if (PWGT < 0) PWGT = 0;
-            //if (PWGT > 340) PWGT = 340;
-            //if (PHGT > 82) PHGT = 82;
-            //if (PHGT < 0) PHGT = 0;
+            PHGT += rand.Next(0, 0);
+            PWGT += rand.Next(-8, 9);
+            if (PWGT < 0) PWGT = 0;
+            if (PWGT > 340) PWGT = 340;
+            if (PHGT > 82) PHGT = 82;
+            if (PHGT < 0) PHGT = 0;
 
             PPOE = rand.Next(1, 30);
             PINJ = rand.Next(1, 30);
@@ -921,6 +917,7 @@ namespace DB_EDITOR
                 TDB.TDBTableRecordRemove(dbIndex, "DCHT", i);
             }
 
+            TDB.TDBDatabaseCompact(dbIndex);
 
             int count;
             int rec = 0;

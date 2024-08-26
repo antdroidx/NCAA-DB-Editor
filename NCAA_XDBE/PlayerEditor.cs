@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace DB_EDITOR
 {
@@ -15,7 +16,7 @@ namespace DB_EDITOR
 
         public void StartPlayerEditor()
         {
-            
+
             LoadPlayerTGIDBox();
 
         }
@@ -97,11 +98,20 @@ namespace DB_EDITOR
             }
 
             PlayerEditorList.Sort((player1, player2) => player1[0].CompareTo(player2[0]));
+            if (ShowPosCheckBox.Checked) PlayerEditorList.Sort((player1, player2) => Convert.ToInt32(player1[2]).CompareTo(Convert.ToInt32(player2[2])));
+            if (ShowRatingCheckbox.Checked) PlayerEditorList.Sort((player1, player2) => Convert.ToInt32(player2[3]).CompareTo(Convert.ToInt32(player1[3])));
 
             PGIDlistBox.Items.Clear();
             foreach (var player in PlayerEditorList)
             {
-                PGIDlistBox.Items.Add(player[0] + " " + player[1]);
+                string text = "";
+                if (ShowPosCheckBox.Checked) text += "[" + Convert.ToString(Positions[Convert.ToInt32(player[2])]) + "] ";
+                text += player[0] + " " + player[1];
+                if (ShowRatingCheckbox.Checked) text += "  (" + Convert.ToString(ConvertRating(Convert.ToInt32(player[3]))) + ")";
+
+                PGIDlistBox.Items.Add(text);
+
+
             }
 
             RosterSizeLabel.Text = "Roster Size: " + Convert.ToString(PlayerEditorList.Count);
@@ -366,6 +376,17 @@ namespace DB_EDITOR
             LoadPGIDlistBox();
         }
 
+        private void ShowRatingCheckbox_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadPGIDlistBox();
+        }
+
+        private void ShowPosCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadPGIDlistBox();
+        }
+
+
         //Change Name
         public void PFNAtextBox_TextChanged(object sender, EventArgs e)
         {
@@ -501,7 +522,7 @@ namespace DB_EDITOR
                 return;
 
             ChangeDBInt("PLAY", "PPOE", PlayerIndex, Convert.ToInt32(PPOEBox.Value));
-            PIMPtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PPOE", PlayerIndex)));
+            PPOEtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PPOE", PlayerIndex)));
             DisplayNewOverallRating();
         }
 
@@ -511,7 +532,7 @@ namespace DB_EDITOR
                 return;
 
             ChangeDBInt("PLAY", "PINJ", PlayerIndex, Convert.ToInt32(PINJBox.Value));
-            PIMPtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PINJ", PlayerIndex)));
+            PINJtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PINJ", PlayerIndex)));
             DisplayNewOverallRating();
         }
 
@@ -521,7 +542,7 @@ namespace DB_EDITOR
                 return;
 
             ChangeDBInt("PLAY", "PAWR", PlayerIndex, Convert.ToInt32(PAWRBox.Value));
-            PIMPtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PAWR", PlayerIndex)));
+            PAWRtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PAWR", PlayerIndex)));
             DisplayNewOverallRating();
         }
 
@@ -532,7 +553,7 @@ namespace DB_EDITOR
                 return;
 
             ChangeDBInt("PLAY", "PSPD", PlayerIndex, Convert.ToInt32(PSPDBox.Value));
-            PIMPtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PSPD", PlayerIndex)));
+            PSPDtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PSPD", PlayerIndex)));
             DisplayNewOverallRating();
         }
 
@@ -542,7 +563,7 @@ namespace DB_EDITOR
                 return;
 
             ChangeDBInt("PLAY", "PAGI", PlayerIndex, Convert.ToInt32(PAGIBox.Value));
-            PIMPtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PAGI", PlayerIndex)));
+            PAGItext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PAGI", PlayerIndex)));
             DisplayNewOverallRating();
         }
         private void PACCBox_ValueChanged(object sender, EventArgs e)
@@ -551,7 +572,7 @@ namespace DB_EDITOR
                 return;
 
             ChangeDBInt("PLAY", "PACC", PlayerIndex, Convert.ToInt32(PACCBox.Value));
-            PIMPtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PACC", PlayerIndex)));
+            PACCtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PACC", PlayerIndex)));
             DisplayNewOverallRating();
         }
 
@@ -561,7 +582,7 @@ namespace DB_EDITOR
                 return;
 
             ChangeDBInt("PLAY", "PJMP", PlayerIndex, Convert.ToInt32(PJMPBox.Value));
-            PIMPtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PJMP", PlayerIndex)));
+            PJMPtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PJMP", PlayerIndex)));
             DisplayNewOverallRating();
         }
         private void PSTRBox_ValueChanged(object sender, EventArgs e)
@@ -570,7 +591,7 @@ namespace DB_EDITOR
                 return;
 
             ChangeDBInt("PLAY", "PSTR", PlayerIndex, Convert.ToInt32(PSTRBox.Value));
-            PIMPtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PSTR", PlayerIndex)));
+            PSTRtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PSTR", PlayerIndex)));
             DisplayNewOverallRating();
         }
 
@@ -580,7 +601,7 @@ namespace DB_EDITOR
                 return;
 
             ChangeDBInt("PLAY", "PTHP", PlayerIndex, Convert.ToInt32(PTHPBox.Value));
-            PIMPtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PTHP", PlayerIndex)));
+            PTHPtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PTHP", PlayerIndex)));
             DisplayNewOverallRating();
         }
 
@@ -590,7 +611,7 @@ namespace DB_EDITOR
                 return;
 
             ChangeDBInt("PLAY", "PTHA", PlayerIndex, Convert.ToInt32(PTHABox.Value));
-            PIMPtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PTHA", PlayerIndex)));
+            PTHAtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PTHA", PlayerIndex)));
             DisplayNewOverallRating();
         }
 
@@ -600,7 +621,7 @@ namespace DB_EDITOR
                 return;
 
             ChangeDBInt("PLAY", "PBTK", PlayerIndex, Convert.ToInt32(PBTKBox.Value));
-            PIMPtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PBTK", PlayerIndex)));
+            PBTKtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PBTK", PlayerIndex)));
             DisplayNewOverallRating();
         }
 
@@ -610,7 +631,7 @@ namespace DB_EDITOR
                 return;
 
             ChangeDBInt("PLAY", "PCAR", PlayerIndex, Convert.ToInt32(PCARBox.Value));
-            PIMPtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PCAR", PlayerIndex)));
+            PCARtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PCAR", PlayerIndex)));
             DisplayNewOverallRating();
         }
 
@@ -620,7 +641,7 @@ namespace DB_EDITOR
                 return;
 
             ChangeDBInt("PLAY", "PRBK", PlayerIndex, Convert.ToInt32(PRBKBox.Value));
-            PIMPtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PRBK", PlayerIndex)));
+            PRBKtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PRBK", PlayerIndex)));
             DisplayNewOverallRating();
         }
 
@@ -630,7 +651,7 @@ namespace DB_EDITOR
                 return;
 
             ChangeDBInt("PLAY", "PPBK", PlayerIndex, Convert.ToInt32(PPBKBox.Value));
-            PIMPtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PPBK", PlayerIndex)));
+            PPBKtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PPBK", PlayerIndex)));
             DisplayNewOverallRating();
         }
 
@@ -641,7 +662,7 @@ namespace DB_EDITOR
                 return;
 
             ChangeDBInt("PLAY", "PCTH", PlayerIndex, Convert.ToInt32(PCTHBox.Value));
-            PIMPtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PCTH", PlayerIndex)));
+            PCTHtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PCTH", PlayerIndex)));
             DisplayNewOverallRating();
         }
 
@@ -651,7 +672,7 @@ namespace DB_EDITOR
                 return;
 
             ChangeDBInt("PLAY", "PTAK", PlayerIndex, Convert.ToInt32(PTAKBox.Value));
-            PIMPtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PTAK", PlayerIndex)));
+            PTAKtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PTAK", PlayerIndex)));
             DisplayNewOverallRating();
         }
 
@@ -661,7 +682,7 @@ namespace DB_EDITOR
                 return;
 
             ChangeDBInt("PLAY", "PKPR", PlayerIndex, Convert.ToInt32(PKPRBox.Value));
-            PIMPtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PKPR", PlayerIndex)));
+            PKPRtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PKPR", PlayerIndex)));
             DisplayNewOverallRating();
         }
 
@@ -672,7 +693,7 @@ namespace DB_EDITOR
                 return;
 
             ChangeDBInt("PLAY", "PKAC", PlayerIndex, Convert.ToInt32(PKACBox.Value));
-            PIMPtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PKAC", PlayerIndex)));
+            PKACtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PKAC", PlayerIndex)));
             DisplayNewOverallRating();
         }
 

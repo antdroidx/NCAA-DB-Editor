@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -55,16 +56,17 @@ namespace DB_EDITOR
         //Clear and Setup Tab Page
         private void ConferenceSetup()
         {
-            if(GetDBValueInt("SEAI","SEWN", 0) > 0 && GetDBValueInt("SEAI", "SEWN", 0) < 22)
+            if (GetDBValueInt("SEAI", "SEWN", 0) > 0 && GetDBValueInt("SEAI", "SEWN", 0) < 22)
             {
-                MessageBox.Show("Please only make conference edits during pre-season, at end of season, or in off-season!");
+                MessageBox.Show("Please only make conference edits during pre-season, at end of season, or in off-season!\n\n\nFCS Swapping will only safely work at end of season or beginning of off-season!");
                 tabConf.Enabled = false;
-            } else
+            }
+            else
             {
                 tabConf.Enabled = true;
             }
 
-                List<CheckedListBox> confBoxes = GetConfBoxObjects();
+            List<CheckedListBox> confBoxes = GetConfBoxObjects();
             List<Label> confNames = GetConfNameLabels();
 
             foreach (var c in confBoxes)
@@ -104,6 +106,13 @@ namespace DB_EDITOR
                 confNames[i].Visible = false;
             }
 
+
+            FCSSwapListBox.Enabled = false;
+            SwapRosterBox.Enabled = false;
+            EnableFCSSwapBox.Enabled = false;
+            EnableFCSSwapBox.Checked = false;
+            if (GetDBValueInt("SEAI", "SEWN", 0) >= 22) EnableFCSSwapBox.Enabled = true;
+            AddFCSTeams();
         }
 
         //Add Teams to Conferences and Label the Conference
@@ -132,38 +141,101 @@ namespace DB_EDITOR
             int count = 0;
             foreach (var c in confBoxes)
             {
-                if(!c.Enabled) count++;
+                if (!c.Enabled) count++;
             }
 
-            if (count >= 2) 
+
+            if (count == 1 && EnableFCSSwapBox.Checked || count >= 2)
             {
                 foreach (var c in confBoxes)
                 {
-                    if(!c.Enabled)
+                    if (!c.Enabled)
                     {
-                        //c.Enabled = true;
                         teamsSelected += c.SelectedItem.ToString() + " ";
                     }
                     else c.Enabled = false;
                 }
 
                 SwapButton.Enabled = true;
+                if (count >= 2) EnableFCSSwapBox.Enabled = false;
+
+                if (EnableFCSSwapBox.Checked) teamsSelected += FCSSwapListBox.Text;
 
                 //MessageBox.Show(teamsSelected);
             }
-            
+
         }
+
+        private void EnableFCSSwapBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (EnableFCSSwapBox.Checked && SwapRosterBox.Enabled)
+            {
+                EnableFCSSwapBox.Checked = false;
+            }
+            else if (EnableFCSSwapBox.Checked)
+            {
+                FCSSwapListBox.Enabled = true;
+                SwapRosterBox.Enabled = true;
+                FCSSwapListBox.SelectedIndex = 0;
+                SwapRosterBox.SelectedIndex = 0;
+
+                List<CheckedListBox> confBoxes = GetConfBoxObjects();
+                string teamsSelected = "";
+
+                int count = 0;
+                foreach (var c in confBoxes)
+                {
+                    if (!c.Enabled) count++;
+                }
+
+
+                if (count == 1 && EnableFCSSwapBox.Checked || count >= 2)
+                {
+                    foreach (var c in confBoxes)
+                    {
+                        if (!c.Enabled)
+                        {
+                            teamsSelected += c.SelectedItem.ToString() + " ";
+                        }
+                        else c.Enabled = false;
+                    }
+
+                    SwapButton.Enabled = true;
+
+                    if (EnableFCSSwapBox.Checked) teamsSelected += FCSSwapListBox.Text;
+
+                    MessageBox.Show(teamsSelected);
+                }
+
+            }
+            else
+            {
+                FCSSwapListBox.Enabled = false;
+                SwapRosterBox.Enabled = false;
+                ConferenceSetup();
+            }
+
+        }
+        private void AddFCSTeams()
+        {
+            FCSSwapListBox.Items.Clear();
+            for (int i = 0; i < GetTableRecCount("TEAM"); i++)
+            {
+                if (GetDBValueInt("TEAM", "TTYP", i) == 1)
+                    FCSSwapListBox.Items.Add(GetDBValue("TEAM", "TDNA", i));
+            }
+        }
+
+        private void DeselectTeamsButton_Click(object sender, EventArgs e)
+        {
+            ConferenceSetup();
+        }
+
 
         //Swap/Reset Button
         private void SwapButton_Click(object sender, EventArgs e)
         {
             SwapTeams();
-            ConferenceSetup();
-        }
-
-
-        private void DeselectTeamsButton_Click(object sender, EventArgs e)
-        {
             ConferenceSetup();
         }
 
@@ -177,16 +249,19 @@ namespace DB_EDITOR
 
             foreach (var c in confBoxes)
             {
-                if(!ASelected && c.SelectedItems.Count > 0)
+                if (!ASelected && c.SelectedItems.Count > 0)
                 {
                     TeamA = c.SelectedItem.ToString();
                     ASelected = true;
-                } else if(ASelected && c.SelectedItems.Count > 0)
+                }
+                else if (ASelected && c.SelectedItems.Count > 0)
                 {
                     TeamB = c.SelectedItem.ToString();
                     break;
                 }
             }
+
+            if (EnableFCSSwapBox.Checked) TeamB = FCSSwapListBox.Text;
 
             int recA = FindTeamRecfromTeamName(TeamA);
             int recB = FindTeamRecfromTeamName(TeamB);
@@ -201,20 +276,28 @@ namespace DB_EDITOR
             int cgidA = GetTeamCGID(recA);
             int dgidA = GetTeamDGID(recA);
             int cgidB = GetTeamCGID(recB);
-            int dgidB= GetTeamDGID(recB);
+            int dgidB = GetTeamDGID(recB);
 
             ChangeDBInt("TEAM", "CGID", recA, cgidB);
-            ChangeDBInt("TEAM", "DGIG", recA, dgidB);
+            ChangeDBInt("TEAM", "DGID", recA, dgidB);
             ChangeDBInt("TEAM", "CGID", recB, cgidA);
-            ChangeDBInt("TEAM", "DGIG", recB, dgidA);
+            ChangeDBInt("TEAM", "DGID", recB, dgidA);
 
 
-            if(GetDBValueInt("SEAI", "SEWN", 0) == 0)
+            if (GetDBValueInt("SEAI", "SEWN", 0) == 0)
             {
                 SwapSchedule(GetDBValueInt("TEAM", "TGID", recA), GetDBValueInt("TEAM", "TGID", recB), TeamA, TeamB);
-            } else
+            }
+            else
             {
-                MessageBox.Show(TeamA + " and " + TeamB + " have been swapped!");
+                MessageBox.Show(TeamA + " and " + TeamB + " have been swapped!\n\nIf FCS Swapping, please wait a few moments for databases to be updated!");
+            }
+
+            if (EnableFCSSwapBox.Checked)
+            {
+                if (SwapRosterBox.SelectedIndex == 0) SwapRosters(recA, recB);
+                else if (SwapRosterBox.SelectedIndex == 1) GenerateFCSRosters(recA, recB);
+                else NoRosterOption(recA, recB);
             }
 
         }
@@ -234,7 +317,246 @@ namespace DB_EDITOR
                 else if (GetDBValueInt("SCHD", "GHTG", i) == tgidB) ChangeDBInt("SCHD", "GHTG", i, tgidA);
             }
 
-            MessageBox.Show(TeamA + " and " + TeamB + " have been swapped!");
+            MessageBox.Show(TeamA + " and " + TeamB + " schedules have been swapped!\n\nIf FCS Swapping, please wait a few moments for databases to be updated!");
+        }
+
+
+        private void SwapRosters(int recA, int recB)
+        {
+            int OLDtgid = GetDBValueInt("TEAM", "TGID", recA);
+            int NEWtgid = GetDBValueInt("TEAM", "TGID", recB);
+
+            //Team Type
+            ChangeDBInt("TEAM", "TTYP", recA, 1);
+            ChangeDBInt("TEAM", "TTYP", recB, 0);
+
+
+            //swap PLAY
+            for (int i = 0; i < 70; i++)
+            {
+                int oldPGID = OLDtgid * 70 + i;
+                int newPGID = NEWtgid * 70 + i;
+
+                ChangeDBInt("PLAY", "PGID", FindPGIDRecord(oldPGID), newPGID);
+
+            }
+
+            //swap STATS
+            for (int i = 0; i < 70; i++)
+            {
+                int oldPGID = OLDtgid * 70 + i;
+                int newPGID = NEWtgid * 70 + i;
+
+                ChangePlayerStatsID(oldPGID, newPGID);
+            }
+
+            //swap COACH
+            ChangeDBInt("COCH", "TGID", FindCOCHRecordfromTeamTGID(OLDtgid), NEWtgid);
+
+            DepthChartMaker("TEAM");
+            ReorderTORD();
+            MessageBox.Show("Swapping Process Complete.");
+        }
+
+        private void GenerateFCSRosters(int recA, int recB)
+        {
+            int tgid = GetDBValueInt("TEAM", "TGID", recA);
+            int NEWtgid = GetDBValueInt("TEAM", "TGID", recB);
+
+
+            //Team Type
+            ChangeDBInt("TEAM", "TTYP", recA, 1);
+            ChangeDBInt("TEAM", "TTYP", recB, 0);
+
+            //Remove existing Players
+            ClearTeamPlayers(tgid);
+
+
+            //Clear Old Stats
+            ClearOldTeamStats(tgid);
+
+            //Create New Roster
+            CreateRCATtable();
+            CreateFirstNamesDB();
+            CreateLastNamesDB();
+
+            List<List<int>> PJEN = CreateJerseyNumberDB();
+
+            List<List<string>> RCATmapper = CreateStringListsFromCSV(@"resources\RCAT-MAPPER.csv", false);
+
+            List<List<string>> teamData = new List<List<string>>();
+            teamData = CreateStringListsFromCSV(@"resources\FantasyGenData.csv", true);
+            int rec = 0;
+            int TOID = GetDBValueInt("TEAM", "TOID", recB);
+            int PGIDbeg = TOID * 70;
+            int PGIDend = PGIDbeg + 69;
+            int rating = GetFantasyTeamRating(teamData, TOID);
+            int ST = 0;
+            int freshmanPCT = 25;
+
+
+            for (int j = 0; j < 68; j++)
+            {
+                //Add a record
+                TDB.TDBTableRecordAdd(dbIndex, "PLAY", false);
+
+                //QB
+                if (j < 3) TransferRCATtoPLAY(rec, 0, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
+
+                //RB
+                else if (j < 6) TransferRCATtoPLAY(rec, 1, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
+
+                //FB
+                else if (j < 7) TransferRCATtoPLAY(rec, 2, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
+
+                //WR
+                else if (j < 13) TransferRCATtoPLAY(rec, 3, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
+
+                //TE
+                else if (j < 16) TransferRCATtoPLAY(rec, 4, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
+
+                //LT
+                else if (j < 18) TransferRCATtoPLAY(rec, 5, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
+
+                //LG
+                else if (j < 20) TransferRCATtoPLAY(rec, 6, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
+
+                //C
+                else if (j < 22) TransferRCATtoPLAY(rec, 7, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
+
+                //RG
+                else if (j < 24) TransferRCATtoPLAY(rec, 8, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
+
+                //RT
+                else if (j < 26) TransferRCATtoPLAY(rec, 9, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
+
+                //LE
+                else if (j < 28) TransferRCATtoPLAY(rec, 10, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
+
+                //DT
+                else if (j < 32) TransferRCATtoPLAY(rec, 11, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
+
+                //RE
+                else if (j < 34) TransferRCATtoPLAY(rec, 12, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
+
+                //LOLB
+                else if (j < 36) TransferRCATtoPLAY(rec, 13, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
+
+                //MLB
+                else if (j < 39) TransferRCATtoPLAY(rec, 14, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
+
+                //ROLB
+                else if (j < 41) TransferRCATtoPLAY(rec, 15, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
+
+                //CB
+                else if (j < 46) TransferRCATtoPLAY(rec, 16, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
+
+                //SS
+                else if (j < 48) TransferRCATtoPLAY(rec, 17, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
+
+                //FS
+                else if (j < 50) TransferRCATtoPLAY(rec, 18, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
+
+                //K
+                else if (j < 51) TransferRCATtoPLAY(rec, 19, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
+
+                //P
+                else if (j < 52) TransferRCATtoPLAY(rec, 20, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
+
+                else
+                {
+                    if (ST < 1)
+                    {
+                        TransferRCATtoPLAY(rec, rand.Next(0, 21), PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
+                        ST++;
+                    }
+                    else TransferRCATtoPLAY(rec, rand.Next(0, 19), PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
+                }
+
+
+
+                //randomizes the attributes from team overall
+                RandomizeAttribute("PLAY", rec, rating + GetDBValueInt("PLAY", "PYER", rec) - 1);
+                rec++;
+            }
+
+            RecalculateOverall();
+            DepthChartMaker("TEAM");
+
+            //Select new coach
+            SelectFCSCoach(NEWtgid);
+            ReorderTORD();
+            MessageBox.Show("Swapping Process Complete.");
+        }
+
+        private void NoRosterOption(int recA, int recB)
+        {
+            int tgid = GetDBValueInt("TEAM", "TGID", recA);
+            int NEWtgid = GetDBValueInt("TEAM", "TGID", recB);
+
+
+            //Team Type
+            ChangeDBInt("TEAM", "TTYP", recA, 1);
+            ChangeDBInt("TEAM", "TTYP", recB, 0);
+
+            //Remove Existing Players
+            ClearTeamPlayers(tgid);
+
+            //Clear Stats
+            ClearOldTeamStats(tgid);
+
+            //Select New Coach
+            SelectFCSCoach(NEWtgid);
+
+            DepthChartMaker("TEAM");
+
+            ReorderTORD();
+            MessageBox.Show("Swapping Process Complete.");
+        }
+
+        private void SelectFCSCoach(int tgid)
+        {
+            bool hired = false;
+            while (!hired)
+            {
+                int applicant = rand.Next(0, GetTableRecCount("COCH"));
+                if (GetDBValueInt("COCH", "TGID", applicant) == 511)
+                {
+                    ChangeDBInt("COCH", "TGID", GetCOCHrecFromTeamRec(TeamIndex), 511);
+                    ChangeDBInt("COCH", "CCPO", GetCOCHrecFromTeamRec(TeamIndex), 65);
+
+                    ChangeDBInt("COCH", "TGID", applicant, tgid);
+                    ChangeDBInt("COCH", "CCPO", applicant, 65);
+
+                    GetTeamEditorData(TeamIndex);
+
+                    hired = true;
+                    MessageBox.Show(GetDBValue("COCH", "CLFN", applicant) + " " + GetDBValue("COCH", "CLLN", applicant) + " was hired!");
+
+                }
+            }
+        }
+
+        private void ClearTeamPlayers(int tgid)
+        {
+            int pgidBeg = tgid * 70;
+            int pgidEnd = tgid * 70 + 69;
+            for (int i = 0; i < GetTableRecCount("PLAY"); i++)
+            {
+                if (GetDBValueInt("PLAY", "PGID", i) >= pgidBeg && GetDBValueInt("PLAY", "PGID", i) <= pgidEnd)
+                {
+                    TDB.TDBTableRecordChangeDeleted(dbIndex, "PLAY", i, true);
+                }
+            }
+            TDB.TDBDatabaseCompact(dbIndex);
+        }
+
+        private void ClearOldTeamStats(int tgid)
+        {
+            for (int i = tgid * 70; i < tgid * 70 + 70; i++)
+            {
+                ClearPlayerStats(i);
+            }
         }
 
 

@@ -519,7 +519,7 @@ namespace DB_EDITOR
 
                     ChangeDBInt("PLAY", "PHGT", rec, height); //Height
 
-                    if(weight>0) ChangeDBInt("PLAY", "PWGT", rec, weight); //Weight
+                    if(weight>=0) ChangeDBInt("PLAY", "PWGT", rec, weight); //Weight
 
                     ConvertFirstNameStringToInt(FN, rec, "PLAY");
                     ConvertLastNameStringToInt(LN, rec, "PLAY");

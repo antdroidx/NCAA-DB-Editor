@@ -34,7 +34,7 @@ namespace DB_EDITOR
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Button qbTend;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainEditor));
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -90,6 +90,7 @@ namespace DB_EDITOR
             this.tabHome = new System.Windows.Forms.TabPage();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabTeams = new System.Windows.Forms.TabPage();
+            this.DeathPenaltyButton = new System.Windows.Forms.Button();
             this.TeamRosterSizeLabel = new System.Windows.Forms.Label();
             this.CheerleaderBox = new System.Windows.Forms.ComboBox();
             this.CrowdBox = new System.Windows.Forms.ComboBox();
@@ -201,6 +202,8 @@ namespace DB_EDITOR
             this.LGIDcomboBox = new System.Windows.Forms.ComboBox();
             this.TGIDlistBox = new System.Windows.Forms.ListBox();
             this.tabPlayers = new System.Windows.Forms.TabPage();
+            this.ShowRatingCheckbox = new System.Windows.Forms.CheckBox();
+            this.ShowPosCheckBox = new System.Windows.Forms.CheckBox();
             this.label93 = new System.Windows.Forms.Label();
             this.PTYPBox = new System.Windows.Forms.ComboBox();
             this.label92 = new System.Windows.Forms.Label();
@@ -345,6 +348,7 @@ namespace DB_EDITOR
             this.buttonRandWalkOns = new System.Windows.Forms.Button();
             this.buttonMinRecruitingPts = new System.Windows.Forms.Button();
             this.tabTools = new System.Windows.Forms.TabPage();
+            this.TORDButton = new System.Windows.Forms.Button();
             this.CFUSAexportButton = new System.Windows.Forms.Button();
             this.RandomizeHeadButton = new System.Windows.Forms.Button();
             this.label58 = new System.Windows.Forms.Label();
@@ -387,6 +391,11 @@ namespace DB_EDITOR
             this.ImportRecruitsButton = new System.Windows.Forms.Button();
             this.GraduateButton = new System.Windows.Forms.Button();
             this.tabConf = new System.Windows.Forms.TabPage();
+            this.label80 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.SwapRosterBox = new System.Windows.Forms.ComboBox();
+            this.EnableFCSSwapBox = new System.Windows.Forms.CheckBox();
+            this.FCSSwapListBox = new System.Windows.Forms.ComboBox();
             this.DeselectTeamsButton = new System.Windows.Forms.Button();
             this.SwapButton = new System.Windows.Forms.Button();
             this.ConfName12 = new System.Windows.Forms.Label();
@@ -915,8 +924,8 @@ namespace DB_EDITOR
             // 
             this.fieldsGridView.AllowDrop = true;
             this.fieldsGridView.AllowUserToAddRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            this.fieldsGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            this.fieldsGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.fieldsGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -988,6 +997,7 @@ namespace DB_EDITOR
             // tabTeams
             // 
             this.tabTeams.BackColor = System.Drawing.SystemColors.Control;
+            this.tabTeams.Controls.Add(this.DeathPenaltyButton);
             this.tabTeams.Controls.Add(this.TeamRosterSizeLabel);
             this.tabTeams.Controls.Add(this.CheerleaderBox);
             this.tabTeams.Controls.Add(this.CrowdBox);
@@ -1105,6 +1115,18 @@ namespace DB_EDITOR
             this.tabTeams.TabIndex = 1;
             this.tabTeams.Text = "Teams";
             // 
+            // DeathPenaltyButton
+            // 
+            this.DeathPenaltyButton.BackColor = System.Drawing.Color.NavajoWhite;
+            this.DeathPenaltyButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DeathPenaltyButton.Location = new System.Drawing.Point(416, 220);
+            this.DeathPenaltyButton.Name = "DeathPenaltyButton";
+            this.DeathPenaltyButton.Size = new System.Drawing.Size(73, 43);
+            this.DeathPenaltyButton.TabIndex = 139;
+            this.DeathPenaltyButton.Text = "Death Penalty";
+            this.DeathPenaltyButton.UseVisualStyleBackColor = false;
+            this.DeathPenaltyButton.Click += new System.EventHandler(this.DeathPenaltyButton_Click);
+            // 
             // TeamRosterSizeLabel
             // 
             this.TeamRosterSizeLabel.AutoSize = true;
@@ -1140,20 +1162,20 @@ namespace DB_EDITOR
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(243, 450);
+            this.label5.Location = new System.Drawing.Point(210, 450);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(73, 13);
+            this.label5.Size = new System.Drawing.Size(100, 13);
             this.label5.TabIndex = 135;
-            this.label5.Text = "Crowd Palette";
+            this.label5.Text = "Crowd Color Palette";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(370, 450);
+            this.label8.Location = new System.Drawing.Point(361, 450);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(100, 13);
+            this.label8.Size = new System.Drawing.Size(127, 13);
             this.label8.TabIndex = 134;
-            this.label8.Text = "Cheerleader Palette";
+            this.label8.Text = "Cheerleader Color Palette";
             // 
             // ImpactTSI2Select
             // 
@@ -1209,9 +1231,9 @@ namespace DB_EDITOR
             // 
             this.ResetImpactPlayersButton.BackColor = System.Drawing.Color.NavajoWhite;
             this.ResetImpactPlayersButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ResetImpactPlayersButton.Location = new System.Drawing.Point(696, 216);
+            this.ResetImpactPlayersButton.Location = new System.Drawing.Point(722, 207);
             this.ResetImpactPlayersButton.Name = "ResetImpactPlayersButton";
-            this.ResetImpactPlayersButton.Size = new System.Drawing.Size(95, 41);
+            this.ResetImpactPlayersButton.Size = new System.Drawing.Size(73, 31);
             this.ResetImpactPlayersButton.TabIndex = 129;
             this.ResetImpactPlayersButton.Text = "Reset";
             this.ResetImpactPlayersButton.UseVisualStyleBackColor = false;
@@ -1672,7 +1694,7 @@ namespace DB_EDITOR
             // 
             // TMARNumBox
             // 
-            this.TMARNumBox.Location = new System.Drawing.Point(373, 236);
+            this.TMARNumBox.Location = new System.Drawing.Point(290, 236);
             this.TMARNumBox.Maximum = new decimal(new int[] {
             6,
             0,
@@ -2027,7 +2049,7 @@ namespace DB_EDITOR
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(370, 220);
+            this.label21.Location = new System.Drawing.Point(287, 220);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(95, 13);
             this.label21.TabIndex = 35;
@@ -2197,6 +2219,8 @@ namespace DB_EDITOR
             // tabPlayers
             // 
             this.tabPlayers.BackColor = System.Drawing.Color.LightGray;
+            this.tabPlayers.Controls.Add(this.ShowRatingCheckbox);
+            this.tabPlayers.Controls.Add(this.ShowPosCheckBox);
             this.tabPlayers.Controls.Add(this.label93);
             this.tabPlayers.Controls.Add(this.PTYPBox);
             this.tabPlayers.Controls.Add(this.label92);
@@ -2294,6 +2318,28 @@ namespace DB_EDITOR
             this.tabPlayers.TabIndex = 2;
             this.tabPlayers.Text = "Players";
             // 
+            // ShowRatingCheckbox
+            // 
+            this.ShowRatingCheckbox.AutoSize = true;
+            this.ShowRatingCheckbox.Location = new System.Drawing.Point(111, 602);
+            this.ShowRatingCheckbox.Name = "ShowRatingCheckbox";
+            this.ShowRatingCheckbox.Size = new System.Drawing.Size(87, 17);
+            this.ShowRatingCheckbox.TabIndex = 95;
+            this.ShowRatingCheckbox.Text = "Show Rating";
+            this.ShowRatingCheckbox.UseVisualStyleBackColor = true;
+            this.ShowRatingCheckbox.CheckedChanged += new System.EventHandler(this.ShowRatingCheckbox_CheckedChanged);
+            // 
+            // ShowPosCheckBox
+            // 
+            this.ShowPosCheckBox.AutoSize = true;
+            this.ShowPosCheckBox.Location = new System.Drawing.Point(12, 603);
+            this.ShowPosCheckBox.Name = "ShowPosCheckBox";
+            this.ShowPosCheckBox.Size = new System.Drawing.Size(93, 17);
+            this.ShowPosCheckBox.TabIndex = 94;
+            this.ShowPosCheckBox.Text = "Show Position";
+            this.ShowPosCheckBox.UseVisualStyleBackColor = true;
+            this.ShowPosCheckBox.CheckedChanged += new System.EventHandler(this.ShowPosCheckBox_CheckedChanged);
+            // 
             // label93
             // 
             this.label93.AutoSize = true;
@@ -2354,9 +2400,9 @@ namespace DB_EDITOR
             this.label89.AutoSize = true;
             this.label89.Location = new System.Drawing.Point(533, 95);
             this.label89.Name = "label89";
-            this.label89.Size = new System.Drawing.Size(41, 13);
+            this.label89.Size = new System.Drawing.Size(63, 13);
             this.label89.TabIndex = 87;
-            this.label89.Text = "Weight";
+            this.label89.Text = "Weight (lbs)";
             this.label89.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // PWGTBox
@@ -2388,9 +2434,9 @@ namespace DB_EDITOR
             this.label90.AutoSize = true;
             this.label90.Location = new System.Drawing.Point(466, 95);
             this.label90.Name = "label90";
-            this.label90.Size = new System.Drawing.Size(38, 13);
+            this.label90.Size = new System.Drawing.Size(55, 13);
             this.label90.TabIndex = 84;
-            this.label90.Text = "Height";
+            this.label90.Text = "Height (in)";
             this.label90.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // PHGTBox
@@ -3197,7 +3243,7 @@ namespace DB_EDITOR
             // RosterSizeLabel
             // 
             this.RosterSizeLabel.AutoSize = true;
-            this.RosterSizeLabel.Location = new System.Drawing.Point(87, 39);
+            this.RosterSizeLabel.Location = new System.Drawing.Point(87, 17);
             this.RosterSizeLabel.Name = "RosterSizeLabel";
             this.RosterSizeLabel.Size = new System.Drawing.Size(64, 13);
             this.RosterSizeLabel.TabIndex = 7;
@@ -3206,7 +3252,7 @@ namespace DB_EDITOR
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 39);
+            this.label3.Location = new System.Drawing.Point(12, 17);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(34, 13);
             this.label3.TabIndex = 6;
@@ -3215,9 +3261,9 @@ namespace DB_EDITOR
             // TGIDplayerBox
             // 
             this.TGIDplayerBox.FormattingEnabled = true;
-            this.TGIDplayerBox.Location = new System.Drawing.Point(12, 55);
+            this.TGIDplayerBox.Location = new System.Drawing.Point(12, 33);
             this.TGIDplayerBox.Name = "TGIDplayerBox";
-            this.TGIDplayerBox.Size = new System.Drawing.Size(158, 21);
+            this.TGIDplayerBox.Size = new System.Drawing.Size(175, 21);
             this.TGIDplayerBox.TabIndex = 5;
             this.TGIDplayerBox.SelectedIndexChanged += new System.EventHandler(this.TGIDplayerBox_SelectedIndexChanged);
             // 
@@ -3226,9 +3272,9 @@ namespace DB_EDITOR
             this.PGIDlistBox.BackColor = System.Drawing.Color.White;
             this.PGIDlistBox.ForeColor = System.Drawing.SystemColors.ControlText;
             this.PGIDlistBox.FormattingEnabled = true;
-            this.PGIDlistBox.Location = new System.Drawing.Point(12, 82);
+            this.PGIDlistBox.Location = new System.Drawing.Point(12, 60);
             this.PGIDlistBox.Name = "PGIDlistBox";
-            this.PGIDlistBox.Size = new System.Drawing.Size(158, 537);
+            this.PGIDlistBox.Size = new System.Drawing.Size(175, 537);
             this.PGIDlistBox.TabIndex = 4;
             this.PGIDlistBox.SelectedIndexChanged += new System.EventHandler(this.PGIDlistBox_SelectedIndexChanged);
             // 
@@ -4008,6 +4054,7 @@ namespace DB_EDITOR
             // tabTools
             // 
             this.tabTools.BackColor = System.Drawing.Color.PeachPuff;
+            this.tabTools.Controls.Add(this.TORDButton);
             this.tabTools.Controls.Add(this.CFUSAexportButton);
             this.tabTools.Controls.Add(this.RandomizeHeadButton);
             this.tabTools.Controls.Add(this.label58);
@@ -4030,6 +4077,18 @@ namespace DB_EDITOR
             this.tabTools.Size = new System.Drawing.Size(976, 633);
             this.tabTools.TabIndex = 5;
             this.tabTools.Text = "dbTools";
+            // 
+            // TORDButton
+            // 
+            this.TORDButton.BackColor = System.Drawing.Color.DarkSalmon;
+            this.TORDButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TORDButton.Location = new System.Drawing.Point(166, 140);
+            this.TORDButton.Name = "TORDButton";
+            this.TORDButton.Size = new System.Drawing.Size(110, 80);
+            this.TORDButton.TabIndex = 26;
+            this.TORDButton.Text = "Reorder Teams (Dynasty)";
+            this.TORDButton.UseVisualStyleBackColor = false;
+            this.TORDButton.Click += new System.EventHandler(this.TORDButton_Click);
             // 
             // CFUSAexportButton
             // 
@@ -4418,7 +4477,7 @@ namespace DB_EDITOR
             this.textBox7.BackColor = System.Drawing.Color.AntiqueWhite;
             this.textBox7.Enabled = false;
             this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(219, 426);
+            this.textBox7.Location = new System.Drawing.Point(219, 316);
             this.textBox7.Multiline = true;
             this.textBox7.Name = "textBox7";
             this.textBox7.Size = new System.Drawing.Size(247, 80);
@@ -4431,7 +4490,7 @@ namespace DB_EDITOR
             this.textBox5.BackColor = System.Drawing.Color.AntiqueWhite;
             this.textBox5.Enabled = false;
             this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(219, 316);
+            this.textBox5.Location = new System.Drawing.Point(219, 426);
             this.textBox5.Multiline = true;
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(247, 80);
@@ -4563,6 +4622,11 @@ namespace DB_EDITOR
             // 
             // tabConf
             // 
+            this.tabConf.Controls.Add(this.label80);
+            this.tabConf.Controls.Add(this.label4);
+            this.tabConf.Controls.Add(this.SwapRosterBox);
+            this.tabConf.Controls.Add(this.EnableFCSSwapBox);
+            this.tabConf.Controls.Add(this.FCSSwapListBox);
             this.tabConf.Controls.Add(this.DeselectTeamsButton);
             this.tabConf.Controls.Add(this.SwapButton);
             this.tabConf.Controls.Add(this.ConfName12);
@@ -4596,6 +4660,55 @@ namespace DB_EDITOR
             this.tabConf.TabIndex = 9;
             this.tabConf.Text = "Conferences";
             this.tabConf.UseVisualStyleBackColor = true;
+            // 
+            // label80
+            // 
+            this.label80.AutoSize = true;
+            this.label80.Location = new System.Drawing.Point(343, 593);
+            this.label80.Name = "label80";
+            this.label80.Size = new System.Drawing.Size(95, 13);
+            this.label80.TabIndex = 31;
+            this.label80.Text = "FCS Roster Option";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(205, 593);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(104, 13);
+            this.label4.TabIndex = 30;
+            this.label4.Text = "FCS Team Selection";
+            // 
+            // SwapRosterBox
+            // 
+            this.SwapRosterBox.FormattingEnabled = true;
+            this.SwapRosterBox.Items.AddRange(new object[] {
+            "Transfer Roster",
+            "Fantasy Roster",
+            "No Roster"});
+            this.SwapRosterBox.Location = new System.Drawing.Point(335, 609);
+            this.SwapRosterBox.Name = "SwapRosterBox";
+            this.SwapRosterBox.Size = new System.Drawing.Size(109, 21);
+            this.SwapRosterBox.TabIndex = 29;
+            // 
+            // EnableFCSSwapBox
+            // 
+            this.EnableFCSSwapBox.AutoSize = true;
+            this.EnableFCSSwapBox.Location = new System.Drawing.Point(41, 611);
+            this.EnableFCSSwapBox.Name = "EnableFCSSwapBox";
+            this.EnableFCSSwapBox.Size = new System.Drawing.Size(132, 17);
+            this.EnableFCSSwapBox.TabIndex = 28;
+            this.EnableFCSSwapBox.Text = "Enable FCS Swapping";
+            this.EnableFCSSwapBox.UseVisualStyleBackColor = true;
+            this.EnableFCSSwapBox.CheckedChanged += new System.EventHandler(this.EnableFCSSwapBox_CheckedChanged);
+            // 
+            // FCSSwapListBox
+            // 
+            this.FCSSwapListBox.FormattingEnabled = true;
+            this.FCSSwapListBox.Location = new System.Drawing.Point(179, 609);
+            this.FCSSwapListBox.Name = "FCSSwapListBox";
+            this.FCSSwapListBox.Size = new System.Drawing.Size(150, 21);
+            this.FCSSwapListBox.TabIndex = 26;
             // 
             // DeselectTeamsButton
             // 
@@ -5354,6 +5467,15 @@ namespace DB_EDITOR
         private System.Windows.Forms.ComboBox PTYPBox;
         private NumericUpDown PPOEBox;
         public Label TeamRosterSizeLabel;
+        private CheckBox EnableFCSSwapBox;
+        private System.Windows.Forms.ComboBox FCSSwapListBox;
+        private System.Windows.Forms.ComboBox SwapRosterBox;
+        private Label label80;
+        private Label label4;
+        public System.Windows.Forms.Button TORDButton;
+        private CheckBox ShowRatingCheckbox;
+        private CheckBox ShowPosCheckBox;
+        private System.Windows.Forms.Button DeathPenaltyButton;
     }
 }
 
