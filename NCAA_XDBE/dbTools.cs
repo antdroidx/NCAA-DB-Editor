@@ -6,6 +6,7 @@ using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.ComTypes;
 using System.Runtime.Remoting.Metadata.W3cXsd2001;
+using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
@@ -1683,6 +1684,41 @@ namespace DB_EDITOR
                 + ConvertRating(GetDBValueInt("PLAY", "PKPR", rec)) + "," + ConvertRating(GetDBValueInt("PLAY", "PKAC", rec)) + "," + (GetDBValueInt("PLAY", "PWGT", rec) + 160);
         }
 
+        private void AwarenessDrop()
+        {
+            progressBar1.Visible = true;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = GetTableRecCount("PLAY");
+            progressBar1.Step = 1;
+
+            List<List<string>> teamData = new List<List<string>>();
+            teamData = CreateStringListsFromCSV(@"resources\FantasyGenData.csv", true);
+
+
+
+            for (int i = 0; i < GetTableRecCount("PLAY"); i++)
+            {
+                int prestige = GetFantasyTeamRating(teamData, GetDBValueInt("PLAY", "PGID", i) / 70);
+                int newAWR = GetDBValueInt("PLAY", "PAWR", i);
+                int newPOE = GetDBValueInt("PLAY", "PPOE", i);
+
+                newAWR -= rand.Next(0, 6 - prestige);
+                newPOE -= rand.Next(0, 6 - prestige);
+
+                if (newAWR <= 0) newAWR = 0;
+                if (newPOE <= 0) newPOE = 0;
+
+                ChangeDBInt("PLAY", "PAWR", i, newAWR);
+                ChangeDBInt("PLAY", "PPOE", i, newPOE);
+
+                progressBar1.PerformStep();
+            }
+
+            progressBar1.Visible = false;
+            progressBar1.Value = 0;
+            MessageBox.Show("Ratings are complete!");
+
+        }
     }
 
 }

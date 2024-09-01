@@ -60,6 +60,8 @@ namespace DB_EDITOR
             this.descendingFieldOrderMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customOrderMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.enableOffSeasonMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.LeagueMakerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ScheduleGenMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.tableMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -202,6 +204,7 @@ namespace DB_EDITOR
             this.LGIDcomboBox = new System.Windows.Forms.ComboBox();
             this.TGIDlistBox = new System.Windows.Forms.ListBox();
             this.tabPlayers = new System.Windows.Forms.TabPage();
+            this.ShowPOSGBox = new System.Windows.Forms.CheckBox();
             this.ShowRatingCheckbox = new System.Windows.Forms.CheckBox();
             this.ShowPosCheckBox = new System.Windows.Forms.CheckBox();
             this.label93 = new System.Windows.Forms.Label();
@@ -348,6 +351,7 @@ namespace DB_EDITOR
             this.buttonRandWalkOns = new System.Windows.Forms.Button();
             this.buttonMinRecruitingPts = new System.Windows.Forms.Button();
             this.tabTools = new System.Windows.Forms.TabPage();
+            this.AWRKnockdownButton = new System.Windows.Forms.Button();
             this.TORDButton = new System.Windows.Forms.Button();
             this.CFUSAexportButton = new System.Windows.Forms.Button();
             this.RandomizeHeadButton = new System.Windows.Forms.Button();
@@ -423,6 +427,8 @@ namespace DB_EDITOR
             this.conf2 = new System.Windows.Forms.CheckedListBox();
             this.conf1 = new System.Windows.Forms.CheckedListBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.PGIDLabel = new System.Windows.Forms.Label();
+            this.PGIDbox = new System.Windows.Forms.TextBox();
             qbTend = new System.Windows.Forms.Button();
             this.mainMenu.SuspendLayout();
             this.tableMenu.SuspendLayout();
@@ -499,10 +505,10 @@ namespace DB_EDITOR
             // 
             // qbTend
             // 
-            qbTend.BackColor = System.Drawing.Color.SaddleBrown;
+            qbTend.BackColor = System.Drawing.SystemColors.MenuHighlight;
             qbTend.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            qbTend.ForeColor = System.Drawing.SystemColors.Control;
-            qbTend.Location = new System.Drawing.Point(45, 140);
+            qbTend.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            qbTend.Location = new System.Drawing.Point(45, 290);
             qbTend.Name = "qbTend";
             qbTend.Size = new System.Drawing.Size(110, 80);
             qbTend.TabIndex = 11;
@@ -517,10 +523,11 @@ namespace DB_EDITOR
             this.fileMenuItem,
             this.CSVMenuItem,
             this.optionsMenuItem,
+            this.LeagueMakerToolStripMenuItem,
             this.aboutMenuItem});
             this.mainMenu.Location = new System.Drawing.Point(0, 0);
             this.mainMenu.Name = "mainMenu";
-            this.mainMenu.Size = new System.Drawing.Size(1008, 24);
+            this.mainMenu.Size = new System.Drawing.Size(1184, 24);
             this.mainMenu.TabIndex = 0;
             this.mainMenu.Text = "menuStrip1";
             // 
@@ -711,6 +718,21 @@ namespace DB_EDITOR
             this.enableOffSeasonMenuItem.Text = "Enable Off-Season DB";
             this.enableOffSeasonMenuItem.Click += new System.EventHandler(this.EnableOffSeasonDBMenuItem_Click);
             // 
+            // LeagueMakerToolStripMenuItem
+            // 
+            this.LeagueMakerToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ScheduleGenMenuItem});
+            this.LeagueMakerToolStripMenuItem.Name = "LeagueMakerToolStripMenuItem";
+            this.LeagueMakerToolStripMenuItem.Size = new System.Drawing.Size(93, 20);
+            this.LeagueMakerToolStripMenuItem.Text = "League Maker";
+            // 
+            // ScheduleGenMenuItem
+            // 
+            this.ScheduleGenMenuItem.Name = "ScheduleGenMenuItem";
+            this.ScheduleGenMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.ScheduleGenMenuItem.Text = "Open League Maker";
+            this.ScheduleGenMenuItem.Click += new System.EventHandler(this.ScheduleGenMenuItem_Click);
+            // 
             // aboutMenuItem
             // 
             this.aboutMenuItem.Name = "aboutMenuItem";
@@ -722,7 +744,7 @@ namespace DB_EDITOR
             // 
             this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.progressBar1.BackColor = System.Drawing.SystemColors.Control;
-            this.progressBar1.Location = new System.Drawing.Point(792, 700);
+            this.progressBar1.Location = new System.Drawing.Point(968, 732);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(200, 23);
             this.progressBar1.TabIndex = 1;
@@ -867,7 +889,7 @@ namespace DB_EDITOR
             this.TablePropsgroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.TablePropsgroupBox.Controls.Add(this.TablePropsLabel);
             this.TablePropsgroupBox.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.TablePropsgroupBox.Location = new System.Drawing.Point(19, 693);
+            this.TablePropsgroupBox.Location = new System.Drawing.Point(19, 725);
             this.TablePropsgroupBox.Name = "TablePropsgroupBox";
             this.TablePropsgroupBox.Size = new System.Drawing.Size(345, 31);
             this.TablePropsgroupBox.TabIndex = 7;
@@ -879,7 +901,7 @@ namespace DB_EDITOR
             this.FieldsPropsgroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.FieldsPropsgroupBox.Controls.Add(this.FieldsPropsLabel);
             this.FieldsPropsgroupBox.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.FieldsPropsgroupBox.Location = new System.Drawing.Point(367, 693);
+            this.FieldsPropsgroupBox.Location = new System.Drawing.Point(367, 725);
             this.FieldsPropsgroupBox.Name = "FieldsPropsgroupBox";
             this.FieldsPropsgroupBox.Size = new System.Drawing.Size(345, 31);
             this.FieldsPropsgroupBox.TabIndex = 4;
@@ -898,7 +920,7 @@ namespace DB_EDITOR
             this.tabDB.Location = new System.Drawing.Point(4, 24);
             this.tabDB.Name = "tabDB";
             this.tabDB.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDB.Size = new System.Drawing.Size(976, 633);
+            this.tabDB.Size = new System.Drawing.Size(1152, 665);
             this.tabDB.TabIndex = 0;
             this.tabDB.Text = "DB Editor";
             // 
@@ -916,7 +938,7 @@ namespace DB_EDITOR
             this.tableGridView.RowHeadersVisible = false;
             this.tableGridView.RowTemplate.Height = 18;
             this.tableGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tableGridView.Size = new System.Drawing.Size(107, 623);
+            this.tableGridView.Size = new System.Drawing.Size(107, 655);
             this.tableGridView.TabIndex = 2;
             this.tableGridView.SelectionChanged += new System.EventHandler(this.TableGridView_SelectionChanged);
             // 
@@ -938,7 +960,7 @@ namespace DB_EDITOR
             this.fieldsGridView.RowHeadersVisible = false;
             this.fieldsGridView.RowTemplate.Height = 18;
             this.fieldsGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.fieldsGridView.Size = new System.Drawing.Size(854, 623);
+            this.fieldsGridView.Size = new System.Drawing.Size(1030, 655);
             this.fieldsGridView.TabIndex = 3;
             this.fieldsGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.FieldGridView_CellValueChanged);
             this.fieldsGridView.CurrentCellChanged += new System.EventHandler(this.FieldGridView_CurrentCellChanged);
@@ -964,7 +986,7 @@ namespace DB_EDITOR
             this.tabControl1.Location = new System.Drawing.Point(12, 27);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(984, 661);
+            this.tabControl1.Size = new System.Drawing.Size(1160, 693);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 4;
             this.tabControl1.Visible = false;
@@ -977,7 +999,7 @@ namespace DB_EDITOR
             this.tabHome.Location = new System.Drawing.Point(4, 24);
             this.tabHome.Name = "tabHome";
             this.tabHome.Padding = new System.Windows.Forms.Padding(3);
-            this.tabHome.Size = new System.Drawing.Size(976, 633);
+            this.tabHome.Size = new System.Drawing.Size(1152, 665);
             this.tabHome.TabIndex = 6;
             this.tabHome.Text = "Home";
             this.tabHome.UseVisualStyleBackColor = true;
@@ -996,7 +1018,7 @@ namespace DB_EDITOR
             // 
             // tabTeams
             // 
-            this.tabTeams.BackColor = System.Drawing.SystemColors.Control;
+            this.tabTeams.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.tabTeams.Controls.Add(this.DeathPenaltyButton);
             this.tabTeams.Controls.Add(this.TeamRosterSizeLabel);
             this.tabTeams.Controls.Add(this.CheerleaderBox);
@@ -1111,15 +1133,16 @@ namespace DB_EDITOR
             this.tabTeams.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabTeams.Location = new System.Drawing.Point(4, 24);
             this.tabTeams.Name = "tabTeams";
-            this.tabTeams.Size = new System.Drawing.Size(976, 633);
+            this.tabTeams.Size = new System.Drawing.Size(1152, 665);
             this.tabTeams.TabIndex = 1;
             this.tabTeams.Text = "Teams";
+            this.tabTeams.Click += new System.EventHandler(this.tabTeams_Click);
             // 
             // DeathPenaltyButton
             // 
             this.DeathPenaltyButton.BackColor = System.Drawing.Color.NavajoWhite;
             this.DeathPenaltyButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeathPenaltyButton.Location = new System.Drawing.Point(416, 220);
+            this.DeathPenaltyButton.Location = new System.Drawing.Point(444, 193);
             this.DeathPenaltyButton.Name = "DeathPenaltyButton";
             this.DeathPenaltyButton.Size = new System.Drawing.Size(73, 43);
             this.DeathPenaltyButton.TabIndex = 139;
@@ -1130,7 +1153,7 @@ namespace DB_EDITOR
             // TeamRosterSizeLabel
             // 
             this.TeamRosterSizeLabel.AutoSize = true;
-            this.TeamRosterSizeLabel.Location = new System.Drawing.Point(865, 38);
+            this.TeamRosterSizeLabel.Location = new System.Drawing.Point(1047, 30);
             this.TeamRosterSizeLabel.Name = "TeamRosterSizeLabel";
             this.TeamRosterSizeLabel.Size = new System.Drawing.Size(64, 13);
             this.TeamRosterSizeLabel.TabIndex = 138;
@@ -1139,7 +1162,7 @@ namespace DB_EDITOR
             // CheerleaderBox
             // 
             this.CheerleaderBox.FormattingEnabled = true;
-            this.CheerleaderBox.Location = new System.Drawing.Point(351, 466);
+            this.CheerleaderBox.Location = new System.Drawing.Point(379, 456);
             this.CheerleaderBox.MaxLength = 2;
             this.CheerleaderBox.Name = "CheerleaderBox";
             this.CheerleaderBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1151,7 +1174,7 @@ namespace DB_EDITOR
             // CrowdBox
             // 
             this.CrowdBox.FormattingEnabled = true;
-            this.CrowdBox.Location = new System.Drawing.Point(210, 466);
+            this.CrowdBox.Location = new System.Drawing.Point(238, 456);
             this.CrowdBox.MaxLength = 2;
             this.CrowdBox.Name = "CrowdBox";
             this.CrowdBox.Size = new System.Drawing.Size(138, 21);
@@ -1162,7 +1185,7 @@ namespace DB_EDITOR
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(210, 450);
+            this.label5.Location = new System.Drawing.Point(238, 440);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(100, 13);
             this.label5.TabIndex = 135;
@@ -1171,7 +1194,7 @@ namespace DB_EDITOR
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(361, 450);
+            this.label8.Location = new System.Drawing.Point(389, 440);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(127, 13);
             this.label8.TabIndex = 134;
@@ -1180,7 +1203,7 @@ namespace DB_EDITOR
             // ImpactTSI2Select
             // 
             this.ImpactTSI2Select.FormattingEnabled = true;
-            this.ImpactTSI2Select.Location = new System.Drawing.Point(773, 180);
+            this.ImpactTSI2Select.Location = new System.Drawing.Point(903, 183);
             this.ImpactTSI2Select.MaxDropDownItems = 20;
             this.ImpactTSI2Select.MaxLength = 2;
             this.ImpactTSI2Select.Name = "ImpactTSI2Select";
@@ -1193,7 +1216,7 @@ namespace DB_EDITOR
             // ImpactTSI1Select
             // 
             this.ImpactTSI1Select.FormattingEnabled = true;
-            this.ImpactTSI1Select.Location = new System.Drawing.Point(573, 180);
+            this.ImpactTSI1Select.Location = new System.Drawing.Point(703, 183);
             this.ImpactTSI1Select.MaxDropDownItems = 20;
             this.ImpactTSI1Select.MaxLength = 2;
             this.ImpactTSI1Select.Name = "ImpactTSI1Select";
@@ -1205,7 +1228,7 @@ namespace DB_EDITOR
             // ImpactTPIDSelect
             // 
             this.ImpactTPIDSelect.FormattingEnabled = true;
-            this.ImpactTPIDSelect.Location = new System.Drawing.Point(773, 136);
+            this.ImpactTPIDSelect.Location = new System.Drawing.Point(903, 139);
             this.ImpactTPIDSelect.MaxDropDownItems = 20;
             this.ImpactTPIDSelect.MaxLength = 2;
             this.ImpactTPIDSelect.Name = "ImpactTPIDSelect";
@@ -1218,7 +1241,7 @@ namespace DB_EDITOR
             // ImpactTPIOSelect
             // 
             this.ImpactTPIOSelect.FormattingEnabled = true;
-            this.ImpactTPIOSelect.Location = new System.Drawing.Point(573, 136);
+            this.ImpactTPIOSelect.Location = new System.Drawing.Point(703, 139);
             this.ImpactTPIOSelect.MaxDropDownItems = 20;
             this.ImpactTPIOSelect.MaxLength = 2;
             this.ImpactTPIOSelect.Name = "ImpactTPIOSelect";
@@ -1231,7 +1254,7 @@ namespace DB_EDITOR
             // 
             this.ResetImpactPlayersButton.BackColor = System.Drawing.Color.NavajoWhite;
             this.ResetImpactPlayersButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ResetImpactPlayersButton.Location = new System.Drawing.Point(722, 207);
+            this.ResetImpactPlayersButton.Location = new System.Drawing.Point(852, 210);
             this.ResetImpactPlayersButton.Name = "ResetImpactPlayersButton";
             this.ResetImpactPlayersButton.Size = new System.Drawing.Size(73, 31);
             this.ResetImpactPlayersButton.TabIndex = 129;
@@ -1242,7 +1265,7 @@ namespace DB_EDITOR
             // CaptainDefSelectBox
             // 
             this.CaptainDefSelectBox.FormattingEnabled = true;
-            this.CaptainDefSelectBox.Location = new System.Drawing.Point(773, 91);
+            this.CaptainDefSelectBox.Location = new System.Drawing.Point(903, 94);
             this.CaptainDefSelectBox.MaxDropDownItems = 20;
             this.CaptainDefSelectBox.MaxLength = 2;
             this.CaptainDefSelectBox.Name = "CaptainDefSelectBox";
@@ -1255,7 +1278,7 @@ namespace DB_EDITOR
             // CaptainOffSelectBox
             // 
             this.CaptainOffSelectBox.FormattingEnabled = true;
-            this.CaptainOffSelectBox.Location = new System.Drawing.Point(573, 91);
+            this.CaptainOffSelectBox.Location = new System.Drawing.Point(703, 94);
             this.CaptainOffSelectBox.MaxDropDownItems = 20;
             this.CaptainOffSelectBox.MaxLength = 2;
             this.CaptainOffSelectBox.Name = "CaptainOffSelectBox";
@@ -1267,7 +1290,7 @@ namespace DB_EDITOR
             // PlaybookSelectBox
             // 
             this.PlaybookSelectBox.FormattingEnabled = true;
-            this.PlaybookSelectBox.Location = new System.Drawing.Point(679, 452);
+            this.PlaybookSelectBox.Location = new System.Drawing.Point(824, 456);
             this.PlaybookSelectBox.MaxLength = 2;
             this.PlaybookSelectBox.Name = "PlaybookSelectBox";
             this.PlaybookSelectBox.Size = new System.Drawing.Size(138, 21);
@@ -1278,7 +1301,7 @@ namespace DB_EDITOR
             // DefTypeSelectBox
             // 
             this.DefTypeSelectBox.FormattingEnabled = true;
-            this.DefTypeSelectBox.Location = new System.Drawing.Point(778, 490);
+            this.DefTypeSelectBox.Location = new System.Drawing.Point(923, 494);
             this.DefTypeSelectBox.MaxLength = 2;
             this.DefTypeSelectBox.Name = "DefTypeSelectBox";
             this.DefTypeSelectBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -1290,7 +1313,7 @@ namespace DB_EDITOR
             // OffTypeSelectBox
             // 
             this.OffTypeSelectBox.FormattingEnabled = true;
-            this.OffTypeSelectBox.Location = new System.Drawing.Point(586, 490);
+            this.OffTypeSelectBox.Location = new System.Drawing.Point(731, 494);
             this.OffTypeSelectBox.MaxLength = 2;
             this.OffTypeSelectBox.Name = "OffTypeSelectBox";
             this.OffTypeSelectBox.Size = new System.Drawing.Size(138, 21);
@@ -1300,7 +1323,7 @@ namespace DB_EDITOR
             // 
             // CapacityNumbox
             // 
-            this.CapacityNumbox.Location = new System.Drawing.Point(323, 600);
+            this.CapacityNumbox.Location = new System.Drawing.Point(351, 590);
             this.CapacityNumbox.Maximum = new decimal(new int[] {
             150000,
             0,
@@ -1314,7 +1337,7 @@ namespace DB_EDITOR
             // 
             // AttendanceNumBox
             // 
-            this.AttendanceNumBox.Location = new System.Drawing.Point(213, 600);
+            this.AttendanceNumBox.Location = new System.Drawing.Point(241, 590);
             this.AttendanceNumBox.Maximum = new decimal(new int[] {
             150000,
             0,
@@ -1329,7 +1352,7 @@ namespace DB_EDITOR
             // label59
             // 
             this.label59.AutoSize = true;
-            this.label59.Location = new System.Drawing.Point(324, 584);
+            this.label59.Location = new System.Drawing.Point(352, 574);
             this.label59.Name = "label59";
             this.label59.Size = new System.Drawing.Size(48, 13);
             this.label59.TabIndex = 121;
@@ -1338,7 +1361,7 @@ namespace DB_EDITOR
             // label60
             // 
             this.label60.AutoSize = true;
-            this.label60.Location = new System.Drawing.Point(214, 584);
+            this.label60.Location = new System.Drawing.Point(242, 574);
             this.label60.Name = "label60";
             this.label60.Size = new System.Drawing.Size(62, 13);
             this.label60.TabIndex = 120;
@@ -1347,7 +1370,7 @@ namespace DB_EDITOR
             // label57
             // 
             this.label57.AutoSize = true;
-            this.label57.Location = new System.Drawing.Point(450, 541);
+            this.label57.Location = new System.Drawing.Point(478, 531);
             this.label57.Name = "label57";
             this.label57.Size = new System.Drawing.Size(32, 13);
             this.label57.TabIndex = 119;
@@ -1356,7 +1379,7 @@ namespace DB_EDITOR
             // StateBox
             // 
             this.StateBox.FormattingEnabled = true;
-            this.StateBox.Location = new System.Drawing.Point(450, 556);
+            this.StateBox.Location = new System.Drawing.Point(478, 546);
             this.StateBox.MaxLength = 2;
             this.StateBox.Name = "StateBox";
             this.StateBox.Size = new System.Drawing.Size(44, 21);
@@ -1366,7 +1389,7 @@ namespace DB_EDITOR
             // label56
             // 
             this.label56.AutoSize = true;
-            this.label56.Location = new System.Drawing.Point(353, 541);
+            this.label56.Location = new System.Drawing.Point(381, 531);
             this.label56.Name = "label56";
             this.label56.Size = new System.Drawing.Size(24, 13);
             this.label56.TabIndex = 117;
@@ -1374,7 +1397,7 @@ namespace DB_EDITOR
             // 
             // CityNameBox
             // 
-            this.CityNameBox.Location = new System.Drawing.Point(347, 557);
+            this.CityNameBox.Location = new System.Drawing.Point(375, 547);
             this.CityNameBox.Name = "CityNameBox";
             this.CityNameBox.Size = new System.Drawing.Size(95, 20);
             this.CityNameBox.TabIndex = 116;
@@ -1383,7 +1406,7 @@ namespace DB_EDITOR
             // label55
             // 
             this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(214, 541);
+            this.label55.Location = new System.Drawing.Point(242, 531);
             this.label55.Name = "label55";
             this.label55.Size = new System.Drawing.Size(76, 13);
             this.label55.TabIndex = 115;
@@ -1391,7 +1414,7 @@ namespace DB_EDITOR
             // 
             // stadiumNameBox
             // 
-            this.stadiumNameBox.Location = new System.Drawing.Point(213, 557);
+            this.stadiumNameBox.Location = new System.Drawing.Point(241, 547);
             this.stadiumNameBox.Name = "stadiumNameBox";
             this.stadiumNameBox.Size = new System.Drawing.Size(127, 20);
             this.stadiumNameBox.TabIndex = 114;
@@ -1400,9 +1423,9 @@ namespace DB_EDITOR
             // label54
             // 
             this.label54.AutoSize = true;
-            this.label54.BackColor = System.Drawing.SystemColors.Control;
+            this.label54.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.label54.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label54.Location = new System.Drawing.Point(285, 507);
+            this.label54.Location = new System.Drawing.Point(313, 497);
             this.label54.Name = "label54";
             this.label54.Size = new System.Drawing.Size(143, 25);
             this.label54.TabIndex = 113;
@@ -1411,9 +1434,9 @@ namespace DB_EDITOR
             // label53
             // 
             this.label53.AutoSize = true;
-            this.label53.BackColor = System.Drawing.SystemColors.Control;
+            this.label53.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.label53.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label53.Location = new System.Drawing.Point(674, 275);
+            this.label53.Location = new System.Drawing.Point(819, 279);
             this.label53.Name = "label53";
             this.label53.Size = new System.Drawing.Size(141, 25);
             this.label53.TabIndex = 112;
@@ -1423,7 +1446,7 @@ namespace DB_EDITOR
             // 
             this.UserCoachCheckBox.AutoSize = true;
             this.UserCoachCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UserCoachCheckBox.Location = new System.Drawing.Point(845, 11);
+            this.UserCoachCheckBox.Location = new System.Drawing.Point(1027, 3);
             this.UserCoachCheckBox.Name = "UserCoachCheckBox";
             this.UserCoachCheckBox.Size = new System.Drawing.Size(122, 24);
             this.UserCoachCheckBox.TabIndex = 111;
@@ -1435,7 +1458,7 @@ namespace DB_EDITOR
             // 
             this.FireCoachButton.BackColor = System.Drawing.Color.RosyBrown;
             this.FireCoachButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FireCoachButton.Location = new System.Drawing.Point(696, 582);
+            this.FireCoachButton.Location = new System.Drawing.Point(841, 586);
             this.FireCoachButton.Name = "FireCoachButton";
             this.FireCoachButton.Size = new System.Drawing.Size(95, 41);
             this.FireCoachButton.TabIndex = 110;
@@ -1445,7 +1468,7 @@ namespace DB_EDITOR
             // 
             // ResetSecondaryColorButton
             // 
-            this.ResetSecondaryColorButton.Location = new System.Drawing.Point(387, 399);
+            this.ResetSecondaryColorButton.Location = new System.Drawing.Point(415, 389);
             this.ResetSecondaryColorButton.Name = "ResetSecondaryColorButton";
             this.ResetSecondaryColorButton.Size = new System.Drawing.Size(75, 23);
             this.ResetSecondaryColorButton.TabIndex = 109;
@@ -1455,7 +1478,7 @@ namespace DB_EDITOR
             // 
             // ResetPrimaryColorButton
             // 
-            this.ResetPrimaryColorButton.Location = new System.Drawing.Point(234, 399);
+            this.ResetPrimaryColorButton.Location = new System.Drawing.Point(262, 389);
             this.ResetPrimaryColorButton.Name = "ResetPrimaryColorButton";
             this.ResetPrimaryColorButton.Size = new System.Drawing.Size(75, 23);
             this.ResetPrimaryColorButton.TabIndex = 108;
@@ -1465,7 +1488,7 @@ namespace DB_EDITOR
             // 
             // TeamCDTSbox
             // 
-            this.TeamCDTSbox.Location = new System.Drawing.Point(879, 535);
+            this.TeamCDTSbox.Location = new System.Drawing.Point(1024, 539);
             this.TeamCDTSbox.Name = "TeamCDTSbox";
             this.TeamCDTSbox.Size = new System.Drawing.Size(50, 20);
             this.TeamCDTSbox.TabIndex = 107;
@@ -1475,7 +1498,7 @@ namespace DB_EDITOR
             // label50
             // 
             this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(885, 519);
+            this.label50.Location = new System.Drawing.Point(1030, 523);
             this.label50.Name = "label50";
             this.label50.Size = new System.Drawing.Size(31, 13);
             this.label50.TabIndex = 106;
@@ -1483,7 +1506,7 @@ namespace DB_EDITOR
             // 
             // TeamCDTAbox
             // 
-            this.TeamCDTAbox.Location = new System.Drawing.Point(823, 535);
+            this.TeamCDTAbox.Location = new System.Drawing.Point(968, 539);
             this.TeamCDTAbox.Name = "TeamCDTAbox";
             this.TeamCDTAbox.Size = new System.Drawing.Size(50, 20);
             this.TeamCDTAbox.TabIndex = 105;
@@ -1492,7 +1515,7 @@ namespace DB_EDITOR
             // 
             // TeamCDTRbox
             // 
-            this.TeamCDTRbox.Location = new System.Drawing.Point(767, 535);
+            this.TeamCDTRbox.Location = new System.Drawing.Point(912, 539);
             this.TeamCDTRbox.Name = "TeamCDTRbox";
             this.TeamCDTRbox.Size = new System.Drawing.Size(50, 20);
             this.TeamCDTRbox.TabIndex = 104;
@@ -1502,7 +1525,7 @@ namespace DB_EDITOR
             // label51
             // 
             this.label51.AutoSize = true;
-            this.label51.Location = new System.Drawing.Point(808, 558);
+            this.label51.Location = new System.Drawing.Point(953, 562);
             this.label51.Name = "label51";
             this.label51.Size = new System.Drawing.Size(81, 13);
             this.label51.TabIndex = 103;
@@ -1511,7 +1534,7 @@ namespace DB_EDITOR
             // label52
             // 
             this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(759, 519);
+            this.label52.Location = new System.Drawing.Point(904, 523);
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(63, 13);
             this.label52.TabIndex = 102;
@@ -1519,7 +1542,7 @@ namespace DB_EDITOR
             // 
             // TeamCOTSbox
             // 
-            this.TeamCOTSbox.Location = new System.Drawing.Point(687, 535);
+            this.TeamCOTSbox.Location = new System.Drawing.Point(832, 539);
             this.TeamCOTSbox.Name = "TeamCOTSbox";
             this.TeamCOTSbox.Size = new System.Drawing.Size(50, 20);
             this.TeamCOTSbox.TabIndex = 101;
@@ -1529,7 +1552,7 @@ namespace DB_EDITOR
             // label49
             // 
             this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(693, 519);
+            this.label49.Location = new System.Drawing.Point(838, 523);
             this.label49.Name = "label49";
             this.label49.Size = new System.Drawing.Size(31, 13);
             this.label49.TabIndex = 100;
@@ -1537,7 +1560,7 @@ namespace DB_EDITOR
             // 
             // TeamCOTAbox
             // 
-            this.TeamCOTAbox.Location = new System.Drawing.Point(631, 535);
+            this.TeamCOTAbox.Location = new System.Drawing.Point(776, 539);
             this.TeamCOTAbox.Name = "TeamCOTAbox";
             this.TeamCOTAbox.Size = new System.Drawing.Size(50, 20);
             this.TeamCOTAbox.TabIndex = 99;
@@ -1546,7 +1569,7 @@ namespace DB_EDITOR
             // 
             // TeamCOTRbox
             // 
-            this.TeamCOTRbox.Location = new System.Drawing.Point(575, 535);
+            this.TeamCOTRbox.Location = new System.Drawing.Point(720, 539);
             this.TeamCOTRbox.Name = "TeamCOTRbox";
             this.TeamCOTRbox.Size = new System.Drawing.Size(50, 20);
             this.TeamCOTRbox.TabIndex = 98;
@@ -1556,7 +1579,7 @@ namespace DB_EDITOR
             // label47
             // 
             this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(614, 558);
+            this.label47.Location = new System.Drawing.Point(759, 562);
             this.label47.Name = "label47";
             this.label47.Size = new System.Drawing.Size(81, 13);
             this.label47.TabIndex = 97;
@@ -1565,7 +1588,7 @@ namespace DB_EDITOR
             // label48
             // 
             this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(566, 519);
+            this.label48.Location = new System.Drawing.Point(711, 523);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(63, 13);
             this.label48.TabIndex = 96;
@@ -1575,7 +1598,7 @@ namespace DB_EDITOR
             // 
             this.label46.AutoSize = true;
             this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label46.Location = new System.Drawing.Point(719, 436);
+            this.label46.Location = new System.Drawing.Point(864, 440);
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(59, 13);
             this.label46.TabIndex = 94;
@@ -1584,7 +1607,7 @@ namespace DB_EDITOR
             // label44
             // 
             this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(592, 474);
+            this.label44.Location = new System.Drawing.Point(737, 478);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(71, 13);
             this.label44.TabIndex = 92;
@@ -1593,7 +1616,7 @@ namespace DB_EDITOR
             // label45
             // 
             this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(788, 474);
+            this.label45.Location = new System.Drawing.Point(933, 478);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(74, 13);
             this.label45.TabIndex = 90;
@@ -1601,7 +1624,7 @@ namespace DB_EDITOR
             // 
             // TeamCCPONumBox
             // 
-            this.TeamCCPONumBox.Location = new System.Drawing.Point(859, 335);
+            this.TeamCCPONumBox.Location = new System.Drawing.Point(1004, 339);
             this.TeamCCPONumBox.Maximum = new decimal(new int[] {
             255,
             0,
@@ -1616,7 +1639,7 @@ namespace DB_EDITOR
             // label43
             // 
             this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(856, 319);
+            this.label43.Location = new System.Drawing.Point(1001, 323);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(67, 13);
             this.label43.TabIndex = 88;
@@ -1624,7 +1647,7 @@ namespace DB_EDITOR
             // 
             // SDURnumbox
             // 
-            this.SDURnumbox.Location = new System.Drawing.Point(438, 289);
+            this.SDURnumbox.Location = new System.Drawing.Point(466, 262);
             this.SDURnumbox.Maximum = new decimal(new int[] {
             7,
             0,
@@ -1638,7 +1661,7 @@ namespace DB_EDITOR
             // 
             // SNCTnumbox
             // 
-            this.SNCTnumbox.Location = new System.Drawing.Point(373, 289);
+            this.SNCTnumbox.Location = new System.Drawing.Point(401, 262);
             this.SNCTnumbox.Maximum = new decimal(new int[] {
             7,
             0,
@@ -1652,7 +1675,7 @@ namespace DB_EDITOR
             // 
             // NCDPnumbox
             // 
-            this.NCDPnumbox.Location = new System.Drawing.Point(290, 289);
+            this.NCDPnumbox.Location = new System.Drawing.Point(318, 262);
             this.NCDPnumbox.Maximum = new decimal(new int[] {
             255,
             0,
@@ -1666,7 +1689,7 @@ namespace DB_EDITOR
             // 
             // INPOnumbox
             // 
-            this.INPOnumbox.Location = new System.Drawing.Point(210, 289);
+            this.INPOnumbox.Location = new System.Drawing.Point(238, 262);
             this.INPOnumbox.Maximum = new decimal(new int[] {
             255,
             0,
@@ -1680,7 +1703,7 @@ namespace DB_EDITOR
             // 
             // TeamHCPrestigeNumBox
             // 
-            this.TeamHCPrestigeNumBox.Location = new System.Drawing.Point(792, 334);
+            this.TeamHCPrestigeNumBox.Location = new System.Drawing.Point(937, 338);
             this.TeamHCPrestigeNumBox.Maximum = new decimal(new int[] {
             6,
             0,
@@ -1694,7 +1717,7 @@ namespace DB_EDITOR
             // 
             // TMARNumBox
             // 
-            this.TMARNumBox.Location = new System.Drawing.Point(290, 236);
+            this.TMARNumBox.Location = new System.Drawing.Point(318, 209);
             this.TMARNumBox.Maximum = new decimal(new int[] {
             6,
             0,
@@ -1708,7 +1731,7 @@ namespace DB_EDITOR
             // 
             // TMPRNumBox
             // 
-            this.TMPRNumBox.Location = new System.Drawing.Point(210, 236);
+            this.TMPRNumBox.Location = new System.Drawing.Point(238, 209);
             this.TMPRNumBox.Maximum = new decimal(new int[] {
             6,
             0,
@@ -1722,7 +1745,7 @@ namespace DB_EDITOR
             // 
             // TeamCRPCNumber
             // 
-            this.TeamCRPCNumber.Location = new System.Drawing.Point(796, 404);
+            this.TeamCRPCNumber.Location = new System.Drawing.Point(941, 408);
             this.TeamCRPCNumber.Name = "TeamCRPCNumber";
             this.TeamCRPCNumber.Size = new System.Drawing.Size(50, 20);
             this.TeamCRPCNumber.TabIndex = 80;
@@ -1731,7 +1754,7 @@ namespace DB_EDITOR
             // 
             // TeamCTPCNumber
             // 
-            this.TeamCTPCNumber.Location = new System.Drawing.Point(727, 403);
+            this.TeamCTPCNumber.Location = new System.Drawing.Point(872, 407);
             this.TeamCTPCNumber.Name = "TeamCTPCNumber";
             this.TeamCTPCNumber.Size = new System.Drawing.Size(50, 20);
             this.TeamCTPCNumber.TabIndex = 79;
@@ -1742,7 +1765,7 @@ namespace DB_EDITOR
             // 
             this.label42.AutoSize = true;
             this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label42.Location = new System.Drawing.Point(692, 371);
+            this.label42.Location = new System.Drawing.Point(837, 375);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(114, 13);
             this.label42.TabIndex = 78;
@@ -1751,7 +1774,7 @@ namespace DB_EDITOR
             // label39
             // 
             this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(793, 387);
+            this.label39.Location = new System.Drawing.Point(938, 391);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(55, 13);
             this.label39.TabIndex = 77;
@@ -1760,7 +1783,7 @@ namespace DB_EDITOR
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(732, 387);
+            this.label40.Location = new System.Drawing.Point(877, 391);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(45, 13);
             this.label40.TabIndex = 75;
@@ -1769,7 +1792,7 @@ namespace DB_EDITOR
             // label41
             // 
             this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(657, 387);
+            this.label41.Location = new System.Drawing.Point(802, 391);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(60, 13);
             this.label41.TabIndex = 73;
@@ -1777,7 +1800,7 @@ namespace DB_EDITOR
             // 
             // TeamCDPCBox
             // 
-            this.TeamCDPCBox.Location = new System.Drawing.Point(660, 403);
+            this.TeamCDPCBox.Location = new System.Drawing.Point(805, 407);
             this.TeamCDPCBox.Name = "TeamCDPCBox";
             this.TeamCDPCBox.ReadOnly = true;
             this.TeamCDPCBox.Size = new System.Drawing.Size(50, 20);
@@ -1788,7 +1811,7 @@ namespace DB_EDITOR
             // 
             this.label38.AutoSize = true;
             this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.Location = new System.Drawing.Point(295, 325);
+            this.label38.Location = new System.Drawing.Point(323, 315);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(109, 20);
             this.label38.TabIndex = 71;
@@ -1796,7 +1819,7 @@ namespace DB_EDITOR
             // 
             // TeamColor2Button
             // 
-            this.TeamColor2Button.Location = new System.Drawing.Point(363, 348);
+            this.TeamColor2Button.Location = new System.Drawing.Point(391, 338);
             this.TeamColor2Button.Name = "TeamColor2Button";
             this.TeamColor2Button.Size = new System.Drawing.Size(125, 50);
             this.TeamColor2Button.TabIndex = 70;
@@ -1805,7 +1828,7 @@ namespace DB_EDITOR
             // 
             // TeamColor1Button
             // 
-            this.TeamColor1Button.Location = new System.Drawing.Point(209, 348);
+            this.TeamColor1Button.Location = new System.Drawing.Point(237, 338);
             this.TeamColor1Button.Name = "TeamColor1Button";
             this.TeamColor1Button.Size = new System.Drawing.Size(125, 50);
             this.TeamColor1Button.TabIndex = 69;
@@ -1814,7 +1837,7 @@ namespace DB_EDITOR
             // 
             // HCLastNameBox
             // 
-            this.HCLastNameBox.Location = new System.Drawing.Point(691, 334);
+            this.HCLastNameBox.Location = new System.Drawing.Point(836, 338);
             this.HCLastNameBox.Name = "HCLastNameBox";
             this.HCLastNameBox.Size = new System.Drawing.Size(95, 20);
             this.HCLastNameBox.TabIndex = 68;
@@ -1824,7 +1847,7 @@ namespace DB_EDITOR
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(435, 273);
+            this.label37.Location = new System.Drawing.Point(463, 246);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(47, 13);
             this.label37.TabIndex = 67;
@@ -1833,7 +1856,7 @@ namespace DB_EDITOR
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(374, 273);
+            this.label36.Location = new System.Drawing.Point(402, 246);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(49, 13);
             this.label36.TabIndex = 65;
@@ -1842,7 +1865,7 @@ namespace DB_EDITOR
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(287, 273);
+            this.label34.Location = new System.Drawing.Point(315, 246);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(84, 13);
             this.label34.TabIndex = 63;
@@ -1851,7 +1874,7 @@ namespace DB_EDITOR
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(207, 273);
+            this.label35.Location = new System.Drawing.Point(235, 246);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(74, 13);
             this.label35.TabIndex = 61;
@@ -1860,7 +1883,7 @@ namespace DB_EDITOR
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(789, 318);
+            this.label33.Location = new System.Drawing.Point(934, 322);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(63, 13);
             this.label33.TabIndex = 59;
@@ -1869,7 +1892,7 @@ namespace DB_EDITOR
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(591, 318);
+            this.label32.Location = new System.Drawing.Point(736, 322);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(67, 13);
             this.label32.TabIndex = 57;
@@ -1877,7 +1900,7 @@ namespace DB_EDITOR
             // 
             // HCFirstNameBox
             // 
-            this.HCFirstNameBox.Location = new System.Drawing.Point(590, 334);
+            this.HCFirstNameBox.Location = new System.Drawing.Point(735, 338);
             this.HCFirstNameBox.Name = "HCFirstNameBox";
             this.HCFirstNameBox.Size = new System.Drawing.Size(95, 20);
             this.HCFirstNameBox.TabIndex = 56;
@@ -1887,7 +1910,7 @@ namespace DB_EDITOR
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(265, 165);
+            this.label31.Location = new System.Drawing.Point(296, 138);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(58, 13);
             this.label31.TabIndex = 55;
@@ -1895,7 +1918,7 @@ namespace DB_EDITOR
             // 
             // CoachPollBox
             // 
-            this.CoachPollBox.Location = new System.Drawing.Point(267, 181);
+            this.CoachPollBox.Location = new System.Drawing.Point(295, 154);
             this.CoachPollBox.Name = "CoachPollBox";
             this.CoachPollBox.ReadOnly = true;
             this.CoachPollBox.Size = new System.Drawing.Size(42, 20);
@@ -1905,7 +1928,7 @@ namespace DB_EDITOR
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(341, 165);
+            this.label30.Location = new System.Drawing.Point(372, 138);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(42, 13);
             this.label30.TabIndex = 53;
@@ -1913,7 +1936,7 @@ namespace DB_EDITOR
             // 
             // SeasonRecordBox
             // 
-            this.SeasonRecordBox.Location = new System.Drawing.Point(339, 181);
+            this.SeasonRecordBox.Location = new System.Drawing.Point(367, 154);
             this.SeasonRecordBox.Name = "SeasonRecordBox";
             this.SeasonRecordBox.ReadOnly = true;
             this.SeasonRecordBox.Size = new System.Drawing.Size(65, 20);
@@ -1923,7 +1946,7 @@ namespace DB_EDITOR
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(207, 165);
+            this.label28.Location = new System.Drawing.Point(238, 138);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(41, 13);
             this.label28.TabIndex = 51;
@@ -1931,7 +1954,7 @@ namespace DB_EDITOR
             // 
             // APPollBox
             // 
-            this.APPollBox.Location = new System.Drawing.Point(209, 181);
+            this.APPollBox.Location = new System.Drawing.Point(237, 154);
             this.APPollBox.Name = "APPollBox";
             this.APPollBox.ReadOnly = true;
             this.APPollBox.Size = new System.Drawing.Size(42, 20);
@@ -1941,7 +1964,7 @@ namespace DB_EDITOR
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(415, 165);
+            this.label29.Location = new System.Drawing.Point(446, 138);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(29, 13);
             this.label29.TabIndex = 49;
@@ -1949,7 +1972,7 @@ namespace DB_EDITOR
             // 
             // ConfRecordBox
             // 
-            this.ConfRecordBox.Location = new System.Drawing.Point(418, 181);
+            this.ConfRecordBox.Location = new System.Drawing.Point(446, 154);
             this.ConfRecordBox.Name = "ConfRecordBox";
             this.ConfRecordBox.ReadOnly = true;
             this.ConfRecordBox.Size = new System.Drawing.Size(62, 20);
@@ -1959,7 +1982,7 @@ namespace DB_EDITOR
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(305, 76);
+            this.label27.Location = new System.Drawing.Point(307, 79);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(43, 13);
             this.label27.TabIndex = 47;
@@ -1967,7 +1990,7 @@ namespace DB_EDITOR
             // 
             // LeagueBox
             // 
-            this.LeagueBox.Location = new System.Drawing.Point(304, 92);
+            this.LeagueBox.Location = new System.Drawing.Point(306, 95);
             this.LeagueBox.Name = "LeagueBox";
             this.LeagueBox.ReadOnly = true;
             this.LeagueBox.Size = new System.Drawing.Size(42, 20);
@@ -1977,7 +2000,7 @@ namespace DB_EDITOR
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(437, 121);
+            this.label26.Location = new System.Drawing.Point(558, 32);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(60, 13);
             this.label26.TabIndex = 45;
@@ -1985,15 +2008,17 @@ namespace DB_EDITOR
             // 
             // TSNAtextBox
             // 
-            this.TSNAtextBox.Location = new System.Drawing.Point(440, 137);
+            this.TSNAtextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TSNAtextBox.Location = new System.Drawing.Point(561, 48);
+            this.TSNAtextBox.MaxLength = 7;
             this.TSNAtextBox.Name = "TSNAtextBox";
-            this.TSNAtextBox.Size = new System.Drawing.Size(46, 20);
+            this.TSNAtextBox.Size = new System.Drawing.Size(78, 24);
             this.TSNAtextBox.TabIndex = 44;
             // 
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(469, 75);
+            this.label25.Location = new System.Drawing.Point(471, 78);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(44, 13);
             this.label25.TabIndex = 43;
@@ -2001,7 +2026,7 @@ namespace DB_EDITOR
             // 
             // TeamDivisionBox
             // 
-            this.TeamDivisionBox.Location = new System.Drawing.Point(447, 92);
+            this.TeamDivisionBox.Location = new System.Drawing.Point(449, 95);
             this.TeamDivisionBox.Name = "TeamDivisionBox";
             this.TeamDivisionBox.ReadOnly = true;
             this.TeamDivisionBox.Size = new System.Drawing.Size(88, 20);
@@ -2012,7 +2037,7 @@ namespace DB_EDITOR
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(366, 75);
+            this.label24.Location = new System.Drawing.Point(368, 78);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(62, 13);
             this.label24.TabIndex = 41;
@@ -2020,7 +2045,7 @@ namespace DB_EDITOR
             // 
             // TeamConferenceBox
             // 
-            this.TeamConferenceBox.Location = new System.Drawing.Point(353, 92);
+            this.TeamConferenceBox.Location = new System.Drawing.Point(355, 95);
             this.TeamConferenceBox.Name = "TeamConferenceBox";
             this.TeamConferenceBox.ReadOnly = true;
             this.TeamConferenceBox.Size = new System.Drawing.Size(88, 20);
@@ -2031,7 +2056,7 @@ namespace DB_EDITOR
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(773, 75);
+            this.label22.Location = new System.Drawing.Point(903, 78);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(122, 13);
             this.label22.TabIndex = 37;
@@ -2040,7 +2065,7 @@ namespace DB_EDITOR
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(573, 76);
+            this.label23.Location = new System.Drawing.Point(703, 79);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(119, 13);
             this.label23.TabIndex = 36;
@@ -2049,7 +2074,7 @@ namespace DB_EDITOR
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(287, 220);
+            this.label21.Location = new System.Drawing.Point(315, 193);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(95, 13);
             this.label21.TabIndex = 35;
@@ -2059,7 +2084,7 @@ namespace DB_EDITOR
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(207, 220);
+            this.label20.Location = new System.Drawing.Point(235, 193);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(75, 13);
             this.label20.TabIndex = 33;
@@ -2068,7 +2093,7 @@ namespace DB_EDITOR
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(260, 76);
+            this.label19.Location = new System.Drawing.Point(262, 79);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(38, 13);
             this.label19.TabIndex = 31;
@@ -2076,7 +2101,7 @@ namespace DB_EDITOR
             // 
             // TeamOVRtextbox
             // 
-            this.TeamOVRtextbox.Location = new System.Drawing.Point(256, 92);
+            this.TeamOVRtextbox.Location = new System.Drawing.Point(258, 95);
             this.TeamOVRtextbox.Name = "TeamOVRtextbox";
             this.TeamOVRtextbox.ReadOnly = true;
             this.TeamOVRtextbox.Size = new System.Drawing.Size(42, 20);
@@ -2086,7 +2111,7 @@ namespace DB_EDITOR
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(773, 165);
+            this.label18.Location = new System.Drawing.Point(903, 168);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(71, 13);
             this.label18.TabIndex = 25;
@@ -2095,7 +2120,7 @@ namespace DB_EDITOR
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(573, 165);
+            this.label17.Location = new System.Drawing.Point(703, 168);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(71, 13);
             this.label17.TabIndex = 23;
@@ -2104,7 +2129,7 @@ namespace DB_EDITOR
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(773, 121);
+            this.label16.Location = new System.Drawing.Point(903, 124);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(120, 13);
             this.label16.TabIndex = 21;
@@ -2113,7 +2138,7 @@ namespace DB_EDITOR
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(573, 121);
+            this.label15.Location = new System.Drawing.Point(703, 124);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(117, 13);
             this.label15.TabIndex = 19;
@@ -2122,7 +2147,7 @@ namespace DB_EDITOR
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(205, 76);
+            this.label11.Location = new System.Drawing.Point(207, 79);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(48, 13);
             this.label11.TabIndex = 17;
@@ -2130,7 +2155,7 @@ namespace DB_EDITOR
             // 
             // TGIDtextBox
             // 
-            this.TGIDtextBox.Location = new System.Drawing.Point(206, 92);
+            this.TGIDtextBox.Location = new System.Drawing.Point(208, 95);
             this.TGIDtextBox.Name = "TGIDtextBox";
             this.TGIDtextBox.ReadOnly = true;
             this.TGIDtextBox.Size = new System.Drawing.Size(44, 20);
@@ -2140,7 +2165,7 @@ namespace DB_EDITOR
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(320, 121);
+            this.label10.Location = new System.Drawing.Point(386, 33);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(65, 13);
             this.label10.TabIndex = 15;
@@ -2148,16 +2173,18 @@ namespace DB_EDITOR
             // 
             // TMNAtextBox
             // 
-            this.TMNAtextBox.Location = new System.Drawing.Point(323, 137);
+            this.TMNAtextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TMNAtextBox.Location = new System.Drawing.Point(384, 48);
+            this.TMNAtextBox.MaxLength = 32;
             this.TMNAtextBox.Name = "TMNAtextBox";
-            this.TMNAtextBox.Size = new System.Drawing.Size(100, 20);
+            this.TMNAtextBox.Size = new System.Drawing.Size(162, 24);
             this.TMNAtextBox.TabIndex = 14;
             this.TMNAtextBox.TextChanged += new System.EventHandler(this.TMNAtextBox_TextChanged);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(206, 121);
+            this.label9.Location = new System.Drawing.Point(210, 32);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(73, 13);
             this.label9.TabIndex = 13;
@@ -2165,9 +2192,11 @@ namespace DB_EDITOR
             // 
             // TDNAtextBox
             // 
-            this.TDNAtextBox.Location = new System.Drawing.Point(209, 137);
+            this.TDNAtextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TDNAtextBox.Location = new System.Drawing.Point(206, 48);
+            this.TDNAtextBox.MaxLength = 32;
             this.TDNAtextBox.Name = "TDNAtextBox";
-            this.TDNAtextBox.Size = new System.Drawing.Size(100, 20);
+            this.TDNAtextBox.Size = new System.Drawing.Size(162, 24);
             this.TDNAtextBox.TabIndex = 12;
             this.TDNAtextBox.TextChanged += new System.EventHandler(this.TDNAtextBox_TextChanged);
             // 
@@ -2218,7 +2247,10 @@ namespace DB_EDITOR
             // 
             // tabPlayers
             // 
-            this.tabPlayers.BackColor = System.Drawing.Color.LightGray;
+            this.tabPlayers.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.tabPlayers.Controls.Add(this.PGIDLabel);
+            this.tabPlayers.Controls.Add(this.PGIDbox);
+            this.tabPlayers.Controls.Add(this.ShowPOSGBox);
             this.tabPlayers.Controls.Add(this.ShowRatingCheckbox);
             this.tabPlayers.Controls.Add(this.ShowPosCheckBox);
             this.tabPlayers.Controls.Add(this.label93);
@@ -2314,9 +2346,20 @@ namespace DB_EDITOR
             this.tabPlayers.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tabPlayers.Location = new System.Drawing.Point(4, 24);
             this.tabPlayers.Name = "tabPlayers";
-            this.tabPlayers.Size = new System.Drawing.Size(976, 633);
+            this.tabPlayers.Size = new System.Drawing.Size(1152, 665);
             this.tabPlayers.TabIndex = 2;
             this.tabPlayers.Text = "Players";
+            // 
+            // ShowPOSGBox
+            // 
+            this.ShowPOSGBox.AutoSize = true;
+            this.ShowPOSGBox.Location = new System.Drawing.Point(12, 626);
+            this.ShowPOSGBox.Name = "ShowPOSGBox";
+            this.ShowPOSGBox.Size = new System.Drawing.Size(125, 17);
+            this.ShowPOSGBox.TabIndex = 96;
+            this.ShowPOSGBox.Text = "Show Position Group";
+            this.ShowPOSGBox.UseVisualStyleBackColor = true;
+            this.ShowPOSGBox.CheckedChanged += new System.EventHandler(this.ShowPOSGBox_CheckedChanged);
             // 
             // ShowRatingCheckbox
             // 
@@ -2362,7 +2405,7 @@ namespace DB_EDITOR
             // label92
             // 
             this.label92.AutoSize = true;
-            this.label92.Location = new System.Drawing.Point(300, 94);
+            this.label92.Location = new System.Drawing.Point(367, 93);
             this.label92.Name = "label92";
             this.label92.Size = new System.Drawing.Size(46, 13);
             this.label92.TabIndex = 91;
@@ -2371,7 +2414,7 @@ namespace DB_EDITOR
             // PRSDBox
             // 
             this.PRSDBox.FormattingEnabled = true;
-            this.PRSDBox.Location = new System.Drawing.Point(303, 110);
+            this.PRSDBox.Location = new System.Drawing.Point(370, 109);
             this.PRSDBox.Name = "PRSDBox";
             this.PRSDBox.Size = new System.Drawing.Size(79, 21);
             this.PRSDBox.TabIndex = 90;
@@ -2380,7 +2423,7 @@ namespace DB_EDITOR
             // label91
             // 
             this.label91.AutoSize = true;
-            this.label91.Location = new System.Drawing.Point(217, 95);
+            this.label91.Location = new System.Drawing.Point(284, 94);
             this.label91.Name = "label91";
             this.label91.Size = new System.Drawing.Size(29, 13);
             this.label91.TabIndex = 89;
@@ -2389,7 +2432,7 @@ namespace DB_EDITOR
             // PYERBox
             // 
             this.PYERBox.FormattingEnabled = true;
-            this.PYERBox.Location = new System.Drawing.Point(218, 110);
+            this.PYERBox.Location = new System.Drawing.Point(285, 109);
             this.PYERBox.Name = "PYERBox";
             this.PYERBox.Size = new System.Drawing.Size(79, 21);
             this.PYERBox.TabIndex = 88;
@@ -3321,14 +3364,14 @@ namespace DB_EDITOR
             this.tabCoaches.Location = new System.Drawing.Point(4, 24);
             this.tabCoaches.Name = "tabCoaches";
             this.tabCoaches.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCoaches.Size = new System.Drawing.Size(976, 633);
+            this.tabCoaches.Size = new System.Drawing.Size(1152, 665);
             this.tabCoaches.TabIndex = 7;
             this.tabCoaches.Text = "Coaches";
             this.tabCoaches.UseVisualStyleBackColor = true;
             // 
             // tabSeason
             // 
-            this.tabSeason.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.tabSeason.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.tabSeason.Controls.Add(this.CoachPrestigeButton);
             this.tabSeason.Controls.Add(this.label14);
             this.tabSeason.Controls.Add(this.numberPlayerCoach);
@@ -3362,15 +3405,15 @@ namespace DB_EDITOR
             this.tabSeason.Location = new System.Drawing.Point(4, 24);
             this.tabSeason.Name = "tabSeason";
             this.tabSeason.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSeason.Size = new System.Drawing.Size(976, 633);
+            this.tabSeason.Size = new System.Drawing.Size(1152, 665);
             this.tabSeason.TabIndex = 3;
             this.tabSeason.Text = "Dynasty";
             // 
             // CoachPrestigeButton
             // 
-            this.CoachPrestigeButton.BackColor = System.Drawing.Color.Pink;
+            this.CoachPrestigeButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.CoachPrestigeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CoachPrestigeButton.Location = new System.Drawing.Point(424, 219);
+            this.CoachPrestigeButton.Location = new System.Drawing.Point(177, 531);
             this.CoachPrestigeButton.Name = "CoachPrestigeButton";
             this.CoachPrestigeButton.Size = new System.Drawing.Size(110, 80);
             this.CoachPrestigeButton.TabIndex = 33;
@@ -3381,7 +3424,7 @@ namespace DB_EDITOR
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(431, 601);
+            this.label14.Location = new System.Drawing.Point(431, 598);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(93, 13);
             this.label14.TabIndex = 32;
@@ -3389,21 +3432,22 @@ namespace DB_EDITOR
             // 
             // numberPlayerCoach
             // 
-            this.numberPlayerCoach.Location = new System.Drawing.Point(424, 578);
+            this.numberPlayerCoach.Location = new System.Drawing.Point(434, 575);
             this.numberPlayerCoach.Maximum = new decimal(new int[] {
             10,
             0,
             0,
             0});
             this.numberPlayerCoach.Name = "numberPlayerCoach";
-            this.numberPlayerCoach.Size = new System.Drawing.Size(120, 20);
+            this.numberPlayerCoach.Size = new System.Drawing.Size(72, 20);
             this.numberPlayerCoach.TabIndex = 31;
             // 
             // buttonPlayerCoach
             // 
-            this.buttonPlayerCoach.BackColor = System.Drawing.Color.LightBlue;
+            this.buttonPlayerCoach.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.buttonPlayerCoach.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPlayerCoach.Location = new System.Drawing.Point(424, 495);
+            this.buttonPlayerCoach.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonPlayerCoach.Location = new System.Drawing.Point(315, 531);
             this.buttonPlayerCoach.Name = "buttonPlayerCoach";
             this.buttonPlayerCoach.Size = new System.Drawing.Size(110, 80);
             this.buttonPlayerCoach.TabIndex = 30;
@@ -3415,7 +3459,7 @@ namespace DB_EDITOR
             // 
             this.buttonScheduleGen.BackColor = System.Drawing.Color.DarkOrange;
             this.buttonScheduleGen.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonScheduleGen.Location = new System.Drawing.Point(291, 82);
+            this.buttonScheduleGen.Location = new System.Drawing.Point(434, 190);
             this.buttonScheduleGen.Name = "buttonScheduleGen";
             this.buttonScheduleGen.Size = new System.Drawing.Size(110, 80);
             this.buttonScheduleGen.TabIndex = 29;
@@ -3426,9 +3470,10 @@ namespace DB_EDITOR
             // 
             // buttonRealignment
             // 
-            this.buttonRealignment.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.buttonRealignment.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.buttonRealignment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRealignment.Location = new System.Drawing.Point(227, 495);
+            this.buttonRealignment.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonRealignment.Location = new System.Drawing.Point(308, 82);
             this.buttonRealignment.Name = "buttonRealignment";
             this.buttonRealignment.Size = new System.Drawing.Size(110, 80);
             this.buttonRealignment.TabIndex = 28;
@@ -3439,7 +3484,7 @@ namespace DB_EDITOR
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(433, 375);
+            this.label13.Location = new System.Drawing.Point(385, 419);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(115, 13);
             this.label13.TabIndex = 27;
@@ -3448,7 +3493,7 @@ namespace DB_EDITOR
             // labelMaxTransfers
             // 
             this.labelMaxTransfers.AutoSize = true;
-            this.labelMaxTransfers.Location = new System.Drawing.Point(447, 437);
+            this.labelMaxTransfers.Location = new System.Drawing.Point(399, 481);
             this.labelMaxTransfers.Name = "labelMaxTransfers";
             this.labelMaxTransfers.Size = new System.Drawing.Size(74, 13);
             this.labelMaxTransfers.TabIndex = 26;
@@ -3456,7 +3501,7 @@ namespace DB_EDITOR
             // 
             // maxFiredTransfers
             // 
-            this.maxFiredTransfers.Location = new System.Drawing.Point(450, 414);
+            this.maxFiredTransfers.Location = new System.Drawing.Point(402, 458);
             this.maxFiredTransfers.Maximum = new decimal(new int[] {
             15,
             0,
@@ -3469,7 +3514,7 @@ namespace DB_EDITOR
             // checkBoxFiredTransfers
             // 
             this.checkBoxFiredTransfers.AutoSize = true;
-            this.checkBoxFiredTransfers.Location = new System.Drawing.Point(450, 391);
+            this.checkBoxFiredTransfers.Location = new System.Drawing.Point(402, 435);
             this.checkBoxFiredTransfers.Name = "checkBoxFiredTransfers";
             this.checkBoxFiredTransfers.Size = new System.Drawing.Size(98, 17);
             this.checkBoxFiredTransfers.TabIndex = 24;
@@ -3480,7 +3525,7 @@ namespace DB_EDITOR
             // 
             this.buttonChaosTransfers.BackColor = System.Drawing.Color.LightGray;
             this.buttonChaosTransfers.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonChaosTransfers.Location = new System.Drawing.Point(424, 82);
+            this.buttonChaosTransfers.Location = new System.Drawing.Point(308, 190);
             this.buttonChaosTransfers.Name = "buttonChaosTransfers";
             this.buttonChaosTransfers.Size = new System.Drawing.Size(110, 80);
             this.buttonChaosTransfers.TabIndex = 23;
@@ -3548,7 +3593,7 @@ namespace DB_EDITOR
             // 
             // buttonPSInjuries
             // 
-            this.buttonPSInjuries.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.buttonPSInjuries.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.buttonPSInjuries.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonPSInjuries.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.buttonPSInjuries.Location = new System.Drawing.Point(28, 82);
@@ -3575,7 +3620,7 @@ namespace DB_EDITOR
             // labelPoaching
             // 
             this.labelPoaching.AutoSize = true;
-            this.labelPoaching.Location = new System.Drawing.Point(357, 437);
+            this.labelPoaching.Location = new System.Drawing.Point(309, 481);
             this.labelPoaching.Name = "labelPoaching";
             this.labelPoaching.Size = new System.Drawing.Size(78, 13);
             this.labelPoaching.TabIndex = 16;
@@ -3588,7 +3633,7 @@ namespace DB_EDITOR
             0,
             0,
             0});
-            this.poachValue.Location = new System.Drawing.Point(361, 417);
+            this.poachValue.Location = new System.Drawing.Point(313, 461);
             this.poachValue.Maximum = new decimal(new int[] {
             85,
             0,
@@ -3606,7 +3651,7 @@ namespace DB_EDITOR
             // labelJobSecurity
             // 
             this.labelJobSecurity.AutoSize = true;
-            this.labelJobSecurity.Location = new System.Drawing.Point(360, 400);
+            this.labelJobSecurity.Location = new System.Drawing.Point(312, 444);
             this.labelJobSecurity.Name = "labelJobSecurity";
             this.labelJobSecurity.Size = new System.Drawing.Size(65, 13);
             this.labelJobSecurity.TabIndex = 14;
@@ -3619,7 +3664,7 @@ namespace DB_EDITOR
             0,
             0,
             0});
-            this.jobSecurityValue.Location = new System.Drawing.Point(360, 377);
+            this.jobSecurityValue.Location = new System.Drawing.Point(312, 421);
             this.jobSecurityValue.Maximum = new decimal(new int[] {
             30,
             0,
@@ -3631,9 +3676,10 @@ namespace DB_EDITOR
             // 
             // buttonCarousel
             // 
-            this.buttonCarousel.BackColor = System.Drawing.Color.HotPink;
+            this.buttonCarousel.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.buttonCarousel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCarousel.Location = new System.Drawing.Point(227, 370);
+            this.buttonCarousel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonCarousel.Location = new System.Drawing.Point(177, 416);
             this.buttonCarousel.Name = "buttonCarousel";
             this.buttonCarousel.Size = new System.Drawing.Size(110, 80);
             this.buttonCarousel.TabIndex = 12;
@@ -3680,9 +3726,10 @@ namespace DB_EDITOR
             // 
             // buttonRandomBudgets
             // 
-            this.buttonRandomBudgets.BackColor = System.Drawing.Color.SandyBrown;
+            this.buttonRandomBudgets.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.buttonRandomBudgets.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRandomBudgets.Location = new System.Drawing.Point(28, 495);
+            this.buttonRandomBudgets.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonRandomBudgets.Location = new System.Drawing.Point(38, 531);
             this.buttonRandomBudgets.Name = "buttonRandomBudgets";
             this.buttonRandomBudgets.Size = new System.Drawing.Size(110, 80);
             this.buttonRandomBudgets.TabIndex = 7;
@@ -3692,13 +3739,13 @@ namespace DB_EDITOR
             // 
             // dbToolsInfo
             // 
-            this.dbToolsInfo.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.dbToolsInfo.BackColor = System.Drawing.SystemColors.ControlDark;
             this.dbToolsInfo.Enabled = false;
             this.dbToolsInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dbToolsInfo.Location = new System.Drawing.Point(566, 6);
+            this.dbToolsInfo.Location = new System.Drawing.Point(599, 29);
             this.dbToolsInfo.Multiline = true;
             this.dbToolsInfo.Name = "dbToolsInfo";
-            this.dbToolsInfo.Size = new System.Drawing.Size(407, 620);
+            this.dbToolsInfo.Size = new System.Drawing.Size(528, 620);
             this.dbToolsInfo.TabIndex = 3;
             this.dbToolsInfo.Text = resources.GetString("dbToolsInfo.Text");
             // 
@@ -3716,10 +3763,10 @@ namespace DB_EDITOR
             // 
             // coachProg
             // 
-            this.coachProg.BackColor = System.Drawing.Color.DodgerBlue;
+            this.coachProg.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.coachProg.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.coachProg.ForeColor = System.Drawing.SystemColors.Control;
-            this.coachProg.Location = new System.Drawing.Point(28, 370);
+            this.coachProg.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.coachProg.Location = new System.Drawing.Point(38, 416);
             this.coachProg.Name = "coachProg";
             this.coachProg.Size = new System.Drawing.Size(110, 80);
             this.coachProg.TabIndex = 1;
@@ -3729,9 +3776,9 @@ namespace DB_EDITOR
             // 
             // medRS
             // 
-            this.medRS.BackColor = System.Drawing.Color.Crimson;
+            this.medRS.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.medRS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.medRS.ForeColor = System.Drawing.SystemColors.Control;
+            this.medRS.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.medRS.Location = new System.Drawing.Point(28, 219);
             this.medRS.Name = "medRS";
             this.medRS.Size = new System.Drawing.Size(110, 80);
@@ -3766,15 +3813,16 @@ namespace DB_EDITOR
             this.tabOffSeason.Location = new System.Drawing.Point(4, 24);
             this.tabOffSeason.Name = "tabOffSeason";
             this.tabOffSeason.Padding = new System.Windows.Forms.Padding(3);
-            this.tabOffSeason.Size = new System.Drawing.Size(976, 633);
+            this.tabOffSeason.Size = new System.Drawing.Size(1152, 665);
             this.tabOffSeason.TabIndex = 4;
             this.tabOffSeason.Text = "Recruiting";
             // 
             // buttonRandomizeFaceShape
             // 
-            this.buttonRandomizeFaceShape.BackColor = System.Drawing.Color.Moccasin;
+            this.buttonRandomizeFaceShape.BackColor = System.Drawing.SystemColors.Highlight;
             this.buttonRandomizeFaceShape.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRandomizeFaceShape.Location = new System.Drawing.Point(144, 363);
+            this.buttonRandomizeFaceShape.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonRandomizeFaceShape.Location = new System.Drawing.Point(72, 360);
             this.buttonRandomizeFaceShape.Name = "buttonRandomizeFaceShape";
             this.buttonRandomizeFaceShape.Size = new System.Drawing.Size(110, 80);
             this.buttonRandomizeFaceShape.TabIndex = 20;
@@ -3786,7 +3834,7 @@ namespace DB_EDITOR
             // 
             this.labelPolyNamesPCT.AutoSize = true;
             this.labelPolyNamesPCT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPolyNamesPCT.Location = new System.Drawing.Point(59, 591);
+            this.labelPolyNamesPCT.Location = new System.Drawing.Point(188, 593);
             this.labelPolyNamesPCT.Name = "labelPolyNamesPCT";
             this.labelPolyNamesPCT.Size = new System.Drawing.Size(76, 16);
             this.labelPolyNamesPCT.TabIndex = 19;
@@ -3799,7 +3847,7 @@ namespace DB_EDITOR
             0,
             0,
             0});
-            this.polyNamesPCT.Location = new System.Drawing.Point(73, 568);
+            this.polyNamesPCT.Location = new System.Drawing.Point(202, 570);
             this.polyNamesPCT.Name = "polyNamesPCT";
             this.polyNamesPCT.Size = new System.Drawing.Size(52, 20);
             this.polyNamesPCT.TabIndex = 18;
@@ -3811,9 +3859,10 @@ namespace DB_EDITOR
             // 
             // polyNames
             // 
-            this.polyNames.BackColor = System.Drawing.Color.LightGreen;
+            this.polyNames.BackColor = System.Drawing.SystemColors.Highlight;
             this.polyNames.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.polyNames.Location = new System.Drawing.Point(144, 546);
+            this.polyNames.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.polyNames.Location = new System.Drawing.Point(72, 543);
             this.polyNames.Name = "polyNames";
             this.polyNames.Size = new System.Drawing.Size(110, 70);
             this.polyNames.TabIndex = 17;
@@ -3825,11 +3874,10 @@ namespace DB_EDITOR
             // 
             this.textBoxOffSeason.Enabled = false;
             this.textBoxOffSeason.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxOffSeason.Location = new System.Drawing.Point(360, 77);
+            this.textBoxOffSeason.Location = new System.Drawing.Point(305, 90);
             this.textBoxOffSeason.Multiline = true;
             this.textBoxOffSeason.Name = "textBoxOffSeason";
-            this.textBoxOffSeason.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBoxOffSeason.Size = new System.Drawing.Size(526, 600);
+            this.textBoxOffSeason.Size = new System.Drawing.Size(526, 523);
             this.textBoxOffSeason.TabIndex = 16;
             this.textBoxOffSeason.Text = resources.GetString("textBoxOffSeason.Text");
             // 
@@ -3837,7 +3885,7 @@ namespace DB_EDITOR
             // 
             this.textBoxOffSeasonTitle.Enabled = false;
             this.textBoxOffSeasonTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxOffSeasonTitle.Location = new System.Drawing.Point(360, 23);
+            this.textBoxOffSeasonTitle.Location = new System.Drawing.Point(305, 53);
             this.textBoxOffSeasonTitle.Name = "textBoxOffSeasonTitle";
             this.textBoxOffSeasonTitle.Size = new System.Drawing.Size(526, 31);
             this.textBoxOffSeasonTitle.TabIndex = 15;
@@ -3848,7 +3896,7 @@ namespace DB_EDITOR
             // 
             this.labelIntTeams.AutoSize = true;
             this.labelIntTeams.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelIntTeams.Location = new System.Drawing.Point(71, 212);
+            this.labelIntTeams.Location = new System.Drawing.Point(200, 214);
             this.labelIntTeams.Name = "labelIntTeams";
             this.labelIntTeams.Size = new System.Drawing.Size(55, 16);
             this.labelIntTeams.TabIndex = 14;
@@ -3858,7 +3906,7 @@ namespace DB_EDITOR
             // removeInterestTeams
             // 
             this.removeInterestTeams.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.removeInterestTeams.Location = new System.Drawing.Point(73, 187);
+            this.removeInterestTeams.Location = new System.Drawing.Point(202, 189);
             this.removeInterestTeams.Maximum = new decimal(new int[] {
             11,
             0,
@@ -3875,9 +3923,10 @@ namespace DB_EDITOR
             // 
             // buttonInterestedTeams
             // 
-            this.buttonInterestedTeams.BackColor = System.Drawing.Color.SandyBrown;
+            this.buttonInterestedTeams.BackColor = System.Drawing.SystemColors.Highlight;
             this.buttonInterestedTeams.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonInterestedTeams.Location = new System.Drawing.Point(144, 159);
+            this.buttonInterestedTeams.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonInterestedTeams.Location = new System.Drawing.Point(72, 156);
             this.buttonInterestedTeams.Name = "buttonInterestedTeams";
             this.buttonInterestedTeams.Size = new System.Drawing.Size(110, 80);
             this.buttonInterestedTeams.TabIndex = 12;
@@ -3889,7 +3938,7 @@ namespace DB_EDITOR
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(62, 81);
+            this.label12.Location = new System.Drawing.Point(191, 83);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(76, 16);
             this.label12.TabIndex = 11;
@@ -3898,7 +3947,7 @@ namespace DB_EDITOR
             // minTRPA
             // 
             this.minTRPA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minTRPA.Location = new System.Drawing.Point(74, 54);
+            this.minTRPA.Location = new System.Drawing.Point(203, 56);
             this.minTRPA.Maximum = new decimal(new int[] {
             17,
             0,
@@ -3922,7 +3971,7 @@ namespace DB_EDITOR
             // 
             this.labelMinRecPts.AutoSize = true;
             this.labelMinRecPts.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMinRecPts.Location = new System.Drawing.Point(59, 135);
+            this.labelMinRecPts.Location = new System.Drawing.Point(188, 137);
             this.labelMinRecPts.Name = "labelMinRecPts";
             this.labelMinRecPts.Size = new System.Drawing.Size(78, 16);
             this.labelMinRecPts.TabIndex = 9;
@@ -3937,7 +3986,7 @@ namespace DB_EDITOR
             0,
             0,
             0});
-            this.minRecPts.Location = new System.Drawing.Point(74, 110);
+            this.minRecPts.Location = new System.Drawing.Point(203, 112);
             this.minRecPts.Maximum = new decimal(new int[] {
             500,
             0,
@@ -3961,7 +4010,7 @@ namespace DB_EDITOR
             // 
             this.labelRecruit.AutoSize = true;
             this.labelRecruit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRecruit.Location = new System.Drawing.Point(60, 314);
+            this.labelRecruit.Location = new System.Drawing.Point(189, 316);
             this.labelRecruit.Name = "labelRecruit";
             this.labelRecruit.Size = new System.Drawing.Size(78, 16);
             this.labelRecruit.TabIndex = 7;
@@ -3971,7 +4020,7 @@ namespace DB_EDITOR
             // recruitTolerance
             // 
             this.recruitTolerance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.recruitTolerance.Location = new System.Drawing.Point(74, 289);
+            this.recruitTolerance.Location = new System.Drawing.Point(203, 291);
             this.recruitTolerance.Maximum = new decimal(new int[] {
             3,
             0,
@@ -3990,7 +4039,7 @@ namespace DB_EDITOR
             // 
             this.wkonLabel.AutoSize = true;
             this.wkonLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.wkonLabel.Location = new System.Drawing.Point(59, 502);
+            this.wkonLabel.Location = new System.Drawing.Point(188, 504);
             this.wkonLabel.Name = "wkonLabel";
             this.wkonLabel.Size = new System.Drawing.Size(78, 16);
             this.wkonLabel.TabIndex = 5;
@@ -4000,7 +4049,7 @@ namespace DB_EDITOR
             // toleranceWalkOn
             // 
             this.toleranceWalkOn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toleranceWalkOn.Location = new System.Drawing.Point(73, 477);
+            this.toleranceWalkOn.Location = new System.Drawing.Point(202, 479);
             this.toleranceWalkOn.Maximum = new decimal(new int[] {
             4,
             0,
@@ -4017,9 +4066,10 @@ namespace DB_EDITOR
             // 
             // buttonRandRecruits
             // 
-            this.buttonRandRecruits.BackColor = System.Drawing.Color.Moccasin;
+            this.buttonRandRecruits.BackColor = System.Drawing.SystemColors.Highlight;
             this.buttonRandRecruits.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRandRecruits.Location = new System.Drawing.Point(144, 268);
+            this.buttonRandRecruits.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonRandRecruits.Location = new System.Drawing.Point(72, 265);
             this.buttonRandRecruits.Name = "buttonRandRecruits";
             this.buttonRandRecruits.Size = new System.Drawing.Size(110, 80);
             this.buttonRandRecruits.TabIndex = 3;
@@ -4029,9 +4079,10 @@ namespace DB_EDITOR
             // 
             // buttonRandWalkOns
             // 
-            this.buttonRandWalkOns.BackColor = System.Drawing.Color.BurlyWood;
+            this.buttonRandWalkOns.BackColor = System.Drawing.SystemColors.Highlight;
             this.buttonRandWalkOns.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRandWalkOns.Location = new System.Drawing.Point(144, 449);
+            this.buttonRandWalkOns.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonRandWalkOns.Location = new System.Drawing.Point(72, 446);
             this.buttonRandWalkOns.Name = "buttonRandWalkOns";
             this.buttonRandWalkOns.Size = new System.Drawing.Size(110, 80);
             this.buttonRandWalkOns.TabIndex = 2;
@@ -4041,9 +4092,10 @@ namespace DB_EDITOR
             // 
             // buttonMinRecruitingPts
             // 
-            this.buttonMinRecruitingPts.BackColor = System.Drawing.Color.LightSalmon;
+            this.buttonMinRecruitingPts.BackColor = System.Drawing.SystemColors.Highlight;
             this.buttonMinRecruitingPts.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonMinRecruitingPts.Location = new System.Drawing.Point(144, 54);
+            this.buttonMinRecruitingPts.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonMinRecruitingPts.Location = new System.Drawing.Point(72, 51);
             this.buttonMinRecruitingPts.Name = "buttonMinRecruitingPts";
             this.buttonMinRecruitingPts.Size = new System.Drawing.Size(110, 80);
             this.buttonMinRecruitingPts.TabIndex = 1;
@@ -4053,7 +4105,8 @@ namespace DB_EDITOR
             // 
             // tabTools
             // 
-            this.tabTools.BackColor = System.Drawing.Color.PeachPuff;
+            this.tabTools.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.tabTools.Controls.Add(this.AWRKnockdownButton);
             this.tabTools.Controls.Add(this.TORDButton);
             this.tabTools.Controls.Add(this.CFUSAexportButton);
             this.tabTools.Controls.Add(this.RandomizeHeadButton);
@@ -4074,15 +4127,29 @@ namespace DB_EDITOR
             this.tabTools.Location = new System.Drawing.Point(4, 24);
             this.tabTools.Name = "tabTools";
             this.tabTools.Padding = new System.Windows.Forms.Padding(3);
-            this.tabTools.Size = new System.Drawing.Size(976, 633);
+            this.tabTools.Size = new System.Drawing.Size(1152, 665);
             this.tabTools.TabIndex = 5;
             this.tabTools.Text = "dbTools";
             // 
+            // AWRKnockdownButton
+            // 
+            this.AWRKnockdownButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.AWRKnockdownButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AWRKnockdownButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.AWRKnockdownButton.Location = new System.Drawing.Point(166, 490);
+            this.AWRKnockdownButton.Name = "AWRKnockdownButton";
+            this.AWRKnockdownButton.Size = new System.Drawing.Size(110, 80);
+            this.AWRKnockdownButton.TabIndex = 27;
+            this.AWRKnockdownButton.Text = "Awareness Knockdown";
+            this.AWRKnockdownButton.UseVisualStyleBackColor = false;
+            this.AWRKnockdownButton.Click += new System.EventHandler(this.AWRKnockdownButton_Click);
+            // 
             // TORDButton
             // 
-            this.TORDButton.BackColor = System.Drawing.Color.DarkSalmon;
+            this.TORDButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.TORDButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TORDButton.Location = new System.Drawing.Point(166, 140);
+            this.TORDButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.TORDButton.Location = new System.Drawing.Point(166, 390);
             this.TORDButton.Name = "TORDButton";
             this.TORDButton.Size = new System.Drawing.Size(110, 80);
             this.TORDButton.TabIndex = 26;
@@ -4104,9 +4171,10 @@ namespace DB_EDITOR
             // 
             // RandomizeHeadButton
             // 
-            this.RandomizeHeadButton.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.RandomizeHeadButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.RandomizeHeadButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RandomizeHeadButton.Location = new System.Drawing.Point(166, 35);
+            this.RandomizeHeadButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.RandomizeHeadButton.Location = new System.Drawing.Point(290, 140);
             this.RandomizeHeadButton.Name = "RandomizeHeadButton";
             this.RandomizeHeadButton.Size = new System.Drawing.Size(110, 80);
             this.RandomizeHeadButton.TabIndex = 24;
@@ -4142,8 +4210,9 @@ namespace DB_EDITOR
             // 
             // buttonFillRosters
             // 
-            this.buttonFillRosters.BackColor = System.Drawing.Color.DarkGray;
+            this.buttonFillRosters.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.buttonFillRosters.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonFillRosters.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.buttonFillRosters.Location = new System.Drawing.Point(45, 490);
             this.buttonFillRosters.Name = "buttonFillRosters";
             this.buttonFillRosters.Size = new System.Drawing.Size(110, 80);
@@ -4154,9 +4223,10 @@ namespace DB_EDITOR
             // 
             // buttonAutoDepthChart
             // 
-            this.buttonAutoDepthChart.BackColor = System.Drawing.Color.DarkGray;
+            this.buttonAutoDepthChart.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.buttonAutoDepthChart.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAutoDepthChart.Location = new System.Drawing.Point(166, 390);
+            this.buttonAutoDepthChart.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonAutoDepthChart.Location = new System.Drawing.Point(166, 38);
             this.buttonAutoDepthChart.Name = "buttonAutoDepthChart";
             this.buttonAutoDepthChart.Size = new System.Drawing.Size(110, 80);
             this.buttonAutoDepthChart.TabIndex = 19;
@@ -4166,9 +4236,10 @@ namespace DB_EDITOR
             // 
             // buttonFantasyRoster
             // 
-            this.buttonFantasyRoster.BackColor = System.Drawing.Color.DarkGray;
+            this.buttonFantasyRoster.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.buttonFantasyRoster.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonFantasyRoster.Location = new System.Drawing.Point(166, 490);
+            this.buttonFantasyRoster.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonFantasyRoster.Location = new System.Drawing.Point(45, 38);
             this.buttonFantasyRoster.Name = "buttonFantasyRoster";
             this.buttonFantasyRoster.Size = new System.Drawing.Size(110, 80);
             this.buttonFantasyRoster.TabIndex = 18;
@@ -4178,8 +4249,9 @@ namespace DB_EDITOR
             // 
             // buttonImpactPlayers
             // 
-            this.buttonImpactPlayers.BackColor = System.Drawing.Color.DarkGray;
+            this.buttonImpactPlayers.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.buttonImpactPlayers.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonImpactPlayers.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.buttonImpactPlayers.Location = new System.Drawing.Point(45, 390);
             this.buttonImpactPlayers.Name = "buttonImpactPlayers";
             this.buttonImpactPlayers.Size = new System.Drawing.Size(110, 80);
@@ -4190,8 +4262,9 @@ namespace DB_EDITOR
             // 
             // TYDNButton
             // 
-            this.TYDNButton.BackColor = System.Drawing.Color.DarkGray;
+            this.TYDNButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.TYDNButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TYDNButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.TYDNButton.Location = new System.Drawing.Point(166, 290);
             this.TYDNButton.Name = "TYDNButton";
             this.TYDNButton.Size = new System.Drawing.Size(110, 80);
@@ -4202,9 +4275,10 @@ namespace DB_EDITOR
             // 
             // buttonCalcOverall
             // 
-            this.buttonCalcOverall.BackColor = System.Drawing.Color.DarkGray;
+            this.buttonCalcOverall.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.buttonCalcOverall.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCalcOverall.Location = new System.Drawing.Point(45, 290);
+            this.buttonCalcOverall.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonCalcOverall.Location = new System.Drawing.Point(290, 38);
             this.buttonCalcOverall.Name = "buttonCalcOverall";
             this.buttonCalcOverall.Size = new System.Drawing.Size(110, 80);
             this.buttonCalcOverall.TabIndex = 15;
@@ -4226,7 +4300,7 @@ namespace DB_EDITOR
             // 
             // textBox2
             // 
-            this.textBox2.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.textBox2.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.textBox2.Enabled = false;
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(535, 25);
@@ -4238,9 +4312,10 @@ namespace DB_EDITOR
             // 
             // buttonRandPotential
             // 
-            this.buttonRandPotential.BackColor = System.Drawing.Color.MediumPurple;
+            this.buttonRandPotential.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.buttonRandPotential.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRandPotential.Location = new System.Drawing.Point(290, 140);
+            this.buttonRandPotential.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonRandPotential.Location = new System.Drawing.Point(290, 390);
             this.buttonRandPotential.Name = "buttonRandPotential";
             this.buttonRandPotential.Size = new System.Drawing.Size(110, 80);
             this.buttonRandPotential.TabIndex = 12;
@@ -4250,10 +4325,10 @@ namespace DB_EDITOR
             // 
             // increaseSpeed
             // 
-            this.increaseSpeed.BackColor = System.Drawing.Color.MediumAquamarine;
+            this.increaseSpeed.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.increaseSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.increaseSpeed.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.increaseSpeed.Location = new System.Drawing.Point(290, 35);
+            this.increaseSpeed.Location = new System.Drawing.Point(290, 290);
             this.increaseSpeed.Name = "increaseSpeed";
             this.increaseSpeed.Size = new System.Drawing.Size(110, 80);
             this.increaseSpeed.TabIndex = 10;
@@ -4263,9 +4338,10 @@ namespace DB_EDITOR
             // 
             // bodyFix
             // 
-            this.bodyFix.BackColor = System.Drawing.Color.Gold;
+            this.bodyFix.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.bodyFix.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bodyFix.Location = new System.Drawing.Point(45, 35);
+            this.bodyFix.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.bodyFix.Location = new System.Drawing.Point(45, 140);
             this.bodyFix.Name = "bodyFix";
             this.bodyFix.Size = new System.Drawing.Size(110, 80);
             this.bodyFix.TabIndex = 9;
@@ -4304,7 +4380,7 @@ namespace DB_EDITOR
             this.tabDev.Location = new System.Drawing.Point(4, 24);
             this.tabDev.Name = "tabDev";
             this.tabDev.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDev.Size = new System.Drawing.Size(976, 633);
+            this.tabDev.Size = new System.Drawing.Size(1152, 665);
             this.tabDev.TabIndex = 8;
             this.tabDev.Text = "Dev";
             // 
@@ -4622,6 +4698,7 @@ namespace DB_EDITOR
             // 
             // tabConf
             // 
+            this.tabConf.BackColor = System.Drawing.SystemColors.ScrollBar;
             this.tabConf.Controls.Add(this.label80);
             this.tabConf.Controls.Add(this.label4);
             this.tabConf.Controls.Add(this.SwapRosterBox);
@@ -4656,26 +4733,27 @@ namespace DB_EDITOR
             this.tabConf.Location = new System.Drawing.Point(4, 24);
             this.tabConf.Name = "tabConf";
             this.tabConf.Padding = new System.Windows.Forms.Padding(3);
-            this.tabConf.Size = new System.Drawing.Size(976, 633);
+            this.tabConf.Size = new System.Drawing.Size(1152, 665);
             this.tabConf.TabIndex = 9;
             this.tabConf.Text = "Conferences";
-            this.tabConf.UseVisualStyleBackColor = true;
             // 
             // label80
             // 
             this.label80.AutoSize = true;
-            this.label80.Location = new System.Drawing.Point(343, 593);
+            this.label80.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label80.Location = new System.Drawing.Point(1019, 99);
             this.label80.Name = "label80";
-            this.label80.Size = new System.Drawing.Size(95, 13);
+            this.label80.Size = new System.Drawing.Size(112, 13);
             this.label80.TabIndex = 31;
             this.label80.Text = "FCS Roster Option";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(205, 593);
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(989, 49);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(104, 13);
+            this.label4.Size = new System.Drawing.Size(122, 13);
             this.label4.TabIndex = 30;
             this.label4.Text = "FCS Team Selection";
             // 
@@ -4686,7 +4764,7 @@ namespace DB_EDITOR
             "Transfer Roster",
             "Fantasy Roster",
             "No Roster"});
-            this.SwapRosterBox.Location = new System.Drawing.Point(335, 609);
+            this.SwapRosterBox.Location = new System.Drawing.Point(1022, 115);
             this.SwapRosterBox.Name = "SwapRosterBox";
             this.SwapRosterBox.Size = new System.Drawing.Size(109, 21);
             this.SwapRosterBox.TabIndex = 29;
@@ -4694,9 +4772,10 @@ namespace DB_EDITOR
             // EnableFCSSwapBox
             // 
             this.EnableFCSSwapBox.AutoSize = true;
-            this.EnableFCSSwapBox.Location = new System.Drawing.Point(41, 611);
+            this.EnableFCSSwapBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.EnableFCSSwapBox.Location = new System.Drawing.Point(966, 6);
             this.EnableFCSSwapBox.Name = "EnableFCSSwapBox";
-            this.EnableFCSSwapBox.Size = new System.Drawing.Size(132, 17);
+            this.EnableFCSSwapBox.Size = new System.Drawing.Size(180, 20);
             this.EnableFCSSwapBox.TabIndex = 28;
             this.EnableFCSSwapBox.Text = "Enable FCS Swapping";
             this.EnableFCSSwapBox.UseVisualStyleBackColor = true;
@@ -4705,7 +4784,7 @@ namespace DB_EDITOR
             // FCSSwapListBox
             // 
             this.FCSSwapListBox.FormattingEnabled = true;
-            this.FCSSwapListBox.Location = new System.Drawing.Point(179, 609);
+            this.FCSSwapListBox.Location = new System.Drawing.Point(981, 65);
             this.FCSSwapListBox.Name = "FCSSwapListBox";
             this.FCSSwapListBox.Size = new System.Drawing.Size(150, 21);
             this.FCSSwapListBox.TabIndex = 26;
@@ -4715,7 +4794,7 @@ namespace DB_EDITOR
             this.DeselectTeamsButton.BackColor = System.Drawing.Color.RoyalBlue;
             this.DeselectTeamsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DeselectTeamsButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.DeselectTeamsButton.Location = new System.Drawing.Point(647, 593);
+            this.DeselectTeamsButton.Location = new System.Drawing.Point(981, 544);
             this.DeselectTeamsButton.Name = "DeselectTeamsButton";
             this.DeselectTeamsButton.Size = new System.Drawing.Size(150, 37);
             this.DeselectTeamsButton.TabIndex = 25;
@@ -4727,8 +4806,8 @@ namespace DB_EDITOR
             // 
             this.SwapButton.BackColor = System.Drawing.Color.Crimson;
             this.SwapButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SwapButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.SwapButton.Location = new System.Drawing.Point(803, 593);
+            this.SwapButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.SwapButton.Location = new System.Drawing.Point(981, 612);
             this.SwapButton.Name = "SwapButton";
             this.SwapButton.Size = new System.Drawing.Size(150, 37);
             this.SwapButton.TabIndex = 24;
@@ -4740,7 +4819,7 @@ namespace DB_EDITOR
             // 
             this.ConfName12.AutoSize = true;
             this.ConfName12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ConfName12.Location = new System.Drawing.Point(803, 300);
+            this.ConfName12.Location = new System.Drawing.Point(803, 359);
             this.ConfName12.Name = "ConfName12";
             this.ConfName12.Size = new System.Drawing.Size(80, 15);
             this.ConfName12.TabIndex = 23;
@@ -4750,7 +4829,7 @@ namespace DB_EDITOR
             // 
             this.ConfName11.AutoSize = true;
             this.ConfName11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ConfName11.Location = new System.Drawing.Point(647, 300);
+            this.ConfName11.Location = new System.Drawing.Point(647, 359);
             this.ConfName11.Name = "ConfName11";
             this.ConfName11.Size = new System.Drawing.Size(80, 15);
             this.ConfName11.TabIndex = 22;
@@ -4760,7 +4839,7 @@ namespace DB_EDITOR
             // 
             this.ConfName10.AutoSize = true;
             this.ConfName10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ConfName10.Location = new System.Drawing.Point(491, 300);
+            this.ConfName10.Location = new System.Drawing.Point(491, 359);
             this.ConfName10.Name = "ConfName10";
             this.ConfName10.Size = new System.Drawing.Size(80, 15);
             this.ConfName10.TabIndex = 21;
@@ -4770,7 +4849,7 @@ namespace DB_EDITOR
             // 
             this.ConfName9.AutoSize = true;
             this.ConfName9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ConfName9.Location = new System.Drawing.Point(335, 300);
+            this.ConfName9.Location = new System.Drawing.Point(335, 359);
             this.ConfName9.Name = "ConfName9";
             this.ConfName9.Size = new System.Drawing.Size(80, 15);
             this.ConfName9.TabIndex = 20;
@@ -4780,7 +4859,7 @@ namespace DB_EDITOR
             // 
             this.ConfName8.AutoSize = true;
             this.ConfName8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ConfName8.Location = new System.Drawing.Point(179, 300);
+            this.ConfName8.Location = new System.Drawing.Point(179, 359);
             this.ConfName8.Name = "ConfName8";
             this.ConfName8.Size = new System.Drawing.Size(80, 15);
             this.ConfName8.TabIndex = 19;
@@ -4790,7 +4869,7 @@ namespace DB_EDITOR
             // 
             this.ConfName7.AutoSize = true;
             this.ConfName7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ConfName7.Location = new System.Drawing.Point(23, 300);
+            this.ConfName7.Location = new System.Drawing.Point(23, 359);
             this.ConfName7.Name = "ConfName7";
             this.ConfName7.Size = new System.Drawing.Size(80, 15);
             this.ConfName7.TabIndex = 18;
@@ -4800,7 +4879,7 @@ namespace DB_EDITOR
             // 
             this.ConfName6.AutoSize = true;
             this.ConfName6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ConfName6.Location = new System.Drawing.Point(800, 4);
+            this.ConfName6.Location = new System.Drawing.Point(803, 31);
             this.ConfName6.Name = "ConfName6";
             this.ConfName6.Size = new System.Drawing.Size(80, 15);
             this.ConfName6.TabIndex = 17;
@@ -4810,7 +4889,7 @@ namespace DB_EDITOR
             // 
             this.ConfName5.AutoSize = true;
             this.ConfName5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ConfName5.Location = new System.Drawing.Point(644, 4);
+            this.ConfName5.Location = new System.Drawing.Point(647, 31);
             this.ConfName5.Name = "ConfName5";
             this.ConfName5.Size = new System.Drawing.Size(80, 15);
             this.ConfName5.TabIndex = 16;
@@ -4820,7 +4899,7 @@ namespace DB_EDITOR
             // 
             this.ConfName4.AutoSize = true;
             this.ConfName4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ConfName4.Location = new System.Drawing.Point(488, 4);
+            this.ConfName4.Location = new System.Drawing.Point(491, 31);
             this.ConfName4.Name = "ConfName4";
             this.ConfName4.Size = new System.Drawing.Size(80, 15);
             this.ConfName4.TabIndex = 15;
@@ -4830,7 +4909,7 @@ namespace DB_EDITOR
             // 
             this.ConfName3.AutoSize = true;
             this.ConfName3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ConfName3.Location = new System.Drawing.Point(332, 4);
+            this.ConfName3.Location = new System.Drawing.Point(335, 31);
             this.ConfName3.Name = "ConfName3";
             this.ConfName3.Size = new System.Drawing.Size(80, 15);
             this.ConfName3.TabIndex = 14;
@@ -4840,7 +4919,7 @@ namespace DB_EDITOR
             // 
             this.ConfName2.AutoSize = true;
             this.ConfName2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ConfName2.Location = new System.Drawing.Point(176, 4);
+            this.ConfName2.Location = new System.Drawing.Point(179, 31);
             this.ConfName2.Name = "ConfName2";
             this.ConfName2.Size = new System.Drawing.Size(80, 15);
             this.ConfName2.TabIndex = 13;
@@ -4850,7 +4929,7 @@ namespace DB_EDITOR
             // 
             this.ConfName1.AutoSize = true;
             this.ConfName1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ConfName1.Location = new System.Drawing.Point(20, 4);
+            this.ConfName1.Location = new System.Drawing.Point(23, 31);
             this.ConfName1.Name = "ConfName1";
             this.ConfName1.Size = new System.Drawing.Size(80, 15);
             this.ConfName1.TabIndex = 12;
@@ -4858,9 +4937,9 @@ namespace DB_EDITOR
             // 
             // conf12
             // 
-            this.conf12.BackColor = System.Drawing.Color.Linen;
+            this.conf12.BackColor = System.Drawing.Color.Gainsboro;
             this.conf12.FormattingEnabled = true;
-            this.conf12.Location = new System.Drawing.Point(803, 316);
+            this.conf12.Location = new System.Drawing.Point(803, 375);
             this.conf12.Name = "conf12";
             this.conf12.Size = new System.Drawing.Size(150, 274);
             this.conf12.TabIndex = 11;
@@ -4868,9 +4947,9 @@ namespace DB_EDITOR
             // 
             // conf11
             // 
-            this.conf11.BackColor = System.Drawing.Color.Linen;
+            this.conf11.BackColor = System.Drawing.Color.Gainsboro;
             this.conf11.FormattingEnabled = true;
-            this.conf11.Location = new System.Drawing.Point(647, 316);
+            this.conf11.Location = new System.Drawing.Point(647, 375);
             this.conf11.Name = "conf11";
             this.conf11.Size = new System.Drawing.Size(150, 274);
             this.conf11.TabIndex = 10;
@@ -4878,9 +4957,9 @@ namespace DB_EDITOR
             // 
             // conf10
             // 
-            this.conf10.BackColor = System.Drawing.Color.Linen;
+            this.conf10.BackColor = System.Drawing.Color.Gainsboro;
             this.conf10.FormattingEnabled = true;
-            this.conf10.Location = new System.Drawing.Point(491, 316);
+            this.conf10.Location = new System.Drawing.Point(491, 375);
             this.conf10.Name = "conf10";
             this.conf10.Size = new System.Drawing.Size(150, 274);
             this.conf10.TabIndex = 9;
@@ -4888,9 +4967,9 @@ namespace DB_EDITOR
             // 
             // conf9
             // 
-            this.conf9.BackColor = System.Drawing.Color.Linen;
+            this.conf9.BackColor = System.Drawing.Color.Gainsboro;
             this.conf9.FormattingEnabled = true;
-            this.conf9.Location = new System.Drawing.Point(335, 316);
+            this.conf9.Location = new System.Drawing.Point(335, 375);
             this.conf9.Name = "conf9";
             this.conf9.Size = new System.Drawing.Size(150, 274);
             this.conf9.TabIndex = 8;
@@ -4898,9 +4977,9 @@ namespace DB_EDITOR
             // 
             // conf8
             // 
-            this.conf8.BackColor = System.Drawing.Color.Linen;
+            this.conf8.BackColor = System.Drawing.Color.Gainsboro;
             this.conf8.FormattingEnabled = true;
-            this.conf8.Location = new System.Drawing.Point(179, 316);
+            this.conf8.Location = new System.Drawing.Point(179, 375);
             this.conf8.Name = "conf8";
             this.conf8.Size = new System.Drawing.Size(150, 274);
             this.conf8.TabIndex = 7;
@@ -4908,9 +4987,9 @@ namespace DB_EDITOR
             // 
             // conf7
             // 
-            this.conf7.BackColor = System.Drawing.Color.Linen;
+            this.conf7.BackColor = System.Drawing.Color.Gainsboro;
             this.conf7.FormattingEnabled = true;
-            this.conf7.Location = new System.Drawing.Point(23, 316);
+            this.conf7.Location = new System.Drawing.Point(23, 375);
             this.conf7.Name = "conf7";
             this.conf7.Size = new System.Drawing.Size(150, 274);
             this.conf7.TabIndex = 6;
@@ -4918,9 +4997,9 @@ namespace DB_EDITOR
             // 
             // conf6
             // 
-            this.conf6.BackColor = System.Drawing.Color.Linen;
+            this.conf6.BackColor = System.Drawing.Color.Gainsboro;
             this.conf6.FormattingEnabled = true;
-            this.conf6.Location = new System.Drawing.Point(803, 20);
+            this.conf6.Location = new System.Drawing.Point(803, 49);
             this.conf6.Name = "conf6";
             this.conf6.Size = new System.Drawing.Size(150, 274);
             this.conf6.TabIndex = 5;
@@ -4928,9 +5007,9 @@ namespace DB_EDITOR
             // 
             // conf5
             // 
-            this.conf5.BackColor = System.Drawing.Color.Linen;
+            this.conf5.BackColor = System.Drawing.Color.Gainsboro;
             this.conf5.FormattingEnabled = true;
-            this.conf5.Location = new System.Drawing.Point(647, 20);
+            this.conf5.Location = new System.Drawing.Point(647, 49);
             this.conf5.Name = "conf5";
             this.conf5.Size = new System.Drawing.Size(150, 274);
             this.conf5.TabIndex = 4;
@@ -4938,9 +5017,9 @@ namespace DB_EDITOR
             // 
             // conf4
             // 
-            this.conf4.BackColor = System.Drawing.Color.Linen;
+            this.conf4.BackColor = System.Drawing.Color.Gainsboro;
             this.conf4.FormattingEnabled = true;
-            this.conf4.Location = new System.Drawing.Point(491, 20);
+            this.conf4.Location = new System.Drawing.Point(491, 49);
             this.conf4.Name = "conf4";
             this.conf4.Size = new System.Drawing.Size(150, 274);
             this.conf4.TabIndex = 3;
@@ -4948,9 +5027,9 @@ namespace DB_EDITOR
             // 
             // conf3
             // 
-            this.conf3.BackColor = System.Drawing.Color.Linen;
+            this.conf3.BackColor = System.Drawing.Color.Gainsboro;
             this.conf3.FormattingEnabled = true;
-            this.conf3.Location = new System.Drawing.Point(335, 20);
+            this.conf3.Location = new System.Drawing.Point(335, 49);
             this.conf3.Name = "conf3";
             this.conf3.Size = new System.Drawing.Size(150, 274);
             this.conf3.TabIndex = 2;
@@ -4958,9 +5037,9 @@ namespace DB_EDITOR
             // 
             // conf2
             // 
-            this.conf2.BackColor = System.Drawing.Color.Linen;
+            this.conf2.BackColor = System.Drawing.Color.Gainsboro;
             this.conf2.FormattingEnabled = true;
-            this.conf2.Location = new System.Drawing.Point(179, 20);
+            this.conf2.Location = new System.Drawing.Point(179, 49);
             this.conf2.Name = "conf2";
             this.conf2.Size = new System.Drawing.Size(150, 274);
             this.conf2.TabIndex = 1;
@@ -4968,20 +5047,41 @@ namespace DB_EDITOR
             // 
             // conf1
             // 
-            this.conf1.BackColor = System.Drawing.Color.Linen;
+            this.conf1.BackColor = System.Drawing.Color.Gainsboro;
             this.conf1.FormattingEnabled = true;
-            this.conf1.Location = new System.Drawing.Point(23, 20);
+            this.conf1.Location = new System.Drawing.Point(23, 49);
             this.conf1.Name = "conf1";
             this.conf1.Size = new System.Drawing.Size(150, 274);
             this.conf1.TabIndex = 0;
             this.conf1.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.TeamChecked);
+            // 
+            // PGIDLabel
+            // 
+            this.PGIDLabel.AutoSize = true;
+            this.PGIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PGIDLabel.Location = new System.Drawing.Point(217, 90);
+            this.PGIDLabel.Name = "PGIDLabel";
+            this.PGIDLabel.Size = new System.Drawing.Size(43, 16);
+            this.PGIDLabel.TabIndex = 98;
+            this.PGIDLabel.Text = "PGID";
+            // 
+            // PGIDbox
+            // 
+            this.PGIDbox.BackColor = System.Drawing.SystemColors.Info;
+            this.PGIDbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PGIDbox.Location = new System.Drawing.Point(218, 110);
+            this.PGIDbox.Name = "PGIDbox";
+            this.PGIDbox.ReadOnly = true;
+            this.PGIDbox.Size = new System.Drawing.Size(53, 22);
+            this.PGIDbox.TabIndex = 97;
+            this.PGIDbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // MainEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.ClientSize = new System.Drawing.Size(1184, 761);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.mainMenu);
@@ -5476,6 +5576,12 @@ namespace DB_EDITOR
         private CheckBox ShowRatingCheckbox;
         private CheckBox ShowPosCheckBox;
         private System.Windows.Forms.Button DeathPenaltyButton;
+        private ToolStripMenuItem LeagueMakerToolStripMenuItem;
+        private ToolStripMenuItem ScheduleGenMenuItem;
+        public System.Windows.Forms.Button AWRKnockdownButton;
+        private CheckBox ShowPOSGBox;
+        public Label PGIDLabel;
+        public System.Windows.Forms.TextBox PGIDbox;
     }
 }
 

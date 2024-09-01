@@ -171,11 +171,8 @@ namespace DB_EDITOR
                                 hbuilder.Append(",");
                                 hbuilder.Append(GetLastNameFromRecord(r)); //write last name string to csv
                                 hbuilder.Append(",");
-                                if (TDB.TableIndex(dbIndex, "TEAM") == 1)
-                                {
-                                    hbuilder.Append(GetTeamName((int)tmpTGID)); //convert and write team name to csv
-                                    hbuilder.Append(",");
-                                }
+                                hbuilder.Append(GetTeamName((int)tmpTGID)); //convert and write team name to csv
+                                hbuilder.Append(",");
                                 hbuilder.Append(GetPositionName((int)tmpPos)); //convert and write position name to csv
                             }
 

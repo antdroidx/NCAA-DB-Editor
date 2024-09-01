@@ -90,6 +90,7 @@ namespace DB_EDITOR
                     PlayerEditorList[row].Add(GetDBValue("PLAY", "POVR", i));
                     PlayerEditorList[row].Add(GetDBValue("PLAY", "PGID", i));
                     PlayerEditorList[row].Add(Convert.ToString(i));
+                    PlayerEditorList[row].Add(Convert.ToString(GetPOSGfromPPOS(GetDBValueInt("PLAY", "PPOS", i))));
 
                     // 0 First Name  1 Last Name 2 Position 3 Overall 4 PGID 5 rec
 
@@ -98,14 +99,35 @@ namespace DB_EDITOR
             }
 
             PlayerEditorList.Sort((player1, player2) => player1[0].CompareTo(player2[0]));
-            if (ShowPosCheckBox.Checked) PlayerEditorList.Sort((player1, player2) => Convert.ToInt32(player1[2]).CompareTo(Convert.ToInt32(player2[2])));
-            if (ShowRatingCheckbox.Checked) PlayerEditorList.Sort((player1, player2) => Convert.ToInt32(player2[3]).CompareTo(Convert.ToInt32(player1[3])));
+            if (ShowPosCheckBox.Checked && ShowRatingCheckbox.Checked)
+            {
+                // Assuming you want to sort by position first and then by overall rating
+                PlayerEditorList = PlayerEditorList
+                    .OrderBy(player => int.Parse(player[2])) // Sort by position
+                    .ThenByDescending(player => int.Parse(player[3])) // Sort by overall rating descending
+                    .ToList();
+
+            }
+            else if (ShowPOSGBox.Checked && ShowRatingCheckbox.Checked)
+            {
+                // Assuming you want to sort by position first and then by overall rating
+                PlayerEditorList = PlayerEditorList
+                    .OrderBy(player => int.Parse(player[6])) // Sort by position
+                    .ThenByDescending(player => int.Parse(player[3])) // Sort by overall rating descending
+                    .ToList();
+
+            }
+            else if (ShowRatingCheckbox.Checked) PlayerEditorList.Sort((player1, player2) => Convert.ToInt32(player2[3]).CompareTo(Convert.ToInt32(player1[3])));
+            else if (ShowPosCheckBox.Checked) PlayerEditorList.Sort((player1, player2) => Convert.ToInt32(player1[2]).CompareTo(Convert.ToInt32(player2[2])));
+            else if (ShowPOSGBox.Checked) PlayerEditorList.Sort((player1, player2) => Convert.ToInt32(player1[6]).CompareTo(Convert.ToInt32(player2[6])));
+
 
             PGIDlistBox.Items.Clear();
             foreach (var player in PlayerEditorList)
             {
                 string text = "";
                 if (ShowPosCheckBox.Checked) text += "[" + Convert.ToString(Positions[Convert.ToInt32(player[2])]) + "] ";
+                else if (ShowPOSGBox.Checked) text += "[" + GetPOSGName(Convert.ToInt32(player[6])) + "] ";
                 text += player[0] + " " + player[1];
                 if (ShowRatingCheckbox.Checked) text += "  (" + Convert.ToString(ConvertRating(Convert.ToInt32(player[3]))) + ")";
 
@@ -145,11 +167,14 @@ namespace DB_EDITOR
             POVRbox.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "POVR", PlayerIndex)));
 
 
+            //PGID Box
+            PGIDbox.Text = GetDBValue("PLAY", "PGID", PlayerIndex);
+
             //Year & Redshirt
             AddYearItems();
             AddRedshirtItems();
             PYERBox.SelectedIndex = GetDBValueInt("PLAY", "PYER", PlayerIndex);
-            PRSDBox.SelectedIndex = GetDBValueInt("PLAY", "PSHD", PlayerIndex);
+            PRSDBox.SelectedIndex = GetDBValueInt("PLAY", "PRSD", PlayerIndex);
 
 
             //Height & Weight
@@ -383,9 +408,16 @@ namespace DB_EDITOR
 
         private void ShowPosCheckBox_CheckedChanged(object sender, EventArgs e)
         {
+            if (ShowPOSGBox.Checked) ShowPOSGBox.Checked = false;
             LoadPGIDlistBox();
         }
 
+        private void ShowPOSGBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ShowPosCheckBox.Checked) ShowPosCheckBox.Checked = false;
+            LoadPGIDlistBox();
+
+        }
 
         //Change Name
         public void PFNAtextBox_TextChanged(object sender, EventArgs e)
@@ -431,7 +463,7 @@ namespace DB_EDITOR
             if (DoNotTrigger)
                 return;
 
-            ChangeDBInt("PLAY", "PYER", PlayerIndex, PYERBox.SelectedIndex);
+            ChangeDBInt("PLAY", "PRSD", PlayerIndex, PYERBox.SelectedIndex);
         }
 
         //Height and Weight

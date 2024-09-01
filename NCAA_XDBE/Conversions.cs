@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.IO;
 using System.Reflection;
 using System.Runtime.Versioning;
@@ -477,6 +478,40 @@ namespace DB_EDITOR
             return ppos;
         }
 
+        private int GetPOSGfromPPOS(int ppos)
+        {
+            int posg = -1;
+            if (ppos == 0) posg = 0;
+            else if (ppos == 1) posg = 1;
+            else if (ppos == 2) posg = 1;
+            else if (ppos == 3) posg = 2;
+            else if (ppos == 4) posg = 3;
+            else if (ppos <= 9) posg = 4;
+            else if (ppos <= 12) posg = 5;
+            else if (ppos <= 15) posg = 6;
+            else if (ppos <= 18) posg = 7;
+            else if (ppos == 19) posg = 8;
+            else if (ppos == 20) posg = 9;
+
+            return posg;
+        }
+
+        private string GetPOSGName(int posg)
+        {
+            if (posg == 0) return "QB";
+            else if (posg == 1) return "RB";
+            else if (posg == 2) return "WR";
+            else if (posg == 3) return "TE";
+            else if (posg == 4) return "OL";
+            else if (posg == 5) return "DL";
+            else if (posg == 6) return "LB";
+            else if (posg == 7) return "DB";
+            else if (posg == 8) return "K";
+            else if (posg == 9) return "P";
+
+            else return "";
+        }
+
         #endregion
 
         #region Ratings
@@ -875,13 +910,13 @@ namespace DB_EDITOR
             return Convert.ToInt32(GetDBValue("TEAM", "TMPR", rec));
 
         }
-        private int GetTeamCGID(int rec)
+        public int GetTeamCGID(int rec)
         {
             return Convert.ToInt32(GetDBValue("TEAM", "CGID", rec));
 
         }
 
-        private int GetTeamDGID(int rec)
+        public int GetTeamDGID(int rec)
         {
             return Convert.ToInt32(GetDBValue("TEAM", "DGID", rec));
 
@@ -934,7 +969,7 @@ namespace DB_EDITOR
             return -1;
         }
 
-        private int FindTeamRecfromTeamName(string tmName)
+        public int FindTeamRecfromTeamName(string tmName)
         {
             int tgid = -1;
             for(int i = 0; i < TDB.TableRecordCount(dbIndex,"TEAM"); i++)
@@ -1237,30 +1272,35 @@ namespace DB_EDITOR
 
         #region TDB Functions
 
-        private void ChangeDBString(string table, string field, int rec, string value)
+        public void ChangeDBString(string table, string field, int rec, string value)
         {
             TDB.NewfieldValue(dbIndex, table, field, rec, value);
         }
 
-        private void ChangeDBInt(string table, string field, int rec, int value)
+        public void ChangeDBInt(string table, string field, int rec, int value)
         {
             TDB.NewfieldValue(dbIndex, table, field, rec, Convert.ToString(value));
 
         }
 
-        private string GetDBValue(string table, string field, int rec)
+        public string GetDBValue(string table, string field, int rec)
         {
             return TDB.FieldValue(dbIndex, table, field, rec);
         }
 
-        private int GetDBValueInt(string table, string field, int rec)
+        public int GetDBValueInt(string table, string field, int rec)
         {
             return TDB.TDBFieldGetValueAsInteger(dbIndex, table, field, rec);
         }
 
-        private int GetTableRecCount(string table)
+        public int GetTableRecCount(string table)
         {
             return TDB.TableRecordCount(dbIndex, table);
+        }
+
+        public void AddTableRecord(string table)
+        {
+            TDB.TDBTableRecordAdd(dbIndex, table, false);
         }
 
         #endregion

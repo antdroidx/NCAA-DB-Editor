@@ -1,6 +1,0 @@
-﻿
-Fantasy Roster Generators
-Schedule Generator
-Conference Realignment GUI
-Player Editor
-Death Penalty
