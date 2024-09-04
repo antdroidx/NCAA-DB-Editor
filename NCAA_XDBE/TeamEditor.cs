@@ -206,7 +206,7 @@ namespace DB_EDITOR
                 }
             }
 
-            TeamIndex = FindTeamRecfromTeamName(TGIDlistBox.Text);
+            TeamIndex = FindTeamRecfromTeamName(Convert.ToString(TGIDlistBox.SelectedItem));
 
             GetTeamEditorData(TeamIndex);
 
@@ -363,6 +363,7 @@ namespace DB_EDITOR
 
         private void GetPlaybookItems()
         {
+            PlaybookSelectBox.Items.Clear();
             List<List<string>> pb = CreatePlaybookNames();
                 //136-158 next ||  124 and below is vanilla
 
@@ -624,30 +625,25 @@ namespace DB_EDITOR
         }
 
         //Team Name
-        public void TDNAtextBox_TextChanged(object sender, EventArgs e)
+
+        private void TDNAtextBox_Leave(object sender, EventArgs e)
         {
-            if (DoNotTrigger)
-                return;
-
-
-
             ChangeDBString("TEAM", "TDNA", TeamIndex, TDNAtextBox.Text);
-            TGIDlistBox.Items[TGIDlistBox.SelectedIndex] = TDNAtextBox.Text + " " + TMNAtextBox.Text;
-
+            teamNameDB[TeamIndex] = TDNAtextBox.Text;
+            TGIDlistBox.Items[TGIDlistBox.SelectedIndex] = TDNAtextBox.Text;
         }
-        public void TMNAtextBox_TextChanged(object sender, EventArgs e)
+
+        private void TMNAtextBox_Leave(object sender, EventArgs e)
         {
-            if (DoNotTrigger)
-                return;
-
-
-
             ChangeDBString("TEAM", "TMNA", TeamIndex, TMNAtextBox.Text);
-            TGIDlistBox.Items[TGIDlistBox.SelectedIndex] = TDNAtextBox.Text + " " + TMNAtextBox.Text;
-
+            teamMascot[TeamIndex] = TMNAtextBox.Text;
         }
 
+        private void TSNAtextBox_Leave(object sender, EventArgs e)
+        {
+            ChangeDBString("TEAM", "TSNA", TeamIndex, TSNAtextBox.Text);
 
+        }
 
         private void CaptainOffSelectBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -891,6 +887,8 @@ namespace DB_EDITOR
 
 
             ChangeDBInt("COCH", "CPID", GetCOCHrecFromTeamRec(TeamIndex), pbVal);
+            ChangeDBInt("TEAM", "TOPB", TeamIndex, DefTypeSelectBox.SelectedIndex);
+
         }
 
         //Off Type Selection
@@ -905,6 +903,7 @@ namespace DB_EDITOR
         {
             if (DoNotTrigger) return;
             ChangeDBInt("COCH", "CDST", GetCOCHrecFromTeamRec(TeamIndex), DefTypeSelectBox.SelectedIndex);
+            ChangeDBInt("TEAM", "TDPB", TeamIndex, DefTypeSelectBox.SelectedIndex);
         }
 
         //Off Passing Strategy 

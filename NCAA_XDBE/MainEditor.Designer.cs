@@ -204,6 +204,8 @@ namespace DB_EDITOR
             this.LGIDcomboBox = new System.Windows.Forms.ComboBox();
             this.TGIDlistBox = new System.Windows.Forms.ListBox();
             this.tabPlayers = new System.Windows.Forms.TabPage();
+            this.PGIDLabel = new System.Windows.Forms.Label();
+            this.PGIDbox = new System.Windows.Forms.TextBox();
             this.ShowPOSGBox = new System.Windows.Forms.CheckBox();
             this.ShowRatingCheckbox = new System.Windows.Forms.CheckBox();
             this.ShowPosCheckBox = new System.Windows.Forms.CheckBox();
@@ -427,8 +429,6 @@ namespace DB_EDITOR
             this.conf2 = new System.Windows.Forms.CheckedListBox();
             this.conf1 = new System.Windows.Forms.CheckedListBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.PGIDLabel = new System.Windows.Forms.Label();
-            this.PGIDbox = new System.Windows.Forms.TextBox();
             qbTend = new System.Windows.Forms.Button();
             this.mainMenu.SuspendLayout();
             this.tableMenu.SuspendLayout();
@@ -2014,6 +2014,7 @@ namespace DB_EDITOR
             this.TSNAtextBox.Name = "TSNAtextBox";
             this.TSNAtextBox.Size = new System.Drawing.Size(78, 24);
             this.TSNAtextBox.TabIndex = 44;
+            this.TSNAtextBox.Leave += new System.EventHandler(this.TSNAtextBox_Leave);
             // 
             // label25
             // 
@@ -2179,7 +2180,7 @@ namespace DB_EDITOR
             this.TMNAtextBox.Name = "TMNAtextBox";
             this.TMNAtextBox.Size = new System.Drawing.Size(162, 24);
             this.TMNAtextBox.TabIndex = 14;
-            this.TMNAtextBox.TextChanged += new System.EventHandler(this.TMNAtextBox_TextChanged);
+            this.TMNAtextBox.Leave += new System.EventHandler(this.TMNAtextBox_Leave);
             // 
             // label9
             // 
@@ -2198,7 +2199,7 @@ namespace DB_EDITOR
             this.TDNAtextBox.Name = "TDNAtextBox";
             this.TDNAtextBox.Size = new System.Drawing.Size(162, 24);
             this.TDNAtextBox.TabIndex = 12;
-            this.TDNAtextBox.TextChanged += new System.EventHandler(this.TDNAtextBox_TextChanged);
+            this.TDNAtextBox.Leave += new System.EventHandler(this.TDNAtextBox_Leave);
             // 
             // label7
             // 
@@ -2349,6 +2350,27 @@ namespace DB_EDITOR
             this.tabPlayers.Size = new System.Drawing.Size(1152, 665);
             this.tabPlayers.TabIndex = 2;
             this.tabPlayers.Text = "Players";
+            // 
+            // PGIDLabel
+            // 
+            this.PGIDLabel.AutoSize = true;
+            this.PGIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PGIDLabel.Location = new System.Drawing.Point(217, 90);
+            this.PGIDLabel.Name = "PGIDLabel";
+            this.PGIDLabel.Size = new System.Drawing.Size(43, 16);
+            this.PGIDLabel.TabIndex = 98;
+            this.PGIDLabel.Text = "PGID";
+            // 
+            // PGIDbox
+            // 
+            this.PGIDbox.BackColor = System.Drawing.SystemColors.Info;
+            this.PGIDbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PGIDbox.Location = new System.Drawing.Point(218, 110);
+            this.PGIDbox.Name = "PGIDbox";
+            this.PGIDbox.ReadOnly = true;
+            this.PGIDbox.Size = new System.Drawing.Size(53, 22);
+            this.PGIDbox.TabIndex = 97;
+            this.PGIDbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // ShowPOSGBox
             // 
@@ -4938,6 +4960,7 @@ namespace DB_EDITOR
             // conf12
             // 
             this.conf12.BackColor = System.Drawing.Color.Gainsboro;
+            this.conf12.CheckOnClick = true;
             this.conf12.FormattingEnabled = true;
             this.conf12.Location = new System.Drawing.Point(803, 375);
             this.conf12.Name = "conf12";
@@ -4948,6 +4971,7 @@ namespace DB_EDITOR
             // conf11
             // 
             this.conf11.BackColor = System.Drawing.Color.Gainsboro;
+            this.conf11.CheckOnClick = true;
             this.conf11.FormattingEnabled = true;
             this.conf11.Location = new System.Drawing.Point(647, 375);
             this.conf11.Name = "conf11";
@@ -4958,6 +4982,7 @@ namespace DB_EDITOR
             // conf10
             // 
             this.conf10.BackColor = System.Drawing.Color.Gainsboro;
+            this.conf10.CheckOnClick = true;
             this.conf10.FormattingEnabled = true;
             this.conf10.Location = new System.Drawing.Point(491, 375);
             this.conf10.Name = "conf10";
@@ -4968,6 +4993,7 @@ namespace DB_EDITOR
             // conf9
             // 
             this.conf9.BackColor = System.Drawing.Color.Gainsboro;
+            this.conf9.CheckOnClick = true;
             this.conf9.FormattingEnabled = true;
             this.conf9.Location = new System.Drawing.Point(335, 375);
             this.conf9.Name = "conf9";
@@ -4978,6 +5004,7 @@ namespace DB_EDITOR
             // conf8
             // 
             this.conf8.BackColor = System.Drawing.Color.Gainsboro;
+            this.conf8.CheckOnClick = true;
             this.conf8.FormattingEnabled = true;
             this.conf8.Location = new System.Drawing.Point(179, 375);
             this.conf8.Name = "conf8";
@@ -4988,6 +5015,7 @@ namespace DB_EDITOR
             // conf7
             // 
             this.conf7.BackColor = System.Drawing.Color.Gainsboro;
+            this.conf7.CheckOnClick = true;
             this.conf7.FormattingEnabled = true;
             this.conf7.Location = new System.Drawing.Point(23, 375);
             this.conf7.Name = "conf7";
@@ -4998,6 +5026,7 @@ namespace DB_EDITOR
             // conf6
             // 
             this.conf6.BackColor = System.Drawing.Color.Gainsboro;
+            this.conf6.CheckOnClick = true;
             this.conf6.FormattingEnabled = true;
             this.conf6.Location = new System.Drawing.Point(803, 49);
             this.conf6.Name = "conf6";
@@ -5008,6 +5037,7 @@ namespace DB_EDITOR
             // conf5
             // 
             this.conf5.BackColor = System.Drawing.Color.Gainsboro;
+            this.conf5.CheckOnClick = true;
             this.conf5.FormattingEnabled = true;
             this.conf5.Location = new System.Drawing.Point(647, 49);
             this.conf5.Name = "conf5";
@@ -5018,6 +5048,7 @@ namespace DB_EDITOR
             // conf4
             // 
             this.conf4.BackColor = System.Drawing.Color.Gainsboro;
+            this.conf4.CheckOnClick = true;
             this.conf4.FormattingEnabled = true;
             this.conf4.Location = new System.Drawing.Point(491, 49);
             this.conf4.Name = "conf4";
@@ -5028,6 +5059,7 @@ namespace DB_EDITOR
             // conf3
             // 
             this.conf3.BackColor = System.Drawing.Color.Gainsboro;
+            this.conf3.CheckOnClick = true;
             this.conf3.FormattingEnabled = true;
             this.conf3.Location = new System.Drawing.Point(335, 49);
             this.conf3.Name = "conf3";
@@ -5038,6 +5070,7 @@ namespace DB_EDITOR
             // conf2
             // 
             this.conf2.BackColor = System.Drawing.Color.Gainsboro;
+            this.conf2.CheckOnClick = true;
             this.conf2.FormattingEnabled = true;
             this.conf2.Location = new System.Drawing.Point(179, 49);
             this.conf2.Name = "conf2";
@@ -5048,33 +5081,13 @@ namespace DB_EDITOR
             // conf1
             // 
             this.conf1.BackColor = System.Drawing.Color.Gainsboro;
+            this.conf1.CheckOnClick = true;
             this.conf1.FormattingEnabled = true;
             this.conf1.Location = new System.Drawing.Point(23, 49);
             this.conf1.Name = "conf1";
             this.conf1.Size = new System.Drawing.Size(150, 274);
             this.conf1.TabIndex = 0;
             this.conf1.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.TeamChecked);
-            // 
-            // PGIDLabel
-            // 
-            this.PGIDLabel.AutoSize = true;
-            this.PGIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PGIDLabel.Location = new System.Drawing.Point(217, 90);
-            this.PGIDLabel.Name = "PGIDLabel";
-            this.PGIDLabel.Size = new System.Drawing.Size(43, 16);
-            this.PGIDLabel.TabIndex = 98;
-            this.PGIDLabel.Text = "PGID";
-            // 
-            // PGIDbox
-            // 
-            this.PGIDbox.BackColor = System.Drawing.SystemColors.Info;
-            this.PGIDbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PGIDbox.Location = new System.Drawing.Point(218, 110);
-            this.PGIDbox.Name = "PGIDbox";
-            this.PGIDbox.ReadOnly = true;
-            this.PGIDbox.Size = new System.Drawing.Size(53, 22);
-            this.PGIDbox.TabIndex = 97;
-            this.PGIDbox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // MainEditor
             // 

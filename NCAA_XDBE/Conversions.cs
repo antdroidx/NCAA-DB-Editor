@@ -46,7 +46,7 @@ namespace DB_EDITOR
 
         }
 
-        private void CreateNameConversionTable()
+        public void CreateNameConversionTable()
         {
             Alphabet.Clear();
             AlphabetX.Clear();
@@ -154,7 +154,7 @@ namespace DB_EDITOR
             return tmpSTR;
         }
 
-        private void ConvertFirstNameStringToInt(string PFNA, int tmpRecNo, string tableName)
+        public void ConvertFirstNameStringToInt(string PFNA, int tmpRecNo, string tableName)
         {
             for (int i = 1; i <= maxNameChar; i++)
             {
@@ -172,7 +172,7 @@ namespace DB_EDITOR
 
             }
         }
-        private void ConvertLastNameStringToInt(string PLNA, int tmpRecNo, string tableName)
+        public void ConvertLastNameStringToInt(string PLNA, int tmpRecNo, string tableName)
         {
             for (int i = 1; i <= maxNameChar; i++)
             {
@@ -191,7 +191,7 @@ namespace DB_EDITOR
             }
         }
 
-        private string AddLeadingZeros(string tmpSTR, int tmpLen)
+        public string AddLeadingZeros(string tmpSTR, int tmpLen)
         {
             for (int i = 1; i < tmpLen; i++)
                 tmpSTR = "0" + tmpSTR;
@@ -206,37 +206,37 @@ namespace DB_EDITOR
 
         #region Players
 
-        private int GetPGIDfromRecord(int i)
+        public int GetPGIDfromRecord(int i)
         {
             return Convert.ToInt32(GetDBValue("PLAY", "PGID", i));
 
         }
 
-        private int GetPPOSfromRecord(int i)
+        public int GetPPOSfromRecord(int i)
         {
             return Convert.ToInt32(GetDBValue("PLAY", "PPOS", i));
 
         }
 
-        private int GetPOVRfromRecord(int i)
+        public int GetPOVRfromRecord(int i)
         {
             return Convert.ToInt32(GetDBValue("PLAY", "POVR", i));
 
         }
 
-        private int GetPTYPfromRecord(int i)
+        public int GetPTYPfromRecord(int i)
         {
             return Convert.ToInt32(GetDBValue("PLAY", "PTYP", i));
 
         }
 
-        private int GetPYERfromRecord(int i)
+        public int GetPYERfromRecord(int i)
         {
             return Convert.ToInt32(GetDBValue("PLAY", "PYER", i));
 
         }
 
-        private void CreateRCATtable()
+        public void CreateRCATtable()
         {
             RCAT = new List<List<int>>();
             string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
@@ -266,20 +266,20 @@ namespace DB_EDITOR
             sr.Close();
         }
 
-        private void CreateFirstNamesDB()
+        public void CreateFirstNamesDB()
         {
             FirstNames = new List<string>();
 
             FirstNames = CreateStringListfromCSV(@"resources\RCFN.csv", true);
         }
 
-        private void CreateLastNamesDB()
+        public void CreateLastNamesDB()
         {
             LastNames = new List<string>();
             LastNames = CreateStringListfromCSV(@"resources\RCLN.csv", true);
         }
 
-        private List<List<int>> CreateJerseyNumberDB()
+        public List<List<int>> CreateJerseyNumberDB()
         {
             List<List<int>> PJEN = new List<List<int>>();
             string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
@@ -315,7 +315,7 @@ namespace DB_EDITOR
             return PJEN;
         }
 
-        private string GetPlayerNamefromPGID(int pgid)
+        public string GetPlayerNamefromPGID(int pgid)
         {
             string playername = "";
 
@@ -329,7 +329,7 @@ namespace DB_EDITOR
             return playername;
         }
 
-        private int FindPGIDRecord(int PGID)
+        public int FindPGIDRecord(int PGID)
         {
             int rec = -1;
             for (int i = 0; i < GetTableRecCount("PLAY"); i++)
@@ -339,7 +339,7 @@ namespace DB_EDITOR
             return rec;
         }
 
-        private List<string> CreateRedshirtStatus()
+        public List<string> CreateRedshirtStatus()
         {
             List<string> status = new List<string>();
 
@@ -349,7 +349,7 @@ namespace DB_EDITOR
             return status;
         }
 
-        private List<string> CreateClassYears()
+        public List<string> CreateClassYears()
         {
             List<string> status = new List<string>();
 
@@ -360,7 +360,7 @@ namespace DB_EDITOR
             return status;
         }
 
-        private List<string> CreateOffSeasonPTYP()
+        public List<string> CreateOffSeasonPTYP()
         {
             List<string> status = new List<string>();
 
@@ -370,7 +370,7 @@ namespace DB_EDITOR
             status.Add("Graduating / Going Pro");
             return status;
         }
-        private List<string> CreateSkinColorDB()
+        public List<string> CreateSkinColorDB()
         {
             List<string> skinColors = new List<string>();
 
@@ -385,7 +385,7 @@ namespace DB_EDITOR
             return skinColors;
         }
 
-        private List<string> CreatePHCL()
+        public List<string> CreatePHCL()
         {
             List<string> colors = new List<string>();
 
@@ -398,7 +398,7 @@ namespace DB_EDITOR
             return colors;
         }
 
-        private List<string> CreateHair()
+        public List<string> CreateHair()
         {
             List<string> hair = new List<string>();
 
@@ -424,7 +424,7 @@ namespace DB_EDITOR
 
         #region Positions
 
-        private void SetPositions()
+        public void SetPositions()
         {
             Positions.Clear();
             PositionsX.Clear();
@@ -464,7 +464,7 @@ namespace DB_EDITOR
             return tmpSTR;
         }
 
-        private int ChooseRandomPosFromPOSG(int posg)
+        public int ChooseRandomPosFromPOSG(int posg)
         {
             int ppos = posg;
 
@@ -478,7 +478,7 @@ namespace DB_EDITOR
             return ppos;
         }
 
-        private int GetPOSGfromPPOS(int ppos)
+        public int GetPOSGfromPPOS(int ppos)
         {
             int posg = -1;
             if (ppos == 0) posg = 0;
@@ -496,7 +496,7 @@ namespace DB_EDITOR
             return posg;
         }
 
-        private string GetPOSGName(int posg)
+        public string GetPOSGName(int posg)
         {
             if (posg == 0) return "QB";
             else if (posg == 1) return "RB";
@@ -516,7 +516,7 @@ namespace DB_EDITOR
 
         #region Ratings
 
-        private void CreateRatingsDB()
+        public void CreateRatingsDB()
         {
             Ratings.Clear();
             RatingsX.Clear();
@@ -574,7 +574,7 @@ namespace DB_EDITOR
             return RatingsX[value];
         }
 
-        private void CreatePOCItable()
+        public void CreatePOCItable()
         {
             string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             string csvLocation = Path.Combine(executableLocation, @"resources\POCI.csv");
@@ -618,7 +618,7 @@ namespace DB_EDITOR
             sr.Close();
         }
 
-        private void RecalculateOverallByRec(int rec)
+        public void RecalculateOverallByRec(int rec)
         {
             int ppos = Convert.ToInt32(GetDBValue("PLAY", "PPOS", rec));
             double PCAR = Convert.ToInt32(GetDBValue("PLAY", "PCAR", rec)); //CAWT
@@ -661,7 +661,7 @@ namespace DB_EDITOR
 
         }
 
-        private int CalculatePositionRating(int rec, int ppos)
+        public int CalculatePositionRating(int rec, int ppos)
         {
             double PCAR = Convert.ToInt32(GetDBValue("PLAY", "PCAR", rec)); //CAWT
             double PKAC = Convert.ToInt32(GetDBValue("PLAY", "PKAC", rec)); //KAWT
@@ -701,7 +701,7 @@ namespace DB_EDITOR
 
         }
 
-        private double CalcOVRIndividuals(int row, double val, int ppos)
+        public double CalcOVRIndividuals(int row, double val, int ppos)
         {
             double skillRating = (double)ConvertRating(Convert.ToInt32(val));
 
@@ -718,7 +718,7 @@ namespace DB_EDITOR
 
         #region Coaches
 
-        private int FindRecNumberCCID(int CCID)
+        public int FindRecNumberCCID(int CCID)
         {
             for (int i = 0; i < GetTableRecCount("COCH"); i++)
             {
@@ -730,7 +730,7 @@ namespace DB_EDITOR
 
             return -1;
         }
-        private int FindCOCHRecordfromTeamTGID(int tgid)
+        public int FindCOCHRecordfromTeamTGID(int tgid)
         {
             for (int i = 0; i < GetTableRecCount("COCH"); i++)
             {
@@ -742,31 +742,31 @@ namespace DB_EDITOR
             return -1;
         }
 
-        private string GetCoachFirstNamefromRec(int rec)
+        public string GetCoachFirstNamefromRec(int rec)
         {
             return GetDBValue("COCH", "CLFN", rec);
         }
 
-        private string GetCoachLastNamefromRec(int rec)
+        public string GetCoachLastNamefromRec(int rec)
         {
             return GetDBValue("COCH", "CLLN", rec);
         }
 
-        private List<string> CreateOffTypes()
+        public List<string> CreateOffTypes()
         {
             List<string> ret = new List<string>() { "Option Run", "Spread", "Balanced", "Flexbone", "West Coast" };
 
             return ret;
         }
 
-        private List<string> CreateBaseDef()
+        public List<string> CreateBaseDef()
         {
             List<string> ret = new List<string>() { "3-4", "3-3-5 Stack", "4-2-5", "4-3", "4-4" };
 
             return ret;
         }
 
-        private string GetOffTypeName(int i)
+        public string GetOffTypeName(int i)
         {
             List<string> OffTypes = CreateOffTypes();
 
@@ -774,7 +774,7 @@ namespace DB_EDITOR
 
         }
 
-        private string GetDefTypeName(int i)
+        public string GetDefTypeName(int i)
         {
             List<string> DefTypes = CreateBaseDef();
 
@@ -782,20 +782,20 @@ namespace DB_EDITOR
 
         }
 
-        private List<List<string>> CreatePlaybookNames()
+        public List<List<string>> CreatePlaybookNames()
         {
             List<List<string>> pb = CreateStringListsFromCSV(@"resources\PlaybookNames.csv", false);
 
             return pb;
         }
 
-        private string GetPlaybookName(int i)
+        public string GetPlaybookName(int i)
         {
             List<List<string>> pb = CreatePlaybookNames();
             return pb[i][1];
         }
 
-        private int GetCOCHrecFromTeamRec(int i)
+        public int GetCOCHrecFromTeamRec(int i)
         {
             return FindCOCHRecordfromTeamTGID(GetTeamTGIDfromRecord(i));
         }
@@ -850,7 +850,7 @@ namespace DB_EDITOR
             return tmpSTR;
         }
 
-        private int FindTeamPrestige(int TGID)
+        public int FindTeamPrestige(int TGID)
         {
             int TMPR = 0;
             for (int i = 0; i < GetTableRecCount("TEAM"); i++)
@@ -863,7 +863,7 @@ namespace DB_EDITOR
             return TMPR;
         }
 
-        private int FindTeamRanking(int TGID)
+        public int FindTeamRanking(int TGID)
         {
             int TCRK = 0;
             for (int i = 0; i < GetTableRecCount("TEAM"); i++)
@@ -876,7 +876,7 @@ namespace DB_EDITOR
             return TCRK;
         }
 
-        private int GetTeamRanking(int i)
+        public int GetTeamRanking(int i)
         {
             int teamRanking = 0;
 
@@ -885,14 +885,14 @@ namespace DB_EDITOR
             return teamRanking;
         }
 
-        private int GetTeamTGIDfromRecord(int i)
+        public int GetTeamTGIDfromRecord(int i)
         {
             i = Convert.ToInt32(GetDBValue("TEAM", "TGID", i));
 
             return i;
         }
 
-        private int GetTeamCONFrecID(int cgid)
+        public int GetTeamCONFrecID(int cgid)
         {
             for (int i = 0; i < GetTableRecCount("CONF"); i++)
             {
@@ -905,7 +905,7 @@ namespace DB_EDITOR
             return -1;
         }
 
-        private int GetTeamPrestige(int rec)
+        public int GetTeamPrestige(int rec)
         {
             return Convert.ToInt32(GetDBValue("TEAM", "TMPR", rec));
 
@@ -922,7 +922,7 @@ namespace DB_EDITOR
 
         }
 
-        private int GetTeamStateID(int rec)
+        public int GetTeamStateID(int rec)
         {
             int stateID = -1;
             string SGID = GetDBValue("TEAM", "SGID", rec);
@@ -940,7 +940,7 @@ namespace DB_EDITOR
             return stateID;
         }
 
-        private string GetTeamImpactPlayer(int rec, string field)
+        public string GetTeamImpactPlayer(int rec, string field)
         {
             string playername = "";
 
@@ -955,7 +955,7 @@ namespace DB_EDITOR
 
         }
 
-        private int FindSTADrecFromTEAMrec(int tmRec)
+        public int FindSTADrecFromTEAMrec(int tmRec)
         {
             int sgid = GetDBValueInt("TEAM", "SGID", tmRec);
 
@@ -984,7 +984,7 @@ namespace DB_EDITOR
             return tgid;
         }
 
-        private void ReorderTORD()
+        public void ReorderTORD()
         {
             List<List<string>> teamList = new List<List<string>>();
             int row = 0;
@@ -1017,32 +1017,32 @@ namespace DB_EDITOR
 
         #region Conferences
 
-        private int GetConfCGID(int rec)
+        public int GetConfCGID(int rec)
         {
             return Convert.ToInt32(GetDBValue("CONF", "CGID", rec));
         }
 
-        private int GetConfPrestige(int rec)
+        public int GetConfPrestige(int rec)
         {
             return Convert.ToInt32(GetDBValue("CONF", "CPRS", rec));
         }
 
-        private int GetConfLeague(int rec)
+        public int GetConfLeague(int rec)
         {
             return Convert.ToInt32(GetDBValue("CONF", "LGID", rec));
         }
 
-        private int GetConfCMNP(int rec)
+        public int GetConfCMNP(int rec)
         {
             return Convert.ToInt32(GetDBValue("CONF", "CMNP", rec));
         }
 
-        private int GetConfCMXP(int rec)
+        public int GetConfCMXP(int rec)
         {
             return Convert.ToInt32(GetDBValue("CONF", "CMXP", rec));
         }
 
-        private int GetConfPrestigeFromCGID(int cgid)
+        public int GetConfPrestigeFromCGID(int cgid)
         {
             for (int i = 0; i < GetTableRecCount("CONF"); i++)
             {
@@ -1055,7 +1055,7 @@ namespace DB_EDITOR
             return -1;
         }
 
-        private string GetConfNameFromCGID(int cgid)
+        public string GetConfNameFromCGID(int cgid)
         {
             for (int i = 0; i < GetTableRecCount("CONF"); i++)
             {
@@ -1068,7 +1068,7 @@ namespace DB_EDITOR
             return "";
         }
 
-        private string GetDivisionNamefromDGID(int dgid)
+        public string GetDivisionNamefromDGID(int dgid)
         {
             for (int i = 0; i < GetTableRecCount("DIVI"); i++)
             {
@@ -1081,7 +1081,7 @@ namespace DB_EDITOR
             return "";
         }
 
-        private string GetLeaguefromTTYP(int ttyp)
+        public string GetLeaguefromTTYP(int ttyp)
         {
             if (ttyp == 0) return "FBS";
             else if (ttyp == 1) return "FCS";
@@ -1089,11 +1089,21 @@ namespace DB_EDITOR
             else return "";
         }
 
-        private int GetCONFrecFromCNAM(string cnam)
+        public int GetCONFrecFromCNAM(string cnam)
         {
             for(int i = 0; i < GetTableRecCount("CONF"); i++)
             {
                 if (GetDBValue("CONF", "CNAM", i) == cnam) return i;
+            }
+
+            return -1;
+        }
+
+        public int GetCONFrecFromCGID(int cgid)
+        {
+            for (int i = 0; i < GetTableRecCount("CONF"); i++)
+            {
+                if (GetDBValueInt("CONF", "CGID", i) == cgid) return i;
             }
 
             return -1;
@@ -1104,7 +1114,7 @@ namespace DB_EDITOR
 
         #region Skill Attributes
 
-        private int GetRandomAttribute(int attribute, int tol)
+        public int GetRandomAttribute(int attribute, int tol)
         {
             Random rand = new Random();
 
@@ -1115,7 +1125,7 @@ namespace DB_EDITOR
             return attribute;
         }
 
-        private int GetRandomPositiveAttribute(int attribute, int tol)
+        public int GetRandomPositiveAttribute(int attribute, int tol)
         {
             Random rand = new Random();
 
@@ -1126,7 +1136,7 @@ namespace DB_EDITOR
             return attribute;
         }
 
-        private int GetReducedAttribute(int attribute, int tol)
+        public int GetReducedAttribute(int attribute, int tol)
         {
 
             attribute += rand.Next(0, tol + 1);
@@ -1143,7 +1153,7 @@ namespace DB_EDITOR
 
         #region CSV Tools
 
-        private List<List<string>> CreateStringListsFromCSV(string location, bool skipFirstRow)
+        public List<List<string>> CreateStringListsFromCSV(string location, bool skipFirstRow)
         {
             List<List<string>> list = new List<List<string>>();
             string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
@@ -1174,7 +1184,7 @@ namespace DB_EDITOR
             return list;
         }
 
-        private List<string> CreateStringListfromCSV(string location, bool skipFirstRow)
+        public List<string> CreateStringListfromCSV(string location, bool skipFirstRow)
         {
             List<string> list = new List<string>();
             string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
@@ -1203,7 +1213,7 @@ namespace DB_EDITOR
         }
 
 
-        private List<List<int>> CreateIntListsFromCSV(string location, bool skipFirstRow)
+        public List<List<int>> CreateIntListsFromCSV(string location, bool skipFirstRow)
         {
             List<List<int>> list = new List<List<int>>();
             string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
@@ -1234,7 +1244,7 @@ namespace DB_EDITOR
             return list;
         }
 
-        private List<int> CreateIntListfromCSV(string location, bool skipFirstRow)
+        public List<int> CreateIntListfromCSV(string location, bool skipFirstRow)
         {
             List<int> list = new List<int>();
             string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
