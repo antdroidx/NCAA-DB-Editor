@@ -344,7 +344,8 @@ namespace DB_EDITOR
             AttendanceNumBox.Value = GetDBValueInt("TEAM", "TMAA", EditorIndex);
             CapacityNumbox.Value = GetDBValueInt("STAD", "SCAP", FindSTADrecFromTEAMrec(EditorIndex));
 
-
+            if (GetDBValueInt("TEAM", "TTYP", EditorIndex) == 0 && TEAM) GenerateNewRosterButton.Enabled = true;
+            else GenerateNewRosterButton.Enabled = false;
 
             DoNotTrigger = false;
             progressBar1.Value = 0;
@@ -629,14 +630,15 @@ namespace DB_EDITOR
         private void TDNAtextBox_Leave(object sender, EventArgs e)
         {
             ChangeDBString("TEAM", "TDNA", TeamIndex, TDNAtextBox.Text);
-            teamNameDB[TeamIndex] = TDNAtextBox.Text;
+            teamNameDB[GetTeamTGIDfromRecord(TeamIndex)] = TDNAtextBox.Text;
             TGIDlistBox.Items[TGIDlistBox.SelectedIndex] = TDNAtextBox.Text;
+            ReorderTORD();
         }
 
         private void TMNAtextBox_Leave(object sender, EventArgs e)
         {
             ChangeDBString("TEAM", "TMNA", TeamIndex, TMNAtextBox.Text);
-            teamMascot[TeamIndex] = TMNAtextBox.Text;
+            teamMascot[GetTeamTGIDfromRecord(TeamIndex)] = TMNAtextBox.Text;
         }
 
         private void TSNAtextBox_Leave(object sender, EventArgs e)
@@ -1125,5 +1127,18 @@ namespace DB_EDITOR
 
         }
 
+
+        //Generate New Roster
+        private void TeamEditorGenRoster_Click(object sender, EventArgs e)
+        {
+            var result = MessageBox.Show("The new roster will be based on the Prestige Set.\n\nAre you sure? ", "Generate New Rosters", MessageBoxButtons.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                FantasyRosterGeneratorSingle(TeamIndex, Convert.ToInt32(TMPRNumBox.Value));
+            }
+            CalculateTeamRatings("TEAM");
+            GetTeamEditorData(TeamIndex);
+        }
     }
 }

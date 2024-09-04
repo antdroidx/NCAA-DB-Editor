@@ -719,6 +719,128 @@ namespace DB_EDITOR
 
         }
 
+        private void FantasyRosterGeneratorSingle(int recA, int rating)
+        {
+            int tgid = GetDBValueInt("TEAM", "TGID", recA);
+
+            //Remove existing Players
+            ClearTeamPlayers(tgid);
+
+
+            //Clear Old Stats
+            ClearOldTeamStats(tgid);
+
+            //Create New Roster
+            CreateRCATtable();
+            CreateFirstNamesDB();
+            CreateLastNamesDB();
+
+            List<List<int>> PJEN = CreateJerseyNumberDB();
+
+            List<List<string>> RCATmapper = CreateStringListsFromCSV(@"resources\RCAT-MAPPER.csv", false);
+
+            List<List<string>> teamData = new List<List<string>>();
+            teamData = CreateStringListsFromCSV(@"resources\FantasyGenData.csv", true);
+            int rec = GetTableRecCount("PLAY");
+            int TOID = GetDBValueInt("TEAM", "TOID", recA);
+            int PGIDbeg = TOID * 70;
+            int PGIDend = PGIDbeg + 69;
+            int ST = 0;
+            int freshmanPCT = 25;
+
+
+            for (int j = 0; j < 68; j++)
+            {
+                //Add a record
+                TDB.TDBTableRecordAdd(dbIndex, "PLAY", false);
+
+                //QB
+                if (j < 3) TransferRCATtoPLAY(rec, 0, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
+
+                //RB
+                else if (j < 6) TransferRCATtoPLAY(rec, 1, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
+
+                //FB
+                else if (j < 7) TransferRCATtoPLAY(rec, 2, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
+
+                //WR
+                else if (j < 13) TransferRCATtoPLAY(rec, 3, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
+
+                //TE
+                else if (j < 16) TransferRCATtoPLAY(rec, 4, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
+
+                //LT
+                else if (j < 18) TransferRCATtoPLAY(rec, 5, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
+
+                //LG
+                else if (j < 20) TransferRCATtoPLAY(rec, 6, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
+
+                //C
+                else if (j < 22) TransferRCATtoPLAY(rec, 7, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
+
+                //RG
+                else if (j < 24) TransferRCATtoPLAY(rec, 8, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
+
+                //RT
+                else if (j < 26) TransferRCATtoPLAY(rec, 9, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
+
+                //LE
+                else if (j < 28) TransferRCATtoPLAY(rec, 10, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
+
+                //DT
+                else if (j < 32) TransferRCATtoPLAY(rec, 11, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
+
+                //RE
+                else if (j < 34) TransferRCATtoPLAY(rec, 12, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
+
+                //LOLB
+                else if (j < 36) TransferRCATtoPLAY(rec, 13, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
+
+                //MLB
+                else if (j < 39) TransferRCATtoPLAY(rec, 14, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
+
+                //ROLB
+                else if (j < 41) TransferRCATtoPLAY(rec, 15, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
+
+                //CB
+                else if (j < 46) TransferRCATtoPLAY(rec, 16, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
+
+                //SS
+                else if (j < 48) TransferRCATtoPLAY(rec, 17, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
+
+                //FS
+                else if (j < 50) TransferRCATtoPLAY(rec, 18, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
+
+                //K
+                else if (j < 51) TransferRCATtoPLAY(rec, 19, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
+
+                //P
+                else if (j < 52) TransferRCATtoPLAY(rec, 20, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
+
+                else
+                {
+                    if (ST < 1)
+                    {
+                        TransferRCATtoPLAY(rec, rand.Next(0, 21), PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
+                        ST++;
+                    }
+                    else TransferRCATtoPLAY(rec, rand.Next(0, 19), PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
+                }
+
+
+
+                //randomizes the attributes from team overall
+                RandomizeAttribute("PLAY", rec, rating + GetDBValueInt("PLAY", "PYER", rec) - 1);
+                rec++;
+            }
+
+            RecalculateOverall();
+            DepthChartMaker("TEAM");
+
+            MessageBox.Show("New Roster Generation Completed.");
+        }
+
+
         private int GetFantasyTeamRating(List<List<String>> teamData, int TGID)
         {
             int value = 0;

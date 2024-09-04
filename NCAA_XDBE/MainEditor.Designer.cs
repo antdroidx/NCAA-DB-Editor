@@ -92,6 +92,7 @@ namespace DB_EDITOR
             this.tabHome = new System.Windows.Forms.TabPage();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabTeams = new System.Windows.Forms.TabPage();
+            this.GenerateNewRosterButton = new System.Windows.Forms.Button();
             this.DeathPenaltyButton = new System.Windows.Forms.Button();
             this.TeamRosterSizeLabel = new System.Windows.Forms.Label();
             this.CheerleaderBox = new System.Windows.Forms.ComboBox();
@@ -1019,6 +1020,7 @@ namespace DB_EDITOR
             // tabTeams
             // 
             this.tabTeams.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.tabTeams.Controls.Add(this.GenerateNewRosterButton);
             this.tabTeams.Controls.Add(this.DeathPenaltyButton);
             this.tabTeams.Controls.Add(this.TeamRosterSizeLabel);
             this.tabTeams.Controls.Add(this.CheerleaderBox);
@@ -1137,6 +1139,18 @@ namespace DB_EDITOR
             this.tabTeams.TabIndex = 1;
             this.tabTeams.Text = "Teams";
             this.tabTeams.Click += new System.EventHandler(this.tabTeams_Click);
+            // 
+            // GenerateNewRosterButton
+            // 
+            this.GenerateNewRosterButton.BackColor = System.Drawing.Color.LightCoral;
+            this.GenerateNewRosterButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GenerateNewRosterButton.Location = new System.Drawing.Point(1029, 619);
+            this.GenerateNewRosterButton.Name = "GenerateNewRosterButton";
+            this.GenerateNewRosterButton.Size = new System.Drawing.Size(120, 43);
+            this.GenerateNewRosterButton.TabIndex = 140;
+            this.GenerateNewRosterButton.Text = "GENERATE NEW ROSTER";
+            this.GenerateNewRosterButton.UseVisualStyleBackColor = false;
+            this.GenerateNewRosterButton.Click += new System.EventHandler(this.TeamEditorGenRoster_Click);
             // 
             // DeathPenaltyButton
             // 
@@ -1456,7 +1470,7 @@ namespace DB_EDITOR
             // 
             // FireCoachButton
             // 
-            this.FireCoachButton.BackColor = System.Drawing.Color.RosyBrown;
+            this.FireCoachButton.BackColor = System.Drawing.Color.LightCoral;
             this.FireCoachButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FireCoachButton.Location = new System.Drawing.Point(841, 586);
             this.FireCoachButton.Name = "FireCoachButton";
@@ -5595,6 +5609,7 @@ namespace DB_EDITOR
         private CheckBox ShowPOSGBox;
         public Label PGIDLabel;
         public System.Windows.Forms.TextBox PGIDbox;
+        private System.Windows.Forms.Button GenerateNewRosterButton;
     }
 }
 

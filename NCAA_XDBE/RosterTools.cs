@@ -221,7 +221,7 @@ namespace DB_EDITOR
                 if (GetDBValueInt("PSRT", "PGID", i) == pgid) TDB.TDBTableRecordChangeDeleted(dbIndex, "PSRT", i, true);
                 break;
             }
-
+            TDB.TDBDatabaseCompact(dbIndex);
         }
 
         private void ChangePlayerStatsID(int pgid, int newpgid)

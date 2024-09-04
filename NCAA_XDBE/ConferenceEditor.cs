@@ -386,7 +386,7 @@ namespace DB_EDITOR
 
             List<List<string>> teamData = new List<List<string>>();
             teamData = CreateStringListsFromCSV(@"resources\FantasyGenData.csv", true);
-            int rec = 0;
+            int rec = GetTableRecCount("PLAY");
             int TOID = GetDBValueInt("TEAM", "TOID", recB);
             int PGIDbeg = TOID * 70;
             int PGIDend = PGIDbeg + 69;
