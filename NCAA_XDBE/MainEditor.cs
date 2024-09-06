@@ -37,6 +37,7 @@ namespace DB_EDITOR
 
         int TeamIndex;
         int PlayerIndex;
+        int CoachIndex;
 
         Color primary = Color.Black;
         Color secondary = Color.White;
@@ -68,11 +69,7 @@ namespace DB_EDITOR
 
         Dictionary<int, string> TableNames = new Dictionary<int, string>();
         Dictionary<int, string> FieldNames = new Dictionary<int, string>();
-
-
         Dictionary<int, int> ReorderedTableData = new Dictionary<int, int>();
-
-
         Dictionary<int, string> Alphabet = new Dictionary<int, string>();
         Dictionary<string, int> AlphabetX = new Dictionary<string, int>();
 
@@ -86,13 +83,14 @@ namespace DB_EDITOR
 
 
 
-        string[] teamNameDB = new string[511]; //temporary holder of Team Names assigned by TGID location in the array
-        string[] teamMascot = new string[511]; //temporary holder of Team Names assigned by TGID location in the array
+        string[] teamNameDB = new string[512]; //temporary holder of Team Names assigned by TGID location in the array
+        string[] teamMascot = new string[512]; //temporary holder of Team Names assigned by TGID location in the array
         int maxNameChar = 10; //maximum number of name characters (reserving extra last name letters for modding)
         Dictionary<int, string> Positions = new Dictionary<int, string>(); //database of ppos id,position name
         Dictionary<string, int> PositionsX = new Dictionary<string, int>(); //database of position name, ppos id
         Dictionary<int, int> Ratings = new Dictionary<int, int>(); //database of db rating, in-game rating
         Dictionary<int, int> RatingsX = new Dictionary<int, int>(); //database of in-game rating, db rating
+        Dictionary<int, int> CoachEditorList = new Dictionary<int, int>();
 
         double[,] POCI;
         List<List<int>> RCAT;
@@ -1139,11 +1137,11 @@ namespace DB_EDITOR
                 if (TABLE.Value == "CONF")
                 {
                     tabControl1.TabPages.Add(tabConf);
-                    //LeagueMakerToolStripMenuItem.Visible = true;
+                    LeagueMakerToolStripMenuItem.Visible = true;
                 }
                 if (TABLE.Value == "COCH")
                 {
-                    //tabControl1.TabPages.Add(tabCoaches);
+                    tabControl1.TabPages.Add(tabCoaches);
                 }
 
 
@@ -1874,6 +1872,7 @@ namespace DB_EDITOR
             else if (tabControl1.SelectedTab == tabTeams) StartTeamEditor();
             else if (tabControl1.SelectedTab == tabPlayers) StartPlayerEditor();
             else if (tabControl1.SelectedTab == tabConf) ConferenceSetup();
+            else if (tabControl1.SelectedTab == tabCoaches) StartCoachEditor();
 
         }
 
@@ -2168,14 +2167,10 @@ namespace DB_EDITOR
 
         }
 
-
-
         private void DevRandomizeFaceButton_Click(object sender, EventArgs e)
         {
             RandomizeRecruitFace("PLAY");
         }
-
-
 
         private void DevCalcOVRButton_Click(object sender, EventArgs e)
         {
@@ -2183,7 +2178,6 @@ namespace DB_EDITOR
         }
 
         #endregion
-
 
         //EXPERIMENTAL ITEMS -- WORK IN PROGRESS
 
@@ -2206,7 +2200,8 @@ namespace DB_EDITOR
         {
             AwarenessDrop();
         }
-        //
+
+
 
 
 

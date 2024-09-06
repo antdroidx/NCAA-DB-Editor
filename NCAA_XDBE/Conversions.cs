@@ -834,8 +834,9 @@ namespace DB_EDITOR
                     }
                 }
                 sr.Close();
-
             }
+            teamNameDB[511] = "";
+
         }
 
         public void CreateTeamColorPalettes()

@@ -301,6 +301,63 @@ namespace DB_EDITOR
             this.PLNAtextBox = new System.Windows.Forms.TextBox();
             this.PFNAtextBox = new System.Windows.Forms.TextBox();
             this.tabCoaches = new System.Windows.Forms.TabPage();
+            this.CoachShowTeamBox = new System.Windows.Forms.CheckBox();
+            this.CoachTeamList = new System.Windows.Forms.ComboBox();
+            this.label98 = new System.Windows.Forms.Label();
+            this.CFUCBox = new System.Windows.Forms.CheckBox();
+            this.label96 = new System.Windows.Forms.Label();
+            this.COHTBox = new System.Windows.Forms.ComboBox();
+            this.label97 = new System.Windows.Forms.Label();
+            this.CTgwBox = new System.Windows.Forms.ComboBox();
+            this.label95 = new System.Windows.Forms.Label();
+            this.CoachFilter = new System.Windows.Forms.ComboBox();
+            this.CoachPlaybookBox = new System.Windows.Forms.ComboBox();
+            this.CoachDefTypeBox = new System.Windows.Forms.ComboBox();
+            this.CoachOffTypeBox = new System.Windows.Forms.ComboBox();
+            this.label131 = new System.Windows.Forms.Label();
+            this.CoachCDTSBox = new System.Windows.Forms.NumericUpDown();
+            this.label132 = new System.Windows.Forms.Label();
+            this.CoachCDTABox = new System.Windows.Forms.NumericUpDown();
+            this.CoachCDTRBox = new System.Windows.Forms.NumericUpDown();
+            this.label133 = new System.Windows.Forms.Label();
+            this.label134 = new System.Windows.Forms.Label();
+            this.CoachCOTSBox = new System.Windows.Forms.NumericUpDown();
+            this.label135 = new System.Windows.Forms.Label();
+            this.CoachCOTABox = new System.Windows.Forms.NumericUpDown();
+            this.CoachCOTRBox = new System.Windows.Forms.NumericUpDown();
+            this.label136 = new System.Windows.Forms.Label();
+            this.label137 = new System.Windows.Forms.Label();
+            this.label138 = new System.Windows.Forms.Label();
+            this.label139 = new System.Windows.Forms.Label();
+            this.label140 = new System.Windows.Forms.Label();
+            this.CoachCCPONum = new System.Windows.Forms.NumericUpDown();
+            this.label141 = new System.Windows.Forms.Label();
+            this.HCPrestigeNum = new System.Windows.Forms.NumericUpDown();
+            this.CoachRecruitingBox = new System.Windows.Forms.NumericUpDown();
+            this.CoachTrainingBox = new System.Windows.Forms.NumericUpDown();
+            this.label142 = new System.Windows.Forms.Label();
+            this.label143 = new System.Windows.Forms.Label();
+            this.label144 = new System.Windows.Forms.Label();
+            this.label145 = new System.Windows.Forms.Label();
+            this.CoachDisciplineBox = new System.Windows.Forms.TextBox();
+            this.label146 = new System.Windows.Forms.Label();
+            this.label94 = new System.Windows.Forms.Label();
+            this.CCIDBox = new System.Windows.Forms.TextBox();
+            this.label101 = new System.Windows.Forms.Label();
+            this.CTHGBox = new System.Windows.Forms.ComboBox();
+            this.label102 = new System.Windows.Forms.Label();
+            this.CHARBox = new System.Windows.Forms.ComboBox();
+            this.label103 = new System.Windows.Forms.Label();
+            this.CFEXBox = new System.Windows.Forms.ComboBox();
+            this.label104 = new System.Windows.Forms.Label();
+            this.CBSZBox = new System.Windows.Forms.ComboBox();
+            this.label105 = new System.Windows.Forms.Label();
+            this.CSKIBox = new System.Windows.Forms.ComboBox();
+            this.CoachListBox = new System.Windows.Forms.ListBox();
+            this.label129 = new System.Windows.Forms.Label();
+            this.label130 = new System.Windows.Forms.Label();
+            this.CoachLastNameBox = new System.Windows.Forms.TextBox();
+            this.CoachFirstNameBox = new System.Windows.Forms.TextBox();
             this.tabSeason = new System.Windows.Forms.TabPage();
             this.CoachPrestigeButton = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
@@ -483,6 +540,17 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.PSPDBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PINJBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PIMPBox)).BeginInit();
+            this.tabCoaches.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CoachCDTSBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CoachCDTABox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CoachCDTRBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CoachCOTSBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CoachCOTABox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CoachCOTRBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CoachCCPONum)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HCPrestigeNum)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CoachRecruitingBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CoachTrainingBox)).BeginInit();
             this.tabSeason.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numberPlayerCoach)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.maxFiredTransfers)).BeginInit();
@@ -3397,6 +3465,63 @@ namespace DB_EDITOR
             // 
             // tabCoaches
             // 
+            this.tabCoaches.Controls.Add(this.CoachShowTeamBox);
+            this.tabCoaches.Controls.Add(this.CoachTeamList);
+            this.tabCoaches.Controls.Add(this.label98);
+            this.tabCoaches.Controls.Add(this.CFUCBox);
+            this.tabCoaches.Controls.Add(this.label96);
+            this.tabCoaches.Controls.Add(this.COHTBox);
+            this.tabCoaches.Controls.Add(this.label97);
+            this.tabCoaches.Controls.Add(this.CTgwBox);
+            this.tabCoaches.Controls.Add(this.label95);
+            this.tabCoaches.Controls.Add(this.CoachFilter);
+            this.tabCoaches.Controls.Add(this.CoachPlaybookBox);
+            this.tabCoaches.Controls.Add(this.CoachDefTypeBox);
+            this.tabCoaches.Controls.Add(this.CoachOffTypeBox);
+            this.tabCoaches.Controls.Add(this.label131);
+            this.tabCoaches.Controls.Add(this.CoachCDTSBox);
+            this.tabCoaches.Controls.Add(this.label132);
+            this.tabCoaches.Controls.Add(this.CoachCDTABox);
+            this.tabCoaches.Controls.Add(this.CoachCDTRBox);
+            this.tabCoaches.Controls.Add(this.label133);
+            this.tabCoaches.Controls.Add(this.label134);
+            this.tabCoaches.Controls.Add(this.CoachCOTSBox);
+            this.tabCoaches.Controls.Add(this.label135);
+            this.tabCoaches.Controls.Add(this.CoachCOTABox);
+            this.tabCoaches.Controls.Add(this.CoachCOTRBox);
+            this.tabCoaches.Controls.Add(this.label136);
+            this.tabCoaches.Controls.Add(this.label137);
+            this.tabCoaches.Controls.Add(this.label138);
+            this.tabCoaches.Controls.Add(this.label139);
+            this.tabCoaches.Controls.Add(this.label140);
+            this.tabCoaches.Controls.Add(this.CoachCCPONum);
+            this.tabCoaches.Controls.Add(this.label141);
+            this.tabCoaches.Controls.Add(this.HCPrestigeNum);
+            this.tabCoaches.Controls.Add(this.CoachRecruitingBox);
+            this.tabCoaches.Controls.Add(this.CoachTrainingBox);
+            this.tabCoaches.Controls.Add(this.label142);
+            this.tabCoaches.Controls.Add(this.label143);
+            this.tabCoaches.Controls.Add(this.label144);
+            this.tabCoaches.Controls.Add(this.label145);
+            this.tabCoaches.Controls.Add(this.CoachDisciplineBox);
+            this.tabCoaches.Controls.Add(this.label146);
+            this.tabCoaches.Controls.Add(this.label94);
+            this.tabCoaches.Controls.Add(this.CCIDBox);
+            this.tabCoaches.Controls.Add(this.label101);
+            this.tabCoaches.Controls.Add(this.CTHGBox);
+            this.tabCoaches.Controls.Add(this.label102);
+            this.tabCoaches.Controls.Add(this.CHARBox);
+            this.tabCoaches.Controls.Add(this.label103);
+            this.tabCoaches.Controls.Add(this.CFEXBox);
+            this.tabCoaches.Controls.Add(this.label104);
+            this.tabCoaches.Controls.Add(this.CBSZBox);
+            this.tabCoaches.Controls.Add(this.label105);
+            this.tabCoaches.Controls.Add(this.CSKIBox);
+            this.tabCoaches.Controls.Add(this.CoachListBox);
+            this.tabCoaches.Controls.Add(this.label129);
+            this.tabCoaches.Controls.Add(this.label130);
+            this.tabCoaches.Controls.Add(this.CoachLastNameBox);
+            this.tabCoaches.Controls.Add(this.CoachFirstNameBox);
             this.tabCoaches.Location = new System.Drawing.Point(4, 24);
             this.tabCoaches.Name = "tabCoaches";
             this.tabCoaches.Padding = new System.Windows.Forms.Padding(3);
@@ -3404,6 +3529,555 @@ namespace DB_EDITOR
             this.tabCoaches.TabIndex = 7;
             this.tabCoaches.Text = "Coaches";
             this.tabCoaches.UseVisualStyleBackColor = true;
+            // 
+            // CoachShowTeamBox
+            // 
+            this.CoachShowTeamBox.AutoSize = true;
+            this.CoachShowTeamBox.Location = new System.Drawing.Point(36, 615);
+            this.CoachShowTeamBox.Name = "CoachShowTeamBox";
+            this.CoachShowTeamBox.Size = new System.Drawing.Size(83, 17);
+            this.CoachShowTeamBox.TabIndex = 237;
+            this.CoachShowTeamBox.Text = "Show Team";
+            this.CoachShowTeamBox.UseVisualStyleBackColor = true;
+            this.CoachShowTeamBox.CheckedChanged += new System.EventHandler(this.CoachShowTeamBox_CheckedChanged);
+            // 
+            // CoachTeamList
+            // 
+            this.CoachTeamList.FormattingEnabled = true;
+            this.CoachTeamList.Location = new System.Drawing.Point(412, 33);
+            this.CoachTeamList.MaxLength = 2;
+            this.CoachTeamList.Name = "CoachTeamList";
+            this.CoachTeamList.Size = new System.Drawing.Size(138, 21);
+            this.CoachTeamList.TabIndex = 236;
+            this.CoachTeamList.Tag = "x";
+            this.CoachTeamList.SelectedIndexChanged += new System.EventHandler(this.CoachTeamList_SelectedIndexChanged);
+            // 
+            // label98
+            // 
+            this.label98.AutoSize = true;
+            this.label98.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label98.Location = new System.Drawing.Point(410, 17);
+            this.label98.Name = "label98";
+            this.label98.Size = new System.Drawing.Size(38, 13);
+            this.label98.TabIndex = 235;
+            this.label98.Text = "Team";
+            // 
+            // CFUCBox
+            // 
+            this.CFUCBox.AutoSize = true;
+            this.CFUCBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CFUCBox.Location = new System.Drawing.Point(244, 30);
+            this.CFUCBox.Name = "CFUCBox";
+            this.CFUCBox.Size = new System.Drawing.Size(122, 24);
+            this.CFUCBox.TabIndex = 234;
+            this.CFUCBox.Text = "User Coach";
+            this.CFUCBox.UseVisualStyleBackColor = true;
+            this.CFUCBox.CheckedChanged += new System.EventHandler(this.CFUCBox_CheckedChanged);
+            // 
+            // label96
+            // 
+            this.label96.AutoSize = true;
+            this.label96.Location = new System.Drawing.Point(482, 184);
+            this.label96.Name = "label96";
+            this.label96.Size = new System.Drawing.Size(62, 13);
+            this.label96.TabIndex = 233;
+            this.label96.Text = "Head Wear";
+            // 
+            // COHTBox
+            // 
+            this.COHTBox.FormattingEnabled = true;
+            this.COHTBox.Location = new System.Drawing.Point(481, 200);
+            this.COHTBox.Name = "COHTBox";
+            this.COHTBox.Size = new System.Drawing.Size(91, 21);
+            this.COHTBox.TabIndex = 232;
+            this.COHTBox.SelectedIndexChanged += new System.EventHandler(this.COHTBox_SelectedIndexChanged);
+            // 
+            // label97
+            // 
+            this.label97.AutoSize = true;
+            this.label97.Location = new System.Drawing.Point(404, 184);
+            this.label97.Name = "label97";
+            this.label97.Size = new System.Drawing.Size(44, 13);
+            this.label97.TabIndex = 231;
+            this.label97.Text = "Glasses";
+            // 
+            // CTgwBox
+            // 
+            this.CTgwBox.FormattingEnabled = true;
+            this.CTgwBox.Location = new System.Drawing.Point(407, 201);
+            this.CTgwBox.Name = "CTgwBox";
+            this.CTgwBox.Size = new System.Drawing.Size(68, 21);
+            this.CTgwBox.TabIndex = 230;
+            this.CTgwBox.SelectedIndexChanged += new System.EventHandler(this.CTgwBox_SelectedIndexChanged);
+            // 
+            // label95
+            // 
+            this.label95.AutoSize = true;
+            this.label95.Location = new System.Drawing.Point(33, 28);
+            this.label95.Name = "label95";
+            this.label95.Size = new System.Drawing.Size(63, 13);
+            this.label95.TabIndex = 227;
+            this.label95.Text = "Coach Filter";
+            // 
+            // CoachFilter
+            // 
+            this.CoachFilter.FormattingEnabled = true;
+            this.CoachFilter.Location = new System.Drawing.Point(33, 44);
+            this.CoachFilter.Name = "CoachFilter";
+            this.CoachFilter.Size = new System.Drawing.Size(175, 21);
+            this.CoachFilter.TabIndex = 226;
+            this.CoachFilter.SelectedIndexChanged += new System.EventHandler(this.CoachFilter_SelectedIndexChanged);
+            // 
+            // CoachPlaybookBox
+            // 
+            this.CoachPlaybookBox.FormattingEnabled = true;
+            this.CoachPlaybookBox.Location = new System.Drawing.Point(330, 390);
+            this.CoachPlaybookBox.MaxLength = 2;
+            this.CoachPlaybookBox.Name = "CoachPlaybookBox";
+            this.CoachPlaybookBox.Size = new System.Drawing.Size(138, 21);
+            this.CoachPlaybookBox.TabIndex = 225;
+            this.CoachPlaybookBox.Tag = "x";
+            this.CoachPlaybookBox.SelectedIndexChanged += new System.EventHandler(this.CoachPlaybookBox_SelectedIndexChanged);
+            // 
+            // CoachDefTypeBox
+            // 
+            this.CoachDefTypeBox.FormattingEnabled = true;
+            this.CoachDefTypeBox.Location = new System.Drawing.Point(436, 455);
+            this.CoachDefTypeBox.MaxLength = 2;
+            this.CoachDefTypeBox.Name = "CoachDefTypeBox";
+            this.CoachDefTypeBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.CoachDefTypeBox.Size = new System.Drawing.Size(138, 21);
+            this.CoachDefTypeBox.TabIndex = 224;
+            this.CoachDefTypeBox.Tag = "x";
+            this.CoachDefTypeBox.SelectedIndexChanged += new System.EventHandler(this.CoachDefTypeBox_SelectedIndexChanged);
+            // 
+            // CoachOffTypeBox
+            // 
+            this.CoachOffTypeBox.FormattingEnabled = true;
+            this.CoachOffTypeBox.Location = new System.Drawing.Point(244, 455);
+            this.CoachOffTypeBox.MaxLength = 2;
+            this.CoachOffTypeBox.Name = "CoachOffTypeBox";
+            this.CoachOffTypeBox.Size = new System.Drawing.Size(138, 21);
+            this.CoachOffTypeBox.TabIndex = 223;
+            this.CoachOffTypeBox.Tag = "x";
+            this.CoachOffTypeBox.SelectedIndexChanged += new System.EventHandler(this.CoachOffTypeBox_SelectedIndexChanged);
+            // 
+            // label131
+            // 
+            this.label131.AutoSize = true;
+            this.label131.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.label131.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label131.Location = new System.Drawing.Point(331, 247);
+            this.label131.Name = "label131";
+            this.label131.Size = new System.Drawing.Size(141, 25);
+            this.label131.TabIndex = 222;
+            this.label131.Text = "Head Coach";
+            // 
+            // CoachCDTSBox
+            // 
+            this.CoachCDTSBox.Location = new System.Drawing.Point(436, 576);
+            this.CoachCDTSBox.Name = "CoachCDTSBox";
+            this.CoachCDTSBox.Size = new System.Drawing.Size(50, 20);
+            this.CoachCDTSBox.TabIndex = 221;
+            this.CoachCDTSBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.CoachCDTSBox.ValueChanged += new System.EventHandler(this.CoachCDTSBox_ValueChanged);
+            // 
+            // label132
+            // 
+            this.label132.AutoSize = true;
+            this.label132.Location = new System.Drawing.Point(489, 581);
+            this.label132.Name = "label132";
+            this.label132.Size = new System.Drawing.Size(31, 13);
+            this.label132.TabIndex = 220;
+            this.label132.Text = "Subs";
+            // 
+            // CoachCDTABox
+            // 
+            this.CoachCDTABox.Location = new System.Drawing.Point(436, 541);
+            this.CoachCDTABox.Name = "CoachCDTABox";
+            this.CoachCDTABox.Size = new System.Drawing.Size(50, 20);
+            this.CoachCDTABox.TabIndex = 219;
+            this.CoachCDTABox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.CoachCDTABox.ValueChanged += new System.EventHandler(this.CoachCDTABox_ValueChanged);
+            // 
+            // CoachCDTRBox
+            // 
+            this.CoachCDTRBox.Location = new System.Drawing.Point(436, 500);
+            this.CoachCDTRBox.Name = "CoachCDTRBox";
+            this.CoachCDTRBox.Size = new System.Drawing.Size(50, 20);
+            this.CoachCDTRBox.TabIndex = 218;
+            this.CoachCDTRBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.CoachCDTRBox.ValueChanged += new System.EventHandler(this.CoachCDTRBox_ValueChanged);
+            // 
+            // label133
+            // 
+            this.label133.AutoSize = true;
+            this.label133.Location = new System.Drawing.Point(488, 543);
+            this.label133.Name = "label133";
+            this.label133.Size = new System.Drawing.Size(81, 13);
+            this.label133.TabIndex = 217;
+            this.label133.Text = "Aggressiveness";
+            // 
+            // label134
+            // 
+            this.label134.AutoSize = true;
+            this.label134.Location = new System.Drawing.Point(488, 500);
+            this.label134.Name = "label134";
+            this.label134.Size = new System.Drawing.Size(63, 13);
+            this.label134.TabIndex = 216;
+            this.label134.Text = "Passing Pct";
+            // 
+            // CoachCOTSBox
+            // 
+            this.CoachCOTSBox.Location = new System.Drawing.Point(332, 574);
+            this.CoachCOTSBox.Name = "CoachCOTSBox";
+            this.CoachCOTSBox.Size = new System.Drawing.Size(50, 20);
+            this.CoachCOTSBox.TabIndex = 215;
+            this.CoachCOTSBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.CoachCOTSBox.ValueChanged += new System.EventHandler(this.CoachCOTSBox_ValueChanged);
+            // 
+            // label135
+            // 
+            this.label135.AutoSize = true;
+            this.label135.Location = new System.Drawing.Point(290, 576);
+            this.label135.Name = "label135";
+            this.label135.Size = new System.Drawing.Size(31, 13);
+            this.label135.TabIndex = 214;
+            this.label135.Text = "Subs";
+            // 
+            // CoachCOTABox
+            // 
+            this.CoachCOTABox.Location = new System.Drawing.Point(332, 539);
+            this.CoachCOTABox.Name = "CoachCOTABox";
+            this.CoachCOTABox.Size = new System.Drawing.Size(50, 20);
+            this.CoachCOTABox.TabIndex = 213;
+            this.CoachCOTABox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.CoachCOTABox.ValueChanged += new System.EventHandler(this.CoachCOTABox_ValueChanged);
+            // 
+            // CoachCOTRBox
+            // 
+            this.CoachCOTRBox.Location = new System.Drawing.Point(332, 500);
+            this.CoachCOTRBox.Name = "CoachCOTRBox";
+            this.CoachCOTRBox.Size = new System.Drawing.Size(50, 20);
+            this.CoachCOTRBox.TabIndex = 212;
+            this.CoachCOTRBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.CoachCOTRBox.ValueChanged += new System.EventHandler(this.CoachCOTRBox_ValueChanged);
+            // 
+            // label136
+            // 
+            this.label136.AutoSize = true;
+            this.label136.Location = new System.Drawing.Point(248, 541);
+            this.label136.Name = "label136";
+            this.label136.Size = new System.Drawing.Size(81, 13);
+            this.label136.TabIndex = 211;
+            this.label136.Text = "Aggressiveness";
+            // 
+            // label137
+            // 
+            this.label137.AutoSize = true;
+            this.label137.Location = new System.Drawing.Point(258, 502);
+            this.label137.Name = "label137";
+            this.label137.Size = new System.Drawing.Size(63, 13);
+            this.label137.TabIndex = 210;
+            this.label137.Text = "Passing Pct";
+            // 
+            // label138
+            // 
+            this.label138.AutoSize = true;
+            this.label138.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label138.Location = new System.Drawing.Point(370, 374);
+            this.label138.Name = "label138";
+            this.label138.Size = new System.Drawing.Size(59, 13);
+            this.label138.TabIndex = 209;
+            this.label138.Text = "Playbook";
+            // 
+            // label139
+            // 
+            this.label139.AutoSize = true;
+            this.label139.Location = new System.Drawing.Point(250, 439);
+            this.label139.Name = "label139";
+            this.label139.Size = new System.Drawing.Size(71, 13);
+            this.label139.TabIndex = 208;
+            this.label139.Text = "Offense Type";
+            // 
+            // label140
+            // 
+            this.label140.AutoSize = true;
+            this.label140.Location = new System.Drawing.Point(446, 439);
+            this.label140.Name = "label140";
+            this.label140.Size = new System.Drawing.Size(74, 13);
+            this.label140.TabIndex = 207;
+            this.label140.Text = "Base Defense";
+            // 
+            // CoachCCPONum
+            // 
+            this.CoachCCPONum.Location = new System.Drawing.Point(303, 328);
+            this.CoachCCPONum.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.CoachCCPONum.Name = "CoachCCPONum";
+            this.CoachCCPONum.Size = new System.Drawing.Size(50, 20);
+            this.CoachCCPONum.TabIndex = 206;
+            this.CoachCCPONum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.CoachCCPONum.ValueChanged += new System.EventHandler(this.CoachCCPONum_ValueChanged);
+            // 
+            // label141
+            // 
+            this.label141.AutoSize = true;
+            this.label141.Location = new System.Drawing.Point(299, 313);
+            this.label141.Name = "label141";
+            this.label141.Size = new System.Drawing.Size(67, 13);
+            this.label141.TabIndex = 205;
+            this.label141.Text = "Performance";
+            // 
+            // HCPrestigeNum
+            // 
+            this.HCPrestigeNum.Location = new System.Drawing.Point(235, 328);
+            this.HCPrestigeNum.Maximum = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            this.HCPrestigeNum.Name = "HCPrestigeNum";
+            this.HCPrestigeNum.Size = new System.Drawing.Size(50, 20);
+            this.HCPrestigeNum.TabIndex = 204;
+            this.HCPrestigeNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.HCPrestigeNum.ValueChanged += new System.EventHandler(this.HCPrestigeNum_ValueChanged);
+            // 
+            // CoachRecruitingBox
+            // 
+            this.CoachRecruitingBox.Location = new System.Drawing.Point(524, 329);
+            this.CoachRecruitingBox.Name = "CoachRecruitingBox";
+            this.CoachRecruitingBox.Size = new System.Drawing.Size(50, 20);
+            this.CoachRecruitingBox.TabIndex = 203;
+            this.CoachRecruitingBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.CoachRecruitingBox.ValueChanged += new System.EventHandler(this.CoachRecruitingBox_ValueChanged);
+            // 
+            // CoachTrainingBox
+            // 
+            this.CoachTrainingBox.Location = new System.Drawing.Point(455, 328);
+            this.CoachTrainingBox.Name = "CoachTrainingBox";
+            this.CoachTrainingBox.Size = new System.Drawing.Size(50, 20);
+            this.CoachTrainingBox.TabIndex = 202;
+            this.CoachTrainingBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.CoachTrainingBox.ValueChanged += new System.EventHandler(this.CoachTrainingBox_ValueChanged);
+            // 
+            // label142
+            // 
+            this.label142.AutoSize = true;
+            this.label142.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label142.Location = new System.Drawing.Point(420, 296);
+            this.label142.Name = "label142";
+            this.label142.Size = new System.Drawing.Size(114, 13);
+            this.label142.TabIndex = 201;
+            this.label142.Text = "Off-Season Budget";
+            // 
+            // label143
+            // 
+            this.label143.AutoSize = true;
+            this.label143.Location = new System.Drawing.Point(521, 312);
+            this.label143.Name = "label143";
+            this.label143.Size = new System.Drawing.Size(55, 13);
+            this.label143.TabIndex = 200;
+            this.label143.Text = "Recruiting";
+            // 
+            // label144
+            // 
+            this.label144.AutoSize = true;
+            this.label144.Location = new System.Drawing.Point(460, 312);
+            this.label144.Name = "label144";
+            this.label144.Size = new System.Drawing.Size(45, 13);
+            this.label144.TabIndex = 199;
+            this.label144.Text = "Training";
+            // 
+            // label145
+            // 
+            this.label145.AutoSize = true;
+            this.label145.Location = new System.Drawing.Point(385, 312);
+            this.label145.Name = "label145";
+            this.label145.Size = new System.Drawing.Size(60, 13);
+            this.label145.TabIndex = 198;
+            this.label145.Text = "Disciplining";
+            // 
+            // CoachDisciplineBox
+            // 
+            this.CoachDisciplineBox.Location = new System.Drawing.Point(388, 328);
+            this.CoachDisciplineBox.Name = "CoachDisciplineBox";
+            this.CoachDisciplineBox.ReadOnly = true;
+            this.CoachDisciplineBox.Size = new System.Drawing.Size(50, 20);
+            this.CoachDisciplineBox.TabIndex = 197;
+            this.CoachDisciplineBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label146
+            // 
+            this.label146.AutoSize = true;
+            this.label146.Location = new System.Drawing.Point(232, 312);
+            this.label146.Name = "label146";
+            this.label146.Size = new System.Drawing.Size(63, 13);
+            this.label146.TabIndex = 195;
+            this.label146.Text = "HC Prestige";
+            // 
+            // label94
+            // 
+            this.label94.AutoSize = true;
+            this.label94.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label94.Location = new System.Drawing.Point(489, 72);
+            this.label94.Name = "label94";
+            this.label94.Size = new System.Drawing.Size(70, 16);
+            this.label94.TabIndex = 192;
+            this.label94.Text = "Coach ID";
+            // 
+            // CCIDBox
+            // 
+            this.CCIDBox.BackColor = System.Drawing.SystemColors.Info;
+            this.CCIDBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CCIDBox.Location = new System.Drawing.Point(497, 91);
+            this.CCIDBox.Name = "CCIDBox";
+            this.CCIDBox.ReadOnly = true;
+            this.CCIDBox.Size = new System.Drawing.Size(53, 22);
+            this.CCIDBox.TabIndex = 191;
+            this.CCIDBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label101
+            // 
+            this.label101.AutoSize = true;
+            this.label101.Location = new System.Drawing.Point(494, 136);
+            this.label101.Name = "label101";
+            this.label101.Size = new System.Drawing.Size(52, 13);
+            this.label101.TabIndex = 177;
+            this.label101.Text = "Hair Style";
+            // 
+            // CTHGBox
+            // 
+            this.CTHGBox.FormattingEnabled = true;
+            this.CTHGBox.Location = new System.Drawing.Point(497, 152);
+            this.CTHGBox.Name = "CTHGBox";
+            this.CTHGBox.Size = new System.Drawing.Size(90, 21);
+            this.CTHGBox.TabIndex = 176;
+            this.CTHGBox.SelectedIndexChanged += new System.EventHandler(this.CTHGBox_SelectedIndexChanged);
+            // 
+            // label102
+            // 
+            this.label102.AutoSize = true;
+            this.label102.Location = new System.Drawing.Point(394, 136);
+            this.label102.Name = "label102";
+            this.label102.Size = new System.Drawing.Size(53, 13);
+            this.label102.TabIndex = 175;
+            this.label102.Text = "Hair Color";
+            // 
+            // CHARBox
+            // 
+            this.CHARBox.FormattingEnabled = true;
+            this.CHARBox.Location = new System.Drawing.Point(397, 152);
+            this.CHARBox.Name = "CHARBox";
+            this.CHARBox.Size = new System.Drawing.Size(94, 21);
+            this.CHARBox.TabIndex = 174;
+            this.CHARBox.SelectedIndexChanged += new System.EventHandler(this.CHARBox_SelectedIndexChanged);
+            // 
+            // label103
+            // 
+            this.label103.AutoSize = true;
+            this.label103.Location = new System.Drawing.Point(234, 184);
+            this.label103.Name = "label103";
+            this.label103.Size = new System.Drawing.Size(31, 13);
+            this.label103.TabIndex = 173;
+            this.label103.Text = "Face";
+            // 
+            // CFEXBox
+            // 
+            this.CFEXBox.FormattingEnabled = true;
+            this.CFEXBox.Location = new System.Drawing.Point(233, 200);
+            this.CFEXBox.Name = "CFEXBox";
+            this.CFEXBox.Size = new System.Drawing.Size(91, 21);
+            this.CFEXBox.TabIndex = 172;
+            this.CFEXBox.SelectedIndexChanged += new System.EventHandler(this.CFEXBox_SelectedIndexChanged);
+            // 
+            // label104
+            // 
+            this.label104.AutoSize = true;
+            this.label104.Location = new System.Drawing.Point(304, 135);
+            this.label104.Name = "label104";
+            this.label104.Size = new System.Drawing.Size(31, 13);
+            this.label104.TabIndex = 171;
+            this.label104.Text = "Body";
+            // 
+            // CBSZBox
+            // 
+            this.CBSZBox.FormattingEnabled = true;
+            this.CBSZBox.Location = new System.Drawing.Point(307, 152);
+            this.CBSZBox.Name = "CBSZBox";
+            this.CBSZBox.Size = new System.Drawing.Size(68, 21);
+            this.CBSZBox.TabIndex = 170;
+            this.CBSZBox.SelectedIndexChanged += new System.EventHandler(this.CBSZBox_SelectedIndexChanged);
+            // 
+            // label105
+            // 
+            this.label105.AutoSize = true;
+            this.label105.Location = new System.Drawing.Point(235, 135);
+            this.label105.Name = "label105";
+            this.label105.Size = new System.Drawing.Size(56, 13);
+            this.label105.TabIndex = 169;
+            this.label105.Text = "Skin Tone";
+            // 
+            // CSKIBox
+            // 
+            this.CSKIBox.FormattingEnabled = true;
+            this.CSKIBox.Location = new System.Drawing.Point(234, 152);
+            this.CSKIBox.Name = "CSKIBox";
+            this.CSKIBox.Size = new System.Drawing.Size(67, 21);
+            this.CSKIBox.TabIndex = 168;
+            this.CSKIBox.SelectedIndexChanged += new System.EventHandler(this.CSKIBox_SelectedIndexChanged);
+            // 
+            // CoachListBox
+            // 
+            this.CoachListBox.BackColor = System.Drawing.Color.White;
+            this.CoachListBox.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.CoachListBox.FormattingEnabled = true;
+            this.CoachListBox.Location = new System.Drawing.Point(33, 71);
+            this.CoachListBox.Name = "CoachListBox";
+            this.CoachListBox.Size = new System.Drawing.Size(175, 537);
+            this.CoachListBox.TabIndex = 103;
+            this.CoachListBox.SelectedIndexChanged += new System.EventHandler(this.CoachListBox_SelectedIndexChanged);
+            // 
+            // label129
+            // 
+            this.label129.AutoSize = true;
+            this.label129.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label129.Location = new System.Drawing.Point(358, 71);
+            this.label129.Name = "label129";
+            this.label129.Size = new System.Drawing.Size(81, 16);
+            this.label129.TabIndex = 102;
+            this.label129.Text = "Last Name";
+            // 
+            // label130
+            // 
+            this.label130.AutoSize = true;
+            this.label130.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label130.Location = new System.Drawing.Point(239, 71);
+            this.label130.Name = "label130";
+            this.label130.Size = new System.Drawing.Size(82, 16);
+            this.label130.TabIndex = 101;
+            this.label130.Text = "First Name";
+            // 
+            // CoachLastNameBox
+            // 
+            this.CoachLastNameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CoachLastNameBox.Location = new System.Drawing.Point(361, 91);
+            this.CoachLastNameBox.Name = "CoachLastNameBox";
+            this.CoachLastNameBox.Size = new System.Drawing.Size(111, 22);
+            this.CoachLastNameBox.TabIndex = 100;
+            this.CoachLastNameBox.Leave += new System.EventHandler(this.CoachLastNameBox_TextChanged);
+            // 
+            // CoachFirstNameBox
+            // 
+            this.CoachFirstNameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CoachFirstNameBox.Location = new System.Drawing.Point(239, 91);
+            this.CoachFirstNameBox.Name = "CoachFirstNameBox";
+            this.CoachFirstNameBox.Size = new System.Drawing.Size(116, 22);
+            this.CoachFirstNameBox.TabIndex = 99;
+            this.CoachFirstNameBox.Leave += new System.EventHandler(this.CoachFirstNameBox_TextChanged);
             // 
             // tabSeason
             // 
@@ -5179,6 +5853,18 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.PSPDBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PINJBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PIMPBox)).EndInit();
+            this.tabCoaches.ResumeLayout(false);
+            this.tabCoaches.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CoachCDTSBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CoachCDTABox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CoachCDTRBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CoachCOTSBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CoachCOTABox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CoachCOTRBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CoachCCPONum)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HCPrestigeNum)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CoachRecruitingBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.CoachTrainingBox)).EndInit();
             this.tabSeason.ResumeLayout(false);
             this.tabSeason.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numberPlayerCoach)).EndInit();
@@ -5610,6 +6296,63 @@ namespace DB_EDITOR
         public Label PGIDLabel;
         public System.Windows.Forms.TextBox PGIDbox;
         private System.Windows.Forms.Button GenerateNewRosterButton;
+        public Label label94;
+        public System.Windows.Forms.TextBox CCIDBox;
+        public Label label101;
+        private System.Windows.Forms.ComboBox CTHGBox;
+        public Label label102;
+        private System.Windows.Forms.ComboBox CHARBox;
+        public Label label103;
+        private System.Windows.Forms.ComboBox CFEXBox;
+        public Label label104;
+        private System.Windows.Forms.ComboBox CBSZBox;
+        public Label label105;
+        private System.Windows.Forms.ComboBox CSKIBox;
+        public ListBox CoachListBox;
+        public Label label129;
+        public Label label130;
+        public System.Windows.Forms.TextBox CoachLastNameBox;
+        public System.Windows.Forms.TextBox CoachFirstNameBox;
+        private System.Windows.Forms.ComboBox CoachPlaybookBox;
+        private System.Windows.Forms.ComboBox CoachDefTypeBox;
+        private System.Windows.Forms.ComboBox CoachOffTypeBox;
+        private Label label131;
+        private NumericUpDown CoachCDTSBox;
+        public Label label132;
+        private NumericUpDown CoachCDTABox;
+        private NumericUpDown CoachCDTRBox;
+        public Label label133;
+        public Label label134;
+        private NumericUpDown CoachCOTSBox;
+        public Label label135;
+        private NumericUpDown CoachCOTABox;
+        private NumericUpDown CoachCOTRBox;
+        public Label label136;
+        public Label label137;
+        public Label label138;
+        public Label label139;
+        public Label label140;
+        private NumericUpDown CoachCCPONum;
+        public Label label141;
+        private NumericUpDown HCPrestigeNum;
+        private NumericUpDown CoachRecruitingBox;
+        private NumericUpDown CoachTrainingBox;
+        public Label label142;
+        public Label label143;
+        public Label label144;
+        public Label label145;
+        public System.Windows.Forms.TextBox CoachDisciplineBox;
+        public Label label146;
+        public Label label95;
+        public System.Windows.Forms.ComboBox CoachFilter;
+        public Label label96;
+        private System.Windows.Forms.ComboBox COHTBox;
+        public Label label97;
+        private System.Windows.Forms.ComboBox CTgwBox;
+        private CheckBox CFUCBox;
+        private System.Windows.Forms.ComboBox CoachTeamList;
+        public Label label98;
+        private CheckBox CoachShowTeamBox;
     }
 }
 

@@ -117,6 +117,7 @@ namespace DB_EDITOR
             LGIDcomboBox.Items.Add("FBS");
             LGIDcomboBox.Items.Add("FCS");
             LGIDcomboBox.Items.Add("ALL");
+            LGIDcomboBox.SelectedItem = LGIDcomboBox.Items[2];
         }
 
         private void LoadCGIDListBox()
@@ -889,7 +890,7 @@ namespace DB_EDITOR
 
 
             ChangeDBInt("COCH", "CPID", GetCOCHrecFromTeamRec(TeamIndex), pbVal);
-            ChangeDBInt("TEAM", "TOPB", TeamIndex, DefTypeSelectBox.SelectedIndex);
+            ChangeDBInt("TEAM", "TOPB", TeamIndex, pbVal);
 
         }
 
