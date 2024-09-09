@@ -13,6 +13,12 @@ This editor was designed using original source code from Madden Xtreme DB Editor
 
 # Available Modules
 
+League Editor
+* Fully Customize Conference, Team, Bowl and Schedules in your own League Setup
+* Ability to edit Dynasties or default League.DAT data to create your own game
+* Requires modding files from game and creating a new game iso rom
+* https://www.ncaanext.com/p/ncaa-db-editor-league-creator.html
+
 Team Editor
 * Fully working Team Editor tab
 * Change College Names
@@ -25,6 +31,24 @@ Team Editor
 * Change User Coach/Team
 * Select Team Captains
 * Select 4 Impact Players
+* Change Team Colors
+* Generate Fantasy Roster per Team
+* Apply DEATH PENALTY
+
+Player Editor
+* Edit Player Names & Attributes
+* Force Players to Graduate/Go Pro or Transfer
+* Automatically updates Overall Ratings
+
+Coach Editor
+* Edit Coach names and attributes
+* Change Coach Strategies and Playbooks
+
+Conference Editor
+* Swap teams between conferences
+* Add/Remove FBS and FCS teams
+* Reschedules as needed
+* Creates fantasy rosters for FCS teams automatically
 
 DB Tools
 * Fantasy Roster Generator
@@ -62,3 +86,7 @@ Dev Tool - 2024 Roster Generator
 
 ## Notes
 If you are using NCAA NEXT 25 Beta 6+, you can change the Overall and Recruiting Database by going into the resources folder and running the NEXT25Database.bat file!
+
+## Help
+
+League Editor Instructions: https://www.ncaanext.com/p/ncaa-db-editor-league-creator.html
