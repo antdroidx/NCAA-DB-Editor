@@ -276,6 +276,11 @@ namespace DB_EDITOR
                 main.ChangeDBInt("BOWL", "SGID", i, main.GetSGIDfromTDNA(Convert.ToString(BowlsGrid.Rows[i].Cells[6].Value)));
                 main.ChangeDBInt("BOWL", "BMON", i, Convert.ToInt32(BowlsGrid.Rows[i].Cells[7].Value));
                 main.ChangeDBInt("BOWL", "BDAY", i, Convert.ToInt32(BowlsGrid.Rows[i].Cells[8].Value));
+                if(Convert.ToInt32(BowlsGrid.Rows[i].Cells[0].Value) > 27 && main.GetDBValueInt("BOWL", "SEWN", i) == 16)
+                {
+                    main.ChangeDBInt("BOWL", "SGNM", i, 127);
+                    main.ChangeDBInt("BOWL", "SEWN", i, 31);
+                }
             }
 
 

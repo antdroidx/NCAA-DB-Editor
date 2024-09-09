@@ -1861,6 +1861,7 @@ namespace DB_EDITOR
             else if (tabControl1.SelectedTab == tabPlayers) StartPlayerEditor();
             else if (tabControl1.SelectedTab == tabConf) ConferenceSetup();
             else if (tabControl1.SelectedTab == tabCoaches) StartCoachEditor();
+            else if (tabControl1.SelectedTab == tabTools) StartDBTools();
 
         }
 
@@ -1972,6 +1973,7 @@ namespace DB_EDITOR
             ReOrderTable("PLAY", "PGID");
         }
         #endregion
+
 
         #region Dynasty Tools
 
@@ -2166,6 +2168,7 @@ namespace DB_EDITOR
         {
             RandomizeRecruitFace("PLAY");
         }
+
 
 
         private void DevCalcOVRButton_Click(object sender, EventArgs e)

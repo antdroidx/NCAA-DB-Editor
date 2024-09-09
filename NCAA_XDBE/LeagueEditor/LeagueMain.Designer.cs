@@ -41,6 +41,7 @@ namespace DB_EDITOR
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LeagueMain));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -53,7 +54,6 @@ namespace DB_EDITOR
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LeagueMain));
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -200,6 +200,7 @@ namespace DB_EDITOR
             this.tableGridView = new System.Windows.Forms.DataGridView();
             this.fieldsGridView = new System.Windows.Forms.DataGridView();
             this.tabHome = new System.Windows.Forms.TabPage();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabAnnuals = new System.Windows.Forms.TabPage();
@@ -226,7 +227,7 @@ namespace DB_EDITOR
             this.SGID = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.BMON = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.BDAY = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.ExportCustomLeague = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenu.SuspendLayout();
             this.tableMenu.SuspendLayout();
             this.fieldMenu.SuspendLayout();
@@ -456,7 +457,8 @@ namespace DB_EDITOR
             // CustomLeagueToolStrip
             // 
             this.CustomLeagueToolStrip.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.importCustomLeagueToolStripMenuItem});
+            this.importCustomLeagueToolStripMenuItem,
+            this.ExportCustomLeague});
             this.CustomLeagueToolStrip.Name = "CustomLeagueToolStrip";
             this.CustomLeagueToolStrip.Size = new System.Drawing.Size(102, 20);
             this.CustomLeagueToolStrip.Text = "Custom League";
@@ -1814,6 +1816,16 @@ namespace DB_EDITOR
             this.tabHome.Text = "Home";
             this.tabHome.UseVisualStyleBackColor = true;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(625, 43);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(462, 550);
+            this.textBox1.TabIndex = 2;
+            this.textBox1.Text = resources.GetString("textBox1.Text");
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::DB_EDITOR.Properties.Resources.ncaa_db_editor_TITLE;
@@ -2161,15 +2173,12 @@ namespace DB_EDITOR
             this.BDAY.Name = "BDAY";
             this.BDAY.Width = 50;
             // 
-            // textBox1
+            // ExportCustomLeague
             // 
-            this.textBox1.Location = new System.Drawing.Point(625, 43);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(462, 550);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.Text = resources.GetString("textBox1.Text");
+            this.ExportCustomLeague.Name = "ExportCustomLeague";
+            this.ExportCustomLeague.Size = new System.Drawing.Size(196, 22);
+            this.ExportCustomLeague.Text = "Export Custom League";
+            this.ExportCustomLeague.Click += new System.EventHandler(this.ExportCustomLeague_Click);
             // 
             // LeagueMain
             // 
@@ -2412,6 +2421,7 @@ namespace DB_EDITOR
         private ToolStripMenuItem CustomLeagueToolStrip;
         private ToolStripMenuItem importCustomLeagueToolStripMenuItem;
         private System.Windows.Forms.TextBox textBox1;
+        private ToolStripMenuItem ExportCustomLeague;
     }
 }
 

@@ -9,12 +9,19 @@ using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace DB_EDITOR
 {
     partial class MainEditor : Form
     {
+
+        private void StartDBTools()
+        {
+            AddAttributesToBoxes();
+            AddPositionsToBoxes();
+        }
 
 
         //Fixes Body Size Models if user does manipulation of the player attributes in the in-game player editor
@@ -136,6 +143,43 @@ namespace DB_EDITOR
             MessageBox.Show("Speed updates are complete!");
         }
 
+        //Awareness Drop
+        private void AwarenessDrop()
+        {
+            progressBar1.Visible = true;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = GetTableRecCount("PLAY");
+            progressBar1.Step = 1;
+
+            List<List<string>> teamData = new List<List<string>>();
+            teamData = CreateStringListsFromCSV(@"resources\FantasyGenData.csv", true);
+
+
+
+            for (int i = 0; i < GetTableRecCount("PLAY"); i++)
+            {
+                int prestige = GetFantasyTeamRating(teamData, GetDBValueInt("PLAY", "PGID", i) / 70);
+                int newAWR = GetDBValueInt("PLAY", "PAWR", i);
+                int newPOE = GetDBValueInt("PLAY", "PPOE", i);
+
+                newAWR -= rand.Next(0, 6 - prestige);
+                newPOE -= rand.Next(0, 6 - prestige);
+
+                if (newAWR <= 0) newAWR = 0;
+                if (newPOE <= 0) newPOE = 0;
+
+                ChangeDBInt("PLAY", "PAWR", i, newAWR);
+                ChangeDBInt("PLAY", "PPOE", i, newPOE);
+
+                progressBar1.PerformStep();
+            }
+
+            progressBar1.Visible = false;
+            progressBar1.Value = 0;
+            MessageBox.Show("Ratings are complete!");
+
+        }
+
         //Recalculates QB Tendencies based on original game criteria
         private void RecalculateQBTendencies()
         {
@@ -245,9 +289,10 @@ namespace DB_EDITOR
             progressBar1.Value = 0;
         }
 
-
-
         //Export Recruiting Class from Roster
+
+
+
 
         //Calculate Team Ratings
         public void CalculateTeamRatings(string tableName)
@@ -474,6 +519,7 @@ namespace DB_EDITOR
             MessageBox.Show("Team Rating Calculations are complete!");
         }
 
+        //Calculate Single Team Ratings
         public void CalculateTeamRatingsSingle(string tableName, int tgid)
         {
 
@@ -1241,9 +1287,9 @@ namespace DB_EDITOR
         }
         #endregion
 
-        //Depth Chart Maker
-        #region Depth Chart Maker
 
+        #region Depth Chart Maker
+        //Depth Chart Maker
         public void DepthChartMaker(string tableName)
         {
             progressBar1.Visible = true;
@@ -1756,429 +1802,215 @@ namespace DB_EDITOR
         }
 
 
-        //Export to College Football USA 
+        #region Attribute Editors
 
-        private void ExportToCollegeFootballUSA()
+        private void AddAttributesToBoxes()
         {
+            /* Create attribute list || 0 - DB value  1 - Name */
+            List<List<string>> atb = CreateStringListsFromCSV(@"resources\attributes.csv", true);
 
-            //Setup Progress bar
-            progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = GetTableRecCount("TDYN");
-            progressBar1.Step = 1;
-            progressBar1.Value = 0;
+            GlobalAttBox.Items.Clear();
+            MinAttBox.Items.Clear();
+            MaxAttBox.Items.Clear();
 
-
-            List<List<int>> roster = new List<List<int>>();
-            List<List<string>> cfbusa97 = CreateStringListsFromCSV(@"resources\college-football-usa.csv", false);
-
-            Stream myStream = File.Create("CollegeFB-USA-export.csv");
-            StreamWriter wText = new StreamWriter(myStream);
-            StringBuilder hbuilder = new StringBuilder();
-
-            //write headers
-            wText.WriteLine("Team Name,Pos,Name,Overall,No.,Awareness,Speed,Quickness,Power,Hands,Blocking,Tackling,QB Range,Kick Range,Kick Accuracy,Weight");
-
-            //Get Roster Lists
-            for (int i = 0; i < GetTableRecCount("TDYN"); i++)
+            foreach (List<string> a in atb)
             {
-                int TOID = GetDBValueInt("TDYN", "TOID", i);
-
-                if (TDYN && GetDBValueInt("TDYN", "TOID", i) <= 111)
-                {
-                    int PGIDbeg = TOID * 70;
-                    int PGIDend = PGIDbeg + 69;
-                    int row = 0;
-                    roster.Clear();
-
-                    for (int j = 0; j < GetTableRecCount("PLAY"); j++)
-                    {
-                        int PGID = GetDBValueInt("PLAY", "PGID", j);
-
-                        if (PGID >= PGIDbeg && PGID <= PGIDend)
-                        {
-                            int POVR = GetDBValueInt("PLAY", "POVR", j);
-                            int PPOS = GetDBValueInt("PLAY", "PPOS", j);
-                            List<int> player = new List<int>();
-                            roster.Add(player);
-                            roster[row].Add(ConvertRating(POVR));
-                            roster[row].Add(PPOS);
-                            roster[row].Add(j);
-                            row++;
-                        }
-                    }
-
-                    roster.Sort((player1, player2) => player2[0].CompareTo(player1[0]));
-
-
-
-                    /*                  QB	2
-                                        HB	3
-                                        FB	2
-                                        WR	4
-                                        TE	3
-                                        LT	2
-                                        LG	2
-                                        C	2
-                                        RG	2
-                                        RT	2
-                                        LDE	1
-                                        RDE	1
-                                        LDT	1
-                                        RDT	1
-                                        NT	1
-                                        LOLB	1
-                                        LILB	1
-                                        RILB	1
-                                        ROLB	1
-                                        RCB	2
-                                        LCB	2
-                                        FS	2
-                                        SS	2
-                                        K	1
-                                        P	1
-                    */
-
-                    int count = 0;
-
-                    //QBs x 2
-                    count = 0;
-
-                    for (int j = 0; j < roster.Count; j++)
-                    {
-                        if (roster[j][1] == 0)
-                        {
-                            wText.WriteLine(GetTeamNameCFBUSA(TOID, cfbusa97) + "," + Positions[roster[j][1]] + "," + GetPlayerInfoCFBUSA(roster[j][2]));
-                            count++;
-                        }
-                        if (count >= 2) break;
-                    }
-
-
-                    //HBs x 2
-                    count = 0;
-                    for (int j = 0; j < roster.Count; j++)
-                    {
-                        if (roster[j][1] == 1 && count % 2 == 0 || roster[j][1] == 2 && count % 2 == 0)
-                        {
-                            wText.WriteLine(GetTeamNameCFBUSA(TOID, cfbusa97) + ",HB," + GetPlayerInfoCFBUSA(roster[j][2]));
-                            count++;
-                        }
-                        else if (roster[j][1] == 1 && count % 2 != 0 || roster[j][1] == 2 && count % 2 != 0)
-                        {
-                            wText.WriteLine(GetTeamNameCFBUSA(TOID, cfbusa97) + ",FB," + GetPlayerInfoCFBUSA(roster[j][2]));
-                            count++;
-                        }
-                        if (count >= 5) break;
-                    }
-
-
-                    //WR
-                    count = 0;
-
-                    for (int j = 0; j < roster.Count; j++)
-                    {
-                        if (roster[j][1] == 3)
-                        {
-                            wText.WriteLine(GetTeamNameCFBUSA(TOID, cfbusa97) + "," + Positions[roster[j][1]] + "," + GetPlayerInfoCFBUSA(roster[j][2]));
-                            count++;
-                        }
-                        if (count >= 4) break;
-                    }
-
-
-
-                    //TE
-                    count = 0;
-                    for (int j = 0; j < roster.Count; j++)
-                    {
-                        if (roster[j][1] == 4)
-                        {
-                            wText.WriteLine(GetTeamNameCFBUSA(TOID, cfbusa97) + "," + Positions[roster[j][1]] + "," + GetPlayerInfoCFBUSA(roster[j][2]));
-                            count++;
-                        }
-                        if (count >= 3) break;
-                    }
-
-
-                    //OT
-                    count = 0;
-
-                    for (int j = 0; j < roster.Count; j++)
-                    {
-                        if (roster[j][1] == 5 && count % 2 == 0 || roster[j][1] == 9 && count % 2 == 0)
-                        {
-                            wText.WriteLine(GetTeamNameCFBUSA(TOID, cfbusa97) + ",LT," + GetPlayerInfoCFBUSA(roster[j][2]));
-                            count++;
-                        }
-                        else if (roster[j][1] == 5 && count % 2 != 0 || roster[j][1] == 9 && count % 2 != 0)
-                        {
-                            wText.WriteLine(GetTeamNameCFBUSA(TOID, cfbusa97) + ",RT," + GetPlayerInfoCFBUSA(roster[j][2]));
-                            count++;
-                        }
-                        if (count >= 3) break;
-                    }
-
-
-
-                    //OG
-                    count = 0;
-
-                    for (int j = 0; j < roster.Count; j++)
-                    {
-                        if (roster[j][1] == 6 && count % 2 == 0 || roster[j][1] == 8 && count % 2 == 0)
-                        {
-                            wText.WriteLine(GetTeamNameCFBUSA(TOID, cfbusa97) + ",LG," + GetPlayerInfoCFBUSA(roster[j][2]));
-                            count++;
-                        }
-                        else if (roster[j][1] == 6 && count % 2 != 0 || roster[j][1] == 8 && count % 2 != 0)
-                        {
-                            wText.WriteLine(GetTeamNameCFBUSA(TOID, cfbusa97) + ",RG," + GetPlayerInfoCFBUSA(roster[j][2]));
-                            count++;
-                        }
-                        if (count >= 3) break;
-                    }
-
-
-
-                    //C
-                    count = 0;
-
-                    for (int j = 0; j < roster.Count; j++)
-                    {
-                        if (roster[j][1] == 7)
-                        {
-                            wText.WriteLine(GetTeamNameCFBUSA(TOID, cfbusa97) + "," + Positions[roster[j][1]] + "," + GetPlayerInfoCFBUSA(roster[j][2]));
-                            count++;
-                        }
-                        if (count >= 2) break;
-                    }
-
-
-                    //EDGE
-                    count = 0;
-
-                    for (int j = 0; j < roster.Count; j++)
-                    {
-                        if (roster[j][1] == 10 && count % 2 == 0 || roster[j][1] == 11 && count == 0)
-                        {
-                            wText.WriteLine(GetTeamNameCFBUSA(TOID, cfbusa97) + ",LDE," + GetPlayerInfoCFBUSA(roster[j][2]));
-                            count++;
-                        }
-                        else if (roster[j][1] == 10 && count == 1 || roster[j][1] == 11 && count == 1)
-                        {
-                            wText.WriteLine(GetTeamNameCFBUSA(TOID, cfbusa97) + ",RDE," + GetPlayerInfoCFBUSA(roster[j][2]));
-                            count++;
-                        }
-                        else if (roster[j][1] == 10 && count == 3 || roster[j][1] == 11 && count == 3)
-                        {
-                            wText.WriteLine(GetTeamNameCFBUSA(TOID, cfbusa97) + ",RDT," + GetPlayerInfoCFBUSA(roster[j][2]));
-                            count++;
-                        }
-                        else if (roster[j][1] == 10 && count == 4 || roster[j][1] == 11 && count == 4)
-                        {
-                            wText.WriteLine(GetTeamNameCFBUSA(TOID, cfbusa97) + ",LDE," + GetPlayerInfoCFBUSA(roster[j][2]));
-                            count++;
-                        }
-                        if (count >= 4) break;
-                    }
-
-
-
-                    //DT
-                    count = 0;
-
-                    for (int j = 0; j < roster.Count; j++)
-                    {
-                        if (roster[j][1] == 12 && count == 0)
-                        {
-                            wText.WriteLine(GetTeamNameCFBUSA(TOID, cfbusa97) + ",LDT," + GetPlayerInfoCFBUSA(roster[j][2]));
-                            count++;
-                        }
-                        else if (roster[j][1] == 12 && count == 1)
-                        {
-                            wText.WriteLine(GetTeamNameCFBUSA(TOID, cfbusa97) + ",NT," + GetPlayerInfoCFBUSA(roster[j][2]));
-                            count++;
-                        }
-                        if (count >= 2) break;
-                    }
-
-
-
-
-                    //OLB
-                    count = 0;
-
-
-                    for (int j = 0; j < roster.Count; j++)
-                    {
-                        if (roster[j][1] == 13 && count % 2 == 0 || roster[j][1] == 15 && count % 2 == 0)
-                        {
-                            wText.WriteLine(GetTeamNameCFBUSA(TOID, cfbusa97) + ",LOLB," + GetPlayerInfoCFBUSA(roster[j][2]));
-                            count++;
-                        }
-                        else if (roster[j][1] == 13 && count % 2 != 0 || roster[j][1] == 15 && count % 2 != 0)
-                        {
-                            wText.WriteLine(GetTeamNameCFBUSA(TOID, cfbusa97) + ",ROLB," + GetPlayerInfoCFBUSA(roster[j][2]));
-                            count++;
-                        }
-                        if (count >= 3) break;
-                    }
-
-
-
-                    //ILB
-                    count = 0;
-
-
-                    for (int j = 0; j < roster.Count; j++)
-                    {
-                        if (roster[j][1] == 14 && count % 2 == 0)
-                        {
-                            wText.WriteLine(GetTeamNameCFBUSA(TOID, cfbusa97) + ",LILB," + GetPlayerInfoCFBUSA(roster[j][2]));
-                            count++;
-                        }
-                        else if (roster[j][1] == 14 && count % 2 != 0)
-                        {
-                            wText.WriteLine(GetTeamNameCFBUSA(TOID, cfbusa97) + ",RILB," + GetPlayerInfoCFBUSA(roster[j][2]));
-                            count++;
-                        }
-                        if (count >= 2) break;
-                    }
-
-
-
-                    //CB
-                    count = 0;
-
-
-                    for (int j = 0; j < roster.Count; j++)
-                    {
-                        if (roster[j][1] == 16 && count % 2 == 0)
-                        {
-                            wText.WriteLine(GetTeamNameCFBUSA(TOID, cfbusa97) + ",LCB," + GetPlayerInfoCFBUSA(roster[j][2]));
-                            count++;
-                        }
-                        else if (roster[j][1] == 16 && count % 2 != 0)
-                        {
-                            wText.WriteLine(GetTeamNameCFBUSA(TOID, cfbusa97) + ",RCB," + GetPlayerInfoCFBUSA(roster[j][2]));
-                            count++;
-                        }
-                        if (count >= 4) break;
-                    }
-
-
-
-                    //SS
-                    count = 0;
-
-                    for (int j = 0; j < roster.Count; j++)
-                    {
-                        if (roster[j][1] == 17)
-                        {
-                            wText.WriteLine(GetTeamNameCFBUSA(TOID, cfbusa97) + "," + Positions[roster[j][1]] + "," + GetPlayerInfoCFBUSA(roster[j][2]));
-                            count++;
-                        }
-                        if (count >= 2) break;
-                    }
-
-
-                    //FS
-                    count = 0;
-                    for (int j = 0; j < roster.Count; j++)
-                    {
-                        if (roster[j][1] == 18)
-                        {
-                            wText.WriteLine(GetTeamNameCFBUSA(TOID, cfbusa97) + "," + Positions[roster[j][1]] + "," + GetPlayerInfoCFBUSA(roster[j][2]));
-                            count++;
-                        }
-                        if (count >= 2) break;
-
-                    }
-
-
-                    //K
-
-                    for (int j = 0; j < roster.Count; j++)
-                    {
-                        if (roster[j][1] == 19)
-                        {
-                            wText.WriteLine(GetTeamNameCFBUSA(TOID, cfbusa97) + "," + Positions[roster[j][1]] + "," + GetPlayerInfoCFBUSA(roster[j][2]));
-                            break;
-                        }
-
-                    }
-
-
-                    //P
-                    count = 0;
-
-                    for (int j = 0; j < roster.Count; j++)
-                    {
-                        if (roster[j][1] == 20)
-                        {
-                            wText.WriteLine(GetTeamNameCFBUSA(TOID, cfbusa97) + "," + Positions[roster[j][1]] + "," + GetPlayerInfoCFBUSA(roster[j][2]));
-                            break;
-                        }
-
-                    }
-
-
-                }
-                progressBar1.PerformStep();
+                GlobalAttBox.Items.Add(a[1]);
+                MinAttBox.Items.Add(a[1]);
+                MaxAttBox.Items.Add(a[1]);
             }
-            MessageBox.Show("Complete");
-            wText.Dispose();
-            wText.Close();
         }
 
-        private string GetTeamNameCFBUSA(int TOID, List<List<string>> cfbusa97)
+        private void AddPositionsToBoxes()
         {
-            return cfbusa97[TOID][1];
+
+            GlobalAttPosBox.Items.Clear();
+            MinAttPosBox.Items.Clear();
+            MaxAttPosBox.Items.Clear();
+
+            GlobalAttPosBox.Items.Add("ALL");
+            MinAttPosBox.Items.Add("ALL");
+            MaxAttPosBox.Items.Add("ALL");
+
+            for (int i = 0; i < 10; i++)
+            {
+                GlobalAttPosBox.Items.Add(GetPOSGName(i));
+                MinAttPosBox.Items.Add(GetPOSGName(i));
+                MaxAttPosBox.Items.Add(GetPOSGName(i));
+            }
+
+            GlobalAttPosBox.SelectedIndex = 0;
+            MinAttPosBox.SelectedIndex = 0;
+            MaxAttPosBox.SelectedIndex = 0;
         }
 
-        private string GetPlayerInfoCFBUSA(int rec)
+        private void GlobalAttButton_Click(object sender, EventArgs e)
         {
-            return GetLastNameFromRecord(rec) + "," + ConvertRating(GetDBValueInt("PLAY", "POVR", rec)) + "," + GetDBValue("PLAY", "PJEN", rec) + "," + ConvertRating(GetDBValueInt("PLAY", "PAWR", rec)) + "," + ConvertRating(GetDBValueInt("PLAY", "PSPD", rec)) + ","
-                + ConvertRating(GetDBValueInt("PLAY", "PAGI", rec)) + "," + ConvertRating(GetDBValueInt("PLAY", "PSTR", rec)) + "," + ConvertRating(GetDBValueInt("PLAY", "PCTH", rec)) + "," + ConvertRating(GetDBValueInt("PLAY", "PPBK", rec)) + "," + ConvertRating(GetDBValueInt("PLAY", "PTAK", rec)) + "," + ConvertRating(GetDBValueInt("PLAY", "PTHP", rec)) + ","
-                + ConvertRating(GetDBValueInt("PLAY", "PKPR", rec)) + "," + ConvertRating(GetDBValueInt("PLAY", "PKAC", rec)) + "," + (GetDBValueInt("PLAY", "PWGT", rec) + 160);
-        }
+            if (GlobalAttBox.SelectedIndex == -1) return;
 
-        private void AwarenessDrop()
-        {
-            progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = GetTableRecCount("PLAY");
-            progressBar1.Step = 1;
-
+            /* Create attribute list || 0 - DB value  1 - Name */
+            List<List<string>> atb = CreateStringListsFromCSV(@"resources\attributes.csv", true);
             List<List<string>> teamData = new List<List<string>>();
             teamData = CreateStringListsFromCSV(@"resources\FantasyGenData.csv", true);
 
-
+            double tol = 1;
+            string attribute = atb[GlobalAttBox.SelectedIndex][0];
+            int val = Convert.ToInt32(GlobalAttNum.Value);
+            int posg = GlobalAttPosBox.SelectedIndex - 1;
+            progressBar1.Visible = true;
+            progressBar1.Value = 0;
+            progressBar1.Maximum = GetTableRecCount("PLAY");
 
             for (int i = 0; i < GetTableRecCount("PLAY"); i++)
             {
-                int prestige = GetFantasyTeamRating(teamData, GetDBValueInt("PLAY", "PGID", i) / 70);
-                int newAWR = GetDBValueInt("PLAY", "PAWR", i);
-                int newPOE = GetDBValueInt("PLAY", "PPOE", i);
+                if (GlobalAttCheck.Checked & TEAM && val > 0)
+                {
+                    //prestige-based rating drop :  tol = 0 if 6, .25 if 4-5, .5 if 2-3, 1 if 0-1. // 1 if TDYN
+                    int prs = FindTeamPrestige(GetDBValueInt("PLAY", "PGID", i) / 70);
+                    if (prs >= 6) tol = .8;
+                    else if (prs >= 4) tol = 0.6;
+                    else if (prs >= 2) tol = 0.4;
+                    else tol = .2;
+                }
+                else if (GlobalAttCheck.Checked & TEAM && val < 0)
+                {
+                    //prestige-based rating drop :  tol = 0 if 6, .25 if 4-5, .5 if 2-3, 1 if 0-1. // 1 if TDYN
+                    int prs = FindTeamPrestige(GetDBValueInt("PLAY", "PGID", i) / 70);
+                    if (prs >= 6) tol = .2;
+                    else if (prs >= 4) tol = 0.4;
+                    else if (prs >= 2) tol = 0.8;
+                    else tol = 1;
+                }
+                else if (GlobalAttCheck.Checked && val > 0)
+                {
+                    //prestige-based rating drop :  tol = 0 if 6, .25 if 4-5, .5 if 2-3, 1 if 0-1. // 1 if TDYN
+                    int prs = GetFantasyTeamRating(teamData, GetDBValueInt("PLAY", "PGID", i) / 70);
+                    if (prs >= 6) tol = .8;
+                    else if (prs >= 4) tol = 0.6;
+                    else if (prs >= 2) tol = 0.4;
+                    else tol = .2;
+                }
+                else if (GlobalAttCheck.Checked && val < 0)
+                {
+                    //prestige-based rating drop :  tol = 0 if 6, .25 if 4-5, .5 if 2-3, 1 if 0-1. // 1 if TDYN
+                    int prs = GetFantasyTeamRating(teamData, GetDBValueInt("PLAY", "PGID", i) / 70);
+                    if (prs >= 6) tol = .2;
+                    else if (prs >= 4) tol = 0.4;
+                    else if (prs >= 2) tol = 0.8;
+                    else tol = 1;
+                }
 
-                newAWR -= rand.Next(0, 6 - prestige);
-                newPOE -= rand.Next(0, 6 - prestige);
 
-                if (newAWR <= 0) newAWR = 0;
-                if (newPOE <= 0) newPOE = 0;
-
-                ChangeDBInt("PLAY", "PAWR", i, newAWR);
-                ChangeDBInt("PLAY", "PPOE", i, newPOE);
+                if (posg == -1)
+                {
+                    UpdatePlayerAttribute(i, val, attribute, tol);
+                }
+                else if (GetPOSGfromPPOS(GetDBValueInt("PLAY", "PPOS", i)) == posg)
+                {
+                    UpdatePlayerAttribute(i, val, attribute, tol);
+                }
 
                 progressBar1.PerformStep();
             }
 
-            progressBar1.Visible = false;
+            MessageBox.Show("Attribute has been updated!\n\nRecalculate Player Overall and Team Ratings when completed!");
             progressBar1.Value = 0;
-            MessageBox.Show("Ratings are complete!");
-
+            progressBar1.Visible = false;
         }
+
+        private void MinAttButton_Click(object sender, EventArgs e)
+        {
+            if (MinAttBox.SelectedIndex == -1) return;
+
+            /* Create attribute list || 0 - DB value  1 - Name */
+            List<List<string>> atb = CreateStringListsFromCSV(@"resources\attributes.csv", true);
+            string attribute = atb[MinAttBox.SelectedIndex][0];
+            int val = Convert.ToInt32(MinAttNum.Value);
+            int posg = MinAttPosBox.SelectedIndex - 1;
+
+            progressBar1.Visible = true;
+            progressBar1.Value = 0;
+            progressBar1.Maximum = GetTableRecCount("PLAY");
+
+            for (int i = 0; i < GetTableRecCount("PLAY"); i++)
+            {
+                if (posg == -1)
+                {
+                    int rating = GetDBValueInt("PLAY", attribute, i);
+                    if (rating < val) ChangeDBInt("PLAY", attribute, i, val);
+                }
+                else if (GetPOSGfromPPOS(GetDBValueInt("PLAY", "PPOS", i)) == posg)
+                {
+                    int rating = GetDBValueInt("PLAY", attribute, i);
+                    if (rating < val) ChangeDBInt("PLAY", attribute, i, val);
+                }
+
+                progressBar1.PerformStep();
+            }
+
+            MessageBox.Show("Attribute has been updated!\n\nRecalculate Player Overall and Team Ratings when completed!");
+            progressBar1.Value = 0;
+            progressBar1.Visible = false;
+        }
+
+        private void MaxAttButton_Click(object sender, EventArgs e)
+        {
+            if (MaxAttBox.SelectedIndex == -1) return;
+
+            /* Create attribute list || 0 - DB value  1 - Name */
+            List<List<string>> atb = CreateStringListsFromCSV(@"resources\attributes.csv", true);
+            string attribute = atb[MaxAttBox.SelectedIndex][0];
+            int val = Convert.ToInt32(MaxAttNum.Value);
+            int posg = MaxAttPosBox.SelectedIndex - 1;
+
+            progressBar1.Visible = true;
+            progressBar1.Value = 0;
+            progressBar1.Maximum = GetTableRecCount("PLAY");
+
+            for (int i = 0; i < GetTableRecCount("PLAY"); i++)
+            {
+                if (posg == -1)
+                {
+                    int rating = GetDBValueInt("PLAY", attribute, i);
+                    if (rating > val) ChangeDBInt("PLAY", attribute, i, val);
+                }
+                else if (GetPOSGfromPPOS(GetDBValueInt("PLAY", "PPOS", i)) == posg)
+                {
+                    int rating = GetDBValueInt("PLAY", attribute, i);
+                    if (rating > val) ChangeDBInt("PLAY", attribute, i, val);
+                }
+
+                progressBar1.PerformStep();
+            }
+
+            MessageBox.Show("Attribute has been updated!\n\nRecalculate Player Overall and Team Ratings when completed!");
+            progressBar1.Value = 0;
+            progressBar1.Visible = false;
+        }
+
+        private void UpdatePlayerAttribute(int rec, int val, string attribute, double tol)
+        {
+            int rating = GetDBValueInt("PLAY", attribute, rec) + rand.Next(Convert.ToInt32(tol*(double)val), val);
+            if (rating < 0) rating = 0;
+            if (rating > 31) rating = 31;
+
+            ChangeDBInt("PLAY", attribute, rec, rating);
+        }
+
+        private void MinAttNum_ValueChanged(object sender, EventArgs e)
+        {
+            MinAttRating.Text = Convert.ToString(ConvertRating(Convert.ToInt32(MinAttNum.Value)));
+        }
+
+        private void MaxAttNum_ValueChanged(object sender, EventArgs e)
+        {
+            MaxAttRating.Text = Convert.ToString(ConvertRating(Convert.ToInt32(MaxAttNum.Value)));
+        }
+
+
+
+        #endregion
+
     }
 
 }

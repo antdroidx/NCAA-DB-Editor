@@ -520,7 +520,15 @@ namespace DB_EDITOR
         {
             Ratings.Clear();
             RatingsX.Clear();
+            List<int> ratingsList = new List<int>();
 
+            ratingsList = CreateIntListfromCSV(@"resources\PRLU.csv", true);
+            for(int i = 0; i  < ratingsList.Count; i++)
+            {
+                Ratings.Add(i, ratingsList[i]);
+            }
+
+            /*
             Ratings.Add(0, 40);
             Ratings.Add(1, 44);
             Ratings.Add(2, 48);
@@ -553,7 +561,7 @@ namespace DB_EDITOR
             Ratings.Add(29, 97);
             Ratings.Add(30, 98);
             Ratings.Add(31, 99);
-
+            */
             foreach (KeyValuePair<int, int> CHAR in Ratings)
             {
                 RatingsX.Add(CHAR.Value, CHAR.Key);

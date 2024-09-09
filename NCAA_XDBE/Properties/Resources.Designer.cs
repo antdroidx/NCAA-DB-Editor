@@ -347,6 +347,36 @@ namespace DB_EDITOR.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to DB,Attribute
+        ///PACC,Acceleration
+        ///PAGI,Agility
+        ///PAWR,Awareness
+        ///PCAR,Ball Carrying
+        ///PBTK,Break Tackles
+        ///PCTH,Catching
+        ///PIMP,Importance
+        ///PINJ,Injury
+        ///PJMP,Jumping
+        ///PKAC,Kick Accuracy
+        ///PKPR,Kick Power
+        ///PPBK,Pass Block
+        ///PPOE,Potential
+        ///PRBK,Run Block
+        ///PSPD,Speed
+        ///PSTA,Stamina
+        ///PSTR,Strength
+        ///PTAK,Tackling
+        ///PTHA,Throw Accuracy
+        ///PTHP,Throw Power
+        ///.
+        /// </summary>
+        internal static string attributes {
+            get {
+                return ResourceManager.GetString("attributes", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to BMI,PFSH,PMSH,PSSH
         ///0.00,0,-1,4
         ///0.01,0,0,5
@@ -711,6 +741,48 @@ namespace DB_EDITOR.Properties {
         internal static string poly_surnames {
             get {
                 return ResourceManager.GetString("poly_surnames", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to LUVL,LURT
+        ///0,40
+        ///1,44
+        ///2,48
+        ///3,52
+        ///4,56
+        ///5,59
+        ///6,62
+        ///7,65
+        ///8,68
+        ///9,70
+        ///10,72
+        ///11,74
+        ///12,76
+        ///13,78
+        ///14,80
+        ///15,82
+        ///16,84
+        ///17,85
+        ///18,86
+        ///19,87
+        ///20,88
+        ///21,89
+        ///22,90
+        ///23,91
+        ///24,92
+        ///25,93
+        ///26,94
+        ///27,95
+        ///28,96
+        ///29,97
+        ///30,98
+        ///31,99
+        ///.
+        /// </summary>
+        internal static string PRLU {
+            get {
+                return ResourceManager.GetString("PRLU", resourceCulture);
             }
         }
         

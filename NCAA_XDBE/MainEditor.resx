@@ -186,8 +186,6 @@ This changes recruits from Hawaii and western states to have polynesian surnames
 
 * Calculate QB Tendencies - Re-Calculates QB for Scrambling, Balanced and Pocket Passers Traits
 
-* Increase Minimum Speed - This increases the minimum Speed attribute to 80 for HB, WR, CB and Safeties.
-
 * Randomize Player Potential - Randomizes from 40-99 every player's potential rating. Affects player progression.
 
 * Recalculate Player Overall - This will recalculate all players' overall rating based on the original game's POCI table
@@ -217,7 +215,7 @@ Then proceed the with the buttons in order. You can swap 2 and 3 if you want. It
     <value>721, 17</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>25</value>
+    <value>53</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

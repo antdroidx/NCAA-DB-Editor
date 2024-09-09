@@ -657,13 +657,13 @@ namespace DB_EDITOR
 
             if (TeamCount == 120 && AllValid)
             {
-                SaveButton.Enabled = true;
+                SaveButton.Visible = true;
                 SaveButton.BackColor = Color.Crimson;
             }
             else
             {
-                SaveButton.Enabled = false;
-                SaveButton.BackColor = Color.DarkGray;
+                SaveButton.Visible = false;
+                //SaveButton.BackColor = Color.DarkGray;
             }
 
 
@@ -748,11 +748,6 @@ namespace DB_EDITOR
 
             List<CheckedListBox> confBoxes = GetConfBoxObjects();
             List<TextBox> confNames = GetConfNameTextBoxes();
-            List<Label> cgidLabels = GetConfCGIDLabels();
-            List<NumericUpDown> prestigeBoxes = GetConfPrestigeBoxes();
-            List<Button> leagueButtons = GetLeagueButtons();
-            List<int> cgidList = GetCGIDList();
-            List<Label> statusLabels = GetConfStatusLabels();
             main.CreateTeamDB();
 
             //Clear Conference Data
@@ -771,20 +766,20 @@ namespace DB_EDITOR
              *  Empty/Null =  *
              */
 
-            for (int row = 0; row < LeagueData.Count ; row++)
+            for (int row = 0; row < LeagueData.Count; row++)
             {
                 for (int column = 0; column < LeagueData[row].Count; column++)
                 {
-                    if(row == 0) confNames[column].Text = LeagueData[row][column].ToString();
+                    if (row == 0) confNames[column].Text = LeagueData[row][column].ToString();
                     else
                     {
-                        if (LeagueData[row][column] == null || LeagueData[row][column] == "") 
+                        if (LeagueData[row][column] == null || LeagueData[row][column] == "")
                         {
-                            confBoxes[column].Items.Add("*"); 
+                            confBoxes[column].Items.Add("*");
                         }
                         else
                         {
-                            if(main.teamNameDB.Contains(LeagueData[row][column].ToString()))
+                            if (main.teamNameDB.Contains(LeagueData[row][column].ToString()))
                             {
                                 confBoxes[column].Items.Add(LeagueData[row][column].ToString());
                                 AllTeamsListBox.Items.Remove(LeagueData[row][column].ToString());
@@ -803,7 +798,7 @@ namespace DB_EDITOR
                 }
             }
 
-            
+
 
 
             // Final Checks
@@ -811,6 +806,52 @@ namespace DB_EDITOR
             CountTeams();
             DISABLE = false;
         }
+
+        private void ExportCustomLeague_Click(object sender, EventArgs e)
+        {
+
+            //Set-Up Database
+            List<CheckedListBox> confBoxes = GetConfBoxObjects();
+            List<TextBox> confNames = GetConfNameTextBoxes();
+
+            //Save Dialog
+            SaveFileDialog SaveDialog1 = new SaveFileDialog();
+            SaveDialog1.Filter = "CSV Files (*.csv)|*.csv";
+            //Stream myStream = File.Create("CustomLeague.csv");
+            if (SaveDialog1.ShowDialog() == DialogResult.OK)
+            {
+                Stream myStream = SaveDialog1.OpenFile();
+                StreamWriter wText = new StreamWriter(myStream);
+                StringBuilder hbuilder = new StringBuilder();
+
+                //write headers
+                for (int i = 0; i < confNames.Count; i++)
+                {
+                    if (i != 0) hbuilder.Append(",");
+                    hbuilder.Append(confNames[i].Text.ToString());
+                }
+
+                wText.WriteLine(hbuilder);
+
+
+                //Get Team Lists
+                for (int row = 0; row < 18; row++)
+                {
+                    hbuilder.Clear();
+                    for (int col = 0; col < confBoxes.Count; col++)
+                    {
+                        if (col != 0) hbuilder.Append(",");
+                        hbuilder.Append(confBoxes[col].Items[row].ToString());
+                    }
+                    wText.WriteLine(hbuilder);
+                }
+
+                MessageBox.Show("Export Complete");
+                wText.Dispose();
+                wText.Close();
+            }
+        }
+
 
         #endregion
 
