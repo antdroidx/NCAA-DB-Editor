@@ -60,6 +60,7 @@ DB Tools
 * QB Tendency Fixer
 * Randomize Player Potential
 * Randomize Face/Hair/Head
+* Global Ratings Editor
 
 Dynasty Tools (In-Season)
 * Add Pre-Season Injuries with Player Regression
