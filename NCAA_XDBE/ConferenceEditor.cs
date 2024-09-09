@@ -341,7 +341,7 @@ namespace DB_EDITOR
 
             }
 
-            //swap STATS
+            //swap STATS & DCHT
             for (int i = 0; i < 70; i++)
             {
                 int oldPGID = OLDtgid * 70 + i;
@@ -353,7 +353,6 @@ namespace DB_EDITOR
             //swap COACH
             ChangeDBInt("COCH", "TGID", FindCOCHRecordfromTeamTGID(OLDtgid), NEWtgid);
 
-            DepthChartMaker("TEAM");
             ReorderTORD();
             MessageBox.Show("Swapping Process Complete.");
         }
@@ -481,7 +480,8 @@ namespace DB_EDITOR
             }
 
             RecalculateOverall();
-            DepthChartMaker("TEAM");
+            CalculateTeamRatingsSingle("TEAM", tgid);
+            DepthChartMakerSingle("TEAM", tgid);
 
             //Select new coach
             SelectFCSCoach(NEWtgid);
@@ -508,7 +508,8 @@ namespace DB_EDITOR
             //Select New Coach
             SelectFCSCoach(NEWtgid);
 
-            DepthChartMaker("TEAM");
+            CalculateTeamRatingsSingle("TEAM", NEWtgid);
+            DepthChartMakerSingle("TEAM", NEWtgid);
 
             ReorderTORD();
             MessageBox.Show("Swapping Process Complete.");
@@ -537,7 +538,7 @@ namespace DB_EDITOR
             }
         }
 
-        private void ClearTeamPlayers(int tgid)
+        public void ClearTeamPlayers(int tgid)
         {
             int pgidBeg = tgid * 70;
             int pgidEnd = tgid * 70 + 69;
@@ -551,7 +552,7 @@ namespace DB_EDITOR
             TDB.TDBDatabaseCompact(dbIndex);
         }
 
-        private void ClearOldTeamStats(int tgid)
+        public void ClearOldTeamStats(int tgid)
         {
             for (int i = tgid * 70; i < tgid * 70 + 70; i++)
             {

@@ -10,99 +10,10 @@ namespace DB_EDITOR
     {
 
         /*
-        * PLAYER & TEAM EDITOR (work from elguapo - not used currently)
+        * TEAM EDITOR
         */
+
         #region TEAM EDITOR - STARTUP
-
-
-        public void Management(int tmpDBindex, string tmpTName, string tmpFName)
-        {
-            string tmpVal = "";
-
-            ReorderedTableData.Clear();
-
-            TdbTableProperties TableProps = new TdbTableProperties();
-            TableProps.Name = new string((char)0, 5);
-
-            // Get Tableprops based on the selected table index
-            if (!TDB.TDBTableGetProperties(tmpDBindex, GetTableIndex(tmpDBindex, tmpTName), ref TableProps))
-                return;
-
-            for (int r = 0; r < TableProps.RecordCount; r++)
-            {
-                // check if record is deleted, if so, skip
-                if (TDB.TDBTableRecordDeleted(tmpDBindex, TableProps.Name, r))
-                    continue;
-
-
-                for (int f = 0; f < TableProps.FieldCount; f++)
-                {
-                    TdbFieldProperties FieldProps = new TdbFieldProperties();
-                    FieldProps.Name = new string((char)0, 5);
-
-                    TDB.TDBFieldGetProperties(tmpDBindex, TableProps.Name, f, ref FieldProps);
-
-                    #region Load recTMP by tdbFieldType.
-                    if (tmpFName == FieldProps.Name)
-                    {
-                        //
-                        if (FieldProps.FieldType == TdbFieldType.tdbString)
-                        {
-                            // I think Values that are a string might have to be formatted to a specific length
-                            // it probably has something to do with the language he made the dll with
-                            string val = new string((char)0, (FieldProps.Size / 8) + 1);
-
-                            TDB.TDBFieldGetValueAsString(tmpDBindex, TableProps.Name, FieldProps.Name, r, ref val);
-                            val = val.Replace(",", "");
-
-                            tmpVal = val;
-
-                        }
-                        else if (FieldProps.FieldType == TdbFieldType.tdbUInt)
-                        {
-                            UInt32 intval;
-                            intval = (UInt32)TDB.TDBFieldGetValueAsInteger(tmpDBindex, TableProps.Name, FieldProps.Name, r);
-
-                            tmpVal = Convert.ToString(intval);
-                        }
-                        else if (FieldProps.FieldType == TdbFieldType.tdbInt || FieldProps.FieldType == TdbFieldType.tdbSInt)
-                        {
-                            Int32 signedval;
-                            signedval = TDB.TDBFieldGetValueAsInteger(tmpDBindex, TableProps.Name, FieldProps.Name, r);
-
-                            tmpVal = Convert.ToString(signedval);
-                        }
-                        else if (FieldProps.FieldType == TdbFieldType.tdbFloat)
-                        {
-                            float floatval;
-                            floatval = TDB.TDBFieldGetValueAsFloat(tmpDBindex, TableProps.Name, FieldProps.Name, r);
-
-                            tmpVal = Convert.ToString(floatval);
-                        }
-                        else if (FieldProps.FieldType == TdbFieldType.tdbBinary || FieldProps.FieldType == TdbFieldType.tdbVarchar || FieldProps.FieldType == TdbFieldType.tdbLongVarchar)
-                        {
-                            string val = new string((char)0, (FieldProps.Size / 8) + 1);
-                            TDB.TDBFieldGetValueAsString(tmpDBindex, TableProps.Name, FieldProps.Name, r, ref val);
-
-                            // unsupportedFieltype;
-                            tmpVal = val;
-                        }
-                        else
-                        {
-                            // unsupportedFieltype;
-                            tmpVal = "NA";
-
-                        }
-                        ReorderedTableData.Add(r, Convert.ToInt32(tmpVal));
-                        break;
-                    }
-                    #endregion
-                }
-
-            }
-
-
-        }
 
         public void StartTeamEditor()
         { 
@@ -1136,9 +1047,9 @@ namespace DB_EDITOR
 
             if (result == DialogResult.Yes)
             {
-                FantasyRosterGeneratorSingle(TeamIndex, Convert.ToInt32(TMPRNumBox.Value));
+                FantasyRosterGeneratorSingle(GetDBValueInt("TEAM", "TGID", TeamIndex), Convert.ToInt32(TMPRNumBox.Value));
             }
-            CalculateTeamRatings("TEAM");
+
             GetTeamEditorData(TeamIndex);
         }
     }

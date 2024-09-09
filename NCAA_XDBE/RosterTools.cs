@@ -273,6 +273,12 @@ namespace DB_EDITOR
                 if (GetDBValueInt("PSRT", "PGID", i) == pgid) ChangeDBInt("PSRT", "PGID", i, newpgid);
                 break;
             }
+
+            for (int i = 0; i < GetTableRecCount("DCHT"); i++)
+            {
+                if (GetDBValueInt("DCHT", "PGID", i) == pgid) ChangeDBInt("DCHT", "PGID", i, newpgid);
+                break;
+            }
         }
 
         private List<List<string>> AddNewPGIDtoTransferList(int oldpgid, int newpgid, List<List<string>> transferList)

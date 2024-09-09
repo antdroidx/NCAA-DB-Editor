@@ -187,4 +187,28 @@
   <data name="Color_Palettes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Color-Palettes.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
+  <data name="_10_team" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\schedules\10-team.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_11_team" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\schedules\11-team.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_12_team" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\schedules\12-team.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_14_team" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\schedules\14-team.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_16_team" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\schedules\16-team.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_18_team" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\schedules\18-team.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_8_team" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\schedules\8-team.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_9_team" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\schedules\9-team.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
 </root>

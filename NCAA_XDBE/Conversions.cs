@@ -817,7 +817,7 @@ namespace DB_EDITOR
                     teamMascot[j] = Convert.ToString(GetDBValue("TEAM", "TMNA", i));
                 }
             }
-            else if (TDYN)
+            else
             {
 
                 string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
@@ -837,6 +837,41 @@ namespace DB_EDITOR
             }
             teamNameDB[511] = "";
 
+        }
+
+        public string[] GetTeamNameDB()
+        {
+            if (TEAM)
+            {
+                for (int i = 0; i < maxTeamsDB; i++)
+                {
+                    int j = Convert.ToInt32(GetDBValue("TEAM", "TGID", i));
+
+                    teamNameDB[j] = Convert.ToString(GetDBValue("TEAM", "TDNA", i));
+                    teamMascot[j] = Convert.ToString(GetDBValue("TEAM", "TMNA", i));
+                }
+            }
+            else
+            {
+
+                string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+                string csvLocation = Path.Combine(executableLocation, @"Resources\TeamDB.csv");
+
+                string filePath = csvLocation;
+                StreamReader sr = new StreamReader(filePath);
+                while (!sr.EndOfStream)
+                {
+                    string[] Line = sr.ReadLine().Split(',');
+                    {
+                        teamNameDB[Convert.ToInt32(Line[0])] = Line[1];
+                        teamMascot[Convert.ToInt32(Line[0])] = Line[2];
+                    }
+                }
+                sr.Close();
+            }
+            teamNameDB[511] = "";
+
+            return teamNameDB;
         }
 
         public void CreateTeamColorPalettes()
@@ -1062,7 +1097,9 @@ namespace DB_EDITOR
             {
                 if (Convert.ToInt32(GetDBValue("CONF", "CGID", i)) == cgid)
                 {
-                    return GetDBValue("CONF", "CNAM", i);
+                    string cnam = GetDBValue("CONF", "CNAM", i);
+                    if (cnam == "Generic") cnam = "At-Large";
+                    return cnam;
                 }
             }
 
@@ -1092,6 +1129,7 @@ namespace DB_EDITOR
 
         public int GetCONFrecFromCNAM(string cnam)
         {
+            if (cnam == "At-Large") return 17;
             for(int i = 0; i < GetTableRecCount("CONF"); i++)
             {
                 if (GetDBValue("CONF", "CNAM", i) == cnam) return i;
@@ -1111,7 +1149,61 @@ namespace DB_EDITOR
         }
         #endregion
 
+        #region BOWLS
+        public int GetBOWLrecfromBNME(string bnme)
+        {
+            for (int i = 0; i < GetTableRecCount("BOWL"); i++)
+            {
+                if (GetDBValue("BOWL", "BNME", i) == bnme) return i;
+            }
 
+            return -1;
+        }
+
+        #endregion
+
+        #region Stadiums
+
+        public string GetStadNamefromSGID(string sgid)
+        {
+            for (int i = 0; i < GetTableRecCount("STAD"); i++)
+            {
+                if (GetDBValue("STAD", "SGID", i) == sgid) return GetDBValue("STAD", "SNAM", i);
+            }
+
+            return "";
+        }
+        public string GetTDNAfromSGID(string sgid)
+        {
+            for (int i = 0; i < GetTableRecCount("STAD"); i++)
+            {
+                if (GetDBValue("STAD", "SGID", i) == sgid) return GetDBValue("STAD", "TDNA", i);
+            }
+
+            return "";
+        }
+
+        public int GetSGIDfromSNAM(string snam)
+        {
+            for (int i = 0; i < GetTableRecCount("STAD"); i++)
+            {
+                if (GetDBValue("STAD", "SNAM", i) == snam) return GetDBValueInt("STAD", "SGID", i);
+            }
+
+            return 255;
+        }
+
+        public int GetSGIDfromTDNA(string tnda)
+        {
+            for (int i = 0; i < GetTableRecCount("STAD"); i++)
+            {
+                if (GetDBValue("STAD", "TDNA", i) == tnda) return GetDBValueInt("STAD", "SGID", i);
+            }
+
+            return 255;
+        }
+
+        #endregion
 
         #region Skill Attributes
 
@@ -1312,6 +1404,74 @@ namespace DB_EDITOR
         public void AddTableRecord(string table)
         {
             TDB.TDBTableRecordAdd(dbIndex, table, false);
+        }
+
+        public void ReOrderTable(string table, string field)
+        {
+            List<List<string>> tmpTable = new List<List<string>>();
+            int sortCol = TDB.FieldIndex(dbIndex, table, field);
+
+            progressBar1.Visible = true;
+            progressBar1.Value = 0;
+            progressBar1.Maximum = GetTableRecCount(table);
+
+
+            //Copy Table
+            int row = 0;
+            for (int i = 0; i < GetTableRecCount(table); i++)
+            {
+                tmpTable.Add(new List<string>());
+
+                for (int f = 0; f < TDB.FieldCount(dbIndex, table); f++)
+                {
+                    TdbFieldProperties FieldProps = new TdbFieldProperties();
+                    FieldProps.Name = new string((char)0, 5);
+
+                    TDB.TDBFieldGetProperties(dbIndex, table, f, ref FieldProps);
+
+                    tmpTable[row].Add(GetDBValue(table, FieldProps.Name, row));
+                }
+                row++;
+                progressBar1.PerformStep();
+            }
+
+            //Sort
+            tmpTable.Sort((player1, player2) => Convert.ToInt32(player1[sortCol]).CompareTo(Convert.ToInt32(player2[sortCol])));
+
+
+            progressBar1.Visible = true;
+            progressBar1.Value = 0;
+            progressBar1.Maximum = GetTableRecCount(table);
+            //Clear Table
+            for (int i = 0; i < GetTableRecCount(table); i++)
+            {
+                TDB.TDBTableRecordRemove(dbIndex, table, i);
+                progressBar1.PerformStep();
+            }
+
+            progressBar1.Visible = true;
+            progressBar1.Value = 0;
+            progressBar1.Maximum = tmpTable.Count;
+
+            //Paste Table
+            int rec = 0;
+            for (int i = 0; i < tmpTable.Count; i++)
+            {
+                TDB.TDBTableRecordAdd(dbIndex, table, false);
+                for (int f = 0; f < TDB.FieldCount(dbIndex, table); f++)
+                {
+                    TdbFieldProperties FieldProps = new TdbFieldProperties();
+                    FieldProps.Name = new string((char)0, 5);
+
+                    TDB.TDBFieldGetProperties(dbIndex, table, f, ref FieldProps);
+                    ChangeDBString(table, FieldProps.Name, rec, tmpTable[rec][f]);
+                }
+                rec++;
+                progressBar1.PerformStep();
+            }
+
+            progressBar1.Visible = false;
+            progressBar1.Value = 0;
         }
 
         #endregion
