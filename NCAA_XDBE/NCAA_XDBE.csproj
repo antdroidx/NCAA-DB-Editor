@@ -75,6 +75,12 @@
     <Compile Include="About\AboutBox1.Designer.cs">
       <DependentUpon>AboutBox1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Button_Clicks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Playbooks.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="CoachEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -202,6 +208,12 @@
     <None Include="Resources\PlaybookNames.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="Resources\playbooks\PLYL.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\POCI-NEXT.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\POCI.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -209,6 +221,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Resources\RCAT-MAPPER.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\RCAT-NEXT.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Resources\RCAT.csv">

@@ -155,9 +155,7 @@ namespace DB_EDITOR
         }
 
         //Coaching Progression -- useful for "Contracts Off" dynasty setting where coaching progression is disabled
-        /* 
-        Use current TEAM's TMPR and COCH's CTOP to make CPRE updated, then update CTOP to match previous TMPR
-        */
+
         private void CoachPrestigeProgression()
         {
             progressBar1.Visible = true;

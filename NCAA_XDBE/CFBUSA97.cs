@@ -15,6 +15,13 @@ namespace DB_EDITOR
 {
     partial class MainEditor : Form
     {
+
+
+        private void CFUSAexportButton_Click(object sender, EventArgs e)
+        {
+            ExportToCollegeFootballUSA();
+        }
+
         #region College Football USA 97 Mod
         //Export to College Football USA 
         private void ExportToCollegeFootballUSA()

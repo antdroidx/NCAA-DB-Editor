@@ -36,6 +36,9 @@ namespace DB_EDITOR
             System.Windows.Forms.Button qbTend;
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainEditor));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,6 +63,7 @@ namespace DB_EDITOR
             this.descendingFieldOrderMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customOrderMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.enableOffSeasonMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.NCAANext25Config = new System.Windows.Forms.ToolStripMenuItem();
             this.LeagueMakerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ScheduleGenMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -505,7 +509,17 @@ namespace DB_EDITOR
             this.conf3 = new System.Windows.Forms.CheckedListBox();
             this.conf2 = new System.Windows.Forms.CheckedListBox();
             this.conf1 = new System.Windows.Forms.CheckedListBox();
+            this.tabPlaybook = new System.Windows.Forms.TabPage();
+            this.ExportPBData = new System.Windows.Forms.Button();
+            this.PlaybookGrid = new System.Windows.Forms.DataGridView();
+            this.PBRec = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PBPL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AIGR = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prct = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PLYL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PlayName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.savePBDataButton = new System.Windows.Forms.Button();
             qbTend = new System.Windows.Forms.Button();
             this.mainMenu.SuspendLayout();
             this.tableMenu.SuspendLayout();
@@ -592,6 +606,8 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.FillRosterPCT)).BeginInit();
             this.tabDev.SuspendLayout();
             this.tabConf.SuspendLayout();
+            this.tabPlaybook.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PlaybookGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // qbTend
@@ -756,7 +772,8 @@ namespace DB_EDITOR
             // 
             this.optionsMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tableFieldOrderMenuItem,
-            this.enableOffSeasonMenuItem});
+            this.enableOffSeasonMenuItem,
+            this.NCAANext25Config});
             this.optionsMenuItem.Name = "optionsMenuItem";
             this.optionsMenuItem.Size = new System.Drawing.Size(61, 20);
             this.optionsMenuItem.Text = "Options";
@@ -769,7 +786,7 @@ namespace DB_EDITOR
             this.descendingFieldOrderMenuItem,
             this.customOrderMenuItem});
             this.tableFieldOrderMenuItem.Name = "tableFieldOrderMenuItem";
-            this.tableFieldOrderMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.tableFieldOrderMenuItem.Size = new System.Drawing.Size(214, 22);
             this.tableFieldOrderMenuItem.Text = "Table Field Order";
             // 
             // defaultFieldOrderMenuItem
@@ -805,9 +822,16 @@ namespace DB_EDITOR
             // enableOffSeasonMenuItem
             // 
             this.enableOffSeasonMenuItem.Name = "enableOffSeasonMenuItem";
-            this.enableOffSeasonMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.enableOffSeasonMenuItem.Size = new System.Drawing.Size(214, 22);
             this.enableOffSeasonMenuItem.Text = "Enable Off-Season DB";
             this.enableOffSeasonMenuItem.Click += new System.EventHandler(this.EnableOffSeasonDBMenuItem_Click);
+            // 
+            // NCAANext25Config
+            // 
+            this.NCAANext25Config.Name = "NCAANext25Config";
+            this.NCAANext25Config.Size = new System.Drawing.Size(214, 22);
+            this.NCAANext25Config.Text = "Use NCAA NEXT 25 Config";
+            this.NCAANext25Config.Click += new System.EventHandler(this.NCAANext25Config_Click);
             // 
             // LeagueMakerToolStripMenuItem
             // 
@@ -1072,6 +1096,7 @@ namespace DB_EDITOR
             this.tabControl1.Controls.Add(this.tabTools);
             this.tabControl1.Controls.Add(this.tabDev);
             this.tabControl1.Controls.Add(this.tabConf);
+            this.tabControl1.Controls.Add(this.tabPlaybook);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.ItemSize = new System.Drawing.Size(75, 20);
             this.tabControl1.Location = new System.Drawing.Point(12, 27);
@@ -6018,6 +6043,118 @@ namespace DB_EDITOR
             this.conf1.TabIndex = 0;
             this.conf1.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.TeamChecked);
             // 
+            // tabPlaybook
+            // 
+            this.tabPlaybook.Controls.Add(this.savePBDataButton);
+            this.tabPlaybook.Controls.Add(this.ExportPBData);
+            this.tabPlaybook.Controls.Add(this.PlaybookGrid);
+            this.tabPlaybook.Location = new System.Drawing.Point(4, 24);
+            this.tabPlaybook.Name = "tabPlaybook";
+            this.tabPlaybook.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPlaybook.Size = new System.Drawing.Size(1152, 665);
+            this.tabPlaybook.TabIndex = 10;
+            this.tabPlaybook.Text = "Playbook";
+            this.tabPlaybook.UseVisualStyleBackColor = true;
+            // 
+            // ExportPBData
+            // 
+            this.ExportPBData.Location = new System.Drawing.Point(817, 109);
+            this.ExportPBData.Name = "ExportPBData";
+            this.ExportPBData.Size = new System.Drawing.Size(113, 64);
+            this.ExportPBData.TabIndex = 1;
+            this.ExportPBData.Text = "Export to CSV";
+            this.ExportPBData.UseVisualStyleBackColor = true;
+            this.ExportPBData.Click += new System.EventHandler(this.ExportPBData_Click);
+            // 
+            // PlaybookGrid
+            // 
+            this.PlaybookGrid.AllowUserToAddRows = false;
+            this.PlaybookGrid.AllowUserToDeleteRows = false;
+            this.PlaybookGrid.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PlaybookGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            this.PlaybookGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.PlaybookGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PBRec,
+            this.PBPL,
+            this.AIGR,
+            this.prct,
+            this.PLYL,
+            this.PlayName});
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.PlaybookGrid.DefaultCellStyle = dataGridViewCellStyle3;
+            this.PlaybookGrid.Location = new System.Drawing.Point(31, 23);
+            this.PlaybookGrid.Name = "PlaybookGrid";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PlaybookGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            this.PlaybookGrid.Size = new System.Drawing.Size(725, 621);
+            this.PlaybookGrid.TabIndex = 0;
+            // 
+            // PBRec
+            // 
+            this.PBRec.HeaderText = "RecNo";
+            this.PBRec.Name = "PBRec";
+            this.PBRec.ReadOnly = true;
+            this.PBRec.Width = 50;
+            // 
+            // PBPL
+            // 
+            this.PBPL.HeaderText = "Playbook Play";
+            this.PBPL.Name = "PBPL";
+            this.PBPL.ReadOnly = true;
+            // 
+            // AIGR
+            // 
+            this.AIGR.HeaderText = "AI Group";
+            this.AIGR.Name = "AIGR";
+            this.AIGR.Width = 80;
+            // 
+            // prct
+            // 
+            this.prct.HeaderText = "Percentage";
+            this.prct.Name = "prct";
+            this.prct.Width = 70;
+            // 
+            // PLYL
+            // 
+            this.PLYL.HeaderText = "Play Label";
+            this.PLYL.Name = "PLYL";
+            // 
+            // PlayName
+            // 
+            this.PlayName.HeaderText = "Play Name";
+            this.PlayName.Name = "PlayName";
+            this.PlayName.ReadOnly = true;
+            this.PlayName.Width = 150;
+            // 
+            // savePBDataButton
+            // 
+            this.savePBDataButton.Location = new System.Drawing.Point(817, 218);
+            this.savePBDataButton.Name = "savePBDataButton";
+            this.savePBDataButton.Size = new System.Drawing.Size(113, 64);
+            this.savePBDataButton.TabIndex = 2;
+            this.savePBDataButton.Text = "Save";
+            this.savePBDataButton.UseVisualStyleBackColor = true;
+            this.savePBDataButton.Click += new System.EventHandler(this.savePBDataButton_Click);
+            // 
             // MainEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -6133,6 +6270,8 @@ namespace DB_EDITOR
             this.tabDev.PerformLayout();
             this.tabConf.ResumeLayout(false);
             this.tabConf.PerformLayout();
+            this.tabPlaybook.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PlaybookGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -6616,6 +6755,17 @@ namespace DB_EDITOR
         private System.Windows.Forms.ComboBox MaxAttPosBox;
         private System.Windows.Forms.ComboBox MinAttPosBox;
         private System.Windows.Forms.ComboBox GlobalAttPosBox;
+        private ToolStripMenuItem NCAANext25Config;
+        private TabPage tabPlaybook;
+        private DataGridView PlaybookGrid;
+        private DataGridViewTextBoxColumn PBRec;
+        private DataGridViewTextBoxColumn PBPL;
+        private DataGridViewTextBoxColumn AIGR;
+        private DataGridViewTextBoxColumn prct;
+        private DataGridViewTextBoxColumn PLYL;
+        private DataGridViewTextBoxColumn PlayName;
+        private System.Windows.Forms.Button ExportPBData;
+        private System.Windows.Forms.Button savePBDataButton;
     }
 }
 

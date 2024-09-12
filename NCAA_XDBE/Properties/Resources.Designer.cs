@@ -657,6 +657,28 @@ namespace DB_EDITOR.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to SETL,PLYL,SITT,PLYT,PLF_,ord_,name,risk,motn,phlp,vpos
+        ///2,2,2,36,97,21,Cover 3 Switch,0,0,7,3
+        ///2,12,2,39,21,32,Lightning Gold,0,1,7,4
+        ///2,503,2,37,3,17,Hulk 3,0,1,7,7
+        ///2,512,2,34,1073,22,Spy Gold,0,1,7,0
+        ///2,513,2,39,21,7,Dog Gold,0,1,7,5
+        ///2,514,2,39,25,10,Crash Gold,0,1,7,6
+        ///2,515,2,38,1,31,Gold Double X,0,1,7,6
+        ///2,516,2,38,1,16,Gold Double Y,0,1,7,5
+        ///2,517,2,38,1,19,Gold Double Z,0,1,7,5
+        ///2,519,2,38,27,11,Fire Green,0,1,7,6
+        ///2,526,2,34,49,1,Cover 2 Man,0,1,7,0
+        ///2,552,2,39,69,24,Dog 3,0,1,7,5
+        ///2,556,2,37,11, [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string PLYL {
+            get {
+                return ResourceManager.GetString("PLYL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to PLDH,PLDL,PPOS,CAWT,KAWT,TAWT,PBWT,RBWT,ACWT,AGWT,TKWT,INWT,KPWT,SPWT,TPWT,BTWT,CTWT,STWT,JUWT,AWWT
         ///92,35,0,0,0,30,0,0,6,6,0,0,0,14,26,0,0,0,0,20
         ///93,35,1,10,0,0,2,0,18,18,0,0,0,25,0,15,5,2,0,5
@@ -672,6 +694,25 @@ namespace DB_EDITOR.Properties {
         internal static string POCI {
             get {
                 return ResourceManager.GetString("POCI", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PLDH,PLDL,PPOS,CAWT,KAWT,TAWT,PBWT,RBWT,ACWT,AGWT,TKWT,INWT,KPWT,SPWT,TPWT,BTWT,CTWT,STWT,JUWT,AWWT
+        ///92,35,0,0,0,30,0,0,6,6,0,0,0,14,26,0,0,0,0,20
+        ///93,35,1,10,0,0,2,0,18,18,0,0,0,25,0,15,5,2,0,5
+        ///80,35,2,2,0,0,1,8,2,1,0,0,0,2,0,2,6,2,0,3
+        ///96,35,3,0,0,0,0,0,10,10,0,0,0,25,0,5,30,0,5,5
+        ///85,35,4,0,0,0,1,3,2,2,0,0,0,4,0,1,5,3,0,3
+        ///95,35,5,0,0,0,6,5,1,1,0,0,0,1,0,0,0,4,0,4
+        ///91,35,6,0,0,0,4,6,2,1,0,0,0,2,0,0,0,4,0,4
+        ///91,35,7,0,0,0,4,6,2,1,0,0,0,2,0,0,0,4,0,4
+        ///91,35,8,0,0,0,4,6,2,1,0,0,0,2,0,0,0,4,0,4
+        ///95,35,9,0,0 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string POCI_NEXT {
+            get {
+                return ResourceManager.GetString("POCI_NEXT", resourceCulture);
             }
         }
         
@@ -840,6 +881,18 @@ namespace DB_EDITOR.Properties {
         internal static string RCAT_MAPPER {
             get {
                 return ResourceManager.GetString("RCAT_MAPPER", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PTHA,PSTA,PLEB,PREB,PKAC,PACC,PHED,PSPD,PPOE,PBRE,PEYE,PFSH,PLSH,PMSH,PRSH,PSSH,RATH,PCTH,PAGI,PSKI,PINJ,PTAK,PPBK,PRBK,PNEK,PFMK,PBTK,PHCL,SPSL,HELM,PHAN,PLHN,PRHN,PSLO,PTTO,PLFP,PTHP,PJMP,PCAR,PKPR,PSTR,PAWR,PDIS,PVIS,PFJS,PPOS,PLWS,PRWS,MRCT,PHGT,PWGT,PSLT
+        ///0,19,11,11,1,20,7,25,22,1,0,-1,0,-1,0,4,0,12,21,1,22,3,1,2,0,1,0,2,0,0,0,2,2,0,0,0,0,16,2,0,0,1,6,1,0,3,0,0,1,72,19,2
+        ///0,20,11,11,0,17,2,13,26,1,0,1,0,3,0,3,0,3,12,4,18,13,0,2,0,4,0,0,1,0,0,2,2,0,0,0,0,9,2,0,10,7,2,1,0,13,6,6,1,76,70,2
+        ///0,10,11,0,0,13 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string RCAT_NEXT {
+            get {
+                return ResourceManager.GetString("RCAT_NEXT", resourceCulture);
             }
         }
         

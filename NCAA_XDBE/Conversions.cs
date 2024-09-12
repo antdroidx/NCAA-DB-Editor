@@ -241,6 +241,7 @@ namespace DB_EDITOR
             RCAT = new List<List<int>>();
             string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             string csvLocation = Path.Combine(executableLocation, @"resources\RCAT.csv");
+            if (NCAANext25Config.Checked) csvLocation = Path.Combine(executableLocation, @"resources\RCAT-NEXT.csv");
 
             string filePath = csvLocation;
             StreamReader sr = new StreamReader(filePath);
@@ -586,6 +587,8 @@ namespace DB_EDITOR
         {
             string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             string csvLocation = Path.Combine(executableLocation, @"resources\POCI.csv");
+
+            if (NCAANext25Config.Checked) csvLocation = Path.Combine(executableLocation, @"resources\POCI-NEXT.csv");
 
             string filePath = csvLocation;
             StreamReader sr = new StreamReader(filePath);
