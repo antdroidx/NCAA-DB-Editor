@@ -226,4 +226,10 @@
   <data name="PLYL" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\playbooks\PLYL.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
+  <data name="AIGR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\playbooks\AIGR.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="AIGR_DEF" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\playbooks\AIGR-DEF.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
 </root>

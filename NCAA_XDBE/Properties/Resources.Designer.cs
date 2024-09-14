@@ -300,7 +300,7 @@ namespace DB_EDITOR.Properties {
         ///1080,2,3,0,11,5,11
         ///1200,7,1,0,11,5,11
         ///930,4,8,0,11,5,11
-        ///1080,6,5,0,11,5,11
+        ///1080,6,5,0,15,5,11
         ///1200,8,7,0,12,5,12
         ///10 [rest of string was truncated]&quot;;.
         /// </summary>
@@ -343,6 +343,83 @@ namespace DB_EDITOR.Properties {
         internal static string _9_team {
             get {
                 return ResourceManager.GetString("_9_team", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Field Goal,0
+        ///Short Yardage,1
+        ///Stop Clock,2
+        ///Goaline,3
+        ///Redzone,4
+        ///Inside Five,5
+        ///Normal,6
+        ///Medium Yardage,7
+        ///Long Yardage,8
+        ///Punt,9
+        ///Conserve Time,10
+        ///Fake Punt,11
+        ///Fake FG,12
+        ///Waste Time,13
+        ///QB Kneel,14
+        ///Normal Kickoff,15
+        ///Onside Kick,16
+        ///Run,17
+        ///Safety Kickoff,18
+        ///Max Protect Punt,19
+        ///Pass,20
+        ///Hail Mary,21
+        ///Goaline Pass,22
+        ///2nd &amp; Short,23
+        ///2nd &amp; Medium,24
+        ///2nd &amp; Long,25
+        ///3rd &amp; short,26
+        ///3rd &amp; Medium,27
+        ///3rd &amp; Long,28
+        ///Unused,29
+        ///Unused,30
+        ///Unused,31
+        ///Spike,32
+        ///Fake Spike,33
+        ///4th &amp; Short,34
+        ///4th &amp; Medium, [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string AIGR {
+            get {
+                return ResourceManager.GetString("AIGR", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 0,Normal
+        ///1,Trips Run
+        ///2,Pass
+        ///3,Kick Return
+        ///4,Kick Return Onside
+        ///5,Goaline Run
+        ///6,Nickel Run
+        ///7,Goaline Pass
+        ///8,Kickoff Return Safety
+        ///9,Punt Return Block
+        ///10,Pass 3WR
+        ///11,Trips Pass
+        ///12,Trips
+        ///13,Nickel Pass
+        ///15,Punt Return Safe
+        ///16,Field Goal Block
+        ///17,Field Goal Safe
+        ///18,Run
+        ///19,Run 3WR
+        ///20,Nickel
+        ///21,Dime
+        ///22,Goaline
+        ///23,Hail Mary
+        ///24,Dime Pass
+        ///.
+        /// </summary>
+        internal static string AIGR_DEF {
+            get {
+                return ResourceManager.GetString("AIGR_DEF", resourceCulture);
             }
         }
         

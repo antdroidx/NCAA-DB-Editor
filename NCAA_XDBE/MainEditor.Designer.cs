@@ -38,6 +38,8 @@ namespace DB_EDITOR
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainEditor));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -510,16 +512,30 @@ namespace DB_EDITOR
             this.conf2 = new System.Windows.Forms.CheckedListBox();
             this.conf1 = new System.Windows.Forms.CheckedListBox();
             this.tabPlaybook = new System.Windows.Forms.TabPage();
+            this.ImportPlaybookCSV = new System.Windows.Forms.Button();
+            this.pcrtValueButton = new System.Windows.Forms.Button();
+            this.label112 = new System.Windows.Forms.Label();
+            this.label111 = new System.Windows.Forms.Label();
+            this.PlayTypeBox = new System.Windows.Forms.ComboBox();
+            this.pcrtNumBox = new System.Windows.Forms.NumericUpDown();
+            this.label110 = new System.Windows.Forms.Label();
+            this.aigrFilterBox = new System.Windows.Forms.ComboBox();
+            this.AIGRNameButton = new System.Windows.Forms.Button();
+            this.savePBDataButton = new System.Windows.Forms.Button();
             this.ExportPBData = new System.Windows.Forms.Button();
             this.PlaybookGrid = new System.Windows.Forms.DataGridView();
             this.PBRec = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PBPL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AIGR = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AIGRVal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AIGRname = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.prct = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PLYL = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PlayName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PLYTVal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PLYT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.savePBDataButton = new System.Windows.Forms.Button();
+            this.PassCounter = new System.Windows.Forms.Label();
+            this.RunCounter = new System.Windows.Forms.Label();
             qbTend = new System.Windows.Forms.Button();
             this.mainMenu.SuspendLayout();
             this.tableMenu.SuspendLayout();
@@ -607,6 +623,7 @@ namespace DB_EDITOR
             this.tabDev.SuspendLayout();
             this.tabConf.SuspendLayout();
             this.tabPlaybook.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcrtNumBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlaybookGrid)).BeginInit();
             this.SuspendLayout();
             // 
@@ -6045,6 +6062,17 @@ namespace DB_EDITOR
             // 
             // tabPlaybook
             // 
+            this.tabPlaybook.Controls.Add(this.RunCounter);
+            this.tabPlaybook.Controls.Add(this.PassCounter);
+            this.tabPlaybook.Controls.Add(this.ImportPlaybookCSV);
+            this.tabPlaybook.Controls.Add(this.pcrtValueButton);
+            this.tabPlaybook.Controls.Add(this.label112);
+            this.tabPlaybook.Controls.Add(this.label111);
+            this.tabPlaybook.Controls.Add(this.PlayTypeBox);
+            this.tabPlaybook.Controls.Add(this.pcrtNumBox);
+            this.tabPlaybook.Controls.Add(this.label110);
+            this.tabPlaybook.Controls.Add(this.aigrFilterBox);
+            this.tabPlaybook.Controls.Add(this.AIGRNameButton);
             this.tabPlaybook.Controls.Add(this.savePBDataButton);
             this.tabPlaybook.Controls.Add(this.ExportPBData);
             this.tabPlaybook.Controls.Add(this.PlaybookGrid);
@@ -6056,14 +6084,122 @@ namespace DB_EDITOR
             this.tabPlaybook.Text = "Playbook";
             this.tabPlaybook.UseVisualStyleBackColor = true;
             // 
+            // ImportPlaybookCSV
+            // 
+            this.ImportPlaybookCSV.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.ImportPlaybookCSV.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ImportPlaybookCSV.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.ImportPlaybookCSV.Location = new System.Drawing.Point(979, 221);
+            this.ImportPlaybookCSV.Name = "ImportPlaybookCSV";
+            this.ImportPlaybookCSV.Size = new System.Drawing.Size(113, 64);
+            this.ImportPlaybookCSV.TabIndex = 11;
+            this.ImportPlaybookCSV.Text = "Import CSV";
+            this.ImportPlaybookCSV.UseVisualStyleBackColor = false;
+            this.ImportPlaybookCSV.Click += new System.EventHandler(this.ImportPlaybookCSV_Click);
+            // 
+            // pcrtValueButton
+            // 
+            this.pcrtValueButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pcrtValueButton.Location = new System.Drawing.Point(817, 253);
+            this.pcrtValueButton.Name = "pcrtValueButton";
+            this.pcrtValueButton.Size = new System.Drawing.Size(129, 35);
+            this.pcrtValueButton.TabIndex = 10;
+            this.pcrtValueButton.Text = "Set Value";
+            this.pcrtValueButton.UseVisualStyleBackColor = false;
+            this.pcrtValueButton.Click += new System.EventHandler(this.pcrtValueButton_Click);
+            // 
+            // label112
+            // 
+            this.label112.AutoSize = true;
+            this.label112.Location = new System.Drawing.Point(817, 168);
+            this.label112.Name = "label112";
+            this.label112.Size = new System.Drawing.Size(54, 13);
+            this.label112.TabIndex = 9;
+            this.label112.Text = "Play Type";
+            // 
+            // label111
+            // 
+            this.label111.AutoSize = true;
+            this.label111.Location = new System.Drawing.Point(831, 221);
+            this.label111.Name = "label111";
+            this.label111.Size = new System.Drawing.Size(44, 13);
+            this.label111.TabIndex = 8;
+            this.label111.Text = "Set prct";
+            // 
+            // PlayTypeBox
+            // 
+            this.PlayTypeBox.FormattingEnabled = true;
+            this.PlayTypeBox.Location = new System.Drawing.Point(817, 187);
+            this.PlayTypeBox.Name = "PlayTypeBox";
+            this.PlayTypeBox.Size = new System.Drawing.Size(129, 21);
+            this.PlayTypeBox.TabIndex = 7;
+            // 
+            // pcrtNumBox
+            // 
+            this.pcrtNumBox.Location = new System.Drawing.Point(884, 214);
+            this.pcrtNumBox.Name = "pcrtNumBox";
+            this.pcrtNumBox.Size = new System.Drawing.Size(62, 20);
+            this.pcrtNumBox.TabIndex = 6;
+            this.pcrtNumBox.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // label110
+            // 
+            this.label110.AutoSize = true;
+            this.label110.Location = new System.Drawing.Point(817, 23);
+            this.label110.Name = "label110";
+            this.label110.Size = new System.Drawing.Size(58, 13);
+            this.label110.TabIndex = 5;
+            this.label110.Text = "AIGR Filter";
+            // 
+            // aigrFilterBox
+            // 
+            this.aigrFilterBox.FormattingEnabled = true;
+            this.aigrFilterBox.Location = new System.Drawing.Point(817, 40);
+            this.aigrFilterBox.Name = "aigrFilterBox";
+            this.aigrFilterBox.Size = new System.Drawing.Size(129, 21);
+            this.aigrFilterBox.TabIndex = 4;
+            this.aigrFilterBox.SelectedIndexChanged += new System.EventHandler(this.aigrFilterBox_SelectedIndexChanged);
+            // 
+            // AIGRNameButton
+            // 
+            this.AIGRNameButton.BackColor = System.Drawing.SystemColors.Info;
+            this.AIGRNameButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AIGRNameButton.Location = new System.Drawing.Point(979, 23);
+            this.AIGRNameButton.Name = "AIGRNameButton";
+            this.AIGRNameButton.Size = new System.Drawing.Size(113, 64);
+            this.AIGRNameButton.TabIndex = 3;
+            this.AIGRNameButton.Text = "Change to \r\nDefense AIGR";
+            this.AIGRNameButton.UseVisualStyleBackColor = false;
+            this.AIGRNameButton.Click += new System.EventHandler(this.AIGRNameButton_Click);
+            // 
+            // savePBDataButton
+            // 
+            this.savePBDataButton.BackColor = System.Drawing.Color.Crimson;
+            this.savePBDataButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.savePBDataButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.savePBDataButton.Location = new System.Drawing.Point(979, 318);
+            this.savePBDataButton.Name = "savePBDataButton";
+            this.savePBDataButton.Size = new System.Drawing.Size(113, 64);
+            this.savePBDataButton.TabIndex = 2;
+            this.savePBDataButton.Text = "Update Database";
+            this.savePBDataButton.UseVisualStyleBackColor = false;
+            this.savePBDataButton.Click += new System.EventHandler(this.savePBDataButton_Click);
+            // 
             // ExportPBData
             // 
-            this.ExportPBData.Location = new System.Drawing.Point(817, 109);
+            this.ExportPBData.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.ExportPBData.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ExportPBData.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.ExportPBData.Location = new System.Drawing.Point(979, 123);
             this.ExportPBData.Name = "ExportPBData";
             this.ExportPBData.Size = new System.Drawing.Size(113, 64);
             this.ExportPBData.TabIndex = 1;
             this.ExportPBData.Text = "Export to CSV";
-            this.ExportPBData.UseVisualStyleBackColor = true;
+            this.ExportPBData.UseVisualStyleBackColor = false;
             this.ExportPBData.Click += new System.EventHandler(this.ExportPBData_Click);
             // 
             // PlaybookGrid
@@ -6071,41 +6207,48 @@ namespace DB_EDITOR
             this.PlaybookGrid.AllowUserToAddRows = false;
             this.PlaybookGrid.AllowUserToDeleteRows = false;
             this.PlaybookGrid.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.PlaybookGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.PlaybookGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightSkyBlue;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PlaybookGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.PlaybookGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.PlaybookGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.PBRec,
             this.PBPL,
-            this.AIGR,
+            this.AIGRVal,
+            this.AIGRname,
             this.prct,
             this.PLYL,
-            this.PlayName});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.PlaybookGrid.DefaultCellStyle = dataGridViewCellStyle3;
+            this.PlayName,
+            this.PLYTVal,
+            this.PLYT});
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.PlaybookGrid.DefaultCellStyle = dataGridViewCellStyle5;
+            this.PlaybookGrid.EnableHeadersVisualStyles = false;
             this.PlaybookGrid.Location = new System.Drawing.Point(31, 23);
             this.PlaybookGrid.Name = "PlaybookGrid";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.PlaybookGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.PlaybookGrid.Size = new System.Drawing.Size(725, 621);
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PlaybookGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.PlaybookGrid.Size = new System.Drawing.Size(746, 621);
             this.PlaybookGrid.TabIndex = 0;
             // 
             // PBRec
@@ -6117,26 +6260,38 @@ namespace DB_EDITOR
             // 
             // PBPL
             // 
-            this.PBPL.HeaderText = "Playbook Play";
+            this.PBPL.HeaderText = "PBPL";
             this.PBPL.Name = "PBPL";
             this.PBPL.ReadOnly = true;
+            this.PBPL.Width = 50;
             // 
-            // AIGR
+            // AIGRVal
             // 
-            this.AIGR.HeaderText = "AI Group";
-            this.AIGR.Name = "AIGR";
-            this.AIGR.Width = 80;
+            this.AIGRVal.HeaderText = "AIGR";
+            this.AIGRVal.Name = "AIGRVal";
+            this.AIGRVal.ReadOnly = true;
+            this.AIGRVal.Width = 50;
+            // 
+            // AIGRname
+            // 
+            this.AIGRname.HeaderText = "AIGR Name";
+            this.AIGRname.Name = "AIGRname";
+            this.AIGRname.ReadOnly = true;
             // 
             // prct
             // 
-            this.prct.HeaderText = "Percentage";
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Info;
+            this.prct.DefaultCellStyle = dataGridViewCellStyle4;
+            this.prct.HeaderText = "PRCT ";
             this.prct.Name = "prct";
-            this.prct.Width = 70;
+            this.prct.Width = 60;
             // 
             // PLYL
             // 
-            this.PLYL.HeaderText = "Play Label";
+            this.PLYL.HeaderText = "PLYL";
             this.PLYL.Name = "PLYL";
+            this.PLYL.ReadOnly = true;
+            this.PLYL.Width = 50;
             // 
             // PlayName
             // 
@@ -6145,15 +6300,38 @@ namespace DB_EDITOR
             this.PlayName.ReadOnly = true;
             this.PlayName.Width = 150;
             // 
-            // savePBDataButton
+            // PLYTVal
             // 
-            this.savePBDataButton.Location = new System.Drawing.Point(817, 218);
-            this.savePBDataButton.Name = "savePBDataButton";
-            this.savePBDataButton.Size = new System.Drawing.Size(113, 64);
-            this.savePBDataButton.TabIndex = 2;
-            this.savePBDataButton.Text = "Save";
-            this.savePBDataButton.UseVisualStyleBackColor = true;
-            this.savePBDataButton.Click += new System.EventHandler(this.savePBDataButton_Click);
+            this.PLYTVal.HeaderText = "PLYT";
+            this.PLYTVal.Name = "PLYTVal";
+            this.PLYTVal.ReadOnly = true;
+            this.PLYTVal.Width = 50;
+            // 
+            // PLYT
+            // 
+            this.PLYT.HeaderText = "Type";
+            this.PLYT.Name = "PLYT";
+            this.PLYT.ReadOnly = true;
+            // 
+            // PassCounter
+            // 
+            this.PassCounter.AutoSize = true;
+            this.PassCounter.Location = new System.Drawing.Point(814, 74);
+            this.PassCounter.Name = "PassCounter";
+            this.PassCounter.Size = new System.Drawing.Size(90, 13);
+            this.PassCounter.TabIndex = 12;
+            this.PassCounter.Text = "Pass Counter: XX";
+            this.PassCounter.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // RunCounter
+            // 
+            this.RunCounter.AutoSize = true;
+            this.RunCounter.Location = new System.Drawing.Point(814, 99);
+            this.RunCounter.Name = "RunCounter";
+            this.RunCounter.Size = new System.Drawing.Size(90, 13);
+            this.RunCounter.TabIndex = 13;
+            this.RunCounter.Text = "Run  Counter: XX";
+            this.RunCounter.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // MainEditor
             // 
@@ -6271,6 +6449,8 @@ namespace DB_EDITOR
             this.tabConf.ResumeLayout(false);
             this.tabConf.PerformLayout();
             this.tabPlaybook.ResumeLayout(false);
+            this.tabPlaybook.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcrtNumBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlaybookGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -6758,14 +6938,28 @@ namespace DB_EDITOR
         private ToolStripMenuItem NCAANext25Config;
         private TabPage tabPlaybook;
         private DataGridView PlaybookGrid;
+        private System.Windows.Forms.Button ExportPBData;
+        private System.Windows.Forms.Button savePBDataButton;
+        private System.Windows.Forms.Button AIGRNameButton;
+        private Label label110;
+        private System.Windows.Forms.ComboBox aigrFilterBox;
         private DataGridViewTextBoxColumn PBRec;
         private DataGridViewTextBoxColumn PBPL;
-        private DataGridViewTextBoxColumn AIGR;
+        private DataGridViewTextBoxColumn AIGRVal;
+        private DataGridViewTextBoxColumn AIGRname;
         private DataGridViewTextBoxColumn prct;
         private DataGridViewTextBoxColumn PLYL;
         private DataGridViewTextBoxColumn PlayName;
-        private System.Windows.Forms.Button ExportPBData;
-        private System.Windows.Forms.Button savePBDataButton;
+        private DataGridViewTextBoxColumn PLYTVal;
+        private DataGridViewTextBoxColumn PLYT;
+        private System.Windows.Forms.Button pcrtValueButton;
+        private Label label112;
+        private Label label111;
+        private System.Windows.Forms.ComboBox PlayTypeBox;
+        private NumericUpDown pcrtNumBox;
+        private System.Windows.Forms.Button ImportPlaybookCSV;
+        private Label RunCounter;
+        private Label PassCounter;
     }
 }
 
