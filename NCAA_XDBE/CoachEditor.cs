@@ -539,6 +539,7 @@ namespace DB_EDITOR
 
 
             ChangeDBInt("COCH", "CPID", CoachIndex, pbVal);
+            ChangeDBInt("TEAM", "TOPB", FindTeamRecfromTeamName(teamNameDB[GetDBValueInt("COCH", "TGID", CoachIndex)]), pbVal);
         }
 
         private void CoachOffTypeBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -551,6 +552,8 @@ namespace DB_EDITOR
         {
             if (DoNotTrigger) return;
             ChangeDBInt("COCH", "CDST", CoachIndex, CoachDefTypeBox.SelectedIndex);
+            ChangeDBInt("TEAM", "TDPB", FindTeamRecfromTeamName(teamNameDB[GetDBValueInt("COCH", "TGID", CoachIndex)]), CoachDefTypeBox.SelectedIndex);
+
         }
 
 

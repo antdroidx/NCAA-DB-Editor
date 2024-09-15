@@ -416,6 +416,7 @@ namespace DB_EDITOR
             this.buttonRandWalkOns = new System.Windows.Forms.Button();
             this.buttonMinRecruitingPts = new System.Windows.Forms.Button();
             this.tabTools = new System.Windows.Forms.TabPage();
+            this.SyncPBButton = new System.Windows.Forms.Button();
             this.label109 = new System.Windows.Forms.Label();
             this.label108 = new System.Windows.Forms.Label();
             this.label107 = new System.Windows.Forms.Label();
@@ -512,6 +513,10 @@ namespace DB_EDITOR
             this.conf2 = new System.Windows.Forms.CheckedListBox();
             this.conf1 = new System.Windows.Forms.CheckedListBox();
             this.tabPlaybook = new System.Windows.Forms.TabPage();
+            this.ProjTypeRatio = new System.Windows.Forms.Label();
+            this.ProjPassRatio = new System.Windows.Forms.Label();
+            this.RunCounter = new System.Windows.Forms.Label();
+            this.PassCounter = new System.Windows.Forms.Label();
             this.ImportPlaybookCSV = new System.Windows.Forms.Button();
             this.pcrtValueButton = new System.Windows.Forms.Button();
             this.label112 = new System.Windows.Forms.Label();
@@ -534,8 +539,6 @@ namespace DB_EDITOR
             this.PLYTVal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PLYT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.PassCounter = new System.Windows.Forms.Label();
-            this.RunCounter = new System.Windows.Forms.Label();
             qbTend = new System.Windows.Forms.Button();
             this.mainMenu.SuspendLayout();
             this.tableMenu.SuspendLayout();
@@ -4866,6 +4869,7 @@ namespace DB_EDITOR
             // tabTools
             // 
             this.tabTools.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.tabTools.Controls.Add(this.SyncPBButton);
             this.tabTools.Controls.Add(this.label109);
             this.tabTools.Controls.Add(this.label108);
             this.tabTools.Controls.Add(this.label107);
@@ -4910,6 +4914,19 @@ namespace DB_EDITOR
             this.tabTools.Size = new System.Drawing.Size(1152, 665);
             this.tabTools.TabIndex = 5;
             this.tabTools.Text = "dbTools";
+            // 
+            // SyncPBButton
+            // 
+            this.SyncPBButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.SyncPBButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SyncPBButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.SyncPBButton.Location = new System.Drawing.Point(144, 565);
+            this.SyncPBButton.Name = "SyncPBButton";
+            this.SyncPBButton.Size = new System.Drawing.Size(110, 80);
+            this.SyncPBButton.TabIndex = 52;
+            this.SyncPBButton.Text = "Sync Team and Coach Playbooks";
+            this.SyncPBButton.UseVisualStyleBackColor = false;
+            this.SyncPBButton.Click += new System.EventHandler(this.SyncPBButton_Click);
             // 
             // label109
             // 
@@ -6062,6 +6079,8 @@ namespace DB_EDITOR
             // 
             // tabPlaybook
             // 
+            this.tabPlaybook.Controls.Add(this.ProjTypeRatio);
+            this.tabPlaybook.Controls.Add(this.ProjPassRatio);
             this.tabPlaybook.Controls.Add(this.RunCounter);
             this.tabPlaybook.Controls.Add(this.PassCounter);
             this.tabPlaybook.Controls.Add(this.ImportPlaybookCSV);
@@ -6084,6 +6103,46 @@ namespace DB_EDITOR
             this.tabPlaybook.Text = "Playbook";
             this.tabPlaybook.UseVisualStyleBackColor = true;
             // 
+            // ProjTypeRatio
+            // 
+            this.ProjTypeRatio.AutoSize = true;
+            this.ProjTypeRatio.Location = new System.Drawing.Point(814, 247);
+            this.ProjTypeRatio.Name = "ProjTypeRatio";
+            this.ProjTypeRatio.Size = new System.Drawing.Size(79, 13);
+            this.ProjTypeRatio.TabIndex = 15;
+            this.ProjTypeRatio.Text = "Proj Pass Ratio";
+            this.ProjTypeRatio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // ProjPassRatio
+            // 
+            this.ProjPassRatio.AutoSize = true;
+            this.ProjPassRatio.Location = new System.Drawing.Point(814, 123);
+            this.ProjPassRatio.Name = "ProjPassRatio";
+            this.ProjPassRatio.Size = new System.Drawing.Size(79, 13);
+            this.ProjPassRatio.TabIndex = 14;
+            this.ProjPassRatio.Text = "Proj Pass Ratio";
+            this.ProjPassRatio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // RunCounter
+            // 
+            this.RunCounter.AutoSize = true;
+            this.RunCounter.Location = new System.Drawing.Point(814, 99);
+            this.RunCounter.Name = "RunCounter";
+            this.RunCounter.Size = new System.Drawing.Size(90, 13);
+            this.RunCounter.TabIndex = 13;
+            this.RunCounter.Text = "Run  Counter: XX";
+            this.RunCounter.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // PassCounter
+            // 
+            this.PassCounter.AutoSize = true;
+            this.PassCounter.Location = new System.Drawing.Point(814, 74);
+            this.PassCounter.Name = "PassCounter";
+            this.PassCounter.Size = new System.Drawing.Size(90, 13);
+            this.PassCounter.TabIndex = 12;
+            this.PassCounter.Text = "Pass Counter: XX";
+            this.PassCounter.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // ImportPlaybookCSV
             // 
             this.ImportPlaybookCSV.BackColor = System.Drawing.SystemColors.ControlDarkDark;
@@ -6100,7 +6159,7 @@ namespace DB_EDITOR
             // pcrtValueButton
             // 
             this.pcrtValueButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pcrtValueButton.Location = new System.Drawing.Point(817, 253);
+            this.pcrtValueButton.Location = new System.Drawing.Point(817, 268);
             this.pcrtValueButton.Name = "pcrtValueButton";
             this.pcrtValueButton.Size = new System.Drawing.Size(129, 35);
             this.pcrtValueButton.TabIndex = 10;
@@ -6120,7 +6179,7 @@ namespace DB_EDITOR
             // label111
             // 
             this.label111.AutoSize = true;
-            this.label111.Location = new System.Drawing.Point(831, 221);
+            this.label111.Location = new System.Drawing.Point(814, 221);
             this.label111.Name = "label111";
             this.label111.Size = new System.Drawing.Size(44, 13);
             this.label111.TabIndex = 8;
@@ -6133,12 +6192,13 @@ namespace DB_EDITOR
             this.PlayTypeBox.Name = "PlayTypeBox";
             this.PlayTypeBox.Size = new System.Drawing.Size(129, 21);
             this.PlayTypeBox.TabIndex = 7;
+            this.PlayTypeBox.SelectedIndexChanged += new System.EventHandler(this.PlayTypeBox_SelectedIndexChanged);
             // 
             // pcrtNumBox
             // 
-            this.pcrtNumBox.Location = new System.Drawing.Point(884, 214);
+            this.pcrtNumBox.Location = new System.Drawing.Point(864, 219);
             this.pcrtNumBox.Name = "pcrtNumBox";
-            this.pcrtNumBox.Size = new System.Drawing.Size(62, 20);
+            this.pcrtNumBox.Size = new System.Drawing.Size(82, 20);
             this.pcrtNumBox.TabIndex = 6;
             this.pcrtNumBox.Value = new decimal(new int[] {
             10,
@@ -6312,26 +6372,6 @@ namespace DB_EDITOR
             this.PLYT.HeaderText = "Type";
             this.PLYT.Name = "PLYT";
             this.PLYT.ReadOnly = true;
-            // 
-            // PassCounter
-            // 
-            this.PassCounter.AutoSize = true;
-            this.PassCounter.Location = new System.Drawing.Point(814, 74);
-            this.PassCounter.Name = "PassCounter";
-            this.PassCounter.Size = new System.Drawing.Size(90, 13);
-            this.PassCounter.TabIndex = 12;
-            this.PassCounter.Text = "Pass Counter: XX";
-            this.PassCounter.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // RunCounter
-            // 
-            this.RunCounter.AutoSize = true;
-            this.RunCounter.Location = new System.Drawing.Point(814, 99);
-            this.RunCounter.Name = "RunCounter";
-            this.RunCounter.Size = new System.Drawing.Size(90, 13);
-            this.RunCounter.TabIndex = 13;
-            this.RunCounter.Text = "Run  Counter: XX";
-            this.RunCounter.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // MainEditor
             // 
@@ -6960,6 +7000,9 @@ namespace DB_EDITOR
         private System.Windows.Forms.Button ImportPlaybookCSV;
         private Label RunCounter;
         private Label PassCounter;
+        private Label ProjPassRatio;
+        private Label ProjTypeRatio;
+        public System.Windows.Forms.Button SyncPBButton;
     }
 }
 

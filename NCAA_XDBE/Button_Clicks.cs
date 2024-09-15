@@ -136,6 +136,12 @@ namespace DB_EDITOR
         {
             ReOrderTable("PLAY", "PGID");
         }
+
+
+        private void SyncPBButton_Click(object sender, EventArgs e)
+        {
+            SyncTeamCoachPlaybooks();
+        }
         #endregion
 
 

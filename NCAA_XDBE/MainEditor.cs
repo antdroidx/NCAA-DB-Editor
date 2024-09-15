@@ -1711,7 +1711,6 @@ namespace DB_EDITOR
             }
         }
 
-
         private int GetFieldIndex(string tmpFName)
         {
             int tmpIndex = 0;

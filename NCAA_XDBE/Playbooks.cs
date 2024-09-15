@@ -45,6 +45,7 @@ namespace DB_EDITOR
 
             SetUpAIGRFilter();
             SetUpPlayTypeEditor();
+            CalculateProjPassRatio();
 
         }
 
@@ -72,8 +73,6 @@ namespace DB_EDITOR
         private void SetUpAIGRFilter()
         {
             List<string> AIGRNames = new List<string>();
-            int pass = 0;
-            int run = 0;
 
             aigrFilterBox.Items.Clear();
             aigrFilterBox.Items.Add("ALL");
@@ -94,16 +93,6 @@ namespace DB_EDITOR
                     }
                 }
             }
-
-            for(int i = 0; i < PlaybookGrid.Rows.Count; i++)
-            {
-                if (Convert.ToInt32(PlaybookGrid.Rows[i].Cells[7].Value) > 10 && Convert.ToInt32(PlaybookGrid.Rows[i].Cells[7].Value) < 20 && PlaybookGrid.Rows[i].Visible) run++;
-                else if (Convert.ToInt32(PlaybookGrid.Rows[i].Cells[7].Value) < 10 && PlaybookGrid.Rows[i].Visible) pass++;
-            }
-
-            PassCounter.Text = "Pass Plays: " + pass + "  (" + (pass * 100 / (pass + run)) + "%)";
-            RunCounter.Text = "Run Plays: " + run + "  (" + (run * 100 / (pass + run)) + "%)";
-
         }
 
         private void SetUpPlayTypeEditor()
@@ -176,6 +165,7 @@ namespace DB_EDITOR
             name[3] = "Pass";
             name[4] = "Play Action Pass";
             name[5] = "Screen Pass";
+            name[6] = "Trick Play";
             name[11] = "QB Kneel/Sneak";
             name[12] = "Run";
             name[13] = "Run Counter";
@@ -326,8 +316,6 @@ namespace DB_EDITOR
         private void aigrFilterBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selected = aigrFilterBox.SelectedItem as string;
-            int pass = 0;
-            int run = 0;
 
             if (selected.Equals("ALL"))
             {
@@ -347,16 +335,8 @@ namespace DB_EDITOR
 
             }
 
-            for (int i = 0; i < PlaybookGrid.Rows.Count; i++)
-            {
-                if (Convert.ToInt32(PlaybookGrid.Rows[i].Cells[7].Value) > 10 && Convert.ToInt32(PlaybookGrid.Rows[i].Cells[7].Value) < 20 && PlaybookGrid.Rows[i].Visible) run++;
-                else if (Convert.ToInt32(PlaybookGrid.Rows[i].Cells[7].Value) < 10 && PlaybookGrid.Rows[i].Visible) pass++;
-            }
-
-            PassCounter.Text = "Pass Plays: " + pass + "  (" + (pass*100 / (pass + run)) + "%)";
-            RunCounter.Text = "Run Plays: " + run + "  (" + (run*100 / (pass + run)) + "%)"; 
-
             SetUpPlayTypeEditor();
+            CalculateProjPassRatio();
         }
 
 
@@ -368,9 +348,9 @@ namespace DB_EDITOR
 
             for (int i = 0; i < PlaybookGrid.Rows.Count; i++)
             {
-                if (selection.Equals("All Pass Types")) 
+                if (selection.Equals("All Pass Types"))
                 {
-                    if (Convert.ToInt32(PlaybookGrid.Rows[i].Cells[7].Value) > 0 && Convert.ToInt32(PlaybookGrid.Rows[i].Cells[7].Value) < 10  && PlaybookGrid.Rows[i].Visible)
+                    if (Convert.ToInt32(PlaybookGrid.Rows[i].Cells[7].Value) > 0 && Convert.ToInt32(PlaybookGrid.Rows[i].Cells[7].Value) < 10 && PlaybookGrid.Rows[i].Visible)
                         PlaybookGrid.Rows[i].Cells[4].Value = Convert.ToInt32(pcrtNumBox.Value);
                 }
                 else if (selection.Equals("All Run Types"))
@@ -382,8 +362,79 @@ namespace DB_EDITOR
                     PlaybookGrid.Rows[i].Cells[4].Value = Convert.ToInt32(pcrtNumBox.Value);
             }
 
+            CalculateProjPassRatio();
+            CalculatePlayTypeRatio();
         }
 
+
+        private void CalculateProjPassRatio()
+        {
+            int pass = 0;
+            int run = 0;
+            int passPRCT = 0;
+            int runPRCT = 0;
+
+            for (int i = 0; i < PlaybookGrid.Rows.Count; i++)
+            {
+                if (Convert.ToInt32(PlaybookGrid.Rows[i].Cells[7].Value) > 0 && Convert.ToInt32(PlaybookGrid.Rows[i].Cells[7].Value) < 10 && PlaybookGrid.Rows[i].Visible)
+                {
+                    pass++;
+                    passPRCT += Convert.ToInt32(PlaybookGrid.Rows[i].Cells[4].Value);
+                }
+                else if (Convert.ToInt32(PlaybookGrid.Rows[i].Cells[7].Value) > 10 && Convert.ToInt32(PlaybookGrid.Rows[i].Cells[7].Value) < 20 && PlaybookGrid.Rows[i].Visible)
+                {
+                    run++;
+                    runPRCT += Convert.ToInt32(PlaybookGrid.Rows[i].Cells[4].Value);
+                }
+            }
+
+            if (pass + run > 0)
+            {
+                PassCounter.Text = "Pass Plays: " + pass + "  (" + (pass * 100 / (pass + run)) + "%)";
+                RunCounter.Text = "Run Plays: " + run + "  (" + (run * 100 / (pass + run)) + "%)";
+                ProjPassRatio.Text = "Projected Pass Ratio: " + passPRCT * 100 / (passPRCT + runPRCT) + "%";
+            }
+            else
+            {
+                PassCounter.Text = "Pass Plays: " + pass;
+                RunCounter.Text = "Run Plays: " + run;
+                ProjPassRatio.Text = "";
+            }
+
+        }
+
+        private void PlayTypeBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CalculatePlayTypeRatio();
+        }
+
+        private void CalculatePlayTypeRatio()
+        {
+            string type = (string)PlayTypeBox.SelectedItem;
+            int count = 0;
+            int total = 0;
+            for (int i = 0; i < PlaybookGrid.Rows.Count; i++)
+            {
+                if (Convert.ToString(PlaybookGrid.Rows[i].Cells[8].Value) == type && PlaybookGrid.Rows[i].Visible)
+                {
+                    count += Convert.ToInt32(PlaybookGrid.Rows[i].Cells[4].Value);
+
+                }
+                else if (PlaybookGrid.Rows[i].Visible)
+                {
+                    total += Convert.ToInt32(PlaybookGrid.Rows[i].Cells[4].Value);
+                }
+            }
+
+            if (count > 0)
+            {
+                ProjTypeRatio.Text = "Projected Type Ratio: " + (count * 100) / (count + total) + "%";
+            }
+            else
+            {
+                ProjTypeRatio.Text = "";
+            }
+        }
     }
 
 }

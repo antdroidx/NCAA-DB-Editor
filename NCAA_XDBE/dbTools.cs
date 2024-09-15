@@ -289,6 +289,36 @@ namespace DB_EDITOR
             progressBar1.Value = 0;
         }
 
+        //Sync Playbook/Strategies with Team
+        private void SyncTeamCoachPlaybooks()
+        {
+            progressBar1.Visible = true;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = GetTableRecCount("PLAY");
+            progressBar1.Step = 1;
+            progressBar1.Value = 0;
+
+
+            for (int i = 0; i < GetTableRecCount("COCH"); i++)
+            {
+                int tgid = GetDBValueInt("COCH", "TGID", i);
+                if (tgid != 511)
+                {
+                    int offPB = GetDBValueInt("COCH", "CPID", i);
+                    int defPB = GetDBValueInt("COCH", "CDST", i);
+
+                    ChangeDBInt("TEAM", "TOPB", FindTeamRecfromTeamName(teamNameDB[tgid]), offPB);
+                    ChangeDBInt("TEAM", "TDPB", FindTeamRecfromTeamName(teamNameDB[tgid]), defPB);
+                }
+                progressBar1.PerformStep();
+            }
+
+            progressBar1.Visible = false;
+            progressBar1.Value = 0;
+            MessageBox.Show("Completed Sync");
+               
+        }
+
         //Export Recruiting Class from Roster
 
 
