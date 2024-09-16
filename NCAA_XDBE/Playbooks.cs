@@ -45,6 +45,7 @@ namespace DB_EDITOR
 
             SetUpAIGRFilter();
             SetUpPlayTypeEditor();
+            SetUpPlayNameEditor();
             CalculateProjPassRatio();
 
         }
@@ -93,6 +94,8 @@ namespace DB_EDITOR
                     }
                 }
             }
+
+            aigrFilterBox.SelectedIndex = 7;
         }
 
         private void SetUpPlayTypeEditor()
@@ -117,6 +120,30 @@ namespace DB_EDITOR
             }
             PlayTypeBox.SelectedIndex = 0;
         }
+
+        private void SetUpPlayNameEditor()
+        {
+            PlayNameBox.Items.Clear();
+
+            List<List<string>> PlayBookNames = GetPlaybookNames();
+
+            for (int i = 0; i < PlayBookNames.Count; i++)
+            {
+
+                for (int n = 0; n < PlaybookGrid.Rows.Count; n++)
+                {
+                    if (PlaybookGrid.Rows[n].Cells[6].Value.Equals(PlayBookNames[i][6]) && PlaybookGrid.Rows[n].Visible && !PlaybookGrid.Rows[n].Cells[6].Value.Equals("") && !PlayNameBox.Items.Contains(PlayBookNames[i][6]))
+                    {
+                        PlayNameBox.Items.Add(PlayBookNames[i][6]);
+                        break;
+                    }
+                }
+
+            }
+            PlayNameBox.Sorted = true;
+            PlayNameBox.SelectedIndex = 0;
+        }
+
 
         private int GetPLYLfromPBPL(int PBPL)
         {
@@ -336,6 +363,7 @@ namespace DB_EDITOR
             }
 
             SetUpPlayTypeEditor();
+            SetUpPlayNameEditor();
             CalculateProjPassRatio();
         }
 
@@ -401,6 +429,8 @@ namespace DB_EDITOR
                 ProjPassRatio.Text = "";
             }
 
+            CalculatePlayNameRatio();
+
         }
 
         private void PlayTypeBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -435,6 +465,61 @@ namespace DB_EDITOR
                 ProjTypeRatio.Text = "";
             }
         }
+
+
+        private void SetPlayNameValueButton_Click(object sender, EventArgs e)
+        {
+            if (PlayNameBox.SelectedIndex == -1) return;
+
+            string selection = Convert.ToString(PlayNameBox.Items[PlayNameBox.SelectedIndex]);
+
+            for (int i = 0; i < PlaybookGrid.Rows.Count; i++)
+            {
+                    if (PlaybookGrid.Rows[i].Cells[6].Value.Equals(selection) && PlaybookGrid.Rows[i].Visible)
+                    PlaybookGrid.Rows[i].Cells[4].Value = Convert.ToInt32(PlayNameValue.Value);
+            }
+
+            CalculateProjPassRatio();
+            CalculatePlayTypeRatio();
+        }
+
+        private void PlayNameBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CalculatePlayNameRatio();
+        }
+
+        private void CalculatePlayNameRatio()
+        {
+            if (PlayNameBox.SelectedIndex == -1) return;
+
+            string type = (string)PlayNameBox.SelectedItem;
+            int count = 0;
+            int total = 0;
+            for (int i = 0; i < PlaybookGrid.Rows.Count; i++)
+            {
+                if (Convert.ToString(PlaybookGrid.Rows[i].Cells[6].Value) == type && PlaybookGrid.Rows[i].Visible)
+                {
+                    count += Convert.ToInt32(PlaybookGrid.Rows[i].Cells[4].Value);
+
+                }
+                else if (PlaybookGrid.Rows[i].Visible)
+                {
+                    total += Convert.ToInt32(PlaybookGrid.Rows[i].Cells[4].Value);
+                }
+            }
+
+            if (count > 0)
+            {
+                ProjTypeRatio.Text = "Projected Play Ratio: " + (count * 100) / (count + total) + "%";
+            }
+            else
+            {
+                ProjTypeRatio.Text = "";
+            }
+        }
+
     }
+
+
 
 }

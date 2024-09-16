@@ -34,13 +34,13 @@ namespace DB_EDITOR
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Button qbTend;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainEditor));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -539,6 +539,12 @@ namespace DB_EDITOR
             this.PLYTVal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PLYT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.PlayNameRatio = new System.Windows.Forms.Label();
+            this.SetPlayNameValueButton = new System.Windows.Forms.Button();
+            this.label114 = new System.Windows.Forms.Label();
+            this.label115 = new System.Windows.Forms.Label();
+            this.PlayNameBox = new System.Windows.Forms.ComboBox();
+            this.PlayNameValue = new System.Windows.Forms.NumericUpDown();
             qbTend = new System.Windows.Forms.Button();
             this.mainMenu.SuspendLayout();
             this.tableMenu.SuspendLayout();
@@ -628,6 +634,7 @@ namespace DB_EDITOR
             this.tabPlaybook.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcrtNumBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlaybookGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PlayNameValue)).BeginInit();
             this.SuspendLayout();
             // 
             // qbTend
@@ -1081,8 +1088,8 @@ namespace DB_EDITOR
             // 
             this.fieldsGridView.AllowDrop = true;
             this.fieldsGridView.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            this.fieldsGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            this.fieldsGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.fieldsGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -6079,6 +6086,12 @@ namespace DB_EDITOR
             // 
             // tabPlaybook
             // 
+            this.tabPlaybook.Controls.Add(this.PlayNameRatio);
+            this.tabPlaybook.Controls.Add(this.SetPlayNameValueButton);
+            this.tabPlaybook.Controls.Add(this.label114);
+            this.tabPlaybook.Controls.Add(this.label115);
+            this.tabPlaybook.Controls.Add(this.PlayNameBox);
+            this.tabPlaybook.Controls.Add(this.PlayNameValue);
             this.tabPlaybook.Controls.Add(this.ProjTypeRatio);
             this.tabPlaybook.Controls.Add(this.ProjPassRatio);
             this.tabPlaybook.Controls.Add(this.RunCounter);
@@ -6267,17 +6280,17 @@ namespace DB_EDITOR
             this.PlaybookGrid.AllowUserToAddRows = false;
             this.PlaybookGrid.AllowUserToDeleteRows = false;
             this.PlaybookGrid.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.PlaybookGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightSkyBlue;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.PlaybookGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.PlaybookGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.LightSkyBlue;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PlaybookGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.PlaybookGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.PlaybookGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.PBRec,
@@ -6289,25 +6302,25 @@ namespace DB_EDITOR
             this.PlayName,
             this.PLYTVal,
             this.PLYT});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.PlaybookGrid.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.PlaybookGrid.DefaultCellStyle = dataGridViewCellStyle10;
             this.PlaybookGrid.EnableHeadersVisualStyles = false;
             this.PlaybookGrid.Location = new System.Drawing.Point(31, 23);
             this.PlaybookGrid.Name = "PlaybookGrid";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.PlaybookGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PlaybookGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.PlaybookGrid.Size = new System.Drawing.Size(746, 621);
             this.PlaybookGrid.TabIndex = 0;
             // 
@@ -6340,8 +6353,8 @@ namespace DB_EDITOR
             // 
             // prct
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Info;
-            this.prct.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Info;
+            this.prct.DefaultCellStyle = dataGridViewCellStyle9;
             this.prct.HeaderText = "PRCT ";
             this.prct.Name = "prct";
             this.prct.Width = 60;
@@ -6372,6 +6385,66 @@ namespace DB_EDITOR
             this.PLYT.HeaderText = "Type";
             this.PLYT.Name = "PLYT";
             this.PLYT.ReadOnly = true;
+            // 
+            // PlayNameRatio
+            // 
+            this.PlayNameRatio.AutoSize = true;
+            this.PlayNameRatio.Location = new System.Drawing.Point(814, 414);
+            this.PlayNameRatio.Name = "PlayNameRatio";
+            this.PlayNameRatio.Size = new System.Drawing.Size(76, 13);
+            this.PlayNameRatio.TabIndex = 21;
+            this.PlayNameRatio.Text = "Proj Play Ratio";
+            this.PlayNameRatio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // SetPlayNameValueButton
+            // 
+            this.SetPlayNameValueButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.SetPlayNameValueButton.Location = new System.Drawing.Point(817, 435);
+            this.SetPlayNameValueButton.Name = "SetPlayNameValueButton";
+            this.SetPlayNameValueButton.Size = new System.Drawing.Size(129, 35);
+            this.SetPlayNameValueButton.TabIndex = 20;
+            this.SetPlayNameValueButton.Text = "Set Value";
+            this.SetPlayNameValueButton.UseVisualStyleBackColor = false;
+            this.SetPlayNameValueButton.Click += new System.EventHandler(this.SetPlayNameValueButton_Click);
+            // 
+            // label114
+            // 
+            this.label114.AutoSize = true;
+            this.label114.Location = new System.Drawing.Point(817, 335);
+            this.label114.Name = "label114";
+            this.label114.Size = new System.Drawing.Size(58, 13);
+            this.label114.TabIndex = 19;
+            this.label114.Text = "Play Name";
+            // 
+            // label115
+            // 
+            this.label115.AutoSize = true;
+            this.label115.Location = new System.Drawing.Point(814, 388);
+            this.label115.Name = "label115";
+            this.label115.Size = new System.Drawing.Size(44, 13);
+            this.label115.TabIndex = 18;
+            this.label115.Text = "Set prct";
+            // 
+            // PlayNameBox
+            // 
+            this.PlayNameBox.FormattingEnabled = true;
+            this.PlayNameBox.Location = new System.Drawing.Point(817, 354);
+            this.PlayNameBox.Name = "PlayNameBox";
+            this.PlayNameBox.Size = new System.Drawing.Size(129, 21);
+            this.PlayNameBox.TabIndex = 17;
+            this.PlayNameBox.SelectedIndexChanged += new System.EventHandler(this.PlayNameBox_SelectedIndexChanged);
+            // 
+            // PlayNameValue
+            // 
+            this.PlayNameValue.Location = new System.Drawing.Point(864, 386);
+            this.PlayNameValue.Name = "PlayNameValue";
+            this.PlayNameValue.Size = new System.Drawing.Size(82, 20);
+            this.PlayNameValue.TabIndex = 16;
+            this.PlayNameValue.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
             // 
             // MainEditor
             // 
@@ -6492,6 +6565,7 @@ namespace DB_EDITOR
             this.tabPlaybook.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcrtNumBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlaybookGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PlayNameValue)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -7003,6 +7077,12 @@ namespace DB_EDITOR
         private Label ProjPassRatio;
         private Label ProjTypeRatio;
         public System.Windows.Forms.Button SyncPBButton;
+        private Label PlayNameRatio;
+        private System.Windows.Forms.Button SetPlayNameValueButton;
+        private Label label114;
+        private Label label115;
+        private System.Windows.Forms.ComboBox PlayNameBox;
+        private NumericUpDown PlayNameValue;
     }
 }
 
