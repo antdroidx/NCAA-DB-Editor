@@ -674,6 +674,11 @@ namespace DB_EDITOR
 
         public int CalculatePositionRating(int rec, int ppos)
         {
+            int posg = GetPOSGfromPPOS(ppos);
+
+            int playerPos = GetDBValueInt("PLAY", "PPOS", rec);
+            int playerPOSG = GetPOSGfromPPOS(playerPos);
+
             double PCAR = Convert.ToInt32(GetDBValue("PLAY", "PCAR", rec)); //CAWT
             double PKAC = Convert.ToInt32(GetDBValue("PLAY", "PKAC", rec)); //KAWT
             double PTHA = Convert.ToInt32(GetDBValue("PLAY", "PTHA", rec)); //TAWT
@@ -696,6 +701,7 @@ namespace DB_EDITOR
 
             for (int i = 0; i < ratings.Length; i++)
             {
+
                 ratings[i] = CalcOVRIndividuals(i + 3, ratings[i], ppos);
             }
 
@@ -707,6 +713,8 @@ namespace DB_EDITOR
             }
 
             int val = Convert.ToInt32(newRating);
+
+            if (playerPOSG != posg) val -= 20;
 
             return val;
 

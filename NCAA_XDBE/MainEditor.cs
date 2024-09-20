@@ -1191,11 +1191,16 @@ namespace DB_EDITOR
             {
                 // Get field properties from the selected table
                 TdbFieldProperties FieldProps = new TdbFieldProperties();
+
                 FieldProps.Name = new string((char)0, 5);
+                //FieldProps.Name = "xxxx";
 
-                TDB.TDBFieldGetProperties(dbFILEindex, GetTableName(dbFILEindex, tmpTABLEindex), i, ref FieldProps);
+                string tableName = GetTableName(dbFILEindex, tmpTABLEindex);
 
+                var tdb = TDB.TDBFieldGetProperties(dbFILEindex, tableName, i, ref FieldProps);
+                
                 string tmpFIELDname = FieldProps.Name;
+
                 if (BigEndian)
                     tmpFIELDname = StrReverse(tmpFIELDname);
 
@@ -1508,7 +1513,7 @@ namespace DB_EDITOR
             for (int tmpTableIndex = 0; tmpTableIndex < tmpTableCount; tmpTableIndex++)
             {
                 TDB.TDBTableGetProperties(dbIndex, tmpTableIndex, ref tableProps);
-
+                
                 if (tableProps.Name == SelectedTableName)
                     break;
             }
@@ -1522,6 +1527,7 @@ namespace DB_EDITOR
             for (int tmpFieldIndex = 0; tmpFieldIndex < tmpFieldCount; tmpFieldIndex++)
             {
                 TDB.TDBFieldGetProperties(dbIndex, tableProps.Name, tmpFieldIndex, ref fieldProps);
+                if (BigEndian) tmpFieldName = StrReverse(tmpFieldName);
                 if (fieldProps.Name == tmpFieldName)
                     break;
             }
@@ -1759,8 +1765,6 @@ namespace DB_EDITOR
 
                 tmpTABLEname = TableProps.Name;
 
-                if (BigEndian)
-                    tmpTABLEname = StrReverse(tmpTABLEname);
             }
             // MessageBox.Show(tmpTABLEname + "  index: " + tmpTABLEindex);
             return tmpTABLEname;
@@ -1810,34 +1814,34 @@ namespace DB_EDITOR
             for (int i = 0; i < tableGridView.Rows.Count; i++)
             {
                 var TABLE = tableGridView.Rows[i].Cells[1];
-                if (Convert.ToString(tableGridView.Rows[i].Cells[1].Value) == "TEAM")
+                if (Convert.ToString(tableGridView.Rows[i].Cells[1].Value) == "TEAM" && !BigEndian)
                 {
                     TEAM = true;
                     CreateTeamDB();
                     tabControl1.TabPages.Add(tabTeams);
                 }
-                if (Convert.ToString(tableGridView.Rows[i].Cells[1].Value) == "PLAY")
+                if (Convert.ToString(tableGridView.Rows[i].Cells[1].Value) == "PLAY" && !BigEndian)
                 {
                     tabControl1.TabPages.Add(tabPlayers);
                     activeDB = 1;
                     OpenTabs();
                 }
-                if (Convert.ToString(tableGridView.Rows[i].Cells[1].Value) == "TDYN")
+                if (Convert.ToString(tableGridView.Rows[i].Cells[1].Value) == "TDYN" && !BigEndian)
                 {
                     TDYN = true;
                     CreateTeamDB();
                     tabControl1.TabPages.Add(tabDev);
                 }
-                if (Convert.ToString(tableGridView.Rows[i].Cells[1].Value) == "CONF")
+                if (Convert.ToString(tableGridView.Rows[i].Cells[1].Value) == "CONF" && !BigEndian)
                 {
                     tabControl1.TabPages.Add(tabConf);
                     LeagueMakerToolStripMenuItem.Visible = true;
                 }
-                if (Convert.ToString(tableGridView.Rows[i].Cells[1].Value) == "COCH")
+                if (Convert.ToString(tableGridView.Rows[i].Cells[1].Value) == "COCH" && !BigEndian)
                 {
                     tabControl1.TabPages.Add(tabCoaches);
                 }
-                if (Convert.ToString(tableGridView.Rows[i].Cells[1].Value) == "PBPL")
+                if (Convert.ToString(tableGridView.Rows[i].Cells[1].Value) == "PBPL" && !BigEndian)
                 {
                     tabControl1.TabPages.Add(tabPlaybook);
                 }

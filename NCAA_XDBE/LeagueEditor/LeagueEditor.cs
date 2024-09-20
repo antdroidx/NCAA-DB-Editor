@@ -348,6 +348,25 @@ namespace DB_EDITOR
                 confBoxes[b].BackColor = Color.Gainsboro;
             }
 
+            List<string> teams = new List<string>(); ;
+            for(int i = 0; i < confBoxes[b].Items.Count; i++)
+            {
+                if (confBoxes[b].Items[i].ToString() != "*") teams.Add(confBoxes[b].Items[i].ToString());
+            }
+
+            for(int i = teams.Count; i < 18; i++)
+            {
+                teams.Add("*");
+            }
+
+            confBoxes[b].Items.Clear();
+
+            for (int i = 0; i < teams.Count; i++)
+            {
+                confBoxes[b].Items.Add(teams[i].ToString());
+            }
+
+
             CountTeams();
         }
 
@@ -448,8 +467,11 @@ namespace DB_EDITOR
             DeselectItems();
             AllTeamsListBox.Sorted = true;
             CountTeams();
-            if (selItem < 17) confBoxes[selBox].SetSelected(selItem + 1, true);
-            if (selItem < 17) confBoxes[selBox].SetItemChecked(selItem + 1, true);
+            if (selBox != -1)
+            {
+                if (selItem < 17) confBoxes[selBox].SetSelected(selItem + 1, true);
+                if (selItem < 17) confBoxes[selBox].SetItemChecked(selItem + 1, true);
+            }
 
             DISABLE = false;
         }
@@ -670,6 +692,105 @@ namespace DB_EDITOR
             LeagueTeamsLabel.Text = "League Teams: " + TeamCount;
 
         }
+
+
+        #region Keyboad Commands
+
+        //Keyboard
+
+        private void UserKeyPreview(object sender, PreviewKeyDownEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Down:
+                    e.IsInputKey = true;
+                    break;
+                case Keys.Up:
+                    e.IsInputKey = true;
+                    break;
+            }
+        }
+
+        private void UserKeyDown(object sender, KeyEventArgs e)
+        {
+            switch (e.KeyCode)
+            {
+                case Keys.Up:
+                    MoveTeamUp();
+                    break;
+                case Keys.Down:
+                    MoveTeamDown();
+                    break;
+            }
+        }
+
+        private void MoveTeamUp()
+        {
+            DISABLE = true;
+            List<CheckedListBox> confBoxes = GetConfBoxObjects();
+            string selItem = "";
+            string nextItem = "";
+            for (int x = 0; x < confBoxes.Count; x++)
+            {
+                //confBoxes[x].Enabled = true;
+
+                if (confBoxes[x].CheckedItems.Count > 0)
+                {
+                    int selected = confBoxes[x].SelectedIndex;
+
+                    if (!confBoxes[x].Items[selected].Equals("*") && selected > 0)
+                    {
+                        selItem = confBoxes[x].Items[selected].ToString();
+                        nextItem = confBoxes[x].Items[selected - 1].ToString();
+
+                        confBoxes[x].Items[selected] = nextItem;
+                        confBoxes[x].Items[selected - 1] = selItem;
+                        confBoxes[x].SelectedItems.Clear();
+                        confBoxes[x].SelectedItem = selItem;
+                        confBoxes[x].SetItemChecked(selected, false);
+                        confBoxes[x].SetItemChecked(selected-1, true);
+                    }
+                }
+            }
+
+            CountTeams();
+            DISABLE = false;
+        }
+
+        private void MoveTeamDown()
+        {
+            DISABLE = true;
+            List<CheckedListBox> confBoxes = GetConfBoxObjects();
+            string selItem = "";
+            string nextItem = "";
+            for (int x = 0; x < confBoxes.Count; x++)
+            {
+                //confBoxes[x].Enabled = true;
+
+                if (confBoxes[x].CheckedItems.Count > 0)
+                {
+                    int selected = confBoxes[x].SelectedIndex;
+
+                    if (!confBoxes[x].Items[selected].Equals("*") && selected < 17)
+                    {
+                        selItem = confBoxes[x].Items[selected].ToString();
+                        nextItem = confBoxes[x].Items[selected + 1].ToString();
+
+                        confBoxes[x].Items[selected] = nextItem;
+                        confBoxes[x].Items[selected + 1] = selItem;
+                        confBoxes[x].SelectedItems.Clear();
+                        confBoxes[x].SelectedItem = selItem;
+                        confBoxes[x].SelectedItem = selItem;
+                        confBoxes[x].SetItemChecked(selected, false);
+                        confBoxes[x].SetItemChecked(selected + 1, true);
+                    }
+                }
+            }
+            CountTeams();
+            DISABLE = false;
+        }
+
+        #endregion
 
         #region Default Data
 

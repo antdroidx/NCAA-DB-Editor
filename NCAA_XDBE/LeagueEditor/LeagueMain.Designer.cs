@@ -79,6 +79,7 @@ namespace DB_EDITOR
             this.customOrderMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CustomLeagueToolStrip = new System.Windows.Forms.ToolStripMenuItem();
             this.importCustomLeagueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ExportCustomLeague = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.tableMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -227,7 +228,6 @@ namespace DB_EDITOR
             this.SGID = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.BMON = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.BDAY = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.ExportCustomLeague = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenu.SuspendLayout();
             this.tableMenu.SuspendLayout();
             this.fieldMenu.SuspendLayout();
@@ -469,6 +469,13 @@ namespace DB_EDITOR
             this.importCustomLeagueToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
             this.importCustomLeagueToolStripMenuItem.Text = "Import Custom League";
             this.importCustomLeagueToolStripMenuItem.Click += new System.EventHandler(this.importCustomLeagueToolStripMenuItem_Click);
+            // 
+            // ExportCustomLeague
+            // 
+            this.ExportCustomLeague.Name = "ExportCustomLeague";
+            this.ExportCustomLeague.Size = new System.Drawing.Size(196, 22);
+            this.ExportCustomLeague.Text = "Export Custom League";
+            this.ExportCustomLeague.Click += new System.EventHandler(this.ExportCustomLeague_Click);
             // 
             // aboutMenuItem
             // 
@@ -1569,6 +1576,8 @@ namespace DB_EDITOR
             this.conf12.Size = new System.Drawing.Size(150, 274);
             this.conf12.TabIndex = 11;
             this.conf12.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.TeamChecked);
+            this.conf12.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UserKeyDown);
+            this.conf12.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.UserKeyPreview);
             // 
             // conf11
             // 
@@ -1581,6 +1590,8 @@ namespace DB_EDITOR
             this.conf11.Size = new System.Drawing.Size(150, 274);
             this.conf11.TabIndex = 10;
             this.conf11.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.TeamChecked);
+            this.conf11.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UserKeyDown);
+            this.conf11.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.UserKeyPreview);
             // 
             // conf10
             // 
@@ -1593,6 +1604,8 @@ namespace DB_EDITOR
             this.conf10.Size = new System.Drawing.Size(150, 274);
             this.conf10.TabIndex = 9;
             this.conf10.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.TeamChecked);
+            this.conf10.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UserKeyDown);
+            this.conf10.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.UserKeyPreview);
             // 
             // conf9
             // 
@@ -1605,6 +1618,8 @@ namespace DB_EDITOR
             this.conf9.Size = new System.Drawing.Size(150, 274);
             this.conf9.TabIndex = 8;
             this.conf9.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.TeamChecked);
+            this.conf9.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UserKeyDown);
+            this.conf9.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.UserKeyPreview);
             // 
             // conf8
             // 
@@ -1617,6 +1632,8 @@ namespace DB_EDITOR
             this.conf8.Size = new System.Drawing.Size(150, 274);
             this.conf8.TabIndex = 7;
             this.conf8.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.TeamChecked);
+            this.conf8.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UserKeyDown);
+            this.conf8.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.UserKeyPreview);
             // 
             // conf7
             // 
@@ -1629,6 +1646,8 @@ namespace DB_EDITOR
             this.conf7.Size = new System.Drawing.Size(150, 274);
             this.conf7.TabIndex = 6;
             this.conf7.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.TeamChecked);
+            this.conf7.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UserKeyDown);
+            this.conf7.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.UserKeyPreview);
             // 
             // conf6
             // 
@@ -1641,6 +1660,8 @@ namespace DB_EDITOR
             this.conf6.Size = new System.Drawing.Size(150, 274);
             this.conf6.TabIndex = 5;
             this.conf6.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.TeamChecked);
+            this.conf6.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UserKeyDown);
+            this.conf6.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.UserKeyPreview);
             // 
             // conf5
             // 
@@ -1653,6 +1674,8 @@ namespace DB_EDITOR
             this.conf5.Size = new System.Drawing.Size(150, 274);
             this.conf5.TabIndex = 4;
             this.conf5.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.TeamChecked);
+            this.conf5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UserKeyDown);
+            this.conf5.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.UserKeyPreview);
             // 
             // conf4
             // 
@@ -1665,6 +1688,8 @@ namespace DB_EDITOR
             this.conf4.Size = new System.Drawing.Size(150, 274);
             this.conf4.TabIndex = 3;
             this.conf4.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.TeamChecked);
+            this.conf4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UserKeyDown);
+            this.conf4.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.UserKeyPreview);
             // 
             // conf3
             // 
@@ -1677,6 +1702,8 @@ namespace DB_EDITOR
             this.conf3.Size = new System.Drawing.Size(150, 274);
             this.conf3.TabIndex = 2;
             this.conf3.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.TeamChecked);
+            this.conf3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UserKeyDown);
+            this.conf3.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.UserKeyPreview);
             // 
             // conf2
             // 
@@ -1689,6 +1716,8 @@ namespace DB_EDITOR
             this.conf2.Size = new System.Drawing.Size(150, 274);
             this.conf2.TabIndex = 1;
             this.conf2.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.TeamChecked);
+            this.conf2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UserKeyDown);
+            this.conf2.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.UserKeyPreview);
             // 
             // conf1
             // 
@@ -1701,6 +1730,8 @@ namespace DB_EDITOR
             this.conf1.Size = new System.Drawing.Size(150, 274);
             this.conf1.TabIndex = 0;
             this.conf1.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.TeamChecked);
+            this.conf1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UserKeyDown);
+            this.conf1.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.UserKeyPreview);
             // 
             // tabDB
             // 
@@ -2173,13 +2204,6 @@ namespace DB_EDITOR
             this.BDAY.Name = "BDAY";
             this.BDAY.Width = 50;
             // 
-            // ExportCustomLeague
-            // 
-            this.ExportCustomLeague.Name = "ExportCustomLeague";
-            this.ExportCustomLeague.Size = new System.Drawing.Size(196, 22);
-            this.ExportCustomLeague.Text = "Export Custom League";
-            this.ExportCustomLeague.Click += new System.EventHandler(this.ExportCustomLeague_Click);
-            // 
             // LeagueMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2199,6 +2223,8 @@ namespace DB_EDITOR
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Schedule Generator";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainEditor_FormClosing);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UserKeyDown);
+            this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.UserKeyPreview);
             this.mainMenu.ResumeLayout(false);
             this.mainMenu.PerformLayout();
             this.tableMenu.ResumeLayout(false);

@@ -66,6 +66,8 @@ namespace DB_EDITOR
             InitializeComponent();
             DefaultSettings();
             OpenFile();
+            KeyPreview = true;
+
         }
 
         private void DefaultSettings()
@@ -1692,6 +1694,13 @@ namespace DB_EDITOR
         {
 
         }
+
+
+
+
+
+
+
 
 
 

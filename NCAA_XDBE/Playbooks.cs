@@ -510,11 +510,11 @@ namespace DB_EDITOR
 
             if (count > 0)
             {
-                ProjTypeRatio.Text = "Projected Play Ratio: " + (count * 100) / (count + total) + "%";
+                PlayNameRatio.Text = "Projected Play Ratio: " + (count * 100) / (count + total) + "%";
             }
             else
             {
-                ProjTypeRatio.Text = "";
+                PlayNameRatio.Text = "";
             }
         }
 
