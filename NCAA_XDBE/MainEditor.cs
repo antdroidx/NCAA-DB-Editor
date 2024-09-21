@@ -48,7 +48,7 @@ namespace DB_EDITOR
         List<List<string>> DefPlayers;
         List<List<string>> TeamColorPalettes = new List<List<string>>();
         List<List<string>> PlayerEditorList;
-
+        List<int> PJENList;
 
 
         int OCAPmem, DCAPmem, TSI1mem, TSI2mem, TPIOmem, TPIDmem;
@@ -1716,6 +1716,7 @@ namespace DB_EDITOR
                 return false;
             }
         }
+
 
 
         private int GetFieldIndex(string tmpFName)

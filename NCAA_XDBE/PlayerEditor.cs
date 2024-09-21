@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
@@ -12,7 +13,7 @@ namespace DB_EDITOR
         /*
         * PLAYER EDITOR
         */
-        #region PLAYER EDITOR - NOT COMPLETE
+        #region PLAYER EDITOR
 
         public void StartPlayerEditor()
         {
@@ -54,6 +55,7 @@ namespace DB_EDITOR
         public void LoadPGIDlistBox()
         {
             PlayerEditorList = new List<List<string>>();
+            PJENList = new List<int>();
             int pgidBeg;
             int pgidEnd;
 
@@ -94,6 +96,8 @@ namespace DB_EDITOR
 
                     // 0 First Name  1 Last Name 2 Position 3 Overall 4 PGID 5 rec
 
+                    if (TGIDplayerBox.Text != "_ALL PLAYERS_") PJENList.Add(GetDBValueInt("PLAY", "PJEN", i));
+                        
                     row++;
                 }
             }
@@ -139,6 +143,12 @@ namespace DB_EDITOR
             RosterSizeLabel.Text = "Roster Size: " + Convert.ToString(PlayerEditorList.Count);
         }
 
+        //Change Selected Team
+        public void TGIDplayerBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            LoadPGIDlistBox();
+        }
         //Player Selection
         public void PGIDlistBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -170,12 +180,17 @@ namespace DB_EDITOR
             //PGID Box
             PGIDbox.Text = GetDBValue("PLAY", "PGID", PlayerIndex);
 
+            //Pride Stickers
+            PRST.Text = GetDBValue("PLAY", "PRST", PlayerIndex);
+
             //Year & Redshirt
             AddYearItems();
             AddRedshirtItems();
             PYERBox.SelectedIndex = GetDBValueInt("PLAY", "PYER", PlayerIndex);
             PRSDBox.SelectedIndex = GetDBValueInt("PLAY", "PRSD", PlayerIndex);
 
+            //Jersey
+            PJEN.Value = GetDBValueInt("PLAY", "PJEN", PlayerIndex);
 
             //Height & Weight
             PHGTBox.Value = GetDBValueInt("PLAY", "PHGT", PlayerIndex);
@@ -284,9 +299,36 @@ namespace DB_EDITOR
             PTYPBox.SelectedIndex = GetDBValueInt("PLAY", "PTYP", PlayerIndex);
 
 
+            /* PLAYER GEAR */
+
+            //Helmet & Head Gear
+            Helmet.SelectedIndex = GetDBValueInt("PLAY", "HELM", PlayerIndex);
+            Facemask.SelectedIndex = GetDBValueInt("PLAY", "PFMK", PlayerIndex);
+            Visor.SelectedIndex = GetDBValueInt("PLAY", "PVIS", PlayerIndex);
+            NeckPad.SelectedIndex = GetDBValueInt("PLAY", "PNEK", PlayerIndex);
+            EyeBlack.SelectedIndex = GetDBValueInt("PLAY", "PEYE", PlayerIndex);
+            NasalStrip.SelectedIndex = GetDBValueInt("PLAY", "PBRE", PlayerIndex);
+
+            // Arms
+            Sleeves.SelectedIndex = GetDBValueInt("PLAY", "PSLO", PlayerIndex);
+            SleeveColor.SelectedIndex = GetDBValueInt("PLAY", "PSLT", PlayerIndex);
+
+            //Elbows
+            LeftElbow.SelectedIndex = GetDBValueInt("PLAY", "PLEB", PlayerIndex);
+            RightElbow.SelectedIndex = GetDBValueInt("PLAY", "PREB", PlayerIndex);
+
+            //Wrists
+            LeftWrist.SelectedIndex = GetDBValueInt("PLAY", "PLWS", PlayerIndex);
+            RightWrist.SelectedIndex = GetDBValueInt("PLAY", "PRWS", PlayerIndex);
 
 
+            //Hands
+            LeftHand.SelectedIndex = GetDBValueInt("PLAY", "PLHN", PlayerIndex);
+            RightHand.SelectedIndex = GetDBValueInt("PLAY", "PRHN", PlayerIndex);
 
+            // Shoes
+            LeftShoe.SelectedIndex = GetDBValueInt("PLAY", "PLSH", PlayerIndex);
+            RightShoe.SelectedIndex = GetDBValueInt("PLAY", "PRSH", PlayerIndex);
 
             DoNotTrigger = false;
         }
@@ -393,14 +435,6 @@ namespace DB_EDITOR
         //TRIGGERS
         #region triggers
 
-
-        //Change Selected Player
-        public void TGIDplayerBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-            LoadPGIDlistBox();
-        }
-
         private void ShowRatingCheckbox_CheckedChanged(object sender, EventArgs e)
         {
             LoadPGIDlistBox();
@@ -422,19 +456,28 @@ namespace DB_EDITOR
         //Change Name
         public void PFNAtextBox_TextChanged(object sender, EventArgs e)
         {
+
+
+        }
+
+        private void PFNA_Leave(object sender, EventArgs e)
+        {
             if (PGIDlistBox.Items.Count < 1)
                 return;
 
             Editor_ConvertFN_InttoString(PlayerIndex);  // ...first name from text to numeric conversion
-
         }
         public void PLNAtextBox_TextChanged(object sender, EventArgs e)
+        {
+
+
+        }
+        private void PLNA_Leave(object sender, EventArgs e)
         {
             if (PGIDlistBox.Items.Count < 1)
                 return;
 
             Editor_ConvertLN_IntToString(PlayerIndex);  // ...last name from text to numeric conversion
-
         }
 
         //Change Position
@@ -465,6 +508,17 @@ namespace DB_EDITOR
 
             ChangeDBInt("PLAY", "PRSD", PlayerIndex, PYERBox.SelectedIndex);
         }
+
+        //Jersey Number
+
+        private void PJEN_ValueChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger)
+                return;
+
+            ChangeDBInt("PLAY", "PJEN", PlayerIndex, Convert.ToInt32(PJEN.Value));
+        }
+
 
         //Height and Weight
 
@@ -729,6 +783,135 @@ namespace DB_EDITOR
             DisplayNewOverallRating();
         }
 
+        /* Gear */
+
+        private void Helmet_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger)
+                return;
+
+            ChangeDBInt("PLAY", "HELM", PlayerIndex, Helmet.SelectedIndex);
+        }
+
+        private void Facemask_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger)
+                return;
+
+            ChangeDBInt("PLAY", "PFMK", PlayerIndex, Facemask.SelectedIndex);
+        }
+
+        private void Visor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger)
+                return;
+
+            ChangeDBInt("PLAY", "PVIS", PlayerIndex, Visor.SelectedIndex);
+        }
+
+        private void EyeBlack_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger)
+                return;
+
+            ChangeDBInt("PLAY", "PEYE", PlayerIndex, EyeBlack.SelectedIndex);
+        }
+
+        private void NasalStrip_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger)
+                return;
+
+            ChangeDBInt("PLAY", "PBRE", PlayerIndex, NasalStrip.SelectedIndex);
+        }
+
+        private void NeckPad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger)
+                return;
+
+            ChangeDBInt("PLAY", "PNEK", PlayerIndex, NeckPad.SelectedIndex);
+        }
+
+        private void Sleeves_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger)
+                return;
+
+            ChangeDBInt("PLAY", "PSLO", PlayerIndex, Sleeves.SelectedIndex);
+        }
+
+        private void SleeveColor_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger)
+                return;
+
+            ChangeDBInt("PLAY", "PSLT", PlayerIndex, SleeveColor.SelectedIndex);
+        }
+
+        private void LeftElbow_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger)
+                return;
+
+            ChangeDBInt("PLAY", "PLEB", PlayerIndex, LeftElbow.SelectedIndex);
+        }
+
+        private void RightElbow_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger)
+                return;
+
+            ChangeDBInt("PLAY", "PREB", PlayerIndex, RightElbow.SelectedIndex);
+        }
+
+        private void LeftWrist_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger)
+                return;
+
+            ChangeDBInt("PLAY", "PLWS", PlayerIndex, LeftWrist.SelectedIndex);
+        }
+
+        private void RightWrist_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger)
+                return;
+
+            ChangeDBInt("PLAY", "PRWS", PlayerIndex, RightWrist.SelectedIndex);
+        }
+
+        private void LeftHand_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger)
+                return;
+
+            ChangeDBInt("PLAY", "PLHN", PlayerIndex, LeftHand.SelectedIndex);
+        }
+
+        private void RightHand_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger)
+                return;
+
+            ChangeDBInt("PLAY", "PRHN", PlayerIndex, RightHand.SelectedIndex);
+        }
+
+        private void LeftShoe_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger)
+                return;
+
+            ChangeDBInt("PLAY", "PLSH", PlayerIndex, LeftShoe.SelectedIndex);
+        }
+
+        private void RightShoe_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger)
+                return;
+
+            ChangeDBInt("PLAY", "PRSH", PlayerIndex, RightShoe.SelectedIndex);
+        }
 
         //Change PTYP
         private void PTYPBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -767,8 +950,10 @@ namespace DB_EDITOR
                 }
 
             }
-            if (PGIDlistBox.Items.Count > 0)
-                PGIDlistBox.Items[PGIDlistBox.SelectedIndex] = PFNAtextBox.Text + " " + PLNAtextBox.Text;
+            /* if (PGIDlistBox.Items.Count > 0)
+                 PGIDlistBox.Items[PGIDlistBox.SelectedIndex] = PFNAtextBox.Text + " " + PLNAtextBox.Text;
+            */
+            LoadPGIDlistBox();
         }
         public void Editor_ConvertLN_IntToString(int tmpRecNo)
         {
@@ -795,8 +980,12 @@ namespace DB_EDITOR
                 }
 
             }
-            if (PGIDlistBox.Items.Count > 0)
+            /*
+             * if (PGIDlistBox.Items.Count > 0)
                 PGIDlistBox.Items[PGIDlistBox.SelectedIndex] = PFNAtextBox.Text + " " + PLNAtextBox.Text;
+            */
+            LoadPGIDlistBox();
+
         }
 
         private void DisplayNewOverallRating()
@@ -805,6 +994,26 @@ namespace DB_EDITOR
             POVRbox.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "POVR", PlayerIndex)));
         }
 
+        private void CheckPJEN()
+        {
+            int jersey = GetDBValueInt("PLAY", "PJEN", PlayerIndex);
+
+            int count = 0;
+            foreach (var x in PJENList)
+            {
+                if (x == jersey) count++;
+            }
+
+            if (count > 1) PJEN.BackColor = Color.Coral;
+            else PJEN.BackColor = Color.NavajoWhite;
+        }
+
         #endregion
+
+        //Team Depth Chart
+        private void PlayerSetDepthChartButton_Click(object sender, EventArgs e)
+        {
+            DepthChartMakerSingle("DCHT", GetDBValueInt("PLAY", "PGID", PlayerIndex) / 70);
+        }
     }
 }

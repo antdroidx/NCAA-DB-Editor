@@ -289,6 +289,26 @@ namespace DB_EDITOR
         }
 
 
+        private void AtLargeButton_Click(object sender, EventArgs e)
+        {
+            SetBowlsToAtLarge();
+        }
+
+        private void SetBowlsToAtLarge()
+        {
+            for (int i = 0; i < BowlsGrid.Rows.Count; i++)
+            {
+                if (Convert.ToInt32(BowlsGrid.Rows[i].Cells[0].Value) < 28)
+                {
+                    BowlsGrid.Rows[i].Cells[2].Value = "At-Large";
+                    BowlsGrid.Rows[i].Cells[3].Value = 0;
+                    BowlsGrid.Rows[i].Cells[4].Value = "At-Large";
+                    BowlsGrid.Rows[i].Cells[5].Value = 0;
+                }
+
+
+            }
+        }
 
     }
 }

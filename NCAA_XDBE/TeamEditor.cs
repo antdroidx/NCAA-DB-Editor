@@ -1052,5 +1052,12 @@ namespace DB_EDITOR
 
             GetTeamEditorData(TeamIndex);
         }
+
+        //Team Depth Chart
+
+        private void TeamSetDepthChart_Click(object sender, EventArgs e)
+        {
+            DepthChartMakerSingle("DCHT", GetDBValueInt("TEAM", "TGID", TeamIndex));
+        }
     }
 }

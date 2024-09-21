@@ -34,13 +34,13 @@ namespace DB_EDITOR
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Button qbTend;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainEditor));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainEditor));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -98,6 +98,7 @@ namespace DB_EDITOR
             this.tabHome = new System.Windows.Forms.TabPage();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabTeams = new System.Windows.Forms.TabPage();
+            this.TeamSetDepthChart = new System.Windows.Forms.Button();
             this.GenerateNewRosterButton = new System.Windows.Forms.Button();
             this.DeathPenaltyButton = new System.Windows.Forms.Button();
             this.TeamRosterSizeLabel = new System.Windows.Forms.Label();
@@ -211,6 +212,45 @@ namespace DB_EDITOR
             this.LGIDcomboBox = new System.Windows.Forms.ComboBox();
             this.TGIDlistBox = new System.Windows.Forms.ListBox();
             this.tabPlayers = new System.Windows.Forms.TabPage();
+            this.label151 = new System.Windows.Forms.Label();
+            this.PRST = new System.Windows.Forms.TextBox();
+            this.label126 = new System.Windows.Forms.Label();
+            this.RightShoe = new System.Windows.Forms.ComboBox();
+            this.label150 = new System.Windows.Forms.Label();
+            this.Helmet = new System.Windows.Forms.ComboBox();
+            this.label149 = new System.Windows.Forms.Label();
+            this.label148 = new System.Windows.Forms.Label();
+            this.label127 = new System.Windows.Forms.Label();
+            this.RightElbow = new System.Windows.Forms.ComboBox();
+            this.label128 = new System.Windows.Forms.Label();
+            this.RightWrist = new System.Windows.Forms.ComboBox();
+            this.label147 = new System.Windows.Forms.Label();
+            this.RightHand = new System.Windows.Forms.ComboBox();
+            this.label125 = new System.Windows.Forms.Label();
+            this.NeckPad = new System.Windows.Forms.ComboBox();
+            this.label123 = new System.Windows.Forms.Label();
+            this.NasalStrip = new System.Windows.Forms.ComboBox();
+            this.label124 = new System.Windows.Forms.Label();
+            this.Visor = new System.Windows.Forms.ComboBox();
+            this.label122 = new System.Windows.Forms.Label();
+            this.EyeBlack = new System.Windows.Forms.ComboBox();
+            this.SleeveColor = new System.Windows.Forms.ComboBox();
+            this.label121 = new System.Windows.Forms.Label();
+            this.Sleeves = new System.Windows.Forms.ComboBox();
+            this.label120 = new System.Windows.Forms.Label();
+            this.LeftElbow = new System.Windows.Forms.ComboBox();
+            this.label119 = new System.Windows.Forms.Label();
+            this.Facemask = new System.Windows.Forms.ComboBox();
+            this.label118 = new System.Windows.Forms.Label();
+            this.LeftWrist = new System.Windows.Forms.ComboBox();
+            this.label117 = new System.Windows.Forms.Label();
+            this.LeftHand = new System.Windows.Forms.ComboBox();
+            this.label116 = new System.Windows.Forms.Label();
+            this.LeftShoe = new System.Windows.Forms.ComboBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.label113 = new System.Windows.Forms.Label();
+            this.PJEN = new System.Windows.Forms.NumericUpDown();
+            this.PlayerSetDepthChartButton = new System.Windows.Forms.Button();
             this.PGIDLabel = new System.Windows.Forms.Label();
             this.PGIDbox = new System.Windows.Forms.TextBox();
             this.ShowPOSGBox = new System.Windows.Forms.CheckBox();
@@ -513,6 +553,12 @@ namespace DB_EDITOR
             this.conf2 = new System.Windows.Forms.CheckedListBox();
             this.conf1 = new System.Windows.Forms.CheckedListBox();
             this.tabPlaybook = new System.Windows.Forms.TabPage();
+            this.PlayNameRatio = new System.Windows.Forms.Label();
+            this.SetPlayNameValueButton = new System.Windows.Forms.Button();
+            this.label114 = new System.Windows.Forms.Label();
+            this.label115 = new System.Windows.Forms.Label();
+            this.PlayNameBox = new System.Windows.Forms.ComboBox();
+            this.PlayNameValue = new System.Windows.Forms.NumericUpDown();
             this.ProjTypeRatio = new System.Windows.Forms.Label();
             this.ProjPassRatio = new System.Windows.Forms.Label();
             this.RunCounter = new System.Windows.Forms.Label();
@@ -539,12 +585,6 @@ namespace DB_EDITOR
             this.PLYTVal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PLYT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.PlayNameRatio = new System.Windows.Forms.Label();
-            this.SetPlayNameValueButton = new System.Windows.Forms.Button();
-            this.label114 = new System.Windows.Forms.Label();
-            this.label115 = new System.Windows.Forms.Label();
-            this.PlayNameBox = new System.Windows.Forms.ComboBox();
-            this.PlayNameValue = new System.Windows.Forms.NumericUpDown();
             qbTend = new System.Windows.Forms.Button();
             this.mainMenu.SuspendLayout();
             this.tableMenu.SuspendLayout();
@@ -577,6 +617,8 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.TeamCRPCNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TeamCTPCNumber)).BeginInit();
             this.tabPlayers.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PJEN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PWGTBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PHGTBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PKACBox)).BeginInit();
@@ -632,9 +674,9 @@ namespace DB_EDITOR
             this.tabDev.SuspendLayout();
             this.tabConf.SuspendLayout();
             this.tabPlaybook.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PlayNameValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcrtNumBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlaybookGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PlayNameValue)).BeginInit();
             this.SuspendLayout();
             // 
             // qbTend
@@ -1088,8 +1130,8 @@ namespace DB_EDITOR
             // 
             this.fieldsGridView.AllowDrop = true;
             this.fieldsGridView.AllowUserToAddRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            this.fieldsGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            this.fieldsGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.fieldsGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -1162,6 +1204,7 @@ namespace DB_EDITOR
             // tabTeams
             // 
             this.tabTeams.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.tabTeams.Controls.Add(this.TeamSetDepthChart);
             this.tabTeams.Controls.Add(this.GenerateNewRosterButton);
             this.tabTeams.Controls.Add(this.DeathPenaltyButton);
             this.tabTeams.Controls.Add(this.TeamRosterSizeLabel);
@@ -1281,6 +1324,16 @@ namespace DB_EDITOR
             this.tabTeams.TabIndex = 1;
             this.tabTeams.Text = "Teams";
             this.tabTeams.Click += new System.EventHandler(this.tabTeams_Click);
+            // 
+            // TeamSetDepthChart
+            // 
+            this.TeamSetDepthChart.Location = new System.Drawing.Point(12, 606);
+            this.TeamSetDepthChart.Name = "TeamSetDepthChart";
+            this.TeamSetDepthChart.Size = new System.Drawing.Size(154, 43);
+            this.TeamSetDepthChart.TabIndex = 141;
+            this.TeamSetDepthChart.Text = "Auto-Set Depth Chart";
+            this.TeamSetDepthChart.UseVisualStyleBackColor = true;
+            this.TeamSetDepthChart.Click += new System.EventHandler(this.TeamSetDepthChart_Click);
             // 
             // GenerateNewRosterButton
             // 
@@ -2405,6 +2458,44 @@ namespace DB_EDITOR
             // tabPlayers
             // 
             this.tabPlayers.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.tabPlayers.Controls.Add(this.label151);
+            this.tabPlayers.Controls.Add(this.PRST);
+            this.tabPlayers.Controls.Add(this.label126);
+            this.tabPlayers.Controls.Add(this.RightShoe);
+            this.tabPlayers.Controls.Add(this.label150);
+            this.tabPlayers.Controls.Add(this.Helmet);
+            this.tabPlayers.Controls.Add(this.label149);
+            this.tabPlayers.Controls.Add(this.label148);
+            this.tabPlayers.Controls.Add(this.label127);
+            this.tabPlayers.Controls.Add(this.RightElbow);
+            this.tabPlayers.Controls.Add(this.label128);
+            this.tabPlayers.Controls.Add(this.RightWrist);
+            this.tabPlayers.Controls.Add(this.label147);
+            this.tabPlayers.Controls.Add(this.RightHand);
+            this.tabPlayers.Controls.Add(this.label125);
+            this.tabPlayers.Controls.Add(this.NeckPad);
+            this.tabPlayers.Controls.Add(this.label123);
+            this.tabPlayers.Controls.Add(this.NasalStrip);
+            this.tabPlayers.Controls.Add(this.label124);
+            this.tabPlayers.Controls.Add(this.Visor);
+            this.tabPlayers.Controls.Add(this.label122);
+            this.tabPlayers.Controls.Add(this.EyeBlack);
+            this.tabPlayers.Controls.Add(this.SleeveColor);
+            this.tabPlayers.Controls.Add(this.label121);
+            this.tabPlayers.Controls.Add(this.Sleeves);
+            this.tabPlayers.Controls.Add(this.label120);
+            this.tabPlayers.Controls.Add(this.LeftElbow);
+            this.tabPlayers.Controls.Add(this.label119);
+            this.tabPlayers.Controls.Add(this.Facemask);
+            this.tabPlayers.Controls.Add(this.label118);
+            this.tabPlayers.Controls.Add(this.LeftWrist);
+            this.tabPlayers.Controls.Add(this.label117);
+            this.tabPlayers.Controls.Add(this.LeftHand);
+            this.tabPlayers.Controls.Add(this.label116);
+            this.tabPlayers.Controls.Add(this.LeftShoe);
+            this.tabPlayers.Controls.Add(this.label113);
+            this.tabPlayers.Controls.Add(this.PJEN);
+            this.tabPlayers.Controls.Add(this.PlayerSetDepthChartButton);
             this.tabPlayers.Controls.Add(this.PGIDLabel);
             this.tabPlayers.Controls.Add(this.PGIDbox);
             this.tabPlayers.Controls.Add(this.ShowPOSGBox);
@@ -2500,6 +2591,7 @@ namespace DB_EDITOR
             this.tabPlayers.Controls.Add(this.label1);
             this.tabPlayers.Controls.Add(this.PLNAtextBox);
             this.tabPlayers.Controls.Add(this.PFNAtextBox);
+            this.tabPlayers.Controls.Add(this.pictureBox2);
             this.tabPlayers.ForeColor = System.Drawing.SystemColors.ControlText;
             this.tabPlayers.Location = new System.Drawing.Point(4, 24);
             this.tabPlayers.Name = "tabPlayers";
@@ -2507,11 +2599,485 @@ namespace DB_EDITOR
             this.tabPlayers.TabIndex = 2;
             this.tabPlayers.Text = "Players";
             // 
+            // label151
+            // 
+            this.label151.AutoSize = true;
+            this.label151.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label151.Location = new System.Drawing.Point(426, 635);
+            this.label151.Name = "label151";
+            this.label151.Size = new System.Drawing.Size(104, 16);
+            this.label151.TabIndex = 140;
+            this.label151.Text = "Pride Stickers";
+            // 
+            // PRST
+            // 
+            this.PRST.BackColor = System.Drawing.SystemColors.Info;
+            this.PRST.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PRST.Location = new System.Drawing.Point(536, 632);
+            this.PRST.Name = "PRST";
+            this.PRST.ReadOnly = true;
+            this.PRST.Size = new System.Drawing.Size(53, 22);
+            this.PRST.TabIndex = 139;
+            this.PRST.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label126
+            // 
+            this.label126.AutoSize = true;
+            this.label126.Location = new System.Drawing.Point(1001, 546);
+            this.label126.Name = "label126";
+            this.label126.Size = new System.Drawing.Size(37, 13);
+            this.label126.TabIndex = 138;
+            this.label126.Text = "Shoes";
+            // 
+            // RightShoe
+            // 
+            this.RightShoe.FormattingEnabled = true;
+            this.RightShoe.Items.AddRange(new object[] {
+            "Normal",
+            "White Tape",
+            "Black Tape",
+            "TC Tape"});
+            this.RightShoe.Location = new System.Drawing.Point(1001, 562);
+            this.RightShoe.Name = "RightShoe";
+            this.RightShoe.Size = new System.Drawing.Size(103, 21);
+            this.RightShoe.TabIndex = 137;
+            this.RightShoe.SelectedIndexChanged += new System.EventHandler(this.RightShoe_SelectedIndexChanged);
+            // 
+            // label150
+            // 
+            this.label150.AutoSize = true;
+            this.label150.Location = new System.Drawing.Point(740, 59);
+            this.label150.Name = "label150";
+            this.label150.Size = new System.Drawing.Size(40, 13);
+            this.label150.TabIndex = 136;
+            this.label150.Text = "Helmet";
+            // 
+            // Helmet
+            // 
+            this.Helmet.FormattingEnabled = true;
+            this.Helmet.Items.AddRange(new object[] {
+            "Normal",
+            "Adams",
+            "Schutt",
+            "Revolution"});
+            this.Helmet.Location = new System.Drawing.Point(743, 74);
+            this.Helmet.Name = "Helmet";
+            this.Helmet.Size = new System.Drawing.Size(103, 21);
+            this.Helmet.TabIndex = 135;
+            this.Helmet.SelectedIndexChanged += new System.EventHandler(this.Helmet_SelectedIndexChanged);
+            // 
+            // label149
+            // 
+            this.label149.AutoSize = true;
+            this.label149.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label149.Location = new System.Drawing.Point(676, 245);
+            this.label149.Name = "label149";
+            this.label149.Size = new System.Drawing.Size(85, 15);
+            this.label149.TabIndex = 134;
+            this.label149.Text = "RIGHT SIDE";
+            // 
+            // label148
+            // 
+            this.label148.AutoSize = true;
+            this.label148.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label148.Location = new System.Drawing.Point(1037, 240);
+            this.label148.Name = "label148";
+            this.label148.Size = new System.Drawing.Size(76, 15);
+            this.label148.TabIndex = 133;
+            this.label148.Text = "LEFT SIDE";
+            // 
+            // label127
+            // 
+            this.label127.AutoSize = true;
+            this.label127.Location = new System.Drawing.Point(1037, 267);
+            this.label127.Name = "label127";
+            this.label127.Size = new System.Drawing.Size(41, 13);
+            this.label127.TabIndex = 129;
+            this.label127.Text = "Elbows";
+            // 
+            // RightElbow
+            // 
+            this.RightElbow.FormattingEnabled = true;
+            this.RightElbow.Items.AddRange(new object[] {
+            "Normal",
+            "Rubber Pad",
+            "Black Pad",
+            "White Pad",
+            "Bk TC Pad",
+            "Wt TC Pad",
+            "Bk Med Band",
+            "Wt Med Band",
+            "TC Med Band",
+            "Bk Thin Band",
+            "Wt Thin Band",
+            "TC Thin Band"});
+            this.RightElbow.Location = new System.Drawing.Point(1040, 282);
+            this.RightElbow.Name = "RightElbow";
+            this.RightElbow.Size = new System.Drawing.Size(103, 21);
+            this.RightElbow.TabIndex = 128;
+            this.RightElbow.SelectedIndexChanged += new System.EventHandler(this.RightElbow_SelectedIndexChanged);
+            // 
+            // label128
+            // 
+            this.label128.AutoSize = true;
+            this.label128.Location = new System.Drawing.Point(1040, 323);
+            this.label128.Name = "label128";
+            this.label128.Size = new System.Drawing.Size(36, 13);
+            this.label128.TabIndex = 127;
+            this.label128.Text = "Wrists";
+            // 
+            // RightWrist
+            // 
+            this.RightWrist.FormattingEnabled = true;
+            this.RightWrist.Items.AddRange(new object[] {
+            "Normal",
+            "Wt QB Wrist",
+            "BK QB Wrist",
+            "TC QB Wrist",
+            "Bk Wrist",
+            "Wt Wrist",
+            "TC Wrist",
+            "Armpad",
+            "Wt Half Sleeve",
+            "Bk Half Sleeve",
+            "TC Half Sleeve",
+            "Taped"});
+            this.RightWrist.Location = new System.Drawing.Point(1040, 339);
+            this.RightWrist.Name = "RightWrist";
+            this.RightWrist.Size = new System.Drawing.Size(103, 21);
+            this.RightWrist.TabIndex = 126;
+            this.RightWrist.SelectedIndexChanged += new System.EventHandler(this.RightWrist_SelectedIndexChanged);
+            // 
+            // label147
+            // 
+            this.label147.AutoSize = true;
+            this.label147.Location = new System.Drawing.Point(1040, 364);
+            this.label147.Name = "label147";
+            this.label147.Size = new System.Drawing.Size(38, 13);
+            this.label147.TabIndex = 125;
+            this.label147.Text = "Hands";
+            // 
+            // RightHand
+            // 
+            this.RightHand.FormattingEnabled = true;
+            this.RightHand.Items.AddRange(new object[] {
+            "Bare",
+            "Taped",
+            "Gloves"});
+            this.RightHand.Location = new System.Drawing.Point(1040, 380);
+            this.RightHand.Name = "RightHand";
+            this.RightHand.Size = new System.Drawing.Size(103, 21);
+            this.RightHand.TabIndex = 124;
+            this.RightHand.SelectedIndexChanged += new System.EventHandler(this.RightHand_SelectedIndexChanged);
+            // 
+            // label125
+            // 
+            this.label125.AutoSize = true;
+            this.label125.Location = new System.Drawing.Point(1007, 160);
+            this.label125.Name = "label125";
+            this.label125.Size = new System.Drawing.Size(55, 13);
+            this.label125.TabIndex = 123;
+            this.label125.Text = "Neck Pad";
+            // 
+            // NeckPad
+            // 
+            this.NeckPad.FormattingEnabled = true;
+            this.NeckPad.Items.AddRange(new object[] {
+            "None",
+            "Neck Roll",
+            "Extended"});
+            this.NeckPad.Location = new System.Drawing.Point(1010, 175);
+            this.NeckPad.Name = "NeckPad";
+            this.NeckPad.Size = new System.Drawing.Size(103, 21);
+            this.NeckPad.TabIndex = 122;
+            this.NeckPad.SelectedIndexChanged += new System.EventHandler(this.NeckPad_SelectedIndexChanged);
+            // 
+            // label123
+            // 
+            this.label123.AutoSize = true;
+            this.label123.Location = new System.Drawing.Point(942, 120);
+            this.label123.Name = "label123";
+            this.label123.Size = new System.Drawing.Size(58, 13);
+            this.label123.TabIndex = 121;
+            this.label123.Text = "Nasal Strip";
+            // 
+            // NasalStrip
+            // 
+            this.NasalStrip.FormattingEnabled = true;
+            this.NasalStrip.Items.AddRange(new object[] {
+            "No",
+            "Yes"});
+            this.NasalStrip.Location = new System.Drawing.Point(945, 135);
+            this.NasalStrip.Name = "NasalStrip";
+            this.NasalStrip.Size = new System.Drawing.Size(103, 21);
+            this.NasalStrip.TabIndex = 120;
+            this.NasalStrip.SelectedIndexChanged += new System.EventHandler(this.NasalStrip_SelectedIndexChanged);
+            // 
+            // label124
+            // 
+            this.label124.AutoSize = true;
+            this.label124.Location = new System.Drawing.Point(983, 58);
+            this.label124.Name = "label124";
+            this.label124.Size = new System.Drawing.Size(30, 13);
+            this.label124.TabIndex = 119;
+            this.label124.Text = "Visor";
+            // 
+            // Visor
+            // 
+            this.Visor.FormattingEnabled = true;
+            this.Visor.Items.AddRange(new object[] {
+            "None",
+            "Clear",
+            "Dark",
+            "Orange"});
+            this.Visor.Location = new System.Drawing.Point(986, 73);
+            this.Visor.Name = "Visor";
+            this.Visor.Size = new System.Drawing.Size(103, 21);
+            this.Visor.TabIndex = 118;
+            this.Visor.SelectedIndexChanged += new System.EventHandler(this.Visor_SelectedIndexChanged);
+            // 
+            // label122
+            // 
+            this.label122.AutoSize = true;
+            this.label122.Location = new System.Drawing.Point(727, 135);
+            this.label122.Name = "label122";
+            this.label122.Size = new System.Drawing.Size(55, 13);
+            this.label122.TabIndex = 117;
+            this.label122.Text = "Eye Black";
+            // 
+            // EyeBlack
+            // 
+            this.EyeBlack.FormattingEnabled = true;
+            this.EyeBlack.Items.AddRange(new object[] {
+            "No",
+            "Yes"});
+            this.EyeBlack.Location = new System.Drawing.Point(730, 150);
+            this.EyeBlack.Name = "EyeBlack";
+            this.EyeBlack.Size = new System.Drawing.Size(103, 21);
+            this.EyeBlack.TabIndex = 116;
+            this.EyeBlack.SelectedIndexChanged += new System.EventHandler(this.EyeBlack_SelectedIndexChanged);
+            // 
+            // SleeveColor
+            // 
+            this.SleeveColor.FormattingEnabled = true;
+            this.SleeveColor.Items.AddRange(new object[] {
+            "Black",
+            "White",
+            "Team Color"});
+            this.SleeveColor.Location = new System.Drawing.Point(665, 217);
+            this.SleeveColor.Name = "SleeveColor";
+            this.SleeveColor.Size = new System.Drawing.Size(103, 21);
+            this.SleeveColor.TabIndex = 115;
+            this.SleeveColor.SelectedIndexChanged += new System.EventHandler(this.SleeveColor_SelectedIndexChanged);
+            // 
+            // label121
+            // 
+            this.label121.AutoSize = true;
+            this.label121.Location = new System.Drawing.Point(662, 177);
+            this.label121.Name = "label121";
+            this.label121.Size = new System.Drawing.Size(80, 13);
+            this.label121.TabIndex = 114;
+            this.label121.Text = "Sleeves / Color";
+            // 
+            // Sleeves
+            // 
+            this.Sleeves.FormattingEnabled = true;
+            this.Sleeves.Items.AddRange(new object[] {
+            "Cold Only",
+            "Always",
+            "None"});
+            this.Sleeves.Location = new System.Drawing.Point(665, 192);
+            this.Sleeves.Name = "Sleeves";
+            this.Sleeves.Size = new System.Drawing.Size(103, 21);
+            this.Sleeves.TabIndex = 113;
+            this.Sleeves.SelectedIndexChanged += new System.EventHandler(this.Sleeves_SelectedIndexChanged);
+            // 
+            // label120
+            // 
+            this.label120.AutoSize = true;
+            this.label120.Location = new System.Drawing.Point(636, 267);
+            this.label120.Name = "label120";
+            this.label120.Size = new System.Drawing.Size(41, 13);
+            this.label120.TabIndex = 112;
+            this.label120.Text = "Elbows";
+            // 
+            // LeftElbow
+            // 
+            this.LeftElbow.FormattingEnabled = true;
+            this.LeftElbow.Items.AddRange(new object[] {
+            "Normal",
+            "Rubber Pad",
+            "Black Pad",
+            "White Pad",
+            "Bk TC Pad",
+            "Wt TC Pad",
+            "Bk Med Band",
+            "Wt Med Band",
+            "TC Med Band",
+            "Bk Thin Band",
+            "Wt Thin Band",
+            "TC Thin Band"});
+            this.LeftElbow.Location = new System.Drawing.Point(639, 282);
+            this.LeftElbow.Name = "LeftElbow";
+            this.LeftElbow.Size = new System.Drawing.Size(103, 21);
+            this.LeftElbow.TabIndex = 111;
+            this.LeftElbow.SelectedIndexChanged += new System.EventHandler(this.LeftElbow_SelectedIndexChanged);
+            // 
+            // label119
+            // 
+            this.label119.AutoSize = true;
+            this.label119.Location = new System.Drawing.Point(863, 58);
+            this.label119.Name = "label119";
+            this.label119.Size = new System.Drawing.Size(60, 13);
+            this.label119.TabIndex = 110;
+            this.label119.Text = "Face Mask";
+            // 
+            // Facemask
+            // 
+            this.Facemask.FormattingEnabled = true;
+            this.Facemask.Items.AddRange(new object[] {
+            "2-Bar",
+            "2-Bar",
+            "3-Bar",
+            "Half-Cage",
+            "Full-Cage 1",
+            "*",
+            "*",
+            "2-Bar RB",
+            "3-Bar QB",
+            "3-Bar RB 1",
+            "Full Cage 2",
+            "3-Bar RB 2"});
+            this.Facemask.Location = new System.Drawing.Point(866, 73);
+            this.Facemask.Name = "Facemask";
+            this.Facemask.Size = new System.Drawing.Size(103, 21);
+            this.Facemask.TabIndex = 109;
+            this.Facemask.SelectedIndexChanged += new System.EventHandler(this.Facemask_SelectedIndexChanged);
+            // 
+            // label118
+            // 
+            this.label118.AutoSize = true;
+            this.label118.Location = new System.Drawing.Point(639, 311);
+            this.label118.Name = "label118";
+            this.label118.Size = new System.Drawing.Size(36, 13);
+            this.label118.TabIndex = 108;
+            this.label118.Text = "Wrists";
+            // 
+            // LeftWrist
+            // 
+            this.LeftWrist.FormattingEnabled = true;
+            this.LeftWrist.Items.AddRange(new object[] {
+            "Normal",
+            "Wt QB Wrist",
+            "BK QB Wrist",
+            "TC QB Wrist",
+            "Bk Wrist",
+            "Wt Wrist",
+            "TC Wrist",
+            "Armpad",
+            "Wt Half Sleeve",
+            "Bk Half Sleeve",
+            "TC Half Sleeve",
+            "Taped"});
+            this.LeftWrist.Location = new System.Drawing.Point(639, 327);
+            this.LeftWrist.Name = "LeftWrist";
+            this.LeftWrist.Size = new System.Drawing.Size(103, 21);
+            this.LeftWrist.TabIndex = 107;
+            this.LeftWrist.SelectedIndexChanged += new System.EventHandler(this.LeftWrist_SelectedIndexChanged);
+            // 
+            // label117
+            // 
+            this.label117.AutoSize = true;
+            this.label117.Location = new System.Drawing.Point(639, 352);
+            this.label117.Name = "label117";
+            this.label117.Size = new System.Drawing.Size(38, 13);
+            this.label117.TabIndex = 106;
+            this.label117.Text = "Hands";
+            // 
+            // LeftHand
+            // 
+            this.LeftHand.FormattingEnabled = true;
+            this.LeftHand.Items.AddRange(new object[] {
+            "Bare",
+            "Taped",
+            "Gloves"});
+            this.LeftHand.Location = new System.Drawing.Point(639, 368);
+            this.LeftHand.Name = "LeftHand";
+            this.LeftHand.Size = new System.Drawing.Size(103, 21);
+            this.LeftHand.TabIndex = 105;
+            this.LeftHand.SelectedIndexChanged += new System.EventHandler(this.LeftHand_SelectedIndexChanged);
+            // 
+            // label116
+            // 
+            this.label116.AutoSize = true;
+            this.label116.Location = new System.Drawing.Point(693, 546);
+            this.label116.Name = "label116";
+            this.label116.Size = new System.Drawing.Size(37, 13);
+            this.label116.TabIndex = 104;
+            this.label116.Text = "Shoes";
+            // 
+            // LeftShoe
+            // 
+            this.LeftShoe.FormattingEnabled = true;
+            this.LeftShoe.Items.AddRange(new object[] {
+            "Normal",
+            "White Tape",
+            "Black Tape",
+            "TC Tape"});
+            this.LeftShoe.Location = new System.Drawing.Point(693, 562);
+            this.LeftShoe.Name = "LeftShoe";
+            this.LeftShoe.Size = new System.Drawing.Size(103, 21);
+            this.LeftShoe.TabIndex = 103;
+            this.LeftShoe.SelectedIndexChanged += new System.EventHandler(this.LeftShoe_SelectedIndexChanged);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(719, 98);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(385, 542);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 102;
+            this.pictureBox2.TabStop = false;
+            // 
+            // label113
+            // 
+            this.label113.AutoSize = true;
+            this.label113.Location = new System.Drawing.Point(396, 94);
+            this.label113.Name = "label113";
+            this.label113.Size = new System.Drawing.Size(37, 13);
+            this.label113.TabIndex = 101;
+            this.label113.Text = "Jersey";
+            this.label113.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // PJEN
+            // 
+            this.PJEN.Location = new System.Drawing.Point(396, 109);
+            this.PJEN.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.PJEN.Name = "PJEN";
+            this.PJEN.Size = new System.Drawing.Size(53, 20);
+            this.PJEN.TabIndex = 100;
+            this.PJEN.ValueChanged += new System.EventHandler(this.PJEN_ValueChanged);
+            // 
+            // PlayerSetDepthChartButton
+            // 
+            this.PlayerSetDepthChartButton.Location = new System.Drawing.Point(218, 625);
+            this.PlayerSetDepthChartButton.Name = "PlayerSetDepthChartButton";
+            this.PlayerSetDepthChartButton.Size = new System.Drawing.Size(150, 36);
+            this.PlayerSetDepthChartButton.TabIndex = 99;
+            this.PlayerSetDepthChartButton.Text = "Auto-Set Team Depth Chart";
+            this.PlayerSetDepthChartButton.UseVisualStyleBackColor = true;
+            this.PlayerSetDepthChartButton.Click += new System.EventHandler(this.PlayerSetDepthChartButton_Click);
+            // 
             // PGIDLabel
             // 
             this.PGIDLabel.AutoSize = true;
             this.PGIDLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PGIDLabel.Location = new System.Drawing.Point(217, 90);
+            this.PGIDLabel.Location = new System.Drawing.Point(487, 600);
             this.PGIDLabel.Name = "PGIDLabel";
             this.PGIDLabel.Size = new System.Drawing.Size(43, 16);
             this.PGIDLabel.TabIndex = 98;
@@ -2521,7 +3087,7 @@ namespace DB_EDITOR
             // 
             this.PGIDbox.BackColor = System.Drawing.SystemColors.Info;
             this.PGIDbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PGIDbox.Location = new System.Drawing.Point(218, 110);
+            this.PGIDbox.Location = new System.Drawing.Point(536, 597);
             this.PGIDbox.Name = "PGIDbox";
             this.PGIDbox.ReadOnly = true;
             this.PGIDbox.Size = new System.Drawing.Size(53, 22);
@@ -2583,7 +3149,7 @@ namespace DB_EDITOR
             // label92
             // 
             this.label92.AutoSize = true;
-            this.label92.Location = new System.Drawing.Point(367, 93);
+            this.label92.Location = new System.Drawing.Point(300, 93);
             this.label92.Name = "label92";
             this.label92.Size = new System.Drawing.Size(46, 13);
             this.label92.TabIndex = 91;
@@ -2592,7 +3158,7 @@ namespace DB_EDITOR
             // PRSDBox
             // 
             this.PRSDBox.FormattingEnabled = true;
-            this.PRSDBox.Location = new System.Drawing.Point(370, 109);
+            this.PRSDBox.Location = new System.Drawing.Point(303, 109);
             this.PRSDBox.Name = "PRSDBox";
             this.PRSDBox.Size = new System.Drawing.Size(79, 21);
             this.PRSDBox.TabIndex = 90;
@@ -2601,7 +3167,7 @@ namespace DB_EDITOR
             // label91
             // 
             this.label91.AutoSize = true;
-            this.label91.Location = new System.Drawing.Point(284, 94);
+            this.label91.Location = new System.Drawing.Point(217, 94);
             this.label91.Name = "label91";
             this.label91.Size = new System.Drawing.Size(29, 13);
             this.label91.TabIndex = 89;
@@ -2610,7 +3176,7 @@ namespace DB_EDITOR
             // PYERBox
             // 
             this.PYERBox.FormattingEnabled = true;
-            this.PYERBox.Location = new System.Drawing.Point(285, 109);
+            this.PYERBox.Location = new System.Drawing.Point(218, 109);
             this.PYERBox.Name = "PYERBox";
             this.PYERBox.Size = new System.Drawing.Size(79, 21);
             this.PYERBox.TabIndex = 88;
@@ -2619,7 +3185,7 @@ namespace DB_EDITOR
             // label89
             // 
             this.label89.AutoSize = true;
-            this.label89.Location = new System.Drawing.Point(533, 95);
+            this.label89.Location = new System.Drawing.Point(526, 94);
             this.label89.Name = "label89";
             this.label89.Size = new System.Drawing.Size(63, 13);
             this.label89.TabIndex = 87;
@@ -2628,7 +3194,7 @@ namespace DB_EDITOR
             // 
             // PWGTBox
             // 
-            this.PWGTBox.Location = new System.Drawing.Point(532, 110);
+            this.PWGTBox.Location = new System.Drawing.Point(525, 109);
             this.PWGTBox.Maximum = new decimal(new int[] {
             415,
             0,
@@ -2653,7 +3219,7 @@ namespace DB_EDITOR
             // label90
             // 
             this.label90.AutoSize = true;
-            this.label90.Location = new System.Drawing.Point(466, 95);
+            this.label90.Location = new System.Drawing.Point(459, 94);
             this.label90.Name = "label90";
             this.label90.Size = new System.Drawing.Size(55, 13);
             this.label90.TabIndex = 84;
@@ -2662,7 +3228,7 @@ namespace DB_EDITOR
             // 
             // PHGTBox
             // 
-            this.PHGTBox.Location = new System.Drawing.Point(469, 110);
+            this.PHGTBox.Location = new System.Drawing.Point(462, 109);
             this.PHGTBox.Maximum = new decimal(new int[] {
             127,
             0,
@@ -3527,6 +4093,7 @@ namespace DB_EDITOR
             this.PLNAtextBox.Size = new System.Drawing.Size(111, 22);
             this.PLNAtextBox.TabIndex = 1;
             this.PLNAtextBox.TextChanged += new System.EventHandler(this.PLNAtextBox_TextChanged);
+            this.PLNAtextBox.Leave += new System.EventHandler(this.PLNA_Leave);
             // 
             // PFNAtextBox
             // 
@@ -3536,6 +4103,7 @@ namespace DB_EDITOR
             this.PFNAtextBox.Size = new System.Drawing.Size(116, 22);
             this.PFNAtextBox.TabIndex = 0;
             this.PFNAtextBox.TextChanged += new System.EventHandler(this.PFNAtextBox_TextChanged);
+            this.PFNAtextBox.Leave += new System.EventHandler(this.PFNA_Leave);
             // 
             // tabCoaches
             // 
@@ -6116,6 +6684,66 @@ namespace DB_EDITOR
             this.tabPlaybook.Text = "Playbook";
             this.tabPlaybook.UseVisualStyleBackColor = true;
             // 
+            // PlayNameRatio
+            // 
+            this.PlayNameRatio.AutoSize = true;
+            this.PlayNameRatio.Location = new System.Drawing.Point(814, 414);
+            this.PlayNameRatio.Name = "PlayNameRatio";
+            this.PlayNameRatio.Size = new System.Drawing.Size(76, 13);
+            this.PlayNameRatio.TabIndex = 21;
+            this.PlayNameRatio.Text = "Proj Play Ratio";
+            this.PlayNameRatio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // SetPlayNameValueButton
+            // 
+            this.SetPlayNameValueButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.SetPlayNameValueButton.Location = new System.Drawing.Point(817, 435);
+            this.SetPlayNameValueButton.Name = "SetPlayNameValueButton";
+            this.SetPlayNameValueButton.Size = new System.Drawing.Size(129, 35);
+            this.SetPlayNameValueButton.TabIndex = 20;
+            this.SetPlayNameValueButton.Text = "Set Value";
+            this.SetPlayNameValueButton.UseVisualStyleBackColor = false;
+            this.SetPlayNameValueButton.Click += new System.EventHandler(this.SetPlayNameValueButton_Click);
+            // 
+            // label114
+            // 
+            this.label114.AutoSize = true;
+            this.label114.Location = new System.Drawing.Point(817, 335);
+            this.label114.Name = "label114";
+            this.label114.Size = new System.Drawing.Size(58, 13);
+            this.label114.TabIndex = 19;
+            this.label114.Text = "Play Name";
+            // 
+            // label115
+            // 
+            this.label115.AutoSize = true;
+            this.label115.Location = new System.Drawing.Point(814, 388);
+            this.label115.Name = "label115";
+            this.label115.Size = new System.Drawing.Size(44, 13);
+            this.label115.TabIndex = 18;
+            this.label115.Text = "Set prct";
+            // 
+            // PlayNameBox
+            // 
+            this.PlayNameBox.FormattingEnabled = true;
+            this.PlayNameBox.Location = new System.Drawing.Point(817, 354);
+            this.PlayNameBox.Name = "PlayNameBox";
+            this.PlayNameBox.Size = new System.Drawing.Size(129, 21);
+            this.PlayNameBox.TabIndex = 17;
+            this.PlayNameBox.SelectedIndexChanged += new System.EventHandler(this.PlayNameBox_SelectedIndexChanged);
+            // 
+            // PlayNameValue
+            // 
+            this.PlayNameValue.Location = new System.Drawing.Point(864, 386);
+            this.PlayNameValue.Name = "PlayNameValue";
+            this.PlayNameValue.Size = new System.Drawing.Size(82, 20);
+            this.PlayNameValue.TabIndex = 16;
+            this.PlayNameValue.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
             // ProjTypeRatio
             // 
             this.ProjTypeRatio.AutoSize = true;
@@ -6280,17 +6908,17 @@ namespace DB_EDITOR
             this.PlaybookGrid.AllowUserToAddRows = false;
             this.PlaybookGrid.AllowUserToDeleteRows = false;
             this.PlaybookGrid.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.PlaybookGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.LightSkyBlue;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.PlaybookGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.PlaybookGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightSkyBlue;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PlaybookGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.PlaybookGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.PlaybookGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.PBRec,
@@ -6302,25 +6930,25 @@ namespace DB_EDITOR
             this.PlayName,
             this.PLYTVal,
             this.PLYT});
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.PlaybookGrid.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.PlaybookGrid.DefaultCellStyle = dataGridViewCellStyle5;
             this.PlaybookGrid.EnableHeadersVisualStyles = false;
             this.PlaybookGrid.Location = new System.Drawing.Point(31, 23);
             this.PlaybookGrid.Name = "PlaybookGrid";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.PlaybookGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PlaybookGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.PlaybookGrid.Size = new System.Drawing.Size(746, 621);
             this.PlaybookGrid.TabIndex = 0;
             // 
@@ -6353,8 +6981,8 @@ namespace DB_EDITOR
             // 
             // prct
             // 
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Info;
-            this.prct.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Info;
+            this.prct.DefaultCellStyle = dataGridViewCellStyle4;
             this.prct.HeaderText = "PRCT ";
             this.prct.Name = "prct";
             this.prct.Width = 60;
@@ -6385,66 +7013,6 @@ namespace DB_EDITOR
             this.PLYT.HeaderText = "Type";
             this.PLYT.Name = "PLYT";
             this.PLYT.ReadOnly = true;
-            // 
-            // PlayNameRatio
-            // 
-            this.PlayNameRatio.AutoSize = true;
-            this.PlayNameRatio.Location = new System.Drawing.Point(814, 414);
-            this.PlayNameRatio.Name = "PlayNameRatio";
-            this.PlayNameRatio.Size = new System.Drawing.Size(76, 13);
-            this.PlayNameRatio.TabIndex = 21;
-            this.PlayNameRatio.Text = "Proj Play Ratio";
-            this.PlayNameRatio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // SetPlayNameValueButton
-            // 
-            this.SetPlayNameValueButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.SetPlayNameValueButton.Location = new System.Drawing.Point(817, 435);
-            this.SetPlayNameValueButton.Name = "SetPlayNameValueButton";
-            this.SetPlayNameValueButton.Size = new System.Drawing.Size(129, 35);
-            this.SetPlayNameValueButton.TabIndex = 20;
-            this.SetPlayNameValueButton.Text = "Set Value";
-            this.SetPlayNameValueButton.UseVisualStyleBackColor = false;
-            this.SetPlayNameValueButton.Click += new System.EventHandler(this.SetPlayNameValueButton_Click);
-            // 
-            // label114
-            // 
-            this.label114.AutoSize = true;
-            this.label114.Location = new System.Drawing.Point(817, 335);
-            this.label114.Name = "label114";
-            this.label114.Size = new System.Drawing.Size(58, 13);
-            this.label114.TabIndex = 19;
-            this.label114.Text = "Play Name";
-            // 
-            // label115
-            // 
-            this.label115.AutoSize = true;
-            this.label115.Location = new System.Drawing.Point(814, 388);
-            this.label115.Name = "label115";
-            this.label115.Size = new System.Drawing.Size(44, 13);
-            this.label115.TabIndex = 18;
-            this.label115.Text = "Set prct";
-            // 
-            // PlayNameBox
-            // 
-            this.PlayNameBox.FormattingEnabled = true;
-            this.PlayNameBox.Location = new System.Drawing.Point(817, 354);
-            this.PlayNameBox.Name = "PlayNameBox";
-            this.PlayNameBox.Size = new System.Drawing.Size(129, 21);
-            this.PlayNameBox.TabIndex = 17;
-            this.PlayNameBox.SelectedIndexChanged += new System.EventHandler(this.PlayNameBox_SelectedIndexChanged);
-            // 
-            // PlayNameValue
-            // 
-            this.PlayNameValue.Location = new System.Drawing.Point(864, 386);
-            this.PlayNameValue.Name = "PlayNameValue";
-            this.PlayNameValue.Size = new System.Drawing.Size(82, 20);
-            this.PlayNameValue.TabIndex = 16;
-            this.PlayNameValue.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
             // 
             // MainEditor
             // 
@@ -6501,6 +7069,8 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.TeamCTPCNumber)).EndInit();
             this.tabPlayers.ResumeLayout(false);
             this.tabPlayers.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PJEN)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PWGTBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PHGTBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PKACBox)).EndInit();
@@ -6563,9 +7133,9 @@ namespace DB_EDITOR
             this.tabConf.PerformLayout();
             this.tabPlaybook.ResumeLayout(false);
             this.tabPlaybook.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PlayNameValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcrtNumBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlaybookGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PlayNameValue)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -7083,6 +7653,46 @@ namespace DB_EDITOR
         private Label label115;
         private System.Windows.Forms.ComboBox PlayNameBox;
         private NumericUpDown PlayNameValue;
+        private System.Windows.Forms.Button TeamSetDepthChart;
+        private System.Windows.Forms.Button PlayerSetDepthChartButton;
+        private NumericUpDown PJEN;
+        private Label label113;
+        private Label label120;
+        private System.Windows.Forms.ComboBox LeftElbow;
+        private Label label119;
+        private System.Windows.Forms.ComboBox Facemask;
+        private Label label118;
+        private System.Windows.Forms.ComboBox LeftWrist;
+        private Label label117;
+        private System.Windows.Forms.ComboBox LeftHand;
+        private Label label116;
+        private System.Windows.Forms.ComboBox LeftShoe;
+        private PictureBox pictureBox2;
+        private Label label149;
+        private Label label148;
+        private Label label127;
+        private System.Windows.Forms.ComboBox RightElbow;
+        private Label label128;
+        private System.Windows.Forms.ComboBox RightWrist;
+        private Label label147;
+        private System.Windows.Forms.ComboBox RightHand;
+        private Label label125;
+        private System.Windows.Forms.ComboBox NeckPad;
+        private Label label123;
+        private System.Windows.Forms.ComboBox NasalStrip;
+        private Label label124;
+        private System.Windows.Forms.ComboBox Visor;
+        private Label label122;
+        private System.Windows.Forms.ComboBox EyeBlack;
+        private System.Windows.Forms.ComboBox SleeveColor;
+        private Label label121;
+        private System.Windows.Forms.ComboBox Sleeves;
+        private Label label150;
+        private System.Windows.Forms.ComboBox Helmet;
+        private Label label126;
+        private System.Windows.Forms.ComboBox RightShoe;
+        public Label label151;
+        public System.Windows.Forms.TextBox PRST;
     }
 }
 
