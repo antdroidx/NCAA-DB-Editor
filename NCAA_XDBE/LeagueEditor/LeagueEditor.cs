@@ -250,7 +250,7 @@ namespace DB_EDITOR
                 }
             }
 
-            for (int i = conferenceBox.Items.Count; i < 18; i++)
+            for (int i = conferenceBox.Items.Count; i < maxTeams; i++)
             {
                 conferenceBox.Items.Add("*");
             }
@@ -354,7 +354,7 @@ namespace DB_EDITOR
                 if (confBoxes[b].Items[i].ToString() != "*") teams.Add(confBoxes[b].Items[i].ToString());
             }
 
-            for(int i = teams.Count; i < 18; i++)
+            for(int i = teams.Count; i < maxTeams; i++)
             {
                 teams.Add("*");
             }
@@ -538,28 +538,33 @@ namespace DB_EDITOR
 
             if (result == DialogResult.OK)
             {
-                DISABLE = true;
-                List<CheckedListBox> confBoxes = GetConfBoxObjects();
-
-                for (int x = 0; x < confBoxes.Count; x++)
-                {
-                    confBoxes[x].Enabled = true;
-                    for (int i = 0; i < confBoxes[x].Items.Count; i++)
-                    {
-                        if (!confBoxes[x].Items[i].Equals("*"))
-                            AllTeamsListBox.Items.Add(confBoxes[x].Items[i]);
-                    }
-                    confBoxes[x].Items.Clear();
-                    for (int i = confBoxes[x].Items.Count; i < 18; i++)
-                    {
-                        confBoxes[x].Items.Add("*");
-                    }
-                }
-
-                AllTeamsListBox.Sorted = true;
-                CountTeams();
-                DISABLE = false;
+                ClearLeague();
             }
+        }
+
+        private void ClearLeague()
+        {
+            DISABLE = true;
+            List<CheckedListBox> confBoxes = GetConfBoxObjects();
+
+            for (int x = 0; x < confBoxes.Count; x++)
+            {
+                confBoxes[x].Enabled = true;
+                for (int i = 0; i < confBoxes[x].Items.Count; i++)
+                {
+                    if (!confBoxes[x].Items[i].Equals("*"))
+                        AllTeamsListBox.Items.Add(confBoxes[x].Items[i]);
+                }
+                confBoxes[x].Items.Clear();
+                for (int i = confBoxes[x].Items.Count; i < maxTeams; i++)
+                {
+                    confBoxes[x].Items.Add("*");
+                }
+            }
+
+            AllTeamsListBox.Sorted = true;
+            CountTeams();
+            DISABLE = false;
         }
 
         //Swap/Reset Button
@@ -631,7 +636,7 @@ namespace DB_EDITOR
                         statusLabels[i].Text = "Count: " + count + " | Valid";
                         statusLabels[i].BackColor = Color.LightGreen;
                     }
-                    else if (count > 7 && count < 13 || count > 13 && count < 19 && count % 2 == 0 && valid)
+                    else if (count > 7 && count < 13 || count > 13 && count < 21 && count % 2 == 0 && valid)
                     {
                         statusLabels[i].Text = "Count: " + count + " | Valid";
                         statusLabels[i].BackColor = Color.LightGreen;
@@ -913,7 +918,7 @@ namespace DB_EDITOR
 
             foreach (var c in confBoxes)
             {
-                for (int i = c.Items.Count; i < 18; i++)
+                for (int i = c.Items.Count; i < maxTeams; i++)
                 {
                     c.Items.Add("*");
                 }
@@ -972,6 +977,63 @@ namespace DB_EDITOR
                 wText.Close();
             }
         }
+
+
+        #endregion
+
+        #region Randomize League
+        private void RandomizeLeagueButton_Click(object sender, EventArgs e)
+        {
+            RandomizeLeagueSetup();
+        }
+        private void RandomizeLeagueSetup()
+        {
+            //Clear Conferences
+            ClearLeague();
+            int teamCount = Convert.ToInt32(TeamsPerConfBox.SelectedItem);
+            int confCount = 120/teamCount;
+            int league = Convert.ToInt32(TeamSelectionBox.SelectedIndex);
+            List<CheckedListBox> confBoxes = GetConfBoxObjects();
+            List<NumericUpDown> prestigeBoxes = GetConfPrestigeBoxes();
+            List<string> teamList = new List<string>();
+
+            for (int i = 0; i < main.GetTableRecCount("TEAM"); i++)
+            {
+                if(league == 2 && main.GetDBValueInt("TEAM", "TTYP", i) < 2 || main.GetDBValueInt("TEAM", "TTYP", i) == league) 
+                    teamList.Add(main.GetDBValue("TEAM", "TDNA", i));
+            }
+
+            if (league ==1)
+            {
+                for (int i = 0; 1 < (121 - teamList.Count); i++)
+                {
+                    int t = rand.Next(0, main.GetTableRecCount("TEAM"));
+                    if (main.GetDBValueInt("TEAM", "TTYP", t) == 0)
+                        teamList.Add(main.GetDBValue("TEAM", "TDNA", i));
+                }
+            }
+
+            for (int c = 0; c < confBoxes.Count; c++)
+            {
+                if (teamCount < 11 && confCount > 0 || teamCount > 10 && c != 5 && confCount > 0)
+                {
+                    for (int i = 0; i < teamCount; i++)
+                    {
+                        int x = rand.Next(0, teamList.Count);
+                        confBoxes[c].Items[i] = teamList[x];
+                        AllTeamsListBox.Items.Remove(teamList[x]);
+                        AllTeamsListBox.Sorted = true;
+                        teamList.RemoveAt(x);
+                        teamList.Sort();
+                    }
+                    confCount--;
+                }
+            }
+
+            CountTeams();
+
+        }
+
 
 
         #endregion

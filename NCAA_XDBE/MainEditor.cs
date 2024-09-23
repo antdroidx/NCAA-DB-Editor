@@ -40,12 +40,14 @@ namespace DB_EDITOR
         int TeamIndex;
         int PlayerIndex;
         int CoachIndex;
+        int DepthChartIndex;
 
         Color primary = Color.Black;
         Color secondary = Color.White;
         List<List<string>> AllTeamPlayers;
         List<List<string>> OffPlayers;
         List<List<string>> DefPlayers;
+        List<List<string>> DCHTPlayers;
         List<List<string>> TeamColorPalettes = new List<List<string>>();
         List<List<string>> PlayerEditorList;
         List<int> PJENList;
@@ -163,6 +165,7 @@ namespace DB_EDITOR
             tabControl1.TabPages.Remove(tabConf);
             tabControl1.TabPages.Remove(tabDev);
             tabControl1.TabPages.Remove(tabPlaybook);
+            tabControl1.TabPages.Remove(tabDepthCharts);
 
 
 
@@ -1717,8 +1720,6 @@ namespace DB_EDITOR
             }
         }
 
-
-
         private int GetFieldIndex(string tmpFName)
         {
             int tmpIndex = 0;
@@ -1831,7 +1832,7 @@ namespace DB_EDITOR
                 {
                     TDYN = true;
                     CreateTeamDB();
-                    tabControl1.TabPages.Add(tabDev);
+                    //tabControl1.TabPages.Add(tabDev);
                 }
                 if (Convert.ToString(tableGridView.Rows[i].Cells[1].Value) == "CONF" && !BigEndian)
                 {
@@ -1845,6 +1846,10 @@ namespace DB_EDITOR
                 if (Convert.ToString(tableGridView.Rows[i].Cells[1].Value) == "PBPL" && !BigEndian)
                 {
                     tabControl1.TabPages.Add(tabPlaybook);
+                }
+                if (Convert.ToString(tableGridView.Rows[i].Cells[1].Value) == "DCHT" && !BigEndian)
+                {
+                    tabControl1.TabPages.Add(tabDepthCharts);
                 }
             }
         }

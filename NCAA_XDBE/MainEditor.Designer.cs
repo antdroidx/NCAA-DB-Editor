@@ -41,6 +41,10 @@ namespace DB_EDITOR
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -247,7 +251,6 @@ namespace DB_EDITOR
             this.LeftHand = new System.Windows.Forms.ComboBox();
             this.label116 = new System.Windows.Forms.Label();
             this.LeftShoe = new System.Windows.Forms.ComboBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label113 = new System.Windows.Forms.Label();
             this.PJEN = new System.Windows.Forms.NumericUpDown();
             this.PlayerSetDepthChartButton = new System.Windows.Forms.Button();
@@ -346,6 +349,7 @@ namespace DB_EDITOR
             this.label1 = new System.Windows.Forms.Label();
             this.PLNAtextBox = new System.Windows.Forms.TextBox();
             this.PFNAtextBox = new System.Windows.Forms.TextBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tabCoaches = new System.Windows.Forms.TabPage();
             this.CoachShowTeamBox = new System.Windows.Forms.CheckBox();
             this.CoachTeamList = new System.Windows.Forms.ComboBox();
@@ -584,7 +588,21 @@ namespace DB_EDITOR
             this.PlayName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PLYTVal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PLYT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabDepthCharts = new System.Windows.Forms.TabPage();
+            this.DCHTAutoSet = new System.Windows.Forms.Button();
+            this.DCHTClear = new System.Windows.Forms.Button();
+            this.UpdateDCHT = new System.Windows.Forms.Button();
+            this.DCHTTeam = new System.Windows.Forms.ComboBox();
+            this.label152 = new System.Windows.Forms.Label();
+            this.DCHTGrid = new System.Windows.Forms.DataGridView();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.DCHTPPOS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DCHT0 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.DCHT1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.DCHT2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.DCHT3 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.DCHT4 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.DCHT5 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             qbTend = new System.Windows.Forms.Button();
             this.mainMenu.SuspendLayout();
             this.tableMenu.SuspendLayout();
@@ -617,7 +635,6 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.TeamCRPCNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.TeamCTPCNumber)).BeginInit();
             this.tabPlayers.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PJEN)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PWGTBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PHGTBox)).BeginInit();
@@ -640,6 +657,7 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.PSPDBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PINJBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PIMPBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabCoaches.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CoachCDTSBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CoachCDTABox)).BeginInit();
@@ -677,6 +695,8 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.PlayNameValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcrtNumBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlaybookGrid)).BeginInit();
+            this.tabDepthCharts.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DCHTGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // qbTend
@@ -1166,6 +1186,7 @@ namespace DB_EDITOR
             this.tabControl1.Controls.Add(this.tabDev);
             this.tabControl1.Controls.Add(this.tabConf);
             this.tabControl1.Controls.Add(this.tabPlaybook);
+            this.tabControl1.Controls.Add(this.tabDepthCharts);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.ItemSize = new System.Drawing.Size(75, 20);
             this.tabControl1.Location = new System.Drawing.Point(12, 27);
@@ -3030,16 +3051,6 @@ namespace DB_EDITOR
             this.LeftShoe.TabIndex = 103;
             this.LeftShoe.SelectedIndexChanged += new System.EventHandler(this.LeftShoe_SelectedIndexChanged);
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(719, 98);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(385, 542);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 102;
-            this.pictureBox2.TabStop = false;
-            // 
             // label113
             // 
             this.label113.AutoSize = true;
@@ -4104,6 +4115,16 @@ namespace DB_EDITOR
             this.PFNAtextBox.TabIndex = 0;
             this.PFNAtextBox.TextChanged += new System.EventHandler(this.PFNAtextBox_TextChanged);
             this.PFNAtextBox.Leave += new System.EventHandler(this.PFNA_Leave);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(719, 98);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(385, 542);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 102;
+            this.pictureBox2.TabStop = false;
             // 
             // tabCoaches
             // 
@@ -7014,6 +7035,170 @@ namespace DB_EDITOR
             this.PLYT.Name = "PLYT";
             this.PLYT.ReadOnly = true;
             // 
+            // tabDepthCharts
+            // 
+            this.tabDepthCharts.Controls.Add(this.DCHTAutoSet);
+            this.tabDepthCharts.Controls.Add(this.DCHTClear);
+            this.tabDepthCharts.Controls.Add(this.UpdateDCHT);
+            this.tabDepthCharts.Controls.Add(this.DCHTTeam);
+            this.tabDepthCharts.Controls.Add(this.label152);
+            this.tabDepthCharts.Controls.Add(this.DCHTGrid);
+            this.tabDepthCharts.Location = new System.Drawing.Point(4, 24);
+            this.tabDepthCharts.Name = "tabDepthCharts";
+            this.tabDepthCharts.Padding = new System.Windows.Forms.Padding(3);
+            this.tabDepthCharts.Size = new System.Drawing.Size(1152, 665);
+            this.tabDepthCharts.TabIndex = 11;
+            this.tabDepthCharts.Text = "Depth Charts";
+            this.tabDepthCharts.UseVisualStyleBackColor = true;
+            // 
+            // DCHTAutoSet
+            // 
+            this.DCHTAutoSet.BackColor = System.Drawing.Color.Gold;
+            this.DCHTAutoSet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DCHTAutoSet.Location = new System.Drawing.Point(15, 267);
+            this.DCHTAutoSet.Name = "DCHTAutoSet";
+            this.DCHTAutoSet.Size = new System.Drawing.Size(138, 43);
+            this.DCHTAutoSet.TabIndex = 5;
+            this.DCHTAutoSet.Text = "Auto Set\r\nDepth Chart";
+            this.DCHTAutoSet.UseVisualStyleBackColor = false;
+            this.DCHTAutoSet.Click += new System.EventHandler(this.DCHTAutoSet_Click);
+            // 
+            // DCHTClear
+            // 
+            this.DCHTClear.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.DCHTClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DCHTClear.Location = new System.Drawing.Point(15, 192);
+            this.DCHTClear.Name = "DCHTClear";
+            this.DCHTClear.Size = new System.Drawing.Size(138, 43);
+            this.DCHTClear.TabIndex = 4;
+            this.DCHTClear.Text = "Reset Table";
+            this.DCHTClear.UseVisualStyleBackColor = false;
+            this.DCHTClear.Click += new System.EventHandler(this.DCHTClear_Click);
+            // 
+            // UpdateDCHT
+            // 
+            this.UpdateDCHT.BackColor = System.Drawing.Color.IndianRed;
+            this.UpdateDCHT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpdateDCHT.Location = new System.Drawing.Point(15, 117);
+            this.UpdateDCHT.Name = "UpdateDCHT";
+            this.UpdateDCHT.Size = new System.Drawing.Size(138, 43);
+            this.UpdateDCHT.TabIndex = 3;
+            this.UpdateDCHT.Text = "Update Database";
+            this.UpdateDCHT.UseVisualStyleBackColor = false;
+            this.UpdateDCHT.Click += new System.EventHandler(this.UpdateDCHT_Click);
+            // 
+            // DCHTTeam
+            // 
+            this.DCHTTeam.FormattingEnabled = true;
+            this.DCHTTeam.Location = new System.Drawing.Point(15, 63);
+            this.DCHTTeam.Name = "DCHTTeam";
+            this.DCHTTeam.Size = new System.Drawing.Size(138, 21);
+            this.DCHTTeam.TabIndex = 2;
+            this.DCHTTeam.SelectedIndexChanged += new System.EventHandler(this.DCHTTeam_SelectedIndexChanged);
+            // 
+            // label152
+            // 
+            this.label152.AutoSize = true;
+            this.label152.Location = new System.Drawing.Point(12, 46);
+            this.label152.Name = "label152";
+            this.label152.Size = new System.Drawing.Size(67, 13);
+            this.label152.TabIndex = 1;
+            this.label152.Text = "Select Team";
+            // 
+            // DCHTGrid
+            // 
+            this.DCHTGrid.AllowUserToAddRows = false;
+            this.DCHTGrid.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DCHTGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            this.DCHTGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DCHTGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DCHTGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.DCHTGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DCHTGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DCHTPPOS,
+            this.DCHT0,
+            this.DCHT1,
+            this.DCHT2,
+            this.DCHT3,
+            this.DCHT4,
+            this.DCHT5});
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DCHTGrid.DefaultCellStyle = dataGridViewCellStyle9;
+            this.DCHTGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.DCHTGrid.Location = new System.Drawing.Point(159, 6);
+            this.DCHTGrid.Name = "DCHTGrid";
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DCHTGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            this.DCHTGrid.Size = new System.Drawing.Size(974, 585);
+            this.DCHTGrid.TabIndex = 0;
+            this.DCHTGrid.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DCHT_CellEnter);
+            this.DCHTGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.DCHTGrid_DataError);
+            // 
+            // DCHTPPOS
+            // 
+            this.DCHTPPOS.FillWeight = 30F;
+            this.DCHTPPOS.HeaderText = "Position";
+            this.DCHTPPOS.Name = "DCHTPPOS";
+            this.DCHTPPOS.ReadOnly = true;
+            // 
+            // DCHT0
+            // 
+            this.DCHT0.FillWeight = 67.44775F;
+            this.DCHT0.HeaderText = "Starter";
+            this.DCHT0.Name = "DCHT0";
+            // 
+            // DCHT1
+            // 
+            this.DCHT1.FillWeight = 67.44775F;
+            this.DCHT1.HeaderText = "Backup";
+            this.DCHT1.Name = "DCHT1";
+            this.DCHT1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.DCHT1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // DCHT2
+            // 
+            this.DCHT2.FillWeight = 67.44775F;
+            this.DCHT2.HeaderText = "3rd String";
+            this.DCHT2.Name = "DCHT2";
+            // 
+            // DCHT3
+            // 
+            this.DCHT3.FillWeight = 67.44775F;
+            this.DCHT3.HeaderText = "4th String";
+            this.DCHT3.Name = "DCHT3";
+            // 
+            // DCHT4
+            // 
+            this.DCHT4.FillWeight = 67.44775F;
+            this.DCHT4.HeaderText = "5th String";
+            this.DCHT4.Name = "DCHT4";
+            // 
+            // DCHT5
+            // 
+            this.DCHT5.FillWeight = 67.44775F;
+            this.DCHT5.HeaderText = "6th String";
+            this.DCHT5.Name = "DCHT5";
+            // 
             // MainEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -7069,7 +7254,6 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.TeamCTPCNumber)).EndInit();
             this.tabPlayers.ResumeLayout(false);
             this.tabPlayers.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PJEN)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PWGTBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PHGTBox)).EndInit();
@@ -7092,6 +7276,7 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.PSPDBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PINJBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PIMPBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tabCoaches.ResumeLayout(false);
             this.tabCoaches.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CoachCDTSBox)).EndInit();
@@ -7136,6 +7321,9 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.PlayNameValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcrtNumBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PlaybookGrid)).EndInit();
+            this.tabDepthCharts.ResumeLayout(false);
+            this.tabDepthCharts.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DCHTGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -7693,6 +7881,20 @@ namespace DB_EDITOR
         private System.Windows.Forms.ComboBox RightShoe;
         public Label label151;
         public System.Windows.Forms.TextBox PRST;
+        private TabPage tabDepthCharts;
+        private DataGridView DCHTGrid;
+        private System.Windows.Forms.Button DCHTClear;
+        private System.Windows.Forms.Button UpdateDCHT;
+        private System.Windows.Forms.ComboBox DCHTTeam;
+        private Label label152;
+        private System.Windows.Forms.Button DCHTAutoSet;
+        private DataGridViewTextBoxColumn DCHTPPOS;
+        private DataGridViewComboBoxColumn DCHT0;
+        private DataGridViewComboBoxColumn DCHT1;
+        private DataGridViewComboBoxColumn DCHT2;
+        private DataGridViewComboBoxColumn DCHT3;
+        private DataGridViewComboBoxColumn DCHT4;
+        private DataGridViewComboBoxColumn DCHT5;
     }
 }
 

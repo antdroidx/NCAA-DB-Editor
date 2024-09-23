@@ -276,6 +276,40 @@ namespace DB_EDITOR.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to GTOD,GATG,GHTG,SESI,SEWN,GDAT,SEWT
+        ///930,1,2,0,13,5,13
+        ///1200,3,4,0,13,5,13
+        ///930,5,1,0,11,5,11
+        ///930,2,3,0,11,5,11
+        ///1200,4,2,0,4,5,4
+        ///930,5,3,0,4,5,4
+        ///1200,3,1,0,6,5,6
+        ///1200,4,5,0,6,5,6
+        ///1200,1,4,0,15,5,15
+        ///1200,2,5,0,15,5,15
+        ///750,6,7,0,13,5,13
+        ///750,8,9,0,13,5,13
+        ///1080,10,6,0,11,5,11
+        ///930,7,8,0,11,5,11
+        ///1080,9,7,0,4,5,4
+        ///750,10,8,0,4,5,4
+        ///1080,8,6,0,6,5,6
+        ///1200,9,10,0,6,5,6
+        ///750,6,9,0,15,5,15
+        ///750,7,10,0,15,5,15
+        ///1080,11,12,0,13,4,13
+        ///1200,13,14,0,13,5,13
+        ///1200,15,11,0,11,5,11
+        ///930,12,13,0,11,5,11
+        ///1200,14,12, [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _20_team {
+            get {
+                return ResourceManager.GetString("_20_team", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to GTOD,GATG,GHTG,SESI,SEWN,GDAT,SEWT
         ///750,2,1,0,2,5,2
         ///750,4,5,0,4,5,4
         ///1080,7,3,0,4,5,4
@@ -347,42 +381,39 @@ namespace DB_EDITOR.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Field Goal,0
-        ///Short Yardage,1
-        ///Stop Clock,2
-        ///Goaline,3
-        ///Redzone,4
-        ///Inside Five,5
-        ///Normal,6
-        ///Medium Yardage,7
-        ///Long Yardage,8
-        ///Punt,9
-        ///Conserve Time,10
-        ///Fake Punt,11
-        ///Fake FG,12
-        ///Waste Time,13
-        ///QB Kneel,14
-        ///Normal Kickoff,15
-        ///Onside Kick,16
-        ///Run,17
-        ///Safety Kickoff,18
-        ///Max Protect Punt,19
-        ///Pass,20
-        ///Hail Mary,21
-        ///Goaline Pass,22
-        ///2nd &amp; Short,23
-        ///2nd &amp; Medium,24
-        ///2nd &amp; Long,25
-        ///3rd &amp; short,26
-        ///3rd &amp; Medium,27
-        ///3rd &amp; Long,28
-        ///Unused,29
-        ///Unused,30
-        ///Unused,31
-        ///Spike,32
-        ///Fake Spike,33
-        ///4th &amp; Short,34
-        ///4th &amp; Medium, [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to Field Goal,0,
+        ///Short Yardage,1,
+        ///Stop Clock,2,
+        ///Goaline,3,
+        ///Redzone,4,
+        ///Inside Five,5,
+        ///Normal,6,
+        ///Medium Yardage,7,
+        ///Long Yardage,8,
+        ///Punt,9,
+        ///Conserve Time,10,
+        ///Fake Punt,11,
+        ///Fake FG,12,
+        ///Waste Time,13,
+        ///QB Kneel,14,
+        ///Normal Kickoff,15,
+        ///Onside Kick,16,
+        ///Run,17,
+        ///Safety Kickoff,18,
+        ///Max Protect Punt,19,
+        ///Pass,20,
+        ///Hail Mary,21,
+        ///Extra Point,22,Goaline Pass
+        ///Sky Punt,23,2nd &amp; Short
+        ///2nd &amp; Medium,24,
+        ///2nd &amp; Long,25,
+        ///3rd &amp; short,26,
+        ///3rd &amp; Medium,27,
+        ///3rd &amp; Long,28,
+        ///Unused,29,
+        ///Unused,30,
+        ///Unused,31,
+        ///Spi [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string AIGR {
             get {
@@ -391,30 +422,46 @@ namespace DB_EDITOR.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to 0,Normal
-        ///1,Trips Run
-        ///2,Pass
-        ///3,Kick Return
-        ///4,Kick Return Onside
-        ///5,Goaline Run
-        ///6,Nickel Run
-        ///7,Goaline Pass
-        ///8,Kickoff Return Safety
-        ///9,Punt Return Block
-        ///10,Pass 3WR
-        ///11,Trips Pass
-        ///12,Trips
-        ///13,Nickel Pass
-        ///15,Punt Return Safe
-        ///16,Field Goal Block
-        ///17,Field Goal Safe
-        ///18,Run
-        ///19,Run 3WR
-        ///20,Nickel
-        ///21,Dime
-        ///22,Goaline
-        ///23,Hail Mary
-        ///24,Dime Pass
+        ///   Looks up a localized string similar to Normal,0
+        ///Trips Run,1
+        ///Pass,2
+        ///Kick Return,3
+        ///Kick Return Onside,4
+        ///Goaline Run,5
+        ///Nickel Run,6
+        ///Goaline Pass,7
+        ///Kickoff Return Safety,8
+        ///Punt Return Block,9
+        ///Pass 3WR,10
+        ///Trips Pass,11
+        ///Trips,12
+        ///Nickel Pass,13
+        ///Punt Return Safe,15
+        ///Field Goal Block,16
+        ///Field Goal Safe,17
+        ///Run,18
+        ///Run 3WR,19
+        ///Nickel,20
+        ///Dime,21
+        ///Goaline,22
+        ///Hail Mary,23
+        ///Dime Pass,24
+        ///,25
+        ///,26
+        ///,27
+        ///,28
+        ///,29
+        ///,30
+        ///,31
+        ///,32
+        ///,33
+        ///,34
+        ///,35
+        ///,36
+        ///,37
+        ///,38
+        ///,39
+        ///,40
         ///.
         /// </summary>
         internal static string AIGR_DEF {

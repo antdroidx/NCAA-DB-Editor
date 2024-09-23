@@ -714,8 +714,9 @@ namespace DB_EDITOR
 
             int val = Convert.ToInt32(newRating);
 
-            if (playerPOSG != posg) val -= 20;
+            if (playerPOSG != posg && posg < 8) val -= 20;
 
+            if (val < 0) val = 0;
             return val;
 
         }
@@ -1027,7 +1028,7 @@ namespace DB_EDITOR
         public int FindTeamRecfromTeamName(string tmName)
         {
             int tgid = -1;
-            for(int i = 0; i < TDB.TableRecordCount(dbIndex,"TEAM"); i++)
+            for(int i = 0; i < GetTableRecCount("TEAM"); i++)
             {
                 if(GetDBValue("TEAM", "TDNA", i) == tmName)
                 {
@@ -1037,6 +1038,19 @@ namespace DB_EDITOR
             }
 
             return tgid;
+        }
+
+        public int FindTGIDfromTeamName(string tmName)
+        {
+            for (int i = 0; i < teamNameDB.Length; i++)
+            {
+                if(teamNameDB[i] == tmName) 
+                {
+                    return i; 
+                }
+
+            }
+            return -1;
         }
 
         public void ReorderTORD()

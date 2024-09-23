@@ -54,6 +54,7 @@ namespace DB_EDITOR
         Point p = Point.Empty;
 
         int TeamCount = 0;
+        int maxTeams = 20;
 
         List<int> bowlsDeleted = new List<int>();
 
@@ -1705,8 +1706,9 @@ namespace DB_EDITOR
 
 
 
-        #endregion
 
+
+        #endregion
 
     }
 

@@ -78,6 +78,9 @@
     <Compile Include="Button_Clicks.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="DepthCharts.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Playbooks.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -263,6 +266,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Resources\schedules\18-team.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\schedules\20-team.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Resources\schedules\8-team.csv">

@@ -26,7 +26,7 @@ namespace DB_EDITOR
             else if (tabControl1.SelectedTab == tabCoaches) StartCoachEditor();
             else if (tabControl1.SelectedTab == tabTools) StartDBTools();
             else if (tabControl1.SelectedTab == tabPlaybook) StartPlaybookEditor();
-
+            else if (tabControl1.SelectedTab == tabDepthCharts) StartDepthChartEditor();
         }
 
         private void OpenTabs()
