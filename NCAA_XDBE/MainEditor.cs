@@ -35,7 +35,7 @@ namespace DB_EDITOR
         bool coachProgComplete = false;
         bool TDYN = false;
         bool TEAM = false;
-
+        bool NextMod = false;
 
         int TeamIndex;
         int PlayerIndex;
@@ -236,6 +236,7 @@ namespace DB_EDITOR
                 LoadFields();
 
                 CreateExtraFileDataContainers();
+                StartHomeTab();
 
             }
         }
@@ -456,8 +457,20 @@ namespace DB_EDITOR
         }
         private void NCAANext25Config_Click(object sender, EventArgs e)
         {
-            if (NCAANext25Config.Checked) NCAANext25Config.Checked = false;
-            else NCAANext25Config.Checked = true;
+            if (NCAANext25Config.Checked)
+            {
+                NCAANext25Config.Checked = false;
+                OGConfigRadio.Checked = true;
+                NextConfigRadio.Checked = false;
+                NextMod = false;
+            }
+            else
+            {
+                NCAANext25Config.Checked = true;
+                OGConfigRadio.Checked = false;
+                NextConfigRadio.Checked = true;
+                NextMod = true;
+            }
 
             CreatePOCItable();
         }
@@ -472,6 +485,21 @@ namespace DB_EDITOR
             AboutBox1 AboutBox = new AboutBox1();
             AboutBox.ShowDialog();
         }
+
+        private void OGConfigRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            NCAANext25Config.Checked = false;
+            NextMod = false;
+            CreatePOCItable();
+        }
+
+        private void NextConfigRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            NCAANext25Config.Checked = true;
+            NextMod = true;
+            CreatePOCItable();
+        }
+
 
         #endregion
 
@@ -1719,6 +1747,7 @@ namespace DB_EDITOR
                 return false;
             }
         }
+
 
         private int GetFieldIndex(string tmpFName)
         {

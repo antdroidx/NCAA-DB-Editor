@@ -34,17 +34,17 @@ namespace DB_EDITOR
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Button qbTend;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainEditor));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -100,6 +100,9 @@ namespace DB_EDITOR
             this.fieldsGridView = new System.Windows.Forms.DataGridView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabHome = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.OGConfigRadio = new System.Windows.Forms.RadioButton();
+            this.NextConfigRadio = new System.Windows.Forms.RadioButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabTeams = new System.Windows.Forms.TabPage();
             this.TeamSetDepthChart = new System.Windows.Forms.Button();
@@ -351,6 +354,7 @@ namespace DB_EDITOR
             this.PFNAtextBox = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tabCoaches = new System.Windows.Forms.TabPage();
+            this.NewCoachButton = new System.Windows.Forms.Button();
             this.CoachShowTeamBox = new System.Windows.Forms.CheckBox();
             this.CoachTeamList = new System.Windows.Forms.ComboBox();
             this.label98 = new System.Windows.Forms.Label();
@@ -424,7 +428,6 @@ namespace DB_EDITOR
             this.labelPSInjuries = new System.Windows.Forms.Label();
             this.numInjuries = new System.Windows.Forms.NumericUpDown();
             this.buttonPSInjuries = new System.Windows.Forms.Button();
-            this.checkBoxMedRSNEXT = new System.Windows.Forms.CheckBox();
             this.labelPoaching = new System.Windows.Forms.Label();
             this.poachValue = new System.Windows.Forms.NumericUpDown();
             this.labelJobSecurity = new System.Windows.Forms.Label();
@@ -595,7 +598,6 @@ namespace DB_EDITOR
             this.DCHTTeam = new System.Windows.Forms.ComboBox();
             this.label152 = new System.Windows.Forms.Label();
             this.DCHTGrid = new System.Windows.Forms.DataGridView();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.DCHTPPOS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DCHT0 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.DCHT1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -603,6 +605,8 @@ namespace DB_EDITOR
             this.DCHT3 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.DCHT4 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.DCHT5 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.FantasyCoachesButton = new System.Windows.Forms.Button();
             qbTend = new System.Windows.Forms.Button();
             this.mainMenu.SuspendLayout();
             this.tableMenu.SuspendLayout();
@@ -614,6 +618,7 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.fieldsGridView)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabHome.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabTeams.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CapacityNumbox)).BeginInit();
@@ -1150,8 +1155,8 @@ namespace DB_EDITOR
             // 
             this.fieldsGridView.AllowDrop = true;
             this.fieldsGridView.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            this.fieldsGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            this.fieldsGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
             this.fieldsGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -1201,6 +1206,7 @@ namespace DB_EDITOR
             // tabHome
             // 
             this.tabHome.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.tabHome.Controls.Add(this.groupBox1);
             this.tabHome.Controls.Add(this.pictureBox1);
             this.tabHome.Location = new System.Drawing.Point(4, 24);
             this.tabHome.Name = "tabHome";
@@ -1210,10 +1216,47 @@ namespace DB_EDITOR
             this.tabHome.Text = "Home";
             this.tabHome.UseVisualStyleBackColor = true;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.OGConfigRadio);
+            this.groupBox1.Controls.Add(this.NextConfigRadio);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.Control;
+            this.groupBox1.Location = new System.Drawing.Point(12, 18);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(381, 48);
+            this.groupBox1.TabIndex = 143;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Configuration";
+            // 
+            // OGConfigRadio
+            // 
+            this.OGConfigRadio.AutoSize = true;
+            this.OGConfigRadio.Checked = true;
+            this.OGConfigRadio.Location = new System.Drawing.Point(23, 21);
+            this.OGConfigRadio.Name = "OGConfigRadio";
+            this.OGConfigRadio.Size = new System.Drawing.Size(144, 20);
+            this.OGConfigRadio.TabIndex = 1;
+            this.OGConfigRadio.TabStop = true;
+            this.OGConfigRadio.Text = "NCAA 06 Original";
+            this.OGConfigRadio.UseVisualStyleBackColor = true;
+            this.OGConfigRadio.CheckedChanged += new System.EventHandler(this.OGConfigRadio_CheckedChanged);
+            // 
+            // NextConfigRadio
+            // 
+            this.NextConfigRadio.AutoSize = true;
+            this.NextConfigRadio.Location = new System.Drawing.Point(201, 21);
+            this.NextConfigRadio.Name = "NextConfigRadio";
+            this.NextConfigRadio.Size = new System.Drawing.Size(163, 20);
+            this.NextConfigRadio.TabIndex = 0;
+            this.NextConfigRadio.Text = "NCAA Next 25+ Mod";
+            this.NextConfigRadio.UseVisualStyleBackColor = true;
+            this.NextConfigRadio.CheckedChanged += new System.EventHandler(this.NextConfigRadio_CheckedChanged);
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::DB_EDITOR.Properties.Resources.ncaa_db_editor_TITLE;
-            this.pictureBox1.Location = new System.Drawing.Point(200, 45);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 72);
             this.pictureBox1.MaximumSize = new System.Drawing.Size(1000, 1000);
             this.pictureBox1.MinimumSize = new System.Drawing.Size(550, 550);
             this.pictureBox1.Name = "pictureBox1";
@@ -4129,6 +4172,7 @@ namespace DB_EDITOR
             // tabCoaches
             // 
             this.tabCoaches.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.tabCoaches.Controls.Add(this.NewCoachButton);
             this.tabCoaches.Controls.Add(this.CoachShowTeamBox);
             this.tabCoaches.Controls.Add(this.CoachTeamList);
             this.tabCoaches.Controls.Add(this.label98);
@@ -4192,6 +4236,17 @@ namespace DB_EDITOR
             this.tabCoaches.Size = new System.Drawing.Size(1152, 665);
             this.tabCoaches.TabIndex = 7;
             this.tabCoaches.Text = "Coaches";
+            // 
+            // NewCoachButton
+            // 
+            this.NewCoachButton.BackColor = System.Drawing.Color.PaleGreen;
+            this.NewCoachButton.Location = new System.Drawing.Point(1018, 615);
+            this.NewCoachButton.Name = "NewCoachButton";
+            this.NewCoachButton.Size = new System.Drawing.Size(128, 44);
+            this.NewCoachButton.TabIndex = 238;
+            this.NewCoachButton.Text = "Generate New Coach";
+            this.NewCoachButton.UseVisualStyleBackColor = false;
+            this.NewCoachButton.Click += new System.EventHandler(this.NewCoachButton_Click);
             // 
             // CoachShowTeamBox
             // 
@@ -4760,7 +4815,6 @@ namespace DB_EDITOR
             this.tabSeason.Controls.Add(this.labelPSInjuries);
             this.tabSeason.Controls.Add(this.numInjuries);
             this.tabSeason.Controls.Add(this.buttonPSInjuries);
-            this.tabSeason.Controls.Add(this.checkBoxMedRSNEXT);
             this.tabSeason.Controls.Add(this.labelPoaching);
             this.tabSeason.Controls.Add(this.poachValue);
             this.tabSeason.Controls.Add(this.labelJobSecurity);
@@ -4785,7 +4839,7 @@ namespace DB_EDITOR
             // 
             this.CoachPrestigeButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.CoachPrestigeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CoachPrestigeButton.Location = new System.Drawing.Point(177, 531);
+            this.CoachPrestigeButton.Location = new System.Drawing.Point(170, 382);
             this.CoachPrestigeButton.Name = "CoachPrestigeButton";
             this.CoachPrestigeButton.Size = new System.Drawing.Size(110, 80);
             this.CoachPrestigeButton.TabIndex = 33;
@@ -4796,7 +4850,7 @@ namespace DB_EDITOR
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(431, 598);
+            this.label14.Location = new System.Drawing.Point(28, 643);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(93, 13);
             this.label14.TabIndex = 32;
@@ -4804,7 +4858,7 @@ namespace DB_EDITOR
             // 
             // numberPlayerCoach
             // 
-            this.numberPlayerCoach.Location = new System.Drawing.Point(434, 575);
+            this.numberPlayerCoach.Location = new System.Drawing.Point(31, 620);
             this.numberPlayerCoach.Maximum = new decimal(new int[] {
             10,
             0,
@@ -4819,7 +4873,7 @@ namespace DB_EDITOR
             this.buttonPlayerCoach.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.buttonPlayerCoach.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonPlayerCoach.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonPlayerCoach.Location = new System.Drawing.Point(315, 531);
+            this.buttonPlayerCoach.Location = new System.Drawing.Point(28, 534);
             this.buttonPlayerCoach.Name = "buttonPlayerCoach";
             this.buttonPlayerCoach.Size = new System.Drawing.Size(110, 80);
             this.buttonPlayerCoach.TabIndex = 30;
@@ -4843,16 +4897,17 @@ namespace DB_EDITOR
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(385, 419);
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(28, 516);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(115, 13);
+            this.label13.Size = new System.Drawing.Size(359, 15);
             this.label13.TabIndex = 27;
-            this.label13.Text = "NCAA NEXT 24 ONLY";
+            this.label13.Text = "NCAA NEXT USERS - Perform At Players Leaving Stage";
             // 
             // labelMaxTransfers
             // 
             this.labelMaxTransfers.AutoSize = true;
-            this.labelMaxTransfers.Location = new System.Drawing.Point(399, 481);
+            this.labelMaxTransfers.Location = new System.Drawing.Point(392, 599);
             this.labelMaxTransfers.Name = "labelMaxTransfers";
             this.labelMaxTransfers.Size = new System.Drawing.Size(74, 13);
             this.labelMaxTransfers.TabIndex = 26;
@@ -4860,7 +4915,7 @@ namespace DB_EDITOR
             // 
             // maxFiredTransfers
             // 
-            this.maxFiredTransfers.Location = new System.Drawing.Point(402, 458);
+            this.maxFiredTransfers.Location = new System.Drawing.Point(395, 576);
             this.maxFiredTransfers.Maximum = new decimal(new int[] {
             15,
             0,
@@ -4873,7 +4928,7 @@ namespace DB_EDITOR
             // checkBoxFiredTransfers
             // 
             this.checkBoxFiredTransfers.AutoSize = true;
-            this.checkBoxFiredTransfers.Location = new System.Drawing.Point(402, 435);
+            this.checkBoxFiredTransfers.Location = new System.Drawing.Point(395, 542);
             this.checkBoxFiredTransfers.Name = "checkBoxFiredTransfers";
             this.checkBoxFiredTransfers.Size = new System.Drawing.Size(98, 17);
             this.checkBoxFiredTransfers.TabIndex = 24;
@@ -4882,7 +4937,7 @@ namespace DB_EDITOR
             // 
             // buttonChaosTransfers
             // 
-            this.buttonChaosTransfers.BackColor = System.Drawing.Color.LightGray;
+            this.buttonChaosTransfers.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.buttonChaosTransfers.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonChaosTransfers.Location = new System.Drawing.Point(308, 218);
             this.buttonChaosTransfers.Name = "buttonChaosTransfers";
@@ -4963,23 +5018,10 @@ namespace DB_EDITOR
             this.buttonPSInjuries.UseVisualStyleBackColor = false;
             this.buttonPSInjuries.Click += new System.EventHandler(this.ButtonPSInjuries_Click);
             // 
-            // checkBoxMedRSNEXT
-            // 
-            this.checkBoxMedRSNEXT.AutoSize = true;
-            this.checkBoxMedRSNEXT.Checked = true;
-            this.checkBoxMedRSNEXT.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBoxMedRSNEXT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxMedRSNEXT.Location = new System.Drawing.Point(143, 282);
-            this.checkBoxMedRSNEXT.Name = "checkBoxMedRSNEXT";
-            this.checkBoxMedRSNEXT.Size = new System.Drawing.Size(104, 17);
-            this.checkBoxMedRSNEXT.TabIndex = 17;
-            this.checkBoxMedRSNEXT.Text = "NCAA Next Mod";
-            this.checkBoxMedRSNEXT.UseVisualStyleBackColor = true;
-            // 
             // labelPoaching
             // 
             this.labelPoaching.AutoSize = true;
-            this.labelPoaching.Location = new System.Drawing.Point(309, 481);
+            this.labelPoaching.Location = new System.Drawing.Point(302, 599);
             this.labelPoaching.Name = "labelPoaching";
             this.labelPoaching.Size = new System.Drawing.Size(78, 13);
             this.labelPoaching.TabIndex = 16;
@@ -4992,7 +5034,7 @@ namespace DB_EDITOR
             0,
             0,
             0});
-            this.poachValue.Location = new System.Drawing.Point(313, 461);
+            this.poachValue.Location = new System.Drawing.Point(306, 579);
             this.poachValue.Maximum = new decimal(new int[] {
             85,
             0,
@@ -5010,7 +5052,7 @@ namespace DB_EDITOR
             // labelJobSecurity
             // 
             this.labelJobSecurity.AutoSize = true;
-            this.labelJobSecurity.Location = new System.Drawing.Point(312, 444);
+            this.labelJobSecurity.Location = new System.Drawing.Point(305, 562);
             this.labelJobSecurity.Name = "labelJobSecurity";
             this.labelJobSecurity.Size = new System.Drawing.Size(65, 13);
             this.labelJobSecurity.TabIndex = 14;
@@ -5023,7 +5065,7 @@ namespace DB_EDITOR
             0,
             0,
             0});
-            this.jobSecurityValue.Location = new System.Drawing.Point(312, 421);
+            this.jobSecurityValue.Location = new System.Drawing.Point(305, 539);
             this.jobSecurityValue.Maximum = new decimal(new int[] {
             30,
             0,
@@ -5038,7 +5080,7 @@ namespace DB_EDITOR
             this.buttonCarousel.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.buttonCarousel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCarousel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonCarousel.Location = new System.Drawing.Point(177, 416);
+            this.buttonCarousel.Location = new System.Drawing.Point(170, 534);
             this.buttonCarousel.Name = "buttonCarousel";
             this.buttonCarousel.Size = new System.Drawing.Size(110, 80);
             this.buttonCarousel.TabIndex = 12;
@@ -5049,7 +5091,7 @@ namespace DB_EDITOR
             // labelSkillDrop
             // 
             this.labelSkillDrop.AutoSize = true;
-            this.labelSkillDrop.Location = new System.Drawing.Point(192, 252);
+            this.labelSkillDrop.Location = new System.Drawing.Point(192, 266);
             this.labelSkillDrop.Name = "labelSkillDrop";
             this.labelSkillDrop.Size = new System.Drawing.Size(75, 13);
             this.labelSkillDrop.TabIndex = 11;
@@ -5057,7 +5099,7 @@ namespace DB_EDITOR
             // 
             // skillDrop
             // 
-            this.skillDrop.Location = new System.Drawing.Point(144, 250);
+            this.skillDrop.Location = new System.Drawing.Point(144, 264);
             this.skillDrop.Maximum = new decimal(new int[] {
             10,
             0,
@@ -5075,7 +5117,7 @@ namespace DB_EDITOR
             // checkBoxInjuryRatings
             // 
             this.checkBoxInjuryRatings.AutoSize = true;
-            this.checkBoxInjuryRatings.Location = new System.Drawing.Point(143, 219);
+            this.checkBoxInjuryRatings.Location = new System.Drawing.Point(143, 233);
             this.checkBoxInjuryRatings.Name = "checkBoxInjuryRatings";
             this.checkBoxInjuryRatings.Size = new System.Drawing.Size(103, 17);
             this.checkBoxInjuryRatings.TabIndex = 9;
@@ -5088,7 +5130,7 @@ namespace DB_EDITOR
             this.buttonRandomBudgets.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.buttonRandomBudgets.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonRandomBudgets.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonRandomBudgets.Location = new System.Drawing.Point(38, 531);
+            this.buttonRandomBudgets.Location = new System.Drawing.Point(31, 382);
             this.buttonRandomBudgets.Name = "buttonRandomBudgets";
             this.buttonRandomBudgets.Size = new System.Drawing.Size(110, 80);
             this.buttonRandomBudgets.TabIndex = 7;
@@ -5125,7 +5167,7 @@ namespace DB_EDITOR
             this.coachProg.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.coachProg.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.coachProg.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.coachProg.Location = new System.Drawing.Point(38, 416);
+            this.coachProg.Location = new System.Drawing.Point(305, 382);
             this.coachProg.Name = "coachProg";
             this.coachProg.Size = new System.Drawing.Size(110, 80);
             this.coachProg.TabIndex = 1;
@@ -5465,6 +5507,7 @@ namespace DB_EDITOR
             // tabTools
             // 
             this.tabTools.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.tabTools.Controls.Add(this.FantasyCoachesButton);
             this.tabTools.Controls.Add(this.SyncPBButton);
             this.tabTools.Controls.Add(this.label109);
             this.tabTools.Controls.Add(this.label108);
@@ -5754,7 +5797,7 @@ namespace DB_EDITOR
             this.ReorderPGIDButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ReorderPGIDButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ReorderPGIDButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ReorderPGIDButton.Location = new System.Drawing.Point(17, 440);
+            this.ReorderPGIDButton.Location = new System.Drawing.Point(17, 451);
             this.ReorderPGIDButton.Name = "ReorderPGIDButton";
             this.ReorderPGIDButton.Size = new System.Drawing.Size(110, 80);
             this.ReorderPGIDButton.TabIndex = 28;
@@ -5767,7 +5810,7 @@ namespace DB_EDITOR
             this.TORDButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.TORDButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TORDButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.TORDButton.Location = new System.Drawing.Point(144, 440);
+            this.TORDButton.Location = new System.Drawing.Point(144, 451);
             this.TORDButton.Name = "TORDButton";
             this.TORDButton.Size = new System.Drawing.Size(110, 80);
             this.TORDButton.TabIndex = 26;
@@ -5832,7 +5875,7 @@ namespace DB_EDITOR
             this.buttonFillRosters.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.buttonFillRosters.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonFillRosters.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonFillRosters.Location = new System.Drawing.Point(991, 556);
+            this.buttonFillRosters.Location = new System.Drawing.Point(978, 549);
             this.buttonFillRosters.Name = "buttonFillRosters";
             this.buttonFillRosters.Size = new System.Drawing.Size(145, 80);
             this.buttonFillRosters.TabIndex = 20;
@@ -5845,7 +5888,7 @@ namespace DB_EDITOR
             this.buttonAutoDepthChart.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.buttonAutoDepthChart.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAutoDepthChart.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonAutoDepthChart.Location = new System.Drawing.Point(991, 459);
+            this.buttonAutoDepthChart.Location = new System.Drawing.Point(978, 451);
             this.buttonAutoDepthChart.Name = "buttonAutoDepthChart";
             this.buttonAutoDepthChart.Size = new System.Drawing.Size(145, 80);
             this.buttonAutoDepthChart.TabIndex = 19;
@@ -5858,7 +5901,7 @@ namespace DB_EDITOR
             this.buttonFantasyRoster.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.buttonFantasyRoster.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonFantasyRoster.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonFantasyRoster.Location = new System.Drawing.Point(727, 556);
+            this.buttonFantasyRoster.Location = new System.Drawing.Point(727, 451);
             this.buttonFantasyRoster.Name = "buttonFantasyRoster";
             this.buttonFantasyRoster.Size = new System.Drawing.Size(239, 80);
             this.buttonFantasyRoster.TabIndex = 18;
@@ -5871,9 +5914,9 @@ namespace DB_EDITOR
             this.buttonImpactPlayers.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.buttonImpactPlayers.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonImpactPlayers.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonImpactPlayers.Location = new System.Drawing.Point(727, 459);
+            this.buttonImpactPlayers.Location = new System.Drawing.Point(17, 340);
             this.buttonImpactPlayers.Name = "buttonImpactPlayers";
-            this.buttonImpactPlayers.Size = new System.Drawing.Size(239, 80);
+            this.buttonImpactPlayers.Size = new System.Drawing.Size(110, 80);
             this.buttonImpactPlayers.TabIndex = 17;
             this.buttonImpactPlayers.Text = "Determine Impact Players";
             this.buttonImpactPlayers.UseVisualStyleBackColor = false;
@@ -5922,10 +5965,10 @@ namespace DB_EDITOR
             this.textBox2.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.textBox2.Enabled = false;
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(296, 29);
+            this.textBox2.Location = new System.Drawing.Point(293, 17);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(387, 607);
+            this.textBox2.Size = new System.Drawing.Size(387, 639);
             this.textBox2.TabIndex = 13;
             this.textBox2.Text = resources.GetString("textBox2.Text");
             // 
@@ -6929,17 +6972,18 @@ namespace DB_EDITOR
             this.PlaybookGrid.AllowUserToAddRows = false;
             this.PlaybookGrid.AllowUserToDeleteRows = false;
             this.PlaybookGrid.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.PlaybookGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightSkyBlue;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.PlaybookGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.PlaybookGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.PlaybookGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.LightSkyBlue;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PlaybookGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.PlaybookGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.PlaybookGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.PBRec,
@@ -6951,86 +6995,88 @@ namespace DB_EDITOR
             this.PlayName,
             this.PLYTVal,
             this.PLYT});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.PlaybookGrid.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.PlaybookGrid.DefaultCellStyle = dataGridViewCellStyle14;
             this.PlaybookGrid.EnableHeadersVisualStyles = false;
             this.PlaybookGrid.Location = new System.Drawing.Point(31, 23);
             this.PlaybookGrid.Name = "PlaybookGrid";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.PlaybookGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PlaybookGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.PlaybookGrid.Size = new System.Drawing.Size(746, 621);
             this.PlaybookGrid.TabIndex = 0;
             // 
             // PBRec
             // 
+            this.PBRec.FillWeight = 64.01138F;
             this.PBRec.HeaderText = "RecNo";
             this.PBRec.Name = "PBRec";
             this.PBRec.ReadOnly = true;
-            this.PBRec.Width = 50;
             // 
             // PBPL
             // 
+            this.PBPL.FillWeight = 66.49709F;
             this.PBPL.HeaderText = "PBPL";
             this.PBPL.Name = "PBPL";
             this.PBPL.ReadOnly = true;
-            this.PBPL.Width = 50;
             // 
             // AIGRVal
             // 
+            this.AIGRVal.FillWeight = 68.806F;
             this.AIGRVal.HeaderText = "AIGR";
             this.AIGRVal.Name = "AIGRVal";
             this.AIGRVal.ReadOnly = true;
-            this.AIGRVal.Width = 50;
             // 
             // AIGRname
             // 
+            this.AIGRname.FillWeight = 141.9014F;
             this.AIGRname.HeaderText = "AIGR Name";
             this.AIGRname.Name = "AIGRname";
             this.AIGRname.ReadOnly = true;
             // 
             // prct
             // 
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Info;
-            this.prct.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Info;
+            this.prct.DefaultCellStyle = dataGridViewCellStyle13;
+            this.prct.FillWeight = 81.47587F;
             this.prct.HeaderText = "PRCT ";
             this.prct.Name = "prct";
-            this.prct.Width = 60;
             // 
             // PLYL
             // 
+            this.PLYL.FillWeight = 69.14011F;
             this.PLYL.HeaderText = "PLYL";
             this.PLYL.Name = "PLYL";
             this.PLYL.ReadOnly = true;
-            this.PLYL.Width = 50;
             // 
             // PlayName
             // 
+            this.PlayName.FillWeight = 213.7831F;
             this.PlayName.HeaderText = "Play Name";
             this.PlayName.Name = "PlayName";
             this.PlayName.ReadOnly = true;
-            this.PlayName.Width = 150;
             // 
             // PLYTVal
             // 
+            this.PLYTVal.FillWeight = 63.09442F;
             this.PLYTVal.HeaderText = "PLYT";
             this.PLYTVal.Name = "PLYTVal";
             this.PLYTVal.ReadOnly = true;
-            this.PLYTVal.Width = 50;
             // 
             // PLYT
             // 
+            this.PLYT.FillWeight = 131.2907F;
             this.PLYT.HeaderText = "Type";
             this.PLYT.Name = "PLYT";
             this.PLYT.ReadOnly = true;
@@ -7109,18 +7155,19 @@ namespace DB_EDITOR
             // 
             this.DCHTGrid.AllowUserToAddRows = false;
             this.DCHTGrid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DCHTGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DCHTGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
             this.DCHTGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.DCHTGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DCHTGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.DCHTGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.DCHTGrid.BackgroundColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DCHTGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.DCHTGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DCHTGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.DCHTPPOS,
@@ -7130,25 +7177,27 @@ namespace DB_EDITOR
             this.DCHT3,
             this.DCHT4,
             this.DCHT5});
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DCHTGrid.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DCHTGrid.DefaultCellStyle = dataGridViewCellStyle18;
             this.DCHTGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.DCHTGrid.Location = new System.Drawing.Point(159, 6);
+            this.DCHTGrid.MultiSelect = false;
             this.DCHTGrid.Name = "DCHTGrid";
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DCHTGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DCHTGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            this.DCHTGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.DCHTGrid.Size = new System.Drawing.Size(974, 585);
             this.DCHTGrid.TabIndex = 0;
             this.DCHTGrid.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DCHT_CellEnter);
@@ -7199,6 +7248,19 @@ namespace DB_EDITOR
             this.DCHT5.HeaderText = "6th String";
             this.DCHT5.Name = "DCHT5";
             // 
+            // FantasyCoachesButton
+            // 
+            this.FantasyCoachesButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.FantasyCoachesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FantasyCoachesButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.FantasyCoachesButton.Location = new System.Drawing.Point(727, 549);
+            this.FantasyCoachesButton.Name = "FantasyCoachesButton";
+            this.FantasyCoachesButton.Size = new System.Drawing.Size(239, 80);
+            this.FantasyCoachesButton.TabIndex = 53;
+            this.FantasyCoachesButton.Text = "Generate Fantasy Coaches";
+            this.FantasyCoachesButton.UseVisualStyleBackColor = false;
+            this.FantasyCoachesButton.Click += new System.EventHandler(this.FantasyCoachesButton_Click);
+            // 
             // MainEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -7231,6 +7293,8 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.fieldsGridView)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabHome.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabTeams.ResumeLayout(false);
             this.tabTeams.PerformLayout();
@@ -7430,7 +7494,6 @@ namespace DB_EDITOR
         public System.Windows.Forms.NumericUpDown poachValue;
         public System.Windows.Forms.Label labelJobSecurity;
         public System.Windows.Forms.NumericUpDown jobSecurityValue;
-        public System.Windows.Forms.CheckBox checkBoxMedRSNEXT;
         public System.Windows.Forms.TabControl tabControl1;
         public System.Windows.Forms.Button buttonPSInjuries;
         private System.Windows.Forms.NumericUpDown numInjuries;
@@ -7895,6 +7958,11 @@ namespace DB_EDITOR
         private DataGridViewComboBoxColumn DCHT3;
         private DataGridViewComboBoxColumn DCHT4;
         private DataGridViewComboBoxColumn DCHT5;
+        private GroupBox groupBox1;
+        private RadioButton OGConfigRadio;
+        private RadioButton NextConfigRadio;
+        private System.Windows.Forms.Button NewCoachButton;
+        public System.Windows.Forms.Button FantasyCoachesButton;
     }
 }
 

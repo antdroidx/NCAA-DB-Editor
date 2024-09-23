@@ -27,6 +27,7 @@ namespace DB_EDITOR
             else if (tabControl1.SelectedTab == tabTools) StartDBTools();
             else if (tabControl1.SelectedTab == tabPlaybook) StartPlaybookEditor();
             else if (tabControl1.SelectedTab == tabDepthCharts) StartDepthChartEditor();
+            else if (tabControl1.SelectedTab == tabHome) StartHomeTab();
         }
 
         private void OpenTabs()
@@ -43,6 +44,20 @@ namespace DB_EDITOR
             TablePropsgroupBox.Visible = true;
             FieldsPropsgroupBox.Visible = true;
             TableGridView_SelectionChanged(null, null);
+        }
+
+        private void StartHomeTab()
+        {
+            if (NCAANext25Config.Checked == true)
+            {
+                NextConfigRadio.Checked = true;
+                OGConfigRadio.Checked = false;
+            }
+            else
+            {
+                NextConfigRadio.Checked = false;
+                OGConfigRadio.Checked = true;
+            }
         }
         #endregion
 
@@ -141,6 +156,11 @@ namespace DB_EDITOR
         private void SyncPBButton_Click(object sender, EventArgs e)
         {
             SyncTeamCoachPlaybooks();
+        }
+
+        private void FantasyCoachesButton_Click(object sender, EventArgs e)
+        {
+            CreateFantasyCoachDB();
         }
         #endregion
 

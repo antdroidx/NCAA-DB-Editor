@@ -67,7 +67,7 @@ namespace DB_EDITOR
                         if (PGID == GetDBValue("PLAY", "PGID", j))
                         {
                             //checks to see if player has only played 4 or less games
-                            if (checkBoxMedRSNEXT.Checked)
+                            if (NextMod)
                             {
                                 if (Convert.ToInt32(GetDBValue("PLAY", "PL13", j)) <= 4 && GetDBValue("PLAY", "PRSD", j) != "1")
                                 {
@@ -163,75 +163,78 @@ namespace DB_EDITOR
             progressBar1.Maximum = GetTableRecCount("COCH");
 
 
-        /* new method idea: 
-         * look and compare team prestige and team rankings
-         * 
-         * team prestige categories:
-         * 0-2
-         * 3-4
-         * 5-6
-         * 
-         * rankings:
-         * 0-10 6
-         * 11-20 5
-         * 21-35 4
-         * 36-60 3
-         * 61-90 2
-         * 76-90 1
-         * 91-120 0
-         * */
+            /* new method idea: 
+             * look and compare team prestige and team rankings
+             * 
+             * team prestige categories:
+             * 0-2
+             * 3-4
+             * 5-6
+             * 
+             * rankings:
+             * 0-10 6
+             * 11-20 5
+             * 21-35 4
+             * 36-60 3
+             * 61-90 2
+             * 76-90 1
+             * 91-120 0
+             * */
 
-            string coach = "";
-            for (int i = 0; i < GetTableRecCount("COCH"); i++)
+            if (!NextMod)
             {
-                if (GetDBValue("COCH", "TGID", i) != "511")
+                string coach = "";
+                for (int i = 0; i < GetTableRecCount("COCH"); i++)
                 {
-                    string TGID = GetDBValue("COCH", "TGID", i);
-                    int oldPrestige = Convert.ToInt32(GetDBValue("COCH", "CPRE", i));
-                    int newPrestige = oldPrestige;
-
-                    int TMPR = FindTeamPrestige(Convert.ToInt32(TGID));
-                    int TMRK = FindTeamRanking(Convert.ToInt32(TGID));
-                    int prestigePerformed = 0;
-
-                    //calculate the prestige level of the team's season performance
-                    if (TMRK <= 15) prestigePerformed = 6;
-                    else if (TMRK <= 25) prestigePerformed = 5;
-                    else if (TMRK <= 40) prestigePerformed = 4;
-                    else if (TMRK <= 65) prestigePerformed = 3;
-                    else if (TMRK <= 90) prestigePerformed = 2; 
-                    else prestigePerformed = 1;
-
-                    if (TMPR > prestigePerformed) newPrestige--;
-                    if (TMPR < prestigePerformed) newPrestige++;
-
-                    if (newPrestige > 6) newPrestige = 6;
-                    if (newPrestige < 1) newPrestige = 1;
-
-
-                    if (newPrestige > oldPrestige)
+                    if (GetDBValue("COCH", "TGID", i) != "511")
                     {
-                        coach += "\n* " + GetTeamName(Convert.ToInt32(GetDBValue("COCH", "TGID", i))) + ": " + GetDBValue("COCH", "CLFN", i) + " " + GetDBValue("COCH", "CLLN", i) + " (+" + (newPrestige - oldPrestige) + ")";
+                        string TGID = GetDBValue("COCH", "TGID", i);
+                        int oldPrestige = Convert.ToInt32(GetDBValue("COCH", "CPRE", i));
+                        int newPrestige = oldPrestige;
+
+                        int TMPR = FindTeamPrestige(Convert.ToInt32(TGID));
+                        int TMRK = FindTeamRanking(Convert.ToInt32(TGID));
+                        int prestigePerformed = 0;
+
+                        //calculate the prestige level of the team's season performance
+                        if (TMRK <= 15) prestigePerformed = 6;
+                        else if (TMRK <= 25) prestigePerformed = 5;
+                        else if (TMRK <= 40) prestigePerformed = 4;
+                        else if (TMRK <= 65) prestigePerformed = 3;
+                        else if (TMRK <= 90) prestigePerformed = 2;
+                        else prestigePerformed = 1;
+
+                        if (TMPR > prestigePerformed) newPrestige--;
+                        if (TMPR < prestigePerformed) newPrestige++;
+
+                        if (newPrestige > 6) newPrestige = 6;
+                        if (newPrestige < 1) newPrestige = 1;
+
+
+                        if (newPrestige > oldPrestige)
+                        {
+                            coach += "\n* " + GetTeamName(Convert.ToInt32(GetDBValue("COCH", "TGID", i))) + ": " + GetDBValue("COCH", "CLFN", i) + " " + GetDBValue("COCH", "CLLN", i) + " (+" + (newPrestige - oldPrestige) + ")";
+                        }
+                        else if (newPrestige < oldPrestige)
+                        {
+                            coach += "\n* " + GetTeamName(Convert.ToInt32(GetDBValue("COCH", "TGID", i))) + ": " + GetDBValue("COCH", "CLFN", i) + " " + GetDBValue("COCH", "CLLN", i) + " (" + (newPrestige - oldPrestige) + ")";
+                        }
+                        ChangeDBString("COCH", "CPRE", i, Convert.ToString(newPrestige));
                     }
-                    else if (newPrestige < oldPrestige)
+                    else
                     {
-                        coach += "\n* " + GetTeamName(Convert.ToInt32(GetDBValue("COCH", "TGID", i))) + ": " + GetDBValue("COCH", "CLFN", i) + " " + GetDBValue("COCH", "CLLN", i) + " (" + (newPrestige - oldPrestige) + ")";
+                        ChangeDBString("COCH", "CCPO", i, "60"); //fixes coach status
                     }
-                    ChangeDBString("COCH", "CPRE", i, Convert.ToString(newPrestige));
-                }
-                else
-                {
-                    ChangeDBString("COCH", "CCPO", i, "60"); //fixes coach status
+
+                    progressBar1.PerformStep();
                 }
 
-                progressBar1.PerformStep();
+                progressBar1.Visible = false;
+                progressBar1.Value = 0;
+
+                MessageBox.Show("Coach Prestige Changes:\n\n" + coach);
+                coachProgComplete = true;
             }
-
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
-
-            MessageBox.Show("Coach Prestige Changes:\n\n" + coach);
-            coachProgComplete = true;
         }
 
         //Randomizes the Coaching Budgets - Must be done prior to 1st Off-Season Task
@@ -272,7 +275,7 @@ namespace DB_EDITOR
         //Coaching Carousel Mod
         private void CoachCarousel()
         {
-            if (!coachProgComplete)
+            if (!coachProgComplete && !NextMod)
             {
                 MessageBox.Show("Please run Coaching Progressions first before running this module.");
                 return;
@@ -764,9 +767,9 @@ namespace DB_EDITOR
         {
             int region = -1;
 
-            for (int i = 0; i < regionList.GetLength(0); i++) 
+            for (int i = 0; i < regionList.GetLength(0); i++)
             {
-                if (regionList[i,1] == a && regionList[i,2] == b)
+                if (regionList[i, 1] == a && regionList[i, 2] == b)
                 {
                     region = regionList[i, 0];
                     break;
@@ -842,7 +845,7 @@ namespace DB_EDITOR
 
                     string playFN = GetFirstNameFromRecord(recP);
                     string playLN = GetLastNameFromRecord(recP);
-                    string team = GetTeamName(Convert.ToInt32(GetDBValue("PLAY", "PGID", recP))/70);
+                    string team = GetTeamName(Convert.ToInt32(GetDBValue("PLAY", "PGID", recP)) / 70);
                     PGID_List.RemoveAt(y);
 
                     ChangeDBString("COCH", "CLFN", rec, playFN);
@@ -878,10 +881,10 @@ namespace DB_EDITOR
                     //Determine Coaching Playbook and Strategies
                     int TGID = Convert.ToInt32(GetDBValue("PLAY", "PGID", recP)) / 70;
                     int recCOCH = -1;
-                    
-                    for(int j = 0; j < GetTableRecCount("COCH"); j++)
+
+                    for (int j = 0; j < GetTableRecCount("COCH"); j++)
                     {
-                        if(GetDBValue("COCH", "TGID", j) == Convert.ToString(TGID))
+                        if (GetDBValue("COCH", "TGID", j) == Convert.ToString(TGID))
                         {
                             recCOCH = j;
                         }
@@ -956,7 +959,7 @@ namespace DB_EDITOR
 
         private void AssignPlayerCoachStrategies(int recCOCH, int rec)
         {
-            ChangeDBString("COCH", "CDTA", rec, Convert.ToString(Convert.ToInt32(GetDBValue("COCH", "CDTA", recCOCH)) + rand.Next(-3,4)));
+            ChangeDBString("COCH", "CDTA", rec, Convert.ToString(Convert.ToInt32(GetDBValue("COCH", "CDTA", recCOCH)) + rand.Next(-3, 4)));
             ChangeDBString("COCH", "COTA", rec, Convert.ToString(Convert.ToInt32(GetDBValue("COCH", "COTA", recCOCH)) + rand.Next(-3, 4)));
 
             ChangeDBString("COCH", "CDST", rec, GetDBValue("COCH", "CDST", recCOCH));

@@ -24,6 +24,7 @@ namespace DB_EDITOR
         }
 
 
+        #region general tools
         //Fixes Body Size Models if user does manipulation of the player attributes in the in-game player editor
         private void RecalculateBMI(string tableName)
         {
@@ -141,43 +142,6 @@ namespace DB_EDITOR
             progressBar1.Visible = false;
             progressBar1.Value = 0;
             MessageBox.Show("Speed updates are complete!");
-        }
-
-        //Awareness Drop
-        private void AwarenessDrop()
-        {
-            progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = GetTableRecCount("PLAY");
-            progressBar1.Step = 1;
-
-            List<List<string>> teamData = new List<List<string>>();
-            teamData = CreateStringListsFromCSV(@"resources\FantasyGenData.csv", true);
-
-
-
-            for (int i = 0; i < GetTableRecCount("PLAY"); i++)
-            {
-                int prestige = GetFantasyTeamRating(teamData, GetDBValueInt("PLAY", "PGID", i) / 70);
-                int newAWR = GetDBValueInt("PLAY", "PAWR", i);
-                int newPOE = GetDBValueInt("PLAY", "PPOE", i);
-
-                newAWR -= rand.Next(0, 6 - prestige);
-                newPOE -= rand.Next(0, 6 - prestige);
-
-                if (newAWR <= 0) newAWR = 0;
-                if (newPOE <= 0) newPOE = 0;
-
-                ChangeDBInt("PLAY", "PAWR", i, newAWR);
-                ChangeDBInt("PLAY", "PPOE", i, newPOE);
-
-                progressBar1.PerformStep();
-            }
-
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
-            MessageBox.Show("Ratings are complete!");
-
         }
 
         //Recalculates QB Tendencies based on original game criteria
@@ -318,11 +282,6 @@ namespace DB_EDITOR
             MessageBox.Show("Completed Sync");
                
         }
-
-        //Export Recruiting Class from Roster
-
-
-
 
         //Calculate Team Ratings
         public void CalculateTeamRatings(string tableName)
@@ -559,7 +518,7 @@ namespace DB_EDITOR
             int PGIDend = PGIDbeg + 69;
             int i = -1;
 
-            for(int x = 0; x < GetTableRecCount(tableName); x++)
+            for (int x = 0; x < GetTableRecCount(tableName); x++)
             {
                 if (GetDBValueInt(tableName, "TOID", x) == tgid)
                 {
@@ -858,9 +817,235 @@ namespace DB_EDITOR
             progressBar1.Value = 0;
             MessageBox.Show("Impact Players are Set!");
         }
+        //Fill Rosters
+        private void FillRosters(string tableName, int FreshmanPCT)
+        {
+            //Setup
+            CreateRCATtable();
+            CreateFirstNamesDB();
+            CreateLastNamesDB();
+            List<List<int>> PJEN = CreateJerseyNumberDB();
 
-        //Fantasy Roster Generator
+            List<List<string>> RCATmapper = new List<List<string>>();
+            RCATmapper = CreateStringListsFromCSV(@"resources\RCAT-MAPPER.csv", false);
+
+            TdbTableProperties TableProps = new TdbTableProperties();
+            TableProps.Name = new string((char)0, 5);
+
+            SelectedTableIndex = TDB.TableIndex(dbIndex, "PLAY");
+            // Get Tableprops based on the selected index
+            TDB.TDBTableGetProperties(dbIndex, SelectedTableIndex, ref TableProps);
+
+
+            int recCounter = GetTableRecCount("PLAY");
+            int maxRecords = TableProps.Capacity;
+            int created = 0;
+
+            //Create a list of PGIDs in the database
+
+            List<int> rosters = new List<int>();
+            for (int i = 0; i < GetTableRecCount("PLAY"); i++)
+            {
+                rosters.Add(GetDBValueInt("PLAY", "PGID", i));
+            }
+
+
+            //Setup Progress bar
+            progressBar1.Visible = true;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = GetTableRecCount(tableName);
+            progressBar1.Step = 1;
+            progressBar1.Value = 0;
+
+            //Go through each team and find missing PGID
+            for (int i = 0; i < GetTableRecCount(tableName); i++)
+            {
+                if (TDYN || GetDBValueInt(tableName, "TTYP", i) == 0)
+                {
+                    int tgid = GetDBValueInt(tableName, "TOID", i);
+                    int pgidSTART = tgid * 70;
+                    int pgidEND = pgidSTART + 69;
+
+                    for (int j = pgidSTART; j < pgidEND; j++)
+                    {
+                        if (!rosters.Contains(j) && recCounter < maxRecords)
+                        {
+                            List<int> POSG = new List<int> { 3, 5, 6, 3, 12, 12, 7, 11, 2, 1 };
+                            List<int> TeamPos = new List<int> { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+
+                            for (int k = 0; k < GetTableRecCount("PLAY"); k++)
+                            {
+                                int pgid = GetDBValueInt("PLAY", "PGID", k);
+                                if (pgid >= pgidSTART && pgid < pgidEND)
+                                {
+                                    if (GetDBValueInt("PLAY", "PPOS", k) == 0) TeamPos[0]++;
+                                    else if (GetDBValueInt("PLAY", "PPOS", k) <= 2) TeamPos[1]++;
+                                    else if (GetDBValueInt("PLAY", "PPOS", k) == 3) TeamPos[2]++;
+                                    else if (GetDBValueInt("PLAY", "PPOS", k) == 4) TeamPos[3]++;
+                                    else if (GetDBValueInt("PLAY", "PPOS", k) <= 9) TeamPos[4]++;
+                                    else if (GetDBValueInt("PLAY", "PPOS", k) <= 12) TeamPos[5]++;
+                                    else if (GetDBValueInt("PLAY", "PPOS", k) <= 15) TeamPos[6]++;
+                                    else if (GetDBValueInt("PLAY", "PPOS", k) <= 18) TeamPos[7]++;
+                                    else if (GetDBValueInt("PLAY", "PPOS", k) == 19) TeamPos[8]++;
+                                    else if (GetDBValueInt("PLAY", "PPOS", k) == 20) TeamPos[9]++;
+                                }
+                            }
+
+                            TDB.TDBTableRecordAdd(dbIndex, "PLAY", false);
+
+
+                            if (TeamPos[8] < POSG[8]) TransferRCATtoPLAY(recCounter, 19, j, RCATmapper, PJEN, FreshmanPCT);
+                            else if (TeamPos[9] < POSG[9]) TransferRCATtoPLAY(recCounter, 20, j, RCATmapper, PJEN, FreshmanPCT);
+                            else if (TeamPos[0] < POSG[0]) TransferRCATtoPLAY(recCounter, 0, j, RCATmapper, PJEN, FreshmanPCT);
+                            else if (TeamPos[1] < POSG[1]) TransferRCATtoPLAY(recCounter, 1, j, RCATmapper, PJEN, FreshmanPCT);
+                            else if (TeamPos[2] < POSG[2]) TransferRCATtoPLAY(recCounter, 3, j, RCATmapper, PJEN, FreshmanPCT);
+                            else if (TeamPos[3] < POSG[3]) TransferRCATtoPLAY(recCounter, 4, j, RCATmapper, PJEN, FreshmanPCT);
+                            else if (TeamPos[4] < POSG[4]) TransferRCATtoPLAY(recCounter, rand.Next(5, 10), j, RCATmapper, PJEN, FreshmanPCT);
+                            else if (TeamPos[5] < POSG[5]) TransferRCATtoPLAY(recCounter, rand.Next(10, 13), j, RCATmapper, PJEN, FreshmanPCT);
+                            else if (TeamPos[6] < POSG[6]) TransferRCATtoPLAY(recCounter, rand.Next(13, 16), j, RCATmapper, PJEN, FreshmanPCT);
+                            else if (TeamPos[7] < POSG[7]) TransferRCATtoPLAY(recCounter, rand.Next(16, 19), j, RCATmapper, PJEN, FreshmanPCT);
+
+                            else TransferRCATtoPLAY(recCounter, rand.Next(0, 19), j, RCATmapper, PJEN, FreshmanPCT);
+
+
+                            RandomizePlayerHead("PLAY", recCounter);
+
+                            recCounter++;
+                            created++;
+                        }
+                    }
+
+
+                    //Check for Kickers and Punters
+                    List<int> POSG2 = new List<int> { 3, 5, 6, 3, 12, 12, 7, 11, 2, 1 };
+                    List<int> TeamPos2 = new List<int> { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+                    List<List<int>> Diff = new List<List<int>>();
+                    List<List<int>> list = new List<List<int>>();
+                    int rowx = 0;
+                    for (int k = 0; k < GetTableRecCount("PLAY"); k++)
+                    {
+                        int pgid = GetDBValueInt("PLAY", "PGID", k);
+                        if (pgid >= pgidSTART && pgid < pgidEND)
+                        {
+                            if (GetDBValueInt("PLAY", "PPOS", k) == 0) TeamPos2[0]++;
+                            else if (GetDBValueInt("PLAY", "PPOS", k) <= 2) TeamPos2[1]++;
+                            else if (GetDBValueInt("PLAY", "PPOS", k) == 3) TeamPos2[2]++;
+                            else if (GetDBValueInt("PLAY", "PPOS", k) == 4) TeamPos2[3]++;
+                            else if (GetDBValueInt("PLAY", "PPOS", k) <= 9) TeamPos2[4]++;
+                            else if (GetDBValueInt("PLAY", "PPOS", k) <= 12) TeamPos2[5]++;
+                            else if (GetDBValueInt("PLAY", "PPOS", k) <= 15) TeamPos2[6]++;
+                            else if (GetDBValueInt("PLAY", "PPOS", k) <= 18) TeamPos2[7]++;
+                            else if (GetDBValueInt("PLAY", "PPOS", k) == 19) TeamPos2[8]++;
+                            else if (GetDBValueInt("PLAY", "PPOS", k) == 20) TeamPos2[9]++;
+
+                            list.Add(new List<int>());
+                            list[rowx].Add(GetDBValueInt("PLAY", "POVR", k));
+                            list[rowx].Add(GetDBValueInt("PLAY", "PPOS", k));
+                            list[rowx].Add(k);
+                            list[rowx].Add(GetDBValueInt("PLAY", "PGID", k));
+
+
+                            rowx++;
+
+                        }
+                    }
+
+
+                    for (int k = 0; k < 10; k++)
+                    {
+                        Diff.Add(new List<int>());
+                        Diff[k].Add(POSG2[k] - TeamPos2[k]);
+                    }
+
+
+                    //Diff.Sort();
+                    //Diff.Sort((player1, player2) => player2[0].CompareTo(player1[0]));
+
+                    for (int k = 9; k >= 0; k--)
+                    {
+                        if (Diff[k][0] > 0)
+                        {
+                            list.Sort((player1, player2) => player2[0].CompareTo(player1[0]));
+                            for (int x = list.Count - 1; x >= 0; x--)
+                            {
+                                if (list[x][1] != 19 && list[x][1] != 20)
+                                {
+                                    TransferRCATtoPLAY(list[x][2], ChooseRandomPosFromPOSG(k), list[x][3], RCATmapper, PJEN, 50);
+                                    RandomizePlayerHead("PLAY", Convert.ToInt32(list[x][2]));
+                                    list.RemoveAt(x);
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+                progressBar1.PerformStep();
+            }
+
+
+
+
+
+
+
+            RecalculateBMI("PLAY");
+            RecalculateOverall();
+            RecalculateQBTendencies();
+
+            progressBar1.Visible = false;
+            progressBar1.Value = 0;
+            MessageBox.Show("Team Roster Filled in! " + created + " players created!");
+        }
+
+        //Randomizes a specific player face based on record, i
+        private void RandomizePlayerHead(string tableName, int i)
+        {
+            //Randomizes Face Shape (PGFM)
+            int shape = rand.Next(0, 16);
+            ChangeDBString(tableName, "PFGM", i, Convert.ToString(shape));
+
+            //Finds current skin tone and randomizes within it's Light/Medium/Dark general tone (PSKI)
+            int skin = GetDBValueInt(tableName, "PSKI", i);
+            if (skin <= 2) skin = rand.Next(0, 3);
+            else if (skin <= 6) skin = rand.Next(3, 7);
+            else skin = rand.Next(7, 8);
+
+            ChangeDBString(tableName, "PSKI", i, Convert.ToString(skin));
+
+            //Randomizes Face Type based on new Skin Type
+            int face = GetDBValueInt(tableName, "PSKI", i) * 8 + rand.Next(0, 8);
+            ChangeDBString(tableName, "PFMP", i, Convert.ToString(face));
+
+            //Randomize Hair Color
+            int hcl = 0;
+            if (skin < 3)
+            {
+                hcl = rand.Next(1, 101);
+                if (hcl <= 55) hcl = 2; //brown
+                else if (hcl <= 65) hcl = 0; //black
+                else if (hcl <= 80) hcl = 1; //blonde
+                else if (hcl <= 95) hcl = 4; //light brown
+                else hcl = 3; //red
+            }
+            else
+            {
+                hcl = rand.Next(1, 101);
+                if (hcl <= 92) hcl = 0;
+                else hcl = rand.Next(1, 6);
+            }
+            ChangeDBString(tableName, "PHCL", i, Convert.ToString(hcl));
+
+            //Randomize Hair Style
+
+
+
+        }
+
+        #endregion
+
+
         #region Fantasy Roster Generator
+        //Fantasy Roster Generator
         private void FantasyRosterGenerator(string tableName)
         {
             /* Creates a fantasy roster from team overall rating
@@ -1606,230 +1791,109 @@ namespace DB_EDITOR
         }
         #endregion
 
+        #region Fantasy Coach Generators
 
-        //Fill Rosters
-        private void FillRosters(string tableName, int FreshmanPCT)
+        private void CreateFantasyCoach(int rec)
         {
-            //Setup
-            CreateRCATtable();
-            CreateFirstNamesDB();
-            CreateLastNamesDB();
-            List<List<int>> PJEN = CreateJerseyNumberDB();
+            //collect ccid and tgid
+            int ccid = GetDBValueInt("COCH", "CCID", rec);
+            int tgid = GetDBValueInt("COCH", "TGID", rec);
+            int cfuc = GetDBValueInt("COCH", "CFUC", rec);
 
-            List<List<string>> RCATmapper = new List<List<string>>();
-            RCATmapper = CreateStringListsFromCSV(@"resources\RCAT-MAPPER.csv", false);
+            //reset stats
 
-            TdbTableProperties TableProps = new TdbTableProperties();
-            TableProps.Name = new string((char)0, 5);
-
-            SelectedTableIndex = TDB.TableIndex(dbIndex, "PLAY");
-            // Get Tableprops based on the selected index
-            TDB.TDBTableGetProperties(dbIndex, SelectedTableIndex, ref TableProps);
-
-
-            int recCounter = GetTableRecCount("PLAY");
-            int maxRecords = TableProps.Capacity;
-            int created = 0;
-
-            //Create a list of PGIDs in the database
-
-            List<int> rosters = new List<int>();
-            for (int i = 0; i < GetTableRecCount("PLAY"); i++)
+            TdbFieldProperties FieldProps = new TdbFieldProperties();
+            
+            for(int i = 0; i < TDB.FieldCount(dbIndex, "COCH"); i++)
             {
-                rosters.Add(GetDBValueInt("PLAY", "PGID", i));
+                TDB.TDBFieldGetProperties(dbIndex, "COCH", i, ref FieldProps);
+
+                ChangeDBInt("COCH", FieldProps.Name, rec, 0);
             }
 
+            //set CPID CLTF and CLTR
 
-            //Setup Progress bar
+            ChangeDBInt("COCH", "CPID", rec, 511);
+            ChangeDBInt("COCH", "CLTF", rec, 65535);
+            ChangeDBInt("COCH", "CLTR", rec, 65535);
+
+            //Set CCID & TGID
+            ChangeDBInt("COCH", "CCID", rec, ccid);
+            ChangeDBInt("COCH", "TGID", rec, tgid);
+            ChangeDBInt("COCH", "CFUC", rec, cfuc);
+            ChangeDBInt("COCH", "CFRC", rec, 1);
+            ChangeDBInt("COCH", "CSAS", rec, 1);
+
+            //set ccpo & ctop
+            ChangeDBInt("COCH", "CCPO", rec, 60);
+            ChangeDBInt("COCH", "CTOP", rec, FindTeamPrestige(tgid));
+
+            //name
+            CreateFirstNamesDB();
+            CreateLastNamesDB();
+            string FN, LN;
+            FN = FirstNames[rand.Next(0, FirstNames.Count)];
+            LN = LastNames[rand.Next(0, LastNames.Count)];
+            ChangeDBString("COCH", "CLFN", rec, FN);
+            ChangeDBString("COCH", "CLLN", rec, LN);
+
+            //skin, body, hair color, hair style, face, glasses, headwear
+            ChangeDBInt("COCH", "CSKI", rec, rand.Next(0,6));
+            ChangeDBInt("COCH", "CBSZ", rec, rand.Next(0, 3));
+            ChangeDBInt("COCH", "CHAR", rec, rand.Next(0, 5));
+            ChangeDBInt("COCH", "CThg", rec, rand.Next(0, 11));
+            ChangeDBInt("COCH", "CFEX", rec, rand.Next(0, 6));
+            ChangeDBInt("COCH", "CTgw", rec, rand.Next(0, 2));
+            ChangeDBInt("COCH", "COHT", rec, rand.Next(0, 3));
+
+            //prestige 
+            ChangeDBInt("COCH", "CPRE", rec, rand.Next(1, 7));
+
+            //budget
+            int disc = rand.Next(20, 30);
+            int recruit = rand.Next(25, 40);
+            int train = 100 - disc - recruit;
+
+            ChangeDBInt("COCH", "CDPC", rec, disc);
+            ChangeDBInt("COCH", "CTPC", rec, train);
+            ChangeDBInt("COCH", "CRPC", rec, recruit);
+
+            //playbook & strategy
+            if(NextMod) ChangeDBInt("COCH", "CPID", rec, rand.Next(136,159));
+            else ChangeDBInt("COCH", "CPID", rec, rand.Next(0, 125));
+
+            ChangeDBInt("COCH", "COST", rec, rand.Next(0, 5));
+            ChangeDBInt("COCH", "CDST", rec, rand.Next(0, 5));
+
+            ChangeDBInt("COCH", "COTR", rec, rand.Next(30, 70));
+            ChangeDBInt("COCH", "COTA", rec, rand.Next(25, 75));
+            ChangeDBInt("COCH", "COTS", rec, rand.Next(50, 80));
+            ChangeDBInt("COCH", "CDTR", rec, rand.Next(30, 70));
+            ChangeDBInt("COCH", "CDTA", rec, rand.Next(25, 75));
+            ChangeDBInt("COCH", "CDTS", rec, rand.Next(50, 80));
+        }
+
+        private void CreateFantasyCoachDB()
+        {
             progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = GetTableRecCount(tableName);
-            progressBar1.Step = 1;
             progressBar1.Value = 0;
+            progressBar1.Maximum = GetTableRecCount("COCH");
 
-            //Go through each team and find missing PGID
-            for (int i = 0; i < GetTableRecCount(tableName); i++)
+            for (int i = 0; i < GetTableRecCount("COCH"); i++)
             {
-                if (TDYN || GetDBValueInt(tableName, "TTYP", i) == 0)
-                {
-                    int tgid = GetDBValueInt(tableName, "TOID", i);
-                    int pgidSTART = tgid * 70;
-                    int pgidEND = pgidSTART + 69;
-
-                    for (int j = pgidSTART; j < pgidEND; j++)
-                    {
-                        if (!rosters.Contains(j) && recCounter < maxRecords)
-                        {
-                            List<int> POSG = new List<int> { 3, 5, 6, 3, 12, 12, 7, 11, 2, 1 };
-                            List<int> TeamPos = new List<int> { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-
-                            for (int k = 0; k < GetTableRecCount("PLAY"); k++)
-                            {
-                                int pgid = GetDBValueInt("PLAY", "PGID", k);
-                                if (pgid >= pgidSTART && pgid < pgidEND)
-                                {
-                                    if (GetDBValueInt("PLAY", "PPOS", k) == 0) TeamPos[0]++;
-                                    else if (GetDBValueInt("PLAY", "PPOS", k) <= 2) TeamPos[1]++;
-                                    else if (GetDBValueInt("PLAY", "PPOS", k) == 3) TeamPos[2]++;
-                                    else if (GetDBValueInt("PLAY", "PPOS", k) == 4) TeamPos[3]++;
-                                    else if (GetDBValueInt("PLAY", "PPOS", k) <= 9) TeamPos[4]++;
-                                    else if (GetDBValueInt("PLAY", "PPOS", k) <= 12) TeamPos[5]++;
-                                    else if (GetDBValueInt("PLAY", "PPOS", k) <= 15) TeamPos[6]++;
-                                    else if (GetDBValueInt("PLAY", "PPOS", k) <= 18) TeamPos[7]++;
-                                    else if (GetDBValueInt("PLAY", "PPOS", k) == 19) TeamPos[8]++;
-                                    else if (GetDBValueInt("PLAY", "PPOS", k) == 20) TeamPos[9]++;
-                                }
-                            }
-
-                            TDB.TDBTableRecordAdd(dbIndex, "PLAY", false);
-
-
-                            if (TeamPos[8] < POSG[8]) TransferRCATtoPLAY(recCounter, 19, j, RCATmapper, PJEN, FreshmanPCT);
-                            else if (TeamPos[9] < POSG[9]) TransferRCATtoPLAY(recCounter, 20, j, RCATmapper, PJEN, FreshmanPCT);
-                            else if (TeamPos[0] < POSG[0]) TransferRCATtoPLAY(recCounter, 0, j, RCATmapper, PJEN, FreshmanPCT);
-                            else if (TeamPos[1] < POSG[1]) TransferRCATtoPLAY(recCounter, 1, j, RCATmapper, PJEN, FreshmanPCT);
-                            else if (TeamPos[2] < POSG[2]) TransferRCATtoPLAY(recCounter, 3, j, RCATmapper, PJEN, FreshmanPCT);
-                            else if (TeamPos[3] < POSG[3]) TransferRCATtoPLAY(recCounter, 4, j, RCATmapper, PJEN, FreshmanPCT);
-                            else if (TeamPos[4] < POSG[4]) TransferRCATtoPLAY(recCounter, rand.Next(5, 10), j, RCATmapper, PJEN, FreshmanPCT);
-                            else if (TeamPos[5] < POSG[5]) TransferRCATtoPLAY(recCounter, rand.Next(10, 13), j, RCATmapper, PJEN, FreshmanPCT);
-                            else if (TeamPos[6] < POSG[6]) TransferRCATtoPLAY(recCounter, rand.Next(13, 16), j, RCATmapper, PJEN, FreshmanPCT);
-                            else if (TeamPos[7] < POSG[7]) TransferRCATtoPLAY(recCounter, rand.Next(16, 19), j, RCATmapper, PJEN, FreshmanPCT);
-
-                            else TransferRCATtoPLAY(recCounter, rand.Next(0, 19), j, RCATmapper, PJEN, FreshmanPCT);
-
-
-                            RandomizePlayerHead("PLAY", recCounter);
-
-                            recCounter++;
-                            created++;
-                        }
-                    }
-
-
-                    //Check for Kickers and Punters
-                    List<int> POSG2 = new List<int> { 3, 5, 6, 3, 12, 12, 7, 11, 2, 1 };
-                    List<int> TeamPos2 = new List<int> { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-                    List<List<int>> Diff = new List<List<int>>();
-                    List<List<int>> list = new List<List<int>>();
-                    int rowx = 0;
-                    for (int k = 0; k < GetTableRecCount("PLAY"); k++)
-                    {
-                        int pgid = GetDBValueInt("PLAY", "PGID", k);
-                        if (pgid >= pgidSTART && pgid < pgidEND)
-                        {
-                            if (GetDBValueInt("PLAY", "PPOS", k) == 0) TeamPos2[0]++;
-                            else if (GetDBValueInt("PLAY", "PPOS", k) <= 2) TeamPos2[1]++;
-                            else if (GetDBValueInt("PLAY", "PPOS", k) == 3) TeamPos2[2]++;
-                            else if (GetDBValueInt("PLAY", "PPOS", k) == 4) TeamPos2[3]++;
-                            else if (GetDBValueInt("PLAY", "PPOS", k) <= 9) TeamPos2[4]++;
-                            else if (GetDBValueInt("PLAY", "PPOS", k) <= 12) TeamPos2[5]++;
-                            else if (GetDBValueInt("PLAY", "PPOS", k) <= 15) TeamPos2[6]++;
-                            else if (GetDBValueInt("PLAY", "PPOS", k) <= 18) TeamPos2[7]++;
-                            else if (GetDBValueInt("PLAY", "PPOS", k) == 19) TeamPos2[8]++;
-                            else if (GetDBValueInt("PLAY", "PPOS", k) == 20) TeamPos2[9]++;
-
-                            list.Add(new List<int>());
-                            list[rowx].Add(GetDBValueInt("PLAY", "POVR", k));
-                            list[rowx].Add(GetDBValueInt("PLAY", "PPOS", k));
-                            list[rowx].Add(k);
-                            list[rowx].Add(GetDBValueInt("PLAY", "PGID", k));
-
-
-                            rowx++;
-
-                        }
-                    }
-
-
-                    for (int k = 0; k < 10; k++)
-                    {
-                        Diff.Add(new List<int>());
-                        Diff[k].Add(POSG2[k] - TeamPos2[k]);
-                    }
-
-
-                    //Diff.Sort();
-                    //Diff.Sort((player1, player2) => player2[0].CompareTo(player1[0]));
-
-                    for (int k = 9; k >= 0; k--)
-                    {
-                        if (Diff[k][0] > 0)
-                        {
-                            list.Sort((player1, player2) => player2[0].CompareTo(player1[0]));
-                            for (int x = list.Count - 1; x >= 0; x--)
-                            {
-                                if (list[x][1] != 19 && list[x][1] != 20)
-                                {
-                                    TransferRCATtoPLAY(list[x][2], ChooseRandomPosFromPOSG(k), list[x][3], RCATmapper, PJEN, 50);
-                                    RandomizePlayerHead("PLAY", Convert.ToInt32(list[x][2]));
-                                    list.RemoveAt(x);
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                }
+                CreateFantasyCoach(i);
                 progressBar1.PerformStep();
             }
 
-
-
-
-
-
-
-            RecalculateBMI("PLAY");
-            RecalculateOverall();
-            RecalculateQBTendencies();
-
             progressBar1.Visible = false;
             progressBar1.Value = 0;
-            MessageBox.Show("Team Roster Filled in! " + created + " players created!");
+            MessageBox.Show("Fantasy Coach Database Completed!");
         }
 
-        //Randomizes a specific player face based on record, i
-        private void RandomizePlayerHead(string tableName, int i)
-        {
-            //Randomizes Face Shape (PGFM)
-            int shape = rand.Next(0, 16);
-            ChangeDBString(tableName, "PFGM", i, Convert.ToString(shape));
-
-            //Finds current skin tone and randomizes within it's Light/Medium/Dark general tone (PSKI)
-            int skin = GetDBValueInt(tableName, "PSKI", i);
-            if (skin <= 2) skin = rand.Next(0, 3);
-            else if (skin <= 6) skin = rand.Next(3, 7);
-            else skin = rand.Next(7, 8);
-
-            ChangeDBString(tableName, "PSKI", i, Convert.ToString(skin));
-
-            //Randomizes Face Type based on new Skin Type
-            int face = GetDBValueInt(tableName, "PSKI", i) * 8 + rand.Next(0, 8);
-            ChangeDBString(tableName, "PFMP", i, Convert.ToString(face));
-
-            //Randomize Hair Color
-            int hcl = 0;
-            if (skin < 3)
-            {
-                hcl = rand.Next(1, 101);
-                if (hcl <= 55) hcl = 2; //brown
-                else if (hcl <= 65) hcl = 0; //black
-                else if (hcl <= 80) hcl = 1; //blonde
-                else if (hcl <= 95) hcl = 4; //light brown
-                else hcl = 3; //red
-            }
-            else
-            {
-                hcl = rand.Next(1, 101);
-                if (hcl <= 92) hcl = 0;
-                else hcl = rand.Next(1, 6);
-            }
-            ChangeDBString(tableName, "PHCL", i, Convert.ToString(hcl));
-
-            //Randomize Hair Style
 
 
+        #endregion
 
-        }
 
 
         #region Attribute Editors

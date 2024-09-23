@@ -899,10 +899,10 @@ namespace DB_EDITOR
             TeamColorPalettes = CreateStringListsFromCSV(@"resources\Color-Palettes.csv", true);
         }
 
-        public string GetTeamName(int tmpRecNo)
+        public string GetTeamName(int tgid)
         {
 
-            string tmpSTR = teamNameDB[tmpRecNo];
+            string tmpSTR = teamNameDB[tgid];
             return tmpSTR;
         }
 
@@ -913,7 +913,7 @@ namespace DB_EDITOR
             {
                 if (TGID == Convert.ToInt32(GetDBValue("TEAM", "TGID", i)))
                 {
-                    TMPR = Convert.ToInt32(GetDBValue("TEAM", "TMPR", i));
+                    return Convert.ToInt32(GetDBValue("TEAM", "TMPR", i));
                 }
             }
             return TMPR;

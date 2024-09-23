@@ -204,6 +204,7 @@ namespace DB_EDITOR
         private void DCHT_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
             if (DoNotTrigger) return;
+            if (DCHTTeam.SelectedIndex == -1) return;
             int row = ((DataGridView)sender).CurrentRow.Index;
             UpdatePlayerList(row);
         }

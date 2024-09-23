@@ -135,6 +135,29 @@
   <metadata name="openFileDialog2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>582, 17</value>
   </metadata>
+  <data name="textBox2.Text" xml:space="preserve">
+    <value>* Recalculate Player Overall - This will recalculate all players' overall rating based on the original game's POCI table
+
+* Recalculate Team Ratings - Recalculates Team Ratings (Approximately)
+
+* Body Size Fixer - This recalculates the body models for each player
+
+* Calculate QB Tendencies - Re-Calculates QB for Scrambling, Balanced and Pocket Passers Traits
+
+* Randomize Player Head/Face - Chooses a new face, head and hair for all players based on skin tone
+
+* Randomize Player Potential - Randomizes from 40-99 every player's potential rating. Affects player progression.
+
+--
+
+* Determine Impact Players - Picks 4 Impact Players in a Dynasty Save file based on overall (2 x Offense, 2 x Defense)
+
+* Auto-Set Depth Chart - Creates a depth chart based on position ratings
+
+* Fill Rosters - Generates random players to fill every team to 70, or until DB capacity runs out.
+
+* Fantasy Roster Generator - Creates a fantasy roster for Roster or Dynasty saves. Will run through a series of modules.</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -7121,9 +7144,9 @@ Use these at the end of the Regular Season (or during Bowl Weeks)
 
 It is recommended to use these tools after the completion of the National Championship game and before the start of the off-season.
 
-* Coach Progression - Changes User/CPU Coach Prestige value based on performance
+* Coach Progression - Changes User/CPU Coach Prestige value based on performance. This is no longer required for NEXT 25+.
 
-* Coaching Carousel - Fires and Hires Coaches automatically based on prestige and coaching score. Can also force transfers from teams that lose their head coach!
+* Coaching Carousel - Fires and Hires Coaches automatically based on prestige and coaching score. Can also force transfers from teams that lose their head coach! 
 
 * Randomize Coaching Budgets - Randomizes the discipline, recruiting and training budgets for every coach
 
@@ -7151,27 +7174,6 @@ This randomizes the walk-on attribute ratings. Use the toleranace to set the min
 
 Polynesian Surname Generator: 
 This changes recruits from Hawaii and western states to have polynesian surnames. The % Chance is for Hawaii, with 15-25% of CA, UT, WA and AZ states getting players of polynesian descent.</value>
-  </data>
-  <data name="textBox2.Text" xml:space="preserve">
-    <value>These tools can be used at any time.
-
-* Body Size Fixer - This recalculates the body models for each player
-
-* Calculate QB Tendencies - Re-Calculates QB for Scrambling, Balanced and Pocket Passers Traits
-
-* Randomize Player Potential - Randomizes from 40-99 every player's potential rating. Affects player progression.
-
-* Recalculate Player Overall - This will recalculate all players' overall rating based on the original game's POCI table
-
-* Determine Impact Players - Picks 4 Impact Players in a Dynasty Save file based on overall (2 x Offense, 2 x Defense)
-
-* Recalculate Team Ratings - Recalculates Team Ratings (Approximately)
-
-* Fantasy Roster Generator - Creates a fantasy roster for Roster or Dynasty saves. Will run through a series of modules.
-
-* Fill Rosters - Generates random players to fill every team to 70, or until DB capacity runs out.
-
-* Auto-Set Depth Chart - Creates a depth chart based on position ratings</value>
   </data>
   <data name="textBox6.Text" xml:space="preserve">
     <value>Development Tools Only -- NEXT 25 ONLY --
