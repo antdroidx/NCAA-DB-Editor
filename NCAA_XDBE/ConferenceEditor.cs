@@ -268,7 +268,7 @@ namespace DB_EDITOR
 
             int swor = GetTableRecCount("TSWP");
 
-            TDB.TDBTableRecordAdd(dbIndex, "TSWP", false);
+            AddTableRecord("TSWP", false);
             ChangeDBString("TSWP", "TGID", swor, GetDBValue("TEAM", "TGID", recA));
             ChangeDBString("TSWP", "TIDR", swor, GetDBValue("TEAM", "TGID", recB));
             ChangeDBInt("TSWP", "SWOR", swor, swor);
@@ -397,7 +397,7 @@ namespace DB_EDITOR
             for (int j = 0; j < 68; j++)
             {
                 //Add a record
-                TDB.TDBTableRecordAdd(dbIndex, "PLAY", false);
+                AddTableRecord("PLAY", false);
 
                 //QB
                 if (j < 3) TransferRCATtoPLAY(rec, 0, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
@@ -546,10 +546,10 @@ namespace DB_EDITOR
             {
                 if (GetDBValueInt("PLAY", "PGID", i) >= pgidBeg && GetDBValueInt("PLAY", "PGID", i) <= pgidEnd)
                 {
-                    TDB.TDBTableRecordChangeDeleted(dbIndex, "PLAY", i, true);
+                    DeleteRecordChange("PLAY", i, true);
                 }
             }
-            TDB.TDBDatabaseCompact(dbIndex);
+            CompactDB();
         }
 
         public void ClearOldTeamStats(int tgid)

@@ -312,13 +312,13 @@ namespace DB_EDITOR
         {
             for (int i = 0; i < GetTableRecCount("PBAI"); i++)
             {
-                TDB.TDBTableRecordChangeDeleted(dbIndex, "PBAI", i, true);
+                DeleteRecordChange("PBAI", i, true);
             }
-            TDB.TDBDatabaseCompact(dbIndex);
+            CompactDB();
 
             for (int i = 0; i < PlaybookGrid.Rows.Count; i++)
             {
-                TDB.TDBTableRecordAdd(dbIndex, "PBAI", false);
+                AddTableRecord("PBAI", false);
                 ChangeDBInt("PBAI", "PBPL", i, Convert.ToInt32(PlaybookGrid.Rows[i].Cells[1].Value));
                 ChangeDBInt("PBAI", "AIGR", i, Convert.ToInt32(PlaybookGrid.Rows[i].Cells[2].Value));
                 ChangeDBInt("PBAI", "prct", i, Convert.ToInt32(PlaybookGrid.Rows[i].Cells[4].Value));

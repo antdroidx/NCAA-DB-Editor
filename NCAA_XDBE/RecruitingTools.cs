@@ -9,26 +9,106 @@ namespace DB_EDITOR
     partial class MainEditor : Form
     {
 
+        #region RECRUITING TOOLS CLICKS
+
+
+        //Raise minimum recruiting point allocation and off-season TPRA values -- Must be done at start of Recruiting
+        private void ButtonMinRecruitingPts_Click(object sender, EventArgs e)
+        {
+            bool correctWeek = false;
+            for (int i = 0; i < GetTable2RecCount("RCYR"); i++)
+            {
+                if (Convert.ToInt32(GetDB2Value("RCYR", "SEWN", i)) >= 1)
+                {
+                    RaiseMinimumRecruitingPoints();
+                    correctWeek = true;
+                }
+            }
+            if (!correctWeek)
+            {
+                MessageBox.Show("Please use this feature at the beginning of Recruiting Stage!");
+            }
+        }
+
+        //Randomize or Remove Recruiting Interested Teams
+        private void ButtonInterestedTeams_Click(object sender, EventArgs e)
+        {
+            bool correctWeek = false;
+            for (int i = 0; i < GetTable2RecCount("RCYR"); i++)
+            {
+                if (GetDB2Value("RCYR", "SEWN", i) == "1")
+                {
+                    RemoveInterestedTeams();
+                    correctWeek = true;
+                }
+            }
+            if (!correctWeek)
+            {
+                MessageBox.Show("Please use this feature at the beginning of Recruiting Stage!");
+            }
+        }
+
+        //Randomize the Recruits to give a little bit more variety and evaluation randomness -- Must be done at start of Recruiting
+        private void ButtonRandRecruits_Click(object sender, EventArgs e)
+        {
+            bool correctWeek = false;
+            for (int i = 0; i < GetTable2RecCount("RCYR"); i++)
+            {
+                if (GetDB2Value("RCYR", "SEWN", i) == "1")
+                {
+                    RandomizeRecruitDB("RCPT");
+                    correctWeek = true;
+                }
+            }
+            if (!correctWeek)
+            {
+                MessageBox.Show("Please use this feature at the beginning of Recruiting Stage!");
+            }
+
+        }
+
+        //Randomize Walk-On Database -- Must be done prior to Cut Players stage
+        private void ButtonRandWalkOns_Click(object sender, EventArgs e)
+        {
+            RandomizeWalkOnDB();
+        }
+
+        //Polynesian Surname Generator
+        private void PolyNames_Click(object sender, EventArgs e)
+        {
+            PolynesianNameGenerator();
+        }
+
+        //Randomize Face & Skins
+        private void buttonRandomizeFaceSkin_Click(object sender, EventArgs e)
+        {
+            RandomizeRecruitFace("RCPT");
+        }
+
+
+        #endregion
+
+
         //Raise minimum recruiting point allocation and off-season TPRA values -- Must be done at start of Recruiting
         private void RaiseMinimumRecruitingPoints()
         {
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
-            progressBar1.Maximum = GetTableRecCount("RTRI");
+            progressBar1.Maximum = GetTable2RecCount("RTRI");
 
             Random rand = new Random();
 
-            for (int i = 0; i < GetTableRecCount("RTRI"); i++)
+            for (int i = 0; i < GetTable2RecCount("RTRI"); i++)
             {
                 int TRPA, TRPR;
-                TRPA = GetDBValueInt("RTRI", "TRPA", i);
-                TRPR = GetDBValueInt("RTRI", "TRPR", i);
+                TRPA = GetDB2ValueInt("RTRI", "TRPA", i);
+                TRPR = GetDB2ValueInt("RTRI", "TRPR", i);
 
                 if (TRPR < (int)minRecPts.Value) TRPR = (int)minRecPts.Value;
                 if (TRPA < (int)minTRPA.Value) TRPA = (int)minTRPA.Value;
 
-                ChangeDBInt("RTRI", "TRPA", i, TRPA);
-                ChangeDBInt("RTRI", "TRPR", i, TRPR);
+                ChangeDB2Int("RTRI", "TRPA", i, TRPA);
+                ChangeDB2Int("RTRI", "TRPR", i, TRPR);
 
                 progressBar1.PerformStep();
             }
@@ -44,11 +124,11 @@ namespace DB_EDITOR
         {
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
-            progressBar1.Maximum = GetTableRecCount("RCPR");
+            progressBar1.Maximum = GetTable2RecCount("RCPR");
 
             Random rand = new Random();
 
-            for (int i = 0; i < GetTableRecCount("RCPR"); i++)
+            for (int i = 0; i < GetTable2RecCount("RCPR"); i++)
             {
 
 
@@ -56,13 +136,13 @@ namespace DB_EDITOR
                 {
                     if (j < 10)
                     {
-                        ChangeDBString("RCPR", "PS0" + j, i, "0");
-                        ChangeDBString("RCPR", "PT0" + j, i, "511");
+                        ChangeDB2String("RCPR", "PS0" + j, i, "0");
+                        ChangeDB2String("RCPR", "PT0" + j, i, "511");
                     }
                     else
                     {
-                        ChangeDBString("RCPR", "PS" + j, i, "0");
-                        ChangeDBString("RCPR", "PT" + j, i, "511");
+                        ChangeDB2String("RCPR", "PS" + j, i, "0");
+                        ChangeDB2String("RCPR", "PT" + j, i, "511");
                     }
                 }
 
@@ -80,40 +160,40 @@ namespace DB_EDITOR
         {
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
-            progressBar1.Maximum = GetTableRecCount(FieldName);
+            progressBar1.Maximum = GetTable2RecCount(FieldName);
 
             int tol = (int)recruitTolerance.Value;
             int tolA = 2;
 
-            for (int i = 0; i < GetTableRecCount(FieldName); i++)
+            for (int i = 0; i < GetTable2RecCount(FieldName); i++)
             {
-                if (GetDBValueInt(FieldName, "PRID", i) < 21000)  //skips transfers
+                if (GetDB2ValueInt(FieldName, "PRID", i) < 21000)  //skips transfers
                 {
                     //PTHA	PSTA	PKAC	PACC	PSPD	PPOE	PCTH	PAGI	PINJ	PTAK	PPBK	PRBK	PBTK	PTHP	PJMP	PCAR	PKPR	PSTR	PAWR
                     //PPOE, PINJ, PAWR
 
                     int PBRE, PEYE, PPOE, PINJ, PAWR, PWGT, PHGT, PTHA, PSTA, PKAC, PACC, PSPD, PCTH, PAGI, PTAK, PPBK, PRBK, PBTK, PTHP, PJMP, PCAR, PKPR, PSTR;
 
-                    PHGT = GetDBValueInt(FieldName, "PHGT", i);
-                    PWGT = GetDBValueInt(FieldName, "PWGT", i);
-                    PAWR = GetDBValueInt(FieldName, "PAWR", i);
+                    PHGT = GetDB2ValueInt(FieldName, "PHGT", i);
+                    PWGT = GetDB2ValueInt(FieldName, "PWGT", i);
+                    PAWR = GetDB2ValueInt(FieldName, "PAWR", i);
 
-                    PTHA = GetDBValueInt(FieldName, "PTHA", i);
-                    PSTA = GetDBValueInt(FieldName, "PSTA", i);
-                    PKAC = GetDBValueInt(FieldName, "PKAC", i);
-                    PACC = GetDBValueInt(FieldName, "PACC", i);
-                    PSPD = GetDBValueInt(FieldName, "PSPD", i);
-                    PCTH = GetDBValueInt(FieldName, "PCTH", i);
-                    PAGI = GetDBValueInt(FieldName, "PAGI", i);
-                    PTAK = GetDBValueInt(FieldName, "PTAK", i);
-                    PPBK = GetDBValueInt(FieldName, "PPBK", i);
-                    PRBK = GetDBValueInt(FieldName, "PRBK", i);
-                    PBTK = GetDBValueInt(FieldName, "PBTK", i);
-                    PTHP = GetDBValueInt(FieldName, "PTHP", i);
-                    PJMP = GetDBValueInt(FieldName, "PJMP", i);
-                    PCAR = GetDBValueInt(FieldName, "PCAR", i);
-                    PKPR = GetDBValueInt(FieldName, "PKPR", i);
-                    PSTR = GetDBValueInt(FieldName, "PSTR", i);
+                    PTHA = GetDB2ValueInt(FieldName, "PTHA", i);
+                    PSTA = GetDB2ValueInt(FieldName, "PSTA", i);
+                    PKAC = GetDB2ValueInt(FieldName, "PKAC", i);
+                    PACC = GetDB2ValueInt(FieldName, "PACC", i);
+                    PSPD = GetDB2ValueInt(FieldName, "PSPD", i);
+                    PCTH = GetDB2ValueInt(FieldName, "PCTH", i);
+                    PAGI = GetDB2ValueInt(FieldName, "PAGI", i);
+                    PTAK = GetDB2ValueInt(FieldName, "PTAK", i);
+                    PPBK = GetDB2ValueInt(FieldName, "PPBK", i);
+                    PRBK = GetDB2ValueInt(FieldName, "PRBK", i);
+                    PBTK = GetDB2ValueInt(FieldName, "PBTK", i);
+                    PTHP = GetDB2ValueInt(FieldName, "PTHP", i);
+                    PJMP = GetDB2ValueInt(FieldName, "PJMP", i);
+                    PCAR = GetDB2ValueInt(FieldName, "PCAR", i);
+                    PKPR = GetDB2ValueInt(FieldName, "PKPR", i);
+                    PSTR = GetDB2ValueInt(FieldName, "PSTR", i);
 
                     PBRE = rand.Next(0, 2);
                     PEYE = rand.Next(0, 2);
@@ -144,31 +224,31 @@ namespace DB_EDITOR
                     PKPR = GetRandomAttribute(PKPR, tol);
                     PSTR = GetRandomAttribute(PSTR, tol);
 
-                    ChangeDBInt(FieldName, "PBRE", i, PBRE);
-                    ChangeDBInt(FieldName, "PEYE", i, PEYE);
-                    ChangeDBInt(FieldName, "PPOE", i, PPOE);
-                    ChangeDBInt(FieldName, "PINJ", i, PINJ);
-                    ChangeDBInt(FieldName, "PAWR", i, PAWR);
-                    ChangeDBInt(FieldName, "PHGT", i, PHGT);
-                    ChangeDBInt(FieldName, "PWGT", i, PWGT);
+                    ChangeDB2Int(FieldName, "PBRE", i, PBRE);
+                    ChangeDB2Int(FieldName, "PEYE", i, PEYE);
+                    ChangeDB2Int(FieldName, "PPOE", i, PPOE);
+                    ChangeDB2Int(FieldName, "PINJ", i, PINJ);
+                    ChangeDB2Int(FieldName, "PAWR", i, PAWR);
+                    ChangeDB2Int(FieldName, "PHGT", i, PHGT);
+                    ChangeDB2Int(FieldName, "PWGT", i, PWGT);
 
 
-                    ChangeDBInt(FieldName, "PTHA", i, PTHA);
-                    ChangeDBInt(FieldName, "PSTA", i, PSTA);
-                    ChangeDBInt(FieldName, "PKAC", i, PKAC);
-                    ChangeDBInt(FieldName, "PACC", i, PACC);
-                    ChangeDBInt(FieldName, "PSPD", i, PSPD);
-                    ChangeDBInt(FieldName, "PCTH", i, PCTH);
-                    ChangeDBInt(FieldName, "PAGI", i, PAGI);
-                    ChangeDBInt(FieldName, "PTAK", i, PTAK);
-                    ChangeDBInt(FieldName, "PPBK", i, PPBK);
-                    ChangeDBInt(FieldName, "PRBK", i, PRBK);
-                    ChangeDBInt(FieldName, "PBTK", i, PBTK);
-                    ChangeDBInt(FieldName, "PTHP", i, PTHP);
-                    ChangeDBInt(FieldName, "PJMP", i, PJMP);
-                    ChangeDBInt(FieldName, "PCAR", i, PCAR);
-                    ChangeDBInt(FieldName, "PKPR", i, PKPR);
-                    ChangeDBInt(FieldName, "PSTR", i, PSTR);
+                    ChangeDB2Int(FieldName, "PTHA", i, PTHA);
+                    ChangeDB2Int(FieldName, "PSTA", i, PSTA);
+                    ChangeDB2Int(FieldName, "PKAC", i, PKAC);
+                    ChangeDB2Int(FieldName, "PACC", i, PACC);
+                    ChangeDB2Int(FieldName, "PSPD", i, PSPD);
+                    ChangeDB2Int(FieldName, "PCTH", i, PCTH);
+                    ChangeDB2Int(FieldName, "PAGI", i, PAGI);
+                    ChangeDB2Int(FieldName, "PTAK", i, PTAK);
+                    ChangeDB2Int(FieldName, "PPBK", i, PPBK);
+                    ChangeDB2Int(FieldName, "PRBK", i, PRBK);
+                    ChangeDB2Int(FieldName, "PBTK", i, PBTK);
+                    ChangeDB2Int(FieldName, "PTHP", i, PTHP);
+                    ChangeDB2Int(FieldName, "PJMP", i, PJMP);
+                    ChangeDB2Int(FieldName, "PCAR", i, PCAR);
+                    ChangeDB2Int(FieldName, "PKPR", i, PKPR);
+                    ChangeDB2Int(FieldName, "PSTR", i, PSTR);
                 }
 
 
@@ -180,7 +260,7 @@ namespace DB_EDITOR
 
             MessageBox.Show("Recruits Randomized!");
 
-            RecalculateBMI(FieldName);
+            DB2RecalculateBMI(FieldName);
         }
 
         //Randomize the Recruits Skin Tone, Face and Face Shape
@@ -188,28 +268,28 @@ namespace DB_EDITOR
         {
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
-            progressBar1.Maximum = GetTableRecCount(tableName);
+            progressBar1.Maximum = GetTable2RecCount(tableName);
 
-            for (int i = 0; i < GetTableRecCount(tableName); i++)
+            for (int i = 0; i < GetTable2RecCount(tableName); i++)
             {
-                if (tableName != "RCPT" || GetDBValueInt(tableName, "PRID", i) < 21000)  //skips transfers
+                if (tableName != "RCPT" || GetDB2ValueInt(tableName, "PRID", i) < 21000)  //skips transfers
                 {
 
                     //Randomizes Face Shape (PGFM)
                     int shape = rand.Next(0, 16);
-                    ChangeDBInt(tableName, "PFGM", i, shape);
+                    ChangeDB2Int(tableName, "PFGM", i, shape);
 
                     //Finds current skin tone and randomizes within it's Light/Medium/Dark general tone (PSKI)
-                    int skin = GetDBValueInt(tableName, "PSKI", i);
+                    int skin = GetDB2ValueInt(tableName, "PSKI", i);
                     if (skin <= 2) skin = rand.Next(0, 3);
                     else if (skin <= 6) skin = rand.Next(3, 7);
                     else skin = rand.Next(7, 8);
 
-                    ChangeDBInt(tableName, "PSKI", i, skin);
+                    ChangeDB2Int(tableName, "PSKI", i, skin);
 
                     //Randomizes Face Type based on new Skin Type
-                    int face = GetDBValueInt(tableName, "PSKI", i) * 8 + rand.Next(0, 8);
-                    ChangeDBInt(tableName, "PFMP", i, face);
+                    int face = GetDB2ValueInt(tableName, "PSKI", i) * 8 + rand.Next(0, 8);
+                    ChangeDB2Int(tableName, "PFMP", i, face);
 
                     //Randomize Hair Color
                     int hcl = 0;
@@ -228,7 +308,7 @@ namespace DB_EDITOR
                         if (hcl <= 92) hcl = 0;
                         else hcl = rand.Next(1, 6);
                     }
-                    ChangeDBInt(tableName, "PHCL", i, hcl);
+                    ChangeDB2Int(tableName, "PHCL", i, hcl);
 
                 }
 
@@ -246,36 +326,36 @@ namespace DB_EDITOR
         {
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
-            progressBar1.Maximum = GetTableRecCount("WKON");
+            progressBar1.Maximum = GetTable2RecCount("WKON");
 
             int tol = (int)toleranceWalkOn.Value;
 
-            for (int i = 0; i < GetTableRecCount("WKON"); i++)
+            for (int i = 0; i < GetTable2RecCount("WKON"); i++)
             {
                 //PTHA	PSTA	PKAC	PACC	PSPD	PPOE	PCTH	PAGI	PINJ	PTAK	PPBK	PRBK	PBTK	PTHP	PJMP	PCAR	PKPR	PSTR	PAWR
                 //PPOE, PINJ, PAWR
 
                 int PBRE, PEYE, PPOE, PINJ, PAWR, PWGT, PHGT, PTHA, PSTA, PKAC, PACC, PSPD, PCTH, PAGI, PTAK, PPBK, PRBK, PBTK, PTHP, PJMP, PCAR, PKPR, PSTR;
 
-                PHGT = GetDBValueInt("WKON", "PHGT", i);
-                PWGT = GetDBValueInt("WKON", "PWGT", i);
+                PHGT = GetDB2ValueInt("WKON", "PHGT", i);
+                PWGT = GetDB2ValueInt("WKON", "PWGT", i);
 
-                PTHA = GetDBValueInt("WKON", "PTHA", i);
-                PSTA = GetDBValueInt("WKON", "PSTA", i);
-                PKAC = GetDBValueInt("WKON", "PKAC", i);
-                PACC = GetDBValueInt("WKON", "PACC", i);
-                PSPD = GetDBValueInt("WKON", "PSPD", i);
-                PCTH = GetDBValueInt("WKON", "PCTH", i);
-                PAGI = GetDBValueInt("WKON", "PAGI", i);
-                PTAK = GetDBValueInt("WKON", "PTAK", i);
-                PPBK = GetDBValueInt("WKON", "PPBK", i);
-                PRBK = GetDBValueInt("WKON", "PRBK", i);
-                PBTK = GetDBValueInt("WKON", "PBTK", i);
-                PTHP = GetDBValueInt("WKON", "PTHP", i);
-                PJMP = GetDBValueInt("WKON", "PJMP", i);
-                PCAR = GetDBValueInt("WKON", "PCAR", i);
-                PKPR = GetDBValueInt("WKON", "PKPR", i);
-                PSTR = GetDBValueInt("WKON", "PSTR", i);
+                PTHA = GetDB2ValueInt("WKON", "PTHA", i);
+                PSTA = GetDB2ValueInt("WKON", "PSTA", i);
+                PKAC = GetDB2ValueInt("WKON", "PKAC", i);
+                PACC = GetDB2ValueInt("WKON", "PACC", i);
+                PSPD = GetDB2ValueInt("WKON", "PSPD", i);
+                PCTH = GetDB2ValueInt("WKON", "PCTH", i);
+                PAGI = GetDB2ValueInt("WKON", "PAGI", i);
+                PTAK = GetDB2ValueInt("WKON", "PTAK", i);
+                PPBK = GetDB2ValueInt("WKON", "PPBK", i);
+                PRBK = GetDB2ValueInt("WKON", "PRBK", i);
+                PBTK = GetDB2ValueInt("WKON", "PBTK", i);
+                PTHP = GetDB2ValueInt("WKON", "PTHP", i);
+                PJMP = GetDB2ValueInt("WKON", "PJMP", i);
+                PCAR = GetDB2ValueInt("WKON", "PCAR", i);
+                PKPR = GetDB2ValueInt("WKON", "PKPR", i);
+                PSTR = GetDB2ValueInt("WKON", "PSTR", i);
 
                 PBRE = rand.Next(0, 2);
                 PEYE = rand.Next(0, 2);
@@ -304,30 +384,30 @@ namespace DB_EDITOR
                 PKPR = GetRandomAttribute(PKPR, tol);
                 PSTR = GetRandomAttribute(PSTR, tol);
 
-                ChangeDBInt("WKON", "PBRE", i, PBRE);
-                ChangeDBInt("WKON", "PEYE", i, PEYE);
-                ChangeDBInt("WKON", "PPOE", i, PPOE);
-                ChangeDBInt("WKON", "PINJ", i, PINJ);
-                ChangeDBInt("WKON", "PAWR", i, PAWR);
-                ChangeDBInt("WKON", "PHGT", i, PHGT);
-                ChangeDBInt("WKON", "PWGT", i, PWGT);
+                ChangeDB2Int("WKON", "PBRE", i, PBRE);
+                ChangeDB2Int("WKON", "PEYE", i, PEYE);
+                ChangeDB2Int("WKON", "PPOE", i, PPOE);
+                ChangeDB2Int("WKON", "PINJ", i, PINJ);
+                ChangeDB2Int("WKON", "PAWR", i, PAWR);
+                ChangeDB2Int("WKON", "PHGT", i, PHGT);
+                ChangeDB2Int("WKON", "PWGT", i, PWGT);
 
-                ChangeDBInt("WKON", "PTHA", i, PTHA);
-                ChangeDBInt("WKON", "PSTA", i, PSTA);
-                ChangeDBInt("WKON", "PKAC", i, PKAC);
-                ChangeDBInt("WKON", "PACC", i, PACC);
-                ChangeDBInt("WKON", "PSPD", i, PSPD);
-                ChangeDBInt("WKON", "PCTH", i, PCTH);
-                ChangeDBInt("WKON", "PAGI", i, PAGI);
-                ChangeDBInt("WKON", "PTAK", i, PTAK);
-                ChangeDBInt("WKON", "PPBK", i, PPBK);
-                ChangeDBInt("WKON", "PRBK", i, PRBK);
-                ChangeDBInt("WKON", "PBTK", i, PBTK);
-                ChangeDBInt("WKON", "PTHP", i, PTHP);
-                ChangeDBInt("WKON", "PJMP", i, PJMP);
-                ChangeDBInt("WKON", "PCAR", i, PCAR);
-                ChangeDBInt("WKON", "PKPR", i, PKPR);
-                ChangeDBInt("WKON", "PSTR", i, PKPR);
+                ChangeDB2Int("WKON", "PTHA", i, PTHA);
+                ChangeDB2Int("WKON", "PSTA", i, PSTA);
+                ChangeDB2Int("WKON", "PKAC", i, PKAC);
+                ChangeDB2Int("WKON", "PACC", i, PACC);
+                ChangeDB2Int("WKON", "PSPD", i, PSPD);
+                ChangeDB2Int("WKON", "PCTH", i, PCTH);
+                ChangeDB2Int("WKON", "PAGI", i, PAGI);
+                ChangeDB2Int("WKON", "PTAK", i, PTAK);
+                ChangeDB2Int("WKON", "PPBK", i, PPBK);
+                ChangeDB2Int("WKON", "PRBK", i, PRBK);
+                ChangeDB2Int("WKON", "PBTK", i, PBTK);
+                ChangeDB2Int("WKON", "PTHP", i, PTHP);
+                ChangeDB2Int("WKON", "PJMP", i, PJMP);
+                ChangeDB2Int("WKON", "PCAR", i, PCAR);
+                ChangeDB2Int("WKON", "PKPR", i, PKPR);
+                ChangeDB2Int("WKON", "PSTR", i, PKPR);
 
                 progressBar1.PerformStep();
             }
@@ -336,7 +416,7 @@ namespace DB_EDITOR
             progressBar1.Value = 0;
 
             MessageBox.Show("Walk-Ons Randomized!");
-            RecalculateBMI("WKON");
+            DB2RecalculateBMI("WKON");
         }
 
         //Polynesian Surname Generator
@@ -356,7 +436,7 @@ namespace DB_EDITOR
 
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
-            progressBar1.Maximum = GetTableRecCount("RCPT");
+            progressBar1.Maximum = GetTable2RecCount("RCPT");
             progressBar1.Step = 1;
 
             /*States STID
@@ -368,44 +448,44 @@ namespace DB_EDITOR
              * */
 
 
-            for (int i = 0; i < GetTableRecCount("RCPT"); i++)
+            for (int i = 0; i < GetTable2RecCount("RCPT"); i++)
             {
                 //Check for Arizona  2
-                if (GetDBValueInt("RCPT", "RCHD", i) >= 512 && GetDBValueInt("RCPT", "RCHD", i) < 768)
+                if (GetDB2ValueInt("RCPT", "RCHD", i) >= 512 && GetDB2ValueInt("RCPT", "RCHD", i) < 768)
                 {
-                    if (rand.Next(0, 100) < 0.15 && GetDBValueInt("RCPT", "PRID", i) < 21000)
+                    if (rand.Next(0, 100) < 0.15 && GetDB2ValueInt("RCPT", "PRID", i) < 21000)
                     {
                         PolynesianPlayerMaker(surnames, i);
                     }
                 }
                 //Check for California 4 
-                else if (GetDBValueInt("RCPT", "RCHD", i) >= 1024 && GetDBValueInt("RCPT", "RCHD", i) < 1280)
+                else if (GetDB2ValueInt("RCPT", "RCHD", i) >= 1024 && GetDB2ValueInt("RCPT", "RCHD", i) < 1280)
                 {
-                    if (rand.Next(0, 100) < 0.25 && GetDBValueInt("RCPT", "PRID", i) < 21000)
+                    if (rand.Next(0, 100) < 0.25 && GetDB2ValueInt("RCPT", "PRID", i) < 21000)
                     {
                         PolynesianPlayerMaker(surnames, i);
                     }
                 }
                 //Check for Hawaii recruits (256 x 10 - 2560)
-                else if (GetDBValueInt("RCPT", "RCHD", i) >= 2560 && GetDBValueInt("RCPT", "RCHD", i) < 2816)
+                else if (GetDB2ValueInt("RCPT", "RCHD", i) >= 2560 && GetDB2ValueInt("RCPT", "RCHD", i) < 2816)
                 {
-                    if (rand.Next(0, 100) < polyNamesPCT.Value && GetDBValueInt("RCPT", "PRID", i) < 21000)
+                    if (rand.Next(0, 100) < polyNamesPCT.Value && GetDB2ValueInt("RCPT", "PRID", i) < 21000)
                     {
                         PolynesianPlayerMaker(surnames, i);
                     }
                 }
                 //Check for Utah 43
-                else if (GetDBValueInt("RCPT", "RCHD", i) >= 11008 && GetDBValueInt("RCPT", "RCHD", i) < 11264)
+                else if (GetDB2ValueInt("RCPT", "RCHD", i) >= 11008 && GetDB2ValueInt("RCPT", "RCHD", i) < 11264)
                 {
-                    if (rand.Next(0, 100) < 0.25 && GetDBValueInt("RCPT", "PRID", i) < 21000)
+                    if (rand.Next(0, 100) < 0.25 && GetDB2ValueInt("RCPT", "PRID", i) < 21000)
                     {
                         PolynesianPlayerMaker(surnames, i);
                     }
                 }
                 //Check for Washington  46
-                else if (GetDBValueInt("RCPT", "RCHD", i) >= 11776 && GetDBValueInt("RCPT", "RCHD", i) < 12032)
+                else if (GetDB2ValueInt("RCPT", "RCHD", i) >= 11776 && GetDB2ValueInt("RCPT", "RCHD", i) < 12032)
                 {
-                    if (rand.Next(0, 100) < 0.15 && GetDBValueInt("RCPT", "PRID", i) < 21000)
+                    if (rand.Next(0, 100) < 0.15 && GetDB2ValueInt("RCPT", "PRID", i) < 21000)
                     {
                         PolynesianPlayerMaker(surnames, i);
                     }
@@ -426,11 +506,63 @@ namespace DB_EDITOR
         {
             int x = rand.Next(0, surnames.Count);
             string newName = surnames[x];
-            ChangeDBString("RCPT", "PLNA", i, newName);
-            ChangeDBString("RCPT", "PSKI", i, "2");
-            ChangeDBInt("RCPT", "PFMP", i, rand.Next(16, 24));
+            ChangeDB2String("RCPT", "PLNA", i, newName);
+            ChangeDB2String("RCPT", "PSKI", i, "2");
+            ChangeDB2Int("RCPT", "PFMP", i, rand.Next(16, 24));
         }
 
+        //Fixes Body Size Models if user does manipulation of the player attributes in the in-game player editor
+        private void DB2RecalculateBMI(string tableName)
+        {
+            string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string csvLocation = Path.Combine(executableLocation, @"resources\BMI-Calc.csv");
+
+            string filePath = csvLocation;
+            StreamReader sr = new StreamReader(filePath);
+            string[,] strArray = null;
+            int Row = 0;
+            while (!sr.EndOfStream)
+            {
+                string[] Line = sr.ReadLine().Split(',');
+                if (Row == 0)
+                {
+                    strArray = new string[432, Line.Length];
+                }
+                for (int column = 0; column < Line.Length; column++)
+                {
+                    strArray[Row, column] = Line[column];
+                }
+                Row++;
+            }
+            sr.Close();
+
+            progressBar1.Visible = true;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = GetTable2RecCount(tableName);
+            progressBar1.Step = 1;
+
+            for (int i = 0; i < GetTable2RecCount(tableName); i++)
+            {
+                double bmi = (double)Math.Round(Convert.ToDouble(GetDB2Value(tableName, "PWGT", i)) / Convert.ToDouble(GetDB2Value(tableName, "PHGT", i)), 2);
+
+                for (int j = 0; j < 401; j++)
+                {
+                    if (Convert.ToString(bmi) == strArray[j, 0])
+                    {
+                        ChangeDB2String(tableName, "PFSH", i, strArray[j, 1]);
+                        ChangeDB2String(tableName, "PMSH", i, strArray[j, 2]);
+                        ChangeDB2String(tableName, "PSSH", i, strArray[j, 3]);
+                        break;
+                    }
+                }
+                progressBar1.PerformStep();
+            }
+
+            progressBar1.Visible = false;
+            progressBar1.Value = 0;
+
+            MessageBox.Show("Body Model updates are complete!");
+        }
 
     }
 }

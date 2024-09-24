@@ -234,7 +234,7 @@ namespace DB_EDITOR
                 {
                     if(col > 0 && DCHTGrid.Rows[row].Cells[col].Value != null)
                     {
-                        TDB.TDBTableRecordAdd(dbIndex, "DCHT", false);
+                        AddTableRecord("DCHT", false);
 
                         int pgid = GetDCHTPlayerPGID(Convert.ToString(DCHTGrid.Rows[row].Cells[col].Value));
                         ChangeDBInt("DCHT", "PGID", rec, pgid);

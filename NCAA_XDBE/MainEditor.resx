@@ -135,6 +135,68 @@
   <metadata name="openFileDialog2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>582, 17</value>
   </metadata>
+  <metadata name="colorDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>721, 17</value>
+  </metadata>
+  <metadata name="DCHTPPOS.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="DCHT0.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="DCHT1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="DCHT2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="DCHT3.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="DCHT4.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="DCHT5.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="PBRec.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="PBPL.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="AIGRVal.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="AIGRname.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="prct.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="PLYL.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="PlayName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="PLYTVal.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="PLYT.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="textBox6.Text" xml:space="preserve">
+    <value>Development Tools Only -- NEXT 25 ONLY --
+
+
+This is for Roster Generation with internal imported spreadsheets. Recommend to avoid this unless you know what you're doing. 
+
+To Begin, Open a Roster Save and Load PLAY table. Then Import the 2024-PLAY-BASE.csv from the 2024-Roster-Base folder using DB Editor. 
+
+Then proceed the with the buttons in order. You can swap 2 and 3 if you want. It may give a different result!
+</value>
+  </data>
   <data name="textBox2.Text" xml:space="preserve">
     <value>* Recalculate Player Overall - This will recalculate all players' overall rating based on the original game's POCI table
 
@@ -157,6 +219,50 @@
 * Fill Rosters - Generates random players to fill every team to 70, or until DB capacity runs out.
 
 * Fantasy Roster Generator - Creates a fantasy roster for Roster or Dynasty saves. Will run through a series of modules.</value>
+  </data>
+  <data name="textBoxOffSeason.Text" xml:space="preserve">
+    <value>This is the off-season toolbox for recruiting. Most of these tools can only occur during specific phases of the off-season.
+
+Raise Minimum Recruiting Points : 
+This raises the min points and minimum TRPA (??). The TRPA determines how many points are given each week, although it is just one of the many factors. The Min Points resets each week.
+
+Modify Recruiting Interested Teams:
+This value is set to default of 10. If you lower it, there will be less teams automatically interested in a recruit. This allows other teams to try to get into the recruit's top 10 list.
+
+Randomize Recruits: 
+This randomizes the recruit attribute ratings. Use the tolerance to set the min/max randomization value. Weight and Height are also randomize. Potential, Injury and Awareness are also randomized.
+
+Randomize Face &amp; Skin:
+The game does not assign a random face shape to recruits by default. It will also randomize the skin tone and face type. 
+
+Randomize Walk-Ons: 
+This randomizes the walk-on attribute ratings. Use the toleranace to set the min/max randomization value. Weight and Height are also randomize. Potential, Injury and Awareness are also randomized.
+
+Polynesian Surname Generator: 
+This changes recruits from Hawaii and western states to have polynesian surnames. The % Chance is for Hawaii, with 15-25% of CA, UT, WA and AZ states getting players of polynesian descent.</value>
+  </data>
+  <data name="dbToolsInfo.Text" xml:space="preserve">
+    <value>This is a set of NCAA Football Modding Tools that add more realism to the game. 
+
+Use these at the beginning of a season:
+
+* Pre-Season Injuries - Randomly distributes injuries to players, with ability to have skill degradation. 
+
+Use these at the end of the Regular Season (or during Bowl Weeks)
+
+* Medical Redshirt - Grants Players that have Season Ending injuries a redshirt year
+
+It is recommended to use these tools after the completion of the National Championship game and before the start of the off-season.
+
+* Coach Progression - Changes User/CPU Coach Prestige value based on performance. This is no longer required for NEXT 25+.
+
+* Coaching Carousel - Fires and Hires Coaches automatically based on prestige and coaching score. Can also force transfers from teams that lose their head coach! 
+
+* Randomize Coaching Budgets - Randomizes the discipline, recruiting and training budgets for every coach
+
+* Auto Realignment - This is a very primitive conference realignment algorithm based on regionality, prestige, and conference prestige.
+ 
+* Players to Coach - This will convert high awareness graduating seniors to coaches.</value>
   </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -7131,114 +7237,8 @@
         MIsIIYQQMg3MIkIIIYRMAZB/AwP8EQAPxs9WAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="dbToolsInfo.Text" xml:space="preserve">
-    <value>This is a set of NCAA Football Modding Tools that add more realism to the game. 
-
-Use these at the beginning of a season:
-
-* Pre-Season Injuries - Randomly distributes injuries to players, with ability to have skill degradation. 
-
-Use these at the end of the Regular Season (or during Bowl Weeks)
-
-* Medical Redshirt - Grants Players that have Season Ending injuries a redshirt year
-
-It is recommended to use these tools after the completion of the National Championship game and before the start of the off-season.
-
-* Coach Progression - Changes User/CPU Coach Prestige value based on performance. This is no longer required for NEXT 25+.
-
-* Coaching Carousel - Fires and Hires Coaches automatically based on prestige and coaching score. Can also force transfers from teams that lose their head coach! 
-
-* Randomize Coaching Budgets - Randomizes the discipline, recruiting and training budgets for every coach
-
-* Auto Realignment - This is a very primitive conference realignment algorithm based on regionality, prestige, and conference prestige.
- 
-* Players to Coach - This will convert high awareness graduating seniors to coaches.</value>
-  </data>
-  <data name="textBoxOffSeason.Text" xml:space="preserve">
-    <value>This is the off-season toolbox for recruiting. Most of these tools can only occur during specific phases of the off-season.
-
-Raise Minimum Recruiting Points : 
-This raises the min points and minimum TRPA (??). The TRPA determines how many points are given each week, although it is just one of the many factors. The Min Points resets each week.
-
-Modify Recruiting Interested Teams:
-This value is set to default of 10. If you lower it, there will be less teams automatically interested in a recruit. This allows other teams to try to get into the recruit's top 10 list.
-
-Randomize Recruits: 
-This randomizes the recruit attribute ratings. Use the tolerance to set the min/max randomization value. Weight and Height are also randomize. Potential, Injury and Awareness are also randomized.
-
-Randomize Face &amp; Skin:
-The game does not assign a random face shape to recruits by default. It will also randomize the skin tone and face type. 
-
-Randomize Walk-Ons: 
-This randomizes the walk-on attribute ratings. Use the toleranace to set the min/max randomization value. Weight and Height are also randomize. Potential, Injury and Awareness are also randomized.
-
-Polynesian Surname Generator: 
-This changes recruits from Hawaii and western states to have polynesian surnames. The % Chance is for Hawaii, with 15-25% of CA, UT, WA and AZ states getting players of polynesian descent.</value>
-  </data>
-  <data name="textBox6.Text" xml:space="preserve">
-    <value>Development Tools Only -- NEXT 25 ONLY --
-
-
-This is for Roster Generation with internal imported spreadsheets. Recommend to avoid this unless you know what you're doing. 
-
-To Begin, Open a Roster Save and Load PLAY table. Then Import the 2024-PLAY-BASE.csv from the 2024-Roster-Base folder using DB Editor. 
-
-Then proceed the with the buttons in order. You can swap 2 and 3 if you want. It may give a different result!
-</value>
-  </data>
-  <metadata name="PBRec.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="PBPL.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="AIGRVal.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="AIGRname.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="prct.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="PLYL.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="PlayName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="PLYTVal.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="PLYT.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="DCHTPPOS.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="DCHT0.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="DCHT1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="DCHT2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="DCHT3.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="DCHT4.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="DCHT5.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="colorDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>721, 17</value>
-  </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>53</value>
+    <value>25</value>
   </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

@@ -24,7 +24,7 @@ namespace DB_EDITOR
         }
 
 
-        #region general tools
+        #region General Tools
         //Fixes Body Size Models if user does manipulation of the player attributes in the in-game player editor
         private void RecalculateBMI(string tableName)
         {
@@ -891,7 +891,7 @@ namespace DB_EDITOR
                                 }
                             }
 
-                            TDB.TDBTableRecordAdd(dbIndex, "PLAY", false);
+                            AddTableRecord("PLAY", false);
 
 
                             if (TeamPos[8] < POSG[8]) TransferRCATtoPLAY(recCounter, 19, j, RCATmapper, PJEN, FreshmanPCT);
@@ -1043,7 +1043,6 @@ namespace DB_EDITOR
 
         #endregion
 
-
         #region Fantasy Roster Generator
         //Fantasy Roster Generator
         private void FantasyRosterGenerator(string tableName)
@@ -1095,7 +1094,7 @@ namespace DB_EDITOR
                     for (int j = 0; j < 68; j++)
                     {
                         //Add a record
-                        TDB.TDBTableRecordAdd(dbIndex, "PLAY", false);
+                        AddTableRecord("PLAY", false);
 
                         //QB
                         if (j < 3) TransferRCATtoPLAY(rec, 0, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
@@ -1193,7 +1192,7 @@ namespace DB_EDITOR
             RecalculateQBTendencies();
             CalculateTeamRatings(tableName);
 
-            MessageBox.Show("Fantasy Roster Generation is complete!");
+            MessageBox.Show("Fantasy Roster Generation is complete!\n\nRun the Depth Chart Tool to create Depth Charts!");
 
         }
 
@@ -1230,7 +1229,7 @@ namespace DB_EDITOR
             for (int j = 0; j < 68; j++)
             {
                 //Add a record
-                TDB.TDBTableRecordAdd(dbIndex, "PLAY", false);
+                AddTableRecord("PLAY", false);
 
                 //QB
                 if (j < 3) TransferRCATtoPLAY(rec, 0, PGIDbeg + j, RCATmapper, PJEN, freshmanPCT);
@@ -1502,7 +1501,6 @@ namespace DB_EDITOR
         }
         #endregion
 
-
         #region Depth Chart Maker
         //Depth Chart Maker
         public void DepthChartMaker(string tableName)
@@ -1518,7 +1516,7 @@ namespace DB_EDITOR
                 TDB.TDBTableRecordRemove(dbIndex, "DCHT", i);
             }
 
-            TDB.TDBDatabaseCompact(dbIndex);
+            CompactDB();
 
             int count;
             int rec = 0;
@@ -1630,10 +1628,10 @@ namespace DB_EDITOR
             {
                 if(GetDBValueInt("DCHT", "PGID", i) >= PGIDbeg && GetDBValueInt("DCHT", "PGID", i) <= PGIDend)
 
-                TDB.TDBTableRecordChangeDeleted(dbIndex, "DCHT", i, true);
+                DeleteRecordChange("DCHT", i, true);
             }
 
-            TDB.TDBDatabaseCompact(dbIndex);
+            CompactDB();
 
             
             int rec = TDB.TableRecordCount(dbIndex, "DCHT");
@@ -1731,10 +1729,10 @@ namespace DB_EDITOR
             {
                 if (GetDBValueInt("DCHT", "PGID", i) >= PGIDbeg && GetDBValueInt("DCHT", "PGID", i) <= PGIDend)
 
-                    TDB.TDBTableRecordChangeDeleted(dbIndex, "DCHT", i, true);
+                    DeleteRecordChange("DCHT", i, true);
             }
 
-            TDB.TDBDatabaseCompact(dbIndex);
+            CompactDB();
         }
 
         private int AddDCHTrecord(int rec, int ppos, int depthCount, List<List<int>> roster)
@@ -1767,7 +1765,7 @@ namespace DB_EDITOR
             {
                 if (ppos > 20 || !IsStarter(PosRating[i][1]))
                 {
-                    TDB.TDBTableRecordAdd(dbIndex, "DCHT", false);
+                    AddTableRecord("DCHT", false);
                     int pgid = PosRating[i][1];
                     ChangeDBString("DCHT", "PGID", rec, Convert.ToString(pgid));
                     ChangeDBString("DCHT", "PPOS", rec, Convert.ToString(ppos));
@@ -1890,11 +1888,7 @@ namespace DB_EDITOR
             MessageBox.Show("Fantasy Coach Database Completed!");
         }
 
-
-
         #endregion
-
-
 
         #region Attribute Editors
 

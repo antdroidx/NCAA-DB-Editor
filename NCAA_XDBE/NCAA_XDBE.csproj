@@ -78,6 +78,12 @@
     <Compile Include="Button_Clicks.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="TDB_Helper.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DatabaseEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="DepthCharts.cs">
       <SubType>Form</SubType>
     </Compile>

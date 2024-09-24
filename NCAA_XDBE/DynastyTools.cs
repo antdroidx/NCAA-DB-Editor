@@ -26,7 +26,7 @@ namespace DB_EDITOR
                 {
                     int injl = rand.Next(50, 255);
                     int injt = rand.Next(180, 221);
-                    TDB.TDBTableRecordAdd(dbIndex, "INJY", true);
+                    AddTableRecord("INJY", true);
                     ChangeDBString("INJY", "PGID", inj, GetDBValue("PLAY", "PGID", i));
                     ChangeDBString("INJY", "INJL", inj, Convert.ToString(injl));
                     ChangeDBString("INJY", "INJT", inj, Convert.ToString(injt));
@@ -614,7 +614,7 @@ namespace DB_EDITOR
         private void TransferPlayer(int i, int PGID)
         {
             int row = GetTableRecCount("TRAN");
-            TDB.TDBTableRecordAdd(dbIndex, "TRAN", false);
+            AddTableRecord("TRAN", false);
             ChangeDBString("TRAN", "PGID", row, Convert.ToString(PGID));
             ChangeDBString("TRAN", "PTID", row, "300");
             ChangeDBString("TRAN", "TRYR", row, "0");
@@ -715,7 +715,7 @@ namespace DB_EDITOR
         private void SwapTeams(int teamA, int teamB)
         {
             int x = GetTableRecCount("TSWP");
-            TDB.TDBTableRecordAdd(dbIndex, "TSWP", false);
+            AddTableRecord("TSWP", false);
             ChangeDBString("TSWP", "TGID", x, Convert.ToString(GetTeamTGIDfromRecord(teamA)));
             ChangeDBString("TSWP", "TIDR", x, Convert.ToString(GetTeamTGIDfromRecord(teamB)));
             ChangeDBString("TSWP", "TORD", x, Convert.ToString(x));

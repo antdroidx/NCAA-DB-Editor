@@ -9,7 +9,7 @@ namespace DB_EDITOR
     {
 
         //EXPORT - Main Menu
-        private void ExportMain()
+        private void ExportDB()
         {
             string tmpReverse = "";
             string tmpcurrentDBfile = Path.GetFileNameWithoutExtension(dbFile);
@@ -45,7 +45,7 @@ namespace DB_EDITOR
                         TdbTableProperties TableProps = new TdbTableProperties();
                         TableProps.Name = new string((char)0, 5);
 
-                        TDB.TDBTableGetProperties(dbIndex, SelectedTableIndex, ref TableProps);
+                        TDB.TDBTableGetProperties(dbSelected, SelectedTableIndex, ref TableProps);
 
                         #region Write CSV Header (field names).
                         for (int i = 0; i < TableProps.FieldCount; i++)
@@ -55,7 +55,7 @@ namespace DB_EDITOR
 
 
 
-                            TDB.TDBFieldGetProperties(dbIndex, SelectedTableName, i, ref FieldProps);
+                            TDB.TDBFieldGetProperties(dbSelected, SelectedTableName, i, ref FieldProps);
                             tmpReverse = FieldProps.Name;
 
                             // Reverse field name if BigEndian file.
@@ -106,13 +106,13 @@ namespace DB_EDITOR
                                 TdbFieldProperties FieldProps = new TdbFieldProperties();
                                 FieldProps.Name = new string((char)0, 5);
 
-                                TDB.TDBFieldGetProperties(dbIndex, TableProps.Name, f, ref FieldProps);
+                                TDB.TDBFieldGetProperties(dbSelected, TableProps.Name, f, ref FieldProps);
 
                                 if (FieldProps.FieldType == TdbFieldType.tdbString)
                                 {
                                     string val = new string((char)0, (FieldProps.Size / 8) + 1);
 
-                                    TDB.TDBFieldGetValueAsString(dbIndex, TableProps.Name, FieldProps.Name, r, ref val);
+                                    TDB.TDBFieldGetValueAsString(dbSelected, TableProps.Name, FieldProps.Name, r, ref val);
 
                                     if (!tabDelimited)
                                         val = val.Replace(",", "");
@@ -123,7 +123,7 @@ namespace DB_EDITOR
                                 else if (FieldProps.FieldType == TdbFieldType.tdbUInt)
                                 {
                                     UInt32 intval;
-                                    intval = (UInt32)TDB.TDBFieldGetValueAsInteger(dbIndex, TableProps.Name, FieldProps.Name, r);
+                                    intval = (UInt32)TDB.TDBFieldGetValueAsInteger(dbSelected, TableProps.Name, FieldProps.Name, r);
                                     hbuilder.Append(intval.ToString());
 
                                     if (FieldProps.Name == "PGID")
@@ -136,21 +136,21 @@ namespace DB_EDITOR
                                 else if (FieldProps.FieldType == TdbFieldType.tdbInt || FieldProps.FieldType == TdbFieldType.tdbSInt)
                                 {
                                     Int32 signedval;
-                                    signedval = TDB.TDBFieldGetValueAsInteger(dbIndex, TableProps.Name, FieldProps.Name, r);
+                                    signedval = TDB.TDBFieldGetValueAsInteger(dbSelected, TableProps.Name, FieldProps.Name, r);
                                     hbuilder.Append(signedval.ToString());
 
                                 }
                                 else if (FieldProps.FieldType == TdbFieldType.tdbFloat)
                                 {
                                     float floatval;
-                                    floatval = TDB.TDBFieldGetValueAsFloat(dbIndex, TableProps.Name, FieldProps.Name, r);
+                                    floatval = TDB.TDBFieldGetValueAsFloat(dbSelected, TableProps.Name, FieldProps.Name, r);
                                     hbuilder.Append(floatval.ToString());
 
                                 }
                                 else if (FieldProps.FieldType == TdbFieldType.tdbBinary || FieldProps.FieldType == TdbFieldType.tdbVarchar || FieldProps.FieldType == TdbFieldType.tdbLongVarchar)
                                 {
                                     string val = new string((char)0, (FieldProps.Size / 8) + 1);
-                                    TDB.TDBFieldGetValueAsString(dbIndex, TableProps.Name, FieldProps.Name, r, ref val);
+                                    TDB.TDBFieldGetValueAsString(dbSelected, TableProps.Name, FieldProps.Name, r, ref val);
 
                                     // hbuilder.Append(val.ToString());
                                     hbuilder.Append("usft");
@@ -241,7 +241,7 @@ namespace DB_EDITOR
                         TdbTableProperties TableProps = new TdbTableProperties();
                         TableProps.Name = new string((char)0, 5);
 
-                        TDB.TDBTableGetProperties(dbIndex, SelectedTableIndex, ref TableProps);
+                        TDB.TDBTableGetProperties(dbSelected, SelectedTableIndex, ref TableProps);
 
                         #region Write CSV Header (field names).
                         for (int i = 0; i < TableProps.FieldCount; i++)
@@ -249,7 +249,7 @@ namespace DB_EDITOR
                             TdbFieldProperties FieldProps = new TdbFieldProperties();
                             FieldProps.Name = new string((char)0, 5);
 
-                            if (TDB.TDBFieldGetProperties(dbIndex, SelectedTableName, i, ref FieldProps))
+                            if (TDB.TDBFieldGetProperties(dbSelected, SelectedTableName, i, ref FieldProps))
                             {
                                 tmpReverse = FieldProps.Name;
 
@@ -282,13 +282,13 @@ namespace DB_EDITOR
                                 TdbFieldProperties FieldProps = new TdbFieldProperties();
                                 FieldProps.Name = new string((char)0, 5);
 
-                                TDB.TDBFieldGetProperties(dbIndex, TableProps.Name, f, ref FieldProps);
+                                TDB.TDBFieldGetProperties(dbSelected, TableProps.Name, f, ref FieldProps);
 
                                 if (FieldProps.FieldType == TdbFieldType.tdbString)
                                 {
                                     string val = new string((char)0, (FieldProps.Size / 8) + 1);
 
-                                    TDB.TDBFieldGetValueAsString(dbIndex, TableProps.Name, FieldProps.Name, Convert.ToInt32(row.Cells[0].Value), ref val);
+                                    TDB.TDBFieldGetValueAsString(dbSelected, TableProps.Name, FieldProps.Name, Convert.ToInt32(row.Cells[0].Value), ref val);
                                     val = val.Replace(",", "");
 
                                     hbuilder.Append(val.ToString());
@@ -297,28 +297,28 @@ namespace DB_EDITOR
                                 else if (FieldProps.FieldType == TdbFieldType.tdbUInt)
                                 {
                                     UInt32 intval;
-                                    intval = (UInt32)TDB.TDBFieldGetValueAsInteger(dbIndex, TableProps.Name, FieldProps.Name, Convert.ToInt32(row.Cells[0].Value));
+                                    intval = (UInt32)TDB.TDBFieldGetValueAsInteger(dbSelected, TableProps.Name, FieldProps.Name, Convert.ToInt32(row.Cells[0].Value));
                                     hbuilder.Append(intval.ToString());
 
                                 }
                                 else if (FieldProps.FieldType == TdbFieldType.tdbInt || FieldProps.FieldType == TdbFieldType.tdbSInt)
                                 {
                                     Int32 signedval;
-                                    signedval = TDB.TDBFieldGetValueAsInteger(dbIndex, TableProps.Name, FieldProps.Name, Convert.ToInt32(row.Cells[0].Value));
+                                    signedval = TDB.TDBFieldGetValueAsInteger(dbSelected, TableProps.Name, FieldProps.Name, Convert.ToInt32(row.Cells[0].Value));
                                     hbuilder.Append(signedval.ToString());
 
                                 }
                                 else if (FieldProps.FieldType == TdbFieldType.tdbFloat)
                                 {
                                     float floatval;
-                                    floatval = TDB.TDBFieldGetValueAsFloat(dbIndex, TableProps.Name, FieldProps.Name, Convert.ToInt32(row.Cells[0].Value));
+                                    floatval = TDB.TDBFieldGetValueAsFloat(dbSelected, TableProps.Name, FieldProps.Name, Convert.ToInt32(row.Cells[0].Value));
                                     hbuilder.Append(floatval.ToString());
 
                                 }
                                 else if (FieldProps.FieldType == TdbFieldType.tdbBinary || FieldProps.FieldType == TdbFieldType.tdbVarchar || FieldProps.FieldType == TdbFieldType.tdbLongVarchar)
                                 {
                                     string val = new string((char)0, (FieldProps.Size / 8) + 1);
-                                    TDB.TDBFieldGetValueAsString(dbIndex, TableProps.Name, FieldProps.Name, Convert.ToInt32(row.Cells[0].Value), ref val);
+                                    TDB.TDBFieldGetValueAsString(dbSelected, TableProps.Name, FieldProps.Name, Convert.ToInt32(row.Cells[0].Value), ref val);
 
                                     // hbuilder.Append(val.ToString());
                                     hbuilder.Append("usft");

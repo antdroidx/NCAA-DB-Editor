@@ -10,15 +10,15 @@ namespace DB_EDITOR
     {
 
         //Import - Main Menu
-        private void ImportMain()
+        private void ImportDB()
         {
             bool roster = true;
-            if(TDB.TableCount(dbIndex) > 3) roster = false;
+            if(TDB.TableCount(dbSelected) > 3) roster = false;
 
             Dictionary<string, int> AvailableFields = new Dictionary<string, int>();
             Dictionary<string, int> TableFields = new Dictionary<string, int>();
 
-            if (SelectedTableName == "TEAM" && TDB.TDBDatabaseGetTableCount(dbIndex) > 50 && !addendum)
+            if (SelectedTableName == "TEAM" && TDB.TDBDatabaseGetTableCount(dbSelected) > 50 && !addendum)
             {
                 MessageBox.Show("DO NOT USE IMPORT CSV FUNCTION FOR TEAM TABLE.\n\nPlease use Addendum instead and DO NOT IMPORT TPIP and JJNM COLUMNS!");
                 return;
@@ -40,7 +40,7 @@ namespace DB_EDITOR
                     TdbTableProperties TableProps = new TdbTableProperties();
                     TableProps.Name = new string((char)0, 5);
 
-                    TDB.TDBTableGetProperties(dbIndex, SelectedTableIndex, ref TableProps);
+                    TDB.TDBTableGetProperties(dbSelected, SelectedTableIndex, ref TableProps);
 
                     progressBar1.Minimum = 0;
                     progressBar1.Maximum = TableProps.FieldCount;
@@ -53,7 +53,7 @@ namespace DB_EDITOR
                         TdbFieldProperties FieldProps = new TdbFieldProperties();
                         FieldProps.Name = new string((char)0, 5);
 
-                        TDB.TDBFieldGetProperties(dbIndex, TableProps.Name, i, ref FieldProps);
+                        TDB.TDBFieldGetProperties(dbSelected, TableProps.Name, i, ref FieldProps);
 
                         TableFields.Add(FieldProps.Name, (int)FieldProps.FieldType);
 
@@ -73,7 +73,7 @@ namespace DB_EDITOR
 
                             for (int r = TableProps.RecordCount; r != -1; r--)
                             {
-                                TDB.TDBTableRecordRemove(dbIndex, SelectedTableName, r);
+                                TDB.TDBTableRecordRemove(dbSelected, SelectedTableName, r);
 
                                 progressBar1.PerformStep();
                             }
@@ -142,7 +142,7 @@ namespace DB_EDITOR
                         // add new record
                         if (!addendum || importRec)
                         {
-                            TDB.TDBTableRecordAdd(dbIndex, SelectedTableName, true);
+                            TDB.TDBTableRecordAdd(dbSelected, SelectedTableName, true);
                             //TDB.TDBTableGetProperties(currentDBfileIndex, SelectedTableIndex, ref TableProps);
                             // Import record's record index.
                             if (importRec)
@@ -188,7 +188,7 @@ namespace DB_EDITOR
 
 
 
-                                TDB.TDBFieldSetValueAsString(dbIndex,
+                                TDB.TDBFieldSetValueAsString(dbSelected,
                                                                    SelectedTableName,
                                                                    importfieldnames,
                                                                    recnum,
@@ -204,7 +204,7 @@ namespace DB_EDITOR
 
                                 //Check if import value is within parameters.
                                 if (!IsIntNumber(record[import.Value]) ||
-                                    !TDB.TDBFieldSetValueAsInteger(dbIndex,
+                                    !TDB.TDBFieldSetValueAsInteger(dbSelected,
                                                                    SelectedTableName,
                                                                    importfieldname,
                                                                    recnum,
@@ -223,7 +223,7 @@ namespace DB_EDITOR
                                 string importfieldname = import.Key;
 
                                 // Check if import value is within parameters.
-                                if (!IsUIntNumber(record[import.Value]) || !TDB.TDBFieldSetValueAsInteger(dbIndex, SelectedTableName, importfieldname, recnum, (int)Convert.ToUInt32(record[import.Value])))
+                                if (!IsUIntNumber(record[import.Value]) || !TDB.TDBFieldSetValueAsInteger(dbSelected, SelectedTableName, importfieldname, recnum, (int)Convert.ToUInt32(record[import.Value])))
                                 { }
 
                             }
@@ -233,7 +233,7 @@ namespace DB_EDITOR
                                 string importfieldname = import.Key;
 
                                 // Check if import value is within parameters, if not set to max parameter.
-                                if (!IsFloat(record[import.Value]) || !TDB.TDBFieldSetValueAsFloat(dbIndex, SelectedTableName, importfieldname, recnum, Convert.ToSingle(record[import.Value])))
+                                if (!IsFloat(record[import.Value]) || !TDB.TDBFieldSetValueAsFloat(dbSelected, SelectedTableName, importfieldname, recnum, Convert.ToSingle(record[import.Value])))
                                 { }
 
                             }

@@ -18,7 +18,7 @@ namespace DB_EDITOR
         #region TAB CONTROLS
         private void TabControl1_IndexChange(object sender, EventArgs e)
         {
-
+            if (tabControl1.SelectedTab != tabDB) CSVMenu.Visible = false;
             if (tabControl1.SelectedTab == tabDB) TabDB_Start();
             else if (tabControl1.SelectedTab == tabTeams) StartTeamEditor();
             else if (tabControl1.SelectedTab == tabPlayers) StartPlayerEditor();
@@ -30,13 +30,6 @@ namespace DB_EDITOR
             else if (tabControl1.SelectedTab == tabHome) StartHomeTab();
         }
 
-        private void OpenTabs()
-        {
-            if (activeDB == 1) tabControl1.TabPages.Add(tabSeason);
-            if (activeDB == 2) tabControl1.TabPages.Add(tabOffSeason);
-            if (activeDB > 0) tabControl1.TabPages.Add(tabTools);
-        }
-
         private void TabDB_Start()
         {
             progressBar1.Visible = true;
@@ -44,6 +37,21 @@ namespace DB_EDITOR
             TablePropsgroupBox.Visible = true;
             FieldsPropsgroupBox.Visible = true;
             TableGridView_SelectionChanged(null, null);
+            fieldMenu.Enabled = true;
+            tableMenu.Enabled = true;
+            CSVMenu.Visible = true;
+        }
+
+        private void TabDB2_Start()
+        {
+            progressBar1.Visible = true;
+            progressBar1.Value = 0;
+            TablePropsgroupBox.Visible = true;
+            FieldsPropsgroupBox.Visible = true;
+            TableGridView_SelectionChanged(null, null);
+            fieldMenu.Enabled = false;
+            tableMenu.Enabled = false;
+            CSVMenu.Visible = false;
         }
 
         private void StartHomeTab()
@@ -225,86 +233,6 @@ namespace DB_EDITOR
         #endregion
 
 
-        #region RECRUITING TOOLS CLICKS
-
-
-        //Raise minimum recruiting point allocation and off-season TPRA values -- Must be done at start of Recruiting
-        private void ButtonMinRecruitingPts_Click(object sender, EventArgs e)
-        {
-            bool correctWeek = false;
-            for (int i = 0; i < GetTableRecCount("RCYR"); i++)
-            {
-                if (Convert.ToInt32(GetDBValue("RCYR", "SEWN", i)) >= 1)
-                {
-                    RaiseMinimumRecruitingPoints();
-                    correctWeek = true;
-                }
-            }
-            if (!correctWeek)
-            {
-                MessageBox.Show("Please use this feature at the beginning of Recruiting Stage!");
-            }
-        }
-
-        //Randomize or Remove Recruiting Interested Teams
-        private void ButtonInterestedTeams_Click(object sender, EventArgs e)
-        {
-            bool correctWeek = false;
-            for (int i = 0; i < GetTableRecCount("RCYR"); i++)
-            {
-                if (GetDBValue("RCYR", "SEWN", i) == "1")
-                {
-                    RemoveInterestedTeams();
-                    correctWeek = true;
-                }
-            }
-            if (!correctWeek)
-            {
-                MessageBox.Show("Please use this feature at the beginning of Recruiting Stage!");
-            }
-        }
-
-        //Randomize the Recruits to give a little bit more variety and evaluation randomness -- Must be done at start of Recruiting
-        private void ButtonRandRecruits_Click(object sender, EventArgs e)
-        {
-            bool correctWeek = false;
-            for (int i = 0; i < GetTableRecCount("RCYR"); i++)
-            {
-                if (GetDBValue("RCYR", "SEWN", i) == "1")
-                {
-                    RandomizeRecruitDB("RCPT");
-                    correctWeek = true;
-                }
-            }
-            if (!correctWeek)
-            {
-                MessageBox.Show("Please use this feature at the beginning of Recruiting Stage!");
-            }
-
-        }
-
-        //Randomize Walk-On Database -- Must be done prior to Cut Players stage
-        private void ButtonRandWalkOns_Click(object sender, EventArgs e)
-        {
-            RandomizeWalkOnDB();
-        }
-
-        //Polynesian Surname Generator
-        private void PolyNames_Click(object sender, EventArgs e)
-        {
-            PolynesianNameGenerator();
-        }
-
-        //Randomize Face & Skins
-        private void buttonRandomizeFaceSkin_Click(object sender, EventArgs e)
-        {
-            RandomizeRecruitFace("RCPT");
-        }
-
-
-
-
-        #endregion
 
         //DEV TAB TOOLS
 

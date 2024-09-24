@@ -37,7 +37,7 @@ namespace DB_EDITOR
                 if (GetDBValueInt("PLAY", "PTYP", i) == 3)
                 {
                     //remove player from database
-                    TDB.TDBTableRecordChangeDeleted(dbIndex, "PLAY", i, true);
+                    DeleteRecordChange("PLAY", i, true);
                     removed++;
                     //clear stats
                     ClearPlayerStats(GetDBValueInt("PLAY", "PGID", i));
@@ -73,7 +73,7 @@ namespace DB_EDITOR
                 progressBar1.PerformStep();
             }
 
-            TDB.TDBDatabaseCompact(dbIndex);
+            CompactDB();
 
 
             //transfer players
@@ -149,7 +149,7 @@ namespace DB_EDITOR
             {
                 if (GetDBValueInt("PLAY", "PGID", i) >= 30000)
                 {
-                    TDB.TDBTableRecordChangeDeleted(dbIndex, "PLAY", i, true);
+                    DeleteRecordChange("PLAY", i, true);
                     nottransferred++;
                 }
                 else
@@ -162,7 +162,7 @@ namespace DB_EDITOR
             }
 
 
-            TDB.TDBDatabaseCompact(dbIndex);
+            CompactDB();
 
             progressBar1.Visible = false;
             progressBar1.Value = 0;
@@ -176,52 +176,52 @@ namespace DB_EDITOR
         {
             for (int i = 0; i < GetTableRecCount("PSDE"); i++)
             {
-                if (GetDBValueInt("PSDE", "PGID", i) == pgid) TDB.TDBTableRecordChangeDeleted(dbIndex, "PSDE", i, true);
+                if (GetDBValueInt("PSDE", "PGID", i) == pgid) DeleteRecordChange("PSDE", i, true);
                 break;
             }
 
             for (int i = 0; i < GetTableRecCount("PSKI"); i++)
             {
-                if (GetDBValueInt("PSKI", "PGID", i) == pgid) TDB.TDBTableRecordChangeDeleted(dbIndex, "PSKI", i, true);
+                if (GetDBValueInt("PSKI", "PGID", i) == pgid) DeleteRecordChange("PSKI", i, true);
                 break;
             }
 
             for (int i = 0; i < GetTableRecCount("PSKP"); i++)
             {
-                if (GetDBValueInt("PSKP", "PGID", i) == pgid) TDB.TDBTableRecordChangeDeleted(dbIndex, "PSKP", i, true);
+                if (GetDBValueInt("PSKP", "PGID", i) == pgid) DeleteRecordChange("PSKP", i, true);
                 break;
             }
 
             for (int i = 0; i < GetTableRecCount("PSOF"); i++)
             {
-                if (GetDBValueInt("PSOF", "PGID", i) == pgid) TDB.TDBTableRecordChangeDeleted(dbIndex, "PSOF", i, true);
+                if (GetDBValueInt("PSOF", "PGID", i) == pgid) DeleteRecordChange("PSOF", i, true);
                 break;
             }
 
             for (int i = 0; i < GetTableRecCount("PSOL"); i++)
             {
-                if (GetDBValueInt("PSOL", "PGID", i) == pgid) TDB.TDBTableRecordChangeDeleted(dbIndex, "PSOL", i, true);
+                if (GetDBValueInt("PSOL", "PGID", i) == pgid) DeleteRecordChange("PSOL", i, true);
                 break;
             }
 
             for (int i = 0; i < GetTableRecCount("PSRC"); i++)
             {
-                if (GetDBValueInt("PSRC", "PGID", i) == pgid) TDB.TDBTableRecordChangeDeleted(dbIndex, "PSRC", i, true);
+                if (GetDBValueInt("PSRC", "PGID", i) == pgid) DeleteRecordChange("PSRC", i, true);
                 break;
             }
 
             for (int i = 0; i < GetTableRecCount("PSRN"); i++)
             {
-                if (GetDBValueInt("PSRN", "PGID", i) == pgid) TDB.TDBTableRecordChangeDeleted(dbIndex, "PSRN", i, true);
+                if (GetDBValueInt("PSRN", "PGID", i) == pgid) DeleteRecordChange("PSRN", i, true);
                 break;
             }
 
             for (int i = 0; i < GetTableRecCount("PSRT"); i++)
             {
-                if (GetDBValueInt("PSRT", "PGID", i) == pgid) TDB.TDBTableRecordChangeDeleted(dbIndex, "PSRT", i, true);
+                if (GetDBValueInt("PSRT", "PGID", i) == pgid) DeleteRecordChange("PSRT", i, true);
                 break;
             }
-            TDB.TDBDatabaseCompact(dbIndex);
+            CompactDB();
         }
 
         private void ChangePlayerStatsID(int pgid, int newpgid)
@@ -344,7 +344,7 @@ namespace DB_EDITOR
                         if (!rosters.Contains(j))
                         {
                             int rec = GetTableRecCount("PLAY");
-                            TDB.TDBTableRecordAdd(dbIndex, "PLAY", false);
+                            AddTableRecord("PLAY", false);
                             position = ChooseRandomPosFromPOSG(position);
                             CreateNamedTransfersfromRCAT(rec, position, j, RCATmapper, PJEN, 50, FN, LN);
                             created++;
@@ -469,7 +469,7 @@ namespace DB_EDITOR
                         if (!rosters.Contains(j))
                         {
                             int rec = GetTableRecCount("PLAY");
-                            TDB.TDBTableRecordAdd(dbIndex, "PLAY", false);
+                            AddTableRecord("PLAY", false);
                             CreateNamedRecruitfromRCAT(rec, position, j, RCATmapper, PJEN, 100, FN, LN, height, weight, rating);
                             recruitsCreated++;
                             break;
