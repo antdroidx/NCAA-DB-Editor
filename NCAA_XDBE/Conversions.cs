@@ -109,6 +109,7 @@ namespace DB_EDITOR
             AlphabetX.Add(".", 55);
             AlphabetX.Add(" ", 56);
             AlphabetX.Add("@", 57);
+            AlphabetX.Add("±", 58);
 
             foreach (KeyValuePair<string, int> CHAR in AlphabetX)
             {
