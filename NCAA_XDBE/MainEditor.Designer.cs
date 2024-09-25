@@ -1139,6 +1139,7 @@ namespace DB_EDITOR
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox2.Controls.Add(this.DB2Button);
             this.groupBox2.Controls.Add(this.DB1Button);
             this.groupBox2.Location = new System.Drawing.Point(718, 725);
@@ -4626,7 +4627,7 @@ namespace DB_EDITOR
             // 
             this.POVRbox.BackColor = System.Drawing.SystemColors.Info;
             this.POVRbox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.POVRbox.Location = new System.Drawing.Point(529, 60);
+            this.POVRbox.Location = new System.Drawing.Point(531, 60);
             this.POVRbox.Name = "POVRbox";
             this.POVRbox.ReadOnly = true;
             this.POVRbox.Size = new System.Drawing.Size(53, 22);
@@ -5815,7 +5816,7 @@ namespace DB_EDITOR
             this.PPOSBox.FormattingEnabled = true;
             this.PPOSBox.Location = new System.Drawing.Point(452, 58);
             this.PPOSBox.Name = "PPOSBox";
-            this.PPOSBox.Size = new System.Drawing.Size(60, 24);
+            this.PPOSBox.Size = new System.Drawing.Size(71, 24);
             this.PPOSBox.TabIndex = 10;
             this.PPOSBox.SelectedIndexChanged += new System.EventHandler(this.PPOSBox_SelectedIndexChanged);
             // 
@@ -5823,7 +5824,7 @@ namespace DB_EDITOR
             // 
             this.label61.AutoSize = true;
             this.label61.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label61.Location = new System.Drawing.Point(526, 40);
+            this.label61.Location = new System.Drawing.Point(528, 40);
             this.label61.Name = "label61";
             this.label61.Size = new System.Drawing.Size(57, 16);
             this.label61.TabIndex = 9;

@@ -506,7 +506,7 @@ namespace DB_EDITOR
             if (DoNotTrigger)
                 return;
 
-            ChangeDBInt("PLAY", "PRSD", PlayerIndex, PYERBox.SelectedIndex);
+            ChangeDBInt("PLAY", "PRSD", PlayerIndex, PRSDBox.SelectedIndex);
         }
 
         //Jersey Number
