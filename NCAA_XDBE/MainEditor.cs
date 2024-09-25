@@ -69,8 +69,6 @@ namespace DB_EDITOR
         List<byte> db2Data = new List<byte>();  // Holds any extra data at end of db file. (off-season)
         List<byte> psuExtras = new List<byte>(); // Holds remaining data from PSU saves
 
-        int activeDB = 0; //1 - season, 2 - off-season
-
         List<string> deflist = new List<string>();
 
         Dictionary<string, Dictionary<string, string>> TableDefinitions = new Dictionary<string, Dictionary<string, string>>();
@@ -168,6 +166,8 @@ namespace DB_EDITOR
             tabControl1.TabPages.Remove(tabDev);
             tabControl1.TabPages.Remove(tabPlaybook);
             tabControl1.TabPages.Remove(tabDepthCharts);
+            tabControl1.TabPages.Remove(tabRecruits);
+
 
 
 
@@ -180,7 +180,6 @@ namespace DB_EDITOR
 
             LeagueMakerToolStripMenuItem.Visible = false;
 
-            activeDB = 0;
             DB2Button.Enabled = false;
             DB1Button.Checked = true;
         }
@@ -227,13 +226,15 @@ namespace DB_EDITOR
 
                 #endregion
 
+                CreateExtraFileDataContainers();
+
 
                 GetTables(dbIndex);
                 LoadTables();
-
                 GetFields(dbIndex, SelectedTableIndex);
                 LoadFields();
-                CreateExtraFileDataContainers();
+
+                DBTableAddOns();
                 StartHomeTab();
 
             }
@@ -262,7 +263,7 @@ namespace DB_EDITOR
 
             BigEndian = false;
             byte[] array = File.ReadAllBytes(filename);  // Load file into memory.
-
+            int activeDB = 0;
             int i = 0;
 
             while (i < array.Length)
@@ -354,7 +355,7 @@ namespace DB_EDITOR
             Array array;
             int x, y;
 
-            if (db2Data.Count > 0)
+            if (db2Data.Count > 0 && dbIndex2 == 1)
             {
                 SaveDB(dbIndex2);
                 array = File.ReadAllBytes(dbFile2); //db2
@@ -396,8 +397,6 @@ namespace DB_EDITOR
             {
                 dbIndex2 = TDB.TDBOpen(dbFile2);
                 DB2Button.Enabled = true;
-                if (!checkTabExists("Recruiting")) tabControl1.TabPages.Add(tabOffSeason);
-
             }
 
         }
@@ -429,7 +428,7 @@ namespace DB_EDITOR
                     }
 
                 // add DB2 data.
-                if (activeDB == 2)
+                if (dbIndex2 == 1)
                 {
                     db2 = File.ReadAllBytes(dbFile2);
                     for (int i = 0; i < db2.Length; i++)
@@ -498,7 +497,7 @@ namespace DB_EDITOR
 
             if (CloseDB(dbIndex))
             {
-                if (activeDB == 2) CloseDB(dbIndex2);
+                if (dbIndex2 == 1) CloseDB(dbIndex2);
                 DefaultSettings();
             }
 
@@ -961,7 +960,6 @@ namespace DB_EDITOR
             AboutBox1 AboutBox = new AboutBox1();
             AboutBox.ShowDialog();
         }
-
 
         #endregion
 

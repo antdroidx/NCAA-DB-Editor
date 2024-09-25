@@ -103,8 +103,6 @@ namespace DB_EDITOR
             }
             // Auto Fill Last Column
             tableGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-
-            DBTableAddOns();
         }
 
         private void TableGridView_SelectionChanged(object sender, EventArgs e)
@@ -141,8 +139,6 @@ namespace DB_EDITOR
             // MessageBox.Show(SelectedTableName);
             GetFields(dbSelected, SelectedTableIndex);
             LoadFields();
-
-
         }
 
 
@@ -645,85 +641,57 @@ namespace DB_EDITOR
         #region Add-Ons
         private void DBTableAddOns()
         {
-
-            /*
-            for (int i = 0; i < tableGridView.Rows.Count; i++)
+            TdbTableProperties table = new TdbTableProperties();
+            table.Name = "xxxx";
+            int dbCount = 1;
+            if (dbIndex2 == 1) dbCount = 2;
+            for (int db = 0; db < dbCount; db++)
             {
-                var tableName = Convert.ToString(tableGridView.Rows[i].Cells[1].Value);
+                for (int i = 0; i < TDB.TableCount(db); i++)
+                {
+                    //var tableName = Convert.ToString(tableGridView.Rows[i].Cells[1].Value);
+                    var x = TDB.TDBTableGetProperties(db, i, ref table);
 
-                if (tableName == "TEAM" && !BigEndian)
-                {
-                    TEAM = true;
-                    tabControl1.TabPages.Add(tabTeams);
-                }
-                if (tableName == "PLAY" && !BigEndian)
-                {
-                    tabControl1.TabPages.Add(tabPlayers);
-                    tabControl1.TabPages.Add(tabTools);
-                    tabControl1.TabPages.Add(tabSeason);
-                    activeDB = 1;
-                }
-                if (tableName == "TDYN" && !BigEndian)
-                {
-                    TDYN = true;
-                    //tabControl1.TabPages.Add(tabDev);
-                }
-                if (tableName == "CONF" && !BigEndian)
-                {
-                    tabControl1.TabPages.Add(tabConf);
-                    LeagueMakerToolStripMenuItem.Visible = true;
-                }
-                if (tableName == "COCH" && !BigEndian)
-                {
-                    tabControl1.TabPages.Add(tabCoaches);
-                }
-                if (tableName == "PBPL" && !BigEndian)
-                {
-                    tabControl1.TabPages.Add(tabPlaybook);
-                }
-                if (tableName == "DCHT" && !BigEndian)
-                {
-                    tabControl1.TabPages.Add(tabDepthCharts);
-                }
-            }
-            */
-
-            for (int i = 0; i < tableGridView.Rows.Count; i++)
-            {
-                var tableName = Convert.ToString(tableGridView.Rows[i].Cells[1].Value);
-
-                if (tableName == "TEAM" && !BigEndian)
-                {
-                    TEAM = true;
-                    if(!checkTabExists("Teams")) tabControl1.TabPages.Add(tabTeams);
-                }
-                if (tableName == "PLAY" && !BigEndian)
-                {
-                    if (!checkTabExists("Players")) tabControl1.TabPages.Add(tabPlayers);
-                    if (!checkTabExists("dbTools")) tabControl1.TabPages.Add(tabTools);
-                    if (!checkTabExists("Dynasty")) tabControl1.TabPages.Add(tabSeason);
-                }
-                if (tableName == "TDYN" && !BigEndian)
-                {
-                    TDYN = true;
-                    //tabControl1.TabPages.Add(tabDev);
-                }
-                if (tableName == "CONF" && !BigEndian)
-                {
-                    if (!checkTabExists("Conferences")) tabControl1.TabPages.Add(tabConf);
-                    LeagueMakerToolStripMenuItem.Visible = true;
-                }
-                if (tableName == "COCH" && !BigEndian)
-                {
-                    if (!checkTabExists("Coaches")) tabControl1.TabPages.Add(tabCoaches);
-                }
-                if (tableName == "PBPL" && !BigEndian)
-                {
-                    if (!checkTabExists("Playbooks")) tabControl1.TabPages.Add(tabPlaybook);
-                }
-                if (tableName == "DCHT" && !BigEndian)
-                {
-                    if (!checkTabExists("Depth Charts")) tabControl1.TabPages.Add(tabDepthCharts);
+                    if (table.Name == "TEAM" && !BigEndian)
+                    {
+                        TEAM = true;
+                        if (!checkTabExists("Teams")) tabControl1.TabPages.Add(tabTeams);
+                    }
+                    if (table.Name == "PLAY" && !BigEndian)
+                    {
+                        if (!checkTabExists("Players")) tabControl1.TabPages.Add(tabPlayers);
+                        if (!checkTabExists("dbTools")) tabControl1.TabPages.Add(tabTools);
+                    }
+                    if (table.Name == "TDYN" && !BigEndian)
+                    {
+                        TDYN = true;
+                        //tabControl1.TabPages.Add(tabDev);
+                    }
+                    if (table.Name == "CONF" && !BigEndian)
+                    {
+                        if (!checkTabExists("Conferences")) tabControl1.TabPages.Add(tabConf);
+                        LeagueMakerToolStripMenuItem.Visible = true;
+                    }
+                    if (table.Name == "COCH" && !BigEndian)
+                    {
+                        if (!checkTabExists("Coaches")) tabControl1.TabPages.Add(tabCoaches);
+                    }
+                    if (table.Name == "TRAN" && !BigEndian)
+                    {
+                        if (!checkTabExists("Dynasty")) tabControl1.TabPages.Add(tabSeason);
+                    }
+                    if (table.Name == "PBPL" && !BigEndian)
+                    {
+                        if (!checkTabExists("Playbooks")) tabControl1.TabPages.Add(tabPlaybook);
+                    }
+                    if (table.Name == "DCHT" && !BigEndian)
+                    {
+                        if (!checkTabExists("Depth Charts")) tabControl1.TabPages.Add(tabDepthCharts);
+                    }
+                    if (table.Name == "RCPT" && !BigEndian)
+                    {
+                        if (!checkTabExists("Recruiting")) tabControl1.TabPages.Add(tabOffSeason);
+                    }
                 }
             }
 

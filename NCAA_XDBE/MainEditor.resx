@@ -7237,6 +7237,9 @@ It is recommended to use these tools after the completion of the National Champi
         MIsIIYQQMg3MIkIIIYRMAZB/AwP8EQAPxs9WAAAAAElFTkSuQmCC
 </value>
   </data>
+  <metadata name="notifyIcon1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>842, 17</value>
+  </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>25</value>
   </metadata>
