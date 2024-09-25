@@ -363,6 +363,17 @@ namespace DB_EDITOR
                 y = array.Length;
                 psuTmp = db2Data;
             }
+            else if (db2Data.Count > 0 && dbIndex2 == -1)
+            {
+                foreach (byte b in db2Data)
+                    psuTmp.Add(b);
+
+                SaveDB(dbIndex);
+                array = File.ReadAllBytes(dbFile); //db1
+                x = 0;
+                y = 0;
+                psuTmp = db2Data;
+            }
             else
             {
                 foreach (byte b in db2Data)
@@ -372,17 +383,17 @@ namespace DB_EDITOR
                 array = File.ReadAllBytes(dbFile); //db1
                 x = array.Length;
                 y = db2Data.Count;
+                psuTmp = dbData;
             }
 
             for (int i = x + y; i < psuTmp.Count; i++)
                 psuExtras.Add(psuTmp[i]);
 
             // Debug Output
-            /* 
+            /*
             BinaryWriter dbWriter = new BinaryWriter(File.Open(System.IO.Path.ChangeExtension(dbFile2, null) + ".dbPSU", FileMode.Create));
             for (int i = 0; i < psuExtras.Count; i++)
                 dbWriter.Write(psuExtras[i]);
-
 
             dbWriter.Close();
             dbWriter.Dispose();
