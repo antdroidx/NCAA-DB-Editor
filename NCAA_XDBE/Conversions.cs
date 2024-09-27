@@ -755,7 +755,7 @@ namespace DB_EDITOR
         {
             for (int i = 0; i < GetTableRecCount("COCH"); i++)
             {
-                if (tgid == Convert.ToInt32(GetDBValue("COCH", "TGID", i)))
+                if (tgid == GetDBValueInt("COCH", "TGID", i))
                 {
                     return i;
                 }
@@ -830,7 +830,7 @@ namespace DB_EDITOR
         {
             if (TEAM)
             {
-                for (int i = 0; i < maxTeamsDB; i++)
+                for (int i = 0; i < GetTableRecCount("TEAM"); i++)
                 {
                     int j = Convert.ToInt32(GetDBValue("TEAM", "TGID", i));
 
@@ -864,7 +864,7 @@ namespace DB_EDITOR
         {
             if (TEAM)
             {
-                for (int i = 0; i < maxTeamsDB; i++)
+                for (int i = 0; i < GetTableRecCount("TEAM"); i++)
                 {
                     int j = Convert.ToInt32(GetDBValue("TEAM", "TGID", i));
 

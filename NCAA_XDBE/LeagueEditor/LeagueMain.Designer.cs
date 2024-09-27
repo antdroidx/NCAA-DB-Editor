@@ -2027,6 +2027,7 @@ namespace DB_EDITOR
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.AnnualsGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
+            this.AnnualsGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2099,6 +2100,7 @@ namespace DB_EDITOR
             dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ChampGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle12;
+            this.ChampGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2137,13 +2139,11 @@ namespace DB_EDITOR
             // 
             this.Conf.HeaderText = "Conference";
             this.Conf.Name = "Conf";
-            this.Conf.Width = 150;
             // 
             // Bowl
             // 
             this.Bowl.HeaderText = "Bowl Selection";
             this.Bowl.Name = "Bowl";
-            this.Bowl.Width = 150;
             // 
             // tabBowls
             // 
@@ -2202,6 +2202,7 @@ namespace DB_EDITOR
             dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             this.BowlsGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
+            this.BowlsGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -2246,56 +2247,58 @@ namespace DB_EDITOR
             // 
             // BIDX
             // 
+            this.BIDX.FillWeight = 58.21476F;
             this.BIDX.HeaderText = "BIDX";
             this.BIDX.Name = "BIDX";
             this.BIDX.ReadOnly = true;
-            this.BIDX.Width = 50;
             // 
             // BNME
             // 
+            this.BNME.FillWeight = 184.7952F;
             this.BNME.HeaderText = "Bowl Name";
             this.BNME.Name = "BNME";
-            this.BNME.Width = 150;
             // 
             // BCI1
             // 
+            this.BCI1.FillWeight = 113.5889F;
             this.BCI1.HeaderText = "Conf A";
             this.BCI1.Name = "BCI1";
             // 
             // BCR1
             // 
+            this.BCR1.FillWeight = 56.59636F;
             this.BCR1.HeaderText = "Conf A Seed";
             this.BCR1.Name = "BCR1";
-            this.BCR1.Width = 50;
             // 
             // BCI2
             // 
+            this.BCI2.FillWeight = 120.1694F;
             this.BCI2.HeaderText = "Conf B";
             this.BCI2.Name = "BCI2";
             // 
             // BCR2
             // 
+            this.BCR2.FillWeight = 59.46095F;
             this.BCR2.HeaderText = "Conf B Seed";
             this.BCR2.Name = "BCR2";
-            this.BCR2.Width = 50;
             // 
             // SGID
             // 
+            this.SGID.FillWeight = 188.292F;
             this.SGID.HeaderText = "Stadium";
             this.SGID.Name = "SGID";
-            this.SGID.Width = 150;
             // 
             // BMON
             // 
+            this.BMON.FillWeight = 57.73386F;
             this.BMON.HeaderText = "Month";
             this.BMON.Name = "BMON";
-            this.BMON.Width = 50;
             // 
             // BDAY
             // 
+            this.BDAY.FillWeight = 61.14862F;
             this.BDAY.HeaderText = "Date";
             this.BDAY.Name = "BDAY";
-            this.BDAY.Width = 50;
             // 
             // LeagueMain
             // 

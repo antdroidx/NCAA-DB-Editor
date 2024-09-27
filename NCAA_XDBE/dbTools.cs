@@ -294,11 +294,11 @@ namespace DB_EDITOR
 
 
             int rating, count;
-            int bonus = 2;
+            int bonus = 0;
 
             for (int i = 0; i < GetTableRecCount(tableName); i++)
             {
-                if (TDYN || GetDBValueInt(tableName, "TTYP", i) == 0)
+                if (TDYN || GetDBValueInt(tableName, "TTYP", i) <= 1)
                 {
                     int TOID = GetDBValueInt(tableName, "TOID", i);
                     int PGIDbeg = TOID * 70;
@@ -502,6 +502,7 @@ namespace DB_EDITOR
                 }
             }
 
+            NormalizeTeamRatings(tableName);
 
             progressBar1.Visible = false;
             progressBar1.Value = 0;
@@ -513,7 +514,7 @@ namespace DB_EDITOR
         {
 
             int rating, count;
-            int bonus = 2;
+            int bonus = 0;
             int PGIDbeg = tgid * 70;
             int PGIDend = PGIDbeg + 69;
             int i = -1;
@@ -526,8 +527,6 @@ namespace DB_EDITOR
                     break;
                 }
             }
-
-
 
             count = 0;
             List<List<int>> roster = new List<List<int>>();
@@ -722,8 +721,55 @@ namespace DB_EDITOR
 
             ChangeDBString(tableName, "TROV", i, Convert.ToString(rating));
 
+            NormalizeTeamRatings(tableName);
 
             MessageBox.Show(teamNameDB[tgid] + " Team Rating Calculations are complete!");
+        }
+
+        public void NormalizeTeamRatings(string tableName)
+        {
+            double meanOff = 78;
+            double meanDef = 78;
+            double rangeOffFactor = 1.33;
+            double rangeDefFactor = 1.33;
+            List<int> offRatings = new List<int>();
+            List<int> defRatings = new List<int>();
+
+            if (GetTableRecCount("TEAM") >= 119)
+            {
+                //Collect Team Rating Data
+                for (int x = 0; x < GetTableRecCount(tableName); x++)
+                {
+                    if (TEAM && GetDBValueInt(tableName, "TTYP", x) <= 1 || TDYN)
+                    {
+                        offRatings.Add(GetDBValueInt(tableName, "TROF", x));
+                        defRatings.Add(GetDBValueInt(tableName, "TRDE", x));
+                    }
+                }
+
+                //Calculate Stats
+                meanOff = offRatings.Average();
+                meanDef = defRatings.Average();
+                int rangeOff = offRatings.Max() - offRatings.Min();
+                int rangeDef = defRatings.Max() - defRatings.Min();
+                rangeOffFactor = 44 / rangeOff;
+                rangeDefFactor = 44 / rangeDef;
+            }
+
+            //Calculate Normalized Rating on a 55-99scale
+            for (int x = 0; x < GetTableRecCount(tableName); x++)
+            {
+                if (TEAM && GetDBValueInt(tableName, "TTYP", x) <= 1 || TDYN)
+                {
+                    double normalOff = GetDBValueInt(tableName, "TROF", x) - meanOff;
+                    double normalDef = GetDBValueInt(tableName, "TRDE", x) - meanDef;
+                    int offRating = Convert.ToInt32(normalOff * rangeOffFactor + meanOff);
+                    int defRating = Convert.ToInt32(normalDef * rangeDefFactor + meanDef);
+                    ChangeDBInt(tableName, "TROF", x, offRating);
+                    ChangeDBInt(tableName, "TRDE", x, defRating);
+                    ChangeDBInt(tableName, "TROV", x, (offRating+defRating)/2);
+                }
+            }
         }
 
         //Determine Impact Players
@@ -1539,13 +1585,16 @@ namespace DB_EDITOR
                         {
                             int POVR = GetDBValueInt("PLAY", "POVR", j);
                             int PPOS = GetDBValueInt("PLAY", "PPOS", j);
-
+                            int PRSD = GetDBValueInt("PLAY", "PRSD", j);
                             List<int> player = new List<int>();
-                            roster.Add(player);
-                            roster[count].Add(j);
-                            roster[count].Add(PGID);
-                            roster[count].Add(PPOS);
-                            count++;
+                            if (PRSD != 1)
+                            {
+                                roster.Add(player);
+                                roster[count].Add(j);
+                                roster[count].Add(PGID);
+                                roster[count].Add(PPOS);
+                                count++;
+                            }
                         }
                     }
                     //roster.Sort((player1, player2) => player2[0].CompareTo(player1[0]));
@@ -1646,16 +1695,18 @@ namespace DB_EDITOR
                 {
                     int POVR = GetDBValueInt("PLAY", "POVR", j);
                     int PPOS = GetDBValueInt("PLAY", "PPOS", j);
-
+                    int PRSD = GetDBValueInt("PLAY", "PRSD", j);
                     List<int> player = new List<int>();
-                    roster.Add(player);
-                    roster[count].Add(j);
-                    roster[count].Add(PGID);
-                    roster[count].Add(PPOS);
-                    count++;
+                    if (PRSD != 1)
+                    {
+                        roster.Add(player);
+                        roster[count].Add(j);
+                        roster[count].Add(PGID);
+                        roster[count].Add(PPOS);
+                        count++;
+                    }
                 }
             }
-
             //Sort Depth Chart  KR = 21 PR = 22 KOS = 23 LS = 24
 
             //QBs
@@ -2078,7 +2129,10 @@ namespace DB_EDITOR
 
         private void UpdatePlayerAttribute(int rec, int val, string attribute, double tol)
         {
-            int rating = GetDBValueInt("PLAY", attribute, rec) + rand.Next(Convert.ToInt32(tol*(double)val), val);
+            int rating = 0;
+            if(val > 0) rating = GetDBValueInt("PLAY", attribute, rec) + rand.Next(Convert.ToInt32(tol * (double)val), val);
+            else rating = GetDBValueInt("PLAY", attribute, rec) + rand.Next(val, Convert.ToInt32(tol * (double)val));
+
             if (rating < 0) rating = 0;
             if (rating > 31) rating = 31;
 
