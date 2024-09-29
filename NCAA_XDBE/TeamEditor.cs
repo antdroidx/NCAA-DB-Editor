@@ -893,7 +893,18 @@ namespace DB_EDITOR
             ChangeDBInt("STAD", "STID", FindSTADrecFromTEAMrec(TeamIndex), StateBox.SelectedIndex);
         }
 
+        private void stadiumNameBox_Leave(object sender, EventArgs e)
+        {
+            if (DoNotTrigger) return;
+            ChangeDBString("STAD", "SNAM", FindSTADrecFromTEAMrec(TeamIndex), stadiumNameBox.Text);
 
+        }
+
+        private void CityNameBox_Leave(object sender, EventArgs e)
+        {
+            if (DoNotTrigger) return;
+            ChangeDBString("STAD", "SCIT", FindSTADrecFromTEAMrec(TeamIndex), CityNameBox.Text);
+        }
 
 
         //Team Primary Color
@@ -1049,7 +1060,8 @@ namespace DB_EDITOR
             {
                 FantasyRosterGeneratorSingle(GetDBValueInt("TEAM", "TGID", TeamIndex), Convert.ToInt32(TMPRNumBox.Value));
             }
-
+            RecalculateOverall();
+      
             GetTeamEditorData(TeamIndex);
         }
 

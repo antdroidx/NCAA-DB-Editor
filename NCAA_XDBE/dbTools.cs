@@ -298,7 +298,7 @@ namespace DB_EDITOR
 
             for (int i = 0; i < GetTableRecCount(tableName); i++)
             {
-                if (TDYN || GetDBValueInt(tableName, "TTYP", i) <= 1)
+                if (GetDBValueInt(tableName, "TTYP", i) < 1)
                 {
                     int TOID = GetDBValueInt(tableName, "TOID", i);
                     int PGIDbeg = TOID * 70;
@@ -740,7 +740,7 @@ namespace DB_EDITOR
                 //Collect Team Rating Data
                 for (int x = 0; x < GetTableRecCount(tableName); x++)
                 {
-                    if (TEAM && GetDBValueInt(tableName, "TTYP", x) <= 1 || TDYN)
+                    if (TEAM && GetDBValueInt(tableName, "TTYP", x) < 1 || TDYN)
                     {
                         offRatings.Add(GetDBValueInt(tableName, "TROF", x));
                         defRatings.Add(GetDBValueInt(tableName, "TRDE", x));
@@ -759,7 +759,7 @@ namespace DB_EDITOR
             //Calculate Normalized Rating on a 55-99scale
             for (int x = 0; x < GetTableRecCount(tableName); x++)
             {
-                if (TEAM && GetDBValueInt(tableName, "TTYP", x) <= 1 || TDYN)
+                if (TEAM && GetDBValueInt(tableName, "TTYP", x) < 1 || TDYN)
                 {
                     double normalOff = GetDBValueInt(tableName, "TROF", x) - meanOff;
                     double normalDef = GetDBValueInt(tableName, "TRDE", x) - meanDef;

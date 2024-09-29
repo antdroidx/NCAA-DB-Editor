@@ -972,6 +972,7 @@ namespace DB_EDITOR
             AboutBox.ShowDialog();
         }
 
+
         #endregion
 
         #region Configuration Selection

@@ -192,7 +192,6 @@ namespace DB_EDITOR
                 confNames[i].Text = string.Empty;
             }
 
-            SaveButton.Enabled = false;
 
             //Conf Names
             int box = 0;
@@ -304,7 +303,6 @@ namespace DB_EDITOR
                     else c.Enabled = false;
                 }
 
-                SaveButton.Enabled = true;
                 //MessageBox.Show(teamsSelected);
             }
 
@@ -313,7 +311,7 @@ namespace DB_EDITOR
 
             if (AllTeamsListBox.SelectedItems.Count > 0) AddButton.Enabled = true;
 
-
+            CountTeams();
         }
 
 

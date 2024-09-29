@@ -175,7 +175,7 @@ namespace DB_EDITOR
             progressBar1.Visible = true;
             progressBar1.Value = 0;
 
-
+            main.RecalculateOverall();
             //Schedule 
             ScheduleGenerator();
 
