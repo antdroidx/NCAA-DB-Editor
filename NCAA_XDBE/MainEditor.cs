@@ -972,6 +972,11 @@ namespace DB_EDITOR
             AboutBox.ShowDialog();
         }
 
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
+        }
+
 
         #endregion
 

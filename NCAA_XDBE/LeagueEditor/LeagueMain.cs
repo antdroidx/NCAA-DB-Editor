@@ -156,9 +156,9 @@ namespace DB_EDITOR
                 }
 
                 if (dbFile != "")
-                    this.Text = "NCAA Next League & Schedule Generator  [ " + Path.GetFileName(dbFile) + " ]";
+                    this.Text = "League Editor  [ " + Path.GetFileName(dbFile) + " ]";
                 else
-                    this.Text = "NCAA Next League & Schedule Generator";
+                    this.Text = "League Editor";
 
                 #region Set Buttons
                 openMenuItem.Enabled = false;

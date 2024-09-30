@@ -377,9 +377,9 @@ namespace DB_EDITOR
                 }
             }
 
-            AllTeamPlayers.Sort((player1, player2) => player1[0].CompareTo(player2[0]));
-            OffPlayers.Sort((player1, player2) => player1[0].CompareTo(player2[0]));
-            DefPlayers.Sort((player1, player2) => player1[0].CompareTo(player2[0]));
+            AllTeamPlayers.Sort((player1, player2) => Convert.ToInt32(player2[3]).CompareTo(Convert.ToInt32(player1[3])));
+            OffPlayers.Sort((player1, player2) => Convert.ToInt32(player2[3]).CompareTo(Convert.ToInt32(player1[3])));
+            DefPlayers.Sort((player1, player2) => Convert.ToInt32(player2[3]).CompareTo(Convert.ToInt32(player1[3])));
 
 
             if (AllTeamPlayers.Count < 1) ClearTeamComboBoxes();
