@@ -200,6 +200,7 @@ namespace DB_EDITOR
             this.ImportRecruitsButton = new System.Windows.Forms.Button();
             this.GraduateButton = new System.Windows.Forms.Button();
             this.tabTools = new System.Windows.Forms.TabPage();
+            this.UniquePlayerButton = new System.Windows.Forms.Button();
             this.FantasyCoachesButton = new System.Windows.Forms.Button();
             this.SyncPBButton = new System.Windows.Forms.Button();
             this.label109 = new System.Windows.Forms.Label();
@@ -2420,6 +2421,7 @@ namespace DB_EDITOR
             // tabTools
             // 
             this.tabTools.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.tabTools.Controls.Add(this.UniquePlayerButton);
             this.tabTools.Controls.Add(this.FantasyCoachesButton);
             this.tabTools.Controls.Add(this.SyncPBButton);
             this.tabTools.Controls.Add(this.label109);
@@ -2466,6 +2468,19 @@ namespace DB_EDITOR
             this.tabTools.Size = new System.Drawing.Size(1152, 615);
             this.tabTools.TabIndex = 5;
             this.tabTools.Text = "dbTools";
+            // 
+            // UniquePlayerButton
+            // 
+            this.UniquePlayerButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.UniquePlayerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UniquePlayerButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.UniquePlayerButton.Location = new System.Drawing.Point(16, 319);
+            this.UniquePlayerButton.Name = "UniquePlayerButton";
+            this.UniquePlayerButton.Size = new System.Drawing.Size(110, 80);
+            this.UniquePlayerButton.TabIndex = 54;
+            this.UniquePlayerButton.Text = "Texture Modding: Unique Players";
+            this.UniquePlayerButton.UseVisualStyleBackColor = false;
+            this.UniquePlayerButton.Click += new System.EventHandler(this.UniquePlayer_Click);
             // 
             // FantasyCoachesButton
             // 
@@ -2864,7 +2879,7 @@ namespace DB_EDITOR
             this.buttonImpactPlayers.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.buttonImpactPlayers.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonImpactPlayers.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonImpactPlayers.Location = new System.Drawing.Point(16, 310);
+            this.buttonImpactPlayers.Location = new System.Drawing.Point(143, 319);
             this.buttonImpactPlayers.Name = "buttonImpactPlayers";
             this.buttonImpactPlayers.Size = new System.Drawing.Size(110, 80);
             this.buttonImpactPlayers.TabIndex = 17;
@@ -5922,7 +5937,6 @@ namespace DB_EDITOR
             this.groupBox3.TabIndex = 141;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Gear Editor";
-            this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
             // label120
             // 
@@ -8404,6 +8418,7 @@ namespace DB_EDITOR
         private NotifyIcon notifyIcon1;
         public System.Windows.Forms.TextBox playerTeamBox;
         private Label label167;
+        public System.Windows.Forms.Button UniquePlayerButton;
     }
 }
 

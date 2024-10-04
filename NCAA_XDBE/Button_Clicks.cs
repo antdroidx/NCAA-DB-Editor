@@ -102,6 +102,12 @@ namespace DB_EDITOR
             RandomizeRecruitFace("PLAY");
         }
 
+        //Unique Player Tool
+        private void UniquePlayer_Click(object sender, EventArgs e)
+        {
+            UniquePlayers();
+        }
+
         //Recalculate Overall Ratings
         private void buttonCalcOverall_Click(object sender, EventArgs e)
         {

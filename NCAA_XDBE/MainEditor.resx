@@ -210,6 +210,7 @@ Then proceed the with the buttons in order. You can swap 2 and 3 if you want. It
 
 * Randomize Player Potential - Randomizes from 40-99 every player's potential rating. Affects player progression.
 
+* Unique Players - For Texture Modding Experts Only. Removes PSKI 1 and 4 for creation of unique player specific textures
 --
 
 * Determine Impact Players - Picks 4 Impact Players in a Dynasty Save file based on overall (2 x Offense, 2 x Defense)

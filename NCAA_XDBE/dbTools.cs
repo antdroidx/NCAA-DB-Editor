@@ -1087,6 +1087,34 @@ namespace DB_EDITOR
 
         }
 
+        //Unique Players
+        private void UniquePlayers()
+        {
+            for (int i = 0; i < GetTableRecCount("PLAY"); i++)
+            {
+                //Finds current skin tone and randomizes within it's Light/Medium/Dark general tone (PSKI)
+                int skin = GetDBValueInt("PLAY", "PSKI", i);
+                if (skin == 1)
+                {
+                    skin = rand.Next(0, 3);
+                    if (skin == 1) skin = 2;
+                }
+                else if (skin == 4)
+                {
+                    skin = rand.Next(3, 7);
+                    if (skin == 4) skin = 5;
+                }
+
+                ChangeDBInt("PLAY", "PSKI", i, skin);
+
+                //Randomizes Face Type based on new Skin Type
+                int face = GetDBValueInt("PLAY", "PSKI", i) * 8 + rand.Next(0, 8);
+                ChangeDBInt("PLAY", "PFMP", i, face);
+            }
+
+            MessageBox.Show("Completed!");
+        }
+
         #endregion
 
         #region Fantasy Roster Generator
