@@ -1014,10 +1014,23 @@ namespace DB_EDITOR
 
         #endregion
 
+        #region Special Functions
         //Team Depth Chart
         private void PlayerSetDepthChartButton_Click(object sender, EventArgs e)
         {
             DepthChartMakerSingle("DCHT", GetDBValueInt("PLAY", "PGID", PlayerIndex) / 70);
         }
+
+        private void ImportPlayerTeam_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ExportPlayerTeam_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        #endregion
     }
 }

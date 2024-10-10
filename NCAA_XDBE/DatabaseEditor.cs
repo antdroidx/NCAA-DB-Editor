@@ -665,6 +665,7 @@ namespace DB_EDITOR
                     if (table.Name == "TDYN" && !BigEndian)
                     {
                         TDYN = true;
+                        //if (!checkTabExists("Teams")) tabControl1.TabPages.Add(tabTeams);
                         //tabControl1.TabPages.Add(tabDev);
                     }
                     if (table.Name == "CONF" && !BigEndian)
@@ -691,6 +692,10 @@ namespace DB_EDITOR
                     if (table.Name == "RCPT" && !BigEndian)
                     {
                         if (!checkTabExists("Recruiting")) tabControl1.TabPages.Add(tabOffSeason);
+                    }
+                    if (table.Name == "UNIF" && !BigEndian)
+                    {
+                        if (!checkTabExists("Uniforms")) tabControl1.TabPages.Add(tabUniforms);
                     }
                 }
             }

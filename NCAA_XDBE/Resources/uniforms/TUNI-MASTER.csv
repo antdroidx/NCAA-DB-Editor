@@ -1,0 +1,4864 @@
+Team Name,UFID,TOID,TUCO
+Air Force,0,1,1
+Air Force,1,1,0
+Air Force,2,1,2
+Air Force,3,1,3
+Akron,4,2,1
+Akron,5,2,0
+Alabama,8,3,1
+Alabama,9,3,0
+Alabama A&M,6,116,1
+Alabama A&M,7,116,0
+Alabama State,14,117,1
+Alabama State,15,117,0
+Alabama State,16,117,2
+Alabama State,17,117,3
+Alcorn State,10,118,1
+Alcorn State,11,118,0
+Appalachian State,18,188,1
+Appalachian State,19,188,0
+Appalachian State,803,188,2
+Appalachian State,804,188,3
+Arizona,20,4,1
+Arizona,21,4,0
+Arizona,22,4,2
+Arizona,23,4,3
+Arizona State,38,5,1
+Arizona State,39,5,0
+Arizona State,40,5,2
+Arizona State,41,5,3
+Ark - Pine Bluff,28,119,1
+Ark - Pine Bluff,29,119,0
+Arkansas,24,6,1
+Arkansas,25,6,0
+Arkansas,26,6,2
+Arkansas,27,6,3
+Arkansas State,30,7,1
+Arkansas State,31,7,0
+Army,32,8,1
+Army,33,8,0
+Army,34,8,2
+Army,35,8,3
+Auburn,36,9,1
+Auburn,37,9,0
+Ball State,42,10,1
+Ball State,43,10,0
+Ball State,44,10,2
+Ball State,45,10,3
+Baylor,46,11,1
+Baylor,47,11,0
+Baylor,48,11,2
+Baylor,49,11,3
+Bethune-Cookman,50,120,1
+Bethune-Cookman,51,120,0
+Bethune-Cookman,52,120,2
+Bethune-Cookman,53,120,3
+Boise State,54,12,1
+Boise State,55,12,0
+Boston College,56,13,1
+Boston College,57,13,0
+Bowling Green,58,14,1
+Bowling Green,59,14,0
+Brown,60,121,1
+Brown,61,121,0
+Buffalo,62,15,1
+Buffalo,63,15,0
+Buffalo,744,15,2
+Buffalo,745,15,3
+BYU,64,16,1
+BYU,65,16,0
+Cal,66,17,1
+Cal,67,17,0
+Cal,68,17,2
+Cal,69,17,3
+Central Michigan,83,19,1
+Central Michigan,84,19,0
+Central Michigan,85,19,2
+Central Michigan,86,19,3
+Charlotte,331,183,1
+Charlotte,332,183,0
+Chattanooga,70,194,1
+Chattanooga,71,194,0
+Cincinnati,72,20,1
+Cincinnati,73,20,0
+Cincinnati,74,20,2
+Cincinnati,75,20,3
+Clemson,78,21,1
+Clemson,79,21,0
+Clemson,80,21,2
+Clemson,81,21,3
+Clemson,82,21,4
+Clemson,805,21,5
+Coastal Carolina,175,178,1
+Coastal Carolina,176,178,0
+Colorado,87,22,1
+Colorado,88,22,0
+Colorado,89,22,2
+Colorado,90,22,3
+Colorado,91,22,4
+Colorado,92,22,5
+Colorado State,93,23,1
+Colorado State,94,23,0
+Colorado State,95,23,2
+Colorado State,96,23,3
+Columbia,97,122,1
+Columbia,98,122,0
+Connecticut,464,100,1
+Connecticut,465,100,0
+Connecticut,466,100,2
+Connecticut,467,100,3
+Cornell,99,123,1
+Cornell,100,123,0
+Dartmouth,111,124,1
+Dartmouth,112,124,0
+Delaware,113,177,1
+Delaware,114,177,0
+Delaware State,115,125,1
+Delaware State,116,125,0
+Delaware State,117,125,2
+Delaware State,118,125,3
+Duke,119,24,1
+Duke,120,24,0
+Duke,121,24,2
+Duke,122,24,3
+E Washington,133,197,1
+E Washington,134,197,0
+Eastern Illinois,764,219,1
+Eastern Illinois,765,219,0
+Eastern Kentucky,768,221,1
+Eastern Kentucky,769,221,0
+Eastern Michigan,129,26,1
+Eastern Michigan,130,26,0
+Eastern Michigan,131,26,2
+Eastern Michigan,132,26,3
+ECU,123,25,1
+ECU,124,25,0
+ECU,125,25,2
+ECU,126,25,3
+Elon,127,191,1
+Elon,128,191,0
+FIU,786,230,1
+FIU,787,230,0
+Florida,139,27,1
+Florida,140,27,0
+Florida,141,27,2
+Florida,142,27,3
+Florida,143,27,4
+Florida,144,27,5
+Florida A&M,135,126,1
+Florida A&M,136,126,0
+Florida A&M,137,126,2
+Florida A&M,138,126,3
+Florida Atlantic,784,229,1
+Florida Atlantic,785,229,0
+Florida State,145,28,1
+Florida State,146,28,0
+Florida State,147,28,2
+Florida State,148,28,3
+Florida State,795,28,4
+Florida State,796,28,5
+Fresno State,149,29,1
+Fresno State,150,29,0
+Fresno State,151,29,2
+Fresno State,152,29,3
+Furman,153,192,1
+Furman,154,192,0
+Georgia,159,30,1
+Georgia,160,30,0
+Georgia Southern,161,193,1
+Georgia Southern,162,193,0
+Georgia State,105,162,1
+Georgia State,106,162,0
+Georgia Tech,155,31,0
+Georgia Tech,156,31,1
+Georgia Tech,157,31,3
+Georgia Tech,158,31,2
+Grambling State,163,127,1
+Grambling State,164,127,0
+Grambling State,165,127,2
+Grambling State,166,127,3
+Hampton,167,128,1
+Hampton,168,128,0
+Harvard,169,129,1
+Harvard,170,129,0
+Hawaii,171,32,1
+Hawaii,172,32,0
+Hawaii,173,32,2
+Hawaii,174,32,3
+Houston,177,33,1
+Houston,178,33,0
+Houston,746,33,2
+Houston,747,33,3
+Howard,179,130,1
+Howard,180,130,0
+Howard,181,130,2
+Howard,182,130,3
+Howard,183,130,4
+Idaho,186,34,1
+Idaho,187,34,0
+Idaho,189,34,2
+Idaho State,184,198,1
+Idaho State,185,198,0
+Illinois,190,35,1
+Illinois,191,35,0
+Illinois,192,35,2
+Illinois,193,35,3
+Illinois State,194,205,1
+Illinois State,195,205,0
+Indiana,196,36,1
+Indiana,197,36,0
+Indiana State,198,206,1
+Indiana State,199,206,0
+Iowa,204,37,1
+Iowa,205,37,0
+Iowa,806,37,2
+Iowa State,200,38,1
+Iowa State,201,38,0
+Iowa State,202,38,2
+Iowa State,203,38,3
+Jackson State,206,131,1
+Jackson State,207,131,0
+Jackson State,208,131,2
+Jackson State,209,131,3
+Jacksonville State,772,223,1
+Jacksonville State,773,223,0
+James Madison,210,179,1
+James Madison,211,179,0
+Kansas,212,39,1
+Kansas,213,39,0
+Kansas,214,39,2
+Kansas,215,39,3
+Kansas State,216,40,1
+Kansas State,217,40,0
+Kansas State,748,40,2
+Kansas State,749,40,3
+Kent State,222,41,1
+Kent State,223,41,0
+Kent State,224,41,2
+Kent State,225,41,3
+Kentucky,218,42,1
+Kentucky,219,42,0
+Kentucky,220,42,2
+Kentucky,221,42,3
+Liberty,109,161,1
+Liberty,110,161,0
+Louisiana Tech,226,43,1
+Louisiana Tech,227,43,0
+Louisiana Tech,228,43,2
+Louisville,229,44,1
+Louisville,230,44,0
+Louisville,231,44,2
+Louisville,232,44,3
+LSU,233,45,0
+LSU,234,45,1
+Maine,235,180,1
+Maine,236,180,0
+Marshall,237,46,1
+Marshall,238,46,0
+Marshall,239,46,2
+Marshall,240,46,3
+Maryland,241,47,1
+Maryland,242,47,0
+Maryland,750,47,2
+Maryland,751,47,3
+McNeese State,752,213,1
+McNeese State,753,213,0
+Memphis,245,48,1
+Memphis,246,48,0
+Memphis,247,48,2
+Memphis,248,48,3
+Miami,249,49,1
+Miami,250,49,0
+Miami,251,49,2
+Miami,252,49,3
+Miami,253,49,4
+Miami,254,49,5
+Miami University,255,50,1
+Miami University,256,50,0
+Miami University,257,50,2
+Miami University,258,50,3
+Michigan,259,51,1
+Michigan,260,51,0
+Michigan State,261,52,1
+Michigan State,262,52,0
+Michigan State,807,52,2
+Michigan State,808,52,3
+Mid Tenn State,263,53,1
+Mid Tenn State,264,53,0
+Mid Tenn State,265,53,2
+Mid Tenn State,266,53,3
+Minnesota,267,54,1
+Minnesota,268,54,0
+Miss Valley State,277,132,1
+Miss Valley State,278,132,0
+Mississippi State,273,55,1
+Mississippi State,274,55,0
+Mississippi State,275,55,2
+Mississippi State,276,55,3
+Missouri,269,56,1
+Missouri,270,56,0
+Missouri,271,56,2
+Missouri,272,56,3
+Montana,279,199,1
+Montana,280,199,0
+Montana State,285,200,1
+Montana State,286,200,0
+Morgan State,281,133,1
+Morgan State,282,133,0
+Morgan State,283,133,2
+Morgan State,284,133,3
+Murray State,766,220,1
+Murray State,767,220,0
+Navy,289,57,1
+Navy,290,57,0
+Navy,291,57,2
+Navy,292,57,3
+NC A&T State,293,135,1
+NC A&T State,294,135,0
+NC A&T State,295,135,2
+NC A&T State,296,135,3
+NC State,301,63,1
+NC State,302,63,0
+NC State,303,63,2
+NC State,304,63,3
+Nebraska,305,58,1
+Nebraska,306,58,0
+Nevada,309,59,1
+Nevada,310,59,0
+Nevada,311,59,2
+Nevada,312,59,3
+New Hampshire,313,182,1
+New Hampshire,314,182,0
+New Mexico,315,60,1
+New Mexico,316,60,0
+New Mexico,317,60,2
+New Mexico,318,60,3
+New Mexico State,325,61,1
+New Mexico State,326,61,0
+New Mexico State,327,61,2
+New Mexico State,328,61,3
+Nicholls State,756,215,1
+Nicholls State,757,215,0
+Norfolk State,329,134,1
+Norfolk State,330,134,0
+North Carolina,297,62,1
+North Carolina,298,62,0
+North Carolina,299,62,2
+North Carolina,300,62,3
+North Texas,338,64,1
+North Texas,339,64,0
+Northern Arizona,287,201,1
+Northern Arizona,288,201,0
+Northern Illinois,319,66,1
+Northern Illinois,320,66,0
+Northern Illinois,321,66,2
+Northern Illinois,322,66,3
+Northwestern,333,67,1
+Northwestern,334,67,0
+Northwestern St,754,214,1
+Northwestern St,755,214,0
+Notre Dame,335,68,1
+Notre Dame,336,68,0
+Notre Dame,337,68,2
+Ohio,342,69,1
+Ohio,343,69,0
+Ohio,797,69,2
+Ohio,798,69,3
+Ohio State,340,70,1
+Ohio State,341,70,0
+Oklahoma,344,71,1
+Oklahoma,345,71,0
+Oklahoma,743,71,2
+Oklahoma State,346,72,1
+Oklahoma State,347,72,0
+Old Dominion,107,164,1
+Old Dominion,108,164,0
+Ole Miss,348,73,1
+Ole Miss,349,73,0
+Ole Miss,350,73,2
+Oregon,351,74,1
+Oregon,352,74,0
+Oregon,353,74,2
+Oregon,354,74,3
+Oregon,355,74,4
+Oregon,356,74,5
+Oregon State,357,75,1
+Oregon State,358,75,0
+Oregon State,792,75,2
+Penn,361,136,1
+Penn,362,136,0
+Penn State,359,76,1
+Penn State,360,76,0
+Pittsburgh,363,77,1
+Pittsburgh,364,77,0
+Pittsburgh,365,77,2
+Pittsburgh,366,77,3
+Portland State,367,202,1
+Portland State,368,202,0
+Prairie View A&M,369,137,1
+Prairie View A&M,370,137,0
+Princeton,371,138,1
+Princeton,372,138,0
+Purdue,373,78,1
+Purdue,374,78,0
+Purdue,375,78,2
+Purdue,376,78,3
+Rhode Island,377,184,1
+Rhode Island,378,184,0
+Rice,379,79,1
+Rice,380,79,0
+Rice,381,79,2
+Rice,382,79,3
+Richmond,383,185,1
+Richmond,384,185,0
+Rutgers,385,80,1
+Rutgers,386,80,0
+Rutgers,387,80,2
+Rutgers,388,80,3
+S Carolina State,399,139,1
+S Carolina State,400,139,0
+Sacramento State,389,203,1
+Sacramento State,390,203,0
+Sam Houston St,760,217,1
+Sam Houston St,761,217,0
+Samford,778,226,1
+Samford,779,226,0
+San Diego State,401,81,1
+San Diego State,402,81,0
+San Jose State,391,82,1
+San Jose State,392,82,0
+San Jose State,393,82,2
+San Jose State,394,82,3
+SE Missouri St,770,222,1
+SE Missouri St,771,222,0
+SMS,417,209,1
+SMS,418,209,0
+SMU,409,83,1
+SMU,410,83,0
+South Alabama,101,160,1
+South Alabama,102,160,0
+South Carolina,395,84,1
+South Carolina,396,84,0
+South Carolina,397,84,2
+South Carolina,398,84,3
+Southeastern,799,231,1
+Southeastern,800,231,0
+Southern,411,140,1
+Southern,412,140,0
+Southern Illinois,403,208,1
+Southern Illinois,404,208,0
+Southern Miss,405,85,1
+Southern Miss,406,85,0
+Southern Miss,407,85,2
+Southern Miss,408,85,3
+Stanford,413,87,1
+Stanford,414,87,0
+Stanford,415,87,2
+Stanford,416,87,3
+Stephen F. Austin,758,216,1
+Stephen F. Austin,759,216,0
+Syracuse,419,88,1
+Syracuse,420,88,0
+Syracuse,421,88,2
+TCU,422,89,1
+TCU,423,89,0
+Temple,424,90,1
+Temple,425,90,0
+Temple,426,90,2
+Temple,427,90,3
+Tennessee,428,91,1
+Tennessee,429,91,0
+Tennessee,430,91,2
+Tennessee,431,91,3
+Tennessee,809,91,4
+Tennessee,810,91,5
+Tennessee State,776,225,1
+Tennessee State,777,225,0
+Tennessee Tech,774,224,1
+Tennessee Tech,775,224,0
+Tennessee-Martin,780,227,1
+Tennessee-Martin,781,227,0
+Texas,436,92,1
+Texas,437,92,0
+Texas A&M,432,93,1
+Texas A&M,433,93,0
+Texas A&M,434,93,2
+Texas A&M,435,93,3
+Texas Southern,438,141,1
+Texas Southern,439,141,0
+Texas State,762,218,1
+Texas State,763,218,0
+Texas Tech,452,94,1
+Texas Tech,453,94,0
+Texas Tech,454,94,2
+Texas Tech,455,94,3
+The Citadel,76,189,1
+The Citadel,77,189,0
+Toledo,440,95,1
+Toledo,441,95,0
+Towson,782,228,1
+Towson,783,228,0
+Troy,442,143,1
+Troy,443,143,0
+Tulane,444,96,1
+Tulane,445,96,0
+Tulsa,448,97,1
+Tulsa,449,97,0
+Tulsa,450,97,2
+Tulsa,451,97,3
+UAB,456,98,1
+UAB,457,98,0
+UAB,458,98,2
+UAB,459,98,3
+UCF,460,18,1
+UCF,461,18,0
+UCLA,462,99,1
+UCLA,463,99,0
+UL Lafayette,468,86,1
+UL Lafayette,469,86,0
+UL Monroe,470,65,1
+UL Monroe,471,65,0
+UL Monroe,472,65,2
+UL Monroe,473,65,3
+UMass,243,181,1
+UMass,244,181,0
+UNI,323,207,1
+UNI,324,207,0
+UNLV,474,101,1
+UNLV,475,101,0
+USC,476,102,1
+USC,477,102,0
+USF,478,144,1
+USF,479,144,0
+USF,480,144,2
+USF,481,144,3
+Utah,486,103,1
+Utah,487,103,0
+Utah State,482,104,1
+Utah State,483,104,0
+Utah State,484,104,2
+Utah State,485,104,3
+UTEP,490,105,1
+UTEP,491,105,0
+UTEP,793,105,2
+UTEP,794,105,3
+UTSA,103,163,1
+UTSA,104,163,0
+Vanderbilt,492,106,1
+Vanderbilt,493,106,0
+Vanderbilt,494,106,2
+Vanderbilt,495,106,3
+Vanderbilt,496,106,4
+Vanderbilt,497,106,5
+Villanova,501,186,1
+Villanova,502,186,0
+Virginia,503,107,1
+Virginia,504,107,0
+Virginia Tech,498,108,1
+Virginia Tech,499,108,0
+Virginia Tech,500,108,2
+Wake Forest,505,109,1
+Wake Forest,506,109,0
+Wake Forest,507,109,2
+Wake Forest,508,109,3
+Washington,509,110,1
+Washington,510,110,0
+Washington,511,110,2
+Washington,512,110,3
+Washington State,513,111,1
+Washington State,514,111,0
+Weber State,517,204,1
+Weber State,518,204,0
+West Virginia,533,112,1
+West Virginia,534,112,0
+West Virginia,536,112,2
+Western Carolina,515,195,1
+Western Carolina,516,195,0
+Western Illinois,519,210,1
+Western Illinois,520,210,0
+Western Kentucky,525,211,1
+Western Kentucky,526,211,0
+Western Michigan,527,113,1
+Western Michigan,528,113,0
+William and Mary,529,187,1
+William and Mary,530,187,0
+Wisconsin,521,114,1
+Wisconsin,522,114,0
+Wisconsin,523,114,2
+Wisconsin,524,114,3
+Wofford,531,196,1
+Wofford,532,196,0
+Wyoming,537,115,1
+Wyoming,538,115,0
+Wyoming,539,115,2
+Wyoming,540,115,3
+Yale,541,142,1
+Yale,542,142,0
+Youngstown State,543,212,1
+Youngstown State,544,212,0
+#N/A,545,303,1
+#N/A,546,303,0
+#N/A,547,358,1
+#N/A,548,358,0
+#N/A,549,359,1
+#N/A,550,359,0
+#N/A,551,397,1
+#N/A,552,397,0
+#N/A,553,374,1
+#N/A,554,374,0
+#N/A,555,331,1
+#N/A,556,331,0
+#N/A,557,332,1
+#N/A,558,332,0
+#N/A,559,333,1
+#N/A,560,333,0
+#N/A,561,396,1
+#N/A,562,396,0
+#N/A,563,325,1
+#N/A,564,325,0
+#N/A,565,394,1
+#N/A,566,394,0
+#N/A,569,387,1
+#N/A,570,387,0
+#N/A,571,391,1
+#N/A,572,391,0
+#N/A,573,364,1
+#N/A,574,364,0
+#N/A,575,389,1
+#N/A,576,389,0
+#N/A,577,361,1
+#N/A,578,361,0
+#N/A,579,370,1
+#N/A,580,370,0
+#N/A,581,404,1
+#N/A,582,404,0
+#N/A,583,407,1
+#N/A,584,407,0
+#N/A,585,379,1
+#N/A,586,379,0
+#N/A,587,412,1
+#N/A,588,412,0
+#N/A,589,400,1
+#N/A,590,400,0
+#N/A,591,375,1
+#N/A,592,375,0
+#N/A,593,406,1
+#N/A,594,406,0
+#N/A,595,409,1
+#N/A,596,409,0
+#N/A,597,413,1
+#N/A,598,413,0
+#N/A,599,383,1
+#N/A,600,383,0
+#N/A,601,360,1
+#N/A,602,360,0
+#N/A,603,371,1
+#N/A,604,371,0
+#N/A,605,343,0
+#N/A,606,343,1
+#N/A,607,335,1
+#N/A,608,335,0
+#N/A,609,337,1
+#N/A,610,337,0
+#N/A,611,339,1
+#N/A,612,339,0
+#N/A,613,347,1
+#N/A,614,347,0
+#N/A,615,405,1
+#N/A,616,405,0
+#N/A,617,380,1
+#N/A,618,380,0
+#N/A,619,414,1
+#N/A,620,414,0
+#N/A,621,385,1
+#N/A,622,385,0
+#N/A,623,418,1
+#N/A,624,418,0
+#N/A,625,363,1
+#N/A,626,363,0
+#N/A,627,395,1
+#N/A,628,395,0
+#N/A,629,398,1
+#N/A,630,398,0
+#N/A,631,367,1
+#N/A,632,367,0
+#N/A,633,369,1
+#N/A,634,369,0
+#N/A,635,372,1
+#N/A,636,372,0
+#N/A,637,328,1
+#N/A,638,328,0
+#N/A,639,330,1
+#N/A,640,330,0
+#N/A,641,392,1
+#N/A,642,392,0
+#N/A,643,411,1
+#N/A,644,411,0
+#N/A,645,351,1
+#N/A,646,351,0
+#N/A,647,352,1
+#N/A,648,352,0
+#N/A,649,393,1
+#N/A,650,393,0
+#N/A,651,376,1
+#N/A,652,376,0
+#N/A,653,378,1
+#N/A,654,378,0
+#N/A,655,381,1
+#N/A,656,381,0
+#N/A,657,300,1
+#N/A,658,300,0
+#N/A,659,326,1
+#N/A,660,326,0
+#N/A,661,334,1
+#N/A,662,334,0
+#N/A,663,336,1
+#N/A,664,336,0
+#N/A,665,338,1
+#N/A,666,338,0
+#N/A,667,348,1
+#N/A,668,348,0
+#N/A,669,353,1
+#N/A,670,353,0
+#N/A,671,357,1
+#N/A,672,357,0
+#N/A,673,368,1
+#N/A,674,368,0
+#N/A,675,399,1
+#N/A,676,399,0
+#N/A,677,401,1
+#N/A,678,401,0
+#N/A,679,403,1
+#N/A,680,403,0
+#N/A,681,386,1
+#N/A,682,386,0
+#N/A,683,302,1
+#N/A,684,302,0
+#N/A,685,349,1
+#N/A,686,349,0
+#N/A,687,410,1
+#N/A,688,410,0
+#N/A,689,415,1
+#N/A,690,415,0
+#N/A,691,384,1
+#N/A,692,384,0
+#N/A,693,341,1
+#N/A,694,341,0
+#N/A,695,342,1
+#N/A,696,342,0
+#N/A,697,354,1
+#N/A,698,354,0
+#N/A,699,355,1
+#N/A,700,355,0
+#N/A,701,365,1
+#N/A,702,365,0
+#N/A,703,362,1
+#N/A,704,362,0
+#N/A,705,366,1
+#N/A,706,366,0
+#N/A,707,402,1
+#N/A,708,402,0
+#N/A,709,377,1
+#N/A,710,377,0
+#N/A,711,356,1
+#N/A,712,356,0
+#N/A,713,388,1
+#N/A,714,388,0
+#N/A,715,390,1
+#N/A,716,390,0
+#N/A,717,344,1
+#N/A,718,344,0
+#N/A,719,416,1
+#N/A,720,416,0
+#N/A,721,329,1
+#N/A,722,329,0
+#N/A,723,382,1
+#N/A,724,382,0
+#N/A,725,346,1
+#N/A,726,346,0
+#N/A,727,350,1
+#N/A,728,350,0
+#N/A,729,340,1
+#N/A,730,340,0
+#N/A,731,327,1
+#N/A,732,327,0
+#N/A,733,345,1
+#N/A,734,345,0
+#N/A,735,304,1
+#N/A,736,304,0
+#N/A,737,408,1
+#N/A,738,408,0
+#N/A,739,417,1
+#N/A,740,417,0
+#N/A,741,373,1
+#N/A,742,373,0
+#N/A,788,430,1
+#N/A,789,430,0
+#N/A,790,429,1
+#N/A,791,429,0
+#N/A,801,443,1
+#N/A,802,443,0
+#N/A,1198,442,1
+#N/A,1199,442,0
+Air Force,1200,1,0
+Air Force,1201,1,1
+Air Force,1202,1,2
+Air Force,1203,1,3
+Air Force,1204,1,4
+Air Force,1205,1,5
+Air Force,1206,1,6
+Air Force,1207,1,7
+Air Force,1208,1,8
+Air Force,1209,1,9
+Air Force,1210,1,10
+Air Force,1211,1,11
+Air Force,1212,1,12
+Air Force,1213,1,13
+Air Force,1214,1,14
+Air Force,1215,1,15
+Air Force,1216,1,16
+Air Force,1217,1,17
+Air Force,1218,1,18
+Air Force,1219,1,19
+Akron,1220,2,0
+Akron,1221,2,1
+Akron,1222,2,2
+Akron,1223,2,3
+Akron,1224,2,4
+Akron,1225,2,5
+Akron,1226,2,6
+Akron,1227,2,7
+Akron,1228,2,8
+Akron,1229,2,9
+Akron,1230,2,10
+Akron,1231,2,11
+Akron,1232,2,12
+Akron,1233,2,13
+Akron,1234,2,14
+Akron,1235,2,15
+Akron,1236,2,16
+Akron,1237,2,17
+Akron,1238,2,18
+Akron,1239,2,19
+Alabama,1240,3,0
+Alabama,1241,3,1
+Alabama,1242,3,2
+Alabama,1243,3,3
+Alabama,1244,3,4
+Alabama,1245,3,5
+Alabama,1246,3,6
+Alabama,1247,3,7
+Alabama,1248,3,8
+Alabama,1249,3,9
+Alabama,1250,3,10
+Alabama,1251,3,11
+Alabama,1252,3,12
+Alabama,1253,3,13
+Alabama,1254,3,14
+Alabama,1255,3,15
+Alabama,1256,3,16
+Alabama,1257,3,17
+Alabama,1258,3,18
+Alabama,1259,3,19
+Alabama A&M,1260,116,0
+Alabama A&M,1261,116,1
+Alabama A&M,1262,116,2
+Alabama A&M,1263,116,3
+Alabama A&M,1264,116,4
+Alabama A&M,1265,116,5
+Alabama A&M,1266,116,6
+Alabama A&M,1267,116,7
+Alabama A&M,1268,116,8
+Alabama A&M,1269,116,9
+Alabama A&M,1270,116,10
+Alabama A&M,1271,116,11
+Alabama A&M,1272,116,12
+Alabama A&M,1273,116,13
+Alabama A&M,1274,116,14
+Alabama A&M,1275,116,15
+Alabama A&M,1276,116,16
+Alabama A&M,1277,116,17
+Alabama A&M,1278,116,18
+Alabama A&M,1279,116,19
+Alabama State,1280,117,0
+Alabama State,1281,117,1
+Alabama State,1282,117,2
+Alabama State,1283,117,3
+Alabama State,1284,117,4
+Alabama State,1285,117,5
+Alabama State,1286,117,6
+Alabama State,1287,117,7
+Alabama State,1288,117,8
+Alabama State,1289,117,9
+Alabama State,1290,117,10
+Alabama State,1291,117,11
+Alabama State,1292,117,12
+Alabama State,1293,117,13
+Alabama State,1294,117,14
+Alabama State,1295,117,15
+Alabama State,1296,117,16
+Alabama State,1297,117,17
+Alabama State,1298,117,18
+Alabama State,1299,117,19
+Alcorn State,1300,118,0
+Alcorn State,1301,118,1
+Alcorn State,1302,118,2
+Alcorn State,1303,118,3
+Alcorn State,1304,118,4
+Alcorn State,1305,118,5
+Alcorn State,1306,118,6
+Alcorn State,1307,118,7
+Alcorn State,1308,118,8
+Alcorn State,1309,118,9
+Alcorn State,1310,118,10
+Alcorn State,1311,118,11
+Alcorn State,1312,118,12
+Alcorn State,1313,118,13
+Alcorn State,1314,118,14
+Alcorn State,1315,118,15
+Alcorn State,1316,118,16
+Alcorn State,1317,118,17
+Alcorn State,1318,118,18
+Alcorn State,1319,118,19
+Appalachian State,1320,188,0
+Appalachian State,1321,188,1
+Appalachian State,1322,188,2
+Appalachian State,1323,188,3
+Appalachian State,1324,188,4
+Appalachian State,1325,188,5
+Appalachian State,1326,188,6
+Appalachian State,1327,188,7
+Appalachian State,1328,188,8
+Appalachian State,1329,188,9
+Appalachian State,1330,188,10
+Appalachian State,1331,188,11
+Appalachian State,1332,188,12
+Appalachian State,1333,188,13
+Appalachian State,1334,188,14
+Appalachian State,1335,188,15
+Appalachian State,1336,188,16
+Appalachian State,1337,188,17
+Appalachian State,1338,188,18
+Appalachian State,1339,188,19
+Arizona,1340,4,0
+Arizona,1341,4,1
+Arizona,1342,4,2
+Arizona,1343,4,3
+Arizona,1344,4,4
+Arizona,1345,4,5
+Arizona,1346,4,6
+Arizona,1347,4,7
+Arizona,1348,4,8
+Arizona,1349,4,9
+Arizona,1350,4,10
+Arizona,1351,4,11
+Arizona,1352,4,12
+Arizona,1353,4,13
+Arizona,1354,4,14
+Arizona,1355,4,15
+Arizona,1356,4,16
+Arizona,1357,4,17
+Arizona,1358,4,18
+Arizona,1359,4,19
+Arizona State,1360,5,0
+Arizona State,1361,5,1
+Arizona State,1362,5,2
+Arizona State,1363,5,3
+Arizona State,1364,5,4
+Arizona State,1365,5,5
+Arizona State,1366,5,6
+Arizona State,1367,5,7
+Arizona State,1368,5,8
+Arizona State,1369,5,9
+Arizona State,1370,5,10
+Arizona State,1371,5,11
+Arizona State,1372,5,12
+Arizona State,1373,5,13
+Arizona State,1374,5,14
+Arizona State,1375,5,15
+Arizona State,1376,5,16
+Arizona State,1377,5,17
+Arizona State,1378,5,18
+Arizona State,1379,5,19
+Ark - Pine Bluff,1380,119,0
+Ark - Pine Bluff,1381,119,1
+Ark - Pine Bluff,1382,119,2
+Ark - Pine Bluff,1383,119,3
+Ark - Pine Bluff,1384,119,4
+Ark - Pine Bluff,1385,119,5
+Ark - Pine Bluff,1386,119,6
+Ark - Pine Bluff,1387,119,7
+Ark - Pine Bluff,1388,119,8
+Ark - Pine Bluff,1389,119,9
+Ark - Pine Bluff,1390,119,10
+Ark - Pine Bluff,1391,119,11
+Ark - Pine Bluff,1392,119,12
+Ark - Pine Bluff,1393,119,13
+Ark - Pine Bluff,1394,119,14
+Ark - Pine Bluff,1395,119,15
+Ark - Pine Bluff,1396,119,16
+Ark - Pine Bluff,1397,119,17
+Ark - Pine Bluff,1398,119,18
+Ark - Pine Bluff,1399,119,19
+Arkansas,1400,6,0
+Arkansas,1401,6,1
+Arkansas,1402,6,2
+Arkansas,1403,6,3
+Arkansas,1404,6,4
+Arkansas,1405,6,5
+Arkansas,1406,6,6
+Arkansas,1407,6,7
+Arkansas,1408,6,8
+Arkansas,1409,6,9
+Arkansas,1410,6,10
+Arkansas,1411,6,11
+Arkansas,1412,6,12
+Arkansas,1413,6,13
+Arkansas,1414,6,14
+Arkansas,1415,6,15
+Arkansas,1416,6,16
+Arkansas,1417,6,17
+Arkansas,1418,6,18
+Arkansas,1419,6,19
+Arkansas State,1420,7,0
+Arkansas State,1421,7,1
+Arkansas State,1422,7,2
+Arkansas State,1423,7,3
+Arkansas State,1424,7,4
+Arkansas State,1425,7,5
+Arkansas State,1426,7,6
+Arkansas State,1427,7,7
+Arkansas State,1428,7,8
+Arkansas State,1429,7,9
+Arkansas State,1430,7,10
+Arkansas State,1431,7,11
+Arkansas State,1432,7,12
+Arkansas State,1433,7,13
+Arkansas State,1434,7,14
+Arkansas State,1435,7,15
+Arkansas State,1436,7,16
+Arkansas State,1437,7,17
+Arkansas State,1438,7,18
+Arkansas State,1439,7,19
+Army,1440,8,0
+Army,1441,8,1
+Army,1442,8,2
+Army,1443,8,3
+Army,1444,8,4
+Army,1445,8,5
+Army,1446,8,6
+Army,1447,8,7
+Army,1448,8,8
+Army,1449,8,9
+Army,1450,8,10
+Army,1451,8,11
+Army,1452,8,12
+Army,1453,8,13
+Army,1454,8,14
+Army,1455,8,15
+Army,1456,8,16
+Army,1457,8,17
+Army,1458,8,18
+Army,1459,8,19
+Auburn,1460,9,0
+Auburn,1461,9,1
+Auburn,1462,9,2
+Auburn,1463,9,3
+Auburn,1464,9,4
+Auburn,1465,9,5
+Auburn,1466,9,6
+Auburn,1467,9,7
+Auburn,1468,9,8
+Auburn,1469,9,9
+Auburn,1470,9,10
+Auburn,1471,9,11
+Auburn,1472,9,12
+Auburn,1473,9,13
+Auburn,1474,9,14
+Auburn,1475,9,15
+Auburn,1476,9,16
+Auburn,1477,9,17
+Auburn,1478,9,18
+Auburn,1479,9,19
+Ball State,1480,10,0
+Ball State,1481,10,1
+Ball State,1482,10,2
+Ball State,1483,10,3
+Ball State,1484,10,4
+Ball State,1485,10,5
+Ball State,1486,10,6
+Ball State,1487,10,7
+Ball State,1488,10,8
+Ball State,1489,10,9
+Ball State,1490,10,10
+Ball State,1491,10,11
+Ball State,1492,10,12
+Ball State,1493,10,13
+Ball State,1494,10,14
+Ball State,1495,10,15
+Ball State,1496,10,16
+Ball State,1497,10,17
+Ball State,1498,10,18
+Ball State,1499,10,19
+Baylor,1500,11,0
+Baylor,1501,11,1
+Baylor,1502,11,2
+Baylor,1503,11,3
+Baylor,1504,11,4
+Baylor,1505,11,5
+Baylor,1506,11,6
+Baylor,1507,11,7
+Baylor,1508,11,8
+Baylor,1509,11,9
+Baylor,1510,11,10
+Baylor,1511,11,11
+Baylor,1512,11,12
+Baylor,1513,11,13
+Baylor,1514,11,14
+Baylor,1515,11,15
+Baylor,1516,11,16
+Baylor,1517,11,17
+Baylor,1518,11,18
+Baylor,1519,11,19
+Bethune-Cookman,1520,120,0
+Bethune-Cookman,1521,120,1
+Bethune-Cookman,1522,120,2
+Bethune-Cookman,1523,120,3
+Bethune-Cookman,1524,120,4
+Bethune-Cookman,1525,120,5
+Bethune-Cookman,1526,120,6
+Bethune-Cookman,1527,120,7
+Bethune-Cookman,1528,120,8
+Bethune-Cookman,1529,120,9
+Bethune-Cookman,1530,120,10
+Bethune-Cookman,1531,120,11
+Bethune-Cookman,1532,120,12
+Bethune-Cookman,1533,120,13
+Bethune-Cookman,1534,120,14
+Bethune-Cookman,1535,120,15
+Bethune-Cookman,1536,120,16
+Bethune-Cookman,1537,120,17
+Bethune-Cookman,1538,120,18
+Bethune-Cookman,1539,120,19
+Boise State,1540,12,0
+Boise State,1541,12,1
+Boise State,1542,12,2
+Boise State,1543,12,3
+Boise State,1544,12,4
+Boise State,1545,12,5
+Boise State,1546,12,6
+Boise State,1547,12,7
+Boise State,1548,12,8
+Boise State,1549,12,9
+Boise State,1550,12,10
+Boise State,1551,12,11
+Boise State,1552,12,12
+Boise State,1553,12,13
+Boise State,1554,12,14
+Boise State,1555,12,15
+Boise State,1556,12,16
+Boise State,1557,12,17
+Boise State,1558,12,18
+Boise State,1559,12,19
+Boston College,1560,13,0
+Boston College,1561,13,1
+Boston College,1562,13,2
+Boston College,1563,13,3
+Boston College,1564,13,4
+Boston College,1565,13,5
+Boston College,1566,13,6
+Boston College,1567,13,7
+Boston College,1568,13,8
+Boston College,1569,13,9
+Boston College,1570,13,10
+Boston College,1571,13,11
+Boston College,1572,13,12
+Boston College,1573,13,13
+Boston College,1574,13,14
+Boston College,1575,13,15
+Boston College,1576,13,16
+Boston College,1577,13,17
+Boston College,1578,13,18
+Boston College,1579,13,19
+Bowling Green,1580,14,0
+Bowling Green,1581,14,1
+Bowling Green,1582,14,2
+Bowling Green,1583,14,3
+Bowling Green,1584,14,4
+Bowling Green,1585,14,5
+Bowling Green,1586,14,6
+Bowling Green,1587,14,7
+Bowling Green,1588,14,8
+Bowling Green,1589,14,9
+Bowling Green,1590,14,10
+Bowling Green,1591,14,11
+Bowling Green,1592,14,12
+Bowling Green,1593,14,13
+Bowling Green,1594,14,14
+Bowling Green,1595,14,15
+Bowling Green,1596,14,16
+Bowling Green,1597,14,17
+Bowling Green,1598,14,18
+Bowling Green,1599,14,19
+Brown,1600,121,0
+Brown,1601,121,1
+Brown,1602,121,2
+Brown,1603,121,3
+Brown,1604,121,4
+Brown,1605,121,5
+Brown,1606,121,6
+Brown,1607,121,7
+Brown,1608,121,8
+Brown,1609,121,9
+Brown,1610,121,10
+Brown,1611,121,11
+Brown,1612,121,12
+Brown,1613,121,13
+Brown,1614,121,14
+Brown,1615,121,15
+Brown,1616,121,16
+Brown,1617,121,17
+Brown,1618,121,18
+Brown,1619,121,19
+Buffalo,1620,15,0
+Buffalo,1621,15,1
+Buffalo,1622,15,2
+Buffalo,1623,15,3
+Buffalo,1624,15,4
+Buffalo,1625,15,5
+Buffalo,1626,15,6
+Buffalo,1627,15,7
+Buffalo,1628,15,8
+Buffalo,1629,15,9
+Buffalo,1630,15,10
+Buffalo,1631,15,11
+Buffalo,1632,15,12
+Buffalo,1633,15,13
+Buffalo,1634,15,14
+Buffalo,1635,15,15
+Buffalo,1636,15,16
+Buffalo,1637,15,17
+Buffalo,1638,15,18
+Buffalo,1639,15,19
+BYU,1640,16,0
+BYU,1641,16,1
+BYU,1642,16,2
+BYU,1643,16,3
+BYU,1644,16,4
+BYU,1645,16,5
+BYU,1646,16,6
+BYU,1647,16,7
+BYU,1648,16,8
+BYU,1649,16,9
+BYU,1650,16,10
+BYU,1651,16,11
+BYU,1652,16,12
+BYU,1653,16,13
+BYU,1654,16,14
+BYU,1655,16,15
+BYU,1656,16,16
+BYU,1657,16,17
+BYU,1658,16,18
+BYU,1659,16,19
+Cal,1660,17,0
+Cal,1661,17,1
+Cal,1662,17,2
+Cal,1663,17,3
+Cal,1664,17,4
+Cal,1665,17,5
+Cal,1666,17,6
+Cal,1667,17,7
+Cal,1668,17,8
+Cal,1669,17,9
+Cal,1670,17,10
+Cal,1671,17,11
+Cal,1672,17,12
+Cal,1673,17,13
+Cal,1674,17,14
+Cal,1675,17,15
+Cal,1676,17,16
+Cal,1677,17,17
+Cal,1678,17,18
+Cal,1679,17,19
+Central Michigan,1680,19,0
+Central Michigan,1681,19,1
+Central Michigan,1682,19,2
+Central Michigan,1683,19,3
+Central Michigan,1684,19,4
+Central Michigan,1685,19,5
+Central Michigan,1686,19,6
+Central Michigan,1687,19,7
+Central Michigan,1688,19,8
+Central Michigan,1689,19,9
+Central Michigan,1690,19,10
+Central Michigan,1691,19,11
+Central Michigan,1692,19,12
+Central Michigan,1693,19,13
+Central Michigan,1694,19,14
+Central Michigan,1695,19,15
+Central Michigan,1696,19,16
+Central Michigan,1697,19,17
+Central Michigan,1698,19,18
+Central Michigan,1699,19,19
+Charlotte,1700,160,0
+Charlotte,1701,160,1
+Charlotte,1702,160,2
+Charlotte,1703,160,3
+Charlotte,1704,160,4
+Charlotte,1705,160,5
+Charlotte,1706,160,6
+Charlotte,1707,160,7
+Charlotte,1708,160,8
+Charlotte,1709,160,9
+Charlotte,1710,160,10
+Charlotte,1711,160,11
+Charlotte,1712,160,12
+Charlotte,1713,160,13
+Charlotte,1714,160,14
+Charlotte,1715,160,15
+Charlotte,1716,160,16
+Charlotte,1717,160,17
+Charlotte,1718,160,18
+Charlotte,1719,160,19
+Chattanooga,1720,194,0
+Chattanooga,1721,194,1
+Chattanooga,1722,194,2
+Chattanooga,1723,194,3
+Chattanooga,1724,194,4
+Chattanooga,1725,194,5
+Chattanooga,1726,194,6
+Chattanooga,1727,194,7
+Chattanooga,1728,194,8
+Chattanooga,1729,194,9
+Chattanooga,1730,194,10
+Chattanooga,1731,194,11
+Chattanooga,1732,194,12
+Chattanooga,1733,194,13
+Chattanooga,1734,194,14
+Chattanooga,1735,194,15
+Chattanooga,1736,194,16
+Chattanooga,1737,194,17
+Chattanooga,1738,194,18
+Chattanooga,1739,194,19
+Cincinnati,1740,20,0
+Cincinnati,1741,20,1
+Cincinnati,1742,20,2
+Cincinnati,1743,20,3
+Cincinnati,1744,20,4
+Cincinnati,1745,20,5
+Cincinnati,1746,20,6
+Cincinnati,1747,20,7
+Cincinnati,1748,20,8
+Cincinnati,1749,20,9
+Cincinnati,1750,20,10
+Cincinnati,1751,20,11
+Cincinnati,1752,20,12
+Cincinnati,1753,20,13
+Cincinnati,1754,20,14
+Cincinnati,1755,20,15
+Cincinnati,1756,20,16
+Cincinnati,1757,20,17
+Cincinnati,1758,20,18
+Cincinnati,1759,20,19
+Clemson,1760,21,0
+Clemson,1761,21,1
+Clemson,1762,21,2
+Clemson,1763,21,3
+Clemson,1764,21,4
+Clemson,1765,21,5
+Clemson,1766,21,6
+Clemson,1767,21,7
+Clemson,1768,21,8
+Clemson,1769,21,9
+Clemson,1770,21,10
+Clemson,1771,21,11
+Clemson,1772,21,12
+Clemson,1773,21,13
+Clemson,1774,21,14
+Clemson,1775,21,15
+Clemson,1776,21,16
+Clemson,1777,21,17
+Clemson,1778,21,18
+Clemson,1779,21,19
+Coastal Carolina,1780,178,0
+Coastal Carolina,1781,178,1
+Coastal Carolina,1782,178,2
+Coastal Carolina,1783,178,3
+Coastal Carolina,1784,178,4
+Coastal Carolina,1785,178,5
+Coastal Carolina,1786,178,6
+Coastal Carolina,1787,178,7
+Coastal Carolina,1788,178,8
+Coastal Carolina,1789,178,9
+Coastal Carolina,1790,178,10
+Coastal Carolina,1791,178,11
+Coastal Carolina,1792,178,12
+Coastal Carolina,1793,178,13
+Coastal Carolina,1794,178,14
+Coastal Carolina,1795,178,15
+Coastal Carolina,1796,178,16
+Coastal Carolina,1797,178,17
+Coastal Carolina,1798,178,18
+Coastal Carolina,1799,178,19
+Colorado,1800,22,0
+Colorado,1801,22,1
+Colorado,1802,22,2
+Colorado,1803,22,3
+Colorado,1804,22,4
+Colorado,1805,22,5
+Colorado,1806,22,6
+Colorado,1807,22,7
+Colorado,1808,22,8
+Colorado,1809,22,9
+Colorado,1810,22,10
+Colorado,1811,22,11
+Colorado,1812,22,12
+Colorado,1813,22,13
+Colorado,1814,22,14
+Colorado,1815,22,15
+Colorado,1816,22,16
+Colorado,1817,22,17
+Colorado,1818,22,18
+Colorado,1819,22,19
+Colorado State,1820,23,0
+Colorado State,1821,23,1
+Colorado State,1822,23,2
+Colorado State,1823,23,3
+Colorado State,1824,23,4
+Colorado State,1825,23,5
+Colorado State,1826,23,6
+Colorado State,1827,23,7
+Colorado State,1828,23,8
+Colorado State,1829,23,9
+Colorado State,1830,23,10
+Colorado State,1831,23,11
+Colorado State,1832,23,12
+Colorado State,1833,23,13
+Colorado State,1834,23,14
+Colorado State,1835,23,15
+Colorado State,1836,23,16
+Colorado State,1837,23,17
+Colorado State,1838,23,18
+Colorado State,1839,23,19
+Columbia,1840,122,0
+Columbia,1841,122,1
+Columbia,1842,122,2
+Columbia,1843,122,3
+Columbia,1844,122,4
+Columbia,1845,122,5
+Columbia,1846,122,6
+Columbia,1847,122,7
+Columbia,1848,122,8
+Columbia,1849,122,9
+Columbia,1850,122,10
+Columbia,1851,122,11
+Columbia,1852,122,12
+Columbia,1853,122,13
+Columbia,1854,122,14
+Columbia,1855,122,15
+Columbia,1856,122,16
+Columbia,1857,122,17
+Columbia,1858,122,18
+Columbia,1859,122,19
+Connecticut,1860,100,0
+Connecticut,1861,100,1
+Connecticut,1862,100,2
+Connecticut,1863,100,3
+Connecticut,1864,100,4
+Connecticut,1865,100,5
+Connecticut,1866,100,6
+Connecticut,1867,100,7
+Connecticut,1868,100,8
+Connecticut,1869,100,9
+Connecticut,1870,100,10
+Connecticut,1871,100,11
+Connecticut,1872,100,12
+Connecticut,1873,100,13
+Connecticut,1874,100,14
+Connecticut,1875,100,15
+Connecticut,1876,100,16
+Connecticut,1877,100,17
+Connecticut,1878,100,18
+Connecticut,1879,100,19
+Cornell,1880,123,0
+Cornell,1881,123,1
+Cornell,1882,123,2
+Cornell,1883,123,3
+Cornell,1884,123,4
+Cornell,1885,123,5
+Cornell,1886,123,6
+Cornell,1887,123,7
+Cornell,1888,123,8
+Cornell,1889,123,9
+Cornell,1890,123,10
+Cornell,1891,123,11
+Cornell,1892,123,12
+Cornell,1893,123,13
+Cornell,1894,123,14
+Cornell,1895,123,15
+Cornell,1896,123,16
+Cornell,1897,123,17
+Cornell,1898,123,18
+Cornell,1899,123,19
+Dartmouth,1900,124,0
+Dartmouth,1901,124,1
+Dartmouth,1902,124,2
+Dartmouth,1903,124,3
+Dartmouth,1904,124,4
+Dartmouth,1905,124,5
+Dartmouth,1906,124,6
+Dartmouth,1907,124,7
+Dartmouth,1908,124,8
+Dartmouth,1909,124,9
+Dartmouth,1910,124,10
+Dartmouth,1911,124,11
+Dartmouth,1912,124,12
+Dartmouth,1913,124,13
+Dartmouth,1914,124,14
+Dartmouth,1915,124,15
+Dartmouth,1916,124,16
+Dartmouth,1917,124,17
+Dartmouth,1918,124,18
+Dartmouth,1919,124,19
+Delaware,1920,177,0
+Delaware,1921,177,1
+Delaware,1922,177,2
+Delaware,1923,177,3
+Delaware,1924,177,4
+Delaware,1925,177,5
+Delaware,1926,177,6
+Delaware,1927,177,7
+Delaware,1928,177,8
+Delaware,1929,177,9
+Delaware,1930,177,10
+Delaware,1931,177,11
+Delaware,1932,177,12
+Delaware,1933,177,13
+Delaware,1934,177,14
+Delaware,1935,177,15
+Delaware,1936,177,16
+Delaware,1937,177,17
+Delaware,1938,177,18
+Delaware,1939,177,19
+Delaware State,1940,125,0
+Delaware State,1941,125,1
+Delaware State,1942,125,2
+Delaware State,1943,125,3
+Delaware State,1944,125,4
+Delaware State,1945,125,5
+Delaware State,1946,125,6
+Delaware State,1947,125,7
+Delaware State,1948,125,8
+Delaware State,1949,125,9
+Delaware State,1950,125,10
+Delaware State,1951,125,11
+Delaware State,1952,125,12
+Delaware State,1953,125,13
+Delaware State,1954,125,14
+Delaware State,1955,125,15
+Delaware State,1956,125,16
+Delaware State,1957,125,17
+Delaware State,1958,125,18
+Delaware State,1959,125,19
+Duke,1960,24,0
+Duke,1961,24,1
+Duke,1962,24,2
+Duke,1963,24,3
+Duke,1964,24,4
+Duke,1965,24,5
+Duke,1966,24,6
+Duke,1967,24,7
+Duke,1968,24,8
+Duke,1969,24,9
+Duke,1970,24,10
+Duke,1971,24,11
+Duke,1972,24,12
+Duke,1973,24,13
+Duke,1974,24,14
+Duke,1975,24,15
+Duke,1976,24,16
+Duke,1977,24,17
+Duke,1978,24,18
+Duke,1979,24,19
+E Washington,1980,197,0
+E Washington,1981,197,1
+E Washington,1982,197,2
+E Washington,1983,197,3
+E Washington,1984,197,4
+E Washington,1985,197,5
+E Washington,1986,197,6
+E Washington,1987,197,7
+E Washington,1988,197,8
+E Washington,1989,197,9
+E Washington,1990,197,10
+E Washington,1991,197,11
+E Washington,1992,197,12
+E Washington,1993,197,13
+E Washington,1994,197,14
+E Washington,1995,197,15
+E Washington,1996,197,16
+E Washington,1997,197,17
+E Washington,1998,197,18
+E Washington,1999,197,19
+Eastern Illinois,2000,219,0
+Eastern Illinois,2001,219,1
+Eastern Illinois,2002,219,2
+Eastern Illinois,2003,219,3
+Eastern Illinois,2004,219,4
+Eastern Illinois,2005,219,5
+Eastern Illinois,2006,219,6
+Eastern Illinois,2007,219,7
+Eastern Illinois,2008,219,8
+Eastern Illinois,2009,219,9
+Eastern Illinois,2010,219,10
+Eastern Illinois,2011,219,11
+Eastern Illinois,2012,219,12
+Eastern Illinois,2013,219,13
+Eastern Illinois,2014,219,14
+Eastern Illinois,2015,219,15
+Eastern Illinois,2016,219,16
+Eastern Illinois,2017,219,17
+Eastern Illinois,2018,219,18
+Eastern Illinois,2019,219,19
+Eastern Kentucky,2020,221,0
+Eastern Kentucky,2021,221,1
+Eastern Kentucky,2022,221,2
+Eastern Kentucky,2023,221,3
+Eastern Kentucky,2024,221,4
+Eastern Kentucky,2025,221,5
+Eastern Kentucky,2026,221,6
+Eastern Kentucky,2027,221,7
+Eastern Kentucky,2028,221,8
+Eastern Kentucky,2029,221,9
+Eastern Kentucky,2030,221,10
+Eastern Kentucky,2031,221,11
+Eastern Kentucky,2032,221,12
+Eastern Kentucky,2033,221,13
+Eastern Kentucky,2034,221,14
+Eastern Kentucky,2035,221,15
+Eastern Kentucky,2036,221,16
+Eastern Kentucky,2037,221,17
+Eastern Kentucky,2038,221,18
+Eastern Kentucky,2039,221,19
+Eastern Michigan,2040,26,0
+Eastern Michigan,2041,26,1
+Eastern Michigan,2042,26,2
+Eastern Michigan,2043,26,3
+Eastern Michigan,2044,26,4
+Eastern Michigan,2045,26,5
+Eastern Michigan,2046,26,6
+Eastern Michigan,2047,26,7
+Eastern Michigan,2048,26,8
+Eastern Michigan,2049,26,9
+Eastern Michigan,2050,26,10
+Eastern Michigan,2051,26,11
+Eastern Michigan,2052,26,12
+Eastern Michigan,2053,26,13
+Eastern Michigan,2054,26,14
+Eastern Michigan,2055,26,15
+Eastern Michigan,2056,26,16
+Eastern Michigan,2057,26,17
+Eastern Michigan,2058,26,18
+Eastern Michigan,2059,26,19
+ECU,2060,25,0
+ECU,2061,25,1
+ECU,2062,25,2
+ECU,2063,25,3
+ECU,2064,25,4
+ECU,2065,25,5
+ECU,2066,25,6
+ECU,2067,25,7
+ECU,2068,25,8
+ECU,2069,25,9
+ECU,2070,25,10
+ECU,2071,25,11
+ECU,2072,25,12
+ECU,2073,25,13
+ECU,2074,25,14
+ECU,2075,25,15
+ECU,2076,25,16
+ECU,2077,25,17
+ECU,2078,25,18
+ECU,2079,25,19
+Elon,2080,191,0
+Elon,2081,191,1
+Elon,2082,191,2
+Elon,2083,191,3
+Elon,2084,191,4
+Elon,2085,191,5
+Elon,2086,191,6
+Elon,2087,191,7
+Elon,2088,191,8
+Elon,2089,191,9
+Elon,2090,191,10
+Elon,2091,191,11
+Elon,2092,191,12
+Elon,2093,191,13
+Elon,2094,191,14
+Elon,2095,191,15
+Elon,2096,191,16
+Elon,2097,191,17
+Elon,2098,191,18
+Elon,2099,191,19
+FIU,2100,230,0
+FIU,2101,230,1
+FIU,2102,230,2
+FIU,2103,230,3
+FIU,2104,230,4
+FIU,2105,230,5
+FIU,2106,230,6
+FIU,2107,230,7
+FIU,2108,230,8
+FIU,2109,230,9
+FIU,2110,230,10
+FIU,2111,230,11
+FIU,2112,230,12
+FIU,2113,230,13
+FIU,2114,230,14
+FIU,2115,230,15
+FIU,2116,230,16
+FIU,2117,230,17
+FIU,2118,230,18
+FIU,2119,230,19
+Florida,2120,27,0
+Florida,2121,27,1
+Florida,2122,27,2
+Florida,2123,27,3
+Florida,2124,27,4
+Florida,2125,27,5
+Florida,2126,27,6
+Florida,2127,27,7
+Florida,2128,27,8
+Florida,2129,27,9
+Florida,2130,27,10
+Florida,2131,27,11
+Florida,2132,27,12
+Florida,2133,27,13
+Florida,2134,27,14
+Florida,2135,27,15
+Florida,2136,27,16
+Florida,2137,27,17
+Florida,2138,27,18
+Florida,2139,27,19
+Florida A&M,2140,126,0
+Florida A&M,2141,126,1
+Florida A&M,2142,126,2
+Florida A&M,2143,126,3
+Florida A&M,2144,126,4
+Florida A&M,2145,126,5
+Florida A&M,2146,126,6
+Florida A&M,2147,126,7
+Florida A&M,2148,126,8
+Florida A&M,2149,126,9
+Florida A&M,2150,126,10
+Florida A&M,2151,126,11
+Florida A&M,2152,126,12
+Florida A&M,2153,126,13
+Florida A&M,2154,126,14
+Florida A&M,2155,126,15
+Florida A&M,2156,126,16
+Florida A&M,2157,126,17
+Florida A&M,2158,126,18
+Florida A&M,2159,126,19
+Florida Atlantic,2160,229,0
+Florida Atlantic,2161,229,1
+Florida Atlantic,2162,229,2
+Florida Atlantic,2163,229,3
+Florida Atlantic,2164,229,4
+Florida Atlantic,2165,229,5
+Florida Atlantic,2166,229,6
+Florida Atlantic,2167,229,7
+Florida Atlantic,2168,229,8
+Florida Atlantic,2169,229,9
+Florida Atlantic,2170,229,10
+Florida Atlantic,2171,229,11
+Florida Atlantic,2172,229,12
+Florida Atlantic,2173,229,13
+Florida Atlantic,2174,229,14
+Florida Atlantic,2175,229,15
+Florida Atlantic,2176,229,16
+Florida Atlantic,2177,229,17
+Florida Atlantic,2178,229,18
+Florida Atlantic,2179,229,19
+Florida State,2180,28,0
+Florida State,2181,28,1
+Florida State,2182,28,2
+Florida State,2183,28,3
+Florida State,2184,28,4
+Florida State,2185,28,5
+Florida State,2186,28,6
+Florida State,2187,28,7
+Florida State,2188,28,8
+Florida State,2189,28,9
+Florida State,2190,28,10
+Florida State,2191,28,11
+Florida State,2192,28,12
+Florida State,2193,28,13
+Florida State,2194,28,14
+Florida State,2195,28,15
+Florida State,2196,28,16
+Florida State,2197,28,17
+Florida State,2198,28,18
+Florida State,2199,28,19
+Fresno State,2200,29,0
+Fresno State,2201,29,1
+Fresno State,2202,29,2
+Fresno State,2203,29,3
+Fresno State,2204,29,4
+Fresno State,2205,29,5
+Fresno State,2206,29,6
+Fresno State,2207,29,7
+Fresno State,2208,29,8
+Fresno State,2209,29,9
+Fresno State,2210,29,10
+Fresno State,2211,29,11
+Fresno State,2212,29,12
+Fresno State,2213,29,13
+Fresno State,2214,29,14
+Fresno State,2215,29,15
+Fresno State,2216,29,16
+Fresno State,2217,29,17
+Fresno State,2218,29,18
+Fresno State,2219,29,19
+Furman,2220,192,0
+Furman,2221,192,1
+Furman,2222,192,2
+Furman,2223,192,3
+Furman,2224,192,4
+Furman,2225,192,5
+Furman,2226,192,6
+Furman,2227,192,7
+Furman,2228,192,8
+Furman,2229,192,9
+Furman,2230,192,10
+Furman,2231,192,11
+Furman,2232,192,12
+Furman,2233,192,13
+Furman,2234,192,14
+Furman,2235,192,15
+Furman,2236,192,16
+Furman,2237,192,17
+Furman,2238,192,18
+Furman,2239,192,19
+Georgia,2240,30,0
+Georgia,2241,30,1
+Georgia,2242,30,2
+Georgia,2243,30,3
+Georgia,2244,30,4
+Georgia,2245,30,5
+Georgia,2246,30,6
+Georgia,2247,30,7
+Georgia,2248,30,8
+Georgia,2249,30,9
+Georgia,2250,30,10
+Georgia,2251,30,11
+Georgia,2252,30,12
+Georgia,2253,30,13
+Georgia,2254,30,14
+Georgia,2255,30,15
+Georgia,2256,30,16
+Georgia,2257,30,17
+Georgia,2258,30,18
+Georgia,2259,30,19
+Georgia Southern,2260,193,0
+Georgia Southern,2261,193,1
+Georgia Southern,2262,193,2
+Georgia Southern,2263,193,3
+Georgia Southern,2264,193,4
+Georgia Southern,2265,193,5
+Georgia Southern,2266,193,6
+Georgia Southern,2267,193,7
+Georgia Southern,2268,193,8
+Georgia Southern,2269,193,9
+Georgia Southern,2270,193,10
+Georgia Southern,2271,193,11
+Georgia Southern,2272,193,12
+Georgia Southern,2273,193,13
+Georgia Southern,2274,193,14
+Georgia Southern,2275,193,15
+Georgia Southern,2276,193,16
+Georgia Southern,2277,193,17
+Georgia Southern,2278,193,18
+Georgia Southern,2279,193,19
+Georgia State,2280,162,0
+Georgia State,2281,162,1
+Georgia State,2282,162,2
+Georgia State,2283,162,3
+Georgia State,2284,162,4
+Georgia State,2285,162,5
+Georgia State,2286,162,6
+Georgia State,2287,162,7
+Georgia State,2288,162,8
+Georgia State,2289,162,9
+Georgia State,2290,162,10
+Georgia State,2291,162,11
+Georgia State,2292,162,12
+Georgia State,2293,162,13
+Georgia State,2294,162,14
+Georgia State,2295,162,15
+Georgia State,2296,162,16
+Georgia State,2297,162,17
+Georgia State,2298,162,18
+Georgia State,2299,162,19
+Georgia Tech,2300,31,0
+Georgia Tech,2301,31,1
+Georgia Tech,2302,31,2
+Georgia Tech,2303,31,3
+Georgia Tech,2304,31,4
+Georgia Tech,2305,31,5
+Georgia Tech,2306,31,6
+Georgia Tech,2307,31,7
+Georgia Tech,2308,31,8
+Georgia Tech,2309,31,9
+Georgia Tech,2310,31,10
+Georgia Tech,2311,31,11
+Georgia Tech,2312,31,12
+Georgia Tech,2313,31,13
+Georgia Tech,2314,31,14
+Georgia Tech,2315,31,15
+Georgia Tech,2316,31,16
+Georgia Tech,2317,31,17
+Georgia Tech,2318,31,18
+Georgia Tech,2319,31,19
+Grambling State,2320,127,0
+Grambling State,2321,127,1
+Grambling State,2322,127,2
+Grambling State,2323,127,3
+Grambling State,2324,127,4
+Grambling State,2325,127,5
+Grambling State,2326,127,6
+Grambling State,2327,127,7
+Grambling State,2328,127,8
+Grambling State,2329,127,9
+Grambling State,2330,127,10
+Grambling State,2331,127,11
+Grambling State,2332,127,12
+Grambling State,2333,127,13
+Grambling State,2334,127,14
+Grambling State,2335,127,15
+Grambling State,2336,127,16
+Grambling State,2337,127,17
+Grambling State,2338,127,18
+Grambling State,2339,127,19
+Hampton,2340,128,0
+Hampton,2341,128,1
+Hampton,2342,128,2
+Hampton,2343,128,3
+Hampton,2344,128,4
+Hampton,2345,128,5
+Hampton,2346,128,6
+Hampton,2347,128,7
+Hampton,2348,128,8
+Hampton,2349,128,9
+Hampton,2350,128,10
+Hampton,2351,128,11
+Hampton,2352,128,12
+Hampton,2353,128,13
+Hampton,2354,128,14
+Hampton,2355,128,15
+Hampton,2356,128,16
+Hampton,2357,128,17
+Hampton,2358,128,18
+Hampton,2359,128,19
+Harvard,2360,129,0
+Harvard,2361,129,1
+Harvard,2362,129,2
+Harvard,2363,129,3
+Harvard,2364,129,4
+Harvard,2365,129,5
+Harvard,2366,129,6
+Harvard,2367,129,7
+Harvard,2368,129,8
+Harvard,2369,129,9
+Harvard,2370,129,10
+Harvard,2371,129,11
+Harvard,2372,129,12
+Harvard,2373,129,13
+Harvard,2374,129,14
+Harvard,2375,129,15
+Harvard,2376,129,16
+Harvard,2377,129,17
+Harvard,2378,129,18
+Harvard,2379,129,19
+Hawaii,2380,32,0
+Hawaii,2381,32,1
+Hawaii,2382,32,2
+Hawaii,2383,32,3
+Hawaii,2384,32,4
+Hawaii,2385,32,5
+Hawaii,2386,32,6
+Hawaii,2387,32,7
+Hawaii,2388,32,8
+Hawaii,2389,32,9
+Hawaii,2390,32,10
+Hawaii,2391,32,11
+Hawaii,2392,32,12
+Hawaii,2393,32,13
+Hawaii,2394,32,14
+Hawaii,2395,32,15
+Hawaii,2396,32,16
+Hawaii,2397,32,17
+Hawaii,2398,32,18
+Hawaii,2399,32,19
+Houston,2400,33,0
+Houston,2401,33,1
+Houston,2402,33,2
+Houston,2403,33,3
+Houston,2404,33,4
+Houston,2405,33,5
+Houston,2406,33,6
+Houston,2407,33,7
+Houston,2408,33,8
+Houston,2409,33,9
+Houston,2410,33,10
+Houston,2411,33,11
+Houston,2412,33,12
+Houston,2413,33,13
+Houston,2414,33,14
+Houston,2415,33,15
+Houston,2416,33,16
+Houston,2417,33,17
+Houston,2418,33,18
+Houston,2419,33,19
+Howard,2420,130,0
+Howard,2421,130,1
+Howard,2422,130,2
+Howard,2423,130,3
+Howard,2424,130,4
+Howard,2425,130,5
+Howard,2426,130,6
+Howard,2427,130,7
+Howard,2428,130,8
+Howard,2429,130,9
+Howard,2430,130,10
+Howard,2431,130,11
+Howard,2432,130,12
+Howard,2433,130,13
+Howard,2434,130,14
+Howard,2435,130,15
+Howard,2436,130,16
+Howard,2437,130,17
+Howard,2438,130,18
+Howard,2439,130,19
+Idaho,2440,34,0
+Idaho,2441,34,1
+Idaho,2442,34,2
+Idaho,2443,34,3
+Idaho,2444,34,4
+Idaho,2445,34,5
+Idaho,2446,34,6
+Idaho,2447,34,7
+Idaho,2448,34,8
+Idaho,2449,34,9
+Idaho,2450,34,10
+Idaho,2451,34,11
+Idaho,2452,34,12
+Idaho,2453,34,13
+Idaho,2454,34,14
+Idaho,2455,34,15
+Idaho,2456,34,16
+Idaho,2457,34,17
+Idaho,2458,34,18
+Idaho,2459,34,19
+Idaho State,2460,198,0
+Idaho State,2461,198,1
+Idaho State,2462,198,2
+Idaho State,2463,198,3
+Idaho State,2464,198,4
+Idaho State,2465,198,5
+Idaho State,2466,198,6
+Idaho State,2467,198,7
+Idaho State,2468,198,8
+Idaho State,2469,198,9
+Idaho State,2470,198,10
+Idaho State,2471,198,11
+Idaho State,2472,198,12
+Idaho State,2473,198,13
+Idaho State,2474,198,14
+Idaho State,2475,198,15
+Idaho State,2476,198,16
+Idaho State,2477,198,17
+Idaho State,2478,198,18
+Idaho State,2479,198,19
+Illinois,2480,35,0
+Illinois,2481,35,1
+Illinois,2482,35,2
+Illinois,2483,35,3
+Illinois,2484,35,4
+Illinois,2485,35,5
+Illinois,2486,35,6
+Illinois,2487,35,7
+Illinois,2488,35,8
+Illinois,2489,35,9
+Illinois,2490,35,10
+Illinois,2491,35,11
+Illinois,2492,35,12
+Illinois,2493,35,13
+Illinois,2494,35,14
+Illinois,2495,35,15
+Illinois,2496,35,16
+Illinois,2497,35,17
+Illinois,2498,35,18
+Illinois,2499,35,19
+Illinois State,2500,205,0
+Illinois State,2501,205,1
+Illinois State,2502,205,2
+Illinois State,2503,205,3
+Illinois State,2504,205,4
+Illinois State,2505,205,5
+Illinois State,2506,205,6
+Illinois State,2507,205,7
+Illinois State,2508,205,8
+Illinois State,2509,205,9
+Illinois State,2510,205,10
+Illinois State,2511,205,11
+Illinois State,2512,205,12
+Illinois State,2513,205,13
+Illinois State,2514,205,14
+Illinois State,2515,205,15
+Illinois State,2516,205,16
+Illinois State,2517,205,17
+Illinois State,2518,205,18
+Illinois State,2519,205,19
+Indiana,2520,36,0
+Indiana,2521,36,1
+Indiana,2522,36,2
+Indiana,2523,36,3
+Indiana,2524,36,4
+Indiana,2525,36,5
+Indiana,2526,36,6
+Indiana,2527,36,7
+Indiana,2528,36,8
+Indiana,2529,36,9
+Indiana,2530,36,10
+Indiana,2531,36,11
+Indiana,2532,36,12
+Indiana,2533,36,13
+Indiana,2534,36,14
+Indiana,2535,36,15
+Indiana,2536,36,16
+Indiana,2537,36,17
+Indiana,2538,36,18
+Indiana,2539,36,19
+Indiana State,2540,206,0
+Indiana State,2541,206,1
+Indiana State,2542,206,2
+Indiana State,2543,206,3
+Indiana State,2544,206,4
+Indiana State,2545,206,5
+Indiana State,2546,206,6
+Indiana State,2547,206,7
+Indiana State,2548,206,8
+Indiana State,2549,206,9
+Indiana State,2550,206,10
+Indiana State,2551,206,11
+Indiana State,2552,206,12
+Indiana State,2553,206,13
+Indiana State,2554,206,14
+Indiana State,2555,206,15
+Indiana State,2556,206,16
+Indiana State,2557,206,17
+Indiana State,2558,206,18
+Indiana State,2559,206,19
+Iowa,2560,37,0
+Iowa,2561,37,1
+Iowa,2562,37,2
+Iowa,2563,37,3
+Iowa,2564,37,4
+Iowa,2565,37,5
+Iowa,2566,37,6
+Iowa,2567,37,7
+Iowa,2568,37,8
+Iowa,2569,37,9
+Iowa,2570,37,10
+Iowa,2571,37,11
+Iowa,2572,37,12
+Iowa,2573,37,13
+Iowa,2574,37,14
+Iowa,2575,37,15
+Iowa,2576,37,16
+Iowa,2577,37,17
+Iowa,2578,37,18
+Iowa,2579,37,19
+Iowa State,2580,38,0
+Iowa State,2581,38,1
+Iowa State,2582,38,2
+Iowa State,2583,38,3
+Iowa State,2584,38,4
+Iowa State,2585,38,5
+Iowa State,2586,38,6
+Iowa State,2587,38,7
+Iowa State,2588,38,8
+Iowa State,2589,38,9
+Iowa State,2590,38,10
+Iowa State,2591,38,11
+Iowa State,2592,38,12
+Iowa State,2593,38,13
+Iowa State,2594,38,14
+Iowa State,2595,38,15
+Iowa State,2596,38,16
+Iowa State,2597,38,17
+Iowa State,2598,38,18
+Iowa State,2599,38,19
+Jackson State,2600,131,0
+Jackson State,2601,131,1
+Jackson State,2602,131,2
+Jackson State,2603,131,3
+Jackson State,2604,131,4
+Jackson State,2605,131,5
+Jackson State,2606,131,6
+Jackson State,2607,131,7
+Jackson State,2608,131,8
+Jackson State,2609,131,9
+Jackson State,2610,131,10
+Jackson State,2611,131,11
+Jackson State,2612,131,12
+Jackson State,2613,131,13
+Jackson State,2614,131,14
+Jackson State,2615,131,15
+Jackson State,2616,131,16
+Jackson State,2617,131,17
+Jackson State,2618,131,18
+Jackson State,2619,131,19
+Jacksonville State,2620,223,0
+Jacksonville State,2621,223,1
+Jacksonville State,2622,223,2
+Jacksonville State,2623,223,3
+Jacksonville State,2624,223,4
+Jacksonville State,2625,223,5
+Jacksonville State,2626,223,6
+Jacksonville State,2627,223,7
+Jacksonville State,2628,223,8
+Jacksonville State,2629,223,9
+Jacksonville State,2630,223,10
+Jacksonville State,2631,223,11
+Jacksonville State,2632,223,12
+Jacksonville State,2633,223,13
+Jacksonville State,2634,223,14
+Jacksonville State,2635,223,15
+Jacksonville State,2636,223,16
+Jacksonville State,2637,223,17
+Jacksonville State,2638,223,18
+Jacksonville State,2639,223,19
+James Madison,2640,179,0
+James Madison,2641,179,1
+James Madison,2642,179,2
+James Madison,2643,179,3
+James Madison,2644,179,4
+James Madison,2645,179,5
+James Madison,2646,179,6
+James Madison,2647,179,7
+James Madison,2648,179,8
+James Madison,2649,179,9
+James Madison,2650,179,10
+James Madison,2651,179,11
+James Madison,2652,179,12
+James Madison,2653,179,13
+James Madison,2654,179,14
+James Madison,2655,179,15
+James Madison,2656,179,16
+James Madison,2657,179,17
+James Madison,2658,179,18
+James Madison,2659,179,19
+Kansas,2660,39,0
+Kansas,2661,39,1
+Kansas,2662,39,2
+Kansas,2663,39,3
+Kansas,2664,39,4
+Kansas,2665,39,5
+Kansas,2666,39,6
+Kansas,2667,39,7
+Kansas,2668,39,8
+Kansas,2669,39,9
+Kansas,2670,39,10
+Kansas,2671,39,11
+Kansas,2672,39,12
+Kansas,2673,39,13
+Kansas,2674,39,14
+Kansas,2675,39,15
+Kansas,2676,39,16
+Kansas,2677,39,17
+Kansas,2678,39,18
+Kansas,2679,39,19
+Kansas State,2680,40,0
+Kansas State,2681,40,1
+Kansas State,2682,40,2
+Kansas State,2683,40,3
+Kansas State,2684,40,4
+Kansas State,2685,40,5
+Kansas State,2686,40,6
+Kansas State,2687,40,7
+Kansas State,2688,40,8
+Kansas State,2689,40,9
+Kansas State,2690,40,10
+Kansas State,2691,40,11
+Kansas State,2692,40,12
+Kansas State,2693,40,13
+Kansas State,2694,40,14
+Kansas State,2695,40,15
+Kansas State,2696,40,16
+Kansas State,2697,40,17
+Kansas State,2698,40,18
+Kansas State,2699,40,19
+Kent State,2700,41,0
+Kent State,2701,41,1
+Kent State,2702,41,2
+Kent State,2703,41,3
+Kent State,2704,41,4
+Kent State,2705,41,5
+Kent State,2706,41,6
+Kent State,2707,41,7
+Kent State,2708,41,8
+Kent State,2709,41,9
+Kent State,2710,41,10
+Kent State,2711,41,11
+Kent State,2712,41,12
+Kent State,2713,41,13
+Kent State,2714,41,14
+Kent State,2715,41,15
+Kent State,2716,41,16
+Kent State,2717,41,17
+Kent State,2718,41,18
+Kent State,2719,41,19
+Kentucky,2720,42,0
+Kentucky,2721,42,1
+Kentucky,2722,42,2
+Kentucky,2723,42,3
+Kentucky,2724,42,4
+Kentucky,2725,42,5
+Kentucky,2726,42,6
+Kentucky,2727,42,7
+Kentucky,2728,42,8
+Kentucky,2729,42,9
+Kentucky,2730,42,10
+Kentucky,2731,42,11
+Kentucky,2732,42,12
+Kentucky,2733,42,13
+Kentucky,2734,42,14
+Kentucky,2735,42,15
+Kentucky,2736,42,16
+Kentucky,2737,42,17
+Kentucky,2738,42,18
+Kentucky,2739,42,19
+Liberty,2740,161,0
+Liberty,2741,161,1
+Liberty,2742,161,2
+Liberty,2743,161,3
+Liberty,2744,161,4
+Liberty,2745,161,5
+Liberty,2746,161,6
+Liberty,2747,161,7
+Liberty,2748,161,8
+Liberty,2749,161,9
+Liberty,2750,161,10
+Liberty,2751,161,11
+Liberty,2752,161,12
+Liberty,2753,161,13
+Liberty,2754,161,14
+Liberty,2755,161,15
+Liberty,2756,161,16
+Liberty,2757,161,17
+Liberty,2758,161,18
+Liberty,2759,161,19
+Louisiana Tech,2760,43,0
+Louisiana Tech,2761,43,1
+Louisiana Tech,2762,43,2
+Louisiana Tech,2763,43,3
+Louisiana Tech,2764,43,4
+Louisiana Tech,2765,43,5
+Louisiana Tech,2766,43,6
+Louisiana Tech,2767,43,7
+Louisiana Tech,2768,43,8
+Louisiana Tech,2769,43,9
+Louisiana Tech,2770,43,10
+Louisiana Tech,2771,43,11
+Louisiana Tech,2772,43,12
+Louisiana Tech,2773,43,13
+Louisiana Tech,2774,43,14
+Louisiana Tech,2775,43,15
+Louisiana Tech,2776,43,16
+Louisiana Tech,2777,43,17
+Louisiana Tech,2778,43,18
+Louisiana Tech,2779,43,19
+Louisville,2780,44,0
+Louisville,2781,44,1
+Louisville,2782,44,2
+Louisville,2783,44,3
+Louisville,2784,44,4
+Louisville,2785,44,5
+Louisville,2786,44,6
+Louisville,2787,44,7
+Louisville,2788,44,8
+Louisville,2789,44,9
+Louisville,2790,44,10
+Louisville,2791,44,11
+Louisville,2792,44,12
+Louisville,2793,44,13
+Louisville,2794,44,14
+Louisville,2795,44,15
+Louisville,2796,44,16
+Louisville,2797,44,17
+Louisville,2798,44,18
+Louisville,2799,44,19
+LSU,2800,45,0
+LSU,2801,45,1
+LSU,2802,45,2
+LSU,2803,45,3
+LSU,2804,45,4
+LSU,2805,45,5
+LSU,2806,45,6
+LSU,2807,45,7
+LSU,2808,45,8
+LSU,2809,45,9
+LSU,2810,45,10
+LSU,2811,45,11
+LSU,2812,45,12
+LSU,2813,45,13
+LSU,2814,45,14
+LSU,2815,45,15
+LSU,2816,45,16
+LSU,2817,45,17
+LSU,2818,45,18
+LSU,2819,45,19
+Maine,2820,180,0
+Maine,2821,180,1
+Maine,2822,180,2
+Maine,2823,180,3
+Maine,2824,180,4
+Maine,2825,180,5
+Maine,2826,180,6
+Maine,2827,180,7
+Maine,2828,180,8
+Maine,2829,180,9
+Maine,2830,180,10
+Maine,2831,180,11
+Maine,2832,180,12
+Maine,2833,180,13
+Maine,2834,180,14
+Maine,2835,180,15
+Maine,2836,180,16
+Maine,2837,180,17
+Maine,2838,180,18
+Maine,2839,180,19
+Marshall,2840,46,0
+Marshall,2841,46,1
+Marshall,2842,46,2
+Marshall,2843,46,3
+Marshall,2844,46,4
+Marshall,2845,46,5
+Marshall,2846,46,6
+Marshall,2847,46,7
+Marshall,2848,46,8
+Marshall,2849,46,9
+Marshall,2850,46,10
+Marshall,2851,46,11
+Marshall,2852,46,12
+Marshall,2853,46,13
+Marshall,2854,46,14
+Marshall,2855,46,15
+Marshall,2856,46,16
+Marshall,2857,46,17
+Marshall,2858,46,18
+Marshall,2859,46,19
+Maryland,2860,47,0
+Maryland,2861,47,1
+Maryland,2862,47,2
+Maryland,2863,47,3
+Maryland,2864,47,4
+Maryland,2865,47,5
+Maryland,2866,47,6
+Maryland,2867,47,7
+Maryland,2868,47,8
+Maryland,2869,47,9
+Maryland,2870,47,10
+Maryland,2871,47,11
+Maryland,2872,47,12
+Maryland,2873,47,13
+Maryland,2874,47,14
+Maryland,2875,47,15
+Maryland,2876,47,16
+Maryland,2877,47,17
+Maryland,2878,47,18
+Maryland,2879,47,19
+McNeese State,2880,213,0
+McNeese State,2881,213,1
+McNeese State,2882,213,2
+McNeese State,2883,213,3
+McNeese State,2884,213,4
+McNeese State,2885,213,5
+McNeese State,2886,213,6
+McNeese State,2887,213,7
+McNeese State,2888,213,8
+McNeese State,2889,213,9
+McNeese State,2890,213,10
+McNeese State,2891,213,11
+McNeese State,2892,213,12
+McNeese State,2893,213,13
+McNeese State,2894,213,14
+McNeese State,2895,213,15
+McNeese State,2896,213,16
+McNeese State,2897,213,17
+McNeese State,2898,213,18
+McNeese State,2899,213,19
+Memphis,2900,48,0
+Memphis,2901,48,1
+Memphis,2902,48,2
+Memphis,2903,48,3
+Memphis,2904,48,4
+Memphis,2905,48,5
+Memphis,2906,48,6
+Memphis,2907,48,7
+Memphis,2908,48,8
+Memphis,2909,48,9
+Memphis,2910,48,10
+Memphis,2911,48,11
+Memphis,2912,48,12
+Memphis,2913,48,13
+Memphis,2914,48,14
+Memphis,2915,48,15
+Memphis,2916,48,16
+Memphis,2917,48,17
+Memphis,2918,48,18
+Memphis,2919,48,19
+Miami,2920,49,0
+Miami,2921,49,1
+Miami,2922,49,2
+Miami,2923,49,3
+Miami,2924,49,4
+Miami,2925,49,5
+Miami,2926,49,6
+Miami,2927,49,7
+Miami,2928,49,8
+Miami,2929,49,9
+Miami,2930,49,10
+Miami,2931,49,11
+Miami,2932,49,12
+Miami,2933,49,13
+Miami,2934,49,14
+Miami,2935,49,15
+Miami,2936,49,16
+Miami,2937,49,17
+Miami,2938,49,18
+Miami,2939,49,19
+Miami University,2940,50,0
+Miami University,2941,50,1
+Miami University,2942,50,2
+Miami University,2943,50,3
+Miami University,2944,50,4
+Miami University,2945,50,5
+Miami University,2946,50,6
+Miami University,2947,50,7
+Miami University,2948,50,8
+Miami University,2949,50,9
+Miami University,2950,50,10
+Miami University,2951,50,11
+Miami University,2952,50,12
+Miami University,2953,50,13
+Miami University,2954,50,14
+Miami University,2955,50,15
+Miami University,2956,50,16
+Miami University,2957,50,17
+Miami University,2958,50,18
+Miami University,2959,50,19
+Michigan,2960,51,0
+Michigan,2961,51,1
+Michigan,2962,51,2
+Michigan,2963,51,3
+Michigan,2964,51,4
+Michigan,2965,51,5
+Michigan,2966,51,6
+Michigan,2967,51,7
+Michigan,2968,51,8
+Michigan,2969,51,9
+Michigan,2970,51,10
+Michigan,2971,51,11
+Michigan,2972,51,12
+Michigan,2973,51,13
+Michigan,2974,51,14
+Michigan,2975,51,15
+Michigan,2976,51,16
+Michigan,2977,51,17
+Michigan,2978,51,18
+Michigan,2979,51,19
+Michigan State,2980,52,0
+Michigan State,2981,52,1
+Michigan State,2982,52,2
+Michigan State,2983,52,3
+Michigan State,2984,52,4
+Michigan State,2985,52,5
+Michigan State,2986,52,6
+Michigan State,2987,52,7
+Michigan State,2988,52,8
+Michigan State,2989,52,9
+Michigan State,2990,52,10
+Michigan State,2991,52,11
+Michigan State,2992,52,12
+Michigan State,2993,52,13
+Michigan State,2994,52,14
+Michigan State,2995,52,15
+Michigan State,2996,52,16
+Michigan State,2997,52,17
+Michigan State,2998,52,18
+Michigan State,2999,52,19
+Mid Tenn State,3000,53,0
+Mid Tenn State,3001,53,1
+Mid Tenn State,3002,53,2
+Mid Tenn State,3003,53,3
+Mid Tenn State,3004,53,4
+Mid Tenn State,3005,53,5
+Mid Tenn State,3006,53,6
+Mid Tenn State,3007,53,7
+Mid Tenn State,3008,53,8
+Mid Tenn State,3009,53,9
+Mid Tenn State,3010,53,10
+Mid Tenn State,3011,53,11
+Mid Tenn State,3012,53,12
+Mid Tenn State,3013,53,13
+Mid Tenn State,3014,53,14
+Mid Tenn State,3015,53,15
+Mid Tenn State,3016,53,16
+Mid Tenn State,3017,53,17
+Mid Tenn State,3018,53,18
+Mid Tenn State,3019,53,19
+Minnesota,3020,54,0
+Minnesota,3021,54,1
+Minnesota,3022,54,2
+Minnesota,3023,54,3
+Minnesota,3024,54,4
+Minnesota,3025,54,5
+Minnesota,3026,54,6
+Minnesota,3027,54,7
+Minnesota,3028,54,8
+Minnesota,3029,54,9
+Minnesota,3030,54,10
+Minnesota,3031,54,11
+Minnesota,3032,54,12
+Minnesota,3033,54,13
+Minnesota,3034,54,14
+Minnesota,3035,54,15
+Minnesota,3036,54,16
+Minnesota,3037,54,17
+Minnesota,3038,54,18
+Minnesota,3039,54,19
+Miss Valley State,3040,132,0
+Miss Valley State,3041,132,1
+Miss Valley State,3042,132,2
+Miss Valley State,3043,132,3
+Miss Valley State,3044,132,4
+Miss Valley State,3045,132,5
+Miss Valley State,3046,132,6
+Miss Valley State,3047,132,7
+Miss Valley State,3048,132,8
+Miss Valley State,3049,132,9
+Miss Valley State,3050,132,10
+Miss Valley State,3051,132,11
+Miss Valley State,3052,132,12
+Miss Valley State,3053,132,13
+Miss Valley State,3054,132,14
+Miss Valley State,3055,132,15
+Miss Valley State,3056,132,16
+Miss Valley State,3057,132,17
+Miss Valley State,3058,132,18
+Miss Valley State,3059,132,19
+Mississippi State,3060,55,0
+Mississippi State,3061,55,1
+Mississippi State,3062,55,2
+Mississippi State,3063,55,3
+Mississippi State,3064,55,4
+Mississippi State,3065,55,5
+Mississippi State,3066,55,6
+Mississippi State,3067,55,7
+Mississippi State,3068,55,8
+Mississippi State,3069,55,9
+Mississippi State,3070,55,10
+Mississippi State,3071,55,11
+Mississippi State,3072,55,12
+Mississippi State,3073,55,13
+Mississippi State,3074,55,14
+Mississippi State,3075,55,15
+Mississippi State,3076,55,16
+Mississippi State,3077,55,17
+Mississippi State,3078,55,18
+Mississippi State,3079,55,19
+Missouri,3080,56,0
+Missouri,3081,56,1
+Missouri,3082,56,2
+Missouri,3083,56,3
+Missouri,3084,56,4
+Missouri,3085,56,5
+Missouri,3086,56,6
+Missouri,3087,56,7
+Missouri,3088,56,8
+Missouri,3089,56,9
+Missouri,3090,56,10
+Missouri,3091,56,11
+Missouri,3092,56,12
+Missouri,3093,56,13
+Missouri,3094,56,14
+Missouri,3095,56,15
+Missouri,3096,56,16
+Missouri,3097,56,17
+Missouri,3098,56,18
+Missouri,3099,56,19
+Montana,3100,199,0
+Montana,3101,199,1
+Montana,3102,199,2
+Montana,3103,199,3
+Montana,3104,199,4
+Montana,3105,199,5
+Montana,3106,199,6
+Montana,3107,199,7
+Montana,3108,199,8
+Montana,3109,199,9
+Montana,3110,199,10
+Montana,3111,199,11
+Montana,3112,199,12
+Montana,3113,199,13
+Montana,3114,199,14
+Montana,3115,199,15
+Montana,3116,199,16
+Montana,3117,199,17
+Montana,3118,199,18
+Montana,3119,199,19
+Montana State,3120,200,0
+Montana State,3121,200,1
+Montana State,3122,200,2
+Montana State,3123,200,3
+Montana State,3124,200,4
+Montana State,3125,200,5
+Montana State,3126,200,6
+Montana State,3127,200,7
+Montana State,3128,200,8
+Montana State,3129,200,9
+Montana State,3130,200,10
+Montana State,3131,200,11
+Montana State,3132,200,12
+Montana State,3133,200,13
+Montana State,3134,200,14
+Montana State,3135,200,15
+Montana State,3136,200,16
+Montana State,3137,200,17
+Montana State,3138,200,18
+Montana State,3139,200,19
+Morgan State,3140,133,0
+Morgan State,3141,133,1
+Morgan State,3142,133,2
+Morgan State,3143,133,3
+Morgan State,3144,133,4
+Morgan State,3145,133,5
+Morgan State,3146,133,6
+Morgan State,3147,133,7
+Morgan State,3148,133,8
+Morgan State,3149,133,9
+Morgan State,3150,133,10
+Morgan State,3151,133,11
+Morgan State,3152,133,12
+Morgan State,3153,133,13
+Morgan State,3154,133,14
+Morgan State,3155,133,15
+Morgan State,3156,133,16
+Morgan State,3157,133,17
+Morgan State,3158,133,18
+Morgan State,3159,133,19
+Murray State,3160,220,0
+Murray State,3161,220,1
+Murray State,3162,220,2
+Murray State,3163,220,3
+Murray State,3164,220,4
+Murray State,3165,220,5
+Murray State,3166,220,6
+Murray State,3167,220,7
+Murray State,3168,220,8
+Murray State,3169,220,9
+Murray State,3170,220,10
+Murray State,3171,220,11
+Murray State,3172,220,12
+Murray State,3173,220,13
+Murray State,3174,220,14
+Murray State,3175,220,15
+Murray State,3176,220,16
+Murray State,3177,220,17
+Murray State,3178,220,18
+Murray State,3179,220,19
+Navy,3180,57,0
+Navy,3181,57,1
+Navy,3182,57,2
+Navy,3183,57,3
+Navy,3184,57,4
+Navy,3185,57,5
+Navy,3186,57,6
+Navy,3187,57,7
+Navy,3188,57,8
+Navy,3189,57,9
+Navy,3190,57,10
+Navy,3191,57,11
+Navy,3192,57,12
+Navy,3193,57,13
+Navy,3194,57,14
+Navy,3195,57,15
+Navy,3196,57,16
+Navy,3197,57,17
+Navy,3198,57,18
+Navy,3199,57,19
+NC A&T State,3200,135,0
+NC A&T State,3201,135,1
+NC A&T State,3202,135,2
+NC A&T State,3203,135,3
+NC A&T State,3204,135,4
+NC A&T State,3205,135,5
+NC A&T State,3206,135,6
+NC A&T State,3207,135,7
+NC A&T State,3208,135,8
+NC A&T State,3209,135,9
+NC A&T State,3210,135,10
+NC A&T State,3211,135,11
+NC A&T State,3212,135,12
+NC A&T State,3213,135,13
+NC A&T State,3214,135,14
+NC A&T State,3215,135,15
+NC A&T State,3216,135,16
+NC A&T State,3217,135,17
+NC A&T State,3218,135,18
+NC A&T State,3219,135,19
+NC State,3220,63,0
+NC State,3221,63,1
+NC State,3222,63,2
+NC State,3223,63,3
+NC State,3224,63,4
+NC State,3225,63,5
+NC State,3226,63,6
+NC State,3227,63,7
+NC State,3228,63,8
+NC State,3229,63,9
+NC State,3230,63,10
+NC State,3231,63,11
+NC State,3232,63,12
+NC State,3233,63,13
+NC State,3234,63,14
+NC State,3235,63,15
+NC State,3236,63,16
+NC State,3237,63,17
+NC State,3238,63,18
+NC State,3239,63,19
+Nebraska,3240,58,0
+Nebraska,3241,58,1
+Nebraska,3242,58,2
+Nebraska,3243,58,3
+Nebraska,3244,58,4
+Nebraska,3245,58,5
+Nebraska,3246,58,6
+Nebraska,3247,58,7
+Nebraska,3248,58,8
+Nebraska,3249,58,9
+Nebraska,3250,58,10
+Nebraska,3251,58,11
+Nebraska,3252,58,12
+Nebraska,3253,58,13
+Nebraska,3254,58,14
+Nebraska,3255,58,15
+Nebraska,3256,58,16
+Nebraska,3257,58,17
+Nebraska,3258,58,18
+Nebraska,3259,58,19
+Nevada,3260,59,0
+Nevada,3261,59,1
+Nevada,3262,59,2
+Nevada,3263,59,3
+Nevada,3264,59,4
+Nevada,3265,59,5
+Nevada,3266,59,6
+Nevada,3267,59,7
+Nevada,3268,59,8
+Nevada,3269,59,9
+Nevada,3270,59,10
+Nevada,3271,59,11
+Nevada,3272,59,12
+Nevada,3273,59,13
+Nevada,3274,59,14
+Nevada,3275,59,15
+Nevada,3276,59,16
+Nevada,3277,59,17
+Nevada,3278,59,18
+Nevada,3279,59,19
+New Hampshire,3280,182,0
+New Hampshire,3281,182,1
+New Hampshire,3282,182,2
+New Hampshire,3283,182,3
+New Hampshire,3284,182,4
+New Hampshire,3285,182,5
+New Hampshire,3286,182,6
+New Hampshire,3287,182,7
+New Hampshire,3288,182,8
+New Hampshire,3289,182,9
+New Hampshire,3290,182,10
+New Hampshire,3291,182,11
+New Hampshire,3292,182,12
+New Hampshire,3293,182,13
+New Hampshire,3294,182,14
+New Hampshire,3295,182,15
+New Hampshire,3296,182,16
+New Hampshire,3297,182,17
+New Hampshire,3298,182,18
+New Hampshire,3299,182,19
+New Mexico,3300,60,0
+New Mexico,3301,60,1
+New Mexico,3302,60,2
+New Mexico,3303,60,3
+New Mexico,3304,60,4
+New Mexico,3305,60,5
+New Mexico,3306,60,6
+New Mexico,3307,60,7
+New Mexico,3308,60,8
+New Mexico,3309,60,9
+New Mexico,3310,60,10
+New Mexico,3311,60,11
+New Mexico,3312,60,12
+New Mexico,3313,60,13
+New Mexico,3314,60,14
+New Mexico,3315,60,15
+New Mexico,3316,60,16
+New Mexico,3317,60,17
+New Mexico,3318,60,18
+New Mexico,3319,60,19
+New Mexico State,3320,61,0
+New Mexico State,3321,61,1
+New Mexico State,3322,61,2
+New Mexico State,3323,61,3
+New Mexico State,3324,61,4
+New Mexico State,3325,61,5
+New Mexico State,3326,61,6
+New Mexico State,3327,61,7
+New Mexico State,3328,61,8
+New Mexico State,3329,61,9
+New Mexico State,3330,61,10
+New Mexico State,3331,61,11
+New Mexico State,3332,61,12
+New Mexico State,3333,61,13
+New Mexico State,3334,61,14
+New Mexico State,3335,61,15
+New Mexico State,3336,61,16
+New Mexico State,3337,61,17
+New Mexico State,3338,61,18
+New Mexico State,3339,61,19
+Nicholls State,3340,215,0
+Nicholls State,3341,215,1
+Nicholls State,3342,215,2
+Nicholls State,3343,215,3
+Nicholls State,3344,215,4
+Nicholls State,3345,215,5
+Nicholls State,3346,215,6
+Nicholls State,3347,215,7
+Nicholls State,3348,215,8
+Nicholls State,3349,215,9
+Nicholls State,3350,215,10
+Nicholls State,3351,215,11
+Nicholls State,3352,215,12
+Nicholls State,3353,215,13
+Nicholls State,3354,215,14
+Nicholls State,3355,215,15
+Nicholls State,3356,215,16
+Nicholls State,3357,215,17
+Nicholls State,3358,215,18
+Nicholls State,3359,215,19
+Norfolk State,3360,134,0
+Norfolk State,3361,134,1
+Norfolk State,3362,134,2
+Norfolk State,3363,134,3
+Norfolk State,3364,134,4
+Norfolk State,3365,134,5
+Norfolk State,3366,134,6
+Norfolk State,3367,134,7
+Norfolk State,3368,134,8
+Norfolk State,3369,134,9
+Norfolk State,3370,134,10
+Norfolk State,3371,134,11
+Norfolk State,3372,134,12
+Norfolk State,3373,134,13
+Norfolk State,3374,134,14
+Norfolk State,3375,134,15
+Norfolk State,3376,134,16
+Norfolk State,3377,134,17
+Norfolk State,3378,134,18
+Norfolk State,3379,134,19
+North Carolina,3380,62,0
+North Carolina,3381,62,1
+North Carolina,3382,62,2
+North Carolina,3383,62,3
+North Carolina,3384,62,4
+North Carolina,3385,62,5
+North Carolina,3386,62,6
+North Carolina,3387,62,7
+North Carolina,3388,62,8
+North Carolina,3389,62,9
+North Carolina,3390,62,10
+North Carolina,3391,62,11
+North Carolina,3392,62,12
+North Carolina,3393,62,13
+North Carolina,3394,62,14
+North Carolina,3395,62,15
+North Carolina,3396,62,16
+North Carolina,3397,62,17
+North Carolina,3398,62,18
+North Carolina,3399,62,19
+North Texas,3400,64,0
+North Texas,3401,64,1
+North Texas,3402,64,2
+North Texas,3403,64,3
+North Texas,3404,64,4
+North Texas,3405,64,5
+North Texas,3406,64,6
+North Texas,3407,64,7
+North Texas,3408,64,8
+North Texas,3409,64,9
+North Texas,3410,64,10
+North Texas,3411,64,11
+North Texas,3412,64,12
+North Texas,3413,64,13
+North Texas,3414,64,14
+North Texas,3415,64,15
+North Texas,3416,64,16
+North Texas,3417,64,17
+North Texas,3418,64,18
+North Texas,3419,64,19
+Northern Arizona,3420,201,0
+Northern Arizona,3421,201,1
+Northern Arizona,3422,201,2
+Northern Arizona,3423,201,3
+Northern Arizona,3424,201,4
+Northern Arizona,3425,201,5
+Northern Arizona,3426,201,6
+Northern Arizona,3427,201,7
+Northern Arizona,3428,201,8
+Northern Arizona,3429,201,9
+Northern Arizona,3430,201,10
+Northern Arizona,3431,201,11
+Northern Arizona,3432,201,12
+Northern Arizona,3433,201,13
+Northern Arizona,3434,201,14
+Northern Arizona,3435,201,15
+Northern Arizona,3436,201,16
+Northern Arizona,3437,201,17
+Northern Arizona,3438,201,18
+Northern Arizona,3439,201,19
+Northern Illinois,3440,66,0
+Northern Illinois,3441,66,1
+Northern Illinois,3442,66,2
+Northern Illinois,3443,66,3
+Northern Illinois,3444,66,4
+Northern Illinois,3445,66,5
+Northern Illinois,3446,66,6
+Northern Illinois,3447,66,7
+Northern Illinois,3448,66,8
+Northern Illinois,3449,66,9
+Northern Illinois,3450,66,10
+Northern Illinois,3451,66,11
+Northern Illinois,3452,66,12
+Northern Illinois,3453,66,13
+Northern Illinois,3454,66,14
+Northern Illinois,3455,66,15
+Northern Illinois,3456,66,16
+Northern Illinois,3457,66,17
+Northern Illinois,3458,66,18
+Northern Illinois,3459,66,19
+Northwestern,3460,67,0
+Northwestern,3461,67,1
+Northwestern,3462,67,2
+Northwestern,3463,67,3
+Northwestern,3464,67,4
+Northwestern,3465,67,5
+Northwestern,3466,67,6
+Northwestern,3467,67,7
+Northwestern,3468,67,8
+Northwestern,3469,67,9
+Northwestern,3470,67,10
+Northwestern,3471,67,11
+Northwestern,3472,67,12
+Northwestern,3473,67,13
+Northwestern,3474,67,14
+Northwestern,3475,67,15
+Northwestern,3476,67,16
+Northwestern,3477,67,17
+Northwestern,3478,67,18
+Northwestern,3479,67,19
+Northwestern St,3480,214,0
+Northwestern St,3481,214,1
+Northwestern St,3482,214,2
+Northwestern St,3483,214,3
+Northwestern St,3484,214,4
+Northwestern St,3485,214,5
+Northwestern St,3486,214,6
+Northwestern St,3487,214,7
+Northwestern St,3488,214,8
+Northwestern St,3489,214,9
+Northwestern St,3490,214,10
+Northwestern St,3491,214,11
+Northwestern St,3492,214,12
+Northwestern St,3493,214,13
+Northwestern St,3494,214,14
+Northwestern St,3495,214,15
+Northwestern St,3496,214,16
+Northwestern St,3497,214,17
+Northwestern St,3498,214,18
+Northwestern St,3499,214,19
+Notre Dame,3500,68,0
+Notre Dame,3501,68,1
+Notre Dame,3502,68,2
+Notre Dame,3503,68,3
+Notre Dame,3504,68,4
+Notre Dame,3505,68,5
+Notre Dame,3506,68,6
+Notre Dame,3507,68,7
+Notre Dame,3508,68,8
+Notre Dame,3509,68,9
+Notre Dame,3510,68,10
+Notre Dame,3511,68,11
+Notre Dame,3512,68,12
+Notre Dame,3513,68,13
+Notre Dame,3514,68,14
+Notre Dame,3515,68,15
+Notre Dame,3516,68,16
+Notre Dame,3517,68,17
+Notre Dame,3518,68,18
+Notre Dame,3519,68,19
+Ohio,3520,69,0
+Ohio,3521,69,1
+Ohio,3522,69,2
+Ohio,3523,69,3
+Ohio,3524,69,4
+Ohio,3525,69,5
+Ohio,3526,69,6
+Ohio,3527,69,7
+Ohio,3528,69,8
+Ohio,3529,69,9
+Ohio,3530,69,10
+Ohio,3531,69,11
+Ohio,3532,69,12
+Ohio,3533,69,13
+Ohio,3534,69,14
+Ohio,3535,69,15
+Ohio,3536,69,16
+Ohio,3537,69,17
+Ohio,3538,69,18
+Ohio,3539,69,19
+Ohio State,3540,70,0
+Ohio State,3541,70,1
+Ohio State,3542,70,2
+Ohio State,3543,70,3
+Ohio State,3544,70,4
+Ohio State,3545,70,5
+Ohio State,3546,70,6
+Ohio State,3547,70,7
+Ohio State,3548,70,8
+Ohio State,3549,70,9
+Ohio State,3550,70,10
+Ohio State,3551,70,11
+Ohio State,3552,70,12
+Ohio State,3553,70,13
+Ohio State,3554,70,14
+Ohio State,3555,70,15
+Ohio State,3556,70,16
+Ohio State,3557,70,17
+Ohio State,3558,70,18
+Ohio State,3559,70,19
+Oklahoma,3560,71,0
+Oklahoma,3561,71,1
+Oklahoma,3562,71,2
+Oklahoma,3563,71,3
+Oklahoma,3564,71,4
+Oklahoma,3565,71,5
+Oklahoma,3566,71,6
+Oklahoma,3567,71,7
+Oklahoma,3568,71,8
+Oklahoma,3569,71,9
+Oklahoma,3570,71,10
+Oklahoma,3571,71,11
+Oklahoma,3572,71,12
+Oklahoma,3573,71,13
+Oklahoma,3574,71,14
+Oklahoma,3575,71,15
+Oklahoma,3576,71,16
+Oklahoma,3577,71,17
+Oklahoma,3578,71,18
+Oklahoma,3579,71,19
+Oklahoma State,3580,72,0
+Oklahoma State,3581,72,1
+Oklahoma State,3582,72,2
+Oklahoma State,3583,72,3
+Oklahoma State,3584,72,4
+Oklahoma State,3585,72,5
+Oklahoma State,3586,72,6
+Oklahoma State,3587,72,7
+Oklahoma State,3588,72,8
+Oklahoma State,3589,72,9
+Oklahoma State,3590,72,10
+Oklahoma State,3591,72,11
+Oklahoma State,3592,72,12
+Oklahoma State,3593,72,13
+Oklahoma State,3594,72,14
+Oklahoma State,3595,72,15
+Oklahoma State,3596,72,16
+Oklahoma State,3597,72,17
+Oklahoma State,3598,72,18
+Oklahoma State,3599,72,19
+Old Dominion,3600,164,0
+Old Dominion,3601,164,1
+Old Dominion,3602,164,2
+Old Dominion,3603,164,3
+Old Dominion,3604,164,4
+Old Dominion,3605,164,5
+Old Dominion,3606,164,6
+Old Dominion,3607,164,7
+Old Dominion,3608,164,8
+Old Dominion,3609,164,9
+Old Dominion,3610,164,10
+Old Dominion,3611,164,11
+Old Dominion,3612,164,12
+Old Dominion,3613,164,13
+Old Dominion,3614,164,14
+Old Dominion,3615,164,15
+Old Dominion,3616,164,16
+Old Dominion,3617,164,17
+Old Dominion,3618,164,18
+Old Dominion,3619,164,19
+Ole Miss,3620,73,0
+Ole Miss,3621,73,1
+Ole Miss,3622,73,2
+Ole Miss,3623,73,3
+Ole Miss,3624,73,4
+Ole Miss,3625,73,5
+Ole Miss,3626,73,6
+Ole Miss,3627,73,7
+Ole Miss,3628,73,8
+Ole Miss,3629,73,9
+Ole Miss,3630,73,10
+Ole Miss,3631,73,11
+Ole Miss,3632,73,12
+Ole Miss,3633,73,13
+Ole Miss,3634,73,14
+Ole Miss,3635,73,15
+Ole Miss,3636,73,16
+Ole Miss,3637,73,17
+Ole Miss,3638,73,18
+Ole Miss,3639,73,19
+Oregon,3640,74,4
+Oregon,3641,74,5
+Oregon,3642,74,2
+Oregon,3643,74,3
+Oregon,3644,74,0
+Oregon,3645,74,1
+Oregon,3646,74,6
+Oregon,3647,74,7
+Oregon,3648,74,8
+Oregon,3649,74,9
+Oregon,3650,74,10
+Oregon,3651,74,11
+Oregon,3652,74,12
+Oregon,3653,74,13
+Oregon,3654,74,14
+Oregon,3655,74,15
+Oregon,3656,74,16
+Oregon,3657,74,17
+Oregon,3658,74,18
+Oregon,3659,74,19
+Oregon State,3660,75,0
+Oregon State,3661,75,1
+Oregon State,3662,75,2
+Oregon State,3663,75,3
+Oregon State,3664,75,4
+Oregon State,3665,75,5
+Oregon State,3666,75,6
+Oregon State,3667,75,7
+Oregon State,3668,75,8
+Oregon State,3669,75,9
+Oregon State,3670,75,10
+Oregon State,3671,75,11
+Oregon State,3672,75,12
+Oregon State,3673,75,13
+Oregon State,3674,75,14
+Oregon State,3675,75,15
+Oregon State,3676,75,16
+Oregon State,3677,75,17
+Oregon State,3678,75,18
+Oregon State,3679,75,19
+Penn,3680,136,0
+Penn,3681,136,1
+Penn,3682,136,2
+Penn,3683,136,3
+Penn,3684,136,4
+Penn,3685,136,5
+Penn,3686,136,6
+Penn,3687,136,7
+Penn,3688,136,8
+Penn,3689,136,9
+Penn,3690,136,10
+Penn,3691,136,11
+Penn,3692,136,12
+Penn,3693,136,13
+Penn,3694,136,14
+Penn,3695,136,15
+Penn,3696,136,16
+Penn,3697,136,17
+Penn,3698,136,18
+Penn,3699,136,19
+Penn State,3700,76,0
+Penn State,3701,76,1
+Penn State,3702,76,2
+Penn State,3703,76,3
+Penn State,3704,76,4
+Penn State,3705,76,5
+Penn State,3706,76,6
+Penn State,3707,76,7
+Penn State,3708,76,8
+Penn State,3709,76,9
+Penn State,3710,76,10
+Penn State,3711,76,11
+Penn State,3712,76,12
+Penn State,3713,76,13
+Penn State,3714,76,14
+Penn State,3715,76,15
+Penn State,3716,76,16
+Penn State,3717,76,17
+Penn State,3718,76,18
+Penn State,3719,76,19
+Pittsburgh,3720,77,0
+Pittsburgh,3721,77,1
+Pittsburgh,3722,77,2
+Pittsburgh,3723,77,3
+Pittsburgh,3724,77,4
+Pittsburgh,3725,77,5
+Pittsburgh,3726,77,6
+Pittsburgh,3727,77,7
+Pittsburgh,3728,77,8
+Pittsburgh,3729,77,9
+Pittsburgh,3730,77,10
+Pittsburgh,3731,77,11
+Pittsburgh,3732,77,12
+Pittsburgh,3733,77,13
+Pittsburgh,3734,77,14
+Pittsburgh,3735,77,15
+Pittsburgh,3736,77,16
+Pittsburgh,3737,77,17
+Pittsburgh,3738,77,18
+Pittsburgh,3739,77,19
+Portland State,3740,202,0
+Portland State,3741,202,1
+Portland State,3742,202,2
+Portland State,3743,202,3
+Portland State,3744,202,4
+Portland State,3745,202,5
+Portland State,3746,202,6
+Portland State,3747,202,7
+Portland State,3748,202,8
+Portland State,3749,202,9
+Portland State,3750,202,10
+Portland State,3751,202,11
+Portland State,3752,202,12
+Portland State,3753,202,13
+Portland State,3754,202,14
+Portland State,3755,202,15
+Portland State,3756,202,16
+Portland State,3757,202,17
+Portland State,3758,202,18
+Portland State,3759,202,19
+Prairie View A&M,3760,137,0
+Prairie View A&M,3761,137,1
+Prairie View A&M,3762,137,2
+Prairie View A&M,3763,137,3
+Prairie View A&M,3764,137,4
+Prairie View A&M,3765,137,5
+Prairie View A&M,3766,137,6
+Prairie View A&M,3767,137,7
+Prairie View A&M,3768,137,8
+Prairie View A&M,3769,137,9
+Prairie View A&M,3770,137,10
+Prairie View A&M,3771,137,11
+Prairie View A&M,3772,137,12
+Prairie View A&M,3773,137,13
+Prairie View A&M,3774,137,14
+Prairie View A&M,3775,137,15
+Prairie View A&M,3776,137,16
+Prairie View A&M,3777,137,17
+Prairie View A&M,3778,137,18
+Prairie View A&M,3779,137,19
+Princeton,3780,138,0
+Princeton,3781,138,1
+Princeton,3782,138,2
+Princeton,3783,138,3
+Princeton,3784,138,4
+Princeton,3785,138,5
+Princeton,3786,138,6
+Princeton,3787,138,7
+Princeton,3788,138,8
+Princeton,3789,138,9
+Princeton,3790,138,10
+Princeton,3791,138,11
+Princeton,3792,138,12
+Princeton,3793,138,13
+Princeton,3794,138,14
+Princeton,3795,138,15
+Princeton,3796,138,16
+Princeton,3797,138,17
+Princeton,3798,138,18
+Princeton,3799,138,19
+Purdue,3800,78,0
+Purdue,3801,78,1
+Purdue,3802,78,2
+Purdue,3803,78,3
+Purdue,3804,78,4
+Purdue,3805,78,5
+Purdue,3806,78,6
+Purdue,3807,78,7
+Purdue,3808,78,8
+Purdue,3809,78,9
+Purdue,3810,78,10
+Purdue,3811,78,11
+Purdue,3812,78,12
+Purdue,3813,78,13
+Purdue,3814,78,14
+Purdue,3815,78,15
+Purdue,3816,78,16
+Purdue,3817,78,17
+Purdue,3818,78,18
+Purdue,3819,78,19
+Rhode Island,3820,184,0
+Rhode Island,3821,184,1
+Rhode Island,3822,184,2
+Rhode Island,3823,184,3
+Rhode Island,3824,184,4
+Rhode Island,3825,184,5
+Rhode Island,3826,184,6
+Rhode Island,3827,184,7
+Rhode Island,3828,184,8
+Rhode Island,3829,184,9
+Rhode Island,3830,184,10
+Rhode Island,3831,184,11
+Rhode Island,3832,184,12
+Rhode Island,3833,184,13
+Rhode Island,3834,184,14
+Rhode Island,3835,184,15
+Rhode Island,3836,184,16
+Rhode Island,3837,184,17
+Rhode Island,3838,184,18
+Rhode Island,3839,184,19
+Rice,3840,79,0
+Rice,3841,79,1
+Rice,3842,79,2
+Rice,3843,79,3
+Rice,3844,79,4
+Rice,3845,79,5
+Rice,3846,79,6
+Rice,3847,79,7
+Rice,3848,79,8
+Rice,3849,79,9
+Rice,3850,79,10
+Rice,3851,79,11
+Rice,3852,79,12
+Rice,3853,79,13
+Rice,3854,79,14
+Rice,3855,79,15
+Rice,3856,79,16
+Rice,3857,79,17
+Rice,3858,79,18
+Rice,3859,79,19
+Richmond,3860,185,0
+Richmond,3861,185,1
+Richmond,3862,185,2
+Richmond,3863,185,3
+Richmond,3864,185,4
+Richmond,3865,185,5
+Richmond,3866,185,6
+Richmond,3867,185,7
+Richmond,3868,185,8
+Richmond,3869,185,9
+Richmond,3870,185,10
+Richmond,3871,185,11
+Richmond,3872,185,12
+Richmond,3873,185,13
+Richmond,3874,185,14
+Richmond,3875,185,15
+Richmond,3876,185,16
+Richmond,3877,185,17
+Richmond,3878,185,18
+Richmond,3879,185,19
+Rutgers,3880,80,0
+Rutgers,3881,80,1
+Rutgers,3882,80,2
+Rutgers,3883,80,3
+Rutgers,3884,80,4
+Rutgers,3885,80,5
+Rutgers,3886,80,6
+Rutgers,3887,80,7
+Rutgers,3888,80,8
+Rutgers,3889,80,9
+Rutgers,3890,80,10
+Rutgers,3891,80,11
+Rutgers,3892,80,12
+Rutgers,3893,80,13
+Rutgers,3894,80,14
+Rutgers,3895,80,15
+Rutgers,3896,80,16
+Rutgers,3897,80,17
+Rutgers,3898,80,18
+Rutgers,3899,80,19
+S Carolina State,3900,139,0
+S Carolina State,3901,139,1
+S Carolina State,3902,139,2
+S Carolina State,3903,139,3
+S Carolina State,3904,139,4
+S Carolina State,3905,139,5
+S Carolina State,3906,139,6
+S Carolina State,3907,139,7
+S Carolina State,3908,139,8
+S Carolina State,3909,139,9
+S Carolina State,3910,139,10
+S Carolina State,3911,139,11
+S Carolina State,3912,139,12
+S Carolina State,3913,139,13
+S Carolina State,3914,139,14
+S Carolina State,3915,139,15
+S Carolina State,3916,139,16
+S Carolina State,3917,139,17
+S Carolina State,3918,139,18
+S Carolina State,3919,139,19
+Sacramento State,3920,203,0
+Sacramento State,3921,203,1
+Sacramento State,3922,203,2
+Sacramento State,3923,203,3
+Sacramento State,3924,203,4
+Sacramento State,3925,203,5
+Sacramento State,3926,203,6
+Sacramento State,3927,203,7
+Sacramento State,3928,203,8
+Sacramento State,3929,203,9
+Sacramento State,3930,203,10
+Sacramento State,3931,203,11
+Sacramento State,3932,203,12
+Sacramento State,3933,203,13
+Sacramento State,3934,203,14
+Sacramento State,3935,203,15
+Sacramento State,3936,203,16
+Sacramento State,3937,203,17
+Sacramento State,3938,203,18
+Sacramento State,3939,203,19
+Sam Houston St,3940,217,0
+Sam Houston St,3941,217,1
+Sam Houston St,3942,217,2
+Sam Houston St,3943,217,3
+Sam Houston St,3944,217,4
+Sam Houston St,3945,217,5
+Sam Houston St,3946,217,6
+Sam Houston St,3947,217,7
+Sam Houston St,3948,217,8
+Sam Houston St,3949,217,9
+Sam Houston St,3950,217,10
+Sam Houston St,3951,217,11
+Sam Houston St,3952,217,12
+Sam Houston St,3953,217,13
+Sam Houston St,3954,217,14
+Sam Houston St,3955,217,15
+Sam Houston St,3956,217,16
+Sam Houston St,3957,217,17
+Sam Houston St,3958,217,18
+Sam Houston St,3959,217,19
+Samford,3960,226,0
+Samford,3961,226,1
+Samford,3962,226,2
+Samford,3963,226,3
+Samford,3964,226,4
+Samford,3965,226,5
+Samford,3966,226,6
+Samford,3967,226,7
+Samford,3968,226,8
+Samford,3969,226,9
+Samford,3970,226,10
+Samford,3971,226,11
+Samford,3972,226,12
+Samford,3973,226,13
+Samford,3974,226,14
+Samford,3975,226,15
+Samford,3976,226,16
+Samford,3977,226,17
+Samford,3978,226,18
+Samford,3979,226,19
+San Diego State,3980,81,0
+San Diego State,3981,81,1
+San Diego State,3982,81,2
+San Diego State,3983,81,3
+San Diego State,3984,81,4
+San Diego State,3985,81,5
+San Diego State,3986,81,6
+San Diego State,3987,81,7
+San Diego State,3988,81,8
+San Diego State,3989,81,9
+San Diego State,3990,81,10
+San Diego State,3991,81,11
+San Diego State,3992,81,12
+San Diego State,3993,81,13
+San Diego State,3994,81,14
+San Diego State,3995,81,15
+San Diego State,3996,81,16
+San Diego State,3997,81,17
+San Diego State,3998,81,18
+San Diego State,3999,81,19
+San Jose State,4000,82,0
+San Jose State,4001,82,1
+San Jose State,4002,82,2
+San Jose State,4003,82,3
+San Jose State,4004,82,4
+San Jose State,4005,82,5
+San Jose State,4006,82,6
+San Jose State,4007,82,7
+San Jose State,4008,82,8
+San Jose State,4009,82,9
+San Jose State,4010,82,10
+San Jose State,4011,82,11
+San Jose State,4012,82,12
+San Jose State,4013,82,13
+San Jose State,4014,82,14
+San Jose State,4015,82,15
+San Jose State,4016,82,16
+San Jose State,4017,82,17
+San Jose State,4018,82,18
+San Jose State,4019,82,19
+SE Missouri St,4020,222,0
+SE Missouri St,4021,222,1
+SE Missouri St,4022,222,2
+SE Missouri St,4023,222,3
+SE Missouri St,4024,222,4
+SE Missouri St,4025,222,5
+SE Missouri St,4026,222,6
+SE Missouri St,4027,222,7
+SE Missouri St,4028,222,8
+SE Missouri St,4029,222,9
+SE Missouri St,4030,222,10
+SE Missouri St,4031,222,11
+SE Missouri St,4032,222,12
+SE Missouri St,4033,222,13
+SE Missouri St,4034,222,14
+SE Missouri St,4035,222,15
+SE Missouri St,4036,222,16
+SE Missouri St,4037,222,17
+SE Missouri St,4038,222,18
+SE Missouri St,4039,222,19
+SMS,4040,209,0
+SMS,4041,209,1
+SMS,4042,209,2
+SMS,4043,209,3
+SMS,4044,209,4
+SMS,4045,209,5
+SMS,4046,209,6
+SMS,4047,209,7
+SMS,4048,209,8
+SMS,4049,209,9
+SMS,4050,209,10
+SMS,4051,209,11
+SMS,4052,209,12
+SMS,4053,209,13
+SMS,4054,209,14
+SMS,4055,209,15
+SMS,4056,209,16
+SMS,4057,209,17
+SMS,4058,209,18
+SMS,4059,209,19
+SMU,4060,83,0
+SMU,4061,83,1
+SMU,4062,83,2
+SMU,4063,83,3
+SMU,4064,83,4
+SMU,4065,83,5
+SMU,4066,83,6
+SMU,4067,83,7
+SMU,4068,83,8
+SMU,4069,83,9
+SMU,4070,83,10
+SMU,4071,83,11
+SMU,4072,83,12
+SMU,4073,83,13
+SMU,4074,83,14
+SMU,4075,83,15
+SMU,4076,83,16
+SMU,4077,83,17
+SMU,4078,83,18
+SMU,4079,83,19
+South Alabama,4080,183,0
+South Alabama,4081,183,1
+South Alabama,4082,183,2
+South Alabama,4083,183,3
+South Alabama,4084,183,4
+South Alabama,4085,183,5
+South Alabama,4086,183,6
+South Alabama,4087,183,7
+South Alabama,4088,183,8
+South Alabama,4089,183,9
+South Alabama,4090,183,10
+South Alabama,4091,183,11
+South Alabama,4092,183,12
+South Alabama,4093,183,13
+South Alabama,4094,183,14
+South Alabama,4095,183,15
+South Alabama,4096,183,16
+South Alabama,4097,183,17
+South Alabama,4098,183,18
+South Alabama,4099,183,19
+South Carolina,4100,84,0
+South Carolina,4101,84,1
+South Carolina,4102,84,2
+South Carolina,4103,84,3
+South Carolina,4104,84,4
+South Carolina,4105,84,5
+South Carolina,4106,84,6
+South Carolina,4107,84,7
+South Carolina,4108,84,8
+South Carolina,4109,84,9
+South Carolina,4110,84,10
+South Carolina,4111,84,11
+South Carolina,4112,84,12
+South Carolina,4113,84,13
+South Carolina,4114,84,14
+South Carolina,4115,84,15
+South Carolina,4116,84,16
+South Carolina,4117,84,17
+South Carolina,4118,84,18
+South Carolina,4119,84,19
+Southeastern,4120,231,0
+Southeastern,4121,231,1
+Southeastern,4122,231,2
+Southeastern,4123,231,3
+Southeastern,4124,231,4
+Southeastern,4125,231,5
+Southeastern,4126,231,6
+Southeastern,4127,231,7
+Southeastern,4128,231,8
+Southeastern,4129,231,9
+Southeastern,4130,231,10
+Southeastern,4131,231,11
+Southeastern,4132,231,12
+Southeastern,4133,231,13
+Southeastern,4134,231,14
+Southeastern,4135,231,15
+Southeastern,4136,231,16
+Southeastern,4137,231,17
+Southeastern,4138,231,18
+Southeastern,4139,231,19
+Southern,4140,140,0
+Southern,4141,140,1
+Southern,4142,140,2
+Southern,4143,140,3
+Southern,4144,140,4
+Southern,4145,140,5
+Southern,4146,140,6
+Southern,4147,140,7
+Southern,4148,140,8
+Southern,4149,140,9
+Southern,4150,140,10
+Southern,4151,140,11
+Southern,4152,140,12
+Southern,4153,140,13
+Southern,4154,140,14
+Southern,4155,140,15
+Southern,4156,140,16
+Southern,4157,140,17
+Southern,4158,140,18
+Southern,4159,140,19
+Southern Illinois,4160,208,0
+Southern Illinois,4161,208,1
+Southern Illinois,4162,208,2
+Southern Illinois,4163,208,3
+Southern Illinois,4164,208,4
+Southern Illinois,4165,208,5
+Southern Illinois,4166,208,6
+Southern Illinois,4167,208,7
+Southern Illinois,4168,208,8
+Southern Illinois,4169,208,9
+Southern Illinois,4170,208,10
+Southern Illinois,4171,208,11
+Southern Illinois,4172,208,12
+Southern Illinois,4173,208,13
+Southern Illinois,4174,208,14
+Southern Illinois,4175,208,15
+Southern Illinois,4176,208,16
+Southern Illinois,4177,208,17
+Southern Illinois,4178,208,18
+Southern Illinois,4179,208,19
+Southern Miss,4180,85,0
+Southern Miss,4181,85,1
+Southern Miss,4182,85,2
+Southern Miss,4183,85,3
+Southern Miss,4184,85,4
+Southern Miss,4185,85,5
+Southern Miss,4186,85,6
+Southern Miss,4187,85,7
+Southern Miss,4188,85,8
+Southern Miss,4189,85,9
+Southern Miss,4190,85,10
+Southern Miss,4191,85,11
+Southern Miss,4192,85,12
+Southern Miss,4193,85,13
+Southern Miss,4194,85,14
+Southern Miss,4195,85,15
+Southern Miss,4196,85,16
+Southern Miss,4197,85,17
+Southern Miss,4198,85,18
+Southern Miss,4199,85,19
+Stanford,4200,87,0
+Stanford,4201,87,1
+Stanford,4202,87,2
+Stanford,4203,87,3
+Stanford,4204,87,4
+Stanford,4205,87,5
+Stanford,4206,87,6
+Stanford,4207,87,7
+Stanford,4208,87,8
+Stanford,4209,87,9
+Stanford,4210,87,10
+Stanford,4211,87,11
+Stanford,4212,87,12
+Stanford,4213,87,13
+Stanford,4214,87,14
+Stanford,4215,87,15
+Stanford,4216,87,16
+Stanford,4217,87,17
+Stanford,4218,87,18
+Stanford,4219,87,19
+Stephen F. Austin,4220,216,0
+Stephen F. Austin,4221,216,1
+Stephen F. Austin,4222,216,2
+Stephen F. Austin,4223,216,3
+Stephen F. Austin,4224,216,4
+Stephen F. Austin,4225,216,5
+Stephen F. Austin,4226,216,6
+Stephen F. Austin,4227,216,7
+Stephen F. Austin,4228,216,8
+Stephen F. Austin,4229,216,9
+Stephen F. Austin,4230,216,10
+Stephen F. Austin,4231,216,11
+Stephen F. Austin,4232,216,12
+Stephen F. Austin,4233,216,13
+Stephen F. Austin,4234,216,14
+Stephen F. Austin,4235,216,15
+Stephen F. Austin,4236,216,16
+Stephen F. Austin,4237,216,17
+Stephen F. Austin,4238,216,18
+Stephen F. Austin,4239,216,19
+Syracuse,4240,88,0
+Syracuse,4241,88,1
+Syracuse,4242,88,2
+Syracuse,4243,88,3
+Syracuse,4244,88,4
+Syracuse,4245,88,5
+Syracuse,4246,88,6
+Syracuse,4247,88,7
+Syracuse,4248,88,8
+Syracuse,4249,88,9
+Syracuse,4250,88,10
+Syracuse,4251,88,11
+Syracuse,4252,88,12
+Syracuse,4253,88,13
+Syracuse,4254,88,14
+Syracuse,4255,88,15
+Syracuse,4256,88,16
+Syracuse,4257,88,17
+Syracuse,4258,88,18
+Syracuse,4259,88,19
+TCU,4260,89,0
+TCU,4261,89,1
+TCU,4262,89,2
+TCU,4263,89,3
+TCU,4264,89,4
+TCU,4265,89,5
+TCU,4266,89,6
+TCU,4267,89,7
+TCU,4268,89,8
+TCU,4269,89,9
+TCU,4270,89,10
+TCU,4271,89,11
+TCU,4272,89,12
+TCU,4273,89,13
+TCU,4274,89,14
+TCU,4275,89,15
+TCU,4276,89,16
+TCU,4277,89,17
+TCU,4278,89,18
+TCU,4279,89,19
+Temple,4280,90,0
+Temple,4281,90,1
+Temple,4282,90,2
+Temple,4283,90,3
+Temple,4284,90,4
+Temple,4285,90,5
+Temple,4286,90,6
+Temple,4287,90,7
+Temple,4288,90,8
+Temple,4289,90,9
+Temple,4290,90,10
+Temple,4291,90,11
+Temple,4292,90,12
+Temple,4293,90,13
+Temple,4294,90,14
+Temple,4295,90,15
+Temple,4296,90,16
+Temple,4297,90,17
+Temple,4298,90,18
+Temple,4299,90,19
+Tennessee,4300,91,0
+Tennessee,4301,91,1
+Tennessee,4302,91,2
+Tennessee,4303,91,3
+Tennessee,4304,91,4
+Tennessee,4305,91,5
+Tennessee,4306,91,6
+Tennessee,4307,91,7
+Tennessee,4308,91,8
+Tennessee,4309,91,9
+Tennessee,4310,91,10
+Tennessee,4311,91,11
+Tennessee,4312,91,12
+Tennessee,4313,91,13
+Tennessee,4314,91,14
+Tennessee,4315,91,15
+Tennessee,4316,91,16
+Tennessee,4317,91,17
+Tennessee,4318,91,18
+Tennessee,4319,91,19
+Tennessee State,4320,225,0
+Tennessee State,4321,225,1
+Tennessee State,4322,225,2
+Tennessee State,4323,225,3
+Tennessee State,4324,225,4
+Tennessee State,4325,225,5
+Tennessee State,4326,225,6
+Tennessee State,4327,225,7
+Tennessee State,4328,225,8
+Tennessee State,4329,225,9
+Tennessee State,4330,225,10
+Tennessee State,4331,225,11
+Tennessee State,4332,225,12
+Tennessee State,4333,225,13
+Tennessee State,4334,225,14
+Tennessee State,4335,225,15
+Tennessee State,4336,225,16
+Tennessee State,4337,225,17
+Tennessee State,4338,225,18
+Tennessee State,4339,225,19
+Tennessee Tech,4340,224,0
+Tennessee Tech,4341,224,1
+Tennessee Tech,4342,224,2
+Tennessee Tech,4343,224,3
+Tennessee Tech,4344,224,4
+Tennessee Tech,4345,224,5
+Tennessee Tech,4346,224,6
+Tennessee Tech,4347,224,7
+Tennessee Tech,4348,224,8
+Tennessee Tech,4349,224,9
+Tennessee Tech,4350,224,10
+Tennessee Tech,4351,224,11
+Tennessee Tech,4352,224,12
+Tennessee Tech,4353,224,13
+Tennessee Tech,4354,224,14
+Tennessee Tech,4355,224,15
+Tennessee Tech,4356,224,16
+Tennessee Tech,4357,224,17
+Tennessee Tech,4358,224,18
+Tennessee Tech,4359,224,19
+Tennessee-Martin,4360,227,0
+Tennessee-Martin,4361,227,1
+Tennessee-Martin,4362,227,2
+Tennessee-Martin,4363,227,3
+Tennessee-Martin,4364,227,4
+Tennessee-Martin,4365,227,5
+Tennessee-Martin,4366,227,6
+Tennessee-Martin,4367,227,7
+Tennessee-Martin,4368,227,8
+Tennessee-Martin,4369,227,9
+Tennessee-Martin,4370,227,10
+Tennessee-Martin,4371,227,11
+Tennessee-Martin,4372,227,12
+Tennessee-Martin,4373,227,13
+Tennessee-Martin,4374,227,14
+Tennessee-Martin,4375,227,15
+Tennessee-Martin,4376,227,16
+Tennessee-Martin,4377,227,17
+Tennessee-Martin,4378,227,18
+Tennessee-Martin,4379,227,19
+Texas,4380,92,0
+Texas,4381,92,1
+Texas,4382,92,2
+Texas,4383,92,3
+Texas,4384,92,4
+Texas,4385,92,5
+Texas,4386,92,6
+Texas,4387,92,7
+Texas,4388,92,8
+Texas,4389,92,9
+Texas,4390,92,10
+Texas,4391,92,11
+Texas,4392,92,12
+Texas,4393,92,13
+Texas,4394,92,14
+Texas,4395,92,15
+Texas,4396,92,16
+Texas,4397,92,17
+Texas,4398,92,18
+Texas,4399,92,19
+Texas A&M,4400,93,0
+Texas A&M,4401,93,1
+Texas A&M,4402,93,2
+Texas A&M,4403,93,3
+Texas A&M,4404,93,4
+Texas A&M,4405,93,5
+Texas A&M,4406,93,6
+Texas A&M,4407,93,7
+Texas A&M,4408,93,8
+Texas A&M,4409,93,9
+Texas A&M,4410,93,10
+Texas A&M,4411,93,11
+Texas A&M,4412,93,12
+Texas A&M,4413,93,13
+Texas A&M,4414,93,14
+Texas A&M,4415,93,15
+Texas A&M,4416,93,16
+Texas A&M,4417,93,17
+Texas A&M,4418,93,18
+Texas A&M,4419,93,19
+Texas Southern,4420,141,0
+Texas Southern,4421,141,1
+Texas Southern,4422,141,2
+Texas Southern,4423,141,3
+Texas Southern,4424,141,4
+Texas Southern,4425,141,5
+Texas Southern,4426,141,6
+Texas Southern,4427,141,7
+Texas Southern,4428,141,8
+Texas Southern,4429,141,9
+Texas Southern,4430,141,10
+Texas Southern,4431,141,11
+Texas Southern,4432,141,12
+Texas Southern,4433,141,13
+Texas Southern,4434,141,14
+Texas Southern,4435,141,15
+Texas Southern,4436,141,16
+Texas Southern,4437,141,17
+Texas Southern,4438,141,18
+Texas Southern,4439,141,19
+Texas State,4440,218,0
+Texas State,4441,218,1
+Texas State,4442,218,2
+Texas State,4443,218,3
+Texas State,4444,218,4
+Texas State,4445,218,5
+Texas State,4446,218,6
+Texas State,4447,218,7
+Texas State,4448,218,8
+Texas State,4449,218,9
+Texas State,4450,218,10
+Texas State,4451,218,11
+Texas State,4452,218,12
+Texas State,4453,218,13
+Texas State,4454,218,14
+Texas State,4455,218,15
+Texas State,4456,218,16
+Texas State,4457,218,17
+Texas State,4458,218,18
+Texas State,4459,218,19
+Texas Tech,4460,94,0
+Texas Tech,4461,94,1
+Texas Tech,4462,94,2
+Texas Tech,4463,94,3
+Texas Tech,4464,94,4
+Texas Tech,4465,94,5
+Texas Tech,4466,94,6
+Texas Tech,4467,94,7
+Texas Tech,4468,94,8
+Texas Tech,4469,94,9
+Texas Tech,4470,94,10
+Texas Tech,4471,94,11
+Texas Tech,4472,94,12
+Texas Tech,4473,94,13
+Texas Tech,4474,94,14
+Texas Tech,4475,94,15
+Texas Tech,4476,94,16
+Texas Tech,4477,94,17
+Texas Tech,4478,94,18
+Texas Tech,4479,94,19
+The Citadel,4480,189,0
+The Citadel,4481,189,1
+The Citadel,4482,189,2
+The Citadel,4483,189,3
+The Citadel,4484,189,4
+The Citadel,4485,189,5
+The Citadel,4486,189,6
+The Citadel,4487,189,7
+The Citadel,4488,189,8
+The Citadel,4489,189,9
+The Citadel,4490,189,10
+The Citadel,4491,189,11
+The Citadel,4492,189,12
+The Citadel,4493,189,13
+The Citadel,4494,189,14
+The Citadel,4495,189,15
+The Citadel,4496,189,16
+The Citadel,4497,189,17
+The Citadel,4498,189,18
+The Citadel,4499,189,19
+Toledo,4500,95,0
+Toledo,4501,95,1
+Toledo,4502,95,2
+Toledo,4503,95,3
+Toledo,4504,95,4
+Toledo,4505,95,5
+Toledo,4506,95,6
+Toledo,4507,95,7
+Toledo,4508,95,8
+Toledo,4509,95,9
+Toledo,4510,95,10
+Toledo,4511,95,11
+Toledo,4512,95,12
+Toledo,4513,95,13
+Toledo,4514,95,14
+Toledo,4515,95,15
+Toledo,4516,95,16
+Toledo,4517,95,17
+Toledo,4518,95,18
+Toledo,4519,95,19
+Towson,4520,228,0
+Towson,4521,228,1
+Towson,4522,228,2
+Towson,4523,228,3
+Towson,4524,228,4
+Towson,4525,228,5
+Towson,4526,228,6
+Towson,4527,228,7
+Towson,4528,228,8
+Towson,4529,228,9
+Towson,4530,228,10
+Towson,4531,228,11
+Towson,4532,228,12
+Towson,4533,228,13
+Towson,4534,228,14
+Towson,4535,228,15
+Towson,4536,228,16
+Towson,4537,228,17
+Towson,4538,228,18
+Towson,4539,228,19
+Troy,4540,143,0
+Troy,4541,143,1
+Troy,4542,143,2
+Troy,4543,143,3
+Troy,4544,143,4
+Troy,4545,143,5
+Troy,4546,143,6
+Troy,4547,143,7
+Troy,4548,143,8
+Troy,4549,143,9
+Troy,4550,143,10
+Troy,4551,143,11
+Troy,4552,143,12
+Troy,4553,143,13
+Troy,4554,143,14
+Troy,4555,143,15
+Troy,4556,143,16
+Troy,4557,143,17
+Troy,4558,143,18
+Troy,4559,143,19
+Tulane,4560,96,0
+Tulane,4561,96,1
+Tulane,4562,96,2
+Tulane,4563,96,3
+Tulane,4564,96,4
+Tulane,4565,96,5
+Tulane,4566,96,6
+Tulane,4567,96,7
+Tulane,4568,96,8
+Tulane,4569,96,9
+Tulane,4570,96,10
+Tulane,4571,96,11
+Tulane,4572,96,12
+Tulane,4573,96,13
+Tulane,4574,96,14
+Tulane,4575,96,15
+Tulane,4576,96,16
+Tulane,4577,96,17
+Tulane,4578,96,18
+Tulane,4579,96,19
+Tulsa,4580,97,0
+Tulsa,4581,97,1
+Tulsa,4582,97,2
+Tulsa,4583,97,3
+Tulsa,4584,97,4
+Tulsa,4585,97,5
+Tulsa,4586,97,6
+Tulsa,4587,97,7
+Tulsa,4588,97,8
+Tulsa,4589,97,9
+Tulsa,4590,97,10
+Tulsa,4591,97,11
+Tulsa,4592,97,12
+Tulsa,4593,97,13
+Tulsa,4594,97,14
+Tulsa,4595,97,15
+Tulsa,4596,97,16
+Tulsa,4597,97,17
+Tulsa,4598,97,18
+Tulsa,4599,97,19
+UAB,4600,98,0
+UAB,4601,98,1
+UAB,4602,98,2
+UAB,4603,98,3
+UAB,4604,98,4
+UAB,4605,98,5
+UAB,4606,98,6
+UAB,4607,98,7
+UAB,4608,98,8
+UAB,4609,98,9
+UAB,4610,98,10
+UAB,4611,98,11
+UAB,4612,98,12
+UAB,4613,98,13
+UAB,4614,98,14
+UAB,4615,98,15
+UAB,4616,98,16
+UAB,4617,98,17
+UAB,4618,98,18
+UAB,4619,98,19
+UCF,4620,18,0
+UCF,4621,18,1
+UCF,4622,18,2
+UCF,4623,18,3
+UCF,4624,18,4
+UCF,4625,18,5
+UCF,4626,18,6
+UCF,4627,18,7
+UCF,4628,18,8
+UCF,4629,18,9
+UCF,4630,18,10
+UCF,4631,18,11
+UCF,4632,18,12
+UCF,4633,18,13
+UCF,4634,18,14
+UCF,4635,18,15
+UCF,4636,18,16
+UCF,4637,18,17
+UCF,4638,18,18
+UCF,4639,18,19
+UCLA,4640,99,0
+UCLA,4641,99,1
+UCLA,4642,99,2
+UCLA,4643,99,3
+UCLA,4644,99,4
+UCLA,4645,99,5
+UCLA,4646,99,6
+UCLA,4647,99,7
+UCLA,4648,99,8
+UCLA,4649,99,9
+UCLA,4650,99,10
+UCLA,4651,99,11
+UCLA,4652,99,12
+UCLA,4653,99,13
+UCLA,4654,99,14
+UCLA,4655,99,15
+UCLA,4656,99,16
+UCLA,4657,99,17
+UCLA,4658,99,18
+UCLA,4659,99,19
+UL Lafayette,4660,86,0
+UL Lafayette,4661,86,1
+UL Lafayette,4662,86,2
+UL Lafayette,4663,86,3
+UL Lafayette,4664,86,4
+UL Lafayette,4665,86,5
+UL Lafayette,4666,86,6
+UL Lafayette,4667,86,7
+UL Lafayette,4668,86,8
+UL Lafayette,4669,86,9
+UL Lafayette,4670,86,10
+UL Lafayette,4671,86,11
+UL Lafayette,4672,86,12
+UL Lafayette,4673,86,13
+UL Lafayette,4674,86,14
+UL Lafayette,4675,86,15
+UL Lafayette,4676,86,16
+UL Lafayette,4677,86,17
+UL Lafayette,4678,86,18
+UL Lafayette,4679,86,19
+UL Monroe,4680,65,0
+UL Monroe,4681,65,1
+UL Monroe,4682,65,2
+UL Monroe,4683,65,3
+UL Monroe,4684,65,4
+UL Monroe,4685,65,5
+UL Monroe,4686,65,6
+UL Monroe,4687,65,7
+UL Monroe,4688,65,8
+UL Monroe,4689,65,9
+UL Monroe,4690,65,10
+UL Monroe,4691,65,11
+UL Monroe,4692,65,12
+UL Monroe,4693,65,13
+UL Monroe,4694,65,14
+UL Monroe,4695,65,15
+UL Monroe,4696,65,16
+UL Monroe,4697,65,17
+UL Monroe,4698,65,18
+UL Monroe,4699,65,19
+UMass,4700,181,0
+UMass,4701,181,1
+UMass,4702,181,2
+UMass,4703,181,3
+UMass,4704,181,4
+UMass,4705,181,5
+UMass,4706,181,6
+UMass,4707,181,7
+UMass,4708,181,8
+UMass,4709,181,9
+UMass,4710,181,10
+UMass,4711,181,11
+UMass,4712,181,12
+UMass,4713,181,13
+UMass,4714,181,14
+UMass,4715,181,15
+UMass,4716,181,16
+UMass,4717,181,17
+UMass,4718,181,18
+UMass,4719,181,19
+UNI,4720,207,0
+UNI,4721,207,1
+UNI,4722,207,2
+UNI,4723,207,3
+UNI,4724,207,4
+UNI,4725,207,5
+UNI,4726,207,6
+UNI,4727,207,7
+UNI,4728,207,8
+UNI,4729,207,9
+UNI,4730,207,10
+UNI,4731,207,11
+UNI,4732,207,12
+UNI,4733,207,13
+UNI,4734,207,14
+UNI,4735,207,15
+UNI,4736,207,16
+UNI,4737,207,17
+UNI,4738,207,18
+UNI,4739,207,19
+UNLV,4740,101,0
+UNLV,4741,101,1
+UNLV,4742,101,2
+UNLV,4743,101,3
+UNLV,4744,101,4
+UNLV,4745,101,5
+UNLV,4746,101,6
+UNLV,4747,101,7
+UNLV,4748,101,8
+UNLV,4749,101,9
+UNLV,4750,101,10
+UNLV,4751,101,11
+UNLV,4752,101,12
+UNLV,4753,101,13
+UNLV,4754,101,14
+UNLV,4755,101,15
+UNLV,4756,101,16
+UNLV,4757,101,17
+UNLV,4758,101,18
+UNLV,4759,101,19
+USC,4760,102,0
+USC,4761,102,1
+USC,4762,102,2
+USC,4763,102,3
+USC,4764,102,4
+USC,4765,102,5
+USC,4766,102,6
+USC,4767,102,7
+USC,4768,102,8
+USC,4769,102,9
+USC,4770,102,10
+USC,4771,102,11
+USC,4772,102,12
+USC,4773,102,13
+USC,4774,102,14
+USC,4775,102,15
+USC,4776,102,16
+USC,4777,102,17
+USC,4778,102,18
+USC,4779,102,19
+USF,4780,144,0
+USF,4781,144,1
+USF,4782,144,2
+USF,4783,144,3
+USF,4784,144,4
+USF,4785,144,5
+USF,4786,144,6
+USF,4787,144,7
+USF,4788,144,8
+USF,4789,144,9
+USF,4790,144,10
+USF,4791,144,11
+USF,4792,144,12
+USF,4793,144,13
+USF,4794,144,14
+USF,4795,144,15
+USF,4796,144,16
+USF,4797,144,17
+USF,4798,144,18
+USF,4799,144,19
+Utah,4800,103,0
+Utah,4801,103,1
+Utah,4802,103,2
+Utah,4803,103,3
+Utah,4804,103,4
+Utah,4805,103,5
+Utah,4806,103,6
+Utah,4807,103,7
+Utah,4808,103,8
+Utah,4809,103,9
+Utah,4810,103,10
+Utah,4811,103,11
+Utah,4812,103,12
+Utah,4813,103,13
+Utah,4814,103,14
+Utah,4815,103,15
+Utah,4816,103,16
+Utah,4817,103,17
+Utah,4818,103,18
+Utah,4819,103,19
+Utah State,4820,104,0
+Utah State,4821,104,1
+Utah State,4822,104,2
+Utah State,4823,104,3
+Utah State,4824,104,4
+Utah State,4825,104,5
+Utah State,4826,104,6
+Utah State,4827,104,7
+Utah State,4828,104,8
+Utah State,4829,104,9
+Utah State,4830,104,10
+Utah State,4831,104,11
+Utah State,4832,104,12
+Utah State,4833,104,13
+Utah State,4834,104,14
+Utah State,4835,104,15
+Utah State,4836,104,16
+Utah State,4837,104,17
+Utah State,4838,104,18
+Utah State,4839,104,19
+UTEP,4840,105,0
+UTEP,4841,105,1
+UTEP,4842,105,2
+UTEP,4843,105,3
+UTEP,4844,105,4
+UTEP,4845,105,5
+UTEP,4846,105,6
+UTEP,4847,105,7
+UTEP,4848,105,8
+UTEP,4849,105,9
+UTEP,4850,105,10
+UTEP,4851,105,11
+UTEP,4852,105,12
+UTEP,4853,105,13
+UTEP,4854,105,14
+UTEP,4855,105,15
+UTEP,4856,105,16
+UTEP,4857,105,17
+UTEP,4858,105,18
+UTEP,4859,105,19
+UTSA,4860,163,0
+UTSA,4861,163,1
+UTSA,4862,163,2
+UTSA,4863,163,3
+UTSA,4864,163,4
+UTSA,4865,163,5
+UTSA,4866,163,6
+UTSA,4867,163,7
+UTSA,4868,163,8
+UTSA,4869,163,9
+UTSA,4870,163,10
+UTSA,4871,163,11
+UTSA,4872,163,12
+UTSA,4873,163,13
+UTSA,4874,163,14
+UTSA,4875,163,15
+UTSA,4876,163,16
+UTSA,4877,163,17
+UTSA,4878,163,18
+UTSA,4879,163,19
+Vanderbilt,4880,106,0
+Vanderbilt,4881,106,1
+Vanderbilt,4882,106,2
+Vanderbilt,4883,106,3
+Vanderbilt,4884,106,4
+Vanderbilt,4885,106,5
+Vanderbilt,4886,106,6
+Vanderbilt,4887,106,7
+Vanderbilt,4888,106,8
+Vanderbilt,4889,106,9
+Vanderbilt,4890,106,10
+Vanderbilt,4891,106,11
+Vanderbilt,4892,106,12
+Vanderbilt,4893,106,13
+Vanderbilt,4894,106,14
+Vanderbilt,4895,106,15
+Vanderbilt,4896,106,16
+Vanderbilt,4897,106,17
+Vanderbilt,4898,106,18
+Vanderbilt,4899,106,19
+Villanova,4900,186,0
+Villanova,4901,186,1
+Villanova,4902,186,2
+Villanova,4903,186,3
+Villanova,4904,186,4
+Villanova,4905,186,5
+Villanova,4906,186,6
+Villanova,4907,186,7
+Villanova,4908,186,8
+Villanova,4909,186,9
+Villanova,4910,186,10
+Villanova,4911,186,11
+Villanova,4912,186,12
+Villanova,4913,186,13
+Villanova,4914,186,14
+Villanova,4915,186,15
+Villanova,4916,186,16
+Villanova,4917,186,17
+Villanova,4918,186,18
+Villanova,4919,186,19
+Virginia,4920,107,0
+Virginia,4921,107,1
+Virginia,4922,107,2
+Virginia,4923,107,3
+Virginia,4924,107,4
+Virginia,4925,107,5
+Virginia,4926,107,6
+Virginia,4927,107,7
+Virginia,4928,107,8
+Virginia,4929,107,9
+Virginia,4930,107,10
+Virginia,4931,107,11
+Virginia,4932,107,12
+Virginia,4933,107,13
+Virginia,4934,107,14
+Virginia,4935,107,15
+Virginia,4936,107,16
+Virginia,4937,107,17
+Virginia,4938,107,18
+Virginia,4939,107,19
+Virginia Tech,4940,108,0
+Virginia Tech,4941,108,1
+Virginia Tech,4942,108,2
+Virginia Tech,4943,108,3
+Virginia Tech,4944,108,4
+Virginia Tech,4945,108,5
+Virginia Tech,4946,108,6
+Virginia Tech,4947,108,7
+Virginia Tech,4948,108,8
+Virginia Tech,4949,108,9
+Virginia Tech,4950,108,10
+Virginia Tech,4951,108,11
+Virginia Tech,4952,108,12
+Virginia Tech,4953,108,13
+Virginia Tech,4954,108,14
+Virginia Tech,4955,108,15
+Virginia Tech,4956,108,16
+Virginia Tech,4957,108,17
+Virginia Tech,4958,108,18
+Virginia Tech,4959,108,19
+Wake Forest,4960,109,0
+Wake Forest,4961,109,1
+Wake Forest,4962,109,2
+Wake Forest,4963,109,3
+Wake Forest,4964,109,4
+Wake Forest,4965,109,5
+Wake Forest,4966,109,6
+Wake Forest,4967,109,7
+Wake Forest,4968,109,8
+Wake Forest,4969,109,9
+Wake Forest,4970,109,10
+Wake Forest,4971,109,11
+Wake Forest,4972,109,12
+Wake Forest,4973,109,13
+Wake Forest,4974,109,14
+Wake Forest,4975,109,15
+Wake Forest,4976,109,16
+Wake Forest,4977,109,17
+Wake Forest,4978,109,18
+Wake Forest,4979,109,19
+Washington,4980,110,0
+Washington,4981,110,1
+Washington,4982,110,2
+Washington,4983,110,3
+Washington,4984,110,4
+Washington,4985,110,5
+Washington,4986,110,6
+Washington,4987,110,7
+Washington,4988,110,8
+Washington,4989,110,9
+Washington,4990,110,10
+Washington,4991,110,11
+Washington,4992,110,12
+Washington,4993,110,13
+Washington,4994,110,14
+Washington,4995,110,15
+Washington,4996,110,16
+Washington,4997,110,17
+Washington,4998,110,18
+Washington,4999,110,19
+Washington State,5000,111,0
+Washington State,5001,111,1
+Washington State,5002,111,2
+Washington State,5003,111,3
+Washington State,5004,111,4
+Washington State,5005,111,5
+Washington State,5006,111,6
+Washington State,5007,111,7
+Washington State,5008,111,8
+Washington State,5009,111,9
+Washington State,5010,111,10
+Washington State,5011,111,11
+Washington State,5012,111,12
+Washington State,5013,111,13
+Washington State,5014,111,14
+Washington State,5015,111,15
+Washington State,5016,111,16
+Washington State,5017,111,17
+Washington State,5018,111,18
+Washington State,5019,111,19
+Weber State,5020,204,0
+Weber State,5021,204,1
+Weber State,5022,204,2
+Weber State,5023,204,3
+Weber State,5024,204,4
+Weber State,5025,204,5
+Weber State,5026,204,6
+Weber State,5027,204,7
+Weber State,5028,204,8
+Weber State,5029,204,9
+Weber State,5030,204,10
+Weber State,5031,204,11
+Weber State,5032,204,12
+Weber State,5033,204,13
+Weber State,5034,204,14
+Weber State,5035,204,15
+Weber State,5036,204,16
+Weber State,5037,204,17
+Weber State,5038,204,18
+Weber State,5039,204,19
+West Virginia,5040,112,0
+West Virginia,5041,112,1
+West Virginia,5042,112,2
+West Virginia,5043,112,3
+West Virginia,5044,112,4
+West Virginia,5045,112,5
+West Virginia,5046,112,6
+West Virginia,5047,112,7
+West Virginia,5048,112,8
+West Virginia,5049,112,9
+West Virginia,5050,112,10
+West Virginia,5051,112,11
+West Virginia,5052,112,12
+West Virginia,5053,112,13
+West Virginia,5054,112,14
+West Virginia,5055,112,15
+West Virginia,5056,112,16
+West Virginia,5057,112,17
+West Virginia,5058,112,18
+West Virginia,5059,112,19
+Western Carolina,5060,195,0
+Western Carolina,5061,195,1
+Western Carolina,5062,195,2
+Western Carolina,5063,195,3
+Western Carolina,5064,195,4
+Western Carolina,5065,195,5
+Western Carolina,5066,195,6
+Western Carolina,5067,195,7
+Western Carolina,5068,195,8
+Western Carolina,5069,195,9
+Western Carolina,5070,195,10
+Western Carolina,5071,195,11
+Western Carolina,5072,195,12
+Western Carolina,5073,195,13
+Western Carolina,5074,195,14
+Western Carolina,5075,195,15
+Western Carolina,5076,195,16
+Western Carolina,5077,195,17
+Western Carolina,5078,195,18
+Western Carolina,5079,195,19
+Western Illinois,5080,210,0
+Western Illinois,5081,210,1
+Western Illinois,5082,210,2
+Western Illinois,5083,210,3
+Western Illinois,5084,210,4
+Western Illinois,5085,210,5
+Western Illinois,5086,210,6
+Western Illinois,5087,210,7
+Western Illinois,5088,210,8
+Western Illinois,5089,210,9
+Western Illinois,5090,210,10
+Western Illinois,5091,210,11
+Western Illinois,5092,210,12
+Western Illinois,5093,210,13
+Western Illinois,5094,210,14
+Western Illinois,5095,210,15
+Western Illinois,5096,210,16
+Western Illinois,5097,210,17
+Western Illinois,5098,210,18
+Western Illinois,5099,210,19
+Western Kentucky,5100,211,0
+Western Kentucky,5101,211,1
+Western Kentucky,5102,211,2
+Western Kentucky,5103,211,3
+Western Kentucky,5104,211,4
+Western Kentucky,5105,211,5
+Western Kentucky,5106,211,6
+Western Kentucky,5107,211,7
+Western Kentucky,5108,211,8
+Western Kentucky,5109,211,9
+Western Kentucky,5110,211,10
+Western Kentucky,5111,211,11
+Western Kentucky,5112,211,12
+Western Kentucky,5113,211,13
+Western Kentucky,5114,211,14
+Western Kentucky,5115,211,15
+Western Kentucky,5116,211,16
+Western Kentucky,5117,211,17
+Western Kentucky,5118,211,18
+Western Kentucky,5119,211,19
+Western Michigan,5120,113,0
+Western Michigan,5121,113,1
+Western Michigan,5122,113,2
+Western Michigan,5123,113,3
+Western Michigan,5124,113,4
+Western Michigan,5125,113,5
+Western Michigan,5126,113,6
+Western Michigan,5127,113,7
+Western Michigan,5128,113,8
+Western Michigan,5129,113,9
+Western Michigan,5130,113,10
+Western Michigan,5131,113,11
+Western Michigan,5132,113,12
+Western Michigan,5133,113,13
+Western Michigan,5134,113,14
+Western Michigan,5135,113,15
+Western Michigan,5136,113,16
+Western Michigan,5137,113,17
+Western Michigan,5138,113,18
+Western Michigan,5139,113,19
+William and Mary,5140,187,0
+William and Mary,5141,187,1
+William and Mary,5142,187,2
+William and Mary,5143,187,3
+William and Mary,5144,187,4
+William and Mary,5145,187,5
+William and Mary,5146,187,6
+William and Mary,5147,187,7
+William and Mary,5148,187,8
+William and Mary,5149,187,9
+William and Mary,5150,187,10
+William and Mary,5151,187,11
+William and Mary,5152,187,12
+William and Mary,5153,187,13
+William and Mary,5154,187,14
+William and Mary,5155,187,15
+William and Mary,5156,187,16
+William and Mary,5157,187,17
+William and Mary,5158,187,18
+William and Mary,5159,187,19
+Wisconsin,5160,114,0
+Wisconsin,5161,114,1
+Wisconsin,5162,114,2
+Wisconsin,5163,114,3
+Wisconsin,5164,114,4
+Wisconsin,5165,114,5
+Wisconsin,5166,114,6
+Wisconsin,5167,114,7
+Wisconsin,5168,114,8
+Wisconsin,5169,114,9
+Wisconsin,5170,114,10
+Wisconsin,5171,114,11
+Wisconsin,5172,114,12
+Wisconsin,5173,114,13
+Wisconsin,5174,114,14
+Wisconsin,5175,114,15
+Wisconsin,5176,114,16
+Wisconsin,5177,114,17
+Wisconsin,5178,114,18
+Wisconsin,5179,114,19
+Wofford,5180,196,0
+Wofford,5181,196,1
+Wofford,5182,196,2
+Wofford,5183,196,3
+Wofford,5184,196,4
+Wofford,5185,196,5
+Wofford,5186,196,6
+Wofford,5187,196,7
+Wofford,5188,196,8
+Wofford,5189,196,9
+Wofford,5190,196,10
+Wofford,5191,196,11
+Wofford,5192,196,12
+Wofford,5193,196,13
+Wofford,5194,196,14
+Wofford,5195,196,15
+Wofford,5196,196,16
+Wofford,5197,196,17
+Wofford,5198,196,18
+Wofford,5199,196,19
+Wyoming,5200,115,0
+Wyoming,5201,115,1
+Wyoming,5202,115,2
+Wyoming,5203,115,3
+Wyoming,5204,115,4
+Wyoming,5205,115,5
+Wyoming,5206,115,6
+Wyoming,5207,115,7
+Wyoming,5208,115,8
+Wyoming,5209,115,9
+Wyoming,5210,115,10
+Wyoming,5211,115,11
+Wyoming,5212,115,12
+Wyoming,5213,115,13
+Wyoming,5214,115,14
+Wyoming,5215,115,15
+Wyoming,5216,115,16
+Wyoming,5217,115,17
+Wyoming,5218,115,18
+Wyoming,5219,115,19
+Yale,5220,142,0
+Yale,5221,142,1
+Yale,5222,142,2
+Yale,5223,142,3
+Yale,5224,142,4
+Yale,5225,142,5
+Yale,5226,142,6
+Yale,5227,142,7
+Yale,5228,142,8
+Yale,5229,142,9
+Yale,5230,142,10
+Yale,5231,142,11
+Yale,5232,142,12
+Yale,5233,142,13
+Yale,5234,142,14
+Yale,5235,142,15
+Yale,5236,142,16
+Yale,5237,142,17
+Yale,5238,142,18
+Yale,5239,142,19
+Youngstown State,5240,212,0
+Youngstown State,5241,212,1
+Youngstown State,5242,212,2
+Youngstown State,5243,212,3
+Youngstown State,5244,212,4
+Youngstown State,5245,212,5
+Youngstown State,5246,212,6
+Youngstown State,5247,212,7
+Youngstown State,5248,212,8
+Youngstown State,5249,212,9
+Youngstown State,5250,212,10
+Youngstown State,5251,212,11
+Youngstown State,5252,212,12
+Youngstown State,5253,212,13
+Youngstown State,5254,212,14
+Youngstown State,5255,212,15
+Youngstown State,5256,212,16
+Youngstown State,5257,212,17
+Youngstown State,5258,212,18
+Youngstown State,5259,212,19
+Kennesaw State,12,249,0
+Kennesaw State,13,249,1

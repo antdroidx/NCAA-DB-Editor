@@ -547,6 +547,52 @@ namespace DB_EDITOR.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to BMI,PFSH,PMSH,PSSH
+        ///0.00,0,-1,4
+        ///0.01,0,0,5
+        ///0.02,0,0,5
+        ///0.03,0,-1,4
+        ///0.04,-1,-1,4
+        ///0.05,-1,-1,4
+        ///0.06,-1,0,3
+        ///0.07,-1,-1,4
+        ///0.08,-1,0,4
+        ///0.09,-1,0,3
+        ///0.10,0,-1,4
+        ///0.11,-1,-1,4
+        ///0.12,-1,-1,4
+        ///0.13,-1,-1,4
+        ///0.14,-1,-1,4
+        ///0.15,-1,0,4
+        ///0.16,-1,-1,4
+        ///0.17,-1,-1,4
+        ///0.18,-1,-1,4
+        ///0.19,-1,-1,4
+        ///0.20,-1,-1,4
+        ///0.21,-1,-1,4
+        ///0.22,0,-1,4
+        ///0.23,-1,-1,4
+        ///0.24,-1,-1,4
+        ///0.25,-1,-1,4
+        ///0.26,-1,-1,4
+        ///0.27,-1,-1,4
+        ///0.28,-1,-1,4
+        ///0.29,-1,0,4
+        ///0.30,-1,-1,4
+        ///0.31,-1,-1,4
+        ///0.32,-1,-1,4
+        ///0.33,-1,0,4
+        ///0.34,-1,-1,4
+        ///0.35,-1,-1,4
+        ///0. [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string BMI_Calc1 {
+            get {
+                return ResourceManager.GetString("BMI_Calc1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap close {
@@ -805,107 +851,19 @@ namespace DB_EDITOR.Properties {
         /// <summary>
         ///   Looks up a localized string similar to PLDH,PLDL,PPOS,CAWT,KAWT,TAWT,PBWT,RBWT,ACWT,AGWT,TKWT,INWT,KPWT,SPWT,TPWT,BTWT,CTWT,STWT,JUWT,AWWT
         ///92,35,0,0,0,30,0,0,6,6,0,0,0,14,26,0,0,0,0,20
-        ///93,35,1,10,0,0,2,0,18,18,0,0,0,25,0,15,5,2,0,5
-        ///80,35,2,2,0,0,1,8,2,1,0,0,0,2,0,2,6,2,0,3
-        ///96,35,3,0,0,0,0,0,10,10,0,0,0,25,0,5,30,0,5,5
+        ///93,35,1,10,0,0,2,0,10,10,0,0,0,20,0,16,4,3,0,8
+        ///79,35,2,2,0,0,3,8,2,1,0,0,0,2,0,3,5,2,0,4
+        ///96,35,3,0,0,0,0,0,10,10,0,0,0,25,0,5,30,0,5,10
         ///85,35,4,0,0,0,1,3,2,2,0,0,0,4,0,1,5,3,0,3
-        ///95,35,5,0,0,0,6,5,1,1,0,0,0,1,0,0,0,4,0,4
+        ///96,35,5,0,0,0,6,5,1,1,0,0,0,1,0,0,0,4,0,4
         ///91,35,6,0,0,0,4,6,2,1,0,0,0,2,0,0,0,4,0,4
-        ///91,35,7,0,0,0,4,6,2,1,0,0,0,2,0,0,0,4,0,4
+        ///91,35,7,0,0,0,5,5,2,1,0,0,0,2,0,0,0,4,0,4
         ///91,35,8,0,0,0,4,6,2,1,0,0,0,2,0,0,0,4,0,4
-        ///95,35,9,0,0 [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string POCI {
-            get {
-                return ResourceManager.GetString("POCI", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to PLDH,PLDL,PPOS,CAWT,KAWT,TAWT,PBWT,RBWT,ACWT,AGWT,TKWT,INWT,KPWT,SPWT,TPWT,BTWT,CTWT,STWT,JUWT,AWWT
-        ///92,35,0,0,0,30,0,0,6,6,0,0,0,14,26,0,0,0,0,20
-        ///93,35,1,10,0,0,2,0,18,18,0,0,0,25,0,15,5,2,0,5
-        ///80,35,2,2,0,0,1,8,2,1,0,0,0,2,0,2,6,2,0,3
-        ///96,35,3,0,0,0,0,0,10,10,0,0,0,25,0,5,30,0,5,5
-        ///85,35,4,0,0,0,1,3,2,2,0,0,0,4,0,1,5,3,0,3
-        ///95,35,5,0,0,0,6,5,1,1,0,0,0,1,0,0,0,4,0,4
-        ///91,35,6,0,0,0,4,6,2,1,0,0,0,2,0,0,0,4,0,4
-        ///91,35,7,0,0,0,4,6,2,1,0,0,0,2,0,0,0,4,0,4
-        ///91,35,8,0,0,0,4,6,2,1,0,0,0,2,0,0,0,4,0,4
-        ///95,35,9,0,0 [rest of string was truncated]&quot;;.
+        ///96,35,9,0, [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string POCI_NEXT {
             get {
                 return ResourceManager.GetString("POCI_NEXT", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Tuiasosopo
-        ///Tuivaiti
-        ///Finau
-        ///Tuigamala
-        ///Tuipulotu
-        ///Lauti
-        ///Maafu
-        ///Tuisamoa
-        ///Matagi
-        ///Togia
-        ///Malieitulua
-        ///Tuakoi
-        ///Tupou
-        ///Vaenuku
-        ///Taumalolo
-        ///Vaihola
-        ///Fonoti
-        ///Tuita
-        ///Pulu
-        ///Vaovasa
-        ///Siaki
-        ///Tavita
-        ///Moeaki
-        ///Hafoka
-        ///Taukolo
-        ///Maka
-        ///Unga
-        ///Taula
-        ///Tavake
-        ///Vakameilalo
-        ///Uasike
-        ///Savelio
-        ///Teo
-        ///Lavaka
-        ///Katoa
-        ///Niumatai
-        ///Kauvaka
-        ///Halangahu
-        ///Tuipala
-        ///Fonua
-        ///Taufa
-        ///Taulapapa
-        ///Uasi
-        ///Ngalu
-        ///Kaufusi
-        ///Taniela
-        ///Vakapuna
-        ///Veikoso
-        ///Unger
-        ///Kefu
-        ///Taua
-        ///Palepoi
-        ///Tamaivena
-        ///Tofa
-        ///Fisiiahi
-        ///Oloapu
-        ///Vakauta
-        ///Saumaki
-        ///Likiliki
-        ///Tuitavake
-        ///Ta [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string poly_surnames {
-            get {
-                return ResourceManager.GetString("poly_surnames", resourceCulture);
             }
         }
         
@@ -1021,56 +979,75 @@ namespace DB_EDITOR.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SPSL,SPFN
-        ///0,Vince
-        ///1,Kenny
-        ///2,Noah
-        ///3,Emmanuel
-        ///4,Isaac
-        ///5,James
-        ///6,Kyle
-        ///7,Tre
-        ///8,Christophe
-        ///9,Luke
-        ///10,Ryan
-        ///11,Johnathan
-        ///12,Benjamin
-        ///13,David
-        ///14,Camby
-        ///15,Caleb
-        ///16,Trey
-        ///17,John Lee
-        ///18,Jacob
-        ///19,Matthew
-        ///20,Elijah
-        ///21,Jayden
-        ///22,Ayden
-        ///23,Everett
-        ///24,Jorden
-        ///25,Brandon
-        ///26,Troy
-        ///27,Alec
-        ///28,Hawk
-        ///29,Brad
-        ///30,Corvan
-        ///31,Michael
-        ///32,Eian
-        ///33,Haaziq
-        ///34,Omar
-        ///35,Nasir
-        ///36,Micah
-        ///37,Dane
-        ///38,Thor
-        ///39,McKenly
-        ///40,Zachary
-        ///41,Warren
-        ///42,Kaleb
-        ///43,Jensen
-        ///44,Nate
-        ///45,Mason
-        ///46,Kalawaia
-        ///47,Dalton
-        ///48,Bra [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to SPFN
+        ///Vince
+        ///Kenny
+        ///Noah
+        ///Emmanuel
+        ///Isaac
+        ///James
+        ///Kyle
+        ///Tre
+        ///Christophe
+        ///Luke
+        ///Ryan
+        ///Johnathan
+        ///Benjamin
+        ///David
+        ///Camby
+        ///Caleb
+        ///Trey
+        ///John Lee
+        ///Jacob
+        ///Matthew
+        ///Elijah
+        ///Jayden
+        ///Ayden
+        ///Everett
+        ///Jorden
+        ///Brandon
+        ///Troy
+        ///Alec
+        ///Hawk
+        ///Brad
+        ///Corvan
+        ///Michael
+        ///Eian
+        ///Haaziq
+        ///Omar
+        ///Nasir
+        ///Micah
+        ///Dane
+        ///Thor
+        ///McKenly
+        ///Zachary
+        ///Warren
+        ///Kaleb
+        ///Jensen
+        ///Nate
+        ///Mason
+        ///Kalawaia
+        ///Dalton
+        ///Brandon
+        ///Demonte
+        ///Deandre
+        ///David
+        ///Lakota
+        ///Kolby
+        ///Jordan
+        ///Jalen
+        ///Owen
+        ///Wesley
+        ///Ben
+        ///Charles
+        ///Jake
+        ///Matthew
+        ///Ben
+        ///Caden
+        ///Ethan
+        ///Jayden
+        ///Adam
+        ///Mark        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string RCFN {
             get {
@@ -1079,79 +1056,72 @@ namespace DB_EDITOR.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SPSL,SPLN
-        ///0,Sanford
-        ///1,Ngaima
-        ///2,Bush
-        ///4,Michel
-        ///5,Cochran
-        ///6,Jones
-        ///7,Patterson
-        ///8,Bugg
-        ///9,Herrera
-        ///10,Hallstrom
-        ///11,Booth
-        ///12,Youngblood
-        ///13,Mercer
-        ///14,Eure
-        ///15,Goff
-        ///16,Humphrey
-        ///17,Taylor
-        ///18,Eldridge
-        ///19,Trach
-        ///20,Malloy
-        ///21,Brockman
-        ///22,Thiergood
-        ///23,McCollough
-        ///24,Smalley
-        ///25,Gidrey
-        ///26,Lewis
-        ///27,Blackmon
-        ///28,Mock
-        ///29,Wimmer
-        ///30,Roberts
-        ///31,Taylor
-        ///32,Mack
-        ///33,Castonguay
-        ///34,Daniels
-        ///35,Fattah
-        ///36,Rashid
-        ///37,Davis
-        ///38,Kinamon
-        ///39,Paglialong
-        ///40,O&apos;Neal
-        ///41,Larrier
-        ///42,Bryan
-        ///43,Holcomb
-        ///44,Jones
-        ///45, [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to SPLN
+        ///Sanford
+        ///Ngaima
+        ///Bush
+        ///Michel
+        ///Cochran
+        ///Jones
+        ///Patterson
+        ///Bugg
+        ///Herrera
+        ///Hallstrom
+        ///Booth
+        ///Youngblood
+        ///Mercer
+        ///Eure
+        ///Goff
+        ///Humphrey
+        ///Taylor
+        ///Eldridge
+        ///Trach
+        ///Malloy
+        ///Brockman
+        ///Thiergood
+        ///McCollough
+        ///Smalley
+        ///Gidrey
+        ///Lewis
+        ///Blackmon
+        ///Mock
+        ///Wimmer
+        ///Roberts
+        ///Taylor
+        ///Mack
+        ///Castonguay
+        ///Daniels
+        ///Fattah
+        ///Rashid
+        ///Davis
+        ///Kinamon
+        ///Paglialong
+        ///O&apos;Neal
+        ///Larrier
+        ///Bryan
+        ///Holcomb
+        ///Jones
+        ///Polk
+        ///Bugg
+        ///Pescaia
+        ///King
+        ///Gooding
+        ///Meeks
+        ///Hughes
+        ///Cormier
+        ///Wills
+        ///Barker
+        ///Jackson
+        ///Mergerson
+        ///Burk
+        ///Ndago
+        ///Brittain
+        ///Bein
+        ///Spiewak [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string RCLN {
             get {
                 return ResourceManager.GetString("RCLN", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to STAB,STID,STNM,SPDN,STMP,SPUP,STOR,RPCT,SPLT,SPRT
-        ///AL,0,Alabama,8,89,41,0,15,23,9
-        ///AK,1,Alaska,1,5,4,1,1,1,10
-        ///AZ,2,Arizona,1,35,43,2,6,27,30
-        ///AR,3,Arkansas,17,23,24,3,4,35,41
-        ///CA,4,California,1,244,36,4,43,1,27
-        ///CO,5,Colorado,30,22,49,5,4,43,15
-        ///CT,6,Connecticut,29,11,20,6,2,31,38
-        ///DE,7,Delaware,45,5,29,7,1,19,29
-        ///FL,8,Florida,8,352,9,9,61,0,8
-        ///GA,9,Georgia,8,195,41,10,34,0,39
-        ///HI,10,Hawaii,10,21,42,11,4,1,42
-        ///ID,11,Idaho,43,6,50,12,1,36,25
-        ///IL,12,Illinois,16,69,48,13,12,24,13
-        ///IN,13,Indiana,16,38,21,14,7, [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string RCST {
-            get {
-                return ResourceManager.GetString("RCST", resourceCulture);
             }
         }
         
@@ -1269,6 +1239,40 @@ namespace DB_EDITOR.Properties {
         internal static string transfers_gen {
             get {
                 return ResourceManager.GetString("transfers_gen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Team Name,UFID,TOID,TUCO
+        ///Air Force,0,1,1
+        ///Air Force,1,1,0
+        ///Air Force,2,1,2
+        ///Air Force,3,1,3
+        ///Akron,4,2,1
+        ///Akron,5,2,0
+        ///Alabama,8,3,1
+        ///Alabama,9,3,0
+        ///Alabama A&amp;M,6,116,1
+        ///Alabama A&amp;M,7,116,0
+        ///Alabama State,14,117,1
+        ///Alabama State,15,117,0
+        ///Alabama State,16,117,2
+        ///Alabama State,17,117,3
+        ///Alcorn State,10,118,1
+        ///Alcorn State,11,118,0
+        ///Appalachian State,18,188,1
+        ///Appalachian State,19,188,0
+        ///Appalachian State,803,188,2
+        ///Appalachian State,804,188,3
+        ///Arizona,20,4,1
+        ///Arizona,21,4,0
+        ///Arizona,22,4,2
+        ///Arizona,23,4,3
+        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string TUNI_MASTER {
+            get {
+                return ResourceManager.GetString("TUNI_MASTER", resourceCulture);
             }
         }
     }

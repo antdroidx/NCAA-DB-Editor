@@ -53,7 +53,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\ncaa-db-editor-icon.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\images\ncaa-db-editor-icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup />
   <ItemGroup>
@@ -76,6 +76,14 @@
       <DependentUpon>AboutBox1.cs</DependentUpon>
     </Compile>
     <Compile Include="Button_Clicks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Uniforms.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="TDB_Helper.cs">
@@ -125,11 +133,6 @@
     </Compile>
     <Compile Include="PlayerEditor.cs">
       <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Include="RosterTools.cs">
       <SubType>Form</SubType>
@@ -199,22 +202,22 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="Resources\attributes.csv">
+    <None Include="Resources\players\attributes.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Resources\college-football-usa.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\Color-Palettes.csv">
+    <None Include="Resources\teams\Color-Palettes.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Resources\FantasyGenData.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\PJEN.csv">
+    <None Include="Resources\players\PJEN.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\PlaybookNames.csv">
+    <None Include="Resources\playbooks\PlaybookNames.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Resources\playbooks\AIGR-DEF.csv">
@@ -232,10 +235,10 @@
     <None Include="Resources\POCI.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\PRLU.csv">
+    <None Include="Resources\players\PRLU.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\RCAT-MAPPER.csv">
+    <None Include="Resources\players\RCAT-MAPPER.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Resources\RCAT-NEXT.csv">
@@ -244,16 +247,16 @@
     <None Include="Resources\RCAT.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\RCFN.csv">
+    <None Include="Resources\players\RCFN.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\RCLN.csv">
+    <None Include="Resources\players\RCLN.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\RCST.csv">
+    <None Include="Resources\players\RCST.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\recruits.csv">
+    <None Include="Resources\rosters\recruits.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Resources\schedules\10-team.csv">
@@ -283,13 +286,16 @@
     <None Include="Resources\schedules\9-team.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\TeamDB.csv">
+    <None Include="Resources\teams\TeamDB.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\transfers-gen.csv">
+    <None Include="Resources\rosters\transfers-gen.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\transfers.csv">
+    <None Include="Resources\rosters\transfers.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\uniforms\TUNI-MASTER.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
@@ -316,19 +322,19 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\BMI-Calc.csv">
+    <None Include="Resources\players\BMI-Calc.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\open2.png" />
-    <None Include="Resources\poly-surnames.csv">
+    <None Include="Resources\images\open2.png" />
+    <None Include="Resources\players\poly-surnames.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="Resources\save3.png" />
-    <None Include="Resources\close.png" />
-    <None Include="Resources\def file.png" />
-    <None Include="Resources\exit.png" />
-    <None Include="Resources\ncaa-db-editor-TITLE.png" />
-    <None Include="Resources\ncaa-db-editor-icon.ico" />
+    <None Include="Resources\images\save3.png" />
+    <None Include="Resources\images\close.png" />
+    <None Include="Resources\images\def file.png" />
+    <None Include="Resources\images\exit.png" />
+    <None Include="Resources\images\ncaa-db-editor-TITLE.png" />
+    <None Include="Resources\images\ncaa-db-editor-icon.ico" />
     <Content Include="Resources\tdbaccess.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

@@ -605,6 +605,7 @@ namespace DB_EDITOR
         private void NewCoachButton_Click(object sender, EventArgs e)
         {
             CreateFantasyCoach(CoachIndex);
+            LoadCoachList(CoachFilter.SelectedIndex);
             GetCoachEditorData(CoachIndex);
             MessageBox.Show("Coach Creation Completed!");
         }

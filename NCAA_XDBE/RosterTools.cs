@@ -19,7 +19,7 @@ namespace DB_EDITOR
             /* create a list of transfers from transfers.csv
           *  transfers [x][y] = [item][player name, new team, old pgid, new pgid]
          */
-            List<List<string>> transfers = CreateStringListsFromCSV(@"resources\transfers.csv", true);
+            List<List<string>> transfers = CreateStringListsFromCSV(@"resources\rosters\transfers.csv", true);
 
             //remove graduation/nfl players
             int removed = 0;
@@ -299,9 +299,9 @@ namespace DB_EDITOR
         private void CreateTransfersFromCSV()
         {
             CreateRCATtable();
-            List<List<string>> PlayerList = CreateStringListsFromCSV(@"resources\transfers-gen.csv", true);
+            List<List<string>> PlayerList = CreateStringListsFromCSV(@"resources\rosters\transfers-gen.csv", true);
             List<List<int>> PJEN = CreateJerseyNumberDB();
-            List<List<string>> RCATmapper = CreateStringListsFromCSV(@"resources\RCAT-MAPPER.csv", false);
+            List<List<string>> RCATmapper = CreateStringListsFromCSV(@"resources\players\RCAT-MAPPER.csv", false);
 
             //First	 Last	POSG	TGID
 
@@ -418,9 +418,9 @@ namespace DB_EDITOR
         private void CreateRecruitsFromCSV()
         {
             CreateRCATtable();
-            List<List<string>> RecruitsList = CreateStringListsFromCSV(@"resources\recruits.csv", true);
+            List<List<string>> RecruitsList = CreateStringListsFromCSV(@"resources\rosters\recruits.csv", true);
             List<List<int>> PJEN = CreateJerseyNumberDB();
-            List<List<string>> RCATmapper = CreateStringListsFromCSV(@"resources\RCAT-MAPPER.csv", false);
+            List<List<string>> RCATmapper = CreateStringListsFromCSV(@"resources\players\RCAT-MAPPER.csv", false);
 
             //First	Last	Position	TGID	Height	Weight
 

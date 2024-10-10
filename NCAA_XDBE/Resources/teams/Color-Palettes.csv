@@ -1,0 +1,205 @@
+TDNA,TGID,TMCP,TCRP
+Air Force,1,0,0
+Akron,2,1,1
+Alabama,3,2,3
+Alabama A&M,116,115,2
+Alabama State,117,116,5
+Alcorn State,118,117,4
+Appalachian State,188,155,159
+Arizona,4,3,6
+Arizona State,5,4,12
+Ark - Pine Bluff,119,118,8
+Arkansas,6,5,7
+Arkansas State,7,6,9
+Army,8,7,10
+Auburn,9,8,11
+Ball State,10,9,13
+Baylor,11,10,14
+Bethune-Cookman,120,119,15
+Boise State,12,11,16
+Boston College,13,12,17
+Bowling Green,14,13,18
+Brown,121,120,19
+Buffalo,15,14,20
+BYU,16,15,21
+Cal,17,16,22
+Central Michigan,19,18,25
+Chattanooga,194,160,164
+Cincinnati,20,19,23
+Clemson,21,20,24
+Colorado,22,21,26
+Colorado State,23,22,27
+Columbia,122,121,28
+Connecticut,100,99,126
+Cornell,123,122,29
+Dartmouth,124,123,30
+Delaware,177,144,148
+Delaware State,125,124,31
+Duke,24,23,32
+E Washington,197,163,167
+Eastern Illinois,219,185,189
+Eastern Kentucky,221,187,191
+Eastern Michigan,26,25,35
+ECU,25,24,34
+Elon,191,157,161
+FIU,230,196,200
+Florida,27,26,37
+Florida A&M,126,125,36
+Florida Atlantic,229,195,199
+Florida State,28,27,38
+Fresno State,29,28,39
+Furman,192,158,162
+Georgia,30,29,41
+Georgia Southern,193,159,163
+Georgia Tech,31,30,40
+Grambling State,127,126,42
+Hampton,128,127,43
+Harvard,129,128,44
+Hawaii,32,31,45
+Hofstra,178,145,149
+Houston,33,32,46
+Howard,130,129,47
+Idaho,34,33,48
+Idaho State,198,164,168
+Illinois,35,34,49
+Illinois State,205,171,175
+Indiana,36,35,50
+Indiana State,206,172,176
+Iowa,37,36,52
+Iowa State,38,37,51
+Jackson State,131,130,53
+Jacksonville State,223,189,193
+James Madison,179,146,150
+Kansas,39,38,54
+Kansas State,40,39,55
+Kent State,41,40,57
+Kentucky,42,41,56
+Louisiana Tech,43,42,58
+Louisville,44,43,59
+LSU,45,44,60
+Maine,180,147,151
+Marshall,46,45,61
+Maryland,47,46,62
+McNeese State,213,179,183
+Memphis,48,47,63
+Miami,49,48,64
+Miami University,50,49,65
+Michigan,51,50,66
+Michigan State,52,51,67
+Mid Tenn State,53,52,68
+Minnesota,54,53,69
+Miss Valley State,132,131,72
+Mississippi State,55,54,71
+Missouri,56,55,70
+Montana,199,165,169
+Montana State,200,166,170
+Morgan State,133,132,73
+Murray State,220,186,190
+Navy,57,56,74
+NC A&T State,135,134,75
+NC State,63,62,77
+Nebraska,58,57,78
+Nevada,59,58,79
+New Hampshire,182,149,153
+New Mexico,60,59,80
+New Mexico State,61,60,82
+Nicholls State,215,181,185
+Norfolk State,134,133,83
+North Carolina,62,61,76
+North Texas,64,63,86
+Northeastern,183,150,154
+Northern Arizona,201,167,171
+Northern Illinois,66,65,81
+Northwestern,67,66,84
+Northwestern St,214,180,184
+Notre Dame,68,67,85
+Ohio,69,68,88
+Ohio State,70,69,87
+Oklahoma,71,70,89
+Oklahoma State,72,71,90
+Ole Miss,73,72,91
+Oregon,74,73,92
+Oregon State,75,74,93
+Penn,136,135,95
+Penn State,76,75,94
+Pittsburgh,77,76,96
+Portland State,202,168,172
+Prairie View A&M,137,136,97
+Princeton,138,137,98
+Purdue,78,77,99
+Rhode Island,184,151,155
+Rice,79,78,100
+Richmond,185,152,156
+Rutgers,80,79,101
+S Carolina State,139,138,104
+Sacramento State,203,169,173
+Sam Houston St,217,183,187
+Samford,226,192,196
+San Diego State,81,80,105
+San Jose State,82,81,102
+SE Missouri St,222,188,192
+SMS,209,175,179
+SMU,83,82,107
+South Carolina,84,83,103
+Southeastern,231,197,201
+Southern,140,139,108
+Southern Illinois,208,174,178
+Southern Miss,85,84,106
+Stanford,87,86,109
+Stephen F. Austin,216,182,186
+Syracuse,88,87,110
+TCU,89,88,111
+Temple,90,89,112
+Tennessee,91,90,113
+Tennessee State,225,191,195
+Tennessee Tech,224,190,194
+Tennessee-Martin,227,193,197
+Texas,92,91,115
+Texas A&M,93,92,114
+Texas Southern,141,140,116
+Texas State,218,184,188
+Texas Tech,94,93,122
+The Citadel,189,156,160
+Toledo,95,94,118
+Towson,228,194,198
+Troy,143,142,119
+Tulane,96,95,120
+Tulsa,97,96,121
+UAB,98,97,123
+UCF,18,17,124
+UCLA,99,98,125
+UL Lafayette,86,85,127
+UL Monroe,65,64,128
+UMass,181,148,152
+UNI,207,173,177
+UNLV,101,100,129
+USC,102,101,130
+USF,144,143,131
+Utah,103,102,133
+Utah State,104,103,132
+UTEP,105,104,134
+Vanderbilt,106,105,135
+Villanova,186,153,157
+Virginia,107,106,137
+Virginia Tech,108,107,136
+Wake Forest,109,108,138
+Washington,110,109,139
+Washington State,111,110,140
+Weber State,204,170,174
+West Virginia,112,111,143
+Western Carolina,195,161,165
+Western Illinois,210,176,180
+Western Kentucky,211,177,181
+Western Michigan,113,112,142
+William and Mary,187,154,158
+Wisconsin,114,113,141
+Wofford,196,162,166
+Wyoming,115,114,144
+Yale,142,141,145
+Youngstown State,212,178,182
+z1AA East,160,198,9
+z1AA Midwest,163,201,122
+z1AA Northwest,162,200,65
+z1AA Southeast,164,202,61
+z1AA West,161,199,43
+zAll-American Team,165,203,58

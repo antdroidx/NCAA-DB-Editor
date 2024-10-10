@@ -118,37 +118,37 @@ namespace DB_EDITOR
         private void ReduceSkills(int i, int maxDrop)
         {
             int PPOE, PINJ, PSTA, PSTR;
-            //int PACC, PSPD, PAGI, PJMP;
+            int PACC, PSPD, PAGI, PJMP;
             int tol = maxDrop;
 
             PPOE = ConvertRating(Convert.ToInt32(GetDBValue("PLAY", "PPOE", i)));
             PINJ = ConvertRating(Convert.ToInt32(GetDBValue("PLAY", "PINJ", i)));
             PSTA = ConvertRating(Convert.ToInt32(GetDBValue("PLAY", "PSTA", i)));
             PSTR = ConvertRating(Convert.ToInt32(GetDBValue("PLAY", "PSTR", i)));
-            //PACC = ConvertRating(Convert.ToInt32(GetDBValue("PLAY", "PACC", i)));
-            //PSPD = ConvertRating(Convert.ToInt32(GetDBValue("PLAY", "PSPD", i)));
-            //PAGI = ConvertRating(Convert.ToInt32(GetDBValue("PLAY", "PAGI", i)));
-            //PJMP = ConvertRating(Convert.ToInt32(GetDBValue("PLAY", "PJMP", i)));
+            PACC = ConvertRating(Convert.ToInt32(GetDBValue("PLAY", "PACC", i)));
+            PSPD = ConvertRating(Convert.ToInt32(GetDBValue("PLAY", "PSPD", i)));
+            PAGI = ConvertRating(Convert.ToInt32(GetDBValue("PLAY", "PAGI", i)));
+            PJMP = ConvertRating(Convert.ToInt32(GetDBValue("PLAY", "PJMP", i)));
 
 
             PPOE = RevertRating(GetReducedAttribute(PPOE, tol));
             PINJ = RevertRating(GetReducedAttribute(PINJ, tol));
             PSTA = RevertRating(GetReducedAttribute(PSTA, tol));
             PSTR = RevertRating(GetReducedAttribute(PSTR, tol));
-            //PACC = RevertRating(GetReducedAttribute(PACC, tol));
-            //PSPD = RevertRating(GetReducedAttribute(PSPD, tol));
-            //PAGI = RevertRating(GetReducedAttribute(PAGI, tol));
-            //PJMP = RevertRating(GetReducedAttribute(PJMP, tol));
+            PACC = RevertRating(GetReducedAttribute(PACC, tol));
+            PSPD = RevertRating(GetReducedAttribute(PSPD, tol));
+            PAGI = RevertRating(GetReducedAttribute(PAGI, tol));
+            PJMP = RevertRating(GetReducedAttribute(PJMP, tol));
 
 
             ChangeDBString("PLAY", "PPOE", i, Convert.ToString(PPOE));
             ChangeDBString("PLAY", "PINJ", i, Convert.ToString(PINJ));
             ChangeDBString("PLAY", "PSTA", i, Convert.ToString(PSTA));
             ChangeDBString("PLAY", "PSTR", i, Convert.ToString(PSTR));
-            //ChangeDBString("PLAY", "PACC", i, Convert.ToString(PACC));
-            //ChangeDBString("PLAY", "PSPD", i, Convert.ToString(PSPD));
-            //ChangeDBString("PLAY", "PAGI", i, Convert.ToString(PAGI));
-            //ChangeDBString("PLAY", "PJMP", i, Convert.ToString(PJMP));
+            ChangeDBString("PLAY", "PACC", i, Convert.ToString(PACC));
+            ChangeDBString("PLAY", "PSPD", i, Convert.ToString(PSPD));
+            ChangeDBString("PLAY", "PAGI", i, Convert.ToString(PAGI));
+            ChangeDBString("PLAY", "PJMP", i, Convert.ToString(PJMP));
 
             RecalculateOverallByRec(i);
 
@@ -795,15 +795,21 @@ namespace DB_EDITOR
             progressBar1.Minimum = 0;
             progressBar1.Maximum = GetTableRecCount("COCH");
 
-            for (int i = 0; i < GetTableRecCount("COCH"); i++)
+            int minRating = 0;
+            while (CCID_FAList.Count < numberPlayerCoach.Value)
             {
-                //ADD COACHING FREE AGENCY POOL TO THE LIST
-                if (GetDBValue("COCH", "TGID", i) == "511" && Convert.ToInt32(GetDBValue("COCH", "CPRE", i)) < 2)
+                for (int i = 0; i < GetTableRecCount("COCH"); i++)
                 {
-                    CCID_FAList.Add(GetDBValue("COCH", "CCID", i));
+                    //ADD COACHING FREE AGENCY POOL TO THE LIST
+                    if (GetDBValue("COCH", "TGID", i) == "511" && Convert.ToInt32(GetDBValue("COCH", "CPRE", i)) < minRating)
+                    {
+                        CCID_FAList.Add(GetDBValue("COCH", "CCID", i));
+                    }
+                    progressBar1.PerformStep();
                 }
-                progressBar1.PerformStep();
+                minRating++;
             }
+
 
 
             //Create a list of graduating players

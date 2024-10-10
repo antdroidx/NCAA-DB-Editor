@@ -29,7 +29,7 @@ namespace DB_EDITOR
         private void RecalculateBMI(string tableName)
         {
             string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            string csvLocation = Path.Combine(executableLocation, @"resources\BMI-Calc.csv");
+            string csvLocation = Path.Combine(executableLocation, @"resources\players\BMI-Calc.csv");
 
             string filePath = csvLocation;
             StreamReader sr = new StreamReader(filePath);
@@ -81,7 +81,7 @@ namespace DB_EDITOR
         private void RecalculateIndividualBMI(int rec)
         {
             string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            string csvLocation = Path.Combine(executableLocation, @"resources\BMI-Calc.csv");
+            string csvLocation = Path.Combine(executableLocation, @"resources\players\BMI-Calc.csv");
 
             string filePath = csvLocation;
             StreamReader sr = new StreamReader(filePath);
@@ -873,7 +873,7 @@ namespace DB_EDITOR
             List<List<int>> PJEN = CreateJerseyNumberDB();
 
             List<List<string>> RCATmapper = new List<List<string>>();
-            RCATmapper = CreateStringListsFromCSV(@"resources\RCAT-MAPPER.csv", false);
+            RCATmapper = CreateStringListsFromCSV(@"resources\players\RCAT-MAPPER.csv", false);
 
             TdbTableProperties TableProps = new TdbTableProperties();
             TableProps.Name = new string((char)0, 5);
@@ -1146,7 +1146,7 @@ namespace DB_EDITOR
             CreateLastNamesDB();
             List<List<int>> PJEN = CreateJerseyNumberDB();
 
-            List<List<string>> RCATmapper = CreateStringListsFromCSV(@"resources\RCAT-MAPPER.csv", false);
+            List<List<string>> RCATmapper = CreateStringListsFromCSV(@"resources\players\RCAT-MAPPER.csv", false);
 
             List<List<string>> teamData = new List<List<string>>();
             teamData = CreateStringListsFromCSV(@"resources\FantasyGenData.csv", true);
@@ -1289,7 +1289,7 @@ namespace DB_EDITOR
 
             List<List<int>> PJEN = CreateJerseyNumberDB();
 
-            List<List<string>> RCATmapper = CreateStringListsFromCSV(@"resources\RCAT-MAPPER.csv", false);
+            List<List<string>> RCATmapper = CreateStringListsFromCSV(@"resources\players\RCAT-MAPPER.csv", false);
 
             List<List<string>> teamData = new List<List<string>>();
             teamData = CreateStringListsFromCSV(@"resources\FantasyGenData.csv", true);
@@ -1974,7 +1974,7 @@ namespace DB_EDITOR
         private void AddAttributesToBoxes()
         {
             /* Create attribute list || 0 - DB value  1 - Name */
-            List<List<string>> atb = CreateStringListsFromCSV(@"resources\attributes.csv", true);
+            List<List<string>> atb = CreateStringListsFromCSV(@"resources\players\attributes.csv", true);
 
             GlobalAttBox.Items.Clear();
             MinAttBox.Items.Clear();
@@ -2016,7 +2016,7 @@ namespace DB_EDITOR
             if (GlobalAttBox.SelectedIndex == -1) return;
 
             /* Create attribute list || 0 - DB value  1 - Name */
-            List<List<string>> atb = CreateStringListsFromCSV(@"resources\attributes.csv", true);
+            List<List<string>> atb = CreateStringListsFromCSV(@"resources\players\attributes.csv", true);
             List<List<string>> teamData = new List<List<string>>();
             teamData = CreateStringListsFromCSV(@"resources\FantasyGenData.csv", true);
 
@@ -2090,7 +2090,7 @@ namespace DB_EDITOR
             if (MinAttBox.SelectedIndex == -1) return;
 
             /* Create attribute list || 0 - DB value  1 - Name */
-            List<List<string>> atb = CreateStringListsFromCSV(@"resources\attributes.csv", true);
+            List<List<string>> atb = CreateStringListsFromCSV(@"resources\players\attributes.csv", true);
             string attribute = atb[MinAttBox.SelectedIndex][0];
             int val = Convert.ToInt32(MinAttNum.Value);
             int posg = MinAttPosBox.SelectedIndex - 1;
@@ -2125,7 +2125,7 @@ namespace DB_EDITOR
             if (MaxAttBox.SelectedIndex == -1) return;
 
             /* Create attribute list || 0 - DB value  1 - Name */
-            List<List<string>> atb = CreateStringListsFromCSV(@"resources\attributes.csv", true);
+            List<List<string>> atb = CreateStringListsFromCSV(@"resources\players\attributes.csv", true);
             string attribute = atb[MaxAttBox.SelectedIndex][0];
             int val = Convert.ToInt32(MaxAttNum.Value);
             int posg = MaxAttPosBox.SelectedIndex - 1;

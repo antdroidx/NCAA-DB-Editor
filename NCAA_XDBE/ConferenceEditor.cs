@@ -381,7 +381,7 @@ namespace DB_EDITOR
 
             List<List<int>> PJEN = CreateJerseyNumberDB();
 
-            List<List<string>> RCATmapper = CreateStringListsFromCSV(@"resources\RCAT-MAPPER.csv", false);
+            List<List<string>> RCATmapper = CreateStringListsFromCSV(@"resources\players\RCAT-MAPPER.csv", false);
 
             List<List<string>> teamData = new List<List<string>>();
             teamData = CreateStringListsFromCSV(@"resources\FantasyGenData.csv", true);

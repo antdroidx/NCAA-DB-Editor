@@ -28,6 +28,8 @@ namespace DB_EDITOR
             else if (tabControl1.SelectedTab == tabPlaybook) StartPlaybookEditor();
             else if (tabControl1.SelectedTab == tabDepthCharts) StartDepthChartEditor();
             else if (tabControl1.SelectedTab == tabHome) StartHomeTab();
+            else if (tabControl1.SelectedTab == tabUniforms) StartUniformEditor();
+
         }
 
         private void TabDB_Start()

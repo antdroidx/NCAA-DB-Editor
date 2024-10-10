@@ -266,7 +266,7 @@ namespace DB_EDITOR
         private void GetStateBoxItems()
         {
             StateBox.Items.Clear();
-            List<string> states = CreateStringListfromCSV(@"resources\RCST.csv", true);
+            List<string> states = CreateStringListfromCSV(@"resources\players\RCST.csv", true);
 
             foreach (string state in states)
             {

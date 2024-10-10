@@ -272,20 +272,20 @@ namespace DB_EDITOR
         {
             FirstNames = new List<string>();
 
-            FirstNames = CreateStringListfromCSV(@"resources\RCFN.csv", true);
+            FirstNames = CreateStringListfromCSV(@"resources\players\RCFN.csv", true);
         }
 
         public void CreateLastNamesDB()
         {
             LastNames = new List<string>();
-            LastNames = CreateStringListfromCSV(@"resources\RCLN.csv", true);
+            LastNames = CreateStringListfromCSV(@"resources\players\RCLN.csv", true);
         }
 
         public List<List<int>> CreateJerseyNumberDB()
         {
             List<List<int>> PJEN = new List<List<int>>();
             string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            string csvLocation = Path.Combine(executableLocation, @"resources\PJEN.csv");
+            string csvLocation = Path.Combine(executableLocation, @"resources\players\PJEN.csv");
 
             string filePath = csvLocation;
             StreamReader sr = new StreamReader(filePath);
@@ -524,7 +524,7 @@ namespace DB_EDITOR
             RatingsX.Clear();
             List<int> ratingsList = new List<int>();
 
-            ratingsList = CreateIntListfromCSV(@"resources\PRLU.csv", true);
+            ratingsList = CreateIntListfromCSV(@"resources\players\PRLU.csv", true);
             for(int i = 0; i  < ratingsList.Count; i++)
             {
                 Ratings.Add(i, ratingsList[i]);
@@ -805,7 +805,7 @@ namespace DB_EDITOR
 
         public List<List<string>> CreatePlaybookNames()
         {
-            List<List<string>> pb = CreateStringListsFromCSV(@"resources\PlaybookNames.csv", false);
+            List<List<string>> pb = CreateStringListsFromCSV(@"resources\playbooks\PlaybookNames.csv", false);
 
             return pb;
         }
@@ -842,7 +842,7 @@ namespace DB_EDITOR
             {
 
                 string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-                string csvLocation = Path.Combine(executableLocation, @"Resources\TeamDB.csv");
+                string csvLocation = Path.Combine(executableLocation, @"Resources\teams\TeamDB.csv");
 
                 string filePath = csvLocation;
                 StreamReader sr = new StreamReader(filePath);
@@ -876,7 +876,7 @@ namespace DB_EDITOR
             {
 
                 string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-                string csvLocation = Path.Combine(executableLocation, @"Resources\TeamDB.csv");
+                string csvLocation = Path.Combine(executableLocation, @"Resources\teams\TeamDB.csv");
 
                 string filePath = csvLocation;
                 StreamReader sr = new StreamReader(filePath);
@@ -897,7 +897,7 @@ namespace DB_EDITOR
 
         public void CreateTeamColorPalettes()
         {
-            TeamColorPalettes = CreateStringListsFromCSV(@"resources\Color-Palettes.csv", true);
+            TeamColorPalettes = CreateStringListsFromCSV(@"resources\teams\Color-Palettes.csv", true);
         }
 
         public string GetTeamName(int tgid)
@@ -1275,7 +1275,39 @@ namespace DB_EDITOR
 
         #endregion
 
+        #region Uniforms
 
+        private List<string> GetHelmetNumbers()
+        {
+            List<string> helmets = new List<string>();
+
+            helmets.Add("None");
+            helmets.Add("Small-Left");
+            helmets.Add("Small-Right");
+            helmets.Add("Small-Center");
+            helmets.Add("Med-Wide-Gape");
+            helmets.Add("Med-Gap");
+            helmets.Add("Med-Close");
+            helmets.Add("Large-Wide-Gap");
+            helmets.Add("Large-Gap");
+            helmets.Add("Large-Close");
+
+            return helmets;
+        }
+
+        private int ReturnHelmetNumberVal(string helmet)
+        {
+            List<string> helmets = GetHelmetNumbers(); 
+            
+            for(int i = 0; i < helmets.Count; i++)
+            {
+                if (helmets[i] == helmet) return i;
+            }
+
+            return -1;
+        }
+
+        #endregion
 
 
         #region CSV Tools

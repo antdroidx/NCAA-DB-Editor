@@ -423,7 +423,7 @@ namespace DB_EDITOR
         private void PolynesianNameGenerator()
         {
             string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            string csvLocation = Path.Combine(executableLocation, @"resources\poly-surnames.csv");
+            string csvLocation = Path.Combine(executableLocation, @"resources\players\poly-surnames.csv");
 
             string filePath = csvLocation;
             StreamReader sr = new StreamReader(filePath);
@@ -515,7 +515,7 @@ namespace DB_EDITOR
         private void DB2RecalculateBMI(string tableName)
         {
             string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            string csvLocation = Path.Combine(executableLocation, @"resources\BMI-Calc.csv");
+            string csvLocation = Path.Combine(executableLocation, @"resources\players\BMI-Calc.csv");
 
             string filePath = csvLocation;
             StreamReader sr = new StreamReader(filePath);
