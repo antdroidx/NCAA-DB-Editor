@@ -48,6 +48,10 @@ namespace DB_EDITOR
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -674,6 +678,21 @@ namespace DB_EDITOR
             this.TeamPrimaryUniCheck = new System.Windows.Forms.CheckBox();
             this.TeamUniformSelectBox = new System.Windows.Forms.ComboBox();
             this.label168 = new System.Windows.Forms.Label();
+            this.tabBowls = new System.Windows.Forms.TabPage();
+            this.SaveBowlButton = new System.Windows.Forms.Button();
+            this.BowlsGrid = new System.Windows.Forms.DataGridView();
+            this.ActiveBowl = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.BIDX = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BNME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TeamA = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.ScoreA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vs = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ScoreB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TeamB = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.SGID = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.BMON = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.BDAY = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.SEWN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             qbTend = new System.Windows.Forms.Button();
             this.mainMenu.SuspendLayout();
@@ -780,6 +799,8 @@ namespace DB_EDITOR
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UniformGrid)).BeginInit();
             this.groupBox4.SuspendLayout();
+            this.tabBowls.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BowlsGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // qbTend
@@ -7411,6 +7432,7 @@ namespace DB_EDITOR
             this.tabControl1.Controls.Add(this.tabDepthCharts);
             this.tabControl1.Controls.Add(this.tabRecruits);
             this.tabControl1.Controls.Add(this.tabUniforms);
+            this.tabControl1.Controls.Add(this.tabBowls);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabControl1.ItemSize = new System.Drawing.Size(75, 20);
             this.tabControl1.Location = new System.Drawing.Point(12, 27);
@@ -8050,6 +8072,166 @@ namespace DB_EDITOR
             this.label168.TabIndex = 2;
             this.label168.Text = "Team Selection";
             // 
+            // tabBowls
+            // 
+            this.tabBowls.Controls.Add(this.SaveBowlButton);
+            this.tabBowls.Controls.Add(this.BowlsGrid);
+            this.tabBowls.Location = new System.Drawing.Point(4, 24);
+            this.tabBowls.Name = "tabBowls";
+            this.tabBowls.Padding = new System.Windows.Forms.Padding(3);
+            this.tabBowls.Size = new System.Drawing.Size(1152, 615);
+            this.tabBowls.TabIndex = 14;
+            this.tabBowls.Text = "Bowls";
+            this.tabBowls.UseVisualStyleBackColor = true;
+            // 
+            // SaveBowlButton
+            // 
+            this.SaveBowlButton.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.SaveBowlButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SaveBowlButton.Location = new System.Drawing.Point(962, 19);
+            this.SaveBowlButton.Name = "SaveBowlButton";
+            this.SaveBowlButton.Size = new System.Drawing.Size(171, 52);
+            this.SaveBowlButton.TabIndex = 6;
+            this.SaveBowlButton.Text = "Update Database";
+            this.SaveBowlButton.UseVisualStyleBackColor = false;
+            this.SaveBowlButton.Click += new System.EventHandler(this.SaveBowlButton_Click);
+            // 
+            // BowlsGrid
+            // 
+            this.BowlsGrid.AllowUserToAddRows = false;
+            this.BowlsGrid.AllowUserToDeleteRows = false;
+            this.BowlsGrid.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            this.BowlsGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle14;
+            this.BowlsGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.BowlsGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            this.BowlsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.BowlsGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ActiveBowl,
+            this.BIDX,
+            this.BNME,
+            this.TeamA,
+            this.ScoreA,
+            this.vs,
+            this.ScoreB,
+            this.TeamB,
+            this.SGID,
+            this.BMON,
+            this.BDAY,
+            this.SEWN});
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.BowlsGrid.DefaultCellStyle = dataGridViewCellStyle16;
+            this.BowlsGrid.Location = new System.Drawing.Point(6, 6);
+            this.BowlsGrid.Name = "BowlsGrid";
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.BowlsGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            this.BowlsGrid.Size = new System.Drawing.Size(950, 603);
+            this.BowlsGrid.TabIndex = 4;
+            this.BowlsGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.BowlsGrid_DataError);
+            // 
+            // ActiveBowl
+            // 
+            this.ActiveBowl.FillWeight = 7F;
+            this.ActiveBowl.HeaderText = "Active";
+            this.ActiveBowl.Name = "ActiveBowl";
+            // 
+            // BIDX
+            // 
+            this.BIDX.FillWeight = 8F;
+            this.BIDX.HeaderText = "BIDX";
+            this.BIDX.Name = "BIDX";
+            this.BIDX.ReadOnly = true;
+            this.BIDX.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // BNME
+            // 
+            this.BNME.FillWeight = 25F;
+            this.BNME.HeaderText = "Bowl Name";
+            this.BNME.Name = "BNME";
+            this.BNME.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // TeamA
+            // 
+            this.TeamA.FillWeight = 20F;
+            this.TeamA.HeaderText = "Team";
+            this.TeamA.Name = "TeamA";
+            // 
+            // ScoreA
+            // 
+            this.ScoreA.FillWeight = 7F;
+            this.ScoreA.HeaderText = "Score";
+            this.ScoreA.Name = "ScoreA";
+            this.ScoreA.ReadOnly = true;
+            this.ScoreA.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // vs
+            // 
+            this.vs.FillWeight = 4F;
+            this.vs.HeaderText = "vs";
+            this.vs.Name = "vs";
+            this.vs.ReadOnly = true;
+            this.vs.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // ScoreB
+            // 
+            this.ScoreB.FillWeight = 7F;
+            this.ScoreB.HeaderText = "Score";
+            this.ScoreB.Name = "ScoreB";
+            this.ScoreB.ReadOnly = true;
+            this.ScoreB.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // TeamB
+            // 
+            this.TeamB.FillWeight = 20F;
+            this.TeamB.HeaderText = "Team";
+            this.TeamB.Name = "TeamB";
+            // 
+            // SGID
+            // 
+            this.SGID.FillWeight = 25F;
+            this.SGID.HeaderText = "Stadium";
+            this.SGID.Name = "SGID";
+            // 
+            // BMON
+            // 
+            this.BMON.FillWeight = 8F;
+            this.BMON.HeaderText = "Month";
+            this.BMON.Name = "BMON";
+            // 
+            // BDAY
+            // 
+            this.BDAY.FillWeight = 8F;
+            this.BDAY.HeaderText = "Date";
+            this.BDAY.Name = "BDAY";
+            // 
+            // SEWN
+            // 
+            this.SEWN.FillWeight = 6F;
+            this.SEWN.HeaderText = "Week";
+            this.SEWN.Name = "SEWN";
+            this.SEWN.ReadOnly = true;
+            // 
             // notifyIcon1
             // 
             this.notifyIcon1.Text = "notifyIcon1";
@@ -8199,6 +8381,8 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.UniformGrid)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.tabBowls.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.BowlsGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -8839,6 +9023,21 @@ namespace DB_EDITOR
         private System.Windows.Forms.Button ExportTeamUNIF;
         private System.Windows.Forms.Button ImportPlayerTeam;
         private System.Windows.Forms.Button ExportPlayerTeam;
+        private TabPage tabBowls;
+        private System.Windows.Forms.Button SaveBowlButton;
+        private DataGridView BowlsGrid;
+        private DataGridViewCheckBoxColumn ActiveBowl;
+        private DataGridViewTextBoxColumn BIDX;
+        private DataGridViewTextBoxColumn BNME;
+        private DataGridViewComboBoxColumn TeamA;
+        private DataGridViewTextBoxColumn ScoreA;
+        private DataGridViewTextBoxColumn vs;
+        private DataGridViewTextBoxColumn ScoreB;
+        private DataGridViewComboBoxColumn TeamB;
+        private DataGridViewComboBoxColumn SGID;
+        private DataGridViewComboBoxColumn BMON;
+        private DataGridViewComboBoxColumn BDAY;
+        private DataGridViewTextBoxColumn SEWN;
     }
 }
 

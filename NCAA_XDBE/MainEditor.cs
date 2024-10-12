@@ -168,6 +168,7 @@ namespace DB_EDITOR
             tabControl1.TabPages.Remove(tabDepthCharts);
             tabControl1.TabPages.Remove(tabRecruits);
             tabControl1.TabPages.Remove(tabUniforms);
+            tabControl1.TabPages.Remove(tabBowls);
 
 
 
@@ -971,6 +972,8 @@ namespace DB_EDITOR
             AboutBox1 AboutBox = new AboutBox1();
             AboutBox.ShowDialog();
         }
+
+
 
 
         #endregion

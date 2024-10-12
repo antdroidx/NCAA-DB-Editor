@@ -697,6 +697,10 @@ namespace DB_EDITOR
                     {
                         if (!checkTabExists("Uniforms")) tabControl1.TabPages.Add(tabUniforms);
                     }
+                    if (table.Name == "BOWL" && !BigEndian)
+                    {
+                        if (!checkTabExists("Bowls")) tabControl1.TabPages.Add(tabBowls);
+                    }
                 }
             }
 

@@ -29,6 +29,7 @@ namespace DB_EDITOR
             else if (tabControl1.SelectedTab == tabDepthCharts) StartDepthChartEditor();
             else if (tabControl1.SelectedTab == tabHome) StartHomeTab();
             else if (tabControl1.SelectedTab == tabUniforms) StartUniformEditor();
+            else if (tabControl1.SelectedTab == tabBowls) StartBowlEditor();
 
         }
 

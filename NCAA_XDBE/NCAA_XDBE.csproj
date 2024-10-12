@@ -75,7 +75,13 @@
     <Compile Include="About\AboutBox1.Designer.cs">
       <DependentUpon>AboutBox1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Config.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Button_Clicks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BowlEditor.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
