@@ -358,8 +358,7 @@ namespace DB_EDITOR
             this.label129 = new System.Windows.Forms.Label();
             this.label130 = new System.Windows.Forms.Label();
             this.tabPlayers = new System.Windows.Forms.TabPage();
-            this.ImportPlayerTeam = new System.Windows.Forms.Button();
-            this.ExportPlayerTeam = new System.Windows.Forms.Button();
+            this.PlayerTransferButton = new System.Windows.Forms.Button();
             this.label167 = new System.Windows.Forms.Label();
             this.playerTeamBox = new System.Windows.Forms.TextBox();
             this.label151 = new System.Windows.Forms.Label();
@@ -485,7 +484,9 @@ namespace DB_EDITOR
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label120 = new System.Windows.Forms.Label();
+            this.ImportPlayerTeam = new System.Windows.Forms.Button();
             this.LeftWrist = new System.Windows.Forms.ComboBox();
+            this.ExportPlayerTeam = new System.Windows.Forms.Button();
             this.LeftHand = new System.Windows.Forms.ComboBox();
             this.label117 = new System.Windows.Forms.Label();
             this.label118 = new System.Windows.Forms.Label();
@@ -694,6 +695,7 @@ namespace DB_EDITOR
             this.BDAY = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.SEWN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.RandomizeRecruitNamesButton = new System.Windows.Forms.Button();
             qbTend = new System.Windows.Forms.Button();
             this.mainMenu.SuspendLayout();
             this.tableMenu.SuspendLayout();
@@ -3002,6 +3004,7 @@ namespace DB_EDITOR
             // tabOffSeason
             // 
             this.tabOffSeason.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.tabOffSeason.Controls.Add(this.RandomizeRecruitNamesButton);
             this.tabOffSeason.Controls.Add(this.buttonRandomizeFaceShape);
             this.tabOffSeason.Controls.Add(this.labelPolyNamesPCT);
             this.tabOffSeason.Controls.Add(this.polyNamesPCT);
@@ -3086,7 +3089,7 @@ namespace DB_EDITOR
             // 
             this.textBoxOffSeason.Enabled = false;
             this.textBoxOffSeason.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxOffSeason.Location = new System.Drawing.Point(259, 57);
+            this.textBoxOffSeason.Location = new System.Drawing.Point(600, 57);
             this.textBoxOffSeason.Multiline = true;
             this.textBoxOffSeason.Name = "textBoxOffSeason";
             this.textBoxOffSeason.Size = new System.Drawing.Size(526, 523);
@@ -3097,7 +3100,7 @@ namespace DB_EDITOR
             // 
             this.textBoxOffSeasonTitle.Enabled = false;
             this.textBoxOffSeasonTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxOffSeasonTitle.Location = new System.Drawing.Point(259, 20);
+            this.textBoxOffSeasonTitle.Location = new System.Drawing.Point(600, 20);
             this.textBoxOffSeasonTitle.Name = "textBoxOffSeasonTitle";
             this.textBoxOffSeasonTitle.Size = new System.Drawing.Size(526, 31);
             this.textBoxOffSeasonTitle.TabIndex = 15;
@@ -4337,8 +4340,7 @@ namespace DB_EDITOR
             // tabPlayers
             // 
             this.tabPlayers.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.tabPlayers.Controls.Add(this.ImportPlayerTeam);
-            this.tabPlayers.Controls.Add(this.ExportPlayerTeam);
+            this.tabPlayers.Controls.Add(this.PlayerTransferButton);
             this.tabPlayers.Controls.Add(this.label167);
             this.tabPlayers.Controls.Add(this.playerTeamBox);
             this.tabPlayers.Controls.Add(this.label151);
@@ -4470,27 +4472,15 @@ namespace DB_EDITOR
             this.tabPlayers.TabIndex = 2;
             this.tabPlayers.Text = "Players";
             // 
-            // ImportPlayerTeam
+            // PlayerTransferButton
             // 
-            this.ImportPlayerTeam.Location = new System.Drawing.Point(361, 579);
-            this.ImportPlayerTeam.Name = "ImportPlayerTeam";
-            this.ImportPlayerTeam.Size = new System.Drawing.Size(75, 23);
-            this.ImportPlayerTeam.TabIndex = 145;
-            this.ImportPlayerTeam.Text = "Import Team";
-            this.ImportPlayerTeam.UseVisualStyleBackColor = true;
-            this.ImportPlayerTeam.Visible = false;
-            this.ImportPlayerTeam.Click += new System.EventHandler(this.ImportPlayerTeam_Click);
-            // 
-            // ExportPlayerTeam
-            // 
-            this.ExportPlayerTeam.Location = new System.Drawing.Point(361, 545);
-            this.ExportPlayerTeam.Name = "ExportPlayerTeam";
-            this.ExportPlayerTeam.Size = new System.Drawing.Size(75, 23);
-            this.ExportPlayerTeam.TabIndex = 144;
-            this.ExportPlayerTeam.Text = "Export Team";
-            this.ExportPlayerTeam.UseVisualStyleBackColor = true;
-            this.ExportPlayerTeam.Visible = false;
-            this.ExportPlayerTeam.Click += new System.EventHandler(this.ExportPlayerTeam_Click);
+            this.PlayerTransferButton.Location = new System.Drawing.Point(358, 572);
+            this.PlayerTransferButton.Name = "PlayerTransferButton";
+            this.PlayerTransferButton.Size = new System.Drawing.Size(91, 34);
+            this.PlayerTransferButton.TabIndex = 146;
+            this.PlayerTransferButton.Text = "Send to Transfer Portal";
+            this.PlayerTransferButton.UseVisualStyleBackColor = true;
+            this.PlayerTransferButton.Click += new System.EventHandler(this.PlayerTransferButton_Click);
             // 
             // label167
             // 
@@ -5861,7 +5851,9 @@ namespace DB_EDITOR
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.label120);
+            this.groupBox3.Controls.Add(this.ImportPlayerTeam);
             this.groupBox3.Controls.Add(this.LeftWrist);
+            this.groupBox3.Controls.Add(this.ExportPlayerTeam);
             this.groupBox3.Controls.Add(this.LeftHand);
             this.groupBox3.Controls.Add(this.label117);
             this.groupBox3.Controls.Add(this.label118);
@@ -5889,6 +5881,17 @@ namespace DB_EDITOR
             this.label120.TabIndex = 112;
             this.label120.Text = "Elbows";
             // 
+            // ImportPlayerTeam
+            // 
+            this.ImportPlayerTeam.Location = new System.Drawing.Point(356, -3);
+            this.ImportPlayerTeam.Name = "ImportPlayerTeam";
+            this.ImportPlayerTeam.Size = new System.Drawing.Size(75, 23);
+            this.ImportPlayerTeam.TabIndex = 145;
+            this.ImportPlayerTeam.Text = "Import Team";
+            this.ImportPlayerTeam.UseVisualStyleBackColor = true;
+            this.ImportPlayerTeam.Visible = false;
+            this.ImportPlayerTeam.Click += new System.EventHandler(this.ImportPlayerTeam_Click);
+            // 
             // LeftWrist
             // 
             this.LeftWrist.FormattingEnabled = true;
@@ -5910,6 +5913,17 @@ namespace DB_EDITOR
             this.LeftWrist.Size = new System.Drawing.Size(103, 21);
             this.LeftWrist.TabIndex = 107;
             this.LeftWrist.SelectedIndexChanged += new System.EventHandler(this.LeftWrist_SelectedIndexChanged);
+            // 
+            // ExportPlayerTeam
+            // 
+            this.ExportPlayerTeam.Location = new System.Drawing.Point(441, -3);
+            this.ExportPlayerTeam.Name = "ExportPlayerTeam";
+            this.ExportPlayerTeam.Size = new System.Drawing.Size(75, 23);
+            this.ExportPlayerTeam.TabIndex = 144;
+            this.ExportPlayerTeam.Text = "Export Team";
+            this.ExportPlayerTeam.UseVisualStyleBackColor = true;
+            this.ExportPlayerTeam.Visible = false;
+            this.ExportPlayerTeam.Click += new System.EventHandler(this.ExportPlayerTeam_Click);
             // 
             // LeftHand
             // 
@@ -8237,6 +8251,19 @@ namespace DB_EDITOR
             this.notifyIcon1.Text = "notifyIcon1";
             this.notifyIcon1.Visible = true;
             // 
+            // RandomizeRecruitNamesButton
+            // 
+            this.RandomizeRecruitNamesButton.BackColor = System.Drawing.SystemColors.Highlight;
+            this.RandomizeRecruitNamesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RandomizeRecruitNamesButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.RandomizeRecruitNamesButton.Location = new System.Drawing.Point(157, 327);
+            this.RandomizeRecruitNamesButton.Name = "RandomizeRecruitNamesButton";
+            this.RandomizeRecruitNamesButton.Size = new System.Drawing.Size(110, 80);
+            this.RandomizeRecruitNamesButton.TabIndex = 21;
+            this.RandomizeRecruitNamesButton.Text = "Randomize Recruits Names";
+            this.RandomizeRecruitNamesButton.UseVisualStyleBackColor = false;
+            this.RandomizeRecruitNamesButton.Click += new System.EventHandler(this.RandomizeRecruitNamesButton_Click);
+            // 
             // MainEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -9038,6 +9065,8 @@ namespace DB_EDITOR
         private DataGridViewComboBoxColumn BMON;
         private DataGridViewComboBoxColumn BDAY;
         private DataGridViewTextBoxColumn SEWN;
+        private System.Windows.Forms.Button PlayerTransferButton;
+        public System.Windows.Forms.Button RandomizeRecruitNamesButton;
     }
 }
 

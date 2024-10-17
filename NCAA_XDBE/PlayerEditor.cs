@@ -17,9 +17,10 @@ namespace DB_EDITOR
 
         public void StartPlayerEditor()
         {
-
+            PlayerTransferButton.Visible = false;
             LoadPlayerTGIDBox();
 
+            if(dbIndex2 == 1) PlayerTransferButton.Visible = true;
         }
 
         private void LoadPlayerTGIDBox()
@@ -1020,6 +1021,18 @@ namespace DB_EDITOR
         {
             DepthChartMakerSingle("DCHT", GetDBValueInt("PLAY", "PGID", PlayerIndex) / 70);
         }
+
+        private void PlayerTransferButton_Click(object sender, EventArgs e)
+        {
+            var response = MessageBox.Show("Are you sure you want to send this player to the Transfer Portal?", "Transfer Player", MessageBoxButtons.OKCancel);
+
+            if (response == DialogResult.OK)
+            {
+                TransferPlayer(PlayerIndex, GetDBValueInt("PLAY", "PGID", PlayerIndex));
+            }
+            LoadPlayerData();
+        }
+
 
         private void ImportPlayerTeam_Click(object sender, EventArgs e)
         {

@@ -15,19 +15,8 @@ namespace DB_EDITOR
         //Raise minimum recruiting point allocation and off-season TPRA values -- Must be done at start of Recruiting
         private void ButtonMinRecruitingPts_Click(object sender, EventArgs e)
         {
-            bool correctWeek = false;
-            for (int i = 0; i < GetTable2RecCount("RCYR"); i++)
-            {
-                if (Convert.ToInt32(GetDB2Value("RCYR", "SEWN", i)) >= 1)
-                {
-                    RaiseMinimumRecruitingPoints();
-                    correctWeek = true;
-                }
-            }
-            if (!correctWeek)
-            {
-                MessageBox.Show("Please use this feature at the beginning of Recruiting Stage!");
-            }
+            RaiseMinimumRecruitingPoints();
+
         }
 
         //Randomize or Remove Recruiting Interested Teams
@@ -76,15 +65,56 @@ namespace DB_EDITOR
         //Polynesian Surname Generator
         private void PolyNames_Click(object sender, EventArgs e)
         {
-            PolynesianNameGenerator();
+            bool correctWeek = false;
+            for (int i = 0; i < GetTable2RecCount("RCYR"); i++)
+            {
+                if (GetDB2Value("RCYR", "SEWN", i) == "1")
+                {
+                    PolynesianNameGenerator();
+                    correctWeek = true;
+                }
+            }
+            if (!correctWeek)
+            {
+                MessageBox.Show("Please use this feature at the beginning of Recruiting Stage!");
+            }
         }
 
         //Randomize Face & Skins
         private void buttonRandomizeFaceSkin_Click(object sender, EventArgs e)
         {
-            RandomizeRecruitFace("RCPT");
+            bool correctWeek = false;
+            for (int i = 0; i < GetTable2RecCount("RCYR"); i++)
+            {
+                if (GetDB2Value("RCYR", "SEWN", i) == "1")
+                {
+                    RandomizeRecruitFace("RCPT");
+                    correctWeek = true;
+                }
+            }
+            if (!correctWeek)
+            {
+                MessageBox.Show("Please use this feature at the beginning of Recruiting Stage!");
+            }
         }
 
+        //Randomize Names
+        private void RandomizeRecruitNamesButton_Click(object sender, EventArgs e)
+        {
+            bool correctWeek = false;
+            for (int i = 0; i < GetTable2RecCount("RCYR"); i++)
+            {
+                if (GetDB2Value("RCYR", "SEWN", i) == "1")
+                {
+                    RandomizeRecruitNames("RCPT");
+                    correctWeek = true;
+                }
+            }
+            if (!correctWeek)
+            {
+                MessageBox.Show("Please use this feature at the beginning of Recruiting Stage!");
+            }
+        }
 
         #endregion
 
@@ -509,6 +539,40 @@ namespace DB_EDITOR
             ChangeDB2String("RCPT", "PLNA", i, newName);
             ChangeDB2String("RCPT", "PSKI", i, "2");
             ChangeDB2Int("RCPT", "PFMP", i, rand.Next(16, 24));
+        }
+
+        //Randomize Recruit Names
+
+        private void RandomizeRecruitNames(string tableName)
+        {
+            progressBar1.Visible = true;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = GetTable2RecCount(tableName);
+            CreateFirstNamesDB();
+            CreateLastNamesDB();
+
+            for (int i = 0; i < GetTable2RecCount(tableName); i++)
+            {
+                if (tableName != "RCPT" || GetDB2ValueInt(tableName, "PRID", i) < 21000)  //skips transfers
+                {
+
+                    //Randomizes name
+                    string FN, LN;
+
+                    FN = FirstNames[rand.Next(0, FirstNames.Count)];
+                    LN = LastNames[rand.Next(0, LastNames.Count)];
+
+                    ChangeDB2String("RCPT", "PFNA", i, FN);
+                    ChangeDB2String("RCPT", "PLNA", i, LN);
+                }
+
+                progressBar1.PerformStep();
+            }
+
+            progressBar1.Visible = false;
+            progressBar1.Value = 0;
+
+            MessageBox.Show("Recruit Names Randomized!");
         }
 
         //Fixes Body Size Models if user does manipulation of the player attributes in the in-game player editor
