@@ -422,6 +422,13 @@ namespace DB_EDITOR
             return hair;
         }
 
+        public List<List<int>> GetBodySizeAverages()
+        {
+            List<List<int>> bodysize = CreateIntListsFromCSV(@"resources\players\Body_Size_AVG.csv", true);
+
+            return bodysize;
+
+        }
         #endregion
 
         #region Positions

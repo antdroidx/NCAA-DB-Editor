@@ -34,24 +34,31 @@ namespace DB_EDITOR
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Button qbTend;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle62 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle80 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle81 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle82 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle83 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle84 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle85 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle86 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle87 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle88 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle89 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle91 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle92 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle90 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainEditor));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle93 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle94 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle95 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle76 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle77 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle78 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle96 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -103,6 +110,80 @@ namespace DB_EDITOR
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.DB2Button = new System.Windows.Forms.RadioButton();
             this.DB1Button = new System.Windows.Forms.RadioButton();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.tabBowls = new System.Windows.Forms.TabPage();
+            this.SaveBowlButton = new System.Windows.Forms.Button();
+            this.BowlsGrid = new System.Windows.Forms.DataGridView();
+            this.ActiveBowl = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.BIDX = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BNME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TeamA = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.ScoreA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vs = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ScoreB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TeamB = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.SGID = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.BMON = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.BDAY = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.SEWN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabUniforms = new System.Windows.Forms.TabPage();
+            this.ImportTeamUNIF = new System.Windows.Forms.Button();
+            this.ExportTeamUNIF = new System.Windows.Forms.Button();
+            this.label172 = new System.Windows.Forms.Label();
+            this.UpdateUNIFButton = new System.Windows.Forms.Button();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label170 = new System.Windows.Forms.Label();
+            this.GlobalAltCheck = new System.Windows.Forms.CheckBox();
+            this.GlobalPrimaryCheck = new System.Windows.Forms.CheckBox();
+            this.GlobalUniFilter = new System.Windows.Forms.ComboBox();
+            this.label171 = new System.Windows.Forms.Label();
+            this.UniformGrid = new System.Windows.Forms.DataGridView();
+            this.UniformActivation = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.UFID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UnifTeam = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TUNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ULTF = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.ShoulderNums = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.SleeveNums = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.SleeveDecal = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.HelmetNums = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.HelmetSideNum = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.UniformsActivated = new System.Windows.Forms.Label();
+            this.label169 = new System.Windows.Forms.Label();
+            this.TeamAltUniCheck = new System.Windows.Forms.CheckBox();
+            this.TeamPrimaryUniCheck = new System.Windows.Forms.CheckBox();
+            this.TeamUniformSelectBox = new System.Windows.Forms.ComboBox();
+            this.label168 = new System.Windows.Forms.Label();
+            this.tabRecruits = new System.Windows.Forms.TabPage();
+            this.textBox21 = new System.Windows.Forms.TextBox();
+            this.textBox22 = new System.Windows.Forms.TextBox();
+            this.textBox23 = new System.Windows.Forms.TextBox();
+            this.label153 = new System.Windows.Forms.Label();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label154 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label155 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label156 = new System.Windows.Forms.Label();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.label157 = new System.Windows.Forms.Label();
+            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.label158 = new System.Windows.Forms.Label();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.label159 = new System.Windows.Forms.Label();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.label160 = new System.Windows.Forms.Label();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.label161 = new System.Windows.Forms.Label();
+            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.label162 = new System.Windows.Forms.Label();
+            this.comboBox7 = new System.Windows.Forms.ComboBox();
+            this.label163 = new System.Windows.Forms.Label();
+            this.comboBox8 = new System.Windows.Forms.ComboBox();
+            this.label164 = new System.Windows.Forms.Label();
+            this.label165 = new System.Windows.Forms.Label();
+            this.label166 = new System.Windows.Forms.Label();
             this.tabDepthCharts = new System.Windows.Forms.TabPage();
             this.DCHTAutoSet = new System.Windows.Forms.Button();
             this.DCHTClear = new System.Windows.Forms.Button();
@@ -249,9 +330,10 @@ namespace DB_EDITOR
             this.buttonRandPotential = new System.Windows.Forms.Button();
             this.bodyFix = new System.Windows.Forms.Button();
             this.tabOffSeason = new System.Windows.Forms.TabPage();
+            this.DetermineAthleteButton = new System.Windows.Forms.Button();
+            this.RecalculateStarRankingsButton = new System.Windows.Forms.Button();
+            this.RandomizeRecruitNamesButton = new System.Windows.Forms.Button();
             this.buttonRandomizeFaceShape = new System.Windows.Forms.Button();
-            this.labelPolyNamesPCT = new System.Windows.Forms.Label();
-            this.polyNamesPCT = new System.Windows.Forms.NumericUpDown();
             this.polyNames = new System.Windows.Forms.Button();
             this.textBoxOffSeason = new System.Windows.Forms.TextBox();
             this.textBoxOffSeasonTitle = new System.Windows.Forms.TextBox();
@@ -270,6 +352,7 @@ namespace DB_EDITOR
             this.buttonRandWalkOns = new System.Windows.Forms.Button();
             this.buttonMinRecruitingPts = new System.Windows.Forms.Button();
             this.tabSeason = new System.Windows.Forms.TabPage();
+            this.BodyProgressionButton = new System.Windows.Forms.Button();
             this.CoachPrestigeButton = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.numberPlayerCoach = new System.Windows.Forms.NumericUpDown();
@@ -361,7 +444,6 @@ namespace DB_EDITOR
             this.PlayerTransferButton = new System.Windows.Forms.Button();
             this.label167 = new System.Windows.Forms.Label();
             this.playerTeamBox = new System.Windows.Forms.TextBox();
-            this.label151 = new System.Windows.Forms.Label();
             this.PRST = new System.Windows.Forms.TextBox();
             this.PGIDbox = new System.Windows.Forms.TextBox();
             this.PKACtext = new System.Windows.Forms.TextBox();
@@ -386,6 +468,7 @@ namespace DB_EDITOR
             this.POVRbox = new System.Windows.Forms.TextBox();
             this.PLNAtextBox = new System.Windows.Forms.TextBox();
             this.PFNAtextBox = new System.Windows.Forms.TextBox();
+            this.label151 = new System.Windows.Forms.Label();
             this.label150 = new System.Windows.Forms.Label();
             this.Helmet = new System.Windows.Forms.ComboBox();
             this.label149 = new System.Windows.Forms.Label();
@@ -621,81 +704,6 @@ namespace DB_EDITOR
             this.NextConfigRadio = new System.Windows.Forms.RadioButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabRecruits = new System.Windows.Forms.TabPage();
-            this.textBox21 = new System.Windows.Forms.TextBox();
-            this.textBox22 = new System.Windows.Forms.TextBox();
-            this.textBox23 = new System.Windows.Forms.TextBox();
-            this.label153 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.label154 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label155 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.label156 = new System.Windows.Forms.Label();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.label157 = new System.Windows.Forms.Label();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.label158 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.label159 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
-            this.label160 = new System.Windows.Forms.Label();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
-            this.label161 = new System.Windows.Forms.Label();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.label162 = new System.Windows.Forms.Label();
-            this.comboBox7 = new System.Windows.Forms.ComboBox();
-            this.label163 = new System.Windows.Forms.Label();
-            this.comboBox8 = new System.Windows.Forms.ComboBox();
-            this.label164 = new System.Windows.Forms.Label();
-            this.label165 = new System.Windows.Forms.Label();
-            this.label166 = new System.Windows.Forms.Label();
-            this.tabUniforms = new System.Windows.Forms.TabPage();
-            this.ImportTeamUNIF = new System.Windows.Forms.Button();
-            this.ExportTeamUNIF = new System.Windows.Forms.Button();
-            this.label172 = new System.Windows.Forms.Label();
-            this.UpdateUNIFButton = new System.Windows.Forms.Button();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.label170 = new System.Windows.Forms.Label();
-            this.GlobalAltCheck = new System.Windows.Forms.CheckBox();
-            this.GlobalPrimaryCheck = new System.Windows.Forms.CheckBox();
-            this.GlobalUniFilter = new System.Windows.Forms.ComboBox();
-            this.label171 = new System.Windows.Forms.Label();
-            this.UniformGrid = new System.Windows.Forms.DataGridView();
-            this.UniformActivation = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.UFID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.UnifTeam = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TUNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ULTF = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.ShoulderNums = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.SleeveNums = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.SleeveDecal = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.HelmetNums = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.HelmetSideNum = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.UniformsActivated = new System.Windows.Forms.Label();
-            this.label169 = new System.Windows.Forms.Label();
-            this.TeamAltUniCheck = new System.Windows.Forms.CheckBox();
-            this.TeamPrimaryUniCheck = new System.Windows.Forms.CheckBox();
-            this.TeamUniformSelectBox = new System.Windows.Forms.ComboBox();
-            this.label168 = new System.Windows.Forms.Label();
-            this.tabBowls = new System.Windows.Forms.TabPage();
-            this.SaveBowlButton = new System.Windows.Forms.Button();
-            this.BowlsGrid = new System.Windows.Forms.DataGridView();
-            this.ActiveBowl = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.BIDX = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BNME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TeamA = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.ScoreA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vs = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ScoreB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TeamB = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.SGID = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.BMON = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.BDAY = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.SEWN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
-            this.RandomizeRecruitNamesButton = new System.Windows.Forms.Button();
             qbTend = new System.Windows.Forms.Button();
             this.mainMenu.SuspendLayout();
             this.tableMenu.SuspendLayout();
@@ -703,6 +711,16 @@ namespace DB_EDITOR
             this.TablePropsgroupBox.SuspendLayout();
             this.FieldsPropsgroupBox.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.tabBowls.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BowlsGrid)).BeginInit();
+            this.tabUniforms.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.UniformGrid)).BeginInit();
+            this.groupBox4.SuspendLayout();
+            this.tabRecruits.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             this.tabDepthCharts.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DCHTGrid)).BeginInit();
             this.tabPlaybook.SuspendLayout();
@@ -717,7 +735,6 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.GlobalAttNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FillRosterPCT)).BeginInit();
             this.tabOffSeason.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.polyNamesPCT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.removeInterestTeams)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minTRPA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minRecPts)).BeginInit();
@@ -793,16 +810,6 @@ namespace DB_EDITOR
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
-            this.tabRecruits.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            this.tabUniforms.SuspendLayout();
-            this.groupBox5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.UniformGrid)).BeginInit();
-            this.groupBox4.SuspendLayout();
-            this.tabBowls.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BowlsGrid)).BeginInit();
             this.SuspendLayout();
             // 
             // qbTend
@@ -1238,6 +1245,799 @@ namespace DB_EDITOR
             this.DB1Button.UseVisualStyleBackColor = true;
             this.DB1Button.CheckedChanged += new System.EventHandler(this.DB1Button_CheckedChanged);
             // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
+            // 
+            // tabBowls
+            // 
+            this.tabBowls.Controls.Add(this.SaveBowlButton);
+            this.tabBowls.Controls.Add(this.BowlsGrid);
+            this.tabBowls.Location = new System.Drawing.Point(4, 24);
+            this.tabBowls.Name = "tabBowls";
+            this.tabBowls.Padding = new System.Windows.Forms.Padding(3);
+            this.tabBowls.Size = new System.Drawing.Size(1152, 615);
+            this.tabBowls.TabIndex = 14;
+            this.tabBowls.Text = "Bowls";
+            this.tabBowls.UseVisualStyleBackColor = true;
+            // 
+            // SaveBowlButton
+            // 
+            this.SaveBowlButton.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.SaveBowlButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SaveBowlButton.Location = new System.Drawing.Point(962, 19);
+            this.SaveBowlButton.Name = "SaveBowlButton";
+            this.SaveBowlButton.Size = new System.Drawing.Size(171, 52);
+            this.SaveBowlButton.TabIndex = 6;
+            this.SaveBowlButton.Text = "Update Database";
+            this.SaveBowlButton.UseVisualStyleBackColor = false;
+            this.SaveBowlButton.Click += new System.EventHandler(this.SaveBowlButton_Click);
+            // 
+            // BowlsGrid
+            // 
+            this.BowlsGrid.AllowUserToAddRows = false;
+            this.BowlsGrid.AllowUserToDeleteRows = false;
+            this.BowlsGrid.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle42.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            this.BowlsGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle42;
+            this.BowlsGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle43.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle43.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle43.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle43.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle43.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle43.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.BowlsGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle43;
+            this.BowlsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.BowlsGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ActiveBowl,
+            this.BIDX,
+            this.BNME,
+            this.TeamA,
+            this.ScoreA,
+            this.vs,
+            this.ScoreB,
+            this.TeamB,
+            this.SGID,
+            this.BMON,
+            this.BDAY,
+            this.SEWN});
+            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle44.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle44.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle44.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle44.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle44.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle44.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.BowlsGrid.DefaultCellStyle = dataGridViewCellStyle44;
+            this.BowlsGrid.Location = new System.Drawing.Point(6, 6);
+            this.BowlsGrid.Name = "BowlsGrid";
+            dataGridViewCellStyle62.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle62.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle62.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle62.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle62.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle62.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle62.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.BowlsGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle62;
+            this.BowlsGrid.Size = new System.Drawing.Size(950, 603);
+            this.BowlsGrid.TabIndex = 4;
+            this.BowlsGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.BowlsGrid_DataError);
+            // 
+            // ActiveBowl
+            // 
+            this.ActiveBowl.FillWeight = 7F;
+            this.ActiveBowl.HeaderText = "Active";
+            this.ActiveBowl.Name = "ActiveBowl";
+            // 
+            // BIDX
+            // 
+            this.BIDX.FillWeight = 8F;
+            this.BIDX.HeaderText = "BIDX";
+            this.BIDX.Name = "BIDX";
+            this.BIDX.ReadOnly = true;
+            this.BIDX.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // BNME
+            // 
+            this.BNME.FillWeight = 25F;
+            this.BNME.HeaderText = "Bowl Name";
+            this.BNME.Name = "BNME";
+            this.BNME.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // TeamA
+            // 
+            this.TeamA.FillWeight = 20F;
+            this.TeamA.HeaderText = "Team";
+            this.TeamA.Name = "TeamA";
+            // 
+            // ScoreA
+            // 
+            this.ScoreA.FillWeight = 7F;
+            this.ScoreA.HeaderText = "Score";
+            this.ScoreA.Name = "ScoreA";
+            this.ScoreA.ReadOnly = true;
+            this.ScoreA.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // vs
+            // 
+            this.vs.FillWeight = 4F;
+            this.vs.HeaderText = "vs";
+            this.vs.Name = "vs";
+            this.vs.ReadOnly = true;
+            this.vs.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // ScoreB
+            // 
+            this.ScoreB.FillWeight = 7F;
+            this.ScoreB.HeaderText = "Score";
+            this.ScoreB.Name = "ScoreB";
+            this.ScoreB.ReadOnly = true;
+            this.ScoreB.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // TeamB
+            // 
+            this.TeamB.FillWeight = 20F;
+            this.TeamB.HeaderText = "Team";
+            this.TeamB.Name = "TeamB";
+            // 
+            // SGID
+            // 
+            this.SGID.FillWeight = 25F;
+            this.SGID.HeaderText = "Stadium";
+            this.SGID.Name = "SGID";
+            // 
+            // BMON
+            // 
+            this.BMON.FillWeight = 8F;
+            this.BMON.HeaderText = "Month";
+            this.BMON.Name = "BMON";
+            // 
+            // BDAY
+            // 
+            this.BDAY.FillWeight = 8F;
+            this.BDAY.HeaderText = "Date";
+            this.BDAY.Name = "BDAY";
+            // 
+            // SEWN
+            // 
+            this.SEWN.FillWeight = 6F;
+            this.SEWN.HeaderText = "Week";
+            this.SEWN.Name = "SEWN";
+            this.SEWN.ReadOnly = true;
+            // 
+            // tabUniforms
+            // 
+            this.tabUniforms.Controls.Add(this.ImportTeamUNIF);
+            this.tabUniforms.Controls.Add(this.ExportTeamUNIF);
+            this.tabUniforms.Controls.Add(this.label172);
+            this.tabUniforms.Controls.Add(this.UpdateUNIFButton);
+            this.tabUniforms.Controls.Add(this.groupBox5);
+            this.tabUniforms.Controls.Add(this.UniformGrid);
+            this.tabUniforms.Controls.Add(this.groupBox4);
+            this.tabUniforms.Location = new System.Drawing.Point(4, 24);
+            this.tabUniforms.Name = "tabUniforms";
+            this.tabUniforms.Padding = new System.Windows.Forms.Padding(3);
+            this.tabUniforms.Size = new System.Drawing.Size(1152, 615);
+            this.tabUniforms.TabIndex = 13;
+            this.tabUniforms.Text = "Uniforms";
+            this.tabUniforms.UseVisualStyleBackColor = true;
+            // 
+            // ImportTeamUNIF
+            // 
+            this.ImportTeamUNIF.BackColor = System.Drawing.SystemColors.Info;
+            this.ImportTeamUNIF.Location = new System.Drawing.Point(1014, 232);
+            this.ImportTeamUNIF.Name = "ImportTeamUNIF";
+            this.ImportTeamUNIF.Size = new System.Drawing.Size(125, 50);
+            this.ImportTeamUNIF.TabIndex = 10;
+            this.ImportTeamUNIF.Text = "Import Team";
+            this.ImportTeamUNIF.UseVisualStyleBackColor = false;
+            this.ImportTeamUNIF.Click += new System.EventHandler(this.ImportTeamUNIF_Click);
+            // 
+            // ExportTeamUNIF
+            // 
+            this.ExportTeamUNIF.BackColor = System.Drawing.SystemColors.Info;
+            this.ExportTeamUNIF.Location = new System.Drawing.Point(848, 232);
+            this.ExportTeamUNIF.Name = "ExportTeamUNIF";
+            this.ExportTeamUNIF.Size = new System.Drawing.Size(125, 50);
+            this.ExportTeamUNIF.TabIndex = 9;
+            this.ExportTeamUNIF.Text = "Export Team";
+            this.ExportTeamUNIF.UseVisualStyleBackColor = false;
+            this.ExportTeamUNIF.Click += new System.EventHandler(this.ExportTeamUNIF_Click);
+            // 
+            // label172
+            // 
+            this.label172.AutoSize = true;
+            this.label172.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label172.Location = new System.Drawing.Point(872, 15);
+            this.label172.Name = "label172";
+            this.label172.Size = new System.Drawing.Size(248, 24);
+            this.label172.TabIndex = 8;
+            this.label172.Text = "Uniform Expansion Editor";
+            // 
+            // UpdateUNIFButton
+            // 
+            this.UpdateUNIFButton.BackColor = System.Drawing.Color.Crimson;
+            this.UpdateUNIFButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpdateUNIFButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.UpdateUNIFButton.Location = new System.Drawing.Point(846, 342);
+            this.UpdateUNIFButton.Name = "UpdateUNIFButton";
+            this.UpdateUNIFButton.Size = new System.Drawing.Size(293, 67);
+            this.UpdateUNIFButton.TabIndex = 6;
+            this.UpdateUNIFButton.Text = "Update Database";
+            this.UpdateUNIFButton.UseVisualStyleBackColor = false;
+            this.UpdateUNIFButton.Click += new System.EventHandler(this.UpdateUNIFButton_Click);
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.label170);
+            this.groupBox5.Controls.Add(this.GlobalAltCheck);
+            this.groupBox5.Controls.Add(this.GlobalPrimaryCheck);
+            this.groupBox5.Controls.Add(this.GlobalUniFilter);
+            this.groupBox5.Controls.Add(this.label171);
+            this.groupBox5.Location = new System.Drawing.Point(846, 451);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(293, 148);
+            this.groupBox5.TabIndex = 5;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "Global Editor";
+            // 
+            // label170
+            // 
+            this.label170.AutoSize = true;
+            this.label170.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label170.Location = new System.Drawing.Point(36, 69);
+            this.label170.Name = "label170";
+            this.label170.Size = new System.Drawing.Size(109, 15);
+            this.label170.TabIndex = 5;
+            this.label170.Text = "Quick Functions";
+            // 
+            // GlobalAltCheck
+            // 
+            this.GlobalAltCheck.AutoSize = true;
+            this.GlobalAltCheck.Location = new System.Drawing.Point(56, 110);
+            this.GlobalAltCheck.Name = "GlobalAltCheck";
+            this.GlobalAltCheck.Size = new System.Drawing.Size(162, 17);
+            this.GlobalAltCheck.TabIndex = 4;
+            this.GlobalAltCheck.Text = "Enable All Alternate Uniforms";
+            this.GlobalAltCheck.UseVisualStyleBackColor = true;
+            this.GlobalAltCheck.CheckedChanged += new System.EventHandler(this.GlobalAltCheck_CheckedChanged);
+            // 
+            // GlobalPrimaryCheck
+            // 
+            this.GlobalPrimaryCheck.AutoSize = true;
+            this.GlobalPrimaryCheck.Location = new System.Drawing.Point(56, 87);
+            this.GlobalPrimaryCheck.Name = "GlobalPrimaryCheck";
+            this.GlobalPrimaryCheck.Size = new System.Drawing.Size(165, 17);
+            this.GlobalPrimaryCheck.TabIndex = 3;
+            this.GlobalPrimaryCheck.Text = "Enable Home/Away Uniforms";
+            this.GlobalPrimaryCheck.UseVisualStyleBackColor = true;
+            this.GlobalPrimaryCheck.CheckedChanged += new System.EventHandler(this.GlobalPrimaryCheck_CheckedChanged);
+            // 
+            // GlobalUniFilter
+            // 
+            this.GlobalUniFilter.FormattingEnabled = true;
+            this.GlobalUniFilter.Location = new System.Drawing.Point(56, 31);
+            this.GlobalUniFilter.Name = "GlobalUniFilter";
+            this.GlobalUniFilter.Size = new System.Drawing.Size(174, 21);
+            this.GlobalUniFilter.TabIndex = 1;
+            this.GlobalUniFilter.Visible = false;
+            // 
+            // label171
+            // 
+            this.label171.AutoSize = true;
+            this.label171.Location = new System.Drawing.Point(168, 15);
+            this.label171.Name = "label171";
+            this.label171.Size = new System.Drawing.Size(62, 13);
+            this.label171.TabIndex = 2;
+            this.label171.Text = "Global Filter";
+            this.label171.Visible = false;
+            // 
+            // UniformGrid
+            // 
+            this.UniformGrid.AllowUserToAddRows = false;
+            this.UniformGrid.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle80.BackColor = System.Drawing.Color.LightGray;
+            this.UniformGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle80;
+            this.UniformGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle81.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle81.BackColor = System.Drawing.SystemColors.MenuBar;
+            dataGridViewCellStyle81.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle81.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle81.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle81.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle81.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.UniformGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle81;
+            this.UniformGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.UniformGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.UniformActivation,
+            this.UFID,
+            this.UnifTeam,
+            this.TUNI,
+            this.ULTF,
+            this.ShoulderNums,
+            this.SleeveNums,
+            this.SleeveDecal,
+            this.HelmetNums,
+            this.HelmetSideNum});
+            dataGridViewCellStyle82.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle82.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle82.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle82.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle82.NullValue = "N/A";
+            dataGridViewCellStyle82.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle82.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle82.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.UniformGrid.DefaultCellStyle = dataGridViewCellStyle82;
+            this.UniformGrid.EnableHeadersVisualStyles = false;
+            this.UniformGrid.Location = new System.Drawing.Point(32, 15);
+            this.UniformGrid.Name = "UniformGrid";
+            dataGridViewCellStyle83.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle83.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle83.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle83.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle83.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle83.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle83.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.UniformGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle83;
+            this.UniformGrid.Size = new System.Drawing.Size(803, 584);
+            this.UniformGrid.TabIndex = 0;
+            this.UniformGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.UniformGrid_CellContentClick);
+            this.UniformGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.UniformGrid_DataError);
+            // 
+            // UniformActivation
+            // 
+            this.UniformActivation.FillWeight = 79.95358F;
+            this.UniformActivation.HeaderText = "Activate";
+            this.UniformActivation.Name = "UniformActivation";
+            // 
+            // UFID
+            // 
+            this.UFID.FillWeight = 81.70174F;
+            this.UFID.HeaderText = "Uniform ID";
+            this.UFID.Name = "UFID";
+            this.UFID.ReadOnly = true;
+            // 
+            // UnifTeam
+            // 
+            this.UnifTeam.FillWeight = 190.7116F;
+            this.UnifTeam.HeaderText = "Team Name";
+            this.UnifTeam.Name = "UnifTeam";
+            this.UnifTeam.ReadOnly = true;
+            // 
+            // TUNI
+            // 
+            this.TUNI.FillWeight = 78.89952F;
+            this.TUNI.HeaderText = "Uniform Slot";
+            this.TUNI.Name = "TUNI";
+            this.TUNI.ReadOnly = true;
+            // 
+            // ULTF
+            // 
+            this.ULTF.FillWeight = 132.1599F;
+            this.ULTF.HeaderText = "Uniform Color";
+            this.ULTF.Name = "ULTF";
+            this.ULTF.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // ShoulderNums
+            // 
+            this.ShoulderNums.FillWeight = 78.79823F;
+            this.ShoulderNums.HeaderText = "Shoulder Numbers";
+            this.ShoulderNums.Name = "ShoulderNums";
+            // 
+            // SleeveNums
+            // 
+            this.SleeveNums.FillWeight = 78.0737F;
+            this.SleeveNums.HeaderText = "Sleeve Numbers";
+            this.SleeveNums.Name = "SleeveNums";
+            this.SleeveNums.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // SleeveDecal
+            // 
+            this.SleeveDecal.FillWeight = 77.25506F;
+            this.SleeveDecal.HeaderText = "Sleeve Decal";
+            this.SleeveDecal.Name = "SleeveDecal";
+            // 
+            // HelmetNums
+            // 
+            this.HelmetNums.FillWeight = 139.5939F;
+            this.HelmetNums.HeaderText = "Helmet Numbers";
+            this.HelmetNums.Name = "HelmetNums";
+            // 
+            // HelmetSideNum
+            // 
+            this.HelmetSideNum.FillWeight = 82.41927F;
+            this.HelmetSideNum.HeaderText = "Helmet Side Numbers";
+            this.HelmetSideNum.Name = "HelmetSideNum";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.UniformsActivated);
+            this.groupBox4.Controls.Add(this.label169);
+            this.groupBox4.Controls.Add(this.TeamAltUniCheck);
+            this.groupBox4.Controls.Add(this.TeamPrimaryUniCheck);
+            this.groupBox4.Controls.Add(this.TeamUniformSelectBox);
+            this.groupBox4.Controls.Add(this.label168);
+            this.groupBox4.Location = new System.Drawing.Point(848, 53);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(293, 160);
+            this.groupBox4.TabIndex = 4;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Team Editor";
+            // 
+            // UniformsActivated
+            // 
+            this.UniformsActivated.AutoSize = true;
+            this.UniformsActivated.Location = new System.Drawing.Point(53, 133);
+            this.UniformsActivated.Name = "UniformsActivated";
+            this.UniformsActivated.Size = new System.Drawing.Size(116, 13);
+            this.UniformsActivated.TabIndex = 6;
+            this.UniformsActivated.Text = "Uniforms Activated: XX";
+            // 
+            // label169
+            // 
+            this.label169.AutoSize = true;
+            this.label169.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label169.Location = new System.Drawing.Point(36, 69);
+            this.label169.Name = "label169";
+            this.label169.Size = new System.Drawing.Size(109, 15);
+            this.label169.TabIndex = 5;
+            this.label169.Text = "Quick Functions";
+            // 
+            // TeamAltUniCheck
+            // 
+            this.TeamAltUniCheck.AutoSize = true;
+            this.TeamAltUniCheck.Location = new System.Drawing.Point(56, 110);
+            this.TeamAltUniCheck.Name = "TeamAltUniCheck";
+            this.TeamAltUniCheck.Size = new System.Drawing.Size(162, 17);
+            this.TeamAltUniCheck.TabIndex = 4;
+            this.TeamAltUniCheck.Text = "Enable All Alternate Uniforms";
+            this.TeamAltUniCheck.UseVisualStyleBackColor = true;
+            this.TeamAltUniCheck.CheckedChanged += new System.EventHandler(this.TeamAltUniCheck_CheckedChanged);
+            // 
+            // TeamPrimaryUniCheck
+            // 
+            this.TeamPrimaryUniCheck.AutoSize = true;
+            this.TeamPrimaryUniCheck.Location = new System.Drawing.Point(56, 87);
+            this.TeamPrimaryUniCheck.Name = "TeamPrimaryUniCheck";
+            this.TeamPrimaryUniCheck.Size = new System.Drawing.Size(165, 17);
+            this.TeamPrimaryUniCheck.TabIndex = 3;
+            this.TeamPrimaryUniCheck.Text = "Enable Home/Away Uniforms";
+            this.TeamPrimaryUniCheck.UseVisualStyleBackColor = true;
+            this.TeamPrimaryUniCheck.CheckedChanged += new System.EventHandler(this.TeamPrimaryUniCheck_CheckedChanged);
+            // 
+            // TeamUniformSelectBox
+            // 
+            this.TeamUniformSelectBox.FormattingEnabled = true;
+            this.TeamUniformSelectBox.Location = new System.Drawing.Point(56, 31);
+            this.TeamUniformSelectBox.Name = "TeamUniformSelectBox";
+            this.TeamUniformSelectBox.Size = new System.Drawing.Size(174, 21);
+            this.TeamUniformSelectBox.TabIndex = 1;
+            this.TeamUniformSelectBox.SelectedIndexChanged += new System.EventHandler(this.TeamUniformSelectBox_SelectedIndexChanged);
+            // 
+            // label168
+            // 
+            this.label168.AutoSize = true;
+            this.label168.Location = new System.Drawing.Point(149, 15);
+            this.label168.Name = "label168";
+            this.label168.Size = new System.Drawing.Size(81, 13);
+            this.label168.TabIndex = 2;
+            this.label168.Text = "Team Selection";
+            // 
+            // tabRecruits
+            // 
+            this.tabRecruits.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.tabRecruits.Controls.Add(this.textBox21);
+            this.tabRecruits.Controls.Add(this.textBox22);
+            this.tabRecruits.Controls.Add(this.textBox23);
+            this.tabRecruits.Controls.Add(this.label153);
+            this.tabRecruits.Controls.Add(this.numericUpDown1);
+            this.tabRecruits.Controls.Add(this.label154);
+            this.tabRecruits.Controls.Add(this.comboBox1);
+            this.tabRecruits.Controls.Add(this.label155);
+            this.tabRecruits.Controls.Add(this.comboBox2);
+            this.tabRecruits.Controls.Add(this.label156);
+            this.tabRecruits.Controls.Add(this.numericUpDown2);
+            this.tabRecruits.Controls.Add(this.label157);
+            this.tabRecruits.Controls.Add(this.numericUpDown3);
+            this.tabRecruits.Controls.Add(this.label158);
+            this.tabRecruits.Controls.Add(this.comboBox3);
+            this.tabRecruits.Controls.Add(this.label159);
+            this.tabRecruits.Controls.Add(this.comboBox4);
+            this.tabRecruits.Controls.Add(this.label160);
+            this.tabRecruits.Controls.Add(this.comboBox5);
+            this.tabRecruits.Controls.Add(this.label161);
+            this.tabRecruits.Controls.Add(this.comboBox6);
+            this.tabRecruits.Controls.Add(this.label162);
+            this.tabRecruits.Controls.Add(this.comboBox7);
+            this.tabRecruits.Controls.Add(this.label163);
+            this.tabRecruits.Controls.Add(this.comboBox8);
+            this.tabRecruits.Controls.Add(this.label164);
+            this.tabRecruits.Controls.Add(this.label165);
+            this.tabRecruits.Controls.Add(this.label166);
+            this.tabRecruits.Location = new System.Drawing.Point(4, 24);
+            this.tabRecruits.Name = "tabRecruits";
+            this.tabRecruits.Size = new System.Drawing.Size(1152, 615);
+            this.tabRecruits.TabIndex = 12;
+            this.tabRecruits.Text = "Recruits";
+            // 
+            // textBox21
+            // 
+            this.textBox21.BackColor = System.Drawing.SystemColors.Info;
+            this.textBox21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox21.Location = new System.Drawing.Point(1030, 62);
+            this.textBox21.Name = "textBox21";
+            this.textBox21.ReadOnly = true;
+            this.textBox21.Size = new System.Drawing.Size(53, 22);
+            this.textBox21.TabIndex = 106;
+            this.textBox21.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox22
+            // 
+            this.textBox22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox22.Location = new System.Drawing.Point(833, 62);
+            this.textBox22.Name = "textBox22";
+            this.textBox22.Size = new System.Drawing.Size(111, 22);
+            this.textBox22.TabIndex = 103;
+            // 
+            // textBox23
+            // 
+            this.textBox23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox23.Location = new System.Drawing.Point(711, 62);
+            this.textBox23.Name = "textBox23";
+            this.textBox23.Size = new System.Drawing.Size(116, 22);
+            this.textBox23.TabIndex = 102;
+            // 
+            // label153
+            // 
+            this.label153.AutoSize = true;
+            this.label153.Location = new System.Drawing.Point(897, 96);
+            this.label153.Name = "label153";
+            this.label153.Size = new System.Drawing.Size(37, 13);
+            this.label153.TabIndex = 129;
+            this.label153.Text = "Jersey";
+            this.label153.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(897, 111);
+            this.numericUpDown1.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(53, 20);
+            this.numericUpDown1.TabIndex = 128;
+            // 
+            // label154
+            // 
+            this.label154.AutoSize = true;
+            this.label154.Location = new System.Drawing.Point(801, 95);
+            this.label154.Name = "label154";
+            this.label154.Size = new System.Drawing.Size(46, 13);
+            this.label154.TabIndex = 127;
+            this.label154.Text = "Redshirt";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(804, 111);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(79, 21);
+            this.comboBox1.TabIndex = 126;
+            // 
+            // label155
+            // 
+            this.label155.AutoSize = true;
+            this.label155.Location = new System.Drawing.Point(718, 96);
+            this.label155.Name = "label155";
+            this.label155.Size = new System.Drawing.Size(29, 13);
+            this.label155.TabIndex = 125;
+            this.label155.Text = "Year";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(719, 111);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(79, 21);
+            this.comboBox2.TabIndex = 124;
+            // 
+            // label156
+            // 
+            this.label156.AutoSize = true;
+            this.label156.Location = new System.Drawing.Point(1027, 96);
+            this.label156.Name = "label156";
+            this.label156.Size = new System.Drawing.Size(63, 13);
+            this.label156.TabIndex = 123;
+            this.label156.Text = "Weight (lbs)";
+            this.label156.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // numericUpDown2
+            // 
+            this.numericUpDown2.Location = new System.Drawing.Point(1026, 111);
+            this.numericUpDown2.Maximum = new decimal(new int[] {
+            415,
+            0,
+            0,
+            0});
+            this.numericUpDown2.Minimum = new decimal(new int[] {
+            160,
+            0,
+            0,
+            0});
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.Size = new System.Drawing.Size(57, 20);
+            this.numericUpDown2.TabIndex = 122;
+            this.numericUpDown2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numericUpDown2.Value = new decimal(new int[] {
+            160,
+            0,
+            0,
+            0});
+            // 
+            // label157
+            // 
+            this.label157.AutoSize = true;
+            this.label157.Location = new System.Drawing.Point(960, 96);
+            this.label157.Name = "label157";
+            this.label157.Size = new System.Drawing.Size(55, 13);
+            this.label157.TabIndex = 121;
+            this.label157.Text = "Height (in)";
+            this.label157.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // numericUpDown3
+            // 
+            this.numericUpDown3.Location = new System.Drawing.Point(963, 111);
+            this.numericUpDown3.Maximum = new decimal(new int[] {
+            127,
+            0,
+            0,
+            0});
+            this.numericUpDown3.Name = "numericUpDown3";
+            this.numericUpDown3.Size = new System.Drawing.Size(57, 20);
+            this.numericUpDown3.TabIndex = 120;
+            this.numericUpDown3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label158
+            // 
+            this.label158.AutoSize = true;
+            this.label158.Location = new System.Drawing.Point(997, 137);
+            this.label158.Name = "label158";
+            this.label158.Size = new System.Drawing.Size(52, 13);
+            this.label158.TabIndex = 119;
+            this.label158.Text = "Hair Style";
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Location = new System.Drawing.Point(1000, 153);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(90, 21);
+            this.comboBox3.TabIndex = 118;
+            // 
+            // label159
+            // 
+            this.label159.AutoSize = true;
+            this.label159.Location = new System.Drawing.Point(897, 137);
+            this.label159.Name = "label159";
+            this.label159.Size = new System.Drawing.Size(53, 13);
+            this.label159.TabIndex = 117;
+            this.label159.Text = "Hair Color";
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Location = new System.Drawing.Point(900, 153);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(94, 21);
+            this.comboBox4.TabIndex = 116;
+            // 
+            // label160
+            // 
+            this.label160.AutoSize = true;
+            this.label160.Location = new System.Drawing.Point(840, 136);
+            this.label160.Name = "label160";
+            this.label160.Size = new System.Drawing.Size(31, 13);
+            this.label160.TabIndex = 115;
+            this.label160.Text = "Face";
+            // 
+            // comboBox5
+            // 
+            this.comboBox5.FormattingEnabled = true;
+            this.comboBox5.Location = new System.Drawing.Point(843, 153);
+            this.comboBox5.Name = "comboBox5";
+            this.comboBox5.Size = new System.Drawing.Size(51, 21);
+            this.comboBox5.TabIndex = 114;
+            // 
+            // label161
+            // 
+            this.label161.AutoSize = true;
+            this.label161.Location = new System.Drawing.Point(789, 136);
+            this.label161.Name = "label161";
+            this.label161.Size = new System.Drawing.Size(38, 13);
+            this.label161.TabIndex = 113;
+            this.label161.Text = "Shape";
+            // 
+            // comboBox6
+            // 
+            this.comboBox6.FormattingEnabled = true;
+            this.comboBox6.Location = new System.Drawing.Point(792, 153);
+            this.comboBox6.Name = "comboBox6";
+            this.comboBox6.Size = new System.Drawing.Size(45, 21);
+            this.comboBox6.TabIndex = 112;
+            // 
+            // label162
+            // 
+            this.label162.AutoSize = true;
+            this.label162.Location = new System.Drawing.Point(720, 136);
+            this.label162.Name = "label162";
+            this.label162.Size = new System.Drawing.Size(56, 13);
+            this.label162.TabIndex = 111;
+            this.label162.Text = "Skin Tone";
+            // 
+            // comboBox7
+            // 
+            this.comboBox7.FormattingEnabled = true;
+            this.comboBox7.Location = new System.Drawing.Point(719, 153);
+            this.comboBox7.Name = "comboBox7";
+            this.comboBox7.Size = new System.Drawing.Size(67, 21);
+            this.comboBox7.TabIndex = 110;
+            // 
+            // label163
+            // 
+            this.label163.AutoSize = true;
+            this.label163.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label163.Location = new System.Drawing.Point(950, 42);
+            this.label163.Name = "label163";
+            this.label163.Size = new System.Drawing.Size(63, 16);
+            this.label163.TabIndex = 109;
+            this.label163.Text = "Position";
+            // 
+            // comboBox8
+            // 
+            this.comboBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBox8.FormattingEnabled = true;
+            this.comboBox8.Location = new System.Drawing.Point(953, 60);
+            this.comboBox8.Name = "comboBox8";
+            this.comboBox8.Size = new System.Drawing.Size(60, 24);
+            this.comboBox8.TabIndex = 108;
+            // 
+            // label164
+            // 
+            this.label164.AutoSize = true;
+            this.label164.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label164.Location = new System.Drawing.Point(1027, 42);
+            this.label164.Name = "label164";
+            this.label164.Size = new System.Drawing.Size(57, 16);
+            this.label164.TabIndex = 107;
+            this.label164.Text = "Overall";
+            // 
+            // label165
+            // 
+            this.label165.AutoSize = true;
+            this.label165.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label165.Location = new System.Drawing.Point(830, 42);
+            this.label165.Name = "label165";
+            this.label165.Size = new System.Drawing.Size(81, 16);
+            this.label165.TabIndex = 105;
+            this.label165.Text = "Last Name";
+            // 
+            // label166
+            // 
+            this.label166.AutoSize = true;
+            this.label166.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label166.Location = new System.Drawing.Point(711, 42);
+            this.label166.Name = "label166";
+            this.label166.Size = new System.Drawing.Size(82, 16);
+            this.label166.TabIndex = 104;
+            this.label166.Text = "First Name";
+            // 
             // tabDepthCharts
             // 
             this.tabDepthCharts.Controls.Add(this.DCHTAutoSet);
@@ -1312,19 +2112,19 @@ namespace DB_EDITOR
             // 
             this.DCHTGrid.AllowUserToAddRows = false;
             this.DCHTGrid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DCHTGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle84.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DCHTGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle84;
             this.DCHTGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DCHTGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.DCHTGrid.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DCHTGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle85.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle85.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle85.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle85.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle85.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle85.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle85.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DCHTGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle85;
             this.DCHTGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DCHTGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.DCHTPPOS,
@@ -1334,18 +2134,26 @@ namespace DB_EDITOR
             this.DCHT3,
             this.DCHT4,
             this.DCHT5});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DCHTGrid.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle86.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle86.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle86.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle86.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle86.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle86.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle86.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DCHTGrid.DefaultCellStyle = dataGridViewCellStyle86;
             this.DCHTGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.DCHTGrid.Location = new System.Drawing.Point(159, 6);
             this.DCHTGrid.MultiSelect = false;
             this.DCHTGrid.Name = "DCHTGrid";
+            dataGridViewCellStyle87.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle87.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle87.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle87.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle87.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle87.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle87.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DCHTGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle87;
             this.DCHTGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.DCHTGrid.Size = new System.Drawing.Size(974, 585);
             this.DCHTGrid.TabIndex = 0;
@@ -1653,18 +2461,18 @@ namespace DB_EDITOR
             this.PlaybookGrid.AllowUserToAddRows = false;
             this.PlaybookGrid.AllowUserToDeleteRows = false;
             this.PlaybookGrid.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.PlaybookGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle88.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle88.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.PlaybookGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle88;
             this.PlaybookGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.LightSkyBlue;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.PlaybookGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle89.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle89.BackColor = System.Drawing.Color.LightSkyBlue;
+            dataGridViewCellStyle89.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle89.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle89.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle89.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle89.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PlaybookGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle89;
             this.PlaybookGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.PlaybookGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.PBRec,
@@ -1676,25 +2484,25 @@ namespace DB_EDITOR
             this.PlayName,
             this.PLYTVal,
             this.PLYT});
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.PlaybookGrid.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle91.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle91.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle91.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle91.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle91.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle91.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle91.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.PlaybookGrid.DefaultCellStyle = dataGridViewCellStyle91;
             this.PlaybookGrid.EnableHeadersVisualStyles = false;
             this.PlaybookGrid.Location = new System.Drawing.Point(12, 3);
             this.PlaybookGrid.Name = "PlaybookGrid";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.PlaybookGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle92.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle92.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle92.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle92.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle92.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle92.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle92.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PlaybookGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle92;
             this.PlaybookGrid.Size = new System.Drawing.Size(746, 606);
             this.PlaybookGrid.TabIndex = 0;
             // 
@@ -1728,8 +2536,8 @@ namespace DB_EDITOR
             // 
             // prct
             // 
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Info;
-            this.prct.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle90.BackColor = System.Drawing.SystemColors.Info;
+            this.prct.DefaultCellStyle = dataGridViewCellStyle90;
             this.prct.FillWeight = 81.47587F;
             this.prct.HeaderText = "PRCT ";
             this.prct.Name = "prct";
@@ -3004,10 +3812,10 @@ namespace DB_EDITOR
             // tabOffSeason
             // 
             this.tabOffSeason.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.tabOffSeason.Controls.Add(this.DetermineAthleteButton);
+            this.tabOffSeason.Controls.Add(this.RecalculateStarRankingsButton);
             this.tabOffSeason.Controls.Add(this.RandomizeRecruitNamesButton);
             this.tabOffSeason.Controls.Add(this.buttonRandomizeFaceShape);
-            this.tabOffSeason.Controls.Add(this.labelPolyNamesPCT);
-            this.tabOffSeason.Controls.Add(this.polyNamesPCT);
             this.tabOffSeason.Controls.Add(this.polyNames);
             this.tabOffSeason.Controls.Add(this.textBoxOffSeason);
             this.tabOffSeason.Controls.Add(this.textBoxOffSeasonTitle);
@@ -3032,6 +3840,45 @@ namespace DB_EDITOR
             this.tabOffSeason.TabIndex = 4;
             this.tabOffSeason.Text = "Recruiting";
             // 
+            // DetermineAthleteButton
+            // 
+            this.DetermineAthleteButton.BackColor = System.Drawing.SystemColors.Highlight;
+            this.DetermineAthleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DetermineAthleteButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.DetermineAthleteButton.Location = new System.Drawing.Point(273, 327);
+            this.DetermineAthleteButton.Name = "DetermineAthleteButton";
+            this.DetermineAthleteButton.Size = new System.Drawing.Size(110, 80);
+            this.DetermineAthleteButton.TabIndex = 23;
+            this.DetermineAthleteButton.Text = "Determine Athlete Best Position";
+            this.DetermineAthleteButton.UseVisualStyleBackColor = false;
+            this.DetermineAthleteButton.Click += new System.EventHandler(this.DetermineAthleteButton_Click);
+            // 
+            // RecalculateStarRankingsButton
+            // 
+            this.RecalculateStarRankingsButton.BackColor = System.Drawing.SystemColors.Highlight;
+            this.RecalculateStarRankingsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RecalculateStarRankingsButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.RecalculateStarRankingsButton.Location = new System.Drawing.Point(27, 424);
+            this.RecalculateStarRankingsButton.Name = "RecalculateStarRankingsButton";
+            this.RecalculateStarRankingsButton.Size = new System.Drawing.Size(356, 80);
+            this.RecalculateStarRankingsButton.TabIndex = 22;
+            this.RecalculateStarRankingsButton.Text = "Recalculate Recruit and Transfers Star Ranking";
+            this.RecalculateStarRankingsButton.UseVisualStyleBackColor = false;
+            this.RecalculateStarRankingsButton.Click += new System.EventHandler(this.RecalculateStarRankingsButton_Click);
+            // 
+            // RandomizeRecruitNamesButton
+            // 
+            this.RandomizeRecruitNamesButton.BackColor = System.Drawing.SystemColors.Highlight;
+            this.RandomizeRecruitNamesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RandomizeRecruitNamesButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.RandomizeRecruitNamesButton.Location = new System.Drawing.Point(148, 327);
+            this.RandomizeRecruitNamesButton.Name = "RandomizeRecruitNamesButton";
+            this.RandomizeRecruitNamesButton.Size = new System.Drawing.Size(110, 80);
+            this.RandomizeRecruitNamesButton.TabIndex = 21;
+            this.RandomizeRecruitNamesButton.Text = "Randomize Recruits Names";
+            this.RandomizeRecruitNamesButton.UseVisualStyleBackColor = false;
+            this.RandomizeRecruitNamesButton.Click += new System.EventHandler(this.RandomizeRecruitNamesButton_Click);
+            // 
             // buttonRandomizeFaceShape
             // 
             this.buttonRandomizeFaceShape.BackColor = System.Drawing.SystemColors.Highlight;
@@ -3045,43 +3892,16 @@ namespace DB_EDITOR
             this.buttonRandomizeFaceShape.UseVisualStyleBackColor = false;
             this.buttonRandomizeFaceShape.Click += new System.EventHandler(this.buttonRandomizeFaceSkin_Click);
             // 
-            // labelPolyNamesPCT
-            // 
-            this.labelPolyNamesPCT.AutoSize = true;
-            this.labelPolyNamesPCT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPolyNamesPCT.Location = new System.Drawing.Point(142, 560);
-            this.labelPolyNamesPCT.Name = "labelPolyNamesPCT";
-            this.labelPolyNamesPCT.Size = new System.Drawing.Size(76, 16);
-            this.labelPolyNamesPCT.TabIndex = 19;
-            this.labelPolyNamesPCT.Text = "% Chance";
-            // 
-            // polyNamesPCT
-            // 
-            this.polyNamesPCT.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.polyNamesPCT.Location = new System.Drawing.Point(156, 537);
-            this.polyNamesPCT.Name = "polyNamesPCT";
-            this.polyNamesPCT.Size = new System.Drawing.Size(52, 20);
-            this.polyNamesPCT.TabIndex = 18;
-            this.polyNamesPCT.Value = new decimal(new int[] {
-            85,
-            0,
-            0,
-            0});
-            // 
             // polyNames
             // 
             this.polyNames.BackColor = System.Drawing.SystemColors.Highlight;
             this.polyNames.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.polyNames.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.polyNames.Location = new System.Drawing.Point(26, 510);
+            this.polyNames.Location = new System.Drawing.Point(26, 528);
             this.polyNames.Name = "polyNames";
-            this.polyNames.Size = new System.Drawing.Size(110, 70);
+            this.polyNames.Size = new System.Drawing.Size(357, 70);
             this.polyNames.TabIndex = 17;
-            this.polyNames.Text = "Polynesian Last Name Generator";
+            this.polyNames.Text = "Polynesian Player/Name Generator";
             this.polyNames.UseVisualStyleBackColor = false;
             this.polyNames.Click += new System.EventHandler(this.PolyNames_Click);
             // 
@@ -3089,10 +3909,10 @@ namespace DB_EDITOR
             // 
             this.textBoxOffSeason.Enabled = false;
             this.textBoxOffSeason.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxOffSeason.Location = new System.Drawing.Point(600, 57);
+            this.textBoxOffSeason.Location = new System.Drawing.Point(511, 40);
             this.textBoxOffSeason.Multiline = true;
             this.textBoxOffSeason.Name = "textBoxOffSeason";
-            this.textBoxOffSeason.Size = new System.Drawing.Size(526, 523);
+            this.textBoxOffSeason.Size = new System.Drawing.Size(615, 569);
             this.textBoxOffSeason.TabIndex = 16;
             this.textBoxOffSeason.Text = resources.GetString("textBoxOffSeason.Text");
             // 
@@ -3100,9 +3920,9 @@ namespace DB_EDITOR
             // 
             this.textBoxOffSeasonTitle.Enabled = false;
             this.textBoxOffSeasonTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxOffSeasonTitle.Location = new System.Drawing.Point(600, 20);
+            this.textBoxOffSeasonTitle.Location = new System.Drawing.Point(511, 6);
             this.textBoxOffSeasonTitle.Name = "textBoxOffSeasonTitle";
-            this.textBoxOffSeasonTitle.Size = new System.Drawing.Size(526, 31);
+            this.textBoxOffSeasonTitle.Size = new System.Drawing.Size(615, 31);
             this.textBoxOffSeasonTitle.TabIndex = 15;
             this.textBoxOffSeasonTitle.Text = "Off-Season Recruiting Tools";
             this.textBoxOffSeasonTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -3141,7 +3961,7 @@ namespace DB_EDITOR
             this.buttonInterestedTeams.BackColor = System.Drawing.SystemColors.Highlight;
             this.buttonInterestedTeams.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonInterestedTeams.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonInterestedTeams.Location = new System.Drawing.Point(26, 123);
+            this.buttonInterestedTeams.Location = new System.Drawing.Point(26, 126);
             this.buttonInterestedTeams.Name = "buttonInterestedTeams";
             this.buttonInterestedTeams.Size = new System.Drawing.Size(110, 80);
             this.buttonInterestedTeams.TabIndex = 12;
@@ -3153,7 +3973,7 @@ namespace DB_EDITOR
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(145, 50);
+            this.label12.Location = new System.Drawing.Point(146, 40);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(76, 16);
             this.label12.TabIndex = 11;
@@ -3162,7 +3982,7 @@ namespace DB_EDITOR
             // minTRPA
             // 
             this.minTRPA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minTRPA.Location = new System.Drawing.Point(157, 23);
+            this.minTRPA.Location = new System.Drawing.Point(158, 13);
             this.minTRPA.Maximum = new decimal(new int[] {
             17,
             0,
@@ -3186,7 +4006,7 @@ namespace DB_EDITOR
             // 
             this.labelMinRecPts.AutoSize = true;
             this.labelMinRecPts.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMinRecPts.Location = new System.Drawing.Point(142, 104);
+            this.labelMinRecPts.Location = new System.Drawing.Point(143, 94);
             this.labelMinRecPts.Name = "labelMinRecPts";
             this.labelMinRecPts.Size = new System.Drawing.Size(78, 16);
             this.labelMinRecPts.TabIndex = 9;
@@ -3201,7 +4021,7 @@ namespace DB_EDITOR
             0,
             0,
             0});
-            this.minRecPts.Location = new System.Drawing.Point(157, 79);
+            this.minRecPts.Location = new System.Drawing.Point(158, 69);
             this.minRecPts.Maximum = new decimal(new int[] {
             500,
             0,
@@ -3237,7 +4057,7 @@ namespace DB_EDITOR
             this.recruitTolerance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.recruitTolerance.Location = new System.Drawing.Point(157, 258);
             this.recruitTolerance.Maximum = new decimal(new int[] {
-            3,
+            5,
             0,
             0,
             0});
@@ -3245,7 +4065,7 @@ namespace DB_EDITOR
             this.recruitTolerance.Size = new System.Drawing.Size(52, 22);
             this.recruitTolerance.TabIndex = 6;
             this.recruitTolerance.Value = new decimal(new int[] {
-            1,
+            2,
             0,
             0,
             0});
@@ -3254,7 +4074,7 @@ namespace DB_EDITOR
             // 
             this.wkonLabel.AutoSize = true;
             this.wkonLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.wkonLabel.Location = new System.Drawing.Point(142, 471);
+            this.wkonLabel.Location = new System.Drawing.Point(390, 283);
             this.wkonLabel.Name = "wkonLabel";
             this.wkonLabel.Size = new System.Drawing.Size(78, 16);
             this.wkonLabel.TabIndex = 5;
@@ -3264,9 +4084,9 @@ namespace DB_EDITOR
             // toleranceWalkOn
             // 
             this.toleranceWalkOn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toleranceWalkOn.Location = new System.Drawing.Point(156, 446);
+            this.toleranceWalkOn.Location = new System.Drawing.Point(404, 258);
             this.toleranceWalkOn.Maximum = new decimal(new int[] {
-            4,
+            5,
             0,
             0,
             0});
@@ -3297,7 +4117,7 @@ namespace DB_EDITOR
             this.buttonRandWalkOns.BackColor = System.Drawing.SystemColors.Highlight;
             this.buttonRandWalkOns.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonRandWalkOns.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonRandWalkOns.Location = new System.Drawing.Point(26, 413);
+            this.buttonRandWalkOns.Location = new System.Drawing.Point(273, 232);
             this.buttonRandWalkOns.Name = "buttonRandWalkOns";
             this.buttonRandWalkOns.Size = new System.Drawing.Size(110, 80);
             this.buttonRandWalkOns.TabIndex = 2;
@@ -3321,6 +4141,7 @@ namespace DB_EDITOR
             // tabSeason
             // 
             this.tabSeason.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.tabSeason.Controls.Add(this.BodyProgressionButton);
             this.tabSeason.Controls.Add(this.CoachPrestigeButton);
             this.tabSeason.Controls.Add(this.label14);
             this.tabSeason.Controls.Add(this.numberPlayerCoach);
@@ -3355,6 +4176,19 @@ namespace DB_EDITOR
             this.tabSeason.Size = new System.Drawing.Size(1152, 615);
             this.tabSeason.TabIndex = 3;
             this.tabSeason.Text = "Dynasty";
+            // 
+            // BodyProgressionButton
+            // 
+            this.BodyProgressionButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.BodyProgressionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BodyProgressionButton.Location = new System.Drawing.Point(304, 196);
+            this.BodyProgressionButton.Name = "BodyProgressionButton";
+            this.BodyProgressionButton.Size = new System.Drawing.Size(110, 80);
+            this.BodyProgressionButton.TabIndex = 34;
+            this.BodyProgressionButton.Text = "Body Size Progresssion";
+            this.BodyProgressionButton.UseVisualStyleBackColor = false;
+            this.BodyProgressionButton.Visible = false;
+            this.BodyProgressionButton.Click += new System.EventHandler(this.BodyProgressionButton_Click);
             // 
             // CoachPrestigeButton
             // 
@@ -3460,7 +4294,7 @@ namespace DB_EDITOR
             // 
             this.buttonChaosTransfers.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.buttonChaosTransfers.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonChaosTransfers.Location = new System.Drawing.Point(304, 195);
+            this.buttonChaosTransfers.Location = new System.Drawing.Point(457, 59);
             this.buttonChaosTransfers.Name = "buttonChaosTransfers";
             this.buttonChaosTransfers.Size = new System.Drawing.Size(110, 80);
             this.buttonChaosTransfers.TabIndex = 23;
@@ -4343,7 +5177,6 @@ namespace DB_EDITOR
             this.tabPlayers.Controls.Add(this.PlayerTransferButton);
             this.tabPlayers.Controls.Add(this.label167);
             this.tabPlayers.Controls.Add(this.playerTeamBox);
-            this.tabPlayers.Controls.Add(this.label151);
             this.tabPlayers.Controls.Add(this.PRST);
             this.tabPlayers.Controls.Add(this.PGIDbox);
             this.tabPlayers.Controls.Add(this.PKACtext);
@@ -4368,6 +5201,7 @@ namespace DB_EDITOR
             this.tabPlayers.Controls.Add(this.POVRbox);
             this.tabPlayers.Controls.Add(this.PLNAtextBox);
             this.tabPlayers.Controls.Add(this.PFNAtextBox);
+            this.tabPlayers.Controls.Add(this.label151);
             this.tabPlayers.Controls.Add(this.label150);
             this.tabPlayers.Controls.Add(this.Helmet);
             this.tabPlayers.Controls.Add(this.label149);
@@ -4502,16 +5336,6 @@ namespace DB_EDITOR
             this.playerTeamBox.Size = new System.Drawing.Size(102, 20);
             this.playerTeamBox.TabIndex = 142;
             this.playerTeamBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label151
-            // 
-            this.label151.AutoSize = true;
-            this.label151.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label151.Location = new System.Drawing.Point(468, 587);
-            this.label151.Name = "label151";
-            this.label151.Size = new System.Drawing.Size(44, 16);
-            this.label151.TabIndex = 140;
-            this.label151.Text = "Pride";
             // 
             // PRST
             // 
@@ -4755,6 +5579,16 @@ namespace DB_EDITOR
             this.PFNAtextBox.TabIndex = 0;
             this.PFNAtextBox.TextChanged += new System.EventHandler(this.PFNAtextBox_TextChanged);
             this.PFNAtextBox.Leave += new System.EventHandler(this.PFNA_Leave);
+            // 
+            // label151
+            // 
+            this.label151.AutoSize = true;
+            this.label151.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label151.Location = new System.Drawing.Point(468, 587);
+            this.label151.Name = "label151";
+            this.label151.Size = new System.Drawing.Size(44, 16);
+            this.label151.TabIndex = 140;
+            this.label151.Text = "Pride";
             // 
             // label150
             // 
@@ -7329,11 +8163,35 @@ namespace DB_EDITOR
             this.tableGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.tableGridView.BackgroundColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle93.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle93.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle93.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle93.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle93.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle93.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle93.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tableGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle93;
             this.tableGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tableGridView.ContextMenuStrip = this.tableMenu;
+            dataGridViewCellStyle94.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle94.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle94.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle94.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle94.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle94.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle94.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.tableGridView.DefaultCellStyle = dataGridViewCellStyle94;
             this.tableGridView.GridColor = System.Drawing.SystemColors.Window;
             this.tableGridView.Location = new System.Drawing.Point(3, 6);
             this.tableGridView.Name = "tableGridView";
+            dataGridViewCellStyle95.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle95.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle95.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle95.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle95.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle95.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle95.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tableGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle95;
             this.tableGridView.RowHeadersVisible = false;
             this.tableGridView.RowTemplate.Height = 18;
             this.tableGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -7345,17 +8203,41 @@ namespace DB_EDITOR
             // 
             this.fieldsGridView.AllowDrop = true;
             this.fieldsGridView.AllowUserToAddRows = false;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            this.fieldsGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle76.BackColor = System.Drawing.SystemColors.Control;
+            this.fieldsGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle76;
             this.fieldsGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.fieldsGridView.BackgroundColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle77.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle77.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle77.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle77.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle77.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle77.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle77.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.fieldsGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle77;
             this.fieldsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.fieldsGridView.ContextMenuStrip = this.fieldMenu;
+            dataGridViewCellStyle78.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle78.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle78.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle78.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle78.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle78.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle78.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.fieldsGridView.DefaultCellStyle = dataGridViewCellStyle78;
             this.fieldsGridView.GridColor = System.Drawing.SystemColors.ScrollBar;
             this.fieldsGridView.Location = new System.Drawing.Point(116, 6);
             this.fieldsGridView.Name = "fieldsGridView";
+            dataGridViewCellStyle96.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle96.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle96.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle96.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle96.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle96.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle96.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.fieldsGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle96;
             this.fieldsGridView.RowHeadersVisible = false;
             this.fieldsGridView.RowTemplate.Height = 18;
             this.fieldsGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -7458,812 +8340,6 @@ namespace DB_EDITOR
             this.tabControl1.Visible = false;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.TabControl1_IndexChange);
             // 
-            // tabRecruits
-            // 
-            this.tabRecruits.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.tabRecruits.Controls.Add(this.textBox21);
-            this.tabRecruits.Controls.Add(this.textBox22);
-            this.tabRecruits.Controls.Add(this.textBox23);
-            this.tabRecruits.Controls.Add(this.label153);
-            this.tabRecruits.Controls.Add(this.numericUpDown1);
-            this.tabRecruits.Controls.Add(this.label154);
-            this.tabRecruits.Controls.Add(this.comboBox1);
-            this.tabRecruits.Controls.Add(this.label155);
-            this.tabRecruits.Controls.Add(this.comboBox2);
-            this.tabRecruits.Controls.Add(this.label156);
-            this.tabRecruits.Controls.Add(this.numericUpDown2);
-            this.tabRecruits.Controls.Add(this.label157);
-            this.tabRecruits.Controls.Add(this.numericUpDown3);
-            this.tabRecruits.Controls.Add(this.label158);
-            this.tabRecruits.Controls.Add(this.comboBox3);
-            this.tabRecruits.Controls.Add(this.label159);
-            this.tabRecruits.Controls.Add(this.comboBox4);
-            this.tabRecruits.Controls.Add(this.label160);
-            this.tabRecruits.Controls.Add(this.comboBox5);
-            this.tabRecruits.Controls.Add(this.label161);
-            this.tabRecruits.Controls.Add(this.comboBox6);
-            this.tabRecruits.Controls.Add(this.label162);
-            this.tabRecruits.Controls.Add(this.comboBox7);
-            this.tabRecruits.Controls.Add(this.label163);
-            this.tabRecruits.Controls.Add(this.comboBox8);
-            this.tabRecruits.Controls.Add(this.label164);
-            this.tabRecruits.Controls.Add(this.label165);
-            this.tabRecruits.Controls.Add(this.label166);
-            this.tabRecruits.Location = new System.Drawing.Point(4, 24);
-            this.tabRecruits.Name = "tabRecruits";
-            this.tabRecruits.Size = new System.Drawing.Size(1152, 615);
-            this.tabRecruits.TabIndex = 12;
-            this.tabRecruits.Text = "Recruits";
-            // 
-            // textBox21
-            // 
-            this.textBox21.BackColor = System.Drawing.SystemColors.Info;
-            this.textBox21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox21.Location = new System.Drawing.Point(1030, 62);
-            this.textBox21.Name = "textBox21";
-            this.textBox21.ReadOnly = true;
-            this.textBox21.Size = new System.Drawing.Size(53, 22);
-            this.textBox21.TabIndex = 106;
-            this.textBox21.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox22
-            // 
-            this.textBox22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox22.Location = new System.Drawing.Point(833, 62);
-            this.textBox22.Name = "textBox22";
-            this.textBox22.Size = new System.Drawing.Size(111, 22);
-            this.textBox22.TabIndex = 103;
-            // 
-            // textBox23
-            // 
-            this.textBox23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox23.Location = new System.Drawing.Point(711, 62);
-            this.textBox23.Name = "textBox23";
-            this.textBox23.Size = new System.Drawing.Size(116, 22);
-            this.textBox23.TabIndex = 102;
-            // 
-            // label153
-            // 
-            this.label153.AutoSize = true;
-            this.label153.Location = new System.Drawing.Point(897, 96);
-            this.label153.Name = "label153";
-            this.label153.Size = new System.Drawing.Size(37, 13);
-            this.label153.TabIndex = 129;
-            this.label153.Text = "Jersey";
-            this.label153.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(897, 111);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
-            99,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(53, 20);
-            this.numericUpDown1.TabIndex = 128;
-            // 
-            // label154
-            // 
-            this.label154.AutoSize = true;
-            this.label154.Location = new System.Drawing.Point(801, 95);
-            this.label154.Name = "label154";
-            this.label154.Size = new System.Drawing.Size(46, 13);
-            this.label154.TabIndex = 127;
-            this.label154.Text = "Redshirt";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(804, 111);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(79, 21);
-            this.comboBox1.TabIndex = 126;
-            // 
-            // label155
-            // 
-            this.label155.AutoSize = true;
-            this.label155.Location = new System.Drawing.Point(718, 96);
-            this.label155.Name = "label155";
-            this.label155.Size = new System.Drawing.Size(29, 13);
-            this.label155.TabIndex = 125;
-            this.label155.Text = "Year";
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(719, 111);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(79, 21);
-            this.comboBox2.TabIndex = 124;
-            // 
-            // label156
-            // 
-            this.label156.AutoSize = true;
-            this.label156.Location = new System.Drawing.Point(1027, 96);
-            this.label156.Name = "label156";
-            this.label156.Size = new System.Drawing.Size(63, 13);
-            this.label156.TabIndex = 123;
-            this.label156.Text = "Weight (lbs)";
-            this.label156.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // numericUpDown2
-            // 
-            this.numericUpDown2.Location = new System.Drawing.Point(1026, 111);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
-            415,
-            0,
-            0,
-            0});
-            this.numericUpDown2.Minimum = new decimal(new int[] {
-            160,
-            0,
-            0,
-            0});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(57, 20);
-            this.numericUpDown2.TabIndex = 122;
-            this.numericUpDown2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numericUpDown2.Value = new decimal(new int[] {
-            160,
-            0,
-            0,
-            0});
-            // 
-            // label157
-            // 
-            this.label157.AutoSize = true;
-            this.label157.Location = new System.Drawing.Point(960, 96);
-            this.label157.Name = "label157";
-            this.label157.Size = new System.Drawing.Size(55, 13);
-            this.label157.TabIndex = 121;
-            this.label157.Text = "Height (in)";
-            this.label157.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // numericUpDown3
-            // 
-            this.numericUpDown3.Location = new System.Drawing.Point(963, 111);
-            this.numericUpDown3.Maximum = new decimal(new int[] {
-            127,
-            0,
-            0,
-            0});
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(57, 20);
-            this.numericUpDown3.TabIndex = 120;
-            this.numericUpDown3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label158
-            // 
-            this.label158.AutoSize = true;
-            this.label158.Location = new System.Drawing.Point(997, 137);
-            this.label158.Name = "label158";
-            this.label158.Size = new System.Drawing.Size(52, 13);
-            this.label158.TabIndex = 119;
-            this.label158.Text = "Hair Style";
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(1000, 153);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(90, 21);
-            this.comboBox3.TabIndex = 118;
-            // 
-            // label159
-            // 
-            this.label159.AutoSize = true;
-            this.label159.Location = new System.Drawing.Point(897, 137);
-            this.label159.Name = "label159";
-            this.label159.Size = new System.Drawing.Size(53, 13);
-            this.label159.TabIndex = 117;
-            this.label159.Text = "Hair Color";
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(900, 153);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(94, 21);
-            this.comboBox4.TabIndex = 116;
-            // 
-            // label160
-            // 
-            this.label160.AutoSize = true;
-            this.label160.Location = new System.Drawing.Point(840, 136);
-            this.label160.Name = "label160";
-            this.label160.Size = new System.Drawing.Size(31, 13);
-            this.label160.TabIndex = 115;
-            this.label160.Text = "Face";
-            // 
-            // comboBox5
-            // 
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(843, 153);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(51, 21);
-            this.comboBox5.TabIndex = 114;
-            // 
-            // label161
-            // 
-            this.label161.AutoSize = true;
-            this.label161.Location = new System.Drawing.Point(789, 136);
-            this.label161.Name = "label161";
-            this.label161.Size = new System.Drawing.Size(38, 13);
-            this.label161.TabIndex = 113;
-            this.label161.Text = "Shape";
-            // 
-            // comboBox6
-            // 
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(792, 153);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(45, 21);
-            this.comboBox6.TabIndex = 112;
-            // 
-            // label162
-            // 
-            this.label162.AutoSize = true;
-            this.label162.Location = new System.Drawing.Point(720, 136);
-            this.label162.Name = "label162";
-            this.label162.Size = new System.Drawing.Size(56, 13);
-            this.label162.TabIndex = 111;
-            this.label162.Text = "Skin Tone";
-            // 
-            // comboBox7
-            // 
-            this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Location = new System.Drawing.Point(719, 153);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(67, 21);
-            this.comboBox7.TabIndex = 110;
-            // 
-            // label163
-            // 
-            this.label163.AutoSize = true;
-            this.label163.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label163.Location = new System.Drawing.Point(950, 42);
-            this.label163.Name = "label163";
-            this.label163.Size = new System.Drawing.Size(63, 16);
-            this.label163.TabIndex = 109;
-            this.label163.Text = "Position";
-            // 
-            // comboBox8
-            // 
-            this.comboBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox8.FormattingEnabled = true;
-            this.comboBox8.Location = new System.Drawing.Point(953, 60);
-            this.comboBox8.Name = "comboBox8";
-            this.comboBox8.Size = new System.Drawing.Size(60, 24);
-            this.comboBox8.TabIndex = 108;
-            // 
-            // label164
-            // 
-            this.label164.AutoSize = true;
-            this.label164.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label164.Location = new System.Drawing.Point(1027, 42);
-            this.label164.Name = "label164";
-            this.label164.Size = new System.Drawing.Size(57, 16);
-            this.label164.TabIndex = 107;
-            this.label164.Text = "Overall";
-            // 
-            // label165
-            // 
-            this.label165.AutoSize = true;
-            this.label165.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label165.Location = new System.Drawing.Point(830, 42);
-            this.label165.Name = "label165";
-            this.label165.Size = new System.Drawing.Size(81, 16);
-            this.label165.TabIndex = 105;
-            this.label165.Text = "Last Name";
-            // 
-            // label166
-            // 
-            this.label166.AutoSize = true;
-            this.label166.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label166.Location = new System.Drawing.Point(711, 42);
-            this.label166.Name = "label166";
-            this.label166.Size = new System.Drawing.Size(82, 16);
-            this.label166.TabIndex = 104;
-            this.label166.Text = "First Name";
-            // 
-            // tabUniforms
-            // 
-            this.tabUniforms.Controls.Add(this.ImportTeamUNIF);
-            this.tabUniforms.Controls.Add(this.ExportTeamUNIF);
-            this.tabUniforms.Controls.Add(this.label172);
-            this.tabUniforms.Controls.Add(this.UpdateUNIFButton);
-            this.tabUniforms.Controls.Add(this.groupBox5);
-            this.tabUniforms.Controls.Add(this.UniformGrid);
-            this.tabUniforms.Controls.Add(this.groupBox4);
-            this.tabUniforms.Location = new System.Drawing.Point(4, 24);
-            this.tabUniforms.Name = "tabUniforms";
-            this.tabUniforms.Padding = new System.Windows.Forms.Padding(3);
-            this.tabUniforms.Size = new System.Drawing.Size(1152, 615);
-            this.tabUniforms.TabIndex = 13;
-            this.tabUniforms.Text = "Uniforms";
-            this.tabUniforms.UseVisualStyleBackColor = true;
-            // 
-            // ImportTeamUNIF
-            // 
-            this.ImportTeamUNIF.BackColor = System.Drawing.SystemColors.Info;
-            this.ImportTeamUNIF.Location = new System.Drawing.Point(1014, 232);
-            this.ImportTeamUNIF.Name = "ImportTeamUNIF";
-            this.ImportTeamUNIF.Size = new System.Drawing.Size(125, 50);
-            this.ImportTeamUNIF.TabIndex = 10;
-            this.ImportTeamUNIF.Text = "Import Team";
-            this.ImportTeamUNIF.UseVisualStyleBackColor = false;
-            this.ImportTeamUNIF.Click += new System.EventHandler(this.ImportTeamUNIF_Click);
-            // 
-            // ExportTeamUNIF
-            // 
-            this.ExportTeamUNIF.BackColor = System.Drawing.SystemColors.Info;
-            this.ExportTeamUNIF.Location = new System.Drawing.Point(848, 232);
-            this.ExportTeamUNIF.Name = "ExportTeamUNIF";
-            this.ExportTeamUNIF.Size = new System.Drawing.Size(125, 50);
-            this.ExportTeamUNIF.TabIndex = 9;
-            this.ExportTeamUNIF.Text = "Export Team";
-            this.ExportTeamUNIF.UseVisualStyleBackColor = false;
-            this.ExportTeamUNIF.Click += new System.EventHandler(this.ExportTeamUNIF_Click);
-            // 
-            // label172
-            // 
-            this.label172.AutoSize = true;
-            this.label172.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label172.Location = new System.Drawing.Point(872, 15);
-            this.label172.Name = "label172";
-            this.label172.Size = new System.Drawing.Size(248, 24);
-            this.label172.TabIndex = 8;
-            this.label172.Text = "Uniform Expansion Editor";
-            // 
-            // UpdateUNIFButton
-            // 
-            this.UpdateUNIFButton.BackColor = System.Drawing.Color.Crimson;
-            this.UpdateUNIFButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UpdateUNIFButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.UpdateUNIFButton.Location = new System.Drawing.Point(846, 342);
-            this.UpdateUNIFButton.Name = "UpdateUNIFButton";
-            this.UpdateUNIFButton.Size = new System.Drawing.Size(293, 67);
-            this.UpdateUNIFButton.TabIndex = 6;
-            this.UpdateUNIFButton.Text = "Update Database";
-            this.UpdateUNIFButton.UseVisualStyleBackColor = false;
-            this.UpdateUNIFButton.Click += new System.EventHandler(this.UpdateUNIFButton_Click);
-            // 
-            // groupBox5
-            // 
-            this.groupBox5.Controls.Add(this.label170);
-            this.groupBox5.Controls.Add(this.GlobalAltCheck);
-            this.groupBox5.Controls.Add(this.GlobalPrimaryCheck);
-            this.groupBox5.Controls.Add(this.GlobalUniFilter);
-            this.groupBox5.Controls.Add(this.label171);
-            this.groupBox5.Location = new System.Drawing.Point(846, 451);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(293, 148);
-            this.groupBox5.TabIndex = 5;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Global Editor";
-            // 
-            // label170
-            // 
-            this.label170.AutoSize = true;
-            this.label170.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label170.Location = new System.Drawing.Point(36, 69);
-            this.label170.Name = "label170";
-            this.label170.Size = new System.Drawing.Size(109, 15);
-            this.label170.TabIndex = 5;
-            this.label170.Text = "Quick Functions";
-            // 
-            // GlobalAltCheck
-            // 
-            this.GlobalAltCheck.AutoSize = true;
-            this.GlobalAltCheck.Location = new System.Drawing.Point(56, 110);
-            this.GlobalAltCheck.Name = "GlobalAltCheck";
-            this.GlobalAltCheck.Size = new System.Drawing.Size(162, 17);
-            this.GlobalAltCheck.TabIndex = 4;
-            this.GlobalAltCheck.Text = "Enable All Alternate Uniforms";
-            this.GlobalAltCheck.UseVisualStyleBackColor = true;
-            this.GlobalAltCheck.CheckedChanged += new System.EventHandler(this.GlobalAltCheck_CheckedChanged);
-            // 
-            // GlobalPrimaryCheck
-            // 
-            this.GlobalPrimaryCheck.AutoSize = true;
-            this.GlobalPrimaryCheck.Location = new System.Drawing.Point(56, 87);
-            this.GlobalPrimaryCheck.Name = "GlobalPrimaryCheck";
-            this.GlobalPrimaryCheck.Size = new System.Drawing.Size(165, 17);
-            this.GlobalPrimaryCheck.TabIndex = 3;
-            this.GlobalPrimaryCheck.Text = "Enable Home/Away Uniforms";
-            this.GlobalPrimaryCheck.UseVisualStyleBackColor = true;
-            this.GlobalPrimaryCheck.CheckedChanged += new System.EventHandler(this.GlobalPrimaryCheck_CheckedChanged);
-            // 
-            // GlobalUniFilter
-            // 
-            this.GlobalUniFilter.FormattingEnabled = true;
-            this.GlobalUniFilter.Location = new System.Drawing.Point(56, 31);
-            this.GlobalUniFilter.Name = "GlobalUniFilter";
-            this.GlobalUniFilter.Size = new System.Drawing.Size(174, 21);
-            this.GlobalUniFilter.TabIndex = 1;
-            this.GlobalUniFilter.Visible = false;
-            // 
-            // label171
-            // 
-            this.label171.AutoSize = true;
-            this.label171.Location = new System.Drawing.Point(168, 15);
-            this.label171.Name = "label171";
-            this.label171.Size = new System.Drawing.Size(62, 13);
-            this.label171.TabIndex = 2;
-            this.label171.Text = "Global Filter";
-            this.label171.Visible = false;
-            // 
-            // UniformGrid
-            // 
-            this.UniformGrid.AllowUserToAddRows = false;
-            this.UniformGrid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.LightGray;
-            this.UniformGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
-            this.UniformGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.MenuBar;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.UniformGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
-            this.UniformGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.UniformGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.UniformActivation,
-            this.UFID,
-            this.UnifTeam,
-            this.TUNI,
-            this.ULTF,
-            this.ShoulderNums,
-            this.SleeveNums,
-            this.SleeveDecal,
-            this.HelmetNums,
-            this.HelmetSideNum});
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle12.NullValue = "N/A";
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.UniformGrid.DefaultCellStyle = dataGridViewCellStyle12;
-            this.UniformGrid.EnableHeadersVisualStyles = false;
-            this.UniformGrid.Location = new System.Drawing.Point(32, 15);
-            this.UniformGrid.Name = "UniformGrid";
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.UniformGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle13;
-            this.UniformGrid.Size = new System.Drawing.Size(803, 584);
-            this.UniformGrid.TabIndex = 0;
-            this.UniformGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.UniformGrid_CellContentClick);
-            this.UniformGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.UniformGrid_DataError);
-            // 
-            // UniformActivation
-            // 
-            this.UniformActivation.FillWeight = 79.95358F;
-            this.UniformActivation.HeaderText = "Activate";
-            this.UniformActivation.Name = "UniformActivation";
-            // 
-            // UFID
-            // 
-            this.UFID.FillWeight = 81.70174F;
-            this.UFID.HeaderText = "Uniform ID";
-            this.UFID.Name = "UFID";
-            this.UFID.ReadOnly = true;
-            // 
-            // UnifTeam
-            // 
-            this.UnifTeam.FillWeight = 190.7116F;
-            this.UnifTeam.HeaderText = "Team Name";
-            this.UnifTeam.Name = "UnifTeam";
-            this.UnifTeam.ReadOnly = true;
-            // 
-            // TUNI
-            // 
-            this.TUNI.FillWeight = 78.89952F;
-            this.TUNI.HeaderText = "Uniform Slot";
-            this.TUNI.Name = "TUNI";
-            this.TUNI.ReadOnly = true;
-            // 
-            // ULTF
-            // 
-            this.ULTF.FillWeight = 132.1599F;
-            this.ULTF.HeaderText = "Uniform Color";
-            this.ULTF.Name = "ULTF";
-            this.ULTF.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // ShoulderNums
-            // 
-            this.ShoulderNums.FillWeight = 78.79823F;
-            this.ShoulderNums.HeaderText = "Shoulder Numbers";
-            this.ShoulderNums.Name = "ShoulderNums";
-            // 
-            // SleeveNums
-            // 
-            this.SleeveNums.FillWeight = 78.0737F;
-            this.SleeveNums.HeaderText = "Sleeve Numbers";
-            this.SleeveNums.Name = "SleeveNums";
-            this.SleeveNums.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            // 
-            // SleeveDecal
-            // 
-            this.SleeveDecal.FillWeight = 77.25506F;
-            this.SleeveDecal.HeaderText = "Sleeve Decal";
-            this.SleeveDecal.Name = "SleeveDecal";
-            // 
-            // HelmetNums
-            // 
-            this.HelmetNums.FillWeight = 139.5939F;
-            this.HelmetNums.HeaderText = "Helmet Numbers";
-            this.HelmetNums.Name = "HelmetNums";
-            // 
-            // HelmetSideNum
-            // 
-            this.HelmetSideNum.FillWeight = 82.41927F;
-            this.HelmetSideNum.HeaderText = "Helmet Side Numbers";
-            this.HelmetSideNum.Name = "HelmetSideNum";
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.UniformsActivated);
-            this.groupBox4.Controls.Add(this.label169);
-            this.groupBox4.Controls.Add(this.TeamAltUniCheck);
-            this.groupBox4.Controls.Add(this.TeamPrimaryUniCheck);
-            this.groupBox4.Controls.Add(this.TeamUniformSelectBox);
-            this.groupBox4.Controls.Add(this.label168);
-            this.groupBox4.Location = new System.Drawing.Point(848, 53);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(293, 160);
-            this.groupBox4.TabIndex = 4;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "Team Editor";
-            // 
-            // UniformsActivated
-            // 
-            this.UniformsActivated.AutoSize = true;
-            this.UniformsActivated.Location = new System.Drawing.Point(53, 133);
-            this.UniformsActivated.Name = "UniformsActivated";
-            this.UniformsActivated.Size = new System.Drawing.Size(116, 13);
-            this.UniformsActivated.TabIndex = 6;
-            this.UniformsActivated.Text = "Uniforms Activated: XX";
-            // 
-            // label169
-            // 
-            this.label169.AutoSize = true;
-            this.label169.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label169.Location = new System.Drawing.Point(36, 69);
-            this.label169.Name = "label169";
-            this.label169.Size = new System.Drawing.Size(109, 15);
-            this.label169.TabIndex = 5;
-            this.label169.Text = "Quick Functions";
-            // 
-            // TeamAltUniCheck
-            // 
-            this.TeamAltUniCheck.AutoSize = true;
-            this.TeamAltUniCheck.Location = new System.Drawing.Point(56, 110);
-            this.TeamAltUniCheck.Name = "TeamAltUniCheck";
-            this.TeamAltUniCheck.Size = new System.Drawing.Size(162, 17);
-            this.TeamAltUniCheck.TabIndex = 4;
-            this.TeamAltUniCheck.Text = "Enable All Alternate Uniforms";
-            this.TeamAltUniCheck.UseVisualStyleBackColor = true;
-            this.TeamAltUniCheck.CheckedChanged += new System.EventHandler(this.TeamAltUniCheck_CheckedChanged);
-            // 
-            // TeamPrimaryUniCheck
-            // 
-            this.TeamPrimaryUniCheck.AutoSize = true;
-            this.TeamPrimaryUniCheck.Location = new System.Drawing.Point(56, 87);
-            this.TeamPrimaryUniCheck.Name = "TeamPrimaryUniCheck";
-            this.TeamPrimaryUniCheck.Size = new System.Drawing.Size(165, 17);
-            this.TeamPrimaryUniCheck.TabIndex = 3;
-            this.TeamPrimaryUniCheck.Text = "Enable Home/Away Uniforms";
-            this.TeamPrimaryUniCheck.UseVisualStyleBackColor = true;
-            this.TeamPrimaryUniCheck.CheckedChanged += new System.EventHandler(this.TeamPrimaryUniCheck_CheckedChanged);
-            // 
-            // TeamUniformSelectBox
-            // 
-            this.TeamUniformSelectBox.FormattingEnabled = true;
-            this.TeamUniformSelectBox.Location = new System.Drawing.Point(56, 31);
-            this.TeamUniformSelectBox.Name = "TeamUniformSelectBox";
-            this.TeamUniformSelectBox.Size = new System.Drawing.Size(174, 21);
-            this.TeamUniformSelectBox.TabIndex = 1;
-            this.TeamUniformSelectBox.SelectedIndexChanged += new System.EventHandler(this.TeamUniformSelectBox_SelectedIndexChanged);
-            // 
-            // label168
-            // 
-            this.label168.AutoSize = true;
-            this.label168.Location = new System.Drawing.Point(149, 15);
-            this.label168.Name = "label168";
-            this.label168.Size = new System.Drawing.Size(81, 13);
-            this.label168.TabIndex = 2;
-            this.label168.Text = "Team Selection";
-            // 
-            // tabBowls
-            // 
-            this.tabBowls.Controls.Add(this.SaveBowlButton);
-            this.tabBowls.Controls.Add(this.BowlsGrid);
-            this.tabBowls.Location = new System.Drawing.Point(4, 24);
-            this.tabBowls.Name = "tabBowls";
-            this.tabBowls.Padding = new System.Windows.Forms.Padding(3);
-            this.tabBowls.Size = new System.Drawing.Size(1152, 615);
-            this.tabBowls.TabIndex = 14;
-            this.tabBowls.Text = "Bowls";
-            this.tabBowls.UseVisualStyleBackColor = true;
-            // 
-            // SaveBowlButton
-            // 
-            this.SaveBowlButton.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.SaveBowlButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SaveBowlButton.Location = new System.Drawing.Point(962, 19);
-            this.SaveBowlButton.Name = "SaveBowlButton";
-            this.SaveBowlButton.Size = new System.Drawing.Size(171, 52);
-            this.SaveBowlButton.TabIndex = 6;
-            this.SaveBowlButton.Text = "Update Database";
-            this.SaveBowlButton.UseVisualStyleBackColor = false;
-            this.SaveBowlButton.Click += new System.EventHandler(this.SaveBowlButton_Click);
-            // 
-            // BowlsGrid
-            // 
-            this.BowlsGrid.AllowUserToAddRows = false;
-            this.BowlsGrid.AllowUserToDeleteRows = false;
-            this.BowlsGrid.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            this.BowlsGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle14;
-            this.BowlsGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.BowlsGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
-            this.BowlsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.BowlsGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ActiveBowl,
-            this.BIDX,
-            this.BNME,
-            this.TeamA,
-            this.ScoreA,
-            this.vs,
-            this.ScoreB,
-            this.TeamB,
-            this.SGID,
-            this.BMON,
-            this.BDAY,
-            this.SEWN});
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.BowlsGrid.DefaultCellStyle = dataGridViewCellStyle16;
-            this.BowlsGrid.Location = new System.Drawing.Point(6, 6);
-            this.BowlsGrid.Name = "BowlsGrid";
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.BowlsGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle17;
-            this.BowlsGrid.Size = new System.Drawing.Size(950, 603);
-            this.BowlsGrid.TabIndex = 4;
-            this.BowlsGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.BowlsGrid_DataError);
-            // 
-            // ActiveBowl
-            // 
-            this.ActiveBowl.FillWeight = 7F;
-            this.ActiveBowl.HeaderText = "Active";
-            this.ActiveBowl.Name = "ActiveBowl";
-            // 
-            // BIDX
-            // 
-            this.BIDX.FillWeight = 8F;
-            this.BIDX.HeaderText = "BIDX";
-            this.BIDX.Name = "BIDX";
-            this.BIDX.ReadOnly = true;
-            this.BIDX.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // BNME
-            // 
-            this.BNME.FillWeight = 25F;
-            this.BNME.HeaderText = "Bowl Name";
-            this.BNME.Name = "BNME";
-            this.BNME.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // TeamA
-            // 
-            this.TeamA.FillWeight = 20F;
-            this.TeamA.HeaderText = "Team";
-            this.TeamA.Name = "TeamA";
-            // 
-            // ScoreA
-            // 
-            this.ScoreA.FillWeight = 7F;
-            this.ScoreA.HeaderText = "Score";
-            this.ScoreA.Name = "ScoreA";
-            this.ScoreA.ReadOnly = true;
-            this.ScoreA.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // vs
-            // 
-            this.vs.FillWeight = 4F;
-            this.vs.HeaderText = "vs";
-            this.vs.Name = "vs";
-            this.vs.ReadOnly = true;
-            this.vs.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // ScoreB
-            // 
-            this.ScoreB.FillWeight = 7F;
-            this.ScoreB.HeaderText = "Score";
-            this.ScoreB.Name = "ScoreB";
-            this.ScoreB.ReadOnly = true;
-            this.ScoreB.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // TeamB
-            // 
-            this.TeamB.FillWeight = 20F;
-            this.TeamB.HeaderText = "Team";
-            this.TeamB.Name = "TeamB";
-            // 
-            // SGID
-            // 
-            this.SGID.FillWeight = 25F;
-            this.SGID.HeaderText = "Stadium";
-            this.SGID.Name = "SGID";
-            // 
-            // BMON
-            // 
-            this.BMON.FillWeight = 8F;
-            this.BMON.HeaderText = "Month";
-            this.BMON.Name = "BMON";
-            // 
-            // BDAY
-            // 
-            this.BDAY.FillWeight = 8F;
-            this.BDAY.HeaderText = "Date";
-            this.BDAY.Name = "BDAY";
-            // 
-            // SEWN
-            // 
-            this.SEWN.FillWeight = 6F;
-            this.SEWN.HeaderText = "Week";
-            this.SEWN.Name = "SEWN";
-            this.SEWN.ReadOnly = true;
-            // 
-            // notifyIcon1
-            // 
-            this.notifyIcon1.Text = "notifyIcon1";
-            this.notifyIcon1.Visible = true;
-            // 
-            // RandomizeRecruitNamesButton
-            // 
-            this.RandomizeRecruitNamesButton.BackColor = System.Drawing.SystemColors.Highlight;
-            this.RandomizeRecruitNamesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RandomizeRecruitNamesButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.RandomizeRecruitNamesButton.Location = new System.Drawing.Point(157, 327);
-            this.RandomizeRecruitNamesButton.Name = "RandomizeRecruitNamesButton";
-            this.RandomizeRecruitNamesButton.Size = new System.Drawing.Size(110, 80);
-            this.RandomizeRecruitNamesButton.TabIndex = 21;
-            this.RandomizeRecruitNamesButton.Text = "Randomize Recruits Names";
-            this.RandomizeRecruitNamesButton.UseVisualStyleBackColor = false;
-            this.RandomizeRecruitNamesButton.Click += new System.EventHandler(this.RandomizeRecruitNamesButton_Click);
-            // 
             // MainEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -8294,6 +8370,20 @@ namespace DB_EDITOR
             this.FieldsPropsgroupBox.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.tabBowls.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.BowlsGrid)).EndInit();
+            this.tabUniforms.ResumeLayout(false);
+            this.tabUniforms.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.UniformGrid)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
+            this.tabRecruits.ResumeLayout(false);
+            this.tabRecruits.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             this.tabDepthCharts.ResumeLayout(false);
             this.tabDepthCharts.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DCHTGrid)).EndInit();
@@ -8314,7 +8404,6 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.FillRosterPCT)).EndInit();
             this.tabOffSeason.ResumeLayout(false);
             this.tabOffSeason.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.polyNamesPCT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.removeInterestTeams)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.minTRPA)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.minRecPts)).EndInit();
@@ -8396,20 +8485,6 @@ namespace DB_EDITOR
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabControl1.ResumeLayout(false);
-            this.tabRecruits.ResumeLayout(false);
-            this.tabRecruits.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            this.tabUniforms.ResumeLayout(false);
-            this.tabUniforms.PerformLayout();
-            this.groupBox5.ResumeLayout(false);
-            this.groupBox5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.UniformGrid)).EndInit();
-            this.groupBox4.ResumeLayout(false);
-            this.groupBox4.PerformLayout();
-            this.tabBowls.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.BowlsGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -8474,6 +8549,80 @@ namespace DB_EDITOR
         private RadioButton DB2Button;
         private RadioButton DB1Button;
         public ToolStripMenuItem definitionFileMenuItem;
+        private NotifyIcon notifyIcon1;
+        private TabPage tabBowls;
+        private System.Windows.Forms.Button SaveBowlButton;
+        private DataGridView BowlsGrid;
+        private DataGridViewCheckBoxColumn ActiveBowl;
+        private DataGridViewTextBoxColumn BIDX;
+        private DataGridViewTextBoxColumn BNME;
+        private DataGridViewComboBoxColumn TeamA;
+        private DataGridViewTextBoxColumn ScoreA;
+        private DataGridViewTextBoxColumn vs;
+        private DataGridViewTextBoxColumn ScoreB;
+        private DataGridViewComboBoxColumn TeamB;
+        private DataGridViewComboBoxColumn SGID;
+        private DataGridViewComboBoxColumn BMON;
+        private DataGridViewComboBoxColumn BDAY;
+        private DataGridViewTextBoxColumn SEWN;
+        private TabPage tabUniforms;
+        private System.Windows.Forms.Button ImportTeamUNIF;
+        private System.Windows.Forms.Button ExportTeamUNIF;
+        private Label label172;
+        private System.Windows.Forms.Button UpdateUNIFButton;
+        private GroupBox groupBox5;
+        private Label label170;
+        private CheckBox GlobalAltCheck;
+        private CheckBox GlobalPrimaryCheck;
+        private System.Windows.Forms.ComboBox GlobalUniFilter;
+        private Label label171;
+        private DataGridView UniformGrid;
+        private DataGridViewCheckBoxColumn UniformActivation;
+        private DataGridViewTextBoxColumn UFID;
+        private DataGridViewTextBoxColumn UnifTeam;
+        private DataGridViewTextBoxColumn TUNI;
+        private DataGridViewComboBoxColumn ULTF;
+        private DataGridViewCheckBoxColumn ShoulderNums;
+        private DataGridViewCheckBoxColumn SleeveNums;
+        private DataGridViewCheckBoxColumn SleeveDecal;
+        private DataGridViewComboBoxColumn HelmetNums;
+        private DataGridViewCheckBoxColumn HelmetSideNum;
+        private GroupBox groupBox4;
+        private Label UniformsActivated;
+        private Label label169;
+        private CheckBox TeamAltUniCheck;
+        private CheckBox TeamPrimaryUniCheck;
+        private System.Windows.Forms.ComboBox TeamUniformSelectBox;
+        private Label label168;
+        private TabPage tabRecruits;
+        public System.Windows.Forms.TextBox textBox21;
+        public System.Windows.Forms.TextBox textBox22;
+        public System.Windows.Forms.TextBox textBox23;
+        private Label label153;
+        private NumericUpDown numericUpDown1;
+        public Label label154;
+        private System.Windows.Forms.ComboBox comboBox1;
+        public Label label155;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private Label label156;
+        private NumericUpDown numericUpDown2;
+        private Label label157;
+        private NumericUpDown numericUpDown3;
+        public Label label158;
+        private System.Windows.Forms.ComboBox comboBox3;
+        public Label label159;
+        private System.Windows.Forms.ComboBox comboBox4;
+        public Label label160;
+        private System.Windows.Forms.ComboBox comboBox5;
+        public Label label161;
+        private System.Windows.Forms.ComboBox comboBox6;
+        public Label label162;
+        private System.Windows.Forms.ComboBox comboBox7;
+        public Label label163;
+        private System.Windows.Forms.ComboBox comboBox8;
+        public Label label164;
+        public Label label165;
+        public Label label166;
         private TabPage tabDepthCharts;
         private System.Windows.Forms.Button DCHTAutoSet;
         private System.Windows.Forms.Button DCHTClear;
@@ -8579,6 +8728,7 @@ namespace DB_EDITOR
         public System.Windows.Forms.Button ImportRecruitsButton;
         public System.Windows.Forms.Button GraduateButton;
         private TabPage tabTools;
+        public System.Windows.Forms.Button UniquePlayerButton;
         public System.Windows.Forms.Button FantasyCoachesButton;
         public System.Windows.Forms.Button SyncPBButton;
         private Label label109;
@@ -8619,9 +8769,8 @@ namespace DB_EDITOR
         public System.Windows.Forms.Button buttonRandPotential;
         public System.Windows.Forms.Button bodyFix;
         public TabPage tabOffSeason;
+        public System.Windows.Forms.Button RandomizeRecruitNamesButton;
         public System.Windows.Forms.Button buttonRandomizeFaceShape;
-        public Label labelPolyNamesPCT;
-        public NumericUpDown polyNamesPCT;
         public System.Windows.Forms.Button polyNames;
         public System.Windows.Forms.TextBox textBoxOffSeason;
         public System.Windows.Forms.TextBox textBoxOffSeasonTitle;
@@ -8728,7 +8877,9 @@ namespace DB_EDITOR
         public Label label129;
         public Label label130;
         public TabPage tabPlayers;
-        public Label label151;
+        private System.Windows.Forms.Button PlayerTransferButton;
+        private Label label167;
+        public System.Windows.Forms.TextBox playerTeamBox;
         public System.Windows.Forms.TextBox PRST;
         public System.Windows.Forms.TextBox PGIDbox;
         private System.Windows.Forms.TextBox PKACtext;
@@ -8753,8 +8904,7 @@ namespace DB_EDITOR
         public System.Windows.Forms.TextBox POVRbox;
         public System.Windows.Forms.TextBox PLNAtextBox;
         public System.Windows.Forms.TextBox PFNAtextBox;
-        private Label label126;
-        private System.Windows.Forms.ComboBox RightShoe;
+        public Label label151;
         private Label label150;
         private System.Windows.Forms.ComboBox Helmet;
         private Label label149;
@@ -8767,8 +8917,6 @@ namespace DB_EDITOR
         private System.Windows.Forms.ComboBox RightHand;
         private Label label125;
         private System.Windows.Forms.ComboBox NeckPad;
-        private Label label123;
-        private System.Windows.Forms.ComboBox NasalStrip;
         private Label label124;
         private System.Windows.Forms.ComboBox Visor;
         private Label label122;
@@ -8776,16 +8924,8 @@ namespace DB_EDITOR
         private System.Windows.Forms.ComboBox SleeveColor;
         private Label label121;
         private System.Windows.Forms.ComboBox Sleeves;
-        private Label label120;
-        private System.Windows.Forms.ComboBox LeftElbow;
         private Label label119;
         private System.Windows.Forms.ComboBox Facemask;
-        private Label label118;
-        private System.Windows.Forms.ComboBox LeftWrist;
-        private Label label117;
-        private System.Windows.Forms.ComboBox LeftHand;
-        private Label label116;
-        private System.Windows.Forms.ComboBox LeftShoe;
         private Label label113;
         private NumericUpDown PJEN;
         private System.Windows.Forms.Button PlayerSetDepthChartButton;
@@ -8861,6 +9001,21 @@ namespace DB_EDITOR
         public ListBox PGIDlistBox;
         public Label label2;
         public Label label1;
+        private GroupBox groupBox3;
+        private Label label120;
+        private System.Windows.Forms.Button ImportPlayerTeam;
+        private System.Windows.Forms.ComboBox LeftWrist;
+        private System.Windows.Forms.Button ExportPlayerTeam;
+        private System.Windows.Forms.ComboBox LeftHand;
+        private Label label117;
+        private Label label118;
+        private System.Windows.Forms.ComboBox LeftElbow;
+        private System.Windows.Forms.ComboBox RightShoe;
+        private Label label126;
+        private System.Windows.Forms.ComboBox LeftShoe;
+        private Label label116;
+        private System.Windows.Forms.ComboBox NasalStrip;
+        private Label label123;
         private PictureBox pictureBox2;
         public TabPage tabTeams;
         private System.Windows.Forms.Button TeamSetDepthChart;
@@ -8985,88 +9140,9 @@ namespace DB_EDITOR
         private RadioButton NextConfigRadio;
         private PictureBox pictureBox1;
         public TabControl tabControl1;
-        private GroupBox groupBox3;
-        private TabPage tabRecruits;
-        public System.Windows.Forms.TextBox textBox21;
-        public System.Windows.Forms.TextBox textBox22;
-        public System.Windows.Forms.TextBox textBox23;
-        private Label label153;
-        private NumericUpDown numericUpDown1;
-        public Label label154;
-        private System.Windows.Forms.ComboBox comboBox1;
-        public Label label155;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private Label label156;
-        private NumericUpDown numericUpDown2;
-        private Label label157;
-        private NumericUpDown numericUpDown3;
-        public Label label158;
-        private System.Windows.Forms.ComboBox comboBox3;
-        public Label label159;
-        private System.Windows.Forms.ComboBox comboBox4;
-        public Label label160;
-        private System.Windows.Forms.ComboBox comboBox5;
-        public Label label161;
-        private System.Windows.Forms.ComboBox comboBox6;
-        public Label label162;
-        private System.Windows.Forms.ComboBox comboBox7;
-        public Label label163;
-        private System.Windows.Forms.ComboBox comboBox8;
-        public Label label164;
-        public Label label165;
-        public Label label166;
-        private NotifyIcon notifyIcon1;
-        public System.Windows.Forms.TextBox playerTeamBox;
-        private Label label167;
-        public System.Windows.Forms.Button UniquePlayerButton;
-        private TabPage tabUniforms;
-        private DataGridView UniformGrid;
-        private Label label168;
-        private System.Windows.Forms.ComboBox TeamUniformSelectBox;
-        private GroupBox groupBox5;
-        private Label label170;
-        private CheckBox GlobalAltCheck;
-        private CheckBox GlobalPrimaryCheck;
-        private System.Windows.Forms.ComboBox GlobalUniFilter;
-        private Label label171;
-        private GroupBox groupBox4;
-        private Label label169;
-        private CheckBox TeamAltUniCheck;
-        private CheckBox TeamPrimaryUniCheck;
-        private System.Windows.Forms.Button UpdateUNIFButton;
-        private Label label172;
-        private Label UniformsActivated;
-        private DataGridViewCheckBoxColumn UniformActivation;
-        private DataGridViewTextBoxColumn UFID;
-        private DataGridViewTextBoxColumn UnifTeam;
-        private DataGridViewTextBoxColumn TUNI;
-        private DataGridViewComboBoxColumn ULTF;
-        private DataGridViewCheckBoxColumn ShoulderNums;
-        private DataGridViewCheckBoxColumn SleeveNums;
-        private DataGridViewCheckBoxColumn SleeveDecal;
-        private DataGridViewComboBoxColumn HelmetNums;
-        private DataGridViewCheckBoxColumn HelmetSideNum;
-        private System.Windows.Forms.Button ImportTeamUNIF;
-        private System.Windows.Forms.Button ExportTeamUNIF;
-        private System.Windows.Forms.Button ImportPlayerTeam;
-        private System.Windows.Forms.Button ExportPlayerTeam;
-        private TabPage tabBowls;
-        private System.Windows.Forms.Button SaveBowlButton;
-        private DataGridView BowlsGrid;
-        private DataGridViewCheckBoxColumn ActiveBowl;
-        private DataGridViewTextBoxColumn BIDX;
-        private DataGridViewTextBoxColumn BNME;
-        private DataGridViewComboBoxColumn TeamA;
-        private DataGridViewTextBoxColumn ScoreA;
-        private DataGridViewTextBoxColumn vs;
-        private DataGridViewTextBoxColumn ScoreB;
-        private DataGridViewComboBoxColumn TeamB;
-        private DataGridViewComboBoxColumn SGID;
-        private DataGridViewComboBoxColumn BMON;
-        private DataGridViewComboBoxColumn BDAY;
-        private DataGridViewTextBoxColumn SEWN;
-        private System.Windows.Forms.Button PlayerTransferButton;
-        public System.Windows.Forms.Button RandomizeRecruitNamesButton;
+        public System.Windows.Forms.Button RecalculateStarRankingsButton;
+        public System.Windows.Forms.Button DetermineAthleteButton;
+        private System.Windows.Forms.Button BodyProgressionButton;
     }
 }
 

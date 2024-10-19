@@ -116,6 +116,19 @@ namespace DB_EDITOR
             }
         }
 
+        //Recalculate Star Rankings     
+        private void RecalculateStarRankingsButton_Click(object sender, EventArgs e)
+        {
+            RecalculateAllStarRatings();
+        }
+
+        private void DetermineAthleteButton_Click(object sender, EventArgs e)
+        {
+            ChooseAthletePosition();
+        }
+
+
+
         #endregion
 
 
@@ -189,12 +202,13 @@ namespace DB_EDITOR
         private void RandomizeRecruitDB(string FieldName)
         {
             progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
+            progressBar1.Value = 0;
             progressBar1.Maximum = GetTable2RecCount(FieldName);
 
             int tol = (int)recruitTolerance.Value;
             int tolA = 2;
-
+            //List<List<int>> recruits = new List<List<int>>();
+            int row = 0;
             for (int i = 0; i < GetTable2RecCount(FieldName); i++)
             {
                 if (GetDB2ValueInt(FieldName, "PRID", i) < 21000)  //skips transfers
@@ -228,13 +242,13 @@ namespace DB_EDITOR
                     PBRE = rand.Next(0, 2);
                     PEYE = rand.Next(0, 2);
                     PHGT += rand.Next(-1, 2);
-                    PWGT += rand.Next(-8, 9);
+                    PWGT += rand.Next(-15, 15);
                     if (PWGT < 0) PWGT = 0;
                     if (PWGT > 340) PWGT = 340;
                     if (PHGT > 82) PHGT = 82;
                     if (PHGT < 0) PHGT = 0;
-                    PPOE = rand.Next(1, 30);
-                    PINJ = rand.Next(1, 30);
+                    PPOE = rand.Next(1, 32);
+                    PINJ = rand.Next(1, 32);
                     PAWR = GetRandomAttribute(PAWR, tolA);
 
                     PTHA = GetRandomAttribute(PTHA, tol);
@@ -279,11 +293,21 @@ namespace DB_EDITOR
                     ChangeDB2Int(FieldName, "PCAR", i, PCAR);
                     ChangeDB2Int(FieldName, "PKPR", i, PKPR);
                     ChangeDB2Int(FieldName, "PSTR", i, PSTR);
+
+                    CalculateRecruitOverall(i);
+
+                    //recruits.Add(new List<int>());
+                    //recruits[row].Add(GetDB2ValueInt("RCPT", "PRID", i));
+                    //recruits[row].Add(GetDB2ValueInt("RCPT", "POVR", i));
+                    row++;
+
                 }
-
-
                 progressBar1.PerformStep();
             }
+
+            //recruits.Sort((player1, player2) => player2[1].CompareTo(player1[1]));
+            //CalculateRecruitStarRating(recruits);
+
 
             progressBar1.Visible = false;
             progressBar1.Value = 0;
@@ -445,8 +469,10 @@ namespace DB_EDITOR
             progressBar1.Visible = false;
             progressBar1.Value = 0;
 
-            MessageBox.Show("Walk-Ons Randomized!");
+            RandomizeRecruitFace("WKON");
             DB2RecalculateBMI("WKON");
+            MessageBox.Show("Walk-Ons Randomized!");
+
         }
 
         //Polynesian Surname Generator
@@ -469,14 +495,6 @@ namespace DB_EDITOR
             progressBar1.Maximum = GetTable2RecCount("RCPT");
             progressBar1.Step = 1;
 
-            /*States STID
-             * Hawaii 10
-             * California 4
-             * Utah 43
-             * Washington 46
-             * Arizona 2
-             * */
-
 
             for (int i = 0; i < GetTable2RecCount("RCPT"); i++)
             {
@@ -491,7 +509,7 @@ namespace DB_EDITOR
                 //Check for California 4 
                 else if (GetDB2ValueInt("RCPT", "RCHD", i) >= 1024 && GetDB2ValueInt("RCPT", "RCHD", i) < 1280)
                 {
-                    if (rand.Next(0, 100) < 0.25 && GetDB2ValueInt("RCPT", "PRID", i) < 21000)
+                    if (rand.Next(0, 100) < 0.30 && GetDB2ValueInt("RCPT", "PRID", i) < 21000)
                     {
                         PolynesianPlayerMaker(surnames, i);
                     }
@@ -499,7 +517,7 @@ namespace DB_EDITOR
                 //Check for Hawaii recruits (256 x 10 - 2560)
                 else if (GetDB2ValueInt("RCPT", "RCHD", i) >= 2560 && GetDB2ValueInt("RCPT", "RCHD", i) < 2816)
                 {
-                    if (rand.Next(0, 100) < polyNamesPCT.Value && GetDB2ValueInt("RCPT", "PRID", i) < 21000)
+                    if (rand.Next(0, 100) < .9 && GetDB2ValueInt("RCPT", "PRID", i) < 21000)
                     {
                         PolynesianPlayerMaker(surnames, i);
                     }
@@ -515,19 +533,58 @@ namespace DB_EDITOR
                 //Check for Washington  46
                 else if (GetDB2ValueInt("RCPT", "RCHD", i) >= 11776 && GetDB2ValueInt("RCPT", "RCHD", i) < 12032)
                 {
+                    if (rand.Next(0, 100) < 0.20 && GetDB2ValueInt("RCPT", "PRID", i) < 21000)
+                    {
+                        PolynesianPlayerMaker(surnames, i);
+                    }
+                }
+                //Check for Oregon  36
+                else if (GetDB2ValueInt("RCPT", "RCHD", i) >= 9216 && GetDB2ValueInt("RCPT", "RCHD", i) < 9472)
+                {
                     if (rand.Next(0, 100) < 0.15 && GetDB2ValueInt("RCPT", "PRID", i) < 21000)
                     {
                         PolynesianPlayerMaker(surnames, i);
                     }
                 }
-
+                //Check for Texas  42
+                else if (GetDB2ValueInt("RCPT", "RCHD", i) >= 10752 && GetDB2ValueInt("RCPT", "RCHD", i) < 11008)
+                {
+                    if (rand.Next(0, 100) < 0.15 && GetDB2ValueInt("RCPT", "PRID", i) < 21000)
+                    {
+                        PolynesianPlayerMaker(surnames, i);
+                    }
+                }
+                //Check for Colorado  5
+                else if (GetDB2ValueInt("RCPT", "RCHD", i) >= 1280 && GetDB2ValueInt("RCPT", "RCHD", i) < 1536)
+                {
+                    if (rand.Next(0, 100) < 0.15 && GetDB2ValueInt("RCPT", "PRID", i) < 21000)
+                    {
+                        PolynesianPlayerMaker(surnames, i);
+                    }
+                }
+                //Check for Alaska  1
+                else if (GetDB2ValueInt("RCPT", "RCHD", i) >= 256 && GetDB2ValueInt("RCPT", "RCHD", i) < 512)
+                {
+                    if (rand.Next(0, 100) < 0.33 && GetDB2ValueInt("RCPT", "PRID", i) < 21000)
+                    {
+                        PolynesianPlayerMaker(surnames, i);
+                    }
+                }
+                //Check for Nevada  27
+                else if (GetDB2ValueInt("RCPT", "RCHD", i) >= 6912 && GetDB2ValueInt("RCPT", "RCHD", i) < 7168)
+                {
+                    if (rand.Next(0, 100) < 0.20 && GetDB2ValueInt("RCPT", "PRID", i) < 21000)
+                    {
+                        PolynesianPlayerMaker(surnames, i);
+                    }
+                }
                 progressBar1.PerformStep();
             }
 
             progressBar1.Visible = false;
             progressBar1.Value = 0;
 
-            MessageBox.Show("Surname updates are complete!");
+            MessageBox.Show("Polynesian Players & Names updates are complete!");
 
         }
 
@@ -626,6 +683,227 @@ namespace DB_EDITOR
             progressBar1.Value = 0;
 
             MessageBox.Show("Body Model updates are complete!");
+        }
+
+        //Recalculate Individual Recruit Overall
+        public void CalculateRecruitOverall(int rec)
+        {
+            int ppos = Convert.ToInt32(GetDB2Value("RCPT", "PPOS", rec));
+            double PCAR = Convert.ToInt32(GetDB2Value("RCPT", "PCAR", rec)); //CAWT
+            double PKAC = Convert.ToInt32(GetDB2Value("RCPT", "PKAC", rec)); //KAWT
+            double PTHA = Convert.ToInt32(GetDB2Value("RCPT", "PTHA", rec)); //TAWT
+            double PPBK = Convert.ToInt32(GetDB2Value("RCPT", "PPBK", rec)); //PBWT
+            double PRBK = Convert.ToInt32(GetDB2Value("RCPT", "PRBK", rec)); //RBWT
+            double PACC = Convert.ToInt32(GetDB2Value("RCPT", "PACC", rec)); //ACWT
+            double PAGI = Convert.ToInt32(GetDB2Value("RCPT", "PAGI", rec)); //AGWT
+            double PTAK = Convert.ToInt32(GetDB2Value("RCPT", "PTAK", rec)); //TKWT
+            double PINJ = Convert.ToInt32(GetDB2Value("RCPT", "PINJ", rec)); //INWT
+            double PKPR = Convert.ToInt32(GetDB2Value("RCPT", "PKPR", rec)); //KPWT
+            double PSPD = Convert.ToInt32(GetDB2Value("RCPT", "PSPD", rec)); //SPWT
+            double PTHP = Convert.ToInt32(GetDB2Value("RCPT", "PTHP", rec)); //TPWT
+            double PBKT = Convert.ToInt32(GetDB2Value("RCPT", "PBTK", rec)); //BTWT
+            double PCTH = Convert.ToInt32(GetDB2Value("RCPT", "PCTH", rec)); //CTWT
+            double PSTR = Convert.ToInt32(GetDB2Value("RCPT", "PSTR", rec)); //STWT
+            double PJMP = Convert.ToInt32(GetDB2Value("RCPT", "PJMP", rec)); //JUWT
+            double PAWR = Convert.ToInt32(GetDB2Value("RCPT", "PAWR", rec)); //AWWT
+
+            double[] ratings = new double[] { PCAR, PKAC, PTHA, PPBK, PRBK, PACC, PAGI, PTAK, PINJ, PKPR, PSPD, PTHP, PBKT, PCTH, PSTR, PJMP, PAWR };
+
+            for (int i = 0; i < ratings.Length; i++)
+            {
+                ratings[i] = CalcOVRIndividuals(i + 3, ratings[i], ppos);
+            }
+
+            double newRating = 50;
+
+            for (int i = 0; i < ratings.Length; i++)
+            {
+                newRating += ratings[i];
+            }
+
+            int val = Convert.ToInt32(newRating);
+            if (val < 40) val = 40;
+            val = RevertRating(val);
+
+            ChangeDB2String("RCPT", "POVR", rec, Convert.ToString(val));
+
+        }
+
+        //Calculate Star Ratings for Recruits
+        private void CalculateRecruitStarRating(List<List<int>> recruits)
+        {
+            progressBar1.Visible = true;
+            progressBar1.Value = 0;
+            progressBar1.Maximum = recruits.Count;
+
+            int five = Convert.ToInt32(recruits.Count * 0.01); //top 30
+            int four = Convert.ToInt32(recruits.Count * 0.1); // top 300
+            int three = Convert.ToInt32(recruits.Count * 0.33); //top 1000
+            int two = Convert.ToInt32(recruits.Count * 0.95);  //top 2800
+            
+            for(int i = 0; i < recruits.Count;i++)
+            {
+                if (i <= five) RecordRecruitStarRating(i, recruits, 5);
+                else if (i <= four) RecordRecruitStarRating(i, recruits, 4);
+                else if (i <= three) RecordRecruitStarRating(i, recruits, 3);
+                else if (i <= two) RecordRecruitStarRating(i, recruits, 2);
+                else RecordRecruitStarRating(i, recruits, 1);
+                progressBar1.PerformStep();
+            }
+
+            progressBar1.Visible = false;
+            progressBar1.Value = 0;
+        }
+
+        //Record Star Rating Update
+        private void RecordRecruitStarRating(int i,  List<List<int>> recruits, int star)
+        {
+            int prid = recruits[i][0];
+
+            for(int x = 0; x < GetTable2RecCount("RCPT"); x++)
+            {
+                if(GetDB2ValueInt("RCPT", "PRID", x) == prid)
+                {
+                    ChangeDB2Int("RCPT", "RCCB", x, star);
+                    break;
+                }
+            }
+        }
+
+        //Calculate Recruit & Transfer Star Rating
+        private void RecalculateAllStarRatings()
+        {
+            progressBar1.Visible = true;
+            progressBar1.Value = 0;
+            progressBar1.Maximum = GetTable2RecCount("RCPT");
+
+            List<List<int>> recruits = new List<List<int>>();
+            List<List<int>> transfers = new List<List<int>>();
+
+            int row = 0;
+            int rowT = 0;
+            for (int i = 0; i < GetTable2RecCount("RCPT"); i++)
+            {
+                if (GetDB2ValueInt("RCPT", "PRID", i) < 21000)  //recruits
+                {
+                    recruits.Add(new List<int>());
+                    recruits[row].Add(GetDB2ValueInt("RCPT", "PRID", i));
+                    recruits[row].Add(GetDB2ValueInt("RCPT", "POVR", i));
+                    row++;
+                }
+                else if (GetDB2ValueInt("RCPT", "PRID", i) >= 21000)  //transfers
+                {
+                    transfers.Add(new List<int>());
+                    transfers[rowT].Add(GetDB2ValueInt("RCPT", "PRID", i));
+                    transfers[rowT].Add(GetDB2ValueInt("RCPT", "POVR", i));
+                    rowT++;
+                }
+
+                progressBar1.PerformStep();
+            }
+
+            recruits.Sort((player1, player2) => player2[1].CompareTo(player1[1]));
+            CalculateRecruitStarRating(recruits);
+
+            transfers.Sort((player1, player2) => player2[1].CompareTo(player1[1]));
+            CalculateRecruitStarRating(transfers);
+
+            progressBar1.Visible = false;
+
+            MessageBox.Show("Recruit & Transfer Star Ratings Recalculated!");
+
+        }
+
+        //Choose Athlete Position
+        private void ChooseAthletePosition()
+        {
+            progressBar1.Visible = true;
+            progressBar1.Value = 0;
+            progressBar1.Maximum = GetTable2RecCount("RCPT");
+
+            List<List<int>> position = new List<List<int>>();
+
+            int row = 0;
+            int rowT = 0;
+            for (int i = 0; i < GetTable2RecCount("RCPT"); i++)
+            {
+                if (GetDB2ValueInt("RCPT", "PRID", i) < 21000 && GetDB2ValueInt("RCPT", "RATH", i) == 1)  
+                {
+                    for (int p = 0; p < 21; p++)
+                    {
+                        position.Add(new List<int>());
+                        position[row].Add(p);
+                        position[row].Add(CalculateAthletePositionRating(i, p));
+                        position[row].Add(GetDBValueInt("DRPS", "PDIM", p));
+                        row++;
+                    }
+                    position.Sort((player1, player2) => player2[2].CompareTo(player1[2]));
+
+                    position.Sort((player1, player2) => player2[1].CompareTo(player1[1]));
+
+                    ChangeDB2Int("RCPT", "PPOS", i, position[0][0]);
+                    CalculateRecruitOverall(i);
+                }
+
+                progressBar1.PerformStep();
+            }
+
+            progressBar1.Visible = false;
+
+            MessageBox.Show("Athlete Positions Optimized!");
+
+        }
+
+        public int CalculateAthletePositionRating(int rec, int ppos)
+        {
+            if (ppos == 2 || ppos > 18) return 0;
+
+            int posg = GetPOSGfromPPOS(ppos);
+            int playerPos = GetDBValueInt("PLAY", "PPOS", rec);
+            int playerPOSG = GetPOSGfromPPOS(playerPos);
+
+            double PCAR = Convert.ToInt32(GetDB2Value("RCPT", "PCAR", rec)); //CAWT
+            double PKAC = Convert.ToInt32(GetDB2Value("RCPT", "PKAC", rec)); //KAWT
+            double PTHA = Convert.ToInt32(GetDB2Value("RCPT", "PTHA", rec)); //TAWT
+            double PPBK = Convert.ToInt32(GetDB2Value("RCPT", "PPBK", rec)); //PBWT
+            double PRBK = Convert.ToInt32(GetDB2Value("RCPT", "PRBK", rec)); //RBWT
+            double PACC = Convert.ToInt32(GetDB2Value("RCPT", "PACC", rec)); //ACWT
+            double PAGI = Convert.ToInt32(GetDB2Value("RCPT", "PAGI", rec)); //AGWT
+            double PTAK = Convert.ToInt32(GetDB2Value("RCPT", "PTAK", rec)); //TKWT
+            double PINJ = Convert.ToInt32(GetDB2Value("RCPT", "PINJ", rec)); //INWT
+            double PKPR = Convert.ToInt32(GetDB2Value("RCPT", "PKPR", rec)); //KPWT
+            double PSPD = Convert.ToInt32(GetDB2Value("RCPT", "PSPD", rec)); //SPWT
+            double PTHP = Convert.ToInt32(GetDB2Value("RCPT", "PTHP", rec)); //TPWT
+            double PBKT = Convert.ToInt32(GetDB2Value("RCPT", "PBTK", rec)); //BTWT
+            double PCTH = Convert.ToInt32(GetDB2Value("RCPT", "PCTH", rec)); //CTWT
+            double PSTR = Convert.ToInt32(GetDB2Value("RCPT", "PSTR", rec)); //STWT
+            double PJMP = Convert.ToInt32(GetDB2Value("RCPT", "PJMP", rec)); //JUWT
+            double PAWR = Convert.ToInt32(GetDB2Value("RCPT", "PAWR", rec)); //AWWT
+
+            double[] ratings = new double[] { PCAR, PKAC, PTHA, PPBK, PRBK, PACC, PAGI, PTAK, PINJ, PKPR, PSPD, PTHP, PBKT, PCTH, PSTR, PJMP, PAWR };
+
+            for (int i = 0; i < ratings.Length; i++)
+            {
+                ratings[i] = CalcOVRIndividuals(i + 3, ratings[i], ppos);
+            }
+
+            double newRating = 50;
+
+            for (int i = 0; i < ratings.Length; i++)
+            {
+                newRating += ratings[i];
+            }
+
+            int val = Convert.ToInt32(newRating);
+
+            if (playerPOSG != posg && posg < 8) val -= 10;
+            if (GetDB2ValueInt("RCPT", "PTHA", rec) > 11 && ppos == 0) val += 5;
+            if (GetDB2ValueInt("RCPT", "PBTK", rec) > 11 && ppos == 1) val += 5;
+            if (GetDB2ValueInt("RCPT", "PCTH", rec) > 11 && ppos == 3) val += 10;
+
+            if (val < 0) val = 0;
+            return val;
+
         }
 
     }

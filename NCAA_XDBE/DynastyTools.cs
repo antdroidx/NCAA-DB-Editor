@@ -997,5 +997,54 @@ namespace DB_EDITOR
 
         }
 
+        //body size progression
+        private void PlayerBodySizeProgression()
+        {
+            progressBar1.Visible = true;
+            progressBar1.Value = 0;
+            progressBar1.Maximum = GetTableRecCount("PLAY");
+
+            List<List<int>> bodysize = GetBodySizeAverages();
+
+            for(int i = 0; i < GetTableRecCount("PLAY"); i++)
+            {
+                if(GetDBValueInt("PLAY", "PYER", i) <= 1)
+                {
+                    int pos = GetDBValueInt("PLAY", "PPOS", i);
+                    int weight = GetDBValueInt("PLAY", "PWGT", i) + 160;
+
+                    if(weight < bodysize[pos][2])
+                    {
+                        int gain = Convert.ToInt32((bodysize[pos][2] - weight) * (double)(rand.Next(0, GetDBValueInt("PLAY", "PPOE", i) + 1) / 31));
+                        if (gain > 20) gain = 20;
+                        weight += gain;
+                        ChangeDBInt("PLAY", "PWGT", i, weight - 160);
+                    }
+
+                    if((double)(rand.Next(0, GetDBValueInt("PLAY", "PPOE", i) + 1) / 31) > 0.7)
+                    {
+                        int height = GetDBValueInt("PLAY", "PHGT", i) + 1;
+                        ChangeDBInt("PLAY", "PHGT", i, height);
+                    }
+
+                } 
+                else
+                {
+                    int pos = GetDBValueInt("PLAY", "PPOS", i);
+                    int weight = GetDBValueInt("PLAY", "PWGT", i) + 160;
+                    int gain = Convert.ToInt32(15-(2* GetDBValueInt("PLAY", "PYER", i)) * (double)(32-rand.Next(0, GetDBValueInt("PLAY", "PPOE", i)) / 31));
+
+                    if (weight < bodysize[pos][2]) weight += gain;
+                    else weight -= gain;
+                    ChangeDBInt("PLAY", "PWGT", i, weight - 160);
+                }
+                progressBar1.PerformStep();
+            }
+
+            progressBar1.Visible = false;
+        }
+
+
+
     }
 }

@@ -239,6 +239,12 @@ namespace DB_EDITOR
             AssignCoachPrestigeFreeAgents();
         }
 
+
+        private void BodyProgressionButton_Click(object sender, EventArgs e)
+        {
+            PlayerBodySizeProgression();
+        }
+
         #endregion
 
 
