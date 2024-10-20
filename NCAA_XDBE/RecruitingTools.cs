@@ -490,90 +490,94 @@ namespace DB_EDITOR
             }
             sr.Close();
 
+            //dont change in-season recruit names with this
+            int start = GetTableRecCount("MRCT");
+
             progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
+            progressBar1.Value = start;
             progressBar1.Maximum = GetTable2RecCount("RCPT");
             progressBar1.Step = 1;
 
 
-            for (int i = 0; i < GetTable2RecCount("RCPT"); i++)
+
+            for (int i = start; i < GetTable2RecCount("RCPT"); i++)
             {
                 //Check for Arizona  2
-                if (GetDB2ValueInt("RCPT", "RCHD", i) >= 512 && GetDB2ValueInt("RCPT", "RCHD", i) < 768)
+                if (GetDB2ValueInt("RCPT", "STID", i) == 2)
                 {
-                    if (rand.Next(0, 100) < 0.15 && GetDB2ValueInt("RCPT", "PRID", i) < 21000)
+                    if (rand.Next(0, 100) < 15 && GetDB2ValueInt("RCPT", "PRID", i) < 21000)
                     {
                         PolynesianPlayerMaker(surnames, i);
                     }
                 }
                 //Check for California 4 
-                else if (GetDB2ValueInt("RCPT", "RCHD", i) >= 1024 && GetDB2ValueInt("RCPT", "RCHD", i) < 1280)
+                else if (GetDB2ValueInt("RCPT", "STID", i) == 4)
                 {
-                    if (rand.Next(0, 100) < 0.30 && GetDB2ValueInt("RCPT", "PRID", i) < 21000)
+                    if (rand.Next(0, 100) < 30 && GetDB2ValueInt("RCPT", "PRID", i) < 21000)
                     {
                         PolynesianPlayerMaker(surnames, i);
                     }
                 }
                 //Check for Hawaii recruits (256 x 10 - 2560)
-                else if (GetDB2ValueInt("RCPT", "RCHD", i) >= 2560 && GetDB2ValueInt("RCPT", "RCHD", i) < 2816)
+                else if (GetDB2ValueInt("RCPT", "STID", i) == 10)
                 {
-                    if (rand.Next(0, 100) < .9 && GetDB2ValueInt("RCPT", "PRID", i) < 21000)
+                    if (rand.Next(0, 100) < 90 && GetDB2ValueInt("RCPT", "PRID", i) < 21000)
                     {
                         PolynesianPlayerMaker(surnames, i);
                     }
                 }
                 //Check for Utah 43
-                else if (GetDB2ValueInt("RCPT", "RCHD", i) >= 11008 && GetDB2ValueInt("RCPT", "RCHD", i) < 11264)
+                else if (GetDB2ValueInt("RCPT", "STID", i) == 43)
                 {
-                    if (rand.Next(0, 100) < 0.25 && GetDB2ValueInt("RCPT", "PRID", i) < 21000)
+                    if (rand.Next(0, 100) < 25 && GetDB2ValueInt("RCPT", "PRID", i) < 21000)
                     {
                         PolynesianPlayerMaker(surnames, i);
                     }
                 }
                 //Check for Washington  46
-                else if (GetDB2ValueInt("RCPT", "RCHD", i) >= 11776 && GetDB2ValueInt("RCPT", "RCHD", i) < 12032)
+                else if (GetDB2ValueInt("RCPT", "STID", i) == 46)
                 {
-                    if (rand.Next(0, 100) < 0.20 && GetDB2ValueInt("RCPT", "PRID", i) < 21000)
+                    if (rand.Next(0, 100) < 20 && GetDB2ValueInt("RCPT", "PRID", i) < 21000)
                     {
                         PolynesianPlayerMaker(surnames, i);
                     }
                 }
                 //Check for Oregon  36
-                else if (GetDB2ValueInt("RCPT", "RCHD", i) >= 9216 && GetDB2ValueInt("RCPT", "RCHD", i) < 9472)
+                else if (GetDB2ValueInt("RCPT", "STID", i) == 36)
                 {
-                    if (rand.Next(0, 100) < 0.15 && GetDB2ValueInt("RCPT", "PRID", i) < 21000)
+                    if (rand.Next(0, 100) < 15 && GetDB2ValueInt("RCPT", "PRID", i) < 21000)
                     {
                         PolynesianPlayerMaker(surnames, i);
                     }
                 }
                 //Check for Texas  42
-                else if (GetDB2ValueInt("RCPT", "RCHD", i) >= 10752 && GetDB2ValueInt("RCPT", "RCHD", i) < 11008)
+                else if (GetDB2ValueInt("RCPT", "STID", i) == 42)
                 {
-                    if (rand.Next(0, 100) < 0.15 && GetDB2ValueInt("RCPT", "PRID", i) < 21000)
+                    if (rand.Next(0, 100) < 10 && GetDB2ValueInt("RCPT", "PRID", i) < 21000)
                     {
                         PolynesianPlayerMaker(surnames, i);
                     }
                 }
                 //Check for Colorado  5
-                else if (GetDB2ValueInt("RCPT", "RCHD", i) >= 1280 && GetDB2ValueInt("RCPT", "RCHD", i) < 1536)
+                else if (GetDB2ValueInt("RCPT", "STID", i) == 5)
                 {
-                    if (rand.Next(0, 100) < 0.15 && GetDB2ValueInt("RCPT", "PRID", i) < 21000)
+                    if (rand.Next(0, 100) < 15 && GetDB2ValueInt("RCPT", "PRID", i) < 21000)
                     {
                         PolynesianPlayerMaker(surnames, i);
                     }
                 }
                 //Check for Alaska  1
-                else if (GetDB2ValueInt("RCPT", "RCHD", i) >= 256 && GetDB2ValueInt("RCPT", "RCHD", i) < 512)
+                else if (GetDB2ValueInt("RCPT", "STID", i) == 1)
                 {
-                    if (rand.Next(0, 100) < 0.33 && GetDB2ValueInt("RCPT", "PRID", i) < 21000)
+                    if (rand.Next(0, 100) < 33 && GetDB2ValueInt("RCPT", "PRID", i) < 21000)
                     {
                         PolynesianPlayerMaker(surnames, i);
                     }
                 }
                 //Check for Nevada  27
-                else if (GetDB2ValueInt("RCPT", "RCHD", i) >= 6912 && GetDB2ValueInt("RCPT", "RCHD", i) < 7168)
+                else if (GetDB2ValueInt("RCPT", "STID", i) == 27)
                 {
-                    if (rand.Next(0, 100) < 0.20 && GetDB2ValueInt("RCPT", "PRID", i) < 21000)
+                    if (rand.Next(0, 100) < 20 && GetDB2ValueInt("RCPT", "PRID", i) < 21000)
                     {
                         PolynesianPlayerMaker(surnames, i);
                     }
@@ -602,13 +606,16 @@ namespace DB_EDITOR
 
         private void RandomizeRecruitNames(string tableName)
         {
+            //dont change in-season recruit names with this
+            int start = GetTableRecCount("MRCT");
+
             progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
+            progressBar1.Value = start;
             progressBar1.Maximum = GetTable2RecCount(tableName);
             CreateFirstNamesDB();
             CreateLastNamesDB();
 
-            for (int i = 0; i < GetTable2RecCount(tableName); i++)
+            for (int i = start; i < GetTable2RecCount(tableName); i++)
             {
                 if (tableName != "RCPT" || GetDB2ValueInt(tableName, "PRID", i) < 21000)  //skips transfers
                 {
