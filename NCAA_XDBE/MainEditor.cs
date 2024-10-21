@@ -974,9 +974,6 @@ namespace DB_EDITOR
         }
 
 
-
-
-
         #endregion
 
         #region Configuration Selection

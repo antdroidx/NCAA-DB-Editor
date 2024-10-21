@@ -296,7 +296,8 @@ namespace DB_EDITOR
             PKACBox.Value = GetDBValueInt("PLAY", "PKAC", PlayerIndex);
             PKACtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(PKACBox.Value)));
 
-
+            //Player Tendency/Archeatype
+            PTEN.Text = GetPTENType(GetDBValueInt("PLAY", "PPOS", PlayerIndex), GetDBValueInt("PLAY", "PTEN", PlayerIndex));
 
             //Off-Season Type
 

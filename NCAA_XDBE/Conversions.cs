@@ -429,6 +429,22 @@ namespace DB_EDITOR
             return bodysize;
 
         }
+
+        private string GetPTENType(int ppos, int pten)
+        {
+            string type = "";
+            int cat = 2;
+            List<List<string>> types = CreateStringListsFromCSV(@"resources\players\PTEN.csv", true);
+
+            if (pten < 10) cat = 1;
+            else if (pten < 20) cat = 2;
+            else cat = 3;
+
+            type = types[ppos][cat];
+
+            return type;
+        }
+
         #endregion
 
         #region Positions

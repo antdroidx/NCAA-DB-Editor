@@ -1012,36 +1012,35 @@ namespace DB_EDITOR
                 {
                     int pos = GetDBValueInt("PLAY", "PPOS", i);
                     int weight = GetDBValueInt("PLAY", "PWGT", i) + 160;
-
-                    if(weight < bodysize[pos][2])
+                    int avg = bodysize[pos][2];
+                    int ppoe = GetDBValueInt("PLAY", "PPOE", i);
+                    if (weight < avg)
                     {
-                        int gain = Convert.ToInt32((bodysize[pos][2] - weight) * (double)(rand.Next(0, GetDBValueInt("PLAY", "PPOE", i) + 1) / 31));
-                        if (gain > 20) gain = 20;
+                        double randSeed = rand.Next(0,ppoe+1)/31.0;
+                        int gain = Convert.ToInt32((avg - weight) * randSeed);
+                        if (gain > 25) gain = 25;
                         weight += gain;
                         ChangeDBInt("PLAY", "PWGT", i, weight - 160);
                     }
 
-                    if((double)(rand.Next(0, GetDBValueInt("PLAY", "PPOE", i) + 1) / 31) > 0.7)
+                    if(rand.Next(0, ppoe + 1) / 31.0 > 0.67)
                     {
                         int height = GetDBValueInt("PLAY", "PHGT", i) + 1;
                         ChangeDBInt("PLAY", "PHGT", i, height);
                     }
 
+                    RecalculateIndividualBMI(i);
                 } 
                 else
                 {
-                    int pos = GetDBValueInt("PLAY", "PPOS", i);
-                    int weight = GetDBValueInt("PLAY", "PWGT", i) + 160;
-                    int gain = Convert.ToInt32(15-(2* GetDBValueInt("PLAY", "PYER", i)) * (double)(32-rand.Next(0, GetDBValueInt("PLAY", "PPOE", i)) / 31));
 
-                    if (weight < bodysize[pos][2]) weight += gain;
-                    else weight -= gain;
-                    ChangeDBInt("PLAY", "PWGT", i, weight - 160);
                 }
                 progressBar1.PerformStep();
             }
 
             progressBar1.Visible = false;
+            
+            MessageBox.Show("Body Progressions Completed!");
         }
 
 
