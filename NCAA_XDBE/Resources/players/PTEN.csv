@@ -1,0 +1,22 @@
+PPOS,TEN1,TEN2,TEN3
+0,Pocket Passer,Balanced,Scrambler
+1,Power,Balanced,Speed
+2,Blocking,Balanced,Receiving
+3,Speed,Balanced,Possession
+4,Blocking,Balanced,Receiving
+5,Run Blocker,Balanced,Pass Blocker
+6,Run Blocker,Balanced,Pass Blocker
+7,Run Blocker,Balanced,Pass Blocker
+8,Run Blocker,Balanced,Pass Blocker
+9,Run Blocker,Balanced,Pass Blocker
+10,Pass Rusher,Balanced,Run Stopper
+11,Pass Rusher,Balanced,Run Stopper
+12,Pass Rusher,Balanced,Run Stopper
+13,Run Stopper,Balanced,Coverage
+14,Run Stopper,Balanced,Coverage
+15,Run Stopper,Balanced,Coverage
+16,Hard Hitter,Balanced,Coverage
+17,Hard Hitter,Balanced,Coverage
+18,Hard Hitter,Balanced,Coverage
+19,Clutch,Balanced,Sporadic
+20,Clutch,Balanced,Sporadic

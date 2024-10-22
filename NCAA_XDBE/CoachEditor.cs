@@ -117,6 +117,14 @@ namespace DB_EDITOR
             if (GetDBValue("COCH", "CFUC", EditorIndex) == "1") CFUCBox.Checked = true;
             else CFUCBox.Checked = false;
 
+            //Recruit Assistance
+            if (GetDBValue("COCH", "CFRC", EditorIndex) == "1") RecruitAssistanceBox.Checked = true;
+            else RecruitAssistanceBox.Checked = false;
+
+            //Discipline Assistance
+            if (GetDBValue("COCH", "CSAS", EditorIndex) == "1") DisciplineAssistanceBox.Checked = true;
+            else DisciplineAssistanceBox.Checked = false;
+
             //Head Coach Info
             CoachFirstNameBox.Text = GetCoachFirstNamefromRec(EditorIndex);
             CoachLastNameBox.Text = GetCoachLastNamefromRec(EditorIndex);
@@ -178,6 +186,27 @@ namespace DB_EDITOR
             CoachCDTRBox.Value = GetDBValueInt("COCH", "CDTR", EditorIndex);
             CoachCDTABox.Value = GetDBValueInt("COCH", "CDTA", EditorIndex);
             CoachCDTSBox.Value = GetDBValueInt("COCH", "CDTS", EditorIndex);
+
+
+            //Coaching History
+
+            YearsCoached.Text = GetDBValue("COCH", "CYCD", EditorIndex);
+
+            CoachTeamPrestige.Text = FindTeamPrestige(GetDBValueInt("COCH", "TGID", EditorIndex)) + " | " + GetDBValue("COCH", "COTP", EditorIndex);
+
+            ContractInfo.Text = GetDBValue("COCH", "CCYR", CoachIndex) + " / " + GetDBValue("COCH", "CCFY", CoachIndex) + " Years Remaining";
+
+            YearsWithTeam.Text = GetDBValue("COCH", "CTYR", EditorIndex);
+
+            SeasonRecord.Text = GetDBValue("COCH", "CSWI", EditorIndex) + " - " + GetDBValue("COCH", "CSLO", EditorIndex);
+            BowlRecord.Text = GetDBValue("COCH", "CBLW", EditorIndex) + " - " + GetDBValue("COCH", "CBLL", EditorIndex);
+            Top25Record.Text = GetDBValue("COCH", "C25W", EditorIndex) + " - " + GetDBValue("COCH", "C25L", EditorIndex);
+            CareerRecord.Text = GetDBValue("COCH", "CCWI", EditorIndex) + " - " + GetDBValue("COCH", "CCLO", EditorIndex);
+            WinningSeasons.Text = GetDBValue("COCH", "CCWS", EditorIndex);
+            NationalTitles.Text = GetDBValue("COCH", "CCNT", EditorIndex);
+            ConfTitles.Text = GetDBValue("COCH", "CCCT", EditorIndex);
+
+
 
             DoNotTrigger = false;
             progressBar1.Value = 0;
@@ -352,6 +381,25 @@ namespace DB_EDITOR
             if (CFUCBox.Checked) ChangeDBInt("COCH", "CFUC", CoachIndex, 1);
             else if (!CFUCBox.Checked) ChangeDBInt("COCH", "CFUC", CoachIndex, 0);
         }
+
+        //Recruiting Assistance
+        private void RecruitAssistanceBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger) return;
+
+            if (RecruitAssistanceBox.Checked) ChangeDBInt("COCH", "CFRC", CoachIndex, 1);
+            else if (!RecruitAssistanceBox.Checked) ChangeDBInt("COCH", "CFRC", CoachIndex, 0);
+        }
+
+        //Discipline Assistance
+        private void DisciplineAssistanceBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger) return;
+
+            if (DisciplineAssistanceBox.Checked) ChangeDBInt("COCH", "CSAS", CoachIndex, 1);
+            else if (!DisciplineAssistanceBox.Checked) ChangeDBInt("COCH", "CSAS", CoachIndex, 0);
+        }
+
 
         //Team Name
         private void CoachTeamList_SelectedIndexChanged(object sender, EventArgs e)

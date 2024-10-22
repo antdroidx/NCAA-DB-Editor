@@ -537,6 +537,11 @@ namespace DB_EDITOR
             else return "";
         }
 
+        public List<List<int>> GetAwarenessHitList()
+        {
+            return CreateIntListsFromCSV(@"resources\players\Awareness.csv", true);
+        }
+
         #endregion
 
         #region Ratings
@@ -699,9 +704,11 @@ namespace DB_EDITOR
         public int CalculatePositionRating(int rec, int ppos)
         {
             int posg = GetPOSGfromPPOS(ppos);
-
             int playerPos = GetDBValueInt("PLAY", "PPOS", rec);
             int playerPOSG = GetPOSGfromPPOS(playerPos);
+
+            List<List<int>> AWRH = GetAwarenessHitList();
+            double hit = 0.125;
 
             double PCAR = Convert.ToInt32(GetDBValue("PLAY", "PCAR", rec)); //CAWT
             double PKAC = Convert.ToInt32(GetDBValue("PLAY", "PKAC", rec)); //KAWT
@@ -721,6 +728,16 @@ namespace DB_EDITOR
             double PJMP = Convert.ToInt32(GetDBValue("PLAY", "PJMP", rec)); //JUWT
             double PAWR = Convert.ToInt32(GetDBValue("PLAY", "PAWR", rec)); //AWWT
 
+            int AWRog = ConvertRating(Convert.ToInt32(PAWR));
+
+            double PosHit = hit * AWRH[playerPos][ppos];
+
+            int AWR = Convert.ToInt32(AWRog - (AWRog * PosHit));
+
+            if (AWR < 40) AWR = 40;
+
+            PAWR = RevertRating(AWR);
+
             double[] ratings = new double[] { PCAR, PKAC, PTHA, PPBK, PRBK, PACC, PAGI, PTAK, PINJ, PKPR, PSPD, PTHP, PBKT, PCTH, PSTR, PJMP, PAWR };
 
             for (int i = 0; i < ratings.Length; i++)
@@ -738,7 +755,7 @@ namespace DB_EDITOR
 
             int val = Convert.ToInt32(newRating);
 
-            if (playerPOSG != posg && posg < 8) val -= 20;
+            //if (playerPOSG != posg && posg < 8) val -= 20;
 
             if (val < 0) val = 0;
             return val;

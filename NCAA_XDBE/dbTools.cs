@@ -1633,40 +1633,40 @@ namespace DB_EDITOR
                     rec = AddDCHTrecord(rec, 0, 3, roster);
                     //RBs
                     rec = AddDCHTrecord(rec, 1, 4, roster);
-                    //FBs
-                    rec = AddDCHTrecord(rec, 2, 3, roster);
                     //WRs
                     rec = AddDCHTrecord(rec, 3, 6, roster);
                     //TEs
                     rec = AddDCHTrecord(rec, 4, 3, roster);
                     //LTs
                     rec = AddDCHTrecord(rec, 5, 3, roster);
-                    //LGs
-                    rec = AddDCHTrecord(rec, 6, 3, roster);
-                    //Cs
-                    rec = AddDCHTrecord(rec, 7, 3, roster);
-                    //RG
-                    rec = AddDCHTrecord(rec, 8, 3, roster);
                     //RTs
                     rec = AddDCHTrecord(rec, 9, 3, roster);
+                    //Cs
+                    rec = AddDCHTrecord(rec, 7, 3, roster);
+                    //LGs
+                    rec = AddDCHTrecord(rec, 6, 3, roster);
+                    //RG
+                    rec = AddDCHTrecord(rec, 8, 3, roster);
                     //LEs
                     rec = AddDCHTrecord(rec, 10, 3, roster);
                     //RE
                     rec = AddDCHTrecord(rec, 11, 3, roster);
                     //DT
                     rec = AddDCHTrecord(rec, 12, 5, roster);
-                    //LOLBs
-                    rec = AddDCHTrecord(rec, 13, 3, roster);
                     //MLBs
                     rec = AddDCHTrecord(rec, 14, 4, roster);
                     //ROLBs
                     rec = AddDCHTrecord(rec, 15, 3, roster);
+                    //LOLBs
+                    rec = AddDCHTrecord(rec, 13, 3, roster);
                     //CBs
                     rec = AddDCHTrecord(rec, 16, 5, roster);
-                    //SSs
-                    rec = AddDCHTrecord(rec, 17, 3, roster);
                     //FSs
                     rec = AddDCHTrecord(rec, 18, 3, roster);
+                    //SSs
+                    rec = AddDCHTrecord(rec, 17, 3, roster);
+                    //FBs
+                    rec = AddDCHTrecord(rec, 2, 3, roster);
                     //Ks
                     rec = AddDCHTrecord(rec, 19, 3, roster);
                     //Ps
@@ -1741,40 +1741,40 @@ namespace DB_EDITOR
             rec = AddDCHTrecord(rec, 0, 3, roster);
             //RBs
             rec = AddDCHTrecord(rec, 1, 4, roster);
-            //FBs
-            rec = AddDCHTrecord(rec, 2, 3, roster);
             //WRs
             rec = AddDCHTrecord(rec, 3, 6, roster);
             //TEs
             rec = AddDCHTrecord(rec, 4, 3, roster);
             //LTs
             rec = AddDCHTrecord(rec, 5, 3, roster);
-            //LGs
-            rec = AddDCHTrecord(rec, 6, 3, roster);
-            //Cs
-            rec = AddDCHTrecord(rec, 7, 3, roster);
-            //RG
-            rec = AddDCHTrecord(rec, 8, 3, roster);
             //RTs
             rec = AddDCHTrecord(rec, 9, 3, roster);
+            //Cs
+            rec = AddDCHTrecord(rec, 7, 3, roster);
+            //LGs
+            rec = AddDCHTrecord(rec, 6, 3, roster);
+            //RG
+            rec = AddDCHTrecord(rec, 8, 3, roster);
             //LEs
             rec = AddDCHTrecord(rec, 10, 3, roster);
             //RE
             rec = AddDCHTrecord(rec, 11, 3, roster);
             //DT
             rec = AddDCHTrecord(rec, 12, 5, roster);
-            //LOLBs
-            rec = AddDCHTrecord(rec, 13, 3, roster);
             //MLBs
             rec = AddDCHTrecord(rec, 14, 4, roster);
             //ROLBs
             rec = AddDCHTrecord(rec, 15, 3, roster);
+            //LOLBs
+            rec = AddDCHTrecord(rec, 13, 3, roster);
             //CBs
             rec = AddDCHTrecord(rec, 16, 5, roster);
-            //SSs
-            rec = AddDCHTrecord(rec, 17, 3, roster);
             //FSs
             rec = AddDCHTrecord(rec, 18, 3, roster);
+            //SSs
+            rec = AddDCHTrecord(rec, 17, 3, roster);
+            //FBs
+            rec = AddDCHTrecord(rec, 2, 3, roster);
             //Ks
             rec = AddDCHTrecord(rec, 19, 3, roster);
             //Ps

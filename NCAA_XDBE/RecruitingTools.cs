@@ -869,6 +869,9 @@ namespace DB_EDITOR
             int playerPos = GetDBValueInt("PLAY", "PPOS", rec);
             int playerPOSG = GetPOSGfromPPOS(playerPos);
 
+            List<List<int>> AWRH = GetAwarenessHitList();
+            double hit = 0.075;
+
             double PCAR = Convert.ToInt32(GetDB2Value("RCPT", "PCAR", rec)); //CAWT
             double PKAC = Convert.ToInt32(GetDB2Value("RCPT", "PKAC", rec)); //KAWT
             double PTHA = Convert.ToInt32(GetDB2Value("RCPT", "PTHA", rec)); //TAWT
@@ -887,6 +890,15 @@ namespace DB_EDITOR
             double PJMP = Convert.ToInt32(GetDB2Value("RCPT", "PJMP", rec)); //JUWT
             double PAWR = Convert.ToInt32(GetDB2Value("RCPT", "PAWR", rec)); //AWWT
 
+            double PosHit = hit * AWRH[playerPos][ppos];
+
+            int AWRog = ConvertRating(Convert.ToInt32(PAWR));
+            int AWR = Convert.ToInt32(AWRog - (AWRog * PosHit));
+
+            if (AWR < 40) AWR = 40;
+
+            PAWR = RevertRating(AWR);
+
             double[] ratings = new double[] { PCAR, PKAC, PTHA, PPBK, PRBK, PACC, PAGI, PTAK, PINJ, PKPR, PSPD, PTHP, PBKT, PCTH, PSTR, PJMP, PAWR };
 
             for (int i = 0; i < ratings.Length; i++)
@@ -902,11 +914,6 @@ namespace DB_EDITOR
             }
 
             int val = Convert.ToInt32(newRating);
-
-            if (playerPOSG != posg && posg < 8) val -= 10;
-            if (GetDB2ValueInt("RCPT", "PTHA", rec) > 11 && ppos == 0) val += 5;
-            if (GetDB2ValueInt("RCPT", "PBTK", rec) > 11 && ppos == 1) val += 5;
-            if (GetDB2ValueInt("RCPT", "PCTH", rec) > 11 && ppos == 3) val += 10;
 
             if (val < 0) val = 0;
             return val;

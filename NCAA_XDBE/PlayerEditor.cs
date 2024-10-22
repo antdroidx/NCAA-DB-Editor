@@ -165,6 +165,8 @@ namespace DB_EDITOR
         {
             DoNotTrigger = true;
 
+            ResetPlayerPOSbutton.Visible = false;
+            
             //Player Name
             PFNAtextBox.Text = GetFirstNameFromRecord(PlayerIndex); //...first name from numeric to text conversion
             PLNAtextBox.Text = GetLastNameFromRecord(PlayerIndex); //...last name from numeric to text conversion
@@ -492,10 +494,48 @@ namespace DB_EDITOR
             if (DoNotTrigger)
                 return;
 
-            ChangeDBInt("PLAY", "PPOS", PlayerIndex, PPOSBox.SelectedIndex);
+            if(AWHRBox.Checked)
+            {
+                DoNotTrigger = true;
+                PPOSmem = GetDBValueInt("PLAY", "PPOS", PlayerIndex);
+                AWRHmem = GetDBValueInt("PLAY", "PAWR", PlayerIndex);
+                double hit = 0.19;
+
+                if (NextMod)  hit = 0.08;
+
+                ResetPlayerPOSbutton.Visible = true;
+
+                List<List<int>> AWRH = GetAwarenessHitList();
+                double PosHit = hit * AWRH[PPOSmem][PPOSBox.SelectedIndex];
+
+                int AWRog = ConvertRating(AWRHmem);
+                int AWR = Convert.ToInt32(AWRog - (AWRog * PosHit));
+                if (AWR < 40) AWR = 40;
+
+                AWR = RevertRating(AWR);
+                ChangeDBInt("PLAY", "PAWR", PlayerIndex, AWR);
+                ChangeDBInt("PLAY", "PPOS", PlayerIndex, PPOSBox.SelectedIndex);
+                PAWRBox.Value = GetDBValueInt("PLAY", "PAWR", PlayerIndex);
+                PAWRtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(PAWRBox.Value)));
+            }
+            else
+            {
+                ChangeDBInt("PLAY", "PPOS", PlayerIndex, PPOSBox.SelectedIndex);
+            } 
+
             DisplayNewOverallRating();
+            DoNotTrigger = false;
         }
 
+        private void ResetPlayerPOSbutton_Click(object sender, EventArgs e)
+        {
+            ChangeDBInt("PLAY", "PAWR", PlayerIndex, AWRHmem);
+            ChangeDBInt("PLAY", "PPOS", PlayerIndex, PPOSmem);
+            PPOSBox.SelectedIndex = GetDBValueInt("PLAY", "PPOS", PlayerIndex);
+            PAWRBox.Value = GetDBValueInt("PLAY", "PAWR", PlayerIndex);
+            PAWRtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(PAWRBox.Value)));
+            ResetPlayerPOSbutton.Visible = false;
+        }
 
         //Change Year/Redshirt
 

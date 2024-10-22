@@ -20,7 +20,7 @@ namespace DB_EDITOR
             LoadLeagueListBox();
             LoadCGIDListBox();
             CreateTeamColorPalettes();
-            LoadTGIDlistBox(-1, 2);  // 2 = to all teams.
+            LoadTGIDlistBox(-1, LGIDcomboBox.SelectedIndex);  // 2 = to all teams.
         }
         private void LoadLeagueListBox()
         {
@@ -101,7 +101,7 @@ namespace DB_EDITOR
 
             int cgid = GetCONFrecFromCNAM(CGIDcomboBox.Text);
             
-            LoadTGIDlistBox(cgid, -1);
+            LoadTGIDlistBox(cgid, LGIDcomboBox.SelectedIndex);
         }
         public void TGIDlistBox_SelectedIndexChanged(object sender, EventArgs e)
         {

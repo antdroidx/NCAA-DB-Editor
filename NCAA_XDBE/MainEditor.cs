@@ -59,7 +59,7 @@ namespace DB_EDITOR
 
 
         int OCAPmem, DCAPmem, TSI1mem, TSI2mem, TPIOmem, TPIDmem;
-
+        int PPOSmem, AWRHmem;
 
         bool tabDelimited = false;
 
@@ -967,6 +967,8 @@ namespace DB_EDITOR
             LeagueMain scheduleGen = new LeagueMain();
             scheduleGen.ShowDialog();
         }
+
+
         private void AboutMenuItem_Click(object sender, EventArgs e)
         {
             AboutBox1 AboutBox = new AboutBox1();
