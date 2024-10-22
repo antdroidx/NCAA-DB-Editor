@@ -1001,11 +1001,12 @@ namespace DB_EDITOR
                     int applicant = rand.Next(0, GetTableRecCount("COCH"));
                     if (GetDBValueInt("COCH", "TGID", applicant) == 511)
                     {
+                        ChangeDBInt("COCH", "CCPO", GetCOCHrecFromTeamRec(TeamIndex), 60);
+                        ChangeDBInt("COCH", "CTOP", GetCOCHrecFromTeamRec(TeamIndex), 0);
                         ChangeDBInt("COCH", "TGID", GetCOCHrecFromTeamRec(TeamIndex), 511);
-                        ChangeDBInt("COCH", "CCPO", GetCOCHrecFromTeamRec(TeamIndex), 65);
 
                         ChangeDBInt("COCH", "TGID", applicant, tgid);
-                        ChangeDBInt("COCH", "CCPO", applicant, 65);
+                        ChangeDBInt("COCH", "CCPO", applicant, 60);
 
                         GetTeamEditorData(TeamIndex);
 

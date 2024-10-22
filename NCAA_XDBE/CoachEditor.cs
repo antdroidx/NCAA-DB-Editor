@@ -37,10 +37,8 @@ namespace DB_EDITOR
         public void LoadCoachList(int active)
         {
             CoachListBox.Items.Clear();
-            CoachEditorList.Clear();
-            List<string> coachList = new List<string>();
-            
-            int IndexKey = 0;
+            CoachEditorList = new List<List<string>>();
+            int row = 0;
             if (active == 0)
             {
                 for (int i = 0; i < GetTableRecCount("COCH"); i++)
@@ -49,10 +47,15 @@ namespace DB_EDITOR
 
                     if (GetDBValueInt("COCH", "TGID", i) < 512)
                     {
-                        if (CoachShowTeamBox.Checked) coachList.Add(GetDBValue("COCH", "CLFN", i) + " " + GetDBValue("COCH", "CLLN", i) + " | " + teamNameDB[GetDBValueInt("COCH", "TGID", i)]);
-                        else coachList.Add(GetDBValue("COCH", "CLFN", i) + " " + GetDBValue("COCH", "CLLN", i));
-                        CoachEditorList.Add(IndexKey, i);  //Selected Index, COCH Rec
-                        IndexKey++;
+                        CoachEditorList.Add(new List<string>());
+                        CoachEditorList[row].Add(Convert.ToString(i));
+                        CoachEditorList[row].Add(GetDBValue("COCH", "CLFN", i) + " " + GetDBValue("COCH", "CLLN", i));
+                        CoachEditorList[row].Add(GetDBValue("COCH", "CLFN", i) + " " + GetDBValue("COCH", "CLLN", i) + " | " + teamNameDB[GetDBValueInt("COCH", "TGID", i)]);
+                        CoachEditorList[row].Add(GetDBValue("COCH", "CLFN", i) + " " + GetDBValue("COCH", "CLLN", i) + " | " + GetDBValue("COCH", "CCPO", i));
+                        CoachEditorList[row].Add(GetDBValue("COCH", "CLFN", i) + " " + GetDBValue("COCH", "CLLN", i) + " | " + teamNameDB[GetDBValueInt("COCH", "TGID", i)] + " [" + GetDBValue("COCH", "CCPO", i) + "]");
+                        CoachEditorList[row].Add(teamNameDB[GetDBValueInt("COCH", "TGID", i)]);
+                        CoachEditorList[row].Add(GetDBValue("COCH", "CCPO", i));
+                        row++;
                     }
                 }
             }
@@ -62,10 +65,15 @@ namespace DB_EDITOR
                 {
                     if (GetDBValueInt("COCH", "TGID", i) < 511)
                     {
-                        if (CoachShowTeamBox.Checked) coachList.Add(GetDBValue("COCH", "CLFN", i) + " " + GetDBValue("COCH", "CLLN", i) + " | " + teamNameDB[GetDBValueInt("COCH", "TGID", i)]);
-                        else coachList.Add(GetDBValue("COCH", "CLFN", i) + " " + GetDBValue("COCH", "CLLN", i));
-                        CoachEditorList.Add(IndexKey, i);  //Selected Index, COCH Rec
-                        IndexKey++;
+                        CoachEditorList.Add(new List<string>());
+                        CoachEditorList[row].Add(Convert.ToString(i));
+                        CoachEditorList[row].Add(GetDBValue("COCH", "CLFN", i) + " " + GetDBValue("COCH", "CLLN", i));
+                        CoachEditorList[row].Add(GetDBValue("COCH", "CLFN", i) + " " + GetDBValue("COCH", "CLLN", i) + " | " + teamNameDB[GetDBValueInt("COCH", "TGID", i)]);
+                        CoachEditorList[row].Add(GetDBValue("COCH", "CLFN", i) + " " + GetDBValue("COCH", "CLLN", i) + " | " + GetDBValue("COCH", "CCPO", i));
+                        CoachEditorList[row].Add(GetDBValue("COCH", "CLFN", i) + " " + GetDBValue("COCH", "CLLN", i) + " | " + teamNameDB[GetDBValueInt("COCH", "TGID", i)] + " [" + GetDBValue("COCH", "CCPO", i) + "]");
+                        CoachEditorList[row].Add(teamNameDB[GetDBValueInt("COCH", "TGID", i)]);
+                        CoachEditorList[row].Add(GetDBValue("COCH", "CCPO", i));
+                        row++;
                     }
                 }
             } else
@@ -74,27 +82,72 @@ namespace DB_EDITOR
                 {
                     if (GetDBValueInt("COCH", "TGID", i) == 511)
                     {
-                        if (CoachShowTeamBox.Checked) coachList.Add(GetDBValue("COCH", "CLFN", i) + " " + GetDBValue("COCH", "CLLN", i) + " | " + teamNameDB[GetDBValueInt("COCH", "TGID", i)]);
-                        else coachList.Add(GetDBValue("COCH", "CLFN", i) + " " + GetDBValue("COCH", "CLLN", i));
-                        CoachEditorList.Add(IndexKey, i);  //Selected Index, COCH Rec
-                        IndexKey++;
+                        CoachEditorList.Add(new List<string>());
+                        CoachEditorList[row].Add(Convert.ToString(i));
+                        CoachEditorList[row].Add(GetDBValue("COCH", "CLFN", i) + " " + GetDBValue("COCH", "CLLN", i));
+                        CoachEditorList[row].Add(GetDBValue("COCH", "CLFN", i) + " " + GetDBValue("COCH", "CLLN", i) + " | " + teamNameDB[GetDBValueInt("COCH", "TGID", i)]);
+                        CoachEditorList[row].Add(GetDBValue("COCH", "CLFN", i) + " " + GetDBValue("COCH", "CLLN", i) + " | " + GetDBValue("COCH", "CCPO", i));
+                        CoachEditorList[row].Add(GetDBValue("COCH", "CLFN", i) + " " + GetDBValue("COCH", "CLLN", i) + " | " + teamNameDB[GetDBValueInt("COCH", "TGID", i)] + " [" + GetDBValue("COCH", "CCPO", i) + "]");
+                        CoachEditorList[row].Add(teamNameDB[GetDBValueInt("COCH", "TGID", i)]);
+                        CoachEditorList[row].Add(GetDBValue("COCH", "CCPO", i));
+                        row++;
                     }
                 }
             }
 
-            //coachList.Sort();
+            /* CoachEditorList
+             * 0 - record
+             * 1 - name string
+             * 2 - name + team string
+             * 3 - name + performance string
+             * 4 - name + team/performance string
+             * 5 - team
+             * 6 - performance
+             */
 
-            for (int i = 0; i < coachList.Count; i++)
+            if (CoachShowTeamBox.Checked && !CoachPerfCheckBox.Checked)
             {
-                if (coachList[i] != null) CoachListBox.Items.Add(coachList[i]);
+                CoachEditorList.Sort((player1, player2) => player1[5].CompareTo(player2[5]));
+
+                for (int i = 0; i < CoachEditorList.Count; i++)
+                {
+                    if (CoachEditorList[i] != null) CoachListBox.Items.Add(CoachEditorList[i][2]);
+                }
+            } 
+            else if (CoachPerfCheckBox.Checked && !CoachShowTeamBox.Checked)
+            {
+                CoachEditorList.Sort((player1, player2) => Convert.ToInt32(player2[6]).CompareTo(Convert.ToInt32(player1[6])));
+
+                for (int i = 0; i < CoachEditorList.Count; i++)
+                {
+                    if (CoachEditorList[i] != null) CoachListBox.Items.Add(CoachEditorList[i][3]);
+                }
+
             }
+            else if (CoachPerfCheckBox.Checked && CoachShowTeamBox.Checked)
+            {
+                CoachEditorList.Sort((player1, player2) => player1[5].CompareTo(player2[5]));
 
+                for (int i = 0; i < CoachEditorList.Count; i++)
+                {
+                    if (CoachEditorList[i] != null) CoachListBox.Items.Add(CoachEditorList[i][4]);
+                }
 
+            }
+            else
+            {
+                CoachEditorList.Sort((player1, player2) => player1[1].CompareTo(player2[1]));
+
+                for (int i = 0; i < CoachEditorList.Count; i++)
+                {
+                    if (CoachEditorList[i] != null) CoachListBox.Items.Add(CoachEditorList[i][1]);
+                }
+            }
         }
 
         private void CoachListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CoachIndex = CoachEditorList[CoachListBox.SelectedIndex];
+            CoachIndex = Convert.ToInt32(CoachEditorList[CoachListBox.SelectedIndex][0]);
             GetCoachEditorData(CoachIndex);
         }
 
@@ -103,6 +156,10 @@ namespace DB_EDITOR
             LoadCoachList(CoachFilter.SelectedIndex);
         }
 
+        private void CoachPerfCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            LoadCoachList(CoachFilter.SelectedIndex);
+        }
         #endregion
 
         //GET DATA
@@ -192,7 +249,15 @@ namespace DB_EDITOR
 
             YearsCoached.Text = GetDBValue("COCH", "CYCD", EditorIndex);
 
-            CoachTeamPrestige.Text = FindTeamPrestige(GetDBValueInt("COCH", "TGID", EditorIndex)) + " | " + GetDBValue("COCH", "COTP", EditorIndex);
+            
+            int ctop = GetDBValueInt("COCH", "CTOP", EditorIndex);
+            int tmpr = FindTeamPrestige(GetDBValueInt("COCH", "TGID", EditorIndex));
+
+            string teamPrs = Convert.ToString(tmpr);
+            if (ctop > tmpr) teamPrs += "  (" + (tmpr - ctop) + ")";
+            else if (ctop < tmpr) teamPrs += "  (+" + (tmpr - ctop) + ")";
+
+            CoachTeamPrestige.Text = teamPrs;
 
             ContractInfo.Text = GetDBValue("COCH", "CCYR", CoachIndex) + " / " + GetDBValue("COCH", "CCFY", CoachIndex) + " Years Remaining";
 
@@ -202,7 +267,7 @@ namespace DB_EDITOR
             BowlRecord.Text = GetDBValue("COCH", "CBLW", EditorIndex) + " - " + GetDBValue("COCH", "CBLL", EditorIndex);
             Top25Record.Text = GetDBValue("COCH", "C25W", EditorIndex) + " - " + GetDBValue("COCH", "C25L", EditorIndex);
             CareerRecord.Text = GetDBValue("COCH", "CCWI", EditorIndex) + " - " + GetDBValue("COCH", "CCLO", EditorIndex);
-            WinningSeasons.Text = GetDBValue("COCH", "CCWS", EditorIndex);
+            WinningSeasons.Text = GetDBValue("COCH", "CCSW", EditorIndex);
             NationalTitles.Text = GetDBValue("COCH", "CCNT", EditorIndex);
             ConfTitles.Text = GetDBValue("COCH", "CCCT", EditorIndex);
 

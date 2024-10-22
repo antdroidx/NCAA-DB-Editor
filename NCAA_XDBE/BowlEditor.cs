@@ -123,6 +123,21 @@ namespace DB_EDITOR
 
             for (int i = 0; i < GetTableRecCount("BOWL"); i++)
             {
+                if (GetDBValueInt("BOWL", "GTOD", i) > 0)
+                {
+                    //do nothing
+                }
+                else
+                {
+                    TDB.TDBTableRecordChangeDeleted(dbIndex, "BOWL", i, true);
+                }
+            }
+            TDB.TDBDatabaseCompact(dbIndex);
+
+            int x = GetTableRecCount("BOWL");
+
+            for (int i = 0; i < GetTableRecCount("BOWL"); i++)
+            {
                 BowlsGrid.Rows.Add(new DataGridViewRow());
 
                 BowlsGrid.Rows[i].Cells[0].Value = true;
@@ -140,6 +155,7 @@ namespace DB_EDITOR
                 BowlsGrid.Rows[i].Cells[10].Value = GetDBValueInt("BOWL", "BDAY", i);
                 BowlsGrid.Rows[i].Cells[11].Value = GetDBValueInt("BOWL", "SEWN", i);
                 LoadBowlTeamData(i);
+
             }
         }
 
@@ -236,7 +252,6 @@ namespace DB_EDITOR
         #region DATA ERROR
         private void BowlsGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
         {
-
         }
         #endregion
     }

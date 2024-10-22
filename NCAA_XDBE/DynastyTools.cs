@@ -300,6 +300,7 @@ namespace DB_EDITOR
                 if (GetDBValue("COCH", "TGID", i) == "511")
                 {
                     CCID_FAList.Add(GetDBValue("COCH", "CCID", i));
+                    ChangeDBInt("COCH", "CCPO", i, 60);
                 }
                 else
                 {
@@ -309,7 +310,7 @@ namespace DB_EDITOR
                     int CCPO = Convert.ToInt32(GetDBValue("COCH", "CCPO", i));
 
                     //FIRE COACHES
-                    if (CCPO < jobSecurityValue.Value && CTOP > TMPR && GetDBValue("COCH", "CFUC", i) != "1" && rand.Next(0, 100) < (50 + jobSecurityValue.Value - CCPO))
+                    if (CCPO < jobSecurityValue.Value && CTOP >= TMPR && GetDBValue("COCH", "CFUC", i) != "1" && rand.Next(0, 100) < (50 + jobSecurityValue.Value - CCPO))
                     {
                         CCID_FiredList.Add(GetDBValue("COCH", "CCID", i));
                         TGID_VacancyList.Add(GetDBValue("COCH", "TGID", i));
@@ -324,10 +325,11 @@ namespace DB_EDITOR
 
                         news2 += "Fired: " + coachFN + " " + coachLN + " (" + teamID + ")\n\n";
 
-                        ChangeDBString("COCH", "TGID", i, "511");
-                        ChangeDBString("COCH", "CLTF", i, "511");
                         ChangeDBString("COCH", "CCPO", i, "60");
                         ChangeDBString("COCH", "CTYR", i, "0");
+                        ChangeDBString("COCH", "TGID", i, "511");
+                        ChangeDBString("COCH", "CLTF", i, "511");
+
 
 
                     }

@@ -55,6 +55,7 @@ namespace DB_EDITOR
         List<List<string>> DCHTPlayers;
         List<List<string>> TeamColorPalettes = new List<List<string>>();
         List<List<string>> PlayerEditorList;
+        List<List<string>> CoachEditorList;
         List<int> PJENList;
 
 
@@ -99,7 +100,7 @@ namespace DB_EDITOR
         Dictionary<string, int> PositionsX = new Dictionary<string, int>(); //database of position name, ppos id
         Dictionary<int, int> Ratings = new Dictionary<int, int>(); //database of db rating, in-game rating
         Dictionary<int, int> RatingsX = new Dictionary<int, int>(); //database of in-game rating, db rating
-        Dictionary<int, int> CoachEditorList = new Dictionary<int, int>();
+        //Dictionary<int, int> CoachEditorList = new Dictionary<int, int>();
 
         double[,] POCI;
         List<List<int>> RCAT;
