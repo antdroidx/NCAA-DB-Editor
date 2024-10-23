@@ -206,7 +206,7 @@ namespace DB_EDITOR
             progressBar1.Maximum = GetTable2RecCount(FieldName);
 
             int tol = (int)recruitTolerance.Value;
-            int tolA = 2;
+            int tolA = 3;
             //List<List<int>> recruits = new List<List<int>>();
             int row = 0;
             for (int i = 0; i < GetTable2RecCount(FieldName); i++)
@@ -296,18 +296,11 @@ namespace DB_EDITOR
 
                     CalculateRecruitOverall(i);
 
-                    //recruits.Add(new List<int>());
-                    //recruits[row].Add(GetDB2ValueInt("RCPT", "PRID", i));
-                    //recruits[row].Add(GetDB2ValueInt("RCPT", "POVR", i));
                     row++;
 
                 }
                 progressBar1.PerformStep();
             }
-
-            //recruits.Sort((player1, player2) => player2[1].CompareTo(player1[1]));
-            //CalculateRecruitStarRating(recruits);
-
 
             progressBar1.Visible = false;
             progressBar1.Value = 0;

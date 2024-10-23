@@ -169,6 +169,42 @@ namespace DB_EDITOR.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to GTOD,Away,Home,SESI,SEWN,GDAT,SEWT
+        ///1140,10,1,0,2,5,1
+        ///930,12,3,0,2,5,1
+        ///1185,5,8,0,2,5,1
+        ///720,2,11,0,1,5,2
+        ///1080,7,4,0,1,5,2
+        ///720,9,6,0,1,5,2
+        ///1200,1,4,0,4,5,3
+        ///930,2,5,0,4,5,3
+        ///750,3,6,0,4,4,3
+        ///720,7,10,0,4,5,3
+        ///930,8,11,0,4,5,3
+        ///750,9,12,0,4,5,3
+        ///1170,7,1,0,3,5,4
+        ///1185,8,2,0,3,4,4
+        ///720,9,3,0,3,5,4
+        ///720,10,4,0,3,5,4
+        ///930,11,5,0,3,4,4
+        ///930,12,6,0,3,5,4
+        ///930,5,1,0,5,5,5
+        ///1080,4,3,0,6,5,5
+        ///930,12,8,0,5,5,5
+        ///930,6,2,0,6,5,6
+        ///1200,11,7,0,5,5,6
+        ///930,10,9,0,6,5,6
+        ///1140,1,8,0,8,5,7
+        ///930,3,7,0,7,5,7
+        ///1140,5,12,0,8 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string _12_teamB {
+            get {
+                return ResourceManager.GetString("_12_teamB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to GTOD,GATG,GHTG,SESI,SEWN,GDAT,SEWT
         ///1200,1,3,0,1,5,1
         ///930,9,11,0,1,5,1
@@ -501,6 +537,24 @@ namespace DB_EDITOR.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to AHQB,AHHP,AHFB,AHWR,AHTE,AHRT,AHRG,AHCC,AHLG,AHLT,AHRE,AHDT,AHLE,AHRO,AHML,AHLO,AHCB,AHFS,AHSS,AHKK,AHPP,PPOS
+        ///0,1,1,1,1,3,3,3,3,3,3,3,3,3,2,3,2,2,2,1,1,0
+        ///2,0,1,1,1,3,3,3,3,3,3,3,3,2,2,2,2,2,2,2,2,1
+        ///2,0,0,2,0,2,2,2,2,2,3,3,3,1,1,1,3,3,3,2,2,2
+        ///1,1,3,0,1,3,3,3,3,3,3,3,3,3,3,3,0,1,1,2,2,3
+        ///2,1,0,0,0,2,2,3,2,2,2,3,2,2,2,2,3,2,2,3,3,4
+        ///3,3,2,3,2,0,1,2,1,0,2,1,2,3,3,3,3,3,3,3,3,5
+        ///3,3,2,3,2,1,0,1,0,1,2,1,2,3,3,3,3,3,3,3,3,6
+        ///3,3,2,3,2,1,1,0,1,1,2,1,2,3,3,3,3,3,3,3,3,7
+        ///3,3,2,3,2,1,0,1,0,1,2,1,2,3,3,3,3,3,3,3,3 [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string Awareness {
+            get {
+                return ResourceManager.GetString("Awareness", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to BMI,PFSH,PMSH,PSSH
         ///0.00,0,-1,4
         ///0.01,0,0,5
@@ -589,6 +643,37 @@ namespace DB_EDITOR.Properties {
         internal static string BMI_Calc1 {
             get {
                 return ResourceManager.GetString("BMI_Calc1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PPOS,Height,Weight
+        ///0,74,208
+        ///1,71,205
+        ///2,73,236
+        ///3,73,192
+        ///4,76,243
+        ///5,76,301
+        ///6,76,301
+        ///7,76,297
+        ///8,76,301
+        ///9,76,301
+        ///10,75,273
+        ///11,75,298
+        ///12,75,273
+        ///13,74,227
+        ///14,74,227
+        ///15,74,227
+        ///16,72,185
+        ///17,72,191
+        ///18,72,191
+        ///19,73,197
+        ///20,73,197
+        ///.
+        /// </summary>
+        internal static string Body_Size_AVG {
+            get {
+                return ResourceManager.GetString("Body_Size_AVG", resourceCulture);
             }
         }
         
@@ -906,6 +991,30 @@ namespace DB_EDITOR.Properties {
         internal static string PRLU {
             get {
                 return ResourceManager.GetString("PRLU", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PPOS,TEN1,TEN2,TEN3
+        ///0,Pocket Passer,Balanced,Scrambler
+        ///1,Power,Balanced,Speed
+        ///2,Blocking,Balanced,Receiving
+        ///3,Speed,Balanced,Possession
+        ///4,Blocking,Balanced,Receiving
+        ///5,Run Blocker,Balanced,Pass Blocker
+        ///6,Run Blocker,Balanced,Pass Blocker
+        ///7,Run Blocker,Balanced,Pass Blocker
+        ///8,Run Blocker,Balanced,Pass Blocker
+        ///9,Run Blocker,Balanced,Pass Blocker
+        ///10,Pass Rusher,Balanced,Run Stopper
+        ///11,Pass Rusher,Balanced,Run Stopper
+        ///12,Pass Rusher,Balanced,Run Stopper
+        ///13,Run Stopper,Balanced,Coverage
+        ///14,Run Sto [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string PTEN {
+            get {
+                return ResourceManager.GetString("PTEN", resourceCulture);
             }
         }
         

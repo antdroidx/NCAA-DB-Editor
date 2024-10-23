@@ -127,7 +127,7 @@ namespace DB_EDITOR
         //Determine Impact Players
         private void buttonImpactPlayers_Click(object sender, EventArgs e)
         {
-            DetermineImpactPlayers();
+            DetermineAllImpactPlayers();
         }
 
         //Fantasy Roster Generator

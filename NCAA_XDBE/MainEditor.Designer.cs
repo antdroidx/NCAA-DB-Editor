@@ -324,7 +324,6 @@ namespace DB_EDITOR
             this.buttonFillRosters = new System.Windows.Forms.Button();
             this.buttonAutoDepthChart = new System.Windows.Forms.Button();
             this.buttonFantasyRoster = new System.Windows.Forms.Button();
-            this.buttonImpactPlayers = new System.Windows.Forms.Button();
             this.TYDNButton = new System.Windows.Forms.Button();
             this.buttonCalcOverall = new System.Windows.Forms.Button();
             this.buttonRandPotential = new System.Windows.Forms.Button();
@@ -352,6 +351,10 @@ namespace DB_EDITOR
             this.buttonRandWalkOns = new System.Windows.Forms.Button();
             this.buttonMinRecruitingPts = new System.Windows.Forms.Button();
             this.tabSeason = new System.Windows.Forms.TabPage();
+            this.label180 = new System.Windows.Forms.Label();
+            this.ImpactPlayerMin = new System.Windows.Forms.NumericUpDown();
+            this.label178 = new System.Windows.Forms.Label();
+            this.buttonImpactPlayers = new System.Windows.Forms.Button();
             this.BodyProgressionButton = new System.Windows.Forms.Button();
             this.CoachPrestigeButton = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
@@ -406,6 +409,10 @@ namespace DB_EDITOR
             this.CareerRecord = new System.Windows.Forms.Label();
             this.label53 = new System.Windows.Forms.Label();
             this.SeasonRecord = new System.Windows.Forms.Label();
+            this.CoachCCPONum = new System.Windows.Forms.NumericUpDown();
+            this.label141 = new System.Windows.Forms.Label();
+            this.HCPrestigeNum = new System.Windows.Forms.NumericUpDown();
+            this.label146 = new System.Windows.Forms.Label();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.DisciplineAssistanceBox = new System.Windows.Forms.CheckBox();
@@ -434,7 +441,6 @@ namespace DB_EDITOR
             this.CoachDefTypeBox = new System.Windows.Forms.ComboBox();
             this.label94 = new System.Windows.Forms.Label();
             this.CoachOffTypeBox = new System.Windows.Forms.ComboBox();
-            this.label146 = new System.Windows.Forms.Label();
             this.CoachFirstNameBox = new System.Windows.Forms.TextBox();
             this.CoachCDTSBox = new System.Windows.Forms.NumericUpDown();
             this.CoachLastNameBox = new System.Windows.Forms.TextBox();
@@ -455,11 +461,8 @@ namespace DB_EDITOR
             this.CoachCOTABox = new System.Windows.Forms.NumericUpDown();
             this.CoachRecruitingBox = new System.Windows.Forms.NumericUpDown();
             this.CoachCOTRBox = new System.Windows.Forms.NumericUpDown();
-            this.HCPrestigeNum = new System.Windows.Forms.NumericUpDown();
             this.label136 = new System.Windows.Forms.Label();
-            this.label141 = new System.Windows.Forms.Label();
             this.label137 = new System.Windows.Forms.Label();
-            this.CoachCCPONum = new System.Windows.Forms.NumericUpDown();
             this.label138 = new System.Windows.Forms.Label();
             this.label140 = new System.Windows.Forms.Label();
             this.label139 = new System.Windows.Forms.Label();
@@ -737,6 +740,11 @@ namespace DB_EDITOR
             this.NextConfigRadio = new System.Windows.Forms.RadioButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.groupBox15 = new System.Windows.Forms.GroupBox();
+            this.label181 = new System.Windows.Forms.Label();
+            this.groupBox16 = new System.Windows.Forms.GroupBox();
+            this.groupBox17 = new System.Windows.Forms.GroupBox();
+            this.groupBox18 = new System.Windows.Forms.GroupBox();
             qbTend = new System.Windows.Forms.Button();
             this.mainMenu.SuspendLayout();
             this.tableMenu.SuspendLayout();
@@ -774,6 +782,7 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.recruitTolerance)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.toleranceWalkOn)).BeginInit();
             this.tabSeason.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ImpactPlayerMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numberPlayerCoach)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.maxFiredTransfers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MaxSkillDropPS)).BeginInit();
@@ -783,6 +792,8 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.skillDrop)).BeginInit();
             this.tabCoaches.SuspendLayout();
             this.groupBox9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CoachCCPONum)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HCPrestigeNum)).BeginInit();
             this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CoachCDTSBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CoachCDTABox)).BeginInit();
@@ -792,8 +803,6 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.CoachCOTABox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CoachRecruitingBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CoachCOTRBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.HCPrestigeNum)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CoachCCPONum)).BeginInit();
             this.tabPlayers.SuspendLayout();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PIMPBox)).BeginInit();
@@ -851,6 +860,10 @@ namespace DB_EDITOR
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
+            this.groupBox15.SuspendLayout();
+            this.groupBox16.SuspendLayout();
+            this.groupBox17.SuspendLayout();
+            this.groupBox18.SuspendLayout();
             this.SuspendLayout();
             // 
             // qbTend
@@ -3332,32 +3345,12 @@ namespace DB_EDITOR
             // tabTools
             // 
             this.tabTools.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.tabTools.Controls.Add(this.groupBox18);
             this.tabTools.Controls.Add(this.UniquePlayerButton);
             this.tabTools.Controls.Add(this.FantasyCoachesButton);
             this.tabTools.Controls.Add(this.SyncPBButton);
-            this.tabTools.Controls.Add(this.label109);
-            this.tabTools.Controls.Add(this.label108);
-            this.tabTools.Controls.Add(this.label107);
-            this.tabTools.Controls.Add(this.MaxAttPosBox);
-            this.tabTools.Controls.Add(this.MinAttPosBox);
-            this.tabTools.Controls.Add(this.GlobalAttPosBox);
-            this.tabTools.Controls.Add(this.MaxAttButton);
-            this.tabTools.Controls.Add(this.MinAttButton);
-            this.tabTools.Controls.Add(this.GlobalAttButton);
-            this.tabTools.Controls.Add(this.MaxAttRating);
-            this.tabTools.Controls.Add(this.MinAttRating);
             this.tabTools.Controls.Add(this.textBox3);
             this.tabTools.Controls.Add(this.textBox2);
-            this.tabTools.Controls.Add(this.MaxAttNum);
-            this.tabTools.Controls.Add(this.label106);
-            this.tabTools.Controls.Add(this.MaxAttBox);
-            this.tabTools.Controls.Add(this.MinAttNum);
-            this.tabTools.Controls.Add(this.label100);
-            this.tabTools.Controls.Add(this.MinAttBox);
-            this.tabTools.Controls.Add(this.GlobalAttCheck);
-            this.tabTools.Controls.Add(this.GlobalAttNum);
-            this.tabTools.Controls.Add(this.label99);
-            this.tabTools.Controls.Add(this.GlobalAttBox);
             this.tabTools.Controls.Add(this.ReorderPGIDButton);
             this.tabTools.Controls.Add(this.TORDButton);
             this.tabTools.Controls.Add(this.CFUSAexportButton);
@@ -3367,7 +3360,6 @@ namespace DB_EDITOR
             this.tabTools.Controls.Add(this.buttonFillRosters);
             this.tabTools.Controls.Add(this.buttonAutoDepthChart);
             this.tabTools.Controls.Add(this.buttonFantasyRoster);
-            this.tabTools.Controls.Add(this.buttonImpactPlayers);
             this.tabTools.Controls.Add(this.TYDNButton);
             this.tabTools.Controls.Add(this.buttonCalcOverall);
             this.tabTools.Controls.Add(this.buttonRandPotential);
@@ -3422,7 +3414,7 @@ namespace DB_EDITOR
             // label109
             // 
             this.label109.AutoSize = true;
-            this.label109.Location = new System.Drawing.Point(278, 306);
+            this.label109.Location = new System.Drawing.Point(17, 262);
             this.label109.Name = "label109";
             this.label109.Size = new System.Drawing.Size(44, 13);
             this.label109.TabIndex = 51;
@@ -3431,7 +3423,7 @@ namespace DB_EDITOR
             // label108
             // 
             this.label108.AutoSize = true;
-            this.label108.Location = new System.Drawing.Point(279, 197);
+            this.label108.Location = new System.Drawing.Point(18, 153);
             this.label108.Name = "label108";
             this.label108.Size = new System.Drawing.Size(44, 13);
             this.label108.TabIndex = 50;
@@ -3440,7 +3432,7 @@ namespace DB_EDITOR
             // label107
             // 
             this.label107.AutoSize = true;
-            this.label107.Location = new System.Drawing.Point(279, 82);
+            this.label107.Location = new System.Drawing.Point(18, 38);
             this.label107.Name = "label107";
             this.label107.Size = new System.Drawing.Size(44, 13);
             this.label107.TabIndex = 49;
@@ -3450,7 +3442,7 @@ namespace DB_EDITOR
             // 
             this.MaxAttPosBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MaxAttPosBox.FormattingEnabled = true;
-            this.MaxAttPosBox.Location = new System.Drawing.Point(281, 321);
+            this.MaxAttPosBox.Location = new System.Drawing.Point(20, 277);
             this.MaxAttPosBox.Name = "MaxAttPosBox";
             this.MaxAttPosBox.Size = new System.Drawing.Size(65, 23);
             this.MaxAttPosBox.TabIndex = 48;
@@ -3459,7 +3451,7 @@ namespace DB_EDITOR
             // 
             this.MinAttPosBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MinAttPosBox.FormattingEnabled = true;
-            this.MinAttPosBox.Location = new System.Drawing.Point(282, 211);
+            this.MinAttPosBox.Location = new System.Drawing.Point(21, 167);
             this.MinAttPosBox.Name = "MinAttPosBox";
             this.MinAttPosBox.Size = new System.Drawing.Size(65, 23);
             this.MinAttPosBox.TabIndex = 47;
@@ -3468,7 +3460,7 @@ namespace DB_EDITOR
             // 
             this.GlobalAttPosBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GlobalAttPosBox.FormattingEnabled = true;
-            this.GlobalAttPosBox.Location = new System.Drawing.Point(282, 98);
+            this.GlobalAttPosBox.Location = new System.Drawing.Point(21, 54);
             this.GlobalAttPosBox.Name = "GlobalAttPosBox";
             this.GlobalAttPosBox.Size = new System.Drawing.Size(65, 23);
             this.GlobalAttPosBox.TabIndex = 46;
@@ -3476,7 +3468,7 @@ namespace DB_EDITOR
             // MaxAttButton
             // 
             this.MaxAttButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.MaxAttButton.Location = new System.Drawing.Point(524, 348);
+            this.MaxAttButton.Location = new System.Drawing.Point(263, 304);
             this.MaxAttButton.Name = "MaxAttButton";
             this.MaxAttButton.Size = new System.Drawing.Size(75, 23);
             this.MaxAttButton.TabIndex = 45;
@@ -3487,7 +3479,7 @@ namespace DB_EDITOR
             // MinAttButton
             // 
             this.MinAttButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.MinAttButton.Location = new System.Drawing.Point(525, 240);
+            this.MinAttButton.Location = new System.Drawing.Point(264, 196);
             this.MinAttButton.Name = "MinAttButton";
             this.MinAttButton.Size = new System.Drawing.Size(75, 23);
             this.MinAttButton.TabIndex = 44;
@@ -3498,7 +3490,7 @@ namespace DB_EDITOR
             // GlobalAttButton
             // 
             this.GlobalAttButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.GlobalAttButton.Location = new System.Drawing.Point(525, 126);
+            this.GlobalAttButton.Location = new System.Drawing.Point(264, 82);
             this.GlobalAttButton.Name = "GlobalAttButton";
             this.GlobalAttButton.Size = new System.Drawing.Size(75, 23);
             this.GlobalAttButton.TabIndex = 43;
@@ -3510,7 +3502,7 @@ namespace DB_EDITOR
             // 
             this.MaxAttRating.BackColor = System.Drawing.SystemColors.Info;
             this.MaxAttRating.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MaxAttRating.Location = new System.Drawing.Point(599, 320);
+            this.MaxAttRating.Location = new System.Drawing.Point(338, 276);
             this.MaxAttRating.Name = "MaxAttRating";
             this.MaxAttRating.ReadOnly = true;
             this.MaxAttRating.Size = new System.Drawing.Size(39, 21);
@@ -3521,7 +3513,7 @@ namespace DB_EDITOR
             // 
             this.MinAttRating.BackColor = System.Drawing.SystemColors.Info;
             this.MinAttRating.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MinAttRating.Location = new System.Drawing.Point(600, 213);
+            this.MinAttRating.Location = new System.Drawing.Point(339, 169);
             this.MinAttRating.Name = "MinAttRating";
             this.MinAttRating.ReadOnly = true;
             this.MinAttRating.Size = new System.Drawing.Size(39, 21);
@@ -3555,7 +3547,7 @@ namespace DB_EDITOR
             // MaxAttNum
             // 
             this.MaxAttNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MaxAttNum.Location = new System.Drawing.Point(525, 322);
+            this.MaxAttNum.Location = new System.Drawing.Point(264, 278);
             this.MaxAttNum.Maximum = new decimal(new int[] {
             31,
             0,
@@ -3571,7 +3563,7 @@ namespace DB_EDITOR
             // 
             this.label106.AutoSize = true;
             this.label106.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label106.Location = new System.Drawing.Point(349, 289);
+            this.label106.Location = new System.Drawing.Point(88, 245);
             this.label106.Name = "label106";
             this.label106.Size = new System.Drawing.Size(191, 20);
             this.label106.TabIndex = 38;
@@ -3581,7 +3573,7 @@ namespace DB_EDITOR
             // 
             this.MaxAttBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MaxAttBox.FormattingEnabled = true;
-            this.MaxAttBox.Location = new System.Drawing.Point(353, 320);
+            this.MaxAttBox.Location = new System.Drawing.Point(92, 276);
             this.MaxAttBox.Name = "MaxAttBox";
             this.MaxAttBox.Size = new System.Drawing.Size(150, 23);
             this.MaxAttBox.TabIndex = 37;
@@ -3589,7 +3581,7 @@ namespace DB_EDITOR
             // MinAttNum
             // 
             this.MinAttNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MinAttNum.Location = new System.Drawing.Point(525, 213);
+            this.MinAttNum.Location = new System.Drawing.Point(264, 169);
             this.MinAttNum.Maximum = new decimal(new int[] {
             31,
             0,
@@ -3605,7 +3597,7 @@ namespace DB_EDITOR
             // 
             this.label100.AutoSize = true;
             this.label100.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label100.Location = new System.Drawing.Point(349, 180);
+            this.label100.Location = new System.Drawing.Point(88, 136);
             this.label100.Name = "label100";
             this.label100.Size = new System.Drawing.Size(187, 20);
             this.label100.TabIndex = 34;
@@ -3615,7 +3607,7 @@ namespace DB_EDITOR
             // 
             this.MinAttBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MinAttBox.FormattingEnabled = true;
-            this.MinAttBox.Location = new System.Drawing.Point(353, 211);
+            this.MinAttBox.Location = new System.Drawing.Point(92, 167);
             this.MinAttBox.Name = "MinAttBox";
             this.MinAttBox.Size = new System.Drawing.Size(150, 23);
             this.MinAttBox.TabIndex = 33;
@@ -3623,7 +3615,7 @@ namespace DB_EDITOR
             // GlobalAttCheck
             // 
             this.GlobalAttCheck.AutoSize = true;
-            this.GlobalAttCheck.Location = new System.Drawing.Point(353, 130);
+            this.GlobalAttCheck.Location = new System.Drawing.Point(92, 86);
             this.GlobalAttCheck.Name = "GlobalAttCheck";
             this.GlobalAttCheck.Size = new System.Drawing.Size(137, 17);
             this.GlobalAttCheck.TabIndex = 32;
@@ -3633,7 +3625,7 @@ namespace DB_EDITOR
             // GlobalAttNum
             // 
             this.GlobalAttNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GlobalAttNum.Location = new System.Drawing.Point(525, 100);
+            this.GlobalAttNum.Location = new System.Drawing.Point(264, 56);
             this.GlobalAttNum.Maximum = new decimal(new int[] {
             10,
             0,
@@ -3653,7 +3645,7 @@ namespace DB_EDITOR
             // 
             this.label99.AutoSize = true;
             this.label99.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label99.Location = new System.Drawing.Point(349, 67);
+            this.label99.Location = new System.Drawing.Point(88, 23);
             this.label99.Name = "label99";
             this.label99.Size = new System.Drawing.Size(189, 20);
             this.label99.TabIndex = 30;
@@ -3663,7 +3655,7 @@ namespace DB_EDITOR
             // 
             this.GlobalAttBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GlobalAttBox.FormattingEnabled = true;
-            this.GlobalAttBox.Location = new System.Drawing.Point(353, 98);
+            this.GlobalAttBox.Location = new System.Drawing.Point(92, 54);
             this.GlobalAttBox.Name = "GlobalAttBox";
             this.GlobalAttBox.Size = new System.Drawing.Size(150, 23);
             this.GlobalAttBox.TabIndex = 29;
@@ -3785,19 +3777,6 @@ namespace DB_EDITOR
             this.buttonFantasyRoster.UseVisualStyleBackColor = false;
             this.buttonFantasyRoster.Click += new System.EventHandler(this.buttonFantasyRoster_Click);
             // 
-            // buttonImpactPlayers
-            // 
-            this.buttonImpactPlayers.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.buttonImpactPlayers.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonImpactPlayers.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonImpactPlayers.Location = new System.Drawing.Point(143, 319);
-            this.buttonImpactPlayers.Name = "buttonImpactPlayers";
-            this.buttonImpactPlayers.Size = new System.Drawing.Size(110, 80);
-            this.buttonImpactPlayers.TabIndex = 17;
-            this.buttonImpactPlayers.Text = "Determine Impact Players";
-            this.buttonImpactPlayers.UseVisualStyleBackColor = false;
-            this.buttonImpactPlayers.Click += new System.EventHandler(this.buttonImpactPlayers_Click);
-            // 
             // TYDNButton
             // 
             this.TYDNButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
@@ -3853,27 +3832,10 @@ namespace DB_EDITOR
             // tabOffSeason
             // 
             this.tabOffSeason.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.tabOffSeason.Controls.Add(this.DetermineAthleteButton);
-            this.tabOffSeason.Controls.Add(this.RecalculateStarRankingsButton);
-            this.tabOffSeason.Controls.Add(this.RandomizeRecruitNamesButton);
-            this.tabOffSeason.Controls.Add(this.buttonRandomizeFaceShape);
-            this.tabOffSeason.Controls.Add(this.polyNames);
+            this.tabOffSeason.Controls.Add(this.groupBox17);
+            this.tabOffSeason.Controls.Add(this.groupBox16);
             this.tabOffSeason.Controls.Add(this.textBoxOffSeason);
             this.tabOffSeason.Controls.Add(this.textBoxOffSeasonTitle);
-            this.tabOffSeason.Controls.Add(this.labelIntTeams);
-            this.tabOffSeason.Controls.Add(this.removeInterestTeams);
-            this.tabOffSeason.Controls.Add(this.buttonInterestedTeams);
-            this.tabOffSeason.Controls.Add(this.label12);
-            this.tabOffSeason.Controls.Add(this.minTRPA);
-            this.tabOffSeason.Controls.Add(this.labelMinRecPts);
-            this.tabOffSeason.Controls.Add(this.minRecPts);
-            this.tabOffSeason.Controls.Add(this.labelRecruit);
-            this.tabOffSeason.Controls.Add(this.recruitTolerance);
-            this.tabOffSeason.Controls.Add(this.wkonLabel);
-            this.tabOffSeason.Controls.Add(this.toleranceWalkOn);
-            this.tabOffSeason.Controls.Add(this.buttonRandRecruits);
-            this.tabOffSeason.Controls.Add(this.buttonRandWalkOns);
-            this.tabOffSeason.Controls.Add(this.buttonMinRecruitingPts);
             this.tabOffSeason.Location = new System.Drawing.Point(4, 24);
             this.tabOffSeason.Name = "tabOffSeason";
             this.tabOffSeason.Padding = new System.Windows.Forms.Padding(3);
@@ -3886,7 +3848,7 @@ namespace DB_EDITOR
             this.DetermineAthleteButton.BackColor = System.Drawing.SystemColors.Highlight;
             this.DetermineAthleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DetermineAthleteButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.DetermineAthleteButton.Location = new System.Drawing.Point(273, 327);
+            this.DetermineAthleteButton.Location = new System.Drawing.Point(273, 118);
             this.DetermineAthleteButton.Name = "DetermineAthleteButton";
             this.DetermineAthleteButton.Size = new System.Drawing.Size(110, 80);
             this.DetermineAthleteButton.TabIndex = 23;
@@ -3899,7 +3861,7 @@ namespace DB_EDITOR
             this.RecalculateStarRankingsButton.BackColor = System.Drawing.SystemColors.Highlight;
             this.RecalculateStarRankingsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RecalculateStarRankingsButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.RecalculateStarRankingsButton.Location = new System.Drawing.Point(27, 424);
+            this.RecalculateStarRankingsButton.Location = new System.Drawing.Point(27, 308);
             this.RecalculateStarRankingsButton.Name = "RecalculateStarRankingsButton";
             this.RecalculateStarRankingsButton.Size = new System.Drawing.Size(356, 80);
             this.RecalculateStarRankingsButton.TabIndex = 22;
@@ -3912,7 +3874,7 @@ namespace DB_EDITOR
             this.RandomizeRecruitNamesButton.BackColor = System.Drawing.SystemColors.Highlight;
             this.RandomizeRecruitNamesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.RandomizeRecruitNamesButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.RandomizeRecruitNamesButton.Location = new System.Drawing.Point(148, 327);
+            this.RandomizeRecruitNamesButton.Location = new System.Drawing.Point(148, 118);
             this.RandomizeRecruitNamesButton.Name = "RandomizeRecruitNamesButton";
             this.RandomizeRecruitNamesButton.Size = new System.Drawing.Size(110, 80);
             this.RandomizeRecruitNamesButton.TabIndex = 21;
@@ -3925,7 +3887,7 @@ namespace DB_EDITOR
             this.buttonRandomizeFaceShape.BackColor = System.Drawing.SystemColors.Highlight;
             this.buttonRandomizeFaceShape.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonRandomizeFaceShape.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonRandomizeFaceShape.Location = new System.Drawing.Point(26, 327);
+            this.buttonRandomizeFaceShape.Location = new System.Drawing.Point(26, 118);
             this.buttonRandomizeFaceShape.Name = "buttonRandomizeFaceShape";
             this.buttonRandomizeFaceShape.Size = new System.Drawing.Size(110, 80);
             this.buttonRandomizeFaceShape.TabIndex = 20;
@@ -3938,7 +3900,7 @@ namespace DB_EDITOR
             this.polyNames.BackColor = System.Drawing.SystemColors.Highlight;
             this.polyNames.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.polyNames.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.polyNames.Location = new System.Drawing.Point(26, 528);
+            this.polyNames.Location = new System.Drawing.Point(26, 220);
             this.polyNames.Name = "polyNames";
             this.polyNames.Size = new System.Drawing.Size(357, 70);
             this.polyNames.TabIndex = 17;
@@ -3974,7 +3936,7 @@ namespace DB_EDITOR
             // 
             this.labelIntTeams.AutoSize = true;
             this.labelIntTeams.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelIntTeams.Location = new System.Drawing.Point(154, 181);
+            this.labelIntTeams.Location = new System.Drawing.Point(249, 126);
             this.labelIntTeams.Name = "labelIntTeams";
             this.labelIntTeams.Size = new System.Drawing.Size(55, 16);
             this.labelIntTeams.TabIndex = 14;
@@ -3984,7 +3946,7 @@ namespace DB_EDITOR
             // removeInterestTeams
             // 
             this.removeInterestTeams.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.removeInterestTeams.Location = new System.Drawing.Point(156, 156);
+            this.removeInterestTeams.Location = new System.Drawing.Point(310, 124);
             this.removeInterestTeams.Maximum = new decimal(new int[] {
             11,
             0,
@@ -4004,9 +3966,9 @@ namespace DB_EDITOR
             this.buttonInterestedTeams.BackColor = System.Drawing.SystemColors.Highlight;
             this.buttonInterestedTeams.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonInterestedTeams.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonInterestedTeams.Location = new System.Drawing.Point(26, 126);
+            this.buttonInterestedTeams.Location = new System.Drawing.Point(252, 34);
             this.buttonInterestedTeams.Name = "buttonInterestedTeams";
-            this.buttonInterestedTeams.Size = new System.Drawing.Size(110, 80);
+            this.buttonInterestedTeams.Size = new System.Drawing.Size(180, 80);
             this.buttonInterestedTeams.TabIndex = 12;
             this.buttonInterestedTeams.Text = "Modify Recruiting Interested Teams";
             this.buttonInterestedTeams.UseVisualStyleBackColor = false;
@@ -4016,7 +3978,7 @@ namespace DB_EDITOR
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(146, 40);
+            this.label12.Location = new System.Drawing.Point(28, 145);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(76, 16);
             this.label12.TabIndex = 11;
@@ -4025,7 +3987,7 @@ namespace DB_EDITOR
             // minTRPA
             // 
             this.minTRPA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minTRPA.Location = new System.Drawing.Point(158, 13);
+            this.minTRPA.Location = new System.Drawing.Point(43, 120);
             this.minTRPA.Maximum = new decimal(new int[] {
             17,
             0,
@@ -4049,7 +4011,7 @@ namespace DB_EDITOR
             // 
             this.labelMinRecPts.AutoSize = true;
             this.labelMinRecPts.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMinRecPts.Location = new System.Drawing.Point(143, 94);
+            this.labelMinRecPts.Location = new System.Drawing.Point(131, 148);
             this.labelMinRecPts.Name = "labelMinRecPts";
             this.labelMinRecPts.Size = new System.Drawing.Size(78, 16);
             this.labelMinRecPts.TabIndex = 9;
@@ -4064,7 +4026,7 @@ namespace DB_EDITOR
             0,
             0,
             0});
-            this.minRecPts.Location = new System.Drawing.Point(158, 69);
+            this.minRecPts.Location = new System.Drawing.Point(148, 120);
             this.minRecPts.Maximum = new decimal(new int[] {
             500,
             0,
@@ -4088,7 +4050,7 @@ namespace DB_EDITOR
             // 
             this.labelRecruit.AutoSize = true;
             this.labelRecruit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRecruit.Location = new System.Drawing.Point(143, 283);
+            this.labelRecruit.Location = new System.Drawing.Point(143, 74);
             this.labelRecruit.Name = "labelRecruit";
             this.labelRecruit.Size = new System.Drawing.Size(78, 16);
             this.labelRecruit.TabIndex = 7;
@@ -4098,7 +4060,7 @@ namespace DB_EDITOR
             // recruitTolerance
             // 
             this.recruitTolerance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.recruitTolerance.Location = new System.Drawing.Point(157, 258);
+            this.recruitTolerance.Location = new System.Drawing.Point(157, 49);
             this.recruitTolerance.Maximum = new decimal(new int[] {
             5,
             0,
@@ -4117,7 +4079,7 @@ namespace DB_EDITOR
             // 
             this.wkonLabel.AutoSize = true;
             this.wkonLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.wkonLabel.Location = new System.Drawing.Point(390, 283);
+            this.wkonLabel.Location = new System.Drawing.Point(390, 74);
             this.wkonLabel.Name = "wkonLabel";
             this.wkonLabel.Size = new System.Drawing.Size(78, 16);
             this.wkonLabel.TabIndex = 5;
@@ -4127,7 +4089,7 @@ namespace DB_EDITOR
             // toleranceWalkOn
             // 
             this.toleranceWalkOn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toleranceWalkOn.Location = new System.Drawing.Point(404, 258);
+            this.toleranceWalkOn.Location = new System.Drawing.Point(404, 49);
             this.toleranceWalkOn.Maximum = new decimal(new int[] {
             5,
             0,
@@ -4147,7 +4109,7 @@ namespace DB_EDITOR
             this.buttonRandRecruits.BackColor = System.Drawing.SystemColors.Highlight;
             this.buttonRandRecruits.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonRandRecruits.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonRandRecruits.Location = new System.Drawing.Point(26, 232);
+            this.buttonRandRecruits.Location = new System.Drawing.Point(26, 23);
             this.buttonRandRecruits.Name = "buttonRandRecruits";
             this.buttonRandRecruits.Size = new System.Drawing.Size(110, 80);
             this.buttonRandRecruits.TabIndex = 3;
@@ -4160,7 +4122,7 @@ namespace DB_EDITOR
             this.buttonRandWalkOns.BackColor = System.Drawing.SystemColors.Highlight;
             this.buttonRandWalkOns.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonRandWalkOns.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonRandWalkOns.Location = new System.Drawing.Point(273, 232);
+            this.buttonRandWalkOns.Location = new System.Drawing.Point(273, 23);
             this.buttonRandWalkOns.Name = "buttonRandWalkOns";
             this.buttonRandWalkOns.Size = new System.Drawing.Size(110, 80);
             this.buttonRandWalkOns.TabIndex = 2;
@@ -4173,9 +4135,9 @@ namespace DB_EDITOR
             this.buttonMinRecruitingPts.BackColor = System.Drawing.SystemColors.Highlight;
             this.buttonMinRecruitingPts.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonMinRecruitingPts.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonMinRecruitingPts.Location = new System.Drawing.Point(26, 18);
+            this.buttonMinRecruitingPts.Location = new System.Drawing.Point(31, 34);
             this.buttonMinRecruitingPts.Name = "buttonMinRecruitingPts";
-            this.buttonMinRecruitingPts.Size = new System.Drawing.Size(110, 80);
+            this.buttonMinRecruitingPts.Size = new System.Drawing.Size(180, 80);
             this.buttonMinRecruitingPts.TabIndex = 1;
             this.buttonMinRecruitingPts.Text = "Raise Minimum Recruiting Points";
             this.buttonMinRecruitingPts.UseVisualStyleBackColor = false;
@@ -4184,6 +4146,10 @@ namespace DB_EDITOR
             // tabSeason
             // 
             this.tabSeason.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.tabSeason.Controls.Add(this.label180);
+            this.tabSeason.Controls.Add(this.ImpactPlayerMin);
+            this.tabSeason.Controls.Add(this.label178);
+            this.tabSeason.Controls.Add(this.buttonImpactPlayers);
             this.tabSeason.Controls.Add(this.BodyProgressionButton);
             this.tabSeason.Controls.Add(this.CoachPrestigeButton);
             this.tabSeason.Controls.Add(this.label14);
@@ -4219,6 +4185,59 @@ namespace DB_EDITOR
             this.tabSeason.Size = new System.Drawing.Size(1152, 615);
             this.tabSeason.TabIndex = 3;
             this.tabSeason.Text = "Dynasty";
+            // 
+            // label180
+            // 
+            this.label180.AutoSize = true;
+            this.label180.Location = new System.Drawing.Point(447, 147);
+            this.label180.Name = "label180";
+            this.label180.Size = new System.Drawing.Size(58, 13);
+            this.label180.TabIndex = 39;
+            this.label180.Text = "Min Rating";
+            // 
+            // ImpactPlayerMin
+            // 
+            this.ImpactPlayerMin.Location = new System.Drawing.Point(511, 145);
+            this.ImpactPlayerMin.Maximum = new decimal(new int[] {
+            99,
+            0,
+            0,
+            0});
+            this.ImpactPlayerMin.Minimum = new decimal(new int[] {
+            40,
+            0,
+            0,
+            0});
+            this.ImpactPlayerMin.Name = "ImpactPlayerMin";
+            this.ImpactPlayerMin.Size = new System.Drawing.Size(44, 20);
+            this.ImpactPlayerMin.TabIndex = 38;
+            this.ImpactPlayerMin.Value = new decimal(new int[] {
+            40,
+            0,
+            0,
+            0});
+            // 
+            // label178
+            // 
+            this.label178.AutoSize = true;
+            this.label178.Location = new System.Drawing.Point(291, 405);
+            this.label178.Name = "label178";
+            this.label178.Size = new System.Drawing.Size(131, 13);
+            this.label178.TabIndex = 36;
+            this.label178.Text = "Do Not Use For NEXT25+";
+            // 
+            // buttonImpactPlayers
+            // 
+            this.buttonImpactPlayers.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.buttonImpactPlayers.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonImpactPlayers.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonImpactPlayers.Location = new System.Drawing.Point(445, 59);
+            this.buttonImpactPlayers.Name = "buttonImpactPlayers";
+            this.buttonImpactPlayers.Size = new System.Drawing.Size(110, 80);
+            this.buttonImpactPlayers.TabIndex = 35;
+            this.buttonImpactPlayers.Text = "Determine Impact Players";
+            this.buttonImpactPlayers.UseVisualStyleBackColor = false;
+            this.buttonImpactPlayers.Click += new System.EventHandler(this.buttonImpactPlayers_Click);
             // 
             // BodyProgressionButton
             // 
@@ -4336,7 +4355,7 @@ namespace DB_EDITOR
             // 
             this.buttonChaosTransfers.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.buttonChaosTransfers.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonChaosTransfers.Location = new System.Drawing.Point(457, 59);
+            this.buttonChaosTransfers.Location = new System.Drawing.Point(445, 322);
             this.buttonChaosTransfers.Name = "buttonChaosTransfers";
             this.buttonChaosTransfers.Size = new System.Drawing.Size(110, 80);
             this.buttonChaosTransfers.TabIndex = 23;
@@ -4869,6 +4888,54 @@ namespace DB_EDITOR
             this.SeasonRecord.TabIndex = 0;
             this.SeasonRecord.Text = "WW - LL";
             // 
+            // CoachCCPONum
+            // 
+            this.CoachCCPONum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CoachCCPONum.Location = new System.Drawing.Point(224, 33);
+            this.CoachCCPONum.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.CoachCCPONum.Name = "CoachCCPONum";
+            this.CoachCCPONum.Size = new System.Drawing.Size(50, 22);
+            this.CoachCCPONum.TabIndex = 206;
+            this.CoachCCPONum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.CoachCCPONum.ValueChanged += new System.EventHandler(this.CoachCCPONum_ValueChanged);
+            // 
+            // label141
+            // 
+            this.label141.AutoSize = true;
+            this.label141.Location = new System.Drawing.Point(151, 38);
+            this.label141.Name = "label141";
+            this.label141.Size = new System.Drawing.Size(67, 13);
+            this.label141.TabIndex = 205;
+            this.label141.Text = "Performance";
+            // 
+            // HCPrestigeNum
+            // 
+            this.HCPrestigeNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HCPrestigeNum.Location = new System.Drawing.Point(86, 33);
+            this.HCPrestigeNum.Maximum = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            this.HCPrestigeNum.Name = "HCPrestigeNum";
+            this.HCPrestigeNum.Size = new System.Drawing.Size(50, 22);
+            this.HCPrestigeNum.TabIndex = 204;
+            this.HCPrestigeNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.HCPrestigeNum.ValueChanged += new System.EventHandler(this.HCPrestigeNum_ValueChanged);
+            // 
+            // label146
+            // 
+            this.label146.AutoSize = true;
+            this.label146.Location = new System.Drawing.Point(19, 37);
+            this.label146.Name = "label146";
+            this.label146.Size = new System.Drawing.Size(63, 13);
+            this.label146.TabIndex = 195;
+            this.label146.Text = "HC Prestige";
+            // 
             // groupBox8
             // 
             this.groupBox8.Location = new System.Drawing.Point(687, 361);
@@ -5196,15 +5263,6 @@ namespace DB_EDITOR
             this.CoachOffTypeBox.Tag = "x";
             this.CoachOffTypeBox.SelectedIndexChanged += new System.EventHandler(this.CoachOffTypeBox_SelectedIndexChanged);
             // 
-            // label146
-            // 
-            this.label146.AutoSize = true;
-            this.label146.Location = new System.Drawing.Point(19, 37);
-            this.label146.Name = "label146";
-            this.label146.Size = new System.Drawing.Size(63, 13);
-            this.label146.TabIndex = 195;
-            this.label146.Text = "HC Prestige";
-            // 
             // CoachFirstNameBox
             // 
             this.CoachFirstNameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -5388,21 +5446,6 @@ namespace DB_EDITOR
             this.CoachCOTRBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.CoachCOTRBox.ValueChanged += new System.EventHandler(this.CoachCOTRBox_ValueChanged);
             // 
-            // HCPrestigeNum
-            // 
-            this.HCPrestigeNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.HCPrestigeNum.Location = new System.Drawing.Point(86, 33);
-            this.HCPrestigeNum.Maximum = new decimal(new int[] {
-            6,
-            0,
-            0,
-            0});
-            this.HCPrestigeNum.Name = "HCPrestigeNum";
-            this.HCPrestigeNum.Size = new System.Drawing.Size(50, 22);
-            this.HCPrestigeNum.TabIndex = 204;
-            this.HCPrestigeNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.HCPrestigeNum.ValueChanged += new System.EventHandler(this.HCPrestigeNum_ValueChanged);
-            // 
             // label136
             // 
             this.label136.AutoSize = true;
@@ -5412,15 +5455,6 @@ namespace DB_EDITOR
             this.label136.TabIndex = 211;
             this.label136.Text = "Aggressiveness";
             // 
-            // label141
-            // 
-            this.label141.AutoSize = true;
-            this.label141.Location = new System.Drawing.Point(151, 38);
-            this.label141.Name = "label141";
-            this.label141.Size = new System.Drawing.Size(67, 13);
-            this.label141.TabIndex = 205;
-            this.label141.Text = "Performance";
-            // 
             // label137
             // 
             this.label137.AutoSize = true;
@@ -5429,21 +5463,6 @@ namespace DB_EDITOR
             this.label137.Size = new System.Drawing.Size(63, 13);
             this.label137.TabIndex = 210;
             this.label137.Text = "Passing Pct";
-            // 
-            // CoachCCPONum
-            // 
-            this.CoachCCPONum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CoachCCPONum.Location = new System.Drawing.Point(224, 33);
-            this.CoachCCPONum.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.CoachCCPONum.Name = "CoachCCPONum";
-            this.CoachCCPONum.Size = new System.Drawing.Size(50, 22);
-            this.CoachCCPONum.TabIndex = 206;
-            this.CoachCCPONum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.CoachCCPONum.ValueChanged += new System.EventHandler(this.CoachCCPONum_ValueChanged);
             // 
             // label138
             // 
@@ -7279,6 +7298,7 @@ namespace DB_EDITOR
             // tabTeams
             // 
             this.tabTeams.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.tabTeams.Controls.Add(this.groupBox15);
             this.tabTeams.Controls.Add(this.groupBox14);
             this.tabTeams.Controls.Add(this.groupBox13);
             this.tabTeams.Controls.Add(this.groupBox12);
@@ -7317,12 +7337,12 @@ namespace DB_EDITOR
             // 
             // groupBox14
             // 
+            this.groupBox14.Controls.Add(this.label181);
             this.groupBox14.Controls.Add(this.SDURnumbox);
             this.groupBox14.Controls.Add(this.label20);
             this.groupBox14.Controls.Add(this.label21);
             this.groupBox14.Controls.Add(this.label35);
             this.groupBox14.Controls.Add(this.label34);
-            this.groupBox14.Controls.Add(this.DeathPenaltyButton);
             this.groupBox14.Controls.Add(this.CoachPollBox);
             this.groupBox14.Controls.Add(this.label36);
             this.groupBox14.Controls.Add(this.SeasonRecordBox);
@@ -7363,20 +7383,20 @@ namespace DB_EDITOR
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(11, 65);
+            this.label20.Location = new System.Drawing.Point(126, 65);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(75, 13);
+            this.label20.Size = new System.Drawing.Size(34, 13);
             this.label20.TabIndex = 33;
-            this.label20.Text = "Team Prestige";
+            this.label20.Text = "Team";
             // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(91, 65);
+            this.label21.Location = new System.Drawing.Point(198, 65);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(95, 13);
+            this.label21.Size = new System.Drawing.Size(54, 13);
             this.label21.TabIndex = 35;
-            this.label21.Text = "Academic Prestige";
+            this.label21.Text = "Academic";
             // 
             // label35
             // 
@@ -7400,9 +7420,9 @@ namespace DB_EDITOR
             // 
             this.DeathPenaltyButton.BackColor = System.Drawing.Color.NavajoWhite;
             this.DeathPenaltyButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeathPenaltyButton.Location = new System.Drawing.Point(220, 65);
+            this.DeathPenaltyButton.Location = new System.Drawing.Point(4, 26);
             this.DeathPenaltyButton.Name = "DeathPenaltyButton";
-            this.DeathPenaltyButton.Size = new System.Drawing.Size(73, 43);
+            this.DeathPenaltyButton.Size = new System.Drawing.Size(120, 43);
             this.DeathPenaltyButton.TabIndex = 139;
             this.DeathPenaltyButton.Text = "Death Penalty";
             this.DeathPenaltyButton.UseVisualStyleBackColor = false;
@@ -7455,14 +7475,15 @@ namespace DB_EDITOR
             // 
             // TMPRNumBox
             // 
-            this.TMPRNumBox.Location = new System.Drawing.Point(14, 81);
+            this.TMPRNumBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TMPRNumBox.Location = new System.Drawing.Point(125, 78);
             this.TMPRNumBox.Maximum = new decimal(new int[] {
             6,
             0,
             0,
             0});
             this.TMPRNumBox.Name = "TMPRNumBox";
-            this.TMPRNumBox.Size = new System.Drawing.Size(50, 20);
+            this.TMPRNumBox.Size = new System.Drawing.Size(50, 22);
             this.TMPRNumBox.TabIndex = 81;
             this.TMPRNumBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TMPRNumBox.ValueChanged += new System.EventHandler(this.TMPRNumBox_ValueChanged);
@@ -7478,14 +7499,15 @@ namespace DB_EDITOR
             // 
             // TMARNumBox
             // 
-            this.TMARNumBox.Location = new System.Drawing.Point(94, 81);
+            this.TMARNumBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TMARNumBox.Location = new System.Drawing.Point(200, 78);
             this.TMARNumBox.Maximum = new decimal(new int[] {
             6,
             0,
             0,
             0});
             this.TMARNumBox.Name = "TMARNumBox";
-            this.TMARNumBox.Size = new System.Drawing.Size(50, 20);
+            this.TMARNumBox.Size = new System.Drawing.Size(50, 22);
             this.TMARNumBox.TabIndex = 82;
             this.TMARNumBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.TMARNumBox.ValueChanged += new System.EventHandler(this.TMARNumBox_ValueChanged);
@@ -7788,7 +7810,6 @@ namespace DB_EDITOR
             // 
             this.groupBox11.Controls.Add(this.ImpactTSI1Select);
             this.groupBox11.Controls.Add(this.label15);
-            this.groupBox11.Controls.Add(this.GenerateNewRosterButton);
             this.groupBox11.Controls.Add(this.label16);
             this.groupBox11.Controls.Add(this.label17);
             this.groupBox11.Controls.Add(this.label18);
@@ -7832,7 +7853,7 @@ namespace DB_EDITOR
             // 
             this.GenerateNewRosterButton.BackColor = System.Drawing.Color.LightCoral;
             this.GenerateNewRosterButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GenerateNewRosterButton.Location = new System.Drawing.Point(276, 161);
+            this.GenerateNewRosterButton.Location = new System.Drawing.Point(4, 88);
             this.GenerateNewRosterButton.Name = "GenerateNewRosterButton";
             this.GenerateNewRosterButton.Size = new System.Drawing.Size(120, 43);
             this.GenerateNewRosterButton.TabIndex = 140;
@@ -7927,7 +7948,7 @@ namespace DB_EDITOR
             // 
             this.ResetImpactPlayersButton.BackColor = System.Drawing.Color.NavajoWhite;
             this.ResetImpactPlayersButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ResetImpactPlayersButton.Location = new System.Drawing.Point(172, 152);
+            this.ResetImpactPlayersButton.Location = new System.Drawing.Point(171, 157);
             this.ResetImpactPlayersButton.Name = "ResetImpactPlayersButton";
             this.ResetImpactPlayersButton.Size = new System.Drawing.Size(73, 31);
             this.ResetImpactPlayersButton.TabIndex = 129;
@@ -8741,6 +8762,94 @@ namespace DB_EDITOR
             this.tabControl1.Visible = false;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.TabControl1_IndexChange);
             // 
+            // groupBox15
+            // 
+            this.groupBox15.Controls.Add(this.GenerateNewRosterButton);
+            this.groupBox15.Controls.Add(this.DeathPenaltyButton);
+            this.groupBox15.Location = new System.Drawing.Point(540, 460);
+            this.groupBox15.Name = "groupBox15";
+            this.groupBox15.Size = new System.Drawing.Size(130, 141);
+            this.groupBox15.TabIndex = 147;
+            this.groupBox15.TabStop = false;
+            this.groupBox15.Text = "Fantasy";
+            // 
+            // label181
+            // 
+            this.label181.AutoSize = true;
+            this.label181.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label181.Location = new System.Drawing.Point(15, 80);
+            this.label181.Name = "label181";
+            this.label181.Size = new System.Drawing.Size(83, 16);
+            this.label181.TabIndex = 88;
+            this.label181.Text = "PRESTIGE";
+            // 
+            // groupBox16
+            // 
+            this.groupBox16.Controls.Add(this.RecalculateStarRankingsButton);
+            this.groupBox16.Controls.Add(this.DetermineAthleteButton);
+            this.groupBox16.Controls.Add(this.buttonRandWalkOns);
+            this.groupBox16.Controls.Add(this.buttonRandRecruits);
+            this.groupBox16.Controls.Add(this.RandomizeRecruitNamesButton);
+            this.groupBox16.Controls.Add(this.toleranceWalkOn);
+            this.groupBox16.Controls.Add(this.buttonRandomizeFaceShape);
+            this.groupBox16.Controls.Add(this.wkonLabel);
+            this.groupBox16.Controls.Add(this.polyNames);
+            this.groupBox16.Controls.Add(this.recruitTolerance);
+            this.groupBox16.Controls.Add(this.labelRecruit);
+            this.groupBox16.Location = new System.Drawing.Point(12, 202);
+            this.groupBox16.Name = "groupBox16";
+            this.groupBox16.Size = new System.Drawing.Size(477, 404);
+            this.groupBox16.TabIndex = 24;
+            this.groupBox16.TabStop = false;
+            this.groupBox16.Text = "Recruiting Pool";
+            // 
+            // groupBox17
+            // 
+            this.groupBox17.Controls.Add(this.removeInterestTeams);
+            this.groupBox17.Controls.Add(this.buttonMinRecruitingPts);
+            this.groupBox17.Controls.Add(this.minRecPts);
+            this.groupBox17.Controls.Add(this.labelMinRecPts);
+            this.groupBox17.Controls.Add(this.labelIntTeams);
+            this.groupBox17.Controls.Add(this.minTRPA);
+            this.groupBox17.Controls.Add(this.label12);
+            this.groupBox17.Controls.Add(this.buttonInterestedTeams);
+            this.groupBox17.Location = new System.Drawing.Point(12, 6);
+            this.groupBox17.Name = "groupBox17";
+            this.groupBox17.Size = new System.Drawing.Size(477, 190);
+            this.groupBox17.TabIndex = 25;
+            this.groupBox17.TabStop = false;
+            this.groupBox17.Text = "Recruiting Tools";
+            // 
+            // groupBox18
+            // 
+            this.groupBox18.Controls.Add(this.MaxAttNum);
+            this.groupBox18.Controls.Add(this.GlobalAttBox);
+            this.groupBox18.Controls.Add(this.label99);
+            this.groupBox18.Controls.Add(this.GlobalAttNum);
+            this.groupBox18.Controls.Add(this.label109);
+            this.groupBox18.Controls.Add(this.GlobalAttCheck);
+            this.groupBox18.Controls.Add(this.label108);
+            this.groupBox18.Controls.Add(this.MinAttBox);
+            this.groupBox18.Controls.Add(this.label107);
+            this.groupBox18.Controls.Add(this.label100);
+            this.groupBox18.Controls.Add(this.MaxAttPosBox);
+            this.groupBox18.Controls.Add(this.MinAttNum);
+            this.groupBox18.Controls.Add(this.MinAttPosBox);
+            this.groupBox18.Controls.Add(this.MaxAttBox);
+            this.groupBox18.Controls.Add(this.GlobalAttPosBox);
+            this.groupBox18.Controls.Add(this.label106);
+            this.groupBox18.Controls.Add(this.MaxAttButton);
+            this.groupBox18.Controls.Add(this.MinAttRating);
+            this.groupBox18.Controls.Add(this.MinAttButton);
+            this.groupBox18.Controls.Add(this.MaxAttRating);
+            this.groupBox18.Controls.Add(this.GlobalAttButton);
+            this.groupBox18.Location = new System.Drawing.Point(271, 47);
+            this.groupBox18.Name = "groupBox18";
+            this.groupBox18.Size = new System.Drawing.Size(425, 345);
+            this.groupBox18.TabIndex = 55;
+            this.groupBox18.TabStop = false;
+            this.groupBox18.Text = "Global Player Editor";
+            // 
             // MainEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -8812,6 +8921,7 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.toleranceWalkOn)).EndInit();
             this.tabSeason.ResumeLayout(false);
             this.tabSeason.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ImpactPlayerMin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numberPlayerCoach)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.maxFiredTransfers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MaxSkillDropPS)).EndInit();
@@ -8823,6 +8933,8 @@ namespace DB_EDITOR
             this.tabCoaches.PerformLayout();
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CoachCCPONum)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.HCPrestigeNum)).EndInit();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CoachCDTSBox)).EndInit();
@@ -8833,8 +8945,6 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.CoachCOTABox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CoachRecruitingBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CoachCOTRBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.HCPrestigeNum)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CoachCCPONum)).EndInit();
             this.tabPlayers.ResumeLayout(false);
             this.tabPlayers.PerformLayout();
             this.groupBox6.ResumeLayout(false);
@@ -8902,6 +9012,13 @@ namespace DB_EDITOR
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabControl1.ResumeLayout(false);
+            this.groupBox15.ResumeLayout(false);
+            this.groupBox16.ResumeLayout(false);
+            this.groupBox16.PerformLayout();
+            this.groupBox17.ResumeLayout(false);
+            this.groupBox17.PerformLayout();
+            this.groupBox18.ResumeLayout(false);
+            this.groupBox18.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -9180,7 +9297,6 @@ namespace DB_EDITOR
         public System.Windows.Forms.Button buttonFillRosters;
         public System.Windows.Forms.Button buttonAutoDepthChart;
         public System.Windows.Forms.Button buttonFantasyRoster;
-        public System.Windows.Forms.Button buttonImpactPlayers;
         public System.Windows.Forms.Button TYDNButton;
         public System.Windows.Forms.Button buttonCalcOverall;
         public System.Windows.Forms.Button buttonRandPotential;
@@ -9593,6 +9709,15 @@ namespace DB_EDITOR
         private CheckBox DisciplineAssistanceBox;
         private CheckBox RecruitAssistanceBox;
         private CheckBox CoachPerfCheckBox;
+        private Label label178;
+        public System.Windows.Forms.Button buttonImpactPlayers;
+        private Label label180;
+        private NumericUpDown ImpactPlayerMin;
+        private GroupBox groupBox15;
+        private Label label181;
+        private GroupBox groupBox17;
+        private GroupBox groupBox16;
+        private GroupBox groupBox18;
     }
 }
 

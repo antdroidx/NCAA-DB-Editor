@@ -165,6 +165,11 @@ namespace DB_EDITOR
             TMPRNumBox.Value = GetDBValueInt("TEAM", "TMPR", EditorIndex);
             TMARNumBox.Value = GetDBValueInt("TEAM", "TMAR", EditorIndex);
 
+            TeamOVRtextbox.BackColor = GetRatingColor(TeamOVRtextbox).BackColor;
+            TMPRNumBox.BackColor = GetPrestigeColor(TMPRNumBox).BackColor;
+            TMARNumBox.BackColor = GetPrestigeColor(TMARNumBox).BackColor;
+
+
             progressBar1.PerformStep();
 
             //Season Records
@@ -177,6 +182,7 @@ namespace DB_EDITOR
 
             //NCAA Investigation
             INPOnumbox.Value = GetDBValueInt("TEAM", "INPO", EditorIndex);
+            INPOnumbox.BackColor = GetInvestigationColor(INPOnumbox).BackColor;
             NCDPnumbox.Value = GetDBValueInt("TEAM", "NCDP", EditorIndex);
             SDURnumbox.Value = GetDBValueInt("TEAM", "SDUR", EditorIndex);
             SNCTnumbox.Value = GetDBValueInt("TEAM", "SNCT", EditorIndex);
@@ -202,8 +208,9 @@ namespace DB_EDITOR
             HCFirstNameBox.Text = GetCoachFirstNamefromRec(GetCOCHrecFromTeamRec(EditorIndex));
             HCLastNameBox.Text = GetCoachLastNamefromRec(GetCOCHrecFromTeamRec(EditorIndex));
             TeamHCPrestigeNumBox.Value = GetDBValueInt("COCH", "CPRE", GetCOCHrecFromTeamRec(EditorIndex));
+            TeamHCPrestigeNumBox.BackColor = GetPrestigeColor(TeamHCPrestigeNumBox).BackColor;
             TeamCCPONumBox.Value = GetDBValueInt("COCH", "CCPO", GetCOCHrecFromTeamRec(EditorIndex));
-            GetCCPOboxColor();
+            TeamCCPONumBox.BackColor = GetPerformanceColor(TeamCCPONumBox).BackColor;
 
             progressBar1.PerformStep();
 
@@ -653,6 +660,7 @@ namespace DB_EDITOR
                 return;
 
             ChangeDBString("TEAM", "TMPR", TeamIndex, Convert.ToString(TMPRNumBox.Value));
+            TMPRNumBox.BackColor = GetPrestigeColor(TMPRNumBox).BackColor;
         }
         //Team Academics
         private void TMARNumBox_ValueChanged(object sender, EventArgs e)
@@ -661,6 +669,7 @@ namespace DB_EDITOR
                 return;
 
             ChangeDBString("TEAM", "TMAR", TeamIndex, Convert.ToString(TMARNumBox.Value));
+            TMARNumBox.BackColor = GetPrestigeColor(TMARNumBox).BackColor;
         }
 
         //NCAA Investigation
@@ -670,6 +679,8 @@ namespace DB_EDITOR
                 return;
 
             ChangeDBString("TEAM", "INPO", TeamIndex, Convert.ToString(INPOnumbox.Value));
+            INPOnumbox.BackColor = GetInvestigationColor(INPOnumbox).BackColor;
+
         }
 
         //Discipline Points
@@ -727,6 +738,8 @@ namespace DB_EDITOR
                 return;
 
             ChangeDBString("COCH", "CPRE", GetCOCHrecFromTeamRec(TeamIndex), Convert.ToString(TeamHCPrestigeNumBox.Value));
+            TeamHCPrestigeNumBox.BackColor = GetPrestigeColor(TeamHCPrestigeNumBox).BackColor;
+
         }
 
         //Coach Performance
@@ -735,7 +748,7 @@ namespace DB_EDITOR
             if (DoNotTrigger) return;
 
             ChangeDBString("COCH", "CCPO", GetCOCHrecFromTeamRec(TeamIndex), Convert.ToString(TeamCCPONumBox.Value));
-            GetCCPOboxColor();
+            TeamCCPONumBox.BackColor = GetPerformanceColor(TeamCCPONumBox).BackColor;
         }
 
         //Training
@@ -967,14 +980,6 @@ namespace DB_EDITOR
 
         #endregion
 
-        private void GetCCPOboxColor()
-        {
-            if(TeamCCPONumBox.Value <= 5) TeamCCPONumBox.BackColor = Color.FromArgb(255, 199, 206);
-            else if(TeamCCPONumBox.Value <= 25) TeamCCPONumBox.BackColor = Color.Orange;
-            else if (TeamCCPONumBox.Value <= 49) TeamCCPONumBox.BackColor = Color.LightGoldenrodYellow;
-            else if (TeamCCPONumBox.Value < 75) TeamCCPONumBox.BackColor = Color.LightGreen;
-            else TeamCCPONumBox.BackColor = Color.LightBlue;
-        }
 
 
         //Fire Single Head Coach

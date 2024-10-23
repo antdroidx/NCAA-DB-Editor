@@ -294,7 +294,7 @@ Then proceed the with the buttons in order. You can swap 2 and 3 if you want. It
     <value>This is the off-season toolbox for recruiting. These should be set at the beginning of Recruiting Phase
 
 Raise Minimum Recruiting Points : 
-This raises the min points and minimum TRPA (??). The TRPA determines how many points are given each week, although it is just one of the many factors. The Min Points resets each week.
+This raises the min points and minimum allocation level (TRPA). The TRPA determines how many points are given each week, although it is just one of the many factors. The Min Points resets each week.
 
 Modify Recruiting Interested Teams:
 This value is set to default of 10. If you lower it, there will be less teams automatically interested in a recruit. This allows other teams to try to get into the recruit's top 10 list.
@@ -315,7 +315,7 @@ Randomize Walk-Ons:
 This randomizes the walk-on attribute ratings. Use the toleranace to set the min/max randomization value. Weight and Height are also randomize. Potential, Injury and Awareness are also randomized.
 
 Polynesian Surname Generator: 
-This changes recruits from Hawaii and western states to have polynesian surnames. The % Chance is for Hawaii, with 15-25% of CA, UT, WA, OR, AK, TX, CO, NV and AZ states getting players of polynesian descent.</value>
+This changes recruits from Hawaii and western states to have polynesian surnames. The % Chance is for Hawaii, with 10-25% of CA, UT, WA, OR, AK, TX, CO, NV and AZ states getting players of polynesian descent.</value>
   </data>
   <data name="dbToolsInfo.Text" xml:space="preserve">
     <value>This is a set of NCAA Football Modding Tools that add more realism to the game. 

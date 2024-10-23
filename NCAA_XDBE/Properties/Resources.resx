@@ -232,4 +232,16 @@
   <data name="TUNI_MASTER" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\uniforms\TUNI-MASTER.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
+  <data name="Body_Size_AVG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\players\Body_Size_AVG.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_12_teamB" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\schedules\12-teamB.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="PTEN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\players\PTEN.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Awareness" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\players\Awareness.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
 </root>

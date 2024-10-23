@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
+using System.Drawing;
 using System.IO;
 using System.Reflection;
 using System.Runtime.Versioning;
@@ -1349,6 +1350,58 @@ namespace DB_EDITOR
 
         #endregion
 
+        #region Coloring
+        private NumericUpDown GetPerformanceColor(NumericUpDown colorBox)
+        {
+            if (colorBox.Value <= 5) colorBox.BackColor = Color.FromArgb(255, 199, 206);
+            else if (colorBox.Value <= 25) colorBox.BackColor = Color.Orange;
+            else if (colorBox.Value <= 49) colorBox.BackColor = Color.PeachPuff;
+            else if (colorBox.Value < 75) colorBox.BackColor = Color.LightGreen;
+            else if (colorBox.Value < 100) colorBox.BackColor = Color.LightBlue;
+            else colorBox.BackColor = Color.MediumPurple;
+
+            return colorBox;
+        }
+
+        private NumericUpDown GetInvestigationColor(NumericUpDown colorBox)
+        {
+            if (colorBox.Value > 80) colorBox.BackColor = Color.FromArgb(255, 199, 206);
+            else if (colorBox.Value >= 60) colorBox.BackColor = Color.Orange;
+            else if (colorBox.Value >= 40) colorBox.BackColor = Color.PeachPuff;
+            else if (colorBox.Value >= 20) colorBox.BackColor = Color.LightGreen;
+            else colorBox.BackColor = Color.LightBlue;
+
+            return colorBox;
+        }
+
+        private NumericUpDown GetPrestigeColor(NumericUpDown colorBox)
+        {
+
+            if (colorBox.Value <= 0) colorBox.BackColor = Color.FromArgb(255, 199, 206);
+            else if (colorBox.Value <= 1) colorBox.BackColor = Color.FromArgb(255, 199, 206);
+            else if (colorBox.Value <= 2) colorBox.BackColor = Color.Orange;
+            else if (colorBox.Value <= 3) colorBox.BackColor = Color.PeachPuff;
+            else if (colorBox.Value <= 4) colorBox.BackColor = Color.LightGreen;
+            else if (colorBox.Value <= 5) colorBox.BackColor = Color.LightBlue;
+            else colorBox.BackColor = Color.MediumPurple;
+
+            return colorBox;
+        }
+
+        private TextBox GetRatingColor(TextBox colorBox)
+        {
+
+            if (Convert.ToInt32(colorBox.Text) < 60) colorBox.BackColor = Color.FromArgb(255, 199, 206);
+            else if (Convert.ToInt32(colorBox.Text) < 70) colorBox.BackColor = Color.Orange;
+            else if (Convert.ToInt32(colorBox.Text) < 80) colorBox.BackColor = Color.PeachPuff;
+            else if (Convert.ToInt32(colorBox.Text) < 90) colorBox.BackColor = Color.LightGreen;
+            else if (Convert.ToInt32(colorBox.Text) < 95) colorBox.BackColor = Color.LightBlue;
+            else colorBox.BackColor = Color.MediumPurple;
+
+            return colorBox;
+        }
+
+        #endregion
 
         #region CSV Tools
 

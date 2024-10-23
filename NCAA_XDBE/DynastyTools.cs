@@ -1008,9 +1008,9 @@ namespace DB_EDITOR
 
             List<List<int>> bodysize = GetBodySizeAverages();
 
-            for(int i = 0; i < GetTableRecCount("PLAY"); i++)
+            for (int i = 0; i < GetTableRecCount("PLAY"); i++)
             {
-                if(GetDBValueInt("PLAY", "PYER", i) <= 1)
+                if (GetDBValueInt("PLAY", "PYER", i) <= 1)
                 {
                     int pos = GetDBValueInt("PLAY", "PPOS", i);
                     int weight = GetDBValueInt("PLAY", "PWGT", i) + 160;
@@ -1018,21 +1018,21 @@ namespace DB_EDITOR
                     int ppoe = GetDBValueInt("PLAY", "PPOE", i);
                     if (weight < avg)
                     {
-                        double randSeed = rand.Next(0,ppoe+1)/31.0;
+                        double randSeed = rand.Next(0, ppoe + 1) / 31.0;
                         int gain = Convert.ToInt32((avg - weight) * randSeed);
                         if (gain > 25) gain = 25;
                         weight += gain;
                         ChangeDBInt("PLAY", "PWGT", i, weight - 160);
                     }
 
-                    if(rand.Next(0, ppoe + 1) / 31.0 > 0.67)
+                    if (rand.Next(0, ppoe + 1) / 31.0 > 0.67)
                     {
                         int height = GetDBValueInt("PLAY", "PHGT", i) + 1;
                         ChangeDBInt("PLAY", "PHGT", i, height);
                     }
 
                     RecalculateIndividualBMI(i);
-                } 
+                }
                 else
                 {
 
@@ -1041,8 +1041,146 @@ namespace DB_EDITOR
             }
 
             progressBar1.Visible = false;
-            
+
             MessageBox.Show("Body Progressions Completed!");
+        }
+
+
+        //Determine Impact Players
+        private void DetermineAllImpactPlayers()
+        {
+            progressBar1.Visible = true;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = GetTableRecCount("TEAM");
+            progressBar1.Step = 1;
+
+            int minRating = 0;
+            minRating = RevertRating(Convert.ToInt32(ImpactPlayerMin.Value));
+
+
+            for (int i = 0; i < GetTableRecCount("TEAM"); i++)
+            {
+                if (GetDBValueInt("TEAM", "TTYP", i) == 0)
+                {
+                    ChangeDBInt("TEAM", "TPIO", i, 127);
+                    ChangeDBInt("TEAM", "TPID", i, 127);
+                    ChangeDBInt("TEAM", "TSI1", i, 127);
+                    ChangeDBInt("TEAM", "TSI2", i, 127);
+
+                    DetermineTeamImpactPlayers(i, minRating);
+                }
+                progressBar1.PerformStep();
+            }
+
+            progressBar1.Visible = false;
+            progressBar1.Value = 0;
+            MessageBox.Show("Impact Players are Set!");
+        }
+
+        private void DetermineTeamImpactPlayers(int i, int minRating)
+        {
+            int TGID = GetDBValueInt("TEAM", "TGID", i);
+            int PGIDbeg = TGID * 70;
+            int PGIDend = PGIDbeg + 69;
+            int count = 0;
+            List<List<int>> roster = new List<List<int>>();
+
+            for (int j = 0; j < GetTableRecCount("PLAY"); j++)
+            {
+                int PGID = GetDBValueInt("PLAY", "PGID", j);
+                int POVR = GetDBValueInt("PLAY", "POVR", j);
+
+                if (PGID >= PGIDbeg && PGID <= PGIDend && POVR >= minRating)
+                {
+                    int PPOS = GetDBValueInt("PLAY", "PPOS", j);
+
+                    List<int> player = new List<int>();
+                    roster.Add(player);
+                    roster[count].Add(POVR);
+                    roster[count].Add(PPOS);
+                    roster[count].Add(PGID);
+                    count++;
+                }
+            }
+            roster.Sort((player1, player2) => player2[0].CompareTo(player1[0]));
+
+            if (roster.Count == 0)
+            {
+                //do nothing
+            }
+            else
+            {
+
+                int countOff = 0;
+                int countDef = 0;
+                for (int j = 0; j < roster.Count; j++)
+                {
+                    //pick offensive impact
+                    if (roster[j][1] <= 4)
+                    {
+                        if (countOff == 0)
+                        {
+                            int impactID = roster[j][2] - PGIDbeg;
+                            ChangeDBString("TEAM", "TPIO", i, Convert.ToString(impactID));
+                        }
+                        if (countOff == 1)
+                        {
+                            int impactID = roster[j][2] - PGIDbeg;
+                            ChangeDBString("TEAM", "TSI1", i, Convert.ToString(impactID));
+                        }
+                        countOff++;
+                    }
+
+                    //pick defensive impact
+                    if (roster[j][1] >= 10 && roster[j][1] <= 18)
+                    {
+                        if (countDef == 0)
+                        {
+                            int impactID = roster[j][2] - PGIDbeg;
+                            ChangeDBString("TEAM", "TPID", i, Convert.ToString(impactID));
+                        }
+                        if (countDef == 1)
+                        {
+                            int impactID = roster[j][2] - PGIDbeg;
+                            ChangeDBString("TEAM", "TSI2", i, Convert.ToString(impactID));
+                        }
+                        countDef++;
+                    }
+
+                    if (countOff > 1 && countDef > 1)
+                    {
+                        break;
+                    }
+                }
+
+                //pick offensive impact if no skill positions meet criteria
+                if (countOff < 1)
+                {
+                    for (int j = 0; j < roster.Count; j++)
+                    {
+
+                        if (roster[j][1] <= 9)
+                        {
+                            if (countOff == 0)
+                            {
+                                int impactID = roster[j][2] - PGIDbeg;
+                                ChangeDBString("TEAM", "TPIO", i, Convert.ToString(impactID));
+                            }
+                            if (countOff == 1)
+                            {
+                                int impactID = roster[j][2] - PGIDbeg;
+                                ChangeDBString("TEAM", "TSI1", i, Convert.ToString(impactID));
+                            }
+                            countOff++;
+                        }
+
+                        if (countOff > 1 && countDef > 1)
+                        {
+                            break;
+                        }
+                    }
+                }
+            }
         }
 
 

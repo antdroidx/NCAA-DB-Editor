@@ -219,8 +219,10 @@ namespace DB_EDITOR
 
             //Ratings
             HCPrestigeNum.Value = GetDBValueInt("COCH", "CPRE", EditorIndex);
+            HCPrestigeNum.BackColor = GetPrestigeColor(HCPrestigeNum).BackColor;
+
             CoachCCPONum.Value = GetDBValueInt("COCH", "CCPO", EditorIndex);
-            GetCoachCCPOboxColor();
+            CoachCCPONum.BackColor = GetPerformanceColor(CoachCCPONum).BackColor;
 
             //Off-Season Budgets
             CoachDisciplineBox.Text = GetDBValue("COCH", "CDPC", EditorIndex);
@@ -417,16 +419,6 @@ namespace DB_EDITOR
 
         }
 
-        private void GetCoachCCPOboxColor()
-        {
-            if (CoachCCPONum.Value <= 5) CoachCCPONum.BackColor = Color.FromArgb(255, 199, 206);
-            else if (CoachCCPONum.Value <= 25) CoachCCPONum.BackColor = Color.Orange;
-            else if (CoachCCPONum.Value <= 49) CoachCCPONum.BackColor = Color.LightGoldenrodYellow;
-            else if (CoachCCPONum.Value < 75) CoachCCPONum.BackColor = Color.LightGreen;
-            else CoachCCPONum.BackColor = Color.LightBlue;
-        }
-
-
         #endregion
 
 
@@ -582,7 +574,7 @@ namespace DB_EDITOR
             if (DoNotTrigger) return;
 
             ChangeDBString("COCH", "CCPO", CoachIndex, Convert.ToString(CoachCCPONum.Value));
-            GetCoachCCPOboxColor();
+            CoachCCPONum.BackColor = GetPerformanceColor(CoachCCPONum).BackColor;
         }
 
         private void HCPrestigeNum_ValueChanged(object sender, EventArgs e)
@@ -591,6 +583,8 @@ namespace DB_EDITOR
                 return;
 
             ChangeDBString("COCH", "CPRE", CoachIndex, Convert.ToString(HCPrestigeNum.Value));
+            HCPrestigeNum.BackColor = GetPrestigeColor(HCPrestigeNum).BackColor;
+
         }
 
         //Budget
