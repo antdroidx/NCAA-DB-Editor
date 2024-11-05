@@ -863,7 +863,7 @@ namespace DB_EDITOR
             int playerPOSG = GetPOSGfromPPOS(playerPos);
 
             List<List<int>> AWRH = GetAwarenessHitList();
-            double hit = 0.075;
+            double hit = 0.025;
 
             double PCAR = Convert.ToInt32(GetDB2Value("RCPT", "PCAR", rec)); //CAWT
             double PKAC = Convert.ToInt32(GetDB2Value("RCPT", "PKAC", rec)); //KAWT

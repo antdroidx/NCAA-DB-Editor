@@ -78,16 +78,16 @@
     <Compile Include="Config.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Button_Clicks.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="BowlEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="_UNUSED_.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BowlEditor.cs">
+      <SubType>Form</SubType>
     </Compile>
     <Compile Include="Uniforms.cs">
       <SubType>Form</SubType>
@@ -208,6 +208,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\playbooks\PLYL-Custom.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\playbooks\PLYL-NEXT25.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\players\attributes.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

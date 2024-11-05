@@ -47,6 +47,8 @@ namespace DB_EDITOR
             SetUpPlayTypeEditor();
             SetUpPlayNameEditor();
             CalculateProjPassRatio();
+            if (NextMod) DefaultPlaysRadio.Text = "NEXT25 Play Names";
+            else DefaultPlaysRadio.Text = "NCAA 06 Play Names";
 
         }
 
@@ -54,7 +56,15 @@ namespace DB_EDITOR
         {
             List<List<string>> PlayBookNames = new List<List<string>>();
 
-            PlayBookNames = CreateStringListsFromCSV(@"resources\playbooks\PLYL.csv", false);
+            if (DefaultPlaysRadio.Checked)
+            {
+                if(!NextMod) PlayBookNames = CreateStringListsFromCSV(@"resources\playbooks\PLYL.csv", false);
+                else PlayBookNames = CreateStringListsFromCSV(@"resources\playbooks\PLYL-NEXT25.csv", false);
+            } 
+            else
+            {
+                PlayBookNames = CreateStringListsFromCSV(@"resources\playbooks\PLYL-Custom.csv", false);
+            }
 
             return PlayBookNames;
         }
@@ -144,6 +154,16 @@ namespace DB_EDITOR
             PlayNameBox.SelectedIndex = 0;
         }
 
+        private void DefaultPlaysRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            if (DefaultPlaysRadio.Checked) StartPlaybookEditor();
+        }
+
+        private void CustomPlaysRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CustomPlaysRadio.Checked) StartPlaybookEditor();
+
+        }
 
         private int GetPLYLfromPBPL(int PBPL)
         {

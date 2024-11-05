@@ -122,7 +122,7 @@ namespace DB_EDITOR
             {
                 if (GetDBValueInt("TEAM", "CGID", i) == conf)
                 {
-                    conferenceBox.Items.Add(GetDBValue("TEAM", "TDNA", i));
+                    conferenceBox.Items.Add(GetDBValue("TEAM", "TDNA", i) + " [" + GetDBValue("TEAM", "TMPR", i) +"]");
                     confName.Text = GetDBValue("CONF", "CNAM", confRec);
                 }
             }
@@ -222,7 +222,7 @@ namespace DB_EDITOR
             for (int i = 0; i < GetTableRecCount("TEAM"); i++)
             {
                 if (GetDBValueInt("TEAM", "TTYP", i) == 1)
-                    FCSSwapListBox.Items.Add(GetDBValue("TEAM", "TDNA", i));
+                    FCSSwapListBox.Items.Add(GetDBValue("TEAM", "TDNA", i) + " [" + GetDBValue("TEAM", "TMPR", i) + "]");
             }
         }
 
@@ -252,11 +252,13 @@ namespace DB_EDITOR
                 if (!ASelected && c.SelectedItems.Count > 0)
                 {
                     TeamA = c.SelectedItem.ToString();
+                    TeamA = TeamA.Substring(0, TeamA.Length - 4);
                     ASelected = true;
                 }
                 else if (ASelected && c.SelectedItems.Count > 0)
                 {
                     TeamB = c.SelectedItem.ToString();
+                    TeamB = TeamB.Substring(0, TeamB.Length - 4);
                     break;
                 }
             }

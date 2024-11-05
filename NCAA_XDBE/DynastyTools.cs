@@ -10,6 +10,81 @@ namespace DB_EDITOR
     partial class MainEditor : Form
     {
 
+        #region Dynasty Tools Clicks
+
+
+        //Pre-Season Injury Distributor
+        private void ButtonPSInjuries_Click(object sender, EventArgs e)
+        {
+            PreseasonInjuries();
+        }
+
+        //Medical Redshirt - If player's INJL = 254, they are out of season. Let's give them a medical year!
+        private void MedRS_Click(object sender, EventArgs e)
+        {
+            MedicalRedshirt();
+        }
+
+        //Coaching Progression -- useful for "Contracts Off" dynasty setting where coaching progression is disabled
+        /* 
+        Use current TEAM's TMPR and COCH's CTOP to make CPRE updated, then update CTOP to match previous TMPR
+        */
+        private void CoachProg_Click(object sender, EventArgs e)
+        {
+            CoachPrestigeProgression();
+        }
+
+        //Randomizes the Coaching Budgets - Must be done prior to 1st Off-Season Task
+
+        private void ButtonRandomBudgets_Click(object sender, EventArgs e)
+        {
+            RandomizeBudgets();
+        }
+
+        //Coaching Carousel -- Must be done at end of Season
+        private void ButtonCarousel_Click(object sender, EventArgs e)
+        {
+            CoachCarousel();
+        }
+
+        //Conference Realignment
+        private void buttonRealignment_Click(object sender, EventArgs e)
+        {
+            ConfRealignment();
+        }
+
+
+        //Players to Coaches
+        private void buttonPlayerCoach_Click(object sender, EventArgs e)
+        {
+            PlayerToCoach();
+        }
+
+
+        //Randomly Generate Coach Prestiges for Free Agents
+        private void CoachPrestigeButton_Click(object sender, EventArgs e)
+        {
+            AssignCoachPrestigeFreeAgents();
+        }
+
+        //Body Size Progression Click
+        private void BodyProgressionButton_Click(object sender, EventArgs e)
+        {
+            PlayerBodySizeProgression();
+        }
+
+
+        //EXPERIMENTAL ITEMS -- WORK IN PROGRESS
+        private void buttonChaosTransfers_Click(object sender, EventArgs e)
+        {
+            ChaosTransfers();
+        }
+
+
+
+        #endregion
+
+
         //Pre-Season Injuries -- randomly give injuries to players in pre-season
         private void PreseasonInjuries()
         {

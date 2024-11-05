@@ -23,6 +23,114 @@ namespace DB_EDITOR
             AddPositionsToBoxes();
         }
 
+        #region MAIN DB TOOLS CLICKS
+
+        //Fixes Body Size Models if user does manipulation of the player attributes in the in-game player editor
+        private void BodyFix_Click(object sender, EventArgs e)
+        {
+            RecalculateBMI("PLAY");
+        }
+
+        //Increases minium speed for skill positions to 80
+        private void IncreaseSpeed_Click(object sender, EventArgs e)
+        {
+            IncreaseMinimumSpeed();
+        }
+
+        //Recalculates QB Tendencies based on original game criteria
+        private void QB_Tend_Click(object sender, EventArgs e)
+        {
+            RecalculateQBTendencies();
+        }
+
+        //Randomize Player Potential
+        private void ButtonRandPotential_Click(object sender, EventArgs e)
+        {
+            RandomizePotential();
+        }
+
+        //Randomize Player Faces/Heads
+        private void RandomizeHeadButton_Click(object sender, EventArgs e)
+        {
+            RandomizeRecruitFace("PLAY");
+        }
+
+        //Unique Player Tool
+        private void UniquePlayer_Click(object sender, EventArgs e)
+        {
+            UniquePlayers();
+        }
+
+        //Recalculate Overall Ratings
+        private void buttonCalcOverall_Click(object sender, EventArgs e)
+        {
+            RecalculateOverall();
+        }
+
+        //Recalculate Team Overalls
+        private void TYDNButton_Click(object sender, EventArgs e)
+        {
+            if (TEAM) CalculateTeamRatings("TEAM");
+            if (TDYN) CalculateTeamRatings("TDYN");
+        }
+
+        //Determine Impact Players
+        private void buttonImpactPlayers_Click(object sender, EventArgs e)
+        {
+            DetermineAllImpactPlayers();
+        }
+
+        //Fantasy Roster Generator
+        private void buttonFantasyRoster_Click(object sender, EventArgs e)
+        {
+            if (TDYN)
+                FantasyRosterGenerator("TDYN");
+            else if (TEAM)
+                FantasyRosterGenerator("TEAM");
+        }
+
+        //Depth Chart Generator
+        private void buttonAutoDepthChart_Click(object sender, EventArgs e)
+        {
+            if (TDYN)
+                DepthChartMaker("TDYN");
+            else if (TEAM)
+                DepthChartMaker("TEAM");
+        }
+
+        //Fill Rosters
+        private void buttonFillRosters_Click(object sender, EventArgs e)
+        {
+            if (TDYN)
+                FillRosters("TDYN", Convert.ToInt32(FillRosterPCT.Value));
+            else if (TEAM)
+                FillRosters("TEAM", Convert.ToInt32(FillRosterPCT.Value));
+        }
+
+        //Reorder Teams TORD
+        private void TORDButton_Click(object sender, EventArgs e)
+        {
+            ReorderTORD();
+        }
+
+        //Reorder PLAY by PGID
+        private void ReorderPGIDButton_Click(object sender, EventArgs e)
+        {
+            ReOrderTable("PLAY", "PGID");
+        }
+
+
+        private void SyncPBButton_Click(object sender, EventArgs e)
+        {
+            SyncTeamCoachPlaybooks();
+        }
+
+        private void FantasyCoachesButton_Click(object sender, EventArgs e)
+        {
+            CreateFantasyCoachDB();
+        }
+        #endregion
+
 
         #region General Tools
         //Fixes Body Size Models if user does manipulation of the player attributes in the in-game player editor
@@ -492,7 +600,7 @@ namespace DB_EDITOR
                     ChangeDBString(tableName, "TROF", i, Convert.ToString(rating));
 
                     //TROV - Team Overall
-                    rating = (Convert.ToInt32(GetDBValue(tableName, "TROF", i)) + Convert.ToInt32(GetDBValue(tableName, "TRDE", i))) / 2;
+                    rating = (Convert.ToInt32(GetDBValue(tableName, "TROF", i))*3 + Convert.ToInt32(GetDBValue(tableName, "TRDE", i))*3 + Convert.ToInt32(GetDBValue(tableName, "TRST", i))) / 7;
 
                     ChangeDBString(tableName, "TROV", i, Convert.ToString(rating));
 
@@ -717,7 +825,7 @@ namespace DB_EDITOR
             ChangeDBString(tableName, "TROF", i, Convert.ToString(rating));
 
             //TROV - Team Overall
-            rating = (Convert.ToInt32(GetDBValue(tableName, "TROF", i)) + Convert.ToInt32(GetDBValue(tableName, "TRDE", i))) / 2;
+            rating = (Convert.ToInt32(GetDBValue(tableName, "TROF", i)) * 3 + Convert.ToInt32(GetDBValue(tableName, "TRDE", i)) * 3 + Convert.ToInt32(GetDBValue(tableName, "TRST", i))) / 7;
 
             ChangeDBString(tableName, "TROV", i, Convert.ToString(rating));
 
@@ -1201,8 +1309,6 @@ namespace DB_EDITOR
 
             List<List<string>> RCATmapper = CreateStringListsFromCSV(@"resources\players\RCAT-MAPPER.csv", false);
 
-            List<List<string>> teamData = new List<List<string>>();
-            teamData = CreateStringListsFromCSV(@"resources\FantasyGenData.csv", true);
             int rec = GetTableRecCount("PLAY");
             int PGIDbeg = tgid * 70;
             int PGIDend = PGIDbeg + 69;

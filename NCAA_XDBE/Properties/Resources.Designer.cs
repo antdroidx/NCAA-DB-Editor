@@ -537,16 +537,17 @@ namespace DB_EDITOR.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to AHQB,AHHP,AHFB,AHWR,AHTE,AHRT,AHRG,AHCC,AHLG,AHLT,AHRE,AHDT,AHLE,AHRO,AHML,AHLO,AHCB,AHFS,AHSS,AHKK,AHPP,PPOS
-        ///0,1,1,1,1,3,3,3,3,3,3,3,3,3,2,3,2,2,2,1,1,0
-        ///2,0,1,1,1,3,3,3,3,3,3,3,3,2,2,2,2,2,2,2,2,1
-        ///2,0,0,2,0,2,2,2,2,2,3,3,3,1,1,1,3,3,3,2,2,2
-        ///1,1,3,0,1,3,3,3,3,3,3,3,3,3,3,3,0,1,1,2,2,3
-        ///2,1,0,0,0,2,2,3,2,2,2,3,2,2,2,2,3,2,2,3,3,4
+        ///   Looks up a localized string similar to QB,HB,FB,WR,TE,RT,RG,C,LG,LT,RE,DT,LE,ROLB,MLB,LOLB,CB,FS,SS,K,P,PPOS
+        ///0,1,1,1,1,3,3,3,3,3,3,3,3,3,3,3,2,3,3,2,2,0
+        ///2,0,1,1,1,3,3,3,3,3,3,3,3,2,2,2,3,3,2,3,3,1
+        ///1,0,0,2,1,3,3,3,3,3,3,3,3,1,1,1,3,3,3,3,3,2
+        ///1,1,3,0,1,3,3,3,3,3,3,3,3,3,3,3,1,1,2,2,2,3
+        ///2,2,1,1,0,2,3,3,3,2,3,3,3,2,2,2,3,3,2,3,3,4
         ///3,3,2,3,2,0,1,2,1,0,2,1,2,3,3,3,3,3,3,3,3,5
         ///3,3,2,3,2,1,0,1,0,1,2,1,2,3,3,3,3,3,3,3,3,6
         ///3,3,2,3,2,1,1,0,1,1,2,1,2,3,3,3,3,3,3,3,3,7
-        ///3,3,2,3,2,1,0,1,0,1,2,1,2,3,3,3,3,3,3,3,3 [rest of string was truncated]&quot;;.
+        ///3,3,2,3,2,1,0,1,0,1,2,1,2,3,3,3,3,3,3,3,3,8
+        ///3,3,2,3,2,0,1,2,1,0,2,1,2,3,3,3,3,3, [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Awareness {
             get {
@@ -914,6 +915,28 @@ namespace DB_EDITOR.Properties {
         /// <summary>
         ///   Looks up a localized string similar to SETL,PLYL,SITT,PLYT,PLF_,ord_,name,risk,motn,phlp,vpos
         ///2,2,2,36,97,21,Cover 3 Switch,0,0,7,3
+        ///5,5,2,21,0,2,Kickoff Middle,0,1,7,0
+        ///7,7,2,35,0,2,Return Middle,0,0,7,0
+        ///8,8,2,21,0,2,Punt Middle,0,1,7,0
+        ///5,9,2,21,0,1,Kickoff Left,0,1,7,0
+        ///5,10,2,21,0,3,Kickoff Right,0,1,7,0
+        ///2,12,2,39,21,32,Lightning Gold,0,1,7,4
+        ///12,18,2,21,163840,7,Punt OB Left,0,1,7,0
+        ///38,411,2,21,16384,11,Field Goal,0,0,7,1
+        ///39,412,2,35,0,9,All Out Block,0,1,7,10
+        ///40,413,2,33,0,11,FG Block,0,0,7,5
+        ///12,452,2,3,32768,1,Spread Pass,0,0,7,0
+        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string PLYL {
+            get {
+                return ResourceManager.GetString("PLYL", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SETL,PLYL,SITT,PLYT,PLF_,ord_,name,risk,motn,phlp,vpos
+        ///2,2,2,36,97,21,Cover 3 Switch,0,0,7,3
         ///2,12,2,39,21,32,Lightning Gold,0,1,7,4
         ///2,503,2,37,3,17,Hulk 3,0,1,7,7
         ///2,512,2,34,1073,22,Spy Gold,0,1,7,0
@@ -927,9 +950,31 @@ namespace DB_EDITOR.Properties {
         ///2,552,2,39,69,24,Dog 3,0,1,7,5
         ///2,556,2,37,11, [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string PLYL {
+        internal static string PLYL_Custom {
             get {
-                return ResourceManager.GetString("PLYL", resourceCulture);
+                return ResourceManager.GetString("PLYL_Custom", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SETL,PLYL,SITT,PLYT,PLF_,ord_,name,risk,motn,phlp,vpos
+        ///2,2,2,36,97,21,Cover 3 Switch,0,0,7,3
+        ///2,12,2,39,21,32,Lightning Gold,0,1,7,4
+        ///2,503,2,37,3,17,Hulk 3,0,1,7,7
+        ///2,512,2,34,1073,22,Spy Gold,0,1,7,0
+        ///2,513,2,39,21,7,Dog Gold,0,1,7,5
+        ///2,514,2,39,25,10,Crash Gold,0,1,7,6
+        ///2,515,2,38,1,31,Gold Double X,0,1,7,6
+        ///2,516,2,38,1,16,Gold Double Y,0,1,7,5
+        ///2,517,2,38,1,19,Gold Double Z,0,1,7,5
+        ///2,519,2,38,27,11,Fire Green,0,1,7,6
+        ///2,526,2,34,49,1,Cover 2 Man,0,1,7,0
+        ///2,552,2,39,69,24,Dog 3,0,1,7,5
+        ///2,556,2,37,11, [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string PLYL_NEXT25 {
+            get {
+                return ResourceManager.GetString("PLYL_NEXT25", resourceCulture);
             }
         }
         

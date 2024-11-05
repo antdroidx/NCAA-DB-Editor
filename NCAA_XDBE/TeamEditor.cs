@@ -21,6 +21,7 @@ namespace DB_EDITOR
             LoadCGIDListBox();
             CreateTeamColorPalettes();
             LoadTGIDlistBox(-1, LGIDcomboBox.SelectedIndex);  // 2 = to all teams.
+            DoNotTrigger = false;
         }
         private void LoadLeagueListBox()
         {
@@ -28,7 +29,7 @@ namespace DB_EDITOR
             LGIDcomboBox.Items.Add("FBS");
             LGIDcomboBox.Items.Add("FCS");
             LGIDcomboBox.Items.Add("ALL");
-            LGIDcomboBox.SelectedItem = LGIDcomboBox.Items[2];
+            LGIDcomboBox.SelectedItem = LGIDcomboBox.Items[0];
         }
 
         private void LoadCGIDListBox()
@@ -289,7 +290,7 @@ namespace DB_EDITOR
 
                 if (GetDBValueInt("COCH", "CPID", GetCOCHrecFromTeamRec(TeamIndex)) > 135)
                 {
-                    for (int i = 136; i <= 158; i++)
+                    for (int i = 136; i < pb.Count; i++)
                     {
                         PlaybookSelectBox.Items.Add(pb[i][1]);
                     }

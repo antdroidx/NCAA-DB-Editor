@@ -12,6 +12,66 @@ namespace DB_EDITOR
     partial class MainEditor : Form
     {
 
+        //DEV TAB TOOLS
+
+        #region DEV TOOLS CLICKS
+
+        //Graduate/Transfer Players (DEV ONLY)
+        private void GraduateButton_Click(object sender, EventArgs e)
+        {
+            GraduateAndTransferPlayers();
+        }
+
+        private void ImportRecruitsButton_Click(object sender, EventArgs e)
+        {
+            CreateRecruitsFromCSV();
+        }
+
+        private void FireCoachButton_Click(object sender, EventArgs e)
+        {
+            FireHeadCoach();
+        }
+
+
+        //Create Transfers from CSV File
+        private void CreateTransfersCSVButton_Click(object sender, EventArgs e)
+        {
+            CreateTransfersFromCSV();
+        }
+
+        private void DevFillRosterButton_Click(object sender, EventArgs e)
+        {
+            FillRosters("TDYN", 85);
+        }
+
+        private void DevCalcTeamRatingsButton_Click(object sender, EventArgs e)
+        {
+            CalculateTeamRatings("TDYN");
+        }
+
+
+        private void DevDepthChartButton_Click(object sender, EventArgs e)
+        {
+            DepthChartMaker("TDYN");
+        }
+
+        private void tabTeams_Click(object sender, EventArgs e)
+        {
+            StartTeamEditor();
+        }
+
+        private void DevRandomizeFaceButton_Click(object sender, EventArgs e)
+        {
+            RandomizeRecruitFace("PLAY");
+        }
+
+        private void DevCalcOVRButton_Click(object sender, EventArgs e)
+        {
+            RecalculateOverall();
+        }
+
+        #endregion
+
         //FORCE A GRADUATION AND TRANSFER CYCLE OFFLINE
 
         private void GraduateAndTransferPlayers()

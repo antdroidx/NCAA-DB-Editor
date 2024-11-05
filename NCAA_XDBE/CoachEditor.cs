@@ -24,7 +24,7 @@ namespace DB_EDITOR
             CoachFilter.Items.Add("ALL");
             CoachFilter.Items.Add("Active");
             CoachFilter.Items.Add("Inactive");
-            CoachFilter.SelectedItem = CoachFilter.Items[0];
+            CoachFilter.SelectedItem = CoachFilter.Items[1];
         }
 
         private void CoachFilter_SelectedIndexChanged(object sender, EventArgs e)
@@ -370,7 +370,7 @@ namespace DB_EDITOR
 
                 if (GetDBValueInt("COCH", "CPID", CoachIndex) > 135)
                 {
-                    for (int i = 136; i <= 158; i++)
+                    for (int i = 136; i < pb.Count; i++)
                     {
                         CoachPlaybookBox.Items.Add(pb[i][1]);
                     }

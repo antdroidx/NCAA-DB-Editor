@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 
@@ -23,6 +21,7 @@ namespace DB_EDITOR
         public int dbIndex = -1;
         public int dbIndex2 = -1;
         public int dbSelected = 0;
+        string TDBNameLength = "xxxx";
 
         string SelectedTableName = "";
         int SelectedTableIndex = -1;
@@ -41,6 +40,7 @@ namespace DB_EDITOR
         bool TDYN = false;
         bool TEAM = false;
         bool NextMod = false;
+        bool PlaybookDB = false;
 
         int TeamIndex;
         int PlayerIndex;
@@ -77,9 +77,6 @@ namespace DB_EDITOR
         Dictionary<int, string> TableNames = new Dictionary<int, string>();
         Dictionary<int, string> FieldNames = new Dictionary<int, string>();
 
-        Dictionary<int, string> Table2Names = new Dictionary<int, string>();
-        Dictionary<int, string> Field2Names = new Dictionary<int, string>();
-
         Dictionary<int, string> Alphabet = new Dictionary<int, string>();
         Dictionary<string, int> AlphabetX = new Dictionary<string, int>();
 
@@ -100,7 +97,6 @@ namespace DB_EDITOR
         Dictionary<string, int> PositionsX = new Dictionary<string, int>(); //database of position name, ppos id
         Dictionary<int, int> Ratings = new Dictionary<int, int>(); //database of db rating, in-game rating
         Dictionary<int, int> RatingsX = new Dictionary<int, int>(); //database of in-game rating, db rating
-        //Dictionary<int, int> CoachEditorList = new Dictionary<int, int>();
 
         double[,] POCI;
         List<List<int>> RCAT;
@@ -153,7 +149,7 @@ namespace DB_EDITOR
             TDYN = false;
             TEAM = false;
             TeamIndex = -1;
-
+            PlaybookDB = false;
 
             tabControl1.Visible = false;
 
@@ -170,6 +166,7 @@ namespace DB_EDITOR
             tabControl1.TabPages.Remove(tabRecruits);
             tabControl1.TabPages.Remove(tabUniforms);
             tabControl1.TabPages.Remove(tabBowls);
+            tabControl1.TabPages.Remove(tabStats);
 
 
 
@@ -1039,6 +1036,66 @@ namespace DB_EDITOR
         }
 
         #endregion
+
+
+        #region TAB CONTROLS
+        private void TabControl1_IndexChange(object sender, EventArgs e)
+        {
+            if (tabControl1.SelectedTab != tabDB) CSVMenu.Visible = false;
+            if (tabControl1.SelectedTab == tabDB) TabDB_Start();
+            else if (tabControl1.SelectedTab == tabTeams) StartTeamEditor();
+            else if (tabControl1.SelectedTab == tabPlayers) StartPlayerEditor();
+            else if (tabControl1.SelectedTab == tabConf) ConferenceSetup();
+            else if (tabControl1.SelectedTab == tabCoaches) StartCoachEditor();
+            else if (tabControl1.SelectedTab == tabTools) StartDBTools();
+            else if (tabControl1.SelectedTab == tabPlaybook) StartPlaybookEditor();
+            else if (tabControl1.SelectedTab == tabDepthCharts) StartDepthChartEditor();
+            else if (tabControl1.SelectedTab == tabHome) StartHomeTab();
+            else if (tabControl1.SelectedTab == tabUniforms) StartUniformEditor();
+            else if (tabControl1.SelectedTab == tabBowls) StartBowlEditor();
+
+        }
+
+        private void TabDB_Start()
+        {
+            progressBar1.Visible = true;
+            progressBar1.Value = 0;
+            TablePropsgroupBox.Visible = true;
+            FieldsPropsgroupBox.Visible = true;
+            TableGridView_SelectionChanged(null, null);
+            fieldMenu.Enabled = true;
+            tableMenu.Enabled = true;
+            CSVMenu.Visible = true;
+        }
+
+        private void TabDB2_Start()
+        {
+            progressBar1.Visible = true;
+            progressBar1.Value = 0;
+            TablePropsgroupBox.Visible = true;
+            FieldsPropsgroupBox.Visible = true;
+            TableGridView_SelectionChanged(null, null);
+            fieldMenu.Enabled = false;
+            tableMenu.Enabled = false;
+            CSVMenu.Visible = false;
+        }
+
+        private void StartHomeTab()
+        {
+            if (NCAANext25Config.Checked == true)
+            {
+                NextConfigRadio.Checked = true;
+                OGConfigRadio.Checked = false;
+            }
+            else
+            {
+                NextConfigRadio.Checked = false;
+                OGConfigRadio.Checked = true;
+            }
+        }
+        #endregion
+
+
 
 
     }

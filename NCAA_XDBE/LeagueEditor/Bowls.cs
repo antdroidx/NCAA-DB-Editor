@@ -94,7 +94,7 @@ namespace DB_EDITOR
         private ComboBox BowlDates()
         {
             ComboBox comboBox = new ComboBox();
-            for(int i = 1; i < 31; i++)
+            for(int i = 1; i < 32; i++)
             {
                 comboBox.Items.Add(i);
             }
