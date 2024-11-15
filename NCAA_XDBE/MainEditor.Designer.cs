@@ -293,6 +293,7 @@ namespace DB_EDITOR
             this.ImportRecruitsButton = new System.Windows.Forms.Button();
             this.GraduateButton = new System.Windows.Forms.Button();
             this.tabTools = new System.Windows.Forms.TabPage();
+            this.FixHCBugsButton = new System.Windows.Forms.Button();
             this.groupBox18 = new System.Windows.Forms.GroupBox();
             this.MaxAttNum = new System.Windows.Forms.NumericUpDown();
             this.GlobalAttBox = new System.Windows.Forms.ComboBox();
@@ -3401,6 +3402,7 @@ namespace DB_EDITOR
             // tabTools
             // 
             this.tabTools.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.tabTools.Controls.Add(this.FixHCBugsButton);
             this.tabTools.Controls.Add(this.groupBox18);
             this.tabTools.Controls.Add(this.UniquePlayerButton);
             this.tabTools.Controls.Add(this.FantasyCoachesButton);
@@ -3427,6 +3429,19 @@ namespace DB_EDITOR
             this.tabTools.Size = new System.Drawing.Size(1152, 615);
             this.tabTools.TabIndex = 5;
             this.tabTools.Text = "dbTools";
+            // 
+            // FixHCBugsButton
+            // 
+            this.FixHCBugsButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.FixHCBugsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FixHCBugsButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.FixHCBugsButton.Location = new System.Drawing.Point(143, 319);
+            this.FixHCBugsButton.Name = "FixHCBugsButton";
+            this.FixHCBugsButton.Size = new System.Drawing.Size(110, 80);
+            this.FixHCBugsButton.TabIndex = 56;
+            this.FixHCBugsButton.Text = "Fix Coach Head/Face Bugs";
+            this.FixHCBugsButton.UseVisualStyleBackColor = false;
+            this.FixHCBugsButton.Click += new System.EventHandler(this.FixHCBugsButton_Click);
             // 
             // groupBox18
             // 
@@ -4613,19 +4628,24 @@ namespace DB_EDITOR
             // jobSecurityValue
             // 
             this.jobSecurityValue.Increment = new decimal(new int[] {
-            3,
+            2,
             0,
             0,
             0});
             this.jobSecurityValue.Location = new System.Drawing.Point(301, 483);
             this.jobSecurityValue.Maximum = new decimal(new int[] {
-            30,
+            50,
             0,
             0,
             0});
             this.jobSecurityValue.Name = "jobSecurityValue";
             this.jobSecurityValue.Size = new System.Drawing.Size(52, 20);
             this.jobSecurityValue.TabIndex = 13;
+            this.jobSecurityValue.Value = new decimal(new int[] {
+            25,
+            0,
+            0,
+            0});
             // 
             // buttonCarousel
             // 
@@ -9806,6 +9826,7 @@ namespace DB_EDITOR
         private RadioButton DefaultPlaysRadio;
         private RadioButton CustomPlaysRadio;
         private System.Windows.Forms.Button RemoveSanctionsButton;
+        public System.Windows.Forms.Button FixHCBugsButton;
     }
 }
 

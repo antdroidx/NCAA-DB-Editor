@@ -13,9 +13,11 @@ namespace DB_EDITOR
 
         private void StartDBEditor()
         {
-            GetTables(dbIndex);
+            int ind = 0;
+            if (DB2Button.Checked) ind = 1;
+            GetTables(ind);
             LoadTables();
-            GetFields(dbIndex, SelectedTableIndex);
+            GetFields(ind, SelectedTableIndex);
             LoadFields();
             //DBTableAddOns();
         }

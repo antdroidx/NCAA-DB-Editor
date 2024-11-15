@@ -197,30 +197,37 @@ namespace DB_EDITOR
 
             //Coach Body/Face/Hair
             GetCoachSkinToneItems();
-            if (GetDBValueInt("COCH", "CSKI", EditorIndex) == 2) CSKIBox.SelectedIndex = 1;
-            else if (GetDBValueInt("COCH", "CSKI", EditorIndex) == 5) CSKIBox.SelectedIndex = 2;
+            if (GetDBValueInt("COCH", "CSKI", EditorIndex) > 0 && GetDBValueInt("COCH", "CSKI", EditorIndex) <= 2)
+            {
+                CSKIBox.SelectedIndex = 1;
+                ChangeDBInt("COCH", "CSKI", EditorIndex, 2);
+            }
+            else if (GetDBValueInt("COCH", "CSKI", EditorIndex) > 3)
+            {
+                CSKIBox.SelectedIndex = 2;
+                ChangeDBInt("COCH", "CSKI", EditorIndex, 5);
+            }
             else CSKIBox.SelectedIndex = GetDBValueInt("COCH", "CSKI", EditorIndex);
 
 
-            //CSKIBox.SelectedIndex = GetDBValueInt("COCH", "CSKI", EditorIndex);
             GetCoachBodyItems();
             CBSZBox.SelectedIndex = GetDBValueInt("COCH", "CBSZ", EditorIndex);
             GetCoachHairColorItems();
             CHARBox.SelectedIndex = GetDBValueInt("COCH", "CHAR", EditorIndex);
-            
-            GetCThgItems();
-            //if (GetDBValueInt("COCH", "CThg", EditorIndex) > 0) CTHGBox.SelectedIndex = GetDBValueInt("COCH", "CThg", EditorIndex) + 1;
-            //else CTHGBox.SelectedIndex = GetDBValueInt("COCH", "CThg", EditorIndex);
-            CTHGBox.SelectedIndex = GetDBValueInt("COCH", "CThg", EditorIndex);
-
+    
             GetCoachFaceItems();
             CFEXBox.SelectedIndex = GetDBValueInt("COCH", "CFEX", EditorIndex);
             GetCoachEyeItems();
             CTgwBox.SelectedIndex = GetDBValueInt("COCH", "CTgw", EditorIndex);
             GetCoachHatItems();
             COHTBox.SelectedIndex = GetDBValueInt("COCH", "COHT", EditorIndex);
+            if (COHTBox.SelectedIndex == 1) ChangeDBInt("COCH", "CThg", EditorIndex, 1);
+            else if (COHTBox.SelectedIndex == 2) ChangeDBInt("COCH", "CThg", EditorIndex, 0);
 
-
+            GetCThgItems();
+            if (GetDBValueInt("COCH", "CThg", EditorIndex) > 4) ChangeDBInt("COCH", "CThg", EditorIndex, 0);
+            else if (GetDBValueInt("COCH", "CThg", EditorIndex) == 1 && COHTBox.SelectedIndex != 1) ChangeDBInt("COCH", "CThg", EditorIndex, 0);
+            CTHGBox.SelectedIndex = GetDBValueInt("COCH", "CThg", EditorIndex);
 
 
             //Ratings

@@ -909,7 +909,6 @@ namespace DB_EDITOR
                 progressBar1.PerformStep();
             }
 
-
             if (PGID_List.Count >= numberPlayerCoach.Value)
             {
                 //Randomly pick a FA Coach and replace with Player
@@ -941,11 +940,27 @@ namespace DB_EDITOR
 
                     //SKIN COLOR, need to convert to 0, 1, 5
 
-                    int skin = Convert.ToInt32(GetDBValue("PLAY", "PSKI", recP));
-                    if (skin > 1) skin = 5;
+                    int skin = GetDBValueInt("PLAY", "PSKI", recP);
+                    if (skin > 3) skin = 5;
+                    else if (skin > 0) skin = 2;
+                    ChangeDBInt("COCH", "CSKI", rec, skin);
+   
+                    ChangeDBInt("COCH", "CHAR", rec, GetDBValueInt("PLAY", "PHCL", recP));
 
-                    ChangeDBString("COCH", "CSKI", rec, Convert.ToString(skin));
+                    ChangeDBInt("COCH", "CBSZ", rec, rand.Next(0, 3));
 
+                    x = rand.Next(0, 5);
+                    if (x > 0) x++;
+                    ChangeDBInt("COCH", "CThg", rec, x);
+
+                    ChangeDBInt("COCH", "CFEX", rec, rand.Next(0, 4));
+                    ChangeDBInt("COCH", "CTgw", rec, rand.Next(0, 2));
+
+                    x = rand.Next(0, 3);
+                    if (x == 1) ChangeDBInt("COCH", "CThg", rec, 1);
+                    else if (x == 2) ChangeDBInt("COCH", "CThg", rec, 0);
+
+                    ChangeDBInt("COCH", "COHT", rec, x);
 
                     news += "Added: " + playFN + " " + playLN + " (" + team + ")\n\n";
 

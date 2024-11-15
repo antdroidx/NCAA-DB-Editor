@@ -129,6 +129,11 @@ namespace DB_EDITOR
         {
             CreateFantasyCoachDB();
         }
+
+        private void FixHCBugsButton_Click(object sender, EventArgs e)
+        {
+            FixHCBugs();
+        }
         #endregion
 
 
@@ -1166,6 +1171,31 @@ namespace DB_EDITOR
             MessageBox.Show("Completed!");
         }
 
+        //Fix HC Bugs
+        private void FixHCBugs()
+        {
+            for(int i = 0; i < GetTableRecCount("COCH"); i++)
+            {
+                //skin tone
+                int CSKI = GetDBValueInt("COCH", "CSKI", i);
+                if (CSKI > 0 && CSKI < 4) ChangeDBInt("COCH", "CSKI", i, 2);
+                else if (CSKI >= 4) ChangeDBInt("COCH", "CSKI", i, 5);
+
+                //hair type
+                int CThg = GetDBValueInt("COCH", "CThg", i);
+                if (CThg == 1) ChangeDBInt("COCH", "CThg", i, 0);
+                if (CThg > 4) ChangeDBInt("COCH", "CThg", i, rand.Next(1, 4));
+
+                //Hat/Visor
+                int COHT = GetDBValueInt("COCH", "COHT", i);
+                if (COHT == 1) ChangeDBInt("COCH", "CThg", i, 1);
+                else if (COHT == 0) ChangeDBInt("COCH", "CThg", i, 0);
+
+            }
+
+            MessageBox.Show("Head Coach Fix Complete");
+        }
+
         #endregion
 
         #region Fantasy Roster Generator
@@ -1980,9 +2010,8 @@ namespace DB_EDITOR
 
             x = rand.Next(0, 5);
             if (x > 0) x++;
-            ChangeDBInt("COCH", "CThg", rec, 0);
+            ChangeDBInt("COCH", "CThg", rec, x);
 
-            ChangeDBInt("COCH", "CThg", rec, rand.Next(0, 5));
             ChangeDBInt("COCH", "CFEX", rec, rand.Next(0, 6));
             ChangeDBInt("COCH", "CTgw", rec, rand.Next(0, 2));
 

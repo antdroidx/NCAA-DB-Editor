@@ -821,23 +821,22 @@ namespace DB_EDITOR
             progressBar1.Value = 0;
             progressBar1.Maximum = GetTable2RecCount("RCPT");
 
-            List<List<int>> position = new List<List<int>>();
 
-            int row = 0;
-            int rowT = 0;
+
+
             for (int i = 0; i < GetTable2RecCount("RCPT"); i++)
             {
                 if (GetDB2ValueInt("RCPT", "PRID", i) < 21000 && GetDB2ValueInt("RCPT", "RATH", i) == 1)  
                 {
+                    List<List<int>> position = new List<List<int>>();
+                    int row = 0;
                     for (int p = 0; p < 21; p++)
                     {
                         position.Add(new List<int>());
                         position[row].Add(p);
                         position[row].Add(CalculateAthletePositionRating(i, p));
-                        position[row].Add(GetDBValueInt("DRPS", "PDIM", p));
                         row++;
                     }
-                    position.Sort((player1, player2) => player2[2].CompareTo(player1[2]));
 
                     position.Sort((player1, player2) => player2[1].CompareTo(player1[1]));
 
@@ -863,7 +862,7 @@ namespace DB_EDITOR
             int playerPOSG = GetPOSGfromPPOS(playerPos);
 
             List<List<int>> AWRH = GetAwarenessHitList();
-            double hit = 0.025;
+            double hit = 0.000;
 
             double PCAR = Convert.ToInt32(GetDB2Value("RCPT", "PCAR", rec)); //CAWT
             double PKAC = Convert.ToInt32(GetDB2Value("RCPT", "PKAC", rec)); //KAWT
