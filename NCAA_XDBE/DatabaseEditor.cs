@@ -11,6 +11,14 @@ namespace DB_EDITOR
     {
         /* Database Editor */
 
+        private void StartDBEditor()
+        {
+            GetTables(dbIndex);
+            LoadTables();
+            GetFields(dbIndex, SelectedTableIndex);
+            LoadFields();
+            //DBTableAddOns();
+        }
 
         #region Database Loading
 
@@ -430,7 +438,8 @@ namespace DB_EDITOR
                     }
                     else if (FieldProps.FieldType == TdbFieldType.tdbFloat)
                     {
-                        float floatval;
+                        //float floatval;
+                        double floatval;
                         floatval = TDB.TDBFieldGetValueAsFloat(dbSelected, TableProps.Name, FieldProps.Name, r);
 
                         DataGridRow[tmpf + 1] = floatval;
@@ -469,6 +478,7 @@ namespace DB_EDITOR
         {
             if (DoNotTrigger) return;
             if(!PlaybookDB) GetFieldProps();
+            //GetFieldProps();
         }
 
         private void FieldGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -584,7 +594,9 @@ namespace DB_EDITOR
             }
             else if (fieldProps.FieldType == TdbFieldType.tdbFloat)
             {
-                float tmpval = Convert.ToInt32(fieldsGridView.Rows[rownum].Cells[colnum].Value);
+                //This was a float, changed to double
+                //float tmpval = Convert.ToDouble(fieldsGridView.Rows[rownum].Cells[colnum].Value);
+                double tmpval = Convert.ToDouble(fieldsGridView.Rows[rownum].Cells[colnum].Value);
 
                 if (IsFloat(Convert.ToString(tmpval)))
                 {

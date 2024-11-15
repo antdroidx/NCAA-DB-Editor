@@ -163,7 +163,7 @@ namespace DB_EDITOR
         #endregion
 
         //GET DATA
-        #region Load Team Data
+        #region Load Data
 
         public void GetCoachEditorData(int EditorIndex)
         {
@@ -197,16 +197,22 @@ namespace DB_EDITOR
 
             //Coach Body/Face/Hair
             GetCoachSkinToneItems();
-            if (GetDBValueInt("COCH", "CSKI", EditorIndex) > 1) CSKIBox.SelectedIndex = 2;
+            if (GetDBValueInt("COCH", "CSKI", EditorIndex) == 2) CSKIBox.SelectedIndex = 1;
+            else if (GetDBValueInt("COCH", "CSKI", EditorIndex) == 5) CSKIBox.SelectedIndex = 2;
             else CSKIBox.SelectedIndex = GetDBValueInt("COCH", "CSKI", EditorIndex);
+
+
             //CSKIBox.SelectedIndex = GetDBValueInt("COCH", "CSKI", EditorIndex);
             GetCoachBodyItems();
             CBSZBox.SelectedIndex = GetDBValueInt("COCH", "CBSZ", EditorIndex);
             GetCoachHairColorItems();
             CHARBox.SelectedIndex = GetDBValueInt("COCH", "CHAR", EditorIndex);
-
+            
             GetCThgItems();
+            //if (GetDBValueInt("COCH", "CThg", EditorIndex) > 0) CTHGBox.SelectedIndex = GetDBValueInt("COCH", "CThg", EditorIndex) + 1;
+            //else CTHGBox.SelectedIndex = GetDBValueInt("COCH", "CThg", EditorIndex);
             CTHGBox.SelectedIndex = GetDBValueInt("COCH", "CThg", EditorIndex);
+
             GetCoachFaceItems();
             CFEXBox.SelectedIndex = GetDBValueInt("COCH", "CFEX", EditorIndex);
             GetCoachEyeItems();
@@ -294,9 +300,9 @@ namespace DB_EDITOR
         private void GetCoachSkinToneItems()
         {
             CSKIBox.Items.Clear();
-            CSKIBox.Items.Add("Light");
-            CSKIBox.Items.Add("Medium");
-            CSKIBox.Items.Add("Dark");
+            CSKIBox.Items.Add("Light"); //0
+            CSKIBox.Items.Add("Medium"); //2
+            CSKIBox.Items.Add("Dark"); //5
         }
 
         private void GetCoachBodyItems()
@@ -322,28 +328,21 @@ namespace DB_EDITOR
         {
             CHARBox.Items.Clear();
             CHARBox.Items.Add("Black");
-            CHARBox.Items.Add("Lt Brown");
-            CHARBox.Items.Add("Brown");
             CHARBox.Items.Add("Blonde");
+            CHARBox.Items.Add("Brown");
             CHARBox.Items.Add("Red");
+            CHARBox.Items.Add("Lt Brown");
             CHARBox.Items.Add("Gray");
         }
 
         private void GetCThgItems()
         {
             CTHGBox.Items.Clear();
-            CTHGBox.Items.Add("Short-1");
-            CTHGBox.Items.Add("Short-2");
-            CTHGBox.Items.Add("Medium-3");
-            CTHGBox.Items.Add("Bald");
-            CTHGBox.Items.Add("Mullet");
-            CTHGBox.Items.Add("5");
-            CTHGBox.Items.Add("Medium-4");
-            CTHGBox.Items.Add("Medium-5");
-            CTHGBox.Items.Add("8");
-            CTHGBox.Items.Add("9");
-            CTHGBox.Items.Add("10");
-            CTHGBox.Items.Add("Medium-11");
+            CTHGBox.Items.Add("Short and/or Visor"); //0
+            CTHGBox.Items.Add("Hat Only"); //1
+            CTHGBox.Items.Add("Medium"); //2
+            CTHGBox.Items.Add("Bald"); //3
+            CTHGBox.Items.Add("Mullet"); //4
         }
 
         private void GetCoachHatItems()
@@ -480,10 +479,13 @@ namespace DB_EDITOR
                         if (GetDBValueInt("COCH", "TGID", i) == tgidSelected)
                         {
                             ChangeDBInt("COCH", "TGID", i, tgidOLD);
+                            ChangeDBInt("COCH", "CTYR", i, 0);
                         }
                     }
 
                     ChangeDBInt("COCH", "TGID", CoachIndex, tgidSelected);
+                    ChangeDBInt("COCH", "CTYR", CoachIndex, 0);
+
                 }
             }
         }
@@ -514,7 +516,8 @@ namespace DB_EDITOR
         {
             if (DoNotTrigger) return;
             int skin = CSKIBox.SelectedIndex;
-            if (skin == 2) skin = 5;
+            if (skin == 1) skin = 2;
+            else if (skin == 2) skin = 5;
 
             ChangeDBInt("COCH", "CSKI", CoachIndex, skin);
 
@@ -548,6 +551,9 @@ namespace DB_EDITOR
         private void CTHGBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (DoNotTrigger) return;
+            int x = CTHGBox.SelectedIndex;
+
+            if (x == 1) COHTBox.SelectedIndex = 1;
 
             ChangeDBInt("COCH", "CThg", CoachIndex, CTHGBox.SelectedIndex);
         }
@@ -556,6 +562,11 @@ namespace DB_EDITOR
         private void COHTBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (DoNotTrigger) return;
+
+            int x = COHTBox.SelectedIndex;
+
+            if (x == 1) ChangeDBInt("COCH", "CThg", CoachIndex, 1);
+            else if (x == 2) ChangeDBInt("COCH", "CThg", CoachIndex, 0);
 
             ChangeDBInt("COCH", "COHT", CoachIndex, COHTBox.SelectedIndex);
         }

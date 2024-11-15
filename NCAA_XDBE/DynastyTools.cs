@@ -73,6 +73,11 @@ namespace DB_EDITOR
             PlayerBodySizeProgression();
         }
 
+        //Remove all Sanctions
+        private void RemoveSanctionsButton_Click(object sender, EventArgs e)
+        {
+            RemoveAllSanctions();
+        }
 
         //EXPERIMENTAL ITEMS -- WORK IN PROGRESS
         private void buttonChaosTransfers_Click(object sender, EventArgs e)
@@ -385,7 +390,7 @@ namespace DB_EDITOR
                     int CCPO = Convert.ToInt32(GetDBValue("COCH", "CCPO", i));
 
                     //FIRE COACHES
-                    if (CCPO < jobSecurityValue.Value && CTOP >= TMPR && GetDBValue("COCH", "CFUC", i) != "1" && rand.Next(0, 100) < (50 + jobSecurityValue.Value - CCPO))
+                    if (CCPO < jobSecurityValue.Value && CTOP >= TMPR && GetDBValue("COCH", "CFUC", i) != "1" && rand.Next(0, 100) < 67 || GetDBValueInt("COCH", "CTYR", i) > 3 && TMPR < 2 && rand.Next(0, 100) < 67)
                     {
                         CCID_FiredList.Add(GetDBValue("COCH", "CCID", i));
                         TGID_VacancyList.Add(GetDBValue("COCH", "TGID", i));
@@ -1258,6 +1263,23 @@ namespace DB_EDITOR
             }
         }
 
+        //Remove All Sanctions
+        private void RemoveAllSanctions()
+        {
+            string teams = "";
+            for(int i = 0; i <GetTableRecCount("TEAM"); i++)
+            {
+                if(GetDBValueInt("TEAM", "SNCT", i) > 0) 
+                {
+                    ChangeDBInt("TEAM", "SNCT", i, 0);
+                    ChangeDBInt("TEAM", "INPO", i, 0);
+                    ChangeDBInt("TEAM", "SDUR", i, 0);
+                    teams += "\n" + GetDBValue("TEAM", "TDNA", i);
+                }
+            }
+
+            MessageBox.Show("All Sanctions Removed!\n\n" + teams);
+        }
 
 
     }

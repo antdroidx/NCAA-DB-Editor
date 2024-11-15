@@ -226,14 +226,8 @@ namespace DB_EDITOR
                 #endregion
 
                 CreateExtraFileDataContainers();
-
-
-                GetTables(dbIndex);
-                LoadTables();
-                GetFields(dbIndex, SelectedTableIndex);
-                LoadFields();
-
                 DBTableAddOns();
+
                 StartHomeTab();
 
             }
@@ -337,6 +331,7 @@ namespace DB_EDITOR
                 {
                     dbWriter.Write(db2Data[j]);
                 }
+                dbWriter.Dispose();
                 dbWriter.Close();
                 dbFile2 = filename + ".db2";
             }
@@ -537,7 +532,6 @@ namespace DB_EDITOR
         {
             closeMenuItem.PerformClick();
         }
-
 
         private void ExitToolItem_Click(object sender, EventArgs e)
         {
@@ -1066,6 +1060,7 @@ namespace DB_EDITOR
             fieldMenu.Enabled = true;
             tableMenu.Enabled = true;
             CSVMenu.Visible = true;
+            StartDBEditor();
         }
 
         private void TabDB2_Start()

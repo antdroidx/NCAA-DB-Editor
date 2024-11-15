@@ -358,6 +358,7 @@ namespace DB_EDITOR
             this.textBoxOffSeason = new System.Windows.Forms.TextBox();
             this.textBoxOffSeasonTitle = new System.Windows.Forms.TextBox();
             this.tabSeason = new System.Windows.Forms.TabPage();
+            this.RemoveSanctionsButton = new System.Windows.Forms.Button();
             this.label180 = new System.Windows.Forms.Label();
             this.ImpactPlayerMin = new System.Windows.Forms.NumericUpDown();
             this.label178 = new System.Windows.Forms.Label();
@@ -4268,6 +4269,7 @@ namespace DB_EDITOR
             // tabSeason
             // 
             this.tabSeason.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.tabSeason.Controls.Add(this.RemoveSanctionsButton);
             this.tabSeason.Controls.Add(this.label180);
             this.tabSeason.Controls.Add(this.ImpactPlayerMin);
             this.tabSeason.Controls.Add(this.label178);
@@ -4307,6 +4309,18 @@ namespace DB_EDITOR
             this.tabSeason.Size = new System.Drawing.Size(1152, 615);
             this.tabSeason.TabIndex = 3;
             this.tabSeason.Text = "Dynasty";
+            // 
+            // RemoveSanctionsButton
+            // 
+            this.RemoveSanctionsButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.RemoveSanctionsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RemoveSanctionsButton.Location = new System.Drawing.Point(445, 196);
+            this.RemoveSanctionsButton.Name = "RemoveSanctionsButton";
+            this.RemoveSanctionsButton.Size = new System.Drawing.Size(110, 80);
+            this.RemoveSanctionsButton.TabIndex = 40;
+            this.RemoveSanctionsButton.Text = "Remove All Sanctions";
+            this.RemoveSanctionsButton.UseVisualStyleBackColor = false;
+            this.RemoveSanctionsButton.Click += new System.EventHandler(this.RemoveSanctionsButton_Click);
             // 
             // label180
             // 
@@ -5245,7 +5259,7 @@ namespace DB_EDITOR
             // label96
             // 
             this.label96.AutoSize = true;
-            this.label96.Location = new System.Drawing.Point(267, 181);
+            this.label96.Location = new System.Drawing.Point(284, 181);
             this.label96.Name = "label96";
             this.label96.Size = new System.Drawing.Size(62, 13);
             this.label96.TabIndex = 233;
@@ -5263,7 +5277,7 @@ namespace DB_EDITOR
             // COHTBox
             // 
             this.COHTBox.FormattingEnabled = true;
-            this.COHTBox.Location = new System.Drawing.Point(251, 197);
+            this.COHTBox.Location = new System.Drawing.Point(268, 197);
             this.COHTBox.Name = "COHTBox";
             this.COHTBox.Size = new System.Drawing.Size(121, 21);
             this.COHTBox.TabIndex = 232;
@@ -5274,14 +5288,14 @@ namespace DB_EDITOR
             this.CFEXBox.FormattingEnabled = true;
             this.CFEXBox.Location = new System.Drawing.Point(24, 197);
             this.CFEXBox.Name = "CFEXBox";
-            this.CFEXBox.Size = new System.Drawing.Size(91, 21);
+            this.CFEXBox.Size = new System.Drawing.Size(101, 21);
             this.CFEXBox.TabIndex = 172;
             this.CFEXBox.SelectedIndexChanged += new System.EventHandler(this.CFEXBox_SelectedIndexChanged);
             // 
             // label97
             // 
             this.label97.AutoSize = true;
-            this.label97.Location = new System.Drawing.Point(161, 181);
+            this.label97.Location = new System.Drawing.Point(169, 181);
             this.label97.Name = "label97";
             this.label97.Size = new System.Drawing.Size(44, 13);
             this.label97.TabIndex = 231;
@@ -5299,7 +5313,7 @@ namespace DB_EDITOR
             // CTgwBox
             // 
             this.CTgwBox.FormattingEnabled = true;
-            this.CTgwBox.Location = new System.Drawing.Point(164, 197);
+            this.CTgwBox.Location = new System.Drawing.Point(172, 197);
             this.CTgwBox.Name = "CTgwBox";
             this.CTgwBox.Size = new System.Drawing.Size(81, 21);
             this.CTgwBox.TabIndex = 230;
@@ -5308,7 +5322,7 @@ namespace DB_EDITOR
             // CHARBox
             // 
             this.CHARBox.FormattingEnabled = true;
-            this.CHARBox.Location = new System.Drawing.Point(182, 150);
+            this.CHARBox.Location = new System.Drawing.Point(172, 150);
             this.CHARBox.Name = "CHARBox";
             this.CHARBox.Size = new System.Drawing.Size(94, 21);
             this.CHARBox.TabIndex = 174;
@@ -5317,7 +5331,7 @@ namespace DB_EDITOR
             // label102
             // 
             this.label102.AutoSize = true;
-            this.label102.Location = new System.Drawing.Point(179, 134);
+            this.label102.Location = new System.Drawing.Point(169, 134);
             this.label102.Name = "label102";
             this.label102.Size = new System.Drawing.Size(53, 13);
             this.label102.TabIndex = 175;
@@ -5326,9 +5340,9 @@ namespace DB_EDITOR
             // CTHGBox
             // 
             this.CTHGBox.FormattingEnabled = true;
-            this.CTHGBox.Location = new System.Drawing.Point(282, 150);
+            this.CTHGBox.Location = new System.Drawing.Point(276, 150);
             this.CTHGBox.Name = "CTHGBox";
-            this.CTHGBox.Size = new System.Drawing.Size(90, 21);
+            this.CTHGBox.Size = new System.Drawing.Size(113, 21);
             this.CTHGBox.TabIndex = 176;
             this.CTHGBox.SelectedIndexChanged += new System.EventHandler(this.CTHGBox_SelectedIndexChanged);
             // 
@@ -5346,7 +5360,7 @@ namespace DB_EDITOR
             // label101
             // 
             this.label101.AutoSize = true;
-            this.label101.Location = new System.Drawing.Point(279, 134);
+            this.label101.Location = new System.Drawing.Point(273, 134);
             this.label101.Name = "label101";
             this.label101.Size = new System.Drawing.Size(52, 13);
             this.label101.TabIndex = 177;
@@ -9791,6 +9805,7 @@ namespace DB_EDITOR
         private GroupBox groupBox19;
         private RadioButton DefaultPlaysRadio;
         private RadioButton CustomPlaysRadio;
+        private System.Windows.Forms.Button RemoveSanctionsButton;
     }
 }
 

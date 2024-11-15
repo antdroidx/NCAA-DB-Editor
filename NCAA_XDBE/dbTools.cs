@@ -52,7 +52,7 @@ namespace DB_EDITOR
         //Randomize Player Faces/Heads
         private void RandomizeHeadButton_Click(object sender, EventArgs e)
         {
-            RandomizeRecruitFace("PLAY");
+            RandomizeAllPlayerHeads();
         }
 
         //Unique Player Tool
@@ -850,6 +850,20 @@ namespace DB_EDITOR
                 {
                     if (TEAM && GetDBValueInt(tableName, "TTYP", x) < 1 || TDYN)
                     {
+                        int rating = 0;
+                        //TRDE - Defense 10 - 18, 20
+                        rating = (Convert.ToInt32(GetDBValue(tableName, "TRDB", x)) + Convert.ToInt32(GetDBValue(tableName, "TRLB", x)) + Convert.ToInt32(GetDBValue(tableName, "TRDL", x))) / 3;
+
+                        ChangeDBString(tableName, "TRDE", x, Convert.ToString(rating));
+
+                        //TROF - Offense 0 - 9, 19
+                        rating = (Convert.ToInt32(GetDBValue(tableName, "TRQB", x)) * 2 + Convert.ToInt32(GetDBValue(tableName, "TRRB", x)) + Convert.ToInt32(GetDBValue(tableName, "TWRR", x)) + Convert.ToInt32(GetDBValue(tableName, "TROL", x))) / 5;
+
+                        ChangeDBString(tableName, "TROF", x, Convert.ToString(rating));
+
+                        //TROV - Team Overall
+                        rating = (Convert.ToInt32(GetDBValue(tableName, "TROF", x)) * 3 + Convert.ToInt32(GetDBValue(tableName, "TRDE", x)) * 3 + Convert.ToInt32(GetDBValue(tableName, "TRST", x))) / 7;
+
                         offRatings.Add(GetDBValueInt(tableName, "TROF", x));
                         defRatings.Add(GetDBValueInt(tableName, "TRDE", x));
                     }
@@ -1059,6 +1073,25 @@ namespace DB_EDITOR
             progressBar1.Visible = false;
             progressBar1.Value = 0;
             MessageBox.Show("Team Roster Filled in! " + created + " players created!");
+        }
+
+        //Randomize Player Faces
+        private void RandomizeAllPlayerHeads()
+        {
+            progressBar1.Visible = true;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = GetTableRecCount("PLAY");
+
+            for (int i = 0; i < GetTableRecCount("PLAY"); i++)
+            {
+                RandomizePlayerHead("PLAY", i);
+                progressBar1.PerformStep();
+            }
+
+            progressBar1.Visible = false;
+            progressBar1.Value = 0;
+
+            MessageBox.Show("Faces & Skin Tones Randomized!");
         }
 
         //Randomizes a specific player face based on record, i
@@ -1279,7 +1312,6 @@ namespace DB_EDITOR
             MessageBox.Show("Fantasy Players Created!");
 
             RecalculateOverall();
-            RandomizeRecruitFace("PLAY");
             RecalculateBMI("PLAY");
             RecalculateQBTendencies();
             CalculateTeamRatings(tableName);
@@ -1406,6 +1438,7 @@ namespace DB_EDITOR
 
             MessageBox.Show(teamNameDB[tgid] + " Roster has been generated.");
         }
+
 
 
         private int GetFantasyTeamRating(List<List<String>> teamData, int TGID)
@@ -1573,6 +1606,9 @@ namespace DB_EDITOR
             ChangeDBString(TableName, "PSTR", rec, Convert.ToString(PSTR));
             ChangeDBString(TableName, "PIMP", rec, Convert.ToString(PIMP));
             ChangeDBString(TableName, "PDIS", rec, Convert.ToString(PDIS));
+
+            RandomizePlayerHead(TableName, rec);
+
         }
 
         private int ChooseJerseyNumber(int PPOS, List<List<int>> PJEN)
@@ -1931,13 +1967,31 @@ namespace DB_EDITOR
             ChangeDBString("COCH", "CLLN", rec, LN);
 
             //skin, body, hair color, hair style, face, glasses, headwear
-            ChangeDBInt("COCH", "CSKI", rec, rand.Next(0,6));
+
+            int x = rand.Next(0, 3);
+            int y = 0;
+            if (x == 0) y = 0;
+            else if (x == 1) y = 2;
+            else y = 5;
+            ChangeDBInt("COCH", "CSKI", rec, y);
+
             ChangeDBInt("COCH", "CBSZ", rec, rand.Next(0, 3));
-            ChangeDBInt("COCH", "CHAR", rec, rand.Next(0, 5));
-            ChangeDBInt("COCH", "CThg", rec, rand.Next(0, 11));
+            ChangeDBInt("COCH", "CHAR", rec, rand.Next(0, 6));
+
+            x = rand.Next(0, 5);
+            if (x > 0) x++;
+            ChangeDBInt("COCH", "CThg", rec, 0);
+
+            ChangeDBInt("COCH", "CThg", rec, rand.Next(0, 5));
             ChangeDBInt("COCH", "CFEX", rec, rand.Next(0, 6));
             ChangeDBInt("COCH", "CTgw", rec, rand.Next(0, 2));
-            ChangeDBInt("COCH", "COHT", rec, rand.Next(0, 3));
+
+            x = rand.Next(0, 3);
+            if (x == 1) ChangeDBInt("COCH", "CThg", rec, 1);
+            else if (x == 2) ChangeDBInt("COCH", "CThg", rec, 0);
+
+            ChangeDBInt("COCH", "COHT", rec, x);
+
 
             //prestige 
             ChangeDBInt("COCH", "CPRE", rec, rand.Next(1, 7));
