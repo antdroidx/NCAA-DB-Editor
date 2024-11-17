@@ -85,6 +85,11 @@ namespace DB_EDITOR
             ChaosTransfers();
         }
 
+        //Reset Games Played
+        private void ResetGamesPlayed_Click(object sender, EventArgs e)
+        {
+            ResetGP();
+        }
 
 
         #endregion
@@ -451,7 +456,7 @@ namespace DB_EDITOR
                         int x = FindRecNumberCCID(CCID);
                         if (x == -1) MessageBox.Show("ERROR");
 
-                        int CPRS = Convert.ToInt32(GetDBValue("COCH", "CPRS", x));
+                        int CPRS = Convert.ToInt32(GetDBValue("COCH", "CPRE", x));
                         if (CPRS >= TMPR - downgrade)
                         {
 
@@ -1296,6 +1301,16 @@ namespace DB_EDITOR
             MessageBox.Show("All Sanctions Removed!\n\n" + teams);
         }
 
+        //Reset Games Played
+        private void ResetGP()
+        {
+            for(int i = 0; i < GetTableRecCount("PLAY"); i++)
+            {
+                ChangeDBInt("PLAY", "PL13", i, 0);
+            }
+
+            MessageBox.Show("Games Played Stat Reset to 0");
+        }
 
     }
 }

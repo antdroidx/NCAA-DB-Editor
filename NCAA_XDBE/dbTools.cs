@@ -413,9 +413,12 @@ namespace DB_EDITOR
             {
                 if (GetDBValueInt(tableName, "TTYP", i) < 1)
                 {
+
                     int TOID = GetDBValueInt(tableName, "TOID", i);
                     int PGIDbeg = TOID * 70;
                     int PGIDend = PGIDbeg + 69;
+                    CheckSpecialTeamsCount(TOID);
+
                     count = 0;
                     List<List<int>> roster = new List<List<int>>();
 
@@ -589,9 +592,14 @@ namespace DB_EDITOR
                         if (count >= 2) break;
                     }
 
-                    rating = ConvertRating(rating / count) + bonus;
+                    if (count < 0) ChangeDBInt(tableName, "TRST", i, 0);
+                    else
+                    {
+                        rating = ConvertRating(rating / count) + bonus;
 
-                    ChangeDBString(tableName, "TRST", i, Convert.ToString(rating));
+                        ChangeDBString(tableName, "TRST", i, Convert.ToString(rating));
+                    }
+
 
 
                     //TRDE - Defense 10 - 18, 20
@@ -625,7 +633,6 @@ namespace DB_EDITOR
         //Calculate Single Team Ratings
         public void CalculateTeamRatingsSingle(string tableName, int tgid)
         {
-
             int rating, count;
             int bonus = 0;
             int PGIDbeg = tgid * 70;
@@ -814,9 +821,13 @@ namespace DB_EDITOR
                 if (count >= 2) break;
             }
 
-            rating = ConvertRating(rating / count) + bonus;
+            if (count < 0) ChangeDBInt(tableName, "TRST", i, 0);
+            else
+            {
+                rating = ConvertRating(rating / count) + bonus;
 
-            ChangeDBString(tableName, "TRST", i, Convert.ToString(rating));
+                ChangeDBString(tableName, "TRST", i, Convert.ToString(rating));
+            }
 
 
             //TRDE - Defense 10 - 18, 20
@@ -899,7 +910,6 @@ namespace DB_EDITOR
             }
         }
 
-
         //Fill Rosters
         private void FillRosters(string tableName, int FreshmanPCT)
         {
@@ -953,7 +963,7 @@ namespace DB_EDITOR
                     {
                         if (!rosters.Contains(j) && recCounter < maxRecords)
                         {
-                            List<int> POSG = new List<int> { 3, 5, 6, 3, 12, 12, 7, 11, 2, 1 };
+                            List<int> POSG = new List<int> { 3, 5, 6, 3, 12, 12, 7, 11, 1, 1 };
                             List<int> TeamPos = new List<int> { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
 
                             for (int k = 0; k < GetTableRecCount("PLAY"); k++)
@@ -998,77 +1008,10 @@ namespace DB_EDITOR
                         }
                     }
 
-
-                    //Check for Kickers and Punters
-                    List<int> POSG2 = new List<int> { 3, 5, 6, 3, 12, 12, 7, 11, 2, 1 };
-                    List<int> TeamPos2 = new List<int> { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-                    List<List<int>> Diff = new List<List<int>>();
-                    List<List<int>> list = new List<List<int>>();
-                    int rowx = 0;
-                    for (int k = 0; k < GetTableRecCount("PLAY"); k++)
-                    {
-                        int pgid = GetDBValueInt("PLAY", "PGID", k);
-                        if (pgid >= pgidSTART && pgid < pgidEND)
-                        {
-                            if (GetDBValueInt("PLAY", "PPOS", k) == 0) TeamPos2[0]++;
-                            else if (GetDBValueInt("PLAY", "PPOS", k) <= 2) TeamPos2[1]++;
-                            else if (GetDBValueInt("PLAY", "PPOS", k) == 3) TeamPos2[2]++;
-                            else if (GetDBValueInt("PLAY", "PPOS", k) == 4) TeamPos2[3]++;
-                            else if (GetDBValueInt("PLAY", "PPOS", k) <= 9) TeamPos2[4]++;
-                            else if (GetDBValueInt("PLAY", "PPOS", k) <= 12) TeamPos2[5]++;
-                            else if (GetDBValueInt("PLAY", "PPOS", k) <= 15) TeamPos2[6]++;
-                            else if (GetDBValueInt("PLAY", "PPOS", k) <= 18) TeamPos2[7]++;
-                            else if (GetDBValueInt("PLAY", "PPOS", k) == 19) TeamPos2[8]++;
-                            else if (GetDBValueInt("PLAY", "PPOS", k) == 20) TeamPos2[9]++;
-
-                            list.Add(new List<int>());
-                            list[rowx].Add(GetDBValueInt("PLAY", "POVR", k));
-                            list[rowx].Add(GetDBValueInt("PLAY", "PPOS", k));
-                            list[rowx].Add(k);
-                            list[rowx].Add(GetDBValueInt("PLAY", "PGID", k));
-
-
-                            rowx++;
-
-                        }
-                    }
-
-
-                    for (int k = 0; k < 10; k++)
-                    {
-                        Diff.Add(new List<int>());
-                        Diff[k].Add(POSG2[k] - TeamPos2[k]);
-                    }
-
-
-                    //Diff.Sort();
-                    //Diff.Sort((player1, player2) => player2[0].CompareTo(player1[0]));
-
-                    for (int k = 9; k >= 0; k--)
-                    {
-                        if (Diff[k][0] > 0)
-                        {
-                            list.Sort((player1, player2) => player2[0].CompareTo(player1[0]));
-                            for (int x = list.Count - 1; x >= 0; x--)
-                            {
-                                if (list[x][1] != 19 && list[x][1] != 20)
-                                {
-                                    TransferRCATtoPLAY(list[x][2], ChooseRandomPosFromPOSG(k), list[x][3], RCATmapper, PJEN, 50);
-                                    RandomizePlayerHead("PLAY", Convert.ToInt32(list[x][2]));
-                                    list.RemoveAt(x);
-                                    break;
-                                }
-                            }
-                        }
-                    }
+                    CheckSpecialTeamsCount(tgid);
                 }
                 progressBar1.PerformStep();
             }
-
-
-
-
-
 
 
             RecalculateBMI("PLAY");
@@ -1078,6 +1021,81 @@ namespace DB_EDITOR
             progressBar1.Visible = false;
             progressBar1.Value = 0;
             MessageBox.Show("Team Roster Filled in! " + created + " players created!");
+        }
+
+        //Check for Kickers/Punters
+        private void CheckSpecialTeamsCount(int tgid)
+        {
+            //Check for Kickers and Punters
+
+            //Setup
+            CreateRCATtable();
+            CreateFirstNamesDB();
+            CreateLastNamesDB();
+            List<List<int>> PJEN = CreateJerseyNumberDB();
+            List<int> POSG2 = new List<int> { 2, 4, 4, 2, 7, 7, 4, 6, 1, 1 };
+            List<int> TeamPos2 = new List<int> { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+            List<List<int>> Diff = new List<List<int>>();
+            List<List<int>> list = new List<List<int>>();
+            List<List<string>> RCATmapper = new List<List<string>>();
+            RCATmapper = CreateStringListsFromCSV(@"resources\players\RCAT-MAPPER.csv", false);
+
+            int pgidSTART = tgid * 70;
+            int pgidEND = pgidSTART + 69;
+            int recCounter = GetTableRecCount("PLAY");
+
+            int rowx = 0;
+            for (int k = 0; k < GetTableRecCount("PLAY"); k++)
+            {
+                int pgid = GetDBValueInt("PLAY", "PGID", k);
+                if (pgid >= pgidSTART && pgid < pgidEND)
+                {
+                    if (GetDBValueInt("PLAY", "PPOS", k) == 0) TeamPos2[0]++;
+                    else if (GetDBValueInt("PLAY", "PPOS", k) <= 2) TeamPos2[1]++;
+                    else if (GetDBValueInt("PLAY", "PPOS", k) == 3) TeamPos2[2]++;
+                    else if (GetDBValueInt("PLAY", "PPOS", k) == 4) TeamPos2[3]++;
+                    else if (GetDBValueInt("PLAY", "PPOS", k) <= 9) TeamPos2[4]++;
+                    else if (GetDBValueInt("PLAY", "PPOS", k) <= 12) TeamPos2[5]++;
+                    else if (GetDBValueInt("PLAY", "PPOS", k) <= 15) TeamPos2[6]++;
+                    else if (GetDBValueInt("PLAY", "PPOS", k) <= 18) TeamPos2[7]++;
+                    else if (GetDBValueInt("PLAY", "PPOS", k) == 19) TeamPos2[8]++;
+                    else if (GetDBValueInt("PLAY", "PPOS", k) == 20) TeamPos2[9]++;
+
+                    list.Add(new List<int>());
+                    list[rowx].Add(GetDBValueInt("PLAY", "POVR", k));
+                    list[rowx].Add(GetDBValueInt("PLAY", "PPOS", k));
+                    list[rowx].Add(k);
+                    list[rowx].Add(GetDBValueInt("PLAY", "PGID", k));
+
+                    rowx++;
+
+                }
+            }
+
+
+            for (int k = 0; k < 10; k++)
+            {
+                Diff.Add(new List<int>());
+                Diff[k].Add(POSG2[k] - TeamPos2[k]);
+            }
+
+            for (int k = 9; k >= 0; k--)
+            {
+                if (Diff[k][0] > 0)
+                {
+                    list.Sort((player1, player2) => player2[0].CompareTo(player1[0]));
+                    for (int x = list.Count - 1; x >= 0; x--)
+                    {
+                        if (list[x][1] != 19 && list[x][1] != 20)
+                        {
+                            TransferRCATtoPLAY(list[x][2], ChooseRandomPosFromPOSG(k), list[x][3], RCATmapper, PJEN, 50);
+                            RandomizePlayerHead("PLAY", Convert.ToInt32(list[x][2]));
+                            list.RemoveAt(x);
+                            break;
+                        }
+                    }
+                }
+            }
         }
 
         //Randomize Player Faces
