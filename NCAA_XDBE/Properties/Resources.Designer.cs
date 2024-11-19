@@ -1210,6 +1210,54 @@ namespace DB_EDITOR.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to RCHD,RCHN
+        ///0,Adamsville
+        ///1,Alabaster
+        ///2,Albertville
+        ///3,Alexander City
+        ///4,Andalusia
+        ///5,Anniston
+        ///6,Arab
+        ///7,Athens
+        ///8,Atmore
+        ///9,Attalla
+        ///10,Auburn
+        ///11,Bay Minette
+        ///12,Bessemer
+        ///13,Birmingham
+        ///14,Boaz
+        ///15,Brewton
+        ///16,Brighton
+        ///17,Cahaba Heights
+        ///18,Center Point
+        ///19,Chickasaw
+        ///20,Childersburg
+        ///21,Clanton
+        ///22,Cullman
+        ///23,Daleville
+        ///24,Daphne
+        ///25,Decatur
+        ///26,Demopolis
+        ///27,Dothan
+        ///28,Elba
+        ///29,Enterprise
+        ///30,Eufaula
+        ///31,Evergreen
+        ///32,Fairfield
+        ///33,Fairhope
+        ///34,Fayette
+        ///35,Florence
+        ///36,Foley
+        ///37,Forestdale
+        ///38,Fort  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string RCHT {
+            get {
+                return ResourceManager.GetString("RCHT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SPLN
         ///Sanford
         ///Ngaima

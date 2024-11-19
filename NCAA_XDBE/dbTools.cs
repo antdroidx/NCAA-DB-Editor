@@ -231,6 +231,48 @@ namespace DB_EDITOR
 
         }
 
+
+        //Recalc Recruit BMI
+
+        private void RecalculateRecruitIndividualBMI(int rec)
+        {
+            string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string csvLocation = Path.Combine(executableLocation, @"resources\players\BMI-Calc.csv");
+
+            string filePath = csvLocation;
+            StreamReader sr = new StreamReader(filePath);
+            string[,] strArray = null;
+            int Row = 0;
+            while (!sr.EndOfStream)
+            {
+                string[] Line = sr.ReadLine().Split(',');
+                if (Row == 0)
+                {
+                    strArray = new string[432, Line.Length];
+                }
+                for (int column = 0; column < Line.Length; column++)
+                {
+                    strArray[Row, column] = Line[column];
+                }
+                Row++;
+            }
+            sr.Close();
+
+
+
+            double bmi = (double)Math.Round(Convert.ToDouble(GetDB2Value("RCPT", "PWGT", rec)) / Convert.ToDouble(GetDB2Value("RCPT", "PHGT", rec)), 2);
+            for (int j = 0; j < 401; j++)
+            {
+                if (Convert.ToString(bmi) == strArray[j, 0])
+                {
+                    ChangeDB2String("RCPT", "PFSH", rec, strArray[j, 1]);
+                    ChangeDB2String("RCPT", "PMSH", rec, strArray[j, 2]);
+                    ChangeDB2String("RCPT", "PSSH", rec, strArray[j, 3]);
+                    break;
+                }
+            }
+
+        }
         //Increases minium speed for skill positions to 80
         private void IncreaseMinimumSpeed()
         {
@@ -908,7 +950,37 @@ namespace DB_EDITOR
                     ChangeDBInt(tableName, "TROV", x, (offRating+defRating)/2);
                 }
             }
+
+            if (ReRankTeams.Checked) ReRankPreseason();
         }
+
+        public void ReRankPreseason()
+        {
+            List<List<int>> teams = new List<List<int>>();
+
+            int row = 0;
+            for (int i = 0; i < GetTableRecCount("TEAM"); i++)
+            {
+                if (GetDBValueInt("TEAM", "TTYP", i) == 0)
+                {
+                    teams.Add(new List<int>());
+                    teams[row].Add(GetDBValueInt("TEAM", "TROV", i));
+                    teams[row].Add(i);
+                    row++;
+                }
+            }
+
+            teams.Sort((player1, player2) => player2[0].CompareTo(player1[0]));
+
+            int rank = 1;
+            foreach (var team in teams)
+            {
+                ChangeDBInt("TEAM", "TBRK", team[1], rank);
+                rank++;
+            }
+
+        }
+
 
         //Fill Rosters
         private void FillRosters(string tableName, int FreshmanPCT)

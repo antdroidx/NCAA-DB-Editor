@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -175,11 +177,21 @@ namespace DB_EDITOR
             AddPositionsItems();
             PPOSBox.SelectedIndex = GetDBValueInt("PLAY", "PPOS", PlayerIndex);
 
+            //Home
+            AddStateItems();
+            PStateBox.SelectedIndex = GetDBValueInt("PLAY", "RCHD", PlayerIndex)/256;
+
+            AddPHometownItems();
+            PHometownBox.SelectedIndex = GetDBValueInt("PLAY", "RCHD", PlayerIndex)-(256 * PStateBox.SelectedIndex);
+
 
             //Overall Rating
             POVRbox.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "POVR", PlayerIndex)));
             POVRbox.BackColor = GetRatingColor(POVRbox).BackColor;
 
+            //Discipline
+            PDIS.Value = GetDBValueInt("PLAY", "PDIS", PlayerIndex);
+            PDIS.BackColor = GetPrestigeColor(PDIS).BackColor;
 
             //PGID Box
             PGIDbox.Text = GetDBValue("PLAY", "PGID", PlayerIndex);
@@ -458,6 +470,47 @@ namespace DB_EDITOR
             }
         }
 
+        private void AddStateItems()
+        {
+            PStateBox.Items.Clear();
+            List<string> states = CreateStringListfromCSV(@"resources\players\RCST.csv", true);
+
+            foreach (string state in states)
+            {
+                PStateBox.Items.Add(state);
+            }
+        }
+
+        private void AddPHometownItems()
+        {
+            PHometownBox.Items.Clear();
+            string[] home = new string[13057];
+
+            string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string csvLocation = Path.Combine(executableLocation, @"resources\players\RCHT.csv");
+
+            string filePath = csvLocation;
+            StreamReader sr = new StreamReader(filePath);
+            int Row = 0;
+            int skip = -1;
+            while (!sr.EndOfStream)
+            {
+                string[] Line = sr.ReadLine().Split(',');
+                home[Convert.ToInt32(Line[0])] = Line[1];
+
+            }
+            sr.Close();
+
+
+            int start = PStateBox.SelectedIndex * 256;
+            for (int i = start ; i < start + 256; i++)
+            {
+                if (i >= home.Length) break;
+                if (home[i] == null) break;
+                PHometownBox.Items.Add(home[i]);
+            }
+        }
+
         #endregion
 
         //TRIGGERS
@@ -555,6 +608,38 @@ namespace DB_EDITOR
             PAWRBox.Value = GetDBValueInt("PLAY", "PAWR", PlayerIndex);
             PAWRtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(PAWRBox.Value)));
             ResetPlayerPOSbutton.Visible = false;
+        }
+
+        // Change Home
+        private void PStateBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger)
+                return;
+
+            AddPHometownItems();
+            PHometownBox.SelectedIndex = rand.Next(0, PHometownBox.Items.Count);
+        }
+
+        private void PHometownBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger)
+                return;
+            int hometown = PHometownBox.SelectedIndex + (256 * PStateBox.SelectedIndex);
+
+            ChangeDBInt("PLAY", "RCHD", PlayerIndex, hometown);
+        }
+
+
+        //Discipline
+
+        private void PDIS_ValueChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger)
+                return;
+
+            ChangeDBInt("PLAY", "PDIS", PlayerIndex, Convert.ToInt32(PDIS.Value));
+            PDIS.BackColor = GetPrestigeColor(PDIS).BackColor;
+
         }
 
         //Change Year/Redshirt

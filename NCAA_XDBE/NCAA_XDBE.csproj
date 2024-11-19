@@ -83,6 +83,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="RecruitEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="_UNUSED_.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -227,6 +230,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Resources\players\PTEN.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\players\RCHT.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Include="Resources\schedules\12-teamB.csv">

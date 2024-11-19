@@ -1,0 +1,4178 @@
+0,Adamsville
+1,Alabaster
+2,Albertville
+3,Alexander City
+4,Andalusia
+5,Anniston
+6,Arab
+7,Athens
+8,Atmore
+9,Attalla
+10,Auburn
+11,Bay Minette
+12,Bessemer
+13,Birmingham
+14,Boaz
+15,Brewton
+16,Brighton
+17,Cahaba Heights
+18,Center Point
+19,Chickasaw
+20,Childersburg
+21,Clanton
+22,Cullman
+23,Daleville
+24,Daphne
+25,Decatur
+26,Demopolis
+27,Dothan
+28,Elba
+29,Enterprise
+30,Eufaula
+31,Evergreen
+32,Fairfield
+33,Fairhope
+34,Fayette
+35,Florence
+36,Foley
+37,Forestdale
+38,Fort McClellan
+39,Fort Payne
+40,Fort Rucker
+41,Fultondale
+42,Gadsden
+43,Gardendale
+44,Geneva
+45,Glencoe
+46,Greenville
+47,Guntersville
+48,Haleyville
+49,Hamilton
+50,Hartselle
+51,Helena
+52,Hokes Bluff
+53,Holt
+54,Homewood
+55,Hoover
+56,Hueytown
+57,Huntsville
+58,Irondale
+59,Jackson
+60,Jacksonville
+61,Jasper
+62,Lanett
+63,Leeds
+64,Madison
+65,Marion
+66,Meadowbrook
+67,Midfield
+68,Millbrook
+69,Mobile
+70,Monroeville
+71,Montevallo
+72,Montgomery
+73,Moody
+74,Mountain Brook
+75,Muscle Shoals
+76,Northport
+77,Oneonta
+78,Opelika
+79,Opp
+80,Oxford
+81,Ozark
+82,Pelham
+83,Pell City
+84,Phenix City
+85,Piedmont
+86,Pinson-Clay
+87,Pleasant Grove
+88,Prattville
+89,Prichard
+90,Rainbow City
+91,Rainsville
+92,Redstone Arsenal
+93,Roanoke
+94,Russellville
+95,Saks
+96,Saraland
+97,Satsuma
+98,Scottsboro
+99,Selma
+100,Selmont
+101,Sheffield
+102,Southside
+103,Sylacauga
+104,Talladega
+105,Tallassee
+106,Tarrant
+107,Theodore
+108,Thomasville
+109,Tillmans Corner
+110,Troy
+111,Trussville
+112,Tuscaloosa
+113,Tuscumbia
+114,Tuskegee
+115,Union Springs
+116,Valley
+117,Vestavia Hills
+118,West End-Cobb
+119,Wetumpka
+256,Anchorage
+257,Barrow
+258,Bethel
+259,College
+260,Fairbanks
+261,Homer
+262,Juneau
+263,Kenai
+264,Ketchikan
+265,Knik-Fairview
+266,Kodiak
+267,Lakes
+268,Meadow Lakes
+269,Nikiski
+270,Palmer
+271,Sitka
+272,Sterling
+273,Unalaska
+274,Valdez
+275,Wasilla
+512,Ajo
+513,Apache Junction
+514,Avondale
+515,Avra Valley
+516,Benson
+517,Big Park
+518,Bisbee
+519,Buckeye
+520,Bullhead City
+521,Camp Verde
+522,Casa Grande
+523,Catalina
+524,Cave Creek
+525,Central Heights
+526,Chandler
+527,Chinle
+528,Chino Valley
+529,Clifton
+530,Coolidge
+531,Cottonwood
+532,Cottonwood
+533,Dewey-Humboldt
+534,Douglas
+535,Eagar
+536,El Mirage
+537,Eloy
+538,Flagstaff
+539,Florence
+540,Flowing Wells
+541,Fort Defiance
+542,Fortuna Foothills
+543,Fountain Hills
+544,Gilbert
+545,Glendale
+546,Globe
+547,Goodyear
+548,Green Valley
+549,Guadalupe
+550,Holbrook
+551,Kayenta
+552,Kingman
+553,Lake Havasu
+554,Litchfield Park
+555,Mesa
+556,Mohave Valley
+557,N Kingman-Butler
+558,Nogales
+559,Oracle
+560,Oro Valley
+561,Page
+562,Paradise Valley
+563,Parker
+564,Payson
+565,Peoria
+566,Phoenix
+567,Phoenix
+568,Phoenix
+569,Picture Rocks
+570,Prescott
+571,Prescott Valley
+572,Safford
+573,San Carlos
+574,San Luis
+575,San Manuel
+576,Scottsdale
+577,Sedona
+578,Sells
+579,Show Low
+580,Sierra Vista
+581,Sierra Vista
+582,Snowflake
+583,Somerton
+584,South Tucson
+585,St. Johns
+586,Sun City
+587,Sun City West
+588,Sun Lakes
+589,Superior
+590,Surprise
+591,Tempe
+592,Thatcher
+593,Tolleson
+594,Tuba City
+595,Tucson
+596,Valencia West
+597,Whiteriver
+598,Wickenburg
+599,Willcox
+600,Window Rock
+601,Winslow
+602,Yuma
+768,Arkadelphia
+769,Ashdown
+770,Barling
+771,Batesville
+772,Beebe
+773,Bella Vista
+774,Benton
+775,Bentonville
+776,Blytheville
+777,Brinkley
+778,Bryant
+779,Cabot
+780,Camden
+781,Cherokee Vlg
+782,Clarksville
+783,Conway
+784,Crossett
+785,De Queen
+786,Dermott
+787,Dumas
+788,El Dorado
+789,Fayetteville
+790,Fordyce
+791,Forrest City
+792,Fort Smith
+793,Gibson
+794,Greenwood
+795,Harrison
+796,Heber Springs
+797,Helena
+798,Hope
+799,Hot Springs
+800,Hot Springs Vlg
+801,Jacksonville
+802,Jonesboro
+803,Little Rock
+804,Lonoke
+805,Magnolia
+806,Malvern
+807,Marianna
+808,Marion
+809,Maumelle
+810,McGehee
+811,Mena
+812,Monticello
+813,Morrilton
+814,Mountain Home
+815,N Little Rock
+816,Nashville
+817,Newport
+818,Osceola
+819,Paragould
+820,Pine Bluff
+821,Pocahontas
+822,Rogers
+823,Russellville
+824,Searcy
+825,Sherwood
+826,Siloam Springs
+827,Springdale
+828,Stuttgart
+829,Texarkana
+830,Trumann
+831,Van Buren
+832,Walnut Ridge
+833,Warren
+834,West Helena
+835,West Memphis
+836,White Hall
+837,Wynne
+1024,Alameda
+1025,Alhambra
+1026,Altadena
+1027,Anaheim
+1028,Antioch
+1029,Apple Valley
+1030,Arcadia
+1031,Arden-Arcade
+1032,Azusa
+1033,Bakersfield
+1034,Baldwin Park
+1035,Bell
+1036,Bell Gardens
+1037,Bellflower
+1038,Berkeley
+1039,Beverly Hills
+1040,Brea
+1041,Buena Park
+1042,Burbank
+1043,Camarillo
+1044,Campbell
+1045,Carlsbad
+1046,Carmichael
+1047,Carson
+1048,Casa de Oro
+1049,Castro Valley
+1050,Cathedral City
+1051,Cerritos
+1052,Chico
+1053,Chino
+1054,Chula Vista
+1055,Citrus Heights
+1056,Claremont
+1057,Clovis
+1058,Colton
+1059,Compton
+1060,Concord
+1061,Corona
+1062,Costa Mesa
+1063,Covina
+1064,Culver City
+1065,Cupertino
+1066,Cypress
+1067,Daly City
+1068,Dana Point
+1069,Danville
+1070,Davis
+1071,Diamond Bar
+1072,Downey
+1073,E Los Angeles
+1074,El Cajon
+1075,El Centro
+1076,El Monte
+1077,El Toro
+1078,Encinitas
+1079,Escondido
+1080,Fairfield
+1081,Florence-Graham
+1082,Fontana
+1083,Fountain Valley
+1084,Fremont
+1085,Fresno
+1086,Fullerton
+1087,Garden Grove
+1088,Gardena
+1089,Gilroy
+1090,Glendale
+1091,Glendora
+1092,Hacienda Heights
+1093,Hanford
+1094,Hawthorne
+1095,Hayward
+1096,Hemet
+1097,Hesperia
+1098,Highland
+1099,Huntington Beach
+1100,Huntington Park
+1101,Indio
+1102,Inglewood
+1103,Irvine
+1104,La Habra
+1105,La Mesa
+1106,La Mirada
+1107,La Puente
+1108,La Verne
+1109,Laguna Hills
+1110,Laguna Niguel
+1111,Lakeside
+1112,Lakewood
+1113,Lancaster
+1114,Livermore
+1115,Lodi
+1116,Lompoc
+1117,Long Beach
+1118,Los Angeles
+1119,Los Angeles
+1120,Los Angeles
+1121,Lynwood
+1122,Manhattan Beach
+1123,Manteca
+1124,Martinez
+1125,Merced
+1126,Milpitas
+1127,Mission Viejo
+1128,Modesto
+1129,Monrovia
+1130,Montebello
+1131,Monterey
+1132,Monterey Park
+1133,Moreno Valley
+1134,Mountain View
+1135,Napa
+1136,National City
+1137,Newark
+1138,Newport Beach
+1139,North Highlands
+1140,Norwalk
+1141,Novato
+1142,Oakland
+1143,Oceanside
+1144,Ontario
+1145,Orange
+1146,Oxnard
+1147,Pacifica
+1148,Palm Springs
+1149,Palmdale
+1150,Palo Alto
+1151,Paramount
+1152,Parkway
+1153,Pasadena
+1154,Petaluma
+1155,Pico Rivera
+1156,Pittsburg
+1157,Placentia
+1158,Pleasant Hill
+1159,Pleasanton
+1160,Pomona
+1161,Poway
+1162,Ran Palos Verdes
+1163,Rancho Cordova
+1164,Rancho Cucamonga
+1165,Redding
+1166,Redlands
+1167,Redondo Beach
+1168,Redwood City
+1169,Rialto
+1170,Richmond
+1171,Riverside
+1172,Rohnert Park
+1173,Rosemead
+1174,Roseville
+1175,Rowland Heights
+1176,S San Francisco
+1177,Sacramento
+1178,Salinas
+1179,San Bernardino
+1180,San Bruno
+1181,San Buenaventura
+1182,San Clemente
+1183,San Diego
+1184,San Diego
+1185,San Diego
+1186,San Dimas
+1187,San Francisco
+1188,San Francisco
+1189,San Gabriel
+1190,San Jose
+1191,San Jose
+1192,San Jose
+1193,San Leandro
+1194,San Luis Obispo
+1195,San Marcos
+1196,San Mateo
+1197,San Rafael
+1198,San Ramon
+1199,Santa Ana
+1200,Santa Barbara
+1201,Santa Clara
+1202,Santa Clarita
+1203,Santa Cruz
+1204,Santa Maria
+1205,Santa Monica
+1206,Santa Rosa
+1207,Santee
+1208,Seaside
+1209,Simi Valley
+1210,South Gate
+1211,South Whittier
+1212,Spring Valley
+1213,Stanton
+1214,Stockton
+1215,Sunnyvale
+1216,Temple City
+1217,Thousand Oaks
+1218,Torrance
+1219,Tracy
+1220,Tulare
+1221,Turlock
+1222,Tustin
+1223,Union City
+1224,Upland
+1225,Vacaville
+1226,Vallejo
+1227,Victorville
+1228,Visalia
+1229,Vista
+1230,Walnut Creek
+1231,Watsonville
+1232,West Covina
+1233,West Hollywood
+1234,Westminster
+1235,Westmont
+1236,Whittier
+1237,Willowbrook
+1238,Woodland
+1239,Yorba Linda
+1240,Hollywood
+1241,Yucaipa
+1280,Air Force Acad
+1281,Alamosa
+1282,Applewood
+1283,Arvada
+1284,Aspen
+1285,Aurora
+1286,Black Forest
+1287,Boulder
+1288,Brighton
+1289,Broomfield
+1290,Canon City
+1291,Castle Rock
+1292,Castlewood
+1293,Cherry Hills Vlg
+1294,Cimarron Hills
+1295,Clifton
+1296,Colorado Springs
+1297,Columbine
+1298,Commerce City
+1299,Cortez
+1300,Craig
+1301,Denver
+1302,Derby
+1303,Durango
+1304,Edgewater
+1305,Englewood
+1306,Evans
+1307,Evergreen
+1308,Federal Heights
+1309,Fort Carson
+1310,Fort Collins
+1311,Fort Lupton
+1312,Fort Morgan
+1313,Fountain
+1314,Fruitvale
+1315,Gateway
+1316,Glenwood Springs
+1317,Golden
+1318,Grand Junction
+1319,Greeley
+1320,Greenwood Vlg
+1321,Gunbarrel
+1322,Gunnison
+1323,Highlands Ranch
+1324,Ken Caryl
+1325,La Junta
+1326,Lafayette
+1327,Lakewood
+1328,Lamar
+1329,Littleton
+1330,Longmont
+1331,Louisville
+1332,Loveland
+1333,Manitou Springs
+1334,Monte Vista
+1335,Montrose
+1336,Northglenn
+1337,Orchard Mesa
+1338,Parker
+1339,Pueblo
+1340,Pueblo West
+1341,Redlands
+1342,Rifle
+1343,Salida
+1344,Security-Widefield
+1345,Sheridan
+1346,Sherrelwood
+1347,Southglenn
+1348,Steamboat Spgs
+1349,Sterling
+1350,Stratmoor
+1351,The Pinery
+1352,Thornton
+1353,Trinidad
+1354,Welby
+1355,Westminster
+1356,Westminster East
+1357,Wheat Ridge
+1358,Windsor
+1359,Woodland Park
+1536,Ansonia
+1537,Bethel
+1538,Bridgeport
+1539,Bristol
+1540,C Manchester
+1541,Danbury
+1542,Darien
+1543,Derby
+1544,East Hartford
+1545,East Haven
+1546,Groton
+1547,Hartford
+1548,Meriden
+1549,Middletown
+1550,Milford
+1551,Naugatuck
+1552,Nautilus Park
+1553,New Britain
+1554,New Haven
+1555,New London
+1556,Newington
+1557,North Haven
+1558,Norwalk
+1559,Norwich
+1560,Orange
+1561,Shelton
+1562,Southwood Acres
+1563,Stamford
+1564,Storrs
+1565,Stratford
+1566,Torrington
+1567,Trumbull
+1568,Wallingford Ctr
+1569,Waterbury
+1570,West Hartford
+1571,West Haven
+1572,Westport
+1573,Wethersfield
+1574,Willimantic
+1575,Windsor Locks
+1792,Brookside
+1793,Camden
+1794,Claymont
+1795,Delaware City
+1796,Dover
+1797,Dover Base Hsg
+1798,Edgemoor
+1799,Elsmere
+1800,Georgetown
+1801,Harrington
+1802,Highland Acres
+1803,Kent Acres
+1804,Laurel
+1805,Lewes
+1806,Middletown
+1807,Milford
+1808,Millsboro
+1809,Milton
+1810,New Castle
+1811,Newark
+1812,Pike Creek
+1813,Rising Sun-Lebanon
+1814,Rodney Village
+1815,Seaford
+1816,Smyrna
+1817,Stanton
+1818,Talleyville
+1819,Wilmington
+1820,Wilmington Manor
+1821,Woodside East
+2048,Altamonte Springs
+2049,Apopka
+2050,Auburndale
+2051,Aventura
+2052,Bartow
+2053,Bayonet Point
+2054,Bayshore Gardens
+2055,Bellair
+2056,Belle Glade
+2057,Bellview
+2058,Bloomingdale
+2059,Boca Del Mar
+2060,Boca Grande
+2061,Boca Raton
+2062,Bonita Springs
+2063,Boynton Beach
+2064,Bradenton
+2065,Brandon
+2066,Brent
+2067,Brownsville
+2068,Cape Coral
+2069,Carol City
+2070,Carrollwood
+2071,Casselberry
+2072,Chattahoochee
+2073,Clearwater
+2074,Cocoa
+2075,Coconut Creek
+2076,Conway
+2077,Cooper City
+2078,Coral Gables
+2079,Coral Springs
+2080,Coral Terrace
+2081,Cutler
+2082,Cutler Ridge
+2083,Dade City
+2084,Davie
+2085,Daytona Beach
+2086,Deerfield Beach
+2087,DeLand
+2088,Delray Beach
+2089,Deltona
+2090,Dunedin
+2091,East Bradenton
+2092,East Naples
+2093,Edgewater
+2094,Englewood
+2095,Ensley
+2096,Eustis
+2097,Fairview Shores
+2098,Fort Lauderdale
+2099,Fort Meade
+2100,Fort Myers
+2101,Fort Pierce
+2102,Fort Walton Beach
+2103,Frostproof
+2104,Gainesville
+2105,Gladeview
+2106,Glenvar Heights
+2107,Golden Glades
+2108,Goldenrod
+2109,Greater Northdale
+2110,Greenacres City
+2111,Haines City
+2112,Hallandale
+2113,Hialeah
+2114,Highpoint
+2115,Holiday
+2116,Hollywood
+2117,Homestead
+2118,Immokalee
+2119,Jacksonville
+2120,Jacksonville Beach
+2121,Jasmine Estates
+2122,Jupiter
+2123,Kathleen
+2124,Kendale Lakes
+2125,Kendall
+2126,Key Largo
+2127,Key West
+2128,Kings Point
+2129,Kissimmee
+2130,Lake Magdalene
+2131,Lake Wales
+2132,Lake Worth
+2133,Lakeland
+2134,Lakeside
+2135,Largo
+2136,Lauderdale Lakes
+2137,Lauderhill
+2138,Leesburg
+2139,Lehigh Acres
+2140,Leisure City
+2141,Longwood
+2142,Maitland
+2143,Marathon
+2144,Margate
+2145,Melbourne
+2146,Merritt Island
+2147,Miami
+2148,Miami Beach
+2149,Miami Lakes
+2150,Miami Springs
+2151,Miramar
+2152,Mulberry
+2153,Myrtle Grove
+2154,Naples
+2155,New Port Richey
+2156,New Smyrna Beach
+2157,Niceville
+2158,North Fort Myers
+2159,North Lauderdale
+2160,North Miami
+2161,North Miami Beach
+2162,North Naples
+2163,Oak Ridge
+2164,Oakland Park
+2165,Ocala
+2166,Ocoee
+2167,Okeechobee
+2168,Olympia Heights
+2169,Opa-locka
+2170,Orlando
+2171,Ormond Beach
+2172,Oviedo
+2173,Palm Bay
+2174,Palm Bch Gardens
+2175,Palm Coast
+2176,Palm Harbor
+2177,Palmetto Estates
+2178,Panama City
+2179,Pembroke Pines
+2180,Pensacola
+2181,Pine Hills
+2182,Pinellas Park
+2183,Pinewood
+2184,Plant City
+2185,Plantation
+2186,Pompano Beach
+2187,Port Charlotte
+2188,Port Orange
+2189,Port St. Lucie
+2190,Punta Gorda
+2191,Quincy
+2192,Riviera Beach
+2193,Rockledge
+2194,Safety Harbor
+2195,Sanford
+2196,Sarasota
+2197,Sarasota Springs
+2198,Sebring
+2199,South Miami Hts
+2200,Spring Hill
+2201,St. Cloud
+2202,St. Petersburg
+2203,Stuart
+2204,Sunrise
+2205,Sunset
+2206,Sweetwater
+2207,Tallahassee
+2208,Tamarac
+2209,Tamiami
+2210,Tampa
+2211,Tarpon Springs
+2212,Temple Terrace
+2213,Titusville
+2214,University West
+2215,Venice
+2216,Vero Beach
+2217,Vero Beach South
+2218,Warrington
+2219,Wekiva Springs
+2220,Wellington
+2221,West Little River
+2222,West Palm Beach
+2223,West Pensacola
+2224,Westchester
+2225,Winter Garden
+2226,Winter Haven
+2227,Winter Park
+2228,Winter Springs
+2229,Zephyrhills
+2304,Albany
+2305,Alpharetta
+2306,Americus
+2307,Athens
+2308,Atlanta
+2309,Augusta
+2310,Bainbridge
+2311,Belvedere Park
+2312,Brunswick
+2313,Buford
+2314,Cairo
+2315,Calhoun
+2316,Candler-McAfee
+2317,Carrollton
+2318,Cartersville
+2319,Cedartown
+2320,Chamblee
+2321,College Park
+2322,Columbus
+2323,Conyers
+2324,Cordele
+2325,Country Club Est
+2326,Covington
+2327,Dalton
+2328,Decatur
+2329,Dock Junction
+2330,Doraville
+2331,Douglas
+2332,Douglasville
+2333,Druid Hills
+2334,Dublin
+2335,Duluth
+2336,Dunwoody
+2337,East Point
+2338,Evans
+2339,Fair Oaks
+2340,Fitzgerald
+2341,Forest Park
+2342,Fort Benning South
+2343,Fort Gordon
+2344,Fort Stewart
+2345,Fort Valley
+2346,Gaines School
+2347,Gainesville
+2348,Garden City
+2349,Gresham Park
+2350,Griffin
+2351,Hinesville
+2352,Jesup
+2353,Kennesaw
+2354,La Grange
+2355,Lawrenceville
+2356,Lilburn
+2357,Lithia Springs
+2358,Mableton
+2359,Macon
+2360,Marietta
+2361,Martinez
+2362,Milledgeville
+2363,Monroe
+2364,Moultrie
+2365,Mountain Park
+2366,Newnan
+2367,North Atlanta
+2368,North Decatur
+2369,North Druid Hills
+2370,Panthersville
+2371,Peachtree City
+2372,Perry
+2373,Powder Springs
+2374,Redan
+2375,Riverdale
+2376,Rome
+2377,Roswell
+2378,Sandy Springs
+2379,Savannah
+2380,Scottdale
+2381,Smyrna
+2382,Snellville
+2383,South Augusta
+2384,St. Marys
+2385,St. Simons
+2386,Statesboro
+2387,Swainsboro
+2388,Thomaston
+2389,Thomasville
+2390,Thomson
+2391,Tifton
+2392,Toccoa
+2393,Tucker
+2394,Union City
+2395,Valdosta
+2396,Vidalia
+2397,Villa Rica
+2398,Vinings
+2399,Warner Robins
+2400,Waycross
+2401,West Augusta
+2402,Wilmington Island
+2403,Winder
+2560,Ahuimanu
+2561,Aiea
+2562,Ewa Beach
+2563,Halawa
+2564,Haw Paradise Pk
+2565,Hilo
+2566,Honolulu
+2567,Kahului
+2568,Kailua
+2569,Kalaoa
+2570,Kaneohe
+2571,Kaneohe Station
+2572,Kapaa
+2573,Kihei
+2574,Lahaina
+2575,Makaha
+2576,Makakilo City
+2577,Mililani Town
+2578,Nanakuli
+2579,Napili-Honokowai
+2580,Pearl City
+2581,Pukalani
+2582,Schofield Barracks
+2583,Village Park
+2584,Wahiawa
+2585,Waianae
+2586,Waihee-Waiehu
+2587,Wailuku
+2588,Waimalu
+2589,Waimea
+2590,Waipahu
+2591,Waipio
+2816,American Falls
+2817,Ammon
+2818,Blackfoot
+2819,Boise City
+2820,Buhl
+2821,Burley
+2822,Caldwell
+2823,Chubbuck
+2824,Coeur d'Alene
+2825,Eagle
+2826,Emmett
+2827,Garden City
+2828,Gooding
+2829,Grangeville
+2830,Hailey
+2831,Hayden
+2832,Heyburn
+2833,Idaho Falls
+2834,Jerome
+2835,Lewiston
+2836,Meridian
+2837,Moscow
+2838,Mountain Home
+2839,Nampa
+2840,Orofino
+2841,Payette
+2842,Pocatello
+2843,Post Falls
+2844,Preston
+2845,Rexburg
+2846,Rigby
+2847,Rupert
+2848,Salmon
+2849,Sandpoint
+2850,Shelley
+2851,Soda Springs
+2852,St. Anthony
+2853,Twin Falls
+2854,Weiser
+3072,Addison
+3073,Alsip
+3074,Alton
+3075,Arlington Heights
+3076,Aurora
+3077,Bartlett
+3078,Belleville
+3079,Bellwood
+3080,Bensenville
+3081,Berwyn
+3082,Bloomington
+3083,Blue Island
+3084,Bolingbrook
+3085,Brookfield
+3086,Buffalo Grove
+3087,Burbank
+3088,Cahokia
+3089,Calumet City
+3090,Carbondale
+3091,Carol Stream
+3092,Carpentersville
+3093,Champaign
+3094,Charleston
+3095,Chicago
+3096,Chicago
+3097,Chicago
+3098,Chicago Heights
+3099,Cicero
+3100,Collinsville
+3101,Crystal Lake
+3102,Danville
+3103,Darien
+3104,De Kalb
+3105,Decatur
+3106,Des Plaines
+3107,Dolton
+3108,Downers Grove
+3109,East Moline
+3110,East Peoria
+3111,East St. Louis
+3112,Elgin
+3113,Elk Grove Village
+3114,Elmhurst
+3115,Elmwood Park
+3116,Evanston
+3117,Evergreen Park
+3118,Franklin Park
+3119,Freeport
+3120,Galesburg
+3121,Glen Ellyn
+3122,Glendale Heights
+3123,Glenview
+3124,Granite City
+3125,Hanover Park
+3126,Harvey
+3127,Highland Park
+3128,Hoffman Estates
+3129,Homewood
+3130,Jacksonville
+3131,Joliet
+3132,Kankakee
+3133,Lake Forest
+3134,Lansing
+3135,Libertyville
+3136,Lisle
+3137,Lombard
+3138,Machesney Park
+3139,Macomb
+3140,Mattoon
+3141,Maywood
+3142,Melrose Park
+3143,Moline
+3144,Morton Grove
+3145,Mount Prospect
+3146,Mundelein
+3147,Naperville
+3148,Niles
+3149,Normal
+3150,North Chicago
+3151,Northbrook
+3152,Oak Forest
+3153,Oak Lawn
+3154,Oak Park
+3155,Orland Park
+3156,Ottawa
+3157,Palatine
+3158,Palos Hills
+3159,Park Forest
+3160,Park Ridge
+3161,Pekin
+3162,Peoria
+3163,Quincy
+3164,Rock Island
+3165,Rockford
+3166,Rolling Meadows
+3167,Roselle
+3168,Schaumburg
+3169,Skokie
+3170,South Holland
+3171,Springfield
+3172,St. Charles
+3173,Streamwood
+3174,Tinley Park
+3175,Urbana
+3176,Villa Park
+3177,Waukegan
+3178,Westmont
+3179,Wheaton
+3180,Wheeling
+3181,Wilmette
+3182,Woodridge
+3183,Zion
+3328,Anderson
+3329,Auburn
+3330,Bedford
+3331,Beech Grove
+3332,Bloomington
+3333,Bluffton
+3334,Brazil
+3335,Brownsburg
+3336,Carmel
+3337,Cedar Lake
+3338,Chesterton
+3339,Clarksville
+3340,Columbus
+3341,Connersville
+3342,Crawfordsville
+3343,Crown Point
+3344,Decatur
+3345,Dyer
+3346,East Chicago
+3347,Elkhart
+3348,Elwood
+3349,Evansville
+3350,Fishers
+3351,Fort Wayne
+3352,Frankfort
+3353,Franklin
+3354,Gary
+3355,Goshen
+3356,Granger
+3357,Greencastle
+3358,Greenfield
+3359,Greensburg
+3360,Greenwood
+3361,Griffith
+3362,Hammond
+3363,Highland
+3364,Hobart
+3365,Huntington
+3366,Indianapolis
+3367,Indianapolis
+3368,Indianapolis
+3369,Jasper
+3370,Jeffersonville
+3371,Kendallville
+3372,Kokomo
+3373,La Porte
+3374,Lafayette
+3375,Lake Station
+3376,Lawrence
+3377,Lebanon
+3378,Logansport
+3379,Madison
+3380,Marion
+3381,Martinsville
+3382,Merrillville
+3383,Michigan City
+3384,Mishawaka
+3385,Muncie
+3386,Munster
+3387,New Albany
+3388,New Castle
+3389,New Haven
+3390,Noblesville
+3391,Peru
+3392,Plainfield
+3393,Plymouth
+3394,Portage
+3395,Princeton
+3396,Richmond
+3397,Schererville
+3398,Seymour
+3399,Shelbyville
+3400,South Bend
+3401,Speedway
+3402,Tell City
+3403,Terre Haute
+3404,Valparaiso
+3405,Vincennes
+3406,Wabash
+3407,Warsaw
+3408,Washington
+3409,West Lafayette
+3584,Algona
+3585,Altoona
+3586,Ames
+3587,Anamosa
+3588,Ankeny
+3589,Atlantic
+3590,Bettendorf
+3591,Boone
+3592,Burlington
+3593,Carroll
+3594,Cedar Falls
+3595,Cedar Rapids
+3596,Centerville
+3597,Charles City
+3598,Cherokee
+3599,Clarinda
+3600,Clear Lake
+3601,Clinton
+3602,Clive
+3603,Coralville
+3604,Council Bluffs
+3605,Creston
+3606,Davenport
+3607,Decorah
+3608,Denison
+3609,Des Moines
+3610,Dubuque
+3611,Estherville
+3612,Fairfield
+3613,Fort Dodge
+3614,Fort Madison
+3615,Harlan
+3616,Hiawatha
+3617,Independence
+3618,Indianola
+3619,Iowa City
+3620,Iowa Falls
+3621,Keokuk
+3622,Knoxville
+3623,Le Mars
+3624,Manchester
+3625,Maquoketa
+3626,Marion
+3627,Marshalltown
+3628,Mason City
+3629,Mount Pleasant
+3630,Muscatine
+3631,Nevada
+3632,Newton
+3633,Norwalk
+3634,Oelwein
+3635,Oskaloosa
+3636,Ottumwa
+3637,Pella
+3638,Perry
+3639,Red Oak
+3640,Sheldon
+3641,Shenandoah
+3642,Sioux Center
+3643,Sioux City
+3644,Spencer
+3645,Storm Lake
+3646,Urbandale
+3647,Vinton
+3648,Washington
+3649,Waterloo
+3650,Waverly
+3651,Webster City
+3652,West Des Moines
+3653,Windsor Heights
+3840,Abilene
+3841,Andover
+3842,Arkansas City
+3843,Atchison
+3844,Augusta
+3845,Baxter Springs
+3846,Bel Aire
+3847,Beloit
+3848,Bonner Springs
+3849,Chanute
+3850,Clay Center
+3851,Coffeyville
+3852,Colby
+3853,Concordia
+3854,Derby
+3855,Dodge City
+3856,Edwardsville
+3857,El Dorado
+3858,Emporia
+3859,Fairway
+3860,Fort Riley North
+3861,Fort Scott
+3862,Garden City
+3863,Goodland
+3864,Great Bend
+3865,Hays
+3866,Haysville
+3867,Hiawatha
+3868,Hutchinson
+3869,Independence
+3870,Iola
+3871,Junction City
+3872,Kansas City
+3873,Lansing
+3874,Larned
+3875,Lawrence
+3876,Leavenworth
+3877,Leawood
+3878,Lenexa
+3879,Liberal
+3880,Lyons
+3881,Manhattan
+3882,McPherson
+3883,Merriam
+3884,Mission
+3885,Mission Hills
+3886,Mulvane
+3887,Newton
+3888,Olathe
+3889,Osawatomie
+3890,Ottawa
+3891,Overland Park
+3892,Paola
+3893,Park City
+3894,Parsons
+3895,Pittsburg
+3896,Prairie Village
+3897,Pratt
+3898,Roeland Park
+3899,Russell
+3900,Salina
+3901,Scott City
+3902,Shawnee
+3903,Topeka
+3904,Ulysses
+3905,Valley Center
+3906,Wamego
+3907,Wellington
+3908,Wichita
+3909,Winfield
+4096,Alexandria
+4097,Ashland
+4098,Bardstown
+4099,Bellevue
+4100,Berea
+4101,Bowling Green
+4102,Buechel
+4103,Burlington
+4104,Campbellsville
+4105,Corbin
+4106,Covington
+4107,Cynthiana
+4108,Danville
+4109,Dayton
+4110,Douglass Hills
+4111,Edgewood
+4112,Elizabethtown
+4113,Elsmere
+4114,Erlanger
+4115,Fairdale
+4116,Fern Creek
+4117,Flatwoods
+4118,Florence
+4119,Fort Knox
+4120,Fort Mitchell
+4121,Fort Thomas
+4122,Fort Wright
+4123,Frankfort
+4124,Franklin
+4125,Ft Campbell North
+4126,Georgetown
+4127,Glasgow
+4128,Harrodsburg
+4129,Hazard
+4130,Henderson
+4131,Highview
+4132,Hillview
+4133,Hopkinsville
+4134,Independence
+4135,Jeffersontown
+4136,Lawrenceburg
+4137,Lebanon
+4138,Lexington-Fayette
+4139,London
+4140,Louisville
+4141,Lyndon
+4142,Madisonville
+4143,Mayfield
+4144,Maysville
+4145,Middlesborough
+4146,Monticello
+4147,Morehead
+4148,Mount Sterling
+4149,Mt Washington
+4150,Murray
+4151,Newburg
+4152,Newport
+4153,Nicholasville
+4154,Okolona
+4155,Owensboro
+4156,Paducah
+4157,Paris
+4158,Pikeville
+4159,Pleasure Ridge Pk
+4160,Princeton
+4161,Radcliff
+4162,Richmond
+4163,Russellville
+4164,Shelbyville
+4165,Shively
+4166,Somerset
+4167,St. Dennis
+4168,St. Matthews
+4169,Taylor Mill
+4170,Valley Station
+4171,Versailles
+4172,Villa Hills
+4173,Westwood
+4174,Williamsburg
+4175,Winchester
+4352,Abbeville
+4353,Alexandria
+4354,Amite City
+4355,Arabi
+4356,Avondale
+4357,Baker
+4358,Bastrop
+4359,Baton Rouge
+4360,Bayou Cane
+4361,Bayou Vista
+4362,Belle Chasse
+4363,Berwick
+4364,Bogalusa
+4365,Bossier City
+4366,Breaux Bridge
+4367,Bridge City
+4368,Brownfields
+4369,Brownsville
+4370,Bunkie
+4371,Carencro
+4372,Chalmette
+4373,Church Point
+4374,Claiborne
+4375,Covington
+4376,Crowley
+4377,Cut Off
+4378,De Ridder
+4379,Denham Springs
+4380,Destrehan
+4381,Donaldsonville
+4382,Estelle
+4383,Eunice
+4384,Ferriday
+4385,Fort Polk South
+4386,Franklin
+4387,Franklinton
+4388,Galliano
+4389,Gardere
+4390,Gonzales
+4391,Grambling
+4392,Gray
+4393,Gretna
+4394,Hammond
+4395,Harahan
+4396,Harvey
+4397,Homer
+4398,Houma
+4399,Jeanerette
+4400,Jefferson
+4401,Jennings
+4402,Jonesboro
+4403,Kaplan
+4404,Kenner
+4405,Lacombe
+4406,Lafayette
+4407,Lake Charles
+4408,Lake Providence
+4409,Laplace
+4410,Larose
+4411,Leesville
+4412,Mandeville
+4413,Mansfield
+4414,Marksville
+4415,Marrero
+4416,Meraux
+4417,Merrydale
+4418,Metairie
+4419,Mimosa Park
+4420,Minden
+4421,Monroe
+4422,Monticello
+4423,Morgan City
+4424,Moss Bluff
+4425,Natchitoches
+4426,New Iberia
+4427,New Orleans
+4428,New Roads
+4429,Oak Hills Place
+4430,Oakdale
+4431,Old Jefferson
+4432,Opelousas
+4433,Patterson
+4434,Pineville
+4435,Plaquemine
+4436,Ponchatoula
+4437,Port Allen
+4438,Poydras
+4439,Prien
+4440,Raceland
+4441,Rayne
+4442,Rayville
+4443,Red Chute
+4444,Reserve
+4445,River Ridge
+4446,Ruston
+4447,Schriever
+4448,Scott
+4449,Shenandoah
+4450,Shreveport
+4451,Slidell
+4452,Springhill
+4453,St. Martinville
+4454,St. Rose
+4455,Sulphur
+4456,Tallulah
+4457,Terrytown
+4458,Thibodaux
+4459,Timberlane
+4460,Vidalia
+4461,Village St. George
+4462,Ville Platte
+4463,Violet
+4464,Vivian
+4465,Waggaman
+4466,West Monroe
+4467,Westlake
+4468,Westwego
+4469,Winnfield
+4470,Winnsboro
+4471,Zachary
+4608,Auburn
+4609,Augusta
+4610,Bangor
+4611,Bath
+4612,Belfast
+4613,Biddeford
+4614,Brewer
+4615,Brunswick
+4616,Caribou
+4617,Ellsworth
+4618,Gardiner
+4619,Houlton
+4620,Lewiston
+4621,Millinocket
+4622,Old Orchard Beach
+4623,Old Town
+4624,Orono
+4625,Portland
+4626,Presque Isle
+4627,Rockland
+4628,Rumford
+4629,Saco
+4630,Sanford
+4631,Skowhegan
+4632,South Portland
+4633,Topsham
+4634,Waterville
+4635,Westbrook
+4636,Winslow
+4864,Aberdeen
+4865,Adelphi
+4866,Annapolis
+4867,Arbutus
+4868,Arnold
+4869,Aspen Hill
+4870,Baltimore
+4871,Baltimore
+4872,Baltimore
+4873,Baltimore Highlands
+4874,Bel Air North
+4875,Bel Air South
+4876,Beltsville
+4877,Bethesda
+4878,Bowie
+4879,Camp Springs
+4880,Carney
+4881,Catonsville
+4882,Chillum
+4883,Clinton
+4884,Cockeysville
+4885,Colesville
+4886,College Park
+4887,Columbia
+4888,Cumberland
+4889,Dundalk
+4890,East Riverdale
+4891,Edgewood
+4892,Elkridge
+4893,Ellicott City
+4894,Essex
+4895,Fairland
+4896,Ferndale
+4897,Forestville
+4898,Fort Washington
+4899,Frederick
+4900,Gaithersburg
+4901,Germantown
+4902,Glen Burnie
+4903,Green Haven
+4904,Greenbelt
+4905,Hagerstown
+4906,Hillcrest Heights
+4907,Hyattsville
+4908,Lake Shore
+4909,Langley Park
+4910,Lanham-Seabrook
+4911,Laurel
+4912,Lochearn
+4913,Luthervl-Timonium
+4914,Middle River
+4915,Milford Mill
+4916,Montgomery Vlg
+4917,North Bethesda
+4918,North Laurel
+4919,North Potomac
+4920,Olney
+4921,Ox. Hill-Glassmanor
+4922,Parkville
+4923,Perry Hall
+4924,Pikesville
+4925,Potomac
+4926,Randallstown
+4927,Redland
+4928,Reisterstown
+4929,Rockville
+4930,Rosedale
+4931,Salisbury
+4932,Severn
+4933,Severna Park
+4934,Silver Spring
+4935,South Gate
+4936,South Laurel
+4937,St. Charles
+4938,Suitland-Silver Hill
+4939,Takoma Park
+4940,Towson
+4941,Waldorf
+4942,Westminster
+4943,Wheaton-Glenmont
+4944,White Oak
+4945,Woodlawn
+5120,Arlington
+5121,Attleboro
+5122,Beverly
+5123,Boston
+5124,Braintree
+5125,Brockton
+5126,Brookline
+5127,Cambridge
+5128,Chelmsford
+5129,Chelsea
+5130,Chicopee
+5131,Everett
+5132,Fall River
+5133,Fitchburg
+5134,Framingham
+5135,Gloucester
+5136,Haverhill
+5137,Holyoke
+5138,Lawrence
+5139,Leominster
+5140,Lexington
+5141,Lowell
+5142,Lynn
+5143,Malden
+5144,Marlborough
+5145,Medford
+5146,Melrose
+5147,Milton
+5148,Needham
+5149,New Bedford
+5150,Newton
+5151,Northampton
+5152,Norwood
+5153,Peabody
+5154,Pittsfield
+5155,Quincy
+5156,Randolph
+5157,Revere
+5158,Salem
+5159,Somerville
+5160,Springfield
+5161,Taunton
+5162,Waltham
+5163,Watertown
+5164,Wellesley
+5165,West Springfield
+5166,Westfield
+5167,Weymouth
+5168,Woburn
+5169,Worcester
+5376,Adrian
+5377,Albion
+5378,Allen Park
+5379,Allendale
+5380,Alma
+5381,Alpena
+5382,Ann Arbor
+5383,Auburn Hills
+5384,Battle Creek
+5385,Bay City
+5386,Beecher
+5387,Benton Harbor
+5388,Berkley
+5389,Beverly Hills
+5390,Big Rapids
+5391,Birmingham
+5392,Bloomfield
+5393,Bridgeport
+5394,Buena Vista
+5395,Burton
+5396,Cadillac
+5397,Canton
+5398,Center Line
+5399,Charlotte
+5400,Clawson
+5401,Clinton
+5402,Coldwater
+5403,Cutlerville
+5404,Dearborn
+5405,Dearborn Heights
+5406,Detroit
+5407,Detroit
+5408,Detroit
+5409,E. Grand Rapids
+5410,East Detroit
+5411,East Lansing
+5412,Ecorse
+5413,Escanaba
+5414,Fair Plain
+5415,Farmington
+5416,Farmington Hills
+5417,Fenton
+5418,Ferndale
+5419,Flat Rock
+5420,Flint
+5421,Flushing
+5422,Forest Hills
+5423,Fraser
+5424,Garden City
+5425,Grand Blanc
+5426,Grand Haven
+5427,Grand Ledge
+5428,Grand Rapids
+5429,Grandville
+5430,Greenville
+5431,Grosse Ile
+5432,Grosse Pt. Farms
+5433,Grosse Pt. Park
+5434,Grosse Pt. Woods
+5435,Hamtramck
+5436,Harper Woods
+5437,Harrison
+5438,Haslett
+5439,Hazel Park
+5440,Highland Park
+5441,Hillsdale
+5442,Holland
+5443,Holt
+5444,Houghton
+5445,Howell
+5446,Inkster
+5447,Iron Mountain
+5448,Ironwood
+5449,Ishpeming
+5450,Jackson
+5451,Jenison
+5452,Kalamazoo
+5453,Kentwood
+5454,Lambertville
+5455,Lansing
+5456,Lapeer
+5457,Lincoln Park
+5458,Livonia
+5459,Ludington
+5460,Madison Heights
+5461,Manistee
+5462,Marquette
+5463,Marshall
+5464,Marysville
+5465,Mason
+5466,Melvindale
+5467,Menominee
+5468,Midland
+5469,Monroe
+5470,Mount Clemens
+5471,Mount Pleasant
+5472,Muskegon
+5473,Muskegon Hts
+5474,Niles
+5475,Northview
+5476,Norton Shores
+5477,Novi
+5478,Oak Park
+5479,Okemos
+5480,Owosso
+5481,Plymouth
+5482,Plymouth
+5483,Pontiac
+5484,Port Huron
+5485,Portage
+5486,Redford
+5487,River Rouge
+5488,Riverview
+5489,Rochester
+5490,Rochester Hills
+5491,Romulus
+5492,Roseville
+5493,Royal Oak
+5494,Saginaw
+5495,Saginaw North
+5496,Saginaw South
+5497,Saline
+5498,Sault Ste. Marie
+5499,Shelby
+5500,Shields
+5501,Southfield
+5502,Southgate
+5503,St. Clair Shores
+5504,St. Johns
+5505,St. Joseph
+5506,Sterling Heights
+5507,Sturgis
+5508,Taylor
+5509,Tecumseh
+5510,Three Rivers
+5511,Traverse City
+5512,Trenton
+5513,Troy
+5514,Walker
+5515,Warren
+5516,Waterford
+5517,Waverly
+5518,Wayne
+5519,West Bloomfield
+5520,Westland
+5521,Westwood
+5522,Wixom
+5523,Woodhaven
+5524,Wyandotte
+5525,Wyoming
+5526,Ypsilanti
+5632,Albert Lea
+5633,Anoka
+5634,Apple Valley
+5635,Austin
+5636,Blaine
+5637,Bloomington
+5638,Brooklyn Center
+5639,Brooklyn Park
+5640,Burnsville
+5641,Champlin
+5642,Columbia Heights
+5643,Coon Rapids
+5644,Cottage Grove
+5645,Crystal
+5646,Duluth
+5647,Eagan
+5648,Eden Prairie
+5649,Edina
+5650,Faribault
+5651,Fridley
+5652,Golden Valley
+5653,Hastings
+5654,Hibbing
+5655,Hopkins
+5656,Inver Grove Hts
+5657,Lakeville
+5658,Mankato
+5659,Maple Grove
+5660,Maplewood
+5661,Minneapolis
+5662,Minnetonka
+5663,Moorhead
+5664,New Brighton
+5665,New Hope
+5666,Oakdale
+5667,Owatonna
+5668,Plymouth
+5669,Richfield
+5670,Rochester
+5671,Roseville
+5672,Shoreview
+5673,South St. Paul
+5674,St. Cloud
+5675,St. Louis Park
+5676,St. Paul
+5677,West St. Paul
+5678,White Bear Lake
+5679,Willmar
+5680,Winona
+5681,Woodbury
+5888,Aberdeen
+5889,Amory
+5890,Baldwyn
+5891,Batesville
+5892,Bay St. Louis
+5893,Biloxi
+5894,Booneville
+5895,Brandon
+5896,Brookhaven
+5897,Canton
+5898,Carthage
+5899,Clarksdale
+5900,Cleveland
+5901,Clinton
+5902,Columbia
+5903,Columbus
+5904,Corinth
+5905,Crystal Springs
+5906,D'Iberville
+5907,Durant
+5908,Ellisville
+5909,Escatawpa
+5910,Flowood
+5911,Forest
+5912,Fulton
+5913,Gautier
+5914,Greenville
+5915,Greenwood
+5916,Grenada
+5917,Gulf Hills
+5918,Gulfport
+5919,Hattiesburg
+5920,Hazlehurst
+5921,Hernando
+5922,Hollandale
+5923,Holly Springs
+5924,Horn Lake
+5925,Houston
+5926,Indianola
+5927,Iuka
+5928,Jackson
+5929,Kosciusko
+5930,Latimer
+5931,Laurel
+5932,Leland
+5933,Long Beach
+5934,Louisville
+5935,Madison
+5936,Magee
+5937,McComb
+5938,Meridian
+5939,Morton
+5940,Moss Point
+5941,Natchez
+5942,New Albany
+5943,Newton
+5944,North Gulfport
+5945,Ocean Springs
+5946,Okolona
+5947,Olive Branch
+5948,Orange Grove
+5949,Oxford
+5950,Pascagoula
+5951,Pass Christian
+5952,Pearl
+5953,Petal
+5954,Philadelphia
+5955,Picayune
+5956,Pontotoc
+5957,Richland
+5958,Ridgeland
+5959,Ripley
+5960,Ruleville
+5961,Senatobia
+5962,Southaven
+5963,St. Martin
+5964,Starkville
+5965,Tupelo
+5966,Vancleave
+5967,Verona
+5968,Vicksburg
+5969,Water Valley
+5970,Waveland
+5971,Waynesboro
+5972,West Hattiesburg
+5973,West Point
+5974,Wiggins
+5975,Winona
+5976,Yazoo City
+6144,Affton
+6145,Arnold
+6146,Ballwin
+6147,Bellefontaine
+6148,Belton
+6149,Berkeley
+6150,Blue Springs
+6151,Bridgeton
+6152,Cape Girardeau
+6153,Carthage
+6154,Chesterfield
+6155,Clayton
+6156,Columbia
+6157,Concord
+6158,Crestwood
+6159,Creve Coeur
+6160,Farmington
+6161,Ferguson
+6162,Florissant
+6163,Ft. Leonard Wood
+6164,Gladstone
+6165,Grandview
+6166,Hannibal
+6167,Hazelwood
+6168,Independence
+6169,Jefferson City
+6170,Jennings
+6171,Joplin
+6172,Kansas City
+6173,Kennett
+6174,Kirksville
+6175,Kirkwood
+6176,Lee's Summit
+6177,Lemay
+6178,Liberty
+6179,Marshall
+6180,Maryland Heights
+6181,Mehlville
+6182,Mexico
+6183,Moberly
+6184,Oakville
+6185,O'Fallon
+6186,Overland
+6187,Poplar Bluff
+6188,Raytown
+6189,Rolla
+6190,Sappington
+6191,Sedalia
+6192,Sikeston
+6193,Spanish Lake
+6194,Springfield
+6195,St. Ann
+6196,St. Charles
+6197,St. Joseph
+6198,St. Louis
+6199,St. Peters
+6200,University City
+6201,Warrensburg
+6202,Washington
+6203,Webster Groves
+6400,Anaconda-Deer Ldg
+6401,Belgrade
+6402,Billings
+6403,Bozeman
+6404,Butte-Silver Bow
+6405,Colstrip
+6406,Columbia Falls
+6407,Cut Bank
+6408,Deer Lodge
+6409,Dillon
+6410,Evergreen
+6411,Glasgow
+6412,Glendive
+6413,Great Falls
+6414,Havre
+6415,Helena
+6416,Helena Valley
+6417,Helena Valley
+6418,Kalispell
+6419,Laurel
+6420,Lewistown
+6421,Livingston
+6422,Lockwood
+6423,Miles City
+6424,Missoula
+6425,Orchard Homes
+6426,Polson
+6427,Sidney
+6428,Whitefish
+6656,Alliance
+6657,Aurora
+6658,Beatrice
+6659,Bellevue
+6660,Blair
+6661,Broken Bow
+6662,Chadron
+6663,Columbus
+6664,Cozad
+6665,Crete
+6666,Fairbury
+6667,Falls City
+6668,Fremont
+6669,Gering
+6670,Grand Island
+6671,Hastings
+6672,Holdrege
+6673,Kearney
+6674,La Vista
+6675,Lexington
+6676,Lincoln
+6677,McCook
+6678,Nebraska City
+6679,Norfolk
+6680,North Platte
+6681,Ogallala
+6682,Omaha
+6683,O'Neill
+6684,Osmond
+6685,Papillion
+6686,Plattsmouth
+6687,Ralston
+6688,Schuyler
+6689,Scottsbluff
+6690,Seward
+6691,Sidney
+6692,South Sioux City
+6693,Wahoo
+6694,Wayne
+6695,York
+6912,Battle Mountain
+6913,Boulder City
+6914,Carlin
+6915,Carson City
+6916,Crystal Bay
+6917,Dayton
+6918,East Las Vegas
+6919,Elko
+6920,Ely
+6921,Enterprise
+6922,Fallon
+6923,Fernley
+6924,Gardnerville
+6925,Gardnerville Ranch
+6926,Hawthorne
+6927,Henderson
+6928,Indian Hills
+6929,Johnson Lane
+6930,Kingsbury
+6931,Las Vegas
+6932,Laughlin
+6933,Lovelock
+6934,Moapa Valley
+6935,New Washoe City
+6936,North Las Vegas
+6937,Pahrump
+6938,Paradise
+6939,Reno
+6940,Silver Springs
+6941,Sparks
+6942,Spring Creek
+6943,Spring Valley
+6944,Sun Valley
+6945,Sunrise Manor
+6946,Tonopah
+6947,West Wendover
+6948,Winchester
+6949,Winnemucca
+6950,Yerington
+7168,Berlin
+7169,Claremont
+7170,Concord
+7171,Derry
+7172,Dover
+7173,Durham
+7174,East Merrimack
+7175,Exeter
+7176,Farmington
+7177,Franklin
+7178,Hampton
+7179,Hanover
+7180,Hudson
+7181,Keene
+7182,Laconia
+7183,Lebanon
+7184,Littleton
+7185,Londonderry
+7186,Manchester
+7187,Milford
+7188,Nashua
+7189,Newmarket
+7190,Newport
+7191,Pinardville
+7192,Plymouth
+7193,Portsmouth
+7194,Rochester
+7195,Somersworth
+7196,South Hooksett
+7197,Suncook
+7424,Asbury Park
+7425,Atlantic City
+7426,Bayonne
+7427,Belleville
+7428,Bergenfield
+7429,Bloomfield
+7430,Brick Township
+7431,Bridgeton
+7432,Camden
+7433,Carteret
+7434,Cherry Hill
+7435,Cliffside Park
+7436,Clifton
+7437,Colonia
+7438,Cranford
+7439,Dumont
+7440,East Brunswick
+7441,East Orange
+7442,Edison
+7443,Elizabeth
+7444,Elmwood Park
+7445,Englewood
+7446,Ewing
+7447,Fair Lawn
+7448,Fort Lee
+7449,Garfield
+7450,Hackensack
+7451,Hawthorne
+7452,Hillside
+7453,Hoboken
+7454,Irvington
+7455,Iselin
+7456,Jersey City
+7457,Kearny
+7458,Lakewood
+7459,Linden
+7460,Lindenwold
+7461,Livingston
+7462,Lodi
+7463,Long Branch
+7464,Lyndhurst
+7465,Madison
+7466,Maple Shade
+7467,Maplewood
+7468,Mercerville
+7469,Millburn
+7470,Millville
+7471,Montclair
+7472,Morristown
+7473,New Brunswick
+7474,New Milford
+7475,Newark
+7476,North Bergen
+7477,North Brunswick
+7478,North Plainfield
+7479,Nutley
+7480,Old Bridge
+7481,Orange
+7482,Paramus
+7483,Parsippany-Troy
+7484,Passaic
+7485,Paterson
+7486,Pennsauken
+7487,Perth Amboy
+7488,Phillipsburg
+7489,Plainfield
+7490,Pleasantville
+7491,Point Pleasant
+7492,Rahway
+7493,Ridgewood
+7494,Roselle
+7495,Rutherford
+7496,Sayreville
+7497,Scotch Plains
+7498,Somerset
+7499,South Orange
+7500,South Plainfield
+7501,Summit
+7502,Teaneck
+7503,Trenton
+7504,Union
+7505,Union City
+7506,Vineland
+7507,Wayne
+7508,West Milford
+7509,West New York
+7510,West Orange
+7511,Westfield
+7512,Willingboro
+7513,Woodbridge
+7680,Agua Fria
+7681,Alamogordo
+7682,Albuquerque
+7683,Anthony
+7684,Artesia
+7685,Aztec
+7686,Bayard
+7687,Belen
+7688,Bernalillo
+7689,Bloomfield
+7690,Bosque Farms
+7691,Carlsbad
+7692,Chaparral
+7693,Chimayo
+7694,Clayton
+7695,Clovis
+7696,Corrales
+7697,Crownpoint
+7698,Deming
+7699,Dulce
+7700,Edgewood
+7701,Eldorado-Santa Fe
+7702,Espanola
+7703,Eunice
+7704,Farmington
+7705,Gallup
+7706,Grants
+7707,Hobbs
+7708,Jal
+7709,Kirtland
+7710,Las Cruces
+7711,Las Vegas
+7712,Lordsburg
+7713,Los Alamos
+7714,Los Chaves
+7715,Los Lunas
+7716,Los Ranchos
+7717,Lovington
+7718,Navajo
+7719,North Valley
+7720,Paradise Hills
+7721,Peralta
+7722,Portales
+7723,Raton
+7724,Rio Communities
+7725,Rio Rancho
+7726,Roswell
+7727,Ruidoso
+7728,S Domingo Pueblo
+7729,Sandia
+7730,Sandia Heights
+7731,Santa Cruz
+7732,Santa Fe
+7733,Santa Rosa
+7734,Shiprock
+7735,Silver City
+7736,Socorro
+7737,South Valley
+7738,Sunland Park
+7739,Taos
+7740,Truth
+7741,Tucumcari
+7742,Tularosa
+7743,University Park
+7744,Valencia
+7745,White Rock
+7746,White Sands
+7747,Zuni Pueblo
+7936,Albany
+7937,Amsterdam
+7938,Auburn
+7939,Baldwin
+7940,Batavia
+7941,Bay Shore
+7942,Bellmore
+7943,Bethpage
+7944,Binghamton
+7945,Brentwood
+7946,Brighton
+7947,Buffalo
+7948,Centereach
+7949,Central Islip
+7950,Cheektowaga
+7951,Cohoes
+7952,Commack
+7953,Copiague
+7954,Coram
+7955,Cortland
+7956,Deer Park
+7957,Depew
+7958,Dix Hills
+7959,East Massapequa
+7960,East Meadow
+7961,East Northport
+7962,East Patchogue
+7963,Eastchester
+7964,Elmira
+7965,Elmont
+7966,Floral Park
+7967,Franklin Square
+7968,Freeport
+7969,Garden City
+7970,Glen Cove
+7971,Gloversville
+7972,Greece
+7973,Harrison
+7974,Hauppauge
+7975,Hempstead
+7976,Hicksville
+7977,Holbrook
+7978,Huntington
+7979,Huntington Station
+7980,Irondequoit
+7981,Islip
+7982,Ithaca
+7983,Jamestown
+7984,Johnson City
+7985,Kenmore
+7986,Kings Park
+7987,Kingston
+7988,Lackawanna
+7989,Lake Ronkonkoma
+7990,Levittown
+7991,Lindenhurst
+7992,Lockport
+7993,Long Beach
+7994,Lynbrook
+7995,Mamaroneck
+7996,Massapequa
+7997,Massapequa Park
+7998,Medford
+7999,Merrick
+8000,Middletown
+8001,Mineola
+8002,Mount Vernon
+8003,New City
+8004,New Rochelle
+8005,New York
+8006,New York
+8007,New York
+8008,Newburgh
+8009,Niagara Falls
+8010,North Babylon
+8011,North Bellmore
+8012,North Massapequa
+8013,North Tonawanda
+8014,Oceanside
+8015,Olean
+8016,Ossining
+8017,Oswego
+8018,Pearl River
+8019,Peekskill
+8020,Plainview
+8021,Plattsburgh
+8022,Port Chester
+8023,Port Washington
+8024,Poughkeepsie
+8025,Rochester
+8026,Rockville Centre
+8027,Rome
+8028,Ronkonkoma
+8029,Roosevelt
+8030,Rotterdam
+8031,Saratoga Springs
+8032,Sayville
+8033,Scarsdale
+8034,Schenectady
+8035,Seaford
+8036,Selden
+8037,Shirley
+8038,Smithtown
+8039,South Farmingdale
+8040,Spring Valley
+8041,Syosset
+8042,Syracuse
+8043,Tonawanda
+8044,Tonawanda
+8045,Troy
+8046,Uniondale
+8047,Utica
+8048,Valley Stream
+8049,Wantagh
+8050,Watertown
+8051,West Babylon
+8052,West Hempstead
+8053,West Islip
+8054,West Seneca
+8055,White Plains
+8056,Woodmere
+8057,Yonkers
+8192,Ahoskie
+8193,Albemarle
+8194,Apex
+8195,Archdale
+8196,Asheboro
+8197,Asheville
+8198,Ayden
+8199,Beaufort
+8200,Belmont
+8201,Bessemer City
+8202,Black Mountain
+8203,Bonnie Doone
+8204,Boone
+8205,Brevard
+8206,Burlington
+8207,Butner
+8208,Camp Lejeune Cen
+8209,Canton
+8210,Carrboro
+8211,Cary
+8212,Chapel Hill
+8213,Charlotte
+8214,Cherryville
+8215,Clayton
+8216,Clemmons
+8217,Clinton
+8218,Concord
+8219,Conover
+8220,Cullowhee
+8221,Davidson
+8222,Dunn
+8223,Durham
+8224,East Rockingham
+8225,Eden
+8226,Edenton
+8227,Elizabeth City
+8228,Elkin
+8229,Elon College
+8230,Elroy
+8231,Erwin
+8232,Farmville
+8233,Fayetteville
+8234,Forest City
+8235,Fort Bragg
+8236,Fuquay-Varina
+8237,Garner
+8238,Gastonia
+8239,Goldsboro
+8240,Graham
+8241,Greensboro
+8242,Greenville
+8243,Half Moon
+8244,Hamlet
+8245,Havelock
+8246,Henderson
+8247,Hendersonville
+8248,Hickory
+8249,High Point
+8250,Hillsborough
+8251,Hope Mills
+8252,Jacksonville
+8253,James City
+8254,Kannapolis
+8255,Kernersville
+8256,Kill Devil Hills
+8257,King
+8258,Kings Mountain
+8259,Kinston
+8260,Laurinburg
+8261,Lenoir
+8262,Lexington
+8263,Lincolnton
+8264,Long Beach
+8265,Lumberton
+8266,Marion
+8267,Masonboro
+8268,Matthews
+8269,Mebane
+8270,Mint Hill
+8271,Monroe
+8272,Mooresville
+8273,Morehead City
+8274,Morganton
+8275,Mount Airy
+8276,Mount Holly
+8277,Mount Olive
+8278,Myrtle Grove
+8279,New Bern
+8280,New Hope
+8281,New Hope
+8282,New River Station
+8283,Newton
+8284,North Hickory
+8285,Oxford
+8286,Parkwood
+8287,Pinehurst
+8288,Piney Green
+8289,Plymouth
+8290,Poplar Tent
+8291,Raleigh
+8292,Red Springs
+8293,Reidsville
+8294,River Road
+8295,Roanoke Rapids
+8296,Rockingham
+8297,Rocky Mount
+8298,Roxboro
+8299,Royal Pines
+8300,Salisbury
+8301,Sanford
+8302,Sawmills
+8303,Seagate
+8304,Selma
+8305,Shelby
+8306,Siler City
+8307,Silver Lake
+8308,Smith Creek
+8309,Smithfield
+8310,South Gastonia
+8311,Southern Pines
+8312,Spindale
+8313,Spring Lake
+8314,St. Stephens
+8315,Stanleyville
+8316,Statesville
+8317,Tarboro
+8318,Thomasville
+8319,Trinity
+8320,Valdese
+8321,Wake Forest
+8322,Washington
+8323,Waynesville
+8324,Weddington
+8325,Whiteville
+8326,Williamston
+8327,Wilmington
+8328,Wilson
+8329,Windemere
+8330,Winston-Salem
+8331,Wrightsboro
+8448,Belcourt
+8449,Beulah
+8450,Bismarck
+8451,Bottineau
+8452,Bowman
+8453,Carrington
+8454,Devils Lake
+8455,Dickinson
+8456,Ellendale
+8457,Fargo
+8458,Grafton
+8459,Grand Forks
+8460,Harvey
+8461,Hazen
+8462,Jamestown
+8463,Langdon
+8464,Lisbon
+8465,Mandan
+8466,Mayville
+8467,Minot
+8468,Oakes
+8469,Park River
+8470,Rugby
+8471,Valley City
+8472,Wahpeton
+8473,Watford City
+8474,West Fargo
+8475,Williston
+8704,Akron
+8705,Alliance
+8706,Amherst
+8707,Ashland
+8708,Ashtabula
+8709,Athens
+8710,Aurora
+8711,Austintown
+8712,Avon Lake
+8713,Barberton
+8714,Bay Village
+8715,Beachwood
+8716,Beavercreek
+8717,Bedford
+8718,Bedford Heights
+8719,Bellefontaine
+8720,Berea
+8721,Bexley
+8722,Blacklick Estates
+8723,Blue Ash
+8724,Boardman
+8725,Bowling Green
+8726,Brecksville
+8727,Bridgetown North
+8728,Broadview Heights
+8729,Brook Park
+8730,Brooklyn
+8731,Brunswick
+8732,Bucyrus
+8733,Cambridge
+8734,Campbell
+8735,Canton
+8736,Celina
+8737,Centerville
+8738,Cheviot
+8739,Chillicothe
+8740,Cincinnati
+8741,Circleville
+8742,Cleveland
+8743,Cleveland Heights
+8744,Columbus
+8745,Conneaut
+8746,Coshocton
+8747,Cuyahoga Falls
+8748,Dayton
+8749,Defiance
+8750,Delaware
+8751,Dover
+8752,Dublin
+8753,East Cleveland
+8754,East Liverpool
+8755,Eastlake
+8756,Elyria
+8757,Englewood
+8758,Euclid
+8759,Fairborn
+8760,Fairfield
+8761,Fairview Park
+8762,Findlay
+8763,Finneytown
+8764,Forest Park
+8765,Forestville
+8766,Fort McKinley
+8767,Fostoria
+8768,Franklin
+8769,Fremont
+8770,Gahanna
+8771,Galion
+8772,Garfield Heights
+8773,Girard
+8774,Greenville
+8775,Grove City
+8776,Hamilton
+8777,Hilliard
+8778,Huber Heights
+8779,Ironton
+8780,Kent
+8781,Kettering
+8782,Lakewood
+8783,Lancaster
+8784,Landen
+8785,Lebanon
+8786,Lima
+8787,Lincoln Village
+8788,Lorain
+8789,Loveland
+8790,Lyndhurst
+8791,Madeira
+8792,Mansfield
+8793,Maple Heights
+8794,Marietta
+8795,Marion
+8796,Marysville
+8797,Mason
+8798,Massillon
+8799,Maumee
+8800,Mayfield Heights
+8801,Medina
+8802,Mentor
+8803,Miamisburg
+8804,Middleburg Heights
+8805,Middletown
+8806,Montgomery
+8807,Mount Vernon
+8808,Napoleon
+8809,New Philadelphia
+8810,Newark
+8811,Niles
+8812,North Canton
+8813,North College Hill
+8814,North Madison
+8815,North Olmsted
+8816,North Ridgeville
+8817,North Royalton
+8818,Northbrook
+8819,Northridge
+8820,Northview
+8821,Norton
+8822,Norwalk
+8823,Norwood
+8824,Oakwood
+8825,Oregon
+8826,Overlook-Page Man
+8827,Oxford
+8828,Painesville
+8829,Parma
+8830,Parma Heights
+8831,Perry Heights
+8832,Perrysburg
+8833,Piqua
+8834,Portage Lakes
+8835,Portsmouth
+8836,Ravenna
+8837,Reading
+8838,Reynoldsburg
+8839,Richmond Heights
+8840,Rocky River
+8841,Salem
+8842,Sandusky
+8843,Seven Hills
+8844,Shaker Heights
+8845,Sharonville
+8846,Sheffield Lake
+8847,Shelby
+8848,Shiloh
+8849,Sidney
+8850,Solon
+8851,South Euclid
+8852,Springdale
+8853,Springfield
+8854,St. Marys
+8855,Steubenville
+8856,Stow
+8857,Streetsboro
+8858,Strongsville
+8859,Struthers
+8860,Sylvania
+8861,Tallmadge
+8862,Tiffin
+8863,Toledo
+8864,Trotwood
+8865,Troy
+8866,Twinsburg
+8867,University Heights
+8868,Upper Arlington
+8869,Urbana
+8870,Van Wert
+8871,Vandalia
+8872,Vermilion
+8873,W Carrollton City
+8874,Wadsworth
+8875,Wapakoneta
+8876,Warren
+8877,Warrensville Hts
+8878,Washington
+8879,Westerville
+8880,Westlake
+8881,White Oak
+8882,Whitehall
+8883,Wickliffe
+8884,Willoughby
+8885,Willoughby Hills
+8886,Willowick
+8887,Wilmington
+8888,Wooster
+8889,Worthington
+8890,Xenia
+8891,Youngstown
+8892,Zanesville
+8960,Ada
+8961,Altus
+8962,Alva
+8963,Anadarko
+8964,Ardmore
+8965,Bartlesville
+8966,Bethany
+8967,Bixby
+8968,Blackwell
+8969,Bristow
+8970,Broken Arrow
+8971,Chickasha
+8972,Choctaw
+8973,Claremore
+8974,Clinton
+8975,Coweta
+8976,Cushing
+8977,Del City
+8978,Duncan
+8979,Durant
+8980,Edmond
+8981,El Reno
+8982,Elk City
+8983,Enid
+8984,Fort Sill
+8985,Frederick
+8986,Glenpool
+8987,Grove
+8988,Guthrie
+8989,Guymon
+8990,Harrah
+8991,Henryetta
+8992,Hobart
+8993,Holdenville
+8994,Hugo
+8995,Idabel
+8996,Jenks
+8997,Kingfisher
+8998,Lawton
+8999,Lone Grove
+9000,Marlow
+9001,McAlester
+9002,Miami
+9003,Midwest City
+9004,Moore
+9005,Muskogee
+9006,Mustang
+9007,Newcastle
+9008,Nichols Hills
+9009,Noble
+9010,Norman
+9011,Oklahoma City
+9012,Okmulgee
+9013,Owasso
+9014,Pauls Valley
+9015,Perry
+9016,Ponca City
+9017,Poteau
+9018,Pryor Creek
+9019,Purcell
+9020,Sallisaw
+9021,Sand Springs
+9022,Sapulpa
+9023,Seminole
+9024,Shawnee
+9025,Skiatook
+9026,Spencer
+9027,Stillwater
+9028,Sulphur
+9029,Tahlequah
+9030,Tecumseh
+9031,The Village
+9032,Tulsa
+9033,Vinita
+9034,Wagoner
+9035,Warr Acres
+9036,Weatherford
+9037,Wewoka
+9038,Woodward
+9039,Yukon
+9216,Albany
+9217,Aloha
+9218,Altamont
+9219,Ashland
+9220,Astoria
+9221,Baker
+9222,Beaverton
+9223,Bend
+9224,Canby
+9225,Cedar Hills
+9226,Cedar Mill
+9227,Central Point
+9228,Coos Bay
+9229,Cornelius
+9230,Corvallis
+9231,Cottage Grove
+9232,Dallas
+9233,Eugene
+9234,Forest Grove
+9235,Four Corners
+9236,Gar Home-Whitford
+9237,Gladstone
+9238,Grants Pass
+9239,Gresham
+9240,Hayesville
+9241,Hazelwood
+9242,Hermiston
+9243,Hillsboro
+9244,Jennings Lodge
+9245,Keizer
+9246,Klamath Falls
+9247,La Grande
+9248,Lake Oswego
+9249,Lebanon
+9250,Lincoln City
+9251,McMinnville
+9252,Medford
+9253,Milwaukie
+9254,Monmouth
+9255,Newberg
+9256,Newport
+9257,North Bend
+9258,Oak Grove
+9259,Oak Hills
+9260,Oatfield
+9261,Ontario
+9262,Oregon City
+9263,Pendleton
+9264,Portland
+9265,Powellhurst
+9266,Raleigh Hills
+9267,Redmond
+9268,River Road
+9269,Rockcreek
+9270,Roseburg
+9271,Roseburg North
+9272,Salem
+9273,Santa Clara
+9274,Springfield
+9275,St. Helens
+9276,Sweet Home
+9277,The Dalles
+9278,Tigard
+9279,Troutdale
+9280,Tualatin
+9281,W Haven-Sylvan
+9282,West Linn
+9283,West Slope
+9284,Wilsonville
+9285,Woodburn
+9472,Aliquippa
+9473,Allentown
+9474,Altoona
+9475,Ardmore
+9476,Baldwin
+9477,Beaver Falls
+9478,Berwick
+9479,Bethel Park
+9480,Bethlehem
+9481,Bloomsburg
+9482,Bradford
+9483,Brentwood
+9484,Bristol
+9485,Broomall
+9486,Butler
+9487,Carbondale
+9488,Carlisle
+9489,Carnegie
+9490,Carnot-Moon
+9491,Chambersburg
+9492,Chester
+9493,Clairton
+9494,Coatesville
+9495,Colonial Park
+9496,Columbia
+9497,Croydon
+9498,Darby
+9499,Darby Township
+9500,Dormont
+9501,Drexel Hill
+9502,Dunmore
+9503,East Norriton
+9504,Easton
+9505,Economy
+9506,Elizabethtown
+9507,Emmaus
+9508,Ephrata
+9509,Erie
+9510,Franklin Park
+9511,Fullerton
+9512,Greensburg
+9513,Hampton
+9514,Hanover
+9515,Harrisburg
+9516,Harrison
+9517,Hazleton
+9518,Hermitage
+9519,Hershey
+9520,Horsham
+9521,Indiana
+9522,Jeannette
+9523,Jefferson
+9524,Johnstown
+9525,King of Prussia
+9526,Kingston
+9527,Lancaster
+9528,Lansdale
+9529,Lansdowne
+9530,Latrobe
+9531,Lebanon
+9532,Levittown
+9533,Lewistown
+9534,Lower Burrell
+9535,McCandless
+9536,McKeesport
+9537,Meadville
+9538,Mechanicsburg
+9539,Middletown
+9540,Monessen
+9541,Monroeville
+9542,Morrisville
+9543,Mount Lebanon
+9544,Munhall
+9545,Murrysville
+9546,Nanticoke
+9547,Nether Providence
+9548,New Castle
+9549,New Kensington
+9550,Norristown
+9551,North Versailles
+9552,Oil City
+9553,Penn Hills
+9554,Philadelphia
+9555,Philadelphia
+9556,Philadelphia
+9557,Phoenixville
+9558,Pittsburgh
+9559,Pittston
+9560,Plum
+9561,Pottstown
+9562,Pottsville
+9563,Progress
+9564,Radnor Township
+9565,Reading
+9566,Robinson
+9567,Ross Township
+9568,Scott Township
+9569,Scranton
+9570,Shaler Township
+9571,Sharon
+9572,South Park
+9573,Springfield
+9574,State College
+9575,Sunbury
+9576,Swissvale
+9577,Uniontown
+9578,Upper Providence
+9579,Upper St. Clair
+9580,Warren
+9581,Washington
+9582,Waynesboro
+9583,West Chester
+9584,West Mifflin
+9585,West Norriton
+9586,Whitehall
+9587,Wilkes-Barre
+9588,Wilkinsburg
+9589,Williamsport
+9590,Willow Grove
+9591,Woodlyn
+9592,Yeadon
+9593,York
+9728,Ashaway
+9729,Barrington
+9730,Bradford
+9731,Bristol
+9732,Central Falls
+9733,Cranston
+9734,Cumberland Hill
+9735,East Providence
+9736,Greenville
+9737,Harrisville
+9738,Hope Valley
+9739,Kingston
+9740,Melville
+9741,Narragansett Pier
+9742,Newport
+9743,Newport East
+9744,North Providence
+9745,Pascoag
+9746,Pawtucket
+9747,Providence
+9748,Tiverton
+9749,Valley Falls
+9750,Warwick
+9751,West Warwick
+9752,Westerly
+9753,Wkfield-Peacedale
+9754,Woonsocket
+9984,Abbeville
+9985,Aiken
+9986,Allendale
+9987,Anderson
+9988,Barnwell
+9989,Batesburg
+9990,Beaufort
+9991,Belton
+9992,Belvedere
+9993,Bennettsville
+9994,Berea
+9995,Brookdale
+9996,Burton
+9997,Camden
+9998,Cayce
+9999,Centerville
+10000,Charleston
+10001,Cheraw
+10002,Chester
+10003,Clearwater
+10004,Clemson
+10005,Clinton
+10006,Columbia
+10007,Conway
+10008,Darlington
+10009,Dentsville
+10010,Dillon
+10011,Dunean
+10012,Easley
+10013,Florence
+10014,Forest Acres
+10015,Fort Mill
+10016,Fountain Inn
+10017,Gaffney
+10018,Gantt
+10019,Garden City
+10020,Georgetown
+10021,Goose Creek
+10022,Greenville
+10023,Greenwood
+10024,Greer
+10025,Hanahan
+10026,Hartsville
+10027,Hilton Head Island
+10028,Homeland Park
+10029,Irmo
+10030,Ladson
+10031,Lake City
+10032,Lancaster
+10033,Laurel Bay
+10034,Laurens
+10035,Manning
+10036,Marion
+10037,Mauldin
+10038,Moncks Corner
+10039,Mount Pleasant
+10040,Mullins
+10041,Myrtle Beach
+10042,N Myrtle Beach
+10043,Newberry
+10044,North Augusta
+10045,North Charleston
+10046,Oak Grove
+10047,Orangeburg
+10048,Parker
+10049,Parris Island
+10050,Piedmont
+10051,Red Bank
+10052,Red Hill
+10053,Rock Hill
+10054,Sans Souci
+10055,Seneca
+10056,Seven Oaks
+10057,Simpsonville
+10058,Socastee
+10059,South Sumter
+10060,Spartanburg
+10061,St. Andrews
+10062,Summerville
+10063,Sumter
+10064,Taylors
+10065,Union
+10066,Valencia Heights
+10067,Wade Hampton
+10068,Walterboro
+10069,Welcome
+10070,West Columbia
+10071,Woodfield
+10072,Woodruff
+10073,York
+10240,Aberdeen
+10241,Belle Fourche
+10242,Box Elder
+10243,Brandon
+10244,Brookings
+10245,Canton
+10246,Chamberlain
+10247,Dell Rapids
+10248,Flandreau
+10249,Hot Springs
+10250,Huron
+10251,Lead
+10252,Madison
+10253,Milbank
+10254,Mitchell
+10255,Mobridge
+10256,North Spearfish
+10257,Pierre
+10258,Pine Ridge
+10259,Rapid City
+10260,Rapid Valley
+10261,Redfield
+10262,Sioux Falls
+10263,Spearfish
+10264,Sturgis
+10265,Vermillion
+10266,Watertown
+10267,Winner
+10268,Yankton
+10496,Alcoa
+10497,Athens
+10498,Bartlett
+10499,Bloomingdale
+10500,Bolivar
+10501,Brentwood
+10502,Bristol
+10503,Brownsville
+10504,Chattanooga
+10505,Church Hill
+10506,Clarksville
+10507,Cleveland
+10508,Clinton
+10509,Collegedale
+10510,Collierville
+10511,Colonial Heights
+10512,Columbia
+10513,Cookeville
+10514,Covington
+10515,Crossville
+10516,Dayton
+10517,Dickson
+10518,Dunlap
+10519,Dyersburg
+10520,Eagleton Village
+10521,East Brainerd
+10522,East Ridge
+10523,Elizabethton
+10524,Erwin
+10525,Etowah
+10526,Fairview
+10527,Farragut
+10528,Fayetteville
+10529,Forest Hills
+10530,Franklin
+10531,Gallatin
+10532,Germantown
+10533,Goodlettsville
+10534,Green Hill
+10535,Greeneville
+10536,Halls
+10537,Harriman
+10538,Harrison
+10539,Henderson
+10540,Hendersonville
+10541,Hohenwald
+10542,Humboldt
+10543,Huntingdon
+10544,Jackson
+10545,Jefferson City
+10546,Johnson City
+10547,Kingsport
+10548,Kingston
+10549,Knoxville
+10550,La Follette
+10551,La Vergne
+10552,Lawrenceburg
+10553,Lebanon
+10554,Lenoir City
+10555,Lewisburg
+10556,Lexington
+10557,Livingston
+10558,Loudon
+10559,Lynchburg
+10560,Manchester
+10561,Martin
+10562,Maryville
+10563,McKenzie
+10564,McMinnville
+10565,Memphis
+10566,Middle Valley
+10567,Milan
+10568,Millington
+10569,Morristown
+10570,Mount Carmel
+10571,Mount Juliet
+10572,Mount Pleasant
+10573,Murfreesboro
+10574,Nashville-Davidson
+10575,Newport
+10576,Oak Hill
+10577,Oak Ridge
+10578,Ooltewah
+10579,Paris
+10580,Pine Crest
+10581,Portland
+10582,Powell
+10583,Pulaski
+10584,Red Bank
+10585,Ripley
+10586,Rockwood
+10587,Rogersville
+10588,Savannah
+10589,Selmer
+10590,Sevierville
+10591,Seymour
+10592,Shelbyville
+10593,Signal Mountain
+10594,Smithville
+10595,Smyrna
+10596,Soddy-Daisy
+10597,South Cleveland
+10598,Sparta
+10599,Springfield
+10600,Sweetwater
+10601,Trenton
+10602,Tullahoma
+10603,Union City
+10604,Waverly
+10605,Winchester
+10752,Abilene
+10753,Addison
+10754,Alamo
+10755,Aldine
+10756,Alice
+10757,Allen
+10758,Alvin
+10759,Amarillo
+10760,Anderson Mill
+10761,Andrews
+10762,Angleton
+10763,Aransas Pass
+10764,Arlington
+10765,Athens
+10766,Austin
+10767,Azle
+10768,Balch Springs
+10769,Bay City
+10770,Baytown
+10771,Beaumont
+10772,Bedford
+10773,Beeville
+10774,Bellaire
+10775,Bellmead
+10776,Belton
+10777,Benbrook
+10778,Big Spring
+10779,Borger
+10780,Brenham
+10781,Bridge City
+10782,Brownfield
+10783,Brownsville
+10784,Brownwood
+10785,Bryan
+10786,Burkburnett
+10787,Burleson
+10788,Canyon
+10789,Canyon Lake
+10790,Carrollton
+10791,Cedar Hill
+10792,Channelview
+10793,Cleburne
+10794,Cleveland
+10795,Cloverleaf
+10796,Clute
+10797,College Station
+10798,Colleyville
+10799,Conroe
+10800,Converse
+10801,Coppell
+10802,Copperas Cove
+10803,Corpus Christi
+10804,Corsicana
+10805,Crystal City
+10806,Dallas
+10807,Dallas
+10808,Dallas
+10809,Deer Park
+10810,Del Rio
+10811,Denison
+10812,Denton
+10813,DeSoto
+10814,Dickinson
+10815,Donna
+10816,Dumas
+10817,Duncanville
+10818,Eagle Pass
+10819,Edinburg
+10820,El Campo
+10821,El Paso
+10822,Ennis
+10823,Euless
+10824,Farmers Branch
+10825,First Colony
+10826,Flower Mound
+10827,Forest Hill
+10828,Fort Bliss
+10829,Fort Hood
+10830,Fort Stockton
+10831,Fort Worth
+10832,Freeport
+10833,Friendswood
+10834,Gainesville
+10835,Galena Park
+10836,Galveston
+10837,Garland
+10838,Gatesville
+10839,Georgetown
+10840,Graham
+10841,Grand Prairie
+10842,Grapevine
+10843,Greenville
+10844,Groves
+10845,Haltom City
+10846,Harker Heights
+10847,Harlingen
+10848,Henderson
+10849,Hereford
+10850,Hewitt
+10851,Highland Park
+10852,Highland Village
+10853,Hillsboro
+10854,Houston
+10855,Houston
+10856,Houston
+10857,Humble
+10858,Huntsville
+10859,Hurst
+10860,Irving
+10861,Jacinto City
+10862,Jacksonville
+10863,Jollyville
+10864,Katy
+10865,Keller
+10866,Kerrville
+10867,Kilgore
+10868,Killeen
+10869,Kingsville
+10870,Kingwood
+10871,Kirby
+10872,La Marque
+10873,La Porte
+10874,Lake Jackson
+10875,Lamesa
+10876,Lancaster
+10877,Laredo
+10878,League City
+10879,Leon Valley
+10880,Levelland
+10881,Lewisville
+10882,Liberty
+10883,Live Oak
+10884,Lockhart
+10885,Longview
+10886,Lubbock
+10887,Lufkin
+10888,Mansfield
+10889,Marshall
+10890,McAllen
+10891,McKinney
+10892,Mercedes
+10893,Mesquite
+10894,Midland
+10895,Mineral Wells
+10896,Mission
+10897,Mission Bend
+10898,Missouri City
+10899,Monahans
+10900,Mount Pleasant
+10901,N Richland Hills
+10902,Nacogdoches
+10903,Nederland
+10904,New Braunfels
+10905,Odessa
+10906,Orange
+10907,Palestine
+10908,Pampa
+10909,Paris
+10910,Pasadena
+10911,Pearland
+10912,Pecan Grove
+10913,Pecos
+10914,Perryton
+10915,Pharr
+10916,Plainview
+10917,Plano
+10918,Pleasanton
+10919,Port Arthur
+10920,Port Lavaca
+10921,Port Neches
+10922,Portland
+10923,Raymondville
+10924,Rendon
+10925,Richardson
+10926,Richland Hills
+10927,Richmond
+10928,Rio Grande City
+10929,Robinson
+10930,Robstown
+10931,Rockwall
+10932,Roma
+10933,Rosenberg
+10934,Round Rock
+10935,Rowlett
+10936,Saginaw
+10937,San Angelo
+10938,San Antonio
+10939,San Antonio
+10940,San Antonio
+10941,San Benito
+10942,San Juan
+10943,San Marcos
+10944,Santa Fe
+10945,Schertz
+10946,Seagoville
+10947,Seguin
+10948,Sherman
+10949,Snyder
+10950,Socorro
+10951,South Houston
+10952,Southlake
+10953,Spring
+10954,Stafford
+10955,Stephenville
+10956,Sugar Land
+10957,Sulphur Springs
+10958,Sweetwater
+10959,Taylor
+10960,Temple
+10961,Terrell
+10962,Texarkana
+10963,Texas City
+10964,The Colony
+10965,The Woodlands
+10966,Tyler
+10967,Universal City
+10968,University Park
+10969,Uvalde
+10970,Vernon
+10971,Victoria
+10972,Vidor
+10973,Waco
+10974,Watauga
+10975,Waxahachie
+10976,Weatherford
+10977,Wells Branch
+10978,Weslaco
+10979,West Odessa
+10980,West University
+10981,Wharton
+10982,White Settlement
+10983,Wichita Falls
+10984,Woodway
+10985,Wylie
+10986,Zapata
+11008,Alpine
+11009,American Fork
+11010,Bountiful
+11011,Brigham City
+11012,Canyon Rim
+11013,Cedar City
+11014,Centerville
+11015,Clearfield
+11016,Clinton
+11017,Cottonwood Crk
+11018,Cottonwood Hts
+11019,Cottonwood West
+11020,Draper
+11021,East Millcreek
+11022,Ephraim
+11023,Farmington
+11024,Fruit Heights
+11025,Grantsville
+11026,Heber
+11027,Highland
+11028,Holladay-Cottonwd
+11029,Hooper
+11030,Hurricane
+11031,Hyrum
+11032,Kaysville
+11033,Kearns
+11034,Layton
+11035,Lehi
+11036,Lindon
+11037,Logan
+11038,Magna
+11039,Mapleton
+11040,Midvale
+11041,Millcreek
+11042,Moab
+11043,Mount Olympus
+11044,Murray
+11045,Nephi
+11046,North Logan
+11047,North Ogden
+11048,North Salt Lake
+11049,Ogden
+11050,Oquirrh
+11051,Orem
+11052,Park City
+11053,Payson
+11054,Pleasant Grove
+11055,Pleasant View
+11056,Price
+11057,Provo
+11058,Richfield
+11059,Riverdale
+11060,Riverton
+11061,Roosevelt
+11062,Roy
+11063,Salt Lake City
+11064,Sandy
+11065,Smithfield
+11066,South Jordan
+11067,South Ogden
+11068,South Salt Lake
+11069,Spanish Fork
+11070,Springville
+11071,St. George
+11072,Sunset
+11073,Syracuse
+11074,Taylorsville-Bennion
+11075,Tooele
+11076,Tremonton
+11077,Union
+11078,Val Verda
+11079,Vernal
+11080,Washington
+11081,Washington Ter
+11082,West Bountiful
+11083,West Jordan
+11084,West Point
+11085,West Valley City
+11086,White City
+11087,Woods Cross
+11264,Barre
+11265,Bellows Falls
+11266,Bennington
+11267,Brandon
+11268,Brattleboro
+11269,Bristol
+11270,Burlington
+11271,Essex Junction
+11272,Fair Haven
+11273,Graniteville
+11274,Middlebury
+11275,Milton
+11276,Montpelier
+11277,Morrisville
+11278,Newport
+11279,Northfield
+11280,Poultney
+11281,Rutland
+11282,South Burlington
+11283,Springfield
+11284,St. Albans
+11285,St. Johnsbury
+11286,Swanton
+11287,Vergennes
+11288,Waterbury
+11289,West Brattleboro
+11290,West Rutland
+11291,White River Junct
+11292,Wilder
+11293,Winooski
+11520,Abingdon
+11521,Alexandria
+11522,Annandale
+11523,Arlington
+11524,Bailey's Crossroads
+11525,Belle Haven
+11526,Blacksburg
+11527,Bon Air
+11528,Bristol
+11529,Burke
+11530,Cave Spring
+11531,Centreville
+11532,Chantilly
+11533,Charlottesville
+11534,Chesapeake
+11535,Chester
+11536,Christiansburg
+11537,Collinsville
+11538,Colonial Heights
+11539,Countryside
+11540,Covington
+11541,Culpeper
+11542,Dale City
+11543,Danville
+11544,Dumbarton
+11545,Dunn Loring
+11546,East Highland Park
+11547,Fairfax
+11548,Falls Church
+11549,Fort Belvoir
+11550,Fort Hunt
+11551,Fort Lee
+11552,Franconia
+11553,Franklin
+11554,Fredericksburg
+11555,Front Royal
+11556,Galax
+11557,Glen Allen
+11558,Gloucester Point
+11559,Great Falls
+11560,Groveton
+11561,Hampton
+11562,Harrisonburg
+11563,Herndon
+11564,Highland Springs
+11565,Hollins
+11566,Hopewell
+11567,Huntington
+11568,Hybla Valley
+11569,Idylwood
+11570,Jefferson
+11571,Lake Barcroft
+11572,Lake Ridge
+11573,Lakeside
+11574,Laurel
+11575,Leesburg
+11576,Lexington
+11577,Lincolnia
+11578,Lorton
+11579,Lynchburg
+11580,Madison Heights
+11581,Manassas
+11582,Manassas Park
+11583,Mantua
+11584,Marion
+11585,Martinsville
+11586,McLean
+11587,Mechanicsville
+11588,Merrifield
+11589,Montclair
+11590,Mount Vernon
+11591,Newington
+11592,Newport News
+11593,Norfolk
+11594,North Springfield
+11595,Oakton
+11596,Petersburg
+11597,Poquoson
+11598,Portsmouth
+11599,Pulaski
+11600,Quantico Station
+11601,Radford
+11602,Reston
+11603,Richmond
+11604,Roanoke
+11605,Rose Hill
+11606,Salem
+11607,Seven Corners
+11608,South Boston
+11609,Springfield
+11610,Staunton
+11611,Sterling
+11612,Sudley
+11613,Suffolk
+11614,Sugarland Run
+11615,Timberlake
+11616,Tuckahoe
+11617,Tysons Corner
+11618,University Heights
+11619,Vienna
+11620,Vinton
+11621,Virginia Beach
+11622,Waynesboro
+11623,West Gate
+11624,West Springfield
+11625,Williamsburg
+11626,Winchester
+11627,Wolf Trap
+11628,Woodbridge
+11629,Wytheville
+11776,Aberdeen
+11777,Alderwood Manor
+11778,Anacortes
+11779,Auburn
+11780,Bellevue
+11781,Bellingham
+11782,Black Diamond
+11783,Bothell
+11784,Bremerton
+11785,Bryn Mawr-Skyway
+11786,Burien
+11787,Cascade-Fairwood
+11788,Centralia
+11789,Covington
+11790,Des Moines
+11791,Dishman
+11792,E Wenatchee Bch
+11793,East Hill-Meridian
+11794,East Renton
+11795,Edgewood-N Hill
+11796,Edmonds
+11797,Elk Plain
+11798,Ellensburg
+11799,Esperance
+11800,Everett
+11801,Evergreen
+11802,Federal Way
+11803,Fort Lewis
+11804,Harbour Pointe
+11805,Hoquiam
+11806,Inglewood-Finn Hill
+11807,Kelso
+11808,Kenmore
+11809,Kennewick
+11810,Kent
+11811,Kingsgate
+11812,Kirkland
+11813,Lacey
+11814,Lake Serene
+11815,Lakeland North
+11816,Lakeland South
+11817,Lakewood
+11818,Longview
+11819,Lynnwood
+11820,Maple Valley
+11821,Martha Lake
+11822,Marysville
+11823,Mercer Island
+11824,Minnehaha
+11825,Moses Lake
+11826,Mount Vernon
+11827,Mountlake Terrace
+11828,Newport Hills
+11829,North Creek
+11830,North Marysville
+11831,Oak Harbor
+11832,Olympia
+11833,Opportunity
+11834,Orchards South
+11835,Paine Field
+11836,Parkland
+11837,Pasco
+11838,Pine Lake
+11839,Port Angeles
+11840,Pullman
+11841,Puyallup
+11842,Redmond
+11843,Renton
+11844,Richland
+11845,Richmond Highlands
+11846,Ridgecrest
+11847,Riverton
+11848,Sahalee
+11849,Salmon Creek
+11850,Sea-Tac
+11851,Seattle
+11852,Silver Lk-Fircrest
+11853,South Hill
+11854,Spanaway
+11855,Spokane
+11856,Sunnyside
+11857,Tacoma
+11858,Tukwila
+11859,Tumwater
+11860,University Place
+11861,Vancouver
+11862,W Lake Stevens
+11863,Walla Walla
+11864,Wenatchee
+11865,White Center
+11866,Woodinville
+11867,Yakima
+12032,Amherstdale
+12033,Barboursville
+12034,Beckley
+12035,Bethlehem
+12036,Blennerhassett
+12037,Bluefield
+12038,Bradley
+12039,Bridgeport
+12040,Brookhaven
+12041,Buckhannon
+12042,Charles Town
+12043,Charleston
+12044,Cheat Lake
+12045,Chester
+12046,Clarksburg
+12047,Coal Fork
+12048,Crab Orchard
+12049,Cross Lanes
+12050,Culloden
+12051,Dunbar
+12052,Elkins
+12053,Fairmont
+12054,Fayetteville
+12055,Follansbee
+12056,Grafton
+12057,Harts
+12058,Hinton
+12059,Hooverson Heights
+12060,Huntington
+12061,Hurricane
+12062,Kenova
+12063,Keyser
+12064,Kingwood
+12065,Lewisburg
+12066,Logan
+12067,Madison
+12068,Mannington
+12069,Martinsburg
+12070,McMechen
+12071,Milton
+12072,Montgomery
+12073,Moorefield
+12074,Morgantown
+12075,Moundsville
+12076,Mt Gay-Shamrock
+12077,Mullens
+12078,New Martinsville
+12079,Nitro
+12080,Oak Hill
+12081,Paden City
+12082,Parkersburg
+12083,Pea Ridge
+12084,Petersburg
+12085,Philippi
+12086,Pinch
+12087,Point Pleasant
+12088,Princeton
+12089,Ranson
+12090,Ravenswood
+12091,Richwood
+12092,Ripley
+12093,Salem
+12094,Shinnston
+12095,Sissonville
+12096,South Charleston
+12097,Spencer
+12098,St. Albans
+12099,St. Marys
+12100,Summersville
+12101,Teays Valley
+12102,Vienna
+12103,Weirton
+12104,Welch
+12105,Wellsburg
+12106,Weston
+12107,Westover
+12108,Wheeling
+12109,White Sulphur
+12110,Williamson
+12111,Williamstown
+12288,Allouez
+12289,Appleton
+12290,Ashwaubenon
+12291,Beaver Dam
+12292,Beloit
+12293,Brookfield
+12294,Cudahy
+12295,De Pere
+12296,Eau Claire
+12297,Fitchburg
+12298,Fond du Lac
+12299,Franklin
+12300,Germantown
+12301,Glendale
+12302,Green Bay
+12303,Greendale
+12304,Greenfield
+12305,Janesville
+12306,Kenosha
+12307,La Crosse
+12308,Madison
+12309,Manitowoc
+12310,Marshfield
+12311,Menasha
+12312,Menomonee Falls
+12313,Menomonie
+12314,Mequon
+12315,Middleton
+12316,Milwaukee
+12317,Muskego
+12318,Neenah
+12319,New Berlin
+12320,Oak Creek
+12321,Oshkosh
+12322,Racine
+12323,Sheboygan
+12324,Shorewood
+12325,South Milwaukee
+12326,Stevens Point
+12327,Sun Prairie
+12328,Superior
+12329,Two Rivers
+12330,Watertown
+12331,Waukesha
+12332,Wausau
+12333,Wauwatosa
+12334,West Allis
+12335,West Bend
+12336,Whitefish Bay
+12337,Wisconsin Rapids
+12544,Afton
+12545,Buffalo
+12546,Casper
+12547,Cheyenne
+12548,Cody
+12549,Douglas
+12550,Evanston
+12551,Evansville
+12552,Fox Farm-College
+12553,Gillette
+12554,Glenrock
+12555,Green River
+12556,Greybull
+12557,Jackson
+12558,Kemmerer
+12559,Lander
+12560,Laramie
+12561,Lovell
+12562,Lusk
+12563,Lyman
+12564,Mills
+12565,Newcastle
+12566,North Rock Spgs
+12567,Powell
+12568,Ranchettes
+12569,Rawlins
+12570,Riverton
+12571,Rock Springs
+12572,Saratoga
+12573,Sheridan
+12574,South Greeley
+12575,Thermopolis
+12576,Torrington
+12577,Wheatland
+12578,Worland
+12800,Canada
+12801,Mexico
+12802,Puerto Rico
+12803,Brazil
+12804,Argentina
+12805,England
+12806,Ireland
+12807,Germany
+12808,Spain
+12809,France
+12810,Netherlands
+12811,Austria
+12812,Belgium
+12813,Norway
+12814,Sweden
+12815,Japan
+12816,Korea
+12817,Australia
+12818,Nigeria
+12819,Ghana
+12820,Cameroon
+12821,Denmark
+12822,Luxembourg
+12823,Portugal
+12824,Scotland
+12825,Croatia
+12826,Czech Republic
+12827,Russia
+12828,Latvia
+12829,Ukraine
+12830,China
+12831,Vietnam
+12832,Wales
+12833,New Zealand
+12834,Iceland
+12835,Guam
+12836,N Ireland
+12837,South Africa
+12838,Guinea
+12839,Egypt
+12840,Morocco
+12841,Tunisia
+12842,Algeria
+12843,Ivory Coast
+12844,Chile
+12845,Cuba
+12846,Uruguay
+12847,Congo
+12848,Tanzania
+12849,Kenya
+12850,Israel
+12851,Canada
+12852,Germany
+12853,Australia
+12854,New Zealand
+12855,Canada
+12856,Germany
+12857,Australia
+12858,Sweden
+12859,Canada
+12860,Canada
+12861,Germany
+12862,Australia
+12863,Nigeria
+12864,Canada
+12865,England
+12866,Am Samoa
+12867,Australia
+12868,Sweden
+12869,Canada
+12870,Canada
+12871,Germany
+12872,Australia
+12873,Nigeria
+12874,Canada
+12875,England
+12876,Am Samoa
+12877,Canada
+12878,Germany
+12879,Canada
+12880,Germany
+12881,Australia
+12882,New Zealand
+12883,Canada
+12884,Germany
+12885,Australia
+12886,Sweden
+12887,Canada
+12888,Canada
+12889,Germany
+12890,Australia
+12891,Nigeria
+12892,Canada
+12893,England
+12894,Am Samoa
+13056,Washington

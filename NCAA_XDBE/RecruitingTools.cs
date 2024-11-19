@@ -755,6 +755,42 @@ namespace DB_EDITOR
             progressBar1.Value = 0;
         }
 
+        private void CalculatePOSGRankings(List<List<int>> recruits)
+        {
+            progressBar1.Visible = true;
+            progressBar1.Value = 0;
+            progressBar1.Maximum = 10;
+
+            for(int p = 0; p < 10; p++)
+            {
+                List<List<int>> list = new List<List<int>>();
+
+                foreach (var recruit in recruits)
+                {
+                    if (recruit[2] == p)
+                    {
+                        list.Add(recruit);
+                    }
+                }
+
+                list.Sort((player1, player2) => player2[1].CompareTo(player1[1]));
+
+                int rank = 0;
+                foreach (var player in list)
+                {
+                    ChangeDB2Int("RCPT", "RCRK", player[3], rank);
+
+                    rank++;
+                }
+
+                progressBar1.PerformStep();
+            }
+
+
+            progressBar1.Visible = false;
+            progressBar1.Value = 0;
+        }
+
         //Record Star Rating Update
         private void RecordRecruitStarRating(int i,  List<List<int>> recruits, int star)
         {
@@ -789,6 +825,8 @@ namespace DB_EDITOR
                     recruits.Add(new List<int>());
                     recruits[row].Add(GetDB2ValueInt("RCPT", "PRID", i));
                     recruits[row].Add(GetDB2ValueInt("RCPT", "POVR", i));
+                    recruits[row].Add(GetPOSGfromPPOS(GetDB2ValueInt("RCPT", "PPOS", i)));
+                    recruits[row].Add(i);
                     row++;
                 }
                 else if (GetDB2ValueInt("RCPT", "PRID", i) >= 21000)  //transfers
@@ -796,19 +834,25 @@ namespace DB_EDITOR
                     transfers.Add(new List<int>());
                     transfers[rowT].Add(GetDB2ValueInt("RCPT", "PRID", i));
                     transfers[rowT].Add(GetDB2ValueInt("RCPT", "POVR", i));
+                    transfers[rowT].Add(GetPOSGfromPPOS(GetDB2ValueInt("RCPT", "PPOS", i)));
+                    transfers[rowT].Add(i);
                     rowT++;
                 }
 
                 progressBar1.PerformStep();
             }
 
+            progressBar1.Visible = false;
+            progressBar1.Value = 0;
+
+
             recruits.Sort((player1, player2) => player2[1].CompareTo(player1[1]));
             CalculateRecruitStarRating(recruits);
+            CalculatePOSGRankings(recruits);
 
             transfers.Sort((player1, player2) => player2[1].CompareTo(player1[1]));
             CalculateRecruitStarRating(transfers);
-
-            progressBar1.Visible = false;
+            CalculatePOSGRankings(transfers);
 
             MessageBox.Show("Recruit & Transfer Star Ratings Recalculated!");
 

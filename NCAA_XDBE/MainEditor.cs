@@ -46,6 +46,7 @@ namespace DB_EDITOR
         int PlayerIndex;
         int CoachIndex;
         int DepthChartIndex;
+        int RecruitIndex;
 
         Color primary = Color.Black;
         Color secondary = Color.White;
@@ -56,6 +57,7 @@ namespace DB_EDITOR
         List<List<string>> TeamColorPalettes = new List<List<string>>();
         List<List<string>> PlayerEditorList;
         List<List<string>> CoachEditorList;
+        List<List<string>> RecruitEditorList;
         List<int> PJENList;
 
 
@@ -1015,7 +1017,6 @@ namespace DB_EDITOR
             CreatePOCItable();
         }
 
-
         private void OGConfigRadio_CheckedChanged(object sender, EventArgs e)
         {
             NCAANext25Config.Checked = false;
@@ -1048,6 +1049,7 @@ namespace DB_EDITOR
             else if (tabControl1.SelectedTab == tabHome) StartHomeTab();
             else if (tabControl1.SelectedTab == tabUniforms) StartUniformEditor();
             else if (tabControl1.SelectedTab == tabBowls) StartBowlEditor();
+            else if (tabControl1.SelectedTab == tabRecruits) StartRecruitEditor();
 
         }
 

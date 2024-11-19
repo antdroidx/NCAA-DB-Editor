@@ -250,4 +250,7 @@
   <data name="PLYL_NEXT25" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\playbooks\PLYL-NEXT25.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
+  <data name="RCHT" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\players\RCHT.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
 </root>

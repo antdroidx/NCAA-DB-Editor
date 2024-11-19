@@ -707,6 +707,8 @@ namespace DB_EDITOR
                     if (table.Name == "RCPT" && !BigEndian)
                     {
                         if (!checkTabExists("Recruiting")) tabControl1.TabPages.Add(tabOffSeason);
+                        if (!checkTabExists("Recruits")) tabControl1.TabPages.Add(tabRecruits);
+
                     }
                     if (table.Name == "UNIF" && !BigEndian)
                     {
