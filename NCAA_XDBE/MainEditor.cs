@@ -274,7 +274,8 @@ namespace DB_EDITOR
                     {
                         //Checks to see if a second database exists and if so, store it in off-season db array
                         //Checks using bin values of the first four bytes of database header
-                        if (array[j] == 68 && array[j + 1] == 66 && array[j + 2] == 0 && array[j + 3] == 8 && activeDB == 1)
+                        //if (array[j] == 68 && array[j + 1] == 66 && array[j + 2] == 0 && array[j + 3] == 8 && activeDB == 1)
+                        if (array[j] == 68 && array[j + 1] == 66 && array[j + 2] == 0 && array[j + 3] == 8 && array[j + 4] == 0 && array[j + 5] == 0 && activeDB == 1)
                         {
                             for (int k = j; k < array.Length; k++)
                             {

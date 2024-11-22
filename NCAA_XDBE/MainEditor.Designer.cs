@@ -842,6 +842,7 @@ namespace DB_EDITOR
             this.buttonCalcOverall = new System.Windows.Forms.Button();
             this.buttonRandPotential = new System.Windows.Forms.Button();
             this.bodyFix = new System.Windows.Forms.Button();
+            this.RecruitPitch = new System.Windows.Forms.Label();
             qbTend = new System.Windows.Forms.Button();
             this.mainMenu.SuspendLayout();
             this.tableMenu.SuspendLayout();
@@ -1914,6 +1915,7 @@ namespace DB_EDITOR
             // tabRecruits
             // 
             this.tabRecruits.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.tabRecruits.Controls.Add(this.RecruitPitch);
             this.tabRecruits.Controls.Add(this.UpdateRecruitOffers);
             this.tabRecruits.Controls.Add(this.label207);
             this.tabRecruits.Controls.Add(this.RecruitDataGrid);
@@ -10119,6 +10121,16 @@ namespace DB_EDITOR
             this.bodyFix.UseVisualStyleBackColor = false;
             this.bodyFix.Click += new System.EventHandler(this.BodyFix_Click);
             // 
+            // RecruitPitch
+            // 
+            this.RecruitPitch.AutoSize = true;
+            this.RecruitPitch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RecruitPitch.Location = new System.Drawing.Point(745, 381);
+            this.RecruitPitch.Name = "RecruitPitch";
+            this.RecruitPitch.Size = new System.Drawing.Size(193, 20);
+            this.RecruitPitch.TabIndex = 169;
+            this.RecruitPitch.Text = "Favorite Pitch: xxxxxxxx";
+            // 
             // MainEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -11105,6 +11117,7 @@ namespace DB_EDITOR
         private DataGridViewComboBoxColumn RCTeam;
         private DataGridViewTextBoxColumn RCTScore;
         private System.Windows.Forms.Button UpdateRecruitOffers;
+        private Label RecruitPitch;
     }
 }
 

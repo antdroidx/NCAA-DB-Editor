@@ -487,6 +487,7 @@ namespace DB_EDITOR
 
 
             LoadRecruitingTable();
+            RecruitPitch.Text = "Favorite Pitch: " + GetRecruitPitch(GetDB2ValueInt("RCPR", "PIT1", RecruitIndex));
 
             DoNotTrigger = false;
         }
