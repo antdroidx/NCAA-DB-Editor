@@ -1019,7 +1019,6 @@ namespace DB_EDITOR
         }
 
 
-
         private void OGConfigRadio_CheckedChanged(object sender, EventArgs e)
         {
             NCAANext25Config.Checked = false;

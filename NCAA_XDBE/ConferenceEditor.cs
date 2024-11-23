@@ -231,7 +231,7 @@ namespace DB_EDITOR
             FCSSwapListBox.Items.Clear();
             for (int i = 0; i < GetTableRecCount("TEAM"); i++)
             {
-                if (GetDBValueInt("TEAM", "TTYP", i) == 1)
+                if (GetDBValueInt("TEAM", "TTYP", i) == 1 || GetDBValueInt("TEAM", "TTYP", i) == 6)
                     FCSSwapListBox.Items.Add(GetDBValue("TEAM", "TDNA", i) + " [" + GetDBValue("TEAM", "TMPR", i) + "]");
             }
         }
@@ -322,8 +322,6 @@ namespace DB_EDITOR
                             break;
                         }
                     }
-
-
                 }
             }
 
@@ -507,12 +505,29 @@ namespace DB_EDITOR
             }
 
             RecalculateOverall();
-            CalculateTeamRatingsSingle("TEAM", tgid);
-            DepthChartMakerSingle("TEAM", tgid);
+            CalculateTeamRatingsSingle("TEAM", NEWtgid);
+            DepthChartMakerSingle("TEAM", NEWtgid);
 
             //Select new coach
             SelectFCSCoach(NEWtgid);
+            RemoveOldCoach(tgid);
             ReorderTORD();
+
+            if(dbIndex2 == 1)
+            {
+                for(int i = 0; i < GetTableRecCount("PLAY"); i++)
+                {
+                    if (GetDBValueInt("PLAY", "PGID", i) >= PGIDbeg && GetDBValueInt("PLAY", "PGID", i) <= PGIDend)
+                    {
+                        if(GetDBValueInt("PLAY", "PYER", i) == 3)
+                        {
+                            ChangeDBInt("PLAY", "PTYP", i, 3);
+                        }
+                    }
+                }
+
+            }
+
             MessageBox.Show("Swapping Process Complete.");
         }
 
@@ -565,6 +580,15 @@ namespace DB_EDITOR
             }
         }
 
+        private void RemoveOldCoach(int tgid)
+        {
+            int i = FindCOCHRecordfromTeamTGID(tgid);
+            ChangeDBString("COCH", "CCPO", i, "60");
+            ChangeDBString("COCH", "CTYR", i, "0");
+            ChangeDBString("COCH", "TGID", i, "511");
+            ChangeDBString("COCH", "CLTF", i, "511");
+        }
+
         public void ClearTeamPlayers(int tgid)
         {
             int pgidBeg = tgid * 70;
@@ -576,6 +600,15 @@ namespace DB_EDITOR
                     DeleteRecordChange("PLAY", i, true);
                 }
             }
+
+            for (int i = 0; i < GetTableRecCount("TRAN"); i++)
+            {
+                if (GetDBValueInt("TRAN", "PGID", i) >= pgidBeg && GetDBValueInt("TRAN", "PGID", i) <= pgidEnd)
+                {
+                    DeleteRecordChange("TRAN", i, true);
+                }
+            }
+
             CompactDB();
         }
 

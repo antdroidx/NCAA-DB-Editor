@@ -16,6 +16,8 @@ namespace DB_EDITOR
 
         public void StartRecruitEditor()
         {
+            TransferTeam.Visible = false;
+
             AddFilters();
             LoadRCPTBox();
         }
@@ -343,6 +345,25 @@ namespace DB_EDITOR
             //PGID Box
             PRIDBox.Text = GetDB2Value("RCPT", "PRID", RecruitIndex);
 
+            TransferTeam.Visible = false;
+            if(GetDB2ValueInt("RCPT", "PRID", RecruitIndex) >= 21000)
+            {
+                TransferTeam.Visible = true;
+                string transfer = "";
+                int prid = GetDB2ValueInt("RCPT", "PRID", RecruitIndex);
+                for(int i = 0; i < GetTableRecCount("TRAN"); i++)
+                {
+                    if(GetDBValueInt("TRAN", "PGID", i) == prid)
+                    {
+                        transfer = teamNameDB[GetDBValueInt("TRAN", "PTID", i)];
+                        break;
+                    }
+                }
+
+                TransferTeam.Text = "Transferring from " + transfer;
+
+            }
+
             //Year & Redshirt
             AddRYearItems();
             RYER.SelectedIndex = GetDB2ValueInt("RCPT", "PYER", RecruitIndex);
@@ -488,6 +509,8 @@ namespace DB_EDITOR
 
             LoadRecruitingTable();
             RecruitPitch.Text = "Favorite Pitch: " + GetRecruitPitch(GetDB2ValueInt("RCPR", "PIT1", RecruitIndex));
+
+
 
             DoNotTrigger = false;
         }

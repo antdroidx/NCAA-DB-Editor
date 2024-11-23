@@ -734,7 +734,32 @@ namespace DB_EDITOR
             GetCoachEditorData(CoachIndex);
             MessageBox.Show("Coach Creation Completed!");
         }
+
+        private void SetMaxCoachCCPO_Click(object sender, EventArgs e)
+        {
+            SetMaxCoachCCPOValue();
+        }
         #endregion
+
+        private void SetMaxCoachCCPOValue()
+        {
+            progressBar1.Visible = true;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = GetTableRecCount("COCH");
+
+            int maxval = Convert.ToInt32(MaxCCPOVal.Value);
+
+            for(int i = 0; i < GetTableRecCount("COCH"); i++)
+            {
+                if(GetDBValueInt("COCH", "CCPO", i) > maxval)
+                    ChangeDBInt("COCH", "CCPO", i, maxval);
+
+                progressBar1.PerformStep();
+            }
+
+            MessageBox.Show("Max Value Set!");
+
+        }
 
     }
 }
