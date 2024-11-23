@@ -95,7 +95,9 @@ namespace DB_EDITOR
             {
                 if (GetDBValueInt("CONF", "LGID", i) == 0)
                 {
-                    AddTeamsToConfSetup(GetDBValueInt("CONF", "CGID", i), confBoxes[box], i, confNames[box]);
+                    double avgPrestige = AddTeamsToConfSetup(GetDBValueInt("CONF", "CGID", i), confBoxes[box], i, confNames[box]);
+                    confNames[box].Text += " [" + avgPrestige.ToString("0.00") + "]"; 
+                 
                     box++;
                 }
             }
@@ -116,16 +118,24 @@ namespace DB_EDITOR
         }
 
         //Add Teams to Conferences and Label the Conference
-        private void AddTeamsToConfSetup(int conf, CheckedListBox conferenceBox, int confRec, Label confName)
+        private double AddTeamsToConfSetup(int conf, CheckedListBox conferenceBox, int confRec, Label confName)
         {
+            double prestige = 0;
+            double teams = 0;
+            double avg = 0;
             for (int i = 0; i < GetTableRecCount("TEAM"); i++)
             {
                 if (GetDBValueInt("TEAM", "CGID", i) == conf)
                 {
                     conferenceBox.Items.Add(GetDBValue("TEAM", "TDNA", i) + " [" + GetDBValue("TEAM", "TMPR", i) +"]");
                     confName.Text = GetDBValue("CONF", "CNAM", confRec);
+                    prestige += GetDBValueInt("TEAM", "TMPR", i);
+                    teams++;
                 }
             }
+            if (teams  > 0) avg = prestige / teams;
+            return avg;
+
         }
 
 
@@ -204,7 +214,7 @@ namespace DB_EDITOR
 
                     if (EnableFCSSwapBox.Checked) teamsSelected += FCSSwapListBox.Text;
 
-                    MessageBox.Show(teamsSelected);
+                    //MessageBox.Show(teamsSelected);
                 }
 
             }
@@ -263,7 +273,7 @@ namespace DB_EDITOR
                 }
             }
 
-            if (EnableFCSSwapBox.Checked) TeamB = FCSSwapListBox.Text;
+            if (EnableFCSSwapBox.Checked) TeamB = FCSSwapListBox.Text.Substring(0, FCSSwapListBox.Text.Length - 4);
 
             int recA = FindTeamRecfromTeamName(TeamA);
             int recB = FindTeamRecfromTeamName(TeamB);
@@ -300,6 +310,21 @@ namespace DB_EDITOR
                 if (SwapRosterBox.SelectedIndex == 0) SwapRosters(recA, recB);
                 else if (SwapRosterBox.SelectedIndex == 1) GenerateFCSRosters(recA, recB);
                 else NoRosterOption(recA, recB);
+
+                if (dbIndex2 != -1)
+                {
+                    int tgidA = GetTeamTGIDfromRecord(recA);
+                    for (int x = 0; x < GetTable2RecCount("RTRI"); x++)
+                    {
+                        if(tgidA == GetDB2ValueInt("RTRI", "TGID", x))
+                        {
+                            ChangeDB2Int("RTRI", "TGID", x, GetDBValueInt("TEAM", "TGID", recB));
+                            break;
+                        }
+                    }
+
+
+                }
             }
 
         }
