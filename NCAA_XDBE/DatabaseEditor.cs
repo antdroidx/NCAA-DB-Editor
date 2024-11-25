@@ -440,11 +440,9 @@ namespace DB_EDITOR
                     }
                     else if (FieldProps.FieldType == TdbFieldType.tdbFloat)
                     {
-                        //float floatval;
-                        double floatval;
+                        float floatval;
                         floatval = TDB.TDBFieldGetValueAsFloat(dbSelected, TableProps.Name, FieldProps.Name, r);
-
-                        DataGridRow[tmpf + 1] = floatval;
+                        DataGridRow[tmpf + 1] = floatval.ToString("0.00");
                     }
                     else if (FieldProps.FieldType == TdbFieldType.tdbBinary || FieldProps.FieldType == TdbFieldType.tdbVarchar || FieldProps.FieldType == TdbFieldType.tdbLongVarchar)
                     {
@@ -721,6 +719,10 @@ namespace DB_EDITOR
                     if (table.Name == "PACL" && !BigEndian)
                     {
                         if (checkTabExists("Bowls")) tabControl1.TabPages.Remove(tabBowls);
+                    }
+                    if (table.Name == "SCHD" && !BigEndian)
+                    {
+                        if (!checkTabExists("Schedule")) tabControl1.TabPages.Add(tabSchedule);
                     }
                 }
             }

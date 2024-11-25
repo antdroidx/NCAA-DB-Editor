@@ -163,10 +163,17 @@ namespace DB_EDITOR
 
             //Team Ratings
             TeamOVRtextbox.Text = GetDBValue("TEAM", "TROV", EditorIndex);
+            TeamOffRating.Text = GetDBValue("TEAM", "TROF", EditorIndex);
+            TeamDefRating.Text = GetDBValue("TEAM", "TRDE", EditorIndex);
+            TeamSTRating.Text = GetDBValue("TEAM", "TRST", EditorIndex);
+
             TMPRNumBox.Value = GetDBValueInt("TEAM", "TMPR", EditorIndex);
             TMARNumBox.Value = GetDBValueInt("TEAM", "TMAR", EditorIndex);
 
             TeamOVRtextbox.BackColor = GetRatingColor(TeamOVRtextbox).BackColor;
+            TeamOffRating.BackColor = GetRatingColor(TeamOffRating).BackColor;
+            TeamDefRating.BackColor = GetRatingColor(TeamDefRating).BackColor;
+            TeamSTRating.BackColor = GetRatingColor(TeamSTRating).BackColor;
             TMPRNumBox.BackColor = GetPrestigeColor(TMPRNumBox).BackColor;
             TMARNumBox.BackColor = GetPrestigeColor(TMARNumBox).BackColor;
 

@@ -956,5 +956,31 @@ namespace DB_EDITOR
 
         }
 
+
+        //Remove Mediocre Transfers from Portal
+        private void RemoveBadTransfers_Click(object sender, EventArgs e)
+        {
+            RemoveTransfers();
+        }
+
+        private void RemoveTransfers()
+        {
+            int count = 0;
+            for(int i = 0; i < GetTableRecCount("TRAN"); i++)
+            {
+                int rec = FindPGIDRecord(GetDBValueInt("TRAN", "PGID", i));
+                int povr = GetDBValueInt("PLAY", "POVR", rec);
+                if(povr < 8)
+                {
+                    DeleteRecordChange("PLAY", rec, true);
+                    DeleteRecordChange("TRAN", i, true);
+                    count++;
+                }
+            }
+
+            CompactDB();
+
+            MessageBox.Show("Completed! Removed " + count + " players from the database.");
+        }
     }
 }

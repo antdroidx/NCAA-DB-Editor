@@ -932,8 +932,8 @@ namespace DB_EDITOR
                 meanDef = defRatings.Average();
                 int rangeOff = offRatings.Max() - offRatings.Min();
                 int rangeDef = defRatings.Max() - defRatings.Min();
-                rangeOffFactor = 44 / rangeOff;
-                rangeDefFactor = 44 / rangeDef;
+                rangeOffFactor = 50 / rangeOff;
+                rangeDefFactor = 50 / rangeDef;
             }
 
             //Calculate Normalized Rating on a 55-99scale
@@ -975,7 +975,7 @@ namespace DB_EDITOR
             int rank = 1;
             foreach (var team in teams)
             {
-                ChangeDBInt("TEAM", "TBRK", team[1], rank);
+                ChangeDBInt("TEAM", "TCRK", team[1], rank);
                 rank++;
             }
 

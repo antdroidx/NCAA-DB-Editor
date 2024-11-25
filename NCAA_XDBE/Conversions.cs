@@ -1416,6 +1416,32 @@ namespace DB_EDITOR
             return colorBox;
         }
 
+        private DataGridViewCell GetDataGridTextColor(DataGridViewCell colorBox)
+        {
+
+            if (Convert.ToInt32(colorBox.Value) < 60) colorBox.Style.BackColor = Color.FromArgb(255, 199, 206);
+            else if (Convert.ToInt32(colorBox.Value) < 70) colorBox.Style.BackColor = Color.Orange;
+            else if (Convert.ToInt32(colorBox.Value) < 80) colorBox.Style.BackColor = Color.PeachPuff;
+            else if (Convert.ToInt32(colorBox.Value) < 90) colorBox.Style.BackColor = Color.LightGreen;
+            else if (Convert.ToInt32(colorBox.Value) < 95) colorBox.Style.BackColor = Color.LightBlue;
+            else colorBox.Style.BackColor = Color.MediumPurple;
+
+            return colorBox;
+        }
+
+        private DataGridViewCell GetDataGridPrestigeTextColor(DataGridViewCell colorBox)
+        {
+
+            if (Convert.ToInt32(colorBox.Value) <= 0) colorBox.Style.BackColor = Color.FromArgb(255, 199, 206);
+            else if (Convert.ToInt32(colorBox.Value) <= 1) colorBox.Style.BackColor = Color.FromArgb(255, 199, 206);
+            else if (Convert.ToInt32(colorBox.Value) <= 2) colorBox.Style.BackColor = Color.Orange;
+            else if (Convert.ToInt32(colorBox.Value) <= 3) colorBox.Style.BackColor = Color.PeachPuff;
+            else if (Convert.ToInt32(colorBox.Value) <= 4) colorBox.Style.BackColor = Color.LightGreen;
+            else if (Convert.ToInt32(colorBox.Value) <= 5) colorBox.Style.BackColor = Color.LightBlue;
+            else colorBox.Style.BackColor = Color.MediumPurple;
+
+            return colorBox;
+        }
         #endregion
 
         #region CSV Tools
@@ -1543,10 +1569,6 @@ namespace DB_EDITOR
         }
 
         #endregion
-
-
-
-
 
     }
 }

@@ -59,6 +59,7 @@ namespace DB_EDITOR
         List<List<string>> CoachEditorList;
         List<List<string>> RecruitEditorList;
         List<int> PJENList;
+        List<List<int>> MasterSchedule;
 
 
         int OCAPmem, DCAPmem, TSI1mem, TSI2mem, TPIOmem, TPIDmem;
@@ -169,6 +170,7 @@ namespace DB_EDITOR
             tabControl1.TabPages.Remove(tabUniforms);
             tabControl1.TabPages.Remove(tabBowls);
             tabControl1.TabPages.Remove(tabStats);
+            tabControl1.TabPages.Remove(tabSchedule);
 
 
 
@@ -485,6 +487,7 @@ namespace DB_EDITOR
 
         private void CloseMenuItem_Click(object sender, EventArgs e)
         {
+            DoNotTrigger = true;
             if (DBModified)
             {
                 DialogResult result;
@@ -509,7 +512,7 @@ namespace DB_EDITOR
                 DefaultSettings();
             }
 
-
+            DoNotTrigger = false;
         }
 
         public bool CloseDB(int DBIndex)
@@ -1018,7 +1021,6 @@ namespace DB_EDITOR
             CreatePOCItable();
         }
 
-
         private void OGConfigRadio_CheckedChanged(object sender, EventArgs e)
         {
             NCAANext25Config.Checked = false;
@@ -1052,6 +1054,7 @@ namespace DB_EDITOR
             else if (tabControl1.SelectedTab == tabUniforms) StartUniformEditor();
             else if (tabControl1.SelectedTab == tabBowls) StartBowlEditor();
             else if (tabControl1.SelectedTab == tabRecruits) StartRecruitEditor();
+            else if (tabControl1.SelectedTab == tabSchedule) StartScheduleEditor();
 
         }
 

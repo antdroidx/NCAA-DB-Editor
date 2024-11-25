@@ -86,6 +86,9 @@
     <Compile Include="RecruitEditor.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="ScheduleEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="_UNUSED_.cs">
       <SubType>Form</SubType>
     </Compile>

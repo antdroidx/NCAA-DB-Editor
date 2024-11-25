@@ -315,6 +315,8 @@ namespace DB_EDITOR
         private void LoadRecruitData()
         {
             DoNotTrigger = true;
+            TransferTeam.Visible = false;
+
 
             //Player Name
             PFNABox.Text = GetDB2Value("RCPT", "PFNA", RecruitIndex);
@@ -387,6 +389,8 @@ namespace DB_EDITOR
 
             //Athlete
             if (GetDB2ValueInt("RCPT", "RATH", RecruitIndex) == 1) AthleteBox.Checked = true;
+            else AthleteBox.Checked = false;
+
 
             //Commitment Status
             CommitStatus.Checked = false;
