@@ -146,7 +146,6 @@ namespace DB_EDITOR
             addendum = false;
             importRec = false;
 
-            DoNotTrigger = false;
 
             coachProgComplete = false;
             TDYN = false;
@@ -185,6 +184,9 @@ namespace DB_EDITOR
 
             DB2Button.Enabled = false;
             DB1Button.Checked = true;
+
+            DoNotTrigger = false;
+
         }
 
         #region OPEN, SAVE & CLOSE

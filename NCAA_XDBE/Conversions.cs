@@ -1418,6 +1418,7 @@ namespace DB_EDITOR
 
         private DataGridViewCell GetDataGridTextColor(DataGridViewCell colorBox)
         {
+            if (Convert.ToString(colorBox.Value) == "") return colorBox;
 
             if (Convert.ToInt32(colorBox.Value) < 60) colorBox.Style.BackColor = Color.FromArgb(255, 199, 206);
             else if (Convert.ToInt32(colorBox.Value) < 70) colorBox.Style.BackColor = Color.Orange;
@@ -1431,6 +1432,7 @@ namespace DB_EDITOR
 
         private DataGridViewCell GetDataGridPrestigeTextColor(DataGridViewCell colorBox)
         {
+            if (Convert.ToString(colorBox.Value) == "") return colorBox;
 
             if (Convert.ToInt32(colorBox.Value) <= 0) colorBox.Style.BackColor = Color.FromArgb(255, 199, 206);
             else if (Convert.ToInt32(colorBox.Value) <= 1) colorBox.Style.BackColor = Color.FromArgb(255, 199, 206);

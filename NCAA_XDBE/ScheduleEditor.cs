@@ -99,6 +99,7 @@ namespace DB_EDITOR
 
         private void ScheduleView_RowEnter(object sender, DataGridViewCellEventArgs e)
         {
+            if (DoNotTrigger) return;
             int row = (e.RowIndex);
 
             string hometeam = Convert.ToString(ScheduleView.Rows[row].Cells[1].Value);
