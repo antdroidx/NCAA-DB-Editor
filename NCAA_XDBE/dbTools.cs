@@ -21,6 +21,22 @@ namespace DB_EDITOR
         {
             AddAttributesToBoxes();
             AddPositionsToBoxes();
+
+            //Fantasy Roster Gen Options
+            if (TDYN)
+            {
+                FantasyTeamDB.Enabled = false;
+                FantasyTeamDB.Checked = false;
+                FantasyCSV.Enabled = true;
+                FantasyCSV.Checked = true;
+            } 
+            else
+            {
+                FantasyTeamDB.Enabled = true;
+                FantasyTeamDB.Checked = true;
+                FantasyCSV.Enabled = true;
+                FantasyCSV.Checked = false;
+            }
         }
 
         #region MAIN DB TOOLS CLICKS
@@ -1565,12 +1581,19 @@ namespace DB_EDITOR
         {
             int value = 0;
 
-            for (int i = 0; i < teamData.Count; i++)
+            if (FantasyCSV.Checked)
             {
-                if (teamData[i][0] == Convert.ToString(TGID))
+                for (int i = 0; i < teamData.Count; i++)
                 {
-                    return Convert.ToInt32(teamData[i][2]);
+                    if (teamData[i][0] == Convert.ToString(TGID))
+                    {
+                        return Convert.ToInt32(teamData[i][2]);
+                    }
                 }
+            }
+            else
+            {
+                value = FindTeamPrestige(TGID);
             }
 
             return value;

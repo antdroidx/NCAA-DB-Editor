@@ -412,7 +412,6 @@ namespace DB_EDITOR
             this.textBoxOffSeasonTitle = new System.Windows.Forms.TextBox();
             this.tabSeason = new System.Windows.Forms.TabPage();
             this.RemoveBadTransfers = new System.Windows.Forms.Button();
-            this.ResetGPButton = new System.Windows.Forms.Button();
             this.RemoveSanctionsButton = new System.Windows.Forms.Button();
             this.label180 = new System.Windows.Forms.Label();
             this.ImpactPlayerMin = new System.Windows.Forms.NumericUpDown();
@@ -884,6 +883,9 @@ namespace DB_EDITOR
             this.buttonCalcOverall = new System.Windows.Forms.Button();
             this.buttonRandPotential = new System.Windows.Forms.Button();
             this.bodyFix = new System.Windows.Forms.Button();
+            this.groupBox22 = new System.Windows.Forms.GroupBox();
+            this.FantasyTeamDB = new System.Windows.Forms.RadioButton();
+            this.FantasyCSV = new System.Windows.Forms.RadioButton();
             qbTend = new System.Windows.Forms.Button();
             this.mainMenu.SuspendLayout();
             this.tableMenu.SuspendLayout();
@@ -1031,6 +1033,7 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.GlobalAttNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinAttNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FillRosterPCT)).BeginInit();
+            this.groupBox22.SuspendLayout();
             this.SuspendLayout();
             // 
             // qbTend
@@ -4914,7 +4917,6 @@ namespace DB_EDITOR
             // 
             this.tabSeason.BackColor = System.Drawing.SystemColors.ControlDark;
             this.tabSeason.Controls.Add(this.RemoveBadTransfers);
-            this.tabSeason.Controls.Add(this.ResetGPButton);
             this.tabSeason.Controls.Add(this.RemoveSanctionsButton);
             this.tabSeason.Controls.Add(this.label180);
             this.tabSeason.Controls.Add(this.ImpactPlayerMin);
@@ -4958,28 +4960,16 @@ namespace DB_EDITOR
             // 
             // RemoveBadTransfers
             // 
-            this.RemoveBadTransfers.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.RemoveBadTransfers.BackColor = System.Drawing.SystemColors.Info;
             this.RemoveBadTransfers.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RemoveBadTransfers.Location = new System.Drawing.Point(434, 478);
+            this.RemoveBadTransfers.Location = new System.Drawing.Point(445, 322);
             this.RemoveBadTransfers.Name = "RemoveBadTransfers";
-            this.RemoveBadTransfers.Size = new System.Drawing.Size(121, 80);
+            this.RemoveBadTransfers.Size = new System.Drawing.Size(110, 80);
             this.RemoveBadTransfers.TabIndex = 42;
             this.RemoveBadTransfers.Text = "Remove Bad Transfer Players";
             this.RemoveBadTransfers.UseVisualStyleBackColor = false;
             this.RemoveBadTransfers.Visible = false;
             this.RemoveBadTransfers.Click += new System.EventHandler(this.RemoveBadTransfers_Click);
-            // 
-            // ResetGPButton
-            // 
-            this.ResetGPButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.ResetGPButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ResetGPButton.Location = new System.Drawing.Point(445, 322);
-            this.ResetGPButton.Name = "ResetGPButton";
-            this.ResetGPButton.Size = new System.Drawing.Size(110, 80);
-            this.ResetGPButton.TabIndex = 41;
-            this.ResetGPButton.Text = "Reset Games Played Stat";
-            this.ResetGPButton.UseVisualStyleBackColor = false;
-            this.ResetGPButton.Click += new System.EventHandler(this.ResetGamesPlayed_Click);
             // 
             // RemoveSanctionsButton
             // 
@@ -5160,11 +5150,11 @@ namespace DB_EDITOR
             // 
             // buttonChaosTransfers
             // 
-            this.buttonChaosTransfers.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.buttonChaosTransfers.BackColor = System.Drawing.SystemColors.Info;
             this.buttonChaosTransfers.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonChaosTransfers.Location = new System.Drawing.Point(487, 558);
+            this.buttonChaosTransfers.Location = new System.Drawing.Point(445, 478);
             this.buttonChaosTransfers.Name = "buttonChaosTransfers";
-            this.buttonChaosTransfers.Size = new System.Drawing.Size(80, 54);
+            this.buttonChaosTransfers.Size = new System.Drawing.Size(110, 78);
             this.buttonChaosTransfers.TabIndex = 23;
             this.buttonChaosTransfers.Text = "Transfer Chaos";
             this.buttonChaosTransfers.UseVisualStyleBackColor = false;
@@ -10033,6 +10023,7 @@ namespace DB_EDITOR
             // tabTools
             // 
             this.tabTools.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.tabTools.Controls.Add(this.groupBox22);
             this.tabTools.Controls.Add(this.ReRankTeams);
             this.tabTools.Controls.Add(this.FixHCBugsButton);
             this.tabTools.Controls.Add(this.groupBox18);
@@ -10486,7 +10477,7 @@ namespace DB_EDITOR
             this.buttonFillRosters.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.buttonFillRosters.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonFillRosters.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonFillRosters.Location = new System.Drawing.Point(525, 500);
+            this.buttonFillRosters.Location = new System.Drawing.Point(525, 488);
             this.buttonFillRosters.Name = "buttonFillRosters";
             this.buttonFillRosters.Size = new System.Drawing.Size(145, 80);
             this.buttonFillRosters.TabIndex = 20;
@@ -10512,7 +10503,7 @@ namespace DB_EDITOR
             this.buttonFantasyRoster.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.buttonFantasyRoster.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonFantasyRoster.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonFantasyRoster.Location = new System.Drawing.Point(274, 500);
+            this.buttonFantasyRoster.Location = new System.Drawing.Point(274, 488);
             this.buttonFantasyRoster.Name = "buttonFantasyRoster";
             this.buttonFantasyRoster.Size = new System.Drawing.Size(239, 80);
             this.buttonFantasyRoster.TabIndex = 18;
@@ -10571,6 +10562,39 @@ namespace DB_EDITOR
             this.bodyFix.Text = "Body Size Fixer";
             this.bodyFix.UseVisualStyleBackColor = false;
             this.bodyFix.Click += new System.EventHandler(this.BodyFix_Click);
+            // 
+            // groupBox22
+            // 
+            this.groupBox22.Controls.Add(this.FantasyCSV);
+            this.groupBox22.Controls.Add(this.FantasyTeamDB);
+            this.groupBox22.Location = new System.Drawing.Point(274, 567);
+            this.groupBox22.Name = "groupBox22";
+            this.groupBox22.Size = new System.Drawing.Size(239, 45);
+            this.groupBox22.TabIndex = 58;
+            this.groupBox22.TabStop = false;
+            this.groupBox22.Text = "Team Prestige Location";
+            // 
+            // FantasyTeamDB
+            // 
+            this.FantasyTeamDB.AutoSize = true;
+            this.FantasyTeamDB.Location = new System.Drawing.Point(17, 19);
+            this.FantasyTeamDB.Name = "FantasyTeamDB";
+            this.FantasyTeamDB.Size = new System.Drawing.Size(101, 17);
+            this.FantasyTeamDB.TabIndex = 0;
+            this.FantasyTeamDB.TabStop = true;
+            this.FantasyTeamDB.Text = "Team Database";
+            this.FantasyTeamDB.UseVisualStyleBackColor = true;
+            // 
+            // FantasyCSV
+            // 
+            this.FantasyCSV.AutoSize = true;
+            this.FantasyCSV.Location = new System.Drawing.Point(139, 19);
+            this.FantasyCSV.Name = "FantasyCSV";
+            this.FantasyCSV.Size = new System.Drawing.Size(87, 17);
+            this.FantasyCSV.TabIndex = 1;
+            this.FantasyCSV.TabStop = true;
+            this.FantasyCSV.Text = "External CSV";
+            this.FantasyCSV.UseVisualStyleBackColor = true;
             // 
             // MainEditor
             // 
@@ -10772,6 +10796,8 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.GlobalAttNum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinAttNum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FillRosterPCT)).EndInit();
+            this.groupBox22.ResumeLayout(false);
+            this.groupBox22.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -11114,7 +11140,6 @@ namespace DB_EDITOR
         public System.Windows.Forms.TextBox textBoxOffSeason;
         public System.Windows.Forms.TextBox textBoxOffSeasonTitle;
         public TabPage tabSeason;
-        private System.Windows.Forms.Button ResetGPButton;
         private System.Windows.Forms.Button RemoveSanctionsButton;
         private Label label180;
         private NumericUpDown ImpactPlayerMin;
@@ -11598,6 +11623,9 @@ namespace DB_EDITOR
         private DataGridViewTextBoxColumn MatchHomeTeam;
         private DataGridViewTextBoxColumn MatchAwayTeam;
         private Label label213;
+        private GroupBox groupBox22;
+        private RadioButton FantasyCSV;
+        private RadioButton FantasyTeamDB;
     }
 }
 

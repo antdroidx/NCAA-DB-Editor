@@ -123,6 +123,7 @@ namespace DB_EDITOR
             dbIndex = -1;
             dbIndex2 = -1;
             dbSelected = 0;
+            SelectedTableIndex = -1;
 
             saveMenuItem.Enabled = false;
             closeMenuItem.Enabled = false;
@@ -232,7 +233,11 @@ namespace DB_EDITOR
                 #endregion
 
                 CreateExtraFileDataContainers();
-                DBTableAddOns();
+
+
+                //NCAA Football Editor Tabs Check
+                if (TDB.FieldIndex(dbIndex, "TEAM", "TMNA") != -1 || TDB.FieldIndex(dbIndex, "PLAY", "PF10") != -1) DBTableAddOns();
+
 
                 StartHomeTab();
 
@@ -253,6 +258,9 @@ namespace DB_EDITOR
             return dbFile;
         }
 
+
+        #region Old DB Opening Method
+        /*
         private void CheckDB(string filename)
         {
 
@@ -313,7 +321,7 @@ namespace DB_EDITOR
             for (int j = 0; j < binData.Count; j++)
                 dbbinwriter.Write(binData[j]);
             }
-            */
+          
             #endregion
 
 
@@ -345,6 +353,105 @@ namespace DB_EDITOR
 
             // end Save DB information.
         }
+        */
+
+        #endregion
+
+
+        private void CheckDB(string filename)
+        {
+
+            binData.Clear();
+            dbData.Clear();
+            db2Data.Clear();
+
+            BigEndian = false;
+            byte[] array = File.ReadAllBytes(filename);  // Load file into memory.
+            int activeDB = 0;
+            int i = 0;
+
+            while (i < array.Length)
+            {
+                if (Convert.ToChar(array[i]) + "" + Convert.ToChar(array[i + 1]) == "DB")
+                {
+                    // Check if DB is BigEndian.
+                    if (Convert.ToUInt32(array[i + 4]) == 1)
+                        BigEndian = true;
+
+                    byte[] dbLengthArray = new byte[4];
+                    int c = 0;
+                    for(int b = i+8; b < i+12; b++)
+                    {
+                        dbLengthArray[c] = array[b];
+                        c++;
+                    }
+
+                    //Array.Reverse(dbLengthArray);
+                    int dbLength = BitConverter.ToInt32(dbLengthArray, 0);
+
+
+                    // Save DB information.
+                    
+                    for (int j = i; j < array.Length; j++)
+                    {
+                        dbData.Add(array[j]);
+                        activeDB = 1; //sets db to 1 to signify it found the 1st DB (i.e. the normal db)
+                    }
+                    // end Save DB information.
+
+                    int k = i + dbLength;
+                    if (k + 5 < array.Length)
+                    {
+                        if (array[k] == 68 && array[k + 1] == 66 && array[k + 2] == 0 && array[k + 3] == 8 && array[k + 4] == 0 && array[k + 5] == 0 && activeDB == 1)
+                        {
+                            for (int x = k; x < array.Length; x++)
+                            {
+                                db2Data.Add(array[x]);
+                            }
+                            activeDB = 2;
+                            break;
+                        }
+                    }
+
+                    break;
+                }
+
+                binData.Add(array[i]);
+                i++;
+            }
+
+            BinaryWriter dbWriter;
+
+            // Save DB information.
+            dbWriter = new BinaryWriter(File.Create(filename + ".db"));
+
+            for (int j = 0; j < dbData.Count; j++)
+            {
+                dbWriter.Write(dbData[j]);
+            }
+            dbWriter.Dispose();
+            dbWriter.Close();
+            dbFile = filename + ".db";
+
+
+            // Save DB2 information.
+            if (db2Data.Count > 0)
+            {
+                dbWriter = new BinaryWriter(File.Create(filename + ".db2"));
+
+                for (int j = 0; j < db2Data.Count; j++)
+                {
+                    dbWriter.Write(db2Data[j]);
+                }
+                dbWriter.Dispose();
+                dbWriter.Close();
+                dbFile2 = filename + ".db2";
+            }
+
+            // end Save DB information.
+        }
+
+
 
         //Extra Console Data for PSU, MAX containers
         private void CreateExtraFileDataContainers()
@@ -389,16 +496,6 @@ namespace DB_EDITOR
 
             for (int i = x + y; i < psuTmp.Count; i++)
                 psuExtras.Add(psuTmp[i]);
-
-            // Debug Output
-            /*
-            BinaryWriter dbWriter = new BinaryWriter(File.Open(System.IO.Path.ChangeExtension(dbFile2, null) + ".dbPSU", FileMode.Create));
-            for (int i = 0; i < psuExtras.Count; i++)
-                dbWriter.Write(psuExtras[i]);
-
-            dbWriter.Close();
-            dbWriter.Dispose();
-            */
 
         }
 
@@ -1057,7 +1154,7 @@ namespace DB_EDITOR
             else if (tabControl1.SelectedTab == tabBowls) StartBowlEditor();
             else if (tabControl1.SelectedTab == tabRecruits) StartRecruitEditor();
             else if (tabControl1.SelectedTab == tabSchedule) StartScheduleEditor();
-
+    
         }
 
         private void TabDB_Start()
@@ -1066,23 +1163,11 @@ namespace DB_EDITOR
             progressBar1.Value = 0;
             TablePropsgroupBox.Visible = true;
             FieldsPropsgroupBox.Visible = true;
-            TableGridView_SelectionChanged(null, null);
+            //TableGridView_SelectionChanged(null, null);
             fieldMenu.Enabled = true;
             tableMenu.Enabled = true;
             CSVMenu.Visible = true;
             StartDBEditor();
-        }
-
-        private void TabDB2_Start()
-        {
-            progressBar1.Visible = true;
-            progressBar1.Value = 0;
-            TablePropsgroupBox.Visible = true;
-            FieldsPropsgroupBox.Visible = true;
-            TableGridView_SelectionChanged(null, null);
-            fieldMenu.Enabled = false;
-            tableMenu.Enabled = false;
-            CSVMenu.Visible = false;
         }
 
         private void StartHomeTab()

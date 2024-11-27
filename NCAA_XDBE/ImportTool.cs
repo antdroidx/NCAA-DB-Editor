@@ -244,7 +244,7 @@ namespace DB_EDITOR
 
                         }
 
-                        if (TableProps.Name == "PLAY" && !roster && record.Length > 97 || TableProps.Name == "PLAY" && roster && record.Length > 86)
+                        if (TableProps.Name == "PLAY" && TDB.FieldIndex(dbSelected, SelectedTableName, "PF10") == 0 && !roster && record.Length > 97|| TableProps.Name == "PLAY" && TDB.FieldIndex(dbSelected, SelectedTableName, "PF10") == 0 && roster && record.Length > 86)
                         {
                             ConvertFirstNameStringToInt(record[importtmpfieldindex + 1], recnum, "PLAY");
                             ConvertLastNameStringToInt(record[importtmpfieldindex + 2], recnum, "PLAY");

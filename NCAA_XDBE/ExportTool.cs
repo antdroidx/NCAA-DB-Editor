@@ -74,7 +74,7 @@ namespace DB_EDITOR
                             }
 
                         }
-                        if (TableProps.Name == "PLAY")
+                        if (TableProps.Name == "PLAY" && TDB.FieldIndex(dbSelected, SelectedTableName, "PF10") == 0)
                         {
                             hbuilder.Append(",");
                             hbuilder.Append("FirstName");
@@ -164,7 +164,7 @@ namespace DB_EDITOR
                                         hbuilder.Append("\t");
                                     else hbuilder.Append(",");
                             }
-                            if (TableProps.Name == "PLAY")
+                            if (TableProps.Name == "PLAY" && TDB.FieldIndex(dbSelected, SelectedTableName, "PF10") == 0)
                             {
                                 hbuilder.Append(",");
                                 hbuilder.Append(GetFirstNameFromRecord(r)); //write first name string to csv
