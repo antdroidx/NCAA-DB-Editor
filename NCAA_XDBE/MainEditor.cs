@@ -236,7 +236,7 @@ namespace DB_EDITOR
 
 
                 //NCAA Football Editor Tabs Check
-                if (TDB.FieldIndex(dbIndex, "TEAM", "TMNA") != -1 || TDB.FieldIndex(dbIndex, "PLAY", "PF10") != -1) DBTableAddOns();
+                if (TDB.FieldIndex(dbIndex, "TEAM", "TMNA") != -1 || TDB.TableIndex(dbIndex, "AIGR") >= 0 || TDB.FieldIndex(dbIndex, "PLAY", "PF10") != -1) DBTableAddOns();
 
 
                 StartHomeTab();

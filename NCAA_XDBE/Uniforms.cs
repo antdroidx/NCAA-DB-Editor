@@ -678,15 +678,15 @@ namespace DB_EDITOR
                         int UFID = Convert.ToInt32(Line[1]);
                         var uniform = UniformGrid.Rows[UFID];
 
-                        uniform.Cells[0].Value = ReturnImportedUNIFData(Line[0]);
+                        uniform.Cells[0].Value = ReturnImportedUNIFData(Line[0]).Value;
                         uniform.Cells[2].Value = GetUFIDTeam(Convert.ToInt32(Line[2]));
                         uniform.Cells[3].Value = GetUniformSlot(Convert.ToInt32(Line[3]));
                         uniform.Cells[4].Value = ULTF.Items[Convert.ToInt32(Line[4])];
-                        uniform.Cells[5].Value = ReturnImportedUNIFData(Line[5]);
-                        uniform.Cells[6].Value = ReturnImportedUNIFData(Line[6]);
-                        uniform.Cells[7].Value = ReturnImportedUNIFData(Line[7]);
+                        uniform.Cells[5].Value = ReturnImportedUNIFData(Line[5]).Value;
+                        uniform.Cells[6].Value = ReturnImportedUNIFData(Line[6]).Value;
+                        uniform.Cells[7].Value = ReturnImportedUNIFData(Line[7]).Value;
                         uniform.Cells[8].Value = HelmetNums.Items[Convert.ToInt32(Line[8])];
-                        uniform.Cells[9].Value = ReturnImportedUNIFData(Line[9]);
+                        uniform.Cells[9].Value = ReturnImportedUNIFData(Line[9]).Value;
                     }
                     Row++;
                 }
@@ -696,10 +696,20 @@ namespace DB_EDITOR
             CheckTeamUniformExpansionCounter();
         }
 
-        private bool ReturnImportedUNIFData(string x)
+        private DataGridViewCheckBoxCell ReturnImportedUNIFData(string x)
         {
-            if (x == "TRUE") return true;
-            else return false;
+            DataGridViewCheckBoxCell checkbox = new DataGridViewCheckBoxCell();
+
+            if (x.Equals("TRUE") || x.Equals("True") || x.Equals("true") || x == "1")
+            {
+                checkbox.Value = true;
+                return checkbox;
+            }
+            else
+            {
+                checkbox.Value = false;
+                return checkbox;
+            }
         }
 
         private void ExportTeamUNIF_Click(object sender, EventArgs e)
