@@ -90,4 +90,7 @@ If you are using NCAA NEXT 25 Beta 6+, you can change the Overall and Recruiting
 
 ## Help
 
+[NCAA Database Editor Manual.docx](https://github.com/user-attachments/files/17964514/NCAA.Database.Editor.Manual.docx)
+
+
 League Editor Instructions: https://www.ncaanext.com/p/ncaa-db-editor-league-creator.html
