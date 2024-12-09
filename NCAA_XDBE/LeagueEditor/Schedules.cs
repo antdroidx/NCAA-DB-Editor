@@ -68,6 +68,30 @@ namespace DB_EDITOR
         {
             GenerateConfSchedules();
             GenerateSKNW();
+
+            if(!ArmyNavy && NextMod)
+            {
+                ClearAnnuals();
+                TDB.TDBTableRecordAdd(dbIndex2, "SANN", false);
+                ChangeDBInt("SANN", "GTOD", 0, 1200);
+                ChangeDBInt("SANN", "GATG", 0, 8);
+                ChangeDBInt("SANN", "GHTG", 0, 57);
+                ChangeDBInt("SANN", "SESI", 0, 1);
+                ChangeDBInt("SANN", "SEWN", 0, 15);
+                ChangeDBInt("SANN", "GDAT", 0, 5);
+                ChangeDBInt("SANN", "SEWT", 0, 15);
+
+                TDB.TDBTableRecordAdd(dbIndex2, "SANN", false);
+                ChangeDBInt("SANN", "GTOD", 1, 1200);
+                ChangeDBInt("SANN", "GATG", 1, 57);
+                ChangeDBInt("SANN", "GHTG", 1, 8);
+                ChangeDBInt("SANN", "SESI", 1, 0);
+                ChangeDBInt("SANN", "SEWN", 1, 15);
+                ChangeDBInt("SANN", "GDAT", 1, 5);
+                ChangeDBInt("SANN", "SEWT", 1, 15);
+
+            }
+
             MessageBox.Show("Conference Schedule Generation Completed!");
         }
 
@@ -122,6 +146,20 @@ namespace DB_EDITOR
                             ChangeDBInt(table, "SEWN", tableRec, template[g][4]);
                             ChangeDBInt(table, "GDAT", tableRec, template[g][5]);
                             ChangeDBInt(table, "SEWT", tableRec, template[g][6]);
+
+                            //check for Army-Navy game
+                            if(away == 57 & home == 8)
+                            {
+                                ChangeDBInt(table, "SEWN", tableRec, 15);
+                                ChangeDBInt(table, "SEWT", tableRec, 15);
+                                ArmyNavy = true;
+                            }
+                            else if (away == 8 && home == 57)
+                            {
+                                ChangeDBInt(table, "SEWN", tableRec, 15);
+                                ChangeDBInt(table, "SEWT", tableRec, 15);
+                                ArmyNavy = true;
+                            }
 
                             tableRec++;
                         }

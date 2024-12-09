@@ -153,6 +153,11 @@ namespace DB_EDITOR
         #endregion
 
 
+        private void ClearExpiredStats_Click(object sender, EventArgs e)
+        {
+            ClearExpiredStatsData();
+        }
+
         #region General Tools
         //Fixes Body Size Models if user does manipulation of the player attributes in the in-game player editor
         private void RecalculateBMI(string tableName)
@@ -1300,6 +1305,27 @@ namespace DB_EDITOR
             }
 
             MessageBox.Show("Head Coach Fix Complete");
+        }
+
+        //Clear Expired Stats
+        private void ClearExpiredStatsData()
+        {
+            progressBar1.Visible = true;
+            progressBar1.Value = 0;
+            progressBar1.Maximum = GetTableRecCount("TEAM");
+
+            for (int i = 0; i < GetTableRecCount("TEAM"); i++)
+            {
+                if(GetDBValueInt("TEAM", "TTYP", i) > 0)
+                {
+                    ClearTeamPlayers(GetDBValueInt("TEAM", "TGID", i));
+                }
+                progressBar1.PerformStep();
+            }
+
+
+            progressBar1.Visible = false;
+            MessageBox.Show("Task Complete!");
         }
 
         #endregion

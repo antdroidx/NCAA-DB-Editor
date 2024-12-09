@@ -39,7 +39,7 @@ namespace DB_EDITOR
         bool coachProgComplete = false;
         bool TDYN = false;
         bool TEAM = false;
-        bool NextMod = false;
+        public bool NextMod = false;
         bool PlaybookDB = false;
 
         int TeamIndex;
@@ -186,6 +186,8 @@ namespace DB_EDITOR
             DB2Button.Enabled = false;
             DB1Button.Checked = true;
 
+            progressBar1.Step = 1;
+
             DoNotTrigger = false;
 
         }
@@ -236,7 +238,7 @@ namespace DB_EDITOR
 
 
                 //NCAA Football Editor Tabs Check
-                if (TDB.FieldIndex(dbIndex, "TEAM", "TMNA") != -1 || TDB.TableIndex(dbIndex, "AIGR") >= 0 || TDB.FieldIndex(dbIndex, "PLAY", "PF10") != -1) DBTableAddOns();
+                if (TDB.FieldIndex(dbIndex, "TEAM", "TMNA") != -1 || TDB.TableIndex(dbIndex, "AIGR") >= 0 || TDB.TableIndex(dbIndex, "PBAI") >= 0 || TDB.FieldIndex(dbIndex, "PLAY", "PF10") != -1) DBTableAddOns();
 
 
                 StartHomeTab();
@@ -1061,7 +1063,7 @@ namespace DB_EDITOR
         private void ScheduleGenMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Please load the Schedule Template file (File 3 from TEMPLATE.DAT).");
-            LeagueMain scheduleGen = new LeagueMain();
+            LeagueMain scheduleGen = new LeagueMain(NextMod);
             scheduleGen.ShowDialog();
         }
 
@@ -1154,7 +1156,8 @@ namespace DB_EDITOR
             else if (tabControl1.SelectedTab == tabBowls) StartBowlEditor();
             else if (tabControl1.SelectedTab == tabRecruits) StartRecruitEditor();
             else if (tabControl1.SelectedTab == tabSchedule) StartScheduleEditor();
-    
+            else if (tabControl1.SelectedTab == tabStats) StartStatsViewer();
+
         }
 
         private void TabDB_Start()

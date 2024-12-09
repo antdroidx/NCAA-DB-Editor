@@ -203,6 +203,12 @@ namespace DB_EDITOR
             CreateTeamPlayerList();
             SetCaptainAndImpactItems();
             GetCaptainAndImpactPlayersToMemory();
+            CaptainOffSelectBox.Text = "";
+            CaptainDefSelectBox.Text = "";
+            ImpactTPIOSelect.Text = "";
+            ImpactTPIDSelect.Text = "";
+            ImpactTSI1Select.Text = "";
+            ImpactTSI2Select.Text = "";
             CaptainOffSelectBox.SelectedIndex = FindCaptainImpactOffPlayer(GetDBValueInt("TEAM", "OCAP", EditorIndex));
             CaptainDefSelectBox.SelectedIndex = FindCaptainImpactDefPlayer(GetDBValueInt("TEAM", "DCAP", EditorIndex));
             ImpactTPIOSelect.SelectedIndex = FindCaptainImpactOffPlayer(GetDBValueInt("TEAM", "TPIO", EditorIndex));

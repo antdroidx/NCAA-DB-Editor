@@ -124,6 +124,29 @@ namespace DB_EDITOR
             this.DB2Button = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.tabStats = new System.Windows.Forms.TabPage();
+            this.groupBox26 = new System.Windows.Forms.GroupBox();
+            this.label221 = new System.Windows.Forms.Label();
+            this.SacksLeadersBox = new System.Windows.Forms.ListBox();
+            this.IntLeadersBox = new System.Windows.Forms.ListBox();
+            this.label223 = new System.Windows.Forms.Label();
+            this.label222 = new System.Windows.Forms.Label();
+            this.TacklesLeadersBox = new System.Windows.Forms.ListBox();
+            this.groupBox25 = new System.Windows.Forms.GroupBox();
+            this.label220 = new System.Windows.Forms.Label();
+            this.ReceivingLeadersBox = new System.Windows.Forms.ListBox();
+            this.label219 = new System.Windows.Forms.Label();
+            this.RushingLeadersBox = new System.Windows.Forms.ListBox();
+            this.label218 = new System.Windows.Forms.Label();
+            this.PassingLeadersBox = new System.Windows.Forms.ListBox();
+            this.groupBox24 = new System.Windows.Forms.GroupBox();
+            this.label217 = new System.Windows.Forms.Label();
+            this.label216 = new System.Windows.Forms.Label();
+            this.label215 = new System.Windows.Forms.Label();
+            this.label214 = new System.Windows.Forms.Label();
+            this.TopTeamDefBox = new System.Windows.Forms.ListBox();
+            this.TopTeamOffBox = new System.Windows.Forms.ListBox();
+            this.TopTeamRatingsBox = new System.Windows.Forms.ListBox();
+            this.CoachPollListBox = new System.Windows.Forms.ListBox();
             this.tabBowls = new System.Windows.Forms.TabPage();
             this.SaveBowlButton = new System.Windows.Forms.Button();
             this.BowlsGrid = new System.Windows.Forms.DataGridView();
@@ -329,6 +352,11 @@ namespace DB_EDITOR
             this.DefaultPlaysRadio = new System.Windows.Forms.RadioButton();
             this.CustomPlaysRadio = new System.Windows.Forms.RadioButton();
             this.tabConf = new System.Windows.Forms.TabPage();
+            this.groupBox23 = new System.Windows.Forms.GroupBox();
+            this.ConfDisplayRanking = new System.Windows.Forms.RadioButton();
+            this.ConfDisplayRating = new System.Windows.Forms.RadioButton();
+            this.ConfDisplayPrestige = new System.Windows.Forms.RadioButton();
+            this.ConfDisplayTeam = new System.Windows.Forms.RadioButton();
             this.label80 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.SwapRosterBox = new System.Windows.Forms.ComboBox();
@@ -841,6 +869,9 @@ namespace DB_EDITOR
             this.SCHDAWAY = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SCHDScoreA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabTools = new System.Windows.Forms.TabPage();
+            this.groupBox22 = new System.Windows.Forms.GroupBox();
+            this.FantasyCSV = new System.Windows.Forms.RadioButton();
+            this.FantasyTeamDB = new System.Windows.Forms.RadioButton();
             this.ReRankTeams = new System.Windows.Forms.CheckBox();
             this.FixHCBugsButton = new System.Windows.Forms.Button();
             this.groupBox18 = new System.Windows.Forms.GroupBox();
@@ -872,7 +903,6 @@ namespace DB_EDITOR
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.ReorderPGIDButton = new System.Windows.Forms.Button();
             this.TORDButton = new System.Windows.Forms.Button();
-            this.CFUSAexportButton = new System.Windows.Forms.Button();
             this.RandomizeHeadButton = new System.Windows.Forms.Button();
             this.label58 = new System.Windows.Forms.Label();
             this.FillRosterPCT = new System.Windows.Forms.NumericUpDown();
@@ -883,9 +913,8 @@ namespace DB_EDITOR
             this.buttonCalcOverall = new System.Windows.Forms.Button();
             this.buttonRandPotential = new System.Windows.Forms.Button();
             this.bodyFix = new System.Windows.Forms.Button();
-            this.groupBox22 = new System.Windows.Forms.GroupBox();
-            this.FantasyTeamDB = new System.Windows.Forms.RadioButton();
-            this.FantasyCSV = new System.Windows.Forms.RadioButton();
+            this.CFUSAexportButton = new System.Windows.Forms.Button();
+            this.ClearExpiredStats = new System.Windows.Forms.Button();
             qbTend = new System.Windows.Forms.Button();
             this.mainMenu.SuspendLayout();
             this.tableMenu.SuspendLayout();
@@ -893,6 +922,10 @@ namespace DB_EDITOR
             this.TablePropsgroupBox.SuspendLayout();
             this.FieldsPropsgroupBox.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.tabStats.SuspendLayout();
+            this.groupBox26.SuspendLayout();
+            this.groupBox25.SuspendLayout();
+            this.groupBox24.SuspendLayout();
             this.tabBowls.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.BowlsGrid)).BeginInit();
             this.tabUniforms.SuspendLayout();
@@ -931,6 +964,7 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.PlaybookGrid)).BeginInit();
             this.groupBox19.SuspendLayout();
             this.tabConf.SuspendLayout();
+            this.groupBox23.SuspendLayout();
             this.tabDev.SuspendLayout();
             this.tabOffSeason.SuspendLayout();
             this.groupBox17.SuspendLayout();
@@ -1028,12 +1062,12 @@ namespace DB_EDITOR
             this.groupBox21.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ScheduleView)).BeginInit();
             this.tabTools.SuspendLayout();
+            this.groupBox22.SuspendLayout();
             this.groupBox18.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MaxAttNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GlobalAttNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinAttNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FillRosterPCT)).BeginInit();
-            this.groupBox22.SuspendLayout();
             this.SuspendLayout();
             // 
             // qbTend
@@ -1476,6 +1510,9 @@ namespace DB_EDITOR
             // 
             // tabStats
             // 
+            this.tabStats.Controls.Add(this.groupBox26);
+            this.tabStats.Controls.Add(this.groupBox25);
+            this.tabStats.Controls.Add(this.groupBox24);
             this.tabStats.Location = new System.Drawing.Point(4, 24);
             this.tabStats.Name = "tabStats";
             this.tabStats.Padding = new System.Windows.Forms.Padding(3);
@@ -1483,6 +1520,223 @@ namespace DB_EDITOR
             this.tabStats.TabIndex = 15;
             this.tabStats.Text = "Stats";
             this.tabStats.UseVisualStyleBackColor = true;
+            // 
+            // groupBox26
+            // 
+            this.groupBox26.Controls.Add(this.label221);
+            this.groupBox26.Controls.Add(this.SacksLeadersBox);
+            this.groupBox26.Controls.Add(this.IntLeadersBox);
+            this.groupBox26.Controls.Add(this.label223);
+            this.groupBox26.Controls.Add(this.label222);
+            this.groupBox26.Controls.Add(this.TacklesLeadersBox);
+            this.groupBox26.Location = new System.Drawing.Point(832, 24);
+            this.groupBox26.Name = "groupBox26";
+            this.groupBox26.Size = new System.Drawing.Size(280, 572);
+            this.groupBox26.TabIndex = 2;
+            this.groupBox26.TabStop = false;
+            this.groupBox26.Text = "Defense Leaders";
+            // 
+            // label221
+            // 
+            this.label221.AutoSize = true;
+            this.label221.Location = new System.Drawing.Point(194, 377);
+            this.label221.Name = "label221";
+            this.label221.Size = new System.Drawing.Size(68, 13);
+            this.label221.TabIndex = 19;
+            this.label221.Text = "Interceptions";
+            // 
+            // SacksLeadersBox
+            // 
+            this.SacksLeadersBox.FormattingEnabled = true;
+            this.SacksLeadersBox.Location = new System.Drawing.Point(19, 29);
+            this.SacksLeadersBox.Name = "SacksLeadersBox";
+            this.SacksLeadersBox.Size = new System.Drawing.Size(243, 160);
+            this.SacksLeadersBox.TabIndex = 14;
+            // 
+            // IntLeadersBox
+            // 
+            this.IntLeadersBox.FormattingEnabled = true;
+            this.IntLeadersBox.Location = new System.Drawing.Point(20, 393);
+            this.IntLeadersBox.Name = "IntLeadersBox";
+            this.IntLeadersBox.Size = new System.Drawing.Size(243, 160);
+            this.IntLeadersBox.TabIndex = 18;
+            // 
+            // label223
+            // 
+            this.label223.AutoSize = true;
+            this.label223.Location = new System.Drawing.Point(225, 13);
+            this.label223.Name = "label223";
+            this.label223.Size = new System.Drawing.Size(37, 13);
+            this.label223.TabIndex = 15;
+            this.label223.Text = "Sacks";
+            // 
+            // label222
+            // 
+            this.label222.AutoSize = true;
+            this.label222.Location = new System.Drawing.Point(217, 198);
+            this.label222.Name = "label222";
+            this.label222.Size = new System.Drawing.Size(45, 13);
+            this.label222.TabIndex = 17;
+            this.label222.Text = "Tackles";
+            // 
+            // TacklesLeadersBox
+            // 
+            this.TacklesLeadersBox.FormattingEnabled = true;
+            this.TacklesLeadersBox.Location = new System.Drawing.Point(22, 214);
+            this.TacklesLeadersBox.Name = "TacklesLeadersBox";
+            this.TacklesLeadersBox.Size = new System.Drawing.Size(243, 160);
+            this.TacklesLeadersBox.TabIndex = 16;
+            // 
+            // groupBox25
+            // 
+            this.groupBox25.Controls.Add(this.label220);
+            this.groupBox25.Controls.Add(this.ReceivingLeadersBox);
+            this.groupBox25.Controls.Add(this.label219);
+            this.groupBox25.Controls.Add(this.RushingLeadersBox);
+            this.groupBox25.Controls.Add(this.label218);
+            this.groupBox25.Controls.Add(this.PassingLeadersBox);
+            this.groupBox25.Location = new System.Drawing.Point(513, 24);
+            this.groupBox25.Name = "groupBox25";
+            this.groupBox25.Size = new System.Drawing.Size(280, 572);
+            this.groupBox25.TabIndex = 1;
+            this.groupBox25.TabStop = false;
+            this.groupBox25.Text = "Offense Leaders";
+            // 
+            // label220
+            // 
+            this.label220.AutoSize = true;
+            this.label220.Location = new System.Drawing.Point(175, 377);
+            this.label220.Name = "label220";
+            this.label220.Size = new System.Drawing.Size(85, 13);
+            this.label220.TabIndex = 13;
+            this.label220.Text = "Receiving Yards";
+            // 
+            // ReceivingLeadersBox
+            // 
+            this.ReceivingLeadersBox.FormattingEnabled = true;
+            this.ReceivingLeadersBox.Location = new System.Drawing.Point(17, 393);
+            this.ReceivingLeadersBox.Name = "ReceivingLeadersBox";
+            this.ReceivingLeadersBox.Size = new System.Drawing.Size(243, 160);
+            this.ReceivingLeadersBox.TabIndex = 12;
+            // 
+            // label219
+            // 
+            this.label219.AutoSize = true;
+            this.label219.Location = new System.Drawing.Point(187, 198);
+            this.label219.Name = "label219";
+            this.label219.Size = new System.Drawing.Size(76, 13);
+            this.label219.TabIndex = 11;
+            this.label219.Text = "Rushing Yards";
+            // 
+            // RushingLeadersBox
+            // 
+            this.RushingLeadersBox.FormattingEnabled = true;
+            this.RushingLeadersBox.Location = new System.Drawing.Point(19, 214);
+            this.RushingLeadersBox.Name = "RushingLeadersBox";
+            this.RushingLeadersBox.Size = new System.Drawing.Size(243, 160);
+            this.RushingLeadersBox.TabIndex = 10;
+            // 
+            // label218
+            // 
+            this.label218.AutoSize = true;
+            this.label218.Location = new System.Drawing.Point(185, 13);
+            this.label218.Name = "label218";
+            this.label218.Size = new System.Drawing.Size(74, 13);
+            this.label218.TabIndex = 9;
+            this.label218.Text = "Passing Yards";
+            // 
+            // PassingLeadersBox
+            // 
+            this.PassingLeadersBox.FormattingEnabled = true;
+            this.PassingLeadersBox.Location = new System.Drawing.Point(16, 29);
+            this.PassingLeadersBox.Name = "PassingLeadersBox";
+            this.PassingLeadersBox.Size = new System.Drawing.Size(243, 160);
+            this.PassingLeadersBox.TabIndex = 8;
+            // 
+            // groupBox24
+            // 
+            this.groupBox24.Controls.Add(this.label217);
+            this.groupBox24.Controls.Add(this.label216);
+            this.groupBox24.Controls.Add(this.label215);
+            this.groupBox24.Controls.Add(this.label214);
+            this.groupBox24.Controls.Add(this.TopTeamDefBox);
+            this.groupBox24.Controls.Add(this.TopTeamOffBox);
+            this.groupBox24.Controls.Add(this.TopTeamRatingsBox);
+            this.groupBox24.Controls.Add(this.CoachPollListBox);
+            this.groupBox24.Location = new System.Drawing.Point(29, 24);
+            this.groupBox24.Name = "groupBox24";
+            this.groupBox24.Size = new System.Drawing.Size(423, 572);
+            this.groupBox24.TabIndex = 0;
+            this.groupBox24.TabStop = false;
+            this.groupBox24.Text = "Rankings";
+            // 
+            // label217
+            // 
+            this.label217.AutoSize = true;
+            this.label217.Location = new System.Drawing.Point(339, 378);
+            this.label217.Name = "label217";
+            this.label217.Size = new System.Drawing.Size(74, 13);
+            this.label217.TabIndex = 7;
+            this.label217.Text = "Total Defense";
+            // 
+            // label216
+            // 
+            this.label216.AutoSize = true;
+            this.label216.Location = new System.Drawing.Point(131, 378);
+            this.label216.Name = "label216";
+            this.label216.Size = new System.Drawing.Size(71, 13);
+            this.label216.TabIndex = 6;
+            this.label216.Text = "Total Offense";
+            // 
+            // label215
+            // 
+            this.label215.AutoSize = true;
+            this.label215.Location = new System.Drawing.Point(339, 13);
+            this.label215.Name = "label215";
+            this.label215.Size = new System.Drawing.Size(74, 13);
+            this.label215.TabIndex = 5;
+            this.label215.Text = "Overall Rating";
+            // 
+            // label214
+            // 
+            this.label214.AutoSize = true;
+            this.label214.Location = new System.Drawing.Point(141, 13);
+            this.label214.Name = "label214";
+            this.label214.Size = new System.Drawing.Size(61, 13);
+            this.label214.TabIndex = 4;
+            this.label214.Text = "Top 25 Poll";
+            // 
+            // TopTeamDefBox
+            // 
+            this.TopTeamDefBox.FormattingEnabled = true;
+            this.TopTeamDefBox.Location = new System.Drawing.Point(222, 394);
+            this.TopTeamDefBox.Name = "TopTeamDefBox";
+            this.TopTeamDefBox.Size = new System.Drawing.Size(191, 160);
+            this.TopTeamDefBox.TabIndex = 3;
+            // 
+            // TopTeamOffBox
+            // 
+            this.TopTeamOffBox.FormattingEnabled = true;
+            this.TopTeamOffBox.Location = new System.Drawing.Point(11, 394);
+            this.TopTeamOffBox.Name = "TopTeamOffBox";
+            this.TopTeamOffBox.Size = new System.Drawing.Size(191, 160);
+            this.TopTeamOffBox.TabIndex = 2;
+            // 
+            // TopTeamRatingsBox
+            // 
+            this.TopTeamRatingsBox.FormattingEnabled = true;
+            this.TopTeamRatingsBox.Location = new System.Drawing.Point(222, 29);
+            this.TopTeamRatingsBox.Name = "TopTeamRatingsBox";
+            this.TopTeamRatingsBox.Size = new System.Drawing.Size(191, 329);
+            this.TopTeamRatingsBox.TabIndex = 1;
+            // 
+            // CoachPollListBox
+            // 
+            this.CoachPollListBox.FormattingEnabled = true;
+            this.CoachPollListBox.Location = new System.Drawing.Point(11, 29);
+            this.CoachPollListBox.Name = "CoachPollListBox";
+            this.CoachPollListBox.Size = new System.Drawing.Size(191, 329);
+            this.CoachPollListBox.TabIndex = 0;
             // 
             // tabBowls
             // 
@@ -3847,6 +4101,7 @@ namespace DB_EDITOR
             // tabConf
             // 
             this.tabConf.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.tabConf.Controls.Add(this.groupBox23);
             this.tabConf.Controls.Add(this.label80);
             this.tabConf.Controls.Add(this.label4);
             this.tabConf.Controls.Add(this.SwapRosterBox);
@@ -3884,6 +4139,67 @@ namespace DB_EDITOR
             this.tabConf.Size = new System.Drawing.Size(1152, 615);
             this.tabConf.TabIndex = 9;
             this.tabConf.Text = "Conferences";
+            // 
+            // groupBox23
+            // 
+            this.groupBox23.Controls.Add(this.ConfDisplayRanking);
+            this.groupBox23.Controls.Add(this.ConfDisplayRating);
+            this.groupBox23.Controls.Add(this.ConfDisplayPrestige);
+            this.groupBox23.Controls.Add(this.ConfDisplayTeam);
+            this.groupBox23.Location = new System.Drawing.Point(981, 348);
+            this.groupBox23.Name = "groupBox23";
+            this.groupBox23.Size = new System.Drawing.Size(150, 119);
+            this.groupBox23.TabIndex = 32;
+            this.groupBox23.TabStop = false;
+            this.groupBox23.Text = "Display Options";
+            // 
+            // ConfDisplayRanking
+            // 
+            this.ConfDisplayRanking.AutoSize = true;
+            this.ConfDisplayRanking.Location = new System.Drawing.Point(11, 91);
+            this.ConfDisplayRanking.Name = "ConfDisplayRanking";
+            this.ConfDisplayRanking.Size = new System.Drawing.Size(95, 17);
+            this.ConfDisplayRanking.TabIndex = 3;
+            this.ConfDisplayRanking.TabStop = true;
+            this.ConfDisplayRanking.Text = "Team Ranking";
+            this.ConfDisplayRanking.UseVisualStyleBackColor = true;
+            this.ConfDisplayRanking.CheckedChanged += new System.EventHandler(this.ConfDisplayRanking_CheckedChanged);
+            // 
+            // ConfDisplayRating
+            // 
+            this.ConfDisplayRating.AutoSize = true;
+            this.ConfDisplayRating.Location = new System.Drawing.Point(11, 68);
+            this.ConfDisplayRating.Name = "ConfDisplayRating";
+            this.ConfDisplayRating.Size = new System.Drawing.Size(86, 17);
+            this.ConfDisplayRating.TabIndex = 2;
+            this.ConfDisplayRating.TabStop = true;
+            this.ConfDisplayRating.Text = "Team Rating";
+            this.ConfDisplayRating.UseVisualStyleBackColor = true;
+            this.ConfDisplayRating.CheckedChanged += new System.EventHandler(this.ConfDisplayRating_CheckedChanged);
+            // 
+            // ConfDisplayPrestige
+            // 
+            this.ConfDisplayPrestige.AutoSize = true;
+            this.ConfDisplayPrestige.Location = new System.Drawing.Point(11, 45);
+            this.ConfDisplayPrestige.Name = "ConfDisplayPrestige";
+            this.ConfDisplayPrestige.Size = new System.Drawing.Size(93, 17);
+            this.ConfDisplayPrestige.TabIndex = 1;
+            this.ConfDisplayPrestige.TabStop = true;
+            this.ConfDisplayPrestige.Text = "Team Prestige";
+            this.ConfDisplayPrestige.UseVisualStyleBackColor = true;
+            this.ConfDisplayPrestige.CheckedChanged += new System.EventHandler(this.ConfDisplayPrestige_CheckedChanged);
+            // 
+            // ConfDisplayTeam
+            // 
+            this.ConfDisplayTeam.AutoSize = true;
+            this.ConfDisplayTeam.Location = new System.Drawing.Point(11, 22);
+            this.ConfDisplayTeam.Name = "ConfDisplayTeam";
+            this.ConfDisplayTeam.Size = new System.Drawing.Size(76, 17);
+            this.ConfDisplayTeam.TabIndex = 0;
+            this.ConfDisplayTeam.TabStop = true;
+            this.ConfDisplayTeam.Text = "Team Only";
+            this.ConfDisplayTeam.UseVisualStyleBackColor = true;
+            this.ConfDisplayTeam.CheckedChanged += new System.EventHandler(this.ConfDisplayTeam_CheckedChanged);
             // 
             // label80
             // 
@@ -4218,6 +4534,7 @@ namespace DB_EDITOR
             // tabDev
             // 
             this.tabDev.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.tabDev.Controls.Add(this.CFUSAexportButton);
             this.tabDev.Controls.Add(this.textBox20);
             this.tabDev.Controls.Add(this.textBox19);
             this.tabDev.Controls.Add(this.textBox18);
@@ -9010,7 +9327,7 @@ namespace DB_EDITOR
             // 
             // TeamSetDepthChart
             // 
-            this.TeamSetDepthChart.Location = new System.Drawing.Point(544, 312);
+            this.TeamSetDepthChart.Location = new System.Drawing.Point(546, 398);
             this.TeamSetDepthChart.Name = "TeamSetDepthChart";
             this.TeamSetDepthChart.Size = new System.Drawing.Size(118, 47);
             this.TeamSetDepthChart.TabIndex = 141;
@@ -9020,7 +9337,7 @@ namespace DB_EDITOR
             // 
             // LeagueBox
             // 
-            this.LeagueBox.Location = new System.Drawing.Point(586, 117);
+            this.LeagueBox.Location = new System.Drawing.Point(586, 102);
             this.LeagueBox.Name = "LeagueBox";
             this.LeagueBox.ReadOnly = true;
             this.LeagueBox.Size = new System.Drawing.Size(42, 20);
@@ -9039,7 +9356,7 @@ namespace DB_EDITOR
             // 
             // TeamDivisionBox
             // 
-            this.TeamDivisionBox.Location = new System.Drawing.Point(561, 206);
+            this.TeamDivisionBox.Location = new System.Drawing.Point(561, 191);
             this.TeamDivisionBox.Name = "TeamDivisionBox";
             this.TeamDivisionBox.ReadOnly = true;
             this.TeamDivisionBox.Size = new System.Drawing.Size(88, 20);
@@ -9049,7 +9366,7 @@ namespace DB_EDITOR
             // 
             // TeamConferenceBox
             // 
-            this.TeamConferenceBox.Location = new System.Drawing.Point(561, 161);
+            this.TeamConferenceBox.Location = new System.Drawing.Point(561, 146);
             this.TeamConferenceBox.Name = "TeamConferenceBox";
             this.TeamConferenceBox.ReadOnly = true;
             this.TeamConferenceBox.Size = new System.Drawing.Size(88, 20);
@@ -9089,7 +9406,7 @@ namespace DB_EDITOR
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(587, 101);
+            this.label27.Location = new System.Drawing.Point(587, 86);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(43, 13);
             this.label27.TabIndex = 47;
@@ -9107,7 +9424,7 @@ namespace DB_EDITOR
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(583, 189);
+            this.label25.Location = new System.Drawing.Point(583, 174);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(44, 13);
             this.label25.TabIndex = 43;
@@ -9116,7 +9433,7 @@ namespace DB_EDITOR
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(574, 144);
+            this.label24.Location = new System.Drawing.Point(574, 129);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(62, 13);
             this.label24.TabIndex = 41;
@@ -10023,6 +10340,7 @@ namespace DB_EDITOR
             // tabTools
             // 
             this.tabTools.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.tabTools.Controls.Add(this.ClearExpiredStats);
             this.tabTools.Controls.Add(this.groupBox22);
             this.tabTools.Controls.Add(this.ReRankTeams);
             this.tabTools.Controls.Add(this.FixHCBugsButton);
@@ -10034,7 +10352,6 @@ namespace DB_EDITOR
             this.tabTools.Controls.Add(this.textBox2);
             this.tabTools.Controls.Add(this.ReorderPGIDButton);
             this.tabTools.Controls.Add(this.TORDButton);
-            this.tabTools.Controls.Add(this.CFUSAexportButton);
             this.tabTools.Controls.Add(this.RandomizeHeadButton);
             this.tabTools.Controls.Add(this.label58);
             this.tabTools.Controls.Add(this.FillRosterPCT);
@@ -10052,6 +10369,39 @@ namespace DB_EDITOR
             this.tabTools.Size = new System.Drawing.Size(1152, 615);
             this.tabTools.TabIndex = 5;
             this.tabTools.Text = "dbTools";
+            // 
+            // groupBox22
+            // 
+            this.groupBox22.Controls.Add(this.FantasyCSV);
+            this.groupBox22.Controls.Add(this.FantasyTeamDB);
+            this.groupBox22.Location = new System.Drawing.Point(274, 567);
+            this.groupBox22.Name = "groupBox22";
+            this.groupBox22.Size = new System.Drawing.Size(239, 45);
+            this.groupBox22.TabIndex = 58;
+            this.groupBox22.TabStop = false;
+            this.groupBox22.Text = "Team Prestige Location";
+            // 
+            // FantasyCSV
+            // 
+            this.FantasyCSV.AutoSize = true;
+            this.FantasyCSV.Location = new System.Drawing.Point(139, 19);
+            this.FantasyCSV.Name = "FantasyCSV";
+            this.FantasyCSV.Size = new System.Drawing.Size(87, 17);
+            this.FantasyCSV.TabIndex = 1;
+            this.FantasyCSV.TabStop = true;
+            this.FantasyCSV.Text = "External CSV";
+            this.FantasyCSV.UseVisualStyleBackColor = true;
+            // 
+            // FantasyTeamDB
+            // 
+            this.FantasyTeamDB.AutoSize = true;
+            this.FantasyTeamDB.Location = new System.Drawing.Point(17, 19);
+            this.FantasyTeamDB.Name = "FantasyTeamDB";
+            this.FantasyTeamDB.Size = new System.Drawing.Size(101, 17);
+            this.FantasyTeamDB.TabIndex = 0;
+            this.FantasyTeamDB.TabStop = true;
+            this.FantasyTeamDB.Text = "Team Database";
+            this.FantasyTeamDB.UseVisualStyleBackColor = true;
             // 
             // ReRankTeams
             // 
@@ -10390,7 +10740,7 @@ namespace DB_EDITOR
             this.textBox2.Location = new System.Drawing.Point(723, 36);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(395, 544);
+            this.textBox2.Size = new System.Drawing.Size(395, 573);
             this.textBox2.TabIndex = 13;
             this.textBox2.Text = resources.GetString("textBox2.Text");
             // 
@@ -10399,7 +10749,7 @@ namespace DB_EDITOR
             this.ReorderPGIDButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ReorderPGIDButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ReorderPGIDButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ReorderPGIDButton.Location = new System.Drawing.Point(16, 421);
+            this.ReorderPGIDButton.Location = new System.Drawing.Point(16, 519);
             this.ReorderPGIDButton.Name = "ReorderPGIDButton";
             this.ReorderPGIDButton.Size = new System.Drawing.Size(110, 80);
             this.ReorderPGIDButton.TabIndex = 28;
@@ -10419,18 +10769,6 @@ namespace DB_EDITOR
             this.TORDButton.Text = "Reorder Teams (Dynasty)";
             this.TORDButton.UseVisualStyleBackColor = false;
             this.TORDButton.Click += new System.EventHandler(this.TORDButton_Click);
-            // 
-            // CFUSAexportButton
-            // 
-            this.CFUSAexportButton.BackColor = System.Drawing.Color.Pink;
-            this.CFUSAexportButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CFUSAexportButton.Location = new System.Drawing.Point(16, 519);
-            this.CFUSAexportButton.Name = "CFUSAexportButton";
-            this.CFUSAexportButton.Size = new System.Drawing.Size(110, 80);
-            this.CFUSAexportButton.TabIndex = 25;
-            this.CFUSAexportButton.Text = "Export to CFB USA 97";
-            this.CFUSAexportButton.UseVisualStyleBackColor = false;
-            this.CFUSAexportButton.Click += new System.EventHandler(this.CFUSAexportButton_Click);
             // 
             // RandomizeHeadButton
             // 
@@ -10563,38 +10901,29 @@ namespace DB_EDITOR
             this.bodyFix.UseVisualStyleBackColor = false;
             this.bodyFix.Click += new System.EventHandler(this.BodyFix_Click);
             // 
-            // groupBox22
+            // CFUSAexportButton
             // 
-            this.groupBox22.Controls.Add(this.FantasyCSV);
-            this.groupBox22.Controls.Add(this.FantasyTeamDB);
-            this.groupBox22.Location = new System.Drawing.Point(274, 567);
-            this.groupBox22.Name = "groupBox22";
-            this.groupBox22.Size = new System.Drawing.Size(239, 45);
-            this.groupBox22.TabIndex = 58;
-            this.groupBox22.TabStop = false;
-            this.groupBox22.Text = "Team Prestige Location";
+            this.CFUSAexportButton.BackColor = System.Drawing.Color.Pink;
+            this.CFUSAexportButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CFUSAexportButton.Location = new System.Drawing.Point(1003, 196);
+            this.CFUSAexportButton.Name = "CFUSAexportButton";
+            this.CFUSAexportButton.Size = new System.Drawing.Size(110, 80);
+            this.CFUSAexportButton.TabIndex = 50;
+            this.CFUSAexportButton.Text = "Export to CFB USA 97";
+            this.CFUSAexportButton.UseVisualStyleBackColor = false;
             // 
-            // FantasyTeamDB
+            // ClearExpiredStats
             // 
-            this.FantasyTeamDB.AutoSize = true;
-            this.FantasyTeamDB.Location = new System.Drawing.Point(17, 19);
-            this.FantasyTeamDB.Name = "FantasyTeamDB";
-            this.FantasyTeamDB.Size = new System.Drawing.Size(101, 17);
-            this.FantasyTeamDB.TabIndex = 0;
-            this.FantasyTeamDB.TabStop = true;
-            this.FantasyTeamDB.Text = "Team Database";
-            this.FantasyTeamDB.UseVisualStyleBackColor = true;
-            // 
-            // FantasyCSV
-            // 
-            this.FantasyCSV.AutoSize = true;
-            this.FantasyCSV.Location = new System.Drawing.Point(139, 19);
-            this.FantasyCSV.Name = "FantasyCSV";
-            this.FantasyCSV.Size = new System.Drawing.Size(87, 17);
-            this.FantasyCSV.TabIndex = 1;
-            this.FantasyCSV.TabStop = true;
-            this.FantasyCSV.Text = "External CSV";
-            this.FantasyCSV.UseVisualStyleBackColor = true;
+            this.ClearExpiredStats.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.ClearExpiredStats.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClearExpiredStats.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ClearExpiredStats.Location = new System.Drawing.Point(16, 421);
+            this.ClearExpiredStats.Name = "ClearExpiredStats";
+            this.ClearExpiredStats.Size = new System.Drawing.Size(110, 80);
+            this.ClearExpiredStats.TabIndex = 59;
+            this.ClearExpiredStats.Text = "Clear Expired Stats Data";
+            this.ClearExpiredStats.UseVisualStyleBackColor = false;
+            this.ClearExpiredStats.Click += new System.EventHandler(this.ClearExpiredStats_Click);
             // 
             // MainEditor
             // 
@@ -10626,6 +10955,13 @@ namespace DB_EDITOR
             this.FieldsPropsgroupBox.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.tabStats.ResumeLayout(false);
+            this.groupBox26.ResumeLayout(false);
+            this.groupBox26.PerformLayout();
+            this.groupBox25.ResumeLayout(false);
+            this.groupBox25.PerformLayout();
+            this.groupBox24.ResumeLayout(false);
+            this.groupBox24.PerformLayout();
             this.tabBowls.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.BowlsGrid)).EndInit();
             this.tabUniforms.ResumeLayout(false);
@@ -10673,6 +11009,8 @@ namespace DB_EDITOR
             this.groupBox19.PerformLayout();
             this.tabConf.ResumeLayout(false);
             this.tabConf.PerformLayout();
+            this.groupBox23.ResumeLayout(false);
+            this.groupBox23.PerformLayout();
             this.tabDev.ResumeLayout(false);
             this.tabDev.PerformLayout();
             this.tabOffSeason.ResumeLayout(false);
@@ -10790,14 +11128,14 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.ScheduleView)).EndInit();
             this.tabTools.ResumeLayout(false);
             this.tabTools.PerformLayout();
+            this.groupBox22.ResumeLayout(false);
+            this.groupBox22.PerformLayout();
             this.groupBox18.ResumeLayout(false);
             this.groupBox18.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MaxAttNum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GlobalAttNum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinAttNum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FillRosterPCT)).EndInit();
-            this.groupBox22.ResumeLayout(false);
-            this.groupBox22.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -11568,7 +11906,6 @@ namespace DB_EDITOR
         public System.Windows.Forms.TextBox textBox2;
         public System.Windows.Forms.Button ReorderPGIDButton;
         public System.Windows.Forms.Button TORDButton;
-        public System.Windows.Forms.Button CFUSAexportButton;
         public System.Windows.Forms.Button RandomizeHeadButton;
         private Label label58;
         private NumericUpDown FillRosterPCT;
@@ -11626,6 +11963,36 @@ namespace DB_EDITOR
         private GroupBox groupBox22;
         private RadioButton FantasyCSV;
         private RadioButton FantasyTeamDB;
+        private GroupBox groupBox23;
+        private RadioButton ConfDisplayRanking;
+        private RadioButton ConfDisplayRating;
+        private RadioButton ConfDisplayPrestige;
+        private RadioButton ConfDisplayTeam;
+        private GroupBox groupBox26;
+        private GroupBox groupBox25;
+        private GroupBox groupBox24;
+        private ListBox CoachPollListBox;
+        private ListBox TopTeamRatingsBox;
+        private ListBox TopTeamDefBox;
+        private ListBox TopTeamOffBox;
+        private Label label217;
+        private Label label216;
+        private Label label215;
+        private Label label214;
+        private Label label221;
+        private ListBox SacksLeadersBox;
+        private ListBox IntLeadersBox;
+        private Label label223;
+        private Label label222;
+        private ListBox TacklesLeadersBox;
+        private Label label220;
+        private ListBox ReceivingLeadersBox;
+        private Label label219;
+        private ListBox RushingLeadersBox;
+        private Label label218;
+        private ListBox PassingLeadersBox;
+        public System.Windows.Forms.Button CFUSAexportButton;
+        public System.Windows.Forms.Button ClearExpiredStats;
     }
 }
 

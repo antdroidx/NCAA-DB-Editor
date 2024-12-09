@@ -7341,6 +7341,9 @@ It is recommended to use these tools after the completion of the National Champi
 * Randomize Player Potential - Randomizes from 40-99 every player's potential rating. Affects player progression.
 
 * Unique Players - For Texture Modding Experts Only. Removes PSKI 1 and 4 for creation of unique player specific textures
+
+* Clear Expired Stats - This removes stats from players who are no longer in the database (typically when swapping teams around)
+
 --
 
 * Determine Impact Players - Picks 4 Impact Players in a Dynasty Save file based on overall (2 x Offense, 2 x Defense)

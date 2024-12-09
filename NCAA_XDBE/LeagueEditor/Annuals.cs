@@ -136,28 +136,83 @@ namespace DB_EDITOR
                     int time = 1080;
                     int gdat = 5;
                     if (rand.Next(0, 2) == 1) time = 1200;
-
+                    int home = GetTGIDfromTeamName(Convert.ToString(AnnualsGrid.Rows[i].Cells[1].Value));
+                    int away = GetTGIDfromTeamName(Convert.ToString(AnnualsGrid.Rows[i].Cells[0].Value));
                     //year 0
                     TDB.TDBTableRecordAdd(dbIndex2, "SANN", true);
                     ChangeDBInt("SANN", "GTOD", rec, time);
-                    ChangeDBInt("SANN", "GATG", rec, GetTGIDfromTeamName(Convert.ToString(AnnualsGrid.Rows[i].Cells[0].Value)));
-                    ChangeDBInt("SANN", "GHTG", rec, GetTGIDfromTeamName(Convert.ToString(AnnualsGrid.Rows[i].Cells[1].Value)));
+                    ChangeDBInt("SANN", "GATG", rec, away);
+                    ChangeDBInt("SANN", "GHTG", rec, home);
                     ChangeDBInt("SANN", "SESI", rec, 0);
                     ChangeDBInt("SANN", "SEWN", rec, Convert.ToInt32(AnnualsGrid.Rows[i].Cells[2].Value));
                     ChangeDBInt("SANN", "GDAT", rec, gdat);
                     ChangeDBInt("SANN", "SEWT", rec, Convert.ToInt32(AnnualsGrid.Rows[i].Cells[2].Value));
+
+                    //check for Army-Navy game
+                    if (away == 57 & home == 8)
+                    {
+                        ChangeDBInt("SANN", "SEWN", rec, 15);
+                        ChangeDBInt("SANN", "SEWT", rec, 15);
+                        ArmyNavy = true;
+                    }
+                    else if (away == 8 && home == 57)
+                    {
+                        ChangeDBInt("SANN", "SEWN", rec, 15);
+                        ChangeDBInt("SANN", "SEWT", rec, 15);
+                        ArmyNavy = true;
+                    }
+
                     rec++;
+
+
                     //year 1
                     TDB.TDBTableRecordAdd(dbIndex2, "SANN", true);
                     ChangeDBInt("SANN", "GTOD", rec, time);
-                    ChangeDBInt("SANN", "GATG", rec, GetTGIDfromTeamName(Convert.ToString(AnnualsGrid.Rows[i].Cells[0].Value)));
-                    ChangeDBInt("SANN", "GHTG", rec, GetTGIDfromTeamName(Convert.ToString(AnnualsGrid.Rows[i].Cells[1].Value)));
+                    ChangeDBInt("SANN", "GATG", rec, home);
+                    ChangeDBInt("SANN", "GHTG", rec, away);
                     ChangeDBInt("SANN", "SESI", rec, 1);
                     ChangeDBInt("SANN", "SEWN", rec, Convert.ToInt32(AnnualsGrid.Rows[i].Cells[2].Value));
                     ChangeDBInt("SANN", "GDAT", rec, gdat);
                     ChangeDBInt("SANN", "SEWT", rec, Convert.ToInt32(AnnualsGrid.Rows[i].Cells[2].Value));
+
+                    //check for Army-Navy game
+                    if (away == 57 & home == 8)
+                    {
+                        ChangeDBInt("SANN", "SEWN", rec, 15);
+                        ChangeDBInt("SANN", "SEWT", rec, 15);
+                        ArmyNavy = true;
+                    }
+                    else if (away == 8 && home == 57)
+                    {
+                        ChangeDBInt("SANN", "SEWN", rec, 15);
+                        ChangeDBInt("SANN", "SEWT", rec, 15);
+                        ArmyNavy = true;
+                    }
+
                     rec++;
                 }
+            }
+
+            if (!ArmyNavy && NextMod)
+            {
+                TDB.TDBTableRecordAdd(dbIndex2, "SANN", false);
+                ChangeDBInt("SANN", "GTOD", 0, 1200);
+                ChangeDBInt("SANN", "GATG", 0, 8);
+                ChangeDBInt("SANN", "GHTG", 0, 57);
+                ChangeDBInt("SANN", "SESI", 0, 1);
+                ChangeDBInt("SANN", "SEWN", 0, 15);
+                ChangeDBInt("SANN", "GDAT", 0, 5);
+                ChangeDBInt("SANN", "SEWT", 0, 15);
+
+                TDB.TDBTableRecordAdd(dbIndex2, "SANN", false);
+                ChangeDBInt("SANN", "GTOD", 1, 1200);
+                ChangeDBInt("SANN", "GATG", 1, 57);
+                ChangeDBInt("SANN", "GHTG", 1, 8);
+                ChangeDBInt("SANN", "SESI", 1, 0);
+                ChangeDBInt("SANN", "SEWN", 1, 15);
+                ChangeDBInt("SANN", "GDAT", 1, 5);
+                ChangeDBInt("SANN", "SEWT", 1, 15);
+
             }
 
             AddtoSKNW();

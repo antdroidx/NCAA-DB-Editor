@@ -55,6 +55,9 @@ namespace DB_EDITOR
 
         int TeamCount = 0;
         int maxTeams = 20;
+        bool ArmyNavy = false;
+        bool NextMod = false;
+
 
         List<int> bowlsDeleted = new List<int>();
 
@@ -62,13 +65,14 @@ namespace DB_EDITOR
 
         #endregion
 
-        public LeagueMain()
+        public LeagueMain(bool next)
         {
             InitializeComponent();
             DefaultSettings();
             OpenFile();
             KeyPreview = true;
-
+            NextMod = next;
+            if (NextMod) NextConfigRadio.Checked = true;
         }
 
         private void DefaultSettings()
@@ -121,6 +125,7 @@ namespace DB_EDITOR
             main.dbIndex = 0;
 
             CustomLeagueToolStrip.Visible = false;
+
         }
 
 
@@ -1710,6 +1715,17 @@ namespace DB_EDITOR
 
         #endregion
 
+        private void NextConfigRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            //NextConfigRadio.Checked = true;
+            NextMod = true;
+        }
+
+        private void OGConfigRadio_CheckedChanged(object sender, EventArgs e)
+        {
+            //OGConfigRadio.Checked = true;
+            NextMod = false;
+        }
     }
 
 }

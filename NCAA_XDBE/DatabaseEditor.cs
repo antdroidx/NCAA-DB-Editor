@@ -720,6 +720,10 @@ namespace DB_EDITOR
                     {
                         if (!checkTabExists("Schedule")) tabControl1.TabPages.Add(tabSchedule);
                     }
+                    if (table.Name == "PSOL" && !BigEndian)
+                    {
+                        if (!checkTabExists("Stats")) tabControl1.TabPages.Add(tabStats);
+                    }
                 }
             }
 

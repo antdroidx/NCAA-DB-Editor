@@ -207,6 +207,9 @@ namespace DB_EDITOR
             this.tableGridView = new System.Windows.Forms.DataGridView();
             this.fieldsGridView = new System.Windows.Forms.DataGridView();
             this.tabHome = new System.Windows.Forms.TabPage();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.OGConfigRadio = new System.Windows.Forms.RadioButton();
+            this.NextConfigRadio = new System.Windows.Forms.RadioButton();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -258,6 +261,7 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.tableGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fieldsGridView)).BeginInit();
             this.tabHome.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabAnnuals.SuspendLayout();
@@ -1917,6 +1921,7 @@ namespace DB_EDITOR
             // tabHome
             // 
             this.tabHome.BackColor = System.Drawing.Color.DarkSlateBlue;
+            this.tabHome.Controls.Add(this.groupBox1);
             this.tabHome.Controls.Add(this.textBox1);
             this.tabHome.Controls.Add(this.pictureBox1);
             this.tabHome.Location = new System.Drawing.Point(4, 24);
@@ -1927,9 +1932,46 @@ namespace DB_EDITOR
             this.tabHome.Text = "Home";
             this.tabHome.UseVisualStyleBackColor = true;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.OGConfigRadio);
+            this.groupBox1.Controls.Add(this.NextConfigRadio);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.Control;
+            this.groupBox1.Location = new System.Drawing.Point(34, 6);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(381, 48);
+            this.groupBox1.TabIndex = 144;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Configuration";
+            // 
+            // OGConfigRadio
+            // 
+            this.OGConfigRadio.AutoSize = true;
+            this.OGConfigRadio.Checked = true;
+            this.OGConfigRadio.Location = new System.Drawing.Point(23, 21);
+            this.OGConfigRadio.Name = "OGConfigRadio";
+            this.OGConfigRadio.Size = new System.Drawing.Size(144, 20);
+            this.OGConfigRadio.TabIndex = 1;
+            this.OGConfigRadio.TabStop = true;
+            this.OGConfigRadio.Text = "NCAA 06 Original";
+            this.OGConfigRadio.UseVisualStyleBackColor = true;
+            this.OGConfigRadio.CheckedChanged += new System.EventHandler(this.OGConfigRadio_CheckedChanged);
+            // 
+            // NextConfigRadio
+            // 
+            this.NextConfigRadio.AutoSize = true;
+            this.NextConfigRadio.Location = new System.Drawing.Point(201, 21);
+            this.NextConfigRadio.Name = "NextConfigRadio";
+            this.NextConfigRadio.Size = new System.Drawing.Size(163, 20);
+            this.NextConfigRadio.TabIndex = 0;
+            this.NextConfigRadio.Text = "NCAA Next 25+ Mod";
+            this.NextConfigRadio.UseVisualStyleBackColor = true;
+            this.NextConfigRadio.CheckedChanged += new System.EventHandler(this.NextConfigRadio_CheckedChanged);
+            // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(625, 43);
+            this.textBox1.Location = new System.Drawing.Point(618, 60);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
@@ -1940,7 +1982,7 @@ namespace DB_EDITOR
             // pictureBox1
             // 
             this.pictureBox1.Image = global::DB_EDITOR.Properties.Resources.ncaa_db_editor_TITLE;
-            this.pictureBox1.Location = new System.Drawing.Point(44, 43);
+            this.pictureBox1.Location = new System.Drawing.Point(34, 60);
             this.pictureBox1.MaximumSize = new System.Drawing.Size(1000, 1000);
             this.pictureBox1.MinimumSize = new System.Drawing.Size(550, 550);
             this.pictureBox1.Name = "pictureBox1";
@@ -2350,6 +2392,8 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.fieldsGridView)).EndInit();
             this.tabHome.ResumeLayout(false);
             this.tabHome.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabAnnuals.ResumeLayout(false);
@@ -2553,6 +2597,9 @@ namespace DB_EDITOR
         private Label label39;
         private System.Windows.Forms.ComboBox TeamSelectionBox;
         private System.Windows.Forms.Button AtLargeButton;
+        private GroupBox groupBox1;
+        private RadioButton OGConfigRadio;
+        private RadioButton NextConfigRadio;
     }
 }
 

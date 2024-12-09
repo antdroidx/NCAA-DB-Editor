@@ -96,7 +96,7 @@ namespace DB_EDITOR
                 if (GetDBValueInt("CONF", "LGID", i) == 0)
                 {
                     double avgPrestige = AddTeamsToConfSetup(GetDBValueInt("CONF", "CGID", i), confBoxes[box], i, confNames[box]);
-                    confNames[box].Text += " [" + avgPrestige.ToString("0.00") + "]"; 
+                    if (avgPrestige > 0) confNames[box].Text += " [" + avgPrestige.ToString("0.00") + "]"; 
                  
                     box++;
                 }
@@ -127,9 +127,33 @@ namespace DB_EDITOR
             {
                 if (GetDBValueInt("TEAM", "CGID", i) == conf)
                 {
-                    conferenceBox.Items.Add(GetDBValue("TEAM", "TDNA", i) + " [" + GetDBValue("TEAM", "TMPR", i) +"]");
                     confName.Text = GetDBValue("CONF", "CNAM", confRec);
-                    prestige += GetDBValueInt("TEAM", "TMPR", i);
+
+                    if(ConfDisplayTeam.Checked)
+                    {
+                        conferenceBox.Items.Add(GetDBValue("TEAM", "TDNA", i));
+                    }
+                    else if (ConfDisplayPrestige.Checked)
+                    {
+                        conferenceBox.Items.Add(GetDBValue("TEAM", "TDNA", i) + " [" + GetDBValue("TEAM", "TMPR", i) + "]");
+                        prestige += GetDBValueInt("TEAM", "TMPR", i);
+                    }
+                    else if (ConfDisplayRating.Checked)
+                    {
+                        conferenceBox.Items.Add(GetDBValue("TEAM", "TDNA", i) + " [" + GetDBValue("TEAM", "TROV", i) + "]");
+                        prestige += GetDBValueInt("TEAM", "TROV", i);
+                    }
+                    else if (ConfDisplayRanking.Checked)
+                    {
+                        conferenceBox.Items.Add(GetDBValue("TEAM", "TDNA", i) + " [#" + (GetDBValueInt("TEAM", "TCRK", i)+1) + "]");
+                        prestige += GetDBValueInt("TEAM", "TCRK", i);
+                    }
+                    else                   
+                    {
+                        conferenceBox.Items.Add(GetDBValue("TEAM", "TDNA", i));
+                    }
+
+
                     teams++;
                 }
             }
@@ -232,7 +256,7 @@ namespace DB_EDITOR
             for (int i = 0; i < GetTableRecCount("TEAM"); i++)
             {
                 if (GetDBValueInt("TEAM", "TTYP", i) == 1 || GetDBValueInt("TEAM", "TTYP", i) == 6)
-                    FCSSwapListBox.Items.Add(GetDBValue("TEAM", "TDNA", i) + " [" + GetDBValue("TEAM", "TMPR", i) + "]");
+                    FCSSwapListBox.Items.Add(GetDBValue("TEAM", "TDNA", i));
             }
         }
 
@@ -262,18 +286,21 @@ namespace DB_EDITOR
                 if (!ASelected && c.SelectedItems.Count > 0)
                 {
                     TeamA = c.SelectedItem.ToString();
-                    TeamA = TeamA.Substring(0, TeamA.Length - 4);
+                    int index = TeamA.IndexOf(" [");
+                    if(index > 0) TeamA = TeamA.Substring(0, index);
+                    
                     ASelected = true;
                 }
                 else if (ASelected && c.SelectedItems.Count > 0)
                 {
                     TeamB = c.SelectedItem.ToString();
-                    TeamB = TeamB.Substring(0, TeamB.Length - 4);
+                    int index = TeamB.IndexOf(" [");
+                    if (index > 0) TeamB = TeamB.Substring(0, index);
                     break;
                 }
             }
 
-            if (EnableFCSSwapBox.Checked) TeamB = FCSSwapListBox.Text.Substring(0, FCSSwapListBox.Text.Length - 4);
+            if (EnableFCSSwapBox.Checked) TeamB = FCSSwapListBox.Text;
 
             int recA = FindTeamRecfromTeamName(TeamA);
             int recB = FindTeamRecfromTeamName(TeamB);
@@ -609,7 +636,73 @@ namespace DB_EDITOR
                 }
             }
 
+            for (int i = 0; i < GetTableRecCount("PSOF"); i++)
+            {
+                if (GetDBValueInt("PSOF", "PGID", i) >= pgidBeg && GetDBValueInt("PSOF", "PGID", i) <= pgidEnd)
+                {
+                    DeleteRecordChange("PSOF", i, true);
+                }
+            }
+
+            for (int i = 0; i < GetTableRecCount("PSOL"); i++)
+            {
+                if (GetDBValueInt("PSOL", "PGID", i) >= pgidBeg && GetDBValueInt("PSOL", "PGID", i) <= pgidEnd)
+                {
+                    DeleteRecordChange("PSOL", i, true);
+                }
+            }
+
+            for (int i = 0; i < GetTableRecCount("PSDE"); i++)
+            {
+                if (GetDBValueInt("PSDE", "PGID", i) >= pgidBeg && GetDBValueInt("PSDE", "PGID", i) <= pgidEnd)
+                {
+                    DeleteRecordChange("PSDE", i, true);
+                }
+            }
+
+            for (int i = 0; i < GetTableRecCount("PSKI"); i++)
+            {
+                if (GetDBValueInt("PSKI", "PGID", i) >= pgidBeg && GetDBValueInt("PSKI", "PGID", i) <= pgidEnd)
+                {
+                    DeleteRecordChange("PSKI", i, true);
+                }
+            }
+
+            for (int i = 0; i < GetTableRecCount("PSRT"); i++)
+            {
+                if (GetDBValueInt("PSRT", "PGID", i) >= pgidBeg && GetDBValueInt("PSRT", "PGID", i) <= pgidEnd)
+                {
+                    DeleteRecordChange("PSRT", i, true);
+                }
+            }
+
+            for (int i = 0; i < GetTableRecCount("PSRN"); i++)
+            {
+                if (GetDBValueInt("PSRN", "PGID", i) >= pgidBeg && GetDBValueInt("PSDE", "PSRN", i) <= pgidEnd)
+                {
+                    DeleteRecordChange("PSRN", i, true);
+                }
+            }
+
+            for (int i = 0; i < GetTableRecCount("PSKP"); i++)
+            {
+                if (GetDBValueInt("PSKP", "PGID", i) >= pgidBeg && GetDBValueInt("PSKP", "PGID", i) <= pgidEnd)
+                {
+                    DeleteRecordChange("PSKP", i, true);
+                }
+            }
+
             CompactDB();
+
+
+            for (int i = 0; i < GetTable2RecCount("RCPT"); i++)
+            {
+                if (GetDB2ValueInt("RCPT", "PRID", i) >= pgidBeg && GetDB2ValueInt("RCPT", "PRID}", i) <= pgidEnd)
+                {
+                    DeleteRecordChange2("RCPT", i, true);
+                }
+            }
+            CompactDB2();
         }
 
         public void ClearOldTeamStats(int tgid)
@@ -618,6 +711,31 @@ namespace DB_EDITOR
             {
                 ClearPlayerStats(i);
             }
+        }
+
+
+        //Display Options
+        private void ConfDisplayTeam_CheckedChanged(object sender, EventArgs e)
+        {
+            ConferenceSetup();
+        }
+
+        private void ConfDisplayPrestige_CheckedChanged(object sender, EventArgs e)
+        {
+            ConferenceSetup();
+
+        }
+
+        private void ConfDisplayRating_CheckedChanged(object sender, EventArgs e)
+        {
+            ConferenceSetup();
+
+        }
+
+        private void ConfDisplayRanking_CheckedChanged(object sender, EventArgs e)
+        {
+            ConferenceSetup();
+
         }
 
 

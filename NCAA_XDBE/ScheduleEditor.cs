@@ -214,7 +214,7 @@ namespace DB_EDITOR
             categories.Add(GetDBValue("TEAM", "TRDB", rec));
 
             categories.Add(GetCoachFirstNamefromRec(cochrec) + " " + GetCoachLastNamefromRec(cochrec));
-            categories.Add(GetDBValue("COCH", "CPRE", rec));
+            categories.Add(GetDBValue("COCH", "CPRE", cochrec));
 
 
             return categories;
