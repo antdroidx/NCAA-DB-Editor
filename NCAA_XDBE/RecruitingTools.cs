@@ -970,9 +970,9 @@ namespace DB_EDITOR
             {
                 int rec = FindPGIDRecord(GetDBValueInt("TRAN", "PGID", i));
                 int povr = GetDBValueInt("PLAY", "POVR", rec);
-                if(povr < 8)
+                if(povr <= 8)
                 {
-                    DeleteRecordChange("PLAY", rec, true);
+                    ChangeDBInt("PLAY", "PTYP", rec, 3);
                     DeleteRecordChange("TRAN", i, true);
                     count++;
                 }

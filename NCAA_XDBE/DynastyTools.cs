@@ -35,10 +35,22 @@ namespace DB_EDITOR
         }
 
         //Randomizes the Coaching Budgets - Must be done prior to 1st Off-Season Task
-
-        private void ButtonRandomBudgets_Click(object sender, EventArgs e)
+        private void buttonRandomBudgets_Click(object sender, EventArgs e)
         {
             RandomizeBudgets();
+        }
+
+        //Auto Adjust Coach Budgets
+        private void AutoAdjustBudgetsButton_Click(object sender, EventArgs e)
+        {
+            AutoAdjustCoachBudgets();
+        }
+
+        //Randomly Generate Coach Prestiges for Free Agents
+        private void CoachPrestigeButton_Click(object sender, EventArgs e)
+        {
+            AssignCoachPrestigeFreeAgents();
+
         }
 
         //Coaching Carousel -- Must be done at end of Season
@@ -60,12 +72,6 @@ namespace DB_EDITOR
             PlayerToCoach();
         }
 
-
-        //Randomly Generate Coach Prestiges for Free Agents
-        private void CoachPrestigeButton_Click(object sender, EventArgs e)
-        {
-            AssignCoachPrestigeFreeAgents();
-        }
 
         //Body Size Progression Click
         private void BodyProgressionButton_Click(object sender, EventArgs e)
@@ -347,6 +353,76 @@ namespace DB_EDITOR
                 ChangeDBString("COCH", "CDPC", i, Convert.ToString(CDPC));
                 ChangeDBString("COCH", "CRPC", i, Convert.ToString(CRPC));
                 ChangeDBString("COCH", "CTPC", i, Convert.ToString(CTPC));
+
+                progressBar1.PerformStep();
+            }
+
+            progressBar1.Visible = false;
+            progressBar1.Value = 0;
+
+            MessageBox.Show("Team Budgets Changed!");
+        }
+
+        //Adjust Coaching Budgets - Must be done prior to 1st Off-Season Task
+        private void AutoAdjustCoachBudgets()
+        {
+            progressBar1.Visible = true;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = GetTableRecCount("COCH");
+
+            for (int i = 0; i < GetTableRecCount("COCH"); i++)
+            {
+                if (GetDBValueInt("COCH", "TGID", i) != 511)
+                {
+                    //CDPC, CRPC, CTPC
+                    int CDPC, CRPC, CTPC;
+                    CRPC = Convert.ToInt32(GetDBValue("COCH", "CRPC", i));
+                    CTPC = Convert.ToInt32(GetDBValue("COCH", "CTPC", i));
+                    CDPC = Convert.ToInt32(GetDBValue("COCH", "CDPC", i));
+
+                    //get team sanction interest, team discipline, number of srs
+
+                    int teamRec = FindTeamRecfromTeamName(teamNameDB[GetDBValueInt("COCH", "TGID", i)]);
+
+                    if (GetDBValueInt("TEAM", "SNCT", teamRec) > 0) CDPC += 3;
+                    CDPC += (GetDBValueInt("TEAM", "INPO", teamRec) - 50) / 10;
+
+                    int pgidStart = GetDBValueInt("COCH", "TGID", i) * 70;
+                    int seniors = 0;
+                    int lowDis = 0;
+                    for (int p = 0; p < GetTableRecCount("PLAY"); p++)
+                    {
+                        if (GetPGIDfromRecord(p) >= pgidStart && GetPGIDfromRecord(p) < pgidStart + 70 && GetPYERfromRecord(p) == 3 || GetPGIDfromRecord(p) >= pgidStart && GetPGIDfromRecord(p) < pgidStart + 70 && GetPTYPfromRecord(p) == 1)
+                        {
+                            seniors++;
+                        }
+                        if (GetPGIDfromRecord(p) >= pgidStart && GetPGIDfromRecord(p) < pgidStart + 70 && GetDBValueInt("PLAY", "PDIS", p) < 3)
+                        {
+                            lowDis++;
+                        }
+                    }
+
+                    if (lowDis < 10) CRPC -= 3;
+                    else CDPC += lowDis / 5;
+
+                    if (seniors >= 30) CRPC += 7;
+                    else if (seniors >= 25) CRPC += 5;
+                    else if (seniors >= 20) CRPC += 3;
+                    else if (seniors >= 15) CRPC += 0;
+                    else CRPC -= 3;
+
+                    if (CDPC < 15) CDPC = 15;
+                    if (CDPC > 35) CDPC = 35;
+
+                    if (CRPC < 25) CRPC = 25;
+                    if (CRPC > 45) CRPC = 45;
+
+                    CTPC = 100 - CDPC - CRPC;
+
+                    ChangeDBInt("COCH", "CDPC", i, CDPC);
+                    ChangeDBInt("COCH", "CRPC", i, CRPC);
+                    ChangeDBInt("COCH", "CTPC", i, CTPC);
+                }
 
                 progressBar1.PerformStep();
             }

@@ -96,8 +96,8 @@ namespace DB_EDITOR
                 if (GetDBValueInt("CONF", "LGID", i) == 0)
                 {
                     double avgPrestige = AddTeamsToConfSetup(GetDBValueInt("CONF", "CGID", i), confBoxes[box], i, confNames[box]);
-                    if (avgPrestige > 0) confNames[box].Text += " [" + avgPrestige.ToString("0.00") + "]"; 
-                 
+                    if (avgPrestige > 0) confNames[box].Text += " [" + avgPrestige.ToString("0.00") + "]";
+
                     box++;
                 }
             }
@@ -129,7 +129,7 @@ namespace DB_EDITOR
                 {
                     confName.Text = GetDBValue("CONF", "CNAM", confRec);
 
-                    if(ConfDisplayTeam.Checked)
+                    if (ConfDisplayTeam.Checked)
                     {
                         conferenceBox.Items.Add(GetDBValue("TEAM", "TDNA", i));
                     }
@@ -145,10 +145,10 @@ namespace DB_EDITOR
                     }
                     else if (ConfDisplayRanking.Checked)
                     {
-                        conferenceBox.Items.Add(GetDBValue("TEAM", "TDNA", i) + " [#" + (GetDBValueInt("TEAM", "TCRK", i)+1) + "]");
+                        conferenceBox.Items.Add(GetDBValue("TEAM", "TDNA", i) + " [#" + (GetDBValueInt("TEAM", "TCRK", i) + 1) + "]");
                         prestige += GetDBValueInt("TEAM", "TCRK", i);
                     }
-                    else                   
+                    else
                     {
                         conferenceBox.Items.Add(GetDBValue("TEAM", "TDNA", i));
                     }
@@ -157,7 +157,7 @@ namespace DB_EDITOR
                     teams++;
                 }
             }
-            if (teams  > 0) avg = prestige / teams;
+            if (teams > 0) avg = prestige / teams;
             return avg;
 
         }
@@ -287,8 +287,8 @@ namespace DB_EDITOR
                 {
                     TeamA = c.SelectedItem.ToString();
                     int index = TeamA.IndexOf(" [");
-                    if(index > 0) TeamA = TeamA.Substring(0, index);
-                    
+                    if (index > 0) TeamA = TeamA.Substring(0, index);
+
                     ASelected = true;
                 }
                 else if (ASelected && c.SelectedItems.Count > 0)
@@ -343,7 +343,7 @@ namespace DB_EDITOR
                     int tgidA = GetTeamTGIDfromRecord(recA);
                     for (int x = 0; x < GetTable2RecCount("RTRI"); x++)
                     {
-                        if(tgidA == GetDB2ValueInt("RTRI", "TGID", x))
+                        if (tgidA == GetDB2ValueInt("RTRI", "TGID", x))
                         {
                             ChangeDB2Int("RTRI", "TGID", x, GetDBValueInt("TEAM", "TGID", recB));
                             break;
@@ -540,13 +540,13 @@ namespace DB_EDITOR
             RemoveOldCoach(tgid);
             ReorderTORD();
 
-            if(dbIndex2 == 1)
+            if (dbIndex2 == 1)
             {
-                for(int i = 0; i < GetTableRecCount("PLAY"); i++)
+                for (int i = 0; i < GetTableRecCount("PLAY"); i++)
                 {
                     if (GetDBValueInt("PLAY", "PGID", i) >= PGIDbeg && GetDBValueInt("PLAY", "PGID", i) <= PGIDend)
                     {
-                        if(GetDBValueInt("PLAY", "PYER", i) == 3)
+                        if (GetDBValueInt("PLAY", "PYER", i) == 3)
                         {
                             ChangeDBInt("PLAY", "PTYP", i, 3);
                         }
@@ -622,7 +622,7 @@ namespace DB_EDITOR
             int pgidEnd = tgid * 70 + 69;
             for (int i = 0; i < GetTableRecCount("PLAY"); i++)
             {
-                if (GetDBValueInt("PLAY", "PGID", i) >= pgidBeg && GetDBValueInt("PLAY", "PGID", i) <= pgidEnd)
+                if (GetDBValueInt("PLAY", "PGID", i) >= pgidBeg && GetDBValueInt("PLAY", "PGID", i) <= pgidEnd || GetDBValueInt("PLAY", "PGID", i) == 65535)
                 {
                     DeleteRecordChange("PLAY", i, true);
                 }
@@ -630,7 +630,7 @@ namespace DB_EDITOR
 
             for (int i = 0; i < GetTableRecCount("TRAN"); i++)
             {
-                if (GetDBValueInt("TRAN", "PGID", i) >= pgidBeg && GetDBValueInt("TRAN", "PGID", i) <= pgidEnd)
+                if (GetDBValueInt("TRAN", "PGID", i) >= pgidBeg && GetDBValueInt("TRAN", "PGID", i) <= pgidEnd || GetDBValueInt("TRAN", "PGID", i) == 65535)
                 {
                     DeleteRecordChange("TRAN", i, true);
                 }
@@ -638,7 +638,7 @@ namespace DB_EDITOR
 
             for (int i = 0; i < GetTableRecCount("PSOF"); i++)
             {
-                if (GetDBValueInt("PSOF", "PGID", i) >= pgidBeg && GetDBValueInt("PSOF", "PGID", i) <= pgidEnd)
+                if (GetDBValueInt("PSOF", "PGID", i) >= pgidBeg && GetDBValueInt("PSOF", "PGID", i) <= pgidEnd || GetDBValueInt("PSOF", "PGID", i) == 65535)
                 {
                     DeleteRecordChange("PSOF", i, true);
                 }
@@ -646,7 +646,7 @@ namespace DB_EDITOR
 
             for (int i = 0; i < GetTableRecCount("PSOL"); i++)
             {
-                if (GetDBValueInt("PSOL", "PGID", i) >= pgidBeg && GetDBValueInt("PSOL", "PGID", i) <= pgidEnd)
+                if (GetDBValueInt("PSOL", "PGID", i) >= pgidBeg && GetDBValueInt("PSOL", "PGID", i) <= pgidEnd || GetDBValueInt("PSOL", "PGID", i) == 65535)
                 {
                     DeleteRecordChange("PSOL", i, true);
                 }
@@ -654,7 +654,7 @@ namespace DB_EDITOR
 
             for (int i = 0; i < GetTableRecCount("PSDE"); i++)
             {
-                if (GetDBValueInt("PSDE", "PGID", i) >= pgidBeg && GetDBValueInt("PSDE", "PGID", i) <= pgidEnd)
+                if (GetDBValueInt("PSDE", "PGID", i) >= pgidBeg && GetDBValueInt("PSDE", "PGID", i) <= pgidEnd || GetDBValueInt("PSDE", "PGID", i) == 65535)
                 {
                     DeleteRecordChange("PSDE", i, true);
                 }
@@ -662,7 +662,7 @@ namespace DB_EDITOR
 
             for (int i = 0; i < GetTableRecCount("PSKI"); i++)
             {
-                if (GetDBValueInt("PSKI", "PGID", i) >= pgidBeg && GetDBValueInt("PSKI", "PGID", i) <= pgidEnd)
+                if (GetDBValueInt("PSKI", "PGID", i) >= pgidBeg && GetDBValueInt("PSKI", "PGID", i) <= pgidEnd || GetDBValueInt("PSKI", "PGID", i) == 65535)
                 {
                     DeleteRecordChange("PSKI", i, true);
                 }
@@ -670,7 +670,7 @@ namespace DB_EDITOR
 
             for (int i = 0; i < GetTableRecCount("PSRT"); i++)
             {
-                if (GetDBValueInt("PSRT", "PGID", i) >= pgidBeg && GetDBValueInt("PSRT", "PGID", i) <= pgidEnd)
+                if (GetDBValueInt("PSRT", "PGID", i) >= pgidBeg && GetDBValueInt("PSRT", "PGID", i) <= pgidEnd || GetDBValueInt("PSRT", "PGID", i) == 65535)
                 {
                     DeleteRecordChange("PSRT", i, true);
                 }
@@ -678,7 +678,7 @@ namespace DB_EDITOR
 
             for (int i = 0; i < GetTableRecCount("PSRN"); i++)
             {
-                if (GetDBValueInt("PSRN", "PGID", i) >= pgidBeg && GetDBValueInt("PSDE", "PSRN", i) <= pgidEnd)
+                if (GetDBValueInt("PSRN", "PGID", i) >= pgidBeg && GetDBValueInt("PSDE", "PSRN", i) <= pgidEnd || GetDBValueInt("PSDE", "PGID", i) == 65535)
                 {
                     DeleteRecordChange("PSRN", i, true);
                 }
@@ -686,7 +686,7 @@ namespace DB_EDITOR
 
             for (int i = 0; i < GetTableRecCount("PSKP"); i++)
             {
-                if (GetDBValueInt("PSKP", "PGID", i) >= pgidBeg && GetDBValueInt("PSKP", "PGID", i) <= pgidEnd)
+                if (GetDBValueInt("PSKP", "PGID", i) >= pgidBeg && GetDBValueInt("PSKP", "PGID", i) <= pgidEnd || GetDBValueInt("PSKP", "PGID", i) == 65535)
                 {
                     DeleteRecordChange("PSKP", i, true);
                 }

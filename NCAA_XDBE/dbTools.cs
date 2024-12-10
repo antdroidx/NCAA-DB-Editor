@@ -1645,7 +1645,10 @@ namespace DB_EDITOR
                     string redshirt = "0";
                     if (rand.Next(0, 3) > 2) redshirt = "2";
 
-                    ChangeDBInt("PLAY", "RCHD", rec, rand.Next(0, 12864)); //hometown
+
+                    int ht = PickRandomHometown();
+
+                    ChangeDBInt("PLAY", "RCHD", rec, ht); //hometown
                     ChangeDBString("PLAY", "PGID", rec, Convert.ToString(PGID)); //player id
                     ChangeDBString("PLAY", "PHPD", rec, "0"); //PHPD
                     ChangeDBString("PLAY", "PRSD", rec, redshirt); //Redshirt
@@ -1795,6 +1798,29 @@ namespace DB_EDITOR
             return jersey;
         }
         #endregion
+
+        private int PickRandomHometown()
+        {
+            int ht = 0;
+
+            List<string> home = new List<string>();
+
+            string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string csvLocation = Path.Combine(executableLocation, @"resources\players\RCHT.csv");
+
+            string filePath = csvLocation;
+            StreamReader sr = new StreamReader(filePath);
+            while (!sr.EndOfStream)
+            {
+                string[] Line = sr.ReadLine().Split(',');
+                home.Add(Line[0]);
+            }
+            sr.Close();
+
+            ht = Convert.ToInt32(home[rand.Next(0, home.Count)]);
+
+            return ht;
+        }
 
         #region Depth Chart Maker
         //Depth Chart Maker
