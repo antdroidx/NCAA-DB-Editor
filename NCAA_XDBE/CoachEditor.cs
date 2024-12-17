@@ -280,11 +280,11 @@ namespace DB_EDITOR
 
             SeasonRecord.Text = GetDBValue("COCH", "CSWI", EditorIndex) + " - " + GetDBValue("COCH", "CSLO", EditorIndex);
             BowlRecord.Text = GetDBValue("COCH", "CBLW", EditorIndex) + " - " + GetDBValue("COCH", "CBLL", EditorIndex);
-            Top25Record.Text = GetDBValue("COCH", "C25W", EditorIndex) + " - " + GetDBValue("COCH", "C25L", EditorIndex);
+            Top25Record.Text = GetDBValue("COCH", "CTTW", EditorIndex) + " - " + GetDBValue("COCH", "CTTL", EditorIndex);
             CareerRecord.Text = GetDBValue("COCH", "CCWI", EditorIndex) + " - " + GetDBValue("COCH", "CCLO", EditorIndex);
-            WinningSeasons.Text = GetDBValue("COCH", "CCSW", EditorIndex);
-            NationalTitles.Text = GetDBValue("COCH", "CCNT", EditorIndex);
-            ConfTitles.Text = GetDBValue("COCH", "CCCT", EditorIndex);
+            WinningSeasons.Text = GetDBValue("COCH", "CCWS", EditorIndex);
+            NationalTitles.Text = GetDBValue("COCH", "CNTW", EditorIndex);
+            ConfTitles.Text = GetDBValue("COCH", "CCTW", EditorIndex);
 
 
 

@@ -476,6 +476,7 @@ namespace DB_EDITOR
                         CCID_FiredList.Add(GetDBValue("COCH", "CCID", i));
                         TGID_VacancyList.Add(GetDBValue("COCH", "TGID", i));
 
+
                         string coachFN = GetDBValue("COCH", "CLFN", i);
                         string coachLN = GetDBValue("COCH", "CLLN", i);
                         string teamID = GetTeamName(Convert.ToInt32(GetDBValue("COCH", "TGID", i)));
@@ -491,6 +492,7 @@ namespace DB_EDITOR
                         ChangeDBString("COCH", "TGID", i, "511");
                         ChangeDBString("COCH", "CLTF", i, "511");
 
+                        CCID_FAList.Add(GetDBValue("COCH", "CCID", i));
 
 
                     }
@@ -524,7 +526,7 @@ namespace DB_EDITOR
 
                 while (!hired)
                 {
-                    if (rand.Next(0, 100) > (100 - (int)poachValue.Value))
+                    if (rand.Next(0, 100) > (int)poachValue.Value && CCID_FAList.Count > 0)
                     {
                         int r = rand.Next(CCID_FAList.Count);
                         int CCID = Convert.ToInt32(CCID_FAList[r]);
@@ -555,7 +557,7 @@ namespace DB_EDITOR
                         }
 
                     }
-                    else if (CCID_PromoteList.Count > 0)
+                    else if (CCID_PromoteList.Count > 0 && (int)poachValue.Value != 0)
                     {
                         int r = rand.Next(CCID_PromoteList.Count);
                         int CCID = Convert.ToInt32(CCID_PromoteList[r]);

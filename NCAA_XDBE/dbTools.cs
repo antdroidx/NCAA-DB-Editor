@@ -1658,13 +1658,18 @@ namespace DB_EDITOR
                     ChangeDBString("PLAY", "PTEN", rec, "0"); //tendency (to be calculated later)
                     ChangeDBString("PLAY", "PFMP", rec, "0"); //face (to be calculated later)
                     ChangeDBInt("PLAY", "PIMP", rec, rand.Next(0, 32)); //importance (to be re-calculated later)
-                    ChangeDBString("PLAY", "PTYP", rec, "0"); //player type (graduation/nfl,etc)
                     ChangeDBString("PLAY", "POVR", rec, "0"); //overall, to be calculated later
                     ChangeDBString("PLAY", "PSLY", rec, "0"); //PSLY
                     ChangeDBString("PLAY", "PRST", rec, "0"); //PRST
 
                     if (rand.Next(1, 101) < FreshmanPCT) ChangeDBInt("PLAY", "PYER", rec, 0); //year/class
                     else ChangeDBInt("PLAY", "PYER", rec, rand.Next(1, 4)); //year/class
+
+                    if(GetDBValueInt("PLAY", "PYER", rec) == 3)
+                        ChangeDBString("PLAY", "PTYP", rec, "3"); //player type (graduation/nfl,etc)
+                    else ChangeDBString("PLAY", "PTYP", rec, "0"); //player type (graduation/nfl,etc)
+
+
 
                     string FN, LN;
 

@@ -965,6 +965,10 @@ namespace DB_EDITOR
 
         private void RemoveTransfers()
         {
+            progressBar1.Visible = true;
+            progressBar1.Value = 0;
+            progressBar1.Maximum = GetTableRecCount("TRAN");
+
             int count = 0;
             for(int i = 0; i < GetTableRecCount("TRAN"); i++)
             {
@@ -976,10 +980,13 @@ namespace DB_EDITOR
                     DeleteRecordChange("TRAN", i, true);
                     count++;
                 }
+                progressBar1.PerformStep();
             }
 
             CompactDB();
 
+            progressBar1.Visible = false;
+    
             MessageBox.Show("Completed! Removed " + count + " players from the database.");
         }
     }
