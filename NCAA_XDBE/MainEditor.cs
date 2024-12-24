@@ -47,6 +47,7 @@ namespace DB_EDITOR
         int CoachIndex;
         int DepthChartIndex;
         int RecruitIndex;
+        int StadiumIndex;
 
         Color primary = Color.Black;
         Color secondary = Color.White;
@@ -58,6 +59,8 @@ namespace DB_EDITOR
         List<List<string>> PlayerEditorList;
         List<List<string>> CoachEditorList;
         List<List<string>> RecruitEditorList;
+        List<List<string>> StadiumEditorList;
+
         List<int> PJENList;
         List<List<int>> MasterSchedule;
 
@@ -171,6 +174,7 @@ namespace DB_EDITOR
             tabControl1.TabPages.Remove(tabBowls);
             tabControl1.TabPages.Remove(tabStats);
             tabControl1.TabPages.Remove(tabSchedule);
+            tabControl1.TabPages.Remove(tabStadiums);
 
 
 
@@ -402,7 +406,7 @@ namespace DB_EDITOR
                     // end Save DB information.
 
                     int k = i + dbLength;
-                    if (k + 5 < array.Length)
+                    if (k + 5 < array.Length && k > 0)
                     {
                         if (array[k] == 68 && array[k + 1] == 66 && array[k + 2] == 0 && array[k + 3] == 8 && array[k + 4] == 0 && array[k + 5] == 0 && activeDB == 1)
                         {
@@ -1102,6 +1106,8 @@ namespace DB_EDITOR
             TDB.TDBSave(dbIndex2);
         }
 
+
+
         private void NCAANext25Config_Click(object sender, EventArgs e)
         {
             if (NCAANext25Config.Checked)
@@ -1157,6 +1163,7 @@ namespace DB_EDITOR
             else if (tabControl1.SelectedTab == tabRecruits) StartRecruitEditor();
             else if (tabControl1.SelectedTab == tabSchedule) StartScheduleEditor();
             else if (tabControl1.SelectedTab == tabStats) StartStatsViewer();
+            else if (tabControl1.SelectedTab == tabStadiums) StartStadiumEditor();
 
         }
 

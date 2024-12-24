@@ -92,6 +92,9 @@
     <Compile Include="StatsViewer.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="StadiumEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="_UNUSED_.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -217,6 +220,12 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\misc\temp-data.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\misc\weather-data.csv">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="Resources\playbooks\PLYL-Custom.csv">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

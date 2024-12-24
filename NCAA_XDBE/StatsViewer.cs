@@ -243,7 +243,7 @@ namespace DB_EDITOR
 
             for (int i = 0; i < GetTableRecCount("PSDE"); i++)
             {
-                if (GetDBValueInt("PSOF", "SEYR", i) == seyr)
+                if (GetDBValueInt("PSDE", "SEYR", i) == seyr)
                 {
                     rankings.Add(new List<int>());
                     rankings[num].Add(GetDBValueInt("PSDE", "PGID", i));

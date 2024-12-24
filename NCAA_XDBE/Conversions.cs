@@ -1120,9 +1120,21 @@ namespace DB_EDITOR
                 ChangeDBInt("TEAM", "TORD", Convert.ToInt32(teamList[i][1]), tord);
                 tord++;
             }
-
-
         }
+
+        private int FindTGIDfromSGID(int SGID)
+        {
+            int tgid = -1;
+
+            for(int i = 0; i < GetTableRecCount("TEAM"); i++)
+            {
+                if (GetDBValueInt("TEAM", "SGID", i) == SGID) return GetDBValueInt("TEAM","TGID", i);
+            }
+
+
+            return tgid;
+        }
+
 
         #endregion
 

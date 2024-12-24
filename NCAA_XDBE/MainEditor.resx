@@ -7300,33 +7300,6 @@ It is recommended to use these tools after the completion of the National Champi
         MIsIIYQQMg3MIkIIIYRMAZB/AwP8EQAPxs9WAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="textBox2.Text" xml:space="preserve">
-    <value>* Recalculate Player Overall - This will recalculate all players' overall rating based on the original game's POCI table
-
-* Recalculate Team Ratings - Recalculates Team Ratings (Approximately)
-
-* Body Size Fixer - This recalculates the body models for each player
-
-* Calculate QB Tendencies - Re-Calculates QB for Scrambling, Balanced and Pocket Passers Traits
-
-* Randomize Player Head/Face - Chooses a new face, head and hair for all players based on skin tone
-
-* Randomize Player Potential - Randomizes from 40-99 every player's potential rating. Affects player progression.
-
-* Unique Players - For Texture Modding Experts Only. Removes PSKI 1 and 4 for creation of unique player specific textures
-
-* Clear Expired Stats - This removes stats from players who are no longer in the database (typically when swapping teams around)
-
---
-
-* Determine Impact Players - Picks 4 Impact Players in a Dynasty Save file based on overall (2 x Offense, 2 x Defense)
-
-* Auto-Set Depth Chart - Creates a depth chart based on position ratings
-
-* Fill Rosters - Generates random players to fill every team to 70, or until DB capacity runs out.
-
-* Fantasy Roster Generator - Creates a fantasy roster for Roster or Dynasty saves. Will run through a series of modules.</value>
-  </data>
   <metadata name="RatingCat.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -7354,6 +7327,33 @@ It is recommended to use these tools after the completion of the National Champi
   <metadata name="SCHDScoreA.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
+  <data name="textBox2.Text" xml:space="preserve">
+    <value>* Recalculate Player Overall - This will recalculate all players' overall rating based on the original game's POCI table
+
+* Recalculate Team Ratings - Recalculates Team Ratings (Approximately)
+
+* Body Size Fixer - This recalculates the body models for each player
+
+* Calculate QB Tendencies - Re-Calculates QB for Scrambling, Balanced and Pocket Passers Traits
+
+* Randomize Player Head/Face - Chooses a new face, head and hair for all players based on skin tone
+
+* Randomize Player Potential - Randomizes from 40-99 every player's potential rating. Affects player progression.
+
+* Unique Players - For Texture Modding Experts Only. Removes PSKI 1 and 4 for creation of unique player specific textures
+
+* Clear Expired Stats - This removes stats from players who are no longer in the database (typically when swapping teams around)
+
+--
+
+* Determine Impact Players - Picks 4 Impact Players in a Dynasty Save file based on overall (2 x Offense, 2 x Defense)
+
+* Auto-Set Depth Chart - Creates a depth chart based on position ratings
+
+* Fill Rosters - Generates random players to fill every team to 70, or until DB capacity runs out.
+
+* Fantasy Roster Generator - Creates a fantasy roster for Roster or Dynasty saves. Will run through a series of modules.</value>
+  </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>25</value>
   </metadata>

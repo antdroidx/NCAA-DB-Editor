@@ -724,6 +724,10 @@ namespace DB_EDITOR
                     {
                         if (!checkTabExists("Stats")) tabControl1.TabPages.Add(tabStats);
                     }
+                    if (table.Name == "STAD" && !BigEndian)
+                    {
+                        if (!checkTabExists("Stadiums")) tabControl1.TabPages.Add(tabStadiums);
+                    }
                 }
             }
 

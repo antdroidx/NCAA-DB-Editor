@@ -407,27 +407,6 @@ namespace DB_EDITOR
             MessageBox.Show("Player Overall Calculations are complete!");
         }
 
-        //Assign Random Coach Prestige to Free Agents
-        private void AssignCoachPrestigeFreeAgents()
-        {
-            progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = GetTableRecCount("COCH");
-            progressBar1.Step = 1;
-            progressBar1.Value = 0;
-
-            for (int i = 0; i < GetTableRecCount("COCH"); i++)
-            {
-                if (GetDBValueInt("COCH", "TGID", i) == 511)
-                {
-                    ChangeDBInt("COCH", "CPRE", i, rand.Next(1, 4));
-                }
-                progressBar1.PerformStep();
-            }
-
-            MessageBox.Show("Free Agent Coaches now have prestige!");
-            progressBar1.Value = 0;
-        }
 
         //Sync Playbook/Strategies with Team
         private void SyncTeamCoachPlaybooks()

@@ -276,6 +276,10 @@ namespace DB_EDITOR
 
             AttendanceNumBox.Value = GetDBValueInt("TEAM", "TMAA", EditorIndex);
             CapacityNumbox.Value = GetDBValueInt("STAD", "SCAP", FindSTADrecFromTEAMrec(EditorIndex));
+            TeamStadRank.Text = Convert.ToString(GetDBValueInt("STAD", "STDR", FindSTADrecFromTEAMrec(EditorIndex)));
+            TeamStadRank.BackColor = GetRatingColor(TeamStadRank).BackColor;
+
+
 
             if (GetDBValueInt("TEAM", "TTYP", EditorIndex) == 0 && TEAM) GenerateNewRosterButton.Enabled = true;
             else GenerateNewRosterButton.Enabled = false;
@@ -918,6 +922,8 @@ namespace DB_EDITOR
         {
             if (DoNotTrigger) return;
             ChangeDBInt("STAD", "STID", FindSTADrecFromTEAMrec(TeamIndex), StateBox.SelectedIndex);
+            ChangeDBString("STAD", "SSTA", FindSTADrecFromTEAMrec(TeamIndex), Convert.ToString(StateBox.SelectedItem));
+
         }
 
         private void stadiumNameBox_Leave(object sender, EventArgs e)

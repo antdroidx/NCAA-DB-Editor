@@ -739,7 +739,157 @@ namespace DB_EDITOR
         {
             SetMaxCoachCCPOValue();
         }
+
+        //Randomizes the Coaching Budgets - Must be done prior to 1st Off-Season Task
+        private void buttonRandomBudgets_Click(object sender, EventArgs e)
+        {
+            RandomizeBudgets();
+        }
+
+        //Auto Adjust Coach Budgets
+        private void AutoAdjustBudgetsButton_Click(object sender, EventArgs e)
+        {
+            AutoAdjustCoachBudgets();
+        }
+
+        //Randomly Generate Coach Prestiges for Free Agents
+        private void CoachPrestigeButton_Click(object sender, EventArgs e)
+        {
+            AssignCoachPrestigeFreeAgents();
+
+        }
+
+
         #endregion
+
+        #region Global Editors
+
+        //Randomizes the Coaching Budgets - Must be done prior to 1st Off-Season Task
+        private void RandomizeBudgets()
+        {
+            progressBar1.Visible = true;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = GetTableRecCount("COCH");
+
+            for (int i = 0; i < GetTableRecCount("COCH"); i++)
+            {
+                //CDPC, CRPC, CTPC
+                int CDPC, CRPC, CTPC;
+                CRPC = Convert.ToInt32(GetDBValue("COCH", "CRPC", i));
+                CTPC = Convert.ToInt32(GetDBValue("COCH", "CTPC", i));
+                CDPC = 0;
+
+                while (CDPC < 15 || CDPC > 25)
+                {
+                    CTPC = rand.Next(25, 46);
+                    CRPC = rand.Next(25, 46);
+                    CDPC = 100 - CTPC - CRPC;
+                }
+
+                ChangeDBString("COCH", "CDPC", i, Convert.ToString(CDPC));
+                ChangeDBString("COCH", "CRPC", i, Convert.ToString(CRPC));
+                ChangeDBString("COCH", "CTPC", i, Convert.ToString(CTPC));
+
+                progressBar1.PerformStep();
+            }
+
+            progressBar1.Visible = false;
+            progressBar1.Value = 0;
+
+            MessageBox.Show("Team Budgets Changed!");
+        }
+
+        //Adjust Coaching Budgets - Must be done prior to 1st Off-Season Task
+        private void AutoAdjustCoachBudgets()
+        {
+            progressBar1.Visible = true;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = GetTableRecCount("COCH");
+
+            for (int i = 0; i < GetTableRecCount("COCH"); i++)
+            {
+                if (GetDBValueInt("COCH", "TGID", i) != 511)
+                {
+                    //CDPC, CRPC, CTPC
+                    int CDPC, CRPC, CTPC;
+                    CRPC = Convert.ToInt32(GetDBValue("COCH", "CRPC", i));
+                    CTPC = Convert.ToInt32(GetDBValue("COCH", "CTPC", i));
+                    CDPC = Convert.ToInt32(GetDBValue("COCH", "CDPC", i));
+
+                    //get team sanction interest, team discipline, number of srs
+
+                    int teamRec = FindTeamRecfromTeamName(teamNameDB[GetDBValueInt("COCH", "TGID", i)]);
+
+                    if (GetDBValueInt("TEAM", "SNCT", teamRec) > 0) CDPC += 3;
+                    CDPC += (GetDBValueInt("TEAM", "INPO", teamRec) - 50) / 10;
+
+                    int pgidStart = GetDBValueInt("COCH", "TGID", i) * 70;
+                    int seniors = 0;
+                    int lowDis = 0;
+                    for (int p = 0; p < GetTableRecCount("PLAY"); p++)
+                    {
+                        if (GetPGIDfromRecord(p) >= pgidStart && GetPGIDfromRecord(p) < pgidStart + 70 && GetPYERfromRecord(p) == 3 || GetPGIDfromRecord(p) >= pgidStart && GetPGIDfromRecord(p) < pgidStart + 70 && GetPTYPfromRecord(p) == 1)
+                        {
+                            seniors++;
+                        }
+                        if (GetPGIDfromRecord(p) >= pgidStart && GetPGIDfromRecord(p) < pgidStart + 70 && GetDBValueInt("PLAY", "PDIS", p) < 3)
+                        {
+                            lowDis++;
+                        }
+                    }
+
+                    if (lowDis < 10) CRPC -= 3;
+                    else CDPC += lowDis / 5;
+
+                    if (seniors >= 30) CRPC += 7;
+                    else if (seniors >= 25) CRPC += 5;
+                    else if (seniors >= 20) CRPC += 3;
+                    else if (seniors >= 15) CRPC += 0;
+                    else CRPC -= 3;
+
+                    if (CDPC < 15) CDPC = 15;
+                    if (CDPC > 35) CDPC = 35;
+
+                    if (CRPC < 25) CRPC = 25;
+                    if (CRPC > 45) CRPC = 45;
+
+                    CTPC = 100 - CDPC - CRPC;
+
+                    ChangeDBInt("COCH", "CDPC", i, CDPC);
+                    ChangeDBInt("COCH", "CRPC", i, CRPC);
+                    ChangeDBInt("COCH", "CTPC", i, CTPC);
+                }
+
+                progressBar1.PerformStep();
+            }
+
+            progressBar1.Visible = false;
+            progressBar1.Value = 0;
+
+            MessageBox.Show("Team Budgets Changed!");
+        }
+
+        //Assign Random Coach Prestige to Free Agents
+        private void AssignCoachPrestigeFreeAgents()
+        {
+            progressBar1.Visible = true;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = GetTableRecCount("COCH");
+            progressBar1.Step = 1;
+            progressBar1.Value = 0;
+
+            for (int i = 0; i < GetTableRecCount("COCH"); i++)
+            {
+                if (GetDBValueInt("COCH", "TGID", i) == 511)
+                {
+                    ChangeDBInt("COCH", "CPRE", i, rand.Next(1, 4));
+                }
+                progressBar1.PerformStep();
+            }
+
+            MessageBox.Show("Free Agent Coaches now have prestige!");
+            progressBar1.Value = 0;
+        }
 
         private void SetMaxCoachCCPOValue()
         {
@@ -761,5 +911,92 @@ namespace DB_EDITOR
 
         }
 
+        private void SetCoachSchemes()
+        {
+            /* Auto-Set Coach Schemes based on player personnel
+             *  if QB is good runner = flexbone, option, spread
+             *  if QB is not good runner = west coast or balanced or spread
+             *  
+             *  if QB has good arm = spread
+             *  if QB = RB = flexbone
+             *  if QB < RB = option
+             *  
+             *  if WR3 = WR4 & WR4 is good = spread
+             *  if WR3 = WR2 = west coast
+             *  else Balanced
+             *  
+             */
+
+            int flexbone = 0;
+            int option = 0;
+            int spread = 0;
+            int balanced = 0;
+            int westcoast = 0;
+
+            string tableName = "TEAM";
+            progressBar1.Visible = true;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = GetTableRecCount(tableName);
+            progressBar1.Step = 1;
+
+
+            int rating, count;
+
+            for (int i = 0; i < GetTableRecCount(tableName); i++)
+            {
+                if (GetDBValueInt(tableName, "TTYP", i) == 0)
+                {
+
+                    int TOID = GetDBValueInt(tableName, "TOID", i);
+                    int PGIDbeg = TOID * 70;
+                    int PGIDend = PGIDbeg + 69;
+
+                    count = 0;
+                    List<List<int>> roster = new List<List<int>>();
+
+                    for (int j = 0; j < GetTableRecCount("PLAY"); j++)
+                    {
+                        int PGID = GetDBValueInt("PLAY", "PGID", j);
+
+                        if (PGID >= PGIDbeg && PGID <= PGIDend)
+                        {
+                            int POVR = GetDBValueInt("PLAY", "POVR", j);
+                            int PPOS = GetDBValueInt("PLAY", "PPOS", j);
+                            int PSPD = GetDBValueInt("PLAY", "PSPD", j);
+                            int PAGI = GetDBValueInt("PLAY", "PAGI", j);
+                            int PTHA = GetDBValueInt("PLAY", "PTHA", j);
+
+                            List<int> player = new List<int>();
+                            roster.Add(player);
+                            roster[count].Add(j);
+                            roster[count].Add(PPOS);
+                            roster[count].Add(POVR);
+                            roster[count].Add(PSPD);
+                            roster[count].Add(PAGI); 
+                            roster[count].Add(PTHA);
+
+                            count++;
+                        }
+                    }
+                    roster.Sort((player1, player2) => player2[0].CompareTo(player1[0]));
+
+
+
+
+                    progressBar1.PerformStep();
+
+                }
+            }
+
+            NormalizeTeamRatings(tableName);
+
+            progressBar1.Visible = false;
+            progressBar1.Value = 0;
+            MessageBox.Show("Team Rating Calculations are complete!");
+
+
+        }
+
+        #endregion
     }
 }
