@@ -1175,17 +1175,22 @@ namespace DB_EDITOR
                 for (int j = 0; j < roster.Count; j++)
                 {
                     //pick offensive impact
-                    if (roster[j][1] <= 4)
+                    if (roster[j][1] <= 4 && roster[j][1] != 2)
                     {
                         if (countOff == 0)
                         {
                             int impactID = roster[j][2] - PGIDbeg;
                             ChangeDBString("TEAM", "TPIO", i, Convert.ToString(impactID));
                         }
-                        if (countOff == 1)
+                       else if (GetDBValueInt("TEAM", "TSI1", i) != 127)
                         {
                             int impactID = roster[j][2] - PGIDbeg;
                             ChangeDBString("TEAM", "TSI1", i, Convert.ToString(impactID));
+                        }
+                        else if (countOff + countDef >= 3 && countDef > 0)
+                        {
+                            int impactID = roster[j][2] - PGIDbeg;
+                            ChangeDBString("TEAM", "TSI2", i, Convert.ToString(impactID));
                         }
                         countOff++;
                     }
@@ -1198,7 +1203,12 @@ namespace DB_EDITOR
                             int impactID = roster[j][2] - PGIDbeg;
                             ChangeDBString("TEAM", "TPID", i, Convert.ToString(impactID));
                         }
-                        if (countDef == 1)
+                        else if (GetDBValueInt("TEAM", "TSI1", i) != 127)
+                        {
+                            int impactID = roster[j][2] - PGIDbeg;
+                            ChangeDBString("TEAM", "TSI1", i, Convert.ToString(impactID));
+                        }
+                        else if (countOff + countDef >= 3 && countOff > 0)
                         {
                             int impactID = roster[j][2] - PGIDbeg;
                             ChangeDBString("TEAM", "TSI2", i, Convert.ToString(impactID));
@@ -1206,7 +1216,7 @@ namespace DB_EDITOR
                         countDef++;
                     }
 
-                    if (countOff > 1 && countDef > 1)
+                    if (countOff > 0 && countDef > 0 && countOff + countDef == 4)
                     {
                         break;
                     }
