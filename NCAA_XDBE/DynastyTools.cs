@@ -1172,6 +1172,7 @@ namespace DB_EDITOR
 
                 int countOff = 0;
                 int countDef = 0;
+                int impactCount = 0;
                 for (int j = 0; j < roster.Count; j++)
                 {
                     //pick offensive impact
@@ -1181,16 +1182,19 @@ namespace DB_EDITOR
                         {
                             int impactID = roster[j][2] - PGIDbeg;
                             ChangeDBString("TEAM", "TPIO", i, Convert.ToString(impactID));
+                            impactCount++;
                         }
-                       else if (GetDBValueInt("TEAM", "TSI1", i) != 127)
+                       else if (GetDBValueInt("TEAM", "TSI1", i) == 127)
                         {
                             int impactID = roster[j][2] - PGIDbeg;
                             ChangeDBString("TEAM", "TSI1", i, Convert.ToString(impactID));
+                            impactCount++;
                         }
-                        else if (countOff + countDef >= 3 && countDef > 0)
+                        else if (countOff + countDef >= 3 && GetDBValueInt("TEAM", "TSI2", i) == 127)
                         {
                             int impactID = roster[j][2] - PGIDbeg;
                             ChangeDBString("TEAM", "TSI2", i, Convert.ToString(impactID));
+                            impactCount++;
                         }
                         countOff++;
                     }
@@ -1202,21 +1206,24 @@ namespace DB_EDITOR
                         {
                             int impactID = roster[j][2] - PGIDbeg;
                             ChangeDBString("TEAM", "TPID", i, Convert.ToString(impactID));
+                            impactCount++;
                         }
-                        else if (GetDBValueInt("TEAM", "TSI1", i) != 127)
+                        else if (GetDBValueInt("TEAM", "TSI1", i) == 127)
                         {
                             int impactID = roster[j][2] - PGIDbeg;
                             ChangeDBString("TEAM", "TSI1", i, Convert.ToString(impactID));
+                            impactCount++;
                         }
-                        else if (countOff + countDef >= 3 && countOff > 0)
+                        else if (countOff + countDef >= 3 && GetDBValueInt("TEAM", "TSI2", i) == 127)
                         {
                             int impactID = roster[j][2] - PGIDbeg;
                             ChangeDBString("TEAM", "TSI2", i, Convert.ToString(impactID));
+                            impactCount++;
                         }
                         countDef++;
                     }
 
-                    if (countOff > 0 && countDef > 0 && countOff + countDef == 4)
+                    if (impactCount == 4)
                     {
                         break;
                     }
