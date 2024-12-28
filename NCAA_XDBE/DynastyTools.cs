@@ -29,7 +29,7 @@ namespace DB_EDITOR
         /* 
         Use current TEAM's TMPR and COCH's CTOP to make CPRE updated, then update CTOP to match previous TMPR
         */
-        private void CoachProg_Click(object sender, EventArgs e)
+        private void coachProg_Click(object sender, EventArgs e)
         {
             CoachPrestigeProgression();
         }
