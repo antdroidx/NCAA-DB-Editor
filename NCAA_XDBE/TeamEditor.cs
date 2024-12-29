@@ -1097,5 +1097,13 @@ namespace DB_EDITOR
         {
             DepthChartMakerSingle("DCHT", GetDBValueInt("TEAM", "TGID", TeamIndex));
         }
+
+        //Auto Impact 
+
+        private void TeamAutoImpact_Click(object sender, EventArgs e)
+        {
+            DetermineTeamImpactPlayers(TeamIndex, 0);
+            GetTeamEditorData(TeamIndex);
+        }
     }
 }

@@ -1107,7 +1107,6 @@ namespace DB_EDITOR
         }
 
 
-
         private void NCAANext25Config_Click(object sender, EventArgs e)
         {
             if (NCAANext25Config.Checked)

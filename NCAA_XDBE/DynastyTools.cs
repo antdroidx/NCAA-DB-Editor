@@ -1144,6 +1144,11 @@ namespace DB_EDITOR
             int count = 0;
             List<List<int>> roster = new List<List<int>>();
 
+            ChangeDBInt("TEAM", "TPIO", i, 127);
+            ChangeDBInt("TEAM", "TPID", i, 127);
+            ChangeDBInt("TEAM", "TSI1", i, 127);
+            ChangeDBInt("TEAM", "TSI2", i, 127);
+
             for (int j = 0; j < GetTableRecCount("PLAY"); j++)
             {
                 int PGID = GetDBValueInt("PLAY", "PGID", j);
@@ -1162,6 +1167,7 @@ namespace DB_EDITOR
                 }
             }
             roster.Sort((player1, player2) => player2[0].CompareTo(player1[0]));
+
 
             if (roster.Count == 0)
             {
@@ -1190,7 +1196,7 @@ namespace DB_EDITOR
                             ChangeDBString("TEAM", "TSI1", i, Convert.ToString(impactID));
                             impactCount++;
                         }
-                        else if (countOff + countDef >= 3 && GetDBValueInt("TEAM", "TSI2", i) == 127)
+                        else if (countOff + countDef >= 2 && GetDBValueInt("TEAM", "TSI2", i) == 127)
                         {
                             int impactID = roster[j][2] - PGIDbeg;
                             ChangeDBString("TEAM", "TSI2", i, Convert.ToString(impactID));
@@ -1200,7 +1206,7 @@ namespace DB_EDITOR
                     }
 
                     //pick defensive impact
-                    if (roster[j][1] >= 10 && roster[j][1] <= 18)
+                    else if (roster[j][1] >= 10 && roster[j][1] <= 18)
                     {
                         if (countDef == 0)
                         {
@@ -1214,7 +1220,7 @@ namespace DB_EDITOR
                             ChangeDBString("TEAM", "TSI1", i, Convert.ToString(impactID));
                             impactCount++;
                         }
-                        else if (countOff + countDef >= 3 && GetDBValueInt("TEAM", "TSI2", i) == 127)
+                        else if (countOff + countDef >= 2 && GetDBValueInt("TEAM", "TSI2", i) == 127)
                         {
                             int impactID = roster[j][2] - PGIDbeg;
                             ChangeDBString("TEAM", "TSI2", i, Convert.ToString(impactID));
