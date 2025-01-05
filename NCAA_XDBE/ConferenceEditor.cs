@@ -624,7 +624,7 @@ namespace DB_EDITOR
             {
                 if (GetDBValueInt("PLAY", "PGID", i) >= pgidBeg && GetDBValueInt("PLAY", "PGID", i) <= pgidEnd || GetDBValueInt("PLAY", "PGID", i) == 65535)
                 {
-                    DeleteRecordChange("PLAY", i, true);
+                    DeleteRecord("PLAY", i, true);
                 }
             }
 
@@ -632,7 +632,7 @@ namespace DB_EDITOR
             {
                 if (GetDBValueInt("TRAN", "PGID", i) >= pgidBeg && GetDBValueInt("TRAN", "PGID", i) <= pgidEnd || GetDBValueInt("TRAN", "PGID", i) == 65535)
                 {
-                    DeleteRecordChange("TRAN", i, true);
+                    DeleteRecord("TRAN", i, true);
                 }
             }
 
@@ -640,7 +640,7 @@ namespace DB_EDITOR
             {
                 if (GetDBValueInt("PSOF", "PGID", i) >= pgidBeg && GetDBValueInt("PSOF", "PGID", i) <= pgidEnd || GetDBValueInt("PSOF", "PGID", i) == 65535)
                 {
-                    DeleteRecordChange("PSOF", i, true);
+                    DeleteRecord("PSOF", i, true);
                 }
             }
 
@@ -648,7 +648,7 @@ namespace DB_EDITOR
             {
                 if (GetDBValueInt("PSOL", "PGID", i) >= pgidBeg && GetDBValueInt("PSOL", "PGID", i) <= pgidEnd || GetDBValueInt("PSOL", "PGID", i) == 65535)
                 {
-                    DeleteRecordChange("PSOL", i, true);
+                    DeleteRecord("PSOL", i, true);
                 }
             }
 
@@ -656,7 +656,7 @@ namespace DB_EDITOR
             {
                 if (GetDBValueInt("PSDE", "PGID", i) >= pgidBeg && GetDBValueInt("PSDE", "PGID", i) <= pgidEnd || GetDBValueInt("PSDE", "PGID", i) == 65535)
                 {
-                    DeleteRecordChange("PSDE", i, true);
+                    DeleteRecord("PSDE", i, true);
                 }
             }
 
@@ -664,7 +664,7 @@ namespace DB_EDITOR
             {
                 if (GetDBValueInt("PSKI", "PGID", i) >= pgidBeg && GetDBValueInt("PSKI", "PGID", i) <= pgidEnd || GetDBValueInt("PSKI", "PGID", i) == 65535)
                 {
-                    DeleteRecordChange("PSKI", i, true);
+                    DeleteRecord("PSKI", i, true);
                 }
             }
 
@@ -672,7 +672,7 @@ namespace DB_EDITOR
             {
                 if (GetDBValueInt("PSRT", "PGID", i) >= pgidBeg && GetDBValueInt("PSRT", "PGID", i) <= pgidEnd || GetDBValueInt("PSRT", "PGID", i) == 65535)
                 {
-                    DeleteRecordChange("PSRT", i, true);
+                    DeleteRecord("PSRT", i, true);
                 }
             }
 
@@ -680,7 +680,7 @@ namespace DB_EDITOR
             {
                 if (GetDBValueInt("PSRN", "PGID", i) >= pgidBeg && GetDBValueInt("PSDE", "PSRN", i) <= pgidEnd || GetDBValueInt("PSDE", "PGID", i) == 65535)
                 {
-                    DeleteRecordChange("PSRN", i, true);
+                    DeleteRecord("PSRN", i, true);
                 }
             }
 
@@ -688,7 +688,7 @@ namespace DB_EDITOR
             {
                 if (GetDBValueInt("PSKP", "PGID", i) >= pgidBeg && GetDBValueInt("PSKP", "PGID", i) <= pgidEnd || GetDBValueInt("PSKP", "PGID", i) == 65535)
                 {
-                    DeleteRecordChange("PSKP", i, true);
+                    DeleteRecord("PSKP", i, true);
                 }
             }
 
@@ -699,7 +699,7 @@ namespace DB_EDITOR
             {
                 if (GetDB2ValueInt("RCPT", "PRID", i) >= pgidBeg && GetDB2ValueInt("RCPT", "PRID}", i) <= pgidEnd)
                 {
-                    DeleteRecordChange2("RCPT", i, true);
+                    DeleteRecord2("RCPT", i, true);
                 }
             }
             CompactDB2();

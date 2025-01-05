@@ -35,28 +35,28 @@ namespace DB_EDITOR
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Button qbTend;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainEditor));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -954,6 +954,16 @@ namespace DB_EDITOR
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPortal = new System.Windows.Forms.TabPage();
+            this.TotalTransfersCount = new System.Windows.Forms.Label();
+            this.PortalData = new System.Windows.Forms.DataGridView();
+            this.PortalPosition = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PortalTransferName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PortalRating = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PortalNewSchool = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PortalPrvTeam = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.PortalTransfers = new System.Windows.Forms.CheckBox();
             this.portalChance = new System.Windows.Forms.NumericUpDown();
             this.label259 = new System.Windows.Forms.Label();
@@ -1001,16 +1011,7 @@ namespace DB_EDITOR
             this.PortalFirst = new System.Windows.Forms.RadioButton();
             this.PortalReverse = new System.Windows.Forms.RadioButton();
             this.SpringPortalButton = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
-            this.PortalData = new System.Windows.Forms.DataGridView();
-            this.PortalPosition = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PortalTransferName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PortalRating = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PortalNewSchool = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PortalPrvTeam = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TotalTransfersCount = new System.Windows.Forms.Label();
+            this.TransferPortalStats = new System.Windows.Forms.Button();
             qbTend = new System.Windows.Forms.Button();
             this.mainMenu.SuspendLayout();
             this.tableMenu.SuspendLayout();
@@ -1180,6 +1181,7 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPortal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PortalData)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.portalChance)).BeginInit();
             this.groupBox33.SuspendLayout();
             this.groupBox32.SuspendLayout();
@@ -1201,7 +1203,6 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.PortalHB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PortalQB)).BeginInit();
             this.groupBox31.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PortalData)).BeginInit();
             this.SuspendLayout();
             // 
             // qbTend
@@ -2135,17 +2136,17 @@ namespace DB_EDITOR
             // 
             this.UniformGrid.AllowUserToAddRows = false;
             this.UniformGrid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGray;
-            this.UniformGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.LightGray;
+            this.UniformGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle23;
             this.UniformGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.MenuBar;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.UniformGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.MenuBar;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.UniformGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle24;
             this.UniformGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.UniformGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.UniformActivation,
@@ -2158,15 +2159,15 @@ namespace DB_EDITOR
             this.SleeveDecal,
             this.HelmetNums,
             this.HelmetSideNum});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.NullValue = "N/A";
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.UniformGrid.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle25.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle25.NullValue = "N/A";
+            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.UniformGrid.DefaultCellStyle = dataGridViewCellStyle25;
             this.UniformGrid.EnableHeadersVisualStyles = false;
             this.UniformGrid.Location = new System.Drawing.Point(32, 15);
             this.UniformGrid.Name = "UniformGrid";
@@ -2585,18 +2586,18 @@ namespace DB_EDITOR
             this.PlaybookGrid.AllowUserToAddRows = false;
             this.PlaybookGrid.AllowUserToDeleteRows = false;
             this.PlaybookGrid.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.PlaybookGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.PlaybookGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle26;
             this.PlaybookGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.LightSkyBlue;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.PlaybookGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle27.BackColor = System.Drawing.Color.LightSkyBlue;
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PlaybookGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle27;
             this.PlaybookGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.PlaybookGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.PBRec,
@@ -2608,25 +2609,25 @@ namespace DB_EDITOR
             this.PlayName,
             this.PLYTVal,
             this.PLYT});
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.PlaybookGrid.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle29.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle29.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle29.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.PlaybookGrid.DefaultCellStyle = dataGridViewCellStyle29;
             this.PlaybookGrid.EnableHeadersVisualStyles = false;
             this.PlaybookGrid.Location = new System.Drawing.Point(12, 3);
             this.PlaybookGrid.Name = "PlaybookGrid";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.PlaybookGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle30.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle30.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle30.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PlaybookGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle30;
             this.PlaybookGrid.RowHeadersVisible = false;
             this.PlaybookGrid.Size = new System.Drawing.Size(746, 606);
             this.PlaybookGrid.TabIndex = 0;
@@ -2661,8 +2662,8 @@ namespace DB_EDITOR
             // 
             // prct
             // 
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Info;
-            this.prct.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle28.BackColor = System.Drawing.SystemColors.Info;
+            this.prct.DefaultCellStyle = dataGridViewCellStyle28;
             this.prct.FillWeight = 81.47587F;
             this.prct.HeaderText = "PRCT ";
             this.prct.Name = "prct";
@@ -5726,10 +5727,10 @@ namespace DB_EDITOR
             this.BowlsGrid.AllowUserToAddRows = false;
             this.BowlsGrid.AllowUserToDeleteRows = false;
             this.BowlsGrid.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            this.BowlsGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            this.BowlsGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle31;
             this.BowlsGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.BowlsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.BowlsGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -5745,14 +5746,14 @@ namespace DB_EDITOR
             this.BMON,
             this.BDAY,
             this.SEWN});
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.BowlsGrid.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle32.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle32.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle32.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.BowlsGrid.DefaultCellStyle = dataGridViewCellStyle32;
             this.BowlsGrid.Location = new System.Drawing.Point(6, 6);
             this.BowlsGrid.Name = "BowlsGrid";
             this.BowlsGrid.RowHeadersVisible = false;
@@ -6349,8 +6350,8 @@ namespace DB_EDITOR
             // 
             this.DCHTGrid.AllowUserToAddRows = false;
             this.DCHTGrid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DCHTGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle33.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DCHTGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle33;
             this.DCHTGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DCHTGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.DCHTGrid.BackgroundColor = System.Drawing.SystemColors.Control;
@@ -6452,32 +6453,32 @@ namespace DB_EDITOR
             this.MatchView.AllowUserToAddRows = false;
             this.MatchView.AllowUserToDeleteRows = false;
             this.MatchView.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MatchView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle34.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MatchView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle34;
             this.MatchView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MatchView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle35.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle35.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle35.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MatchView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle35;
             this.MatchView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.MatchView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.RatingCat,
             this.MatchHomeTeam,
             this.MatchAwayTeam});
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.MatchView.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle36.BackColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle36.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle36.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MatchView.DefaultCellStyle = dataGridViewCellStyle36;
             this.MatchView.Location = new System.Drawing.Point(721, 81);
             this.MatchView.Name = "MatchView";
             this.MatchView.ReadOnly = true;
@@ -6579,20 +6580,20 @@ namespace DB_EDITOR
             // 
             this.ScheduleView.AllowUserToAddRows = false;
             this.ScheduleView.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ScheduleView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle37.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle37.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ScheduleView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle37;
             this.ScheduleView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.ScheduleView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ScheduleView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle38.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle38.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle38.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ScheduleView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle38;
             this.ScheduleView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ScheduleView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.SCHDWeek,
@@ -6604,16 +6605,16 @@ namespace DB_EDITOR
             this.ScheduleView.Location = new System.Drawing.Point(201, 81);
             this.ScheduleView.Name = "ScheduleView";
             this.ScheduleView.ReadOnly = true;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ScheduleView.RowHeadersDefaultCellStyle = dataGridViewCellStyle17;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.ScheduleView.RowsDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle39.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle39.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle39.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle39.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ScheduleView.RowHeadersDefaultCellStyle = dataGridViewCellStyle39;
+            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.ScheduleView.RowsDefaultCellStyle = dataGridViewCellStyle40;
             this.ScheduleView.Size = new System.Drawing.Size(495, 428);
             this.ScheduleView.TabIndex = 0;
             this.ScheduleView.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.ScheduleView_RowEnter);
@@ -6661,6 +6662,7 @@ namespace DB_EDITOR
             // tabSeason
             // 
             this.tabSeason.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.tabSeason.Controls.Add(this.TransferPortalStats);
             this.tabSeason.Controls.Add(this.RemoveBadTransfers);
             this.tabSeason.Controls.Add(this.RemoveSanctionsButton);
             this.tabSeason.Controls.Add(this.label180);
@@ -6703,9 +6705,9 @@ namespace DB_EDITOR
             // 
             this.RemoveBadTransfers.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.RemoveBadTransfers.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RemoveBadTransfers.Location = new System.Drawing.Point(424, 483);
+            this.RemoveBadTransfers.Location = new System.Drawing.Point(393, 478);
             this.RemoveBadTransfers.Name = "RemoveBadTransfers";
-            this.RemoveBadTransfers.Size = new System.Drawing.Size(110, 80);
+            this.RemoveBadTransfers.Size = new System.Drawing.Size(163, 80);
             this.RemoveBadTransfers.TabIndex = 42;
             this.RemoveBadTransfers.Text = "Remove Low OVR Transfers";
             this.RemoveBadTransfers.UseVisualStyleBackColor = false;
@@ -6715,9 +6717,9 @@ namespace DB_EDITOR
             // 
             this.RemoveSanctionsButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.RemoveSanctionsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RemoveSanctionsButton.Location = new System.Drawing.Point(301, 196);
+            this.RemoveSanctionsButton.Location = new System.Drawing.Point(203, 323);
             this.RemoveSanctionsButton.Name = "RemoveSanctionsButton";
-            this.RemoveSanctionsButton.Size = new System.Drawing.Size(110, 80);
+            this.RemoveSanctionsButton.Size = new System.Drawing.Size(150, 80);
             this.RemoveSanctionsButton.TabIndex = 40;
             this.RemoveSanctionsButton.Text = "Remove All Sanctions";
             this.RemoveSanctionsButton.UseVisualStyleBackColor = false;
@@ -6726,7 +6728,7 @@ namespace DB_EDITOR
             // label180
             // 
             this.label180.AutoSize = true;
-            this.label180.Location = new System.Drawing.Point(426, 93);
+            this.label180.Location = new System.Drawing.Point(301, 147);
             this.label180.Name = "label180";
             this.label180.Size = new System.Drawing.Size(58, 13);
             this.label180.TabIndex = 39;
@@ -6734,7 +6736,7 @@ namespace DB_EDITOR
             // 
             // ImpactPlayerMin
             // 
-            this.ImpactPlayerMin.Location = new System.Drawing.Point(490, 91);
+            this.ImpactPlayerMin.Location = new System.Drawing.Point(363, 145);
             this.ImpactPlayerMin.Maximum = new decimal(new int[] {
             99,
             0,
@@ -6771,9 +6773,9 @@ namespace DB_EDITOR
             // 
             this.BodyProgressionButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.BodyProgressionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BodyProgressionButton.Location = new System.Drawing.Point(166, 323);
+            this.BodyProgressionButton.Location = new System.Drawing.Point(279, 196);
             this.BodyProgressionButton.Name = "BodyProgressionButton";
-            this.BodyProgressionButton.Size = new System.Drawing.Size(110, 80);
+            this.BodyProgressionButton.Size = new System.Drawing.Size(150, 80);
             this.BodyProgressionButton.TabIndex = 34;
             this.BodyProgressionButton.Text = "Body Size Progresssion";
             this.BodyProgressionButton.UseVisualStyleBackColor = false;
@@ -6818,9 +6820,9 @@ namespace DB_EDITOR
             this.buttonRealignment.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.buttonRealignment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonRealignment.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonRealignment.Location = new System.Drawing.Point(24, 323);
+            this.buttonRealignment.Location = new System.Drawing.Point(27, 323);
             this.buttonRealignment.Name = "buttonRealignment";
-            this.buttonRealignment.Size = new System.Drawing.Size(110, 80);
+            this.buttonRealignment.Size = new System.Drawing.Size(150, 80);
             this.buttonRealignment.TabIndex = 28;
             this.buttonRealignment.Text = "Auto Realignment";
             this.buttonRealignment.UseVisualStyleBackColor = false;
@@ -6871,7 +6873,7 @@ namespace DB_EDITOR
             // 
             this.buttonChaosTransfers.BackColor = System.Drawing.SystemColors.Info;
             this.buttonChaosTransfers.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonChaosTransfers.Location = new System.Drawing.Point(301, 325);
+            this.buttonChaosTransfers.Location = new System.Drawing.Point(427, 61);
             this.buttonChaosTransfers.Name = "buttonChaosTransfers";
             this.buttonChaosTransfers.Size = new System.Drawing.Size(110, 78);
             this.buttonChaosTransfers.TabIndex = 23;
@@ -11372,8 +11374,8 @@ namespace DB_EDITOR
             // 
             this.fieldsGridView.AllowDrop = true;
             this.fieldsGridView.AllowUserToAddRows = false;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
-            this.fieldsGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle41.BackColor = System.Drawing.SystemColors.Control;
+            this.fieldsGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle41;
             this.fieldsGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -11509,6 +11511,117 @@ namespace DB_EDITOR
             this.tabPortal.Size = new System.Drawing.Size(1152, 615);
             this.tabPortal.TabIndex = 18;
             this.tabPortal.Text = "Portal";
+            // 
+            // TotalTransfersCount
+            // 
+            this.TotalTransfersCount.AutoSize = true;
+            this.TotalTransfersCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TotalTransfersCount.Location = new System.Drawing.Point(739, 585);
+            this.TotalTransfersCount.Name = "TotalTransfersCount";
+            this.TotalTransfersCount.Size = new System.Drawing.Size(129, 16);
+            this.TotalTransfersCount.TabIndex = 41;
+            this.TotalTransfersCount.Text = "Total Transfers: 0";
+            // 
+            // PortalData
+            // 
+            this.PortalData.AllowUserToAddRows = false;
+            this.PortalData.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PortalData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
+            this.PortalData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle42.BackColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle42.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle42.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PortalData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle42;
+            this.PortalData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.PortalData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PortalPosition,
+            this.PortalTransferName,
+            this.PortalRating,
+            this.PortalNewSchool,
+            this.PortalPrvTeam});
+            this.PortalData.Location = new System.Drawing.Point(239, 25);
+            this.PortalData.Name = "PortalData";
+            this.PortalData.ReadOnly = true;
+            this.PortalData.RowHeadersVisible = false;
+            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle43.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PortalData.RowsDefaultCellStyle = dataGridViewCellStyle43;
+            this.PortalData.RowTemplate.Height = 31;
+            this.PortalData.Size = new System.Drawing.Size(488, 576);
+            this.PortalData.TabIndex = 40;
+            // 
+            // PortalPosition
+            // 
+            this.PortalPosition.FillWeight = 8F;
+            this.PortalPosition.HeaderText = "Pos";
+            this.PortalPosition.Name = "PortalPosition";
+            this.PortalPosition.ReadOnly = true;
+            // 
+            // PortalTransferName
+            // 
+            this.PortalTransferName.FillWeight = 35F;
+            this.PortalTransferName.HeaderText = "Player Name";
+            this.PortalTransferName.Name = "PortalTransferName";
+            this.PortalTransferName.ReadOnly = true;
+            // 
+            // PortalRating
+            // 
+            this.PortalRating.FillWeight = 7F;
+            this.PortalRating.HeaderText = "OVR";
+            this.PortalRating.Name = "PortalRating";
+            this.PortalRating.ReadOnly = true;
+            // 
+            // PortalNewSchool
+            // 
+            this.PortalNewSchool.FillWeight = 25F;
+            this.PortalNewSchool.HeaderText = "To";
+            this.PortalNewSchool.Name = "PortalNewSchool";
+            this.PortalNewSchool.ReadOnly = true;
+            // 
+            // PortalPrvTeam
+            // 
+            this.PortalPrvTeam.FillWeight = 25F;
+            this.PortalPrvTeam.HeaderText = "From";
+            this.PortalPrvTeam.Name = "PortalPrvTeam";
+            this.PortalPrvTeam.ReadOnly = true;
+            // 
+            // richTextBox3
+            // 
+            this.richTextBox3.BackColor = System.Drawing.SystemColors.Info;
+            this.richTextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox3.Location = new System.Drawing.Point(742, 504);
+            this.richTextBox3.Name = "richTextBox3";
+            this.richTextBox3.Size = new System.Drawing.Size(361, 52);
+            this.richTextBox3.TabIndex = 39;
+            this.richTextBox3.Text = "The Spring Portal will only work after Spring Training Camp is over and before Te" +
+    "am Cuts are performed.";
+            // 
+            // richTextBox2
+            // 
+            this.richTextBox2.BackColor = System.Drawing.SystemColors.Info;
+            this.richTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox2.Location = new System.Drawing.Point(12, 425);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.Size = new System.Drawing.Size(209, 176);
+            this.richTextBox2.TabIndex = 38;
+            this.richTextBox2.Text = resources.GetString("richTextBox2.Text");
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.BackColor = System.Drawing.SystemColors.Info;
+            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox1.Location = new System.Drawing.Point(742, 385);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(361, 97);
+            this.richTextBox1.TabIndex = 37;
+            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
             // 
             // PortalTransfers
             // 
@@ -12205,116 +12318,17 @@ namespace DB_EDITOR
             this.SpringPortalButton.UseVisualStyleBackColor = true;
             this.SpringPortalButton.Click += new System.EventHandler(this.SpringPortalButton_Click);
             // 
-            // richTextBox1
+            // TransferPortalStats
             // 
-            this.richTextBox1.BackColor = System.Drawing.SystemColors.Info;
-            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(742, 385);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(361, 97);
-            this.richTextBox1.TabIndex = 37;
-            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
-            // 
-            // richTextBox2
-            // 
-            this.richTextBox2.BackColor = System.Drawing.SystemColors.Info;
-            this.richTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox2.Location = new System.Drawing.Point(12, 425);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(209, 176);
-            this.richTextBox2.TabIndex = 38;
-            this.richTextBox2.Text = resources.GetString("richTextBox2.Text");
-            // 
-            // richTextBox3
-            // 
-            this.richTextBox3.BackColor = System.Drawing.SystemColors.Info;
-            this.richTextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox3.Location = new System.Drawing.Point(742, 504);
-            this.richTextBox3.Name = "richTextBox3";
-            this.richTextBox3.Size = new System.Drawing.Size(361, 52);
-            this.richTextBox3.TabIndex = 39;
-            this.richTextBox3.Text = "The Spring Portal will only work after Spring Training Camp is over and before Te" +
-    "am Cuts are performed.";
-            // 
-            // PortalData
-            // 
-            this.PortalData.AllowUserToAddRows = false;
-            this.PortalData.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.PortalData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle20;
-            this.PortalData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Info;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.PortalData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
-            this.PortalData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.PortalData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.PortalPosition,
-            this.PortalTransferName,
-            this.PortalRating,
-            this.PortalNewSchool,
-            this.PortalPrvTeam});
-            this.PortalData.Location = new System.Drawing.Point(239, 25);
-            this.PortalData.Name = "PortalData";
-            this.PortalData.ReadOnly = true;
-            this.PortalData.RowHeadersVisible = false;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.PortalData.RowsDefaultCellStyle = dataGridViewCellStyle22;
-            this.PortalData.RowTemplate.Height = 31;
-            this.PortalData.Size = new System.Drawing.Size(488, 576);
-            this.PortalData.TabIndex = 40;
-            // 
-            // PortalPosition
-            // 
-            this.PortalPosition.FillWeight = 8F;
-            this.PortalPosition.HeaderText = "Pos";
-            this.PortalPosition.Name = "PortalPosition";
-            this.PortalPosition.ReadOnly = true;
-            // 
-            // PortalTransferName
-            // 
-            this.PortalTransferName.FillWeight = 35F;
-            this.PortalTransferName.HeaderText = "Player Name";
-            this.PortalTransferName.Name = "PortalTransferName";
-            this.PortalTransferName.ReadOnly = true;
-            // 
-            // PortalRating
-            // 
-            this.PortalRating.FillWeight = 7F;
-            this.PortalRating.HeaderText = "OVR";
-            this.PortalRating.Name = "PortalRating";
-            this.PortalRating.ReadOnly = true;
-            // 
-            // PortalNewSchool
-            // 
-            this.PortalNewSchool.FillWeight = 25F;
-            this.PortalNewSchool.HeaderText = "To";
-            this.PortalNewSchool.Name = "PortalNewSchool";
-            this.PortalNewSchool.ReadOnly = true;
-            // 
-            // PortalPrvTeam
-            // 
-            this.PortalPrvTeam.FillWeight = 25F;
-            this.PortalPrvTeam.HeaderText = "From";
-            this.PortalPrvTeam.Name = "PortalPrvTeam";
-            this.PortalPrvTeam.ReadOnly = true;
-            // 
-            // TotalTransfersCount
-            // 
-            this.TotalTransfersCount.AutoSize = true;
-            this.TotalTransfersCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TotalTransfersCount.Location = new System.Drawing.Point(739, 585);
-            this.TotalTransfersCount.Name = "TotalTransfersCount";
-            this.TotalTransfersCount.Size = new System.Drawing.Size(129, 16);
-            this.TotalTransfersCount.TabIndex = 41;
-            this.TotalTransfersCount.Text = "Total Transfers: 0";
+            this.TransferPortalStats.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.TransferPortalStats.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TransferPortalStats.Location = new System.Drawing.Point(393, 323);
+            this.TransferPortalStats.Name = "TransferPortalStats";
+            this.TransferPortalStats.Size = new System.Drawing.Size(163, 80);
+            this.TransferPortalStats.TabIndex = 43;
+            this.TransferPortalStats.Text = "KeepTransfer Portal Player Stats";
+            this.TransferPortalStats.UseVisualStyleBackColor = false;
+            this.TransferPortalStats.Click += new System.EventHandler(this.TransferPortalStats_Click);
             // 
             // MainEditor
             // 
@@ -12549,6 +12563,7 @@ namespace DB_EDITOR
             this.tabControl1.ResumeLayout(false);
             this.tabPortal.ResumeLayout(false);
             this.tabPortal.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PortalData)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.portalChance)).EndInit();
             this.groupBox33.ResumeLayout(false);
             this.groupBox33.PerformLayout();
@@ -12573,7 +12588,6 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.PortalQB)).EndInit();
             this.groupBox31.ResumeLayout(false);
             this.groupBox31.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PortalData)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -13541,6 +13555,7 @@ namespace DB_EDITOR
         private DataGridViewTextBoxColumn PortalNewSchool;
         private DataGridViewTextBoxColumn PortalPrvTeam;
         private Label TotalTransfersCount;
+        private System.Windows.Forms.Button TransferPortalStats;
     }
 }
 

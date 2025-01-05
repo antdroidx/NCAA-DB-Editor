@@ -98,7 +98,7 @@ namespace DB_EDITOR
 
                 if (GetDBValueInt("SCHD", "SEWN", i) < 16 && !CheckOOCMatchup(FindTeamRecfromTeamName(teamNameDB[teamH]), FindTeamRecfromTeamName(teamNameDB[teamA])))
                 {
-                    DeleteRecordChange("SCHD", i, true);
+                    DeleteRecord("SCHD", i, true);
                 }
 
                 progressBar1.PerformStep();

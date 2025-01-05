@@ -33,7 +33,7 @@ namespace DB_EDITOR
             }
             if (!correctWeek)
             {
-                MessageBox.Show("Please use this feature at the beginning of Recruiting Stage!");
+                MessageBox.Show("Please use this feature after training is completed in off-season!");
             }
 
         }

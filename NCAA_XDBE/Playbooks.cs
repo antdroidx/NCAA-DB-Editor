@@ -332,7 +332,7 @@ namespace DB_EDITOR
         {
             for (int i = 0; i < GetTableRecCount("PBAI"); i++)
             {
-                DeleteRecordChange("PBAI", i, true);
+                DeleteRecord("PBAI", i, true);
             }
             CompactDB();
 

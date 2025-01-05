@@ -242,7 +242,7 @@ namespace DB_EDITOR
                 int schdSEWN = GetDBValueInt("SCHD", "SEWN", i);
                 if (schdSGNM == bowlSGNM && bowlSEWN == schdSEWN)
                 {
-                    DeleteRecordChange("SCHD", i, true);
+                    DeleteRecord("SCHD", i, true);
                     break;
                 }
             }

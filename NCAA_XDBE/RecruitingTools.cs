@@ -979,7 +979,7 @@ namespace DB_EDITOR
                 if (povr <= 8)
                 {
                     ChangeDBInt("PLAY", "PTYP", rec, 3);
-                    DeleteRecordChange("TRAN", i, true);
+                    DeleteRecord("TRAN", i, true);
                     count++;
                 }
                 progressBar1.PerformStep();

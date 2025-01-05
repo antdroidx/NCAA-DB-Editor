@@ -783,7 +783,7 @@ namespace DB_EDITOR
         //Clear TUCO table
         for (int i = 0; i < GetTableRecCount("TUNI"); i++)
         {
-            DeleteRecordChange("TUNI", i, true);
+            DeleteRecord("TUNI", i, true);
         }
 
         CompactDB();
@@ -808,7 +808,7 @@ namespace DB_EDITOR
         //Clear UNIF table
         for (int i = 0; i < GetTableRecCount("UNIF"); i++)
         {
-            DeleteRecordChange("UNIF", i, true);
+            DeleteRecord("UNIF", i, true);
         }
 
         CompactDB();

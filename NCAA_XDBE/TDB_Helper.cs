@@ -177,7 +177,7 @@ namespace DB_EDITOR
             TDB.TDBDatabaseCompact(dbIndex);
         }
 
-        public void DeleteRecordChange(string table, int rec, bool deleted)
+        public void DeleteRecord(string table, int rec, bool deleted)
         {
             TDB.TDBTableRecordChangeDeleted(dbIndex, table, rec, deleted);
         }
@@ -374,7 +374,7 @@ namespace DB_EDITOR
             TDB.TDBDatabaseCompact(dbIndex2);
         }
 
-        public void DeleteRecordChange2(string table, int rec, bool deleted)
+        public void DeleteRecord2(string table, int rec, bool deleted)
         {
             TDB.TDBTableRecordChangeDeleted(dbIndex2, table, rec, deleted);
         }

@@ -181,7 +181,7 @@ namespace DB_EDITOR
             {
                 if (GetDBValueInt("PSOF", "PGID", i) == 65535)
                 {
-                    DeleteRecordChange("PSOF", i, true);
+                    DeleteRecord("PSOF", i, true);
                 }
 
                 else if (GetDBValueInt("PSOF", "SEYR", i) == seyr)
@@ -251,7 +251,7 @@ namespace DB_EDITOR
             {
                 if (GetDBValueInt("PSDE", "PGID", i) == 65535)
                 {
-                    DeleteRecordChange("PSDE", i, true);
+                    DeleteRecord("PSDE", i, true);
                 }
 
                 else if (GetDBValueInt("PSDE", "SEYR", i) == seyr)

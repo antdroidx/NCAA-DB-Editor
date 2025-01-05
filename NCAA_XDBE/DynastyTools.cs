@@ -473,7 +473,7 @@ namespace DB_EDITOR
                         }
                     }
 
-                    if(counter % 15 == 0) downgrade++;
+                    if (counter % 15 == 0) downgrade++;
                     counter++;
                 }
 
@@ -908,7 +908,7 @@ namespace DB_EDITOR
                     if (skin > 3) skin = 5;
                     else if (skin > 0) skin = 2;
                     ChangeDBInt("COCH", "CSKI", rec, skin);
-   
+
                     ChangeDBInt("COCH", "CHAR", rec, GetDBValueInt("PLAY", "PHCL", recP));
 
                     ChangeDBInt("COCH", "CBSZ", rec, rand.Next(0, 3));
@@ -1190,7 +1190,7 @@ namespace DB_EDITOR
                             ChangeDBString("TEAM", "TPIO", i, Convert.ToString(impactID));
                             impactCount++;
                         }
-                       else if (GetDBValueInt("TEAM", "TSI1", i) == 127)
+                        else if (GetDBValueInt("TEAM", "TSI1", i) == 127)
                         {
                             int impactID = roster[j][2] - PGIDbeg;
                             ChangeDBString("TEAM", "TSI1", i, Convert.ToString(impactID));
@@ -1269,9 +1269,9 @@ namespace DB_EDITOR
         private void RemoveAllSanctions()
         {
             string teams = "";
-            for(int i = 0; i <GetTableRecCount("TEAM"); i++)
+            for (int i = 0; i < GetTableRecCount("TEAM"); i++)
             {
-                if(GetDBValueInt("TEAM", "SNCT", i) > 0) 
+                if (GetDBValueInt("TEAM", "SNCT", i) > 0)
                 {
                     ChangeDBInt("TEAM", "SNCT", i, 0);
                     ChangeDBInt("TEAM", "INPO", i, 0);
@@ -1286,7 +1286,7 @@ namespace DB_EDITOR
         //Reset Games Played
         private void ResetGP()
         {
-            for(int i = 0; i < GetTableRecCount("PLAY"); i++)
+            for (int i = 0; i < GetTableRecCount("PLAY"); i++)
             {
                 ChangeDBInt("PLAY", "PL13", i, 0);
             }
@@ -1294,5 +1294,92 @@ namespace DB_EDITOR
             MessageBox.Show("Games Played Stat Reset to 0");
         }
 
+        //Move Transferred Player Stats Over
+
+        private void TransferPortalStats_Click(object sender, EventArgs e)
+        {
+            bool correctWeek = false;
+            for (int i = 0; i < GetTable2RecCount("RCYR"); i++)
+            {
+                if (GetDB2ValueInt("RCYR", "SEWN", i) >= 5)
+                {
+                    CompactDB();
+                    CompactDB2();
+                    MoveTransferredPlayerStats();
+                    CompactDB();
+                    CompactDB2();
+                    MessageBox.Show("Transferred Player Stats Moved!");
+                }
+            }
+            if (!correctWeek)
+            {
+                MessageBox.Show("Please use this feature at the after recruiting is completed in off-season!");
+            }
+
+        }
+
+        private void MoveTransferredPlayerStats()
+        {
+            progressBar1.Visible = true;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = GetTableRecCount("TRAN");
+            progressBar1.Step = 1;
+            
+            AvailablePGIDList = new List<List<int>>();
+            for (int i = 0; i < 512; i++)
+            {
+                AvailablePGIDList.Add(new List<int>());
+            }
+            //Add Roster
+            for (int i = 0; i < GetTableRecCount("PLAY"); i++)
+            {
+                
+                int PGID = GetDBValueInt("PLAY", "PGID", i);
+                int TGID = PGID / 70;
+
+                if(TGID < 512) AvailablePGIDList[TGID].Add(PGID);
+            }
+
+
+
+            //Transfers
+            for (int i = 0; i < GetTableRecCount("TRAN"); i++)
+            {
+                int team = -1;
+                int rec = -1;
+                int PGID = GetDBValueInt("TRAN", "PGID", i);
+
+                for (int r = 0; r < GetTable2RecCount("RCPR"); r++)
+                {
+                    if (GetDB2ValueInt("RCPR", "PRID", r) == PGID)
+                    {
+                        rec = r;
+                        team = GetDB2ValueInt("RCPR", "PTCM", r);
+                        break;
+                    }
+                }
+
+                //Check for open PGID slots
+                for (int j = team * 70; j < team * 70 + 69; j++)
+                {
+                    if (!AvailablePGIDList[team].Contains(j))
+                    {
+                        ChangePlayerStatsID(PGID, j);
+                        
+                        ChangePGID(PGID, j);
+
+                        DeleteRecord("TRAN", i, true);
+                        DeleteRecord2("RCPR", rec, true);
+                        AvailablePGIDList[team].Add(j);
+                        break;
+                    }
+                }
+                progressBar1.PerformStep();
+            }
+
+            progressBar1.Value = 0;
+            progressBar1.Visible = false;
+
+        }
     }
 }

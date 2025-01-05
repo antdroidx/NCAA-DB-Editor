@@ -1950,7 +1950,7 @@ namespace DB_EDITOR
             {
                 if(GetDBValueInt("DCHT", "PGID", i) >= PGIDbeg && GetDBValueInt("DCHT", "PGID", i) <= PGIDend)
 
-                DeleteRecordChange("DCHT", i, true);
+                DeleteRecord("DCHT", i, true);
             }
 
             CompactDB();
@@ -2053,7 +2053,7 @@ namespace DB_EDITOR
             {
                 if (GetDBValueInt("DCHT", "PGID", i) >= PGIDbeg && GetDBValueInt("DCHT", "PGID", i) <= PGIDend)
 
-                    DeleteRecordChange("DCHT", i, true);
+                    DeleteRecord("DCHT", i, true);
             }
 
             CompactDB();

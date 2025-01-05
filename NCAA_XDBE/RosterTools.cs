@@ -97,7 +97,7 @@ namespace DB_EDITOR
                 if (GetDBValueInt("PLAY", "PTYP", i) == 3)
                 {
                     //remove player from database
-                    DeleteRecordChange("PLAY", i, true);
+                    DeleteRecord("PLAY", i, true);
                     removed++;
                     //clear stats
                     ClearPlayerStats(GetDBValueInt("PLAY", "PGID", i));
@@ -209,7 +209,7 @@ namespace DB_EDITOR
             {
                 if (GetDBValueInt("PLAY", "PGID", i) >= 30000)
                 {
-                    DeleteRecordChange("PLAY", i, true);
+                    DeleteRecord("PLAY", i, true);
                     nottransferred++;
                 }
                 else
@@ -236,50 +236,74 @@ namespace DB_EDITOR
         {
             for (int i = 0; i < GetTableRecCount("PSDE"); i++)
             {
-                if (GetDBValueInt("PSDE", "PGID", i) == pgid) DeleteRecordChange("PSDE", i, true);
-                break;
+                if (GetDBValueInt("PSDE", "PGID", i) == pgid)
+                {
+                    DeleteRecord("PSDE", i, true);
+                    break;
+                }
             }
 
             for (int i = 0; i < GetTableRecCount("PSKI"); i++)
             {
-                if (GetDBValueInt("PSKI", "PGID", i) == pgid) DeleteRecordChange("PSKI", i, true);
-                break;
+                if (GetDBValueInt("PSKI", "PGID", i) == pgid)
+                {
+                    DeleteRecord("PSKI", i, true);
+                    break;
+                }
             }
 
             for (int i = 0; i < GetTableRecCount("PSKP"); i++)
             {
-                if (GetDBValueInt("PSKP", "PGID", i) == pgid) DeleteRecordChange("PSKP", i, true);
-                break;
+                if (GetDBValueInt("PSKP", "PGID", i) == pgid)
+                {
+                    DeleteRecord("PSKP", i, true);
+                    break;
+                }
             }
 
             for (int i = 0; i < GetTableRecCount("PSOF"); i++)
             {
-                if (GetDBValueInt("PSOF", "PGID", i) == pgid) DeleteRecordChange("PSOF", i, true);
-                break;
+                if (GetDBValueInt("PSOF", "PGID", i) == pgid)
+                {
+                    DeleteRecord("PSOF", i, true);
+                    break;
+                }
             }
 
             for (int i = 0; i < GetTableRecCount("PSOL"); i++)
             {
-                if (GetDBValueInt("PSOL", "PGID", i) == pgid) DeleteRecordChange("PSOL", i, true);
-                break;
+                if (GetDBValueInt("PSOL", "PGID", i) == pgid)
+                {
+                    DeleteRecord("PSOL", i, true);
+                    break;
+                }
             }
 
             for (int i = 0; i < GetTableRecCount("PSRC"); i++)
             {
-                if (GetDBValueInt("PSRC", "PGID", i) == pgid) DeleteRecordChange("PSRC", i, true);
-                break;
+                if (GetDBValueInt("PSRC", "PGID", i) == pgid)
+                {
+                    DeleteRecord("PSRC", i, true);
+                    break;
+                }
             }
 
             for (int i = 0; i < GetTableRecCount("PSRN"); i++)
             {
-                if (GetDBValueInt("PSRN", "PGID", i) == pgid) DeleteRecordChange("PSRN", i, true);
-                break;
+                if (GetDBValueInt("PSRN", "PGID", i) == pgid)
+                {
+                    DeleteRecord("PSRN", i, true);
+                    break;
+                }
             }
 
             for (int i = 0; i < GetTableRecCount("PSRT"); i++)
             {
-                if (GetDBValueInt("PSRT", "PGID", i) == pgid) DeleteRecordChange("PSRT", i, true);
-                break;
+                if (GetDBValueInt("PSRT", "PGID", i) == pgid)
+                {
+                    DeleteRecord("PSRT", i, true);
+                    break;
+                }
             }
             CompactDB();
         }
@@ -288,56 +312,95 @@ namespace DB_EDITOR
         {
             for (int i = 0; i < GetTableRecCount("PSDE"); i++)
             {
-                if (GetDBValueInt("PSDE", "PGID", i) == pgid) ChangeDBInt("PSDE", "PGID", i, newpgid);
-                break;
+                if (GetDBValueInt("PSDE", "PGID", i) == pgid)
+                {
+                    ChangeDBInt("PSDE", "PGID", i, newpgid);
+                    break;
+                }
             }
 
             for (int i = 0; i < GetTableRecCount("PSKI"); i++)
             {
-                if (GetDBValueInt("PSKI", "PGID", i) == pgid) ChangeDBInt("PSKI", "PGID", i, newpgid);
-                break;
+                if (GetDBValueInt("PSKI", "PGID", i) == pgid)
+                {
+                    ChangeDBInt("PSKI", "PGID", i, newpgid);
+                    break;
+                }
             }
 
             for (int i = 0; i < GetTableRecCount("PSKP"); i++)
             {
-                if (GetDBValueInt("PSKP", "PGID", i) == pgid) ChangeDBInt("PSKP", "PGID", i, newpgid);
-                break;
+                if (GetDBValueInt("PSKP", "PGID", i) == pgid)
+                {
+                    ChangeDBInt("PSKP", "PGID", i, newpgid);
+                    break;
+                }
             }
 
             for (int i = 0; i < GetTableRecCount("PSOF"); i++)
             {
-                if (GetDBValueInt("PSOF", "PGID", i) == pgid) ChangeDBInt("PSOF", "PGID", i, newpgid);
-                break;
+                if (GetDBValueInt("PSOF", "PGID", i) == pgid)
+                {
+                    ChangeDBInt("PSOF", "PGID", i, newpgid);
+                    break;
+                }
             }
 
             for (int i = 0; i < GetTableRecCount("PSOL"); i++)
             {
-                if (GetDBValueInt("PSOL", "PGID", i) == pgid) ChangeDBInt("PSOL", "PGID", i, newpgid);
-                break;
+                if (GetDBValueInt("PSOL", "PGID", i) == pgid)
+                {
+                    ChangeDBInt("PSOL", "PGID", i, newpgid);
+                    break;
+                }
             }
 
             for (int i = 0; i < GetTableRecCount("PSRC"); i++)
             {
-                if (GetDBValueInt("PSRC", "PGID", i) == pgid) ChangeDBInt("PSRC", "PGID", i, newpgid);
-                break;
+                if (GetDBValueInt("PSRC", "PGID", i) == pgid)
+                {
+                    ChangeDBInt("PSRC", "PGID", i, newpgid);
+                    break;
+                }
             }
 
             for (int i = 0; i < GetTableRecCount("PSRN"); i++)
             {
-                if (GetDBValueInt("PSRN", "PGID", i) == pgid) ChangeDBInt("PSRN", "PGID", i, newpgid);
-                break;
+                if (GetDBValueInt("PSRN", "PGID", i) == pgid)
+                {
+                    ChangeDBInt("PSRN", "PGID", i, newpgid);
+                    break;
+                }
             }
 
             for (int i = 0; i < GetTableRecCount("PSRT"); i++)
             {
-                if (GetDBValueInt("PSRT", "PGID", i) == pgid) ChangeDBInt("PSRT", "PGID", i, newpgid);
-                break;
+                if (GetDBValueInt("PSRT", "PGID", i) == pgid)
+                {
+                    ChangeDBInt("PSRT", "PGID", i, newpgid);
+                    break;
+                }
             }
 
             for (int i = 0; i < GetTableRecCount("DCHT"); i++)
             {
-                if (GetDBValueInt("DCHT", "PGID", i) == pgid) ChangeDBInt("DCHT", "PGID", i, newpgid);
-                break;
+                if (GetDBValueInt("DCHT", "PGID", i) == pgid)
+                {
+                    ChangeDBInt("DCHT", "PGID", i, newpgid);
+                    break;
+                }
+            }
+        }
+
+        private void ChangePGID(int pgid, int newpgid)
+        {
+            for (int i = 0; i < GetTableRecCount("PLAY"); i++)
+            {
+                if (GetDBValueInt("PLAY", "PGID", i) == pgid)
+                {
+                    ChangeDBInt("PLAY", "PGID", i, newpgid);
+                    break;
+                }
             }
         }
 
