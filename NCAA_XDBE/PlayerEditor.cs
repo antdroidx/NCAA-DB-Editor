@@ -23,6 +23,8 @@ namespace DB_EDITOR
             LoadPlayerTGIDBox();
 
             if(dbIndex2 == 1) PlayerTransferButton.Visible = true;
+
+            if (PlayerIndex > 0) LoadPGIDlistBox();
         }
 
         private void LoadPlayerTGIDBox()
@@ -177,12 +179,28 @@ namespace DB_EDITOR
             AddPositionsItems();
             PPOSBox.SelectedIndex = GetDBValueInt("PLAY", "PPOS", PlayerIndex);
 
+            /*
             //Home
             AddStateItems();
             PStateBox.SelectedIndex = GetDBValueInt("PLAY", "RCHD", PlayerIndex)/256;
 
             AddPHometownItems();
             PHometownBox.SelectedIndex = GetDBValueInt("PLAY", "RCHD", PlayerIndex)-(256 * PStateBox.SelectedIndex);
+            */
+
+            //Home
+            int home = GetDBValueInt("PLAY", "RCHD", PlayerIndex);
+            int state = home / 256;
+            AddStateItems();
+            PStateBox.SelectedIndex = state;
+
+            AddPHometownItems();
+            if(home - (state * 256) > PHometownBox.Items.Count)
+            {
+                home = state * 256 + rand.Next(0, PHometownBox.Items.Count - 1);
+                ChangeDBInt("PLAY", "RCHD", PlayerIndex, home);
+            }
+            PHometownBox.SelectedIndex = home - (state*256);
 
 
             //Overall Rating
@@ -502,7 +520,7 @@ namespace DB_EDITOR
             sr.Close();
 
 
-            int start = PStateBox.SelectedIndex * 256;
+            int start = (GetDBValueInt("PLAY", "RCHD", PlayerIndex) / 256) * 256;
             for (int i = start ; i < start + 256; i++)
             {
                 if (i >= home.Length) break;
@@ -597,6 +615,7 @@ namespace DB_EDITOR
             } 
 
             DisplayNewOverallRating();
+            LoadPGIDlistBox();
             DoNotTrigger = false;
         }
 

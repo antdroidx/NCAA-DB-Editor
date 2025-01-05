@@ -179,7 +179,12 @@ namespace DB_EDITOR
 
             for (int i = 0; i < GetTableRecCount("PSOF"); i++)
             {
-                if (GetDBValueInt("PSOF", "SEYR", i) == seyr)
+                if (GetDBValueInt("PSOF", "PGID", i) == 65535)
+                {
+                    DeleteRecordChange("PSOF", i, true);
+                }
+
+                else if (GetDBValueInt("PSOF", "SEYR", i) == seyr)
                 {
                     rankings.Add(new List<int>());
                     rankings[num].Add(GetDBValueInt("PSOF", "PGID", i));
@@ -229,6 +234,7 @@ namespace DB_EDITOR
                 ReceivingLeadersBox.Items.Add("#" + r + " " + GetPlayerNamefromPGID(team[0]) + ", " + tsna + " [" + team[3] + " yds]");
             }
 
+            CompactDB();
         }
 
         private void LoadPlayerDefStatLeaders()
@@ -243,7 +249,12 @@ namespace DB_EDITOR
 
             for (int i = 0; i < GetTableRecCount("PSDE"); i++)
             {
-                if (GetDBValueInt("PSDE", "SEYR", i) == seyr)
+                if (GetDBValueInt("PSDE", "PGID", i) == 65535)
+                {
+                    DeleteRecordChange("PSDE", i, true);
+                }
+
+                else if (GetDBValueInt("PSDE", "SEYR", i) == seyr)
                 {
                     rankings.Add(new List<int>());
                     rankings[num].Add(GetDBValueInt("PSDE", "PGID", i));
@@ -295,6 +306,7 @@ namespace DB_EDITOR
                 IntLeadersBox.Items.Add("#" + r + " " + GetPlayerNamefromPGID(team[0]) + ", " + tsna + " [" + team[3] + " ints]");
             }
 
+            CompactDB();
         }
 
     }

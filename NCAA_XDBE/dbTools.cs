@@ -150,13 +150,15 @@ namespace DB_EDITOR
         {
             FixHCBugs();
         }
-        #endregion
-
 
         private void ClearExpiredStats_Click(object sender, EventArgs e)
         {
             ClearExpiredStatsData();
         }
+
+        #endregion
+
+
 
         #region General Tools
         //Fixes Body Size Models if user does manipulation of the player attributes in the in-game player editor
@@ -1108,7 +1110,7 @@ namespace DB_EDITOR
             List<int> POSG2 = new List<int> { 2, 4, 4, 2, 7, 7, 4, 6, 1, 1 };
             List<int> TeamPos2 = new List<int> { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
             List<List<int>> Diff = new List<List<int>>();
-            List<List<int>> list = new List<List<int>>();
+            List<List<int>> rosterList = new List<List<int>>();
             List<List<string>> RCATmapper = new List<List<string>>();
             RCATmapper = CreateStringListsFromCSV(@"resources\players\RCAT-MAPPER.csv", false);
 
@@ -1120,7 +1122,7 @@ namespace DB_EDITOR
             for (int k = 0; k < GetTableRecCount("PLAY"); k++)
             {
                 int pgid = GetDBValueInt("PLAY", "PGID", k);
-                if (pgid >= pgidSTART && pgid < pgidEND)
+                if (pgid >= pgidSTART && pgid <= pgidEND)
                 {
                     if (GetDBValueInt("PLAY", "PPOS", k) == 0) TeamPos2[0]++;
                     else if (GetDBValueInt("PLAY", "PPOS", k) <= 2) TeamPos2[1]++;
@@ -1133,14 +1135,13 @@ namespace DB_EDITOR
                     else if (GetDBValueInt("PLAY", "PPOS", k) == 19) TeamPos2[8]++;
                     else if (GetDBValueInt("PLAY", "PPOS", k) == 20) TeamPos2[9]++;
 
-                    list.Add(new List<int>());
-                    list[rowx].Add(GetDBValueInt("PLAY", "POVR", k));
-                    list[rowx].Add(GetDBValueInt("PLAY", "PPOS", k));
-                    list[rowx].Add(k);
-                    list[rowx].Add(GetDBValueInt("PLAY", "PGID", k));
+                    rosterList.Add(new List<int>());
+                    rosterList[rowx].Add(GetDBValueInt("PLAY", "POVR", k));
+                    rosterList[rowx].Add(GetDBValueInt("PLAY", "PPOS", k));
+                    rosterList[rowx].Add(k);
+                    rosterList[rowx].Add(GetDBValueInt("PLAY", "PGID", k));
 
                     rowx++;
-
                 }
             }
 
@@ -1155,14 +1156,14 @@ namespace DB_EDITOR
             {
                 if (Diff[k][0] > 0)
                 {
-                    list.Sort((player1, player2) => player2[0].CompareTo(player1[0]));
-                    for (int x = list.Count - 1; x >= 0; x--)
+                    rosterList.Sort((player1, player2) => player2[0].CompareTo(player1[0]));
+                    for (int x = rosterList.Count - 1; x >= 0; x--)
                     {
-                        if (list[x][1] != 19 && list[x][1] != 20)
+                        if (rosterList[x][1] != 19 && rosterList[x][1] != 20)
                         {
-                            TransferRCATtoPLAY(list[x][2], ChooseRandomPosFromPOSG(k), list[x][3], RCATmapper, PJEN, 50);
-                            RandomizePlayerHead("PLAY", Convert.ToInt32(list[x][2]));
-                            list.RemoveAt(x);
+                            TransferRCATtoPLAY(rosterList[x][2], ChooseRandomPosFromPOSG(k), rosterList[x][3], RCATmapper, PJEN, 50);
+                            RandomizePlayerHead("PLAY", Convert.ToInt32(rosterList[x][2]));
+                            rosterList.RemoveAt(x);
                             break;
                         }
                     }
@@ -1781,7 +1782,6 @@ namespace DB_EDITOR
 
             return jersey;
         }
-        #endregion
 
         private int PickRandomHometown()
         {
@@ -1801,12 +1801,23 @@ namespace DB_EDITOR
             }
             sr.Close();
 
-            ht = Convert.ToInt32(home[rand.Next(0, home.Count)]);
+            bool realHT = false;
+            while (!realHT)
+            {
+                ht = Convert.ToInt32(home[rand.Next(0, home.Count)]);
+                if (home.Contains(Convert.ToString(ht))) realHT = true;
+
+            }
 
             return ht;
         }
+        #endregion
+
+
+
 
         #region Depth Chart Maker
+
         //Depth Chart Maker
         public void DepthChartMaker(string tableName)
         {
@@ -1826,90 +1837,93 @@ namespace DB_EDITOR
             int count;
             int rec = 0;
 
+            //Create a list of all players sorted by team and pos
+            List<List<List<int>>> DCRoster = new List<List<List<int>>>();
+            for (int i = 0; i < 512; i++)
+            {
+                DCRoster.Add(new List<List<int>>());
+            }
+
+            //Add Players to the Team Database
+            for (int j = 0; j < GetTableRecCount("PLAY"); j++)
+            {
+                int PGID = GetDBValueInt("PLAY", "PGID", j);
+                int TGID = PGID / 70;
+
+                int PPOS = GetDBValueInt("PLAY", "PPOS", j);
+                int PRSD = GetDBValueInt("PLAY", "PRSD", j);
+
+                List<int> player = new List<int>();
+
+                if (PRSD != 1)
+                {
+                    count = DCRoster[TGID].Count;
+                    DCRoster[TGID].Add(player);
+                    DCRoster[TGID][count].Add(j);
+                    DCRoster[TGID][count].Add(PGID);
+                    DCRoster[TGID][count].Add(PPOS);
+                }
+            }
+            
+
+
             for (int i = 0; i < GetTableRecCount(tableName); i++)
             {
                 if (TDYN || GetDBValueInt(tableName, "TTYP", i) == 0)
                 {
                     int TOID = GetDBValueInt(tableName, "TOID", i);
-                    int PGIDbeg = TOID * 70;
-                    int PGIDend = PGIDbeg + 69;
-                    count = 0;
-                    List<List<int>> roster = new List<List<int>>();
-
-                    for (int j = 0; j < GetTableRecCount("PLAY"); j++)
-                    {
-                        int PGID = GetDBValueInt("PLAY", "PGID", j);
-
-                        if (PGID >= PGIDbeg && PGID <= PGIDend)
-                        {
-                            int POVR = GetDBValueInt("PLAY", "POVR", j);
-                            int PPOS = GetDBValueInt("PLAY", "PPOS", j);
-                            int PRSD = GetDBValueInt("PLAY", "PRSD", j);
-                            List<int> player = new List<int>();
-                            if (PRSD != 1)
-                            {
-                                roster.Add(player);
-                                roster[count].Add(j);
-                                roster[count].Add(PGID);
-                                roster[count].Add(PPOS);
-                                count++;
-                            }
-                        }
-                    }
-                    //roster.Sort((player1, player2) => player2[0].CompareTo(player1[0]));
-
                     //Sort Depth Chart  KR = 21 PR = 22 KOS = 23 LS = 24
 
                     //QBs
-                    rec = AddDCHTrecord(rec, 0, 3, roster);
+                    rec = AddDCHTrecord(rec, 0, 3, DCRoster[TOID]);
                     //RBs
-                    rec = AddDCHTrecord(rec, 1, 4, roster);
+                    rec = AddDCHTrecord(rec, 1, 4, DCRoster[TOID]);
                     //WRs
-                    rec = AddDCHTrecord(rec, 3, 6, roster);
+                    rec = AddDCHTrecord(rec, 3, 6, DCRoster[TOID]);
                     //TEs
-                    rec = AddDCHTrecord(rec, 4, 3, roster);
+                    rec = AddDCHTrecord(rec, 4, 3, DCRoster[TOID]);
                     //LTs
-                    rec = AddDCHTrecord(rec, 5, 3, roster);
+                    rec = AddDCHTrecord(rec, 5, 3, DCRoster[TOID]);
                     //RTs
-                    rec = AddDCHTrecord(rec, 9, 3, roster);
+                    rec = AddDCHTrecord(rec, 9, 3, DCRoster[TOID]);
                     //Cs
-                    rec = AddDCHTrecord(rec, 7, 3, roster);
+                    rec = AddDCHTrecord(rec, 7, 3, DCRoster[TOID]);
                     //LGs
-                    rec = AddDCHTrecord(rec, 6, 3, roster);
+                    rec = AddDCHTrecord(rec, 6, 3, DCRoster[TOID]);
                     //RG
-                    rec = AddDCHTrecord(rec, 8, 3, roster);
+                    rec = AddDCHTrecord(rec, 8, 3, DCRoster[TOID]);
                     //LEs
-                    rec = AddDCHTrecord(rec, 10, 3, roster);
+                    rec = AddDCHTrecord(rec, 10, 3, DCRoster[TOID]);
                     //RE
-                    rec = AddDCHTrecord(rec, 11, 3, roster);
+                    rec = AddDCHTrecord(rec, 11, 3, DCRoster[TOID]);
                     //DT
-                    rec = AddDCHTrecord(rec, 12, 5, roster);
+                    rec = AddDCHTrecord(rec, 12, 5, DCRoster[TOID]);
                     //MLBs
-                    rec = AddDCHTrecord(rec, 14, 4, roster);
+                    rec = AddDCHTrecord(rec, 14, 4, DCRoster[TOID]);
                     //ROLBs
-                    rec = AddDCHTrecord(rec, 15, 3, roster);
+                    rec = AddDCHTrecord(rec, 15, 3, DCRoster[TOID]);
                     //LOLBs
-                    rec = AddDCHTrecord(rec, 13, 3, roster);
+                    rec = AddDCHTrecord(rec, 13, 3, DCRoster[TOID]);
                     //CBs
-                    rec = AddDCHTrecord(rec, 16, 5, roster);
+                    rec = AddDCHTrecord(rec, 16, 5, DCRoster[TOID]);
                     //FSs
-                    rec = AddDCHTrecord(rec, 18, 3, roster);
+                    rec = AddDCHTrecord(rec, 18, 3, DCRoster[TOID]);
                     //SSs
-                    rec = AddDCHTrecord(rec, 17, 3, roster);
+                    rec = AddDCHTrecord(rec, 17, 3, DCRoster[TOID]);
                     //FBs
-                    rec = AddDCHTrecord(rec, 2, 3, roster);
+                    rec = AddDCHTrecord(rec, 2, 3, DCRoster[TOID]);
                     //Ks
-                    rec = AddDCHTrecord(rec, 19, 3, roster);
+                    rec = AddDCHTrecord(rec, 19, 3, DCRoster[TOID]);
                     //Ps
-                    rec = AddDCHTrecord(rec, 20, 3, roster);
+                    rec = AddDCHTrecord(rec, 20, 3, DCRoster[TOID]);
                     //KRs
-                    rec = AddDCHTrecord(rec, 21, 5, roster);
+                    rec = AddDCHTrecord(rec, 21, 5, DCRoster[TOID]);
                     //PRs
-                    rec = AddDCHTrecord(rec, 22, 5, roster);
+                    rec = AddDCHTrecord(rec, 22, 5, DCRoster[TOID]);
                     //KOSs
-                    rec = AddDCHTrecord(rec, 23, 3, roster);
+                    rec = AddDCHTrecord(rec, 23, 3, DCRoster[TOID]);
                     //LSs
-                    rec = AddDCHTrecord(rec, 24, 3, roster);
+                    rec = AddDCHTrecord(rec, 24, 3, DCRoster[TOID]);
 
                     progressBar1.PerformStep();
 

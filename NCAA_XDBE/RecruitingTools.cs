@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace DB_EDITOR
 {
@@ -740,8 +742,8 @@ namespace DB_EDITOR
             int four = Convert.ToInt32(recruits.Count * 0.1); // top 300
             int three = Convert.ToInt32(recruits.Count * 0.33); //top 1000
             int two = Convert.ToInt32(recruits.Count * 0.95);  //top 2800
-            
-            for(int i = 0; i < recruits.Count;i++)
+
+            for (int i = 0; i < recruits.Count; i++)
             {
                 if (i <= five) RecordRecruitStarRating(i, recruits, 5);
                 else if (i <= four) RecordRecruitStarRating(i, recruits, 4);
@@ -761,7 +763,7 @@ namespace DB_EDITOR
             progressBar1.Value = 0;
             progressBar1.Maximum = 10;
 
-            for(int p = 0; p < 10; p++)
+            for (int p = 0; p < 10; p++)
             {
                 List<List<int>> list = new List<List<int>>();
 
@@ -792,13 +794,13 @@ namespace DB_EDITOR
         }
 
         //Record Star Rating Update
-        private void RecordRecruitStarRating(int i,  List<List<int>> recruits, int star)
+        private void RecordRecruitStarRating(int i, List<List<int>> recruits, int star)
         {
             int prid = recruits[i][0];
 
-            for(int x = 0; x < GetTable2RecCount("RCPT"); x++)
+            for (int x = 0; x < GetTable2RecCount("RCPT"); x++)
             {
-                if(GetDB2ValueInt("RCPT", "PRID", x) == prid)
+                if (GetDB2ValueInt("RCPT", "PRID", x) == prid)
                 {
                     ChangeDB2Int("RCPT", "RCCB", x, star);
                     break;
@@ -870,7 +872,7 @@ namespace DB_EDITOR
 
             for (int i = 0; i < GetTable2RecCount("RCPT"); i++)
             {
-                if (GetDB2ValueInt("RCPT", "PRID", i) < 21000 && GetDB2ValueInt("RCPT", "RATH", i) == 1)  
+                if (GetDB2ValueInt("RCPT", "PRID", i) < 21000 && GetDB2ValueInt("RCPT", "RATH", i) == 1)
                 {
                     List<List<int>> position = new List<List<int>>();
                     int row = 0;
@@ -970,11 +972,11 @@ namespace DB_EDITOR
             progressBar1.Maximum = GetTableRecCount("TRAN");
 
             int count = 0;
-            for(int i = 0; i < GetTableRecCount("TRAN"); i++)
+            for (int i = 0; i < GetTableRecCount("TRAN"); i++)
             {
                 int rec = FindPGIDRecord(GetDBValueInt("TRAN", "PGID", i));
                 int povr = GetDBValueInt("PLAY", "POVR", rec);
-                if(povr <= 8)
+                if (povr <= 8)
                 {
                     ChangeDBInt("PLAY", "PTYP", rec, 3);
                     DeleteRecordChange("TRAN", i, true);
@@ -986,8 +988,9 @@ namespace DB_EDITOR
             CompactDB();
 
             progressBar1.Visible = false;
-    
+
             MessageBox.Show("Completed! Removed " + count + " players from the database.");
         }
+
     }
 }

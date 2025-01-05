@@ -59,7 +59,11 @@ namespace DB_EDITOR
         List<List<string>> PlayerEditorList;
         List<List<string>> CoachEditorList;
         List<List<string>> RecruitEditorList;
-        List<List<string>> StadiumEditorList;
+        List<List<List<int>>> SpringRoster;
+        List<List<int>> SpringPortal;
+        List<List<int>> TeamPortalNeeds;
+        List<List<int>> AvailablePGIDList;
+
 
         List<int> PJENList;
         List<List<int>> MasterSchedule;
@@ -175,6 +179,7 @@ namespace DB_EDITOR
             tabControl1.TabPages.Remove(tabStats);
             tabControl1.TabPages.Remove(tabSchedule);
             tabControl1.TabPages.Remove(tabStadiums);
+            tabControl1.TabPages.Remove(tabPortal);
 
 
 
@@ -190,7 +195,11 @@ namespace DB_EDITOR
             DB2Button.Enabled = false;
             DB1Button.Checked = true;
 
+            PortalData.ClearSelection();
+            PortalData.Rows.Clear();
+
             progressBar1.Step = 1;
+            progressBar1.Value = 0;
 
             DoNotTrigger = false;
 

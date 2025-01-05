@@ -538,6 +538,29 @@ namespace DB_EDITOR
             else return "";
         }
 
+        public string GetPOSG2Name(int posg)
+        {
+            if (posg == 0) return "QB";
+            else if (posg == 1) return "HB";
+            else if (posg == 2) return "FB";
+            else if (posg == 3) return "WR";
+            else if (posg == 4) return "TE";
+            else if (posg == 5) return "OT";
+            else if (posg == 6) return "OG";
+            else if (posg == 7) return "C";
+            else if (posg == 8) return "DE";
+            else if (posg == 9) return "DT";
+            else if (posg == 10) return "OLB";
+            else if (posg == 11) return "MLB";
+            else if (posg == 12) return "CB";
+            else if (posg == 13) return "FS";
+            else if (posg == 14) return "SS";
+            else if (posg == 15) return "K";
+            else if (posg == 16) return "P";
+
+            else return "";
+        }
+
         public List<List<int>> GetAwarenessHitList()
         {
             return CreateIntListsFromCSV(@"resources\players\Awareness.csv", true);

@@ -141,6 +141,137 @@
   <metadata name="notifyIcon1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>842, 17</value>
   </metadata>
+  <data name="textBox6.Text" xml:space="preserve">
+    <value>Development Tools Only -- NEXT 25 ONLY --
+
+
+This is for Roster Generation with internal imported spreadsheets. Recommend to avoid this unless you know what you're doing. 
+
+To Begin, Open a Roster Save and Load PLAY table. Then Import the 2024-PLAY-BASE.csv from the 2024-Roster-Base folder using DB Editor. 
+
+Then proceed the with the buttons in order. You can swap 2 and 3 if you want. It may give a different result!
+</value>
+  </data>
+  <metadata name="UniformActivation.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="UFID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="UnifTeam.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="TUNI.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="ULTF.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="ShoulderNums.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="SleeveNums.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="SleeveDecal.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="HelmetNums.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="HelmetSideNum.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="PBRec.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="PBPL.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="AIGRVal.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="AIGRname.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="prct.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="PLYL.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="PlayName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="PLYTVal.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="PLYT.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="textBox2.Text" xml:space="preserve">
+    <value>* Recalculate Player Overall - This will recalculate all players' overall rating based on the original game's POCI table
+
+* Recalculate Team Ratings - Recalculates Team Ratings (Approximately)
+
+* Body Size Fixer - This recalculates the body models for each player
+
+* Calculate QB Tendencies - Re-Calculates QB for Scrambling, Balanced and Pocket Passers Traits
+
+* Randomize Player Head/Face - Chooses a new face, head and hair for all players based on skin tone
+
+* Randomize Player Potential - Randomizes from 40-99 every player's potential rating. Affects player progression.
+
+* Unique Players - For Texture Modding Experts Only. Removes PSKI 1 and 4 for creation of unique player specific textures
+
+* Clear Expired Stats - This removes stats from players who are no longer in the database (typically when swapping teams around)
+
+--
+
+* Determine Impact Players - Picks 4 Impact Players in a Dynasty Save file based on overall (2 x Offense, 2 x Defense)
+
+* Auto-Set Depth Chart - Creates a depth chart based on position ratings
+
+* Fill Rosters - Generates random players to fill every team to 70, or until DB capacity runs out.
+
+* Fantasy Roster Generator - Creates a fantasy roster for Roster or Dynasty saves. Will run through a series of modules.</value>
+  </data>
+  <data name="textBoxOffSeason.Text" xml:space="preserve">
+    <value>This is the off-season toolbox for recruiting. These should be set at the beginning of Recruiting Phase
+
+Raise Minimum Recruiting Points : 
+This raises the min points and minimum allocation level (TRPA). The TRPA determines how many points are given each week, although it is just one of the many factors. The Min Points resets each week.
+
+Modify Recruiting Interested Teams:
+This value is set to default of 10. If you lower it, there will be less teams automatically interested in a recruit. This allows other teams to try to get into the recruit's top 10 list.
+
+Randomize Recruits: 
+This randomizes the recruit attribute ratings. Use the tolerance to set the min/max randomization value. Weight and Height are also randomize. Potential, Injury and Awareness are also randomized. Recruit Star Ratings are NOT recalculated here. Run it separately!
+
+Re-Calculate Recruiting/Transfer Ratings:
+Calculates recruiting ratings based on realistic recruiting scale from Rivals/247 Sports rankings. (Top 30 are 5 star, Top 300 are 4-star, Top 1000 are 3-star). Recruits and Transfers are rated separately.
+
+Randomize Face &amp; Skin:
+The game does not assign a random face shape to recruits by default. It will also randomize the skin tone and face type. 
+
+Randomize Recruit Names:
+This randomizes their first and last name from a database of 75K names
+
+Randomize Walk-Ons: 
+This randomizes the walk-on attribute ratings. Use the toleranace to set the min/max randomization value. Weight and Height are also randomize. Potential, Injury and Awareness are also randomized.
+
+Polynesian Surname Generator: 
+This changes recruits from Hawaii and western states to have polynesian surnames. The % Chance is for Hawaii, with 10-25% of CA, UT, WA, OR, AK, TX, CO, NV and AZ states getting players of polynesian descent.</value>
+  </data>
+  <metadata name="RCNo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="RCTeam.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="RCTScore.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="ActiveBowl.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -177,45 +308,6 @@
   <metadata name="SEWN.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="UniformActivation.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="UFID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="UnifTeam.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="TUNI.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="ULTF.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="ShoulderNums.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="SleeveNums.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="SleeveDecal.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="HelmetNums.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="HelmetSideNum.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="RCNo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="RCTeam.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="RCTScore.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
   <metadata name="DCHTPPOS.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -237,71 +329,33 @@
   <metadata name="DCHT5.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="PBRec.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="RatingCat.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="PBPL.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="MatchHomeTeam.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="AIGRVal.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="MatchAwayTeam.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="AIGRname.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="SCHDWeek.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="prct.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="SCHDHOME.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="PLYL.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="SCHDScoreH.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="PlayName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="SCHDVS.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="PLYTVal.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="SCHDAWAY.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="PLYT.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="SCHDScoreA.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="textBox6.Text" xml:space="preserve">
-    <value>Development Tools Only -- NEXT 25 ONLY --
-
-
-This is for Roster Generation with internal imported spreadsheets. Recommend to avoid this unless you know what you're doing. 
-
-To Begin, Open a Roster Save and Load PLAY table. Then Import the 2024-PLAY-BASE.csv from the 2024-Roster-Base folder using DB Editor. 
-
-Then proceed the with the buttons in order. You can swap 2 and 3 if you want. It may give a different result!
-</value>
-  </data>
-  <data name="textBoxOffSeason.Text" xml:space="preserve">
-    <value>This is the off-season toolbox for recruiting. These should be set at the beginning of Recruiting Phase
-
-Raise Minimum Recruiting Points : 
-This raises the min points and minimum allocation level (TRPA). The TRPA determines how many points are given each week, although it is just one of the many factors. The Min Points resets each week.
-
-Modify Recruiting Interested Teams:
-This value is set to default of 10. If you lower it, there will be less teams automatically interested in a recruit. This allows other teams to try to get into the recruit's top 10 list.
-
-Randomize Recruits: 
-This randomizes the recruit attribute ratings. Use the tolerance to set the min/max randomization value. Weight and Height are also randomize. Potential, Injury and Awareness are also randomized. Recruit Star Ratings are NOT recalculated here. Run it separately!
-
-Re-Calculate Recruiting/Transfer Ratings:
-Calculates recruiting ratings based on realistic recruiting scale from Rivals/247 Sports rankings. (Top 30 are 5 star, Top 300 are 4-star, Top 1000 are 3-star). Recruits and Transfers are rated separately.
-
-Randomize Face &amp; Skin:
-The game does not assign a random face shape to recruits by default. It will also randomize the skin tone and face type. 
-
-Randomize Recruit Names:
-This randomizes their first and last name from a database of 75K names
-
-Randomize Walk-Ons: 
-This randomizes the walk-on attribute ratings. Use the toleranace to set the min/max randomization value. Weight and Height are also randomize. Potential, Injury and Awareness are also randomized.
-
-Polynesian Surname Generator: 
-This changes recruits from Hawaii and western states to have polynesian surnames. The % Chance is for Hawaii, with 10-25% of CA, UT, WA, OR, AK, TX, CO, NV and AZ states getting players of polynesian descent.</value>
-  </data>
   <data name="dbToolsInfo.Text" xml:space="preserve">
     <value>This is a set of NCAA Football Modding Tools that add more realism to the game. 
 
@@ -7173,59 +7227,38 @@ It is recommended to use these tools after the completion of the National Champi
         SDVwHMdxHPf7kGrgOI7jOO73IdXAcRzHcdzv4/8DA/wRACG7vmUAAAAASUVORK5CYII=
 </value>
   </data>
-  <metadata name="RatingCat.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="PortalPosition.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="MatchHomeTeam.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="PortalTransferName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="MatchAwayTeam.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="PortalRating.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="SCHDWeek.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="PortalNewSchool.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="SCHDHOME.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+  <metadata name="PortalPrvTeam.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <metadata name="SCHDScoreH.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="SCHDVS.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="SCHDAWAY.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="SCHDScoreA.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="textBox2.Text" xml:space="preserve">
-    <value>* Recalculate Player Overall - This will recalculate all players' overall rating based on the original game's POCI table
+  <data name="richTextBox2.Text" xml:space="preserve">
+    <value>Priority:
+This determines the order in which teams select players. It will go through position by position.
 
-* Recalculate Team Ratings - Recalculates Team Ratings (Approximately)
+Portal Size:
+Small Portal will only fill team needs if they do not have enough based on the Depth options
+Large Portal will go through the entire roster and see if there are available players that can compete with backups and starters. They will join if they are better than the 2nd best player in the position group.
 
-* Body Size Fixer - This recalculates the body models for each player
+Allow Winter Transfers:
+This lets players who transferred in the previous portal to be available in this portal.
 
-* Calculate QB Tendencies - Re-Calculates QB for Scrambling, Balanced and Pocket Passers Traits
-
-* Randomize Player Head/Face - Chooses a new face, head and hair for all players based on skin tone
-
-* Randomize Player Potential - Randomizes from 40-99 every player's potential rating. Affects player progression.
-
-* Unique Players - For Texture Modding Experts Only. Removes PSKI 1 and 4 for creation of unique player specific textures
-
-* Clear Expired Stats - This removes stats from players who are no longer in the database (typically when swapping teams around)
-
---
-
-* Determine Impact Players - Picks 4 Impact Players in a Dynasty Save file based on overall (2 x Offense, 2 x Defense)
-
-* Auto-Set Depth Chart - Creates a depth chart based on position ratings
-
-* Fill Rosters - Generates random players to fill every team to 70, or until DB capacity runs out.
-
-* Fantasy Roster Generator - Creates a fantasy roster for Roster or Dynasty saves. Will run through a series of modules.</value>
+Transfer Chance: 
+This is the likelihood a player will join the portal if they meet the pre-reqs.</value>
+  </data>
+  <data name="richTextBox1.Text" xml:space="preserve">
+    <value>Roster Depth Options are used to determine how many players are protected from transferring from each team based on their overall ranking. It is also used to determine which teams need to fill holes if they do not have enough players at the position based on the value set above.
+</value>
   </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>25</value>

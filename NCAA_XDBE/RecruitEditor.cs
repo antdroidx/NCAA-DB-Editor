@@ -326,12 +326,28 @@ namespace DB_EDITOR
             AddRPositionsItems();
             RPPOSBox.SelectedIndex = GetDB2ValueInt("RCPT", "PPOS", RecruitIndex);
 
+            /*
             //Home
             AddRStateItems();
             RStateBox.SelectedIndex = GetDB2ValueInt("RCPT", "STID", RecruitIndex);
 
             AddRHometownItems();
             RHometownBox.SelectedIndex = GetDB2ValueInt("RCPT", "RCHD", RecruitIndex) - (256 * GetDB2ValueInt("RCPT", "STID", RecruitIndex));
+            */
+
+            //Home
+            int home = GetDB2ValueInt("RCPT", "RCHD", RecruitIndex);
+            int state = home / 256;
+            AddRStateItems();
+            RStateBox.SelectedIndex = state;
+
+            AddRHometownItems();
+            if (home - (state * 256) > RHometownBox.Items.Count)
+            {
+                home = state * 256 + rand.Next(0, RHometownBox.Items.Count - 1);
+                ChangeDB2Int("RCPT", "RCHD", RecruitIndex, home);
+            }
+            RHometownBox.SelectedIndex = home - (state * 256);
 
             //Overall Rating
             int xxx = GetDB2ValueInt("RCPT", "POVR", RecruitIndex);

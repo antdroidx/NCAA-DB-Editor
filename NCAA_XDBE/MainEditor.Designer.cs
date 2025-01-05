@@ -34,14 +34,15 @@ namespace DB_EDITOR
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Button qbTend;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainEditor));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -51,26 +52,11 @@ namespace DB_EDITOR
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainEditor));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -123,45 +109,33 @@ namespace DB_EDITOR
             this.DB1Button = new System.Windows.Forms.RadioButton();
             this.DB2Button = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.tabStats = new System.Windows.Forms.TabPage();
-            this.groupBox26 = new System.Windows.Forms.GroupBox();
-            this.label221 = new System.Windows.Forms.Label();
-            this.SacksLeadersBox = new System.Windows.Forms.ListBox();
-            this.IntLeadersBox = new System.Windows.Forms.ListBox();
-            this.label223 = new System.Windows.Forms.Label();
-            this.label222 = new System.Windows.Forms.Label();
-            this.TacklesLeadersBox = new System.Windows.Forms.ListBox();
-            this.groupBox25 = new System.Windows.Forms.GroupBox();
-            this.label220 = new System.Windows.Forms.Label();
-            this.ReceivingLeadersBox = new System.Windows.Forms.ListBox();
-            this.label219 = new System.Windows.Forms.Label();
-            this.RushingLeadersBox = new System.Windows.Forms.ListBox();
-            this.label218 = new System.Windows.Forms.Label();
-            this.PassingLeadersBox = new System.Windows.Forms.ListBox();
-            this.groupBox24 = new System.Windows.Forms.GroupBox();
-            this.label217 = new System.Windows.Forms.Label();
-            this.label216 = new System.Windows.Forms.Label();
-            this.label215 = new System.Windows.Forms.Label();
-            this.label214 = new System.Windows.Forms.Label();
-            this.TopTeamDefBox = new System.Windows.Forms.ListBox();
-            this.TopTeamOffBox = new System.Windows.Forms.ListBox();
-            this.TopTeamRatingsBox = new System.Windows.Forms.ListBox();
-            this.CoachPollListBox = new System.Windows.Forms.ListBox();
-            this.tabBowls = new System.Windows.Forms.TabPage();
-            this.SaveBowlButton = new System.Windows.Forms.Button();
-            this.BowlsGrid = new System.Windows.Forms.DataGridView();
-            this.ActiveBowl = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.BIDX = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BNME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TeamA = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.ScoreA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vs = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ScoreB = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TeamB = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.SGID = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.BMON = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.BDAY = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.SEWN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabDev = new System.Windows.Forms.TabPage();
+            this.CFUSAexportButton = new System.Windows.Forms.Button();
+            this.textBox20 = new System.Windows.Forms.TextBox();
+            this.textBox19 = new System.Windows.Forms.TextBox();
+            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.DevCalcTeamRatingsButton = new System.Windows.Forms.Button();
+            this.DevDepthChartButton = new System.Windows.Forms.Button();
+            this.DevRandomizeFaceButton = new System.Windows.Forms.Button();
+            this.DevCalcOVRButton = new System.Windows.Forms.Button();
+            this.DevFillRosterButton = new System.Windows.Forms.Button();
+            this.CreateTransfersCSVButton = new System.Windows.Forms.Button();
+            this.ImportRecruitsButton = new System.Windows.Forms.Button();
+            this.GraduateButton = new System.Windows.Forms.Button();
             this.tabUniforms = new System.Windows.Forms.TabPage();
             this.ImportTeamUNIF = new System.Windows.Forms.Button();
             this.ExportTeamUNIF = new System.Windows.Forms.Button();
@@ -191,6 +165,112 @@ namespace DB_EDITOR
             this.TeamPrimaryUniCheck = new System.Windows.Forms.CheckBox();
             this.TeamUniformSelectBox = new System.Windows.Forms.ComboBox();
             this.label168 = new System.Windows.Forms.Label();
+            this.tabPlaybook = new System.Windows.Forms.TabPage();
+            this.textBox24 = new System.Windows.Forms.TextBox();
+            this.PlayNameRatio = new System.Windows.Forms.Label();
+            this.SetPlayNameValueButton = new System.Windows.Forms.Button();
+            this.label114 = new System.Windows.Forms.Label();
+            this.label115 = new System.Windows.Forms.Label();
+            this.PlayNameBox = new System.Windows.Forms.ComboBox();
+            this.PlayNameValue = new System.Windows.Forms.NumericUpDown();
+            this.ProjTypeRatio = new System.Windows.Forms.Label();
+            this.ProjPassRatio = new System.Windows.Forms.Label();
+            this.RunCounter = new System.Windows.Forms.Label();
+            this.PassCounter = new System.Windows.Forms.Label();
+            this.ImportPlaybookCSV = new System.Windows.Forms.Button();
+            this.pcrtValueButton = new System.Windows.Forms.Button();
+            this.label112 = new System.Windows.Forms.Label();
+            this.label111 = new System.Windows.Forms.Label();
+            this.PlayTypeBox = new System.Windows.Forms.ComboBox();
+            this.pcrtNumBox = new System.Windows.Forms.NumericUpDown();
+            this.label110 = new System.Windows.Forms.Label();
+            this.aigrFilterBox = new System.Windows.Forms.ComboBox();
+            this.AIGRNameButton = new System.Windows.Forms.Button();
+            this.savePBDataButton = new System.Windows.Forms.Button();
+            this.ExportPBData = new System.Windows.Forms.Button();
+            this.PlaybookGrid = new System.Windows.Forms.DataGridView();
+            this.PBRec = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PBPL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AIGRVal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AIGRname = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.prct = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PLYL = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PlayName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PLYTVal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PLYT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox19 = new System.Windows.Forms.GroupBox();
+            this.DefaultPlaysRadio = new System.Windows.Forms.RadioButton();
+            this.CustomPlaysRadio = new System.Windows.Forms.RadioButton();
+            this.tabTools = new System.Windows.Forms.TabPage();
+            this.ClearExpiredStats = new System.Windows.Forms.Button();
+            this.groupBox22 = new System.Windows.Forms.GroupBox();
+            this.FantasyCSV = new System.Windows.Forms.RadioButton();
+            this.FantasyTeamDB = new System.Windows.Forms.RadioButton();
+            this.ReRankTeams = new System.Windows.Forms.CheckBox();
+            this.FixHCBugsButton = new System.Windows.Forms.Button();
+            this.groupBox18 = new System.Windows.Forms.GroupBox();
+            this.MaxAttNum = new System.Windows.Forms.NumericUpDown();
+            this.GlobalAttBox = new System.Windows.Forms.ComboBox();
+            this.label99 = new System.Windows.Forms.Label();
+            this.GlobalAttNum = new System.Windows.Forms.NumericUpDown();
+            this.label109 = new System.Windows.Forms.Label();
+            this.GlobalAttCheck = new System.Windows.Forms.CheckBox();
+            this.label108 = new System.Windows.Forms.Label();
+            this.MinAttBox = new System.Windows.Forms.ComboBox();
+            this.label107 = new System.Windows.Forms.Label();
+            this.label100 = new System.Windows.Forms.Label();
+            this.MaxAttPosBox = new System.Windows.Forms.ComboBox();
+            this.MinAttNum = new System.Windows.Forms.NumericUpDown();
+            this.MinAttPosBox = new System.Windows.Forms.ComboBox();
+            this.MaxAttBox = new System.Windows.Forms.ComboBox();
+            this.GlobalAttPosBox = new System.Windows.Forms.ComboBox();
+            this.label106 = new System.Windows.Forms.Label();
+            this.MaxAttButton = new System.Windows.Forms.Button();
+            this.MinAttRating = new System.Windows.Forms.TextBox();
+            this.MinAttButton = new System.Windows.Forms.Button();
+            this.MaxAttRating = new System.Windows.Forms.TextBox();
+            this.GlobalAttButton = new System.Windows.Forms.Button();
+            this.UniquePlayerButton = new System.Windows.Forms.Button();
+            this.FantasyCoachesButton = new System.Windows.Forms.Button();
+            this.SyncPBButton = new System.Windows.Forms.Button();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.ReorderPGIDButton = new System.Windows.Forms.Button();
+            this.TORDButton = new System.Windows.Forms.Button();
+            this.RandomizeHeadButton = new System.Windows.Forms.Button();
+            this.label58 = new System.Windows.Forms.Label();
+            this.FillRosterPCT = new System.Windows.Forms.NumericUpDown();
+            this.buttonFillRosters = new System.Windows.Forms.Button();
+            this.buttonAutoDepthChart = new System.Windows.Forms.Button();
+            this.buttonFantasyRoster = new System.Windows.Forms.Button();
+            this.TYDNButton = new System.Windows.Forms.Button();
+            this.buttonCalcOverall = new System.Windows.Forms.Button();
+            this.buttonRandPotential = new System.Windows.Forms.Button();
+            this.bodyFix = new System.Windows.Forms.Button();
+            this.tabOffSeason = new System.Windows.Forms.TabPage();
+            this.groupBox17 = new System.Windows.Forms.GroupBox();
+            this.removeInterestTeams = new System.Windows.Forms.NumericUpDown();
+            this.buttonMinRecruitingPts = new System.Windows.Forms.Button();
+            this.minRecPts = new System.Windows.Forms.NumericUpDown();
+            this.labelMinRecPts = new System.Windows.Forms.Label();
+            this.labelIntTeams = new System.Windows.Forms.Label();
+            this.minTRPA = new System.Windows.Forms.NumericUpDown();
+            this.label12 = new System.Windows.Forms.Label();
+            this.buttonInterestedTeams = new System.Windows.Forms.Button();
+            this.groupBox16 = new System.Windows.Forms.GroupBox();
+            this.RecalculateStarRankingsButton = new System.Windows.Forms.Button();
+            this.DetermineAthleteButton = new System.Windows.Forms.Button();
+            this.buttonRandWalkOns = new System.Windows.Forms.Button();
+            this.buttonRandRecruits = new System.Windows.Forms.Button();
+            this.RandomizeRecruitNamesButton = new System.Windows.Forms.Button();
+            this.toleranceWalkOn = new System.Windows.Forms.NumericUpDown();
+            this.buttonRandomizeFaceShape = new System.Windows.Forms.Button();
+            this.wkonLabel = new System.Windows.Forms.Label();
+            this.polyNames = new System.Windows.Forms.Button();
+            this.recruitTolerance = new System.Windows.Forms.NumericUpDown();
+            this.labelRecruit = new System.Windows.Forms.Label();
+            this.textBoxOffSeason = new System.Windows.Forms.TextBox();
+            this.textBoxOffSeasonTitle = new System.Windows.Forms.TextBox();
             this.tabRecruits = new System.Windows.Forms.TabPage();
             this.TransferTeam = new System.Windows.Forms.Label();
             this.RecruitPitch = new System.Windows.Forms.Label();
@@ -301,56 +381,95 @@ namespace DB_EDITOR
             this.RPPOSBox = new System.Windows.Forms.ComboBox();
             this.label165 = new System.Windows.Forms.Label();
             this.label166 = new System.Windows.Forms.Label();
-            this.tabDepthCharts = new System.Windows.Forms.TabPage();
-            this.DCHTAutoSet = new System.Windows.Forms.Button();
-            this.DCHTClear = new System.Windows.Forms.Button();
-            this.UpdateDCHT = new System.Windows.Forms.Button();
-            this.DCHTTeam = new System.Windows.Forms.ComboBox();
-            this.label152 = new System.Windows.Forms.Label();
-            this.DCHTGrid = new System.Windows.Forms.DataGridView();
-            this.DCHTPPOS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DCHT0 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.DCHT1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.DCHT2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.DCHT3 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.DCHT4 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.DCHT5 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.tabPlaybook = new System.Windows.Forms.TabPage();
-            this.textBox24 = new System.Windows.Forms.TextBox();
-            this.PlayNameRatio = new System.Windows.Forms.Label();
-            this.SetPlayNameValueButton = new System.Windows.Forms.Button();
-            this.label114 = new System.Windows.Forms.Label();
-            this.label115 = new System.Windows.Forms.Label();
-            this.PlayNameBox = new System.Windows.Forms.ComboBox();
-            this.PlayNameValue = new System.Windows.Forms.NumericUpDown();
-            this.ProjTypeRatio = new System.Windows.Forms.Label();
-            this.ProjPassRatio = new System.Windows.Forms.Label();
-            this.RunCounter = new System.Windows.Forms.Label();
-            this.PassCounter = new System.Windows.Forms.Label();
-            this.ImportPlaybookCSV = new System.Windows.Forms.Button();
-            this.pcrtValueButton = new System.Windows.Forms.Button();
-            this.label112 = new System.Windows.Forms.Label();
-            this.label111 = new System.Windows.Forms.Label();
-            this.PlayTypeBox = new System.Windows.Forms.ComboBox();
-            this.pcrtNumBox = new System.Windows.Forms.NumericUpDown();
-            this.label110 = new System.Windows.Forms.Label();
-            this.aigrFilterBox = new System.Windows.Forms.ComboBox();
-            this.AIGRNameButton = new System.Windows.Forms.Button();
-            this.savePBDataButton = new System.Windows.Forms.Button();
-            this.ExportPBData = new System.Windows.Forms.Button();
-            this.PlaybookGrid = new System.Windows.Forms.DataGridView();
-            this.PBRec = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PBPL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AIGRVal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AIGRname = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.prct = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PLYL = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PlayName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PLYTVal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PLYT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.groupBox19 = new System.Windows.Forms.GroupBox();
-            this.DefaultPlaysRadio = new System.Windows.Forms.RadioButton();
-            this.CustomPlaysRadio = new System.Windows.Forms.RadioButton();
+            this.tabStats = new System.Windows.Forms.TabPage();
+            this.groupBox26 = new System.Windows.Forms.GroupBox();
+            this.label221 = new System.Windows.Forms.Label();
+            this.SacksLeadersBox = new System.Windows.Forms.ListBox();
+            this.IntLeadersBox = new System.Windows.Forms.ListBox();
+            this.label223 = new System.Windows.Forms.Label();
+            this.label222 = new System.Windows.Forms.Label();
+            this.TacklesLeadersBox = new System.Windows.Forms.ListBox();
+            this.groupBox25 = new System.Windows.Forms.GroupBox();
+            this.label220 = new System.Windows.Forms.Label();
+            this.ReceivingLeadersBox = new System.Windows.Forms.ListBox();
+            this.label219 = new System.Windows.Forms.Label();
+            this.RushingLeadersBox = new System.Windows.Forms.ListBox();
+            this.label218 = new System.Windows.Forms.Label();
+            this.PassingLeadersBox = new System.Windows.Forms.ListBox();
+            this.groupBox24 = new System.Windows.Forms.GroupBox();
+            this.label217 = new System.Windows.Forms.Label();
+            this.label216 = new System.Windows.Forms.Label();
+            this.label215 = new System.Windows.Forms.Label();
+            this.label214 = new System.Windows.Forms.Label();
+            this.TopTeamDefBox = new System.Windows.Forms.ListBox();
+            this.TopTeamOffBox = new System.Windows.Forms.ListBox();
+            this.TopTeamRatingsBox = new System.Windows.Forms.ListBox();
+            this.CoachPollListBox = new System.Windows.Forms.ListBox();
+            this.tabStadiums = new System.Windows.Forms.TabPage();
+            this.groupBox30 = new System.Windows.Forms.GroupBox();
+            this.GlobalWeather = new System.Windows.Forms.Button();
+            this.groupBox29 = new System.Windows.Forms.GroupBox();
+            this.label241 = new System.Windows.Forms.Label();
+            this.STtvBox = new System.Windows.Forms.NumericUpDown();
+            this.label235 = new System.Windows.Forms.Label();
+            this.SWSPBox = new System.Windows.Forms.NumericUpDown();
+            this.label236 = new System.Windows.Forms.Label();
+            this.SWRPBox = new System.Windows.Forms.NumericUpDown();
+            this.label233 = new System.Windows.Forms.Label();
+            this.SWWPBox = new System.Windows.Forms.NumericUpDown();
+            this.label234 = new System.Windows.Forms.Label();
+            this.SWFPBox = new System.Windows.Forms.NumericUpDown();
+            this.label231 = new System.Windows.Forms.Label();
+            this.STfwBox = new System.Windows.Forms.NumericUpDown();
+            this.label232 = new System.Windows.Forms.Label();
+            this.STwpBox = new System.Windows.Forms.NumericUpDown();
+            this.label230 = new System.Windows.Forms.Label();
+            this.STjtBox = new System.Windows.Forms.NumericUpDown();
+            this.label229 = new System.Windows.Forms.Label();
+            this.STtsBox = new System.Windows.Forms.NumericUpDown();
+            this.groupBox28 = new System.Windows.Forms.GroupBox();
+            this.label239 = new System.Windows.Forms.Label();
+            this.STADSFTYBox = new System.Windows.Forms.ComboBox();
+            this.STADState = new System.Windows.Forms.ComboBox();
+            this.STADCity = new System.Windows.Forms.TextBox();
+            this.label237 = new System.Windows.Forms.Label();
+            this.label238 = new System.Windows.Forms.Label();
+            this.label240 = new System.Windows.Forms.Label();
+            this.STADCap = new System.Windows.Forms.NumericUpDown();
+            this.STADNickBox = new System.Windows.Forms.TextBox();
+            this.STADNameBox = new System.Windows.Forms.TextBox();
+            this.labelstadnickname = new System.Windows.Forms.Label();
+            this.labelstadname = new System.Windows.Forms.Label();
+            this.STADrank = new System.Windows.Forms.Label();
+            this.STADSTDR = new System.Windows.Forms.TextBox();
+            this.STADTDNA = new System.Windows.Forms.TextBox();
+            this.STADResBox = new System.Windows.Forms.TextBox();
+            this.STADsgidBox = new System.Windows.Forms.TextBox();
+            this.label228 = new System.Windows.Forms.Label();
+            this.groupBox27 = new System.Windows.Forms.GroupBox();
+            this.STADType = new System.Windows.Forms.CheckBox();
+            this.STADCannon = new System.Windows.Forms.CheckBox();
+            this.STADVisbility = new System.Windows.Forms.CheckBox();
+            this.STADcat = new System.Windows.Forms.CheckBox();
+            this.label227 = new System.Windows.Forms.Label();
+            this.label226 = new System.Windows.Forms.Label();
+            this.label225 = new System.Windows.Forms.Label();
+            this.StadiumListBox = new System.Windows.Forms.ListBox();
+            this.tabBowls = new System.Windows.Forms.TabPage();
+            this.SaveBowlButton = new System.Windows.Forms.Button();
+            this.BowlsGrid = new System.Windows.Forms.DataGridView();
+            this.ActiveBowl = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.BIDX = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BNME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TeamA = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.ScoreA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vs = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ScoreB = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TeamB = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.SGID = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.BMON = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.BDAY = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.SEWN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabConf = new System.Windows.Forms.TabPage();
             this.groupBox23 = new System.Windows.Forms.GroupBox();
             this.ConfDisplayRanking = new System.Windows.Forms.RadioButton();
@@ -388,57 +507,40 @@ namespace DB_EDITOR
             this.conf3 = new System.Windows.Forms.CheckedListBox();
             this.conf2 = new System.Windows.Forms.CheckedListBox();
             this.conf1 = new System.Windows.Forms.CheckedListBox();
-            this.tabDev = new System.Windows.Forms.TabPage();
-            this.CFUSAexportButton = new System.Windows.Forms.Button();
-            this.textBox20 = new System.Windows.Forms.TextBox();
-            this.textBox19 = new System.Windows.Forms.TextBox();
-            this.textBox18 = new System.Windows.Forms.TextBox();
-            this.textBox17 = new System.Windows.Forms.TextBox();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.DevCalcTeamRatingsButton = new System.Windows.Forms.Button();
-            this.DevDepthChartButton = new System.Windows.Forms.Button();
-            this.DevRandomizeFaceButton = new System.Windows.Forms.Button();
-            this.DevCalcOVRButton = new System.Windows.Forms.Button();
-            this.DevFillRosterButton = new System.Windows.Forms.Button();
-            this.CreateTransfersCSVButton = new System.Windows.Forms.Button();
-            this.ImportRecruitsButton = new System.Windows.Forms.Button();
-            this.GraduateButton = new System.Windows.Forms.Button();
-            this.tabOffSeason = new System.Windows.Forms.TabPage();
-            this.groupBox17 = new System.Windows.Forms.GroupBox();
-            this.removeInterestTeams = new System.Windows.Forms.NumericUpDown();
-            this.buttonMinRecruitingPts = new System.Windows.Forms.Button();
-            this.minRecPts = new System.Windows.Forms.NumericUpDown();
-            this.labelMinRecPts = new System.Windows.Forms.Label();
-            this.labelIntTeams = new System.Windows.Forms.Label();
-            this.minTRPA = new System.Windows.Forms.NumericUpDown();
-            this.label12 = new System.Windows.Forms.Label();
-            this.buttonInterestedTeams = new System.Windows.Forms.Button();
-            this.groupBox16 = new System.Windows.Forms.GroupBox();
-            this.RecalculateStarRankingsButton = new System.Windows.Forms.Button();
-            this.DetermineAthleteButton = new System.Windows.Forms.Button();
-            this.buttonRandWalkOns = new System.Windows.Forms.Button();
-            this.buttonRandRecruits = new System.Windows.Forms.Button();
-            this.RandomizeRecruitNamesButton = new System.Windows.Forms.Button();
-            this.toleranceWalkOn = new System.Windows.Forms.NumericUpDown();
-            this.buttonRandomizeFaceShape = new System.Windows.Forms.Button();
-            this.wkonLabel = new System.Windows.Forms.Label();
-            this.polyNames = new System.Windows.Forms.Button();
-            this.recruitTolerance = new System.Windows.Forms.NumericUpDown();
-            this.labelRecruit = new System.Windows.Forms.Label();
-            this.textBoxOffSeason = new System.Windows.Forms.TextBox();
-            this.textBoxOffSeasonTitle = new System.Windows.Forms.TextBox();
+            this.tabDepthCharts = new System.Windows.Forms.TabPage();
+            this.DCHTAutoSet = new System.Windows.Forms.Button();
+            this.DCHTClear = new System.Windows.Forms.Button();
+            this.UpdateDCHT = new System.Windows.Forms.Button();
+            this.DCHTTeam = new System.Windows.Forms.ComboBox();
+            this.label152 = new System.Windows.Forms.Label();
+            this.DCHTGrid = new System.Windows.Forms.DataGridView();
+            this.DCHTPPOS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DCHT0 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.DCHT1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.DCHT2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.DCHT3 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.DCHT4 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.DCHT5 = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.tabSchedule = new System.Windows.Forms.TabPage();
+            this.label213 = new System.Windows.Forms.Label();
+            this.MatchView = new System.Windows.Forms.DataGridView();
+            this.RatingCat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MatchHomeTeam = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MatchAwayTeam = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SCHDrecord = new System.Windows.Forms.Label();
+            this.groupBox21 = new System.Windows.Forms.GroupBox();
+            this.RescheduleOOC = new System.Windows.Forms.Button();
+            this.label212 = new System.Windows.Forms.Label();
+            this.SchdTeamName = new System.Windows.Forms.Label();
+            this.label211 = new System.Windows.Forms.Label();
+            this.SCHDTeamBox = new System.Windows.Forms.ListBox();
+            this.ScheduleView = new System.Windows.Forms.DataGridView();
+            this.SCHDWeek = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SCHDHOME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SCHDScoreH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SCHDVS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SCHDAWAY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SCHDScoreA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabSeason = new System.Windows.Forms.TabPage();
             this.RemoveBadTransfers = new System.Windows.Forms.Button();
             this.RemoveSanctionsButton = new System.Windows.Forms.Button();
@@ -851,122 +953,64 @@ namespace DB_EDITOR
             this.NextConfigRadio = new System.Windows.Forms.RadioButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabSchedule = new System.Windows.Forms.TabPage();
-            this.label213 = new System.Windows.Forms.Label();
-            this.MatchView = new System.Windows.Forms.DataGridView();
-            this.RatingCat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MatchHomeTeam = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MatchAwayTeam = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SCHDrecord = new System.Windows.Forms.Label();
-            this.groupBox21 = new System.Windows.Forms.GroupBox();
-            this.RescheduleOOC = new System.Windows.Forms.Button();
-            this.label212 = new System.Windows.Forms.Label();
-            this.SchdTeamName = new System.Windows.Forms.Label();
-            this.label211 = new System.Windows.Forms.Label();
-            this.SCHDTeamBox = new System.Windows.Forms.ListBox();
-            this.ScheduleView = new System.Windows.Forms.DataGridView();
-            this.SCHDWeek = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SCHDHOME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SCHDScoreH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SCHDVS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SCHDAWAY = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SCHDScoreA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabStadiums = new System.Windows.Forms.TabPage();
-            this.groupBox30 = new System.Windows.Forms.GroupBox();
-            this.GlobalWeather = new System.Windows.Forms.Button();
-            this.groupBox29 = new System.Windows.Forms.GroupBox();
-            this.label241 = new System.Windows.Forms.Label();
-            this.STtvBox = new System.Windows.Forms.NumericUpDown();
-            this.label235 = new System.Windows.Forms.Label();
-            this.SWSPBox = new System.Windows.Forms.NumericUpDown();
-            this.label236 = new System.Windows.Forms.Label();
-            this.SWRPBox = new System.Windows.Forms.NumericUpDown();
-            this.label233 = new System.Windows.Forms.Label();
-            this.SWWPBox = new System.Windows.Forms.NumericUpDown();
-            this.label234 = new System.Windows.Forms.Label();
-            this.SWFPBox = new System.Windows.Forms.NumericUpDown();
-            this.label231 = new System.Windows.Forms.Label();
-            this.STfwBox = new System.Windows.Forms.NumericUpDown();
-            this.label232 = new System.Windows.Forms.Label();
-            this.STwpBox = new System.Windows.Forms.NumericUpDown();
-            this.label230 = new System.Windows.Forms.Label();
-            this.STjtBox = new System.Windows.Forms.NumericUpDown();
-            this.label229 = new System.Windows.Forms.Label();
-            this.STtsBox = new System.Windows.Forms.NumericUpDown();
-            this.groupBox28 = new System.Windows.Forms.GroupBox();
-            this.label239 = new System.Windows.Forms.Label();
-            this.STADSFTYBox = new System.Windows.Forms.ComboBox();
-            this.STADState = new System.Windows.Forms.ComboBox();
-            this.STADCity = new System.Windows.Forms.TextBox();
-            this.label237 = new System.Windows.Forms.Label();
-            this.label238 = new System.Windows.Forms.Label();
-            this.label240 = new System.Windows.Forms.Label();
-            this.STADCap = new System.Windows.Forms.NumericUpDown();
-            this.STADNickBox = new System.Windows.Forms.TextBox();
-            this.STADNameBox = new System.Windows.Forms.TextBox();
-            this.labelstadnickname = new System.Windows.Forms.Label();
-            this.labelstadname = new System.Windows.Forms.Label();
-            this.STADrank = new System.Windows.Forms.Label();
-            this.STADSTDR = new System.Windows.Forms.TextBox();
-            this.label228 = new System.Windows.Forms.Label();
-            this.STADTDNA = new System.Windows.Forms.TextBox();
-            this.groupBox27 = new System.Windows.Forms.GroupBox();
-            this.STADType = new System.Windows.Forms.CheckBox();
-            this.STADCannon = new System.Windows.Forms.CheckBox();
-            this.STADVisbility = new System.Windows.Forms.CheckBox();
-            this.STADcat = new System.Windows.Forms.CheckBox();
-            this.label227 = new System.Windows.Forms.Label();
-            this.STADResBox = new System.Windows.Forms.TextBox();
-            this.label226 = new System.Windows.Forms.Label();
-            this.STADsgidBox = new System.Windows.Forms.TextBox();
-            this.label225 = new System.Windows.Forms.Label();
-            this.StadiumListBox = new System.Windows.Forms.ListBox();
-            this.tabTools = new System.Windows.Forms.TabPage();
-            this.ClearExpiredStats = new System.Windows.Forms.Button();
-            this.groupBox22 = new System.Windows.Forms.GroupBox();
-            this.FantasyCSV = new System.Windows.Forms.RadioButton();
-            this.FantasyTeamDB = new System.Windows.Forms.RadioButton();
-            this.ReRankTeams = new System.Windows.Forms.CheckBox();
-            this.FixHCBugsButton = new System.Windows.Forms.Button();
-            this.groupBox18 = new System.Windows.Forms.GroupBox();
-            this.MaxAttNum = new System.Windows.Forms.NumericUpDown();
-            this.GlobalAttBox = new System.Windows.Forms.ComboBox();
-            this.label99 = new System.Windows.Forms.Label();
-            this.GlobalAttNum = new System.Windows.Forms.NumericUpDown();
-            this.label109 = new System.Windows.Forms.Label();
-            this.GlobalAttCheck = new System.Windows.Forms.CheckBox();
-            this.label108 = new System.Windows.Forms.Label();
-            this.MinAttBox = new System.Windows.Forms.ComboBox();
-            this.label107 = new System.Windows.Forms.Label();
-            this.label100 = new System.Windows.Forms.Label();
-            this.MaxAttPosBox = new System.Windows.Forms.ComboBox();
-            this.MinAttNum = new System.Windows.Forms.NumericUpDown();
-            this.MinAttPosBox = new System.Windows.Forms.ComboBox();
-            this.MaxAttBox = new System.Windows.Forms.ComboBox();
-            this.GlobalAttPosBox = new System.Windows.Forms.ComboBox();
-            this.label106 = new System.Windows.Forms.Label();
-            this.MaxAttButton = new System.Windows.Forms.Button();
-            this.MinAttRating = new System.Windows.Forms.TextBox();
-            this.MinAttButton = new System.Windows.Forms.Button();
-            this.MaxAttRating = new System.Windows.Forms.TextBox();
-            this.GlobalAttButton = new System.Windows.Forms.Button();
-            this.UniquePlayerButton = new System.Windows.Forms.Button();
-            this.FantasyCoachesButton = new System.Windows.Forms.Button();
-            this.SyncPBButton = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.ReorderPGIDButton = new System.Windows.Forms.Button();
-            this.TORDButton = new System.Windows.Forms.Button();
-            this.RandomizeHeadButton = new System.Windows.Forms.Button();
-            this.label58 = new System.Windows.Forms.Label();
-            this.FillRosterPCT = new System.Windows.Forms.NumericUpDown();
-            this.buttonFillRosters = new System.Windows.Forms.Button();
-            this.buttonAutoDepthChart = new System.Windows.Forms.Button();
-            this.buttonFantasyRoster = new System.Windows.Forms.Button();
-            this.TYDNButton = new System.Windows.Forms.Button();
-            this.buttonCalcOverall = new System.Windows.Forms.Button();
-            this.buttonRandPotential = new System.Windows.Forms.Button();
-            this.bodyFix = new System.Windows.Forms.Button();
+            this.tabPortal = new System.Windows.Forms.TabPage();
+            this.PortalTransfers = new System.Windows.Forms.CheckBox();
+            this.portalChance = new System.Windows.Forms.NumericUpDown();
+            this.label259 = new System.Windows.Forms.Label();
+            this.groupBox33 = new System.Windows.Forms.GroupBox();
+            this.largePortal = new System.Windows.Forms.RadioButton();
+            this.smallPortal = new System.Windows.Forms.RadioButton();
+            this.groupBox32 = new System.Windows.Forms.GroupBox();
+            this.PortalK = new System.Windows.Forms.NumericUpDown();
+            this.label258 = new System.Windows.Forms.Label();
+            this.PortalP = new System.Windows.Forms.NumericUpDown();
+            this.label250 = new System.Windows.Forms.Label();
+            this.PortalSS = new System.Windows.Forms.NumericUpDown();
+            this.label251 = new System.Windows.Forms.Label();
+            this.PortalFS = new System.Windows.Forms.NumericUpDown();
+            this.label252 = new System.Windows.Forms.Label();
+            this.PortalCB = new System.Windows.Forms.NumericUpDown();
+            this.label253 = new System.Windows.Forms.Label();
+            this.PortalMLB = new System.Windows.Forms.NumericUpDown();
+            this.label254 = new System.Windows.Forms.Label();
+            this.PortalOLB = new System.Windows.Forms.NumericUpDown();
+            this.label255 = new System.Windows.Forms.Label();
+            this.PortalDT = new System.Windows.Forms.NumericUpDown();
+            this.label256 = new System.Windows.Forms.Label();
+            this.PortalDE = new System.Windows.Forms.NumericUpDown();
+            this.label257 = new System.Windows.Forms.Label();
+            this.PortalOC = new System.Windows.Forms.NumericUpDown();
+            this.label249 = new System.Windows.Forms.Label();
+            this.PortalOG = new System.Windows.Forms.NumericUpDown();
+            this.label248 = new System.Windows.Forms.Label();
+            this.PortalOT = new System.Windows.Forms.NumericUpDown();
+            this.label247 = new System.Windows.Forms.Label();
+            this.PortalTE = new System.Windows.Forms.NumericUpDown();
+            this.label246 = new System.Windows.Forms.Label();
+            this.PortalWR = new System.Windows.Forms.NumericUpDown();
+            this.label245 = new System.Windows.Forms.Label();
+            this.PortalFB = new System.Windows.Forms.NumericUpDown();
+            this.label244 = new System.Windows.Forms.Label();
+            this.PortalHB = new System.Windows.Forms.NumericUpDown();
+            this.label243 = new System.Windows.Forms.Label();
+            this.PortalQB = new System.Windows.Forms.NumericUpDown();
+            this.label242 = new System.Windows.Forms.Label();
+            this.groupBox31 = new System.Windows.Forms.GroupBox();
+            this.PortalSnake = new System.Windows.Forms.RadioButton();
+            this.PortalRandom = new System.Windows.Forms.RadioButton();
+            this.PortalFirst = new System.Windows.Forms.RadioButton();
+            this.PortalReverse = new System.Windows.Forms.RadioButton();
+            this.SpringPortalButton = new System.Windows.Forms.Button();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
+            this.PortalData = new System.Windows.Forms.DataGridView();
+            this.PortalPosition = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PortalTransferName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PortalRating = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PortalNewSchool = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PortalPrvTeam = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TotalTransfersCount = new System.Windows.Forms.Label();
             qbTend = new System.Windows.Forms.Button();
             this.mainMenu.SuspendLayout();
             this.tableMenu.SuspendLayout();
@@ -974,16 +1018,31 @@ namespace DB_EDITOR
             this.TablePropsgroupBox.SuspendLayout();
             this.FieldsPropsgroupBox.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.tabStats.SuspendLayout();
-            this.groupBox26.SuspendLayout();
-            this.groupBox25.SuspendLayout();
-            this.groupBox24.SuspendLayout();
-            this.tabBowls.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BowlsGrid)).BeginInit();
+            this.tabDev.SuspendLayout();
             this.tabUniforms.SuspendLayout();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.UniformGrid)).BeginInit();
             this.groupBox4.SuspendLayout();
+            this.tabPlaybook.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PlayNameValue)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcrtNumBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PlaybookGrid)).BeginInit();
+            this.groupBox19.SuspendLayout();
+            this.tabTools.SuspendLayout();
+            this.groupBox22.SuspendLayout();
+            this.groupBox18.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MaxAttNum)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GlobalAttNum)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MinAttNum)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FillRosterPCT)).BeginInit();
+            this.tabOffSeason.SuspendLayout();
+            this.groupBox17.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.removeInterestTeams)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minRecPts)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minTRPA)).BeginInit();
+            this.groupBox16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.toleranceWalkOn)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.recruitTolerance)).BeginInit();
             this.tabRecruits.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RecruitDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RDIS)).BeginInit();
@@ -1008,24 +1067,35 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.RKACBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RWGTBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RHGTBox)).BeginInit();
-            this.tabDepthCharts.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DCHTGrid)).BeginInit();
-            this.tabPlaybook.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PlayNameValue)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcrtNumBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PlaybookGrid)).BeginInit();
-            this.groupBox19.SuspendLayout();
+            this.tabStats.SuspendLayout();
+            this.groupBox26.SuspendLayout();
+            this.groupBox25.SuspendLayout();
+            this.groupBox24.SuspendLayout();
+            this.tabStadiums.SuspendLayout();
+            this.groupBox30.SuspendLayout();
+            this.groupBox29.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.STtvBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SWSPBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SWRPBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SWWPBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SWFPBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.STfwBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.STwpBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.STjtBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.STtsBox)).BeginInit();
+            this.groupBox28.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.STADCap)).BeginInit();
+            this.groupBox27.SuspendLayout();
+            this.tabBowls.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.BowlsGrid)).BeginInit();
             this.tabConf.SuspendLayout();
             this.groupBox23.SuspendLayout();
-            this.tabDev.SuspendLayout();
-            this.tabOffSeason.SuspendLayout();
-            this.groupBox17.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.removeInterestTeams)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.minRecPts)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.minTRPA)).BeginInit();
-            this.groupBox16.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.toleranceWalkOn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.recruitTolerance)).BeginInit();
+            this.tabDepthCharts.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DCHTGrid)).BeginInit();
+            this.tabSchedule.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MatchView)).BeginInit();
+            this.groupBox21.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ScheduleView)).BeginInit();
             this.tabSeason.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImpactPlayerMin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numberPlayerCoach)).BeginInit();
@@ -1109,32 +1179,29 @@ namespace DB_EDITOR
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl1.SuspendLayout();
-            this.tabSchedule.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MatchView)).BeginInit();
-            this.groupBox21.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ScheduleView)).BeginInit();
-            this.tabStadiums.SuspendLayout();
-            this.groupBox30.SuspendLayout();
-            this.groupBox29.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.STtvBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SWSPBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SWRPBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SWWPBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SWFPBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.STfwBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.STwpBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.STjtBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.STtsBox)).BeginInit();
-            this.groupBox28.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.STADCap)).BeginInit();
-            this.groupBox27.SuspendLayout();
-            this.tabTools.SuspendLayout();
-            this.groupBox22.SuspendLayout();
-            this.groupBox18.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MaxAttNum)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GlobalAttNum)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MinAttNum)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.FillRosterPCT)).BeginInit();
+            this.tabPortal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.portalChance)).BeginInit();
+            this.groupBox33.SuspendLayout();
+            this.groupBox32.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PortalK)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PortalP)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PortalSS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PortalFS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PortalCB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PortalMLB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PortalOLB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PortalDT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PortalDE)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PortalOC)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PortalOG)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PortalOT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PortalTE)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PortalWR)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PortalFB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PortalHB)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PortalQB)).BeginInit();
+            this.groupBox31.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PortalData)).BeginInit();
             this.SuspendLayout();
             // 
             // qbTend
@@ -1154,6 +1221,7 @@ namespace DB_EDITOR
             // 
             this.mainMenu.BackColor = System.Drawing.SystemColors.Control;
             this.mainMenu.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mainMenu.ImageScalingSize = new System.Drawing.Size(28, 28);
             this.mainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileMenuItem,
             this.CSVMenu,
@@ -1292,7 +1360,7 @@ namespace DB_EDITOR
             this.descendingFieldOrderMenuItem,
             this.customOrderMenuItem});
             this.tableFieldOrderMenuItem.Name = "tableFieldOrderMenuItem";
-            this.tableFieldOrderMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.tableFieldOrderMenuItem.Size = new System.Drawing.Size(244, 34);
             this.tableFieldOrderMenuItem.Text = "Table Field Order";
             // 
             // defaultFieldOrderMenuItem
@@ -1329,14 +1397,14 @@ namespace DB_EDITOR
             // 
             this.definitionFileMenuItem.Image = global::DB_EDITOR.Properties.Resources.def_file;
             this.definitionFileMenuItem.Name = "definitionFileMenuItem";
-            this.definitionFileMenuItem.Size = new System.Drawing.Size(232, 22);
+            this.definitionFileMenuItem.Size = new System.Drawing.Size(244, 34);
             this.definitionFileMenuItem.Text = "Definition File";
             this.definitionFileMenuItem.Click += new System.EventHandler(this.DefinitionFileMenuItem_Click);
             // 
             // NCAANext25Config
             // 
             this.NCAANext25Config.Name = "NCAANext25Config";
-            this.NCAANext25Config.Size = new System.Drawing.Size(232, 22);
+            this.NCAANext25Config.Size = new System.Drawing.Size(244, 34);
             this.NCAANext25Config.Text = "Use NCAA NEXT 25 Config";
             this.NCAANext25Config.Click += new System.EventHandler(this.NCAANext25Config_Click);
             // 
@@ -1373,6 +1441,7 @@ namespace DB_EDITOR
             // 
             // tableMenu
             // 
+            this.tableMenu.ImageScalingSize = new System.Drawing.Size(28, 28);
             this.tableMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.exportTableMenuItem,
             this.importTableMenuItem,
@@ -1409,6 +1478,7 @@ namespace DB_EDITOR
             // 
             // fieldMenu
             // 
+            this.fieldMenu.ImageScalingSize = new System.Drawing.Size(28, 28);
             this.fieldMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.copyRecordsMenuItem,
             this.toolStripSeparator4,
@@ -1575,395 +1645,364 @@ namespace DB_EDITOR
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Database";
             // 
-            // tabStats
-            // 
-            this.tabStats.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.tabStats.Controls.Add(this.groupBox26);
-            this.tabStats.Controls.Add(this.groupBox25);
-            this.tabStats.Controls.Add(this.groupBox24);
-            this.tabStats.Location = new System.Drawing.Point(4, 24);
-            this.tabStats.Name = "tabStats";
-            this.tabStats.Padding = new System.Windows.Forms.Padding(3);
-            this.tabStats.Size = new System.Drawing.Size(1152, 615);
-            this.tabStats.TabIndex = 15;
-            this.tabStats.Text = "Stats";
-            // 
-            // groupBox26
-            // 
-            this.groupBox26.Controls.Add(this.label221);
-            this.groupBox26.Controls.Add(this.SacksLeadersBox);
-            this.groupBox26.Controls.Add(this.IntLeadersBox);
-            this.groupBox26.Controls.Add(this.label223);
-            this.groupBox26.Controls.Add(this.label222);
-            this.groupBox26.Controls.Add(this.TacklesLeadersBox);
-            this.groupBox26.Location = new System.Drawing.Point(832, 24);
-            this.groupBox26.Name = "groupBox26";
-            this.groupBox26.Size = new System.Drawing.Size(280, 572);
-            this.groupBox26.TabIndex = 2;
-            this.groupBox26.TabStop = false;
-            this.groupBox26.Text = "Defense Leaders";
-            // 
-            // label221
-            // 
-            this.label221.AutoSize = true;
-            this.label221.Location = new System.Drawing.Point(194, 377);
-            this.label221.Name = "label221";
-            this.label221.Size = new System.Drawing.Size(68, 13);
-            this.label221.TabIndex = 19;
-            this.label221.Text = "Interceptions";
-            // 
-            // SacksLeadersBox
-            // 
-            this.SacksLeadersBox.FormattingEnabled = true;
-            this.SacksLeadersBox.Location = new System.Drawing.Point(19, 29);
-            this.SacksLeadersBox.Name = "SacksLeadersBox";
-            this.SacksLeadersBox.Size = new System.Drawing.Size(243, 160);
-            this.SacksLeadersBox.TabIndex = 14;
-            // 
-            // IntLeadersBox
-            // 
-            this.IntLeadersBox.FormattingEnabled = true;
-            this.IntLeadersBox.Location = new System.Drawing.Point(20, 393);
-            this.IntLeadersBox.Name = "IntLeadersBox";
-            this.IntLeadersBox.Size = new System.Drawing.Size(243, 160);
-            this.IntLeadersBox.TabIndex = 18;
-            // 
-            // label223
-            // 
-            this.label223.AutoSize = true;
-            this.label223.Location = new System.Drawing.Point(225, 13);
-            this.label223.Name = "label223";
-            this.label223.Size = new System.Drawing.Size(37, 13);
-            this.label223.TabIndex = 15;
-            this.label223.Text = "Sacks";
-            // 
-            // label222
-            // 
-            this.label222.AutoSize = true;
-            this.label222.Location = new System.Drawing.Point(217, 198);
-            this.label222.Name = "label222";
-            this.label222.Size = new System.Drawing.Size(45, 13);
-            this.label222.TabIndex = 17;
-            this.label222.Text = "Tackles";
-            // 
-            // TacklesLeadersBox
-            // 
-            this.TacklesLeadersBox.FormattingEnabled = true;
-            this.TacklesLeadersBox.Location = new System.Drawing.Point(22, 214);
-            this.TacklesLeadersBox.Name = "TacklesLeadersBox";
-            this.TacklesLeadersBox.Size = new System.Drawing.Size(243, 160);
-            this.TacklesLeadersBox.TabIndex = 16;
-            // 
-            // groupBox25
-            // 
-            this.groupBox25.Controls.Add(this.label220);
-            this.groupBox25.Controls.Add(this.ReceivingLeadersBox);
-            this.groupBox25.Controls.Add(this.label219);
-            this.groupBox25.Controls.Add(this.RushingLeadersBox);
-            this.groupBox25.Controls.Add(this.label218);
-            this.groupBox25.Controls.Add(this.PassingLeadersBox);
-            this.groupBox25.Location = new System.Drawing.Point(513, 24);
-            this.groupBox25.Name = "groupBox25";
-            this.groupBox25.Size = new System.Drawing.Size(280, 572);
-            this.groupBox25.TabIndex = 1;
-            this.groupBox25.TabStop = false;
-            this.groupBox25.Text = "Offense Leaders";
-            // 
-            // label220
-            // 
-            this.label220.AutoSize = true;
-            this.label220.Location = new System.Drawing.Point(175, 377);
-            this.label220.Name = "label220";
-            this.label220.Size = new System.Drawing.Size(85, 13);
-            this.label220.TabIndex = 13;
-            this.label220.Text = "Receiving Yards";
-            // 
-            // ReceivingLeadersBox
-            // 
-            this.ReceivingLeadersBox.FormattingEnabled = true;
-            this.ReceivingLeadersBox.Location = new System.Drawing.Point(17, 393);
-            this.ReceivingLeadersBox.Name = "ReceivingLeadersBox";
-            this.ReceivingLeadersBox.Size = new System.Drawing.Size(243, 160);
-            this.ReceivingLeadersBox.TabIndex = 12;
-            // 
-            // label219
-            // 
-            this.label219.AutoSize = true;
-            this.label219.Location = new System.Drawing.Point(187, 198);
-            this.label219.Name = "label219";
-            this.label219.Size = new System.Drawing.Size(76, 13);
-            this.label219.TabIndex = 11;
-            this.label219.Text = "Rushing Yards";
-            // 
-            // RushingLeadersBox
-            // 
-            this.RushingLeadersBox.FormattingEnabled = true;
-            this.RushingLeadersBox.Location = new System.Drawing.Point(19, 214);
-            this.RushingLeadersBox.Name = "RushingLeadersBox";
-            this.RushingLeadersBox.Size = new System.Drawing.Size(243, 160);
-            this.RushingLeadersBox.TabIndex = 10;
-            // 
-            // label218
-            // 
-            this.label218.AutoSize = true;
-            this.label218.Location = new System.Drawing.Point(185, 13);
-            this.label218.Name = "label218";
-            this.label218.Size = new System.Drawing.Size(74, 13);
-            this.label218.TabIndex = 9;
-            this.label218.Text = "Passing Yards";
-            // 
-            // PassingLeadersBox
-            // 
-            this.PassingLeadersBox.FormattingEnabled = true;
-            this.PassingLeadersBox.Location = new System.Drawing.Point(16, 29);
-            this.PassingLeadersBox.Name = "PassingLeadersBox";
-            this.PassingLeadersBox.Size = new System.Drawing.Size(243, 160);
-            this.PassingLeadersBox.TabIndex = 8;
-            // 
-            // groupBox24
-            // 
-            this.groupBox24.Controls.Add(this.label217);
-            this.groupBox24.Controls.Add(this.label216);
-            this.groupBox24.Controls.Add(this.label215);
-            this.groupBox24.Controls.Add(this.label214);
-            this.groupBox24.Controls.Add(this.TopTeamDefBox);
-            this.groupBox24.Controls.Add(this.TopTeamOffBox);
-            this.groupBox24.Controls.Add(this.TopTeamRatingsBox);
-            this.groupBox24.Controls.Add(this.CoachPollListBox);
-            this.groupBox24.Location = new System.Drawing.Point(29, 24);
-            this.groupBox24.Name = "groupBox24";
-            this.groupBox24.Size = new System.Drawing.Size(423, 572);
-            this.groupBox24.TabIndex = 0;
-            this.groupBox24.TabStop = false;
-            this.groupBox24.Text = "Rankings";
-            // 
-            // label217
-            // 
-            this.label217.AutoSize = true;
-            this.label217.Location = new System.Drawing.Point(339, 378);
-            this.label217.Name = "label217";
-            this.label217.Size = new System.Drawing.Size(74, 13);
-            this.label217.TabIndex = 7;
-            this.label217.Text = "Total Defense";
-            // 
-            // label216
-            // 
-            this.label216.AutoSize = true;
-            this.label216.Location = new System.Drawing.Point(131, 378);
-            this.label216.Name = "label216";
-            this.label216.Size = new System.Drawing.Size(71, 13);
-            this.label216.TabIndex = 6;
-            this.label216.Text = "Total Offense";
-            // 
-            // label215
-            // 
-            this.label215.AutoSize = true;
-            this.label215.Location = new System.Drawing.Point(339, 13);
-            this.label215.Name = "label215";
-            this.label215.Size = new System.Drawing.Size(74, 13);
-            this.label215.TabIndex = 5;
-            this.label215.Text = "Overall Rating";
-            // 
-            // label214
-            // 
-            this.label214.AutoSize = true;
-            this.label214.Location = new System.Drawing.Point(141, 13);
-            this.label214.Name = "label214";
-            this.label214.Size = new System.Drawing.Size(61, 13);
-            this.label214.TabIndex = 4;
-            this.label214.Text = "Top 25 Poll";
-            // 
-            // TopTeamDefBox
-            // 
-            this.TopTeamDefBox.FormattingEnabled = true;
-            this.TopTeamDefBox.Location = new System.Drawing.Point(222, 394);
-            this.TopTeamDefBox.Name = "TopTeamDefBox";
-            this.TopTeamDefBox.Size = new System.Drawing.Size(191, 160);
-            this.TopTeamDefBox.TabIndex = 3;
-            // 
-            // TopTeamOffBox
-            // 
-            this.TopTeamOffBox.FormattingEnabled = true;
-            this.TopTeamOffBox.Location = new System.Drawing.Point(11, 394);
-            this.TopTeamOffBox.Name = "TopTeamOffBox";
-            this.TopTeamOffBox.Size = new System.Drawing.Size(191, 160);
-            this.TopTeamOffBox.TabIndex = 2;
-            // 
-            // TopTeamRatingsBox
-            // 
-            this.TopTeamRatingsBox.FormattingEnabled = true;
-            this.TopTeamRatingsBox.Location = new System.Drawing.Point(222, 29);
-            this.TopTeamRatingsBox.Name = "TopTeamRatingsBox";
-            this.TopTeamRatingsBox.Size = new System.Drawing.Size(191, 329);
-            this.TopTeamRatingsBox.TabIndex = 1;
-            // 
-            // CoachPollListBox
-            // 
-            this.CoachPollListBox.FormattingEnabled = true;
-            this.CoachPollListBox.Location = new System.Drawing.Point(11, 29);
-            this.CoachPollListBox.Name = "CoachPollListBox";
-            this.CoachPollListBox.Size = new System.Drawing.Size(191, 329);
-            this.CoachPollListBox.TabIndex = 0;
-            // 
-            // tabBowls
-            // 
-            this.tabBowls.Controls.Add(this.SaveBowlButton);
-            this.tabBowls.Controls.Add(this.BowlsGrid);
-            this.tabBowls.Location = new System.Drawing.Point(4, 24);
-            this.tabBowls.Name = "tabBowls";
-            this.tabBowls.Padding = new System.Windows.Forms.Padding(3);
-            this.tabBowls.Size = new System.Drawing.Size(1152, 615);
-            this.tabBowls.TabIndex = 14;
-            this.tabBowls.Text = "Bowls";
-            this.tabBowls.UseVisualStyleBackColor = true;
-            // 
-            // SaveBowlButton
-            // 
-            this.SaveBowlButton.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.SaveBowlButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SaveBowlButton.Location = new System.Drawing.Point(962, 19);
-            this.SaveBowlButton.Name = "SaveBowlButton";
-            this.SaveBowlButton.Size = new System.Drawing.Size(171, 52);
-            this.SaveBowlButton.TabIndex = 6;
-            this.SaveBowlButton.Text = "Update Database";
-            this.SaveBowlButton.UseVisualStyleBackColor = false;
-            this.SaveBowlButton.Click += new System.EventHandler(this.SaveBowlButton_Click);
-            // 
-            // BowlsGrid
-            // 
-            this.BowlsGrid.AllowUserToAddRows = false;
-            this.BowlsGrid.AllowUserToDeleteRows = false;
-            this.BowlsGrid.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            this.BowlsGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.BowlsGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.BowlsGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            this.BowlsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.BowlsGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ActiveBowl,
-            this.BIDX,
-            this.BNME,
-            this.TeamA,
-            this.ScoreA,
-            this.vs,
-            this.ScoreB,
-            this.TeamB,
-            this.SGID,
-            this.BMON,
-            this.BDAY,
-            this.SEWN});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.BowlsGrid.DefaultCellStyle = dataGridViewCellStyle3;
-            this.BowlsGrid.Location = new System.Drawing.Point(6, 6);
-            this.BowlsGrid.Name = "BowlsGrid";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.BowlsGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.BowlsGrid.Size = new System.Drawing.Size(950, 603);
-            this.BowlsGrid.TabIndex = 4;
-            this.BowlsGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.BowlsGrid_DataError);
-            // 
-            // ActiveBowl
-            // 
-            this.ActiveBowl.FillWeight = 7F;
-            this.ActiveBowl.HeaderText = "Active";
-            this.ActiveBowl.Name = "ActiveBowl";
-            // 
-            // BIDX
-            // 
-            this.BIDX.FillWeight = 8F;
-            this.BIDX.HeaderText = "BIDX";
-            this.BIDX.Name = "BIDX";
-            this.BIDX.ReadOnly = true;
-            this.BIDX.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // BNME
-            // 
-            this.BNME.FillWeight = 25F;
-            this.BNME.HeaderText = "Bowl Name";
-            this.BNME.Name = "BNME";
-            this.BNME.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // TeamA
-            // 
-            this.TeamA.FillWeight = 20F;
-            this.TeamA.HeaderText = "Team";
-            this.TeamA.Name = "TeamA";
-            // 
-            // ScoreA
-            // 
-            this.ScoreA.FillWeight = 7F;
-            this.ScoreA.HeaderText = "Score";
-            this.ScoreA.Name = "ScoreA";
-            this.ScoreA.ReadOnly = true;
-            this.ScoreA.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // vs
-            // 
-            this.vs.FillWeight = 4F;
-            this.vs.HeaderText = "vs";
-            this.vs.Name = "vs";
-            this.vs.ReadOnly = true;
-            this.vs.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // ScoreB
-            // 
-            this.ScoreB.FillWeight = 7F;
-            this.ScoreB.HeaderText = "Score";
-            this.ScoreB.Name = "ScoreB";
-            this.ScoreB.ReadOnly = true;
-            this.ScoreB.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // TeamB
-            // 
-            this.TeamB.FillWeight = 20F;
-            this.TeamB.HeaderText = "Team";
-            this.TeamB.Name = "TeamB";
-            // 
-            // SGID
-            // 
-            this.SGID.FillWeight = 25F;
-            this.SGID.HeaderText = "Stadium";
-            this.SGID.Name = "SGID";
-            // 
-            // BMON
-            // 
-            this.BMON.FillWeight = 8F;
-            this.BMON.HeaderText = "Month";
-            this.BMON.Name = "BMON";
-            // 
-            // BDAY
-            // 
-            this.BDAY.FillWeight = 8F;
-            this.BDAY.HeaderText = "Date";
-            this.BDAY.Name = "BDAY";
-            // 
-            // SEWN
-            // 
-            this.SEWN.FillWeight = 6F;
-            this.SEWN.HeaderText = "Week";
-            this.SEWN.Name = "SEWN";
-            this.SEWN.ReadOnly = true;
+            // tabDev
+            // 
+            this.tabDev.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.tabDev.Controls.Add(this.CFUSAexportButton);
+            this.tabDev.Controls.Add(this.textBox20);
+            this.tabDev.Controls.Add(this.textBox19);
+            this.tabDev.Controls.Add(this.textBox18);
+            this.tabDev.Controls.Add(this.textBox17);
+            this.tabDev.Controls.Add(this.textBox16);
+            this.tabDev.Controls.Add(this.textBox15);
+            this.tabDev.Controls.Add(this.textBox14);
+            this.tabDev.Controls.Add(this.textBox13);
+            this.tabDev.Controls.Add(this.textBox12);
+            this.tabDev.Controls.Add(this.textBox11);
+            this.tabDev.Controls.Add(this.textBox10);
+            this.tabDev.Controls.Add(this.textBox9);
+            this.tabDev.Controls.Add(this.textBox8);
+            this.tabDev.Controls.Add(this.textBox7);
+            this.tabDev.Controls.Add(this.textBox5);
+            this.tabDev.Controls.Add(this.textBox4);
+            this.tabDev.Controls.Add(this.textBox6);
+            this.tabDev.Controls.Add(this.DevCalcTeamRatingsButton);
+            this.tabDev.Controls.Add(this.DevDepthChartButton);
+            this.tabDev.Controls.Add(this.DevRandomizeFaceButton);
+            this.tabDev.Controls.Add(this.DevCalcOVRButton);
+            this.tabDev.Controls.Add(this.DevFillRosterButton);
+            this.tabDev.Controls.Add(this.CreateTransfersCSVButton);
+            this.tabDev.Controls.Add(this.ImportRecruitsButton);
+            this.tabDev.Controls.Add(this.GraduateButton);
+            this.tabDev.Location = new System.Drawing.Point(4, 24);
+            this.tabDev.Name = "tabDev";
+            this.tabDev.Padding = new System.Windows.Forms.Padding(3);
+            this.tabDev.Size = new System.Drawing.Size(1152, 615);
+            this.tabDev.TabIndex = 8;
+            this.tabDev.Text = "Dev";
+            // 
+            // CFUSAexportButton
+            // 
+            this.CFUSAexportButton.BackColor = System.Drawing.Color.Pink;
+            this.CFUSAexportButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CFUSAexportButton.Location = new System.Drawing.Point(1003, 196);
+            this.CFUSAexportButton.Name = "CFUSAexportButton";
+            this.CFUSAexportButton.Size = new System.Drawing.Size(110, 80);
+            this.CFUSAexportButton.TabIndex = 50;
+            this.CFUSAexportButton.Text = "Export to CFB USA 97";
+            this.CFUSAexportButton.UseVisualStyleBackColor = false;
+            // 
+            // textBox20
+            // 
+            this.textBox20.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.textBox20.Enabled = false;
+            this.textBox20.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox20.Location = new System.Drawing.Point(499, 535);
+            this.textBox20.Multiline = true;
+            this.textBox20.Name = "textBox20";
+            this.textBox20.Size = new System.Drawing.Size(49, 41);
+            this.textBox20.TabIndex = 49;
+            this.textBox20.Text = "8";
+            this.textBox20.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox19
+            // 
+            this.textBox19.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.textBox19.Enabled = false;
+            this.textBox19.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox19.Location = new System.Drawing.Point(499, 417);
+            this.textBox19.Multiline = true;
+            this.textBox19.Name = "textBox19";
+            this.textBox19.Size = new System.Drawing.Size(49, 41);
+            this.textBox19.TabIndex = 48;
+            this.textBox19.Text = "7";
+            this.textBox19.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox18
+            // 
+            this.textBox18.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.textBox18.Enabled = false;
+            this.textBox18.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox18.Location = new System.Drawing.Point(499, 305);
+            this.textBox18.Multiline = true;
+            this.textBox18.Name = "textBox18";
+            this.textBox18.Size = new System.Drawing.Size(49, 41);
+            this.textBox18.TabIndex = 47;
+            this.textBox18.Text = "6";
+            this.textBox18.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox17
+            // 
+            this.textBox17.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.textBox17.Enabled = false;
+            this.textBox17.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox17.Location = new System.Drawing.Point(500, 212);
+            this.textBox17.Multiline = true;
+            this.textBox17.Name = "textBox17";
+            this.textBox17.Size = new System.Drawing.Size(49, 41);
+            this.textBox17.TabIndex = 46;
+            this.textBox17.Text = "5";
+            this.textBox17.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox16
+            // 
+            this.textBox16.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.textBox16.Enabled = false;
+            this.textBox16.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox16.Location = new System.Drawing.Point(15, 535);
+            this.textBox16.Multiline = true;
+            this.textBox16.Name = "textBox16";
+            this.textBox16.Size = new System.Drawing.Size(49, 41);
+            this.textBox16.TabIndex = 45;
+            this.textBox16.Text = "4";
+            this.textBox16.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox15
+            // 
+            this.textBox15.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.textBox15.Enabled = false;
+            this.textBox15.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox15.Location = new System.Drawing.Point(15, 417);
+            this.textBox15.Multiline = true;
+            this.textBox15.Name = "textBox15";
+            this.textBox15.Size = new System.Drawing.Size(49, 41);
+            this.textBox15.TabIndex = 44;
+            this.textBox15.Text = "3";
+            this.textBox15.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox14
+            // 
+            this.textBox14.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.textBox14.Enabled = false;
+            this.textBox14.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox14.Location = new System.Drawing.Point(15, 306);
+            this.textBox14.Multiline = true;
+            this.textBox14.Name = "textBox14";
+            this.textBox14.Size = new System.Drawing.Size(49, 41);
+            this.textBox14.TabIndex = 43;
+            this.textBox14.Text = "2";
+            this.textBox14.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox13
+            // 
+            this.textBox13.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.textBox13.Enabled = false;
+            this.textBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox13.Location = new System.Drawing.Point(16, 212);
+            this.textBox13.Multiline = true;
+            this.textBox13.Name = "textBox13";
+            this.textBox13.Size = new System.Drawing.Size(49, 41);
+            this.textBox13.TabIndex = 42;
+            this.textBox13.Text = "1";
+            this.textBox13.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox12
+            // 
+            this.textBox12.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.textBox12.Enabled = false;
+            this.textBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox12.Location = new System.Drawing.Point(702, 519);
+            this.textBox12.Multiline = true;
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Size = new System.Drawing.Size(247, 80);
+            this.textBox12.TabIndex = 41;
+            this.textBox12.Text = "Calculates Team Ratings";
+            // 
+            // textBox11
+            // 
+            this.textBox11.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.textBox11.Enabled = false;
+            this.textBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox11.Location = new System.Drawing.Point(702, 401);
+            this.textBox11.Multiline = true;
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(247, 80);
+            this.textBox11.TabIndex = 40;
+            this.textBox11.Text = "Sets Depth Charts";
+            // 
+            // textBox10
+            // 
+            this.textBox10.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.textBox10.Enabled = false;
+            this.textBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox10.Location = new System.Drawing.Point(702, 289);
+            this.textBox10.Multiline = true;
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(247, 80);
+            this.textBox10.TabIndex = 39;
+            this.textBox10.Text = "Randomizes all player faces/heads";
+            // 
+            // textBox9
+            // 
+            this.textBox9.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.textBox9.Enabled = false;
+            this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox9.Location = new System.Drawing.Point(703, 196);
+            this.textBox9.Multiline = true;
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(247, 80);
+            this.textBox9.TabIndex = 38;
+            this.textBox9.Text = "Fills Rosters with Randomly Generated Players \r\nand Checks for Position Depth";
+            // 
+            // textBox8
+            // 
+            this.textBox8.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.textBox8.Enabled = false;
+            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox8.Location = new System.Drawing.Point(218, 519);
+            this.textBox8.Multiline = true;
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(247, 80);
+            this.textBox8.TabIndex = 37;
+            this.textBox8.Text = "Calculate Overall Ratings";
+            // 
+            // textBox7
+            // 
+            this.textBox7.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.textBox7.Enabled = false;
+            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox7.Location = new System.Drawing.Point(218, 289);
+            this.textBox7.Multiline = true;
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(247, 80);
+            this.textBox7.TabIndex = 36;
+            this.textBox7.Text = "Create Transfers - Creates Transfer based on transfers-gen.csv file  \r\n(first nam" +
+    "e, last name, position id, team id)";
+            // 
+            // textBox5
+            // 
+            this.textBox5.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.textBox5.Enabled = false;
+            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox5.Location = new System.Drawing.Point(218, 399);
+            this.textBox5.Multiline = true;
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(247, 80);
+            this.textBox5.TabIndex = 35;
+            this.textBox5.Text = "Import Recruits - Creates Recruits based on recruits.csv file  \r\n(first name, las" +
+    "t name, position id, team id, height in inches, weight - 160)";
+            // 
+            // textBox4
+            // 
+            this.textBox4.BackColor = System.Drawing.Color.AntiqueWhite;
+            this.textBox4.Enabled = false;
+            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.Location = new System.Drawing.Point(219, 196);
+            this.textBox4.Multiline = true;
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(247, 80);
+            this.textBox4.TabIndex = 34;
+            this.textBox4.Text = "Graduate Players - Removes Players marked with PTYP = 3 and Transfer Players Mark" +
+    "ed PTYP =1 and relocates them per transfers.csv file. \r\nTransfer CSV colums:  Pl" +
+    "ayer Name, new TGID, PGID, 0";
+            // 
+            // textBox6
+            // 
+            this.textBox6.BackColor = System.Drawing.Color.Honeydew;
+            this.textBox6.Enabled = false;
+            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox6.Location = new System.Drawing.Point(16, 6);
+            this.textBox6.Multiline = true;
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(934, 167);
+            this.textBox6.TabIndex = 27;
+            this.textBox6.Text = resources.GetString("textBox6.Text");
+            // 
+            // DevCalcTeamRatingsButton
+            // 
+            this.DevCalcTeamRatingsButton.BackColor = System.Drawing.Color.DarkGray;
+            this.DevCalcTeamRatingsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DevCalcTeamRatingsButton.Location = new System.Drawing.Point(554, 519);
+            this.DevCalcTeamRatingsButton.Name = "DevCalcTeamRatingsButton";
+            this.DevCalcTeamRatingsButton.Size = new System.Drawing.Size(110, 80);
+            this.DevCalcTeamRatingsButton.TabIndex = 33;
+            this.DevCalcTeamRatingsButton.Text = "Calculate Team Ratings";
+            this.DevCalcTeamRatingsButton.UseVisualStyleBackColor = false;
+            this.DevCalcTeamRatingsButton.Click += new System.EventHandler(this.DevCalcTeamRatingsButton_Click);
+            // 
+            // DevDepthChartButton
+            // 
+            this.DevDepthChartButton.BackColor = System.Drawing.Color.DarkGray;
+            this.DevDepthChartButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DevDepthChartButton.Location = new System.Drawing.Point(554, 401);
+            this.DevDepthChartButton.Name = "DevDepthChartButton";
+            this.DevDepthChartButton.Size = new System.Drawing.Size(110, 80);
+            this.DevDepthChartButton.TabIndex = 32;
+            this.DevDepthChartButton.Text = "Set Depth Charts";
+            this.DevDepthChartButton.UseVisualStyleBackColor = false;
+            this.DevDepthChartButton.Click += new System.EventHandler(this.DevDepthChartButton_Click);
+            // 
+            // DevRandomizeFaceButton
+            // 
+            this.DevRandomizeFaceButton.BackColor = System.Drawing.Color.DarkGray;
+            this.DevRandomizeFaceButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DevRandomizeFaceButton.Location = new System.Drawing.Point(554, 289);
+            this.DevRandomizeFaceButton.Name = "DevRandomizeFaceButton";
+            this.DevRandomizeFaceButton.Size = new System.Drawing.Size(110, 80);
+            this.DevRandomizeFaceButton.TabIndex = 31;
+            this.DevRandomizeFaceButton.Text = "Randomize Faces";
+            this.DevRandomizeFaceButton.UseVisualStyleBackColor = false;
+            this.DevRandomizeFaceButton.Click += new System.EventHandler(this.DevRandomizeFaceButton_Click);
+            // 
+            // DevCalcOVRButton
+            // 
+            this.DevCalcOVRButton.BackColor = System.Drawing.Color.DarkGray;
+            this.DevCalcOVRButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DevCalcOVRButton.Location = new System.Drawing.Point(76, 519);
+            this.DevCalcOVRButton.Name = "DevCalcOVRButton";
+            this.DevCalcOVRButton.Size = new System.Drawing.Size(110, 80);
+            this.DevCalcOVRButton.TabIndex = 30;
+            this.DevCalcOVRButton.Text = "Calculate Overalls";
+            this.DevCalcOVRButton.UseVisualStyleBackColor = false;
+            this.DevCalcOVRButton.Click += new System.EventHandler(this.DevCalcOVRButton_Click);
+            // 
+            // DevFillRosterButton
+            // 
+            this.DevFillRosterButton.BackColor = System.Drawing.Color.DarkGray;
+            this.DevFillRosterButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DevFillRosterButton.Location = new System.Drawing.Point(555, 196);
+            this.DevFillRosterButton.Name = "DevFillRosterButton";
+            this.DevFillRosterButton.Size = new System.Drawing.Size(110, 80);
+            this.DevFillRosterButton.TabIndex = 29;
+            this.DevFillRosterButton.Text = "Fill Rosters";
+            this.DevFillRosterButton.UseVisualStyleBackColor = false;
+            this.DevFillRosterButton.Click += new System.EventHandler(this.DevFillRosterButton_Click);
+            // 
+            // CreateTransfersCSVButton
+            // 
+            this.CreateTransfersCSVButton.BackColor = System.Drawing.Color.DarkGray;
+            this.CreateTransfersCSVButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CreateTransfersCSVButton.Location = new System.Drawing.Point(76, 289);
+            this.CreateTransfersCSVButton.Name = "CreateTransfersCSVButton";
+            this.CreateTransfersCSVButton.Size = new System.Drawing.Size(110, 80);
+            this.CreateTransfersCSVButton.TabIndex = 28;
+            this.CreateTransfersCSVButton.Text = "Import Transfers";
+            this.CreateTransfersCSVButton.UseVisualStyleBackColor = false;
+            this.CreateTransfersCSVButton.Click += new System.EventHandler(this.CreateTransfersCSVButton_Click);
+            // 
+            // ImportRecruitsButton
+            // 
+            this.ImportRecruitsButton.BackColor = System.Drawing.Color.DarkGray;
+            this.ImportRecruitsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ImportRecruitsButton.Location = new System.Drawing.Point(76, 399);
+            this.ImportRecruitsButton.Name = "ImportRecruitsButton";
+            this.ImportRecruitsButton.Size = new System.Drawing.Size(110, 80);
+            this.ImportRecruitsButton.TabIndex = 26;
+            this.ImportRecruitsButton.Text = "Import Recruits";
+            this.ImportRecruitsButton.UseVisualStyleBackColor = false;
+            this.ImportRecruitsButton.Click += new System.EventHandler(this.ImportRecruitsButton_Click);
+            // 
+            // GraduateButton
+            // 
+            this.GraduateButton.BackColor = System.Drawing.Color.DarkGray;
+            this.GraduateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GraduateButton.Location = new System.Drawing.Point(77, 196);
+            this.GraduateButton.Name = "GraduateButton";
+            this.GraduateButton.Size = new System.Drawing.Size(110, 80);
+            this.GraduateButton.TabIndex = 25;
+            this.GraduateButton.Text = "Graduate Players";
+            this.GraduateButton.UseVisualStyleBackColor = false;
+            this.GraduateButton.Click += new System.EventHandler(this.GraduateButton_Click);
             // 
             // tabUniforms
             // 
@@ -2096,17 +2135,17 @@ namespace DB_EDITOR
             // 
             this.UniformGrid.AllowUserToAddRows = false;
             this.UniformGrid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.LightGray;
-            this.UniformGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGray;
+            this.UniformGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.UniformGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.MenuBar;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.UniformGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.MenuBar;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.UniformGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.UniformGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.UniformGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.UniformActivation,
@@ -2119,26 +2158,19 @@ namespace DB_EDITOR
             this.SleeveDecal,
             this.HelmetNums,
             this.HelmetSideNum});
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle7.NullValue = "N/A";
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.UniformGrid.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.NullValue = "N/A";
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.UniformGrid.DefaultCellStyle = dataGridViewCellStyle3;
             this.UniformGrid.EnableHeadersVisualStyles = false;
             this.UniformGrid.Location = new System.Drawing.Point(32, 15);
             this.UniformGrid.Name = "UniformGrid";
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.UniformGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.UniformGrid.RowHeadersVisible = false;
             this.UniformGrid.Size = new System.Drawing.Size(803, 584);
             this.UniformGrid.TabIndex = 0;
             this.UniformGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.UniformGrid_CellContentClick);
@@ -2283,6 +2315,1349 @@ namespace DB_EDITOR
             this.label168.TabIndex = 2;
             this.label168.Text = "Team Selection";
             // 
+            // tabPlaybook
+            // 
+            this.tabPlaybook.Controls.Add(this.textBox24);
+            this.tabPlaybook.Controls.Add(this.PlayNameRatio);
+            this.tabPlaybook.Controls.Add(this.SetPlayNameValueButton);
+            this.tabPlaybook.Controls.Add(this.label114);
+            this.tabPlaybook.Controls.Add(this.label115);
+            this.tabPlaybook.Controls.Add(this.PlayNameBox);
+            this.tabPlaybook.Controls.Add(this.PlayNameValue);
+            this.tabPlaybook.Controls.Add(this.ProjTypeRatio);
+            this.tabPlaybook.Controls.Add(this.ProjPassRatio);
+            this.tabPlaybook.Controls.Add(this.RunCounter);
+            this.tabPlaybook.Controls.Add(this.PassCounter);
+            this.tabPlaybook.Controls.Add(this.ImportPlaybookCSV);
+            this.tabPlaybook.Controls.Add(this.pcrtValueButton);
+            this.tabPlaybook.Controls.Add(this.label112);
+            this.tabPlaybook.Controls.Add(this.label111);
+            this.tabPlaybook.Controls.Add(this.PlayTypeBox);
+            this.tabPlaybook.Controls.Add(this.pcrtNumBox);
+            this.tabPlaybook.Controls.Add(this.label110);
+            this.tabPlaybook.Controls.Add(this.aigrFilterBox);
+            this.tabPlaybook.Controls.Add(this.AIGRNameButton);
+            this.tabPlaybook.Controls.Add(this.savePBDataButton);
+            this.tabPlaybook.Controls.Add(this.ExportPBData);
+            this.tabPlaybook.Controls.Add(this.PlaybookGrid);
+            this.tabPlaybook.Controls.Add(this.groupBox19);
+            this.tabPlaybook.Location = new System.Drawing.Point(4, 24);
+            this.tabPlaybook.Name = "tabPlaybook";
+            this.tabPlaybook.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPlaybook.Size = new System.Drawing.Size(1152, 615);
+            this.tabPlaybook.TabIndex = 10;
+            this.tabPlaybook.Text = "Playbook";
+            this.tabPlaybook.UseVisualStyleBackColor = true;
+            // 
+            // textBox24
+            // 
+            this.textBox24.Location = new System.Drawing.Point(820, 493);
+            this.textBox24.Multiline = true;
+            this.textBox24.Name = "textBox24";
+            this.textBox24.ReadOnly = true;
+            this.textBox24.Size = new System.Drawing.Size(311, 60);
+            this.textBox24.TabIndex = 22;
+            this.textBox24.Text = "Custom Playbook Names can be exported from the PLYL table from your custom Master" +
+    " Playbook and placed in the \"resources\\playbooks\" folder under the filename PLYL" +
+    "-Custom.csv";
+            // 
+            // PlayNameRatio
+            // 
+            this.PlayNameRatio.AutoSize = true;
+            this.PlayNameRatio.Location = new System.Drawing.Point(814, 414);
+            this.PlayNameRatio.Name = "PlayNameRatio";
+            this.PlayNameRatio.Size = new System.Drawing.Size(76, 13);
+            this.PlayNameRatio.TabIndex = 21;
+            this.PlayNameRatio.Text = "Proj Play Ratio";
+            this.PlayNameRatio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // SetPlayNameValueButton
+            // 
+            this.SetPlayNameValueButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.SetPlayNameValueButton.Location = new System.Drawing.Point(817, 435);
+            this.SetPlayNameValueButton.Name = "SetPlayNameValueButton";
+            this.SetPlayNameValueButton.Size = new System.Drawing.Size(129, 35);
+            this.SetPlayNameValueButton.TabIndex = 20;
+            this.SetPlayNameValueButton.Text = "Set Value";
+            this.SetPlayNameValueButton.UseVisualStyleBackColor = false;
+            this.SetPlayNameValueButton.Click += new System.EventHandler(this.SetPlayNameValueButton_Click);
+            // 
+            // label114
+            // 
+            this.label114.AutoSize = true;
+            this.label114.Location = new System.Drawing.Point(817, 335);
+            this.label114.Name = "label114";
+            this.label114.Size = new System.Drawing.Size(58, 13);
+            this.label114.TabIndex = 19;
+            this.label114.Text = "Play Name";
+            // 
+            // label115
+            // 
+            this.label115.AutoSize = true;
+            this.label115.Location = new System.Drawing.Point(814, 388);
+            this.label115.Name = "label115";
+            this.label115.Size = new System.Drawing.Size(44, 13);
+            this.label115.TabIndex = 18;
+            this.label115.Text = "Set prct";
+            // 
+            // PlayNameBox
+            // 
+            this.PlayNameBox.FormattingEnabled = true;
+            this.PlayNameBox.Location = new System.Drawing.Point(817, 354);
+            this.PlayNameBox.Name = "PlayNameBox";
+            this.PlayNameBox.Size = new System.Drawing.Size(129, 21);
+            this.PlayNameBox.TabIndex = 17;
+            this.PlayNameBox.SelectedIndexChanged += new System.EventHandler(this.PlayNameBox_SelectedIndexChanged);
+            // 
+            // PlayNameValue
+            // 
+            this.PlayNameValue.Location = new System.Drawing.Point(864, 386);
+            this.PlayNameValue.Name = "PlayNameValue";
+            this.PlayNameValue.Size = new System.Drawing.Size(82, 20);
+            this.PlayNameValue.TabIndex = 16;
+            this.PlayNameValue.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // ProjTypeRatio
+            // 
+            this.ProjTypeRatio.AutoSize = true;
+            this.ProjTypeRatio.Location = new System.Drawing.Point(814, 247);
+            this.ProjTypeRatio.Name = "ProjTypeRatio";
+            this.ProjTypeRatio.Size = new System.Drawing.Size(79, 13);
+            this.ProjTypeRatio.TabIndex = 15;
+            this.ProjTypeRatio.Text = "Proj Pass Ratio";
+            this.ProjTypeRatio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // ProjPassRatio
+            // 
+            this.ProjPassRatio.AutoSize = true;
+            this.ProjPassRatio.Location = new System.Drawing.Point(814, 123);
+            this.ProjPassRatio.Name = "ProjPassRatio";
+            this.ProjPassRatio.Size = new System.Drawing.Size(79, 13);
+            this.ProjPassRatio.TabIndex = 14;
+            this.ProjPassRatio.Text = "Proj Pass Ratio";
+            this.ProjPassRatio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // RunCounter
+            // 
+            this.RunCounter.AutoSize = true;
+            this.RunCounter.Location = new System.Drawing.Point(814, 99);
+            this.RunCounter.Name = "RunCounter";
+            this.RunCounter.Size = new System.Drawing.Size(90, 13);
+            this.RunCounter.TabIndex = 13;
+            this.RunCounter.Text = "Run  Counter: XX";
+            this.RunCounter.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // PassCounter
+            // 
+            this.PassCounter.AutoSize = true;
+            this.PassCounter.Location = new System.Drawing.Point(814, 74);
+            this.PassCounter.Name = "PassCounter";
+            this.PassCounter.Size = new System.Drawing.Size(90, 13);
+            this.PassCounter.TabIndex = 12;
+            this.PassCounter.Text = "Pass Counter: XX";
+            this.PassCounter.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // ImportPlaybookCSV
+            // 
+            this.ImportPlaybookCSV.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.ImportPlaybookCSV.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ImportPlaybookCSV.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.ImportPlaybookCSV.Location = new System.Drawing.Point(979, 221);
+            this.ImportPlaybookCSV.Name = "ImportPlaybookCSV";
+            this.ImportPlaybookCSV.Size = new System.Drawing.Size(113, 64);
+            this.ImportPlaybookCSV.TabIndex = 11;
+            this.ImportPlaybookCSV.Text = "Import CSV";
+            this.ImportPlaybookCSV.UseVisualStyleBackColor = false;
+            this.ImportPlaybookCSV.Click += new System.EventHandler(this.ImportPlaybookCSV_Click);
+            // 
+            // pcrtValueButton
+            // 
+            this.pcrtValueButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.pcrtValueButton.Location = new System.Drawing.Point(817, 268);
+            this.pcrtValueButton.Name = "pcrtValueButton";
+            this.pcrtValueButton.Size = new System.Drawing.Size(129, 35);
+            this.pcrtValueButton.TabIndex = 10;
+            this.pcrtValueButton.Text = "Set Value";
+            this.pcrtValueButton.UseVisualStyleBackColor = false;
+            this.pcrtValueButton.Click += new System.EventHandler(this.pcrtValueButton_Click);
+            // 
+            // label112
+            // 
+            this.label112.AutoSize = true;
+            this.label112.Location = new System.Drawing.Point(817, 168);
+            this.label112.Name = "label112";
+            this.label112.Size = new System.Drawing.Size(54, 13);
+            this.label112.TabIndex = 9;
+            this.label112.Text = "Play Type";
+            // 
+            // label111
+            // 
+            this.label111.AutoSize = true;
+            this.label111.Location = new System.Drawing.Point(814, 221);
+            this.label111.Name = "label111";
+            this.label111.Size = new System.Drawing.Size(44, 13);
+            this.label111.TabIndex = 8;
+            this.label111.Text = "Set prct";
+            // 
+            // PlayTypeBox
+            // 
+            this.PlayTypeBox.FormattingEnabled = true;
+            this.PlayTypeBox.Location = new System.Drawing.Point(817, 187);
+            this.PlayTypeBox.Name = "PlayTypeBox";
+            this.PlayTypeBox.Size = new System.Drawing.Size(129, 21);
+            this.PlayTypeBox.TabIndex = 7;
+            this.PlayTypeBox.SelectedIndexChanged += new System.EventHandler(this.PlayTypeBox_SelectedIndexChanged);
+            // 
+            // pcrtNumBox
+            // 
+            this.pcrtNumBox.Location = new System.Drawing.Point(864, 219);
+            this.pcrtNumBox.Name = "pcrtNumBox";
+            this.pcrtNumBox.Size = new System.Drawing.Size(82, 20);
+            this.pcrtNumBox.TabIndex = 6;
+            this.pcrtNumBox.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // label110
+            // 
+            this.label110.AutoSize = true;
+            this.label110.Location = new System.Drawing.Point(817, 23);
+            this.label110.Name = "label110";
+            this.label110.Size = new System.Drawing.Size(58, 13);
+            this.label110.TabIndex = 5;
+            this.label110.Text = "AIGR Filter";
+            // 
+            // aigrFilterBox
+            // 
+            this.aigrFilterBox.FormattingEnabled = true;
+            this.aigrFilterBox.Location = new System.Drawing.Point(817, 40);
+            this.aigrFilterBox.Name = "aigrFilterBox";
+            this.aigrFilterBox.Size = new System.Drawing.Size(129, 21);
+            this.aigrFilterBox.TabIndex = 4;
+            this.aigrFilterBox.SelectedIndexChanged += new System.EventHandler(this.aigrFilterBox_SelectedIndexChanged);
+            // 
+            // AIGRNameButton
+            // 
+            this.AIGRNameButton.BackColor = System.Drawing.SystemColors.Info;
+            this.AIGRNameButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AIGRNameButton.Location = new System.Drawing.Point(979, 23);
+            this.AIGRNameButton.Name = "AIGRNameButton";
+            this.AIGRNameButton.Size = new System.Drawing.Size(113, 64);
+            this.AIGRNameButton.TabIndex = 3;
+            this.AIGRNameButton.Text = "Change to \r\nDefense AIGR";
+            this.AIGRNameButton.UseVisualStyleBackColor = false;
+            this.AIGRNameButton.Click += new System.EventHandler(this.AIGRNameButton_Click);
+            // 
+            // savePBDataButton
+            // 
+            this.savePBDataButton.BackColor = System.Drawing.Color.Crimson;
+            this.savePBDataButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.savePBDataButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.savePBDataButton.Location = new System.Drawing.Point(979, 318);
+            this.savePBDataButton.Name = "savePBDataButton";
+            this.savePBDataButton.Size = new System.Drawing.Size(113, 64);
+            this.savePBDataButton.TabIndex = 2;
+            this.savePBDataButton.Text = "Update Database";
+            this.savePBDataButton.UseVisualStyleBackColor = false;
+            this.savePBDataButton.Click += new System.EventHandler(this.savePBDataButton_Click);
+            // 
+            // ExportPBData
+            // 
+            this.ExportPBData.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.ExportPBData.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ExportPBData.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.ExportPBData.Location = new System.Drawing.Point(979, 123);
+            this.ExportPBData.Name = "ExportPBData";
+            this.ExportPBData.Size = new System.Drawing.Size(113, 64);
+            this.ExportPBData.TabIndex = 1;
+            this.ExportPBData.Text = "Export to CSV";
+            this.ExportPBData.UseVisualStyleBackColor = false;
+            this.ExportPBData.Click += new System.EventHandler(this.ExportPBData_Click);
+            // 
+            // PlaybookGrid
+            // 
+            this.PlaybookGrid.AllowUserToAddRows = false;
+            this.PlaybookGrid.AllowUserToDeleteRows = false;
+            this.PlaybookGrid.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.PlaybookGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.PlaybookGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.LightSkyBlue;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PlaybookGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.PlaybookGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.PlaybookGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PBRec,
+            this.PBPL,
+            this.AIGRVal,
+            this.AIGRname,
+            this.prct,
+            this.PLYL,
+            this.PlayName,
+            this.PLYTVal,
+            this.PLYT});
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.PlaybookGrid.DefaultCellStyle = dataGridViewCellStyle7;
+            this.PlaybookGrid.EnableHeadersVisualStyles = false;
+            this.PlaybookGrid.Location = new System.Drawing.Point(12, 3);
+            this.PlaybookGrid.Name = "PlaybookGrid";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PlaybookGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            this.PlaybookGrid.RowHeadersVisible = false;
+            this.PlaybookGrid.Size = new System.Drawing.Size(746, 606);
+            this.PlaybookGrid.TabIndex = 0;
+            // 
+            // PBRec
+            // 
+            this.PBRec.FillWeight = 64.01138F;
+            this.PBRec.HeaderText = "RecNo";
+            this.PBRec.Name = "PBRec";
+            this.PBRec.ReadOnly = true;
+            // 
+            // PBPL
+            // 
+            this.PBPL.FillWeight = 66.49709F;
+            this.PBPL.HeaderText = "PBPL";
+            this.PBPL.Name = "PBPL";
+            this.PBPL.ReadOnly = true;
+            // 
+            // AIGRVal
+            // 
+            this.AIGRVal.FillWeight = 68.806F;
+            this.AIGRVal.HeaderText = "AIGR";
+            this.AIGRVal.Name = "AIGRVal";
+            this.AIGRVal.ReadOnly = true;
+            // 
+            // AIGRname
+            // 
+            this.AIGRname.FillWeight = 141.9014F;
+            this.AIGRname.HeaderText = "AIGR Name";
+            this.AIGRname.Name = "AIGRname";
+            this.AIGRname.ReadOnly = true;
+            // 
+            // prct
+            // 
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Info;
+            this.prct.DefaultCellStyle = dataGridViewCellStyle6;
+            this.prct.FillWeight = 81.47587F;
+            this.prct.HeaderText = "PRCT ";
+            this.prct.Name = "prct";
+            // 
+            // PLYL
+            // 
+            this.PLYL.FillWeight = 69.14011F;
+            this.PLYL.HeaderText = "PLYL";
+            this.PLYL.Name = "PLYL";
+            this.PLYL.ReadOnly = true;
+            // 
+            // PlayName
+            // 
+            this.PlayName.FillWeight = 213.7831F;
+            this.PlayName.HeaderText = "Play Name";
+            this.PlayName.Name = "PlayName";
+            this.PlayName.ReadOnly = true;
+            // 
+            // PLYTVal
+            // 
+            this.PLYTVal.FillWeight = 63.09442F;
+            this.PLYTVal.HeaderText = "PLYT";
+            this.PLYTVal.Name = "PLYTVal";
+            this.PLYTVal.ReadOnly = true;
+            // 
+            // PLYT
+            // 
+            this.PLYT.FillWeight = 131.2907F;
+            this.PLYT.HeaderText = "Type";
+            this.PLYT.Name = "PLYT";
+            this.PLYT.ReadOnly = true;
+            // 
+            // groupBox19
+            // 
+            this.groupBox19.Controls.Add(this.DefaultPlaysRadio);
+            this.groupBox19.Controls.Add(this.CustomPlaysRadio);
+            this.groupBox19.Location = new System.Drawing.Point(979, 401);
+            this.groupBox19.Name = "groupBox19";
+            this.groupBox19.Size = new System.Drawing.Size(152, 69);
+            this.groupBox19.TabIndex = 25;
+            this.groupBox19.TabStop = false;
+            this.groupBox19.Text = "Play Names";
+            // 
+            // DefaultPlaysRadio
+            // 
+            this.DefaultPlaysRadio.AutoSize = true;
+            this.DefaultPlaysRadio.Checked = true;
+            this.DefaultPlaysRadio.Location = new System.Drawing.Point(5, 19);
+            this.DefaultPlaysRadio.Name = "DefaultPlaysRadio";
+            this.DefaultPlaysRadio.Size = new System.Drawing.Size(128, 17);
+            this.DefaultPlaysRadio.TabIndex = 23;
+            this.DefaultPlaysRadio.TabStop = true;
+            this.DefaultPlaysRadio.Text = "NCAA 06 Play Names";
+            this.DefaultPlaysRadio.UseVisualStyleBackColor = true;
+            this.DefaultPlaysRadio.CheckedChanged += new System.EventHandler(this.DefaultPlaysRadio_CheckedChanged);
+            // 
+            // CustomPlaysRadio
+            // 
+            this.CustomPlaysRadio.AutoSize = true;
+            this.CustomPlaysRadio.Location = new System.Drawing.Point(5, 42);
+            this.CustomPlaysRadio.Name = "CustomPlaysRadio";
+            this.CustomPlaysRadio.Size = new System.Drawing.Size(119, 17);
+            this.CustomPlaysRadio.TabIndex = 24;
+            this.CustomPlaysRadio.Text = "Custom Play Names";
+            this.CustomPlaysRadio.UseVisualStyleBackColor = true;
+            this.CustomPlaysRadio.CheckedChanged += new System.EventHandler(this.CustomPlaysRadio_CheckedChanged);
+            // 
+            // tabTools
+            // 
+            this.tabTools.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.tabTools.Controls.Add(this.ClearExpiredStats);
+            this.tabTools.Controls.Add(this.groupBox22);
+            this.tabTools.Controls.Add(this.ReRankTeams);
+            this.tabTools.Controls.Add(this.FixHCBugsButton);
+            this.tabTools.Controls.Add(this.groupBox18);
+            this.tabTools.Controls.Add(this.UniquePlayerButton);
+            this.tabTools.Controls.Add(this.FantasyCoachesButton);
+            this.tabTools.Controls.Add(this.SyncPBButton);
+            this.tabTools.Controls.Add(this.textBox3);
+            this.tabTools.Controls.Add(this.textBox2);
+            this.tabTools.Controls.Add(this.ReorderPGIDButton);
+            this.tabTools.Controls.Add(this.TORDButton);
+            this.tabTools.Controls.Add(this.RandomizeHeadButton);
+            this.tabTools.Controls.Add(this.label58);
+            this.tabTools.Controls.Add(this.FillRosterPCT);
+            this.tabTools.Controls.Add(this.buttonFillRosters);
+            this.tabTools.Controls.Add(this.buttonAutoDepthChart);
+            this.tabTools.Controls.Add(this.buttonFantasyRoster);
+            this.tabTools.Controls.Add(this.TYDNButton);
+            this.tabTools.Controls.Add(this.buttonCalcOverall);
+            this.tabTools.Controls.Add(this.buttonRandPotential);
+            this.tabTools.Controls.Add(qbTend);
+            this.tabTools.Controls.Add(this.bodyFix);
+            this.tabTools.Location = new System.Drawing.Point(4, 24);
+            this.tabTools.Name = "tabTools";
+            this.tabTools.Padding = new System.Windows.Forms.Padding(3);
+            this.tabTools.Size = new System.Drawing.Size(1152, 615);
+            this.tabTools.TabIndex = 5;
+            this.tabTools.Text = "dbTools";
+            // 
+            // ClearExpiredStats
+            // 
+            this.ClearExpiredStats.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.ClearExpiredStats.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ClearExpiredStats.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ClearExpiredStats.Location = new System.Drawing.Point(16, 421);
+            this.ClearExpiredStats.Name = "ClearExpiredStats";
+            this.ClearExpiredStats.Size = new System.Drawing.Size(110, 80);
+            this.ClearExpiredStats.TabIndex = 59;
+            this.ClearExpiredStats.Text = "Clear Expired Stats Data";
+            this.ClearExpiredStats.UseVisualStyleBackColor = false;
+            this.ClearExpiredStats.Click += new System.EventHandler(this.ClearExpiredStats_Click);
+            // 
+            // groupBox22
+            // 
+            this.groupBox22.Controls.Add(this.FantasyCSV);
+            this.groupBox22.Controls.Add(this.FantasyTeamDB);
+            this.groupBox22.Location = new System.Drawing.Point(274, 567);
+            this.groupBox22.Name = "groupBox22";
+            this.groupBox22.Size = new System.Drawing.Size(239, 45);
+            this.groupBox22.TabIndex = 58;
+            this.groupBox22.TabStop = false;
+            this.groupBox22.Text = "Team Prestige Location";
+            // 
+            // FantasyCSV
+            // 
+            this.FantasyCSV.AutoSize = true;
+            this.FantasyCSV.Location = new System.Drawing.Point(139, 19);
+            this.FantasyCSV.Name = "FantasyCSV";
+            this.FantasyCSV.Size = new System.Drawing.Size(87, 17);
+            this.FantasyCSV.TabIndex = 1;
+            this.FantasyCSV.TabStop = true;
+            this.FantasyCSV.Text = "External CSV";
+            this.FantasyCSV.UseVisualStyleBackColor = true;
+            // 
+            // FantasyTeamDB
+            // 
+            this.FantasyTeamDB.AutoSize = true;
+            this.FantasyTeamDB.Location = new System.Drawing.Point(17, 19);
+            this.FantasyTeamDB.Name = "FantasyTeamDB";
+            this.FantasyTeamDB.Size = new System.Drawing.Size(101, 17);
+            this.FantasyTeamDB.TabIndex = 0;
+            this.FantasyTeamDB.TabStop = true;
+            this.FantasyTeamDB.Text = "Team Database";
+            this.FantasyTeamDB.UseVisualStyleBackColor = true;
+            // 
+            // ReRankTeams
+            // 
+            this.ReRankTeams.AutoSize = true;
+            this.ReRankTeams.Location = new System.Drawing.Point(148, 95);
+            this.ReRankTeams.Name = "ReRankTeams";
+            this.ReRankTeams.Size = new System.Drawing.Size(104, 17);
+            this.ReRankTeams.TabIndex = 57;
+            this.ReRankTeams.Text = "Re-Rank Teams";
+            this.ReRankTeams.UseVisualStyleBackColor = true;
+            // 
+            // FixHCBugsButton
+            // 
+            this.FixHCBugsButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.FixHCBugsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FixHCBugsButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.FixHCBugsButton.Location = new System.Drawing.Point(143, 319);
+            this.FixHCBugsButton.Name = "FixHCBugsButton";
+            this.FixHCBugsButton.Size = new System.Drawing.Size(110, 80);
+            this.FixHCBugsButton.TabIndex = 56;
+            this.FixHCBugsButton.Text = "Fix Coach Head/Face Bugs";
+            this.FixHCBugsButton.UseVisualStyleBackColor = false;
+            this.FixHCBugsButton.Click += new System.EventHandler(this.FixHCBugsButton_Click);
+            // 
+            // groupBox18
+            // 
+            this.groupBox18.Controls.Add(this.MaxAttNum);
+            this.groupBox18.Controls.Add(this.GlobalAttBox);
+            this.groupBox18.Controls.Add(this.label99);
+            this.groupBox18.Controls.Add(this.GlobalAttNum);
+            this.groupBox18.Controls.Add(this.label109);
+            this.groupBox18.Controls.Add(this.GlobalAttCheck);
+            this.groupBox18.Controls.Add(this.label108);
+            this.groupBox18.Controls.Add(this.MinAttBox);
+            this.groupBox18.Controls.Add(this.label107);
+            this.groupBox18.Controls.Add(this.label100);
+            this.groupBox18.Controls.Add(this.MaxAttPosBox);
+            this.groupBox18.Controls.Add(this.MinAttNum);
+            this.groupBox18.Controls.Add(this.MinAttPosBox);
+            this.groupBox18.Controls.Add(this.MaxAttBox);
+            this.groupBox18.Controls.Add(this.GlobalAttPosBox);
+            this.groupBox18.Controls.Add(this.label106);
+            this.groupBox18.Controls.Add(this.MaxAttButton);
+            this.groupBox18.Controls.Add(this.MinAttRating);
+            this.groupBox18.Controls.Add(this.MinAttButton);
+            this.groupBox18.Controls.Add(this.MaxAttRating);
+            this.groupBox18.Controls.Add(this.GlobalAttButton);
+            this.groupBox18.Location = new System.Drawing.Point(271, 47);
+            this.groupBox18.Name = "groupBox18";
+            this.groupBox18.Size = new System.Drawing.Size(425, 345);
+            this.groupBox18.TabIndex = 55;
+            this.groupBox18.TabStop = false;
+            this.groupBox18.Text = "Global Player Editor";
+            // 
+            // MaxAttNum
+            // 
+            this.MaxAttNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaxAttNum.Location = new System.Drawing.Point(264, 278);
+            this.MaxAttNum.Maximum = new decimal(new int[] {
+            31,
+            0,
+            0,
+            0});
+            this.MaxAttNum.Name = "MaxAttNum";
+            this.MaxAttNum.Size = new System.Drawing.Size(68, 21);
+            this.MaxAttNum.TabIndex = 39;
+            this.MaxAttNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.MaxAttNum.ValueChanged += new System.EventHandler(this.MaxAttNum_ValueChanged);
+            // 
+            // GlobalAttBox
+            // 
+            this.GlobalAttBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GlobalAttBox.FormattingEnabled = true;
+            this.GlobalAttBox.Location = new System.Drawing.Point(92, 54);
+            this.GlobalAttBox.Name = "GlobalAttBox";
+            this.GlobalAttBox.Size = new System.Drawing.Size(150, 23);
+            this.GlobalAttBox.TabIndex = 29;
+            // 
+            // label99
+            // 
+            this.label99.AutoSize = true;
+            this.label99.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label99.Location = new System.Drawing.Point(88, 23);
+            this.label99.Name = "label99";
+            this.label99.Size = new System.Drawing.Size(189, 20);
+            this.label99.TabIndex = 30;
+            this.label99.Text = "Global Attribute Editor";
+            // 
+            // GlobalAttNum
+            // 
+            this.GlobalAttNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GlobalAttNum.Location = new System.Drawing.Point(264, 56);
+            this.GlobalAttNum.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.GlobalAttNum.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            -2147483648});
+            this.GlobalAttNum.Name = "GlobalAttNum";
+            this.GlobalAttNum.Size = new System.Drawing.Size(68, 21);
+            this.GlobalAttNum.TabIndex = 31;
+            this.GlobalAttNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label109
+            // 
+            this.label109.AutoSize = true;
+            this.label109.Location = new System.Drawing.Point(17, 262);
+            this.label109.Name = "label109";
+            this.label109.Size = new System.Drawing.Size(44, 13);
+            this.label109.TabIndex = 51;
+            this.label109.Text = "Position";
+            // 
+            // GlobalAttCheck
+            // 
+            this.GlobalAttCheck.AutoSize = true;
+            this.GlobalAttCheck.Location = new System.Drawing.Point(92, 86);
+            this.GlobalAttCheck.Name = "GlobalAttCheck";
+            this.GlobalAttCheck.Size = new System.Drawing.Size(137, 17);
+            this.GlobalAttCheck.TabIndex = 32;
+            this.GlobalAttCheck.Text = "Prestige Based Change";
+            this.GlobalAttCheck.UseVisualStyleBackColor = true;
+            // 
+            // label108
+            // 
+            this.label108.AutoSize = true;
+            this.label108.Location = new System.Drawing.Point(18, 153);
+            this.label108.Name = "label108";
+            this.label108.Size = new System.Drawing.Size(44, 13);
+            this.label108.TabIndex = 50;
+            this.label108.Text = "Position";
+            // 
+            // MinAttBox
+            // 
+            this.MinAttBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MinAttBox.FormattingEnabled = true;
+            this.MinAttBox.Location = new System.Drawing.Point(92, 167);
+            this.MinAttBox.Name = "MinAttBox";
+            this.MinAttBox.Size = new System.Drawing.Size(150, 23);
+            this.MinAttBox.TabIndex = 33;
+            // 
+            // label107
+            // 
+            this.label107.AutoSize = true;
+            this.label107.Location = new System.Drawing.Point(18, 38);
+            this.label107.Name = "label107";
+            this.label107.Size = new System.Drawing.Size(44, 13);
+            this.label107.TabIndex = 49;
+            this.label107.Text = "Position";
+            // 
+            // label100
+            // 
+            this.label100.AutoSize = true;
+            this.label100.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label100.Location = new System.Drawing.Point(88, 136);
+            this.label100.Name = "label100";
+            this.label100.Size = new System.Drawing.Size(187, 20);
+            this.label100.TabIndex = 34;
+            this.label100.Text = "Set Minimum Attribute";
+            // 
+            // MaxAttPosBox
+            // 
+            this.MaxAttPosBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaxAttPosBox.FormattingEnabled = true;
+            this.MaxAttPosBox.Location = new System.Drawing.Point(20, 277);
+            this.MaxAttPosBox.Name = "MaxAttPosBox";
+            this.MaxAttPosBox.Size = new System.Drawing.Size(65, 23);
+            this.MaxAttPosBox.TabIndex = 48;
+            // 
+            // MinAttNum
+            // 
+            this.MinAttNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MinAttNum.Location = new System.Drawing.Point(264, 169);
+            this.MinAttNum.Maximum = new decimal(new int[] {
+            31,
+            0,
+            0,
+            0});
+            this.MinAttNum.Name = "MinAttNum";
+            this.MinAttNum.Size = new System.Drawing.Size(68, 21);
+            this.MinAttNum.TabIndex = 35;
+            this.MinAttNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.MinAttNum.ValueChanged += new System.EventHandler(this.MinAttNum_ValueChanged);
+            // 
+            // MinAttPosBox
+            // 
+            this.MinAttPosBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MinAttPosBox.FormattingEnabled = true;
+            this.MinAttPosBox.Location = new System.Drawing.Point(21, 167);
+            this.MinAttPosBox.Name = "MinAttPosBox";
+            this.MinAttPosBox.Size = new System.Drawing.Size(65, 23);
+            this.MinAttPosBox.TabIndex = 47;
+            // 
+            // MaxAttBox
+            // 
+            this.MaxAttBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaxAttBox.FormattingEnabled = true;
+            this.MaxAttBox.Location = new System.Drawing.Point(92, 276);
+            this.MaxAttBox.Name = "MaxAttBox";
+            this.MaxAttBox.Size = new System.Drawing.Size(150, 23);
+            this.MaxAttBox.TabIndex = 37;
+            // 
+            // GlobalAttPosBox
+            // 
+            this.GlobalAttPosBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GlobalAttPosBox.FormattingEnabled = true;
+            this.GlobalAttPosBox.Location = new System.Drawing.Point(21, 54);
+            this.GlobalAttPosBox.Name = "GlobalAttPosBox";
+            this.GlobalAttPosBox.Size = new System.Drawing.Size(65, 23);
+            this.GlobalAttPosBox.TabIndex = 46;
+            // 
+            // label106
+            // 
+            this.label106.AutoSize = true;
+            this.label106.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label106.Location = new System.Drawing.Point(88, 245);
+            this.label106.Name = "label106";
+            this.label106.Size = new System.Drawing.Size(191, 20);
+            this.label106.TabIndex = 38;
+            this.label106.Text = "Set Maximum Attribute";
+            // 
+            // MaxAttButton
+            // 
+            this.MaxAttButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.MaxAttButton.Location = new System.Drawing.Point(263, 304);
+            this.MaxAttButton.Name = "MaxAttButton";
+            this.MaxAttButton.Size = new System.Drawing.Size(75, 23);
+            this.MaxAttButton.TabIndex = 45;
+            this.MaxAttButton.Text = "Update";
+            this.MaxAttButton.UseVisualStyleBackColor = false;
+            this.MaxAttButton.Click += new System.EventHandler(this.MaxAttButton_Click);
+            // 
+            // MinAttRating
+            // 
+            this.MinAttRating.BackColor = System.Drawing.SystemColors.Info;
+            this.MinAttRating.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MinAttRating.Location = new System.Drawing.Point(339, 169);
+            this.MinAttRating.Name = "MinAttRating";
+            this.MinAttRating.ReadOnly = true;
+            this.MinAttRating.Size = new System.Drawing.Size(39, 21);
+            this.MinAttRating.TabIndex = 41;
+            this.MinAttRating.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // MinAttButton
+            // 
+            this.MinAttButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.MinAttButton.Location = new System.Drawing.Point(264, 196);
+            this.MinAttButton.Name = "MinAttButton";
+            this.MinAttButton.Size = new System.Drawing.Size(75, 23);
+            this.MinAttButton.TabIndex = 44;
+            this.MinAttButton.Text = "Update";
+            this.MinAttButton.UseVisualStyleBackColor = false;
+            this.MinAttButton.Click += new System.EventHandler(this.MinAttButton_Click);
+            // 
+            // MaxAttRating
+            // 
+            this.MaxAttRating.BackColor = System.Drawing.SystemColors.Info;
+            this.MaxAttRating.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaxAttRating.Location = new System.Drawing.Point(338, 276);
+            this.MaxAttRating.Name = "MaxAttRating";
+            this.MaxAttRating.ReadOnly = true;
+            this.MaxAttRating.Size = new System.Drawing.Size(39, 21);
+            this.MaxAttRating.TabIndex = 42;
+            this.MaxAttRating.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // GlobalAttButton
+            // 
+            this.GlobalAttButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.GlobalAttButton.Location = new System.Drawing.Point(264, 82);
+            this.GlobalAttButton.Name = "GlobalAttButton";
+            this.GlobalAttButton.Size = new System.Drawing.Size(75, 23);
+            this.GlobalAttButton.TabIndex = 43;
+            this.GlobalAttButton.Text = "Update";
+            this.GlobalAttButton.UseVisualStyleBackColor = false;
+            this.GlobalAttButton.Click += new System.EventHandler(this.GlobalAttButton_Click);
+            // 
+            // UniquePlayerButton
+            // 
+            this.UniquePlayerButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.UniquePlayerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UniquePlayerButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.UniquePlayerButton.Location = new System.Drawing.Point(16, 319);
+            this.UniquePlayerButton.Name = "UniquePlayerButton";
+            this.UniquePlayerButton.Size = new System.Drawing.Size(110, 80);
+            this.UniquePlayerButton.TabIndex = 54;
+            this.UniquePlayerButton.Text = "Texture Modding: Unique Players";
+            this.UniquePlayerButton.UseVisualStyleBackColor = false;
+            this.UniquePlayerButton.Click += new System.EventHandler(this.UniquePlayer_Click);
+            // 
+            // FantasyCoachesButton
+            // 
+            this.FantasyCoachesButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.FantasyCoachesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FantasyCoachesButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.FantasyCoachesButton.Location = new System.Drawing.Point(274, 402);
+            this.FantasyCoachesButton.Name = "FantasyCoachesButton";
+            this.FantasyCoachesButton.Size = new System.Drawing.Size(239, 80);
+            this.FantasyCoachesButton.TabIndex = 53;
+            this.FantasyCoachesButton.Text = "Generate Fantasy Coaches";
+            this.FantasyCoachesButton.UseVisualStyleBackColor = false;
+            this.FantasyCoachesButton.Click += new System.EventHandler(this.FantasyCoachesButton_Click);
+            // 
+            // SyncPBButton
+            // 
+            this.SyncPBButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.SyncPBButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SyncPBButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.SyncPBButton.Location = new System.Drawing.Point(143, 519);
+            this.SyncPBButton.Name = "SyncPBButton";
+            this.SyncPBButton.Size = new System.Drawing.Size(110, 80);
+            this.SyncPBButton.TabIndex = 52;
+            this.SyncPBButton.Text = "Sync Team and Coach Playbooks";
+            this.SyncPBButton.UseVisualStyleBackColor = false;
+            this.SyncPBButton.Click += new System.EventHandler(this.SyncPBButton_Click);
+            // 
+            // textBox3
+            // 
+            this.textBox3.BackColor = System.Drawing.SystemColors.Info;
+            this.textBox3.Enabled = false;
+            this.textBox3.Font = new System.Drawing.Font("Corbel", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox3.Location = new System.Drawing.Point(282, 8);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(355, 33);
+            this.textBox3.TabIndex = 14;
+            this.textBox3.Text = "NCAA Football Modding Toolkit";
+            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox2
+            // 
+            this.textBox2.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.textBox2.Enabled = false;
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(723, 36);
+            this.textBox2.Multiline = true;
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(395, 573);
+            this.textBox2.TabIndex = 13;
+            this.textBox2.Text = resources.GetString("textBox2.Text");
+            // 
+            // ReorderPGIDButton
+            // 
+            this.ReorderPGIDButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.ReorderPGIDButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ReorderPGIDButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ReorderPGIDButton.Location = new System.Drawing.Point(16, 519);
+            this.ReorderPGIDButton.Name = "ReorderPGIDButton";
+            this.ReorderPGIDButton.Size = new System.Drawing.Size(110, 80);
+            this.ReorderPGIDButton.TabIndex = 28;
+            this.ReorderPGIDButton.Text = "Reorder PLAY Table (by PGID)";
+            this.ReorderPGIDButton.UseVisualStyleBackColor = false;
+            this.ReorderPGIDButton.Click += new System.EventHandler(this.ReorderPGIDButton_Click);
+            // 
+            // TORDButton
+            // 
+            this.TORDButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.TORDButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TORDButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.TORDButton.Location = new System.Drawing.Point(143, 421);
+            this.TORDButton.Name = "TORDButton";
+            this.TORDButton.Size = new System.Drawing.Size(110, 80);
+            this.TORDButton.TabIndex = 26;
+            this.TORDButton.Text = "Reorder Teams (Dynasty)";
+            this.TORDButton.UseVisualStyleBackColor = false;
+            this.TORDButton.Click += new System.EventHandler(this.TORDButton_Click);
+            // 
+            // RandomizeHeadButton
+            // 
+            this.RandomizeHeadButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.RandomizeHeadButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RandomizeHeadButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.RandomizeHeadButton.Location = new System.Drawing.Point(16, 211);
+            this.RandomizeHeadButton.Name = "RandomizeHeadButton";
+            this.RandomizeHeadButton.Size = new System.Drawing.Size(110, 80);
+            this.RandomizeHeadButton.TabIndex = 24;
+            this.RandomizeHeadButton.Text = "Randomize Player Head/Face";
+            this.RandomizeHeadButton.UseVisualStyleBackColor = false;
+            this.RandomizeHeadButton.Click += new System.EventHandler(this.RandomizeHeadButton_Click);
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Location = new System.Drawing.Point(545, 591);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(77, 13);
+            this.label58.TabIndex = 23;
+            this.label58.Text = "PCT Freshman";
+            // 
+            // FillRosterPCT
+            // 
+            this.FillRosterPCT.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.FillRosterPCT.Location = new System.Drawing.Point(628, 589);
+            this.FillRosterPCT.Name = "FillRosterPCT";
+            this.FillRosterPCT.Size = new System.Drawing.Size(42, 20);
+            this.FillRosterPCT.TabIndex = 22;
+            this.FillRosterPCT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.FillRosterPCT.Value = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            // 
+            // buttonFillRosters
+            // 
+            this.buttonFillRosters.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.buttonFillRosters.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonFillRosters.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonFillRosters.Location = new System.Drawing.Point(525, 488);
+            this.buttonFillRosters.Name = "buttonFillRosters";
+            this.buttonFillRosters.Size = new System.Drawing.Size(145, 80);
+            this.buttonFillRosters.TabIndex = 20;
+            this.buttonFillRosters.Text = "Fill Rosters";
+            this.buttonFillRosters.UseVisualStyleBackColor = false;
+            this.buttonFillRosters.Click += new System.EventHandler(this.buttonFillRosters_Click);
+            // 
+            // buttonAutoDepthChart
+            // 
+            this.buttonAutoDepthChart.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.buttonAutoDepthChart.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAutoDepthChart.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonAutoDepthChart.Location = new System.Drawing.Point(525, 402);
+            this.buttonAutoDepthChart.Name = "buttonAutoDepthChart";
+            this.buttonAutoDepthChart.Size = new System.Drawing.Size(145, 80);
+            this.buttonAutoDepthChart.TabIndex = 19;
+            this.buttonAutoDepthChart.Text = "Auto-Set Depth Chart";
+            this.buttonAutoDepthChart.UseVisualStyleBackColor = false;
+            this.buttonAutoDepthChart.Click += new System.EventHandler(this.buttonAutoDepthChart_Click);
+            // 
+            // buttonFantasyRoster
+            // 
+            this.buttonFantasyRoster.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.buttonFantasyRoster.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonFantasyRoster.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonFantasyRoster.Location = new System.Drawing.Point(274, 488);
+            this.buttonFantasyRoster.Name = "buttonFantasyRoster";
+            this.buttonFantasyRoster.Size = new System.Drawing.Size(239, 80);
+            this.buttonFantasyRoster.TabIndex = 18;
+            this.buttonFantasyRoster.Text = "Generate Fantasy Roster";
+            this.buttonFantasyRoster.UseVisualStyleBackColor = false;
+            this.buttonFantasyRoster.Click += new System.EventHandler(this.buttonFantasyRoster_Click);
+            // 
+            // TYDNButton
+            // 
+            this.TYDNButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.TYDNButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TYDNButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.TYDNButton.Location = new System.Drawing.Point(143, 14);
+            this.TYDNButton.Name = "TYDNButton";
+            this.TYDNButton.Size = new System.Drawing.Size(110, 80);
+            this.TYDNButton.TabIndex = 16;
+            this.TYDNButton.Text = "Recalculate Team Ratings";
+            this.TYDNButton.UseVisualStyleBackColor = false;
+            this.TYDNButton.Click += new System.EventHandler(this.TYDNButton_Click);
+            // 
+            // buttonCalcOverall
+            // 
+            this.buttonCalcOverall.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.buttonCalcOverall.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCalcOverall.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonCalcOverall.Location = new System.Drawing.Point(16, 15);
+            this.buttonCalcOverall.Name = "buttonCalcOverall";
+            this.buttonCalcOverall.Size = new System.Drawing.Size(110, 80);
+            this.buttonCalcOverall.TabIndex = 15;
+            this.buttonCalcOverall.Text = "Recalculate Player Overall";
+            this.buttonCalcOverall.UseVisualStyleBackColor = false;
+            this.buttonCalcOverall.Click += new System.EventHandler(this.buttonCalcOverall_Click);
+            // 
+            // buttonRandPotential
+            // 
+            this.buttonRandPotential.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.buttonRandPotential.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRandPotential.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonRandPotential.Location = new System.Drawing.Point(143, 211);
+            this.buttonRandPotential.Name = "buttonRandPotential";
+            this.buttonRandPotential.Size = new System.Drawing.Size(110, 80);
+            this.buttonRandPotential.TabIndex = 12;
+            this.buttonRandPotential.Text = "Randomize Player Potential";
+            this.buttonRandPotential.UseVisualStyleBackColor = false;
+            this.buttonRandPotential.Click += new System.EventHandler(this.ButtonRandPotential_Click);
+            // 
+            // bodyFix
+            // 
+            this.bodyFix.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.bodyFix.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bodyFix.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.bodyFix.Location = new System.Drawing.Point(16, 111);
+            this.bodyFix.Name = "bodyFix";
+            this.bodyFix.Size = new System.Drawing.Size(110, 80);
+            this.bodyFix.TabIndex = 9;
+            this.bodyFix.Text = "Body Size Fixer";
+            this.bodyFix.UseVisualStyleBackColor = false;
+            this.bodyFix.Click += new System.EventHandler(this.BodyFix_Click);
+            // 
+            // tabOffSeason
+            // 
+            this.tabOffSeason.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.tabOffSeason.Controls.Add(this.groupBox17);
+            this.tabOffSeason.Controls.Add(this.groupBox16);
+            this.tabOffSeason.Controls.Add(this.textBoxOffSeason);
+            this.tabOffSeason.Controls.Add(this.textBoxOffSeasonTitle);
+            this.tabOffSeason.Location = new System.Drawing.Point(4, 24);
+            this.tabOffSeason.Name = "tabOffSeason";
+            this.tabOffSeason.Padding = new System.Windows.Forms.Padding(3);
+            this.tabOffSeason.Size = new System.Drawing.Size(1152, 615);
+            this.tabOffSeason.TabIndex = 4;
+            this.tabOffSeason.Text = "Recruiting";
+            // 
+            // groupBox17
+            // 
+            this.groupBox17.Controls.Add(this.removeInterestTeams);
+            this.groupBox17.Controls.Add(this.buttonMinRecruitingPts);
+            this.groupBox17.Controls.Add(this.minRecPts);
+            this.groupBox17.Controls.Add(this.labelMinRecPts);
+            this.groupBox17.Controls.Add(this.labelIntTeams);
+            this.groupBox17.Controls.Add(this.minTRPA);
+            this.groupBox17.Controls.Add(this.label12);
+            this.groupBox17.Controls.Add(this.buttonInterestedTeams);
+            this.groupBox17.Location = new System.Drawing.Point(12, 6);
+            this.groupBox17.Name = "groupBox17";
+            this.groupBox17.Size = new System.Drawing.Size(477, 190);
+            this.groupBox17.TabIndex = 25;
+            this.groupBox17.TabStop = false;
+            this.groupBox17.Text = "Recruiting Tools";
+            // 
+            // removeInterestTeams
+            // 
+            this.removeInterestTeams.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.removeInterestTeams.Location = new System.Drawing.Point(310, 124);
+            this.removeInterestTeams.Maximum = new decimal(new int[] {
+            11,
+            0,
+            0,
+            0});
+            this.removeInterestTeams.Name = "removeInterestTeams";
+            this.removeInterestTeams.Size = new System.Drawing.Size(56, 22);
+            this.removeInterestTeams.TabIndex = 13;
+            this.removeInterestTeams.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // buttonMinRecruitingPts
+            // 
+            this.buttonMinRecruitingPts.BackColor = System.Drawing.SystemColors.Highlight;
+            this.buttonMinRecruitingPts.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonMinRecruitingPts.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonMinRecruitingPts.Location = new System.Drawing.Point(31, 34);
+            this.buttonMinRecruitingPts.Name = "buttonMinRecruitingPts";
+            this.buttonMinRecruitingPts.Size = new System.Drawing.Size(180, 80);
+            this.buttonMinRecruitingPts.TabIndex = 1;
+            this.buttonMinRecruitingPts.Text = "Raise Minimum Recruiting Points";
+            this.buttonMinRecruitingPts.UseVisualStyleBackColor = false;
+            this.buttonMinRecruitingPts.Click += new System.EventHandler(this.ButtonMinRecruitingPts_Click);
+            // 
+            // minRecPts
+            // 
+            this.minRecPts.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.minRecPts.Increment = new decimal(new int[] {
+            25,
+            0,
+            0,
+            0});
+            this.minRecPts.Location = new System.Drawing.Point(148, 120);
+            this.minRecPts.Maximum = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
+            this.minRecPts.Minimum = new decimal(new int[] {
+            128,
+            0,
+            0,
+            0});
+            this.minRecPts.Name = "minRecPts";
+            this.minRecPts.Size = new System.Drawing.Size(52, 22);
+            this.minRecPts.TabIndex = 8;
+            this.minRecPts.Value = new decimal(new int[] {
+            128,
+            0,
+            0,
+            0});
+            // 
+            // labelMinRecPts
+            // 
+            this.labelMinRecPts.AutoSize = true;
+            this.labelMinRecPts.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMinRecPts.Location = new System.Drawing.Point(131, 148);
+            this.labelMinRecPts.Name = "labelMinRecPts";
+            this.labelMinRecPts.Size = new System.Drawing.Size(78, 16);
+            this.labelMinRecPts.TabIndex = 9;
+            this.labelMinRecPts.Text = "Min Points";
+            this.labelMinRecPts.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // labelIntTeams
+            // 
+            this.labelIntTeams.AutoSize = true;
+            this.labelIntTeams.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelIntTeams.Location = new System.Drawing.Point(249, 126);
+            this.labelIntTeams.Name = "labelIntTeams";
+            this.labelIntTeams.Size = new System.Drawing.Size(55, 16);
+            this.labelIntTeams.TabIndex = 14;
+            this.labelIntTeams.Text = "Teams";
+            this.labelIntTeams.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // minTRPA
+            // 
+            this.minTRPA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.minTRPA.Location = new System.Drawing.Point(43, 120);
+            this.minTRPA.Maximum = new decimal(new int[] {
+            17,
+            0,
+            0,
+            0});
+            this.minTRPA.Minimum = new decimal(new int[] {
+            4,
+            0,
+            0,
+            0});
+            this.minTRPA.Name = "minTRPA";
+            this.minTRPA.Size = new System.Drawing.Size(52, 22);
+            this.minTRPA.TabIndex = 10;
+            this.minTRPA.Value = new decimal(new int[] {
+            4,
+            0,
+            0,
+            0});
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(28, 145);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(76, 16);
+            this.label12.TabIndex = 11;
+            this.label12.Text = "Min TRPA";
+            // 
+            // buttonInterestedTeams
+            // 
+            this.buttonInterestedTeams.BackColor = System.Drawing.SystemColors.Highlight;
+            this.buttonInterestedTeams.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonInterestedTeams.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonInterestedTeams.Location = new System.Drawing.Point(252, 34);
+            this.buttonInterestedTeams.Name = "buttonInterestedTeams";
+            this.buttonInterestedTeams.Size = new System.Drawing.Size(180, 80);
+            this.buttonInterestedTeams.TabIndex = 12;
+            this.buttonInterestedTeams.Text = "Modify Recruiting Interested Teams";
+            this.buttonInterestedTeams.UseVisualStyleBackColor = false;
+            this.buttonInterestedTeams.Click += new System.EventHandler(this.ButtonInterestedTeams_Click);
+            // 
+            // groupBox16
+            // 
+            this.groupBox16.Controls.Add(this.RecalculateStarRankingsButton);
+            this.groupBox16.Controls.Add(this.DetermineAthleteButton);
+            this.groupBox16.Controls.Add(this.buttonRandWalkOns);
+            this.groupBox16.Controls.Add(this.buttonRandRecruits);
+            this.groupBox16.Controls.Add(this.RandomizeRecruitNamesButton);
+            this.groupBox16.Controls.Add(this.toleranceWalkOn);
+            this.groupBox16.Controls.Add(this.buttonRandomizeFaceShape);
+            this.groupBox16.Controls.Add(this.wkonLabel);
+            this.groupBox16.Controls.Add(this.polyNames);
+            this.groupBox16.Controls.Add(this.recruitTolerance);
+            this.groupBox16.Controls.Add(this.labelRecruit);
+            this.groupBox16.Location = new System.Drawing.Point(12, 202);
+            this.groupBox16.Name = "groupBox16";
+            this.groupBox16.Size = new System.Drawing.Size(477, 404);
+            this.groupBox16.TabIndex = 24;
+            this.groupBox16.TabStop = false;
+            this.groupBox16.Text = "Recruiting Pool";
+            // 
+            // RecalculateStarRankingsButton
+            // 
+            this.RecalculateStarRankingsButton.BackColor = System.Drawing.SystemColors.Highlight;
+            this.RecalculateStarRankingsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RecalculateStarRankingsButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.RecalculateStarRankingsButton.Location = new System.Drawing.Point(27, 308);
+            this.RecalculateStarRankingsButton.Name = "RecalculateStarRankingsButton";
+            this.RecalculateStarRankingsButton.Size = new System.Drawing.Size(356, 80);
+            this.RecalculateStarRankingsButton.TabIndex = 22;
+            this.RecalculateStarRankingsButton.Text = "Recalculate Recruit and Transfers Star Ranking";
+            this.RecalculateStarRankingsButton.UseVisualStyleBackColor = false;
+            this.RecalculateStarRankingsButton.Click += new System.EventHandler(this.RecalculateStarRankingsButton_Click);
+            // 
+            // DetermineAthleteButton
+            // 
+            this.DetermineAthleteButton.BackColor = System.Drawing.SystemColors.Highlight;
+            this.DetermineAthleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DetermineAthleteButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.DetermineAthleteButton.Location = new System.Drawing.Point(26, 217);
+            this.DetermineAthleteButton.Name = "DetermineAthleteButton";
+            this.DetermineAthleteButton.Size = new System.Drawing.Size(357, 80);
+            this.DetermineAthleteButton.TabIndex = 23;
+            this.DetermineAthleteButton.Text = "Determine Athlete Best Position";
+            this.DetermineAthleteButton.UseVisualStyleBackColor = false;
+            this.DetermineAthleteButton.Click += new System.EventHandler(this.DetermineAthleteButton_Click);
+            // 
+            // buttonRandWalkOns
+            // 
+            this.buttonRandWalkOns.BackColor = System.Drawing.SystemColors.Highlight;
+            this.buttonRandWalkOns.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRandWalkOns.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonRandWalkOns.Location = new System.Drawing.Point(273, 23);
+            this.buttonRandWalkOns.Name = "buttonRandWalkOns";
+            this.buttonRandWalkOns.Size = new System.Drawing.Size(110, 80);
+            this.buttonRandWalkOns.TabIndex = 2;
+            this.buttonRandWalkOns.Text = "Randomize Walk-Ons";
+            this.buttonRandWalkOns.UseVisualStyleBackColor = false;
+            this.buttonRandWalkOns.Click += new System.EventHandler(this.ButtonRandWalkOns_Click);
+            // 
+            // buttonRandRecruits
+            // 
+            this.buttonRandRecruits.BackColor = System.Drawing.SystemColors.Highlight;
+            this.buttonRandRecruits.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRandRecruits.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonRandRecruits.Location = new System.Drawing.Point(26, 23);
+            this.buttonRandRecruits.Name = "buttonRandRecruits";
+            this.buttonRandRecruits.Size = new System.Drawing.Size(110, 80);
+            this.buttonRandRecruits.TabIndex = 3;
+            this.buttonRandRecruits.Text = "Randomize Recruits";
+            this.buttonRandRecruits.UseVisualStyleBackColor = false;
+            this.buttonRandRecruits.Click += new System.EventHandler(this.ButtonRandRecruits_Click);
+            // 
+            // RandomizeRecruitNamesButton
+            // 
+            this.RandomizeRecruitNamesButton.BackColor = System.Drawing.SystemColors.Highlight;
+            this.RandomizeRecruitNamesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RandomizeRecruitNamesButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.RandomizeRecruitNamesButton.Location = new System.Drawing.Point(148, 118);
+            this.RandomizeRecruitNamesButton.Name = "RandomizeRecruitNamesButton";
+            this.RandomizeRecruitNamesButton.Size = new System.Drawing.Size(110, 80);
+            this.RandomizeRecruitNamesButton.TabIndex = 21;
+            this.RandomizeRecruitNamesButton.Text = "Randomize Recruits Names";
+            this.RandomizeRecruitNamesButton.UseVisualStyleBackColor = false;
+            this.RandomizeRecruitNamesButton.Click += new System.EventHandler(this.RandomizeRecruitNamesButton_Click);
+            // 
+            // toleranceWalkOn
+            // 
+            this.toleranceWalkOn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.toleranceWalkOn.Location = new System.Drawing.Point(404, 49);
+            this.toleranceWalkOn.Maximum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.toleranceWalkOn.Name = "toleranceWalkOn";
+            this.toleranceWalkOn.Size = new System.Drawing.Size(52, 22);
+            this.toleranceWalkOn.TabIndex = 4;
+            this.toleranceWalkOn.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            // 
+            // buttonRandomizeFaceShape
+            // 
+            this.buttonRandomizeFaceShape.BackColor = System.Drawing.SystemColors.Highlight;
+            this.buttonRandomizeFaceShape.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRandomizeFaceShape.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.buttonRandomizeFaceShape.Location = new System.Drawing.Point(26, 118);
+            this.buttonRandomizeFaceShape.Name = "buttonRandomizeFaceShape";
+            this.buttonRandomizeFaceShape.Size = new System.Drawing.Size(110, 80);
+            this.buttonRandomizeFaceShape.TabIndex = 20;
+            this.buttonRandomizeFaceShape.Text = "Randomize Recruits Face/Skin";
+            this.buttonRandomizeFaceShape.UseVisualStyleBackColor = false;
+            this.buttonRandomizeFaceShape.Click += new System.EventHandler(this.buttonRandomizeFaceSkin_Click);
+            // 
+            // wkonLabel
+            // 
+            this.wkonLabel.AutoSize = true;
+            this.wkonLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.wkonLabel.Location = new System.Drawing.Point(390, 74);
+            this.wkonLabel.Name = "wkonLabel";
+            this.wkonLabel.Size = new System.Drawing.Size(78, 16);
+            this.wkonLabel.TabIndex = 5;
+            this.wkonLabel.Text = "Tolerance";
+            this.wkonLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // polyNames
+            // 
+            this.polyNames.BackColor = System.Drawing.SystemColors.Highlight;
+            this.polyNames.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.polyNames.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.polyNames.Location = new System.Drawing.Point(273, 118);
+            this.polyNames.Name = "polyNames";
+            this.polyNames.Size = new System.Drawing.Size(110, 82);
+            this.polyNames.TabIndex = 17;
+            this.polyNames.Text = "Polynesian Player/Name Generator";
+            this.polyNames.UseVisualStyleBackColor = false;
+            this.polyNames.Click += new System.EventHandler(this.PolyNames_Click);
+            // 
+            // recruitTolerance
+            // 
+            this.recruitTolerance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.recruitTolerance.Location = new System.Drawing.Point(157, 49);
+            this.recruitTolerance.Maximum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.recruitTolerance.Name = "recruitTolerance";
+            this.recruitTolerance.Size = new System.Drawing.Size(52, 22);
+            this.recruitTolerance.TabIndex = 6;
+            this.recruitTolerance.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            // 
+            // labelRecruit
+            // 
+            this.labelRecruit.AutoSize = true;
+            this.labelRecruit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRecruit.Location = new System.Drawing.Point(143, 74);
+            this.labelRecruit.Name = "labelRecruit";
+            this.labelRecruit.Size = new System.Drawing.Size(78, 16);
+            this.labelRecruit.TabIndex = 7;
+            this.labelRecruit.Text = "Tolerance";
+            this.labelRecruit.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // textBoxOffSeason
+            // 
+            this.textBoxOffSeason.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.textBoxOffSeason.Enabled = false;
+            this.textBoxOffSeason.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxOffSeason.Location = new System.Drawing.Point(511, 40);
+            this.textBoxOffSeason.Multiline = true;
+            this.textBoxOffSeason.Name = "textBoxOffSeason";
+            this.textBoxOffSeason.Size = new System.Drawing.Size(615, 569);
+            this.textBoxOffSeason.TabIndex = 16;
+            this.textBoxOffSeason.Text = resources.GetString("textBoxOffSeason.Text");
+            // 
+            // textBoxOffSeasonTitle
+            // 
+            this.textBoxOffSeasonTitle.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.textBoxOffSeasonTitle.Enabled = false;
+            this.textBoxOffSeasonTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxOffSeasonTitle.Location = new System.Drawing.Point(511, 6);
+            this.textBoxOffSeasonTitle.Name = "textBoxOffSeasonTitle";
+            this.textBoxOffSeasonTitle.Size = new System.Drawing.Size(615, 31);
+            this.textBoxOffSeasonTitle.TabIndex = 15;
+            this.textBoxOffSeasonTitle.Text = "Off-Season Recruiting Tools";
+            this.textBoxOffSeasonTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // tabRecruits
             // 
             this.tabRecruits.BackColor = System.Drawing.SystemColors.ActiveCaption;
@@ -2385,37 +3760,14 @@ namespace DB_EDITOR
             this.RecruitDataGrid.AllowUserToAddRows = false;
             this.RecruitDataGrid.AllowUserToDeleteRows = false;
             this.RecruitDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RecruitDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.RecruitDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.RecruitDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.RCNo,
             this.RCTeam,
             this.RCTScore});
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.RecruitDataGrid.DefaultCellStyle = dataGridViewCellStyle10;
             this.RecruitDataGrid.Location = new System.Drawing.Point(749, 107);
             this.RecruitDataGrid.Name = "RecruitDataGrid";
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.RecruitDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            this.RecruitDataGrid.RowHeadersVisible = false;
             this.RecruitDataGrid.Size = new System.Drawing.Size(294, 249);
             this.RecruitDataGrid.TabIndex = 166;
             // 
@@ -3584,586 +4936,911 @@ namespace DB_EDITOR
             this.label166.TabIndex = 104;
             this.label166.Text = "First Name";
             // 
-            // tabDepthCharts
+            // tabStats
             // 
-            this.tabDepthCharts.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.tabDepthCharts.Controls.Add(this.DCHTAutoSet);
-            this.tabDepthCharts.Controls.Add(this.DCHTClear);
-            this.tabDepthCharts.Controls.Add(this.UpdateDCHT);
-            this.tabDepthCharts.Controls.Add(this.DCHTTeam);
-            this.tabDepthCharts.Controls.Add(this.label152);
-            this.tabDepthCharts.Controls.Add(this.DCHTGrid);
-            this.tabDepthCharts.Location = new System.Drawing.Point(4, 24);
-            this.tabDepthCharts.Name = "tabDepthCharts";
-            this.tabDepthCharts.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDepthCharts.Size = new System.Drawing.Size(1152, 615);
-            this.tabDepthCharts.TabIndex = 11;
-            this.tabDepthCharts.Text = "Depth Charts";
+            this.tabStats.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.tabStats.Controls.Add(this.groupBox26);
+            this.tabStats.Controls.Add(this.groupBox25);
+            this.tabStats.Controls.Add(this.groupBox24);
+            this.tabStats.Location = new System.Drawing.Point(4, 24);
+            this.tabStats.Name = "tabStats";
+            this.tabStats.Padding = new System.Windows.Forms.Padding(3);
+            this.tabStats.Size = new System.Drawing.Size(1152, 615);
+            this.tabStats.TabIndex = 15;
+            this.tabStats.Text = "Stats";
             // 
-            // DCHTAutoSet
+            // groupBox26
             // 
-            this.DCHTAutoSet.BackColor = System.Drawing.Color.Gold;
-            this.DCHTAutoSet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DCHTAutoSet.Location = new System.Drawing.Point(15, 267);
-            this.DCHTAutoSet.Name = "DCHTAutoSet";
-            this.DCHTAutoSet.Size = new System.Drawing.Size(138, 43);
-            this.DCHTAutoSet.TabIndex = 5;
-            this.DCHTAutoSet.Text = "Auto Set\r\nDepth Chart";
-            this.DCHTAutoSet.UseVisualStyleBackColor = false;
-            this.DCHTAutoSet.Click += new System.EventHandler(this.DCHTAutoSet_Click);
+            this.groupBox26.Controls.Add(this.label221);
+            this.groupBox26.Controls.Add(this.SacksLeadersBox);
+            this.groupBox26.Controls.Add(this.IntLeadersBox);
+            this.groupBox26.Controls.Add(this.label223);
+            this.groupBox26.Controls.Add(this.label222);
+            this.groupBox26.Controls.Add(this.TacklesLeadersBox);
+            this.groupBox26.Location = new System.Drawing.Point(832, 24);
+            this.groupBox26.Name = "groupBox26";
+            this.groupBox26.Size = new System.Drawing.Size(280, 572);
+            this.groupBox26.TabIndex = 2;
+            this.groupBox26.TabStop = false;
+            this.groupBox26.Text = "Defense Leaders";
             // 
-            // DCHTClear
+            // label221
             // 
-            this.DCHTClear.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.DCHTClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DCHTClear.Location = new System.Drawing.Point(15, 192);
-            this.DCHTClear.Name = "DCHTClear";
-            this.DCHTClear.Size = new System.Drawing.Size(138, 43);
-            this.DCHTClear.TabIndex = 4;
-            this.DCHTClear.Text = "Reset Table";
-            this.DCHTClear.UseVisualStyleBackColor = false;
-            this.DCHTClear.Click += new System.EventHandler(this.DCHTClear_Click);
+            this.label221.AutoSize = true;
+            this.label221.Location = new System.Drawing.Point(194, 377);
+            this.label221.Name = "label221";
+            this.label221.Size = new System.Drawing.Size(68, 13);
+            this.label221.TabIndex = 19;
+            this.label221.Text = "Interceptions";
             // 
-            // UpdateDCHT
+            // SacksLeadersBox
             // 
-            this.UpdateDCHT.BackColor = System.Drawing.Color.IndianRed;
-            this.UpdateDCHT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UpdateDCHT.Location = new System.Drawing.Point(15, 117);
-            this.UpdateDCHT.Name = "UpdateDCHT";
-            this.UpdateDCHT.Size = new System.Drawing.Size(138, 43);
-            this.UpdateDCHT.TabIndex = 3;
-            this.UpdateDCHT.Text = "Update Database";
-            this.UpdateDCHT.UseVisualStyleBackColor = false;
-            this.UpdateDCHT.Click += new System.EventHandler(this.UpdateDCHT_Click);
+            this.SacksLeadersBox.FormattingEnabled = true;
+            this.SacksLeadersBox.Location = new System.Drawing.Point(19, 29);
+            this.SacksLeadersBox.Name = "SacksLeadersBox";
+            this.SacksLeadersBox.Size = new System.Drawing.Size(243, 160);
+            this.SacksLeadersBox.TabIndex = 14;
             // 
-            // DCHTTeam
+            // IntLeadersBox
             // 
-            this.DCHTTeam.FormattingEnabled = true;
-            this.DCHTTeam.Location = new System.Drawing.Point(15, 63);
-            this.DCHTTeam.Name = "DCHTTeam";
-            this.DCHTTeam.Size = new System.Drawing.Size(138, 21);
-            this.DCHTTeam.TabIndex = 2;
-            this.DCHTTeam.SelectedIndexChanged += new System.EventHandler(this.DCHTTeam_SelectedIndexChanged);
+            this.IntLeadersBox.FormattingEnabled = true;
+            this.IntLeadersBox.Location = new System.Drawing.Point(20, 393);
+            this.IntLeadersBox.Name = "IntLeadersBox";
+            this.IntLeadersBox.Size = new System.Drawing.Size(243, 160);
+            this.IntLeadersBox.TabIndex = 18;
             // 
-            // label152
+            // label223
             // 
-            this.label152.AutoSize = true;
-            this.label152.Location = new System.Drawing.Point(12, 46);
-            this.label152.Name = "label152";
-            this.label152.Size = new System.Drawing.Size(67, 13);
-            this.label152.TabIndex = 1;
-            this.label152.Text = "Select Team";
+            this.label223.AutoSize = true;
+            this.label223.Location = new System.Drawing.Point(225, 13);
+            this.label223.Name = "label223";
+            this.label223.Size = new System.Drawing.Size(37, 13);
+            this.label223.TabIndex = 15;
+            this.label223.Text = "Sacks";
             // 
-            // DCHTGrid
+            // label222
             // 
-            this.DCHTGrid.AllowUserToAddRows = false;
-            this.DCHTGrid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DCHTGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle12;
-            this.DCHTGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.DCHTGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
-            this.DCHTGrid.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DCHTGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
-            this.DCHTGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DCHTGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.DCHTPPOS,
-            this.DCHT0,
-            this.DCHT1,
-            this.DCHT2,
-            this.DCHT3,
-            this.DCHT4,
-            this.DCHT5});
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DCHTGrid.DefaultCellStyle = dataGridViewCellStyle14;
-            this.DCHTGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
-            this.DCHTGrid.Location = new System.Drawing.Point(159, 6);
-            this.DCHTGrid.MultiSelect = false;
-            this.DCHTGrid.Name = "DCHTGrid";
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DCHTGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
-            this.DCHTGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.DCHTGrid.Size = new System.Drawing.Size(974, 585);
-            this.DCHTGrid.TabIndex = 0;
-            this.DCHTGrid.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DCHT_CellEnter);
-            this.DCHTGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.DCHTGrid_DataError);
+            this.label222.AutoSize = true;
+            this.label222.Location = new System.Drawing.Point(217, 198);
+            this.label222.Name = "label222";
+            this.label222.Size = new System.Drawing.Size(45, 13);
+            this.label222.TabIndex = 17;
+            this.label222.Text = "Tackles";
             // 
-            // DCHTPPOS
+            // TacklesLeadersBox
             // 
-            this.DCHTPPOS.FillWeight = 30F;
-            this.DCHTPPOS.HeaderText = "Position";
-            this.DCHTPPOS.Name = "DCHTPPOS";
-            this.DCHTPPOS.ReadOnly = true;
+            this.TacklesLeadersBox.FormattingEnabled = true;
+            this.TacklesLeadersBox.Location = new System.Drawing.Point(22, 214);
+            this.TacklesLeadersBox.Name = "TacklesLeadersBox";
+            this.TacklesLeadersBox.Size = new System.Drawing.Size(243, 160);
+            this.TacklesLeadersBox.TabIndex = 16;
             // 
-            // DCHT0
+            // groupBox25
             // 
-            this.DCHT0.FillWeight = 67.44775F;
-            this.DCHT0.HeaderText = "Starter";
-            this.DCHT0.Name = "DCHT0";
+            this.groupBox25.Controls.Add(this.label220);
+            this.groupBox25.Controls.Add(this.ReceivingLeadersBox);
+            this.groupBox25.Controls.Add(this.label219);
+            this.groupBox25.Controls.Add(this.RushingLeadersBox);
+            this.groupBox25.Controls.Add(this.label218);
+            this.groupBox25.Controls.Add(this.PassingLeadersBox);
+            this.groupBox25.Location = new System.Drawing.Point(513, 24);
+            this.groupBox25.Name = "groupBox25";
+            this.groupBox25.Size = new System.Drawing.Size(280, 572);
+            this.groupBox25.TabIndex = 1;
+            this.groupBox25.TabStop = false;
+            this.groupBox25.Text = "Offense Leaders";
             // 
-            // DCHT1
+            // label220
             // 
-            this.DCHT1.FillWeight = 67.44775F;
-            this.DCHT1.HeaderText = "Backup";
-            this.DCHT1.Name = "DCHT1";
-            this.DCHT1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.DCHT1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.label220.AutoSize = true;
+            this.label220.Location = new System.Drawing.Point(175, 377);
+            this.label220.Name = "label220";
+            this.label220.Size = new System.Drawing.Size(85, 13);
+            this.label220.TabIndex = 13;
+            this.label220.Text = "Receiving Yards";
             // 
-            // DCHT2
+            // ReceivingLeadersBox
             // 
-            this.DCHT2.FillWeight = 67.44775F;
-            this.DCHT2.HeaderText = "3rd String";
-            this.DCHT2.Name = "DCHT2";
+            this.ReceivingLeadersBox.FormattingEnabled = true;
+            this.ReceivingLeadersBox.Location = new System.Drawing.Point(17, 393);
+            this.ReceivingLeadersBox.Name = "ReceivingLeadersBox";
+            this.ReceivingLeadersBox.Size = new System.Drawing.Size(243, 160);
+            this.ReceivingLeadersBox.TabIndex = 12;
             // 
-            // DCHT3
+            // label219
             // 
-            this.DCHT3.FillWeight = 67.44775F;
-            this.DCHT3.HeaderText = "4th String";
-            this.DCHT3.Name = "DCHT3";
+            this.label219.AutoSize = true;
+            this.label219.Location = new System.Drawing.Point(187, 198);
+            this.label219.Name = "label219";
+            this.label219.Size = new System.Drawing.Size(76, 13);
+            this.label219.TabIndex = 11;
+            this.label219.Text = "Rushing Yards";
             // 
-            // DCHT4
+            // RushingLeadersBox
             // 
-            this.DCHT4.FillWeight = 67.44775F;
-            this.DCHT4.HeaderText = "5th String";
-            this.DCHT4.Name = "DCHT4";
+            this.RushingLeadersBox.FormattingEnabled = true;
+            this.RushingLeadersBox.Location = new System.Drawing.Point(19, 214);
+            this.RushingLeadersBox.Name = "RushingLeadersBox";
+            this.RushingLeadersBox.Size = new System.Drawing.Size(243, 160);
+            this.RushingLeadersBox.TabIndex = 10;
             // 
-            // DCHT5
+            // label218
             // 
-            this.DCHT5.FillWeight = 67.44775F;
-            this.DCHT5.HeaderText = "6th String";
-            this.DCHT5.Name = "DCHT5";
+            this.label218.AutoSize = true;
+            this.label218.Location = new System.Drawing.Point(185, 13);
+            this.label218.Name = "label218";
+            this.label218.Size = new System.Drawing.Size(74, 13);
+            this.label218.TabIndex = 9;
+            this.label218.Text = "Passing Yards";
             // 
-            // tabPlaybook
+            // PassingLeadersBox
             // 
-            this.tabPlaybook.Controls.Add(this.textBox24);
-            this.tabPlaybook.Controls.Add(this.PlayNameRatio);
-            this.tabPlaybook.Controls.Add(this.SetPlayNameValueButton);
-            this.tabPlaybook.Controls.Add(this.label114);
-            this.tabPlaybook.Controls.Add(this.label115);
-            this.tabPlaybook.Controls.Add(this.PlayNameBox);
-            this.tabPlaybook.Controls.Add(this.PlayNameValue);
-            this.tabPlaybook.Controls.Add(this.ProjTypeRatio);
-            this.tabPlaybook.Controls.Add(this.ProjPassRatio);
-            this.tabPlaybook.Controls.Add(this.RunCounter);
-            this.tabPlaybook.Controls.Add(this.PassCounter);
-            this.tabPlaybook.Controls.Add(this.ImportPlaybookCSV);
-            this.tabPlaybook.Controls.Add(this.pcrtValueButton);
-            this.tabPlaybook.Controls.Add(this.label112);
-            this.tabPlaybook.Controls.Add(this.label111);
-            this.tabPlaybook.Controls.Add(this.PlayTypeBox);
-            this.tabPlaybook.Controls.Add(this.pcrtNumBox);
-            this.tabPlaybook.Controls.Add(this.label110);
-            this.tabPlaybook.Controls.Add(this.aigrFilterBox);
-            this.tabPlaybook.Controls.Add(this.AIGRNameButton);
-            this.tabPlaybook.Controls.Add(this.savePBDataButton);
-            this.tabPlaybook.Controls.Add(this.ExportPBData);
-            this.tabPlaybook.Controls.Add(this.PlaybookGrid);
-            this.tabPlaybook.Controls.Add(this.groupBox19);
-            this.tabPlaybook.Location = new System.Drawing.Point(4, 24);
-            this.tabPlaybook.Name = "tabPlaybook";
-            this.tabPlaybook.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPlaybook.Size = new System.Drawing.Size(1152, 615);
-            this.tabPlaybook.TabIndex = 10;
-            this.tabPlaybook.Text = "Playbook";
-            this.tabPlaybook.UseVisualStyleBackColor = true;
+            this.PassingLeadersBox.FormattingEnabled = true;
+            this.PassingLeadersBox.Location = new System.Drawing.Point(16, 29);
+            this.PassingLeadersBox.Name = "PassingLeadersBox";
+            this.PassingLeadersBox.Size = new System.Drawing.Size(243, 160);
+            this.PassingLeadersBox.TabIndex = 8;
             // 
-            // textBox24
+            // groupBox24
             // 
-            this.textBox24.Location = new System.Drawing.Point(820, 493);
-            this.textBox24.Multiline = true;
-            this.textBox24.Name = "textBox24";
-            this.textBox24.ReadOnly = true;
-            this.textBox24.Size = new System.Drawing.Size(311, 60);
-            this.textBox24.TabIndex = 22;
-            this.textBox24.Text = "Custom Playbook Names can be exported from the PLYL table from your custom Master" +
-    " Playbook and placed in the \"resources\\playbooks\" folder under the filename PLYL" +
-    "-Custom.csv";
+            this.groupBox24.Controls.Add(this.label217);
+            this.groupBox24.Controls.Add(this.label216);
+            this.groupBox24.Controls.Add(this.label215);
+            this.groupBox24.Controls.Add(this.label214);
+            this.groupBox24.Controls.Add(this.TopTeamDefBox);
+            this.groupBox24.Controls.Add(this.TopTeamOffBox);
+            this.groupBox24.Controls.Add(this.TopTeamRatingsBox);
+            this.groupBox24.Controls.Add(this.CoachPollListBox);
+            this.groupBox24.Location = new System.Drawing.Point(29, 24);
+            this.groupBox24.Name = "groupBox24";
+            this.groupBox24.Size = new System.Drawing.Size(423, 572);
+            this.groupBox24.TabIndex = 0;
+            this.groupBox24.TabStop = false;
+            this.groupBox24.Text = "Rankings";
             // 
-            // PlayNameRatio
+            // label217
             // 
-            this.PlayNameRatio.AutoSize = true;
-            this.PlayNameRatio.Location = new System.Drawing.Point(814, 414);
-            this.PlayNameRatio.Name = "PlayNameRatio";
-            this.PlayNameRatio.Size = new System.Drawing.Size(76, 13);
-            this.PlayNameRatio.TabIndex = 21;
-            this.PlayNameRatio.Text = "Proj Play Ratio";
-            this.PlayNameRatio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label217.AutoSize = true;
+            this.label217.Location = new System.Drawing.Point(339, 378);
+            this.label217.Name = "label217";
+            this.label217.Size = new System.Drawing.Size(74, 13);
+            this.label217.TabIndex = 7;
+            this.label217.Text = "Total Defense";
             // 
-            // SetPlayNameValueButton
+            // label216
             // 
-            this.SetPlayNameValueButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.SetPlayNameValueButton.Location = new System.Drawing.Point(817, 435);
-            this.SetPlayNameValueButton.Name = "SetPlayNameValueButton";
-            this.SetPlayNameValueButton.Size = new System.Drawing.Size(129, 35);
-            this.SetPlayNameValueButton.TabIndex = 20;
-            this.SetPlayNameValueButton.Text = "Set Value";
-            this.SetPlayNameValueButton.UseVisualStyleBackColor = false;
-            this.SetPlayNameValueButton.Click += new System.EventHandler(this.SetPlayNameValueButton_Click);
+            this.label216.AutoSize = true;
+            this.label216.Location = new System.Drawing.Point(131, 378);
+            this.label216.Name = "label216";
+            this.label216.Size = new System.Drawing.Size(71, 13);
+            this.label216.TabIndex = 6;
+            this.label216.Text = "Total Offense";
             // 
-            // label114
+            // label215
             // 
-            this.label114.AutoSize = true;
-            this.label114.Location = new System.Drawing.Point(817, 335);
-            this.label114.Name = "label114";
-            this.label114.Size = new System.Drawing.Size(58, 13);
-            this.label114.TabIndex = 19;
-            this.label114.Text = "Play Name";
+            this.label215.AutoSize = true;
+            this.label215.Location = new System.Drawing.Point(339, 13);
+            this.label215.Name = "label215";
+            this.label215.Size = new System.Drawing.Size(74, 13);
+            this.label215.TabIndex = 5;
+            this.label215.Text = "Overall Rating";
             // 
-            // label115
+            // label214
             // 
-            this.label115.AutoSize = true;
-            this.label115.Location = new System.Drawing.Point(814, 388);
-            this.label115.Name = "label115";
-            this.label115.Size = new System.Drawing.Size(44, 13);
-            this.label115.TabIndex = 18;
-            this.label115.Text = "Set prct";
+            this.label214.AutoSize = true;
+            this.label214.Location = new System.Drawing.Point(141, 13);
+            this.label214.Name = "label214";
+            this.label214.Size = new System.Drawing.Size(61, 13);
+            this.label214.TabIndex = 4;
+            this.label214.Text = "Top 25 Poll";
             // 
-            // PlayNameBox
+            // TopTeamDefBox
             // 
-            this.PlayNameBox.FormattingEnabled = true;
-            this.PlayNameBox.Location = new System.Drawing.Point(817, 354);
-            this.PlayNameBox.Name = "PlayNameBox";
-            this.PlayNameBox.Size = new System.Drawing.Size(129, 21);
-            this.PlayNameBox.TabIndex = 17;
-            this.PlayNameBox.SelectedIndexChanged += new System.EventHandler(this.PlayNameBox_SelectedIndexChanged);
+            this.TopTeamDefBox.FormattingEnabled = true;
+            this.TopTeamDefBox.Location = new System.Drawing.Point(222, 394);
+            this.TopTeamDefBox.Name = "TopTeamDefBox";
+            this.TopTeamDefBox.Size = new System.Drawing.Size(191, 160);
+            this.TopTeamDefBox.TabIndex = 3;
             // 
-            // PlayNameValue
+            // TopTeamOffBox
             // 
-            this.PlayNameValue.Location = new System.Drawing.Point(864, 386);
-            this.PlayNameValue.Name = "PlayNameValue";
-            this.PlayNameValue.Size = new System.Drawing.Size(82, 20);
-            this.PlayNameValue.TabIndex = 16;
-            this.PlayNameValue.Value = new decimal(new int[] {
-            10,
+            this.TopTeamOffBox.FormattingEnabled = true;
+            this.TopTeamOffBox.Location = new System.Drawing.Point(11, 394);
+            this.TopTeamOffBox.Name = "TopTeamOffBox";
+            this.TopTeamOffBox.Size = new System.Drawing.Size(191, 160);
+            this.TopTeamOffBox.TabIndex = 2;
+            // 
+            // TopTeamRatingsBox
+            // 
+            this.TopTeamRatingsBox.FormattingEnabled = true;
+            this.TopTeamRatingsBox.Location = new System.Drawing.Point(222, 29);
+            this.TopTeamRatingsBox.Name = "TopTeamRatingsBox";
+            this.TopTeamRatingsBox.Size = new System.Drawing.Size(191, 329);
+            this.TopTeamRatingsBox.TabIndex = 1;
+            // 
+            // CoachPollListBox
+            // 
+            this.CoachPollListBox.FormattingEnabled = true;
+            this.CoachPollListBox.Location = new System.Drawing.Point(11, 29);
+            this.CoachPollListBox.Name = "CoachPollListBox";
+            this.CoachPollListBox.Size = new System.Drawing.Size(191, 329);
+            this.CoachPollListBox.TabIndex = 0;
+            // 
+            // tabStadiums
+            // 
+            this.tabStadiums.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.tabStadiums.Controls.Add(this.groupBox30);
+            this.tabStadiums.Controls.Add(this.groupBox29);
+            this.tabStadiums.Controls.Add(this.groupBox28);
+            this.tabStadiums.Controls.Add(this.STADrank);
+            this.tabStadiums.Controls.Add(this.STADSTDR);
+            this.tabStadiums.Controls.Add(this.STADTDNA);
+            this.tabStadiums.Controls.Add(this.STADResBox);
+            this.tabStadiums.Controls.Add(this.STADsgidBox);
+            this.tabStadiums.Controls.Add(this.label228);
+            this.tabStadiums.Controls.Add(this.groupBox27);
+            this.tabStadiums.Controls.Add(this.label227);
+            this.tabStadiums.Controls.Add(this.label226);
+            this.tabStadiums.Controls.Add(this.label225);
+            this.tabStadiums.Controls.Add(this.StadiumListBox);
+            this.tabStadiums.Location = new System.Drawing.Point(4, 24);
+            this.tabStadiums.Name = "tabStadiums";
+            this.tabStadiums.Padding = new System.Windows.Forms.Padding(3);
+            this.tabStadiums.Size = new System.Drawing.Size(1152, 615);
+            this.tabStadiums.TabIndex = 17;
+            this.tabStadiums.Text = "Stadiums";
+            // 
+            // groupBox30
+            // 
+            this.groupBox30.Controls.Add(this.GlobalWeather);
+            this.groupBox30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox30.Location = new System.Drawing.Point(702, 436);
+            this.groupBox30.Name = "groupBox30";
+            this.groupBox30.Size = new System.Drawing.Size(200, 128);
+            this.groupBox30.TabIndex = 18;
+            this.groupBox30.TabStop = false;
+            this.groupBox30.Text = "Global Editor";
+            // 
+            // GlobalWeather
+            // 
+            this.GlobalWeather.Location = new System.Drawing.Point(40, 32);
+            this.GlobalWeather.Name = "GlobalWeather";
+            this.GlobalWeather.Size = new System.Drawing.Size(128, 76);
+            this.GlobalWeather.TabIndex = 17;
+            this.GlobalWeather.Text = "Global Weather Data Importer";
+            this.GlobalWeather.UseVisualStyleBackColor = true;
+            this.GlobalWeather.Click += new System.EventHandler(this.GlobalWeather_Click);
+            // 
+            // groupBox29
+            // 
+            this.groupBox29.Controls.Add(this.label241);
+            this.groupBox29.Controls.Add(this.STtvBox);
+            this.groupBox29.Controls.Add(this.label235);
+            this.groupBox29.Controls.Add(this.SWSPBox);
+            this.groupBox29.Controls.Add(this.label236);
+            this.groupBox29.Controls.Add(this.SWRPBox);
+            this.groupBox29.Controls.Add(this.label233);
+            this.groupBox29.Controls.Add(this.SWWPBox);
+            this.groupBox29.Controls.Add(this.label234);
+            this.groupBox29.Controls.Add(this.SWFPBox);
+            this.groupBox29.Controls.Add(this.label231);
+            this.groupBox29.Controls.Add(this.STfwBox);
+            this.groupBox29.Controls.Add(this.label232);
+            this.groupBox29.Controls.Add(this.STwpBox);
+            this.groupBox29.Controls.Add(this.label230);
+            this.groupBox29.Controls.Add(this.STjtBox);
+            this.groupBox29.Controls.Add(this.label229);
+            this.groupBox29.Controls.Add(this.STtsBox);
+            this.groupBox29.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox29.Location = new System.Drawing.Point(231, 328);
+            this.groupBox29.Name = "groupBox29";
+            this.groupBox29.Size = new System.Drawing.Size(412, 240);
+            this.groupBox29.TabIndex = 16;
+            this.groupBox29.TabStop = false;
+            this.groupBox29.Text = "Weather Settings";
+            // 
+            // label241
+            // 
+            this.label241.AutoSize = true;
+            this.label241.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label241.Location = new System.Drawing.Point(270, 58);
+            this.label241.Name = "label241";
+            this.label241.Size = new System.Drawing.Size(129, 15);
+            this.label241.TabIndex = 17;
+            this.label241.Text = "Temperature Variation";
+            // 
+            // STtvBox
+            // 
+            this.STtvBox.Location = new System.Drawing.Point(202, 53);
+            this.STtvBox.Name = "STtvBox";
+            this.STtvBox.Size = new System.Drawing.Size(62, 21);
+            this.STtvBox.TabIndex = 16;
+            this.STtvBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.STtvBox.ValueChanged += new System.EventHandler(this.STtvBox_ValueChanged);
+            // 
+            // label235
+            // 
+            this.label235.AutoSize = true;
+            this.label235.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label235.Location = new System.Drawing.Point(270, 208);
+            this.label235.Name = "label235";
+            this.label235.Size = new System.Drawing.Size(67, 15);
+            this.label235.TabIndex = 15;
+            this.label235.Text = "Snow, PCT";
+            // 
+            // SWSPBox
+            // 
+            this.SWSPBox.Location = new System.Drawing.Point(202, 203);
+            this.SWSPBox.Name = "SWSPBox";
+            this.SWSPBox.Size = new System.Drawing.Size(62, 21);
+            this.SWSPBox.TabIndex = 14;
+            this.SWSPBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.SWSPBox.ValueChanged += new System.EventHandler(this.SWSPBox_ValueChanged);
+            // 
+            // label236
+            // 
+            this.label236.AutoSize = true;
+            this.label236.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label236.Location = new System.Drawing.Point(80, 208);
+            this.label236.Name = "label236";
+            this.label236.Size = new System.Drawing.Size(62, 15);
+            this.label236.TabIndex = 13;
+            this.label236.Text = "Rain, PCT";
+            // 
+            // SWRPBox
+            // 
+            this.SWRPBox.Location = new System.Drawing.Point(12, 203);
+            this.SWRPBox.Name = "SWRPBox";
+            this.SWRPBox.Size = new System.Drawing.Size(62, 21);
+            this.SWRPBox.TabIndex = 12;
+            this.SWRPBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.SWRPBox.ValueChanged += new System.EventHandler(this.SWRPBox_ValueChanged);
+            // 
+            // label233
+            // 
+            this.label233.AutoSize = true;
+            this.label233.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label233.Location = new System.Drawing.Point(270, 172);
+            this.label233.Name = "label233";
+            this.label233.Size = new System.Drawing.Size(64, 15);
+            this.label233.TabIndex = 11;
+            this.label233.Text = "Wind, PCT";
+            // 
+            // SWWPBox
+            // 
+            this.SWWPBox.Location = new System.Drawing.Point(202, 167);
+            this.SWWPBox.Name = "SWWPBox";
+            this.SWWPBox.Size = new System.Drawing.Size(62, 21);
+            this.SWWPBox.TabIndex = 10;
+            this.SWWPBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.SWWPBox.ValueChanged += new System.EventHandler(this.SWWPBox_ValueChanged);
+            // 
+            // label234
+            // 
+            this.label234.AutoSize = true;
+            this.label234.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label234.Location = new System.Drawing.Point(80, 172);
+            this.label234.Name = "label234";
+            this.label234.Size = new System.Drawing.Size(106, 15);
+            this.label234.TabIndex = 9;
+            this.label234.Text = "Fair Weather, PCT";
+            // 
+            // SWFPBox
+            // 
+            this.SWFPBox.Location = new System.Drawing.Point(12, 167);
+            this.SWFPBox.Name = "SWFPBox";
+            this.SWFPBox.Size = new System.Drawing.Size(62, 21);
+            this.SWFPBox.TabIndex = 8;
+            this.SWFPBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.SWFPBox.ValueChanged += new System.EventHandler(this.SWFPBox_ValueChanged);
+            // 
+            // label231
+            // 
+            this.label231.AutoSize = true;
+            this.label231.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label231.Location = new System.Drawing.Point(80, 133);
+            this.label231.Name = "label231";
+            this.label231.Size = new System.Drawing.Size(116, 15);
+            this.label231.TabIndex = 7;
+            this.label231.Text = "Fall Variation (STfw)";
+            // 
+            // STfwBox
+            // 
+            this.STfwBox.Location = new System.Drawing.Point(12, 128);
+            this.STfwBox.Name = "STfwBox";
+            this.STfwBox.Size = new System.Drawing.Size(62, 21);
+            this.STfwBox.TabIndex = 6;
+            this.STfwBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.STfwBox.ValueChanged += new System.EventHandler(this.STfwBox_ValueChanged);
+            // 
+            // label232
+            // 
+            this.label232.AutoSize = true;
+            this.label232.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label232.Location = new System.Drawing.Point(270, 133);
+            this.label232.Name = "label232";
+            this.label232.Size = new System.Drawing.Size(135, 15);
+            this.label232.TabIndex = 5;
+            this.label232.Text = "Winter Variation (STwp)";
+            // 
+            // STwpBox
+            // 
+            this.STwpBox.Location = new System.Drawing.Point(202, 128);
+            this.STwpBox.Name = "STwpBox";
+            this.STwpBox.Size = new System.Drawing.Size(62, 21);
+            this.STwpBox.TabIndex = 4;
+            this.STwpBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.STwpBox.ValueChanged += new System.EventHandler(this.STwpBox_ValueChanged);
+            // 
+            // label230
+            // 
+            this.label230.AutoSize = true;
+            this.label230.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label230.Location = new System.Drawing.Point(80, 77);
+            this.label230.Name = "label230";
+            this.label230.Size = new System.Drawing.Size(104, 15);
+            this.label230.TabIndex = 3;
+            this.label230.Text = "Temperature, Jan";
+            // 
+            // STjtBox
+            // 
+            this.STjtBox.Location = new System.Drawing.Point(12, 72);
+            this.STjtBox.Name = "STjtBox";
+            this.STjtBox.Size = new System.Drawing.Size(62, 21);
+            this.STjtBox.TabIndex = 2;
+            this.STjtBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.STjtBox.ValueChanged += new System.EventHandler(this.STjtBox_ValueChanged);
+            // 
+            // label229
+            // 
+            this.label229.AutoSize = true;
+            this.label229.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label229.Location = new System.Drawing.Point(80, 37);
+            this.label229.Name = "label229";
+            this.label229.Size = new System.Drawing.Size(109, 15);
+            this.label229.TabIndex = 1;
+            this.label229.Text = "Temperature, Sept";
+            // 
+            // STtsBox
+            // 
+            this.STtsBox.Location = new System.Drawing.Point(12, 32);
+            this.STtsBox.Name = "STtsBox";
+            this.STtsBox.Size = new System.Drawing.Size(62, 21);
+            this.STtsBox.TabIndex = 0;
+            this.STtsBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.STtsBox.ValueChanged += new System.EventHandler(this.STtsBox_ValueChanged);
+            // 
+            // groupBox28
+            // 
+            this.groupBox28.Controls.Add(this.label239);
+            this.groupBox28.Controls.Add(this.STADSFTYBox);
+            this.groupBox28.Controls.Add(this.STADState);
+            this.groupBox28.Controls.Add(this.STADCity);
+            this.groupBox28.Controls.Add(this.label237);
+            this.groupBox28.Controls.Add(this.label238);
+            this.groupBox28.Controls.Add(this.label240);
+            this.groupBox28.Controls.Add(this.STADCap);
+            this.groupBox28.Controls.Add(this.STADNickBox);
+            this.groupBox28.Controls.Add(this.STADNameBox);
+            this.groupBox28.Controls.Add(this.labelstadnickname);
+            this.groupBox28.Controls.Add(this.labelstadname);
+            this.groupBox28.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox28.Location = new System.Drawing.Point(231, 106);
+            this.groupBox28.Name = "groupBox28";
+            this.groupBox28.Size = new System.Drawing.Size(412, 186);
+            this.groupBox28.TabIndex = 15;
+            this.groupBox28.TabStop = false;
+            this.groupBox28.Text = "Stadium Info";
+            // 
+            // label239
+            // 
+            this.label239.AutoSize = true;
+            this.label239.Location = new System.Drawing.Point(250, 100);
+            this.label239.Name = "label239";
+            this.label239.Size = new System.Drawing.Size(66, 15);
+            this.label239.TabIndex = 133;
+            this.label239.Text = "Turf Type";
+            // 
+            // STADSFTYBox
+            // 
+            this.STADSFTYBox.FormattingEnabled = true;
+            this.STADSFTYBox.Location = new System.Drawing.Point(253, 114);
+            this.STADSFTYBox.Name = "STADSFTYBox";
+            this.STADSFTYBox.Size = new System.Drawing.Size(121, 23);
+            this.STADSFTYBox.TabIndex = 132;
+            this.STADSFTYBox.SelectedIndexChanged += new System.EventHandler(this.STADSFTYBox_SelectedIndexChanged);
+            // 
+            // STADState
+            // 
+            this.STADState.FormattingEnabled = true;
+            this.STADState.Location = new System.Drawing.Point(152, 114);
+            this.STADState.MaxLength = 2;
+            this.STADState.Name = "STADState";
+            this.STADState.Size = new System.Drawing.Size(44, 23);
+            this.STADState.TabIndex = 126;
+            this.STADState.SelectedIndexChanged += new System.EventHandler(this.STADState_SelectedIndexChanged);
+            // 
+            // STADCity
+            // 
+            this.STADCity.Location = new System.Drawing.Point(22, 115);
+            this.STADCity.Name = "STADCity";
+            this.STADCity.Size = new System.Drawing.Size(111, 21);
+            this.STADCity.TabIndex = 124;
+            this.STADCity.Leave += new System.EventHandler(this.STADCity_Leave);
+            // 
+            // label237
+            // 
+            this.label237.AutoSize = true;
+            this.label237.Location = new System.Drawing.Point(19, 99);
+            this.label237.Name = "label237";
+            this.label237.Size = new System.Drawing.Size(30, 15);
+            this.label237.TabIndex = 125;
+            this.label237.Text = "City";
+            // 
+            // label238
+            // 
+            this.label238.AutoSize = true;
+            this.label238.Location = new System.Drawing.Point(151, 99);
+            this.label238.Name = "label238";
+            this.label238.Size = new System.Drawing.Size(40, 15);
+            this.label238.TabIndex = 127;
+            this.label238.Text = "State";
+            // 
+            // label240
+            // 
+            this.label240.AutoSize = true;
+            this.label240.Location = new System.Drawing.Point(19, 143);
+            this.label240.Name = "label240";
+            this.label240.Size = new System.Drawing.Size(61, 15);
+            this.label240.TabIndex = 129;
+            this.label240.Text = "Capacity";
+            // 
+            // STADCap
+            // 
+            this.STADCap.Location = new System.Drawing.Point(22, 159);
+            this.STADCap.Maximum = new decimal(new int[] {
+            150000,
             0,
             0,
             0});
+            this.STADCap.Name = "STADCap";
+            this.STADCap.Size = new System.Drawing.Size(100, 21);
+            this.STADCap.TabIndex = 131;
+            this.STADCap.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.STADCap.ValueChanged += new System.EventHandler(this.STADCap_ValueChanged);
             // 
-            // ProjTypeRatio
+            // STADNickBox
             // 
-            this.ProjTypeRatio.AutoSize = true;
-            this.ProjTypeRatio.Location = new System.Drawing.Point(814, 247);
-            this.ProjTypeRatio.Name = "ProjTypeRatio";
-            this.ProjTypeRatio.Size = new System.Drawing.Size(79, 13);
-            this.ProjTypeRatio.TabIndex = 15;
-            this.ProjTypeRatio.Text = "Proj Pass Ratio";
-            this.ProjTypeRatio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.STADNickBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.STADNickBox.Location = new System.Drawing.Point(116, 58);
+            this.STADNickBox.Name = "STADNickBox";
+            this.STADNickBox.Size = new System.Drawing.Size(283, 22);
+            this.STADNickBox.TabIndex = 13;
+            this.STADNickBox.Leave += new System.EventHandler(this.STADNickBox_Leave);
             // 
-            // ProjPassRatio
+            // STADNameBox
             // 
-            this.ProjPassRatio.AutoSize = true;
-            this.ProjPassRatio.Location = new System.Drawing.Point(814, 123);
-            this.ProjPassRatio.Name = "ProjPassRatio";
-            this.ProjPassRatio.Size = new System.Drawing.Size(79, 13);
-            this.ProjPassRatio.TabIndex = 14;
-            this.ProjPassRatio.Text = "Proj Pass Ratio";
-            this.ProjPassRatio.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.STADNameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.STADNameBox.Location = new System.Drawing.Point(116, 19);
+            this.STADNameBox.Name = "STADNameBox";
+            this.STADNameBox.Size = new System.Drawing.Size(283, 22);
+            this.STADNameBox.TabIndex = 9;
+            this.STADNameBox.Leave += new System.EventHandler(this.STADNameBox_Leave);
             // 
-            // RunCounter
+            // labelstadnickname
             // 
-            this.RunCounter.AutoSize = true;
-            this.RunCounter.Location = new System.Drawing.Point(814, 99);
-            this.RunCounter.Name = "RunCounter";
-            this.RunCounter.Size = new System.Drawing.Size(90, 13);
-            this.RunCounter.TabIndex = 13;
-            this.RunCounter.Text = "Run  Counter: XX";
-            this.RunCounter.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.labelstadnickname.AutoSize = true;
+            this.labelstadnickname.Location = new System.Drawing.Point(30, 66);
+            this.labelstadnickname.Name = "labelstadnickname";
+            this.labelstadnickname.Size = new System.Drawing.Size(71, 15);
+            this.labelstadnickname.TabIndex = 14;
+            this.labelstadnickname.Text = "Nickname";
+            this.labelstadnickname.UseMnemonic = false;
             // 
-            // PassCounter
+            // labelstadname
             // 
-            this.PassCounter.AutoSize = true;
-            this.PassCounter.Location = new System.Drawing.Point(814, 74);
-            this.PassCounter.Name = "PassCounter";
-            this.PassCounter.Size = new System.Drawing.Size(90, 13);
-            this.PassCounter.TabIndex = 12;
-            this.PassCounter.Text = "Pass Counter: XX";
-            this.PassCounter.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.labelstadname.AutoSize = true;
+            this.labelstadname.Location = new System.Drawing.Point(9, 24);
+            this.labelstadname.Name = "labelstadname";
+            this.labelstadname.Size = new System.Drawing.Size(102, 15);
+            this.labelstadname.TabIndex = 10;
+            this.labelstadname.Text = "Stadium Name";
             // 
-            // ImportPlaybookCSV
+            // STADrank
             // 
-            this.ImportPlaybookCSV.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ImportPlaybookCSV.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ImportPlaybookCSV.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.ImportPlaybookCSV.Location = new System.Drawing.Point(979, 221);
-            this.ImportPlaybookCSV.Name = "ImportPlaybookCSV";
-            this.ImportPlaybookCSV.Size = new System.Drawing.Size(113, 64);
-            this.ImportPlaybookCSV.TabIndex = 11;
-            this.ImportPlaybookCSV.Text = "Import CSV";
-            this.ImportPlaybookCSV.UseVisualStyleBackColor = false;
-            this.ImportPlaybookCSV.Click += new System.EventHandler(this.ImportPlaybookCSV_Click);
+            this.STADrank.AutoSize = true;
+            this.STADrank.Location = new System.Drawing.Point(561, 26);
+            this.STADrank.Name = "STADrank";
+            this.STADrank.Size = new System.Drawing.Size(74, 13);
+            this.STADrank.TabIndex = 12;
+            this.STADrank.Text = "Stadium Rank";
             // 
-            // pcrtValueButton
+            // STADSTDR
             // 
-            this.pcrtValueButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.pcrtValueButton.Location = new System.Drawing.Point(817, 268);
-            this.pcrtValueButton.Name = "pcrtValueButton";
-            this.pcrtValueButton.Size = new System.Drawing.Size(129, 35);
-            this.pcrtValueButton.TabIndex = 10;
-            this.pcrtValueButton.Text = "Set Value";
-            this.pcrtValueButton.UseVisualStyleBackColor = false;
-            this.pcrtValueButton.Click += new System.EventHandler(this.pcrtValueButton_Click);
+            this.STADSTDR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.STADSTDR.Location = new System.Drawing.Point(564, 44);
+            this.STADSTDR.Name = "STADSTDR";
+            this.STADSTDR.ReadOnly = true;
+            this.STADSTDR.Size = new System.Drawing.Size(67, 21);
+            this.STADSTDR.TabIndex = 11;
+            this.STADSTDR.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label112
+            // STADTDNA
             // 
-            this.label112.AutoSize = true;
-            this.label112.Location = new System.Drawing.Point(817, 168);
-            this.label112.Name = "label112";
-            this.label112.Size = new System.Drawing.Size(54, 13);
-            this.label112.TabIndex = 9;
-            this.label112.Text = "Play Type";
+            this.STADTDNA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.STADTDNA.Location = new System.Drawing.Point(414, 44);
+            this.STADTDNA.Name = "STADTDNA";
+            this.STADTDNA.ReadOnly = true;
+            this.STADTDNA.Size = new System.Drawing.Size(130, 21);
+            this.STADTDNA.TabIndex = 7;
+            this.STADTDNA.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label111
+            // STADResBox
             // 
-            this.label111.AutoSize = true;
-            this.label111.Location = new System.Drawing.Point(814, 221);
-            this.label111.Name = "label111";
-            this.label111.Size = new System.Drawing.Size(44, 13);
-            this.label111.TabIndex = 8;
-            this.label111.Text = "Set prct";
+            this.STADResBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.STADResBox.Location = new System.Drawing.Point(328, 44);
+            this.STADResBox.Name = "STADResBox";
+            this.STADResBox.ReadOnly = true;
+            this.STADResBox.Size = new System.Drawing.Size(67, 21);
+            this.STADResBox.TabIndex = 4;
+            this.STADResBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // PlayTypeBox
+            // STADsgidBox
             // 
-            this.PlayTypeBox.FormattingEnabled = true;
-            this.PlayTypeBox.Location = new System.Drawing.Point(817, 187);
-            this.PlayTypeBox.Name = "PlayTypeBox";
-            this.PlayTypeBox.Size = new System.Drawing.Size(129, 21);
-            this.PlayTypeBox.TabIndex = 7;
-            this.PlayTypeBox.SelectedIndexChanged += new System.EventHandler(this.PlayTypeBox_SelectedIndexChanged);
+            this.STADsgidBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.STADsgidBox.Location = new System.Drawing.Point(231, 44);
+            this.STADsgidBox.Name = "STADsgidBox";
+            this.STADsgidBox.ReadOnly = true;
+            this.STADsgidBox.Size = new System.Drawing.Size(74, 21);
+            this.STADsgidBox.TabIndex = 2;
+            this.STADsgidBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // pcrtNumBox
+            // label228
             // 
-            this.pcrtNumBox.Location = new System.Drawing.Point(864, 219);
-            this.pcrtNumBox.Name = "pcrtNumBox";
-            this.pcrtNumBox.Size = new System.Drawing.Size(82, 20);
-            this.pcrtNumBox.TabIndex = 6;
-            this.pcrtNumBox.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
+            this.label228.AutoSize = true;
+            this.label228.Location = new System.Drawing.Point(411, 26);
+            this.label228.Name = "label228";
+            this.label228.Size = new System.Drawing.Size(79, 13);
+            this.label228.TabIndex = 8;
+            this.label228.Text = "Stadium Owner";
             // 
-            // label110
+            // groupBox27
             // 
-            this.label110.AutoSize = true;
-            this.label110.Location = new System.Drawing.Point(817, 23);
-            this.label110.Name = "label110";
-            this.label110.Size = new System.Drawing.Size(58, 13);
-            this.label110.TabIndex = 5;
-            this.label110.Text = "AIGR Filter";
+            this.groupBox27.Controls.Add(this.STADType);
+            this.groupBox27.Controls.Add(this.STADCannon);
+            this.groupBox27.Controls.Add(this.STADVisbility);
+            this.groupBox27.Controls.Add(this.STADcat);
+            this.groupBox27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox27.Location = new System.Drawing.Point(702, 106);
+            this.groupBox27.Name = "groupBox27";
+            this.groupBox27.Size = new System.Drawing.Size(221, 135);
+            this.groupBox27.TabIndex = 6;
+            this.groupBox27.TabStop = false;
+            this.groupBox27.Text = "Stadium Options";
             // 
-            // aigrFilterBox
+            // STADType
             // 
-            this.aigrFilterBox.FormattingEnabled = true;
-            this.aigrFilterBox.Location = new System.Drawing.Point(817, 40);
-            this.aigrFilterBox.Name = "aigrFilterBox";
-            this.aigrFilterBox.Size = new System.Drawing.Size(129, 21);
-            this.aigrFilterBox.TabIndex = 4;
-            this.aigrFilterBox.SelectedIndexChanged += new System.EventHandler(this.aigrFilterBox_SelectedIndexChanged);
+            this.STADType.AutoSize = true;
+            this.STADType.Location = new System.Drawing.Point(20, 104);
+            this.STADType.Name = "STADType";
+            this.STADType.Size = new System.Drawing.Size(124, 19);
+            this.STADType.TabIndex = 3;
+            this.STADType.Text = "Indoor Stadium";
+            this.STADType.UseVisualStyleBackColor = true;
+            this.STADType.CheckedChanged += new System.EventHandler(this.STADType_CheckedChanged);
             // 
-            // AIGRNameButton
+            // STADCannon
             // 
-            this.AIGRNameButton.BackColor = System.Drawing.SystemColors.Info;
-            this.AIGRNameButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AIGRNameButton.Location = new System.Drawing.Point(979, 23);
-            this.AIGRNameButton.Name = "AIGRNameButton";
-            this.AIGRNameButton.Size = new System.Drawing.Size(113, 64);
-            this.AIGRNameButton.TabIndex = 3;
-            this.AIGRNameButton.Text = "Change to \r\nDefense AIGR";
-            this.AIGRNameButton.UseVisualStyleBackColor = false;
-            this.AIGRNameButton.Click += new System.EventHandler(this.AIGRNameButton_Click);
+            this.STADCannon.AutoSize = true;
+            this.STADCannon.Location = new System.Drawing.Point(20, 81);
+            this.STADCannon.Name = "STADCannon";
+            this.STADCannon.Size = new System.Drawing.Size(132, 19);
+            this.STADCannon.TabIndex = 2;
+            this.STADCannon.Text = "Stadium Cannon";
+            this.STADCannon.UseVisualStyleBackColor = true;
+            this.STADCannon.CheckedChanged += new System.EventHandler(this.STADCannon_CheckedChanged);
             // 
-            // savePBDataButton
+            // STADVisbility
             // 
-            this.savePBDataButton.BackColor = System.Drawing.Color.Crimson;
-            this.savePBDataButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.savePBDataButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.savePBDataButton.Location = new System.Drawing.Point(979, 318);
-            this.savePBDataButton.Name = "savePBDataButton";
-            this.savePBDataButton.Size = new System.Drawing.Size(113, 64);
-            this.savePBDataButton.TabIndex = 2;
-            this.savePBDataButton.Text = "Update Database";
-            this.savePBDataButton.UseVisualStyleBackColor = false;
-            this.savePBDataButton.Click += new System.EventHandler(this.savePBDataButton_Click);
+            this.STADVisbility.AutoSize = true;
+            this.STADVisbility.Location = new System.Drawing.Point(20, 35);
+            this.STADVisbility.Name = "STADVisbility";
+            this.STADVisbility.Size = new System.Drawing.Size(119, 19);
+            this.STADVisbility.TabIndex = 1;
+            this.STADVisbility.Text = "Menu Visibility";
+            this.STADVisbility.UseVisualStyleBackColor = true;
+            this.STADVisbility.CheckedChanged += new System.EventHandler(this.STADVisbility_CheckedChanged);
             // 
-            // ExportPBData
+            // STADcat
             // 
-            this.ExportPBData.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.ExportPBData.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ExportPBData.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.ExportPBData.Location = new System.Drawing.Point(979, 123);
-            this.ExportPBData.Name = "ExportPBData";
-            this.ExportPBData.Size = new System.Drawing.Size(113, 64);
-            this.ExportPBData.TabIndex = 1;
-            this.ExportPBData.Text = "Export to CSV";
-            this.ExportPBData.UseVisualStyleBackColor = false;
-            this.ExportPBData.Click += new System.EventHandler(this.ExportPBData_Click);
+            this.STADcat.AutoSize = true;
+            this.STADcat.Enabled = false;
+            this.STADcat.Location = new System.Drawing.Point(20, 58);
+            this.STADcat.Name = "STADcat";
+            this.STADcat.Size = new System.Drawing.Size(179, 19);
+            this.STADcat.TabIndex = 0;
+            this.STADcat.Text = "Create-A-Team Stadium";
+            this.STADcat.UseVisualStyleBackColor = true;
             // 
-            // PlaybookGrid
+            // label227
             // 
-            this.PlaybookGrid.AllowUserToAddRows = false;
-            this.PlaybookGrid.AllowUserToDeleteRows = false;
-            this.PlaybookGrid.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.PlaybookGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
-            this.PlaybookGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.LightSkyBlue;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.PlaybookGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
-            this.PlaybookGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.PlaybookGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.PBRec,
-            this.PBPL,
-            this.AIGRVal,
-            this.AIGRname,
-            this.prct,
-            this.PLYL,
-            this.PlayName,
-            this.PLYTVal,
-            this.PLYT});
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.PlaybookGrid.DefaultCellStyle = dataGridViewCellStyle19;
-            this.PlaybookGrid.EnableHeadersVisualStyles = false;
-            this.PlaybookGrid.Location = new System.Drawing.Point(12, 3);
-            this.PlaybookGrid.Name = "PlaybookGrid";
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.PlaybookGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle20;
-            this.PlaybookGrid.Size = new System.Drawing.Size(746, 606);
-            this.PlaybookGrid.TabIndex = 0;
+            this.label227.AutoSize = true;
+            this.label227.Location = new System.Drawing.Point(328, 25);
+            this.label227.Name = "label227";
+            this.label227.Size = new System.Drawing.Size(67, 13);
+            this.label227.TabIndex = 5;
+            this.label227.Text = "Resource ID";
             // 
-            // PBRec
+            // label226
             // 
-            this.PBRec.FillWeight = 64.01138F;
-            this.PBRec.HeaderText = "RecNo";
-            this.PBRec.Name = "PBRec";
-            this.PBRec.ReadOnly = true;
+            this.label226.AutoSize = true;
+            this.label226.Location = new System.Drawing.Point(231, 25);
+            this.label226.Name = "label226";
+            this.label226.Size = new System.Drawing.Size(59, 13);
+            this.label226.TabIndex = 3;
+            this.label226.Text = "Stadium ID";
             // 
-            // PBPL
+            // label225
             // 
-            this.PBPL.FillWeight = 66.49709F;
-            this.PBPL.HeaderText = "PBPL";
-            this.PBPL.Name = "PBPL";
-            this.PBPL.ReadOnly = true;
+            this.label225.AutoSize = true;
+            this.label225.Location = new System.Drawing.Point(21, 25);
+            this.label225.Name = "label225";
+            this.label225.Size = new System.Drawing.Size(78, 13);
+            this.label225.TabIndex = 1;
+            this.label225.Text = "Select Stadium";
             // 
-            // AIGRVal
+            // StadiumListBox
             // 
-            this.AIGRVal.FillWeight = 68.806F;
-            this.AIGRVal.HeaderText = "AIGR";
-            this.AIGRVal.Name = "AIGRVal";
-            this.AIGRVal.ReadOnly = true;
+            this.StadiumListBox.Location = new System.Drawing.Point(21, 44);
+            this.StadiumListBox.Name = "StadiumListBox";
+            this.StadiumListBox.Size = new System.Drawing.Size(174, 524);
+            this.StadiumListBox.TabIndex = 0;
+            this.StadiumListBox.SelectedIndexChanged += new System.EventHandler(this.StadiumListBox_SelectedIndexChanged);
             // 
-            // AIGRname
+            // tabBowls
             // 
-            this.AIGRname.FillWeight = 141.9014F;
-            this.AIGRname.HeaderText = "AIGR Name";
-            this.AIGRname.Name = "AIGRname";
-            this.AIGRname.ReadOnly = true;
+            this.tabBowls.Controls.Add(this.SaveBowlButton);
+            this.tabBowls.Controls.Add(this.BowlsGrid);
+            this.tabBowls.Location = new System.Drawing.Point(4, 24);
+            this.tabBowls.Name = "tabBowls";
+            this.tabBowls.Padding = new System.Windows.Forms.Padding(3);
+            this.tabBowls.Size = new System.Drawing.Size(1152, 615);
+            this.tabBowls.TabIndex = 14;
+            this.tabBowls.Text = "Bowls";
+            this.tabBowls.UseVisualStyleBackColor = true;
             // 
-            // prct
+            // SaveBowlButton
             // 
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Info;
-            this.prct.DefaultCellStyle = dataGridViewCellStyle18;
-            this.prct.FillWeight = 81.47587F;
-            this.prct.HeaderText = "PRCT ";
-            this.prct.Name = "prct";
+            this.SaveBowlButton.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.SaveBowlButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SaveBowlButton.Location = new System.Drawing.Point(962, 19);
+            this.SaveBowlButton.Name = "SaveBowlButton";
+            this.SaveBowlButton.Size = new System.Drawing.Size(171, 52);
+            this.SaveBowlButton.TabIndex = 6;
+            this.SaveBowlButton.Text = "Update Database";
+            this.SaveBowlButton.UseVisualStyleBackColor = false;
+            this.SaveBowlButton.Click += new System.EventHandler(this.SaveBowlButton_Click);
             // 
-            // PLYL
+            // BowlsGrid
             // 
-            this.PLYL.FillWeight = 69.14011F;
-            this.PLYL.HeaderText = "PLYL";
-            this.PLYL.Name = "PLYL";
-            this.PLYL.ReadOnly = true;
+            this.BowlsGrid.AllowUserToAddRows = false;
+            this.BowlsGrid.AllowUserToDeleteRows = false;
+            this.BowlsGrid.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            this.BowlsGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            this.BowlsGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.BowlsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.BowlsGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ActiveBowl,
+            this.BIDX,
+            this.BNME,
+            this.TeamA,
+            this.ScoreA,
+            this.vs,
+            this.ScoreB,
+            this.TeamB,
+            this.SGID,
+            this.BMON,
+            this.BDAY,
+            this.SEWN});
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.BowlsGrid.DefaultCellStyle = dataGridViewCellStyle10;
+            this.BowlsGrid.Location = new System.Drawing.Point(6, 6);
+            this.BowlsGrid.Name = "BowlsGrid";
+            this.BowlsGrid.RowHeadersVisible = false;
+            this.BowlsGrid.Size = new System.Drawing.Size(950, 603);
+            this.BowlsGrid.TabIndex = 4;
+            this.BowlsGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.BowlsGrid_DataError);
             // 
-            // PlayName
+            // ActiveBowl
             // 
-            this.PlayName.FillWeight = 213.7831F;
-            this.PlayName.HeaderText = "Play Name";
-            this.PlayName.Name = "PlayName";
-            this.PlayName.ReadOnly = true;
+            this.ActiveBowl.FillWeight = 7F;
+            this.ActiveBowl.HeaderText = "Active";
+            this.ActiveBowl.Name = "ActiveBowl";
             // 
-            // PLYTVal
+            // BIDX
             // 
-            this.PLYTVal.FillWeight = 63.09442F;
-            this.PLYTVal.HeaderText = "PLYT";
-            this.PLYTVal.Name = "PLYTVal";
-            this.PLYTVal.ReadOnly = true;
+            this.BIDX.FillWeight = 8F;
+            this.BIDX.HeaderText = "BIDX";
+            this.BIDX.Name = "BIDX";
+            this.BIDX.ReadOnly = true;
+            this.BIDX.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // PLYT
+            // BNME
             // 
-            this.PLYT.FillWeight = 131.2907F;
-            this.PLYT.HeaderText = "Type";
-            this.PLYT.Name = "PLYT";
-            this.PLYT.ReadOnly = true;
+            this.BNME.FillWeight = 25F;
+            this.BNME.HeaderText = "Bowl Name";
+            this.BNME.Name = "BNME";
+            this.BNME.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // groupBox19
+            // TeamA
             // 
-            this.groupBox19.Controls.Add(this.DefaultPlaysRadio);
-            this.groupBox19.Controls.Add(this.CustomPlaysRadio);
-            this.groupBox19.Location = new System.Drawing.Point(979, 401);
-            this.groupBox19.Name = "groupBox19";
-            this.groupBox19.Size = new System.Drawing.Size(152, 69);
-            this.groupBox19.TabIndex = 25;
-            this.groupBox19.TabStop = false;
-            this.groupBox19.Text = "Play Names";
+            this.TeamA.FillWeight = 20F;
+            this.TeamA.HeaderText = "Team";
+            this.TeamA.Name = "TeamA";
             // 
-            // DefaultPlaysRadio
+            // ScoreA
             // 
-            this.DefaultPlaysRadio.AutoSize = true;
-            this.DefaultPlaysRadio.Checked = true;
-            this.DefaultPlaysRadio.Location = new System.Drawing.Point(5, 19);
-            this.DefaultPlaysRadio.Name = "DefaultPlaysRadio";
-            this.DefaultPlaysRadio.Size = new System.Drawing.Size(128, 17);
-            this.DefaultPlaysRadio.TabIndex = 23;
-            this.DefaultPlaysRadio.TabStop = true;
-            this.DefaultPlaysRadio.Text = "NCAA 06 Play Names";
-            this.DefaultPlaysRadio.UseVisualStyleBackColor = true;
-            this.DefaultPlaysRadio.CheckedChanged += new System.EventHandler(this.DefaultPlaysRadio_CheckedChanged);
+            this.ScoreA.FillWeight = 7F;
+            this.ScoreA.HeaderText = "Score";
+            this.ScoreA.Name = "ScoreA";
+            this.ScoreA.ReadOnly = true;
+            this.ScoreA.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
-            // CustomPlaysRadio
+            // vs
             // 
-            this.CustomPlaysRadio.AutoSize = true;
-            this.CustomPlaysRadio.Location = new System.Drawing.Point(5, 42);
-            this.CustomPlaysRadio.Name = "CustomPlaysRadio";
-            this.CustomPlaysRadio.Size = new System.Drawing.Size(119, 17);
-            this.CustomPlaysRadio.TabIndex = 24;
-            this.CustomPlaysRadio.Text = "Custom Play Names";
-            this.CustomPlaysRadio.UseVisualStyleBackColor = true;
-            this.CustomPlaysRadio.CheckedChanged += new System.EventHandler(this.CustomPlaysRadio_CheckedChanged);
+            this.vs.FillWeight = 4F;
+            this.vs.HeaderText = "vs";
+            this.vs.Name = "vs";
+            this.vs.ReadOnly = true;
+            this.vs.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // ScoreB
+            // 
+            this.ScoreB.FillWeight = 7F;
+            this.ScoreB.HeaderText = "Score";
+            this.ScoreB.Name = "ScoreB";
+            this.ScoreB.ReadOnly = true;
+            this.ScoreB.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // TeamB
+            // 
+            this.TeamB.FillWeight = 20F;
+            this.TeamB.HeaderText = "Team";
+            this.TeamB.Name = "TeamB";
+            // 
+            // SGID
+            // 
+            this.SGID.FillWeight = 25F;
+            this.SGID.HeaderText = "Stadium";
+            this.SGID.Name = "SGID";
+            // 
+            // BMON
+            // 
+            this.BMON.FillWeight = 8F;
+            this.BMON.HeaderText = "Month";
+            this.BMON.Name = "BMON";
+            // 
+            // BDAY
+            // 
+            this.BDAY.FillWeight = 8F;
+            this.BDAY.HeaderText = "Date";
+            this.BDAY.Name = "BDAY";
+            // 
+            // SEWN
+            // 
+            this.SEWN.FillWeight = 6F;
+            this.SEWN.HeaderText = "Week";
+            this.SEWN.Name = "SEWN";
+            this.SEWN.ReadOnly = true;
             // 
             // tabConf
             // 
@@ -4598,715 +6275,388 @@ namespace DB_EDITOR
             this.conf1.TabIndex = 0;
             this.conf1.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.TeamChecked);
             // 
-            // tabDev
-            // 
-            this.tabDev.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.tabDev.Controls.Add(this.CFUSAexportButton);
-            this.tabDev.Controls.Add(this.textBox20);
-            this.tabDev.Controls.Add(this.textBox19);
-            this.tabDev.Controls.Add(this.textBox18);
-            this.tabDev.Controls.Add(this.textBox17);
-            this.tabDev.Controls.Add(this.textBox16);
-            this.tabDev.Controls.Add(this.textBox15);
-            this.tabDev.Controls.Add(this.textBox14);
-            this.tabDev.Controls.Add(this.textBox13);
-            this.tabDev.Controls.Add(this.textBox12);
-            this.tabDev.Controls.Add(this.textBox11);
-            this.tabDev.Controls.Add(this.textBox10);
-            this.tabDev.Controls.Add(this.textBox9);
-            this.tabDev.Controls.Add(this.textBox8);
-            this.tabDev.Controls.Add(this.textBox7);
-            this.tabDev.Controls.Add(this.textBox5);
-            this.tabDev.Controls.Add(this.textBox4);
-            this.tabDev.Controls.Add(this.textBox6);
-            this.tabDev.Controls.Add(this.DevCalcTeamRatingsButton);
-            this.tabDev.Controls.Add(this.DevDepthChartButton);
-            this.tabDev.Controls.Add(this.DevRandomizeFaceButton);
-            this.tabDev.Controls.Add(this.DevCalcOVRButton);
-            this.tabDev.Controls.Add(this.DevFillRosterButton);
-            this.tabDev.Controls.Add(this.CreateTransfersCSVButton);
-            this.tabDev.Controls.Add(this.ImportRecruitsButton);
-            this.tabDev.Controls.Add(this.GraduateButton);
-            this.tabDev.Location = new System.Drawing.Point(4, 24);
-            this.tabDev.Name = "tabDev";
-            this.tabDev.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDev.Size = new System.Drawing.Size(1152, 615);
-            this.tabDev.TabIndex = 8;
-            this.tabDev.Text = "Dev";
-            // 
-            // CFUSAexportButton
-            // 
-            this.CFUSAexportButton.BackColor = System.Drawing.Color.Pink;
-            this.CFUSAexportButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CFUSAexportButton.Location = new System.Drawing.Point(1003, 196);
-            this.CFUSAexportButton.Name = "CFUSAexportButton";
-            this.CFUSAexportButton.Size = new System.Drawing.Size(110, 80);
-            this.CFUSAexportButton.TabIndex = 50;
-            this.CFUSAexportButton.Text = "Export to CFB USA 97";
-            this.CFUSAexportButton.UseVisualStyleBackColor = false;
-            // 
-            // textBox20
-            // 
-            this.textBox20.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.textBox20.Enabled = false;
-            this.textBox20.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox20.Location = new System.Drawing.Point(499, 535);
-            this.textBox20.Multiline = true;
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(49, 41);
-            this.textBox20.TabIndex = 49;
-            this.textBox20.Text = "8";
-            this.textBox20.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox19
-            // 
-            this.textBox19.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.textBox19.Enabled = false;
-            this.textBox19.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox19.Location = new System.Drawing.Point(499, 417);
-            this.textBox19.Multiline = true;
-            this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(49, 41);
-            this.textBox19.TabIndex = 48;
-            this.textBox19.Text = "7";
-            this.textBox19.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox18
-            // 
-            this.textBox18.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.textBox18.Enabled = false;
-            this.textBox18.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox18.Location = new System.Drawing.Point(499, 305);
-            this.textBox18.Multiline = true;
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(49, 41);
-            this.textBox18.TabIndex = 47;
-            this.textBox18.Text = "6";
-            this.textBox18.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox17
-            // 
-            this.textBox17.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.textBox17.Enabled = false;
-            this.textBox17.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox17.Location = new System.Drawing.Point(500, 212);
-            this.textBox17.Multiline = true;
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(49, 41);
-            this.textBox17.TabIndex = 46;
-            this.textBox17.Text = "5";
-            this.textBox17.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox16
-            // 
-            this.textBox16.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.textBox16.Enabled = false;
-            this.textBox16.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox16.Location = new System.Drawing.Point(15, 535);
-            this.textBox16.Multiline = true;
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(49, 41);
-            this.textBox16.TabIndex = 45;
-            this.textBox16.Text = "4";
-            this.textBox16.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox15
-            // 
-            this.textBox15.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.textBox15.Enabled = false;
-            this.textBox15.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox15.Location = new System.Drawing.Point(15, 417);
-            this.textBox15.Multiline = true;
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(49, 41);
-            this.textBox15.TabIndex = 44;
-            this.textBox15.Text = "3";
-            this.textBox15.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox14
-            // 
-            this.textBox14.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.textBox14.Enabled = false;
-            this.textBox14.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox14.Location = new System.Drawing.Point(15, 306);
-            this.textBox14.Multiline = true;
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(49, 41);
-            this.textBox14.TabIndex = 43;
-            this.textBox14.Text = "2";
-            this.textBox14.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox13
-            // 
-            this.textBox13.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.textBox13.Enabled = false;
-            this.textBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox13.Location = new System.Drawing.Point(16, 212);
-            this.textBox13.Multiline = true;
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(49, 41);
-            this.textBox13.TabIndex = 42;
-            this.textBox13.Text = "1";
-            this.textBox13.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox12
-            // 
-            this.textBox12.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.textBox12.Enabled = false;
-            this.textBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox12.Location = new System.Drawing.Point(702, 519);
-            this.textBox12.Multiline = true;
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(247, 80);
-            this.textBox12.TabIndex = 41;
-            this.textBox12.Text = "Calculates Team Ratings";
-            // 
-            // textBox11
-            // 
-            this.textBox11.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.textBox11.Enabled = false;
-            this.textBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox11.Location = new System.Drawing.Point(702, 401);
-            this.textBox11.Multiline = true;
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(247, 80);
-            this.textBox11.TabIndex = 40;
-            this.textBox11.Text = "Sets Depth Charts";
-            // 
-            // textBox10
-            // 
-            this.textBox10.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.textBox10.Enabled = false;
-            this.textBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox10.Location = new System.Drawing.Point(702, 289);
-            this.textBox10.Multiline = true;
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(247, 80);
-            this.textBox10.TabIndex = 39;
-            this.textBox10.Text = "Randomizes all player faces/heads";
-            // 
-            // textBox9
-            // 
-            this.textBox9.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.textBox9.Enabled = false;
-            this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.Location = new System.Drawing.Point(703, 196);
-            this.textBox9.Multiline = true;
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(247, 80);
-            this.textBox9.TabIndex = 38;
-            this.textBox9.Text = "Fills Rosters with Randomly Generated Players \r\nand Checks for Position Depth";
-            // 
-            // textBox8
-            // 
-            this.textBox8.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.textBox8.Enabled = false;
-            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(218, 519);
-            this.textBox8.Multiline = true;
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(247, 80);
-            this.textBox8.TabIndex = 37;
-            this.textBox8.Text = "Calculate Overall Ratings";
-            // 
-            // textBox7
-            // 
-            this.textBox7.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.textBox7.Enabled = false;
-            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox7.Location = new System.Drawing.Point(218, 289);
-            this.textBox7.Multiline = true;
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(247, 80);
-            this.textBox7.TabIndex = 36;
-            this.textBox7.Text = "Create Transfers - Creates Transfer based on transfers-gen.csv file  \r\n(first nam" +
-    "e, last name, position id, team id)";
-            // 
-            // textBox5
-            // 
-            this.textBox5.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.textBox5.Enabled = false;
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(218, 399);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(247, 80);
-            this.textBox5.TabIndex = 35;
-            this.textBox5.Text = "Import Recruits - Creates Recruits based on recruits.csv file  \r\n(first name, las" +
-    "t name, position id, team id, height in inches, weight - 160)";
-            // 
-            // textBox4
-            // 
-            this.textBox4.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.textBox4.Enabled = false;
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(219, 196);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(247, 80);
-            this.textBox4.TabIndex = 34;
-            this.textBox4.Text = "Graduate Players - Removes Players marked with PTYP = 3 and Transfer Players Mark" +
-    "ed PTYP =1 and relocates them per transfers.csv file. \r\nTransfer CSV colums:  Pl" +
-    "ayer Name, new TGID, PGID, 0";
-            // 
-            // textBox6
-            // 
-            this.textBox6.BackColor = System.Drawing.Color.Honeydew;
-            this.textBox6.Enabled = false;
-            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox6.Location = new System.Drawing.Point(16, 6);
-            this.textBox6.Multiline = true;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(934, 167);
-            this.textBox6.TabIndex = 27;
-            this.textBox6.Text = resources.GetString("textBox6.Text");
-            // 
-            // DevCalcTeamRatingsButton
-            // 
-            this.DevCalcTeamRatingsButton.BackColor = System.Drawing.Color.DarkGray;
-            this.DevCalcTeamRatingsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DevCalcTeamRatingsButton.Location = new System.Drawing.Point(554, 519);
-            this.DevCalcTeamRatingsButton.Name = "DevCalcTeamRatingsButton";
-            this.DevCalcTeamRatingsButton.Size = new System.Drawing.Size(110, 80);
-            this.DevCalcTeamRatingsButton.TabIndex = 33;
-            this.DevCalcTeamRatingsButton.Text = "Calculate Team Ratings";
-            this.DevCalcTeamRatingsButton.UseVisualStyleBackColor = false;
-            this.DevCalcTeamRatingsButton.Click += new System.EventHandler(this.DevCalcTeamRatingsButton_Click);
-            // 
-            // DevDepthChartButton
-            // 
-            this.DevDepthChartButton.BackColor = System.Drawing.Color.DarkGray;
-            this.DevDepthChartButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DevDepthChartButton.Location = new System.Drawing.Point(554, 401);
-            this.DevDepthChartButton.Name = "DevDepthChartButton";
-            this.DevDepthChartButton.Size = new System.Drawing.Size(110, 80);
-            this.DevDepthChartButton.TabIndex = 32;
-            this.DevDepthChartButton.Text = "Set Depth Charts";
-            this.DevDepthChartButton.UseVisualStyleBackColor = false;
-            this.DevDepthChartButton.Click += new System.EventHandler(this.DevDepthChartButton_Click);
-            // 
-            // DevRandomizeFaceButton
-            // 
-            this.DevRandomizeFaceButton.BackColor = System.Drawing.Color.DarkGray;
-            this.DevRandomizeFaceButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DevRandomizeFaceButton.Location = new System.Drawing.Point(554, 289);
-            this.DevRandomizeFaceButton.Name = "DevRandomizeFaceButton";
-            this.DevRandomizeFaceButton.Size = new System.Drawing.Size(110, 80);
-            this.DevRandomizeFaceButton.TabIndex = 31;
-            this.DevRandomizeFaceButton.Text = "Randomize Faces";
-            this.DevRandomizeFaceButton.UseVisualStyleBackColor = false;
-            this.DevRandomizeFaceButton.Click += new System.EventHandler(this.DevRandomizeFaceButton_Click);
-            // 
-            // DevCalcOVRButton
-            // 
-            this.DevCalcOVRButton.BackColor = System.Drawing.Color.DarkGray;
-            this.DevCalcOVRButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DevCalcOVRButton.Location = new System.Drawing.Point(76, 519);
-            this.DevCalcOVRButton.Name = "DevCalcOVRButton";
-            this.DevCalcOVRButton.Size = new System.Drawing.Size(110, 80);
-            this.DevCalcOVRButton.TabIndex = 30;
-            this.DevCalcOVRButton.Text = "Calculate Overalls";
-            this.DevCalcOVRButton.UseVisualStyleBackColor = false;
-            this.DevCalcOVRButton.Click += new System.EventHandler(this.DevCalcOVRButton_Click);
-            // 
-            // DevFillRosterButton
-            // 
-            this.DevFillRosterButton.BackColor = System.Drawing.Color.DarkGray;
-            this.DevFillRosterButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DevFillRosterButton.Location = new System.Drawing.Point(555, 196);
-            this.DevFillRosterButton.Name = "DevFillRosterButton";
-            this.DevFillRosterButton.Size = new System.Drawing.Size(110, 80);
-            this.DevFillRosterButton.TabIndex = 29;
-            this.DevFillRosterButton.Text = "Fill Rosters";
-            this.DevFillRosterButton.UseVisualStyleBackColor = false;
-            this.DevFillRosterButton.Click += new System.EventHandler(this.DevFillRosterButton_Click);
-            // 
-            // CreateTransfersCSVButton
-            // 
-            this.CreateTransfersCSVButton.BackColor = System.Drawing.Color.DarkGray;
-            this.CreateTransfersCSVButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CreateTransfersCSVButton.Location = new System.Drawing.Point(76, 289);
-            this.CreateTransfersCSVButton.Name = "CreateTransfersCSVButton";
-            this.CreateTransfersCSVButton.Size = new System.Drawing.Size(110, 80);
-            this.CreateTransfersCSVButton.TabIndex = 28;
-            this.CreateTransfersCSVButton.Text = "Import Transfers";
-            this.CreateTransfersCSVButton.UseVisualStyleBackColor = false;
-            this.CreateTransfersCSVButton.Click += new System.EventHandler(this.CreateTransfersCSVButton_Click);
-            // 
-            // ImportRecruitsButton
-            // 
-            this.ImportRecruitsButton.BackColor = System.Drawing.Color.DarkGray;
-            this.ImportRecruitsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ImportRecruitsButton.Location = new System.Drawing.Point(76, 399);
-            this.ImportRecruitsButton.Name = "ImportRecruitsButton";
-            this.ImportRecruitsButton.Size = new System.Drawing.Size(110, 80);
-            this.ImportRecruitsButton.TabIndex = 26;
-            this.ImportRecruitsButton.Text = "Import Recruits";
-            this.ImportRecruitsButton.UseVisualStyleBackColor = false;
-            this.ImportRecruitsButton.Click += new System.EventHandler(this.ImportRecruitsButton_Click);
-            // 
-            // GraduateButton
-            // 
-            this.GraduateButton.BackColor = System.Drawing.Color.DarkGray;
-            this.GraduateButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GraduateButton.Location = new System.Drawing.Point(77, 196);
-            this.GraduateButton.Name = "GraduateButton";
-            this.GraduateButton.Size = new System.Drawing.Size(110, 80);
-            this.GraduateButton.TabIndex = 25;
-            this.GraduateButton.Text = "Graduate Players";
-            this.GraduateButton.UseVisualStyleBackColor = false;
-            this.GraduateButton.Click += new System.EventHandler(this.GraduateButton_Click);
-            // 
-            // tabOffSeason
-            // 
-            this.tabOffSeason.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.tabOffSeason.Controls.Add(this.groupBox17);
-            this.tabOffSeason.Controls.Add(this.groupBox16);
-            this.tabOffSeason.Controls.Add(this.textBoxOffSeason);
-            this.tabOffSeason.Controls.Add(this.textBoxOffSeasonTitle);
-            this.tabOffSeason.Location = new System.Drawing.Point(4, 24);
-            this.tabOffSeason.Name = "tabOffSeason";
-            this.tabOffSeason.Padding = new System.Windows.Forms.Padding(3);
-            this.tabOffSeason.Size = new System.Drawing.Size(1152, 615);
-            this.tabOffSeason.TabIndex = 4;
-            this.tabOffSeason.Text = "Recruiting";
-            // 
-            // groupBox17
-            // 
-            this.groupBox17.Controls.Add(this.removeInterestTeams);
-            this.groupBox17.Controls.Add(this.buttonMinRecruitingPts);
-            this.groupBox17.Controls.Add(this.minRecPts);
-            this.groupBox17.Controls.Add(this.labelMinRecPts);
-            this.groupBox17.Controls.Add(this.labelIntTeams);
-            this.groupBox17.Controls.Add(this.minTRPA);
-            this.groupBox17.Controls.Add(this.label12);
-            this.groupBox17.Controls.Add(this.buttonInterestedTeams);
-            this.groupBox17.Location = new System.Drawing.Point(12, 6);
-            this.groupBox17.Name = "groupBox17";
-            this.groupBox17.Size = new System.Drawing.Size(477, 190);
-            this.groupBox17.TabIndex = 25;
-            this.groupBox17.TabStop = false;
-            this.groupBox17.Text = "Recruiting Tools";
-            // 
-            // removeInterestTeams
-            // 
-            this.removeInterestTeams.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.removeInterestTeams.Location = new System.Drawing.Point(310, 124);
-            this.removeInterestTeams.Maximum = new decimal(new int[] {
-            11,
-            0,
-            0,
-            0});
-            this.removeInterestTeams.Name = "removeInterestTeams";
-            this.removeInterestTeams.Size = new System.Drawing.Size(56, 22);
-            this.removeInterestTeams.TabIndex = 13;
-            this.removeInterestTeams.Value = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            // 
-            // buttonMinRecruitingPts
-            // 
-            this.buttonMinRecruitingPts.BackColor = System.Drawing.SystemColors.Highlight;
-            this.buttonMinRecruitingPts.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonMinRecruitingPts.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonMinRecruitingPts.Location = new System.Drawing.Point(31, 34);
-            this.buttonMinRecruitingPts.Name = "buttonMinRecruitingPts";
-            this.buttonMinRecruitingPts.Size = new System.Drawing.Size(180, 80);
-            this.buttonMinRecruitingPts.TabIndex = 1;
-            this.buttonMinRecruitingPts.Text = "Raise Minimum Recruiting Points";
-            this.buttonMinRecruitingPts.UseVisualStyleBackColor = false;
-            this.buttonMinRecruitingPts.Click += new System.EventHandler(this.ButtonMinRecruitingPts_Click);
-            // 
-            // minRecPts
-            // 
-            this.minRecPts.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minRecPts.Increment = new decimal(new int[] {
-            25,
-            0,
-            0,
-            0});
-            this.minRecPts.Location = new System.Drawing.Point(148, 120);
-            this.minRecPts.Maximum = new decimal(new int[] {
-            500,
-            0,
-            0,
-            0});
-            this.minRecPts.Minimum = new decimal(new int[] {
-            128,
-            0,
-            0,
-            0});
-            this.minRecPts.Name = "minRecPts";
-            this.minRecPts.Size = new System.Drawing.Size(52, 22);
-            this.minRecPts.TabIndex = 8;
-            this.minRecPts.Value = new decimal(new int[] {
-            128,
-            0,
-            0,
-            0});
-            // 
-            // labelMinRecPts
-            // 
-            this.labelMinRecPts.AutoSize = true;
-            this.labelMinRecPts.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelMinRecPts.Location = new System.Drawing.Point(131, 148);
-            this.labelMinRecPts.Name = "labelMinRecPts";
-            this.labelMinRecPts.Size = new System.Drawing.Size(78, 16);
-            this.labelMinRecPts.TabIndex = 9;
-            this.labelMinRecPts.Text = "Min Points";
-            this.labelMinRecPts.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // labelIntTeams
-            // 
-            this.labelIntTeams.AutoSize = true;
-            this.labelIntTeams.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelIntTeams.Location = new System.Drawing.Point(249, 126);
-            this.labelIntTeams.Name = "labelIntTeams";
-            this.labelIntTeams.Size = new System.Drawing.Size(55, 16);
-            this.labelIntTeams.TabIndex = 14;
-            this.labelIntTeams.Text = "Teams";
-            this.labelIntTeams.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // minTRPA
-            // 
-            this.minTRPA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.minTRPA.Location = new System.Drawing.Point(43, 120);
-            this.minTRPA.Maximum = new decimal(new int[] {
-            17,
-            0,
-            0,
-            0});
-            this.minTRPA.Minimum = new decimal(new int[] {
-            4,
-            0,
-            0,
-            0});
-            this.minTRPA.Name = "minTRPA";
-            this.minTRPA.Size = new System.Drawing.Size(52, 22);
-            this.minTRPA.TabIndex = 10;
-            this.minTRPA.Value = new decimal(new int[] {
-            4,
-            0,
-            0,
-            0});
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(28, 145);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(76, 16);
-            this.label12.TabIndex = 11;
-            this.label12.Text = "Min TRPA";
-            // 
-            // buttonInterestedTeams
-            // 
-            this.buttonInterestedTeams.BackColor = System.Drawing.SystemColors.Highlight;
-            this.buttonInterestedTeams.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonInterestedTeams.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonInterestedTeams.Location = new System.Drawing.Point(252, 34);
-            this.buttonInterestedTeams.Name = "buttonInterestedTeams";
-            this.buttonInterestedTeams.Size = new System.Drawing.Size(180, 80);
-            this.buttonInterestedTeams.TabIndex = 12;
-            this.buttonInterestedTeams.Text = "Modify Recruiting Interested Teams";
-            this.buttonInterestedTeams.UseVisualStyleBackColor = false;
-            this.buttonInterestedTeams.Click += new System.EventHandler(this.ButtonInterestedTeams_Click);
-            // 
-            // groupBox16
-            // 
-            this.groupBox16.Controls.Add(this.RecalculateStarRankingsButton);
-            this.groupBox16.Controls.Add(this.DetermineAthleteButton);
-            this.groupBox16.Controls.Add(this.buttonRandWalkOns);
-            this.groupBox16.Controls.Add(this.buttonRandRecruits);
-            this.groupBox16.Controls.Add(this.RandomizeRecruitNamesButton);
-            this.groupBox16.Controls.Add(this.toleranceWalkOn);
-            this.groupBox16.Controls.Add(this.buttonRandomizeFaceShape);
-            this.groupBox16.Controls.Add(this.wkonLabel);
-            this.groupBox16.Controls.Add(this.polyNames);
-            this.groupBox16.Controls.Add(this.recruitTolerance);
-            this.groupBox16.Controls.Add(this.labelRecruit);
-            this.groupBox16.Location = new System.Drawing.Point(12, 202);
-            this.groupBox16.Name = "groupBox16";
-            this.groupBox16.Size = new System.Drawing.Size(477, 404);
-            this.groupBox16.TabIndex = 24;
-            this.groupBox16.TabStop = false;
-            this.groupBox16.Text = "Recruiting Pool";
-            // 
-            // RecalculateStarRankingsButton
-            // 
-            this.RecalculateStarRankingsButton.BackColor = System.Drawing.SystemColors.Highlight;
-            this.RecalculateStarRankingsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecalculateStarRankingsButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.RecalculateStarRankingsButton.Location = new System.Drawing.Point(27, 308);
-            this.RecalculateStarRankingsButton.Name = "RecalculateStarRankingsButton";
-            this.RecalculateStarRankingsButton.Size = new System.Drawing.Size(356, 80);
-            this.RecalculateStarRankingsButton.TabIndex = 22;
-            this.RecalculateStarRankingsButton.Text = "Recalculate Recruit and Transfers Star Ranking";
-            this.RecalculateStarRankingsButton.UseVisualStyleBackColor = false;
-            this.RecalculateStarRankingsButton.Click += new System.EventHandler(this.RecalculateStarRankingsButton_Click);
-            // 
-            // DetermineAthleteButton
-            // 
-            this.DetermineAthleteButton.BackColor = System.Drawing.SystemColors.Highlight;
-            this.DetermineAthleteButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DetermineAthleteButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.DetermineAthleteButton.Location = new System.Drawing.Point(26, 217);
-            this.DetermineAthleteButton.Name = "DetermineAthleteButton";
-            this.DetermineAthleteButton.Size = new System.Drawing.Size(357, 80);
-            this.DetermineAthleteButton.TabIndex = 23;
-            this.DetermineAthleteButton.Text = "Determine Athlete Best Position";
-            this.DetermineAthleteButton.UseVisualStyleBackColor = false;
-            this.DetermineAthleteButton.Click += new System.EventHandler(this.DetermineAthleteButton_Click);
-            // 
-            // buttonRandWalkOns
-            // 
-            this.buttonRandWalkOns.BackColor = System.Drawing.SystemColors.Highlight;
-            this.buttonRandWalkOns.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRandWalkOns.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonRandWalkOns.Location = new System.Drawing.Point(273, 23);
-            this.buttonRandWalkOns.Name = "buttonRandWalkOns";
-            this.buttonRandWalkOns.Size = new System.Drawing.Size(110, 80);
-            this.buttonRandWalkOns.TabIndex = 2;
-            this.buttonRandWalkOns.Text = "Randomize Walk-Ons";
-            this.buttonRandWalkOns.UseVisualStyleBackColor = false;
-            this.buttonRandWalkOns.Click += new System.EventHandler(this.ButtonRandWalkOns_Click);
-            // 
-            // buttonRandRecruits
-            // 
-            this.buttonRandRecruits.BackColor = System.Drawing.SystemColors.Highlight;
-            this.buttonRandRecruits.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRandRecruits.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonRandRecruits.Location = new System.Drawing.Point(26, 23);
-            this.buttonRandRecruits.Name = "buttonRandRecruits";
-            this.buttonRandRecruits.Size = new System.Drawing.Size(110, 80);
-            this.buttonRandRecruits.TabIndex = 3;
-            this.buttonRandRecruits.Text = "Randomize Recruits";
-            this.buttonRandRecruits.UseVisualStyleBackColor = false;
-            this.buttonRandRecruits.Click += new System.EventHandler(this.ButtonRandRecruits_Click);
-            // 
-            // RandomizeRecruitNamesButton
-            // 
-            this.RandomizeRecruitNamesButton.BackColor = System.Drawing.SystemColors.Highlight;
-            this.RandomizeRecruitNamesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RandomizeRecruitNamesButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.RandomizeRecruitNamesButton.Location = new System.Drawing.Point(148, 118);
-            this.RandomizeRecruitNamesButton.Name = "RandomizeRecruitNamesButton";
-            this.RandomizeRecruitNamesButton.Size = new System.Drawing.Size(110, 80);
-            this.RandomizeRecruitNamesButton.TabIndex = 21;
-            this.RandomizeRecruitNamesButton.Text = "Randomize Recruits Names";
-            this.RandomizeRecruitNamesButton.UseVisualStyleBackColor = false;
-            this.RandomizeRecruitNamesButton.Click += new System.EventHandler(this.RandomizeRecruitNamesButton_Click);
-            // 
-            // toleranceWalkOn
-            // 
-            this.toleranceWalkOn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.toleranceWalkOn.Location = new System.Drawing.Point(404, 49);
-            this.toleranceWalkOn.Maximum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.toleranceWalkOn.Name = "toleranceWalkOn";
-            this.toleranceWalkOn.Size = new System.Drawing.Size(52, 22);
-            this.toleranceWalkOn.TabIndex = 4;
-            this.toleranceWalkOn.Value = new decimal(new int[] {
-            2,
-            0,
-            0,
-            0});
-            // 
-            // buttonRandomizeFaceShape
-            // 
-            this.buttonRandomizeFaceShape.BackColor = System.Drawing.SystemColors.Highlight;
-            this.buttonRandomizeFaceShape.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRandomizeFaceShape.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.buttonRandomizeFaceShape.Location = new System.Drawing.Point(26, 118);
-            this.buttonRandomizeFaceShape.Name = "buttonRandomizeFaceShape";
-            this.buttonRandomizeFaceShape.Size = new System.Drawing.Size(110, 80);
-            this.buttonRandomizeFaceShape.TabIndex = 20;
-            this.buttonRandomizeFaceShape.Text = "Randomize Recruits Face/Skin";
-            this.buttonRandomizeFaceShape.UseVisualStyleBackColor = false;
-            this.buttonRandomizeFaceShape.Click += new System.EventHandler(this.buttonRandomizeFaceSkin_Click);
-            // 
-            // wkonLabel
-            // 
-            this.wkonLabel.AutoSize = true;
-            this.wkonLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.wkonLabel.Location = new System.Drawing.Point(390, 74);
-            this.wkonLabel.Name = "wkonLabel";
-            this.wkonLabel.Size = new System.Drawing.Size(78, 16);
-            this.wkonLabel.TabIndex = 5;
-            this.wkonLabel.Text = "Tolerance";
-            this.wkonLabel.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // polyNames
-            // 
-            this.polyNames.BackColor = System.Drawing.SystemColors.Highlight;
-            this.polyNames.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.polyNames.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.polyNames.Location = new System.Drawing.Point(273, 118);
-            this.polyNames.Name = "polyNames";
-            this.polyNames.Size = new System.Drawing.Size(110, 82);
-            this.polyNames.TabIndex = 17;
-            this.polyNames.Text = "Polynesian Player/Name Generator";
-            this.polyNames.UseVisualStyleBackColor = false;
-            this.polyNames.Click += new System.EventHandler(this.PolyNames_Click);
-            // 
-            // recruitTolerance
-            // 
-            this.recruitTolerance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.recruitTolerance.Location = new System.Drawing.Point(157, 49);
-            this.recruitTolerance.Maximum = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.recruitTolerance.Name = "recruitTolerance";
-            this.recruitTolerance.Size = new System.Drawing.Size(52, 22);
-            this.recruitTolerance.TabIndex = 6;
-            this.recruitTolerance.Value = new decimal(new int[] {
-            2,
-            0,
-            0,
-            0});
-            // 
-            // labelRecruit
-            // 
-            this.labelRecruit.AutoSize = true;
-            this.labelRecruit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelRecruit.Location = new System.Drawing.Point(143, 74);
-            this.labelRecruit.Name = "labelRecruit";
-            this.labelRecruit.Size = new System.Drawing.Size(78, 16);
-            this.labelRecruit.TabIndex = 7;
-            this.labelRecruit.Text = "Tolerance";
-            this.labelRecruit.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            // 
-            // textBoxOffSeason
-            // 
-            this.textBoxOffSeason.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.textBoxOffSeason.Enabled = false;
-            this.textBoxOffSeason.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxOffSeason.Location = new System.Drawing.Point(511, 40);
-            this.textBoxOffSeason.Multiline = true;
-            this.textBoxOffSeason.Name = "textBoxOffSeason";
-            this.textBoxOffSeason.Size = new System.Drawing.Size(615, 569);
-            this.textBoxOffSeason.TabIndex = 16;
-            this.textBoxOffSeason.Text = resources.GetString("textBoxOffSeason.Text");
-            // 
-            // textBoxOffSeasonTitle
-            // 
-            this.textBoxOffSeasonTitle.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.textBoxOffSeasonTitle.Enabled = false;
-            this.textBoxOffSeasonTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxOffSeasonTitle.Location = new System.Drawing.Point(511, 6);
-            this.textBoxOffSeasonTitle.Name = "textBoxOffSeasonTitle";
-            this.textBoxOffSeasonTitle.Size = new System.Drawing.Size(615, 31);
-            this.textBoxOffSeasonTitle.TabIndex = 15;
-            this.textBoxOffSeasonTitle.Text = "Off-Season Recruiting Tools";
-            this.textBoxOffSeasonTitle.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // tabDepthCharts
+            // 
+            this.tabDepthCharts.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.tabDepthCharts.Controls.Add(this.DCHTAutoSet);
+            this.tabDepthCharts.Controls.Add(this.DCHTClear);
+            this.tabDepthCharts.Controls.Add(this.UpdateDCHT);
+            this.tabDepthCharts.Controls.Add(this.DCHTTeam);
+            this.tabDepthCharts.Controls.Add(this.label152);
+            this.tabDepthCharts.Controls.Add(this.DCHTGrid);
+            this.tabDepthCharts.Location = new System.Drawing.Point(4, 24);
+            this.tabDepthCharts.Name = "tabDepthCharts";
+            this.tabDepthCharts.Padding = new System.Windows.Forms.Padding(3);
+            this.tabDepthCharts.Size = new System.Drawing.Size(1152, 615);
+            this.tabDepthCharts.TabIndex = 11;
+            this.tabDepthCharts.Text = "Depth Charts";
+            // 
+            // DCHTAutoSet
+            // 
+            this.DCHTAutoSet.BackColor = System.Drawing.Color.Gold;
+            this.DCHTAutoSet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DCHTAutoSet.Location = new System.Drawing.Point(15, 267);
+            this.DCHTAutoSet.Name = "DCHTAutoSet";
+            this.DCHTAutoSet.Size = new System.Drawing.Size(138, 43);
+            this.DCHTAutoSet.TabIndex = 5;
+            this.DCHTAutoSet.Text = "Auto Set\r\nDepth Chart";
+            this.DCHTAutoSet.UseVisualStyleBackColor = false;
+            this.DCHTAutoSet.Click += new System.EventHandler(this.DCHTAutoSet_Click);
+            // 
+            // DCHTClear
+            // 
+            this.DCHTClear.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.DCHTClear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DCHTClear.Location = new System.Drawing.Point(15, 192);
+            this.DCHTClear.Name = "DCHTClear";
+            this.DCHTClear.Size = new System.Drawing.Size(138, 43);
+            this.DCHTClear.TabIndex = 4;
+            this.DCHTClear.Text = "Reset Table";
+            this.DCHTClear.UseVisualStyleBackColor = false;
+            this.DCHTClear.Click += new System.EventHandler(this.DCHTClear_Click);
+            // 
+            // UpdateDCHT
+            // 
+            this.UpdateDCHT.BackColor = System.Drawing.Color.IndianRed;
+            this.UpdateDCHT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UpdateDCHT.Location = new System.Drawing.Point(15, 117);
+            this.UpdateDCHT.Name = "UpdateDCHT";
+            this.UpdateDCHT.Size = new System.Drawing.Size(138, 43);
+            this.UpdateDCHT.TabIndex = 3;
+            this.UpdateDCHT.Text = "Update Database";
+            this.UpdateDCHT.UseVisualStyleBackColor = false;
+            this.UpdateDCHT.Click += new System.EventHandler(this.UpdateDCHT_Click);
+            // 
+            // DCHTTeam
+            // 
+            this.DCHTTeam.FormattingEnabled = true;
+            this.DCHTTeam.Location = new System.Drawing.Point(15, 63);
+            this.DCHTTeam.Name = "DCHTTeam";
+            this.DCHTTeam.Size = new System.Drawing.Size(138, 21);
+            this.DCHTTeam.TabIndex = 2;
+            this.DCHTTeam.SelectedIndexChanged += new System.EventHandler(this.DCHTTeam_SelectedIndexChanged);
+            // 
+            // label152
+            // 
+            this.label152.AutoSize = true;
+            this.label152.Location = new System.Drawing.Point(12, 46);
+            this.label152.Name = "label152";
+            this.label152.Size = new System.Drawing.Size(67, 13);
+            this.label152.TabIndex = 1;
+            this.label152.Text = "Select Team";
+            // 
+            // DCHTGrid
+            // 
+            this.DCHTGrid.AllowUserToAddRows = false;
+            this.DCHTGrid.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DCHTGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
+            this.DCHTGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DCHTGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            this.DCHTGrid.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.DCHTGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DCHTGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DCHTPPOS,
+            this.DCHT0,
+            this.DCHT1,
+            this.DCHT2,
+            this.DCHT3,
+            this.DCHT4,
+            this.DCHT5});
+            this.DCHTGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
+            this.DCHTGrid.Location = new System.Drawing.Point(159, 6);
+            this.DCHTGrid.MultiSelect = false;
+            this.DCHTGrid.Name = "DCHTGrid";
+            this.DCHTGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.DCHTGrid.Size = new System.Drawing.Size(974, 585);
+            this.DCHTGrid.TabIndex = 0;
+            this.DCHTGrid.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DCHT_CellEnter);
+            this.DCHTGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.DCHTGrid_DataError);
+            // 
+            // DCHTPPOS
+            // 
+            this.DCHTPPOS.FillWeight = 30F;
+            this.DCHTPPOS.HeaderText = "Position";
+            this.DCHTPPOS.Name = "DCHTPPOS";
+            this.DCHTPPOS.ReadOnly = true;
+            // 
+            // DCHT0
+            // 
+            this.DCHT0.FillWeight = 67.44775F;
+            this.DCHT0.HeaderText = "Starter";
+            this.DCHT0.Name = "DCHT0";
+            // 
+            // DCHT1
+            // 
+            this.DCHT1.FillWeight = 67.44775F;
+            this.DCHT1.HeaderText = "Backup";
+            this.DCHT1.Name = "DCHT1";
+            this.DCHT1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.DCHT1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // DCHT2
+            // 
+            this.DCHT2.FillWeight = 67.44775F;
+            this.DCHT2.HeaderText = "3rd String";
+            this.DCHT2.Name = "DCHT2";
+            // 
+            // DCHT3
+            // 
+            this.DCHT3.FillWeight = 67.44775F;
+            this.DCHT3.HeaderText = "4th String";
+            this.DCHT3.Name = "DCHT3";
+            // 
+            // DCHT4
+            // 
+            this.DCHT4.FillWeight = 67.44775F;
+            this.DCHT4.HeaderText = "5th String";
+            this.DCHT4.Name = "DCHT4";
+            // 
+            // DCHT5
+            // 
+            this.DCHT5.FillWeight = 67.44775F;
+            this.DCHT5.HeaderText = "6th String";
+            this.DCHT5.Name = "DCHT5";
+            // 
+            // tabSchedule
+            // 
+            this.tabSchedule.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.tabSchedule.Controls.Add(this.label213);
+            this.tabSchedule.Controls.Add(this.MatchView);
+            this.tabSchedule.Controls.Add(this.SCHDrecord);
+            this.tabSchedule.Controls.Add(this.groupBox21);
+            this.tabSchedule.Controls.Add(this.label212);
+            this.tabSchedule.Controls.Add(this.SchdTeamName);
+            this.tabSchedule.Controls.Add(this.label211);
+            this.tabSchedule.Controls.Add(this.SCHDTeamBox);
+            this.tabSchedule.Controls.Add(this.ScheduleView);
+            this.tabSchedule.Location = new System.Drawing.Point(4, 24);
+            this.tabSchedule.Name = "tabSchedule";
+            this.tabSchedule.Padding = new System.Windows.Forms.Padding(3);
+            this.tabSchedule.Size = new System.Drawing.Size(1152, 615);
+            this.tabSchedule.TabIndex = 16;
+            this.tabSchedule.Text = "Schedule";
+            // 
+            // label213
+            // 
+            this.label213.AutoSize = true;
+            this.label213.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label213.Location = new System.Drawing.Point(735, 52);
+            this.label213.Name = "label213";
+            this.label213.Size = new System.Drawing.Size(203, 24);
+            this.label213.TabIndex = 9;
+            this.label213.Text = "MATCH-UP VIEWER";
+            // 
+            // MatchView
+            // 
+            this.MatchView.AllowUserToAddRows = false;
+            this.MatchView.AllowUserToDeleteRows = false;
+            this.MatchView.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MatchView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle12;
+            this.MatchView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MatchView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            this.MatchView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.MatchView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.RatingCat,
+            this.MatchHomeTeam,
+            this.MatchAwayTeam});
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MatchView.DefaultCellStyle = dataGridViewCellStyle14;
+            this.MatchView.Location = new System.Drawing.Point(721, 81);
+            this.MatchView.Name = "MatchView";
+            this.MatchView.ReadOnly = true;
+            this.MatchView.Size = new System.Drawing.Size(409, 390);
+            this.MatchView.TabIndex = 8;
+            // 
+            // RatingCat
+            // 
+            this.RatingCat.HeaderText = "Rating";
+            this.RatingCat.Name = "RatingCat";
+            this.RatingCat.ReadOnly = true;
+            // 
+            // MatchHomeTeam
+            // 
+            this.MatchHomeTeam.HeaderText = "Home Team";
+            this.MatchHomeTeam.Name = "MatchHomeTeam";
+            this.MatchHomeTeam.ReadOnly = true;
+            // 
+            // MatchAwayTeam
+            // 
+            this.MatchAwayTeam.HeaderText = "Away Team";
+            this.MatchAwayTeam.Name = "MatchAwayTeam";
+            this.MatchAwayTeam.ReadOnly = true;
+            // 
+            // SCHDrecord
+            // 
+            this.SCHDrecord.AutoSize = true;
+            this.SCHDrecord.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SCHDrecord.Location = new System.Drawing.Point(201, 516);
+            this.SCHDrecord.Name = "SCHDrecord";
+            this.SCHDrecord.Size = new System.Drawing.Size(156, 16);
+            this.SCHDrecord.TabIndex = 7;
+            this.SCHDrecord.Text = "Season Record: xx-xx";
+            // 
+            // groupBox21
+            // 
+            this.groupBox21.Controls.Add(this.RescheduleOOC);
+            this.groupBox21.Location = new System.Drawing.Point(721, 492);
+            this.groupBox21.Name = "groupBox21";
+            this.groupBox21.Size = new System.Drawing.Size(409, 107);
+            this.groupBox21.TabIndex = 6;
+            this.groupBox21.TabStop = false;
+            this.groupBox21.Text = "Schedule Tools";
+            // 
+            // RescheduleOOC
+            // 
+            this.RescheduleOOC.Location = new System.Drawing.Point(22, 34);
+            this.RescheduleOOC.Name = "RescheduleOOC";
+            this.RescheduleOOC.Size = new System.Drawing.Size(111, 55);
+            this.RescheduleOOC.TabIndex = 5;
+            this.RescheduleOOC.Text = "Re-Schedule Out of Conference Games";
+            this.RescheduleOOC.UseVisualStyleBackColor = true;
+            this.RescheduleOOC.Click += new System.EventHandler(this.RescheduleOOC_Click);
+            // 
+            // label212
+            // 
+            this.label212.AutoSize = true;
+            this.label212.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label212.Location = new System.Drawing.Point(23, 33);
+            this.label212.Name = "label212";
+            this.label212.Size = new System.Drawing.Size(107, 15);
+            this.label212.TabIndex = 4;
+            this.label212.Text = "Team Selection";
+            // 
+            // SchdTeamName
+            // 
+            this.SchdTeamName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.SchdTeamName.AutoSize = true;
+            this.SchdTeamName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SchdTeamName.Location = new System.Drawing.Point(563, 62);
+            this.SchdTeamName.Name = "SchdTeamName";
+            this.SchdTeamName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.SchdTeamName.Size = new System.Drawing.Size(92, 16);
+            this.SchdTeamName.TabIndex = 3;
+            this.SchdTeamName.Text = "Team Name";
+            this.SchdTeamName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label211
+            // 
+            this.label211.AutoSize = true;
+            this.label211.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label211.Location = new System.Drawing.Point(197, 54);
+            this.label211.Name = "label211";
+            this.label211.Size = new System.Drawing.Size(205, 24);
+            this.label211.TabIndex = 2;
+            this.label211.Text = "SCHEDULE VIEWER";
+            // 
+            // SCHDTeamBox
+            // 
+            this.SCHDTeamBox.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.SCHDTeamBox.FormattingEnabled = true;
+            this.SCHDTeamBox.Location = new System.Drawing.Point(23, 52);
+            this.SCHDTeamBox.Name = "SCHDTeamBox";
+            this.SCHDTeamBox.Size = new System.Drawing.Size(142, 537);
+            this.SCHDTeamBox.TabIndex = 1;
+            this.SCHDTeamBox.SelectedIndexChanged += new System.EventHandler(this.SCHDTeamBox_SelectedIndexChanged);
+            // 
+            // ScheduleView
+            // 
+            this.ScheduleView.AllowUserToAddRows = false;
+            this.ScheduleView.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ScheduleView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle15;
+            this.ScheduleView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.ScheduleView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ScheduleView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            this.ScheduleView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.ScheduleView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SCHDWeek,
+            this.SCHDHOME,
+            this.SCHDScoreH,
+            this.SCHDVS,
+            this.SCHDAWAY,
+            this.SCHDScoreA});
+            this.ScheduleView.Location = new System.Drawing.Point(201, 81);
+            this.ScheduleView.Name = "ScheduleView";
+            this.ScheduleView.ReadOnly = true;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ScheduleView.RowHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.ScheduleView.RowsDefaultCellStyle = dataGridViewCellStyle18;
+            this.ScheduleView.Size = new System.Drawing.Size(495, 428);
+            this.ScheduleView.TabIndex = 0;
+            this.ScheduleView.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.ScheduleView_RowEnter);
+            // 
+            // SCHDWeek
+            // 
+            this.SCHDWeek.FillWeight = 40F;
+            this.SCHDWeek.HeaderText = "Week";
+            this.SCHDWeek.Name = "SCHDWeek";
+            this.SCHDWeek.ReadOnly = true;
+            // 
+            // SCHDHOME
+            // 
+            this.SCHDHOME.HeaderText = "Home";
+            this.SCHDHOME.Name = "SCHDHOME";
+            this.SCHDHOME.ReadOnly = true;
+            // 
+            // SCHDScoreH
+            // 
+            this.SCHDScoreH.FillWeight = 50F;
+            this.SCHDScoreH.HeaderText = "Score";
+            this.SCHDScoreH.Name = "SCHDScoreH";
+            this.SCHDScoreH.ReadOnly = true;
+            // 
+            // SCHDVS
+            // 
+            this.SCHDVS.FillWeight = 20F;
+            this.SCHDVS.HeaderText = "vs";
+            this.SCHDVS.Name = "SCHDVS";
+            this.SCHDVS.ReadOnly = true;
+            // 
+            // SCHDAWAY
+            // 
+            this.SCHDAWAY.HeaderText = "Away";
+            this.SCHDAWAY.Name = "SCHDAWAY";
+            this.SCHDAWAY.ReadOnly = true;
+            // 
+            // SCHDScoreA
+            // 
+            this.SCHDScoreA.FillWeight = 50F;
+            this.SCHDScoreA.HeaderText = "Score";
+            this.SCHDScoreA.Name = "SCHDScoreA";
+            this.SCHDScoreA.ReadOnly = true;
             // 
             // tabSeason
             // 
@@ -10006,35 +11356,11 @@ namespace DB_EDITOR
             this.tableGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.tableGridView.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tableGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
             this.tableGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.tableGridView.ContextMenuStrip = this.tableMenu;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.tableGridView.DefaultCellStyle = dataGridViewCellStyle22;
             this.tableGridView.GridColor = System.Drawing.SystemColors.Window;
             this.tableGridView.Location = new System.Drawing.Point(3, 6);
             this.tableGridView.Name = "tableGridView";
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tableGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle23;
             this.tableGridView.RowHeadersVisible = false;
             this.tableGridView.RowTemplate.Height = 18;
             this.tableGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -10046,41 +11372,17 @@ namespace DB_EDITOR
             // 
             this.fieldsGridView.AllowDrop = true;
             this.fieldsGridView.AllowUserToAddRows = false;
-            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
-            this.fieldsGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
+            this.fieldsGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
             this.fieldsGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.fieldsGridView.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle25.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.fieldsGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
             this.fieldsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.fieldsGridView.ContextMenuStrip = this.fieldMenu;
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.fieldsGridView.DefaultCellStyle = dataGridViewCellStyle26;
             this.fieldsGridView.GridColor = System.Drawing.SystemColors.ScrollBar;
             this.fieldsGridView.Location = new System.Drawing.Point(116, 6);
             this.fieldsGridView.Name = "fieldsGridView";
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.fieldsGridView.RowHeadersDefaultCellStyle = dataGridViewCellStyle27;
             this.fieldsGridView.RowHeadersVisible = false;
             this.fieldsGridView.RowTemplate.Height = 18;
             this.fieldsGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -10171,12 +11473,13 @@ namespace DB_EDITOR
             this.tabControl1.Controls.Add(this.tabStats);
             this.tabControl1.Controls.Add(this.tabRecruits);
             this.tabControl1.Controls.Add(this.tabOffSeason);
+            this.tabControl1.Controls.Add(this.tabPortal);
             this.tabControl1.Controls.Add(this.tabTools);
             this.tabControl1.Controls.Add(this.tabPlaybook);
             this.tabControl1.Controls.Add(this.tabUniforms);
             this.tabControl1.Controls.Add(this.tabDev);
             this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.ItemSize = new System.Drawing.Size(75, 20);
+            this.tabControl1.ItemSize = new System.Drawing.Size(65, 20);
             this.tabControl1.Location = new System.Drawing.Point(12, 27);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -10186,1369 +11489,832 @@ namespace DB_EDITOR
             this.tabControl1.Visible = false;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.TabControl1_IndexChange);
             // 
-            // tabSchedule
-            // 
-            this.tabSchedule.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.tabSchedule.Controls.Add(this.label213);
-            this.tabSchedule.Controls.Add(this.MatchView);
-            this.tabSchedule.Controls.Add(this.SCHDrecord);
-            this.tabSchedule.Controls.Add(this.groupBox21);
-            this.tabSchedule.Controls.Add(this.label212);
-            this.tabSchedule.Controls.Add(this.SchdTeamName);
-            this.tabSchedule.Controls.Add(this.label211);
-            this.tabSchedule.Controls.Add(this.SCHDTeamBox);
-            this.tabSchedule.Controls.Add(this.ScheduleView);
-            this.tabSchedule.Location = new System.Drawing.Point(4, 24);
-            this.tabSchedule.Name = "tabSchedule";
-            this.tabSchedule.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSchedule.Size = new System.Drawing.Size(1152, 615);
-            this.tabSchedule.TabIndex = 16;
-            this.tabSchedule.Text = "Schedule";
-            // 
-            // label213
-            // 
-            this.label213.AutoSize = true;
-            this.label213.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label213.Location = new System.Drawing.Point(735, 52);
-            this.label213.Name = "label213";
-            this.label213.Size = new System.Drawing.Size(203, 24);
-            this.label213.TabIndex = 9;
-            this.label213.Text = "MATCH-UP VIEWER";
-            // 
-            // MatchView
-            // 
-            this.MatchView.AllowUserToAddRows = false;
-            this.MatchView.AllowUserToDeleteRows = false;
-            this.MatchView.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle28.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MatchView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle28;
-            this.MatchView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle29.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle29.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle29.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MatchView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle29;
-            this.MatchView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.MatchView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.RatingCat,
-            this.MatchHomeTeam,
-            this.MatchAwayTeam});
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle30.BackColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle30.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.MatchView.DefaultCellStyle = dataGridViewCellStyle30;
-            this.MatchView.Location = new System.Drawing.Point(721, 81);
-            this.MatchView.Name = "MatchView";
-            this.MatchView.ReadOnly = true;
-            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle31.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle31.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle31.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MatchView.RowHeadersDefaultCellStyle = dataGridViewCellStyle31;
-            this.MatchView.Size = new System.Drawing.Size(409, 390);
-            this.MatchView.TabIndex = 8;
-            // 
-            // RatingCat
-            // 
-            this.RatingCat.HeaderText = "Rating";
-            this.RatingCat.Name = "RatingCat";
-            this.RatingCat.ReadOnly = true;
-            // 
-            // MatchHomeTeam
-            // 
-            this.MatchHomeTeam.HeaderText = "Home Team";
-            this.MatchHomeTeam.Name = "MatchHomeTeam";
-            this.MatchHomeTeam.ReadOnly = true;
-            // 
-            // MatchAwayTeam
-            // 
-            this.MatchAwayTeam.HeaderText = "Away Team";
-            this.MatchAwayTeam.Name = "MatchAwayTeam";
-            this.MatchAwayTeam.ReadOnly = true;
-            // 
-            // SCHDrecord
-            // 
-            this.SCHDrecord.AutoSize = true;
-            this.SCHDrecord.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SCHDrecord.Location = new System.Drawing.Point(201, 516);
-            this.SCHDrecord.Name = "SCHDrecord";
-            this.SCHDrecord.Size = new System.Drawing.Size(156, 16);
-            this.SCHDrecord.TabIndex = 7;
-            this.SCHDrecord.Text = "Season Record: xx-xx";
-            // 
-            // groupBox21
-            // 
-            this.groupBox21.Controls.Add(this.RescheduleOOC);
-            this.groupBox21.Location = new System.Drawing.Point(721, 492);
-            this.groupBox21.Name = "groupBox21";
-            this.groupBox21.Size = new System.Drawing.Size(409, 107);
-            this.groupBox21.TabIndex = 6;
-            this.groupBox21.TabStop = false;
-            this.groupBox21.Text = "Schedule Tools";
-            // 
-            // RescheduleOOC
-            // 
-            this.RescheduleOOC.Location = new System.Drawing.Point(22, 34);
-            this.RescheduleOOC.Name = "RescheduleOOC";
-            this.RescheduleOOC.Size = new System.Drawing.Size(111, 55);
-            this.RescheduleOOC.TabIndex = 5;
-            this.RescheduleOOC.Text = "Re-Schedule Out of Conference Games";
-            this.RescheduleOOC.UseVisualStyleBackColor = true;
-            this.RescheduleOOC.Click += new System.EventHandler(this.RescheduleOOC_Click);
-            // 
-            // label212
-            // 
-            this.label212.AutoSize = true;
-            this.label212.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label212.Location = new System.Drawing.Point(23, 33);
-            this.label212.Name = "label212";
-            this.label212.Size = new System.Drawing.Size(107, 15);
-            this.label212.TabIndex = 4;
-            this.label212.Text = "Team Selection";
-            // 
-            // SchdTeamName
-            // 
-            this.SchdTeamName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.SchdTeamName.AutoSize = true;
-            this.SchdTeamName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SchdTeamName.Location = new System.Drawing.Point(563, 62);
-            this.SchdTeamName.Name = "SchdTeamName";
-            this.SchdTeamName.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.SchdTeamName.Size = new System.Drawing.Size(92, 16);
-            this.SchdTeamName.TabIndex = 3;
-            this.SchdTeamName.Text = "Team Name";
-            this.SchdTeamName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // label211
-            // 
-            this.label211.AutoSize = true;
-            this.label211.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label211.Location = new System.Drawing.Point(197, 54);
-            this.label211.Name = "label211";
-            this.label211.Size = new System.Drawing.Size(205, 24);
-            this.label211.TabIndex = 2;
-            this.label211.Text = "SCHEDULE VIEWER";
-            // 
-            // SCHDTeamBox
-            // 
-            this.SCHDTeamBox.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.SCHDTeamBox.FormattingEnabled = true;
-            this.SCHDTeamBox.Location = new System.Drawing.Point(23, 52);
-            this.SCHDTeamBox.Name = "SCHDTeamBox";
-            this.SCHDTeamBox.Size = new System.Drawing.Size(142, 537);
-            this.SCHDTeamBox.TabIndex = 1;
-            this.SCHDTeamBox.SelectedIndexChanged += new System.EventHandler(this.SCHDTeamBox_SelectedIndexChanged);
-            // 
-            // ScheduleView
-            // 
-            this.ScheduleView.AllowUserToAddRows = false;
-            this.ScheduleView.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle32.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle32.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ScheduleView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle32;
-            this.ScheduleView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.ScheduleView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
-            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle33.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle33.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle33.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ScheduleView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle33;
-            this.ScheduleView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ScheduleView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.SCHDWeek,
-            this.SCHDHOME,
-            this.SCHDScoreH,
-            this.SCHDVS,
-            this.SCHDAWAY,
-            this.SCHDScoreA});
-            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle34.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle34.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle34.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle34.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle34.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.ScheduleView.DefaultCellStyle = dataGridViewCellStyle34;
-            this.ScheduleView.Location = new System.Drawing.Point(201, 81);
-            this.ScheduleView.Name = "ScheduleView";
-            this.ScheduleView.ReadOnly = true;
-            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle35.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            dataGridViewCellStyle35.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle35.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ScheduleView.RowHeadersDefaultCellStyle = dataGridViewCellStyle35;
-            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.ScheduleView.RowsDefaultCellStyle = dataGridViewCellStyle36;
-            this.ScheduleView.Size = new System.Drawing.Size(495, 428);
-            this.ScheduleView.TabIndex = 0;
-            this.ScheduleView.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.ScheduleView_RowEnter);
-            // 
-            // SCHDWeek
-            // 
-            this.SCHDWeek.FillWeight = 40F;
-            this.SCHDWeek.HeaderText = "Week";
-            this.SCHDWeek.Name = "SCHDWeek";
-            this.SCHDWeek.ReadOnly = true;
-            // 
-            // SCHDHOME
-            // 
-            this.SCHDHOME.HeaderText = "Home";
-            this.SCHDHOME.Name = "SCHDHOME";
-            this.SCHDHOME.ReadOnly = true;
-            // 
-            // SCHDScoreH
-            // 
-            this.SCHDScoreH.FillWeight = 50F;
-            this.SCHDScoreH.HeaderText = "Score";
-            this.SCHDScoreH.Name = "SCHDScoreH";
-            this.SCHDScoreH.ReadOnly = true;
-            // 
-            // SCHDVS
-            // 
-            this.SCHDVS.FillWeight = 20F;
-            this.SCHDVS.HeaderText = "vs";
-            this.SCHDVS.Name = "SCHDVS";
-            this.SCHDVS.ReadOnly = true;
-            // 
-            // SCHDAWAY
-            // 
-            this.SCHDAWAY.HeaderText = "Away";
-            this.SCHDAWAY.Name = "SCHDAWAY";
-            this.SCHDAWAY.ReadOnly = true;
-            // 
-            // SCHDScoreA
-            // 
-            this.SCHDScoreA.FillWeight = 50F;
-            this.SCHDScoreA.HeaderText = "Score";
-            this.SCHDScoreA.Name = "SCHDScoreA";
-            this.SCHDScoreA.ReadOnly = true;
-            // 
-            // tabStadiums
-            // 
-            this.tabStadiums.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.tabStadiums.Controls.Add(this.groupBox30);
-            this.tabStadiums.Controls.Add(this.groupBox29);
-            this.tabStadiums.Controls.Add(this.groupBox28);
-            this.tabStadiums.Controls.Add(this.STADrank);
-            this.tabStadiums.Controls.Add(this.STADSTDR);
-            this.tabStadiums.Controls.Add(this.label228);
-            this.tabStadiums.Controls.Add(this.STADTDNA);
-            this.tabStadiums.Controls.Add(this.groupBox27);
-            this.tabStadiums.Controls.Add(this.label227);
-            this.tabStadiums.Controls.Add(this.STADResBox);
-            this.tabStadiums.Controls.Add(this.label226);
-            this.tabStadiums.Controls.Add(this.STADsgidBox);
-            this.tabStadiums.Controls.Add(this.label225);
-            this.tabStadiums.Controls.Add(this.StadiumListBox);
-            this.tabStadiums.Location = new System.Drawing.Point(4, 24);
-            this.tabStadiums.Name = "tabStadiums";
-            this.tabStadiums.Padding = new System.Windows.Forms.Padding(3);
-            this.tabStadiums.Size = new System.Drawing.Size(1152, 615);
-            this.tabStadiums.TabIndex = 17;
-            this.tabStadiums.Text = "Stadiums";
-            // 
-            // groupBox30
-            // 
-            this.groupBox30.Controls.Add(this.GlobalWeather);
-            this.groupBox30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox30.Location = new System.Drawing.Point(702, 436);
-            this.groupBox30.Name = "groupBox30";
-            this.groupBox30.Size = new System.Drawing.Size(200, 128);
-            this.groupBox30.TabIndex = 18;
-            this.groupBox30.TabStop = false;
-            this.groupBox30.Text = "Global Editor";
-            // 
-            // GlobalWeather
-            // 
-            this.GlobalWeather.Location = new System.Drawing.Point(40, 32);
-            this.GlobalWeather.Name = "GlobalWeather";
-            this.GlobalWeather.Size = new System.Drawing.Size(128, 76);
-            this.GlobalWeather.TabIndex = 17;
-            this.GlobalWeather.Text = "Global Weather Data Importer";
-            this.GlobalWeather.UseVisualStyleBackColor = true;
-            this.GlobalWeather.Click += new System.EventHandler(this.GlobalWeather_Click);
-            // 
-            // groupBox29
-            // 
-            this.groupBox29.Controls.Add(this.label241);
-            this.groupBox29.Controls.Add(this.STtvBox);
-            this.groupBox29.Controls.Add(this.label235);
-            this.groupBox29.Controls.Add(this.SWSPBox);
-            this.groupBox29.Controls.Add(this.label236);
-            this.groupBox29.Controls.Add(this.SWRPBox);
-            this.groupBox29.Controls.Add(this.label233);
-            this.groupBox29.Controls.Add(this.SWWPBox);
-            this.groupBox29.Controls.Add(this.label234);
-            this.groupBox29.Controls.Add(this.SWFPBox);
-            this.groupBox29.Controls.Add(this.label231);
-            this.groupBox29.Controls.Add(this.STfwBox);
-            this.groupBox29.Controls.Add(this.label232);
-            this.groupBox29.Controls.Add(this.STwpBox);
-            this.groupBox29.Controls.Add(this.label230);
-            this.groupBox29.Controls.Add(this.STjtBox);
-            this.groupBox29.Controls.Add(this.label229);
-            this.groupBox29.Controls.Add(this.STtsBox);
-            this.groupBox29.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox29.Location = new System.Drawing.Point(231, 328);
-            this.groupBox29.Name = "groupBox29";
-            this.groupBox29.Size = new System.Drawing.Size(412, 240);
-            this.groupBox29.TabIndex = 16;
-            this.groupBox29.TabStop = false;
-            this.groupBox29.Text = "Weather Settings";
-            // 
-            // label241
-            // 
-            this.label241.AutoSize = true;
-            this.label241.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label241.Location = new System.Drawing.Point(270, 58);
-            this.label241.Name = "label241";
-            this.label241.Size = new System.Drawing.Size(129, 15);
-            this.label241.TabIndex = 17;
-            this.label241.Text = "Temperature Variation";
-            // 
-            // STtvBox
-            // 
-            this.STtvBox.Location = new System.Drawing.Point(202, 53);
-            this.STtvBox.Name = "STtvBox";
-            this.STtvBox.Size = new System.Drawing.Size(62, 21);
-            this.STtvBox.TabIndex = 16;
-            this.STtvBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.STtvBox.ValueChanged += new System.EventHandler(this.STtvBox_ValueChanged);
-            // 
-            // label235
-            // 
-            this.label235.AutoSize = true;
-            this.label235.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label235.Location = new System.Drawing.Point(270, 208);
-            this.label235.Name = "label235";
-            this.label235.Size = new System.Drawing.Size(67, 15);
-            this.label235.TabIndex = 15;
-            this.label235.Text = "Snow, PCT";
-            // 
-            // SWSPBox
-            // 
-            this.SWSPBox.Location = new System.Drawing.Point(202, 203);
-            this.SWSPBox.Name = "SWSPBox";
-            this.SWSPBox.Size = new System.Drawing.Size(62, 21);
-            this.SWSPBox.TabIndex = 14;
-            this.SWSPBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.SWSPBox.ValueChanged += new System.EventHandler(this.SWSPBox_ValueChanged);
-            // 
-            // label236
-            // 
-            this.label236.AutoSize = true;
-            this.label236.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label236.Location = new System.Drawing.Point(80, 208);
-            this.label236.Name = "label236";
-            this.label236.Size = new System.Drawing.Size(62, 15);
-            this.label236.TabIndex = 13;
-            this.label236.Text = "Rain, PCT";
-            // 
-            // SWRPBox
-            // 
-            this.SWRPBox.Location = new System.Drawing.Point(12, 203);
-            this.SWRPBox.Name = "SWRPBox";
-            this.SWRPBox.Size = new System.Drawing.Size(62, 21);
-            this.SWRPBox.TabIndex = 12;
-            this.SWRPBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.SWRPBox.ValueChanged += new System.EventHandler(this.SWRPBox_ValueChanged);
-            // 
-            // label233
-            // 
-            this.label233.AutoSize = true;
-            this.label233.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label233.Location = new System.Drawing.Point(270, 172);
-            this.label233.Name = "label233";
-            this.label233.Size = new System.Drawing.Size(64, 15);
-            this.label233.TabIndex = 11;
-            this.label233.Text = "Wind, PCT";
-            // 
-            // SWWPBox
-            // 
-            this.SWWPBox.Location = new System.Drawing.Point(202, 167);
-            this.SWWPBox.Name = "SWWPBox";
-            this.SWWPBox.Size = new System.Drawing.Size(62, 21);
-            this.SWWPBox.TabIndex = 10;
-            this.SWWPBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.SWWPBox.ValueChanged += new System.EventHandler(this.SWWPBox_ValueChanged);
-            // 
-            // label234
-            // 
-            this.label234.AutoSize = true;
-            this.label234.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label234.Location = new System.Drawing.Point(80, 172);
-            this.label234.Name = "label234";
-            this.label234.Size = new System.Drawing.Size(106, 15);
-            this.label234.TabIndex = 9;
-            this.label234.Text = "Fair Weather, PCT";
-            // 
-            // SWFPBox
-            // 
-            this.SWFPBox.Location = new System.Drawing.Point(12, 167);
-            this.SWFPBox.Name = "SWFPBox";
-            this.SWFPBox.Size = new System.Drawing.Size(62, 21);
-            this.SWFPBox.TabIndex = 8;
-            this.SWFPBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.SWFPBox.ValueChanged += new System.EventHandler(this.SWFPBox_ValueChanged);
-            // 
-            // label231
-            // 
-            this.label231.AutoSize = true;
-            this.label231.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label231.Location = new System.Drawing.Point(80, 133);
-            this.label231.Name = "label231";
-            this.label231.Size = new System.Drawing.Size(116, 15);
-            this.label231.TabIndex = 7;
-            this.label231.Text = "Fall Variation (STfw)";
-            // 
-            // STfwBox
-            // 
-            this.STfwBox.Location = new System.Drawing.Point(12, 128);
-            this.STfwBox.Name = "STfwBox";
-            this.STfwBox.Size = new System.Drawing.Size(62, 21);
-            this.STfwBox.TabIndex = 6;
-            this.STfwBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.STfwBox.ValueChanged += new System.EventHandler(this.STfwBox_ValueChanged);
-            // 
-            // label232
-            // 
-            this.label232.AutoSize = true;
-            this.label232.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label232.Location = new System.Drawing.Point(270, 133);
-            this.label232.Name = "label232";
-            this.label232.Size = new System.Drawing.Size(135, 15);
-            this.label232.TabIndex = 5;
-            this.label232.Text = "Winter Variation (STwp)";
-            // 
-            // STwpBox
-            // 
-            this.STwpBox.Location = new System.Drawing.Point(202, 128);
-            this.STwpBox.Name = "STwpBox";
-            this.STwpBox.Size = new System.Drawing.Size(62, 21);
-            this.STwpBox.TabIndex = 4;
-            this.STwpBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.STwpBox.ValueChanged += new System.EventHandler(this.STwpBox_ValueChanged);
-            // 
-            // label230
-            // 
-            this.label230.AutoSize = true;
-            this.label230.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label230.Location = new System.Drawing.Point(80, 77);
-            this.label230.Name = "label230";
-            this.label230.Size = new System.Drawing.Size(104, 15);
-            this.label230.TabIndex = 3;
-            this.label230.Text = "Temperature, Jan";
-            // 
-            // STjtBox
-            // 
-            this.STjtBox.Location = new System.Drawing.Point(12, 72);
-            this.STjtBox.Name = "STjtBox";
-            this.STjtBox.Size = new System.Drawing.Size(62, 21);
-            this.STjtBox.TabIndex = 2;
-            this.STjtBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.STjtBox.ValueChanged += new System.EventHandler(this.STjtBox_ValueChanged);
-            // 
-            // label229
-            // 
-            this.label229.AutoSize = true;
-            this.label229.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label229.Location = new System.Drawing.Point(80, 37);
-            this.label229.Name = "label229";
-            this.label229.Size = new System.Drawing.Size(109, 15);
-            this.label229.TabIndex = 1;
-            this.label229.Text = "Temperature, Sept";
-            // 
-            // STtsBox
-            // 
-            this.STtsBox.Location = new System.Drawing.Point(12, 32);
-            this.STtsBox.Name = "STtsBox";
-            this.STtsBox.Size = new System.Drawing.Size(62, 21);
-            this.STtsBox.TabIndex = 0;
-            this.STtsBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.STtsBox.ValueChanged += new System.EventHandler(this.STtsBox_ValueChanged);
-            // 
-            // groupBox28
-            // 
-            this.groupBox28.Controls.Add(this.label239);
-            this.groupBox28.Controls.Add(this.STADSFTYBox);
-            this.groupBox28.Controls.Add(this.STADState);
-            this.groupBox28.Controls.Add(this.STADCity);
-            this.groupBox28.Controls.Add(this.label237);
-            this.groupBox28.Controls.Add(this.label238);
-            this.groupBox28.Controls.Add(this.label240);
-            this.groupBox28.Controls.Add(this.STADCap);
-            this.groupBox28.Controls.Add(this.STADNickBox);
-            this.groupBox28.Controls.Add(this.STADNameBox);
-            this.groupBox28.Controls.Add(this.labelstadnickname);
-            this.groupBox28.Controls.Add(this.labelstadname);
-            this.groupBox28.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox28.Location = new System.Drawing.Point(231, 106);
-            this.groupBox28.Name = "groupBox28";
-            this.groupBox28.Size = new System.Drawing.Size(412, 186);
-            this.groupBox28.TabIndex = 15;
-            this.groupBox28.TabStop = false;
-            this.groupBox28.Text = "Stadium Info";
-            // 
-            // label239
-            // 
-            this.label239.AutoSize = true;
-            this.label239.Location = new System.Drawing.Point(250, 100);
-            this.label239.Name = "label239";
-            this.label239.Size = new System.Drawing.Size(66, 15);
-            this.label239.TabIndex = 133;
-            this.label239.Text = "Turf Type";
-            // 
-            // STADSFTYBox
-            // 
-            this.STADSFTYBox.FormattingEnabled = true;
-            this.STADSFTYBox.Location = new System.Drawing.Point(253, 114);
-            this.STADSFTYBox.Name = "STADSFTYBox";
-            this.STADSFTYBox.Size = new System.Drawing.Size(121, 23);
-            this.STADSFTYBox.TabIndex = 132;
-            this.STADSFTYBox.SelectedIndexChanged += new System.EventHandler(this.STADSFTYBox_SelectedIndexChanged);
-            // 
-            // STADState
-            // 
-            this.STADState.FormattingEnabled = true;
-            this.STADState.Location = new System.Drawing.Point(152, 114);
-            this.STADState.MaxLength = 2;
-            this.STADState.Name = "STADState";
-            this.STADState.Size = new System.Drawing.Size(44, 23);
-            this.STADState.TabIndex = 126;
-            this.STADState.SelectedIndexChanged += new System.EventHandler(this.STADState_SelectedIndexChanged);
-            // 
-            // STADCity
-            // 
-            this.STADCity.Location = new System.Drawing.Point(22, 115);
-            this.STADCity.Name = "STADCity";
-            this.STADCity.Size = new System.Drawing.Size(111, 21);
-            this.STADCity.TabIndex = 124;
-            this.STADCity.Leave += new System.EventHandler(this.STADCity_Leave);
-            // 
-            // label237
-            // 
-            this.label237.AutoSize = true;
-            this.label237.Location = new System.Drawing.Point(19, 99);
-            this.label237.Name = "label237";
-            this.label237.Size = new System.Drawing.Size(30, 15);
-            this.label237.TabIndex = 125;
-            this.label237.Text = "City";
-            // 
-            // label238
-            // 
-            this.label238.AutoSize = true;
-            this.label238.Location = new System.Drawing.Point(151, 99);
-            this.label238.Name = "label238";
-            this.label238.Size = new System.Drawing.Size(40, 15);
-            this.label238.TabIndex = 127;
-            this.label238.Text = "State";
-            // 
-            // label240
-            // 
-            this.label240.AutoSize = true;
-            this.label240.Location = new System.Drawing.Point(19, 143);
-            this.label240.Name = "label240";
-            this.label240.Size = new System.Drawing.Size(61, 15);
-            this.label240.TabIndex = 129;
-            this.label240.Text = "Capacity";
-            // 
-            // STADCap
-            // 
-            this.STADCap.Location = new System.Drawing.Point(22, 159);
-            this.STADCap.Maximum = new decimal(new int[] {
-            150000,
+            // tabPortal
+            // 
+            this.tabPortal.BackColor = System.Drawing.Color.Tan;
+            this.tabPortal.Controls.Add(this.TotalTransfersCount);
+            this.tabPortal.Controls.Add(this.PortalData);
+            this.tabPortal.Controls.Add(this.richTextBox3);
+            this.tabPortal.Controls.Add(this.richTextBox2);
+            this.tabPortal.Controls.Add(this.richTextBox1);
+            this.tabPortal.Controls.Add(this.PortalTransfers);
+            this.tabPortal.Controls.Add(this.portalChance);
+            this.tabPortal.Controls.Add(this.label259);
+            this.tabPortal.Controls.Add(this.groupBox33);
+            this.tabPortal.Controls.Add(this.groupBox32);
+            this.tabPortal.Controls.Add(this.groupBox31);
+            this.tabPortal.Controls.Add(this.SpringPortalButton);
+            this.tabPortal.Location = new System.Drawing.Point(4, 24);
+            this.tabPortal.Name = "tabPortal";
+            this.tabPortal.Size = new System.Drawing.Size(1152, 615);
+            this.tabPortal.TabIndex = 18;
+            this.tabPortal.Text = "Portal";
+            // 
+            // PortalTransfers
+            // 
+            this.PortalTransfers.AutoSize = true;
+            this.PortalTransfers.Location = new System.Drawing.Point(21, 352);
+            this.PortalTransfers.Name = "PortalTransfers";
+            this.PortalTransfers.Size = new System.Drawing.Size(189, 17);
+            this.PortalTransfers.TabIndex = 36;
+            this.PortalTransfers.Text = "Allow Winter Transfers to Re-Enter";
+            this.PortalTransfers.UseVisualStyleBackColor = true;
+            // 
+            // portalChance
+            // 
+            this.portalChance.Location = new System.Drawing.Point(171, 382);
+            this.portalChance.Name = "portalChance";
+            this.portalChance.Size = new System.Drawing.Size(45, 20);
+            this.portalChance.TabIndex = 35;
+            this.portalChance.Value = new decimal(new int[] {
+            67,
             0,
             0,
             0});
-            this.STADCap.Name = "STADCap";
-            this.STADCap.Size = new System.Drawing.Size(100, 21);
-            this.STADCap.TabIndex = 131;
-            this.STADCap.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.STADCap.ValueChanged += new System.EventHandler(this.STADCap_ValueChanged);
             // 
-            // STADNickBox
+            // label259
             // 
-            this.STADNickBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.STADNickBox.Location = new System.Drawing.Point(116, 58);
-            this.STADNickBox.Name = "STADNickBox";
-            this.STADNickBox.Size = new System.Drawing.Size(283, 22);
-            this.STADNickBox.TabIndex = 13;
-            this.STADNickBox.Leave += new System.EventHandler(this.STADNickBox_Leave);
+            this.label259.AutoSize = true;
+            this.label259.Location = new System.Drawing.Point(18, 385);
+            this.label259.Name = "label259";
+            this.label259.Size = new System.Drawing.Size(150, 13);
+            this.label259.TabIndex = 34;
+            this.label259.Text = "Transfer Chance Percentage: ";
             // 
-            // STADNameBox
+            // groupBox33
             // 
-            this.STADNameBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.STADNameBox.Location = new System.Drawing.Point(116, 19);
-            this.STADNameBox.Name = "STADNameBox";
-            this.STADNameBox.Size = new System.Drawing.Size(283, 22);
-            this.STADNameBox.TabIndex = 9;
-            this.STADNameBox.Leave += new System.EventHandler(this.STADNameBox_Leave);
+            this.groupBox33.Controls.Add(this.largePortal);
+            this.groupBox33.Controls.Add(this.smallPortal);
+            this.groupBox33.Location = new System.Drawing.Point(21, 243);
+            this.groupBox33.Name = "groupBox33";
+            this.groupBox33.Size = new System.Drawing.Size(200, 100);
+            this.groupBox33.TabIndex = 31;
+            this.groupBox33.TabStop = false;
+            this.groupBox33.Text = "Portal Size";
             // 
-            // labelstadnickname
+            // largePortal
             // 
-            this.labelstadnickname.AutoSize = true;
-            this.labelstadnickname.Location = new System.Drawing.Point(30, 66);
-            this.labelstadnickname.Name = "labelstadnickname";
-            this.labelstadnickname.Size = new System.Drawing.Size(71, 15);
-            this.labelstadnickname.TabIndex = 14;
-            this.labelstadnickname.Text = "Nickname";
-            this.labelstadnickname.UseMnemonic = false;
+            this.largePortal.AutoSize = true;
+            this.largePortal.Location = new System.Drawing.Point(18, 61);
+            this.largePortal.Name = "largePortal";
+            this.largePortal.Size = new System.Drawing.Size(82, 17);
+            this.largePortal.TabIndex = 1;
+            this.largePortal.TabStop = true;
+            this.largePortal.Text = "Large Portal";
+            this.largePortal.UseVisualStyleBackColor = true;
             // 
-            // labelstadname
+            // smallPortal
             // 
-            this.labelstadname.AutoSize = true;
-            this.labelstadname.Location = new System.Drawing.Point(9, 24);
-            this.labelstadname.Name = "labelstadname";
-            this.labelstadname.Size = new System.Drawing.Size(102, 15);
-            this.labelstadname.TabIndex = 10;
-            this.labelstadname.Text = "Stadium Name";
+            this.smallPortal.AutoSize = true;
+            this.smallPortal.Location = new System.Drawing.Point(18, 27);
+            this.smallPortal.Name = "smallPortal";
+            this.smallPortal.Size = new System.Drawing.Size(80, 17);
+            this.smallPortal.TabIndex = 0;
+            this.smallPortal.TabStop = true;
+            this.smallPortal.Text = "Small Portal";
+            this.smallPortal.UseVisualStyleBackColor = true;
             // 
-            // STADrank
+            // groupBox32
             // 
-            this.STADrank.AutoSize = true;
-            this.STADrank.Location = new System.Drawing.Point(561, 26);
-            this.STADrank.Name = "STADrank";
-            this.STADrank.Size = new System.Drawing.Size(74, 13);
-            this.STADrank.TabIndex = 12;
-            this.STADrank.Text = "Stadium Rank";
+            this.groupBox32.Controls.Add(this.PortalK);
+            this.groupBox32.Controls.Add(this.label258);
+            this.groupBox32.Controls.Add(this.PortalP);
+            this.groupBox32.Controls.Add(this.label250);
+            this.groupBox32.Controls.Add(this.PortalSS);
+            this.groupBox32.Controls.Add(this.label251);
+            this.groupBox32.Controls.Add(this.PortalFS);
+            this.groupBox32.Controls.Add(this.label252);
+            this.groupBox32.Controls.Add(this.PortalCB);
+            this.groupBox32.Controls.Add(this.label253);
+            this.groupBox32.Controls.Add(this.PortalMLB);
+            this.groupBox32.Controls.Add(this.label254);
+            this.groupBox32.Controls.Add(this.PortalOLB);
+            this.groupBox32.Controls.Add(this.label255);
+            this.groupBox32.Controls.Add(this.PortalDT);
+            this.groupBox32.Controls.Add(this.label256);
+            this.groupBox32.Controls.Add(this.PortalDE);
+            this.groupBox32.Controls.Add(this.label257);
+            this.groupBox32.Controls.Add(this.PortalOC);
+            this.groupBox32.Controls.Add(this.label249);
+            this.groupBox32.Controls.Add(this.PortalOG);
+            this.groupBox32.Controls.Add(this.label248);
+            this.groupBox32.Controls.Add(this.PortalOT);
+            this.groupBox32.Controls.Add(this.label247);
+            this.groupBox32.Controls.Add(this.PortalTE);
+            this.groupBox32.Controls.Add(this.label246);
+            this.groupBox32.Controls.Add(this.PortalWR);
+            this.groupBox32.Controls.Add(this.label245);
+            this.groupBox32.Controls.Add(this.PortalFB);
+            this.groupBox32.Controls.Add(this.label244);
+            this.groupBox32.Controls.Add(this.PortalHB);
+            this.groupBox32.Controls.Add(this.label243);
+            this.groupBox32.Controls.Add(this.PortalQB);
+            this.groupBox32.Controls.Add(this.label242);
+            this.groupBox32.Location = new System.Drawing.Point(742, 25);
+            this.groupBox32.Name = "groupBox32";
+            this.groupBox32.Size = new System.Drawing.Size(361, 345);
+            this.groupBox32.TabIndex = 30;
+            this.groupBox32.TabStop = false;
+            this.groupBox32.Text = "Roster Depth Option";
             // 
-            // STADSTDR
+            // PortalK
             // 
-            this.STADSTDR.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.STADSTDR.Location = new System.Drawing.Point(564, 44);
-            this.STADSTDR.Name = "STADSTDR";
-            this.STADSTDR.ReadOnly = true;
-            this.STADSTDR.Size = new System.Drawing.Size(67, 21);
-            this.STADSTDR.TabIndex = 11;
-            this.STADSTDR.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label228
-            // 
-            this.label228.AutoSize = true;
-            this.label228.Location = new System.Drawing.Point(411, 26);
-            this.label228.Name = "label228";
-            this.label228.Size = new System.Drawing.Size(79, 13);
-            this.label228.TabIndex = 8;
-            this.label228.Text = "Stadium Owner";
-            // 
-            // STADTDNA
-            // 
-            this.STADTDNA.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.STADTDNA.Location = new System.Drawing.Point(414, 44);
-            this.STADTDNA.Name = "STADTDNA";
-            this.STADTDNA.ReadOnly = true;
-            this.STADTDNA.Size = new System.Drawing.Size(130, 21);
-            this.STADTDNA.TabIndex = 7;
-            this.STADTDNA.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // groupBox27
-            // 
-            this.groupBox27.Controls.Add(this.STADType);
-            this.groupBox27.Controls.Add(this.STADCannon);
-            this.groupBox27.Controls.Add(this.STADVisbility);
-            this.groupBox27.Controls.Add(this.STADcat);
-            this.groupBox27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox27.Location = new System.Drawing.Point(702, 106);
-            this.groupBox27.Name = "groupBox27";
-            this.groupBox27.Size = new System.Drawing.Size(221, 135);
-            this.groupBox27.TabIndex = 6;
-            this.groupBox27.TabStop = false;
-            this.groupBox27.Text = "Stadium Options";
-            // 
-            // STADType
-            // 
-            this.STADType.AutoSize = true;
-            this.STADType.Location = new System.Drawing.Point(20, 104);
-            this.STADType.Name = "STADType";
-            this.STADType.Size = new System.Drawing.Size(124, 19);
-            this.STADType.TabIndex = 3;
-            this.STADType.Text = "Indoor Stadium";
-            this.STADType.UseVisualStyleBackColor = true;
-            this.STADType.CheckedChanged += new System.EventHandler(this.STADType_CheckedChanged);
-            // 
-            // STADCannon
-            // 
-            this.STADCannon.AutoSize = true;
-            this.STADCannon.Location = new System.Drawing.Point(20, 81);
-            this.STADCannon.Name = "STADCannon";
-            this.STADCannon.Size = new System.Drawing.Size(132, 19);
-            this.STADCannon.TabIndex = 2;
-            this.STADCannon.Text = "Stadium Cannon";
-            this.STADCannon.UseVisualStyleBackColor = true;
-            this.STADCannon.CheckedChanged += new System.EventHandler(this.STADCannon_CheckedChanged);
-            // 
-            // STADVisbility
-            // 
-            this.STADVisbility.AutoSize = true;
-            this.STADVisbility.Location = new System.Drawing.Point(20, 35);
-            this.STADVisbility.Name = "STADVisbility";
-            this.STADVisbility.Size = new System.Drawing.Size(119, 19);
-            this.STADVisbility.TabIndex = 1;
-            this.STADVisbility.Text = "Menu Visibility";
-            this.STADVisbility.UseVisualStyleBackColor = true;
-            this.STADVisbility.CheckedChanged += new System.EventHandler(this.STADVisbility_CheckedChanged);
-            // 
-            // STADcat
-            // 
-            this.STADcat.AutoSize = true;
-            this.STADcat.Enabled = false;
-            this.STADcat.Location = new System.Drawing.Point(20, 58);
-            this.STADcat.Name = "STADcat";
-            this.STADcat.Size = new System.Drawing.Size(179, 19);
-            this.STADcat.TabIndex = 0;
-            this.STADcat.Text = "Create-A-Team Stadium";
-            this.STADcat.UseVisualStyleBackColor = true;
-            // 
-            // label227
-            // 
-            this.label227.AutoSize = true;
-            this.label227.Location = new System.Drawing.Point(328, 25);
-            this.label227.Name = "label227";
-            this.label227.Size = new System.Drawing.Size(67, 13);
-            this.label227.TabIndex = 5;
-            this.label227.Text = "Resource ID";
-            // 
-            // STADResBox
-            // 
-            this.STADResBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.STADResBox.Location = new System.Drawing.Point(328, 44);
-            this.STADResBox.Name = "STADResBox";
-            this.STADResBox.ReadOnly = true;
-            this.STADResBox.Size = new System.Drawing.Size(67, 21);
-            this.STADResBox.TabIndex = 4;
-            this.STADResBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label226
-            // 
-            this.label226.AutoSize = true;
-            this.label226.Location = new System.Drawing.Point(231, 25);
-            this.label226.Name = "label226";
-            this.label226.Size = new System.Drawing.Size(59, 13);
-            this.label226.TabIndex = 3;
-            this.label226.Text = "Stadium ID";
-            // 
-            // STADsgidBox
-            // 
-            this.STADsgidBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.STADsgidBox.Location = new System.Drawing.Point(231, 44);
-            this.STADsgidBox.Name = "STADsgidBox";
-            this.STADsgidBox.ReadOnly = true;
-            this.STADsgidBox.Size = new System.Drawing.Size(74, 21);
-            this.STADsgidBox.TabIndex = 2;
-            this.STADsgidBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label225
-            // 
-            this.label225.AutoSize = true;
-            this.label225.Location = new System.Drawing.Point(21, 25);
-            this.label225.Name = "label225";
-            this.label225.Size = new System.Drawing.Size(78, 13);
-            this.label225.TabIndex = 1;
-            this.label225.Text = "Select Stadium";
-            // 
-            // StadiumListBox
-            // 
-            this.StadiumListBox.Location = new System.Drawing.Point(21, 44);
-            this.StadiumListBox.Name = "StadiumListBox";
-            this.StadiumListBox.Size = new System.Drawing.Size(174, 524);
-            this.StadiumListBox.TabIndex = 0;
-            this.StadiumListBox.SelectedIndexChanged += new System.EventHandler(this.StadiumListBox_SelectedIndexChanged);
-            // 
-            // tabTools
-            // 
-            this.tabTools.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.tabTools.Controls.Add(this.ClearExpiredStats);
-            this.tabTools.Controls.Add(this.groupBox22);
-            this.tabTools.Controls.Add(this.ReRankTeams);
-            this.tabTools.Controls.Add(this.FixHCBugsButton);
-            this.tabTools.Controls.Add(this.groupBox18);
-            this.tabTools.Controls.Add(this.UniquePlayerButton);
-            this.tabTools.Controls.Add(this.FantasyCoachesButton);
-            this.tabTools.Controls.Add(this.SyncPBButton);
-            this.tabTools.Controls.Add(this.textBox3);
-            this.tabTools.Controls.Add(this.textBox2);
-            this.tabTools.Controls.Add(this.ReorderPGIDButton);
-            this.tabTools.Controls.Add(this.TORDButton);
-            this.tabTools.Controls.Add(this.RandomizeHeadButton);
-            this.tabTools.Controls.Add(this.label58);
-            this.tabTools.Controls.Add(this.FillRosterPCT);
-            this.tabTools.Controls.Add(this.buttonFillRosters);
-            this.tabTools.Controls.Add(this.buttonAutoDepthChart);
-            this.tabTools.Controls.Add(this.buttonFantasyRoster);
-            this.tabTools.Controls.Add(this.TYDNButton);
-            this.tabTools.Controls.Add(this.buttonCalcOverall);
-            this.tabTools.Controls.Add(this.buttonRandPotential);
-            this.tabTools.Controls.Add(qbTend);
-            this.tabTools.Controls.Add(this.bodyFix);
-            this.tabTools.Location = new System.Drawing.Point(4, 24);
-            this.tabTools.Name = "tabTools";
-            this.tabTools.Padding = new System.Windows.Forms.Padding(3);
-            this.tabTools.Size = new System.Drawing.Size(1152, 615);
-            this.tabTools.TabIndex = 5;
-            this.tabTools.Text = "dbTools";
-            // 
-            // ClearExpiredStats
-            // 
-            this.ClearExpiredStats.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.ClearExpiredStats.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ClearExpiredStats.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClearExpiredStats.Location = new System.Drawing.Point(16, 421);
-            this.ClearExpiredStats.Name = "ClearExpiredStats";
-            this.ClearExpiredStats.Size = new System.Drawing.Size(110, 80);
-            this.ClearExpiredStats.TabIndex = 59;
-            this.ClearExpiredStats.Text = "Clear Expired Stats Data";
-            this.ClearExpiredStats.UseVisualStyleBackColor = false;
-            this.ClearExpiredStats.Click += new System.EventHandler(this.ClearExpiredStats_Click);
-            // 
-            // groupBox22
-            // 
-            this.groupBox22.Controls.Add(this.FantasyCSV);
-            this.groupBox22.Controls.Add(this.FantasyTeamDB);
-            this.groupBox22.Location = new System.Drawing.Point(274, 567);
-            this.groupBox22.Name = "groupBox22";
-            this.groupBox22.Size = new System.Drawing.Size(239, 45);
-            this.groupBox22.TabIndex = 58;
-            this.groupBox22.TabStop = false;
-            this.groupBox22.Text = "Team Prestige Location";
-            // 
-            // FantasyCSV
-            // 
-            this.FantasyCSV.AutoSize = true;
-            this.FantasyCSV.Location = new System.Drawing.Point(139, 19);
-            this.FantasyCSV.Name = "FantasyCSV";
-            this.FantasyCSV.Size = new System.Drawing.Size(87, 17);
-            this.FantasyCSV.TabIndex = 1;
-            this.FantasyCSV.TabStop = true;
-            this.FantasyCSV.Text = "External CSV";
-            this.FantasyCSV.UseVisualStyleBackColor = true;
-            // 
-            // FantasyTeamDB
-            // 
-            this.FantasyTeamDB.AutoSize = true;
-            this.FantasyTeamDB.Location = new System.Drawing.Point(17, 19);
-            this.FantasyTeamDB.Name = "FantasyTeamDB";
-            this.FantasyTeamDB.Size = new System.Drawing.Size(101, 17);
-            this.FantasyTeamDB.TabIndex = 0;
-            this.FantasyTeamDB.TabStop = true;
-            this.FantasyTeamDB.Text = "Team Database";
-            this.FantasyTeamDB.UseVisualStyleBackColor = true;
-            // 
-            // ReRankTeams
-            // 
-            this.ReRankTeams.AutoSize = true;
-            this.ReRankTeams.Location = new System.Drawing.Point(148, 95);
-            this.ReRankTeams.Name = "ReRankTeams";
-            this.ReRankTeams.Size = new System.Drawing.Size(104, 17);
-            this.ReRankTeams.TabIndex = 57;
-            this.ReRankTeams.Text = "Re-Rank Teams";
-            this.ReRankTeams.UseVisualStyleBackColor = true;
-            // 
-            // FixHCBugsButton
-            // 
-            this.FixHCBugsButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.FixHCBugsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FixHCBugsButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.FixHCBugsButton.Location = new System.Drawing.Point(143, 319);
-            this.FixHCBugsButton.Name = "FixHCBugsButton";
-            this.FixHCBugsButton.Size = new System.Drawing.Size(110, 80);
-            this.FixHCBugsButton.TabIndex = 56;
-            this.FixHCBugsButton.Text = "Fix Coach Head/Face Bugs";
-            this.FixHCBugsButton.UseVisualStyleBackColor = false;
-            this.FixHCBugsButton.Click += new System.EventHandler(this.FixHCBugsButton_Click);
-            // 
-            // groupBox18
-            // 
-            this.groupBox18.Controls.Add(this.MaxAttNum);
-            this.groupBox18.Controls.Add(this.GlobalAttBox);
-            this.groupBox18.Controls.Add(this.label99);
-            this.groupBox18.Controls.Add(this.GlobalAttNum);
-            this.groupBox18.Controls.Add(this.label109);
-            this.groupBox18.Controls.Add(this.GlobalAttCheck);
-            this.groupBox18.Controls.Add(this.label108);
-            this.groupBox18.Controls.Add(this.MinAttBox);
-            this.groupBox18.Controls.Add(this.label107);
-            this.groupBox18.Controls.Add(this.label100);
-            this.groupBox18.Controls.Add(this.MaxAttPosBox);
-            this.groupBox18.Controls.Add(this.MinAttNum);
-            this.groupBox18.Controls.Add(this.MinAttPosBox);
-            this.groupBox18.Controls.Add(this.MaxAttBox);
-            this.groupBox18.Controls.Add(this.GlobalAttPosBox);
-            this.groupBox18.Controls.Add(this.label106);
-            this.groupBox18.Controls.Add(this.MaxAttButton);
-            this.groupBox18.Controls.Add(this.MinAttRating);
-            this.groupBox18.Controls.Add(this.MinAttButton);
-            this.groupBox18.Controls.Add(this.MaxAttRating);
-            this.groupBox18.Controls.Add(this.GlobalAttButton);
-            this.groupBox18.Location = new System.Drawing.Point(271, 47);
-            this.groupBox18.Name = "groupBox18";
-            this.groupBox18.Size = new System.Drawing.Size(425, 345);
-            this.groupBox18.TabIndex = 55;
-            this.groupBox18.TabStop = false;
-            this.groupBox18.Text = "Global Player Editor";
-            // 
-            // MaxAttNum
-            // 
-            this.MaxAttNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MaxAttNum.Location = new System.Drawing.Point(264, 278);
-            this.MaxAttNum.Maximum = new decimal(new int[] {
-            31,
-            0,
-            0,
-            0});
-            this.MaxAttNum.Name = "MaxAttNum";
-            this.MaxAttNum.Size = new System.Drawing.Size(68, 21);
-            this.MaxAttNum.TabIndex = 39;
-            this.MaxAttNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.MaxAttNum.ValueChanged += new System.EventHandler(this.MaxAttNum_ValueChanged);
-            // 
-            // GlobalAttBox
-            // 
-            this.GlobalAttBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GlobalAttBox.FormattingEnabled = true;
-            this.GlobalAttBox.Location = new System.Drawing.Point(92, 54);
-            this.GlobalAttBox.Name = "GlobalAttBox";
-            this.GlobalAttBox.Size = new System.Drawing.Size(150, 23);
-            this.GlobalAttBox.TabIndex = 29;
-            // 
-            // label99
-            // 
-            this.label99.AutoSize = true;
-            this.label99.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label99.Location = new System.Drawing.Point(88, 23);
-            this.label99.Name = "label99";
-            this.label99.Size = new System.Drawing.Size(189, 20);
-            this.label99.TabIndex = 30;
-            this.label99.Text = "Global Attribute Editor";
-            // 
-            // GlobalAttNum
-            // 
-            this.GlobalAttNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GlobalAttNum.Location = new System.Drawing.Point(264, 56);
-            this.GlobalAttNum.Maximum = new decimal(new int[] {
+            this.PortalK.Location = new System.Drawing.Point(277, 42);
+            this.PortalK.Maximum = new decimal(new int[] {
             10,
             0,
             0,
             0});
-            this.GlobalAttNum.Minimum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            -2147483648});
-            this.GlobalAttNum.Name = "GlobalAttNum";
-            this.GlobalAttNum.Size = new System.Drawing.Size(68, 21);
-            this.GlobalAttNum.TabIndex = 31;
-            this.GlobalAttNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label109
-            // 
-            this.label109.AutoSize = true;
-            this.label109.Location = new System.Drawing.Point(17, 262);
-            this.label109.Name = "label109";
-            this.label109.Size = new System.Drawing.Size(44, 13);
-            this.label109.TabIndex = 51;
-            this.label109.Text = "Position";
-            // 
-            // GlobalAttCheck
-            // 
-            this.GlobalAttCheck.AutoSize = true;
-            this.GlobalAttCheck.Location = new System.Drawing.Point(92, 86);
-            this.GlobalAttCheck.Name = "GlobalAttCheck";
-            this.GlobalAttCheck.Size = new System.Drawing.Size(137, 17);
-            this.GlobalAttCheck.TabIndex = 32;
-            this.GlobalAttCheck.Text = "Prestige Based Change";
-            this.GlobalAttCheck.UseVisualStyleBackColor = true;
-            // 
-            // label108
-            // 
-            this.label108.AutoSize = true;
-            this.label108.Location = new System.Drawing.Point(18, 153);
-            this.label108.Name = "label108";
-            this.label108.Size = new System.Drawing.Size(44, 13);
-            this.label108.TabIndex = 50;
-            this.label108.Text = "Position";
-            // 
-            // MinAttBox
-            // 
-            this.MinAttBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MinAttBox.FormattingEnabled = true;
-            this.MinAttBox.Location = new System.Drawing.Point(92, 167);
-            this.MinAttBox.Name = "MinAttBox";
-            this.MinAttBox.Size = new System.Drawing.Size(150, 23);
-            this.MinAttBox.TabIndex = 33;
-            // 
-            // label107
-            // 
-            this.label107.AutoSize = true;
-            this.label107.Location = new System.Drawing.Point(18, 38);
-            this.label107.Name = "label107";
-            this.label107.Size = new System.Drawing.Size(44, 13);
-            this.label107.TabIndex = 49;
-            this.label107.Text = "Position";
-            // 
-            // label100
-            // 
-            this.label100.AutoSize = true;
-            this.label100.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label100.Location = new System.Drawing.Point(88, 136);
-            this.label100.Name = "label100";
-            this.label100.Size = new System.Drawing.Size(187, 20);
-            this.label100.TabIndex = 34;
-            this.label100.Text = "Set Minimum Attribute";
-            // 
-            // MaxAttPosBox
-            // 
-            this.MaxAttPosBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MaxAttPosBox.FormattingEnabled = true;
-            this.MaxAttPosBox.Location = new System.Drawing.Point(20, 277);
-            this.MaxAttPosBox.Name = "MaxAttPosBox";
-            this.MaxAttPosBox.Size = new System.Drawing.Size(65, 23);
-            this.MaxAttPosBox.TabIndex = 48;
-            // 
-            // MinAttNum
-            // 
-            this.MinAttNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MinAttNum.Location = new System.Drawing.Point(264, 169);
-            this.MinAttNum.Maximum = new decimal(new int[] {
-            31,
+            this.PortalK.Minimum = new decimal(new int[] {
+            1,
             0,
             0,
             0});
-            this.MinAttNum.Name = "MinAttNum";
-            this.MinAttNum.Size = new System.Drawing.Size(68, 21);
-            this.MinAttNum.TabIndex = 35;
-            this.MinAttNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.MinAttNum.ValueChanged += new System.EventHandler(this.MinAttNum_ValueChanged);
+            this.PortalK.Name = "PortalK";
+            this.PortalK.Size = new System.Drawing.Size(44, 20);
+            this.PortalK.TabIndex = 33;
+            this.PortalK.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
-            // MinAttPosBox
+            // label258
             // 
-            this.MinAttPosBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MinAttPosBox.FormattingEnabled = true;
-            this.MinAttPosBox.Location = new System.Drawing.Point(21, 167);
-            this.MinAttPosBox.Name = "MinAttPosBox";
-            this.MinAttPosBox.Size = new System.Drawing.Size(65, 23);
-            this.MinAttPosBox.TabIndex = 47;
+            this.label258.AutoSize = true;
+            this.label258.Location = new System.Drawing.Point(249, 44);
+            this.label258.Name = "label258";
+            this.label258.Size = new System.Drawing.Size(14, 13);
+            this.label258.TabIndex = 32;
+            this.label258.Text = "K";
             // 
-            // MaxAttBox
+            // PortalP
             // 
-            this.MaxAttBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MaxAttBox.FormattingEnabled = true;
-            this.MaxAttBox.Location = new System.Drawing.Point(92, 276);
-            this.MaxAttBox.Name = "MaxAttBox";
-            this.MaxAttBox.Size = new System.Drawing.Size(150, 23);
-            this.MaxAttBox.TabIndex = 37;
+            this.PortalP.Location = new System.Drawing.Point(277, 75);
+            this.PortalP.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.PortalP.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.PortalP.Name = "PortalP";
+            this.PortalP.Size = new System.Drawing.Size(44, 20);
+            this.PortalP.TabIndex = 31;
+            this.PortalP.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
-            // GlobalAttPosBox
+            // label250
             // 
-            this.GlobalAttPosBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.GlobalAttPosBox.FormattingEnabled = true;
-            this.GlobalAttPosBox.Location = new System.Drawing.Point(21, 54);
-            this.GlobalAttPosBox.Name = "GlobalAttPosBox";
-            this.GlobalAttPosBox.Size = new System.Drawing.Size(65, 23);
-            this.GlobalAttPosBox.TabIndex = 46;
+            this.label250.AutoSize = true;
+            this.label250.Location = new System.Drawing.Point(249, 77);
+            this.label250.Name = "label250";
+            this.label250.Size = new System.Drawing.Size(14, 13);
+            this.label250.TabIndex = 30;
+            this.label250.Text = "P";
             // 
-            // label106
+            // PortalSS
             // 
-            this.label106.AutoSize = true;
-            this.label106.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label106.Location = new System.Drawing.Point(88, 245);
-            this.label106.Name = "label106";
-            this.label106.Size = new System.Drawing.Size(191, 20);
-            this.label106.TabIndex = 38;
-            this.label106.Text = "Set Maximum Attribute";
+            this.PortalSS.Location = new System.Drawing.Point(165, 264);
+            this.PortalSS.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.PortalSS.Minimum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.PortalSS.Name = "PortalSS";
+            this.PortalSS.Size = new System.Drawing.Size(44, 20);
+            this.PortalSS.TabIndex = 29;
+            this.PortalSS.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
             // 
-            // MaxAttButton
+            // label251
             // 
-            this.MaxAttButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.MaxAttButton.Location = new System.Drawing.Point(263, 304);
-            this.MaxAttButton.Name = "MaxAttButton";
-            this.MaxAttButton.Size = new System.Drawing.Size(75, 23);
-            this.MaxAttButton.TabIndex = 45;
-            this.MaxAttButton.Text = "Update";
-            this.MaxAttButton.UseVisualStyleBackColor = false;
-            this.MaxAttButton.Click += new System.EventHandler(this.MaxAttButton_Click);
+            this.label251.AutoSize = true;
+            this.label251.Location = new System.Drawing.Point(137, 266);
+            this.label251.Name = "label251";
+            this.label251.Size = new System.Drawing.Size(21, 13);
+            this.label251.TabIndex = 28;
+            this.label251.Text = "SS";
             // 
-            // MinAttRating
+            // PortalFS
             // 
-            this.MinAttRating.BackColor = System.Drawing.SystemColors.Info;
-            this.MinAttRating.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MinAttRating.Location = new System.Drawing.Point(339, 169);
-            this.MinAttRating.Name = "MinAttRating";
-            this.MinAttRating.ReadOnly = true;
-            this.MinAttRating.Size = new System.Drawing.Size(39, 21);
-            this.MinAttRating.TabIndex = 41;
-            this.MinAttRating.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.PortalFS.Location = new System.Drawing.Point(165, 226);
+            this.PortalFS.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.PortalFS.Minimum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.PortalFS.Name = "PortalFS";
+            this.PortalFS.Size = new System.Drawing.Size(44, 20);
+            this.PortalFS.TabIndex = 27;
+            this.PortalFS.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
             // 
-            // MinAttButton
+            // label252
             // 
-            this.MinAttButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.MinAttButton.Location = new System.Drawing.Point(264, 196);
-            this.MinAttButton.Name = "MinAttButton";
-            this.MinAttButton.Size = new System.Drawing.Size(75, 23);
-            this.MinAttButton.TabIndex = 44;
-            this.MinAttButton.Text = "Update";
-            this.MinAttButton.UseVisualStyleBackColor = false;
-            this.MinAttButton.Click += new System.EventHandler(this.MinAttButton_Click);
+            this.label252.AutoSize = true;
+            this.label252.Location = new System.Drawing.Point(137, 228);
+            this.label252.Name = "label252";
+            this.label252.Size = new System.Drawing.Size(20, 13);
+            this.label252.TabIndex = 26;
+            this.label252.Text = "FS";
             // 
-            // MaxAttRating
+            // PortalCB
             // 
-            this.MaxAttRating.BackColor = System.Drawing.SystemColors.Info;
-            this.MaxAttRating.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MaxAttRating.Location = new System.Drawing.Point(338, 276);
-            this.MaxAttRating.Name = "MaxAttRating";
-            this.MaxAttRating.ReadOnly = true;
-            this.MaxAttRating.Size = new System.Drawing.Size(39, 21);
-            this.MaxAttRating.TabIndex = 42;
-            this.MaxAttRating.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.PortalCB.Location = new System.Drawing.Point(165, 189);
+            this.PortalCB.Maximum = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
+            this.PortalCB.Minimum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.PortalCB.Name = "PortalCB";
+            this.PortalCB.Size = new System.Drawing.Size(44, 20);
+            this.PortalCB.TabIndex = 25;
+            this.PortalCB.Value = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
             // 
-            // GlobalAttButton
+            // label253
             // 
-            this.GlobalAttButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.GlobalAttButton.Location = new System.Drawing.Point(264, 82);
-            this.GlobalAttButton.Name = "GlobalAttButton";
-            this.GlobalAttButton.Size = new System.Drawing.Size(75, 23);
-            this.GlobalAttButton.TabIndex = 43;
-            this.GlobalAttButton.Text = "Update";
-            this.GlobalAttButton.UseVisualStyleBackColor = false;
-            this.GlobalAttButton.Click += new System.EventHandler(this.GlobalAttButton_Click);
+            this.label253.AutoSize = true;
+            this.label253.Location = new System.Drawing.Point(137, 191);
+            this.label253.Name = "label253";
+            this.label253.Size = new System.Drawing.Size(21, 13);
+            this.label253.TabIndex = 24;
+            this.label253.Text = "CB";
             // 
-            // UniquePlayerButton
+            // PortalMLB
             // 
-            this.UniquePlayerButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.UniquePlayerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UniquePlayerButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.UniquePlayerButton.Location = new System.Drawing.Point(16, 319);
-            this.UniquePlayerButton.Name = "UniquePlayerButton";
-            this.UniquePlayerButton.Size = new System.Drawing.Size(110, 80);
-            this.UniquePlayerButton.TabIndex = 54;
-            this.UniquePlayerButton.Text = "Texture Modding: Unique Players";
-            this.UniquePlayerButton.UseVisualStyleBackColor = false;
-            this.UniquePlayerButton.Click += new System.EventHandler(this.UniquePlayer_Click);
-            // 
-            // FantasyCoachesButton
-            // 
-            this.FantasyCoachesButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.FantasyCoachesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FantasyCoachesButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.FantasyCoachesButton.Location = new System.Drawing.Point(274, 402);
-            this.FantasyCoachesButton.Name = "FantasyCoachesButton";
-            this.FantasyCoachesButton.Size = new System.Drawing.Size(239, 80);
-            this.FantasyCoachesButton.TabIndex = 53;
-            this.FantasyCoachesButton.Text = "Generate Fantasy Coaches";
-            this.FantasyCoachesButton.UseVisualStyleBackColor = false;
-            this.FantasyCoachesButton.Click += new System.EventHandler(this.FantasyCoachesButton_Click);
-            // 
-            // SyncPBButton
-            // 
-            this.SyncPBButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.SyncPBButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SyncPBButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.SyncPBButton.Location = new System.Drawing.Point(143, 519);
-            this.SyncPBButton.Name = "SyncPBButton";
-            this.SyncPBButton.Size = new System.Drawing.Size(110, 80);
-            this.SyncPBButton.TabIndex = 52;
-            this.SyncPBButton.Text = "Sync Team and Coach Playbooks";
-            this.SyncPBButton.UseVisualStyleBackColor = false;
-            this.SyncPBButton.Click += new System.EventHandler(this.SyncPBButton_Click);
-            // 
-            // textBox3
-            // 
-            this.textBox3.BackColor = System.Drawing.SystemColors.Info;
-            this.textBox3.Enabled = false;
-            this.textBox3.Font = new System.Drawing.Font("Corbel", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(282, 8);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(355, 33);
-            this.textBox3.TabIndex = 14;
-            this.textBox3.Text = "NCAA Football Modding Toolkit";
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox2
-            // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.textBox2.Enabled = false;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(723, 36);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(395, 573);
-            this.textBox2.TabIndex = 13;
-            this.textBox2.Text = resources.GetString("textBox2.Text");
-            // 
-            // ReorderPGIDButton
-            // 
-            this.ReorderPGIDButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ReorderPGIDButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ReorderPGIDButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ReorderPGIDButton.Location = new System.Drawing.Point(16, 519);
-            this.ReorderPGIDButton.Name = "ReorderPGIDButton";
-            this.ReorderPGIDButton.Size = new System.Drawing.Size(110, 80);
-            this.ReorderPGIDButton.TabIndex = 28;
-            this.ReorderPGIDButton.Text = "Reorder PLAY Table (by PGID)";
-            this.ReorderPGIDButton.UseVisualStyleBackColor = false;
-            this.ReorderPGIDButton.Click += new System.EventHandler(this.ReorderPGIDButton_Click);
-            // 
-            // TORDButton
-            // 
-            this.TORDButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.TORDButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TORDButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.TORDButton.Location = new System.Drawing.Point(143, 421);
-            this.TORDButton.Name = "TORDButton";
-            this.TORDButton.Size = new System.Drawing.Size(110, 80);
-            this.TORDButton.TabIndex = 26;
-            this.TORDButton.Text = "Reorder Teams (Dynasty)";
-            this.TORDButton.UseVisualStyleBackColor = false;
-            this.TORDButton.Click += new System.EventHandler(this.TORDButton_Click);
-            // 
-            // RandomizeHeadButton
-            // 
-            this.RandomizeHeadButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.RandomizeHeadButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RandomizeHeadButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.RandomizeHeadButton.Location = new System.Drawing.Point(16, 211);
-            this.RandomizeHeadButton.Name = "RandomizeHeadButton";
-            this.RandomizeHeadButton.Size = new System.Drawing.Size(110, 80);
-            this.RandomizeHeadButton.TabIndex = 24;
-            this.RandomizeHeadButton.Text = "Randomize Player Head/Face";
-            this.RandomizeHeadButton.UseVisualStyleBackColor = false;
-            this.RandomizeHeadButton.Click += new System.EventHandler(this.RandomizeHeadButton_Click);
-            // 
-            // label58
-            // 
-            this.label58.AutoSize = true;
-            this.label58.Location = new System.Drawing.Point(545, 591);
-            this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(77, 13);
-            this.label58.TabIndex = 23;
-            this.label58.Text = "PCT Freshman";
-            // 
-            // FillRosterPCT
-            // 
-            this.FillRosterPCT.Increment = new decimal(new int[] {
+            this.PortalMLB.Location = new System.Drawing.Point(165, 151);
+            this.PortalMLB.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.PortalMLB.Minimum = new decimal(new int[] {
+            4,
+            0,
+            0,
+            0});
+            this.PortalMLB.Name = "PortalMLB";
+            this.PortalMLB.Size = new System.Drawing.Size(44, 20);
+            this.PortalMLB.TabIndex = 23;
+            this.PortalMLB.Value = new decimal(new int[] {
             5,
             0,
             0,
             0});
-            this.FillRosterPCT.Location = new System.Drawing.Point(628, 589);
-            this.FillRosterPCT.Name = "FillRosterPCT";
-            this.FillRosterPCT.Size = new System.Drawing.Size(42, 20);
-            this.FillRosterPCT.TabIndex = 22;
-            this.FillRosterPCT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.FillRosterPCT.Value = new decimal(new int[] {
-            50,
+            // 
+            // label254
+            // 
+            this.label254.AutoSize = true;
+            this.label254.Location = new System.Drawing.Point(137, 153);
+            this.label254.Name = "label254";
+            this.label254.Size = new System.Drawing.Size(29, 13);
+            this.label254.TabIndex = 22;
+            this.label254.Text = "MLB";
+            // 
+            // PortalOLB
+            // 
+            this.PortalOLB.Location = new System.Drawing.Point(165, 115);
+            this.PortalOLB.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.PortalOLB.Minimum = new decimal(new int[] {
+            4,
+            0,
+            0,
+            0});
+            this.PortalOLB.Name = "PortalOLB";
+            this.PortalOLB.Size = new System.Drawing.Size(44, 20);
+            this.PortalOLB.TabIndex = 21;
+            this.PortalOLB.Value = new decimal(new int[] {
+            6,
             0,
             0,
             0});
             // 
-            // buttonFillRosters
+            // label255
             // 
-            this.buttonFillRosters.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.buttonFillRosters.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonFillRosters.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonFillRosters.Location = new System.Drawing.Point(525, 488);
-            this.buttonFillRosters.Name = "buttonFillRosters";
-            this.buttonFillRosters.Size = new System.Drawing.Size(145, 80);
-            this.buttonFillRosters.TabIndex = 20;
-            this.buttonFillRosters.Text = "Fill Rosters";
-            this.buttonFillRosters.UseVisualStyleBackColor = false;
-            this.buttonFillRosters.Click += new System.EventHandler(this.buttonFillRosters_Click);
+            this.label255.AutoSize = true;
+            this.label255.Location = new System.Drawing.Point(137, 117);
+            this.label255.Name = "label255";
+            this.label255.Size = new System.Drawing.Size(28, 13);
+            this.label255.TabIndex = 20;
+            this.label255.Text = "OLB";
             // 
-            // buttonAutoDepthChart
+            // PortalDT
             // 
-            this.buttonAutoDepthChart.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.buttonAutoDepthChart.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAutoDepthChart.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonAutoDepthChart.Location = new System.Drawing.Point(525, 402);
-            this.buttonAutoDepthChart.Name = "buttonAutoDepthChart";
-            this.buttonAutoDepthChart.Size = new System.Drawing.Size(145, 80);
-            this.buttonAutoDepthChart.TabIndex = 19;
-            this.buttonAutoDepthChart.Text = "Auto-Set Depth Chart";
-            this.buttonAutoDepthChart.UseVisualStyleBackColor = false;
-            this.buttonAutoDepthChart.Click += new System.EventHandler(this.buttonAutoDepthChart_Click);
+            this.PortalDT.Location = new System.Drawing.Point(165, 75);
+            this.PortalDT.Maximum = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
+            this.PortalDT.Minimum = new decimal(new int[] {
+            4,
+            0,
+            0,
+            0});
+            this.PortalDT.Name = "PortalDT";
+            this.PortalDT.Size = new System.Drawing.Size(44, 20);
+            this.PortalDT.TabIndex = 19;
+            this.PortalDT.Value = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
             // 
-            // buttonFantasyRoster
+            // label256
             // 
-            this.buttonFantasyRoster.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.buttonFantasyRoster.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonFantasyRoster.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonFantasyRoster.Location = new System.Drawing.Point(274, 488);
-            this.buttonFantasyRoster.Name = "buttonFantasyRoster";
-            this.buttonFantasyRoster.Size = new System.Drawing.Size(239, 80);
-            this.buttonFantasyRoster.TabIndex = 18;
-            this.buttonFantasyRoster.Text = "Generate Fantasy Roster";
-            this.buttonFantasyRoster.UseVisualStyleBackColor = false;
-            this.buttonFantasyRoster.Click += new System.EventHandler(this.buttonFantasyRoster_Click);
+            this.label256.AutoSize = true;
+            this.label256.Location = new System.Drawing.Point(137, 77);
+            this.label256.Name = "label256";
+            this.label256.Size = new System.Drawing.Size(22, 13);
+            this.label256.TabIndex = 18;
+            this.label256.Text = "DT";
             // 
-            // TYDNButton
+            // PortalDE
             // 
-            this.TYDNButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.TYDNButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TYDNButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.TYDNButton.Location = new System.Drawing.Point(143, 14);
-            this.TYDNButton.Name = "TYDNButton";
-            this.TYDNButton.Size = new System.Drawing.Size(110, 80);
-            this.TYDNButton.TabIndex = 16;
-            this.TYDNButton.Text = "Recalculate Team Ratings";
-            this.TYDNButton.UseVisualStyleBackColor = false;
-            this.TYDNButton.Click += new System.EventHandler(this.TYDNButton_Click);
+            this.PortalDE.Location = new System.Drawing.Point(165, 40);
+            this.PortalDE.Maximum = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
+            this.PortalDE.Minimum = new decimal(new int[] {
+            4,
+            0,
+            0,
+            0});
+            this.PortalDE.Name = "PortalDE";
+            this.PortalDE.Size = new System.Drawing.Size(44, 20);
+            this.PortalDE.TabIndex = 17;
+            this.PortalDE.Value = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
             // 
-            // buttonCalcOverall
+            // label257
             // 
-            this.buttonCalcOverall.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.buttonCalcOverall.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCalcOverall.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonCalcOverall.Location = new System.Drawing.Point(16, 15);
-            this.buttonCalcOverall.Name = "buttonCalcOverall";
-            this.buttonCalcOverall.Size = new System.Drawing.Size(110, 80);
-            this.buttonCalcOverall.TabIndex = 15;
-            this.buttonCalcOverall.Text = "Recalculate Player Overall";
-            this.buttonCalcOverall.UseVisualStyleBackColor = false;
-            this.buttonCalcOverall.Click += new System.EventHandler(this.buttonCalcOverall_Click);
+            this.label257.AutoSize = true;
+            this.label257.Location = new System.Drawing.Point(137, 42);
+            this.label257.Name = "label257";
+            this.label257.Size = new System.Drawing.Size(22, 13);
+            this.label257.TabIndex = 16;
+            this.label257.Text = "DE";
             // 
-            // buttonRandPotential
+            // PortalOC
             // 
-            this.buttonRandPotential.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.buttonRandPotential.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRandPotential.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonRandPotential.Location = new System.Drawing.Point(143, 211);
-            this.buttonRandPotential.Name = "buttonRandPotential";
-            this.buttonRandPotential.Size = new System.Drawing.Size(110, 80);
-            this.buttonRandPotential.TabIndex = 12;
-            this.buttonRandPotential.Text = "Randomize Player Potential";
-            this.buttonRandPotential.UseVisualStyleBackColor = false;
-            this.buttonRandPotential.Click += new System.EventHandler(this.ButtonRandPotential_Click);
+            this.PortalOC.Location = new System.Drawing.Point(47, 303);
+            this.PortalOC.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.PortalOC.Minimum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.PortalOC.Name = "PortalOC";
+            this.PortalOC.Size = new System.Drawing.Size(44, 20);
+            this.PortalOC.TabIndex = 15;
+            this.PortalOC.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
             // 
-            // bodyFix
+            // label249
             // 
-            this.bodyFix.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.bodyFix.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bodyFix.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.bodyFix.Location = new System.Drawing.Point(16, 111);
-            this.bodyFix.Name = "bodyFix";
-            this.bodyFix.Size = new System.Drawing.Size(110, 80);
-            this.bodyFix.TabIndex = 9;
-            this.bodyFix.Text = "Body Size Fixer";
-            this.bodyFix.UseVisualStyleBackColor = false;
-            this.bodyFix.Click += new System.EventHandler(this.BodyFix_Click);
+            this.label249.AutoSize = true;
+            this.label249.Location = new System.Drawing.Point(19, 305);
+            this.label249.Name = "label249";
+            this.label249.Size = new System.Drawing.Size(22, 13);
+            this.label249.TabIndex = 14;
+            this.label249.Text = "OC";
+            // 
+            // PortalOG
+            // 
+            this.PortalOG.Location = new System.Drawing.Point(47, 264);
+            this.PortalOG.Maximum = new decimal(new int[] {
+            12,
+            0,
+            0,
+            0});
+            this.PortalOG.Minimum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.PortalOG.Name = "PortalOG";
+            this.PortalOG.Size = new System.Drawing.Size(44, 20);
+            this.PortalOG.TabIndex = 13;
+            this.PortalOG.Value = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            // 
+            // label248
+            // 
+            this.label248.AutoSize = true;
+            this.label248.Location = new System.Drawing.Point(19, 266);
+            this.label248.Name = "label248";
+            this.label248.Size = new System.Drawing.Size(23, 13);
+            this.label248.TabIndex = 12;
+            this.label248.Text = "OG";
+            // 
+            // PortalOT
+            // 
+            this.PortalOT.Location = new System.Drawing.Point(47, 226);
+            this.PortalOT.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.PortalOT.Minimum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.PortalOT.Name = "PortalOT";
+            this.PortalOT.Size = new System.Drawing.Size(44, 20);
+            this.PortalOT.TabIndex = 11;
+            this.PortalOT.Value = new decimal(new int[] {
+            6,
+            0,
+            0,
+            0});
+            // 
+            // label247
+            // 
+            this.label247.AutoSize = true;
+            this.label247.Location = new System.Drawing.Point(19, 228);
+            this.label247.Name = "label247";
+            this.label247.Size = new System.Drawing.Size(22, 13);
+            this.label247.TabIndex = 10;
+            this.label247.Text = "OT";
+            // 
+            // PortalTE
+            // 
+            this.PortalTE.Location = new System.Drawing.Point(47, 189);
+            this.PortalTE.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.PortalTE.Minimum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.PortalTE.Name = "PortalTE";
+            this.PortalTE.Size = new System.Drawing.Size(44, 20);
+            this.PortalTE.TabIndex = 9;
+            this.PortalTE.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            // 
+            // label246
+            // 
+            this.label246.AutoSize = true;
+            this.label246.Location = new System.Drawing.Point(19, 191);
+            this.label246.Name = "label246";
+            this.label246.Size = new System.Drawing.Size(21, 13);
+            this.label246.TabIndex = 8;
+            this.label246.Text = "TE";
+            // 
+            // PortalWR
+            // 
+            this.PortalWR.Location = new System.Drawing.Point(47, 151);
+            this.PortalWR.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.PortalWR.Minimum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.PortalWR.Name = "PortalWR";
+            this.PortalWR.Size = new System.Drawing.Size(44, 20);
+            this.PortalWR.TabIndex = 7;
+            this.PortalWR.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            // 
+            // label245
+            // 
+            this.label245.AutoSize = true;
+            this.label245.Location = new System.Drawing.Point(19, 153);
+            this.label245.Name = "label245";
+            this.label245.Size = new System.Drawing.Size(26, 13);
+            this.label245.TabIndex = 6;
+            this.label245.Text = "WR";
+            // 
+            // PortalFB
+            // 
+            this.PortalFB.Location = new System.Drawing.Point(47, 115);
+            this.PortalFB.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.PortalFB.Name = "PortalFB";
+            this.PortalFB.Size = new System.Drawing.Size(44, 20);
+            this.PortalFB.TabIndex = 5;
+            this.PortalFB.Value = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            // 
+            // label244
+            // 
+            this.label244.AutoSize = true;
+            this.label244.Location = new System.Drawing.Point(19, 117);
+            this.label244.Name = "label244";
+            this.label244.Size = new System.Drawing.Size(20, 13);
+            this.label244.TabIndex = 4;
+            this.label244.Text = "FB";
+            // 
+            // PortalHB
+            // 
+            this.PortalHB.Location = new System.Drawing.Point(47, 75);
+            this.PortalHB.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.PortalHB.Minimum = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            this.PortalHB.Name = "PortalHB";
+            this.PortalHB.Size = new System.Drawing.Size(44, 20);
+            this.PortalHB.TabIndex = 3;
+            this.PortalHB.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            // 
+            // label243
+            // 
+            this.label243.AutoSize = true;
+            this.label243.Location = new System.Drawing.Point(19, 77);
+            this.label243.Name = "label243";
+            this.label243.Size = new System.Drawing.Size(22, 13);
+            this.label243.TabIndex = 2;
+            this.label243.Text = "HB";
+            // 
+            // PortalQB
+            // 
+            this.PortalQB.Location = new System.Drawing.Point(47, 40);
+            this.PortalQB.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.PortalQB.Minimum = new decimal(new int[] {
+            2,
+            0,
+            0,
+            0});
+            this.PortalQB.Name = "PortalQB";
+            this.PortalQB.Size = new System.Drawing.Size(44, 20);
+            this.PortalQB.TabIndex = 1;
+            this.PortalQB.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            // 
+            // label242
+            // 
+            this.label242.AutoSize = true;
+            this.label242.Location = new System.Drawing.Point(19, 42);
+            this.label242.Name = "label242";
+            this.label242.Size = new System.Drawing.Size(22, 13);
+            this.label242.TabIndex = 0;
+            this.label242.Text = "QB";
+            // 
+            // groupBox31
+            // 
+            this.groupBox31.Controls.Add(this.PortalSnake);
+            this.groupBox31.Controls.Add(this.PortalRandom);
+            this.groupBox31.Controls.Add(this.PortalFirst);
+            this.groupBox31.Controls.Add(this.PortalReverse);
+            this.groupBox31.Location = new System.Drawing.Point(21, 100);
+            this.groupBox31.Name = "groupBox31";
+            this.groupBox31.Size = new System.Drawing.Size(200, 119);
+            this.groupBox31.TabIndex = 29;
+            this.groupBox31.TabStop = false;
+            this.groupBox31.Text = "Portal Priority";
+            // 
+            // PortalSnake
+            // 
+            this.PortalSnake.AutoSize = true;
+            this.PortalSnake.Location = new System.Drawing.Point(7, 66);
+            this.PortalSnake.Name = "PortalSnake";
+            this.PortalSnake.Size = new System.Drawing.Size(85, 17);
+            this.PortalSnake.TabIndex = 3;
+            this.PortalSnake.Text = "Snake Order";
+            this.PortalSnake.UseVisualStyleBackColor = true;
+            // 
+            // PortalRandom
+            // 
+            this.PortalRandom.AutoSize = true;
+            this.PortalRandom.Location = new System.Drawing.Point(7, 89);
+            this.PortalRandom.Name = "PortalRandom";
+            this.PortalRandom.Size = new System.Drawing.Size(94, 17);
+            this.PortalRandom.TabIndex = 2;
+            this.PortalRandom.Text = "Random Order";
+            this.PortalRandom.UseVisualStyleBackColor = true;
+            // 
+            // PortalFirst
+            // 
+            this.PortalFirst.AutoSize = true;
+            this.PortalFirst.Location = new System.Drawing.Point(7, 43);
+            this.PortalFirst.Name = "PortalFirst";
+            this.PortalFirst.Size = new System.Drawing.Size(165, 17);
+            this.PortalFirst.TabIndex = 1;
+            this.PortalFirst.Text = "Ranking Order (First to Worst)";
+            this.PortalFirst.UseVisualStyleBackColor = true;
+            // 
+            // PortalReverse
+            // 
+            this.PortalReverse.AutoSize = true;
+            this.PortalReverse.Checked = true;
+            this.PortalReverse.Location = new System.Drawing.Point(7, 20);
+            this.PortalReverse.Name = "PortalReverse";
+            this.PortalReverse.Size = new System.Drawing.Size(165, 17);
+            this.PortalReverse.TabIndex = 0;
+            this.PortalReverse.TabStop = true;
+            this.PortalReverse.Text = "Reverse Order (Worst to First)";
+            this.PortalReverse.UseVisualStyleBackColor = true;
+            // 
+            // SpringPortalButton
+            // 
+            this.SpringPortalButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.SpringPortalButton.Location = new System.Drawing.Point(21, 25);
+            this.SpringPortalButton.Name = "SpringPortalButton";
+            this.SpringPortalButton.Size = new System.Drawing.Size(200, 56);
+            this.SpringPortalButton.TabIndex = 27;
+            this.SpringPortalButton.Text = "Spring Portal";
+            this.SpringPortalButton.UseVisualStyleBackColor = true;
+            this.SpringPortalButton.Click += new System.EventHandler(this.SpringPortalButton_Click);
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.BackColor = System.Drawing.SystemColors.Info;
+            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox1.Location = new System.Drawing.Point(742, 385);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(361, 97);
+            this.richTextBox1.TabIndex = 37;
+            this.richTextBox1.Text = resources.GetString("richTextBox1.Text");
+            // 
+            // richTextBox2
+            // 
+            this.richTextBox2.BackColor = System.Drawing.SystemColors.Info;
+            this.richTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox2.Location = new System.Drawing.Point(12, 425);
+            this.richTextBox2.Name = "richTextBox2";
+            this.richTextBox2.Size = new System.Drawing.Size(209, 176);
+            this.richTextBox2.TabIndex = 38;
+            this.richTextBox2.Text = resources.GetString("richTextBox2.Text");
+            // 
+            // richTextBox3
+            // 
+            this.richTextBox3.BackColor = System.Drawing.SystemColors.Info;
+            this.richTextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox3.Location = new System.Drawing.Point(742, 504);
+            this.richTextBox3.Name = "richTextBox3";
+            this.richTextBox3.Size = new System.Drawing.Size(361, 52);
+            this.richTextBox3.TabIndex = 39;
+            this.richTextBox3.Text = "The Spring Portal will only work after Spring Training Camp is over and before Te" +
+    "am Cuts are performed.";
+            // 
+            // PortalData
+            // 
+            this.PortalData.AllowUserToAddRows = false;
+            this.PortalData.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PortalData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle20;
+            this.PortalData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PortalData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            this.PortalData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.PortalData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PortalPosition,
+            this.PortalTransferName,
+            this.PortalRating,
+            this.PortalNewSchool,
+            this.PortalPrvTeam});
+            this.PortalData.Location = new System.Drawing.Point(239, 25);
+            this.PortalData.Name = "PortalData";
+            this.PortalData.ReadOnly = true;
+            this.PortalData.RowHeadersVisible = false;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PortalData.RowsDefaultCellStyle = dataGridViewCellStyle22;
+            this.PortalData.RowTemplate.Height = 31;
+            this.PortalData.Size = new System.Drawing.Size(488, 576);
+            this.PortalData.TabIndex = 40;
+            // 
+            // PortalPosition
+            // 
+            this.PortalPosition.FillWeight = 8F;
+            this.PortalPosition.HeaderText = "Pos";
+            this.PortalPosition.Name = "PortalPosition";
+            this.PortalPosition.ReadOnly = true;
+            // 
+            // PortalTransferName
+            // 
+            this.PortalTransferName.FillWeight = 35F;
+            this.PortalTransferName.HeaderText = "Player Name";
+            this.PortalTransferName.Name = "PortalTransferName";
+            this.PortalTransferName.ReadOnly = true;
+            // 
+            // PortalRating
+            // 
+            this.PortalRating.FillWeight = 7F;
+            this.PortalRating.HeaderText = "OVR";
+            this.PortalRating.Name = "PortalRating";
+            this.PortalRating.ReadOnly = true;
+            // 
+            // PortalNewSchool
+            // 
+            this.PortalNewSchool.FillWeight = 25F;
+            this.PortalNewSchool.HeaderText = "To";
+            this.PortalNewSchool.Name = "PortalNewSchool";
+            this.PortalNewSchool.ReadOnly = true;
+            // 
+            // PortalPrvTeam
+            // 
+            this.PortalPrvTeam.FillWeight = 25F;
+            this.PortalPrvTeam.HeaderText = "From";
+            this.PortalPrvTeam.Name = "PortalPrvTeam";
+            this.PortalPrvTeam.ReadOnly = true;
+            // 
+            // TotalTransfersCount
+            // 
+            this.TotalTransfersCount.AutoSize = true;
+            this.TotalTransfersCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TotalTransfersCount.Location = new System.Drawing.Point(739, 585);
+            this.TotalTransfersCount.Name = "TotalTransfersCount";
+            this.TotalTransfersCount.Size = new System.Drawing.Size(129, 16);
+            this.TotalTransfersCount.TabIndex = 41;
+            this.TotalTransfersCount.Text = "Total Transfers: 0";
             // 
             // MainEditor
             // 
@@ -11580,15 +12346,8 @@ namespace DB_EDITOR
             this.FieldsPropsgroupBox.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.tabStats.ResumeLayout(false);
-            this.groupBox26.ResumeLayout(false);
-            this.groupBox26.PerformLayout();
-            this.groupBox25.ResumeLayout(false);
-            this.groupBox25.PerformLayout();
-            this.groupBox24.ResumeLayout(false);
-            this.groupBox24.PerformLayout();
-            this.tabBowls.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.BowlsGrid)).EndInit();
+            this.tabDev.ResumeLayout(false);
+            this.tabDev.PerformLayout();
             this.tabUniforms.ResumeLayout(false);
             this.tabUniforms.PerformLayout();
             this.groupBox5.ResumeLayout(false);
@@ -11596,6 +12355,34 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.UniformGrid)).EndInit();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.tabPlaybook.ResumeLayout(false);
+            this.tabPlaybook.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PlayNameValue)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcrtNumBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PlaybookGrid)).EndInit();
+            this.groupBox19.ResumeLayout(false);
+            this.groupBox19.PerformLayout();
+            this.tabTools.ResumeLayout(false);
+            this.tabTools.PerformLayout();
+            this.groupBox22.ResumeLayout(false);
+            this.groupBox22.PerformLayout();
+            this.groupBox18.ResumeLayout(false);
+            this.groupBox18.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MaxAttNum)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GlobalAttNum)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MinAttNum)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FillRosterPCT)).EndInit();
+            this.tabOffSeason.ResumeLayout(false);
+            this.tabOffSeason.PerformLayout();
+            this.groupBox17.ResumeLayout(false);
+            this.groupBox17.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.removeInterestTeams)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minRecPts)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minTRPA)).EndInit();
+            this.groupBox16.ResumeLayout(false);
+            this.groupBox16.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.toleranceWalkOn)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.recruitTolerance)).EndInit();
             this.tabRecruits.ResumeLayout(false);
             this.tabRecruits.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RecruitDataGrid)).EndInit();
@@ -11622,33 +12409,46 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.RKACBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RWGTBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RHGTBox)).EndInit();
-            this.tabDepthCharts.ResumeLayout(false);
-            this.tabDepthCharts.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DCHTGrid)).EndInit();
-            this.tabPlaybook.ResumeLayout(false);
-            this.tabPlaybook.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PlayNameValue)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pcrtNumBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PlaybookGrid)).EndInit();
-            this.groupBox19.ResumeLayout(false);
-            this.groupBox19.PerformLayout();
+            this.tabStats.ResumeLayout(false);
+            this.groupBox26.ResumeLayout(false);
+            this.groupBox26.PerformLayout();
+            this.groupBox25.ResumeLayout(false);
+            this.groupBox25.PerformLayout();
+            this.groupBox24.ResumeLayout(false);
+            this.groupBox24.PerformLayout();
+            this.tabStadiums.ResumeLayout(false);
+            this.tabStadiums.PerformLayout();
+            this.groupBox30.ResumeLayout(false);
+            this.groupBox29.ResumeLayout(false);
+            this.groupBox29.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.STtvBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SWSPBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SWRPBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SWWPBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SWFPBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.STfwBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.STwpBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.STjtBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.STtsBox)).EndInit();
+            this.groupBox28.ResumeLayout(false);
+            this.groupBox28.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.STADCap)).EndInit();
+            this.groupBox27.ResumeLayout(false);
+            this.groupBox27.PerformLayout();
+            this.tabBowls.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.BowlsGrid)).EndInit();
             this.tabConf.ResumeLayout(false);
             this.tabConf.PerformLayout();
             this.groupBox23.ResumeLayout(false);
             this.groupBox23.PerformLayout();
-            this.tabDev.ResumeLayout(false);
-            this.tabDev.PerformLayout();
-            this.tabOffSeason.ResumeLayout(false);
-            this.tabOffSeason.PerformLayout();
-            this.groupBox17.ResumeLayout(false);
-            this.groupBox17.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.removeInterestTeams)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.minRecPts)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.minTRPA)).EndInit();
-            this.groupBox16.ResumeLayout(false);
-            this.groupBox16.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.toleranceWalkOn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.recruitTolerance)).EndInit();
+            this.tabDepthCharts.ResumeLayout(false);
+            this.tabDepthCharts.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DCHTGrid)).EndInit();
+            this.tabSchedule.ResumeLayout(false);
+            this.tabSchedule.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.MatchView)).EndInit();
+            this.groupBox21.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.ScheduleView)).EndInit();
             this.tabSeason.ResumeLayout(false);
             this.tabSeason.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ImpactPlayerMin)).EndInit();
@@ -11747,40 +12547,33 @@ namespace DB_EDITOR
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabControl1.ResumeLayout(false);
-            this.tabSchedule.ResumeLayout(false);
-            this.tabSchedule.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MatchView)).EndInit();
-            this.groupBox21.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ScheduleView)).EndInit();
-            this.tabStadiums.ResumeLayout(false);
-            this.tabStadiums.PerformLayout();
-            this.groupBox30.ResumeLayout(false);
-            this.groupBox29.ResumeLayout(false);
-            this.groupBox29.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.STtvBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SWSPBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SWRPBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SWWPBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.SWFPBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.STfwBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.STwpBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.STjtBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.STtsBox)).EndInit();
-            this.groupBox28.ResumeLayout(false);
-            this.groupBox28.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.STADCap)).EndInit();
-            this.groupBox27.ResumeLayout(false);
-            this.groupBox27.PerformLayout();
-            this.tabTools.ResumeLayout(false);
-            this.tabTools.PerformLayout();
-            this.groupBox22.ResumeLayout(false);
-            this.groupBox22.PerformLayout();
-            this.groupBox18.ResumeLayout(false);
-            this.groupBox18.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MaxAttNum)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.GlobalAttNum)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MinAttNum)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.FillRosterPCT)).EndInit();
+            this.tabPortal.ResumeLayout(false);
+            this.tabPortal.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.portalChance)).EndInit();
+            this.groupBox33.ResumeLayout(false);
+            this.groupBox33.PerformLayout();
+            this.groupBox32.ResumeLayout(false);
+            this.groupBox32.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PortalK)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PortalP)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PortalSS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PortalFS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PortalCB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PortalMLB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PortalOLB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PortalDT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PortalDE)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PortalOC)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PortalOG)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PortalOT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PortalTE)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PortalWR)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PortalFB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PortalHB)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PortalQB)).EndInit();
+            this.groupBox31.ResumeLayout(false);
+            this.groupBox31.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PortalData)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -11846,22 +12639,33 @@ namespace DB_EDITOR
         private RadioButton DB1Button;
         private RadioButton DB2Button;
         private GroupBox groupBox2;
-        private TabPage tabStats;
-        private TabPage tabBowls;
-        private System.Windows.Forms.Button SaveBowlButton;
-        private DataGridView BowlsGrid;
-        private DataGridViewCheckBoxColumn ActiveBowl;
-        private DataGridViewTextBoxColumn BIDX;
-        private DataGridViewTextBoxColumn BNME;
-        private DataGridViewComboBoxColumn TeamA;
-        private DataGridViewTextBoxColumn ScoreA;
-        private DataGridViewTextBoxColumn vs;
-        private DataGridViewTextBoxColumn ScoreB;
-        private DataGridViewComboBoxColumn TeamB;
-        private DataGridViewComboBoxColumn SGID;
-        private DataGridViewComboBoxColumn BMON;
-        private DataGridViewComboBoxColumn BDAY;
-        private DataGridViewTextBoxColumn SEWN;
+        private TabPage tabDev;
+        public System.Windows.Forms.Button CFUSAexportButton;
+        public System.Windows.Forms.TextBox textBox20;
+        public System.Windows.Forms.TextBox textBox19;
+        public System.Windows.Forms.TextBox textBox18;
+        public System.Windows.Forms.TextBox textBox17;
+        public System.Windows.Forms.TextBox textBox16;
+        public System.Windows.Forms.TextBox textBox15;
+        public System.Windows.Forms.TextBox textBox14;
+        public System.Windows.Forms.TextBox textBox13;
+        public System.Windows.Forms.TextBox textBox12;
+        public System.Windows.Forms.TextBox textBox11;
+        public System.Windows.Forms.TextBox textBox10;
+        public System.Windows.Forms.TextBox textBox9;
+        public System.Windows.Forms.TextBox textBox8;
+        public System.Windows.Forms.TextBox textBox7;
+        public System.Windows.Forms.TextBox textBox5;
+        public System.Windows.Forms.TextBox textBox4;
+        public System.Windows.Forms.TextBox textBox6;
+        public System.Windows.Forms.Button DevCalcTeamRatingsButton;
+        public System.Windows.Forms.Button DevDepthChartButton;
+        public System.Windows.Forms.Button DevRandomizeFaceButton;
+        public System.Windows.Forms.Button DevCalcOVRButton;
+        public System.Windows.Forms.Button DevFillRosterButton;
+        public System.Windows.Forms.Button CreateTransfersCSVButton;
+        public System.Windows.Forms.Button ImportRecruitsButton;
+        public System.Windows.Forms.Button GraduateButton;
         private TabPage tabUniforms;
         private System.Windows.Forms.Button ImportTeamUNIF;
         private System.Windows.Forms.Button ExportTeamUNIF;
@@ -11891,119 +12695,6 @@ namespace DB_EDITOR
         private CheckBox TeamPrimaryUniCheck;
         private System.Windows.Forms.ComboBox TeamUniformSelectBox;
         private Label label168;
-        private TabPage tabRecruits;
-        private CheckBox CommitStatus;
-        private Label RecruitCounter;
-        private Label label205;
-        private Label label204;
-        private Label Label19084;
-        private System.Windows.Forms.ComboBox RecruitPosFilter;
-        private System.Windows.Forms.ComboBox RecruitStateFilter;
-        private System.Windows.Forms.ComboBox RecruitTypeFilter;
-        public Label RCHTBox;
-        private System.Windows.Forms.ComboBox RHometownBox;
-        private Label RecruitStarsText;
-        private CheckBox AthleteBox;
-        private GroupBox groupBox20;
-        public System.Windows.Forms.TextBox RTENBox;
-        private Label label183;
-        private System.Windows.Forms.TextBox RTHAtext;
-        private NumericUpDown RINJBox;
-        private Label label185;
-        private System.Windows.Forms.TextBox RKACtext;
-        private NumericUpDown RSPDBox;
-        private System.Windows.Forms.TextBox RKPRtext;
-        private Label label186;
-        private System.Windows.Forms.TextBox RTAKtext;
-        private NumericUpDown RACCBox;
-        private System.Windows.Forms.TextBox RPBKtext;
-        private Label label187;
-        private NumericUpDown RSTRBox;
-        private System.Windows.Forms.TextBox RCARtext;
-        private Label label188;
-        private System.Windows.Forms.TextBox RCTHtext;
-        private NumericUpDown RBTKBox;
-        private System.Windows.Forms.TextBox RJMPtext;
-        private Label label189;
-        private NumericUpDown RTHPBox;
-        private Label label190;
-        private System.Windows.Forms.TextBox RAGItext;
-        private NumericUpDown RRBKBox;
-        private System.Windows.Forms.TextBox RAWRtext;
-        private Label label191;
-        private System.Windows.Forms.TextBox RPOEtext;
-        private NumericUpDown RPOEBox;
-        private System.Windows.Forms.TextBox RRBKtext;
-        private Label label192;
-        private System.Windows.Forms.TextBox RTHPtext;
-        private NumericUpDown RAWRBox;
-        private System.Windows.Forms.TextBox RBTKtext;
-        private Label label193;
-        private System.Windows.Forms.TextBox RSTRtext;
-        private NumericUpDown RAGIBox;
-        private System.Windows.Forms.TextBox RACCtext;
-        private Label label194;
-        private System.Windows.Forms.TextBox RSPDtext;
-        private NumericUpDown RJMPBox;
-        private System.Windows.Forms.TextBox RINJtext;
-        private Label label195;
-        private NumericUpDown RCTHBox;
-        private Label label196;
-        private NumericUpDown RCARBox;
-        private Label label197;
-        private NumericUpDown RTHABox;
-        private Label label198;
-        private NumericUpDown RPBKBox;
-        private Label label199;
-        private NumericUpDown RTAKBox;
-        private Label label200;
-        private NumericUpDown RKPRBox;
-        private Label label201;
-        private NumericUpDown RKACBox;
-        private Label label202;
-        public System.Windows.Forms.TextBox PRIDBox;
-        public System.Windows.Forms.TextBox ROVR;
-        public System.Windows.Forms.TextBox PLNABox;
-        public System.Windows.Forms.TextBox PFNABox;
-        public Label label182;
-        public ListBox RecruitListBox;
-        public Label label154;
-        private System.Windows.Forms.ComboBox RStateBox;
-        public Label label155;
-        private System.Windows.Forms.ComboBox RYER;
-        private Label label156;
-        private NumericUpDown RWGTBox;
-        private Label label157;
-        private NumericUpDown RHGTBox;
-        public Label label158;
-        private System.Windows.Forms.ComboBox RHEDBox;
-        public Label label159;
-        private System.Windows.Forms.ComboBox RHCLBox;
-        public Label label160;
-        private System.Windows.Forms.ComboBox RFMPBox;
-        public Label label161;
-        private System.Windows.Forms.ComboBox RFGMBox;
-        public Label label162;
-        private System.Windows.Forms.ComboBox RSKIBox;
-        public Label label163;
-        private System.Windows.Forms.ComboBox RPPOSBox;
-        public Label label164;
-        public Label label165;
-        public Label label166;
-        private TabPage tabDepthCharts;
-        private System.Windows.Forms.Button DCHTAutoSet;
-        private System.Windows.Forms.Button DCHTClear;
-        private System.Windows.Forms.Button UpdateDCHT;
-        private System.Windows.Forms.ComboBox DCHTTeam;
-        private Label label152;
-        private DataGridView DCHTGrid;
-        private DataGridViewTextBoxColumn DCHTPPOS;
-        private DataGridViewComboBoxColumn DCHT0;
-        private DataGridViewComboBoxColumn DCHT1;
-        private DataGridViewComboBoxColumn DCHT2;
-        private DataGridViewComboBoxColumn DCHT3;
-        private DataGridViewComboBoxColumn DCHT4;
-        private DataGridViewComboBoxColumn DCHT5;
         private TabPage tabPlaybook;
         private System.Windows.Forms.TextBox textBox24;
         private Label PlayNameRatio;
@@ -12040,7 +12731,281 @@ namespace DB_EDITOR
         private GroupBox groupBox19;
         private RadioButton DefaultPlaysRadio;
         private RadioButton CustomPlaysRadio;
+        private TabPage tabTools;
+        public System.Windows.Forms.Button ClearExpiredStats;
+        private GroupBox groupBox22;
+        private RadioButton FantasyCSV;
+        private RadioButton FantasyTeamDB;
+        private CheckBox ReRankTeams;
+        public System.Windows.Forms.Button FixHCBugsButton;
+        private GroupBox groupBox18;
+        private NumericUpDown MaxAttNum;
+        private System.Windows.Forms.ComboBox GlobalAttBox;
+        private Label label99;
+        private NumericUpDown GlobalAttNum;
+        private Label label109;
+        private CheckBox GlobalAttCheck;
+        private Label label108;
+        private System.Windows.Forms.ComboBox MinAttBox;
+        private Label label107;
+        private Label label100;
+        private System.Windows.Forms.ComboBox MaxAttPosBox;
+        private NumericUpDown MinAttNum;
+        private System.Windows.Forms.ComboBox MinAttPosBox;
+        private System.Windows.Forms.ComboBox MaxAttBox;
+        private System.Windows.Forms.ComboBox GlobalAttPosBox;
+        private Label label106;
+        private System.Windows.Forms.Button MaxAttButton;
+        private System.Windows.Forms.TextBox MinAttRating;
+        private System.Windows.Forms.Button MinAttButton;
+        private System.Windows.Forms.TextBox MaxAttRating;
+        private System.Windows.Forms.Button GlobalAttButton;
+        public System.Windows.Forms.Button UniquePlayerButton;
+        public System.Windows.Forms.Button FantasyCoachesButton;
+        public System.Windows.Forms.Button SyncPBButton;
+        public System.Windows.Forms.TextBox textBox3;
+        public System.Windows.Forms.TextBox textBox2;
+        public System.Windows.Forms.Button ReorderPGIDButton;
+        public System.Windows.Forms.Button TORDButton;
+        public System.Windows.Forms.Button RandomizeHeadButton;
+        private Label label58;
+        private NumericUpDown FillRosterPCT;
+        public System.Windows.Forms.Button buttonFillRosters;
+        public System.Windows.Forms.Button buttonAutoDepthChart;
+        public System.Windows.Forms.Button buttonFantasyRoster;
+        public System.Windows.Forms.Button TYDNButton;
+        public System.Windows.Forms.Button buttonCalcOverall;
+        public System.Windows.Forms.Button buttonRandPotential;
+        public System.Windows.Forms.Button bodyFix;
+        public TabPage tabOffSeason;
+        private GroupBox groupBox17;
+        public NumericUpDown removeInterestTeams;
+        public System.Windows.Forms.Button buttonMinRecruitingPts;
+        public NumericUpDown minRecPts;
+        public Label labelMinRecPts;
+        public Label labelIntTeams;
+        public NumericUpDown minTRPA;
+        public Label label12;
+        public System.Windows.Forms.Button buttonInterestedTeams;
+        private GroupBox groupBox16;
+        public System.Windows.Forms.Button RecalculateStarRankingsButton;
+        public System.Windows.Forms.Button DetermineAthleteButton;
+        public System.Windows.Forms.Button buttonRandWalkOns;
+        public System.Windows.Forms.Button buttonRandRecruits;
+        public System.Windows.Forms.Button RandomizeRecruitNamesButton;
+        public NumericUpDown toleranceWalkOn;
+        public System.Windows.Forms.Button buttonRandomizeFaceShape;
+        public Label wkonLabel;
+        public System.Windows.Forms.Button polyNames;
+        public NumericUpDown recruitTolerance;
+        public Label labelRecruit;
+        public System.Windows.Forms.TextBox textBoxOffSeason;
+        public System.Windows.Forms.TextBox textBoxOffSeasonTitle;
+        private TabPage tabRecruits;
+        private Label TransferTeam;
+        private Label RecruitPitch;
+        private System.Windows.Forms.Button UpdateRecruitOffers;
+        private Label label207;
+        private DataGridView RecruitDataGrid;
+        private DataGridViewTextBoxColumn RCNo;
+        private DataGridViewComboBoxColumn RCTeam;
+        private DataGridViewTextBoxColumn RCTScore;
+        public Label label184;
+        private NumericUpDown RDIS;
+        private Label PosRanking;
+        private CheckBox CommitStatus;
+        private Label RecruitCounter;
+        private Label label205;
+        private Label label204;
+        private Label Label19084;
+        private System.Windows.Forms.ComboBox RecruitPosFilter;
+        private System.Windows.Forms.ComboBox RecruitStateFilter;
+        private System.Windows.Forms.ComboBox RecruitTypeFilter;
+        public Label RCHTBox;
+        private System.Windows.Forms.ComboBox RHometownBox;
+        private Label RecruitStarsText;
+        private CheckBox AthleteBox;
+        private GroupBox groupBox20;
+        public System.Windows.Forms.TextBox RTENBox;
+        private Label label183;
+        private System.Windows.Forms.TextBox RTHAtext;
+        private NumericUpDown RINJBox;
+        private Label label185;
+        private System.Windows.Forms.TextBox RKACtext;
+        private NumericUpDown RSPDBox;
+        private System.Windows.Forms.TextBox RKPRtext;
+        private Label label186;
+        private System.Windows.Forms.TextBox RTAKtext;
+        private NumericUpDown RACCBox;
+        private System.Windows.Forms.TextBox RPBKtext;
+        private Label label187;
+        private NumericUpDown RSTRBox;
+        public System.Windows.Forms.TextBox ROVR;
+        private System.Windows.Forms.TextBox RCARtext;
+        private Label label188;
+        private System.Windows.Forms.TextBox RCTHtext;
+        private NumericUpDown RBTKBox;
+        private System.Windows.Forms.TextBox RJMPtext;
+        private Label label189;
+        private NumericUpDown RTHPBox;
+        private Label label190;
+        private System.Windows.Forms.TextBox RAGItext;
+        private NumericUpDown RRBKBox;
+        private System.Windows.Forms.TextBox RAWRtext;
+        private Label label191;
+        private System.Windows.Forms.TextBox RPOEtext;
+        private NumericUpDown RPOEBox;
+        private System.Windows.Forms.TextBox RRBKtext;
+        private Label label192;
+        private System.Windows.Forms.TextBox RTHPtext;
+        private NumericUpDown RAWRBox;
+        private System.Windows.Forms.TextBox RBTKtext;
+        private Label label193;
+        private System.Windows.Forms.TextBox RSTRtext;
+        private NumericUpDown RAGIBox;
+        private System.Windows.Forms.TextBox RACCtext;
+        private Label label194;
+        public Label label164;
+        private System.Windows.Forms.TextBox RSPDtext;
+        private NumericUpDown RJMPBox;
+        private System.Windows.Forms.TextBox RINJtext;
+        private Label label195;
+        private NumericUpDown RCTHBox;
+        private Label label196;
+        private NumericUpDown RCARBox;
+        private Label label197;
+        private NumericUpDown RTHABox;
+        private Label label198;
+        private NumericUpDown RPBKBox;
+        private Label label199;
+        private NumericUpDown RTAKBox;
+        private Label label200;
+        private NumericUpDown RKPRBox;
+        private Label label201;
+        private NumericUpDown RKACBox;
+        private Label label202;
+        public System.Windows.Forms.TextBox PRIDBox;
+        public System.Windows.Forms.TextBox PLNABox;
+        public System.Windows.Forms.TextBox PFNABox;
+        public Label label182;
+        public ListBox RecruitListBox;
+        public Label label154;
+        private System.Windows.Forms.ComboBox RStateBox;
+        public Label label155;
+        private System.Windows.Forms.ComboBox RYER;
+        private Label label156;
+        private NumericUpDown RWGTBox;
+        private Label label157;
+        private NumericUpDown RHGTBox;
+        public Label label158;
+        private System.Windows.Forms.ComboBox RHEDBox;
+        public Label label159;
+        private System.Windows.Forms.ComboBox RHCLBox;
+        public Label label160;
+        private System.Windows.Forms.ComboBox RFMPBox;
+        public Label label161;
+        private System.Windows.Forms.ComboBox RFGMBox;
+        public Label label162;
+        private System.Windows.Forms.ComboBox RSKIBox;
+        public Label label163;
+        private System.Windows.Forms.ComboBox RPPOSBox;
+        public Label label165;
+        public Label label166;
+        private TabPage tabStats;
+        private GroupBox groupBox26;
+        private Label label221;
+        private ListBox SacksLeadersBox;
+        private ListBox IntLeadersBox;
+        private Label label223;
+        private Label label222;
+        private ListBox TacklesLeadersBox;
+        private GroupBox groupBox25;
+        private Label label220;
+        private ListBox ReceivingLeadersBox;
+        private Label label219;
+        private ListBox RushingLeadersBox;
+        private Label label218;
+        private ListBox PassingLeadersBox;
+        private GroupBox groupBox24;
+        private Label label217;
+        private Label label216;
+        private Label label215;
+        private Label label214;
+        private ListBox TopTeamDefBox;
+        private ListBox TopTeamOffBox;
+        private ListBox TopTeamRatingsBox;
+        private ListBox CoachPollListBox;
+        private TabPage tabStadiums;
+        private GroupBox groupBox30;
+        private System.Windows.Forms.Button GlobalWeather;
+        private GroupBox groupBox29;
+        private Label label241;
+        private NumericUpDown STtvBox;
+        private Label label235;
+        private NumericUpDown SWSPBox;
+        private Label label236;
+        private NumericUpDown SWRPBox;
+        private Label label233;
+        private NumericUpDown SWWPBox;
+        private Label label234;
+        private NumericUpDown SWFPBox;
+        private Label label231;
+        private NumericUpDown STfwBox;
+        private Label label232;
+        private NumericUpDown STwpBox;
+        private Label label230;
+        private NumericUpDown STjtBox;
+        private Label label229;
+        private NumericUpDown STtsBox;
+        private GroupBox groupBox28;
+        public Label label239;
+        private System.Windows.Forms.ComboBox STADSFTYBox;
+        private System.Windows.Forms.ComboBox STADState;
+        public System.Windows.Forms.TextBox STADCity;
+        public Label label237;
+        public Label label238;
+        public Label label240;
+        private NumericUpDown STADCap;
+        private System.Windows.Forms.TextBox STADNickBox;
+        private System.Windows.Forms.TextBox STADNameBox;
+        private Label labelstadnickname;
+        private Label labelstadname;
+        private Label STADrank;
+        private System.Windows.Forms.TextBox STADSTDR;
+        private System.Windows.Forms.TextBox STADTDNA;
+        private System.Windows.Forms.TextBox STADResBox;
+        private System.Windows.Forms.TextBox STADsgidBox;
+        private Label label228;
+        private GroupBox groupBox27;
+        private CheckBox STADType;
+        private CheckBox STADCannon;
+        private CheckBox STADVisbility;
+        private CheckBox STADcat;
+        private Label label227;
+        private Label label226;
+        private Label label225;
+        private ListBox StadiumListBox;
+        private TabPage tabBowls;
+        private System.Windows.Forms.Button SaveBowlButton;
+        private DataGridView BowlsGrid;
+        private DataGridViewCheckBoxColumn ActiveBowl;
+        private DataGridViewTextBoxColumn BIDX;
+        private DataGridViewTextBoxColumn BNME;
+        private DataGridViewComboBoxColumn TeamA;
+        private DataGridViewTextBoxColumn ScoreA;
+        private DataGridViewTextBoxColumn vs;
+        private DataGridViewTextBoxColumn ScoreB;
+        private DataGridViewComboBoxColumn TeamB;
+        private DataGridViewComboBoxColumn SGID;
+        private DataGridViewComboBoxColumn BMON;
+        private DataGridViewComboBoxColumn BDAY;
+        private DataGridViewTextBoxColumn SEWN;
         private TabPage tabConf;
+        private GroupBox groupBox23;
+        private RadioButton ConfDisplayRanking;
+        private RadioButton ConfDisplayRating;
+        private RadioButton ConfDisplayPrestige;
+        private RadioButton ConfDisplayTeam;
         private Label label80;
         private Label label4;
         private System.Windows.Forms.ComboBox SwapRosterBox;
@@ -12072,57 +13037,42 @@ namespace DB_EDITOR
         private CheckedListBox conf3;
         private CheckedListBox conf2;
         private CheckedListBox conf1;
-        private TabPage tabDev;
-        public System.Windows.Forms.TextBox textBox20;
-        public System.Windows.Forms.TextBox textBox19;
-        public System.Windows.Forms.TextBox textBox18;
-        public System.Windows.Forms.TextBox textBox17;
-        public System.Windows.Forms.TextBox textBox16;
-        public System.Windows.Forms.TextBox textBox15;
-        public System.Windows.Forms.TextBox textBox14;
-        public System.Windows.Forms.TextBox textBox13;
-        public System.Windows.Forms.TextBox textBox12;
-        public System.Windows.Forms.TextBox textBox11;
-        public System.Windows.Forms.TextBox textBox10;
-        public System.Windows.Forms.TextBox textBox9;
-        public System.Windows.Forms.TextBox textBox8;
-        public System.Windows.Forms.TextBox textBox7;
-        public System.Windows.Forms.TextBox textBox5;
-        public System.Windows.Forms.TextBox textBox4;
-        public System.Windows.Forms.TextBox textBox6;
-        public System.Windows.Forms.Button DevCalcTeamRatingsButton;
-        public System.Windows.Forms.Button DevDepthChartButton;
-        public System.Windows.Forms.Button DevRandomizeFaceButton;
-        public System.Windows.Forms.Button DevCalcOVRButton;
-        public System.Windows.Forms.Button DevFillRosterButton;
-        public System.Windows.Forms.Button CreateTransfersCSVButton;
-        public System.Windows.Forms.Button ImportRecruitsButton;
-        public System.Windows.Forms.Button GraduateButton;
-        public TabPage tabOffSeason;
-        private GroupBox groupBox17;
-        public NumericUpDown removeInterestTeams;
-        public System.Windows.Forms.Button buttonMinRecruitingPts;
-        public NumericUpDown minRecPts;
-        public Label labelMinRecPts;
-        public Label labelIntTeams;
-        public NumericUpDown minTRPA;
-        public Label label12;
-        public System.Windows.Forms.Button buttonInterestedTeams;
-        private GroupBox groupBox16;
-        public System.Windows.Forms.Button RecalculateStarRankingsButton;
-        public System.Windows.Forms.Button DetermineAthleteButton;
-        public System.Windows.Forms.Button buttonRandWalkOns;
-        public System.Windows.Forms.Button buttonRandRecruits;
-        public System.Windows.Forms.Button RandomizeRecruitNamesButton;
-        public NumericUpDown toleranceWalkOn;
-        public System.Windows.Forms.Button buttonRandomizeFaceShape;
-        public Label wkonLabel;
-        public System.Windows.Forms.Button polyNames;
-        public NumericUpDown recruitTolerance;
-        public Label labelRecruit;
-        public System.Windows.Forms.TextBox textBoxOffSeason;
-        public System.Windows.Forms.TextBox textBoxOffSeasonTitle;
+        private TabPage tabDepthCharts;
+        private System.Windows.Forms.Button DCHTAutoSet;
+        private System.Windows.Forms.Button DCHTClear;
+        private System.Windows.Forms.Button UpdateDCHT;
+        private System.Windows.Forms.ComboBox DCHTTeam;
+        private Label label152;
+        private DataGridView DCHTGrid;
+        private DataGridViewTextBoxColumn DCHTPPOS;
+        private DataGridViewComboBoxColumn DCHT0;
+        private DataGridViewComboBoxColumn DCHT1;
+        private DataGridViewComboBoxColumn DCHT2;
+        private DataGridViewComboBoxColumn DCHT3;
+        private DataGridViewComboBoxColumn DCHT4;
+        private DataGridViewComboBoxColumn DCHT5;
+        private TabPage tabSchedule;
+        private Label label213;
+        private DataGridView MatchView;
+        private DataGridViewTextBoxColumn RatingCat;
+        private DataGridViewTextBoxColumn MatchHomeTeam;
+        private DataGridViewTextBoxColumn MatchAwayTeam;
+        private Label SCHDrecord;
+        private GroupBox groupBox21;
+        private System.Windows.Forms.Button RescheduleOOC;
+        private Label label212;
+        private Label SchdTeamName;
+        private Label label211;
+        public ListBox SCHDTeamBox;
+        private DataGridView ScheduleView;
+        private DataGridViewTextBoxColumn SCHDWeek;
+        private DataGridViewTextBoxColumn SCHDHOME;
+        private DataGridViewTextBoxColumn SCHDScoreH;
+        private DataGridViewTextBoxColumn SCHDVS;
+        private DataGridViewTextBoxColumn SCHDAWAY;
+        private DataGridViewTextBoxColumn SCHDScoreA;
         public TabPage tabSeason;
+        private System.Windows.Forms.Button RemoveBadTransfers;
         private System.Windows.Forms.Button RemoveSanctionsButton;
         private Label label180;
         private NumericUpDown ImpactPlayerMin;
@@ -12183,6 +13133,13 @@ namespace DB_EDITOR
         private NumericUpDown HCPrestigeNum;
         public Label label146;
         private GroupBox groupBox8;
+        public System.Windows.Forms.Button AutoAdjustBudgetsButton;
+        private Label label178;
+        public System.Windows.Forms.Button coachProg;
+        public System.Windows.Forms.Button CoachPrestigeButton;
+        public System.Windows.Forms.Button buttonRandomBudgets;
+        private System.Windows.Forms.Button SetMaxCoachCCPO;
+        private NumericUpDown MaxCCPOVal;
         private GroupBox groupBox7;
         private CheckBox DisciplineAssistanceBox;
         private CheckBox RecruitAssistanceBox;
@@ -12240,6 +13197,8 @@ namespace DB_EDITOR
         public System.Windows.Forms.ComboBox CoachFilter;
         public ListBox CoachListBox;
         public TabPage tabPlayers;
+        public Label label206;
+        private NumericUpDown PDIS;
         public Label label153;
         private System.Windows.Forms.ComboBox PHometownBox;
         public Label label203;
@@ -12393,10 +13352,16 @@ namespace DB_EDITOR
         private System.Windows.Forms.Button GenerateNewRosterButton;
         private System.Windows.Forms.Button DeathPenaltyButton;
         private GroupBox groupBox14;
+        public System.Windows.Forms.TextBox TeamSTRating;
+        public Label label210;
         private Label label181;
+        public System.Windows.Forms.TextBox TeamDefRating;
         private NumericUpDown SDURnumbox;
+        public Label label209;
         public Label label20;
+        public System.Windows.Forms.TextBox TeamOffRating;
         public Label label21;
+        public Label label208;
         public Label label35;
         public Label label34;
         public System.Windows.Forms.TextBox CoachPollBox;
@@ -12408,12 +13373,14 @@ namespace DB_EDITOR
         public System.Windows.Forms.TextBox ConfRecordBox;
         private NumericUpDown TMARNumBox;
         private NumericUpDown INPOnumbox;
+        public System.Windows.Forms.TextBox TeamOVRtextbox;
         private NumericUpDown NCDPnumbox;
         private NumericUpDown SNCTnumbox;
         public Label label29;
         public Label label28;
         public Label label30;
         public Label label31;
+        public Label label19;
         private GroupBox groupBox13;
         private System.Windows.Forms.Button TeamColor2Button;
         private System.Windows.Forms.Button TeamColor1Button;
@@ -12424,6 +13391,8 @@ namespace DB_EDITOR
         public Label label5;
         private System.Windows.Forms.ComboBox CrowdBox;
         private GroupBox groupBox12;
+        public Label label224;
+        public System.Windows.Forms.TextBox TeamStadRank;
         private System.Windows.Forms.ComboBox StateBox;
         public Label label55;
         public System.Windows.Forms.TextBox stadiumNameBox;
@@ -12435,6 +13404,7 @@ namespace DB_EDITOR
         private NumericUpDown AttendanceNumBox;
         private NumericUpDown CapacityNumbox;
         private GroupBox groupBox11;
+        private System.Windows.Forms.Button TeamAutoImpact;
         private System.Windows.Forms.ComboBox ImpactTSI1Select;
         public Label label15;
         public Label label16;
@@ -12447,14 +13417,13 @@ namespace DB_EDITOR
         private System.Windows.Forms.ComboBox ImpactTSI2Select;
         private System.Windows.Forms.Button ResetImpactPlayersButton;
         private System.Windows.Forms.ComboBox ImpactTPIOSelect;
+        public Label TeamRosterSizeLabel;
         private System.Windows.Forms.ComboBox ImpactTPIDSelect;
         private System.Windows.Forms.Button TeamSetDepthChart;
-        public Label TeamRosterSizeLabel;
         public System.Windows.Forms.TextBox LeagueBox;
         public System.Windows.Forms.TextBox TSNAtextBox;
         public System.Windows.Forms.TextBox TeamDivisionBox;
         public System.Windows.Forms.TextBox TeamConferenceBox;
-        public System.Windows.Forms.TextBox TeamOVRtextbox;
         public System.Windows.Forms.TextBox TGIDtextBox;
         public System.Windows.Forms.TextBox TMNAtextBox;
         public System.Windows.Forms.TextBox TDNAtextBox;
@@ -12462,7 +13431,6 @@ namespace DB_EDITOR
         public Label label26;
         public Label label25;
         public Label label24;
-        public Label label19;
         public Label label11;
         public Label label10;
         public Label label9;
@@ -12515,181 +13483,64 @@ namespace DB_EDITOR
         private RadioButton NextConfigRadio;
         private PictureBox pictureBox1;
         public TabControl tabControl1;
-        private TabPage tabTools;
-        private CheckBox ReRankTeams;
-        public System.Windows.Forms.Button FixHCBugsButton;
-        private GroupBox groupBox18;
-        private NumericUpDown MaxAttNum;
-        private System.Windows.Forms.ComboBox GlobalAttBox;
-        private Label label99;
-        private NumericUpDown GlobalAttNum;
-        private Label label109;
-        private CheckBox GlobalAttCheck;
-        private Label label108;
-        private System.Windows.Forms.ComboBox MinAttBox;
-        private Label label107;
-        private Label label100;
-        private System.Windows.Forms.ComboBox MaxAttPosBox;
-        private NumericUpDown MinAttNum;
-        private System.Windows.Forms.ComboBox MinAttPosBox;
-        private System.Windows.Forms.ComboBox MaxAttBox;
-        private System.Windows.Forms.ComboBox GlobalAttPosBox;
-        private Label label106;
-        private System.Windows.Forms.Button MaxAttButton;
-        private System.Windows.Forms.TextBox MinAttRating;
-        private System.Windows.Forms.Button MinAttButton;
-        private System.Windows.Forms.TextBox MaxAttRating;
-        private System.Windows.Forms.Button GlobalAttButton;
-        public System.Windows.Forms.Button UniquePlayerButton;
-        public System.Windows.Forms.Button FantasyCoachesButton;
-        public System.Windows.Forms.Button SyncPBButton;
-        public System.Windows.Forms.TextBox textBox3;
-        public System.Windows.Forms.TextBox textBox2;
-        public System.Windows.Forms.Button ReorderPGIDButton;
-        public System.Windows.Forms.Button TORDButton;
-        public System.Windows.Forms.Button RandomizeHeadButton;
-        private Label label58;
-        private NumericUpDown FillRosterPCT;
-        public System.Windows.Forms.Button buttonFillRosters;
-        public System.Windows.Forms.Button buttonAutoDepthChart;
-        public System.Windows.Forms.Button buttonFantasyRoster;
-        public System.Windows.Forms.Button TYDNButton;
-        public System.Windows.Forms.Button buttonCalcOverall;
-        public System.Windows.Forms.Button buttonRandPotential;
-        public System.Windows.Forms.Button bodyFix;
-        private Label PosRanking;
-        public Label label184;
-        private NumericUpDown RDIS;
-        public Label label206;
-        private NumericUpDown PDIS;
-        private DataGridView RecruitDataGrid;
-        private Label label207;
-        private DataGridViewTextBoxColumn RCNo;
-        private DataGridViewComboBoxColumn RCTeam;
-        private DataGridViewTextBoxColumn RCTScore;
-        private System.Windows.Forms.Button UpdateRecruitOffers;
-        private Label RecruitPitch;
-        private System.Windows.Forms.Button RemoveBadTransfers;
-        private System.Windows.Forms.Button SetMaxCoachCCPO;
-        private NumericUpDown MaxCCPOVal;
-        private Label TransferTeam;
-        public System.Windows.Forms.TextBox TeamSTRating;
-        public Label label210;
-        public System.Windows.Forms.TextBox TeamDefRating;
-        public Label label209;
-        public System.Windows.Forms.TextBox TeamOffRating;
-        public Label label208;
-        private TabPage tabSchedule;
-        private DataGridView ScheduleView;
-        public ListBox SCHDTeamBox;
-        private DataGridViewTextBoxColumn SCHDWeek;
-        private DataGridViewTextBoxColumn SCHDHOME;
-        private DataGridViewTextBoxColumn SCHDScoreH;
-        private DataGridViewTextBoxColumn SCHDVS;
-        private DataGridViewTextBoxColumn SCHDAWAY;
-        private DataGridViewTextBoxColumn SCHDScoreA;
-        private Label SchdTeamName;
-        private Label label211;
-        private Label label212;
-        private System.Windows.Forms.Button RescheduleOOC;
-        private GroupBox groupBox21;
-        private Label SCHDrecord;
-        private DataGridView MatchView;
-        private DataGridViewTextBoxColumn RatingCat;
-        private DataGridViewTextBoxColumn MatchHomeTeam;
-        private DataGridViewTextBoxColumn MatchAwayTeam;
-        private Label label213;
-        private GroupBox groupBox22;
-        private RadioButton FantasyCSV;
-        private RadioButton FantasyTeamDB;
-        private GroupBox groupBox23;
-        private RadioButton ConfDisplayRanking;
-        private RadioButton ConfDisplayRating;
-        private RadioButton ConfDisplayPrestige;
-        private RadioButton ConfDisplayTeam;
-        private GroupBox groupBox26;
-        private GroupBox groupBox25;
-        private GroupBox groupBox24;
-        private ListBox CoachPollListBox;
-        private ListBox TopTeamRatingsBox;
-        private ListBox TopTeamDefBox;
-        private ListBox TopTeamOffBox;
-        private Label label217;
-        private Label label216;
-        private Label label215;
-        private Label label214;
-        private Label label221;
-        private ListBox SacksLeadersBox;
-        private ListBox IntLeadersBox;
-        private Label label223;
-        private Label label222;
-        private ListBox TacklesLeadersBox;
-        private Label label220;
-        private ListBox ReceivingLeadersBox;
-        private Label label219;
-        private ListBox RushingLeadersBox;
-        private Label label218;
-        private ListBox PassingLeadersBox;
-        public System.Windows.Forms.Button CFUSAexportButton;
-        public System.Windows.Forms.Button ClearExpiredStats;
-        public System.Windows.Forms.Button CoachPrestigeButton;
-        public System.Windows.Forms.Button buttonRandomBudgets;
-        private Label label178;
-        public System.Windows.Forms.Button coachProg;
-        public System.Windows.Forms.Button AutoAdjustBudgetsButton;
-        public Label label224;
-        public System.Windows.Forms.TextBox TeamStadRank;
-        private TabPage tabStadiums;
-        private Label label227;
-        private System.Windows.Forms.TextBox STADResBox;
-        private Label label226;
-        private System.Windows.Forms.TextBox STADsgidBox;
-        private Label label225;
-        private ListBox StadiumListBox;
-        private GroupBox groupBox27;
-        private CheckBox STADType;
-        private CheckBox STADCannon;
-        private CheckBox STADVisbility;
-        private CheckBox STADcat;
-        private GroupBox groupBox28;
-        private Label labelstadnickname;
-        private System.Windows.Forms.TextBox STADNickBox;
-        private Label STADrank;
-        private System.Windows.Forms.TextBox STADSTDR;
-        private Label labelstadname;
-        private System.Windows.Forms.TextBox STADNameBox;
-        private Label label228;
-        private System.Windows.Forms.TextBox STADTDNA;
-        private GroupBox groupBox29;
-        private Label label230;
-        private NumericUpDown STjtBox;
-        private Label label229;
-        private NumericUpDown STtsBox;
-        private Label label235;
-        private NumericUpDown SWSPBox;
-        private Label label236;
-        private NumericUpDown SWRPBox;
-        private Label label233;
-        private NumericUpDown SWWPBox;
-        private Label label234;
-        private NumericUpDown SWFPBox;
-        private Label label231;
-        private NumericUpDown STfwBox;
-        private Label label232;
-        private NumericUpDown STwpBox;
-        private System.Windows.Forms.ComboBox STADState;
-        public System.Windows.Forms.TextBox STADCity;
-        public Label label237;
-        public Label label238;
-        public Label label240;
-        private NumericUpDown STADCap;
-        public Label label239;
-        private System.Windows.Forms.ComboBox STADSFTYBox;
-        private GroupBox groupBox30;
-        private System.Windows.Forms.Button GlobalWeather;
-        private Label label241;
-        private NumericUpDown STtvBox;
-        private System.Windows.Forms.Button TeamAutoImpact;
+        private TabPage tabPortal;
+        private System.Windows.Forms.Button SpringPortalButton;
+        private GroupBox groupBox31;
+        private RadioButton PortalRandom;
+        private RadioButton PortalFirst;
+        private RadioButton PortalReverse;
+        private GroupBox groupBox32;
+        private NumericUpDown PortalOT;
+        private Label label247;
+        private NumericUpDown PortalTE;
+        private Label label246;
+        private NumericUpDown PortalWR;
+        private Label label245;
+        private NumericUpDown PortalFB;
+        private Label label244;
+        private NumericUpDown PortalHB;
+        private Label label243;
+        private NumericUpDown PortalQB;
+        private Label label242;
+        private NumericUpDown PortalK;
+        private Label label258;
+        private NumericUpDown PortalP;
+        private Label label250;
+        private NumericUpDown PortalSS;
+        private Label label251;
+        private NumericUpDown PortalFS;
+        private Label label252;
+        private NumericUpDown PortalCB;
+        private Label label253;
+        private NumericUpDown PortalMLB;
+        private Label label254;
+        private NumericUpDown PortalOLB;
+        private Label label255;
+        private NumericUpDown PortalDT;
+        private Label label256;
+        private NumericUpDown PortalDE;
+        private Label label257;
+        private NumericUpDown PortalOC;
+        private Label label249;
+        private NumericUpDown PortalOG;
+        private Label label248;
+        private RadioButton PortalSnake;
+        private GroupBox groupBox33;
+        private RadioButton largePortal;
+        private RadioButton smallPortal;
+        private Label label259;
+        private NumericUpDown portalChance;
+        private CheckBox PortalTransfers;
+        private RichTextBox richTextBox2;
+        private RichTextBox richTextBox1;
+        private RichTextBox richTextBox3;
+        private DataGridView PortalData;
+        private DataGridViewTextBoxColumn PortalPosition;
+        private DataGridViewTextBoxColumn PortalTransferName;
+        private DataGridViewTextBoxColumn PortalRating;
+        private DataGridViewTextBoxColumn PortalNewSchool;
+        private DataGridViewTextBoxColumn PortalPrvTeam;
+        private Label TotalTransfersCount;
     }
 }
 

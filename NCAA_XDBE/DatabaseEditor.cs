@@ -728,6 +728,10 @@ namespace DB_EDITOR
                     {
                         if (!checkTabExists("Stadiums")) tabControl1.TabPages.Add(tabStadiums);
                     }
+                    if (table.Name == "RCTN" && !BigEndian)
+                    {
+                        if (!checkTabExists("Portal")) tabControl1.TabPages.Add(tabPortal);
+                    }
                 }
             }
 

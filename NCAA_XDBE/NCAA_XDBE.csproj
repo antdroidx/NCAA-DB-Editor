@@ -95,6 +95,9 @@
     <Compile Include="StadiumEditor.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="SpringPortal.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="_UNUSED_.cs">
       <SubType>Form</SubType>
     </Compile>
