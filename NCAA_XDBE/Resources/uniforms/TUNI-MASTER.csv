@@ -75,8 +75,8 @@ Central Michigan,83,19,1
 Central Michigan,84,19,0
 Central Michigan,85,19,2
 Central Michigan,86,19,3
-Charlotte,331,183,1
-Charlotte,332,183,0
+Charlotte,331,160,1
+Charlotte,332,160,0
 Chattanooga,70,194,1
 Chattanooga,71,194,0
 Cincinnati,72,20,1
@@ -435,8 +435,8 @@ SMS,417,209,1
 SMS,418,209,0
 SMU,409,83,1
 SMU,410,83,0
-South Alabama,101,160,1
-South Alabama,102,160,0
+South Alabama,101,183,1
+South Alabama,102,183,0
 South Carolina,395,84,1
 South Carolina,396,84,0
 South Carolina,397,84,2
@@ -1300,26 +1300,26 @@ Central Michigan,1696,19,16
 Central Michigan,1697,19,17
 Central Michigan,1698,19,18
 Central Michigan,1699,19,19
-Charlotte,1700,160,0
-Charlotte,1701,160,1
-Charlotte,1702,160,2
-Charlotte,1703,160,3
-Charlotte,1704,160,4
-Charlotte,1705,160,5
-Charlotte,1706,160,6
-Charlotte,1707,160,7
-Charlotte,1708,160,8
-Charlotte,1709,160,9
-Charlotte,1710,160,10
-Charlotte,1711,160,11
-Charlotte,1712,160,12
-Charlotte,1713,160,13
-Charlotte,1714,160,14
-Charlotte,1715,160,15
-Charlotte,1716,160,16
-Charlotte,1717,160,17
-Charlotte,1718,160,18
-Charlotte,1719,160,19
+Charlotte,1700,183,0
+Charlotte,1701,183,1
+Charlotte,1702,183,2
+Charlotte,1703,183,3
+Charlotte,1704,183,4
+Charlotte,1705,183,5
+Charlotte,1706,183,6
+Charlotte,1707,183,7
+Charlotte,1708,183,8
+Charlotte,1709,183,9
+Charlotte,1710,183,10
+Charlotte,1711,183,11
+Charlotte,1712,183,12
+Charlotte,1713,183,13
+Charlotte,1714,183,14
+Charlotte,1715,183,15
+Charlotte,1716,183,16
+Charlotte,1717,183,17
+Charlotte,1718,183,18
+Charlotte,1719,183,19
 Chattanooga,1720,194,0
 Chattanooga,1721,194,1
 Chattanooga,1722,194,2
@@ -3680,26 +3680,26 @@ SMU,4076,83,16
 SMU,4077,83,17
 SMU,4078,83,18
 SMU,4079,83,19
-South Alabama,4080,183,0
-South Alabama,4081,183,1
-South Alabama,4082,183,2
-South Alabama,4083,183,3
-South Alabama,4084,183,4
-South Alabama,4085,183,5
-South Alabama,4086,183,6
-South Alabama,4087,183,7
-South Alabama,4088,183,8
-South Alabama,4089,183,9
-South Alabama,4090,183,10
-South Alabama,4091,183,11
-South Alabama,4092,183,12
-South Alabama,4093,183,13
-South Alabama,4094,183,14
-South Alabama,4095,183,15
-South Alabama,4096,183,16
-South Alabama,4097,183,17
-South Alabama,4098,183,18
-South Alabama,4099,183,19
+South Alabama,4080,160,0
+South Alabama,4081,160,1
+South Alabama,4082,160,2
+South Alabama,4083,160,3
+South Alabama,4084,160,4
+South Alabama,4085,160,5
+South Alabama,4086,160,6
+South Alabama,4087,160,7
+South Alabama,4088,160,8
+South Alabama,4089,160,9
+South Alabama,4090,160,10
+South Alabama,4091,160,11
+South Alabama,4092,160,12
+South Alabama,4093,160,13
+South Alabama,4094,160,14
+South Alabama,4095,160,15
+South Alabama,4096,160,16
+South Alabama,4097,160,17
+South Alabama,4098,160,18
+South Alabama,4099,160,19
 South Carolina,4100,84,0
 South Carolina,4101,84,1
 South Carolina,4102,84,2

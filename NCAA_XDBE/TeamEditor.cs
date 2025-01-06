@@ -16,7 +16,7 @@ namespace DB_EDITOR
         #region TEAM EDITOR - STARTUP
 
         public void StartTeamEditor()
-        { 
+        {
             LoadLeagueListBox();
             LoadCGIDListBox();
             CreateTeamColorPalettes();
@@ -36,9 +36,9 @@ namespace DB_EDITOR
         {
             CGIDcomboBox.Items.Clear();
             List<string> confs = new List<string>();
-            for(int i = 0; i < GetTableRecCount("CONF"); i++)
+            for (int i = 0; i < GetTableRecCount("CONF"); i++)
             {
-                if(GetDBValueInt("CONF", "LGID", i) < 2)
+                if (GetDBValueInt("CONF", "LGID", i) < 2)
                 {
                     confs.Add(GetDBValue("CONF", "CNAM", i));
                 }
@@ -57,13 +57,28 @@ namespace DB_EDITOR
         {
             TGIDlistBox.Items.Clear();
             List<string> teamList = new List<string>();
+            List<List<int>> rankList = new List<List<int>>();
 
             if (cgid > -1)
             {
                 for (int i = 0; i < GetTableRecCount("TEAM"); i++)
                 {
                     if (GetDBValueInt("TEAM", "CGID", i) == cgid)
-                        teamList.Add(teamNameDB[GetDBValueInt("TEAM", "TGID", i)]);
+                    {
+                        if (TeamShowNormal.Checked)
+                        {
+                            teamList.Add(teamNameDB[GetDBValueInt("TEAM", "TGID", i)]);
+
+                        }
+                        else
+                        {
+                            int rank = GetDBValueInt("TEAM", "TCRK", i);
+                            int count = rankList.Count;
+                            rankList.Add(new List<int>());
+                            rankList[count].Add(rank);
+                            rankList[count].Add(i);
+                        }
+                    }
                 }
             }
             else
@@ -71,18 +86,38 @@ namespace DB_EDITOR
                 for (int i = 0; i < GetTableRecCount("TEAM"); i++)
                 {
                     if (lgid == 2 || GetDBValueInt("TEAM", "TTYP", i) == lgid)
-                        teamList.Add(teamNameDB[GetDBValueInt("TEAM", "TGID", i)]);
+                    {
+                        if (TeamShowNormal.Checked)
+                        {
+                            teamList.Add(teamNameDB[GetDBValueInt("TEAM", "TGID", i)]);
+                        }
+                        else
+                        {
+                            int rank = GetDBValueInt("TEAM", "TCRK", i);
+                            int count = rankList.Count;
+                            rankList.Add(new List<int>());
+                            rankList[count].Add(rank);
+                            rankList[count].Add(i);
+                        }
+                    }
                 }
             }
 
-            teamList.Sort();
+            if (TeamShowNormal.Checked) teamList.Sort();
+            else
+            {
+                rankList.Sort((x, y) => x[0].CompareTo(y[0]));
+                for (int i = 0; i < rankList.Count; i++)
+                {
+                    teamList.Add(rankList[i][0] + ". " + teamNameDB[GetDBValueInt("TEAM", "TGID", rankList[i][1])]);
+                }
+
+            }
 
             for (int i = 0; i < teamList.Count; i++)
             {
                 if (teamList[i] != null) TGIDlistBox.Items.Add(teamList[i]);
             }
-
-
         }
 
 
@@ -101,29 +136,60 @@ namespace DB_EDITOR
             LGIDcomboBox.SelectedIndex = -1;
 
             int cgid = GetCONFrecFromCNAM(CGIDcomboBox.Text);
-            
+
             LoadTGIDlistBox(cgid, LGIDcomboBox.SelectedIndex);
         }
+
+
+        private void TeamShowNormal_CheckedChanged(object sender, EventArgs e)
+        {
+            if (LGIDcomboBox.SelectedIndex == -1 || DoNotTrigger)
+                return;
+            CGIDcomboBox.SelectedIndex = -1;
+
+            LoadTGIDlistBox(-1, LGIDcomboBox.SelectedIndex);
+        }
+
+        private void TeamShowRanking_CheckedChanged(object sender, EventArgs e)
+        {
+            if (LGIDcomboBox.SelectedIndex == -1 || DoNotTrigger)
+                return;
+            CGIDcomboBox.SelectedIndex = -1;
+
+            LoadTGIDlistBox(-1, LGIDcomboBox.SelectedIndex);
+        }
+
+
         public void TGIDlistBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (TGIDlistBox.Items.Count < 1 || TGIDlistBox.SelectedIndex == -1)
                 return;
 
-            int tgid = -1;
-            for (int i = 0; i < teamNameDB.Length; i++)
+            if (TeamShowNormal.Checked)
             {
-                if (TGIDplayerBox.Text == teamNameDB[i])
-                {
-                    tgid = i;
-                    break;
-                }
+                TeamIndex = FindTeamRecfromTeamName(Convert.ToString(TGIDlistBox.SelectedItem));
             }
+            else
+            {
+                string[] teamName = Convert.ToString(TGIDlistBox.SelectedItem).Split('.');
+                string[] split = teamName[1].Split(' ');
+                string splitName = "";
 
-            TeamIndex = FindTeamRecfromTeamName(Convert.ToString(TGIDlistBox.SelectedItem));
+                for(int i = 1; i < split.Length; i++)
+                {
+                    if(i == split.Length - 1) splitName += split[i];
+                    else splitName += split[i] + " ";
+                }
+
+                TeamIndex = FindTeamRecfromTeamName(splitName);
+
+            }
 
             GetTeamEditorData(TeamIndex);
 
         }
+
+
 
         #endregion
 
@@ -194,7 +260,7 @@ namespace DB_EDITOR
             NCDPnumbox.Value = GetDBValueInt("TEAM", "NCDP", EditorIndex);
             SDURnumbox.Value = GetDBValueInt("TEAM", "SDUR", EditorIndex);
             SNCTnumbox.Value = GetDBValueInt("TEAM", "SNCT", EditorIndex);
-            
+
             progressBar1.PerformStep();
 
 
@@ -244,7 +310,7 @@ namespace DB_EDITOR
 
             GetDefTypeItems();
             DefTypeSelectBox.SelectedIndex = GetDBValueInt("COCH", "CDST", GetCOCHrecFromTeamRec(EditorIndex));
-            
+
             TeamCOTRbox.Value = GetDBValueInt("COCH", "COTR", GetCOCHrecFromTeamRec(EditorIndex));
             TeamCOTAbox.Value = GetDBValueInt("COCH", "COTA", GetCOCHrecFromTeamRec(EditorIndex));
             TeamCOTSbox.Value = GetDBValueInt("COCH", "COTS", GetCOCHrecFromTeamRec(EditorIndex));
@@ -303,22 +369,22 @@ namespace DB_EDITOR
         {
             PlaybookSelectBox.Items.Clear();
             List<List<string>> pb = CreatePlaybookNames();
-                //136-158 next ||  124 and below is vanilla
+            //136-158 next ||  124 and below is vanilla
 
-                if (GetDBValueInt("COCH", "CPID", GetCOCHrecFromTeamRec(TeamIndex)) > 135)
+            if (GetDBValueInt("COCH", "CPID", GetCOCHrecFromTeamRec(TeamIndex)) > 135)
+            {
+                for (int i = 136; i < pb.Count; i++)
                 {
-                    for (int i = 136; i < pb.Count; i++)
-                    {
-                        PlaybookSelectBox.Items.Add(pb[i][1]);
-                    }
+                    PlaybookSelectBox.Items.Add(pb[i][1]);
                 }
-                else
+            }
+            else
+            {
+                for (int i = 0; i <= 124; i++)
                 {
-                    for (int i = 0; i <= 124; i++)
-                    {
-                        PlaybookSelectBox.Items.Add(pb[i][1]);
-                    }
+                    PlaybookSelectBox.Items.Add(pb[i][1]);
                 }
+            }
         }
 
         private int GetPlaybookSelectedIndex()
@@ -327,7 +393,7 @@ namespace DB_EDITOR
 
             //136-158 next ||  124 and below is vanilla
             if (pbVal > 135) pbVal = pbVal - 136;
-           
+
             return pbVal;
         }
 
@@ -369,9 +435,9 @@ namespace DB_EDITOR
             int rowOff = 0;
             int rowDef = 0;
 
-            for(int i = 0; i < GetTableRecCount("PLAY"); i++)
+            for (int i = 0; i < GetTableRecCount("PLAY"); i++)
             {
-                if(GetDBValueInt("PLAY", "PGID", i) >= pgidBeg && GetDBValueInt("PLAY", "PGID", i) <= pgidEnd)
+                if (GetDBValueInt("PLAY", "PGID", i) >= pgidBeg && GetDBValueInt("PLAY", "PGID", i) <= pgidEnd)
                 {
                     AllTeamPlayers.Add(new List<string>());
                     AllTeamPlayers[row].Add(GetFirstNameFromRecord(i));
@@ -382,7 +448,7 @@ namespace DB_EDITOR
                     AllTeamPlayers[row].Add(Convert.ToString(i));
 
                     // 0 First Name  1 Last Name 2 Position 3 Overall 4 PGID 5 rec
-                     
+
 
                     //Create offense and defense player lists
                     if (GetDBValueInt("PLAY", "PPOS", i) <= 9)
@@ -415,7 +481,7 @@ namespace DB_EDITOR
 
         private void SetCaptainAndImpactItems()
         {
-            CaptainOffSelectBox.Items.Clear(); 
+            CaptainOffSelectBox.Items.Clear();
             CaptainDefSelectBox.Items.Clear();
             ImpactTPIDSelect.Items.Clear();
             ImpactTPIOSelect.Items.Clear();
@@ -453,9 +519,9 @@ namespace DB_EDITOR
         private int FindCaptainImpactOffPlayer(int ocap)
         {
             int tgid = GetDBValueInt("TEAM", "TGID", TeamIndex);
-            int pgid = ocap + (tgid*70);
+            int pgid = ocap + (tgid * 70);
 
-            for(int i = 0; i < OffPlayers.Count; i++)
+            for (int i = 0; i < OffPlayers.Count; i++)
             {
                 if (OffPlayers[i][4] == Convert.ToString(pgid)) return i;
             }
@@ -492,7 +558,7 @@ namespace DB_EDITOR
         private void ClearTeamComboBoxes()
         {
             CaptainOffSelectBox.Text = String.Empty;
-            CaptainDefSelectBox.Text = String.Empty; 
+            CaptainDefSelectBox.Text = String.Empty;
             ImpactTPIOSelect.Text = String.Empty;
             ImpactTPIDSelect.Text = String.Empty;
             ImpactTSI1Select.Text = String.Empty;
@@ -503,7 +569,7 @@ namespace DB_EDITOR
         private void GetCrowdColorPaletteItems()
         {
             CrowdBox.Items.Clear();
-            for(int i = 0; i < TeamColorPalettes.Count; i++) 
+            for (int i = 0; i < TeamColorPalettes.Count; i++)
             {
                 CrowdBox.Items.Add(TeamColorPalettes[i][0]);
             }
@@ -520,7 +586,7 @@ namespace DB_EDITOR
 
         private int FindTeamIndexfromPalette(int pal, string type)
         {
-            if(type == "crowd")
+            if (type == "crowd")
             {
                 for (int i = 0; i < TeamColorPalettes.Count; i++)
                 {
@@ -902,7 +968,7 @@ namespace DB_EDITOR
         {
             if (DoNotTrigger) return;
             ChangeDBInt("TEAM", "TMAA", TeamIndex, Convert.ToInt32(AttendanceNumBox.Value));
-            if( AttendanceNumBox.Value > CapacityNumbox.Value)
+            if (AttendanceNumBox.Value > CapacityNumbox.Value)
             {
                 CapacityNumbox.Value = AttendanceNumBox.Value;
                 ChangeDBInt("STAD", "SCAP", FindSTADrecFromTEAMrec(TeamIndex), Convert.ToInt32(CapacityNumbox.Value));
@@ -1043,7 +1109,7 @@ namespace DB_EDITOR
             }
 
         }
-        
+
         //Reset Impact Players
         private void ResetImpactPlayers_Click(object sender, EventArgs e)
         {
@@ -1087,7 +1153,7 @@ namespace DB_EDITOR
                 FantasyRosterGeneratorSingle(GetDBValueInt("TEAM", "TGID", TeamIndex), Convert.ToInt32(TMPRNumBox.Value));
             }
             RecalculateOverall();
-      
+
             GetTeamEditorData(TeamIndex);
         }
 

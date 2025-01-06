@@ -35,28 +35,31 @@ namespace DB_EDITOR
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Button qbTend;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainEditor));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
             this.mainMenu = new System.Windows.Forms.MenuStrip();
             this.fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -202,10 +205,23 @@ namespace DB_EDITOR
             this.DefaultPlaysRadio = new System.Windows.Forms.RadioButton();
             this.CustomPlaysRadio = new System.Windows.Forms.RadioButton();
             this.tabTools = new System.Windows.Forms.TabPage();
+            this.ReRankTeamsAP = new System.Windows.Forms.CheckBox();
+            this.ResetDynYear = new System.Windows.Forms.Button();
+            this.groupBox38 = new System.Windows.Forms.GroupBox();
+            this.buttonAutoDepthChart = new System.Windows.Forms.Button();
             this.ClearExpiredStats = new System.Windows.Forms.Button();
+            this.buttonFantasyRoster = new System.Windows.Forms.Button();
             this.groupBox22 = new System.Windows.Forms.GroupBox();
             this.FantasyCSV = new System.Windows.Forms.RadioButton();
             this.FantasyTeamDB = new System.Windows.Forms.RadioButton();
+            this.buttonFillRosters = new System.Windows.Forms.Button();
+            this.FillRosterPCT = new System.Windows.Forms.NumericUpDown();
+            this.label58 = new System.Windows.Forms.Label();
+            this.FantasyCoachesButton = new System.Windows.Forms.Button();
+            this.buttonRandPotential = new System.Windows.Forms.Button();
+            this.RandomizeHeadButton = new System.Windows.Forms.Button();
+            this.bodyFix = new System.Windows.Forms.Button();
+            this.buttonCalcOverall = new System.Windows.Forms.Button();
             this.ReRankTeams = new System.Windows.Forms.CheckBox();
             this.FixHCBugsButton = new System.Windows.Forms.Button();
             this.groupBox18 = new System.Windows.Forms.GroupBox();
@@ -231,22 +247,12 @@ namespace DB_EDITOR
             this.MaxAttRating = new System.Windows.Forms.TextBox();
             this.GlobalAttButton = new System.Windows.Forms.Button();
             this.UniquePlayerButton = new System.Windows.Forms.Button();
-            this.FantasyCoachesButton = new System.Windows.Forms.Button();
             this.SyncPBButton = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.ReorderPGIDButton = new System.Windows.Forms.Button();
             this.TORDButton = new System.Windows.Forms.Button();
-            this.RandomizeHeadButton = new System.Windows.Forms.Button();
-            this.label58 = new System.Windows.Forms.Label();
-            this.FillRosterPCT = new System.Windows.Forms.NumericUpDown();
-            this.buttonFillRosters = new System.Windows.Forms.Button();
-            this.buttonAutoDepthChart = new System.Windows.Forms.Button();
-            this.buttonFantasyRoster = new System.Windows.Forms.Button();
             this.TYDNButton = new System.Windows.Forms.Button();
-            this.buttonCalcOverall = new System.Windows.Forms.Button();
-            this.buttonRandPotential = new System.Windows.Forms.Button();
-            this.bodyFix = new System.Windows.Forms.Button();
             this.tabOffSeason = new System.Windows.Forms.TabPage();
             this.groupBox17 = new System.Windows.Forms.GroupBox();
             this.removeInterestTeams = new System.Windows.Forms.NumericUpDown();
@@ -272,6 +278,15 @@ namespace DB_EDITOR
             this.textBoxOffSeason = new System.Windows.Forms.TextBox();
             this.textBoxOffSeasonTitle = new System.Windows.Forms.TextBox();
             this.tabRecruits = new System.Windows.Forms.TabPage();
+            this.groupBox39 = new System.Windows.Forms.GroupBox();
+            this.GTransferRecruitable = new System.Windows.Forms.RadioButton();
+            this.GTransferCommitted = new System.Windows.Forms.RadioButton();
+            this.textBox21 = new System.Windows.Forms.TextBox();
+            this.GTransferNew = new System.Windows.Forms.ComboBox();
+            this.label261 = new System.Windows.Forms.Label();
+            this.GTransferOG = new System.Windows.Forms.ComboBox();
+            this.label260 = new System.Windows.Forms.Label();
+            this.GlobalTransferInterest = new System.Windows.Forms.Button();
             this.TransferTeam = new System.Windows.Forms.Label();
             this.RecruitPitch = new System.Windows.Forms.Label();
             this.UpdateRecruitOffers = new System.Windows.Forms.Button();
@@ -542,37 +557,47 @@ namespace DB_EDITOR
             this.SCHDAWAY = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SCHDScoreA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabSeason = new System.Windows.Forms.TabPage();
+            this.groupBox36 = new System.Windows.Forms.GroupBox();
+            this.medRS = new System.Windows.Forms.Button();
+            this.skillDrop = new System.Windows.Forms.NumericUpDown();
+            this.checkBoxInjuryRatings = new System.Windows.Forms.CheckBox();
+            this.labelSkillDrop = new System.Windows.Forms.Label();
+            this.groupBox35 = new System.Windows.Forms.GroupBox();
+            this.buttonPSInjuries = new System.Windows.Forms.Button();
+            this.labelMaxSkilDrop_PS = new System.Windows.Forms.Label();
+            this.numInjuries = new System.Windows.Forms.NumericUpDown();
+            this.labelPSInjuries = new System.Windows.Forms.Label();
+            this.MaxSkillDropPS = new System.Windows.Forms.NumericUpDown();
+            this.TransferPortalStats = new System.Windows.Forms.Button();
             this.RemoveBadTransfers = new System.Windows.Forms.Button();
             this.RemoveSanctionsButton = new System.Windows.Forms.Button();
             this.label180 = new System.Windows.Forms.Label();
             this.ImpactPlayerMin = new System.Windows.Forms.NumericUpDown();
             this.buttonImpactPlayers = new System.Windows.Forms.Button();
             this.BodyProgressionButton = new System.Windows.Forms.Button();
-            this.label14 = new System.Windows.Forms.Label();
-            this.numberPlayerCoach = new System.Windows.Forms.NumericUpDown();
-            this.buttonPlayerCoach = new System.Windows.Forms.Button();
             this.buttonRealignment = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
-            this.labelMaxTransfers = new System.Windows.Forms.Label();
-            this.maxFiredTransfers = new System.Windows.Forms.NumericUpDown();
-            this.checkBoxFiredTransfers = new System.Windows.Forms.CheckBox();
-            this.buttonChaosTransfers = new System.Windows.Forms.Button();
-            this.labelMaxSkilDrop_PS = new System.Windows.Forms.Label();
-            this.MaxSkillDropPS = new System.Windows.Forms.NumericUpDown();
-            this.labelPSInjuries = new System.Windows.Forms.Label();
-            this.numInjuries = new System.Windows.Forms.NumericUpDown();
-            this.buttonPSInjuries = new System.Windows.Forms.Button();
-            this.labelPoaching = new System.Windows.Forms.Label();
-            this.poachValue = new System.Windows.Forms.NumericUpDown();
-            this.labelJobSecurity = new System.Windows.Forms.Label();
-            this.jobSecurityValue = new System.Windows.Forms.NumericUpDown();
-            this.buttonCarousel = new System.Windows.Forms.Button();
-            this.labelSkillDrop = new System.Windows.Forms.Label();
-            this.skillDrop = new System.Windows.Forms.NumericUpDown();
-            this.checkBoxInjuryRatings = new System.Windows.Forms.CheckBox();
             this.dbToolsInfo = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.medRS = new System.Windows.Forms.Button();
+            this.groupBox37 = new System.Windows.Forms.GroupBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.CarouselDataGrid = new System.Windows.Forms.DataGridView();
+            this.CCName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CCStatus = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CCTeam = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CCTmPrestige = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CCPrestige = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CCRecord = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.buttonCarousel = new System.Windows.Forms.Button();
+            this.maxFiredTransfers = new System.Windows.Forms.NumericUpDown();
+            this.labelMaxTransfers = new System.Windows.Forms.Label();
+            this.poachValue = new System.Windows.Forms.NumericUpDown();
+            this.jobSecurityValue = new System.Windows.Forms.NumericUpDown();
+            this.labelJobSecurity = new System.Windows.Forms.Label();
+            this.labelPoaching = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.checkBoxFiredTransfers = new System.Windows.Forms.CheckBox();
+            this.numberPlayerCoach = new System.Windows.Forms.NumericUpDown();
+            this.buttonPlayerCoach = new System.Windows.Forms.Button();
             this.tabCoaches = new System.Windows.Forms.TabPage();
             this.CoachPerfCheckBox = new System.Windows.Forms.CheckBox();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
@@ -818,6 +843,9 @@ namespace DB_EDITOR
             this.NeckPad = new System.Windows.Forms.ComboBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tabTeams = new System.Windows.Forms.TabPage();
+            this.groupBox34 = new System.Windows.Forms.GroupBox();
+            this.TeamShowNormal = new System.Windows.Forms.RadioButton();
+            this.TeamShowRanking = new System.Windows.Forms.RadioButton();
             this.groupBox15 = new System.Windows.Forms.GroupBox();
             this.GenerateNewRosterButton = new System.Windows.Forms.Button();
             this.DeathPenaltyButton = new System.Windows.Forms.Button();
@@ -1011,7 +1039,6 @@ namespace DB_EDITOR
             this.PortalFirst = new System.Windows.Forms.RadioButton();
             this.PortalReverse = new System.Windows.Forms.RadioButton();
             this.SpringPortalButton = new System.Windows.Forms.Button();
-            this.TransferPortalStats = new System.Windows.Forms.Button();
             qbTend = new System.Windows.Forms.Button();
             this.mainMenu.SuspendLayout();
             this.tableMenu.SuspendLayout();
@@ -1030,12 +1057,13 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.PlaybookGrid)).BeginInit();
             this.groupBox19.SuspendLayout();
             this.tabTools.SuspendLayout();
+            this.groupBox38.SuspendLayout();
             this.groupBox22.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FillRosterPCT)).BeginInit();
             this.groupBox18.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MaxAttNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.GlobalAttNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinAttNum)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.FillRosterPCT)).BeginInit();
             this.tabOffSeason.SuspendLayout();
             this.groupBox17.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.removeInterestTeams)).BeginInit();
@@ -1045,6 +1073,7 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.toleranceWalkOn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.recruitTolerance)).BeginInit();
             this.tabRecruits.SuspendLayout();
+            this.groupBox39.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RecruitDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.RDIS)).BeginInit();
             this.groupBox20.SuspendLayout();
@@ -1098,14 +1127,18 @@ namespace DB_EDITOR
             this.groupBox21.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ScheduleView)).BeginInit();
             this.tabSeason.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ImpactPlayerMin)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numberPlayerCoach)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.maxFiredTransfers)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MaxSkillDropPS)).BeginInit();
+            this.groupBox36.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.skillDrop)).BeginInit();
+            this.groupBox35.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numInjuries)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MaxSkillDropPS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImpactPlayerMin)).BeginInit();
+            this.groupBox37.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CarouselDataGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.maxFiredTransfers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.poachValue)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.jobSecurityValue)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.skillDrop)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numberPlayerCoach)).BeginInit();
             this.tabCoaches.SuspendLayout();
             this.groupBox9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CoachCCPONum)).BeginInit();
@@ -1149,6 +1182,7 @@ namespace DB_EDITOR
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabTeams.SuspendLayout();
+            this.groupBox34.SuspendLayout();
             this.groupBox15.SuspendLayout();
             this.groupBox14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SDURnumbox)).BeginInit();
@@ -1210,9 +1244,9 @@ namespace DB_EDITOR
             qbTend.BackColor = System.Drawing.SystemColors.MenuHighlight;
             qbTend.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             qbTend.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            qbTend.Location = new System.Drawing.Point(143, 111);
+            qbTend.Location = new System.Drawing.Point(259, 384);
             qbTend.Name = "qbTend";
-            qbTend.Size = new System.Drawing.Size(110, 80);
+            qbTend.Size = new System.Drawing.Size(145, 80);
             qbTend.TabIndex = 11;
             qbTend.Text = "Calculate QB Tendencies";
             qbTend.UseVisualStyleBackColor = false;
@@ -1253,7 +1287,7 @@ namespace DB_EDITOR
             this.openMenuItem.Image = global::DB_EDITOR.Properties.Resources.open2;
             this.openMenuItem.Name = "openMenuItem";
             this.openMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.openMenuItem.Size = new System.Drawing.Size(169, 34);
             this.openMenuItem.Text = "Open";
             this.openMenuItem.Click += new System.EventHandler(this.OpenMenuItem_Click);
             // 
@@ -1262,7 +1296,7 @@ namespace DB_EDITOR
             this.saveMenuItem.Image = global::DB_EDITOR.Properties.Resources.save3;
             this.saveMenuItem.Name = "saveMenuItem";
             this.saveMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.saveMenuItem.Size = new System.Drawing.Size(169, 34);
             this.saveMenuItem.Text = "Save";
             this.saveMenuItem.Click += new System.EventHandler(this.SaveMenuItem_Click);
             // 
@@ -1271,21 +1305,21 @@ namespace DB_EDITOR
             this.closeMenuItem.Image = global::DB_EDITOR.Properties.Resources.close;
             this.closeMenuItem.Name = "closeMenuItem";
             this.closeMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.W)));
-            this.closeMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.closeMenuItem.Size = new System.Drawing.Size(169, 34);
             this.closeMenuItem.Text = "Close";
             this.closeMenuItem.Click += new System.EventHandler(this.CloseMenuItem_Click);
             // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(154, 6);
+            this.toolStripSeparator7.Size = new System.Drawing.Size(166, 6);
             // 
             // exitMenuItem
             // 
             this.exitMenuItem.Image = global::DB_EDITOR.Properties.Resources.exit;
             this.exitMenuItem.Name = "exitMenuItem";
             this.exitMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.exitMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.exitMenuItem.Size = new System.Drawing.Size(169, 34);
             this.exitMenuItem.Text = "Exit";
             this.exitMenuItem.Click += new System.EventHandler(this.ExitToolItem_Click);
             // 
@@ -2136,17 +2170,17 @@ namespace DB_EDITOR
             // 
             this.UniformGrid.AllowUserToAddRows = false;
             this.UniformGrid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle23.BackColor = System.Drawing.Color.LightGray;
-            this.UniformGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightGray;
+            this.UniformGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.UniformGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.MenuBar;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.UniformGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.MenuBar;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.UniformGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.UniformGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.UniformGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.UniformActivation,
@@ -2159,15 +2193,15 @@ namespace DB_EDITOR
             this.SleeveDecal,
             this.HelmetNums,
             this.HelmetSideNum});
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle25.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle25.NullValue = "N/A";
-            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.UniformGrid.DefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle3.NullValue = "N/A";
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.UniformGrid.DefaultCellStyle = dataGridViewCellStyle3;
             this.UniformGrid.EnableHeadersVisualStyles = false;
             this.UniformGrid.Location = new System.Drawing.Point(32, 15);
             this.UniformGrid.Name = "UniformGrid";
@@ -2586,18 +2620,18 @@ namespace DB_EDITOR
             this.PlaybookGrid.AllowUserToAddRows = false;
             this.PlaybookGrid.AllowUserToDeleteRows = false;
             this.PlaybookGrid.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.PlaybookGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.PlaybookGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.PlaybookGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle27.BackColor = System.Drawing.Color.LightSkyBlue;
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.PlaybookGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.LightSkyBlue;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PlaybookGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.PlaybookGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.PlaybookGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.PBRec,
@@ -2609,25 +2643,25 @@ namespace DB_EDITOR
             this.PlayName,
             this.PLYTVal,
             this.PLYT});
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle29.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle29.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle29.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.PlaybookGrid.DefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.PlaybookGrid.DefaultCellStyle = dataGridViewCellStyle7;
             this.PlaybookGrid.EnableHeadersVisualStyles = false;
             this.PlaybookGrid.Location = new System.Drawing.Point(12, 3);
             this.PlaybookGrid.Name = "PlaybookGrid";
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle30.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle30.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle30.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.PlaybookGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PlaybookGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.PlaybookGrid.RowHeadersVisible = false;
             this.PlaybookGrid.Size = new System.Drawing.Size(746, 606);
             this.PlaybookGrid.TabIndex = 0;
@@ -2662,8 +2696,8 @@ namespace DB_EDITOR
             // 
             // prct
             // 
-            dataGridViewCellStyle28.BackColor = System.Drawing.SystemColors.Info;
-            this.prct.DefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Info;
+            this.prct.DefaultCellStyle = dataGridViewCellStyle6;
             this.prct.FillWeight = 81.47587F;
             this.prct.HeaderText = "PRCT ";
             this.prct.Name = "prct";
@@ -2734,29 +2768,19 @@ namespace DB_EDITOR
             // tabTools
             // 
             this.tabTools.BackColor = System.Drawing.SystemColors.InactiveCaption;
-            this.tabTools.Controls.Add(this.ClearExpiredStats);
-            this.tabTools.Controls.Add(this.groupBox22);
+            this.tabTools.Controls.Add(this.ReRankTeamsAP);
+            this.tabTools.Controls.Add(this.ResetDynYear);
+            this.tabTools.Controls.Add(this.groupBox38);
             this.tabTools.Controls.Add(this.ReRankTeams);
             this.tabTools.Controls.Add(this.FixHCBugsButton);
             this.tabTools.Controls.Add(this.groupBox18);
             this.tabTools.Controls.Add(this.UniquePlayerButton);
-            this.tabTools.Controls.Add(this.FantasyCoachesButton);
             this.tabTools.Controls.Add(this.SyncPBButton);
             this.tabTools.Controls.Add(this.textBox3);
             this.tabTools.Controls.Add(this.textBox2);
             this.tabTools.Controls.Add(this.ReorderPGIDButton);
             this.tabTools.Controls.Add(this.TORDButton);
-            this.tabTools.Controls.Add(this.RandomizeHeadButton);
-            this.tabTools.Controls.Add(this.label58);
-            this.tabTools.Controls.Add(this.FillRosterPCT);
-            this.tabTools.Controls.Add(this.buttonFillRosters);
-            this.tabTools.Controls.Add(this.buttonAutoDepthChart);
-            this.tabTools.Controls.Add(this.buttonFantasyRoster);
             this.tabTools.Controls.Add(this.TYDNButton);
-            this.tabTools.Controls.Add(this.buttonCalcOverall);
-            this.tabTools.Controls.Add(this.buttonRandPotential);
-            this.tabTools.Controls.Add(qbTend);
-            this.tabTools.Controls.Add(this.bodyFix);
             this.tabTools.Location = new System.Drawing.Point(4, 24);
             this.tabTools.Name = "tabTools";
             this.tabTools.Padding = new System.Windows.Forms.Padding(3);
@@ -2764,24 +2788,95 @@ namespace DB_EDITOR
             this.tabTools.TabIndex = 5;
             this.tabTools.Text = "dbTools";
             // 
+            // ReRankTeamsAP
+            // 
+            this.ReRankTeamsAP.AutoSize = true;
+            this.ReRankTeamsAP.Location = new System.Drawing.Point(22, 197);
+            this.ReRankTeamsAP.Name = "ReRankTeamsAP";
+            this.ReRankTeamsAP.Size = new System.Drawing.Size(205, 17);
+            this.ReRankTeamsAP.TabIndex = 62;
+            this.ReRankTeamsAP.Text = "Re-Rank Media Poll Based on Overall";
+            this.ReRankTeamsAP.UseVisualStyleBackColor = true;
+            // 
+            // ResetDynYear
+            // 
+            this.ResetDynYear.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.ResetDynYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ResetDynYear.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ResetDynYear.Location = new System.Drawing.Point(12, 320);
+            this.ResetDynYear.Name = "ResetDynYear";
+            this.ResetDynYear.Size = new System.Drawing.Size(110, 80);
+            this.ResetDynYear.TabIndex = 61;
+            this.ResetDynYear.Text = "Reset Dynasty Seasons";
+            this.ResetDynYear.UseVisualStyleBackColor = false;
+            this.ResetDynYear.Click += new System.EventHandler(this.ResetDynYear_Click);
+            // 
+            // groupBox38
+            // 
+            this.groupBox38.Controls.Add(this.buttonAutoDepthChart);
+            this.groupBox38.Controls.Add(this.ClearExpiredStats);
+            this.groupBox38.Controls.Add(this.buttonFantasyRoster);
+            this.groupBox38.Controls.Add(this.groupBox22);
+            this.groupBox38.Controls.Add(this.buttonFillRosters);
+            this.groupBox38.Controls.Add(this.FillRosterPCT);
+            this.groupBox38.Controls.Add(this.label58);
+            this.groupBox38.Controls.Add(this.FantasyCoachesButton);
+            this.groupBox38.Controls.Add(this.buttonRandPotential);
+            this.groupBox38.Controls.Add(this.RandomizeHeadButton);
+            this.groupBox38.Controls.Add(this.bodyFix);
+            this.groupBox38.Controls.Add(qbTend);
+            this.groupBox38.Controls.Add(this.buttonCalcOverall);
+            this.groupBox38.Location = new System.Drawing.Point(272, 28);
+            this.groupBox38.Name = "groupBox38";
+            this.groupBox38.Size = new System.Drawing.Size(410, 576);
+            this.groupBox38.TabIndex = 60;
+            this.groupBox38.TabStop = false;
+            this.groupBox38.Text = "Roster Tools";
+            // 
+            // buttonAutoDepthChart
+            // 
+            this.buttonAutoDepthChart.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.buttonAutoDepthChart.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAutoDepthChart.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonAutoDepthChart.Location = new System.Drawing.Point(259, 29);
+            this.buttonAutoDepthChart.Name = "buttonAutoDepthChart";
+            this.buttonAutoDepthChart.Size = new System.Drawing.Size(145, 80);
+            this.buttonAutoDepthChart.TabIndex = 19;
+            this.buttonAutoDepthChart.Text = "Auto-Set Depth Chart";
+            this.buttonAutoDepthChart.UseVisualStyleBackColor = false;
+            this.buttonAutoDepthChart.Click += new System.EventHandler(this.buttonAutoDepthChart_Click);
+            // 
             // ClearExpiredStats
             // 
             this.ClearExpiredStats.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClearExpiredStats.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ClearExpiredStats.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ClearExpiredStats.Location = new System.Drawing.Point(16, 421);
+            this.ClearExpiredStats.Location = new System.Drawing.Point(259, 474);
             this.ClearExpiredStats.Name = "ClearExpiredStats";
-            this.ClearExpiredStats.Size = new System.Drawing.Size(110, 80);
+            this.ClearExpiredStats.Size = new System.Drawing.Size(145, 80);
             this.ClearExpiredStats.TabIndex = 59;
             this.ClearExpiredStats.Text = "Clear Expired Stats Data";
             this.ClearExpiredStats.UseVisualStyleBackColor = false;
             this.ClearExpiredStats.Click += new System.EventHandler(this.ClearExpiredStats_Click);
             // 
+            // buttonFantasyRoster
+            // 
+            this.buttonFantasyRoster.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.buttonFantasyRoster.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonFantasyRoster.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonFantasyRoster.Location = new System.Drawing.Point(8, 136);
+            this.buttonFantasyRoster.Name = "buttonFantasyRoster";
+            this.buttonFantasyRoster.Size = new System.Drawing.Size(239, 80);
+            this.buttonFantasyRoster.TabIndex = 18;
+            this.buttonFantasyRoster.Text = "Generate Fantasy Roster";
+            this.buttonFantasyRoster.UseVisualStyleBackColor = false;
+            this.buttonFantasyRoster.Click += new System.EventHandler(this.buttonFantasyRoster_Click);
+            // 
             // groupBox22
             // 
             this.groupBox22.Controls.Add(this.FantasyCSV);
             this.groupBox22.Controls.Add(this.FantasyTeamDB);
-            this.groupBox22.Location = new System.Drawing.Point(274, 567);
+            this.groupBox22.Location = new System.Drawing.Point(8, 215);
             this.groupBox22.Name = "groupBox22";
             this.groupBox22.Size = new System.Drawing.Size(239, 45);
             this.groupBox22.TabIndex = 58;
@@ -2810,14 +2905,119 @@ namespace DB_EDITOR
             this.FantasyTeamDB.Text = "Team Database";
             this.FantasyTeamDB.UseVisualStyleBackColor = true;
             // 
+            // buttonFillRosters
+            // 
+            this.buttonFillRosters.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.buttonFillRosters.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonFillRosters.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonFillRosters.Location = new System.Drawing.Point(259, 136);
+            this.buttonFillRosters.Name = "buttonFillRosters";
+            this.buttonFillRosters.Size = new System.Drawing.Size(145, 80);
+            this.buttonFillRosters.TabIndex = 20;
+            this.buttonFillRosters.Text = "Fill Rosters";
+            this.buttonFillRosters.UseVisualStyleBackColor = false;
+            this.buttonFillRosters.Click += new System.EventHandler(this.buttonFillRosters_Click);
+            // 
+            // FillRosterPCT
+            // 
+            this.FillRosterPCT.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.FillRosterPCT.Location = new System.Drawing.Point(352, 222);
+            this.FillRosterPCT.Name = "FillRosterPCT";
+            this.FillRosterPCT.Size = new System.Drawing.Size(42, 20);
+            this.FillRosterPCT.TabIndex = 22;
+            this.FillRosterPCT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.FillRosterPCT.Value = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Location = new System.Drawing.Point(269, 229);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(77, 13);
+            this.label58.TabIndex = 23;
+            this.label58.Text = "PCT Freshman";
+            // 
+            // FantasyCoachesButton
+            // 
+            this.FantasyCoachesButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.FantasyCoachesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FantasyCoachesButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.FantasyCoachesButton.Location = new System.Drawing.Point(8, 29);
+            this.FantasyCoachesButton.Name = "FantasyCoachesButton";
+            this.FantasyCoachesButton.Size = new System.Drawing.Size(239, 80);
+            this.FantasyCoachesButton.TabIndex = 53;
+            this.FantasyCoachesButton.Text = "Generate Fantasy Coaches";
+            this.FantasyCoachesButton.UseVisualStyleBackColor = false;
+            this.FantasyCoachesButton.Click += new System.EventHandler(this.FantasyCoachesButton_Click);
+            // 
+            // buttonRandPotential
+            // 
+            this.buttonRandPotential.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.buttonRandPotential.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonRandPotential.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonRandPotential.Location = new System.Drawing.Point(259, 297);
+            this.buttonRandPotential.Name = "buttonRandPotential";
+            this.buttonRandPotential.Size = new System.Drawing.Size(145, 74);
+            this.buttonRandPotential.TabIndex = 12;
+            this.buttonRandPotential.Text = "Randomize Player Potential";
+            this.buttonRandPotential.UseVisualStyleBackColor = false;
+            this.buttonRandPotential.Click += new System.EventHandler(this.ButtonRandPotential_Click);
+            // 
+            // RandomizeHeadButton
+            // 
+            this.RandomizeHeadButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.RandomizeHeadButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.RandomizeHeadButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.RandomizeHeadButton.Location = new System.Drawing.Point(8, 294);
+            this.RandomizeHeadButton.Name = "RandomizeHeadButton";
+            this.RandomizeHeadButton.Size = new System.Drawing.Size(239, 77);
+            this.RandomizeHeadButton.TabIndex = 24;
+            this.RandomizeHeadButton.Text = "Randomize Player Head/Face";
+            this.RandomizeHeadButton.UseVisualStyleBackColor = false;
+            this.RandomizeHeadButton.Click += new System.EventHandler(this.RandomizeHeadButton_Click);
+            // 
+            // bodyFix
+            // 
+            this.bodyFix.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.bodyFix.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bodyFix.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.bodyFix.Location = new System.Drawing.Point(8, 383);
+            this.bodyFix.Name = "bodyFix";
+            this.bodyFix.Size = new System.Drawing.Size(239, 80);
+            this.bodyFix.TabIndex = 9;
+            this.bodyFix.Text = "Body Size Fixer";
+            this.bodyFix.UseVisualStyleBackColor = false;
+            this.bodyFix.Click += new System.EventHandler(this.BodyFix_Click);
+            // 
+            // buttonCalcOverall
+            // 
+            this.buttonCalcOverall.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.buttonCalcOverall.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCalcOverall.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonCalcOverall.Location = new System.Drawing.Point(8, 474);
+            this.buttonCalcOverall.Name = "buttonCalcOverall";
+            this.buttonCalcOverall.Size = new System.Drawing.Size(239, 80);
+            this.buttonCalcOverall.TabIndex = 15;
+            this.buttonCalcOverall.Text = "Recalculate Player Overall";
+            this.buttonCalcOverall.UseVisualStyleBackColor = false;
+            this.buttonCalcOverall.Click += new System.EventHandler(this.buttonCalcOverall_Click);
+            // 
             // ReRankTeams
             // 
             this.ReRankTeams.AutoSize = true;
-            this.ReRankTeams.Location = new System.Drawing.Point(148, 95);
+            this.ReRankTeams.Location = new System.Drawing.Point(22, 177);
             this.ReRankTeams.Name = "ReRankTeams";
-            this.ReRankTeams.Size = new System.Drawing.Size(104, 17);
+            this.ReRankTeams.Size = new System.Drawing.Size(207, 17);
             this.ReRankTeams.TabIndex = 57;
-            this.ReRankTeams.Text = "Re-Rank Teams";
+            this.ReRankTeams.Text = "Re-Rank Coach Poll Based on Overall";
             this.ReRankTeams.UseVisualStyleBackColor = true;
             // 
             // FixHCBugsButton
@@ -2856,7 +3056,7 @@ namespace DB_EDITOR
             this.groupBox18.Controls.Add(this.MinAttButton);
             this.groupBox18.Controls.Add(this.MaxAttRating);
             this.groupBox18.Controls.Add(this.GlobalAttButton);
-            this.groupBox18.Location = new System.Drawing.Point(271, 47);
+            this.groupBox18.Location = new System.Drawing.Point(702, 28);
             this.groupBox18.Name = "groupBox18";
             this.groupBox18.Size = new System.Drawing.Size(425, 345);
             this.groupBox18.TabIndex = 55;
@@ -3093,26 +3293,13 @@ namespace DB_EDITOR
             this.UniquePlayerButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.UniquePlayerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UniquePlayerButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.UniquePlayerButton.Location = new System.Drawing.Point(16, 319);
+            this.UniquePlayerButton.Location = new System.Drawing.Point(12, 421);
             this.UniquePlayerButton.Name = "UniquePlayerButton";
             this.UniquePlayerButton.Size = new System.Drawing.Size(110, 80);
             this.UniquePlayerButton.TabIndex = 54;
             this.UniquePlayerButton.Text = "Texture Modding: Unique Players";
             this.UniquePlayerButton.UseVisualStyleBackColor = false;
             this.UniquePlayerButton.Click += new System.EventHandler(this.UniquePlayer_Click);
-            // 
-            // FantasyCoachesButton
-            // 
-            this.FantasyCoachesButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.FantasyCoachesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.FantasyCoachesButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.FantasyCoachesButton.Location = new System.Drawing.Point(274, 402);
-            this.FantasyCoachesButton.Name = "FantasyCoachesButton";
-            this.FantasyCoachesButton.Size = new System.Drawing.Size(239, 80);
-            this.FantasyCoachesButton.TabIndex = 53;
-            this.FantasyCoachesButton.Text = "Generate Fantasy Coaches";
-            this.FantasyCoachesButton.UseVisualStyleBackColor = false;
-            this.FantasyCoachesButton.Click += new System.EventHandler(this.FantasyCoachesButton_Click);
             // 
             // SyncPBButton
             // 
@@ -3132,11 +3319,12 @@ namespace DB_EDITOR
             this.textBox3.BackColor = System.Drawing.SystemColors.Info;
             this.textBox3.Enabled = false;
             this.textBox3.Font = new System.Drawing.Font("Corbel", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(282, 8);
+            this.textBox3.Location = new System.Drawing.Point(16, 18);
+            this.textBox3.Multiline = true;
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(355, 33);
+            this.textBox3.Size = new System.Drawing.Size(237, 61);
             this.textBox3.TabIndex = 14;
-            this.textBox3.Text = "NCAA Football Modding Toolkit";
+            this.textBox3.Text = "NCAA Football\r\nModding Toolkit";
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox2
@@ -3144,10 +3332,11 @@ namespace DB_EDITOR
             this.textBox2.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.textBox2.Enabled = false;
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(723, 36);
+            this.textBox2.Location = new System.Drawing.Point(702, 397);
             this.textBox2.Multiline = true;
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(395, 573);
+            this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox2.Size = new System.Drawing.Size(425, 207);
             this.textBox2.TabIndex = 13;
             this.textBox2.Text = resources.GetString("textBox2.Text");
             // 
@@ -3169,7 +3358,7 @@ namespace DB_EDITOR
             this.TORDButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.TORDButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TORDButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.TORDButton.Location = new System.Drawing.Point(143, 421);
+            this.TORDButton.Location = new System.Drawing.Point(142, 421);
             this.TORDButton.Name = "TORDButton";
             this.TORDButton.Size = new System.Drawing.Size(110, 80);
             this.TORDButton.TabIndex = 26;
@@ -3177,136 +3366,18 @@ namespace DB_EDITOR
             this.TORDButton.UseVisualStyleBackColor = false;
             this.TORDButton.Click += new System.EventHandler(this.TORDButton_Click);
             // 
-            // RandomizeHeadButton
-            // 
-            this.RandomizeHeadButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.RandomizeHeadButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RandomizeHeadButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.RandomizeHeadButton.Location = new System.Drawing.Point(16, 211);
-            this.RandomizeHeadButton.Name = "RandomizeHeadButton";
-            this.RandomizeHeadButton.Size = new System.Drawing.Size(110, 80);
-            this.RandomizeHeadButton.TabIndex = 24;
-            this.RandomizeHeadButton.Text = "Randomize Player Head/Face";
-            this.RandomizeHeadButton.UseVisualStyleBackColor = false;
-            this.RandomizeHeadButton.Click += new System.EventHandler(this.RandomizeHeadButton_Click);
-            // 
-            // label58
-            // 
-            this.label58.AutoSize = true;
-            this.label58.Location = new System.Drawing.Point(545, 591);
-            this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(77, 13);
-            this.label58.TabIndex = 23;
-            this.label58.Text = "PCT Freshman";
-            // 
-            // FillRosterPCT
-            // 
-            this.FillRosterPCT.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.FillRosterPCT.Location = new System.Drawing.Point(628, 589);
-            this.FillRosterPCT.Name = "FillRosterPCT";
-            this.FillRosterPCT.Size = new System.Drawing.Size(42, 20);
-            this.FillRosterPCT.TabIndex = 22;
-            this.FillRosterPCT.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.FillRosterPCT.Value = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
-            // 
-            // buttonFillRosters
-            // 
-            this.buttonFillRosters.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.buttonFillRosters.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonFillRosters.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonFillRosters.Location = new System.Drawing.Point(525, 488);
-            this.buttonFillRosters.Name = "buttonFillRosters";
-            this.buttonFillRosters.Size = new System.Drawing.Size(145, 80);
-            this.buttonFillRosters.TabIndex = 20;
-            this.buttonFillRosters.Text = "Fill Rosters";
-            this.buttonFillRosters.UseVisualStyleBackColor = false;
-            this.buttonFillRosters.Click += new System.EventHandler(this.buttonFillRosters_Click);
-            // 
-            // buttonAutoDepthChart
-            // 
-            this.buttonAutoDepthChart.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.buttonAutoDepthChart.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAutoDepthChart.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonAutoDepthChart.Location = new System.Drawing.Point(525, 402);
-            this.buttonAutoDepthChart.Name = "buttonAutoDepthChart";
-            this.buttonAutoDepthChart.Size = new System.Drawing.Size(145, 80);
-            this.buttonAutoDepthChart.TabIndex = 19;
-            this.buttonAutoDepthChart.Text = "Auto-Set Depth Chart";
-            this.buttonAutoDepthChart.UseVisualStyleBackColor = false;
-            this.buttonAutoDepthChart.Click += new System.EventHandler(this.buttonAutoDepthChart_Click);
-            // 
-            // buttonFantasyRoster
-            // 
-            this.buttonFantasyRoster.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.buttonFantasyRoster.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonFantasyRoster.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonFantasyRoster.Location = new System.Drawing.Point(274, 488);
-            this.buttonFantasyRoster.Name = "buttonFantasyRoster";
-            this.buttonFantasyRoster.Size = new System.Drawing.Size(239, 80);
-            this.buttonFantasyRoster.TabIndex = 18;
-            this.buttonFantasyRoster.Text = "Generate Fantasy Roster";
-            this.buttonFantasyRoster.UseVisualStyleBackColor = false;
-            this.buttonFantasyRoster.Click += new System.EventHandler(this.buttonFantasyRoster_Click);
-            // 
             // TYDNButton
             // 
             this.TYDNButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.TYDNButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TYDNButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.TYDNButton.Location = new System.Drawing.Point(143, 14);
+            this.TYDNButton.Location = new System.Drawing.Point(16, 94);
             this.TYDNButton.Name = "TYDNButton";
-            this.TYDNButton.Size = new System.Drawing.Size(110, 80);
+            this.TYDNButton.Size = new System.Drawing.Size(236, 80);
             this.TYDNButton.TabIndex = 16;
             this.TYDNButton.Text = "Recalculate Team Ratings";
             this.TYDNButton.UseVisualStyleBackColor = false;
             this.TYDNButton.Click += new System.EventHandler(this.TYDNButton_Click);
-            // 
-            // buttonCalcOverall
-            // 
-            this.buttonCalcOverall.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.buttonCalcOverall.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCalcOverall.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonCalcOverall.Location = new System.Drawing.Point(16, 15);
-            this.buttonCalcOverall.Name = "buttonCalcOverall";
-            this.buttonCalcOverall.Size = new System.Drawing.Size(110, 80);
-            this.buttonCalcOverall.TabIndex = 15;
-            this.buttonCalcOverall.Text = "Recalculate Player Overall";
-            this.buttonCalcOverall.UseVisualStyleBackColor = false;
-            this.buttonCalcOverall.Click += new System.EventHandler(this.buttonCalcOverall_Click);
-            // 
-            // buttonRandPotential
-            // 
-            this.buttonRandPotential.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.buttonRandPotential.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonRandPotential.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonRandPotential.Location = new System.Drawing.Point(143, 211);
-            this.buttonRandPotential.Name = "buttonRandPotential";
-            this.buttonRandPotential.Size = new System.Drawing.Size(110, 80);
-            this.buttonRandPotential.TabIndex = 12;
-            this.buttonRandPotential.Text = "Randomize Player Potential";
-            this.buttonRandPotential.UseVisualStyleBackColor = false;
-            this.buttonRandPotential.Click += new System.EventHandler(this.ButtonRandPotential_Click);
-            // 
-            // bodyFix
-            // 
-            this.bodyFix.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.bodyFix.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bodyFix.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.bodyFix.Location = new System.Drawing.Point(16, 111);
-            this.bodyFix.Name = "bodyFix";
-            this.bodyFix.Size = new System.Drawing.Size(110, 80);
-            this.bodyFix.TabIndex = 9;
-            this.bodyFix.Text = "Body Size Fixer";
-            this.bodyFix.UseVisualStyleBackColor = false;
-            this.bodyFix.Click += new System.EventHandler(this.BodyFix_Click);
             // 
             // tabOffSeason
             // 
@@ -3662,6 +3733,7 @@ namespace DB_EDITOR
             // tabRecruits
             // 
             this.tabRecruits.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.tabRecruits.Controls.Add(this.groupBox39);
             this.tabRecruits.Controls.Add(this.TransferTeam);
             this.tabRecruits.Controls.Add(this.RecruitPitch);
             this.tabRecruits.Controls.Add(this.UpdateRecruitOffers);
@@ -3716,6 +3788,104 @@ namespace DB_EDITOR
             this.tabRecruits.TabIndex = 12;
             this.tabRecruits.Text = "Recruits";
             // 
+            // groupBox39
+            // 
+            this.groupBox39.Controls.Add(this.GTransferRecruitable);
+            this.groupBox39.Controls.Add(this.GTransferCommitted);
+            this.groupBox39.Controls.Add(this.textBox21);
+            this.groupBox39.Controls.Add(this.GTransferNew);
+            this.groupBox39.Controls.Add(this.label261);
+            this.groupBox39.Controls.Add(this.GTransferOG);
+            this.groupBox39.Controls.Add(this.label260);
+            this.groupBox39.Controls.Add(this.GlobalTransferInterest);
+            this.groupBox39.Location = new System.Drawing.Point(719, 376);
+            this.groupBox39.Name = "groupBox39";
+            this.groupBox39.Size = new System.Drawing.Size(371, 209);
+            this.groupBox39.TabIndex = 171;
+            this.groupBox39.TabStop = false;
+            this.groupBox39.Text = "Global Transfers Interest Editor";
+            // 
+            // GTransferRecruitable
+            // 
+            this.GTransferRecruitable.AutoSize = true;
+            this.GTransferRecruitable.Checked = true;
+            this.GTransferRecruitable.Location = new System.Drawing.Point(101, 179);
+            this.GTransferRecruitable.Name = "GTransferRecruitable";
+            this.GTransferRecruitable.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.GTransferRecruitable.Size = new System.Drawing.Size(79, 17);
+            this.GTransferRecruitable.TabIndex = 7;
+            this.GTransferRecruitable.TabStop = true;
+            this.GTransferRecruitable.Text = "Recruitable";
+            this.GTransferRecruitable.UseVisualStyleBackColor = true;
+            // 
+            // GTransferCommitted
+            // 
+            this.GTransferCommitted.AutoSize = true;
+            this.GTransferCommitted.Location = new System.Drawing.Point(186, 179);
+            this.GTransferCommitted.Name = "GTransferCommitted";
+            this.GTransferCommitted.Size = new System.Drawing.Size(74, 17);
+            this.GTransferCommitted.TabIndex = 6;
+            this.GTransferCommitted.TabStop = true;
+            this.GTransferCommitted.Text = "Committed";
+            this.GTransferCommitted.UseVisualStyleBackColor = true;
+            // 
+            // textBox21
+            // 
+            this.textBox21.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.textBox21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox21.Location = new System.Drawing.Point(17, 21);
+            this.textBox21.Multiline = true;
+            this.textBox21.Name = "textBox21";
+            this.textBox21.Size = new System.Drawing.Size(337, 54);
+            this.textBox21.TabIndex = 5;
+            this.textBox21.Text = "This allows users to force transfer portal players to have high interest from a s" +
+    "pecfic team. Useful for forcing players to follow coach to a new team.\r\n";
+            // 
+            // GTransferNew
+            // 
+            this.GTransferNew.FormattingEnabled = true;
+            this.GTransferNew.Location = new System.Drawing.Point(204, 104);
+            this.GTransferNew.Name = "GTransferNew";
+            this.GTransferNew.Size = new System.Drawing.Size(150, 21);
+            this.GTransferNew.TabIndex = 4;
+            // 
+            // label261
+            // 
+            this.label261.AutoSize = true;
+            this.label261.Location = new System.Drawing.Point(201, 88);
+            this.label261.Name = "label261";
+            this.label261.Size = new System.Drawing.Size(59, 13);
+            this.label261.TabIndex = 3;
+            this.label261.Text = "New Team";
+            // 
+            // GTransferOG
+            // 
+            this.GTransferOG.FormattingEnabled = true;
+            this.GTransferOG.Location = new System.Drawing.Point(17, 105);
+            this.GTransferOG.Name = "GTransferOG";
+            this.GTransferOG.Size = new System.Drawing.Size(150, 21);
+            this.GTransferOG.TabIndex = 2;
+            // 
+            // label260
+            // 
+            this.label260.AutoSize = true;
+            this.label260.Location = new System.Drawing.Point(17, 88);
+            this.label260.Name = "label260";
+            this.label260.Size = new System.Drawing.Size(72, 13);
+            this.label260.TabIndex = 1;
+            this.label260.Text = "Original Team";
+            // 
+            // GlobalTransferInterest
+            // 
+            this.GlobalTransferInterest.BackColor = System.Drawing.SystemColors.Info;
+            this.GlobalTransferInterest.Location = new System.Drawing.Point(110, 137);
+            this.GlobalTransferInterest.Name = "GlobalTransferInterest";
+            this.GlobalTransferInterest.Size = new System.Drawing.Size(140, 36);
+            this.GlobalTransferInterest.TabIndex = 0;
+            this.GlobalTransferInterest.Text = "Update Transfer Interests";
+            this.GlobalTransferInterest.UseVisualStyleBackColor = false;
+            this.GlobalTransferInterest.Click += new System.EventHandler(this.GlobalTransferInterest_Click);
+            // 
             // TransferTeam
             // 
             this.TransferTeam.AutoSize = true;
@@ -3730,7 +3900,7 @@ namespace DB_EDITOR
             // 
             this.RecruitPitch.AutoSize = true;
             this.RecruitPitch.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RecruitPitch.Location = new System.Drawing.Point(745, 381);
+            this.RecruitPitch.Location = new System.Drawing.Point(746, 334);
             this.RecruitPitch.Name = "RecruitPitch";
             this.RecruitPitch.Size = new System.Drawing.Size(193, 20);
             this.RecruitPitch.TabIndex = 169;
@@ -3738,7 +3908,7 @@ namespace DB_EDITOR
             // 
             // UpdateRecruitOffers
             // 
-            this.UpdateRecruitOffers.Location = new System.Drawing.Point(968, 80);
+            this.UpdateRecruitOffers.Location = new System.Drawing.Point(969, 33);
             this.UpdateRecruitOffers.Name = "UpdateRecruitOffers";
             this.UpdateRecruitOffers.Size = new System.Drawing.Size(75, 23);
             this.UpdateRecruitOffers.TabIndex = 168;
@@ -3750,7 +3920,7 @@ namespace DB_EDITOR
             // 
             this.label207.AutoSize = true;
             this.label207.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label207.Location = new System.Drawing.Point(745, 80);
+            this.label207.Location = new System.Drawing.Point(746, 33);
             this.label207.Name = "label207";
             this.label207.Size = new System.Drawing.Size(184, 20);
             this.label207.TabIndex = 167;
@@ -3766,7 +3936,7 @@ namespace DB_EDITOR
             this.RCNo,
             this.RCTeam,
             this.RCTScore});
-            this.RecruitDataGrid.Location = new System.Drawing.Point(749, 107);
+            this.RecruitDataGrid.Location = new System.Drawing.Point(750, 60);
             this.RecruitDataGrid.Name = "RecruitDataGrid";
             this.RecruitDataGrid.RowHeadersVisible = false;
             this.RecruitDataGrid.Size = new System.Drawing.Size(294, 249);
@@ -5727,10 +5897,10 @@ namespace DB_EDITOR
             this.BowlsGrid.AllowUserToAddRows = false;
             this.BowlsGrid.AllowUserToDeleteRows = false;
             this.BowlsGrid.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            this.BowlsGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            this.BowlsGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             this.BowlsGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.BowlsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.BowlsGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -5746,14 +5916,14 @@ namespace DB_EDITOR
             this.BMON,
             this.BDAY,
             this.SEWN});
-            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle32.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle32.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle32.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.BowlsGrid.DefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.BowlsGrid.DefaultCellStyle = dataGridViewCellStyle10;
             this.BowlsGrid.Location = new System.Drawing.Point(6, 6);
             this.BowlsGrid.Name = "BowlsGrid";
             this.BowlsGrid.RowHeadersVisible = false;
@@ -6350,8 +6520,8 @@ namespace DB_EDITOR
             // 
             this.DCHTGrid.AllowUserToAddRows = false;
             this.DCHTGrid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle33.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DCHTGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DCHTGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
             this.DCHTGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DCHTGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
             this.DCHTGrid.BackgroundColor = System.Drawing.SystemColors.Control;
@@ -6453,32 +6623,32 @@ namespace DB_EDITOR
             this.MatchView.AllowUserToAddRows = false;
             this.MatchView.AllowUserToDeleteRows = false;
             this.MatchView.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle34.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MatchView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MatchView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle12;
             this.MatchView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle35.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle35.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle35.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.MatchView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.MatchView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.MatchView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.MatchView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.RatingCat,
             this.MatchHomeTeam,
             this.MatchAwayTeam});
-            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle36.BackColor = System.Drawing.SystemColors.ControlLight;
-            dataGridViewCellStyle36.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle36.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.MatchView.DefaultCellStyle = dataGridViewCellStyle36;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.ControlLight;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.MatchView.DefaultCellStyle = dataGridViewCellStyle14;
             this.MatchView.Location = new System.Drawing.Point(721, 81);
             this.MatchView.Name = "MatchView";
             this.MatchView.ReadOnly = true;
@@ -6580,20 +6750,20 @@ namespace DB_EDITOR
             // 
             this.ScheduleView.AllowUserToAddRows = false;
             this.ScheduleView.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle37.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle37.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ScheduleView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle37;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ScheduleView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle15;
             this.ScheduleView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.ScheduleView.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
-            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle38.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle38.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle38.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ScheduleView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle38;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ScheduleView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
             this.ScheduleView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ScheduleView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.SCHDWeek,
@@ -6605,16 +6775,16 @@ namespace DB_EDITOR
             this.ScheduleView.Location = new System.Drawing.Point(201, 81);
             this.ScheduleView.Name = "ScheduleView";
             this.ScheduleView.ReadOnly = true;
-            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle39.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            dataGridViewCellStyle39.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle39.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle39.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.ScheduleView.RowHeadersDefaultCellStyle = dataGridViewCellStyle39;
-            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            this.ScheduleView.RowsDefaultCellStyle = dataGridViewCellStyle40;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.ScheduleView.RowHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.ScheduleView.RowsDefaultCellStyle = dataGridViewCellStyle18;
             this.ScheduleView.Size = new System.Drawing.Size(495, 428);
             this.ScheduleView.TabIndex = 0;
             this.ScheduleView.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.ScheduleView_RowEnter);
@@ -6662,6 +6832,8 @@ namespace DB_EDITOR
             // tabSeason
             // 
             this.tabSeason.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.tabSeason.Controls.Add(this.groupBox36);
+            this.tabSeason.Controls.Add(this.groupBox35);
             this.tabSeason.Controls.Add(this.TransferPortalStats);
             this.tabSeason.Controls.Add(this.RemoveBadTransfers);
             this.tabSeason.Controls.Add(this.RemoveSanctionsButton);
@@ -6669,31 +6841,10 @@ namespace DB_EDITOR
             this.tabSeason.Controls.Add(this.ImpactPlayerMin);
             this.tabSeason.Controls.Add(this.buttonImpactPlayers);
             this.tabSeason.Controls.Add(this.BodyProgressionButton);
-            this.tabSeason.Controls.Add(this.label14);
-            this.tabSeason.Controls.Add(this.numberPlayerCoach);
-            this.tabSeason.Controls.Add(this.buttonPlayerCoach);
             this.tabSeason.Controls.Add(this.buttonRealignment);
-            this.tabSeason.Controls.Add(this.label13);
-            this.tabSeason.Controls.Add(this.labelMaxTransfers);
-            this.tabSeason.Controls.Add(this.maxFiredTransfers);
-            this.tabSeason.Controls.Add(this.checkBoxFiredTransfers);
-            this.tabSeason.Controls.Add(this.buttonChaosTransfers);
-            this.tabSeason.Controls.Add(this.labelMaxSkilDrop_PS);
-            this.tabSeason.Controls.Add(this.MaxSkillDropPS);
-            this.tabSeason.Controls.Add(this.labelPSInjuries);
-            this.tabSeason.Controls.Add(this.numInjuries);
-            this.tabSeason.Controls.Add(this.buttonPSInjuries);
-            this.tabSeason.Controls.Add(this.labelPoaching);
-            this.tabSeason.Controls.Add(this.poachValue);
-            this.tabSeason.Controls.Add(this.labelJobSecurity);
-            this.tabSeason.Controls.Add(this.jobSecurityValue);
-            this.tabSeason.Controls.Add(this.buttonCarousel);
-            this.tabSeason.Controls.Add(this.labelSkillDrop);
-            this.tabSeason.Controls.Add(this.skillDrop);
-            this.tabSeason.Controls.Add(this.checkBoxInjuryRatings);
             this.tabSeason.Controls.Add(this.dbToolsInfo);
             this.tabSeason.Controls.Add(this.textBox1);
-            this.tabSeason.Controls.Add(this.medRS);
+            this.tabSeason.Controls.Add(this.groupBox37);
             this.tabSeason.Location = new System.Drawing.Point(4, 24);
             this.tabSeason.Name = "tabSeason";
             this.tabSeason.Padding = new System.Windows.Forms.Padding(3);
@@ -6701,25 +6852,184 @@ namespace DB_EDITOR
             this.tabSeason.TabIndex = 3;
             this.tabSeason.Text = "Dynasty";
             // 
+            // groupBox36
+            // 
+            this.groupBox36.Controls.Add(this.medRS);
+            this.groupBox36.Controls.Add(this.skillDrop);
+            this.groupBox36.Controls.Add(this.checkBoxInjuryRatings);
+            this.groupBox36.Controls.Add(this.labelSkillDrop);
+            this.groupBox36.Location = new System.Drawing.Point(263, 55);
+            this.groupBox36.Name = "groupBox36";
+            this.groupBox36.Size = new System.Drawing.Size(242, 117);
+            this.groupBox36.TabIndex = 45;
+            this.groupBox36.TabStop = false;
+            this.groupBox36.Text = "Medical Redshirt";
+            // 
+            // medRS
+            // 
+            this.medRS.BackColor = System.Drawing.SystemColors.Control;
+            this.medRS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.medRS.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.medRS.Location = new System.Drawing.Point(135, 21);
+            this.medRS.Name = "medRS";
+            this.medRS.Size = new System.Drawing.Size(96, 72);
+            this.medRS.TabIndex = 0;
+            this.medRS.Text = "Medical Redshirt";
+            this.medRS.UseVisualStyleBackColor = false;
+            this.medRS.Click += new System.EventHandler(this.MedRS_Click);
+            // 
+            // skillDrop
+            // 
+            this.skillDrop.Location = new System.Drawing.Point(6, 61);
+            this.skillDrop.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.skillDrop.Name = "skillDrop";
+            this.skillDrop.Size = new System.Drawing.Size(44, 20);
+            this.skillDrop.TabIndex = 10;
+            this.skillDrop.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            // 
+            // checkBoxInjuryRatings
+            // 
+            this.checkBoxInjuryRatings.AutoSize = true;
+            this.checkBoxInjuryRatings.Location = new System.Drawing.Point(5, 30);
+            this.checkBoxInjuryRatings.Name = "checkBoxInjuryRatings";
+            this.checkBoxInjuryRatings.Size = new System.Drawing.Size(103, 17);
+            this.checkBoxInjuryRatings.TabIndex = 9;
+            this.checkBoxInjuryRatings.Text = "Reduce Ratings";
+            this.checkBoxInjuryRatings.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBoxInjuryRatings.UseVisualStyleBackColor = true;
+            // 
+            // labelSkillDrop
+            // 
+            this.labelSkillDrop.AutoSize = true;
+            this.labelSkillDrop.Location = new System.Drawing.Point(54, 63);
+            this.labelSkillDrop.Name = "labelSkillDrop";
+            this.labelSkillDrop.Size = new System.Drawing.Size(75, 13);
+            this.labelSkillDrop.TabIndex = 11;
+            this.labelSkillDrop.Text = "Max Skill Drop";
+            // 
+            // groupBox35
+            // 
+            this.groupBox35.Controls.Add(this.buttonPSInjuries);
+            this.groupBox35.Controls.Add(this.labelMaxSkilDrop_PS);
+            this.groupBox35.Controls.Add(this.numInjuries);
+            this.groupBox35.Controls.Add(this.labelPSInjuries);
+            this.groupBox35.Controls.Add(this.MaxSkillDropPS);
+            this.groupBox35.Location = new System.Drawing.Point(6, 55);
+            this.groupBox35.Name = "groupBox35";
+            this.groupBox35.Size = new System.Drawing.Size(251, 117);
+            this.groupBox35.TabIndex = 44;
+            this.groupBox35.TabStop = false;
+            this.groupBox35.Text = "Injuries";
+            // 
+            // buttonPSInjuries
+            // 
+            this.buttonPSInjuries.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonPSInjuries.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPSInjuries.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonPSInjuries.Location = new System.Drawing.Point(6, 23);
+            this.buttonPSInjuries.Name = "buttonPSInjuries";
+            this.buttonPSInjuries.Size = new System.Drawing.Size(106, 74);
+            this.buttonPSInjuries.TabIndex = 18;
+            this.buttonPSInjuries.Text = "Pre-Season Injuries";
+            this.buttonPSInjuries.UseVisualStyleBackColor = false;
+            this.buttonPSInjuries.Click += new System.EventHandler(this.ButtonPSInjuries_Click);
+            // 
+            // labelMaxSkilDrop_PS
+            // 
+            this.labelMaxSkilDrop_PS.AutoSize = true;
+            this.labelMaxSkilDrop_PS.Location = new System.Drawing.Point(166, 75);
+            this.labelMaxSkilDrop_PS.Name = "labelMaxSkilDrop_PS";
+            this.labelMaxSkilDrop_PS.Size = new System.Drawing.Size(75, 13);
+            this.labelMaxSkilDrop_PS.TabIndex = 22;
+            this.labelMaxSkilDrop_PS.Text = "Max Skill Drop";
+            // 
+            // numInjuries
+            // 
+            this.numInjuries.Increment = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.numInjuries.Location = new System.Drawing.Point(118, 23);
+            this.numInjuries.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
+            this.numInjuries.Name = "numInjuries";
+            this.numInjuries.Size = new System.Drawing.Size(60, 20);
+            this.numInjuries.TabIndex = 19;
+            this.numInjuries.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            // 
+            // labelPSInjuries
+            // 
+            this.labelPSInjuries.AutoSize = true;
+            this.labelPSInjuries.Location = new System.Drawing.Point(115, 46);
+            this.labelPSInjuries.Name = "labelPSInjuries";
+            this.labelPSInjuries.Size = new System.Drawing.Size(93, 13);
+            this.labelPSInjuries.TabIndex = 20;
+            this.labelPSInjuries.Text = "Number of Players";
+            // 
+            // MaxSkillDropPS
+            // 
+            this.MaxSkillDropPS.Location = new System.Drawing.Point(118, 73);
+            this.MaxSkillDropPS.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.MaxSkillDropPS.Name = "MaxSkillDropPS";
+            this.MaxSkillDropPS.Size = new System.Drawing.Size(44, 20);
+            this.MaxSkillDropPS.TabIndex = 21;
+            this.MaxSkillDropPS.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
+            // 
+            // TransferPortalStats
+            // 
+            this.TransferPortalStats.BackColor = System.Drawing.SystemColors.Control;
+            this.TransferPortalStats.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TransferPortalStats.Location = new System.Drawing.Point(357, 364);
+            this.TransferPortalStats.Name = "TransferPortalStats";
+            this.TransferPortalStats.Size = new System.Drawing.Size(125, 75);
+            this.TransferPortalStats.TabIndex = 43;
+            this.TransferPortalStats.Text = "[NEXT24+] Retain Transfer Portal Player Stats";
+            this.TransferPortalStats.UseVisualStyleBackColor = false;
+            this.TransferPortalStats.Click += new System.EventHandler(this.TransferPortalStats_Click);
+            // 
             // RemoveBadTransfers
             // 
-            this.RemoveBadTransfers.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.RemoveBadTransfers.BackColor = System.Drawing.SystemColors.Control;
             this.RemoveBadTransfers.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RemoveBadTransfers.Location = new System.Drawing.Point(393, 478);
+            this.RemoveBadTransfers.Location = new System.Drawing.Point(198, 364);
             this.RemoveBadTransfers.Name = "RemoveBadTransfers";
-            this.RemoveBadTransfers.Size = new System.Drawing.Size(163, 80);
+            this.RemoveBadTransfers.Size = new System.Drawing.Size(125, 75);
             this.RemoveBadTransfers.TabIndex = 42;
-            this.RemoveBadTransfers.Text = "Remove Low OVR Transfers";
+            this.RemoveBadTransfers.Text = "[NEXT24+] Remove Low OVR Transfers";
             this.RemoveBadTransfers.UseVisualStyleBackColor = false;
             this.RemoveBadTransfers.Click += new System.EventHandler(this.RemoveBadTransfers_Click);
             // 
             // RemoveSanctionsButton
             // 
-            this.RemoveSanctionsButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.RemoveSanctionsButton.BackColor = System.Drawing.SystemColors.Control;
             this.RemoveSanctionsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RemoveSanctionsButton.Location = new System.Drawing.Point(203, 323);
+            this.RemoveSanctionsButton.Location = new System.Drawing.Point(360, 200);
             this.RemoveSanctionsButton.Name = "RemoveSanctionsButton";
-            this.RemoveSanctionsButton.Size = new System.Drawing.Size(150, 80);
+            this.RemoveSanctionsButton.Size = new System.Drawing.Size(125, 75);
             this.RemoveSanctionsButton.TabIndex = 40;
             this.RemoveSanctionsButton.Text = "Remove All Sanctions";
             this.RemoveSanctionsButton.UseVisualStyleBackColor = false;
@@ -6728,7 +7038,7 @@ namespace DB_EDITOR
             // label180
             // 
             this.label180.AutoSize = true;
-            this.label180.Location = new System.Drawing.Point(301, 147);
+            this.label180.Location = new System.Drawing.Point(47, 278);
             this.label180.Name = "label180";
             this.label180.Size = new System.Drawing.Size(58, 13);
             this.label180.TabIndex = 39;
@@ -6736,7 +7046,7 @@ namespace DB_EDITOR
             // 
             // ImpactPlayerMin
             // 
-            this.ImpactPlayerMin.Location = new System.Drawing.Point(363, 145);
+            this.ImpactPlayerMin.Location = new System.Drawing.Point(109, 276);
             this.ImpactPlayerMin.Maximum = new decimal(new int[] {
             99,
             0,
@@ -6758,12 +7068,12 @@ namespace DB_EDITOR
             // 
             // buttonImpactPlayers
             // 
-            this.buttonImpactPlayers.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.buttonImpactPlayers.BackColor = System.Drawing.SystemColors.Control;
             this.buttonImpactPlayers.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonImpactPlayers.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonImpactPlayers.Location = new System.Drawing.Point(301, 59);
+            this.buttonImpactPlayers.Location = new System.Drawing.Point(39, 200);
             this.buttonImpactPlayers.Name = "buttonImpactPlayers";
-            this.buttonImpactPlayers.Size = new System.Drawing.Size(110, 80);
+            this.buttonImpactPlayers.Size = new System.Drawing.Size(125, 75);
             this.buttonImpactPlayers.TabIndex = 35;
             this.buttonImpactPlayers.Text = "Determine Impact Players";
             this.buttonImpactPlayers.UseVisualStyleBackColor = false;
@@ -6771,308 +7081,39 @@ namespace DB_EDITOR
             // 
             // BodyProgressionButton
             // 
-            this.BodyProgressionButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.BodyProgressionButton.BackColor = System.Drawing.SystemColors.Control;
             this.BodyProgressionButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BodyProgressionButton.Location = new System.Drawing.Point(279, 196);
+            this.BodyProgressionButton.Location = new System.Drawing.Point(201, 200);
             this.BodyProgressionButton.Name = "BodyProgressionButton";
-            this.BodyProgressionButton.Size = new System.Drawing.Size(150, 80);
+            this.BodyProgressionButton.Size = new System.Drawing.Size(125, 75);
             this.BodyProgressionButton.TabIndex = 34;
             this.BodyProgressionButton.Text = "Body Size Progresssion";
             this.BodyProgressionButton.UseVisualStyleBackColor = false;
             this.BodyProgressionButton.Click += new System.EventHandler(this.BodyProgressionButton_Click);
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(24, 587);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(93, 13);
-            this.label14.TabIndex = 32;
-            this.label14.Text = "Number of Players";
-            // 
-            // numberPlayerCoach
-            // 
-            this.numberPlayerCoach.Location = new System.Drawing.Point(27, 564);
-            this.numberPlayerCoach.Maximum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.numberPlayerCoach.Name = "numberPlayerCoach";
-            this.numberPlayerCoach.Size = new System.Drawing.Size(72, 20);
-            this.numberPlayerCoach.TabIndex = 31;
-            // 
-            // buttonPlayerCoach
-            // 
-            this.buttonPlayerCoach.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.buttonPlayerCoach.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPlayerCoach.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonPlayerCoach.Location = new System.Drawing.Point(24, 478);
-            this.buttonPlayerCoach.Name = "buttonPlayerCoach";
-            this.buttonPlayerCoach.Size = new System.Drawing.Size(110, 80);
-            this.buttonPlayerCoach.TabIndex = 30;
-            this.buttonPlayerCoach.Text = "Players to Coach";
-            this.buttonPlayerCoach.UseVisualStyleBackColor = false;
-            this.buttonPlayerCoach.Click += new System.EventHandler(this.buttonPlayerCoach_Click);
-            // 
             // buttonRealignment
             // 
-            this.buttonRealignment.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.buttonRealignment.BackColor = System.Drawing.SystemColors.Control;
             this.buttonRealignment.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonRealignment.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonRealignment.Location = new System.Drawing.Point(27, 323);
+            this.buttonRealignment.Location = new System.Drawing.Point(39, 364);
             this.buttonRealignment.Name = "buttonRealignment";
-            this.buttonRealignment.Size = new System.Drawing.Size(150, 80);
+            this.buttonRealignment.Size = new System.Drawing.Size(125, 75);
             this.buttonRealignment.TabIndex = 28;
-            this.buttonRealignment.Text = "Auto Realignment";
+            this.buttonRealignment.Text = "Automated Conference Realignment";
             this.buttonRealignment.UseVisualStyleBackColor = false;
             this.buttonRealignment.Click += new System.EventHandler(this.buttonRealignment_Click);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(24, 460);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(359, 15);
-            this.label13.TabIndex = 27;
-            this.label13.Text = "NCAA NEXT USERS - Perform At Players Leaving Stage";
-            // 
-            // labelMaxTransfers
-            // 
-            this.labelMaxTransfers.AutoSize = true;
-            this.labelMaxTransfers.Location = new System.Drawing.Point(223, 588);
-            this.labelMaxTransfers.Name = "labelMaxTransfers";
-            this.labelMaxTransfers.Size = new System.Drawing.Size(74, 13);
-            this.labelMaxTransfers.TabIndex = 26;
-            this.labelMaxTransfers.Text = "Max Transfers";
-            // 
-            // maxFiredTransfers
-            // 
-            this.maxFiredTransfers.Location = new System.Drawing.Point(166, 585);
-            this.maxFiredTransfers.Maximum = new decimal(new int[] {
-            15,
-            0,
-            0,
-            0});
-            this.maxFiredTransfers.Name = "maxFiredTransfers";
-            this.maxFiredTransfers.Size = new System.Drawing.Size(52, 20);
-            this.maxFiredTransfers.TabIndex = 25;
-            // 
-            // checkBoxFiredTransfers
-            // 
-            this.checkBoxFiredTransfers.AutoSize = true;
-            this.checkBoxFiredTransfers.Location = new System.Drawing.Point(166, 564);
-            this.checkBoxFiredTransfers.Name = "checkBoxFiredTransfers";
-            this.checkBoxFiredTransfers.Size = new System.Drawing.Size(98, 17);
-            this.checkBoxFiredTransfers.TabIndex = 24;
-            this.checkBoxFiredTransfers.Text = "Transfer Chaos";
-            this.checkBoxFiredTransfers.UseVisualStyleBackColor = true;
-            // 
-            // buttonChaosTransfers
-            // 
-            this.buttonChaosTransfers.BackColor = System.Drawing.SystemColors.Info;
-            this.buttonChaosTransfers.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonChaosTransfers.Location = new System.Drawing.Point(427, 61);
-            this.buttonChaosTransfers.Name = "buttonChaosTransfers";
-            this.buttonChaosTransfers.Size = new System.Drawing.Size(110, 78);
-            this.buttonChaosTransfers.TabIndex = 23;
-            this.buttonChaosTransfers.Text = "Transfer Chaos";
-            this.buttonChaosTransfers.UseVisualStyleBackColor = false;
-            this.buttonChaosTransfers.Visible = false;
-            this.buttonChaosTransfers.Click += new System.EventHandler(this.buttonChaosTransfers_Click);
-            // 
-            // labelMaxSkilDrop_PS
-            // 
-            this.labelMaxSkilDrop_PS.AutoSize = true;
-            this.labelMaxSkilDrop_PS.Location = new System.Drawing.Point(187, 117);
-            this.labelMaxSkilDrop_PS.Name = "labelMaxSkilDrop_PS";
-            this.labelMaxSkilDrop_PS.Size = new System.Drawing.Size(75, 13);
-            this.labelMaxSkilDrop_PS.TabIndex = 22;
-            this.labelMaxSkilDrop_PS.Text = "Max Skill Drop";
-            // 
-            // MaxSkillDropPS
-            // 
-            this.MaxSkillDropPS.Location = new System.Drawing.Point(139, 115);
-            this.MaxSkillDropPS.Maximum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.MaxSkillDropPS.Name = "MaxSkillDropPS";
-            this.MaxSkillDropPS.Size = new System.Drawing.Size(44, 20);
-            this.MaxSkillDropPS.TabIndex = 21;
-            this.MaxSkillDropPS.Value = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
-            // 
-            // labelPSInjuries
-            // 
-            this.labelPSInjuries.AutoSize = true;
-            this.labelPSInjuries.Location = new System.Drawing.Point(136, 88);
-            this.labelPSInjuries.Name = "labelPSInjuries";
-            this.labelPSInjuries.Size = new System.Drawing.Size(93, 13);
-            this.labelPSInjuries.TabIndex = 20;
-            this.labelPSInjuries.Text = "Number of Players";
-            // 
-            // numInjuries
-            // 
-            this.numInjuries.Increment = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            this.numInjuries.Location = new System.Drawing.Point(139, 65);
-            this.numInjuries.Maximum = new decimal(new int[] {
-            300,
-            0,
-            0,
-            0});
-            this.numInjuries.Name = "numInjuries";
-            this.numInjuries.Size = new System.Drawing.Size(60, 20);
-            this.numInjuries.TabIndex = 19;
-            this.numInjuries.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            // 
-            // buttonPSInjuries
-            // 
-            this.buttonPSInjuries.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.buttonPSInjuries.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPSInjuries.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonPSInjuries.Location = new System.Drawing.Point(24, 59);
-            this.buttonPSInjuries.Name = "buttonPSInjuries";
-            this.buttonPSInjuries.Size = new System.Drawing.Size(110, 80);
-            this.buttonPSInjuries.TabIndex = 18;
-            this.buttonPSInjuries.Text = "Pre-Season Injuries";
-            this.buttonPSInjuries.UseVisualStyleBackColor = false;
-            this.buttonPSInjuries.Click += new System.EventHandler(this.ButtonPSInjuries_Click);
-            // 
-            // labelPoaching
-            // 
-            this.labelPoaching.AutoSize = true;
-            this.labelPoaching.Location = new System.Drawing.Point(298, 543);
-            this.labelPoaching.Name = "labelPoaching";
-            this.labelPoaching.Size = new System.Drawing.Size(78, 13);
-            this.labelPoaching.TabIndex = 16;
-            this.labelPoaching.Text = "Poach Chance";
-            // 
-            // poachValue
-            // 
-            this.poachValue.Increment = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            this.poachValue.Location = new System.Drawing.Point(302, 523);
-            this.poachValue.Maximum = new decimal(new int[] {
-            85,
-            0,
-            0,
-            0});
-            this.poachValue.Name = "poachValue";
-            this.poachValue.Size = new System.Drawing.Size(51, 20);
-            this.poachValue.TabIndex = 15;
-            this.poachValue.Value = new decimal(new int[] {
-            35,
-            0,
-            0,
-            0});
-            // 
-            // labelJobSecurity
-            // 
-            this.labelJobSecurity.AutoSize = true;
-            this.labelJobSecurity.Location = new System.Drawing.Point(301, 506);
-            this.labelJobSecurity.Name = "labelJobSecurity";
-            this.labelJobSecurity.Size = new System.Drawing.Size(65, 13);
-            this.labelJobSecurity.TabIndex = 14;
-            this.labelJobSecurity.Text = "Job Security";
-            // 
-            // jobSecurityValue
-            // 
-            this.jobSecurityValue.Increment = new decimal(new int[] {
-            2,
-            0,
-            0,
-            0});
-            this.jobSecurityValue.Location = new System.Drawing.Point(301, 483);
-            this.jobSecurityValue.Maximum = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
-            this.jobSecurityValue.Name = "jobSecurityValue";
-            this.jobSecurityValue.Size = new System.Drawing.Size(52, 20);
-            this.jobSecurityValue.TabIndex = 13;
-            this.jobSecurityValue.Value = new decimal(new int[] {
-            25,
-            0,
-            0,
-            0});
-            // 
-            // buttonCarousel
-            // 
-            this.buttonCarousel.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.buttonCarousel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCarousel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonCarousel.Location = new System.Drawing.Point(166, 478);
-            this.buttonCarousel.Name = "buttonCarousel";
-            this.buttonCarousel.Size = new System.Drawing.Size(110, 80);
-            this.buttonCarousel.TabIndex = 12;
-            this.buttonCarousel.Text = "Coaching Carousel";
-            this.buttonCarousel.UseVisualStyleBackColor = false;
-            this.buttonCarousel.Click += new System.EventHandler(this.ButtonCarousel_Click);
-            // 
-            // labelSkillDrop
-            // 
-            this.labelSkillDrop.AutoSize = true;
-            this.labelSkillDrop.Location = new System.Drawing.Point(188, 243);
-            this.labelSkillDrop.Name = "labelSkillDrop";
-            this.labelSkillDrop.Size = new System.Drawing.Size(75, 13);
-            this.labelSkillDrop.TabIndex = 11;
-            this.labelSkillDrop.Text = "Max Skill Drop";
-            // 
-            // skillDrop
-            // 
-            this.skillDrop.Location = new System.Drawing.Point(140, 241);
-            this.skillDrop.Maximum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.skillDrop.Name = "skillDrop";
-            this.skillDrop.Size = new System.Drawing.Size(44, 20);
-            this.skillDrop.TabIndex = 10;
-            this.skillDrop.Value = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
-            // 
-            // checkBoxInjuryRatings
-            // 
-            this.checkBoxInjuryRatings.AutoSize = true;
-            this.checkBoxInjuryRatings.Location = new System.Drawing.Point(139, 210);
-            this.checkBoxInjuryRatings.Name = "checkBoxInjuryRatings";
-            this.checkBoxInjuryRatings.Size = new System.Drawing.Size(103, 17);
-            this.checkBoxInjuryRatings.TabIndex = 9;
-            this.checkBoxInjuryRatings.Text = "Reduce Ratings";
-            this.checkBoxInjuryRatings.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBoxInjuryRatings.UseVisualStyleBackColor = true;
             // 
             // dbToolsInfo
             // 
             this.dbToolsInfo.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.dbToolsInfo.Enabled = false;
             this.dbToolsInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dbToolsInfo.Location = new System.Drawing.Point(573, 20);
+            this.dbToolsInfo.Location = new System.Drawing.Point(24, 457);
             this.dbToolsInfo.Multiline = true;
             this.dbToolsInfo.Name = "dbToolsInfo";
-            this.dbToolsInfo.Size = new System.Drawing.Size(573, 580);
+            this.dbToolsInfo.ReadOnly = true;
+            this.dbToolsInfo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dbToolsInfo.Size = new System.Drawing.Size(461, 142);
             this.dbToolsInfo.TabIndex = 3;
             this.dbToolsInfo.Text = resources.GetString("dbToolsInfo.Text");
             // 
@@ -7088,18 +7129,267 @@ namespace DB_EDITOR
             this.textBox1.Text = "NCAA Football Dynasty Toolkit";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // medRS
+            // groupBox37
             // 
-            this.medRS.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.medRS.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.medRS.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.medRS.Location = new System.Drawing.Point(24, 196);
-            this.medRS.Name = "medRS";
-            this.medRS.Size = new System.Drawing.Size(110, 80);
-            this.medRS.TabIndex = 0;
-            this.medRS.Text = "Medical Redshirt";
-            this.medRS.UseVisualStyleBackColor = false;
-            this.medRS.Click += new System.EventHandler(this.MedRS_Click);
+            this.groupBox37.Controls.Add(this.label13);
+            this.groupBox37.Controls.Add(this.CarouselDataGrid);
+            this.groupBox37.Controls.Add(this.buttonCarousel);
+            this.groupBox37.Controls.Add(this.maxFiredTransfers);
+            this.groupBox37.Controls.Add(this.labelMaxTransfers);
+            this.groupBox37.Controls.Add(this.poachValue);
+            this.groupBox37.Controls.Add(this.jobSecurityValue);
+            this.groupBox37.Controls.Add(this.labelJobSecurity);
+            this.groupBox37.Controls.Add(this.labelPoaching);
+            this.groupBox37.Controls.Add(this.label14);
+            this.groupBox37.Controls.Add(this.checkBoxFiredTransfers);
+            this.groupBox37.Controls.Add(this.numberPlayerCoach);
+            this.groupBox37.Controls.Add(this.buttonPlayerCoach);
+            this.groupBox37.Location = new System.Drawing.Point(512, 23);
+            this.groupBox37.Name = "groupBox37";
+            this.groupBox37.Size = new System.Drawing.Size(634, 589);
+            this.groupBox37.TabIndex = 47;
+            this.groupBox37.TabStop = false;
+            this.groupBox37.Text = "Coaching Carousel";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(259, 16);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(359, 30);
+            this.label13.TabIndex = 27;
+            this.label13.Text = "NCAA NEXT USERS - Perform At Players Leaving Stage\r\nVanilla Users - Perform at Co" +
+    "aching Budgets Stage";
+            // 
+            // CarouselDataGrid
+            // 
+            this.CarouselDataGrid.AllowUserToAddRows = false;
+            this.CarouselDataGrid.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.CarouselDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
+            this.CarouselDataGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            this.CarouselDataGrid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.DisplayedCells;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.CarouselDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            this.CarouselDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.CarouselDataGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.CCName,
+            this.CCStatus,
+            this.CCTeam,
+            this.CCTmPrestige,
+            this.CCPrestige,
+            this.CCRecord});
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.CarouselDataGrid.DefaultCellStyle = dataGridViewCellStyle21;
+            this.CarouselDataGrid.Location = new System.Drawing.Point(8, 184);
+            this.CarouselDataGrid.Name = "CarouselDataGrid";
+            this.CarouselDataGrid.ReadOnly = true;
+            this.CarouselDataGrid.RowHeadersVisible = false;
+            this.CarouselDataGrid.RowTemplate.Height = 31;
+            this.CarouselDataGrid.Size = new System.Drawing.Size(620, 399);
+            this.CarouselDataGrid.TabIndex = 46;
+            // 
+            // CCName
+            // 
+            this.CCName.FillWeight = 30F;
+            this.CCName.HeaderText = "Coach Name";
+            this.CCName.Name = "CCName";
+            this.CCName.ReadOnly = true;
+            this.CCName.Width = 87;
+            // 
+            // CCStatus
+            // 
+            this.CCStatus.FillWeight = 10F;
+            this.CCStatus.HeaderText = "Status";
+            this.CCStatus.Name = "CCStatus";
+            this.CCStatus.ReadOnly = true;
+            this.CCStatus.Width = 62;
+            // 
+            // CCTeam
+            // 
+            this.CCTeam.FillWeight = 30F;
+            this.CCTeam.HeaderText = "Team";
+            this.CCTeam.Name = "CCTeam";
+            this.CCTeam.ReadOnly = true;
+            this.CCTeam.Width = 59;
+            // 
+            // CCTmPrestige
+            // 
+            this.CCTmPrestige.FillWeight = 10F;
+            this.CCTmPrestige.HeaderText = "Team Prestige";
+            this.CCTmPrestige.Name = "CCTmPrestige";
+            this.CCTmPrestige.ReadOnly = true;
+            this.CCTmPrestige.Width = 92;
+            // 
+            // CCPrestige
+            // 
+            this.CCPrestige.FillWeight = 10F;
+            this.CCPrestige.HeaderText = "Coach Prestige";
+            this.CCPrestige.Name = "CCPrestige";
+            this.CCPrestige.ReadOnly = true;
+            this.CCPrestige.Width = 96;
+            // 
+            // CCRecord
+            // 
+            this.CCRecord.FillWeight = 10F;
+            this.CCRecord.HeaderText = "Coach Record";
+            this.CCRecord.Name = "CCRecord";
+            this.CCRecord.ReadOnly = true;
+            this.CCRecord.Width = 93;
+            // 
+            // buttonCarousel
+            // 
+            this.buttonCarousel.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonCarousel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCarousel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonCarousel.Location = new System.Drawing.Point(18, 29);
+            this.buttonCarousel.Name = "buttonCarousel";
+            this.buttonCarousel.Size = new System.Drawing.Size(204, 65);
+            this.buttonCarousel.TabIndex = 12;
+            this.buttonCarousel.Text = "Coaching Carousel";
+            this.buttonCarousel.UseVisualStyleBackColor = false;
+            this.buttonCarousel.Click += new System.EventHandler(this.ButtonCarousel_Click);
+            // 
+            // maxFiredTransfers
+            // 
+            this.maxFiredTransfers.Location = new System.Drawing.Point(18, 155);
+            this.maxFiredTransfers.Maximum = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            this.maxFiredTransfers.Name = "maxFiredTransfers";
+            this.maxFiredTransfers.Size = new System.Drawing.Size(52, 20);
+            this.maxFiredTransfers.TabIndex = 25;
+            this.maxFiredTransfers.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // labelMaxTransfers
+            // 
+            this.labelMaxTransfers.AutoSize = true;
+            this.labelMaxTransfers.Location = new System.Drawing.Point(76, 157);
+            this.labelMaxTransfers.Name = "labelMaxTransfers";
+            this.labelMaxTransfers.Size = new System.Drawing.Size(74, 13);
+            this.labelMaxTransfers.TabIndex = 26;
+            this.labelMaxTransfers.Text = "Max Transfers";
+            // 
+            // poachValue
+            // 
+            this.poachValue.Increment = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.poachValue.Location = new System.Drawing.Point(18, 129);
+            this.poachValue.Maximum = new decimal(new int[] {
+            85,
+            0,
+            0,
+            0});
+            this.poachValue.Name = "poachValue";
+            this.poachValue.Size = new System.Drawing.Size(51, 20);
+            this.poachValue.TabIndex = 15;
+            this.poachValue.Value = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            // 
+            // jobSecurityValue
+            // 
+            this.jobSecurityValue.Location = new System.Drawing.Point(18, 103);
+            this.jobSecurityValue.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.jobSecurityValue.Name = "jobSecurityValue";
+            this.jobSecurityValue.Size = new System.Drawing.Size(52, 20);
+            this.jobSecurityValue.TabIndex = 13;
+            this.jobSecurityValue.Value = new decimal(new int[] {
+            25,
+            0,
+            0,
+            0});
+            // 
+            // labelJobSecurity
+            // 
+            this.labelJobSecurity.AutoSize = true;
+            this.labelJobSecurity.Location = new System.Drawing.Point(74, 108);
+            this.labelJobSecurity.Name = "labelJobSecurity";
+            this.labelJobSecurity.Size = new System.Drawing.Size(165, 13);
+            this.labelJobSecurity.TabIndex = 14;
+            this.labelJobSecurity.Text = "Job Security Value To Fire Coach";
+            // 
+            // labelPoaching
+            // 
+            this.labelPoaching.AutoSize = true;
+            this.labelPoaching.Location = new System.Drawing.Point(74, 131);
+            this.labelPoaching.Name = "labelPoaching";
+            this.labelPoaching.Size = new System.Drawing.Size(192, 13);
+            this.labelPoaching.TabIndex = 16;
+            this.labelPoaching.Text = "% Chance Active Coach Can Get Hired";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(447, 142);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(93, 13);
+            this.label14.TabIndex = 32;
+            this.label14.Text = "Number of Players";
+            // 
+            // checkBoxFiredTransfers
+            // 
+            this.checkBoxFiredTransfers.AutoSize = true;
+            this.checkBoxFiredTransfers.Location = new System.Drawing.Point(156, 157);
+            this.checkBoxFiredTransfers.Name = "checkBoxFiredTransfers";
+            this.checkBoxFiredTransfers.Size = new System.Drawing.Size(180, 17);
+            this.checkBoxFiredTransfers.TabIndex = 24;
+            this.checkBoxFiredTransfers.Text = "Players can enter Transfer Portal";
+            this.checkBoxFiredTransfers.UseVisualStyleBackColor = true;
+            // 
+            // numberPlayerCoach
+            // 
+            this.numberPlayerCoach.Location = new System.Drawing.Point(546, 138);
+            this.numberPlayerCoach.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numberPlayerCoach.Name = "numberPlayerCoach";
+            this.numberPlayerCoach.Size = new System.Drawing.Size(72, 20);
+            this.numberPlayerCoach.TabIndex = 31;
+            // 
+            // buttonPlayerCoach
+            // 
+            this.buttonPlayerCoach.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonPlayerCoach.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPlayerCoach.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonPlayerCoach.Location = new System.Drawing.Point(422, 71);
+            this.buttonPlayerCoach.Name = "buttonPlayerCoach";
+            this.buttonPlayerCoach.Size = new System.Drawing.Size(206, 65);
+            this.buttonPlayerCoach.TabIndex = 30;
+            this.buttonPlayerCoach.Text = "Promote Players to Coaching";
+            this.buttonPlayerCoach.UseVisualStyleBackColor = false;
+            this.buttonPlayerCoach.Click += new System.EventHandler(this.buttonPlayerCoach_Click);
             // 
             // tabCoaches
             // 
@@ -9957,6 +10247,7 @@ namespace DB_EDITOR
             // tabTeams
             // 
             this.tabTeams.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.tabTeams.Controls.Add(this.groupBox34);
             this.tabTeams.Controls.Add(this.groupBox15);
             this.tabTeams.Controls.Add(this.groupBox14);
             this.tabTeams.Controls.Add(this.groupBox13);
@@ -9991,11 +10282,47 @@ namespace DB_EDITOR
             this.tabTeams.Text = "Teams";
             this.tabTeams.Click += new System.EventHandler(this.tabTeams_Click);
             // 
+            // groupBox34
+            // 
+            this.groupBox34.Controls.Add(this.TeamShowNormal);
+            this.groupBox34.Controls.Add(this.TeamShowRanking);
+            this.groupBox34.Location = new System.Drawing.Point(12, 552);
+            this.groupBox34.Name = "groupBox34";
+            this.groupBox34.Size = new System.Drawing.Size(172, 49);
+            this.groupBox34.TabIndex = 148;
+            this.groupBox34.TabStop = false;
+            this.groupBox34.Text = "Display Option";
+            // 
+            // TeamShowNormal
+            // 
+            this.TeamShowNormal.AutoSize = true;
+            this.TeamShowNormal.Checked = true;
+            this.TeamShowNormal.Location = new System.Drawing.Point(6, 19);
+            this.TeamShowNormal.Name = "TeamShowNormal";
+            this.TeamShowNormal.Size = new System.Drawing.Size(58, 17);
+            this.TeamShowNormal.TabIndex = 1;
+            this.TeamShowNormal.TabStop = true;
+            this.TeamShowNormal.Text = "Normal";
+            this.TeamShowNormal.UseVisualStyleBackColor = true;
+            this.TeamShowNormal.CheckedChanged += new System.EventHandler(this.TeamShowNormal_CheckedChanged);
+            // 
+            // TeamShowRanking
+            // 
+            this.TeamShowRanking.AutoSize = true;
+            this.TeamShowRanking.Location = new System.Drawing.Point(70, 19);
+            this.TeamShowRanking.Name = "TeamShowRanking";
+            this.TeamShowRanking.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.TeamShowRanking.Size = new System.Drawing.Size(95, 17);
+            this.TeamShowRanking.TabIndex = 0;
+            this.TeamShowRanking.Text = "Show Ranking";
+            this.TeamShowRanking.UseVisualStyleBackColor = true;
+            this.TeamShowRanking.CheckedChanged += new System.EventHandler(this.TeamShowRanking_CheckedChanged);
+            // 
             // groupBox15
             // 
             this.groupBox15.Controls.Add(this.GenerateNewRosterButton);
             this.groupBox15.Controls.Add(this.DeathPenaltyButton);
-            this.groupBox15.Location = new System.Drawing.Point(540, 460);
+            this.groupBox15.Location = new System.Drawing.Point(562, 457);
             this.groupBox15.Name = "groupBox15";
             this.groupBox15.Size = new System.Drawing.Size(130, 141);
             this.groupBox15.TabIndex = 147;
@@ -10057,7 +10384,7 @@ namespace DB_EDITOR
             this.groupBox14.Controls.Add(this.label30);
             this.groupBox14.Controls.Add(this.label31);
             this.groupBox14.Controls.Add(this.label19);
-            this.groupBox14.Location = new System.Drawing.Point(208, 78);
+            this.groupBox14.Location = new System.Drawing.Point(230, 75);
             this.groupBox14.Name = "groupBox14";
             this.groupBox14.Size = new System.Drawing.Size(321, 220);
             this.groupBox14.TabIndex = 146;
@@ -10369,7 +10696,7 @@ namespace DB_EDITOR
             this.groupBox13.Controls.Add(this.CheerleaderBox);
             this.groupBox13.Controls.Add(this.label5);
             this.groupBox13.Controls.Add(this.CrowdBox);
-            this.groupBox13.Location = new System.Drawing.Point(208, 304);
+            this.groupBox13.Location = new System.Drawing.Point(230, 301);
             this.groupBox13.Name = "groupBox13";
             this.groupBox13.Size = new System.Drawing.Size(321, 176);
             this.groupBox13.TabIndex = 145;
@@ -10469,7 +10796,7 @@ namespace DB_EDITOR
             this.groupBox12.Controls.Add(this.label59);
             this.groupBox12.Controls.Add(this.AttendanceNumBox);
             this.groupBox12.Controls.Add(this.CapacityNumbox);
-            this.groupBox12.Location = new System.Drawing.Point(208, 486);
+            this.groupBox12.Location = new System.Drawing.Point(230, 483);
             this.groupBox12.Name = "groupBox12";
             this.groupBox12.Size = new System.Drawing.Size(321, 115);
             this.groupBox12.TabIndex = 144;
@@ -10612,7 +10939,7 @@ namespace DB_EDITOR
             this.groupBox11.Controls.Add(this.ImpactTPIOSelect);
             this.groupBox11.Controls.Add(this.TeamRosterSizeLabel);
             this.groupBox11.Controls.Add(this.ImpactTPIDSelect);
-            this.groupBox11.Location = new System.Drawing.Point(682, 21);
+            this.groupBox11.Location = new System.Drawing.Point(704, 18);
             this.groupBox11.Name = "groupBox11";
             this.groupBox11.Size = new System.Drawing.Size(399, 208);
             this.groupBox11.TabIndex = 143;
@@ -10783,7 +11110,7 @@ namespace DB_EDITOR
             // 
             // TeamSetDepthChart
             // 
-            this.TeamSetDepthChart.Location = new System.Drawing.Point(546, 398);
+            this.TeamSetDepthChart.Location = new System.Drawing.Point(568, 395);
             this.TeamSetDepthChart.Name = "TeamSetDepthChart";
             this.TeamSetDepthChart.Size = new System.Drawing.Size(118, 47);
             this.TeamSetDepthChart.TabIndex = 141;
@@ -10793,7 +11120,7 @@ namespace DB_EDITOR
             // 
             // LeagueBox
             // 
-            this.LeagueBox.Location = new System.Drawing.Point(586, 102);
+            this.LeagueBox.Location = new System.Drawing.Point(608, 99);
             this.LeagueBox.Name = "LeagueBox";
             this.LeagueBox.ReadOnly = true;
             this.LeagueBox.Size = new System.Drawing.Size(42, 20);
@@ -10803,7 +11130,7 @@ namespace DB_EDITOR
             // TSNAtextBox
             // 
             this.TSNAtextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TSNAtextBox.Location = new System.Drawing.Point(561, 48);
+            this.TSNAtextBox.Location = new System.Drawing.Point(583, 45);
             this.TSNAtextBox.MaxLength = 7;
             this.TSNAtextBox.Name = "TSNAtextBox";
             this.TSNAtextBox.Size = new System.Drawing.Size(78, 24);
@@ -10812,7 +11139,7 @@ namespace DB_EDITOR
             // 
             // TeamDivisionBox
             // 
-            this.TeamDivisionBox.Location = new System.Drawing.Point(561, 191);
+            this.TeamDivisionBox.Location = new System.Drawing.Point(583, 188);
             this.TeamDivisionBox.Name = "TeamDivisionBox";
             this.TeamDivisionBox.ReadOnly = true;
             this.TeamDivisionBox.Size = new System.Drawing.Size(88, 20);
@@ -10822,7 +11149,7 @@ namespace DB_EDITOR
             // 
             // TeamConferenceBox
             // 
-            this.TeamConferenceBox.Location = new System.Drawing.Point(561, 146);
+            this.TeamConferenceBox.Location = new System.Drawing.Point(583, 143);
             this.TeamConferenceBox.Name = "TeamConferenceBox";
             this.TeamConferenceBox.ReadOnly = true;
             this.TeamConferenceBox.Size = new System.Drawing.Size(88, 20);
@@ -10832,7 +11159,7 @@ namespace DB_EDITOR
             // 
             // TGIDtextBox
             // 
-            this.TGIDtextBox.Location = new System.Drawing.Point(255, 8);
+            this.TGIDtextBox.Location = new System.Drawing.Point(277, 5);
             this.TGIDtextBox.Name = "TGIDtextBox";
             this.TGIDtextBox.ReadOnly = true;
             this.TGIDtextBox.Size = new System.Drawing.Size(44, 20);
@@ -10842,7 +11169,7 @@ namespace DB_EDITOR
             // TMNAtextBox
             // 
             this.TMNAtextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TMNAtextBox.Location = new System.Drawing.Point(384, 48);
+            this.TMNAtextBox.Location = new System.Drawing.Point(406, 45);
             this.TMNAtextBox.MaxLength = 32;
             this.TMNAtextBox.Name = "TMNAtextBox";
             this.TMNAtextBox.Size = new System.Drawing.Size(162, 24);
@@ -10852,7 +11179,7 @@ namespace DB_EDITOR
             // TDNAtextBox
             // 
             this.TDNAtextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TDNAtextBox.Location = new System.Drawing.Point(206, 48);
+            this.TDNAtextBox.Location = new System.Drawing.Point(228, 45);
             this.TDNAtextBox.MaxLength = 32;
             this.TDNAtextBox.Name = "TDNAtextBox";
             this.TDNAtextBox.Size = new System.Drawing.Size(162, 24);
@@ -10862,7 +11189,7 @@ namespace DB_EDITOR
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(587, 86);
+            this.label27.Location = new System.Drawing.Point(609, 83);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(43, 13);
             this.label27.TabIndex = 47;
@@ -10871,7 +11198,7 @@ namespace DB_EDITOR
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(558, 32);
+            this.label26.Location = new System.Drawing.Point(580, 29);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(60, 13);
             this.label26.TabIndex = 45;
@@ -10880,7 +11207,7 @@ namespace DB_EDITOR
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(583, 174);
+            this.label25.Location = new System.Drawing.Point(605, 171);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(44, 13);
             this.label25.TabIndex = 43;
@@ -10889,7 +11216,7 @@ namespace DB_EDITOR
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(574, 129);
+            this.label24.Location = new System.Drawing.Point(596, 126);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(62, 13);
             this.label24.TabIndex = 41;
@@ -10898,7 +11225,7 @@ namespace DB_EDITOR
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(205, 11);
+            this.label11.Location = new System.Drawing.Point(227, 8);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(48, 13);
             this.label11.TabIndex = 17;
@@ -10907,7 +11234,7 @@ namespace DB_EDITOR
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(386, 33);
+            this.label10.Location = new System.Drawing.Point(408, 30);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(65, 13);
             this.label10.TabIndex = 15;
@@ -10916,7 +11243,7 @@ namespace DB_EDITOR
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(210, 32);
+            this.label9.Location = new System.Drawing.Point(232, 29);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(73, 13);
             this.label9.TabIndex = 13;
@@ -10925,7 +11252,7 @@ namespace DB_EDITOR
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(109, 8);
+            this.label7.Location = new System.Drawing.Point(122, 8);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(62, 13);
             this.label7.TabIndex = 9;
@@ -10934,7 +11261,7 @@ namespace DB_EDITOR
             // CGIDcomboBox
             // 
             this.CGIDcomboBox.FormattingEnabled = true;
-            this.CGIDcomboBox.Location = new System.Drawing.Point(69, 24);
+            this.CGIDcomboBox.Location = new System.Drawing.Point(82, 24);
             this.CGIDcomboBox.Name = "CGIDcomboBox";
             this.CGIDcomboBox.Size = new System.Drawing.Size(102, 21);
             this.CGIDcomboBox.TabIndex = 8;
@@ -10954,7 +11281,7 @@ namespace DB_EDITOR
             this.LGIDcomboBox.FormattingEnabled = true;
             this.LGIDcomboBox.Location = new System.Drawing.Point(12, 24);
             this.LGIDcomboBox.Name = "LGIDcomboBox";
-            this.LGIDcomboBox.Size = new System.Drawing.Size(51, 21);
+            this.LGIDcomboBox.Size = new System.Drawing.Size(64, 21);
             this.LGIDcomboBox.TabIndex = 6;
             this.LGIDcomboBox.SelectedIndexChanged += new System.EventHandler(this.LGIDcomboBox_SelectedIndexChanged);
             // 
@@ -10963,7 +11290,7 @@ namespace DB_EDITOR
             this.TGIDlistBox.FormattingEnabled = true;
             this.TGIDlistBox.Location = new System.Drawing.Point(12, 51);
             this.TGIDlistBox.Name = "TGIDlistBox";
-            this.TGIDlistBox.Size = new System.Drawing.Size(159, 550);
+            this.TGIDlistBox.Size = new System.Drawing.Size(172, 485);
             this.TGIDlistBox.TabIndex = 0;
             this.TGIDlistBox.SelectedIndexChanged += new System.EventHandler(this.TGIDlistBox_SelectedIndexChanged);
             // 
@@ -11003,7 +11330,7 @@ namespace DB_EDITOR
             this.groupBox10.Controls.Add(this.FireCoachButton);
             this.groupBox10.Controls.Add(this.HCLastNameBox);
             this.groupBox10.Controls.Add(this.HCFirstNameBox);
-            this.groupBox10.Location = new System.Drawing.Point(682, 238);
+            this.groupBox10.Location = new System.Drawing.Point(704, 235);
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.Size = new System.Drawing.Size(399, 363);
             this.groupBox10.TabIndex = 142;
@@ -11374,8 +11701,8 @@ namespace DB_EDITOR
             // 
             this.fieldsGridView.AllowDrop = true;
             this.fieldsGridView.AllowUserToAddRows = false;
-            dataGridViewCellStyle41.BackColor = System.Drawing.SystemColors.Control;
-            this.fieldsGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle41;
+            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Control;
+            this.fieldsGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle22;
             this.fieldsGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -11484,9 +11811,9 @@ namespace DB_EDITOR
             this.tabControl1.ItemSize = new System.Drawing.Size(65, 20);
             this.tabControl1.Location = new System.Drawing.Point(12, 27);
             this.tabControl1.Name = "tabControl1";
+            this.tabControl1.Padding = new System.Drawing.Point(5, 3);
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1160, 643);
-            this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 4;
             this.tabControl1.Visible = false;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.TabControl1_IndexChange);
@@ -11526,19 +11853,19 @@ namespace DB_EDITOR
             // 
             this.PortalData.AllowUserToAddRows = false;
             this.PortalData.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.PortalData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PortalData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle23;
             this.PortalData.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle42.BackColor = System.Drawing.SystemColors.Info;
-            dataGridViewCellStyle42.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle42.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.PortalData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle42;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Info;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PortalData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle24;
             this.PortalData.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.PortalData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.PortalPosition,
@@ -11550,9 +11877,9 @@ namespace DB_EDITOR
             this.PortalData.Name = "PortalData";
             this.PortalData.ReadOnly = true;
             this.PortalData.RowHeadersVisible = false;
-            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle43.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.PortalData.RowsDefaultCellStyle = dataGridViewCellStyle43;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.PortalData.RowsDefaultCellStyle = dataGridViewCellStyle25;
             this.PortalData.RowTemplate.Height = 31;
             this.PortalData.Size = new System.Drawing.Size(488, 576);
             this.PortalData.TabIndex = 40;
@@ -11672,13 +11999,13 @@ namespace DB_EDITOR
             this.largePortal.Name = "largePortal";
             this.largePortal.Size = new System.Drawing.Size(82, 17);
             this.largePortal.TabIndex = 1;
-            this.largePortal.TabStop = true;
             this.largePortal.Text = "Large Portal";
             this.largePortal.UseVisualStyleBackColor = true;
             // 
             // smallPortal
             // 
             this.smallPortal.AutoSize = true;
+            this.smallPortal.Checked = true;
             this.smallPortal.Location = new System.Drawing.Point(18, 27);
             this.smallPortal.Name = "smallPortal";
             this.smallPortal.Size = new System.Drawing.Size(80, 17);
@@ -12318,18 +12645,6 @@ namespace DB_EDITOR
             this.SpringPortalButton.UseVisualStyleBackColor = true;
             this.SpringPortalButton.Click += new System.EventHandler(this.SpringPortalButton_Click);
             // 
-            // TransferPortalStats
-            // 
-            this.TransferPortalStats.BackColor = System.Drawing.SystemColors.MenuHighlight;
-            this.TransferPortalStats.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TransferPortalStats.Location = new System.Drawing.Point(393, 323);
-            this.TransferPortalStats.Name = "TransferPortalStats";
-            this.TransferPortalStats.Size = new System.Drawing.Size(163, 80);
-            this.TransferPortalStats.TabIndex = 43;
-            this.TransferPortalStats.Text = "KeepTransfer Portal Player Stats";
-            this.TransferPortalStats.UseVisualStyleBackColor = false;
-            this.TransferPortalStats.Click += new System.EventHandler(this.TransferPortalStats_Click);
-            // 
             // MainEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -12378,14 +12693,16 @@ namespace DB_EDITOR
             this.groupBox19.PerformLayout();
             this.tabTools.ResumeLayout(false);
             this.tabTools.PerformLayout();
+            this.groupBox38.ResumeLayout(false);
+            this.groupBox38.PerformLayout();
             this.groupBox22.ResumeLayout(false);
             this.groupBox22.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FillRosterPCT)).EndInit();
             this.groupBox18.ResumeLayout(false);
             this.groupBox18.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MaxAttNum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.GlobalAttNum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MinAttNum)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.FillRosterPCT)).EndInit();
             this.tabOffSeason.ResumeLayout(false);
             this.tabOffSeason.PerformLayout();
             this.groupBox17.ResumeLayout(false);
@@ -12399,6 +12716,8 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.recruitTolerance)).EndInit();
             this.tabRecruits.ResumeLayout(false);
             this.tabRecruits.PerformLayout();
+            this.groupBox39.ResumeLayout(false);
+            this.groupBox39.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.RecruitDataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RDIS)).EndInit();
             this.groupBox20.ResumeLayout(false);
@@ -12465,14 +12784,21 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.ScheduleView)).EndInit();
             this.tabSeason.ResumeLayout(false);
             this.tabSeason.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ImpactPlayerMin)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numberPlayerCoach)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.maxFiredTransfers)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MaxSkillDropPS)).EndInit();
+            this.groupBox36.ResumeLayout(false);
+            this.groupBox36.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.skillDrop)).EndInit();
+            this.groupBox35.ResumeLayout(false);
+            this.groupBox35.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numInjuries)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MaxSkillDropPS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ImpactPlayerMin)).EndInit();
+            this.groupBox37.ResumeLayout(false);
+            this.groupBox37.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CarouselDataGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.maxFiredTransfers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.poachValue)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.jobSecurityValue)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.skillDrop)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numberPlayerCoach)).EndInit();
             this.tabCoaches.ResumeLayout(false);
             this.tabCoaches.PerformLayout();
             this.groupBox9.ResumeLayout(false);
@@ -12524,6 +12850,8 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tabTeams.ResumeLayout(false);
             this.tabTeams.PerformLayout();
+            this.groupBox34.ResumeLayout(false);
+            this.groupBox34.PerformLayout();
             this.groupBox15.ResumeLayout(false);
             this.groupBox14.ResumeLayout(false);
             this.groupBox14.PerformLayout();
@@ -13100,7 +13428,6 @@ namespace DB_EDITOR
         public Label labelMaxTransfers;
         public NumericUpDown maxFiredTransfers;
         private CheckBox checkBoxFiredTransfers;
-        private System.Windows.Forms.Button buttonChaosTransfers;
         public Label labelMaxSkilDrop_PS;
         public NumericUpDown MaxSkillDropPS;
         private Label labelPSInjuries;
@@ -13556,6 +13883,31 @@ namespace DB_EDITOR
         private DataGridViewTextBoxColumn PortalPrvTeam;
         private Label TotalTransfersCount;
         private System.Windows.Forms.Button TransferPortalStats;
+        private GroupBox groupBox34;
+        private RadioButton TeamShowRanking;
+        private RadioButton TeamShowNormal;
+        private GroupBox groupBox35;
+        private GroupBox groupBox36;
+        private DataGridView CarouselDataGrid;
+        private DataGridViewTextBoxColumn CCName;
+        private DataGridViewTextBoxColumn CCStatus;
+        private DataGridViewTextBoxColumn CCTeam;
+        private DataGridViewTextBoxColumn CCTmPrestige;
+        private DataGridViewTextBoxColumn CCPrestige;
+        private DataGridViewTextBoxColumn CCRecord;
+        private GroupBox groupBox37;
+        private GroupBox groupBox38;
+        public System.Windows.Forms.Button ResetDynYear;
+        private CheckBox ReRankTeamsAP;
+        private GroupBox groupBox39;
+        private System.Windows.Forms.TextBox textBox21;
+        private System.Windows.Forms.ComboBox GTransferNew;
+        private Label label261;
+        private System.Windows.Forms.ComboBox GTransferOG;
+        private Label label260;
+        private System.Windows.Forms.Button GlobalTransferInterest;
+        private RadioButton GTransferRecruitable;
+        private RadioButton GTransferCommitted;
     }
 }
 

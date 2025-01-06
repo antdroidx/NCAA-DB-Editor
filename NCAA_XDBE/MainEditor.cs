@@ -529,6 +529,8 @@ namespace DB_EDITOR
         {
             if (SaveDB(dbSelected))
             {
+                SaveDB(0);
+                if(dbIndex2 == 1) SaveDB(1);
 
                 #region Compile Console Data and DB information.
                 byte[] db1, db2;
@@ -1111,7 +1113,6 @@ namespace DB_EDITOR
 
             GetFields(dbSelected, SelectedTableIndex);
             LoadFields();
-            LoadFields();
             TDB.TDBSave(dbIndex2);
         }
 
@@ -1157,6 +1158,7 @@ namespace DB_EDITOR
         private void TabControl1_IndexChange(object sender, EventArgs e)
         {
             if (tabControl1.SelectedTab != tabDB) CSVMenu.Visible = false;
+
             if (tabControl1.SelectedTab == tabDB) TabDB_Start();
             else if (tabControl1.SelectedTab == tabTeams) StartTeamEditor();
             else if (tabControl1.SelectedTab == tabPlayers) StartPlayerEditor();
