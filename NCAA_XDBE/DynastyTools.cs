@@ -856,7 +856,7 @@ namespace DB_EDITOR
             int PGIDbeg = TGID * 70;
             int PGIDend = PGIDbeg + 69;
             int count = 0;
-            List<List<int>> roster = new List<List<int>>();
+            List<List<double>> roster = new List<List<double>>();
 
             ChangeDBInt("TEAM", "TPIO", i, 127);
             ChangeDBInt("TEAM", "TPID", i, 127);
@@ -867,22 +867,21 @@ namespace DB_EDITOR
             {
                 int PGID = GetDBValueInt("PLAY", "PGID", j);
                 int POVR = GetDBValueInt("PLAY", "POVR", j);
-                int PAWR = GetDBValueInt("PLAY", "PAWR", j);
-                int PIMP = GetDBValueInt("PLAY", "PIMP", j);
-
-
 
                 if (PGID >= PGIDbeg && PGID <= PGIDend && POVR >= minRating)
                 {
                     int PPOS = GetDBValueInt("PLAY", "PPOS", j);
 
-                    List<int> player = new List<int>();
+                    double POVRd = CalculatePositionRating(Convert.ToDouble(j), PPOS);
+                    int PAWR = GetDBValueInt("PLAY", "PAWR", j);
+                    int PIMP = GetDBValueInt("PLAY", "PIMP", j);
+
+                    List<double> player = new List<double>();
                     roster.Add(player);
-                    roster[count].Add(POVR);
+                    roster[count].Add(POVRd);
                     roster[count].Add(PPOS);
                     roster[count].Add(PGID);
                     roster[count].Add(PAWR);
-                    roster[count].Add(PIMP);
 
                     count++;
                 }
@@ -890,7 +889,6 @@ namespace DB_EDITOR
             roster.Sort((player1, player2) => player2[0].CompareTo(player1[0]));
 
             roster.OrderBy(player => player[3])
-                   .ThenBy(player => player[4])
                    .ThenBy(player => player[0]);
 
 
@@ -911,19 +909,19 @@ namespace DB_EDITOR
                     {
                         if (countOff == 0)
                         {
-                            int impactID = roster[j][2] - PGIDbeg;
+                            double impactID = roster[j][2] - PGIDbeg;
                             ChangeDBString("TEAM", "TPIO", i, Convert.ToString(impactID));
                             impactCount++;
                         }
                         else if (GetDBValueInt("TEAM", "TSI1", i) == 127)
                         {
-                            int impactID = roster[j][2] - PGIDbeg;
+                            double impactID = roster[j][2] - PGIDbeg;
                             ChangeDBString("TEAM", "TSI1", i, Convert.ToString(impactID));
                             impactCount++;
                         }
                         else if (countOff + countDef >= 2 && GetDBValueInt("TEAM", "TSI2", i) == 127)
                         {
-                            int impactID = roster[j][2] - PGIDbeg;
+                            double impactID = roster[j][2] - PGIDbeg;
                             ChangeDBString("TEAM", "TSI2", i, Convert.ToString(impactID));
                             impactCount++;
                         }
@@ -935,19 +933,19 @@ namespace DB_EDITOR
                     {
                         if (countDef == 0)
                         {
-                            int impactID = roster[j][2] - PGIDbeg;
+                            double impactID = roster[j][2] - PGIDbeg;
                             ChangeDBString("TEAM", "TPID", i, Convert.ToString(impactID));
                             impactCount++;
                         }
                         else if (GetDBValueInt("TEAM", "TSI1", i) == 127)
                         {
-                            int impactID = roster[j][2] - PGIDbeg;
+                            double impactID = roster[j][2] - PGIDbeg;
                             ChangeDBString("TEAM", "TSI1", i, Convert.ToString(impactID));
                             impactCount++;
                         }
                         else if (countOff + countDef >= 2 && GetDBValueInt("TEAM", "TSI2", i) == 127)
                         {
-                            int impactID = roster[j][2] - PGIDbeg;
+                            double impactID = roster[j][2] - PGIDbeg;
                             ChangeDBString("TEAM", "TSI2", i, Convert.ToString(impactID));
                             impactCount++;
                         }
@@ -970,12 +968,12 @@ namespace DB_EDITOR
                         {
                             if (countOff == 0)
                             {
-                                int impactID = roster[j][2] - PGIDbeg;
+                                double impactID = roster[j][2] - PGIDbeg;
                                 ChangeDBString("TEAM", "TPIO", i, Convert.ToString(impactID));
                             }
                             if (countOff == 1)
                             {
-                                int impactID = roster[j][2] - PGIDbeg;
+                                double impactID = roster[j][2] - PGIDbeg;
                                 ChangeDBString("TEAM", "TSI1", i, Convert.ToString(impactID));
                             }
                             countOff++;

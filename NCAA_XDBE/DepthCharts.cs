@@ -99,10 +99,10 @@ namespace DB_EDITOR
                     int pos = GetDBValueInt("PLAY", "PPOS", i);
 
                     DCHTPlayers[row].Add(GetPOSG2Name(GetPOSG2fromPPOS(pos)) + ": " + GetFirstNameFromRecord(i) + " " + GetLastNameFromRecord(i)); //27
+                    //DCHTPlayers[row].Add(GetPOSG2Name(GetPOSG2fromPPOS(pos)) + ": " + GetFirstNameFromRecord(i) + " " + GetLastNameFromRecord(i) + DCHTPlayers[row][4]); //debug use to see pos ratings
 
                     DCHTPlayers[row].Add(GetDBValue("PLAY", "PPOS", i)); //28
-                    //DCHTPlayers[row].Add(GetDBValue("PLAY", "POVR", i));  //29
-                    //DCHTPlayers[row].Add(GetDBValue("PLAY", "PAWR", i));  //30
+
 
 
                     /* 0-24 position ratings

@@ -588,9 +588,7 @@ namespace DB_EDITOR
 
         public List<List<int>> GetAwarenessHitList()
         {
-            if (NCAANext25Config.Checked) return CreateIntListsFromCSV(@"resources\AWRH-Next.csv", true);
-
-            else return CreateIntListsFromCSV(@"resources\AWRH.csv", true);
+            return CreateIntListsFromCSV(@"resources\players\awareness.csv", true);
         }
 
         #endregion
@@ -755,12 +753,12 @@ namespace DB_EDITOR
         public double CalculatePositionRating(double r, int ppos)
         {
             int rec = Convert.ToInt32(r);
-            int posg = GetPOSGfromPPOS(ppos);
+            int posg = GetPOSG2fromPPOS(ppos);
             int playerPos = GetDBValueInt("PLAY", "PPOS", rec);
-            int playerPOSG = GetPOSGfromPPOS(playerPos);
+            int playerPOSG = GetPOSG2fromPPOS(playerPos);
 
             List<List<int>> AWRH = GetAwarenessHitList();
-            double hit = 0.125;
+            double hit = 0.13;
 
             //if (NextConfigRadio.Checked) hit = 0.08;
             //else hit = 0.19;
@@ -811,7 +809,7 @@ namespace DB_EDITOR
             double val = newRating;
 
             // Positional Penalty
-            if (playerPOSG != posg) val -= 20;
+            if (playerPOSG != posg) val -= 15;
 
 
 
