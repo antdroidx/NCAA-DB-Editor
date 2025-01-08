@@ -97,7 +97,7 @@ namespace DB_EDITOR
                     PlayerEditorList[row].Add(GetDBValue("PLAY", "POVR", i));
                     PlayerEditorList[row].Add(GetDBValue("PLAY", "PGID", i));
                     PlayerEditorList[row].Add(Convert.ToString(i));
-                    PlayerEditorList[row].Add(Convert.ToString(GetPOSGfromPPOS(GetDBValueInt("PLAY", "PPOS", i))));
+                    PlayerEditorList[row].Add(Convert.ToString(GetPOSG2fromPPOS(GetDBValueInt("PLAY", "PPOS", i))));
 
                     // 0 First Name  1 Last Name 2 Position 3 Overall 4 PGID 5 rec
 
@@ -136,7 +136,7 @@ namespace DB_EDITOR
             {
                 string text = "";
                 if (ShowPosCheckBox.Checked) text += "[" + Convert.ToString(Positions[Convert.ToInt32(player[2])]) + "] ";
-                else if (ShowPOSGBox.Checked) text += "[" + GetPOSGName(Convert.ToInt32(player[6])) + "] ";
+                else if (ShowPOSGBox.Checked) text += "[" + GetPOSG2Name(Convert.ToInt32(player[6])) + "] ";
                 text += player[0] + " " + player[1];
                 if (ShowRatingCheckbox.Checked) text += "  (" + Convert.ToString(ConvertRating(Convert.ToInt32(player[3]))) + ")";
 

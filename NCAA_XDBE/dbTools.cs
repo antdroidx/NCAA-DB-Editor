@@ -1424,11 +1424,11 @@ namespace DB_EDITOR
             MinAttPosBox.Items.Add("ALL");
             MaxAttPosBox.Items.Add("ALL");
 
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 17; i++)
             {
-                GlobalAttPosBox.Items.Add(GetPOSGName(i));
-                MinAttPosBox.Items.Add(GetPOSGName(i));
-                MaxAttPosBox.Items.Add(GetPOSGName(i));
+                GlobalAttPosBox.Items.Add(GetPOSG2Name(i));
+                MinAttPosBox.Items.Add(GetPOSG2Name(i));
+                MaxAttPosBox.Items.Add(GetPOSG2Name(i));
             }
 
             GlobalAttPosBox.SelectedIndex = 0;
@@ -1497,7 +1497,7 @@ namespace DB_EDITOR
                 {
                     UpdatePlayerAttribute(i, val, attribute, tol);
                 }
-                else if (GetPOSGfromPPOS(GetDBValueInt("PLAY", "PPOS", i)) == posg)
+                else if (GetPOSG2fromPPOS(GetDBValueInt("PLAY", "PPOS", i)) == posg)
                 {
                     UpdatePlayerAttribute(i, val, attribute, tol);
                 }
@@ -1531,7 +1531,7 @@ namespace DB_EDITOR
                     int rating = GetDBValueInt("PLAY", attribute, i);
                     if (rating < val) ChangeDBInt("PLAY", attribute, i, val);
                 }
-                else if (GetPOSGfromPPOS(GetDBValueInt("PLAY", "PPOS", i)) == posg)
+                else if (GetPOSG2fromPPOS(GetDBValueInt("PLAY", "PPOS", i)) == posg)
                 {
                     int rating = GetDBValueInt("PLAY", attribute, i);
                     if (rating < val) ChangeDBInt("PLAY", attribute, i, val);
@@ -1566,7 +1566,7 @@ namespace DB_EDITOR
                     int rating = GetDBValueInt("PLAY", attribute, i);
                     if (rating > val) ChangeDBInt("PLAY", attribute, i, val);
                 }
-                else if (GetPOSGfromPPOS(GetDBValueInt("PLAY", "PPOS", i)) == posg)
+                else if (GetPOSG2fromPPOS(GetDBValueInt("PLAY", "PPOS", i)) == posg)
                 {
                     int rating = GetDBValueInt("PLAY", attribute, i);
                     if (rating > val) ChangeDBInt("PLAY", attribute, i, val);

@@ -538,6 +538,31 @@ namespace DB_EDITOR
             else return "";
         }
 
+        public int GetPOSG2fromPPOS(int posg)
+        {
+            if (posg == 0) return 0;
+            else if (posg == 1) return 1;
+            else if (posg == 2) return 2;
+            else if (posg == 3) return 3;
+            else if (posg == 4) return 4;
+            else if (posg == 5) return 5;
+            else if (posg == 6) return 6;
+            else if (posg == 7) return 7;
+            else if (posg == 8) return 6;
+            else if (posg == 9) return 5;
+            else if (posg == 10) return 8;
+            else if (posg == 11) return 8;
+            else if (posg == 12) return 9;
+            else if (posg == 13) return 10;
+            else if (posg == 14) return 11;
+            else if (posg == 15) return 10;
+            else if (posg == 16) return 12;
+            else if (posg == 17) return 13;
+            else if (posg == 18) return 14;
+            else if (posg == 19) return 15;
+            else if (posg == 20) return 16;
+            else return -1;
+        }
         public string GetPOSG2Name(int posg)
         {
             if (posg == 0) return "QB";
@@ -563,7 +588,9 @@ namespace DB_EDITOR
 
         public List<List<int>> GetAwarenessHitList()
         {
-            return CreateIntListsFromCSV(@"resources\players\Awareness.csv", true);
+            if (NCAANext25Config.Checked) return CreateIntListsFromCSV(@"resources\AWRH-Next.csv", true);
+
+            else return CreateIntListsFromCSV(@"resources\AWRH.csv", true);
         }
 
         #endregion
@@ -725,14 +752,18 @@ namespace DB_EDITOR
 
         }
 
-        public int CalculatePositionRating(int rec, int ppos)
+        public double CalculatePositionRating(double r, int ppos)
         {
+            int rec = Convert.ToInt32(r);
             int posg = GetPOSGfromPPOS(ppos);
             int playerPos = GetDBValueInt("PLAY", "PPOS", rec);
             int playerPOSG = GetPOSGfromPPOS(playerPos);
 
             List<List<int>> AWRH = GetAwarenessHitList();
             double hit = 0.125;
+
+            //if (NextConfigRadio.Checked) hit = 0.08;
+            //else hit = 0.19;
 
             double PCAR = Convert.ToInt32(GetDBValue("PLAY", "PCAR", rec)); //CAWT
             double PKAC = Convert.ToInt32(GetDBValue("PLAY", "PKAC", rec)); //KAWT
@@ -752,15 +783,15 @@ namespace DB_EDITOR
             double PJMP = Convert.ToInt32(GetDBValue("PLAY", "PJMP", rec)); //JUWT
             double PAWR = Convert.ToInt32(GetDBValue("PLAY", "PAWR", rec)); //AWWT
 
-            int AWRog = ConvertRating(Convert.ToInt32(PAWR));
+            double AWRog = ConvertRating(Convert.ToInt32(PAWR));
 
             double PosHit = hit * AWRH[playerPos][ppos];
 
-            int AWR = Convert.ToInt32(AWRog - (AWRog * PosHit));
+            double AWR = Convert.ToInt32(AWRog - (AWRog * PosHit));
 
             if (AWR < 40) AWR = 40;
 
-            PAWR = RevertRating(AWR);
+            PAWR = RevertRating(Convert.ToInt32(AWR));
 
             double[] ratings = new double[] { PCAR, PKAC, PTHA, PPBK, PRBK, PACC, PAGI, PTAK, PINJ, PKPR, PSPD, PTHP, PBKT, PCTH, PSTR, PJMP, PAWR };
 
@@ -777,9 +808,12 @@ namespace DB_EDITOR
                 newRating += ratings[i];
             }
 
-            int val = Convert.ToInt32(newRating);
+            double val = newRating;
 
-            //if (playerPOSG != posg && posg < 8) val -= 20;
+            // Positional Penalty
+            if (playerPOSG != posg) val -= 20;
+
+
 
             if (val < 0) val = 0;
             return val;

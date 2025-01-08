@@ -867,6 +867,10 @@ namespace DB_EDITOR
             {
                 int PGID = GetDBValueInt("PLAY", "PGID", j);
                 int POVR = GetDBValueInt("PLAY", "POVR", j);
+                int PAWR = GetDBValueInt("PLAY", "PAWR", j);
+                int PIMP = GetDBValueInt("PLAY", "PIMP", j);
+
+
 
                 if (PGID >= PGIDbeg && PGID <= PGIDend && POVR >= minRating)
                 {
@@ -877,10 +881,17 @@ namespace DB_EDITOR
                     roster[count].Add(POVR);
                     roster[count].Add(PPOS);
                     roster[count].Add(PGID);
+                    roster[count].Add(PAWR);
+                    roster[count].Add(PIMP);
+
                     count++;
                 }
             }
             roster.Sort((player1, player2) => player2[0].CompareTo(player1[0]));
+
+            roster.OrderBy(player => player[3])
+                   .ThenBy(player => player[4])
+                   .ThenBy(player => player[0]);
 
 
             if (roster.Count == 0)
