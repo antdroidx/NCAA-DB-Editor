@@ -275,6 +275,13 @@ namespace DB_EDITOR
         {
             DoNotTrigger = true;
 
+            int fCount_addon = 5; //number of extra columns (fields) to add to PLAY table
+            int fCount_First = 4; //5-4 = 1 = 1st new column
+            int fCount_Last = 3;
+            int fCount_Pos = 2;
+            int fCount_Team = 1;
+
+
             int tmpFIELDcount = FieldNames.Count;
 
             fieldsGridView.EnableHeadersVisualStyles = false;
@@ -665,70 +672,70 @@ namespace DB_EDITOR
                         TEAM = true;
                         if (!checkTabExists("Teams")) tabControl1.TabPages.Add(tabTeams);
                     }
-                    if (table.Name == "PLAY" && !BigEndian)
+                    else if (table.Name == "PLAY" && !BigEndian)
                     {
                         if (!checkTabExists("Players")) tabControl1.TabPages.Add(tabPlayers);
                         if (!checkTabExists("dbTools")) tabControl1.TabPages.Add(tabTools);
                     }
-                    if (table.Name == "TDYN" && !BigEndian)
+                    else if (table.Name == "TDYN" && !BigEndian)
                     {
                         TDYN = true;
                         //if (!checkTabExists("Teams")) tabControl1.TabPages.Add(tabTeams);
                         //tabControl1.TabPages.Add(tabDev);
                     }
-                    if (table.Name == "CONF" && !BigEndian)
+                    else if (table.Name == "CONF" && !BigEndian)
                     {
                         if (!checkTabExists("Conferences")) tabControl1.TabPages.Add(tabConf);
                         LeagueMakerToolStripMenuItem.Visible = true;
                     }
-                    if (table.Name == "COCH" && !BigEndian)
+                    else if (table.Name == "COCH" && !BigEndian)
                     {
                         if (!checkTabExists("Coaches")) tabControl1.TabPages.Add(tabCoaches);
                     }
-                    if (table.Name == "TRAN" && !BigEndian)
+                    else if (table.Name == "TRAN" && !BigEndian)
                     {
                         if (!checkTabExists("Dynasty")) tabControl1.TabPages.Add(tabSeason);
                     }
-                    if (table.Name == "PBAI" && !BigEndian)
+                    else if (table.Name == "PBAI" && !BigEndian)
                     {
                         if (!checkTabExists("Playbooks") && table.RecordCount > 0) tabControl1.TabPages.Add(tabPlaybook);
                         PlaybookDB = true;
                     }
-                    if (table.Name == "DCHT" && !BigEndian)
+                    else if (table.Name == "DCHT" && !BigEndian)
                     {
                         if (!checkTabExists("Depth Charts")) tabControl1.TabPages.Add(tabDepthCharts);
                     }
-                    if (table.Name == "RCPT" && !BigEndian)
+                    else if (table.Name == "RCPT" && !BigEndian)
                     {
                         if (!checkTabExists("Recruiting")) tabControl1.TabPages.Add(tabOffSeason);
                         if (!checkTabExists("Recruits")) tabControl1.TabPages.Add(tabRecruits);
 
                     }
-                    if (table.Name == "UNIF" && !BigEndian)
+                    else if (table.Name == "UNIF" && !BigEndian)
                     {
                         if (!checkTabExists("Uniforms")) tabControl1.TabPages.Add(tabUniforms);
                     }
-                    if (table.Name == "BOWL" && !BigEndian)
+                    else if (table.Name == "BOWL" && !BigEndian)
                     {
                         if (!checkTabExists("Bowls")) tabControl1.TabPages.Add(tabBowls);
                     }
-                    if (table.Name == "PACL" && !BigEndian)
+                    else if (table.Name == "PACL" && !BigEndian)
                     {
                         if (checkTabExists("Bowls")) tabControl1.TabPages.Remove(tabBowls);
                     }
-                    if (table.Name == "SCHD" && !BigEndian)
+                    else if (table.Name == "SCHD" && !BigEndian)
                     {
                         if (!checkTabExists("Schedule")) tabControl1.TabPages.Add(tabSchedule);
                     }
-                    if (table.Name == "PSOL" && !BigEndian)
+                    else if (table.Name == "PSOL" && !BigEndian)
                     {
                         if (!checkTabExists("Stats")) tabControl1.TabPages.Add(tabStats);
                     }
-                    if (table.Name == "STAD" && !BigEndian)
+                    else if (table.Name == "STAD" && !BigEndian)
                     {
                         if (!checkTabExists("Stadiums")) tabControl1.TabPages.Add(tabStadiums);
                     }
-                    if (table.Name == "RCTN" && !BigEndian)
+                    else if (table.Name == "RCTN" && !BigEndian)
                     {
                         if (!checkTabExists("Portal")) tabControl1.TabPages.Add(tabPortal);
                     }

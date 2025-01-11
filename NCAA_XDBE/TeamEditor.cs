@@ -446,6 +446,8 @@ namespace DB_EDITOR
                     AllTeamPlayers[row].Add(GetDBValue("PLAY", "POVR", i));
                     AllTeamPlayers[row].Add(GetDBValue("PLAY", "PGID", i));
                     AllTeamPlayers[row].Add(Convert.ToString(i));
+                    AllTeamPlayers[row].Add(CalculatePositionRating(i, GetDBValueInt("PLAY", "PPOS", i)).ToString("0.000"));
+
 
                     // 0 First Name  1 Last Name 2 Position 3 Overall 4 PGID 5 rec
 
@@ -468,9 +470,9 @@ namespace DB_EDITOR
                 }
             }
 
-            AllTeamPlayers.Sort((player1, player2) => Convert.ToInt32(player2[3]).CompareTo(Convert.ToInt32(player1[3])));
-            OffPlayers.Sort((player1, player2) => Convert.ToInt32(player2[3]).CompareTo(Convert.ToInt32(player1[3])));
-            DefPlayers.Sort((player1, player2) => Convert.ToInt32(player2[3]).CompareTo(Convert.ToInt32(player1[3])));
+            AllTeamPlayers.Sort((player1, player2) => Convert.ToDouble(player2[6]).CompareTo(Convert.ToDouble(player1[6])));
+            OffPlayers.Sort((player1, player2) => Convert.ToDouble(player2[6]).CompareTo(Convert.ToDouble(player1[6])));
+            DefPlayers.Sort((player1, player2) => Convert.ToDouble(player2[6]).CompareTo(Convert.ToDouble(player1[6])));
 
 
             if (AllTeamPlayers.Count < 1) ClearTeamComboBoxes();

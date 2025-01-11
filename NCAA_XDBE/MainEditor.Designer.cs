@@ -586,6 +586,7 @@ namespace DB_EDITOR
             this.dbToolsInfo = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox37 = new System.Windows.Forms.GroupBox();
+            this.CoachFiringsCount = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.CarouselDataGrid = new System.Windows.Forms.DataGridView();
             this.CCName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -1046,6 +1047,7 @@ namespace DB_EDITOR
             this.PortalFirst = new System.Windows.Forms.RadioButton();
             this.PortalReverse = new System.Windows.Forms.RadioButton();
             this.SpringPortalButton = new System.Windows.Forms.Button();
+            this.TransferEligible = new System.Windows.Forms.CheckBox();
             qbTend = new System.Windows.Forms.Button();
             this.mainMenu.SuspendLayout();
             this.tableMenu.SuspendLayout();
@@ -1294,7 +1296,7 @@ namespace DB_EDITOR
             this.openMenuItem.Image = global::DB_EDITOR.Properties.Resources.open2;
             this.openMenuItem.Name = "openMenuItem";
             this.openMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.openMenuItem.Size = new System.Drawing.Size(169, 34);
             this.openMenuItem.Text = "Open";
             this.openMenuItem.Click += new System.EventHandler(this.OpenMenuItem_Click);
             // 
@@ -1303,7 +1305,7 @@ namespace DB_EDITOR
             this.saveMenuItem.Image = global::DB_EDITOR.Properties.Resources.save3;
             this.saveMenuItem.Name = "saveMenuItem";
             this.saveMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.saveMenuItem.Size = new System.Drawing.Size(169, 34);
             this.saveMenuItem.Text = "Save";
             this.saveMenuItem.Click += new System.EventHandler(this.SaveMenuItem_Click);
             // 
@@ -1312,21 +1314,21 @@ namespace DB_EDITOR
             this.closeMenuItem.Image = global::DB_EDITOR.Properties.Resources.close;
             this.closeMenuItem.Name = "closeMenuItem";
             this.closeMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.W)));
-            this.closeMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.closeMenuItem.Size = new System.Drawing.Size(169, 34);
             this.closeMenuItem.Text = "Close";
             this.closeMenuItem.Click += new System.EventHandler(this.CloseMenuItem_Click);
             // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(154, 6);
+            this.toolStripSeparator7.Size = new System.Drawing.Size(166, 6);
             // 
             // exitMenuItem
             // 
             this.exitMenuItem.Image = global::DB_EDITOR.Properties.Resources.exit;
             this.exitMenuItem.Name = "exitMenuItem";
             this.exitMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.exitMenuItem.Size = new System.Drawing.Size(157, 22);
+            this.exitMenuItem.Size = new System.Drawing.Size(169, 34);
             this.exitMenuItem.Text = "Exit";
             this.exitMenuItem.Click += new System.EventHandler(this.ExitToolItem_Click);
             // 
@@ -7187,6 +7189,7 @@ namespace DB_EDITOR
             // 
             // groupBox37
             // 
+            this.groupBox37.Controls.Add(this.CoachFiringsCount);
             this.groupBox37.Controls.Add(this.label13);
             this.groupBox37.Controls.Add(this.CarouselDataGrid);
             this.groupBox37.Controls.Add(this.buttonCarousel);
@@ -7206,6 +7209,16 @@ namespace DB_EDITOR
             this.groupBox37.TabIndex = 47;
             this.groupBox37.TabStop = false;
             this.groupBox37.Text = "Coaching Carousel";
+            // 
+            // CoachFiringsCount
+            // 
+            this.CoachFiringsCount.AutoSize = true;
+            this.CoachFiringsCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CoachFiringsCount.Location = new System.Drawing.Point(524, 168);
+            this.CoachFiringsCount.Name = "CoachFiringsCount";
+            this.CoachFiringsCount.Size = new System.Drawing.Size(104, 13);
+            this.CoachFiringsCount.TabIndex = 47;
+            this.CoachFiringsCount.Text = "XX Coach Firings";
             // 
             // label13
             // 
@@ -7372,7 +7385,7 @@ namespace DB_EDITOR
             // 
             this.jobSecurityValue.Location = new System.Drawing.Point(18, 103);
             this.jobSecurityValue.Maximum = new decimal(new int[] {
-            50,
+            255,
             0,
             0,
             0});
@@ -7390,9 +7403,9 @@ namespace DB_EDITOR
             this.labelJobSecurity.AutoSize = true;
             this.labelJobSecurity.Location = new System.Drawing.Point(74, 108);
             this.labelJobSecurity.Name = "labelJobSecurity";
-            this.labelJobSecurity.Size = new System.Drawing.Size(165, 13);
+            this.labelJobSecurity.Size = new System.Drawing.Size(266, 13);
             this.labelJobSecurity.TabIndex = 14;
-            this.labelJobSecurity.Text = "Job Security Value To Fire Coach";
+            this.labelJobSecurity.Text = "Job Security Value To Fire Coach (Set to 60 for Vanilla)";
             // 
             // labelPoaching
             // 
@@ -11877,6 +11890,7 @@ namespace DB_EDITOR
             // tabPortal
             // 
             this.tabPortal.BackColor = System.Drawing.Color.Tan;
+            this.tabPortal.Controls.Add(this.TransferEligible);
             this.tabPortal.Controls.Add(this.TotalTransfersCount);
             this.tabPortal.Controls.Add(this.PortalData);
             this.tabPortal.Controls.Add(this.richTextBox3);
@@ -12027,7 +12041,7 @@ namespace DB_EDITOR
             // 
             // portalChance
             // 
-            this.portalChance.Location = new System.Drawing.Point(171, 382);
+            this.portalChance.Location = new System.Drawing.Point(171, 400);
             this.portalChance.Name = "portalChance";
             this.portalChance.Size = new System.Drawing.Size(45, 20);
             this.portalChance.TabIndex = 35;
@@ -12040,7 +12054,7 @@ namespace DB_EDITOR
             // label259
             // 
             this.label259.AutoSize = true;
-            this.label259.Location = new System.Drawing.Point(18, 385);
+            this.label259.Location = new System.Drawing.Point(18, 403);
             this.label259.Name = "label259";
             this.label259.Size = new System.Drawing.Size(150, 13);
             this.label259.TabIndex = 34;
@@ -12511,7 +12525,7 @@ namespace DB_EDITOR
             this.PortalTE.Size = new System.Drawing.Size(44, 20);
             this.PortalTE.TabIndex = 9;
             this.PortalTE.Value = new decimal(new int[] {
-            2,
+            3,
             0,
             0,
             0});
@@ -12568,7 +12582,7 @@ namespace DB_EDITOR
             this.PortalFB.Size = new System.Drawing.Size(44, 20);
             this.PortalFB.TabIndex = 5;
             this.PortalFB.Value = new decimal(new int[] {
-            2,
+            1,
             0,
             0,
             0});
@@ -12709,6 +12723,16 @@ namespace DB_EDITOR
             this.SpringPortalButton.Text = "Spring Portal";
             this.SpringPortalButton.UseVisualStyleBackColor = true;
             this.SpringPortalButton.Click += new System.EventHandler(this.SpringPortalButton_Click);
+            // 
+            // TransferEligible
+            // 
+            this.TransferEligible.AutoSize = true;
+            this.TransferEligible.Location = new System.Drawing.Point(21, 375);
+            this.TransferEligible.Name = "TransferEligible";
+            this.TransferEligible.Size = new System.Drawing.Size(217, 17);
+            this.TransferEligible.TabIndex = 42;
+            this.TransferEligible.Text = "Immediate Eligibility Waiver (Vanilla Only)";
+            this.TransferEligible.UseVisualStyleBackColor = true;
             // 
             // MainEditor
             // 
@@ -13973,6 +13997,8 @@ namespace DB_EDITOR
         private System.Windows.Forms.Button GlobalTransferInterest;
         private RadioButton GTransferRecruitable;
         private RadioButton GTransferCommitted;
+        private Label CoachFiringsCount;
+        private CheckBox TransferEligible;
     }
 }
 

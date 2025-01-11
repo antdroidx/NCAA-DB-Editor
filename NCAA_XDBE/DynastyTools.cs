@@ -294,6 +294,11 @@ namespace DB_EDITOR
                         ChangeDBString("COCH", "CCPO", i, "60"); //fixes coach status
                     }
 
+                    //add a year of coaching at the team
+                    int year = GetDBValueInt("COCH", "CTYR", i);
+                    ChangeDBInt("COCH", "CTYR", i, (year+1));
+
+
                     progressBar1.PerformStep();
                 }
 
@@ -302,6 +307,10 @@ namespace DB_EDITOR
 
                 MessageBox.Show("Coach Prestige Changes:\n\n" + coach);
                 coachProgComplete = true;
+            }
+            else
+            {
+                MessageBox.Show("This module is not available for NCAA NEXT Users.");
             }
         }
 

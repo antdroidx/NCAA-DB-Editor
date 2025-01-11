@@ -428,10 +428,6 @@ namespace DB_EDITOR
         #endregion
 
 
-
-
-
-
         //Text Change Triggers
         #region Text Box Changes
 

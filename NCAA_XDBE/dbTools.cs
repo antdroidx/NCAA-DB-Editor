@@ -461,7 +461,6 @@ namespace DB_EDITOR
                     int TOID = GetDBValueInt(tableName, "TOID", i);
                     int PGIDbeg = TOID * 70;
                     int PGIDend = PGIDbeg + 69;
-                    CheckSpecialTeamsCount(TOID);
 
                     count = 0;
                     List<List<int>> roster = new List<List<int>>();
@@ -1023,9 +1022,19 @@ namespace DB_EDITOR
             //Create a list of PGIDs in the database
 
             List<int> rosters = new List<int>();
+            AvailablePJEN = new List<List<int>>();
+            for (int i = 0; i < 512; i++)
+            {
+                AvailablePJEN.Add(new List<int>());
+            }
+
             for (int i = 0; i < GetTableRecCount("PLAY"); i++)
             {
-                rosters.Add(GetDBValueInt("PLAY", "PGID", i));
+                int PGID = GetDBValueInt("PLAY", "PGID", i);
+                rosters.Add(PGID);
+                int TGID = PGID / 70;
+
+                AvailablePGIDList[TGID].Add(PGID);
             }
 
 
@@ -1073,18 +1082,18 @@ namespace DB_EDITOR
                             AddTableRecord("PLAY", false);
 
 
-                            if (TeamPos[8] < POSG[8]) TransferRCATtoPLAY(recCounter, 19, j, RCATmapper, PJEN, FreshmanPCT);
-                            else if (TeamPos[9] < POSG[9]) TransferRCATtoPLAY(recCounter, 20, j, RCATmapper, PJEN, FreshmanPCT);
-                            else if (TeamPos[0] < POSG[0]) TransferRCATtoPLAY(recCounter, 0, j, RCATmapper, PJEN, FreshmanPCT);
-                            else if (TeamPos[1] < POSG[1]) TransferRCATtoPLAY(recCounter, 1, j, RCATmapper, PJEN, FreshmanPCT);
-                            else if (TeamPos[2] < POSG[2]) TransferRCATtoPLAY(recCounter, 3, j, RCATmapper, PJEN, FreshmanPCT);
-                            else if (TeamPos[3] < POSG[3]) TransferRCATtoPLAY(recCounter, 4, j, RCATmapper, PJEN, FreshmanPCT);
-                            else if (TeamPos[4] < POSG[4]) TransferRCATtoPLAY(recCounter, rand.Next(5, 10), j, RCATmapper, PJEN, FreshmanPCT);
-                            else if (TeamPos[5] < POSG[5]) TransferRCATtoPLAY(recCounter, rand.Next(10, 13), j, RCATmapper, PJEN, FreshmanPCT);
-                            else if (TeamPos[6] < POSG[6]) TransferRCATtoPLAY(recCounter, rand.Next(13, 16), j, RCATmapper, PJEN, FreshmanPCT);
-                            else if (TeamPos[7] < POSG[7]) TransferRCATtoPLAY(recCounter, rand.Next(16, 19), j, RCATmapper, PJEN, FreshmanPCT);
+                            if (TeamPos[8] < POSG[8]) TransferRCATtoPLAY(recCounter, 19, j, RCATmapper, PJEN, AvailablePJEN[tgid], FreshmanPCT);
+                            else if (TeamPos[9] < POSG[9]) TransferRCATtoPLAY(recCounter, 20, j, RCATmapper, PJEN, AvailablePJEN[tgid], FreshmanPCT);
+                            else if (TeamPos[0] < POSG[0]) TransferRCATtoPLAY(recCounter, 0, j, RCATmapper, PJEN, AvailablePJEN[tgid], FreshmanPCT);
+                            else if (TeamPos[1] < POSG[1]) TransferRCATtoPLAY(recCounter, 1, j, RCATmapper, PJEN, AvailablePJEN[tgid], FreshmanPCT);
+                            else if (TeamPos[2] < POSG[2]) TransferRCATtoPLAY(recCounter, 3, j, RCATmapper, PJEN, AvailablePJEN[tgid], FreshmanPCT);
+                            else if (TeamPos[3] < POSG[3]) TransferRCATtoPLAY(recCounter, 4, j, RCATmapper, PJEN, AvailablePJEN[tgid], FreshmanPCT);
+                            else if (TeamPos[4] < POSG[4]) TransferRCATtoPLAY(recCounter, rand.Next(5, 10), j, RCATmapper, PJEN, AvailablePJEN[tgid], FreshmanPCT);
+                            else if (TeamPos[5] < POSG[5]) TransferRCATtoPLAY(recCounter, rand.Next(10, 13), j, RCATmapper, PJEN, AvailablePJEN[tgid], FreshmanPCT);
+                            else if (TeamPos[6] < POSG[6]) TransferRCATtoPLAY(recCounter, rand.Next(13, 16), j, RCATmapper, PJEN, AvailablePJEN[tgid], FreshmanPCT);
+                            else if (TeamPos[7] < POSG[7]) TransferRCATtoPLAY(recCounter, rand.Next(16, 19), j, RCATmapper, PJEN, AvailablePJEN[tgid], FreshmanPCT);
 
-                            else TransferRCATtoPLAY(recCounter, rand.Next(0, 19), j, RCATmapper, PJEN, FreshmanPCT);
+                            else TransferRCATtoPLAY(recCounter, rand.Next(0, 19), j, RCATmapper, PJEN, AvailablePJEN[tgid], FreshmanPCT);
 
 
                             RandomizePlayerHead("PLAY", recCounter);
@@ -1094,7 +1103,7 @@ namespace DB_EDITOR
                         }
                     }
 
-                    CheckSpecialTeamsCount(tgid);
+                    CheckSpecialTeamsCount(tgid, AvailablePJEN[tgid]);
                 }
                 progressBar1.PerformStep();
             }
@@ -1110,7 +1119,7 @@ namespace DB_EDITOR
         }
 
         //Check for Kickers/Punters
-        private void CheckSpecialTeamsCount(int tgid)
+        private void CheckSpecialTeamsCount(int tgid, List<int> AvailablePJEN)
         {
             //Check for Kickers and Punters
 
@@ -1173,7 +1182,7 @@ namespace DB_EDITOR
                     {
                         if (rosterList[x][1] != 19 && rosterList[x][1] != 20)
                         {
-                            TransferRCATtoPLAY(rosterList[x][2], ChooseRandomPosFromPOSG(k), rosterList[x][3], RCATmapper, PJEN, 50);
+                            TransferRCATtoPLAY(rosterList[x][2], ChooseRandomPosFromPOSG(k), rosterList[x][3], RCATmapper, PJEN, AvailablePJEN, 50);
                             RandomizePlayerHead("PLAY", Convert.ToInt32(rosterList[x][2]));
                             rosterList.RemoveAt(x);
                             break;

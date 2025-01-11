@@ -63,6 +63,7 @@ namespace DB_EDITOR
         List<List<int>> SpringPortal;
         List<List<int>> TeamPortalNeeds;
         List<List<int>> AvailablePGIDList;
+        List<List<int>> AvailablePJEN;
 
 
         List<int> PJENList;
@@ -89,15 +90,6 @@ namespace DB_EDITOR
 
         Dictionary<int, string> Alphabet = new Dictionary<int, string>();
         Dictionary<string, int> AlphabetX = new Dictionary<string, int>();
-
-        int maxTeamsDB = 511; //max team number for team db
-
-        int fCount_addon = 5; //number of extra columns (fields) to add to PLAY table
-        int fCount_First = 4; //5-4 = 1 = 1st new column
-        int fCount_Last = 3;
-        int fCount_Pos = 2;
-        int fCount_Team = 1;
-
 
 
         public string[] teamNameDB = new string[512]; //temporary holder of Team Names assigned by TGID location in the array
@@ -1174,6 +1166,7 @@ namespace DB_EDITOR
             else if (tabControl1.SelectedTab == tabSchedule) StartScheduleEditor();
             else if (tabControl1.SelectedTab == tabStats) StartStatsViewer();
             else if (tabControl1.SelectedTab == tabStadiums) StartStadiumEditor();
+            else if (tabControl1.SelectedTab == tabPortal) StartSpringPortal();
 
         }
 

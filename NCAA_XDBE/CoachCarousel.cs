@@ -29,6 +29,7 @@ namespace DB_EDITOR
         //Coaching Carousel Mod
         private void CoachCarousel()
         {
+            int coachfirings = 0;
             if (!coachProgComplete && !NextMod)
             {
                 MessageBox.Show("Please run Coaching Progressions first before running this module.");
@@ -61,7 +62,7 @@ namespace DB_EDITOR
                     int CCPO = Convert.ToInt32(GetDBValue("COCH", "CCPO", i));
 
                     //FIRE COACHES
-                    if (CCPO <= jobSecurityValue.Value && CTOP >= TMPR && GetDBValue("COCH", "CFUC", i) != "1" && rand.Next(0, 100) < 70 || GetDBValueInt("COCH", "CTYR", i) > 3 && TMPR < 2 && rand.Next(0, 100) < 70)
+                    if (CCPO <= jobSecurityValue.Value && CTOP >= TMPR && GetDBValue("COCH", "CFUC", i) != "1" && rand.Next(0, 100) < 70 && NextConfigRadio.Checked || GetDBValueInt("COCH", "CTYR", i) > 3 && TMPR < 2 && rand.Next(0, 100) < 70 || CCPO <= jobSecurityValue.Value && CTOP-2 >= TMPR && GetDBValue("COCH", "CFUC", i) != "1" && rand.Next(0, 100) < 70 && !NextConfigRadio.Checked)
                     {
                         CCID_FiredList.Add(GetDBValue("COCH", "CCID", i));
                         TGID_VacancyList.Add(GetDBValue("COCH", "TGID", i));
@@ -83,15 +84,12 @@ namespace DB_EDITOR
                         coachNews[newCounter].Add(GetDBValue("COCH", "CPRS", i));
                         coachNews[newCounter].Add(GetDBValue("COCH", "CCWI", i) + "-" + GetDBValue("COCH","CCLO", i));
 
-
-
                         ChangeDBString("COCH", "CCPO", i, "60");
                         ChangeDBString("COCH", "CTYR", i, "0");
                         ChangeDBString("COCH", "TGID", i, "511");
-                        ChangeDBString("COCH", "CLTF", i, "511");
 
                         CCID_FAList.Add(GetDBValue("COCH", "CCID", i));
-
+                        coachfirings++;
 
                     }
                     //ADD COACHES TO CANDIDATE LIST
@@ -133,7 +131,6 @@ namespace DB_EDITOR
                         {
 
                             ChangeDBString("COCH", "TGID", x, Convert.ToString(TGID));
-                            ChangeDBString("COCH", "CLTF", x, Convert.ToString(TMPR));
                             ChangeDBString("COCH", "CCPO", x, "60");
                             ChangeDBString("COCH", "CTYR", x, "0");
 
@@ -173,7 +170,6 @@ namespace DB_EDITOR
                         if (currentTMPR < TMPR)
                         {
                             ChangeDBInt("COCH", "TGID", x, TGID);
-                            ChangeDBInt("COCH", "CLTF", x, TMPR);
                             ChangeDBString("COCH", "CCPO", x, "60");
                             ChangeDBString("COCH", "CTYR", x, "0");
 
@@ -213,7 +209,7 @@ namespace DB_EDITOR
             }
 
             DisplayCarouselNews(coachNews);
-
+            CoachFiringsCount.Text = "Coach Firings: " + Convert.ToString(coachfirings);
 
             progressBar1.Visible = false;
             progressBar1.Value = 0;
