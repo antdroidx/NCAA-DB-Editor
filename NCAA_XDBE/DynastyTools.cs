@@ -1115,5 +1115,73 @@ namespace DB_EDITOR
             progressBar1.Visible = false;
 
         }
+
+
+        //Remove Mediocre Transfers from Portal
+        private void RemoveBadTransfers_Click(object sender, EventArgs e)
+        {
+            RemoveTransfers();
+        }
+
+        private void RemoveTransfers()
+        {
+            progressBar1.Visible = true;
+            progressBar1.Value = 0;
+            progressBar1.Maximum = GetTableRecCount("TRAN");
+
+            List<List<List<int>>> teamPlayers = new List<List<List<int>>>();
+
+            for (int t = 0; t < 512; t++)
+            {
+                teamPlayers.Add(new List<List<int>>());
+            }
+
+            for (int p = 0; p < GetTableRecCount("PLAY"); p++)
+            {
+                int pgid = GetPGIDfromRecord(p);
+                int team = pgid / 70;
+
+                int count = teamPlayers[team].Count;
+                teamPlayers[team].Add(new List<int>());
+                teamPlayers[team][count].Add(p);
+                teamPlayers[team][count].Add(pgid);
+                teamPlayers[team][count].Add(GetDBValueInt("PLAY", "POVR", p));
+            }
+
+
+            int counter = 0;
+            for (int i = 0; i < GetTableRecCount("TRAN"); i++)
+            {
+                int pgid = GetDBValueInt("TRAN", "PGID", i);
+                int tgid = pgid / 70;
+
+                for(int p = 0; p < teamPlayers[tgid].Count; p++)
+                {
+                    if (teamPlayers[tgid][p][1] == pgid)
+                    {
+                        if (teamPlayers[tgid][p][2] < 8)
+                        {
+                            ChangeDBInt("PLAY", "PTYP", teamPlayers[tgid][p][0], 3);
+                            DeleteRecord("TRAN", i, true);
+                            counter++;
+                            break;
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+
+                }
+
+                progressBar1.PerformStep();
+            }
+
+            CompactDB();
+
+            progressBar1.Visible = false;
+
+            MessageBox.Show("Completed! Removed " + counter + " players from the database.");
+        }
     }
 }

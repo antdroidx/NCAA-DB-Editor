@@ -959,38 +959,7 @@ namespace DB_EDITOR
         }
 
 
-        //Remove Mediocre Transfers from Portal
-        private void RemoveBadTransfers_Click(object sender, EventArgs e)
-        {
-            RemoveTransfers();
-        }
 
-        private void RemoveTransfers()
-        {
-            progressBar1.Visible = true;
-            progressBar1.Value = 0;
-            progressBar1.Maximum = GetTableRecCount("TRAN");
-
-            int count = 0;
-            for (int i = 0; i < GetTableRecCount("TRAN"); i++)
-            {
-                int rec = FindPGIDRecord(GetDBValueInt("TRAN", "PGID", i));
-                int povr = GetDBValueInt("PLAY", "POVR", rec);
-                if (povr <= 8)
-                {
-                    ChangeDBInt("PLAY", "PTYP", rec, 3);
-                    DeleteRecord("TRAN", i, true);
-                    count++;
-                }
-                progressBar1.PerformStep();
-            }
-
-            CompactDB();
-
-            progressBar1.Visible = false;
-
-            MessageBox.Show("Completed! Removed " + count + " players from the database.");
-        }
 
     }
 }

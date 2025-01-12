@@ -525,7 +525,18 @@ namespace DB_EDITOR
                         }
                         count++;
 
-                        if (count > 25)
+                        if (count >= 25)
+                        {
+                            jersey = rand.Next(PJEN[i][3], PJEN[i][4] + 1);
+                            if (!teamPJENList.Contains(jersey))
+                            {
+                                completed = true;
+                                return jersey;
+                            }
+                            count++;
+                        }
+
+                        if (count >= 50)
                         {
                             jersey = rand.Next(0, 100);
                             if (!teamPJENList.Contains(jersey))

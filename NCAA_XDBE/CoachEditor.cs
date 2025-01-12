@@ -802,6 +802,26 @@ namespace DB_EDITOR
             progressBar1.Minimum = 0;
             progressBar1.Maximum = GetTableRecCount("COCH");
 
+            List<List<List<int>>> teamPlayers = new List<List<List<int>>>();
+
+            for (int t = 0; t < 512; t++)
+            {
+                teamPlayers.Add(new List<List<int>>());
+            }
+
+            for (int p = 0; p < GetTableRecCount("PLAY"); p++)
+            {
+                int pgid = GetPGIDfromRecord(p);
+                int team = pgid / 70;
+
+                int count = teamPlayers[team].Count;
+                teamPlayers[team].Add(new List<int>());
+                teamPlayers[team][count].Add(pgid);
+                teamPlayers[team][count].Add(GetPYERfromRecord(p));
+                teamPlayers[team][count].Add(GetPTYPfromRecord(p));
+                teamPlayers[team][count].Add(GetDBValueInt("PLAY", "PDIS", p));
+            }
+
             for (int i = 0; i < GetTableRecCount("COCH"); i++)
             {
                 if (GetDBValueInt("COCH", "TGID", i) != 511)
@@ -813,22 +833,21 @@ namespace DB_EDITOR
                     CDPC = Convert.ToInt32(GetDBValue("COCH", "CDPC", i));
 
                     //get team sanction interest, team discipline, number of srs
-
-                    int teamRec = FindTeamRecfromTeamName(teamNameDB[GetDBValueInt("COCH", "TGID", i)]);
+                    int team = GetDBValueInt("COCH", "TGID", i);
+                    int teamRec = FindTeamRecfromTeamName(teamNameDB[team]);
 
                     if (GetDBValueInt("TEAM", "SNCT", teamRec) > 0) CDPC += 3;
                     CDPC += (GetDBValueInt("TEAM", "INPO", teamRec) - 50) / 10;
 
-                    int pgidStart = GetDBValueInt("COCH", "TGID", i) * 70;
                     int seniors = 0;
                     int lowDis = 0;
-                    for (int p = 0; p < GetTableRecCount("PLAY"); p++)
+                    for (int p = 0; p < teamPlayers[team].Count; p++)
                     {
-                        if (GetPGIDfromRecord(p) >= pgidStart && GetPGIDfromRecord(p) < pgidStart + 70 && GetPYERfromRecord(p) == 3 || GetPGIDfromRecord(p) >= pgidStart && GetPGIDfromRecord(p) < pgidStart + 70 && GetPTYPfromRecord(p) == 1)
+                        if (teamPlayers[team][p][1] == 3 || teamPlayers[team][p][2] == 1 || teamPlayers[team][p][2] == 3)
                         {
                             seniors++;
                         }
-                        if (GetPGIDfromRecord(p) >= pgidStart && GetPGIDfromRecord(p) < pgidStart + 70 && GetDBValueInt("PLAY", "PDIS", p) < 3)
+                        if (teamPlayers[team][p][3] < 3)
                         {
                             lowDis++;
                         }

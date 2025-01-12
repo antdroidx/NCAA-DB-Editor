@@ -101,8 +101,6 @@ namespace DB_EDITOR
                 progressBar1.PerformStep();
             }
 
-            //MessageBox.Show(news2, "Fired Head Coaches");
-
             progressBar1.Value = 0;
             progressBar1.Minimum = 0;
             progressBar1.Maximum = TGID_VacancyList.Count;
