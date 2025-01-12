@@ -7245,10 +7245,16 @@ It is recommended to use these tools after the completion of the National Champi
         SDVwHMdxHPf7kGrgOI7jOO73IdXAcRzHcdzv4/8DA/wRACG7vmUAAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>956, 17</value>
+  </metadata>
   <metadata name="PortalPosition.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="PortalTransferName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="PortalClass.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <metadata name="PortalRating.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
@@ -7271,12 +7277,22 @@ Large Portal will go through the entire roster and see if there are available pl
 Allow Winter Transfers:
 This lets players who transferred in the previous portal to be available in this portal.
 
+Immediate Eligibility:
+This is for non-NEXT mod users only. It will remove the Transfer 1 year wait period.
+
+Evaluate with JR/SR Rating Reduction:
+This evalutes the roster and portal feature with a rating reduction of -1 and -2 for juniors and seniors, respectively. This is to allow underclassmen more opportunity.
+
 Transfer Chance: 
 This is the likelihood a player will join the portal if they meet the pre-reqs.</value>
   </data>
   <data name="richTextBox1.Text" xml:space="preserve">
     <value>Roster Depth Options are used to determine how many players are protected from transferring from each team based on their overall ranking. It is also used to determine which teams need to fill holes if they do not have enough players at the position based on the value set above.
 </value>
+  </data>
+  <data name="groupBox33.ToolTip" xml:space="preserve">
+    <value>Small Portal will only fill team needs if they do not have enough based on the Depth options or find players that can immediately start
+Large Portal will go through the entire roster and see if there are available players that can compete with top backups and starters.</value>
   </data>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>25</value>

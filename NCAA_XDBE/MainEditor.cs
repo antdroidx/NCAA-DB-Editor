@@ -62,7 +62,7 @@ namespace DB_EDITOR
         List<List<List<int>>> SpringRoster;
         List<List<int>> SpringPortal;
         List<List<int>> TeamPortalNeeds;
-        List<List<int>> AvailablePGIDList;
+        List<List<int>> OccupiedPGIDList;
         List<List<int>> AvailablePJEN;
 
 

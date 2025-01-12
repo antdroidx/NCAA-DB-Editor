@@ -88,14 +88,14 @@ namespace DB_EDITOR
 
         private void CollectSpringRoster()
         {
-            AvailablePGIDList = new List<List<int>>();
+            OccupiedPGIDList = new List<List<int>>();
             AvailablePJEN = new List<List<int>>();
             SpringRoster = new List<List<List<int>>>();
 
 
             for (int i = 0; i < 512; i++)
             {
-                AvailablePGIDList.Add(new List<int>());
+                OccupiedPGIDList.Add(new List<int>());
                 AvailablePJEN.Add(new List<int>());
                 SpringRoster.Add(new List<List<int>>());
             }
@@ -111,11 +111,12 @@ namespace DB_EDITOR
                 int PGID = GetDBValueInt("PLAY", "PGID", i);
                 int TGID = PGID / 70;
 
-                AvailablePGIDList[TGID].Add(PGID);
+                OccupiedPGIDList[TGID].Add(PGID);
 
                 int POVR = GetDBValueInt("PLAY", "POVR", i);
                 int PPOS = GetDBValueInt("PLAY", "PPOS", i);
                 int PYER = GetDBValueInt("PLAY", "PYER", i);
+                int RS = GetDBValueInt("PLAY", "PRSD", i);
                 int PJEN = GetDBValueInt("PLAY", "PJEN", i);
 
                 AvailablePJEN[TGID].Add(PJEN);
@@ -143,8 +144,10 @@ namespace DB_EDITOR
                 SpringRoster[TGID][count].Add(POVR);
                 SpringRoster[TGID][count].Add(TGID);
                 SpringRoster[TGID][count].Add(PYER);
-                SpringRoster[TGID][count].Add(0);
+                SpringRoster[TGID][count].Add(POVR);
                 SpringRoster[TGID][count].Add(PJEN);
+                SpringRoster[TGID][count].Add(0); //TRAN status
+                SpringRoster[TGID][count].Add(RS);
 
                 progressBar1.PerformStep();
             }
@@ -169,12 +172,33 @@ namespace DB_EDITOR
                         int POVR = GetDB2ValueInt("RCTN", "POVR", y);
 
                         SpringRoster[tgid][i][4] = POVR;
-                        SpringRoster[tgid][i][7] = POVR - (SpringRoster[tgid][i][6] / 2);
+                        if (PortalRatingBoost.Checked)
+                            SpringRoster[tgid][i][7] = POVR - (SpringRoster[tgid][i][6] / 2);
+                        else
+                            SpringRoster[tgid][i][7] = POVR;
                         break;
                     }
                 }
                 progressBar1.PerformStep();
             }
+
+
+            //Check for Transfers in TRAN
+            for (int t = 0; t < GetTableRecCount("TRAN"); t++)
+            {
+                int pgid = GetDBValueInt("TRAN", "PGID", t);
+                int tgid = pgid / 70;
+                int team = GetDBValueInt("TRAN", "TRYR", t);
+                for (int i = 0; i < SpringRoster[tgid].Count; i++)
+                {
+                    if (SpringRoster[tgid][i][2] == pgid)
+                    {
+                        SpringRoster[tgid][i][9] = 1;
+                        break;
+                    }
+                }
+            }
+
 
 
             progressBar1.Value = 0;
@@ -214,8 +238,16 @@ namespace DB_EDITOR
                 SpringRoster[TGID][count].Add(TGID);
                 SpringRoster[TGID][count].Add(PYER);
                 SpringRoster[TGID][count].Add(POVR - (PYER / 2));
-                SpringRoster[TGID][count].Add(18);
+                SpringRoster[TGID][count].Add(18); //jersey number
+                SpringRoster[TGID][count].Add(0); //TRAN status
+                SpringRoster[TGID][count].Add(0);
 
+
+                SpringRoster[TGID][count][4] = POVR;
+                if (PortalRatingBoost.Checked)
+                    SpringRoster[TGID][count][7] = POVR - (SpringRoster[TGID][count][6] / 2);
+                else
+                    SpringRoster[TGID][count][7] = POVR;
 
                 progressBar1.PerformStep();
             }
@@ -226,7 +258,7 @@ namespace DB_EDITOR
 
         private void DetermineTeamCuts(int tgid)
         {
-            List<decimal> depth = new List<decimal> { PortalQB.Value, PortalHB.Value, PortalFB.Value, PortalWR.Value, PortalTE.Value, PortalOT.Value, PortalOG.Value, PortalOC.Value, PortalDE.Value, PortalDT.Value, PortalOLB.Value, PortalCB.Value, PortalFS.Value, PortalSS.Value, PortalK.Value, PortalP.Value };
+            List<decimal> depth = new List<decimal> { PortalQB.Value, PortalHB.Value, PortalFB.Value, PortalWR.Value, PortalTE.Value, PortalOT.Value, PortalOG.Value, PortalOC.Value, PortalDE.Value, PortalDT.Value, PortalOLB.Value, PortalMLB.Value, PortalCB.Value, PortalFS.Value, PortalSS.Value, PortalK.Value, PortalP.Value };
 
             for (int p = 0; p < depth.Count; p++)
             {
@@ -253,7 +285,7 @@ namespace DB_EDITOR
                     //add players to the portal
                     for (int x = Convert.ToInt32(depth[p]); x < posList.Count; x++)
                     {
-                        if (posList[x][0] != -1 || posList[x][2] >= 21000 && PortalTransfers.Checked)
+                        if (posList[x][0] != -1 && posList[x][9] == 0 || posList[x][2] >= 21000 && PortalTransfers.Checked || posList[x][9] == 1 && PortalTransfers.Checked)
                         {
                             if (rand.Next(0, 100) < portalChance.Value)
                                 SpringPortal.Add(posList[x]);
@@ -288,7 +320,7 @@ namespace DB_EDITOR
         {
             if (SpringPortal.Count == 0) return;
 
-            SpringPortal.Sort((player1, player2) => player2[4].CompareTo(player1[4]));
+            SpringPortal.Sort((player1, player2) => player2[7].CompareTo(player1[7]));
 
             List<List<int>> teamList = new List<List<int>>();
 
@@ -336,7 +368,7 @@ namespace DB_EDITOR
                 int tgid = teamList[t][0];
 
                 //Check for team needs
-                if (AvailablePGIDList[tgid].Count > 0 && AvailablePGIDList[tgid].Count < 70 && SpringPortal.Count > 0)
+                if (OccupiedPGIDList[tgid].Count > 0 && OccupiedPGIDList[tgid].Count < 70 && SpringPortal.Count > 0)
                 {
                     for (int p = 0; p < TeamPortalNeeds[tgid].Count; p++)
                     {
@@ -378,8 +410,8 @@ namespace DB_EDITOR
 
                 if (PortalSnake.Checked)
                 {
-                    if (round % 2 == 0) teamList.Sort((player1, player2) => player2[1].CompareTo(player1[1]));
-                    else teamList.Sort((player1, player2) => player1[1].CompareTo(player2[1]));
+                    if (round % 2 == 0) teamList.Sort((team1, team2) => team2[1].CompareTo(team1[1]));
+                    else teamList.Sort((team1, team2) => team1[1].CompareTo(team2[1]));
                     round++;
                 }
                 else
@@ -408,6 +440,7 @@ namespace DB_EDITOR
 
         private List<List<string>> SpringTransfer(int tgid, int p, List<List<string>> portalList)
         {
+            List<string> years = CreateClassYearsAbbr();
 
             //Check for team needs
             if (TeamPortalNeeds[tgid][p] > 0)
@@ -418,7 +451,7 @@ namespace DB_EDITOR
                     int rec = SpringPortal[i][0];
                     int pgid = SpringPortal[i][2];
                     int pos = SpringPortal[i][3];
-                    int ov = SpringPortal[i][4];
+                    int ov = SpringPortal[i][7];
                     int team = SpringPortal[i][5];
 
                     if (pos == p / 2)
@@ -432,13 +465,18 @@ namespace DB_EDITOR
                             //Check for open PGID slots
                             for (int j = tgid * 70; j <= tgid * 70 + 69; j++)
                             {
-                                if (!AvailablePGIDList[tgid].Contains(j))
+                                if (!OccupiedPGIDList[tgid].Contains(j))
                                 {
 
                                     int row = portalList.Count;
                                     portalList.Add(new List<string>());
                                     portalList[row].Add(GetPOSG2Name(pos));
                                     portalList[row].Add(GetPlayerNamefromPGID(pgid));
+
+                                    string yr = years[SpringPortal[i][6]];
+                                    if (SpringPortal[i][10] == 2) yr += " (RS)";
+
+                                    portalList[row].Add(yr);
                                     portalList[row].Add(Convert.ToString(ConvertRating(ov)));
                                     portalList[row].Add(teamNameDB[tgid]);
 
@@ -460,7 +498,10 @@ namespace DB_EDITOR
                                     }
                                     else
                                     {
-                                        portalList[row].Add(teamNameDB[team]);
+                                        if(SpringPortal[i][9] == 1)
+                                            portalList[row].Add(teamNameDB[team] + "*");
+                                        else
+                                            portalList[row].Add(teamNameDB[team]);
 
                                         ChangeDBInt("PLAY", "PGID", rec, j);
 
@@ -491,20 +532,31 @@ namespace DB_EDITOR
                                         ChangePlayerStatsID(SpringPortal[i][2], j);
                                     }
 
+                                    /*
                                     if (p % 2 == 1 && TeamPortalNeeds[tgid][p] == 1 && smallPortal.Checked || p % 2 == 1 && TeamPortalNeeds[tgid][p] > 1)
                                         TeamPortalNeeds[tgid][p - 1] = 0;
 
                                     else if (p % 2 == 0 && TeamPortalNeeds[tgid][p + 1] == 1 && smallPortal.Checked || p % 2 == 0 && TeamPortalNeeds[tgid][p + 1] > 1)
                                         TeamPortalNeeds[tgid][p + 1] = 0;
+                                    */
+
+                                    if (p % 2 == 1 && TeamPortalNeeds[tgid][p] == 1 && smallPortal.Checked)
+                                        TeamPortalNeeds[tgid][p - 1] = 0;
+
+                                    else if (p % 2 == 0 && TeamPortalNeeds[tgid][p + 1] == 1 && smallPortal.Checked)
+                                        TeamPortalNeeds[tgid][p + 1] = 0;
 
                                     TeamPortalNeeds[tgid][p] = 0;
 
+                                    //Remove Player from TRAN table (if needed)
+                                    if(SpringPortal[i][9] == 1 || SpringPortal[i][2] >= 21000) RemovePlayerFromTRAN(pgid);
+
                                     //Add Player to TRAN Table
-                                    AddPlayertoTRANS(j, team);
+                                    AddPlayertoTRAN(j, team);
 
 
-                                    AvailablePGIDList[tgid].Add(j);
-                                    AvailablePGIDList[j / 70].Remove(j);
+                                    OccupiedPGIDList[tgid].Add(j);
+                                    OccupiedPGIDList[pgid / 70].Remove(pgid);
                                     SpringPortal.RemoveAt(i);
                                     i--;
                                     need = false;
@@ -536,13 +588,14 @@ namespace DB_EDITOR
                 PortalData.Rows[x].Cells[2].Value = portalList2[x][2];
                 PortalData.Rows[x].Cells[3].Value = portalList2[x][3];
                 PortalData.Rows[x].Cells[4].Value = portalList2[x][4];
+                PortalData.Rows[x].Cells[5].Value = portalList2[x][5];
 
             }
 
-            TotalTransfersCount.Text = "Total Tranfers: " + Convert.ToString(portalList2.Count);
+            TotalTransfersCount.Text = "Total Transfers: " + Convert.ToString(portalList2.Count);
         }
 
-        private void AddPlayertoTRANS(int PGID, int TGID)
+        private void AddPlayertoTRAN(int PGID, int TGID)
         {
             int count = GetTableRecCount("TRAN");
             AddTableRecord("TRAN", false);
@@ -555,5 +608,18 @@ namespace DB_EDITOR
 
         }
 
+        private void RemovePlayerFromTRAN(int PGID)
+        {
+            for (int i = 0; i < GetTableRecCount("TRAN"); i++)
+            {
+                if (GetDBValueInt("TRAN", "PGID", i) == PGID)
+                {
+                    DeleteRecord("TRAN", i, true);
+                    break;
+                }
+            }
+
+            CompactDB();
+        }
     }
 }

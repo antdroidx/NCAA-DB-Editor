@@ -545,6 +545,11 @@ namespace DB_EDITOR
                                 return jersey;
                             }
                         }
+                        if (count >= 100)
+                        {
+                            return rand.Next(0, 100);
+                        }
+
                     }
                 }
             }

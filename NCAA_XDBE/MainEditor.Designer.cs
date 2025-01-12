@@ -990,10 +990,13 @@ namespace DB_EDITOR
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPortal = new System.Windows.Forms.TabPage();
+            this.PortalRatingBoost = new System.Windows.Forms.CheckBox();
+            this.TransferEligible = new System.Windows.Forms.CheckBox();
             this.TotalTransfersCount = new System.Windows.Forms.Label();
             this.PortalData = new System.Windows.Forms.DataGridView();
             this.PortalPosition = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PortalTransferName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PortalClass = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PortalRating = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PortalNewSchool = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PortalPrvTeam = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -1047,7 +1050,7 @@ namespace DB_EDITOR
             this.PortalFirst = new System.Windows.Forms.RadioButton();
             this.PortalReverse = new System.Windows.Forms.RadioButton();
             this.SpringPortalButton = new System.Windows.Forms.Button();
-            this.TransferEligible = new System.Windows.Forms.CheckBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             qbTend = new System.Windows.Forms.Button();
             this.mainMenu.SuspendLayout();
             this.tableMenu.SuspendLayout();
@@ -1296,7 +1299,7 @@ namespace DB_EDITOR
             this.openMenuItem.Image = global::DB_EDITOR.Properties.Resources.open2;
             this.openMenuItem.Name = "openMenuItem";
             this.openMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openMenuItem.Size = new System.Drawing.Size(169, 34);
+            this.openMenuItem.Size = new System.Drawing.Size(157, 22);
             this.openMenuItem.Text = "Open";
             this.openMenuItem.Click += new System.EventHandler(this.OpenMenuItem_Click);
             // 
@@ -1305,7 +1308,7 @@ namespace DB_EDITOR
             this.saveMenuItem.Image = global::DB_EDITOR.Properties.Resources.save3;
             this.saveMenuItem.Name = "saveMenuItem";
             this.saveMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveMenuItem.Size = new System.Drawing.Size(169, 34);
+            this.saveMenuItem.Size = new System.Drawing.Size(157, 22);
             this.saveMenuItem.Text = "Save";
             this.saveMenuItem.Click += new System.EventHandler(this.SaveMenuItem_Click);
             // 
@@ -1314,21 +1317,21 @@ namespace DB_EDITOR
             this.closeMenuItem.Image = global::DB_EDITOR.Properties.Resources.close;
             this.closeMenuItem.Name = "closeMenuItem";
             this.closeMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.W)));
-            this.closeMenuItem.Size = new System.Drawing.Size(169, 34);
+            this.closeMenuItem.Size = new System.Drawing.Size(157, 22);
             this.closeMenuItem.Text = "Close";
             this.closeMenuItem.Click += new System.EventHandler(this.CloseMenuItem_Click);
             // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(166, 6);
+            this.toolStripSeparator7.Size = new System.Drawing.Size(154, 6);
             // 
             // exitMenuItem
             // 
             this.exitMenuItem.Image = global::DB_EDITOR.Properties.Resources.exit;
             this.exitMenuItem.Name = "exitMenuItem";
             this.exitMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.exitMenuItem.Size = new System.Drawing.Size(169, 34);
+            this.exitMenuItem.Size = new System.Drawing.Size(157, 22);
             this.exitMenuItem.Text = "Exit";
             this.exitMenuItem.Click += new System.EventHandler(this.ExitToolItem_Click);
             // 
@@ -7145,7 +7148,7 @@ namespace DB_EDITOR
             this.BodyProgressionButton.Name = "BodyProgressionButton";
             this.BodyProgressionButton.Size = new System.Drawing.Size(125, 75);
             this.BodyProgressionButton.TabIndex = 34;
-            this.BodyProgressionButton.Text = "Body Size Progresssion";
+            this.BodyProgressionButton.Text = "Body Size Progression";
             this.BodyProgressionButton.UseVisualStyleBackColor = false;
             this.BodyProgressionButton.Click += new System.EventHandler(this.BodyProgressionButton_Click);
             // 
@@ -11890,6 +11893,7 @@ namespace DB_EDITOR
             // tabPortal
             // 
             this.tabPortal.BackColor = System.Drawing.Color.Tan;
+            this.tabPortal.Controls.Add(this.PortalRatingBoost);
             this.tabPortal.Controls.Add(this.TransferEligible);
             this.tabPortal.Controls.Add(this.TotalTransfersCount);
             this.tabPortal.Controls.Add(this.PortalData);
@@ -11909,11 +11913,37 @@ namespace DB_EDITOR
             this.tabPortal.TabIndex = 18;
             this.tabPortal.Text = "Portal";
             // 
+            // PortalRatingBoost
+            // 
+            this.PortalRatingBoost.AutoSize = true;
+            this.PortalRatingBoost.Location = new System.Drawing.Point(21, 356);
+            this.PortalRatingBoost.Name = "PortalRatingBoost";
+            this.PortalRatingBoost.Size = new System.Drawing.Size(212, 17);
+            this.PortalRatingBoost.TabIndex = 43;
+            this.PortalRatingBoost.Text = "Evaluate with JR/SR Rating Reduction";
+            this.PortalRatingBoost.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.toolTip1.SetToolTip(this.PortalRatingBoost, "This evalutes the roster and portal feature with a rating reduction of -1 and -2 " +
+        "for juniors and seniors, respectively. This is to allow underclassmen more oppor" +
+        "tunity.\r\n");
+            this.PortalRatingBoost.UseVisualStyleBackColor = true;
+            // 
+            // TransferEligible
+            // 
+            this.TransferEligible.AutoSize = true;
+            this.TransferEligible.Location = new System.Drawing.Point(21, 333);
+            this.TransferEligible.Name = "TransferEligible";
+            this.TransferEligible.Size = new System.Drawing.Size(217, 17);
+            this.TransferEligible.TabIndex = 42;
+            this.TransferEligible.Text = "Immediate Eligibility Waiver (Vanilla Only)";
+            this.toolTip1.SetToolTip(this.TransferEligible, "This is for non-NEXT mod users only. It will remove the Transfer 1 year wait peri" +
+        "od.");
+            this.TransferEligible.UseVisualStyleBackColor = true;
+            // 
             // TotalTransfersCount
             // 
             this.TotalTransfersCount.AutoSize = true;
             this.TotalTransfersCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TotalTransfersCount.Location = new System.Drawing.Point(739, 585);
+            this.TotalTransfersCount.Location = new System.Drawing.Point(770, 588);
             this.TotalTransfersCount.Name = "TotalTransfersCount";
             this.TotalTransfersCount.Size = new System.Drawing.Size(129, 16);
             this.TotalTransfersCount.TabIndex = 41;
@@ -11941,6 +11971,7 @@ namespace DB_EDITOR
             this.PortalData.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.PortalPosition,
             this.PortalTransferName,
+            this.PortalClass,
             this.PortalRating,
             this.PortalNewSchool,
             this.PortalPrvTeam});
@@ -11952,7 +11983,7 @@ namespace DB_EDITOR
             dataGridViewCellStyle31.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.PortalData.DefaultCellStyle = dataGridViewCellStyle31;
-            this.PortalData.Location = new System.Drawing.Point(239, 25);
+            this.PortalData.Location = new System.Drawing.Point(238, 25);
             this.PortalData.Name = "PortalData";
             this.PortalData.ReadOnly = true;
             this.PortalData.RowHeadersVisible = false;
@@ -11960,7 +11991,7 @@ namespace DB_EDITOR
             dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.PortalData.RowsDefaultCellStyle = dataGridViewCellStyle32;
             this.PortalData.RowTemplate.Height = 31;
-            this.PortalData.Size = new System.Drawing.Size(488, 576);
+            this.PortalData.Size = new System.Drawing.Size(525, 576);
             this.PortalData.TabIndex = 40;
             // 
             // PortalPosition
@@ -11976,6 +12007,13 @@ namespace DB_EDITOR
             this.PortalTransferName.HeaderText = "Player Name";
             this.PortalTransferName.Name = "PortalTransferName";
             this.PortalTransferName.ReadOnly = true;
+            // 
+            // PortalClass
+            // 
+            this.PortalClass.FillWeight = 13F;
+            this.PortalClass.HeaderText = "Year";
+            this.PortalClass.Name = "PortalClass";
+            this.PortalClass.ReadOnly = true;
             // 
             // PortalRating
             // 
@@ -12002,7 +12040,7 @@ namespace DB_EDITOR
             // 
             this.richTextBox3.BackColor = System.Drawing.SystemColors.Info;
             this.richTextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox3.Location = new System.Drawing.Point(742, 504);
+            this.richTextBox3.Location = new System.Drawing.Point(773, 507);
             this.richTextBox3.Name = "richTextBox3";
             this.richTextBox3.Size = new System.Drawing.Size(361, 52);
             this.richTextBox3.TabIndex = 39;
@@ -12013,9 +12051,9 @@ namespace DB_EDITOR
             // 
             this.richTextBox2.BackColor = System.Drawing.SystemColors.Info;
             this.richTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox2.Location = new System.Drawing.Point(12, 425);
+            this.richTextBox2.Location = new System.Drawing.Point(12, 411);
             this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(209, 176);
+            this.richTextBox2.Size = new System.Drawing.Size(209, 190);
             this.richTextBox2.TabIndex = 38;
             this.richTextBox2.Text = resources.GetString("richTextBox2.Text");
             // 
@@ -12023,7 +12061,7 @@ namespace DB_EDITOR
             // 
             this.richTextBox1.BackColor = System.Drawing.SystemColors.Info;
             this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(742, 385);
+            this.richTextBox1.Location = new System.Drawing.Point(773, 388);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(361, 97);
             this.richTextBox1.TabIndex = 37;
@@ -12032,16 +12070,18 @@ namespace DB_EDITOR
             // PortalTransfers
             // 
             this.PortalTransfers.AutoSize = true;
-            this.PortalTransfers.Location = new System.Drawing.Point(21, 352);
+            this.PortalTransfers.Location = new System.Drawing.Point(21, 310);
             this.PortalTransfers.Name = "PortalTransfers";
             this.PortalTransfers.Size = new System.Drawing.Size(189, 17);
             this.PortalTransfers.TabIndex = 36;
             this.PortalTransfers.Text = "Allow Winter Transfers to Re-Enter";
+            this.toolTip1.SetToolTip(this.PortalTransfers, "This lets players who transferred in the previous portal to be available in this " +
+        "portal.");
             this.PortalTransfers.UseVisualStyleBackColor = true;
             // 
             // portalChance
             // 
-            this.portalChance.Location = new System.Drawing.Point(171, 400);
+            this.portalChance.Location = new System.Drawing.Point(176, 385);
             this.portalChance.Name = "portalChance";
             this.portalChance.Size = new System.Drawing.Size(45, 20);
             this.portalChance.TabIndex = 35;
@@ -12054,27 +12094,29 @@ namespace DB_EDITOR
             // label259
             // 
             this.label259.AutoSize = true;
-            this.label259.Location = new System.Drawing.Point(18, 403);
+            this.label259.Location = new System.Drawing.Point(23, 388);
             this.label259.Name = "label259";
             this.label259.Size = new System.Drawing.Size(150, 13);
             this.label259.TabIndex = 34;
             this.label259.Text = "Transfer Chance Percentage: ";
+            this.toolTip1.SetToolTip(this.label259, "This is the likelihood a player will join the portal if they meet the pre-reqs.");
             // 
             // groupBox33
             // 
             this.groupBox33.Controls.Add(this.largePortal);
             this.groupBox33.Controls.Add(this.smallPortal);
-            this.groupBox33.Location = new System.Drawing.Point(21, 243);
+            this.groupBox33.Location = new System.Drawing.Point(21, 225);
             this.groupBox33.Name = "groupBox33";
-            this.groupBox33.Size = new System.Drawing.Size(200, 100);
+            this.groupBox33.Size = new System.Drawing.Size(200, 79);
             this.groupBox33.TabIndex = 31;
             this.groupBox33.TabStop = false;
             this.groupBox33.Text = "Portal Size";
+            this.toolTip1.SetToolTip(this.groupBox33, resources.GetString("groupBox33.ToolTip"));
             // 
             // largePortal
             // 
             this.largePortal.AutoSize = true;
-            this.largePortal.Location = new System.Drawing.Point(18, 61);
+            this.largePortal.Location = new System.Drawing.Point(18, 48);
             this.largePortal.Name = "largePortal";
             this.largePortal.Size = new System.Drawing.Size(82, 17);
             this.largePortal.TabIndex = 1;
@@ -12085,7 +12127,7 @@ namespace DB_EDITOR
             // 
             this.smallPortal.AutoSize = true;
             this.smallPortal.Checked = true;
-            this.smallPortal.Location = new System.Drawing.Point(18, 27);
+            this.smallPortal.Location = new System.Drawing.Point(18, 23);
             this.smallPortal.Name = "smallPortal";
             this.smallPortal.Size = new System.Drawing.Size(80, 17);
             this.smallPortal.TabIndex = 0;
@@ -12129,7 +12171,7 @@ namespace DB_EDITOR
             this.groupBox32.Controls.Add(this.label243);
             this.groupBox32.Controls.Add(this.PortalQB);
             this.groupBox32.Controls.Add(this.label242);
-            this.groupBox32.Location = new System.Drawing.Point(742, 25);
+            this.groupBox32.Location = new System.Drawing.Point(773, 28);
             this.groupBox32.Name = "groupBox32";
             this.groupBox32.Size = new System.Drawing.Size(361, 345);
             this.groupBox32.TabIndex = 30;
@@ -12370,7 +12412,7 @@ namespace DB_EDITOR
             this.PortalDT.Size = new System.Drawing.Size(44, 20);
             this.PortalDT.TabIndex = 19;
             this.PortalDT.Value = new decimal(new int[] {
-            6,
+            5,
             0,
             0,
             0});
@@ -12670,6 +12712,8 @@ namespace DB_EDITOR
             this.groupBox31.TabIndex = 29;
             this.groupBox31.TabStop = false;
             this.groupBox31.Text = "Portal Priority";
+            this.toolTip1.SetToolTip(this.groupBox31, "This determines the order in which teams select players. It will go through posit" +
+        "ion by position.");
             // 
             // PortalSnake
             // 
@@ -12723,16 +12767,6 @@ namespace DB_EDITOR
             this.SpringPortalButton.Text = "Spring Portal";
             this.SpringPortalButton.UseVisualStyleBackColor = true;
             this.SpringPortalButton.Click += new System.EventHandler(this.SpringPortalButton_Click);
-            // 
-            // TransferEligible
-            // 
-            this.TransferEligible.AutoSize = true;
-            this.TransferEligible.Location = new System.Drawing.Point(21, 375);
-            this.TransferEligible.Name = "TransferEligible";
-            this.TransferEligible.Size = new System.Drawing.Size(217, 17);
-            this.TransferEligible.TabIndex = 42;
-            this.TransferEligible.Text = "Immediate Eligibility Waiver (Vanilla Only)";
-            this.TransferEligible.UseVisualStyleBackColor = true;
             // 
             // MainEditor
             // 
@@ -13965,11 +13999,6 @@ namespace DB_EDITOR
         private RichTextBox richTextBox1;
         private RichTextBox richTextBox3;
         private DataGridView PortalData;
-        private DataGridViewTextBoxColumn PortalPosition;
-        private DataGridViewTextBoxColumn PortalTransferName;
-        private DataGridViewTextBoxColumn PortalRating;
-        private DataGridViewTextBoxColumn PortalNewSchool;
-        private DataGridViewTextBoxColumn PortalPrvTeam;
         private Label TotalTransfersCount;
         private System.Windows.Forms.Button TransferPortalStats;
         private GroupBox groupBox34;
@@ -13999,6 +14028,14 @@ namespace DB_EDITOR
         private RadioButton GTransferCommitted;
         private Label CoachFiringsCount;
         private CheckBox TransferEligible;
+        private CheckBox PortalRatingBoost;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private DataGridViewTextBoxColumn PortalPosition;
+        private DataGridViewTextBoxColumn PortalTransferName;
+        private DataGridViewTextBoxColumn PortalClass;
+        private DataGridViewTextBoxColumn PortalRating;
+        private DataGridViewTextBoxColumn PortalNewSchool;
+        private DataGridViewTextBoxColumn PortalPrvTeam;
     }
 }
 

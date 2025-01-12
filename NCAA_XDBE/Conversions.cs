@@ -363,6 +363,18 @@ namespace DB_EDITOR
             return status;
         }
 
+        public List<string> CreateClassYearsAbbr()
+        {
+            List<string> status = new List<string>();
+
+            status.Add("FR");
+            status.Add("SO");
+            status.Add("JR");
+            status.Add("SR");
+            return status;
+        }
+
+
         public List<string> CreateOffSeasonPTYP()
         {
             List<string> status = new List<string>();

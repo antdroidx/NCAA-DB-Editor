@@ -1057,10 +1057,10 @@ namespace DB_EDITOR
             progressBar1.Maximum = GetTableRecCount("TRAN");
             progressBar1.Step = 1;
             
-            AvailablePGIDList = new List<List<int>>();
+            OccupiedPGIDList = new List<List<int>>();
             for (int i = 0; i < 512; i++)
             {
-                AvailablePGIDList.Add(new List<int>());
+                OccupiedPGIDList.Add(new List<int>());
             }
             //Add Roster
             for (int i = 0; i < GetTableRecCount("PLAY"); i++)
@@ -1069,7 +1069,7 @@ namespace DB_EDITOR
                 int PGID = GetDBValueInt("PLAY", "PGID", i);
                 int TGID = PGID / 70;
 
-                if(TGID < 512) AvailablePGIDList[TGID].Add(PGID);
+                if(TGID < 512) OccupiedPGIDList[TGID].Add(PGID);
             }
 
 
@@ -1094,7 +1094,7 @@ namespace DB_EDITOR
                 //Check for open PGID slots
                 for (int j = team * 70; j <= team * 70 + 69; j++)
                 {
-                    if (!AvailablePGIDList[team].Contains(j))
+                    if (!OccupiedPGIDList[team].Contains(j))
                     {
                         ChangePlayerStatsID(PGID, j);
                         
@@ -1102,7 +1102,7 @@ namespace DB_EDITOR
 
                         DeleteRecord("TRAN", i, true);
                         DeleteRecord2("RCPR", rec, true);
-                        AvailablePGIDList[team].Add(j);
+                        OccupiedPGIDList[team].Add(j);
                         break;
                     }
                 }

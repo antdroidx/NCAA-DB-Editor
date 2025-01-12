@@ -1034,7 +1034,7 @@ namespace DB_EDITOR
                 rosters.Add(PGID);
                 int TGID = PGID / 70;
 
-                AvailablePGIDList[TGID].Add(PGID);
+                OccupiedPGIDList[TGID].Add(PGID);
             }
 
 
