@@ -1155,6 +1155,8 @@ namespace DB_EDITOR
                 FantasyRosterGeneratorSingle(GetDBValueInt("TEAM", "TGID", TeamIndex), Convert.ToInt32(TMPRNumBox.Value));
             }
             RecalculateOverall();
+            DepthChartMakerSingle("TEAM", GetDBValueInt("TEAM", "TGID", TeamIndex));
+            CalculateAllTeamRatings("TEAM");
 
             GetTeamEditorData(TeamIndex);
         }

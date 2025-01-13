@@ -164,7 +164,7 @@ namespace DB_EDITOR
             RecalculateOverall();
             RecalculateBMI("PLAY");
             RecalculateQBTendencies();
-            CalculateTeamRatings(tableName);
+            CalculateAllTeamRatings(tableName);
 
             MessageBox.Show("Fantasy Roster Generation is complete!\n\nRun the Depth Chart Tool to create Depth Charts!");
 
@@ -284,8 +284,6 @@ namespace DB_EDITOR
                 rec++;
             }
 
-            CalculateTeamRatingsSingle("TEAM", tgid);
-            DepthChartMakerSingle("TEAM", tgid);
 
             MessageBox.Show(teamNameDB[tgid] + " Roster has been generated.");
         }

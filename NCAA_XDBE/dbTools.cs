@@ -86,8 +86,8 @@ namespace DB_EDITOR
         //Recalculate Team Overalls
         private void TYDNButton_Click(object sender, EventArgs e)
         {
-            if (TEAM) CalculateTeamRatings("TEAM");
-            if (TDYN) CalculateTeamRatings("TDYN");
+            if (TEAM) CalculateAllTeamRatings("TEAM");
+            if (TDYN) CalculateAllTeamRatings("TDYN");
         }
 
         //Determine Impact Players
@@ -441,7 +441,7 @@ namespace DB_EDITOR
         }
 
         //Calculate Team Ratings
-        public void CalculateTeamRatings(string tableName)
+        public void CalculateAllTeamRatings(string tableName)
         {
 
             progressBar1.Visible = true;
@@ -449,222 +449,43 @@ namespace DB_EDITOR
             progressBar1.Maximum = GetTableRecCount(tableName);
             progressBar1.Step = 1;
 
+            List<List<List<int>>> AllRosters = new List<List<List<int>>>();
 
-            int rating, count;
-            int bonus = 0;
+            for (int i = 0; i < 512; i++)
+            {
+                List<List<int>> roster = new List<List<int>>();
+                AllRosters.Add(roster);
+            }
+
+
+
+            for (int j = 0; j < GetTableRecCount("PLAY"); j++)
+            {
+                int PGID = GetDBValueInt("PLAY", "PGID", j);
+                int TGID = PGID / 70;
+
+                int POVR = GetDBValueInt("PLAY", "POVR", j);
+                int PPOS = GetDBValueInt("PLAY", "PPOS", j);
+
+                int count = AllRosters[TGID].Count;
+                List<int> player = new List<int>();
+                AllRosters[TGID].Add(player);
+                AllRosters[TGID][count].Add(POVR);
+                AllRosters[TGID][count].Add(PPOS);
+            }
 
             for (int i = 0; i < GetTableRecCount(tableName); i++)
             {
-                if (GetDBValueInt(tableName, "TTYP", i) < 1)
+                if (TEAM && GetDBValueInt(tableName, "TTYP", i) < 1 || TDYN)
                 {
+                    int TGID = GetDBValueInt(tableName, "TOID", i);
 
-                    int TOID = GetDBValueInt(tableName, "TOID", i);
-                    int PGIDbeg = TOID * 70;
-                    int PGIDend = PGIDbeg + 69;
-
-                    count = 0;
-                    List<List<int>> roster = new List<List<int>>();
-
-                    for (int j = 0; j < GetTableRecCount("PLAY"); j++)
-                    {
-                        int PGID = GetDBValueInt("PLAY", "PGID", j);
-
-                        if (PGID >= PGIDbeg && PGID <= PGIDend)
-                        {
-                            int POVR = GetDBValueInt("PLAY", "POVR", j);
-                            int PPOS = GetDBValueInt("PLAY", "PPOS", j);
-                            List<int> player = new List<int>();
-                            roster.Add(player);
-                            roster[count].Add(POVR);
-                            roster[count].Add(PPOS);
-                            count++;
-                        }
-                    }
-                    roster.Sort((player1, player2) => player2[0].CompareTo(player1[0]));
-
-
-                    //TRDB - Defensive Backs  PPOS = 16, 17, 18
-                    rating = 0;
-                    count = 0;
-                    for (int j = 0; j < roster.Count; j++)
-                    {
-                        int PPOS = roster[j][1];
-
-                        if (PPOS >= 16 && PPOS <= 18)
-                        {
-                            rating += roster[j][0];
-                            count++;
-                        }
-                        if (count >= 5) break;
-                    }
-
-                    rating = ConvertRating(rating / count) + bonus;
-
-                    ChangeDBString(tableName, "TRDB", i, Convert.ToString(rating));
-
-
-                    //TRLB - Linebackers 13, 14, 15
-                    rating = 0;
-                    count = 0;
-                    for (int j = 0; j < roster.Count; j++)
-                    {
-                        int PPOS = roster[j][1];
-
-                        if (PPOS >= 13 && PPOS <= 15)
-                        {
-                            rating += roster[j][0];
-                            count++;
-                        }
-                        if (count >= 4) break;
-                    }
-
-                    rating = ConvertRating(rating / count) + bonus;
-
-                    ChangeDBString(tableName, "TRLB", i, Convert.ToString(rating));
-
-
-
-                    //TRQB - Quarterbacks 0
-                    rating = 0;
-                    count = 0;
-                    for (int j = 0; j < roster.Count; j++)
-                    {
-                        int PPOS = roster[j][1];
-
-                        if (PPOS == 0)
-                        {
-                            rating += roster[j][0];
-                            count++;
-                        }
-                        if (count >= 1) break;
-                    }
-
-                    rating = ConvertRating(rating / count) + bonus;
-
-                    ChangeDBString(tableName, "TRQB", i, Convert.ToString(rating));
-
-
-                    //TRRB - Running Backs 1, 2
-                    rating = 0;
-                    count = 0;
-                    for (int j = 0; j < roster.Count; j++)
-                    {
-                        int PPOS = roster[j][1];
-
-                        if (PPOS >= 1 && PPOS <= 2)
-                        {
-                            rating += roster[j][0];
-                            count++;
-                        }
-                        if (count >= 3) break;
-                    }
-
-                    rating = ConvertRating(rating / count) + bonus;
-
-                    ChangeDBString(tableName, "TRRB", i, Convert.ToString(rating));
-
-                    //TRDL - Defensive Line 10, 11, 12
-                    rating = 0;
-                    count = 0;
-                    for (int j = 0; j < roster.Count; j++)
-                    {
-                        int PPOS = roster[j][1];
-
-                        if (PPOS >= 10 && PPOS <= 12)
-                        {
-                            rating += roster[j][0];
-                            count++;
-                        }
-                        if (count >= 4) break;
-                    }
-
-                    rating = ConvertRating(rating / count) + bonus;
-
-                    ChangeDBString(tableName, "TRDL", i, Convert.ToString(rating));
-
-                    //TROL - Offensive Line 5 - 9
-                    rating = 0;
-                    count = 0;
-                    for (int j = 0; j < roster.Count; j++)
-                    {
-                        int PPOS = roster[j][1];
-
-                        if (PPOS >= 5 && PPOS <= 9)
-                        {
-                            rating += roster[j][0];
-                            count++;
-                        }
-                        if (count >= 6) break;
-                    }
-
-                    rating = ConvertRating(rating / count) + bonus;
-
-                    ChangeDBString(tableName, "TROL", i, Convert.ToString(rating));
-
-                    //TWRR - Wide Receivers 3, 4
-                    rating = 0;
-                    count = 0;
-                    for (int j = 0; j < roster.Count; j++)
-                    {
-                        int PPOS = roster[j][1];
-
-                        if (PPOS >= 3 && PPOS <= 4)
-                        {
-                            rating += roster[j][0];
-                            count++;
-                        }
-                        if (count >= 5) break;
-                    }
-
-                    rating = ConvertRating(rating / count) + bonus;
-
-                    ChangeDBString(tableName, "TWRR", i, Convert.ToString(rating));
-
-                    //TRST - Special Teams 19, 20
-                    rating = 0;
-                    count = 0;
-                    for (int j = 0; j < roster.Count; j++)
-                    {
-                        int PPOS = roster[j][1];
-
-                        if (PPOS >= 19 && PPOS <= 20)
-                        {
-                            rating += roster[j][0];
-                            count++;
-                        }
-                        if (count >= 2) break;
-                    }
-
-                    if (count < 0) ChangeDBInt(tableName, "TRST", i, 0);
-                    else
-                    {
-                        rating = ConvertRating(rating / count) + bonus;
-
-                        ChangeDBString(tableName, "TRST", i, Convert.ToString(rating));
-                    }
-
-
-
-                    //TRDE - Defense 10 - 18, 20
-                    rating = (Convert.ToInt32(GetDBValue(tableName, "TRDB", i)) + Convert.ToInt32(GetDBValue(tableName, "TRLB", i)) + Convert.ToInt32(GetDBValue(tableName, "TRDL", i))) / 3;
-
-                    ChangeDBString(tableName, "TRDE", i, Convert.ToString(rating));
-
-                    //TROF - Offense 0 - 9, 19
-                    rating = (Convert.ToInt32(GetDBValue(tableName, "TRQB", i)) * 2 + Convert.ToInt32(GetDBValue(tableName, "TRRB", i)) + Convert.ToInt32(GetDBValue(tableName, "TWRR", i)) + Convert.ToInt32(GetDBValue(tableName, "TROL", i))) / 5;
-
-                    ChangeDBString(tableName, "TROF", i, Convert.ToString(rating));
-
-                    //TROV - Team Overall
-                    rating = (Convert.ToInt32(GetDBValue(tableName, "TROF", i)) * 3 + Convert.ToInt32(GetDBValue(tableName, "TRDE", i)) * 3 + Convert.ToInt32(GetDBValue(tableName, "TRST", i))) / 7;
-
-                    ChangeDBString(tableName, "TROV", i, Convert.ToString(rating));
-
-
-                    progressBar1.PerformStep();
-
+                    CalculateTeamRatings(tableName, i, AllRosters[TGID]);
                 }
+
+                progressBar1.PerformStep();
             }
+
 
             NormalizeTeamRatings(tableName);
 
@@ -676,8 +497,6 @@ namespace DB_EDITOR
         //Calculate Single Team Ratings
         public void CalculateTeamRatingsSingle(string tableName, int tgid)
         {
-            int rating, count;
-            int bonus = 0;
             int PGIDbeg = tgid * 70;
             int PGIDend = PGIDbeg + 69;
             int i = -1;
@@ -691,7 +510,7 @@ namespace DB_EDITOR
                 }
             }
 
-            count = 0;
+            int count = 0;
             List<List<int>> roster = new List<List<int>>();
 
             for (int j = 0; j < GetTableRecCount("PLAY"); j++)
@@ -709,12 +528,24 @@ namespace DB_EDITOR
                     count++;
                 }
             }
-            roster.Sort((player1, player2) => player2[0].CompareTo(player1[0]));
 
+            CalculateTeamRatings(tableName, i, roster);
+
+            NormalizeTeamRatings(tableName);
+
+            MessageBox.Show(teamNameDB[tgid] + " Team Rating Calculations are complete!");
+        }
+
+        //Actually calculate the team ratings
+        public void CalculateTeamRatings(string tableName, int teamRec, List<List<int>> roster)
+        {
+
+            roster.Sort((player1, player2) => player2[0].CompareTo(player1[0]));
+            int bonus = 0;
 
             //TRDB - Defensive Backs  PPOS = 16, 17, 18
-            rating = 0;
-            count = 0;
+            int rating = 0;
+            int count = 0;
             for (int j = 0; j < roster.Count; j++)
             {
                 int PPOS = roster[j][1];
@@ -729,7 +560,7 @@ namespace DB_EDITOR
 
             rating = ConvertRating(rating / count) + bonus;
 
-            ChangeDBString(tableName, "TRDB", i, Convert.ToString(rating));
+            ChangeDBString(tableName, "TRDB", teamRec, Convert.ToString(rating));
 
 
             //TRLB - Linebackers 13, 14, 15
@@ -749,7 +580,7 @@ namespace DB_EDITOR
 
             rating = ConvertRating(rating / count) + bonus;
 
-            ChangeDBString(tableName, "TRLB", i, Convert.ToString(rating));
+            ChangeDBString(tableName, "TRLB", teamRec, Convert.ToString(rating));
 
 
 
@@ -770,7 +601,7 @@ namespace DB_EDITOR
 
             rating = ConvertRating(rating / count) + bonus;
 
-            ChangeDBString(tableName, "TRQB", i, Convert.ToString(rating));
+            ChangeDBString(tableName, "TRQB", teamRec, Convert.ToString(rating));
 
 
             //TRRB - Running Backs 1, 2
@@ -790,7 +621,7 @@ namespace DB_EDITOR
 
             rating = ConvertRating(rating / count) + bonus;
 
-            ChangeDBString(tableName, "TRRB", i, Convert.ToString(rating));
+            ChangeDBString(tableName, "TRRB", teamRec, Convert.ToString(rating));
 
             //TRDL - Defensive Line 10, 11, 12
             rating = 0;
@@ -809,7 +640,7 @@ namespace DB_EDITOR
 
             rating = ConvertRating(rating / count) + bonus;
 
-            ChangeDBString(tableName, "TRDL", i, Convert.ToString(rating));
+            ChangeDBString(tableName, "TRDL", teamRec, Convert.ToString(rating));
 
             //TROL - Offensive Line 5 - 9
             rating = 0;
@@ -828,7 +659,7 @@ namespace DB_EDITOR
 
             rating = ConvertRating(rating / count) + bonus;
 
-            ChangeDBString(tableName, "TROL", i, Convert.ToString(rating));
+            ChangeDBString(tableName, "TROL", teamRec, Convert.ToString(rating));
 
             //TWRR - Wide Receivers 3, 4
             rating = 0;
@@ -847,7 +678,7 @@ namespace DB_EDITOR
 
             rating = ConvertRating(rating / count) + bonus;
 
-            ChangeDBString(tableName, "TWRR", i, Convert.ToString(rating));
+            ChangeDBString(tableName, "TWRR", teamRec, Convert.ToString(rating));
 
             //TRST - Special Teams 19, 20
             rating = 0;
@@ -864,34 +695,33 @@ namespace DB_EDITOR
                 if (count >= 2) break;
             }
 
-            if (count < 0) ChangeDBInt(tableName, "TRST", i, 0);
+            if (count <= 0) ChangeDBInt(tableName, "TRST", teamRec, 0);
             else
             {
                 rating = ConvertRating(rating / count) + bonus;
 
-                ChangeDBString(tableName, "TRST", i, Convert.ToString(rating));
+                ChangeDBString(tableName, "TRST", teamRec, Convert.ToString(rating));
             }
 
 
             //TRDE - Defense 10 - 18, 20
-            rating = (Convert.ToInt32(GetDBValue(tableName, "TRDB", i)) + Convert.ToInt32(GetDBValue(tableName, "TRLB", i)) + Convert.ToInt32(GetDBValue(tableName, "TRDL", i))) / 3;
+            rating = (Convert.ToInt32(GetDBValue(tableName, "TRDB", teamRec)) + Convert.ToInt32(GetDBValue(tableName, "TRLB", teamRec)) + Convert.ToInt32(GetDBValue(tableName, "TRDL", teamRec))) / 3;
 
-            ChangeDBString(tableName, "TRDE", i, Convert.ToString(rating));
+            ChangeDBString(tableName, "TRDE", teamRec, Convert.ToString(rating));
 
             //TROF - Offense 0 - 9, 19
-            rating = (Convert.ToInt32(GetDBValue(tableName, "TRQB", i)) * 2 + Convert.ToInt32(GetDBValue(tableName, "TRRB", i)) + Convert.ToInt32(GetDBValue(tableName, "TWRR", i)) + Convert.ToInt32(GetDBValue(tableName, "TROL", i))) / 5;
+            rating = (Convert.ToInt32(GetDBValue(tableName, "TRQB", teamRec)) * 2 + Convert.ToInt32(GetDBValue(tableName, "TRRB", teamRec)) + Convert.ToInt32(GetDBValue(tableName, "TWRR", teamRec)) + Convert.ToInt32(GetDBValue(tableName, "TROL", teamRec))) / 5;
 
-            ChangeDBString(tableName, "TROF", i, Convert.ToString(rating));
+            ChangeDBString(tableName, "TROF", teamRec, Convert.ToString(rating));
 
             //TROV - Team Overall
-            rating = (Convert.ToInt32(GetDBValue(tableName, "TROF", i)) * 3 + Convert.ToInt32(GetDBValue(tableName, "TRDE", i)) * 3 + Convert.ToInt32(GetDBValue(tableName, "TRST", i))) / 7;
+            rating = (Convert.ToInt32(GetDBValue(tableName, "TROF", teamRec)) * 3 + Convert.ToInt32(GetDBValue(tableName, "TRDE", teamRec)) * 3 + Convert.ToInt32(GetDBValue(tableName, "TRST", teamRec))) / 7;
 
-            ChangeDBString(tableName, "TROV", i, Convert.ToString(rating));
+            ChangeDBString(tableName, "TROV", teamRec, Convert.ToString(rating));
 
-            NormalizeTeamRatings(tableName);
-
-            MessageBox.Show(teamNameDB[tgid] + " Team Rating Calculations are complete!");
         }
+
+
 
         public void NormalizeTeamRatings(string tableName)
         {

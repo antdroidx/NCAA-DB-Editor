@@ -46,7 +46,7 @@ namespace DB_EDITOR
 
         private void DevCalcTeamRatingsButton_Click(object sender, EventArgs e)
         {
-            CalculateTeamRatings("TDYN");
+            CalculateAllTeamRatings("TDYN");
         }
 
 
