@@ -478,6 +478,13 @@ namespace DB_EDITOR
 
                                     portalList[row].Add(yr);
                                     portalList[row].Add(Convert.ToString(ConvertRating(ov)));
+
+                                    if(PortalRatingBoost.Checked)
+                                    {
+                                        int boost = SpringPortal[i][7] + (SpringPortal[i][6] / 2);
+                                        portalList[row][3] = Convert.ToString(ConvertRating(boost));
+                                    }
+
                                     portalList[row].Add(teamNameDB[tgid]);
 
                                     if (pgid >= 21000)
@@ -531,14 +538,6 @@ namespace DB_EDITOR
                                         // Change Player Stats ID
                                         ChangePlayerStatsID(SpringPortal[i][2], j);
                                     }
-
-                                    /*
-                                    if (p % 2 == 1 && TeamPortalNeeds[tgid][p] == 1 && smallPortal.Checked || p % 2 == 1 && TeamPortalNeeds[tgid][p] > 1)
-                                        TeamPortalNeeds[tgid][p - 1] = 0;
-
-                                    else if (p % 2 == 0 && TeamPortalNeeds[tgid][p + 1] == 1 && smallPortal.Checked || p % 2 == 0 && TeamPortalNeeds[tgid][p + 1] > 1)
-                                        TeamPortalNeeds[tgid][p + 1] = 0;
-                                    */
 
                                     if (p % 2 == 1 && TeamPortalNeeds[tgid][p] == 1 && smallPortal.Checked)
                                         TeamPortalNeeds[tgid][p - 1] = 0;

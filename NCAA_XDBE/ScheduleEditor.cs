@@ -135,15 +135,19 @@ namespace DB_EDITOR
                     if (Convert.ToInt32(MatchView.Rows[i].Cells[1].Value) > Convert.ToInt32(MatchView.Rows[i].Cells[2].Value))
                     {
                         MatchView.Rows[i].Cells[2].Style.ForeColor = Color.Gray;
+                        MatchView.Rows[i].Cells[1].Style.Font = new Font(MatchView.Font, FontStyle.Bold);
+
                     }
                     else if (Convert.ToInt32(MatchView.Rows[i].Cells[1].Value) < Convert.ToInt32(MatchView.Rows[i].Cells[2].Value))
                     {
                         MatchView.Rows[i].Cells[1].Style.ForeColor = Color.Gray;
+                        MatchView.Rows[i].Cells[2].Style.Font = new Font(MatchView.Font, FontStyle.Bold);
+
                     }
                     else
                     {
-                        MatchView.Rows[i].Cells[1].Style.ForeColor = Color.Gray;
-                        MatchView.Rows[i].Cells[2].Style.ForeColor = Color.Gray;
+                        MatchView.Rows[i].Cells[1].Style.ForeColor = Color.Black;
+                        MatchView.Rows[i].Cells[2].Style.ForeColor = Color.Black;
                     }
                 }
                 else if (i == 1 || i == 15)
@@ -154,15 +158,19 @@ namespace DB_EDITOR
                     if (Convert.ToInt32(MatchView.Rows[i].Cells[1].Value) > Convert.ToInt32(MatchView.Rows[i].Cells[2].Value))
                     {
                         MatchView.Rows[i].Cells[2].Style.ForeColor = Color.Gray;
+                        MatchView.Rows[i].Cells[1].Style.Font = new Font(MatchView.Font, FontStyle.Bold);
+
                     }
                     else if (Convert.ToInt32(MatchView.Rows[i].Cells[1].Value) < Convert.ToInt32(MatchView.Rows[i].Cells[2].Value))
                     {
                         MatchView.Rows[i].Cells[1].Style.ForeColor = Color.Gray;
+                        MatchView.Rows[i].Cells[2].Style.Font = new Font(MatchView.Font, FontStyle.Bold);
+
                     }
                     else
                     {
-                        MatchView.Rows[i].Cells[1].Style.ForeColor = Color.Gray;
-                        MatchView.Rows[i].Cells[2].Style.ForeColor = Color.Gray;
+                        MatchView.Rows[i].Cells[1].Style.ForeColor = Color.Black;
+                        MatchView.Rows[i].Cells[2].Style.ForeColor = Color.Black;
                     }
                 }
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
 
@@ -105,6 +106,9 @@ namespace DB_EDITOR
         List<string> FirstNames;
         List<string> LastNames;
 
+        [DllImport("user32.dll")]
+        public static extern void DisableProcessWindowsGhosting();
+
         #endregion
 
         public MainEditor()
@@ -194,7 +198,6 @@ namespace DB_EDITOR
             progressBar1.Value = 0;
 
             DoNotTrigger = false;
-
         }
 
         #region OPEN, SAVE & CLOSE

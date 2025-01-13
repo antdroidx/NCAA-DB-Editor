@@ -374,7 +374,6 @@ namespace DB_EDITOR
             return status;
         }
 
-
         public List<string> CreateOffSeasonPTYP()
         {
             List<string> status = new List<string>();
