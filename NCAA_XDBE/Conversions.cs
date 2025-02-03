@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Runtime.Versioning;
 using System.Windows.Forms;
@@ -610,52 +611,33 @@ namespace DB_EDITOR
         {
             Ratings.Clear();
             RatingsX.Clear();
-            List<int> ratingsList = new List<int>();
 
-            ratingsList = CreateIntListfromCSV(@"resources\players\PRLU.csv", true);
-            for(int i = 0; i  < ratingsList.Count; i++)
+            if(TEAM)
             {
-                Ratings.Add(i, ratingsList[i]);
+                for(int i = 0; i < GetTableRecCount("PRLU"); i++)
+                {
+                    Ratings.Add(i, Convert.ToInt32(GetDBValue("PRLU", "LURT", i)));
+                }
+            }
+            else
+            {
+                List<int> ratingsList = new List<int>();
+                ratingsList = CreateIntListfromCSV(@"resources\players\PRLU.csv", true);
+                for (int i = 0; i < ratingsList.Count; i++)
+                {
+                    Ratings.Add(i, ratingsList[i]);
+                }
             }
 
-            /*
-            Ratings.Add(0, 40);
-            Ratings.Add(1, 44);
-            Ratings.Add(2, 48);
-            Ratings.Add(3, 52);
-            Ratings.Add(4, 56);
-            Ratings.Add(5, 59);
-            Ratings.Add(6, 62);
-            Ratings.Add(7, 65);
-            Ratings.Add(8, 68);
-            Ratings.Add(9, 70);
-            Ratings.Add(10, 72);
-            Ratings.Add(11, 74);
-            Ratings.Add(12, 76);
-            Ratings.Add(13, 78);
-            Ratings.Add(14, 80);
-            Ratings.Add(15, 82);
-            Ratings.Add(16, 84);
-            Ratings.Add(17, 85);
-            Ratings.Add(18, 86);
-            Ratings.Add(19, 87);
-            Ratings.Add(20, 88);
-            Ratings.Add(21, 89);
-            Ratings.Add(22, 90);
-            Ratings.Add(23, 91);
-            Ratings.Add(24, 92);
-            Ratings.Add(25, 93);
-            Ratings.Add(26, 94);
-            Ratings.Add(27, 95);
-            Ratings.Add(28, 96);
-            Ratings.Add(29, 97);
-            Ratings.Add(30, 98);
-            Ratings.Add(31, 99);
-            */
             foreach (KeyValuePair<int, int> CHAR in Ratings)
             {
                 RatingsX.Add(CHAR.Value, CHAR.Key);
             }
+
+            minRatingVal = 0;
+            maxRatingVal = Ratings.Count - 1;
+            minConvRatingVal = Ratings[minRatingVal];
+            maxConvRatingVal = Ratings[maxRatingVal];
         }
 
         public int ConvertRating(int value)
@@ -754,7 +736,7 @@ namespace DB_EDITOR
             }
 
             int val = Convert.ToInt32(newRating);
-            if (val < 40) val = 40;
+            if (val < minConvRatingVal) val = minConvRatingVal;
             val = RevertRating(val);
 
             ChangeDBString("PLAY", "POVR", rec, Convert.ToString(val));
@@ -798,7 +780,7 @@ namespace DB_EDITOR
 
             double AWR = Convert.ToInt32(AWRog - (AWRog * PosHit));
 
-            if (AWR < 40) AWR = 40;
+            if (AWR < minConvRatingVal) AWR = minConvRatingVal;
 
             PAWR = RevertRating(Convert.ToInt32(AWR));
 
@@ -1366,7 +1348,7 @@ namespace DB_EDITOR
 
             attribute += rand.Next(-tol, tol + 1);
 
-            if (attribute < 0) attribute = 0; if (attribute > 31) attribute = 31;
+            if (attribute < 0) attribute = 0; if (attribute > maxRatingVal) attribute = maxRatingVal;
 
             return attribute;
         }
@@ -1377,7 +1359,7 @@ namespace DB_EDITOR
 
             attribute += rand.Next(0, tol + 1);
 
-            if (attribute < 0) attribute = 0; if (attribute > 31) attribute = 31;
+            if (attribute < 0) attribute = 0; if (attribute > maxRatingVal) attribute = maxRatingVal;
 
             return attribute;
         }
@@ -1387,7 +1369,8 @@ namespace DB_EDITOR
 
             attribute += rand.Next(0, tol + 1);
 
-            if (attribute < 40) attribute = 40; if (attribute > 99) attribute = 99;
+            if (attribute < minRatingVal) attribute = minRatingVal;
+            if (attribute > maxRatingVal) attribute = maxRatingVal;
 
             return attribute;
         }

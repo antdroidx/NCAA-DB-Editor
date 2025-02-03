@@ -550,9 +550,9 @@ namespace DB_EDITOR.Properties {
         ///3,3,2,3,2,1,0,1,0,1,2,1,2,3,3,3,3,3,3,3,3,8
         ///3,3,2,3,2,0,1,2,1,0,2,1,2,3,3,3,3,3, [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string Awareness {
+        internal static string awareness {
             get {
-                return ResourceManager.GetString("Awareness", resourceCulture);
+                return ResourceManager.GetString("awareness", resourceCulture);
             }
         }
         
@@ -836,28 +836,28 @@ namespace DB_EDITOR.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to PPOS,PPST,MIN,MAX
-        ///0,QB,0,9
-        ///1,HB,20,29
-        ///2,FB,40,49
-        ///3,WR,80,89
-        ///4,TE,40,49
-        ///5,LT,60,79
-        ///6,LG,60,79
-        ///7,C,60,79
-        ///8,RG,60,79
-        ///9,RT,60,79
-        ///10,LE,90,99
-        ///11,RE,90,99
-        ///12,DT,90,99
-        ///13,LOLB,40,59
-        ///14,MLB,40,59
-        ///15,ROLB,40,59
-        ///16,CB,10,19
-        ///17,FS,30,39
-        ///18,SS,30,39
-        ///19,K,0,9
-        ///20,P,0,9
+        ///   Looks up a localized string similar to PPOS,PPST,MIN,MAX,MIN,MAX
+        ///0,QB,0,9,10,19
+        ///1,HB,0,29,30,39
+        ///2,FB,30,39,40,59
+        ///3,WR,80,89,0,19
+        ///4,TE,40,49,80,89
+        ///5,LT,60,79,60,79
+        ///6,LG,60,79,60,79
+        ///7,C,60,79,60,79
+        ///8,RG,60,79,60,79
+        ///9,RT,60,79,60,79
+        ///10,LE,90,99,0,39
+        ///11,RE,90,99,0,39
+        ///12,DT,90,99,50,59
+        ///13,LOLB,40,59,0,39
+        ///14,MLB,40,59,0,39
+        ///15,ROLB,40,59,0,39
+        ///16,CB,0,29,30,39
+        ///17,FS,0,39,30,39
+        ///18,SS,0,39,30,39
+        ///19,K,0,59,0,59
+        ///20,P,0,59,0,59
         ///.
         /// </summary>
         internal static string PJEN {
@@ -1360,6 +1360,79 @@ namespace DB_EDITOR.Properties {
             get {
                 object obj = ResourceManager.GetObject("save3", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to REGN,TMST,PTST
+        ///6,1,0
+        ///5,2,0
+        ///3,3,0
+        ///6,4,0
+        ///2,9,0
+        ///6,10,0
+        ///3,13,0
+        ///5,18,0
+        ///4,19,0
+        ///4,21,0
+        ///5,25,0
+        ///4,26,0
+        ///5,28,0
+        ///5,30,0
+        ///5,31,0
+        ///3,34,0
+        ///4,37,0
+        ///3,39,0
+        ///4,42,0
+        ///5,43,0
+        ///1,1,1
+        ///3,4,1
+        ///3,5,1
+        ///5,6,1
+        ///6,8,1
+        ///3,10,1
+        ///2,11,1
+        ///5,17,1
+        ///5,19,1
+        ///4,21,1
+        ///3,22,1
+        ///5,23,1
+        ///4,24,1
+        ///3,30,1
+        ///5,31,1
+        ///6,32,1
+        ///4,35,1
+        ///2,36,1
+        ///6,39,1
+        ///5,47,1
+        ///4,48,1
+        ///3,49,1
+        ///1,2,2
+        ///5,50,2
+        ///2,5,2
+        ///5,51,2
+        ///5,9,2
+        ///4,17,2
+        ///6,18,2
+        ///5,19,2
+        ///5,21,2
+        ///2,30,2
+        ///6,31,2
+        ///4,33,2
+        ///3,36,2
+        ///5,39,2
+        ///5,45,2
+        ///3,46,2
+        ///6,1,3
+        ///5,4,3
+        ///4,51,3
+        ///3,14,3
+        ///3,16,3
+        ///2,17,3        /// [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string SRGN {
+            get {
+                return ResourceManager.GetString("SRGN", resourceCulture);
             }
         }
         

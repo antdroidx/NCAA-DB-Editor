@@ -17,6 +17,11 @@ namespace DB_EDITOR
 
         Random rand = new Random();
 
+        int minRatingVal = 0;
+        int minConvRatingVal = 40;
+        int maxRatingVal = 31;
+        int maxConvRatingVal = 99;
+
         string dbFile = "";
         string dbFile2 = "";
         public int dbIndex = -1;
@@ -127,6 +132,11 @@ namespace DB_EDITOR
             dbIndex2 = -1;
             dbSelected = 0;
             SelectedTableIndex = -1;
+
+            minRatingVal = 0;
+            minConvRatingVal = 40;
+            maxRatingVal = 31;
+            maxConvRatingVal = 99;
 
             saveMenuItem.Enabled = false;
             closeMenuItem.Enabled = false;
@@ -1110,7 +1120,6 @@ namespace DB_EDITOR
             LoadFields();
             TDB.TDBSave(dbIndex2);
         }
-
 
         private void NCAANext25Config_Click(object sender, EventArgs e)
         {

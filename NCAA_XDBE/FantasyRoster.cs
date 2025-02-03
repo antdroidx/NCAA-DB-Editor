@@ -427,7 +427,7 @@ namespace DB_EDITOR
             if (PHGT < 0) PHGT = 0;
 
             PPOE = rand.Next(1, 30);
-            PINJ = rand.Next(1, 30);
+            PINJ = rand.Next(1, maxRatingVal);
             PIMP = rand.Next(1, 30);
             PAWR = GetRandomPositiveAttribute(PAWR, tolB);
             PDIS = rand.Next(2, 7);
@@ -583,6 +583,8 @@ namespace DB_EDITOR
 
             return ht;
         }
+
+
         #endregion
 
 

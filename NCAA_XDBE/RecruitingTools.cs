@@ -250,7 +250,7 @@ namespace DB_EDITOR
                     if (PHGT > 82) PHGT = 82;
                     if (PHGT < 0) PHGT = 0;
                     PPOE = rand.Next(1, 32);
-                    PINJ = rand.Next(1, 32);
+                    PINJ = rand.Next(1, maxConvRatingVal);
                     PAWR = GetRandomAttribute(PAWR, tolA);
 
                     PTHA = GetRandomAttribute(PTHA, tol);
@@ -412,9 +412,9 @@ namespace DB_EDITOR
                 PWGT += rand.Next(-12, 13);
                 if (PWGT < 0) PWGT = 0;
                 if (PHGT > 82) PHGT = 82;
-                PPOE = rand.Next(1, 31);
-                PINJ = rand.Next(1, 31);
-                PAWR = rand.Next(1, 31);
+                PPOE = rand.Next(1, 32);
+                PINJ = rand.Next(1, maxRatingVal);
+                PAWR = rand.Next(1, maxRatingVal);
 
                 PTHA = GetRandomAttribute(PTHA, tol);
                 PSTA = GetRandomAttribute(PSTA, tol);
@@ -724,7 +724,7 @@ namespace DB_EDITOR
             }
 
             int val = Convert.ToInt32(newRating);
-            if (val < 40) val = 40;
+            if (val < minConvRatingVal) val = minConvRatingVal;
             val = RevertRating(val);
 
             ChangeDB2String("RCPT", "POVR", rec, Convert.ToString(val));
@@ -933,7 +933,7 @@ namespace DB_EDITOR
             int AWRog = ConvertRating(Convert.ToInt32(PAWR));
             int AWR = Convert.ToInt32(AWRog - (AWRog * PosHit));
 
-            if (AWR < 40) AWR = 40;
+            if (AWR < minConvRatingVal) AWR = minConvRatingVal;
 
             PAWR = RevertRating(AWR);
 

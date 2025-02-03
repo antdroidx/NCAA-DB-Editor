@@ -37,6 +37,9 @@ namespace DB_EDITOR
                 FantasyCSV.Enabled = true;
                 FantasyCSV.Checked = false;
             }
+
+            GlobalAttNum.Minimum = -maxRatingVal;
+            GlobalAttNum.Maximum = maxRatingVal;
         }
 
         #region MAIN DB TOOLS CLICKS
@@ -45,12 +48,6 @@ namespace DB_EDITOR
         private void BodyFix_Click(object sender, EventArgs e)
         {
             RecalculateBMI("PLAY");
-        }
-
-        //Increases minium speed for skill positions to 80
-        private void IncreaseSpeed_Click(object sender, EventArgs e)
-        {
-            IncreaseMinimumSpeed();
         }
 
         //Recalculates QB Tendencies based on original game criteria
@@ -155,6 +152,13 @@ namespace DB_EDITOR
         {
             ClearExpiredStatsData();
         }
+
+        //Fix Hometown Button
+        private void FixHometownButton_Click(object sender, EventArgs e)
+        {
+            FixHometown();
+        }
+
 
         #endregion
 
@@ -295,31 +299,6 @@ namespace DB_EDITOR
                 }
             }
 
-        }
-        //Increases minium speed for skill positions to 80
-        private void IncreaseMinimumSpeed()
-        {
-            progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = GetTableRecCount("PLAY");
-            progressBar1.Step = 1;
-
-            for (int i = 0; i < GetTableRecCount("PLAY"); i++)
-            {
-                if (GetDBValue("PLAY", "PPOS", i) == "1" || GetDBValue("PLAY", "PPOS", i) == "3"
-                    || GetDBValue("PLAY", "PPOS", i) == "16" || GetDBValue("PLAY", "PPOS", i) == "17" || GetDBValue("PLAY", "PPOS", i) == "18")
-                {
-                    if (Convert.ToInt32(GetDBValue("PLAY", "PSPD", i)) < 14)
-                    {
-                        ChangeDBString("PLAY", "PSPD", i, "14");
-                    }
-                }
-                progressBar1.PerformStep();
-            }
-
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
-            MessageBox.Show("Speed updates are complete!");
         }
 
         //Recalculates QB Tendencies based on original game criteria
@@ -850,6 +829,7 @@ namespace DB_EDITOR
             int created = 0;
 
             //Create a list of PGIDs in the database
+            OccupiedPGIDList = new List<List<int>>();
 
             List<int> rosters = new List<int>();
             AvailablePJEN = new List<List<int>>();
@@ -1230,6 +1210,64 @@ namespace DB_EDITOR
             MessageBox.Show("Dynasty Year Reset!");
         }
 
+
+        //Check and Fix hometowns if they exist or missing
+        private void FixHometown()
+        {
+            progressBar1.Visible = true;
+            progressBar1.Value = 0;
+            progressBar1.Maximum = GetTableRecCount("PLAY");
+
+            for (int i = 0; i < GetTableRecCount("PLAY"); i++)
+            {
+                int hometown = GetDBValueInt("PLAY", "RCHD", i);
+
+                hometown = CheckHometown(hometown);
+                ChangeDBInt("PLAY", "RCHD", i, hometown);
+
+                progressBar1.PerformStep();
+            }
+
+            progressBar1.Visible = false;
+            MessageBox.Show("Hometowns Fixed!");
+        }
+
+        private int CheckHometown(int hometown)
+        {
+            int ht = 0;
+
+            List<string> home = new List<string>();
+
+            string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string csvLocation = Path.Combine(executableLocation, @"resources\players\RCHT.csv");
+
+            string filePath = csvLocation;
+            StreamReader sr = new StreamReader(filePath);
+            while (!sr.EndOfStream)
+            {
+                string[] Line = sr.ReadLine().Split(',');
+                home.Add(Line[0]);
+            }
+            sr.Close();
+
+            if (home.Contains(Convert.ToString(hometown))) 
+            {
+                return hometown;
+            }
+            else
+            {
+                int state = hometown / 256;
+                bool realHT = false;
+                while (!realHT)
+                {
+                    ht = rand.Next(state * 256, state * 256 + 256);
+                    if (home.Contains(Convert.ToString(ht))) realHT = true;
+                }
+            }
+
+            return ht;
+        }
+
         #endregion
 
 
@@ -1426,7 +1464,7 @@ namespace DB_EDITOR
             else rating = GetDBValueInt("PLAY", attribute, rec) + rand.Next(val, Convert.ToInt32(tol * (double)val));
 
             if (rating < 0) rating = 0;
-            if (rating > 31) rating = 31;
+            if (rating > maxRatingVal) rating = maxRatingVal;
 
             ChangeDBInt("PLAY", attribute, rec, rating);
         }

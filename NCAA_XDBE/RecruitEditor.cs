@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Security.Cryptography;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
 
@@ -441,86 +442,103 @@ namespace DB_EDITOR
             RPOEtext.BackColor = GetRatingColor(RPOEtext).BackColor;
 
             //Injury
+            RINJBox.Maximum = maxRatingVal;
             RINJBox.Value = GetDB2ValueInt("RCPT", "PINJ", RecruitIndex);
             RINJtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(RINJBox.Value)));
             RINJtext.BackColor = GetRatingColor(RINJtext).BackColor;
 
             //Awareness
+            RAWRBox.Maximum = maxRatingVal;
             RAWRBox.Value = GetDB2ValueInt("RCPT", "PAWR", RecruitIndex);
             RAWRtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(RAWRBox.Value)));
             RAWRtext.BackColor = GetRatingColor(RAWRtext).BackColor;
 
             //Speed
-            RSPDBox.Value = GetDB2ValueInt("RCPT", "PSRD", RecruitIndex);
+            RSPDBox.Maximum = maxRatingVal;
+            RSPDBox.Value = GetDB2ValueInt("RCPT", "PSPD", RecruitIndex);
             RSPDtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(RSPDBox.Value)));
             RSPDtext.BackColor = GetRatingColor(RSPDtext).BackColor;
 
             //Agility
+            RAGIBox.Maximum = maxRatingVal;
             RAGIBox.Value = GetDB2ValueInt("RCPT", "PAGI", RecruitIndex);
             RAGItext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(RAGIBox.Value)));
             RAGItext.BackColor = GetRatingColor(RAGItext).BackColor;
 
             //Acceleration
+            RACCBox.Maximum = maxRatingVal;
             RACCBox.Value = GetDB2ValueInt("RCPT", "PACC", RecruitIndex);
             RACCtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(RACCBox.Value)));
             RACCtext.BackColor = GetRatingColor(RACCtext).BackColor;
 
             //Jumping
+            RJMPBox.Maximum = maxRatingVal;
             RJMPBox.Value = GetDB2ValueInt("RCPT", "PJMP", RecruitIndex);
             RJMPtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(RJMPBox.Value)));
             RJMPtext.BackColor = GetRatingColor(RJMPtext).BackColor;
 
             //Strength
+            RSTRBox.Maximum = maxRatingVal;
             RSTRBox.Value = GetDB2ValueInt("RCPT", "PSTR", RecruitIndex);
             RSTRtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(RSTRBox.Value)));
             RSTRtext.BackColor = GetRatingColor(RSTRtext).BackColor;
 
             //Throw Rower
+            RTHPBox.Maximum = maxRatingVal;
             RTHPBox.Value = GetDB2ValueInt("RCPT", "PTHP", RecruitIndex);
             RTHPtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(RTHPBox.Value)));
             RTHPtext.BackColor = GetRatingColor(RTHPtext).BackColor;
 
             //Throw Accuracy
+            RTHABox.Maximum = maxRatingVal;
             RTHABox.Value = GetDB2ValueInt("RCPT", "PTHA", RecruitIndex);
             RTHAtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(RTHABox.Value)));
             RTHAtext.BackColor = GetRatingColor(RTHAtext).BackColor;
 
             //Break Tackle
+            RBTKBox.Maximum = maxRatingVal;
             RBTKBox.Value = GetDB2ValueInt("RCPT", "PBTK", RecruitIndex);
             RBTKtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(RBTKBox.Value)));
             RBTKtext.BackColor = GetRatingColor(RBTKtext).BackColor;
 
             //Ball Carry
+            RCARBox.Maximum = maxRatingVal;
             RCARBox.Value = GetDB2ValueInt("RCPT", "PCAR", RecruitIndex);
             RCARtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(RCARBox.Value)));
             RCARtext.BackColor = GetRatingColor(RCARtext).BackColor;
 
             //Run Blocking
+            PRBKBox.Maximum = maxRatingVal;
             RRBKBox.Value = GetDB2ValueInt("RCPT", "PRBK", RecruitIndex);
             RRBKtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(RRBKBox.Value)));
             RRBKtext.BackColor = GetRatingColor(RRBKtext).BackColor;
 
             //Pass Blocking
+            RPBKBox.Maximum = maxRatingVal;
             RPBKBox.Value = GetDB2ValueInt("RCPT", "PRBK", RecruitIndex);
             RPBKtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(RPBKBox.Value)));
             RPBKtext.BackColor = GetRatingColor(RPBKtext).BackColor;
 
             //Catching
+            RCTHBox.Maximum = maxRatingVal;
             RCTHBox.Value = GetDB2ValueInt("RCPT", "PCTH", RecruitIndex);
             RCTHtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(RCTHBox.Value)));
             RCTHtext.BackColor = GetRatingColor(RCTHtext).BackColor;
 
             //Tackling
+            RTAKBox.Maximum = maxRatingVal;
             RTAKBox.Value = GetDB2ValueInt("RCPT", "PTAK", RecruitIndex);
             RTAKtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(RTAKBox.Value)));
             RTAKtext.BackColor = GetRatingColor(RTAKtext).BackColor;
 
             //Kick Rower
+            RKPRBox.Maximum = maxRatingVal;
             RKPRBox.Value = GetDB2ValueInt("RCPT", "PKPR", RecruitIndex);
             RKPRtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(RKPRBox.Value)));
             RKPRtext.BackColor = GetRatingColor(RKPRtext).BackColor;
 
             //Kick Accuracy
+            RKACBox.Maximum = maxRatingVal;
             RKACBox.Value = GetDB2ValueInt("RCPT", "PKAC", RecruitIndex);
             RKACtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(RKACBox.Value)));
             RKACtext.BackColor = GetRatingColor(RKACtext).BackColor;
@@ -1027,7 +1045,7 @@ namespace DB_EDITOR
             }
 
             int val = Convert.ToInt32(newRating);
-            if (val < 40) val = 40;
+            if (val < minConvRatingVal) val = minConvRatingVal;
             val = RevertRating(val);
 
             ChangeDB2Int("RCPT", "POVR", rec, val);

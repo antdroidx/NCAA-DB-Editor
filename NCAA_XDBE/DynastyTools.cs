@@ -506,7 +506,7 @@ namespace DB_EDITOR
         {
 
             string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            string csvLocation = Path.Combine(executableLocation, @"resources\SRGN.csv");
+            string csvLocation = Path.Combine(executableLocation, @"resources\misc\SRGN.csv");
 
             //SRGN == Region Distance, State A, State B
 
@@ -589,7 +589,7 @@ namespace DB_EDITOR
             for (int i = 0; i < GetTableRecCount("PLAY"); i++)
             {
                 //Create a list of Players that are seniors and have high awareness
-                if (Convert.ToInt32(GetDBValue("PLAY", "PAWR", i)) >= 20 && GetDBValue("PLAY", "PYER", i) == "3")
+                if (ConvertRating(GetDBValueInt("PLAY", "PAWR", i)) >= 90 && GetDBValue("PLAY", "PYER", i) == "3")
                 {
                     PGID_List.Add(i);
                 }
@@ -1159,7 +1159,7 @@ namespace DB_EDITOR
                 {
                     if (teamPlayers[tgid][p][1] == pgid)
                     {
-                        if (teamPlayers[tgid][p][2] < 8)
+                        if (ConvertRating(teamPlayers[tgid][p][2]) < 68)
                         {
                             ChangeDBInt("PLAY", "PTYP", teamPlayers[tgid][p][0], 3);
                             DeleteRecord("TRAN", i, true);

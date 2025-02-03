@@ -241,9 +241,6 @@
   <data name="PTEN" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\players\PTEN.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="Awareness" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\players\Awareness.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
   <data name="PLYL_Custom" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\playbooks\PLYL-Custom.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
@@ -258,5 +255,11 @@
   </data>
   <data name="temp_data" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\misc\temp-data.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="awareness" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\players\awareness.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="SRGN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\misc\SRGN.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
 </root>

@@ -303,6 +303,13 @@ namespace DB_EDITOR
             {
                 int teamA = group[rand.Next(0, group.Count)];
                 group.Remove(teamA);
+
+                if(group.Count == 0)
+                {
+                    ScheduleFCSMatch(teamA, fcs);
+                    break;
+                }
+
                 int teamB = group[rand.Next(0, group.Count)];
                 group.Remove(teamB);
 
@@ -341,6 +348,20 @@ namespace DB_EDITOR
         {
             while (ListA.Count > 0)
             {
+                if(ListA.Count == 1 && ListB.Count == 0)
+                {
+                    int team = ListA[rand.Next(0, ListA.Count)];
+                    ScheduleFCSMatch(team, fcs);
+                    break;
+
+                } else if (ListA.Count == 0 && ListB.Count == 1)
+                {
+                    int team = ListA[rand.Next(0, ListB.Count)];
+                    ScheduleFCSMatch(team, fcs);
+                    break;
+                }
+
+
                 int teamA = ListA[rand.Next(0, ListA.Count)];
                 ListA.Remove(teamA);
                 int teamB = ListB[rand.Next(0, ListB.Count)];
