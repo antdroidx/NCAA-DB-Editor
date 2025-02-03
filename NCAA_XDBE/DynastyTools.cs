@@ -519,11 +519,14 @@ namespace DB_EDITOR
                 string[] Line = sr.ReadLine().Split(',');
                 if (Row == 0)
                 {
-                    strArray = new int[2704, Line.Length];
+                    strArray = new int[2705, Line.Length];
                 }
-                for (int column = 0; column < Line.Length; column++)
+                else
                 {
-                    strArray[Row, column] = Convert.ToInt32(Line[column]);
+                    for (int column = 0; column < Line.Length; column++)
+                    {
+                        strArray[Row, column] = Convert.ToInt32(Line[column]);
+                    }
                 }
                 Row++;
             }

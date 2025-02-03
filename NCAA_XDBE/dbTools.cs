@@ -830,6 +830,12 @@ namespace DB_EDITOR
 
             //Create a list of PGIDs in the database
             OccupiedPGIDList = new List<List<int>>();
+            for (int i = 0; i < 512; i++)
+            {
+                List<int> PGIDList = new List<int>();
+                OccupiedPGIDList.Add(PGIDList);
+            }
+
 
             List<int> rosters = new List<int>();
             AvailablePJEN = new List<List<int>>();
