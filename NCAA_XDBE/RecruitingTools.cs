@@ -250,7 +250,7 @@ namespace DB_EDITOR
                     if (PHGT > 82) PHGT = 82;
                     if (PHGT < 0) PHGT = 0;
                     PPOE = rand.Next(1, 32);
-                    PINJ = rand.Next(1, maxConvRatingVal);
+                    PINJ = rand.Next(1, maxRatingVal);
                     PAWR = GetRandomAttribute(PAWR, tolA);
 
                     PTHA = GetRandomAttribute(PTHA, tol);
