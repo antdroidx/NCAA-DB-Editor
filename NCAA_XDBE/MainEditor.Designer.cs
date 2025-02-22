@@ -212,6 +212,7 @@ namespace DB_EDITOR
             this.DefaultPlaysRadio = new System.Windows.Forms.RadioButton();
             this.CustomPlaysRadio = new System.Windows.Forms.RadioButton();
             this.tabTools = new System.Windows.Forms.TabPage();
+            this.FixHometownButton = new System.Windows.Forms.Button();
             this.ReRankTeamsAP = new System.Windows.Forms.CheckBox();
             this.ResetDynYear = new System.Windows.Forms.Button();
             this.groupBox38 = new System.Windows.Forms.GroupBox();
@@ -557,6 +558,12 @@ namespace DB_EDITOR
             this.label211 = new System.Windows.Forms.Label();
             this.SCHDTeamBox = new System.Windows.Forms.ListBox();
             this.ScheduleView = new System.Windows.Forms.DataGridView();
+            this.SCHDWeek = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SCHDHOME = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SCHDScoreH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SCHDVS = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SCHDAWAY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SCHDScoreA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabSeason = new System.Windows.Forms.TabPage();
             this.groupBox36 = new System.Windows.Forms.GroupBox();
             this.medRS = new System.Windows.Forms.Button();
@@ -1045,12 +1052,6 @@ namespace DB_EDITOR
             this.PortalReverse = new System.Windows.Forms.RadioButton();
             this.SpringPortalButton = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.SCHDWeek = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SCHDHOME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SCHDScoreH = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SCHDVS = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SCHDAWAY = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SCHDScoreA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             qbTend = new System.Windows.Forms.Button();
             this.mainMenu.SuspendLayout();
             this.tableMenu.SuspendLayout();
@@ -2780,6 +2781,7 @@ namespace DB_EDITOR
             // tabTools
             // 
             this.tabTools.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.tabTools.Controls.Add(this.FixHometownButton);
             this.tabTools.Controls.Add(this.ReRankTeamsAP);
             this.tabTools.Controls.Add(this.ResetDynYear);
             this.tabTools.Controls.Add(this.groupBox38);
@@ -2800,6 +2802,19 @@ namespace DB_EDITOR
             this.tabTools.TabIndex = 5;
             this.tabTools.Text = "dbTools";
             // 
+            // FixHometownButton
+            // 
+            this.FixHometownButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.FixHometownButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FixHometownButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.FixHometownButton.Location = new System.Drawing.Point(141, 349);
+            this.FixHometownButton.Name = "FixHometownButton";
+            this.FixHometownButton.Size = new System.Drawing.Size(110, 80);
+            this.FixHometownButton.TabIndex = 63;
+            this.FixHometownButton.Text = "Fix Hometowns\r\n";
+            this.FixHometownButton.UseVisualStyleBackColor = false;
+            this.FixHometownButton.Click += new System.EventHandler(this.FixHometownButton_Click);
+            // 
             // ReRankTeamsAP
             // 
             this.ReRankTeamsAP.AutoSize = true;
@@ -2815,7 +2830,7 @@ namespace DB_EDITOR
             this.ResetDynYear.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ResetDynYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ResetDynYear.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ResetDynYear.Location = new System.Drawing.Point(12, 320);
+            this.ResetDynYear.Location = new System.Drawing.Point(11, 248);
             this.ResetDynYear.Name = "ResetDynYear";
             this.ResetDynYear.Size = new System.Drawing.Size(110, 80);
             this.ResetDynYear.TabIndex = 61;
@@ -3037,7 +3052,7 @@ namespace DB_EDITOR
             this.FixHCBugsButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.FixHCBugsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FixHCBugsButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.FixHCBugsButton.Location = new System.Drawing.Point(143, 319);
+            this.FixHCBugsButton.Location = new System.Drawing.Point(142, 247);
             this.FixHCBugsButton.Name = "FixHCBugsButton";
             this.FixHCBugsButton.Size = new System.Drawing.Size(110, 80);
             this.FixHCBugsButton.TabIndex = 56;
@@ -3305,7 +3320,7 @@ namespace DB_EDITOR
             this.UniquePlayerButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.UniquePlayerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UniquePlayerButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.UniquePlayerButton.Location = new System.Drawing.Point(12, 421);
+            this.UniquePlayerButton.Location = new System.Drawing.Point(11, 349);
             this.UniquePlayerButton.Name = "UniquePlayerButton";
             this.UniquePlayerButton.Size = new System.Drawing.Size(110, 80);
             this.UniquePlayerButton.TabIndex = 54;
@@ -3318,7 +3333,7 @@ namespace DB_EDITOR
             this.SyncPBButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.SyncPBButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.SyncPBButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.SyncPBButton.Location = new System.Drawing.Point(143, 519);
+            this.SyncPBButton.Location = new System.Drawing.Point(141, 529);
             this.SyncPBButton.Name = "SyncPBButton";
             this.SyncPBButton.Size = new System.Drawing.Size(110, 80);
             this.SyncPBButton.TabIndex = 52;
@@ -3357,7 +3372,7 @@ namespace DB_EDITOR
             this.ReorderPGIDButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ReorderPGIDButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ReorderPGIDButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.ReorderPGIDButton.Location = new System.Drawing.Point(16, 519);
+            this.ReorderPGIDButton.Location = new System.Drawing.Point(14, 529);
             this.ReorderPGIDButton.Name = "ReorderPGIDButton";
             this.ReorderPGIDButton.Size = new System.Drawing.Size(110, 80);
             this.ReorderPGIDButton.TabIndex = 28;
@@ -3370,7 +3385,7 @@ namespace DB_EDITOR
             this.TORDButton.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.TORDButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TORDButton.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.TORDButton.Location = new System.Drawing.Point(142, 421);
+            this.TORDButton.Location = new System.Drawing.Point(82, 443);
             this.TORDButton.Name = "TORDButton";
             this.TORDButton.Size = new System.Drawing.Size(110, 80);
             this.TORDButton.TabIndex = 26;
@@ -3639,7 +3654,7 @@ namespace DB_EDITOR
             this.toleranceWalkOn.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.toleranceWalkOn.Location = new System.Drawing.Point(404, 49);
             this.toleranceWalkOn.Maximum = new decimal(new int[] {
-            5,
+            10,
             0,
             0,
             0});
@@ -3694,7 +3709,7 @@ namespace DB_EDITOR
             this.recruitTolerance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.recruitTolerance.Location = new System.Drawing.Point(157, 49);
             this.recruitTolerance.Maximum = new decimal(new int[] {
-            5,
+            10,
             0,
             0,
             0});
@@ -3702,7 +3717,7 @@ namespace DB_EDITOR
             this.recruitTolerance.Size = new System.Drawing.Size(52, 22);
             this.recruitTolerance.TabIndex = 6;
             this.recruitTolerance.Value = new decimal(new int[] {
-            2,
+            3,
             0,
             0,
             0});
@@ -6855,6 +6870,46 @@ namespace DB_EDITOR
             this.ScheduleView.Size = new System.Drawing.Size(495, 581);
             this.ScheduleView.TabIndex = 0;
             this.ScheduleView.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.ScheduleView_RowEnter);
+            // 
+            // SCHDWeek
+            // 
+            this.SCHDWeek.FillWeight = 40F;
+            this.SCHDWeek.HeaderText = "Week";
+            this.SCHDWeek.Name = "SCHDWeek";
+            this.SCHDWeek.ReadOnly = true;
+            // 
+            // SCHDHOME
+            // 
+            this.SCHDHOME.HeaderText = "Home";
+            this.SCHDHOME.Name = "SCHDHOME";
+            this.SCHDHOME.ReadOnly = true;
+            // 
+            // SCHDScoreH
+            // 
+            this.SCHDScoreH.FillWeight = 50F;
+            this.SCHDScoreH.HeaderText = "Score";
+            this.SCHDScoreH.Name = "SCHDScoreH";
+            this.SCHDScoreH.ReadOnly = true;
+            // 
+            // SCHDVS
+            // 
+            this.SCHDVS.FillWeight = 25F;
+            this.SCHDVS.HeaderText = "vs";
+            this.SCHDVS.Name = "SCHDVS";
+            this.SCHDVS.ReadOnly = true;
+            // 
+            // SCHDAWAY
+            // 
+            this.SCHDAWAY.HeaderText = "Away";
+            this.SCHDAWAY.Name = "SCHDAWAY";
+            this.SCHDAWAY.ReadOnly = true;
+            // 
+            // SCHDScoreA
+            // 
+            this.SCHDScoreA.FillWeight = 50F;
+            this.SCHDScoreA.HeaderText = "Score";
+            this.SCHDScoreA.Name = "SCHDScoreA";
+            this.SCHDScoreA.ReadOnly = true;
             // 
             // tabSeason
             // 
@@ -12734,46 +12789,6 @@ namespace DB_EDITOR
             this.SpringPortalButton.UseVisualStyleBackColor = true;
             this.SpringPortalButton.Click += new System.EventHandler(this.SpringPortalButton_Click);
             // 
-            // SCHDWeek
-            // 
-            this.SCHDWeek.FillWeight = 40F;
-            this.SCHDWeek.HeaderText = "Week";
-            this.SCHDWeek.Name = "SCHDWeek";
-            this.SCHDWeek.ReadOnly = true;
-            // 
-            // SCHDHOME
-            // 
-            this.SCHDHOME.HeaderText = "Home";
-            this.SCHDHOME.Name = "SCHDHOME";
-            this.SCHDHOME.ReadOnly = true;
-            // 
-            // SCHDScoreH
-            // 
-            this.SCHDScoreH.FillWeight = 50F;
-            this.SCHDScoreH.HeaderText = "Score";
-            this.SCHDScoreH.Name = "SCHDScoreH";
-            this.SCHDScoreH.ReadOnly = true;
-            // 
-            // SCHDVS
-            // 
-            this.SCHDVS.FillWeight = 25F;
-            this.SCHDVS.HeaderText = "vs";
-            this.SCHDVS.Name = "SCHDVS";
-            this.SCHDVS.ReadOnly = true;
-            // 
-            // SCHDAWAY
-            // 
-            this.SCHDAWAY.HeaderText = "Away";
-            this.SCHDAWAY.Name = "SCHDAWAY";
-            this.SCHDAWAY.ReadOnly = true;
-            // 
-            // SCHDScoreA
-            // 
-            this.SCHDScoreA.FillWeight = 50F;
-            this.SCHDScoreA.HeaderText = "Score";
-            this.SCHDScoreA.Name = "SCHDScoreA";
-            this.SCHDScoreA.ReadOnly = true;
-            // 
             // MainEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -14042,6 +14057,7 @@ namespace DB_EDITOR
         private DataGridViewTextBoxColumn SCHDVS;
         private DataGridViewTextBoxColumn SCHDAWAY;
         private DataGridViewTextBoxColumn SCHDScoreA;
+        public System.Windows.Forms.Button FixHometownButton;
     }
 }
 

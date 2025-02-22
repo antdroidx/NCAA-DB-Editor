@@ -40,6 +40,12 @@ namespace DB_EDITOR
 
             GlobalAttNum.Minimum = -maxRatingVal;
             GlobalAttNum.Maximum = maxRatingVal;
+
+            MinAttNum.Minimum = -maxRatingVal;
+            MinAttNum.Maximum = maxRatingVal;
+
+            MaxAttNum.Minimum = -maxRatingVal;
+            MaxAttNum.Maximum = maxRatingVal;
         }
 
         #region MAIN DB TOOLS CLICKS
@@ -711,7 +717,7 @@ namespace DB_EDITOR
             List<int> offRatings = new List<int>();
             List<int> defRatings = new List<int>();
 
-            if (GetTableRecCount("TEAM") >= 119)
+            if (GetTableRecCount(tableName) >= 119)
             {
                 //Collect Team Rating Data
                 for (int x = 0; x < GetTableRecCount(tableName); x++)

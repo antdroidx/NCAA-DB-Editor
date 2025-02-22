@@ -168,14 +168,21 @@ namespace DB_EDITOR
                 {
                     int tgid = teamsAdded[i];
                     main.FantasyRosterGeneratorSingle(tgid, 1);
+                    main.DepthChartMakerSingle("TEAM", tgid);
                     progressBar1.PerformStep();
                 }
+
+
+                main.TEAM = true;
+                main.RecalculateOverall();
+                main.CalculateAllTeamRatings("TEAM");
             }
 
             progressBar1.Visible = true;
             progressBar1.Value = 0;
 
-            main.RecalculateOverall();
+            
+            
             //Schedule 
             ScheduleGenerator();
 

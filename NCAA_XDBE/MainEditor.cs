@@ -44,7 +44,7 @@ namespace DB_EDITOR
         bool DoNotTrigger = false; //team/player editor
         bool coachProgComplete = false;
         bool TDYN = false;
-        bool TEAM = false;
+        public bool TEAM = false;
         public bool NextMod = false;
         bool PlaybookDB = false;
 
