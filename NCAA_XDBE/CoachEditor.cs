@@ -298,7 +298,7 @@ namespace DB_EDITOR
 
             for (int i = 0; i < GetTableRecCount("TEAM"); i++)
             {
-                if(GetDBValueInt("TEAM", "TTYP", i) == 0)
+                if(GetDBValueInt("TEAM", "TTYP", i) <= 1)
                 CoachTeamList.Items.Add(GetDBValue("TEAM", "TDNA", i));
             }
             CoachTeamList.Items.Add("INACTIVE");

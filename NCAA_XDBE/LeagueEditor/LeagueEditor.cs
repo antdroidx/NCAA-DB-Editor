@@ -680,7 +680,11 @@ namespace DB_EDITOR
 
             /* Update Team Count and Save Button */
 
-            if (TeamCount == 120 && AllValid)
+            if (radio120.Checked) maxFBSTeams = 120;
+            else if (radio126.Checked) maxFBSTeams = 126;
+            else maxFBSTeams = 136;
+
+            if (TeamCount == maxFBSTeams && AllValid)
             {
                 SaveButton.Visible = true;
                 SaveButton.BackColor = Color.Crimson;
@@ -989,7 +993,7 @@ namespace DB_EDITOR
             //Clear Conferences
             ClearLeague();
             int teamCount = Convert.ToInt32(TeamsPerConfBox.SelectedItem);
-            int confCount = 120/teamCount;
+            int confCount = maxFBSTeams/teamCount;
             int league = Convert.ToInt32(TeamSelectionBox.SelectedIndex);
             List<CheckedListBox> confBoxes = GetConfBoxObjects();
             List<NumericUpDown> prestigeBoxes = GetConfPrestigeBoxes();

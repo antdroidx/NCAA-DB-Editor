@@ -349,7 +349,21 @@ namespace DB_EDITOR
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
             progressBar1.Maximum = GetTableRecCount(tableName);
-            progressBar1.Step = 1;
+            progressBar1.Step = 1; 
+
+            //count num of teams
+            int teamCount = 0;
+            if (TDYN)
+            {
+                teamCount = GetTableRecCount("TDYN");
+            }
+            else
+            {
+                for (int i = 0; i < GetTableRecCount("TEAM"); i++)
+                {
+                    if (GetDBValueInt("TEAM", "TTYP", i) == 0) teamCount++;
+                }
+            }
 
             //clear DCHT
             for (int i = GetTableRecCount("DCHT"); i != -1; i--)
@@ -435,20 +449,47 @@ namespace DB_EDITOR
                     rec = AddDCHTrecord(rec, 18, 3, DCRoster[TOID]);
                     //SSs
                     rec = AddDCHTrecord(rec, 17, 3, DCRoster[TOID]);
-                    //FBs
-                    rec = AddDCHTrecord(rec, 2, 3, DCRoster[TOID]);
-                    //Ks
-                    rec = AddDCHTrecord(rec, 19, 3, DCRoster[TOID]);
-                    //Ps
-                    rec = AddDCHTrecord(rec, 20, 3, DCRoster[TOID]);
-                    //KRs
-                    rec = AddDCHTrecord(rec, 21, 5, DCRoster[TOID]);
-                    //PRs
-                    rec = AddDCHTrecord(rec, 22, 5, DCRoster[TOID]);
-                    //KOSs
-                    rec = AddDCHTrecord(rec, 23, 3, DCRoster[TOID]);
-                    //LSs
-                    rec = AddDCHTrecord(rec, 24, 3, DCRoster[TOID]);
+
+                    //63 total up to here...
+
+                    if (DC77.Checked)
+                    {
+                        //FBs
+                        rec = AddDCHTrecord(rec, 2, 1, DCRoster[TOID]);
+                        //Ks
+                        rec = AddDCHTrecord(rec, 19, 2, DCRoster[TOID]);
+                        //Ps
+                        rec = AddDCHTrecord(rec, 20, 2, DCRoster[TOID]);
+                        //KRs
+                        rec = AddDCHTrecord(rec, 21, 2, DCRoster[TOID]);
+                        //PRs
+                        rec = AddDCHTrecord(rec, 22, 3, DCRoster[TOID]);
+                        //KOSs
+                        rec = AddDCHTrecord(rec, 23, 2, DCRoster[TOID]);
+                        //LSs
+                        rec = AddDCHTrecord(rec, 24, 2, DCRoster[TOID]);
+
+                        //63 + 16 = 77
+                    }
+                    else
+                    {
+                        //FBs
+                        rec = AddDCHTrecord(rec, 2, 3, DCRoster[TOID]);
+                        //Ks
+                        rec = AddDCHTrecord(rec, 19, 3, DCRoster[TOID]);
+                        //Ps
+                        rec = AddDCHTrecord(rec, 20, 3, DCRoster[TOID]);
+                        //KRs
+                        rec = AddDCHTrecord(rec, 21, 5, DCRoster[TOID]);
+                        //PRs
+                        rec = AddDCHTrecord(rec, 22, 5, DCRoster[TOID]);
+                        //KOSs
+                        rec = AddDCHTrecord(rec, 23, 3, DCRoster[TOID]);
+                        //LSs
+                        rec = AddDCHTrecord(rec, 24, 3, DCRoster[TOID]);
+
+                        //63 + 25 = 88
+                    }
 
                     progressBar1.PerformStep();
 
@@ -466,6 +507,20 @@ namespace DB_EDITOR
             progressBar1.Minimum = 0;
             progressBar1.Maximum = GetTableRecCount(tableName);
             progressBar1.Step = 1;
+
+            //count num of teams
+            int teamCount = 0;
+            if (TDYN)
+            {
+                teamCount = GetTableRecCount("TDYN");
+            }
+            else
+            {
+                for (int i = 0; i < GetTableRecCount("TEAM"); i++)
+                {
+                    if (GetDBValueInt("TEAM", "TTYP", i) == 0) teamCount++;
+                }
+            }
 
             int PGIDbeg = tgid * 70;
             int PGIDend = PGIDbeg + 69;
@@ -543,20 +598,41 @@ namespace DB_EDITOR
             rec = AddDCHTrecord(rec, 18, 3, roster);
             //SSs
             rec = AddDCHTrecord(rec, 17, 3, roster);
-            //FBs
-            rec = AddDCHTrecord(rec, 2, 3, roster);
-            //Ks
-            rec = AddDCHTrecord(rec, 19, 3, roster);
-            //Ps
-            rec = AddDCHTrecord(rec, 20, 3, roster);
-            //KRs
-            rec = AddDCHTrecord(rec, 21, 5, roster);
-            //PRs
-            rec = AddDCHTrecord(rec, 22, 5, roster);
-            //KOSs
-            rec = AddDCHTrecord(rec, 23, 3, roster);
-            //LSs
-            rec = AddDCHTrecord(rec, 24, 3, roster);
+
+            if (DC77.Checked)
+            {
+                //FBs
+                rec = AddDCHTrecord(rec, 2, 2, roster);
+                //Ks
+                rec = AddDCHTrecord(rec, 19, 2, roster);
+                //Ps
+                rec = AddDCHTrecord(rec, 20, 2, roster);
+                //KRs
+                rec = AddDCHTrecord(rec, 21, 4, roster);
+                //PRs
+                rec = AddDCHTrecord(rec, 22, 4, roster);
+                //KOSs
+                rec = AddDCHTrecord(rec, 23, 2, roster);
+                //LSs
+                rec = AddDCHTrecord(rec, 24, 2, roster);
+            }
+            else
+            {
+                //FBs
+                rec = AddDCHTrecord(rec, 2, 3, roster);
+                //Ks
+                rec = AddDCHTrecord(rec, 19, 3, roster);
+                //Ps
+                rec = AddDCHTrecord(rec, 20, 3, roster);
+                //KRs
+                rec = AddDCHTrecord(rec, 21, 5, roster);
+                //PRs
+                rec = AddDCHTrecord(rec, 22, 5, roster);
+                //KOSs
+                rec = AddDCHTrecord(rec, 23, 3, roster);
+                //LSs
+                rec = AddDCHTrecord(rec, 24, 3, roster);
+            }
 
             progressBar1.PerformStep();
 
@@ -616,7 +692,7 @@ namespace DB_EDITOR
             {
                 if (ppos > 20 || !IsStarter(PosRating[i][1]))
                 {
-                    AddTableRecord("DCHT", false);
+                    AddTableRecord("DCHT", true);
                     double pgid = PosRating[i][1];
                     ChangeDBString("DCHT", "PGID", rec, Convert.ToString(pgid));
                     ChangeDBString("DCHT", "PPOS", rec, Convert.ToString(ppos));

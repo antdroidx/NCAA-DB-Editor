@@ -46,6 +46,10 @@ namespace DB_EDITOR
 
             MaxAttNum.Minimum = -maxRatingVal;
             MaxAttNum.Maximum = maxRatingVal;
+
+            if (TDYN) FantastyRosterLeague.Visible = true;
+            else FantastyRosterLeague.Visible = false;
+
         }
 
         #region MAIN DB TOOLS CLICKS
@@ -457,6 +461,7 @@ namespace DB_EDITOR
                 AllRosters[TGID].Add(player);
                 AllRosters[TGID][count].Add(POVR);
                 AllRosters[TGID][count].Add(PPOS);
+                AllRosters[TGID][count].Add(PGID); // Add PGID to roster for reference
             }
 
             for (int i = 0; i < GetTableRecCount(tableName); i++)
@@ -551,6 +556,8 @@ namespace DB_EDITOR
             //TRLB - Linebackers 13, 14, 15
             rating = 0;
             count = 0;
+            int topPlayer = 0;
+            int topPlayerRating = 0;
             for (int j = 0; j < roster.Count; j++)
             {
                 int PPOS = roster[j][1];
@@ -558,6 +565,12 @@ namespace DB_EDITOR
                 if (PPOS >= 13 && PPOS <= 15)
                 {
                     rating += roster[j][0];
+
+                    if (roster[j][0] > topPlayerRating)
+                    {
+                        topPlayerRating = roster[j][0];
+                        topPlayer = roster[j][2] - GetDBValueInt(tableName, "TOID", teamRec)*70;
+                    }
                     count++;
                 }
                 if (count >= 4) break;
@@ -566,19 +579,28 @@ namespace DB_EDITOR
             rating = ConvertRating(rating / count) + bonus;
 
             ChangeDBString(tableName, "TRLB", teamRec, Convert.ToString(rating));
-
-
+            if(TDYN) ChangeDBInt(tableName, "DCAP", teamRec, topPlayer);
 
             //TRQB - Quarterbacks 0
             rating = 0;
             count = 0;
+            topPlayer = 0;
+            topPlayerRating = 0;
             for (int j = 0; j < roster.Count; j++)
             {
                 int PPOS = roster[j][1];
 
+
                 if (PPOS == 0)
                 {
                     rating += roster[j][0];
+
+                    if (roster[j][0] > topPlayerRating)
+                    {
+                        topPlayerRating = roster[j][0];
+                        topPlayer = roster[j][2] - GetDBValueInt(tableName, "TOID", teamRec) * 70;
+                    }
+
                     count++;
                 }
                 if (count >= 1) break;
@@ -587,6 +609,7 @@ namespace DB_EDITOR
             rating = ConvertRating(rating / count) + bonus;
 
             ChangeDBString(tableName, "TRQB", teamRec, Convert.ToString(rating));
+            if (TDYN) ChangeDBInt(tableName, "OCAP", teamRec, topPlayer);
 
 
             //TRRB - Running Backs 1, 2
@@ -830,6 +853,20 @@ namespace DB_EDITOR
             TDB.TDBTableGetProperties(dbIndex, SelectedTableIndex, ref TableProps);
 
 
+            //count num of teams
+            int teamCount = 0;
+            if (TDYN)
+            {
+                teamCount = GetTableRecCount("TDYN");
+            }
+            else
+            {
+                for (int i = 0; i < GetTableRecCount("TEAM"); i++)
+                {
+                    if (GetDBValueInt("TEAM", "TTYP", i) == 0) teamCount++;
+                }
+            }
+
             int recCounter = GetTableRecCount("PLAY");
             int maxRecords = TableProps.Capacity;
             int created = 0;
@@ -875,6 +912,13 @@ namespace DB_EDITOR
                     int tgid = GetDBValueInt(tableName, "TOID", i);
                     int pgidSTART = tgid * 70;
                     int pgidEND = pgidSTART + 69;
+
+                    if (teamCount != 120 || teamCount != 119) 
+                    { 
+                       if (DC77.Checked) maxPlayers = 66;
+                       else maxPlayers = 70;
+                        pgidEND = pgidSTART + maxPlayers - 1; 
+                    }
 
                     for (int j = pgidSTART; j < pgidEND; j++)
                     {
@@ -1278,6 +1322,35 @@ namespace DB_EDITOR
             }
 
             return ht;
+        }
+
+        //Changed League Size
+        private void DC77_CheckedChanged(object sender, EventArgs e)
+        {
+            if(DC77.Checked)
+            {
+                MaxFantasyPlayers.Maximum = 66;
+                MaxFantasyPlayers.Value = 66;
+            }
+            else
+            {
+                MaxFantasyPlayers.Maximum = 70;
+                MaxFantasyPlayers.Value = 70;
+            }
+        }
+
+        private void DC88_CheckedChanged(object sender, EventArgs e)
+        {
+            if (DC77.Checked)
+            {
+                MaxFantasyPlayers.Maximum = 66;
+                MaxFantasyPlayers.Value = 66;
+            }
+            else
+            {
+                MaxFantasyPlayers.Maximum = 70;
+                MaxFantasyPlayers.Value = 70;
+            }
         }
 
         #endregion

@@ -96,10 +96,19 @@ namespace DB_EDITOR
 
         private void CreateUNIFTable()
         {
-            int UNIFORMDATsize = 5260;
+            int UNIFORMDATsize = 0;
+            for (int i = 0; i < GetTableRecCount("UNIF"); i++)
+            {
+                if (GetDBValueInt("UNIF", "UFID", i) > UNIFORMDATsize)
+                {
+                    UNIFORMDATsize = GetDBValueInt("UNIF", "UFID", i);
+                }
+            }
+
+
             UniformGrid.ClearSelection();
 
-            for (int i = 0; i < UNIFORMDATsize; i++)
+            for (int i = 0; i < UNIFORMDATsize+1; i++)
             {
                 UniformGrid.Rows.Add(new List<string>());
 

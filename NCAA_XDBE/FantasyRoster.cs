@@ -52,6 +52,29 @@ namespace DB_EDITOR
             teamData = CreateStringListsFromCSV(@"resources\FantasyGenData.csv", true);
 
             int rec = 0;
+            int leagueType = 0;
+            if (tableName == "TDYN")
+            {
+                if (FBSroster.Checked) leagueType = 0; //FBS
+                else leagueType = 1; //FCS
+
+                for(int i = 0; i < GetTableRecCount(tableName); i++)
+                {
+                    DeleteRecord(tableName, i, true);
+                }
+                CompactDB();
+
+                int r = 0;
+                for(int i = 0; i < teamData.Count; i++)
+                {
+                    if (Convert.ToInt32(teamData[i][3]) == leagueType)
+                    {
+                        AddTableRecord(tableName, true);
+                        ChangeDBInt(tableName, "TOID", r, Convert.ToInt32(teamData[i][0])); //TGID
+                        r++;
+                    }
+                }
+            }
 
             for (int i = 0; i < GetTableRecCount(tableName); i++)
             {
@@ -66,7 +89,7 @@ namespace DB_EDITOR
                     int freshmanPCT = 25;
 
 
-                    for (int j = 0; j < 68; j++)
+                    for (int j = 0; j < MaxFantasyPlayers.Value; j++)
                     {
                         //Add a record
                         AddTableRecord("PLAY", false);

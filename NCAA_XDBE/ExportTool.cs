@@ -14,19 +14,26 @@ namespace DB_EDITOR
             string tmpReverse = "";
             string tmpcurrentDBfile = Path.GetFileNameWithoutExtension(dbFile);
 
-
             Stream myStream = null;
             SaveFileDialog SaveDialog1 = new SaveFileDialog();
 
-            if (tabDelimited)
-                SaveDialog1.Filter = "TXT Files (*.txt)|*.txt|All files (*.*)|*.*";
-            else SaveDialog1.Filter = "CSV Files (*.csv)|*.csv|All files (*.*)|*.*";
 
-            if (BigEndian)
-                SaveDialog1.FileName = tmpcurrentDBfile + " - " + StrReverse(SelectedTableName);
-            else SaveDialog1.FileName = tmpcurrentDBfile + " - " + SelectedTableName;
+            if (!exportAll)
+            {
+                if (tabDelimited)
+                    SaveDialog1.Filter = "TXT Files (*.txt)|*.txt|All files (*.*)|*.*";
+                else SaveDialog1.Filter = "CSV Files (*.csv)|*.csv|All files (*.*)|*.*";
 
-            if (SaveDialog1.ShowDialog() == DialogResult.OK)
+                if (BigEndian)
+                    SaveDialog1.FileName = tmpcurrentDBfile + " - " + StrReverse(SelectedTableName);
+                else SaveDialog1.FileName = tmpcurrentDBfile + " - " + SelectedTableName;
+            }
+            else
+            {
+                myStream = File.Create(SelectedTableName + ".csv");
+            }
+
+            if (exportAll || SaveDialog1.ShowDialog() == DialogResult.OK)
             {
                 // use a try-catch here
 #pragma warning disable CS0168 // Variable is declared but never used
@@ -34,7 +41,7 @@ namespace DB_EDITOR
                 {
 
                     // Open the file using Stream, if it succeeds do stuff with it
-                    if ((myStream = SaveDialog1.OpenFile()) != null)
+                    if (exportAll || (myStream = SaveDialog1.OpenFile()) != null)
                     {
                         StreamWriter wText = new StreamWriter(myStream);    // create writer using the stream that opened the savefile earlier
 

@@ -21,6 +21,7 @@ namespace DB_EDITOR
         int minConvRatingVal = 40;
         int maxRatingVal = 31;
         int maxConvRatingVal = 99;
+        int maxPlayers = 70; //player per team
 
         string dbFile = "";
         string dbFile2 = "";
@@ -137,6 +138,7 @@ namespace DB_EDITOR
             minConvRatingVal = 40;
             maxRatingVal = 31;
             maxConvRatingVal = 99;
+            maxPlayers = 70; //player per team
 
             saveMenuItem.Enabled = false;
             closeMenuItem.Enabled = false;
@@ -719,6 +721,7 @@ namespace DB_EDITOR
                 }
             }
             exportAll = false;
+            MessageBox.Show("Export Complete", "Export All Tables");
         }
 
         //tableMenuStrip
@@ -1121,18 +1124,19 @@ namespace DB_EDITOR
             TDB.TDBSave(dbIndex2);
         }
 
+
         private void NCAANext25Config_Click(object sender, EventArgs e)
         {
-            if (NCAANext25Config.Checked)
+            if (NCAANextConfig.Checked)
             {
-                NCAANext25Config.Checked = false;
+                NCAANextConfig.Checked = false;
                 OGConfigRadio.Checked = true;
                 NextConfigRadio.Checked = false;
                 NextMod = false;
             }
             else
             {
-                NCAANext25Config.Checked = true;
+                NCAANextConfig.Checked = true;
                 OGConfigRadio.Checked = false;
                 NextConfigRadio.Checked = true;
                 NextMod = true;
@@ -1143,14 +1147,14 @@ namespace DB_EDITOR
 
         private void OGConfigRadio_CheckedChanged(object sender, EventArgs e)
         {
-            NCAANext25Config.Checked = false;
+            NCAANextConfig.Checked = false;
             NextMod = false;
             CreatePOCItable();
         }
 
         private void NextConfigRadio_CheckedChanged(object sender, EventArgs e)
         {
-            NCAANext25Config.Checked = true;
+            NCAANextConfig.Checked = true;
             NextMod = true;
             CreatePOCItable();
         }
@@ -1197,7 +1201,7 @@ namespace DB_EDITOR
 
         private void StartHomeTab()
         {
-            if (NCAANext25Config.Checked == true)
+            if (NCAANextConfig.Checked == true)
             {
                 NextConfigRadio.Checked = true;
                 OGConfigRadio.Checked = false;

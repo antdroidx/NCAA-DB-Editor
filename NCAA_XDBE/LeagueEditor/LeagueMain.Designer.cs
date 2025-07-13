@@ -105,6 +105,9 @@ namespace DB_EDITOR
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.tabConf = new System.Windows.Forms.TabPage();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.radio126 = new System.Windows.Forms.RadioButton();
+            this.radio120 = new System.Windows.Forms.RadioButton();
             this.label31 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
@@ -238,12 +241,14 @@ namespace DB_EDITOR
             this.SGID = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.BMON = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.BDAY = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.radio136 = new System.Windows.Forms.RadioButton();
             this.mainMenu.SuspendLayout();
             this.tableMenu.SuspendLayout();
             this.fieldMenu.SuspendLayout();
             this.TablePropsgroupBox.SuspendLayout();
             this.FieldsPropsgroupBox.SuspendLayout();
             this.tabConf.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).BeginInit();
@@ -433,7 +438,7 @@ namespace DB_EDITOR
             this.descendingFieldOrderMenuItem,
             this.customOrderMenuItem});
             this.tableFieldOrderMenuItem.Name = "tableFieldOrderMenuItem";
-            this.tableFieldOrderMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.tableFieldOrderMenuItem.Size = new System.Drawing.Size(163, 22);
             this.tableFieldOrderMenuItem.Text = "Table Field Order";
             // 
             // defaultFieldOrderMenuItem
@@ -513,31 +518,31 @@ namespace DB_EDITOR
             this.toolStripSeparator3,
             this.exportAllTableMenuItem});
             this.tableMenu.Name = "tableMenu";
-            this.tableMenu.Size = new System.Drawing.Size(141, 76);
+            this.tableMenu.Size = new System.Drawing.Size(142, 76);
             // 
             // exportTableMenuItem
             // 
             this.exportTableMenuItem.Name = "exportTableMenuItem";
-            this.exportTableMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.exportTableMenuItem.Size = new System.Drawing.Size(141, 22);
             this.exportTableMenuItem.Text = "Export Table";
             this.exportTableMenuItem.Click += new System.EventHandler(this.exportTableMenuItem_Click);
             // 
             // importTableMenuItem
             // 
             this.importTableMenuItem.Name = "importTableMenuItem";
-            this.importTableMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.importTableMenuItem.Size = new System.Drawing.Size(141, 22);
             this.importTableMenuItem.Text = "Import Table";
             this.importTableMenuItem.Click += new System.EventHandler(this.importTableMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(137, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(138, 6);
             // 
             // exportAllTableMenuItem
             // 
             this.exportAllTableMenuItem.Name = "exportAllTableMenuItem";
-            this.exportAllTableMenuItem.Size = new System.Drawing.Size(140, 22);
+            this.exportAllTableMenuItem.Size = new System.Drawing.Size(141, 22);
             this.exportAllTableMenuItem.Text = "Export All";
             this.exportAllTableMenuItem.Click += new System.EventHandler(this.exportAllTableMenuItem_Click);
             // 
@@ -672,6 +677,7 @@ namespace DB_EDITOR
             // 
             this.tabConf.AutoScroll = true;
             this.tabConf.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.tabConf.Controls.Add(this.groupBox2);
             this.tabConf.Controls.Add(this.label31);
             this.tabConf.Controls.Add(this.label32);
             this.tabConf.Controls.Add(this.label33);
@@ -772,6 +778,40 @@ namespace DB_EDITOR
             this.tabConf.TabIndex = 9;
             this.tabConf.Text = "Conferences";
             this.tabConf.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.radio136);
+            this.groupBox2.Controls.Add(this.radio126);
+            this.groupBox2.Controls.Add(this.radio120);
+            this.groupBox2.Location = new System.Drawing.Point(642, 839);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(267, 51);
+            this.groupBox2.TabIndex = 111;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "League Team Count";
+            // 
+            // radio126
+            // 
+            this.radio126.AutoSize = true;
+            this.radio126.Location = new System.Drawing.Point(91, 19);
+            this.radio126.Name = "radio126";
+            this.radio126.Size = new System.Drawing.Size(78, 17);
+            this.radio126.TabIndex = 1;
+            this.radio126.Text = "126 Teams";
+            this.radio126.UseVisualStyleBackColor = true;
+            // 
+            // radio120
+            // 
+            this.radio120.AutoSize = true;
+            this.radio120.Checked = true;
+            this.radio120.Location = new System.Drawing.Point(7, 20);
+            this.radio120.Name = "radio120";
+            this.radio120.Size = new System.Drawing.Size(78, 17);
+            this.radio120.TabIndex = 0;
+            this.radio120.TabStop = true;
+            this.radio120.Text = "120 Teams";
+            this.radio120.UseVisualStyleBackColor = true;
             // 
             // label31
             // 
@@ -2342,6 +2382,16 @@ namespace DB_EDITOR
             this.BDAY.HeaderText = "Date";
             this.BDAY.Name = "BDAY";
             // 
+            // radio136
+            // 
+            this.radio136.AutoSize = true;
+            this.radio136.Location = new System.Drawing.Point(175, 19);
+            this.radio136.Name = "radio136";
+            this.radio136.Size = new System.Drawing.Size(78, 17);
+            this.radio136.TabIndex = 2;
+            this.radio136.Text = "136 Teams";
+            this.radio136.UseVisualStyleBackColor = true;
+            // 
             // LeagueMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2373,6 +2423,8 @@ namespace DB_EDITOR
             this.FieldsPropsgroupBox.PerformLayout();
             this.tabConf.ResumeLayout(false);
             this.tabConf.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).EndInit();
@@ -2600,6 +2652,10 @@ namespace DB_EDITOR
         private GroupBox groupBox1;
         private RadioButton OGConfigRadio;
         private RadioButton NextConfigRadio;
+        private GroupBox groupBox2;
+        private RadioButton radio126;
+        private RadioButton radio120;
+        private RadioButton radio136;
     }
 }
 
