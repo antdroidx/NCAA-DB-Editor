@@ -1155,7 +1155,14 @@ namespace DB_EDITOR
                 FantasyRosterGeneratorSingle(GetDBValueInt("TEAM", "TGID", TeamIndex), Convert.ToInt32(TMPRNumBox.Value));
             }
             RecalculateOverall();
-            DepthChartMakerSingle("TEAM", GetDBValueInt("TEAM", "TGID", TeamIndex));
+
+            int leaguesize = 0;
+            for (int i = 0; i < GetTableRecCount("TEAM"); i++)
+            {
+                if (GetDBValueInt("TTYP", "TEAM", i) == 0) leaguesize++;
+
+            }
+            DepthChartMakerSingle("TEAM", GetDBValueInt("TEAM", "TGID", TeamIndex), leaguesize);
             CalculateAllTeamRatings("TEAM");
 
             GetTeamEditorData(TeamIndex);
@@ -1165,7 +1172,13 @@ namespace DB_EDITOR
 
         private void TeamSetDepthChart_Click(object sender, EventArgs e)
         {
-            DepthChartMakerSingle("DCHT", GetDBValueInt("TEAM", "TGID", TeamIndex));
+            int leaguesize = 0;
+            for (int i = 0; i < GetTableRecCount("TEAM"); i++)
+            {
+                if (GetDBValueInt("TTYP", "TEAM", i) == 0) leaguesize++;
+
+            }
+            DepthChartMakerSingle("DCHT", GetDBValueInt("TEAM", "TGID", TeamIndex), leaguesize);
         }
 
         //Auto Impact 

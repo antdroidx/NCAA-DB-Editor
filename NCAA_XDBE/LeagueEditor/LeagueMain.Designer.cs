@@ -106,7 +106,7 @@ namespace DB_EDITOR
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.tabConf = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.radio126 = new System.Windows.Forms.RadioButton();
+            this.radio136 = new System.Windows.Forms.RadioButton();
             this.radio120 = new System.Windows.Forms.RadioButton();
             this.label31 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
@@ -241,7 +241,6 @@ namespace DB_EDITOR
             this.SGID = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.BMON = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.BDAY = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.radio136 = new System.Windows.Forms.RadioButton();
             this.mainMenu.SuspendLayout();
             this.tableMenu.SuspendLayout();
             this.fieldMenu.SuspendLayout();
@@ -782,24 +781,23 @@ namespace DB_EDITOR
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.radio136);
-            this.groupBox2.Controls.Add(this.radio126);
             this.groupBox2.Controls.Add(this.radio120);
             this.groupBox2.Location = new System.Drawing.Point(642, 839);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(267, 51);
+            this.groupBox2.Size = new System.Drawing.Size(180, 51);
             this.groupBox2.TabIndex = 111;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "League Team Count";
             // 
-            // radio126
+            // radio136
             // 
-            this.radio126.AutoSize = true;
-            this.radio126.Location = new System.Drawing.Point(91, 19);
-            this.radio126.Name = "radio126";
-            this.radio126.Size = new System.Drawing.Size(78, 17);
-            this.radio126.TabIndex = 1;
-            this.radio126.Text = "126 Teams";
-            this.radio126.UseVisualStyleBackColor = true;
+            this.radio136.AutoSize = true;
+            this.radio136.Location = new System.Drawing.Point(91, 20);
+            this.radio136.Name = "radio136";
+            this.radio136.Size = new System.Drawing.Size(78, 17);
+            this.radio136.TabIndex = 2;
+            this.radio136.Text = "136 Teams";
+            this.radio136.UseVisualStyleBackColor = true;
             // 
             // radio120
             // 
@@ -2382,16 +2380,6 @@ namespace DB_EDITOR
             this.BDAY.HeaderText = "Date";
             this.BDAY.Name = "BDAY";
             // 
-            // radio136
-            // 
-            this.radio136.AutoSize = true;
-            this.radio136.Location = new System.Drawing.Point(175, 19);
-            this.radio136.Name = "radio136";
-            this.radio136.Size = new System.Drawing.Size(78, 17);
-            this.radio136.TabIndex = 2;
-            this.radio136.Text = "136 Teams";
-            this.radio136.UseVisualStyleBackColor = true;
-            // 
             // LeagueMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2653,7 +2641,6 @@ namespace DB_EDITOR
         private RadioButton OGConfigRadio;
         private RadioButton NextConfigRadio;
         private GroupBox groupBox2;
-        private RadioButton radio126;
         private RadioButton radio120;
         private RadioButton radio136;
     }

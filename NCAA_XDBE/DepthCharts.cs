@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -306,7 +307,9 @@ namespace DB_EDITOR
 
         private void DCHTAutoSet_Click(object sender, EventArgs e)
         {
-            DepthChartMakerSingle("DCHT", DepthChartIndex);
+            int leaguesize = 120;
+            if(DC136.Checked) leaguesize = 136;
+            DepthChartMakerSingle("DCHT", DepthChartIndex, leaguesize);
             LoadTeamDCHTData();
             LoadDCHTPlayerData();
 
@@ -501,7 +504,7 @@ namespace DB_EDITOR
             MessageBox.Show("Depth Charts are complete!");
         }
 
-        public void DepthChartMakerSingle(string tableName, int tgid)
+        public void DepthChartMakerSingle(string tableName, int tgid, int leaguesize)
         {
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
@@ -599,7 +602,7 @@ namespace DB_EDITOR
             //SSs
             rec = AddDCHTrecord(rec, 17, 3, roster);
 
-            if (DC77.Checked)
+            if (leaguesize >= 136)
             {
                 //FBs
                 rec = AddDCHTrecord(rec, 2, 2, roster);

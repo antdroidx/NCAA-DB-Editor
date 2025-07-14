@@ -1241,7 +1241,15 @@ namespace DB_EDITOR
         //Team Depth Chart
         private void PlayerSetDepthChartButton_Click(object sender, EventArgs e)
         {
-            DepthChartMakerSingle("DCHT", GetDBValueInt("PLAY", "PGID", PlayerIndex) / 70);
+            int leaguesize = 0;
+            for (int i = 0; i < GetTableRecCount("TEAM"); i++)
+            {
+                if (GetDBValueInt("TTYP", "TEAM", i) == 0) leaguesize++;
+
+            }
+
+
+            DepthChartMakerSingle("DCHT", GetDBValueInt("PLAY", "PGID", PlayerIndex) / 70, leaguesize);
         }
 
         private void PlayerTransferButton_Click(object sender, EventArgs e)

@@ -69,7 +69,6 @@ namespace DB_EDITOR
 
                 /* Teams */
                 var c = confBoxes[i].Items;
-
                 for (int x = 0; x < c.Count; x++)
                 {
                     if (!c[x].Equals("*"))
@@ -168,7 +167,10 @@ namespace DB_EDITOR
                 {
                     int tgid = teamsAdded[i];
                     main.FantasyRosterGeneratorSingle(tgid, 1);
-                    main.DepthChartMakerSingle("TEAM", tgid);
+
+                    int leaguesize = 120;
+                   if(radio136.Checked) leaguesize = 136;
+                    main.DepthChartMakerSingle("TEAM", tgid, leaguesize);
                     progressBar1.PerformStep();
                 }
 

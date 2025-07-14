@@ -47,7 +47,6 @@ namespace DB_EDITOR
         Dictionary<int, string> TableNames = new Dictionary<int, string>();
         Dictionary<int, string> FieldNames = new Dictionary<int, string>();
 
-        int maxTeamsDB = 511; //max team number for team db
         int maxFBSTeams = 120; //max team number for FBSTeams db
 
         MainEditor main = new MainEditor();

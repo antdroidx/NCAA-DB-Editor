@@ -1124,7 +1124,6 @@ namespace DB_EDITOR
             TDB.TDBSave(dbIndex2);
         }
 
-
         private void NCAANext25Config_Click(object sender, EventArgs e)
         {
             if (NCAANextConfig.Checked)

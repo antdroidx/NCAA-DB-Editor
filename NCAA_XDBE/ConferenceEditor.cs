@@ -533,7 +533,14 @@ namespace DB_EDITOR
 
             RecalculateOverall();
             CalculateTeamRatingsSingle("TEAM", NEWtgid);
-            DepthChartMakerSingle("TEAM", NEWtgid);
+
+            int leaguesize = 0;
+            for (int i = 0; i < GetTableRecCount("TEAM"); i++)
+            {
+                if (GetDBValueInt("TTYP", "TEAM", i) == 0) leaguesize++;
+
+            }
+            DepthChartMakerSingle("TEAM", NEWtgid, leaguesize);
 
             //Select new coach
             SelectFCSCoach(NEWtgid);
@@ -578,7 +585,15 @@ namespace DB_EDITOR
             SelectFCSCoach(NEWtgid);
 
             CalculateTeamRatingsSingle("TEAM", NEWtgid);
-            DepthChartMakerSingle("TEAM", NEWtgid);
+
+            int leaguesize = 0;
+            for(int i = 0; i < GetTableRecCount("TEAM"); i++)
+            {
+                if (GetDBValueInt("TTYP", "TEAM", i) == 0) leaguesize++;
+
+            }
+
+            DepthChartMakerSingle("TEAM", NEWtgid, leaguesize);
 
             ReorderTORD();
             MessageBox.Show("Swapping Process Complete.");
