@@ -1032,7 +1032,7 @@ namespace DB_EDITOR
                     tableGridView.Rows[tmpi].Cells[1].ToolTipText = tmpDef;
                     tableGridView.Rows[tmpi].Cells[1].Style.BackColor = Color.Khaki;
                 }
-                tmpi = tmpi + 1;
+                tmpi++;
             }
             // Auto Fill Last Column
             tableGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -1196,7 +1196,7 @@ namespace DB_EDITOR
                 if (tmpDef != Convert.ToString(sortAZ.Value))
                     fieldsGridView.Columns[tmpi + 1].HeaderCell.Style.BackColor = Color.Khaki;
 
-                tmpi = tmpi + 1;
+                tmpi++;
                 progressBar1.PerformStep();
             }
 

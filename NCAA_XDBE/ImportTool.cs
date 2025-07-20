@@ -146,7 +146,7 @@ namespace DB_EDITOR
                             //TDB.TDBTableGetProperties(currentDBfileIndex, SelectedTableIndex, ref TableProps);
                             // Import record's record index.
                             if (importRec)
-                                recnum = recnum + 1;
+                                recnum++;
                         }
 
                         int importtmpfieldindex = -1;
@@ -158,7 +158,7 @@ namespace DB_EDITOR
 
                             string importfieldnames = import.Key;
 
-                            importtmpfieldindex = importtmpfieldindex + 1;
+                            importtmpfieldindex++;
 
                             #region Comment code.
                             // we only want to import the fields that actually exist in the current table

@@ -540,6 +540,9 @@ namespace DB_EDITOR
             this.conf2 = new System.Windows.Forms.CheckedListBox();
             this.conf1 = new System.Windows.Forms.CheckedListBox();
             this.tabDepthCharts = new System.Windows.Forms.TabPage();
+            this.groupBox40 = new System.Windows.Forms.GroupBox();
+            this.DC136 = new System.Windows.Forms.RadioButton();
+            this.DC120 = new System.Windows.Forms.RadioButton();
             this.DCHTAutoSet = new System.Windows.Forms.Button();
             this.DCHTClear = new System.Windows.Forms.Button();
             this.UpdateDCHT = new System.Windows.Forms.Button();
@@ -1061,9 +1064,6 @@ namespace DB_EDITOR
             this.PortalReverse = new System.Windows.Forms.RadioButton();
             this.SpringPortalButton = new System.Windows.Forms.Button();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.groupBox40 = new System.Windows.Forms.GroupBox();
-            this.DC136 = new System.Windows.Forms.RadioButton();
-            this.DC120 = new System.Windows.Forms.RadioButton();
             qbTend = new System.Windows.Forms.Button();
             this.mainMenu.SuspendLayout();
             this.tableMenu.SuspendLayout();
@@ -1149,6 +1149,7 @@ namespace DB_EDITOR
             this.tabConf.SuspendLayout();
             this.groupBox23.SuspendLayout();
             this.tabDepthCharts.SuspendLayout();
+            this.groupBox40.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DCHTGrid)).BeginInit();
             this.tabSchedule.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MatchView)).BeginInit();
@@ -1265,7 +1266,6 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.PortalHB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PortalQB)).BeginInit();
             this.groupBox31.SuspendLayout();
-            this.groupBox40.SuspendLayout();
             this.SuspendLayout();
             // 
             // qbTend
@@ -2925,9 +2925,9 @@ namespace DB_EDITOR
             // 
             this.DepthChartSize.Controls.Add(this.DC77);
             this.DepthChartSize.Controls.Add(this.DC88);
-            this.DepthChartSize.Location = new System.Drawing.Point(259, 14);
+            this.DepthChartSize.Location = new System.Drawing.Point(253, 14);
             this.DepthChartSize.Name = "DepthChartSize";
-            this.DepthChartSize.Size = new System.Drawing.Size(145, 63);
+            this.DepthChartSize.Size = new System.Drawing.Size(151, 63);
             this.DepthChartSize.TabIndex = 63;
             this.DepthChartSize.TabStop = false;
             this.DepthChartSize.Text = "League Size [SET FIRST]";
@@ -2935,7 +2935,7 @@ namespace DB_EDITOR
             // DC77
             // 
             this.DC77.AutoSize = true;
-            this.DC77.Location = new System.Drawing.Point(7, 41);
+            this.DC77.Location = new System.Drawing.Point(5, 41);
             this.DC77.Name = "DC77";
             this.DC77.Size = new System.Drawing.Size(134, 17);
             this.DC77.TabIndex = 2;
@@ -2947,12 +2947,12 @@ namespace DB_EDITOR
             // 
             this.DC88.AutoSize = true;
             this.DC88.Checked = true;
-            this.DC88.Location = new System.Drawing.Point(6, 18);
+            this.DC88.Location = new System.Drawing.Point(5, 18);
             this.DC88.Name = "DC88";
-            this.DC88.Size = new System.Drawing.Size(121, 17);
+            this.DC88.Size = new System.Drawing.Size(144, 17);
             this.DC88.TabIndex = 0;
             this.DC88.TabStop = true;
-            this.DC88.Text = "120-Teams [Default]";
+            this.DC88.Text = "119/120 Teams [Default]";
             this.DC88.UseVisualStyleBackColor = true;
             this.DC88.CheckedChanged += new System.EventHandler(this.DC88_CheckedChanged);
             // 
@@ -6642,6 +6642,39 @@ namespace DB_EDITOR
             this.tabDepthCharts.TabIndex = 11;
             this.tabDepthCharts.Text = "Depth Charts";
             // 
+            // groupBox40
+            // 
+            this.groupBox40.Controls.Add(this.DC136);
+            this.groupBox40.Controls.Add(this.DC120);
+            this.groupBox40.Location = new System.Drawing.Point(4, 533);
+            this.groupBox40.Name = "groupBox40";
+            this.groupBox40.Size = new System.Drawing.Size(152, 63);
+            this.groupBox40.TabIndex = 64;
+            this.groupBox40.TabStop = false;
+            this.groupBox40.Text = "League Size [SET FIRST]";
+            // 
+            // DC136
+            // 
+            this.DC136.AutoSize = true;
+            this.DC136.Location = new System.Drawing.Point(4, 41);
+            this.DC136.Name = "DC136";
+            this.DC136.Size = new System.Drawing.Size(134, 17);
+            this.DC136.TabIndex = 2;
+            this.DC136.Text = "136 Teams [NEXT26+]";
+            this.DC136.UseVisualStyleBackColor = true;
+            // 
+            // DC120
+            // 
+            this.DC120.AutoSize = true;
+            this.DC120.Checked = true;
+            this.DC120.Location = new System.Drawing.Point(3, 18);
+            this.DC120.Name = "DC120";
+            this.DC120.Size = new System.Drawing.Size(144, 17);
+            this.DC120.TabIndex = 0;
+            this.DC120.TabStop = true;
+            this.DC120.Text = "119/120 Teams [Default]";
+            this.DC120.UseVisualStyleBackColor = true;
+            // 
             // DCHTAutoSet
             // 
             this.DCHTAutoSet.BackColor = System.Drawing.Color.Gold;
@@ -9580,7 +9613,7 @@ namespace DB_EDITOR
             this.PRST.Location = new System.Drawing.Point(584, 25);
             this.PRST.Name = "PRST";
             this.PRST.ReadOnly = true;
-            this.PRST.Size = new System.Drawing.Size(53, 22);
+            this.PRST.Size = new System.Drawing.Size(82, 22);
             this.PRST.TabIndex = 139;
             this.PRST.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -9649,12 +9682,12 @@ namespace DB_EDITOR
             // label151
             // 
             this.label151.AutoSize = true;
-            this.label151.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label151.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label151.Location = new System.Drawing.Point(584, 7);
             this.label151.Name = "label151";
-            this.label151.Size = new System.Drawing.Size(26, 16);
+            this.label151.Size = new System.Drawing.Size(86, 13);
             this.label151.TabIndex = 140;
-            this.label151.Text = "XP";
+            this.label151.Text = "Pride Stickers";
             // 
             // label113
             // 
@@ -12918,39 +12951,6 @@ namespace DB_EDITOR
             this.SpringPortalButton.UseVisualStyleBackColor = true;
             this.SpringPortalButton.Click += new System.EventHandler(this.SpringPortalButton_Click);
             // 
-            // groupBox40
-            // 
-            this.groupBox40.Controls.Add(this.DC136);
-            this.groupBox40.Controls.Add(this.DC120);
-            this.groupBox40.Location = new System.Drawing.Point(6, 533);
-            this.groupBox40.Name = "groupBox40";
-            this.groupBox40.Size = new System.Drawing.Size(145, 63);
-            this.groupBox40.TabIndex = 64;
-            this.groupBox40.TabStop = false;
-            this.groupBox40.Text = "League Size [SET FIRST]";
-            // 
-            // DC136
-            // 
-            this.DC136.AutoSize = true;
-            this.DC136.Location = new System.Drawing.Point(7, 41);
-            this.DC136.Name = "DC136";
-            this.DC136.Size = new System.Drawing.Size(134, 17);
-            this.DC136.TabIndex = 2;
-            this.DC136.Text = "136-Teams [NEXT26+]";
-            this.DC136.UseVisualStyleBackColor = true;
-            // 
-            // DC120
-            // 
-            this.DC120.AutoSize = true;
-            this.DC120.Checked = true;
-            this.DC120.Location = new System.Drawing.Point(6, 18);
-            this.DC120.Name = "DC120";
-            this.DC120.Size = new System.Drawing.Size(121, 17);
-            this.DC120.TabIndex = 0;
-            this.DC120.TabStop = true;
-            this.DC120.Text = "120-Teams [Default]";
-            this.DC120.UseVisualStyleBackColor = true;
-            // 
             // MainEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -13087,6 +13087,8 @@ namespace DB_EDITOR
             this.groupBox23.PerformLayout();
             this.tabDepthCharts.ResumeLayout(false);
             this.tabDepthCharts.PerformLayout();
+            this.groupBox40.ResumeLayout(false);
+            this.groupBox40.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DCHTGrid)).EndInit();
             this.tabSchedule.ResumeLayout(false);
             this.tabSchedule.PerformLayout();
@@ -13227,8 +13229,6 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.PortalQB)).EndInit();
             this.groupBox31.ResumeLayout(false);
             this.groupBox31.PerformLayout();
-            this.groupBox40.ResumeLayout(false);
-            this.groupBox40.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

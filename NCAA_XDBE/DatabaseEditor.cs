@@ -160,7 +160,7 @@ namespace DB_EDITOR
                     tableGridView.Rows[tmpi].Cells[1].ToolTipText = tmpDef;
                     tableGridView.Rows[tmpi].Cells[1].Style.BackColor = Color.Khaki;
                 }
-                tmpi = tmpi + 1;
+                tmpi++;
             }
             // Auto Fill Last Column
             tableGridView.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
@@ -312,7 +312,7 @@ namespace DB_EDITOR
                 if (tmpDef != Convert.ToString(sortAZ.Value))
                     fieldsGridView.Columns[tmpi + 1].HeaderCell.Style.BackColor = Color.Khaki;
 
-                tmpi = tmpi + 1;
+                tmpi++;
                 progressBar1.PerformStep();
             }
 
@@ -375,7 +375,7 @@ namespace DB_EDITOR
                         continue;
 
                     TdbFieldProperties FieldProps = new TdbFieldProperties();
-    
+
                     FieldProps.Name = TDBNameLength;
 
                     TDB.TDBFieldGetProperties(dbSelected, TableProps.Name, f.Key, ref FieldProps);
@@ -463,7 +463,7 @@ namespace DB_EDITOR
                     //
                     #endregion
 
-                    tmpf = tmpf + 1;
+                    tmpf++;
 
                 }
 
@@ -578,7 +578,7 @@ namespace DB_EDITOR
             else if (fieldProps.FieldType == TdbFieldType.tdbInt || fieldProps.FieldType == TdbFieldType.tdbSInt)
             {
                 int tmpval = Convert.ToInt32(fieldsGridView.Rows[rownum].Cells[colnum].Value);
-                Int32 intval = Convert.ToInt32(tmpval);
+                //Int32 intval = Convert.ToInt32(tmpval);
 
                 if (IsIntNumber(Convert.ToString(tmpval)))
                 {
@@ -655,10 +655,12 @@ namespace DB_EDITOR
 
         #region Add-Ons
 
+        
         private void DBTableAddOns()
         {
             TdbTableProperties table = new TdbTableProperties();
             table.Name = TDBNameLength;
+
             int dbCount = 1;
             if (dbIndex2 == 1) dbCount = 2;
             for (int db = 0; db < dbCount; db++)
@@ -739,15 +741,30 @@ namespace DB_EDITOR
                     {
                         if (!checkTabExists("Portal")) tabControl1.TabPages.Add(tabPortal);
                     }
+                    
                 }
             }
-
                 CreateTeamDB();
                 SetPositions();
                 CreateRatingsDB();
                 CreatePOCItable();
                 CreateNameConversionTable();
         }
+        
+
+        private void AddPlaybooksTab()
+        {
+            if (GetTableRecCount("FORM") > -1 && GetTableRecCount("FORM") < 1 && !BigEndian)
+            {
+                if (!checkTabExists("Playbook"))
+                {
+                    tabControl1.TabPages.Add(tabPlaybook);
+                    PlaybookDB = true;
+                }
+            }
+        }
+
+
 
         private bool checkTabExists(string tabName)
         {
@@ -761,6 +778,7 @@ namespace DB_EDITOR
 
         private void DBFieldAddOns(TdbTableProperties TableProps)
         {
+
             if (TableProps.Name == "PLAY" && TDB.FieldIndex(dbSelected, SelectedTableName, "PF10") == 0)
             {
                 if (TDB.TableIndex(dbSelected, "First Name") == -1)
@@ -775,6 +793,7 @@ namespace DB_EDITOR
                 if (TDB.TableIndex(dbSelected, "Team Name") == -1)
                     FieldNames.Add(FieldNames.Count, "College");
             }
+
         }
 
         #endregion

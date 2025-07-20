@@ -258,7 +258,8 @@ namespace DB_EDITOR
 
 
                 //NCAA Football Editor Tabs Check
-                if (TDB.FieldIndex(dbIndex, "TEAM", "TMNA") != -1 || TDB.TableIndex(dbIndex, "AIGR") >= 0 || TDB.TableIndex(dbIndex, "PBAI") >= 0 || TDB.FieldIndex(dbIndex, "PLAY", "PF10") != -1) DBTableAddOns();
+                if (TDB.TableIndex(dbIndex, "FORM") >= 0) AddPlaybooksTab(); //checks Playbooks first because of SGF table (3 char) causes TDB problems (expecting 4 char)
+                else if (TDB.TableIndex(dbIndex, "AIGR") >= 0 || TDB.FieldIndex(dbIndex, "TEAM", "TMNA") != -1 || TDB.FieldIndex(dbIndex, "PLAY", "PF10") != -1) DBTableAddOns();
 
 
                 StartHomeTab();
