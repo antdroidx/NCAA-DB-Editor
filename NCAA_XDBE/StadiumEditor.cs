@@ -389,6 +389,22 @@ namespace DB_EDITOR
             return tempData;
         }
 
+
+        private void GrassToTurf_Click(object sender, EventArgs e)
+        {
+            for(int i = 0; i < GetTableRecCount("STAD"); i++)
+            {
+                if (GetDBValueInt("STAD", "SFTY", i) <= 1)
+                {
+                    ChangeDBInt("STAD", "SFTY", i, 4); //Change to Grassy Turf
+                }
+            }
+
+
+            MessageBox.Show("Stadium Grass has been changed to Grassy Turf");
+        }
+
+
         #endregion
 
     }

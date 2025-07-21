@@ -275,12 +275,13 @@ namespace DB_EDITOR
         {
             DoNotTrigger = true;
 
+            
             int fCount_addon = 5; //number of extra columns (fields) to add to PLAY table
             int fCount_First = 4; //5-4 = 1 = 1st new column
             int fCount_Last = 3;
             int fCount_Pos = 2;
             int fCount_Team = 1;
-
+            
 
             int tmpFIELDcount = FieldNames.Count;
 
@@ -347,32 +348,38 @@ namespace DB_EDITOR
 
                 int fCount = TableProps.FieldCount + 1;
 
+                
+                
                 if (TableProps.Name == "PLAY" && TDB.FieldIndex(dbSelected, SelectedTableName, "First Name") == -1 && TDB.FieldIndex(dbSelected, SelectedTableName, "PF10") == 0)
                 {
                     fCount = TableProps.FieldCount + fCount_addon;
                 }
+                
 
                 // Format FieldGridView by tdbFieldType.
                 object[] DataGridRow = new object[fCount];
                 DataGridRow[0] = r;
 
+                
                 if (SelectedTableName == "PLAY" && TDB.FieldIndex(dbSelected, SelectedTableName, "First Name") == -1 && TDB.FieldIndex(dbSelected, SelectedTableName, "PF10") == 0)
                 {
                     fieldsGridView.Columns[fCount - fCount_First].Width = 86;
                     DataGridRow[fCount - fCount_First] = GetFirstNameFromRecord(r);
                     fieldsGridView.Columns[fCount - fCount_Last].Width = 86;
                     DataGridRow[fCount - fCount_Last] = GetLastNameFromRecord(r);
-                    fieldsGridView.Columns[fCount - fCount_Team].Width = 86;
-                    fieldsGridView.Columns[fCount - fCount_Pos].Width = 86;
-
                 }
-
+                
+                
 
 
                 foreach (KeyValuePair<int, string> f in FieldNames)
                 {
+                    
+                    
                     if (TableProps.Name == "PLAY" && TDB.FieldIndex(dbSelected, SelectedTableName, "PF10") == 0 && f.Key > FieldNames.Count - fCount_addon)
                         continue;
+                    
+
 
                     TdbFieldProperties FieldProps = new TdbFieldProperties();
 
@@ -426,15 +433,21 @@ namespace DB_EDITOR
 
                         DataGridRow[tmpf + 1] = intval;
 
+                        
                         if (FieldProps.Name == "PGID" && teamNameDB.Length > 0 && TableProps.Name == "PLAY" && TDB.FieldIndex(dbSelected, SelectedTableName, "PF10") == 0)
                         {
                             DataGridRow[fCount - fCount_Team] = GetTeamName((int)intval / 70);
+                            fieldsGridView.Columns[fCount - fCount_Team].Width = 86;
                         }
                         else if (FieldProps.Name == "PPOS" && TableProps.Name == "PLAY" && TDB.FieldIndex(dbSelected, SelectedTableName, "PF10") == 0)
                         {
                             pos = (UInt32)TDB.TDBFieldGetValueAsInteger(dbSelected, "PLAY", "PPOS", r);
                             DataGridRow[fCount - fCount_Pos] = GetPositionName((int)pos);
+                            fieldsGridView.Columns[fCount - fCount_Pos].Width = 86;
                         }
+                        
+
+
                     }
                     else if (FieldProps.FieldType == TdbFieldType.tdbInt || FieldProps.FieldType == TdbFieldType.tdbSInt)
                     {
@@ -532,7 +545,9 @@ namespace DB_EDITOR
             }
             #endregion
 
-            if (SelectedTableName == "PLAY" && tmpFieldName == "First Name" || tmpFieldName == "Last Name")
+
+            
+            if (SelectedTableName == "PLAY" && tmpFieldName == "First Name" || tmpFieldName == "Last Name" && !DoNotTrigger)
             {
                 if (tmpFieldName == "First Name" && TDB.FieldIndex(dbSelected, SelectedTableName, "First Name") == -1)
                 {
@@ -550,8 +565,10 @@ namespace DB_EDITOR
                     ConvertLastNameStringToInt(tmpPLNA, tmpcol, "PLAY"); //converts name to digits
                     return;
                 }
-
             }
+            
+
+
             if (fieldProps.FieldType == TdbFieldType.tdbString)
             {
                 string tmpval = Convert.ToString(fieldsGridView.Rows[rownum].Cells[colnum].Value);
@@ -578,7 +595,6 @@ namespace DB_EDITOR
             else if (fieldProps.FieldType == TdbFieldType.tdbInt || fieldProps.FieldType == TdbFieldType.tdbSInt)
             {
                 int tmpval = Convert.ToInt32(fieldsGridView.Rows[rownum].Cells[colnum].Value);
-                //Int32 intval = Convert.ToInt32(tmpval);
 
                 if (IsIntNumber(Convert.ToString(tmpval)))
                 {
@@ -778,7 +794,7 @@ namespace DB_EDITOR
 
         private void DBFieldAddOns(TdbTableProperties TableProps)
         {
-
+            
             if (TableProps.Name == "PLAY" && TDB.FieldIndex(dbSelected, SelectedTableName, "PF10") == 0)
             {
                 if (TDB.TableIndex(dbSelected, "First Name") == -1)
@@ -793,6 +809,7 @@ namespace DB_EDITOR
                 if (TDB.TableIndex(dbSelected, "Team Name") == -1)
                     FieldNames.Add(FieldNames.Count, "College");
             }
+            
 
         }
 

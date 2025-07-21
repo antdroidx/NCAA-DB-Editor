@@ -87,6 +87,15 @@ namespace DB_EDITOR
                     ScheduleView.Rows[w].Cells[3].Value = "vs";
                     ScheduleView.Rows[w].Cells[4].Value = teamNameDB[GetDBValueInt("SCHD", "GATG", i)];
                     ScheduleView.Rows[w].Cells[5].Value = GetDBValueInt("SCHD", "GASC", i);
+
+                    if(GetDBValueInt("SCHD", "GHTG", i) == tgid)
+                    {
+                        ScheduleView.Rows[w].Cells[4].Style.Font = new Font(FontFamily.GenericSansSerif, emSize:10, FontStyle.Bold);
+                    }
+                    else
+                    {
+                        ScheduleView.Rows[w].Cells[1].Style.Font = new Font(FontFamily.GenericSansSerif, emSize:10, FontStyle.Bold);
+                    }
                 }
             }
 

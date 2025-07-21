@@ -209,33 +209,6 @@ Then proceed the with the buttons in order. You can swap 2 and 3 if you want. It
   <metadata name="PLYT.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
-  <data name="textBox2.Text" xml:space="preserve">
-    <value>* Recalculate Player Overall - This will recalculate all players' overall rating based on the original game's POCI table
-
-* Recalculate Team Ratings - Recalculates Team Ratings (Approximately)
-
-* Body Size Fixer - This recalculates the body models for each player
-
-* Calculate QB Tendencies - Re-Calculates QB for Scrambling, Balanced and Pocket Passers Traits
-
-* Randomize Player Head/Face - Chooses a new face, head and hair for all players based on skin tone
-
-* Randomize Player Potential - Randomizes from 40-99 every player's potential rating. Affects player progression.
-
-* Unique Players - For Texture Modding Experts Only. Removes PSKI 1 and 4 for creation of unique player specific textures
-
-* Clear Expired Stats - This removes stats from players who are no longer in the database (typically when swapping teams around)
-
---
-
-* Determine Impact Players - Picks 4 Impact Players in a Dynasty Save file based on overall (2 x Offense, 2 x Defense)
-
-* Auto-Set Depth Chart - Creates a depth chart based on position ratings
-
-* Fill Rosters - Generates random players to fill every team to 70, or until DB capacity runs out.
-
-* Fantasy Roster Generator - Creates a fantasy roster for Roster or Dynasty saves. Will run through a series of modules.</value>
-  </data>
   <data name="textBoxOffSeason.Text" xml:space="preserve">
     <value>This is the off-season toolbox for recruiting. These should be set at the beginning of Recruiting Phase
 
@@ -7294,8 +7267,11 @@ This is the likelihood a player will join the portal if they meet the pre-reqs.<
     <value>Small Portal will only fill team needs if they do not have enough based on the Depth options or find players that can immediately start
 Large Portal will go through the entire roster and see if there are available players that can compete with top backups and starters.</value>
   </data>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>956, 17</value>
+  </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>320</value>
+    <value>52</value>
   </metadata>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

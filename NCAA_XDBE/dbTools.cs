@@ -1381,21 +1381,29 @@ namespace DB_EDITOR
             GlobalAttPosBox.Items.Clear();
             MinAttPosBox.Items.Clear();
             MaxAttPosBox.Items.Clear();
+            MinBodyPos.Items.Clear();
+            MaxBodyPos.Items.Clear();
 
             GlobalAttPosBox.Items.Add("ALL");
             MinAttPosBox.Items.Add("ALL");
             MaxAttPosBox.Items.Add("ALL");
+            MinBodyPos.Items.Add("ALL");
+            MaxBodyPos.Items.Add("ALL");
 
             for (int i = 0; i < 17; i++)
             {
                 GlobalAttPosBox.Items.Add(GetPOSG2Name(i));
                 MinAttPosBox.Items.Add(GetPOSG2Name(i));
                 MaxAttPosBox.Items.Add(GetPOSG2Name(i));
+                MinBodyPos.Items.Add(GetPOSG2Name(i));
+                MaxBodyPos.Items.Add(GetPOSG2Name(i));
             }
 
             GlobalAttPosBox.SelectedIndex = 0;
             MinAttPosBox.SelectedIndex = 0;
             MaxAttPosBox.SelectedIndex = 0;
+            MinBodyPos.SelectedIndex = 0;
+            MaxBodyPos.SelectedIndex = 0;   
         }
 
         private void GlobalAttButton_Click(object sender, EventArgs e)
@@ -1564,7 +1572,120 @@ namespace DB_EDITOR
             MaxAttRating.Text = Convert.ToString(ConvertRating(Convert.ToInt32(MaxAttNum.Value)));
         }
 
+        //Body Size
+        //0 - Height ; 1 - Weight
 
+
+        private void MinBodyType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (MinBodyType.SelectedIndex == -1) return;
+            else if (MinBodyType.SelectedIndex == 0)
+            {
+                MinBodyValue.Minimum = 0;
+                MinBodyValue.Maximum = 127;
+                MinBodyValue.Value = 0;
+            }
+            else if (MinBodyType.SelectedIndex == 1)
+            {
+                MinBodyValue.Minimum = 160;
+                MinBodyValue.Maximum = 160+255;
+                MinBodyValue.Value = 160;
+            }
+        }
+
+        private void MaxBodyType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (MaxBodyType.SelectedIndex == -1) return;
+            else if (MaxBodyType.SelectedIndex == 0)
+            {
+                MaxBodyValue.Minimum = 0;
+                MaxBodyValue.Maximum = 127;
+                MaxBodyValue.Value = 78;
+            }
+            else if (MaxBodyType.SelectedIndex == 1)
+            {
+                MaxBodyValue.Minimum = 160;
+                MaxBodyValue.Maximum = 160 + 255;
+                MaxBodyValue.Value = 415;
+            }
+        }
+
+
+        private void UpdateMinBody_Click(object sender, EventArgs e)
+        {
+            if (MinBodyType.SelectedIndex == -1) return;
+
+            int val = Convert.ToInt32(MinBodyValue.Value);
+            int posg = MinBodyPos.SelectedIndex - 1;
+            string attribute = "PHGT";
+            if (MinBodyType.SelectedIndex == 1)
+            {
+                attribute = "PWGT";
+                val = val - 160;
+            }
+
+            progressBar1.Visible = true;
+            progressBar1.Value = 0;
+            progressBar1.Maximum = GetTableRecCount("PLAY");
+
+            for (int i = 0; i < GetTableRecCount("PLAY"); i++)
+            {
+                if (posg == -1)
+                {
+                    int rating = GetDBValueInt("PLAY", attribute, i);
+                    if (rating < val) ChangeDBInt("PLAY", attribute, i, val);
+                }
+                else if (GetPOSG2fromPPOS(GetDBValueInt("PLAY", "PPOS", i)) == posg)
+                {
+                    int rating = GetDBValueInt("PLAY", attribute, i);
+                    if (rating < val) ChangeDBInt("PLAY", attribute, i, val);
+                }
+
+                progressBar1.PerformStep();
+            }
+
+            MessageBox.Show("Body Attribute was updated!");
+            progressBar1.Value = 0;
+            progressBar1.Visible = false;
+        }
+
+        private void UpdateMaxBody_Click(object sender, EventArgs e)
+        {
+            if (MaxBodyType.SelectedIndex == -1) return;
+
+            int val = Convert.ToInt32(MaxBodyValue.Value);
+            int posg = MaxBodyPos.SelectedIndex - 1;
+            string attribute = "PHGT";
+            if (MaxBodyType.SelectedIndex == 1)
+            {
+                attribute = "PWGT";
+                val = val - 160;
+            }
+
+            progressBar1.Visible = true;
+            progressBar1.Value = 0;
+            progressBar1.Maximum = GetTableRecCount("PLAY");
+
+            for (int i = 0; i < GetTableRecCount("PLAY"); i++)
+            {
+                if (posg == -1)
+                {
+                    int rating = GetDBValueInt("PLAY", attribute, i);
+                    if (rating > val) ChangeDBInt("PLAY", attribute, i, val);
+                }
+                else if (GetPOSG2fromPPOS(GetDBValueInt("PLAY", "PPOS", i)) == posg)
+                {
+                    int rating = GetDBValueInt("PLAY", attribute, i);
+                    if (rating > val) ChangeDBInt("PLAY", attribute, i, val);
+                }
+
+                progressBar1.PerformStep();
+            }
+
+            MessageBox.Show("Body Attribute was updated!");
+            progressBar1.Value = 0;
+            progressBar1.Visible = false;
+        }
 
         #endregion
 
