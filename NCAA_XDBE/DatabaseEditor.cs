@@ -712,7 +712,7 @@ namespace DB_EDITOR
                     }
                     else if (table.Name == "TRAN" && !BigEndian)
                     {
-                        if (!checkTabExists("Dynasty")) tabControl1.TabPages.Add(tabSeason);
+                        if (!checkTabExists("Dynasty")) tabControl1.TabPages.Add(tabDynasty);
                     }
                     else if (table.Name == "PBAI" && !BigEndian)
                     {

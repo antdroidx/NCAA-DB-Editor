@@ -173,7 +173,7 @@ namespace DB_EDITOR
 
             tabControl1.TabPages.Remove(tabTeams);
             tabControl1.TabPages.Remove(tabPlayers);
-            tabControl1.TabPages.Remove(tabSeason);
+            tabControl1.TabPages.Remove(tabDynasty);
             tabControl1.TabPages.Remove(tabOffSeason);
             tabControl1.TabPages.Remove(tabTools);
             tabControl1.TabPages.Remove(tabCoaches);
@@ -258,7 +258,7 @@ namespace DB_EDITOR
 
 
                 //NCAA Football Editor Tabs Check
-                if (TDB.TableIndex(dbIndex, "FORM") >= 0) AddPlaybooksTab(); //checks Playbooks first because of SGF table (3 char) causes TDB problems (expecting 4 char)
+                if (TDB.TableIndex(dbIndex, "SETL") >= 0) AddPlaybooksTab(); //checks Playbooks first because of SGF table (3 char) causes TDB problems (expecting 4 char)
                 else if (TDB.TableIndex(dbIndex, "AIGR") >= 0 || TDB.FieldIndex(dbIndex, "TEAM", "TMNA") != -1 || TDB.FieldIndex(dbIndex, "PLAY", "PF10") != -1) DBTableAddOns();
 
 
@@ -1068,6 +1068,7 @@ namespace DB_EDITOR
             if (tabControl1.SelectedTab != tabDB) CSVMenu.Visible = false;
 
             if (tabControl1.SelectedTab == tabDB) TabDB_Start();
+            else if (tabControl1.SelectedTab == tabDynasty) StartDynastyEditor();
             else if (tabControl1.SelectedTab == tabTeams) StartTeamEditor();
             else if (tabControl1.SelectedTab == tabPlayers) StartPlayerEditor();
             else if (tabControl1.SelectedTab == tabConf) ConferenceSetup();

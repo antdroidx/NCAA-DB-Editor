@@ -12,6 +12,18 @@ namespace DB_EDITOR
 
         #region Dynasty Tools Clicks
 
+        //Start Dynasty Editor
+        private void StartDynastyEditor()
+        {
+            if (GetDBValueInt("GOPT", "OFCF", 0) == 0)
+            {
+                ContractsCheckBox.Checked = false;
+            }
+            else
+            {
+                ContractsCheckBox.Checked = true;
+            }
+        }
 
         //Pre-Season Injury Distributor
         private void ButtonPSInjuries_Click(object sender, EventArgs e)
@@ -33,7 +45,6 @@ namespace DB_EDITOR
         {
             CoachPrestigeProgression();
         }
-
 
 
         //Conference Realignment
@@ -74,7 +85,18 @@ namespace DB_EDITOR
             ResetGP();
         }
 
-
+        //Contracts On/Off
+        private void ContractsCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if(ContractsCheckBox.Checked)
+            {
+                ChangeDBInt("GOPT", "OFCF", 0, 1);
+            }
+            else
+            {
+                ChangeDBInt("GOPT", "OFCF", 0, 0);
+            }
+        }
         #endregion
 
 

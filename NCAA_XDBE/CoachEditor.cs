@@ -274,7 +274,7 @@ namespace DB_EDITOR
 
             CoachTeamPrestige.Text = teamPrs;
 
-            ContractInfo.Text = GetDBValue("COCH", "CCYR", CoachIndex) + " / " + GetDBValue("COCH", "CCFY", CoachIndex) + " Years Remaining";
+            ContractInfo.Text = "Year " + (GetDBValueInt("COCH", "CCYR", CoachIndex)+1) + " of " + (GetDBValueInt("COCH", "CCFY", CoachIndex) + GetDBValueInt("COCH", "CCYR", CoachIndex) + 1);
 
             YearsWithTeam.Text = GetDBValue("COCH", "CTYR", EditorIndex);
 

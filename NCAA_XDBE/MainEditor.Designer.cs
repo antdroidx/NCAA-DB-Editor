@@ -588,7 +588,8 @@ namespace DB_EDITOR
             this.SCHDVS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SCHDAWAY = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SCHDScoreA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tabSeason = new System.Windows.Forms.TabPage();
+            this.tabDynasty = new System.Windows.Forms.TabPage();
+            this.ContractsCheckBox = new System.Windows.Forms.CheckBox();
             this.groupBox36 = new System.Windows.Forms.GroupBox();
             this.medRS = new System.Windows.Forms.Button();
             this.skillDrop = new System.Windows.Forms.NumericUpDown();
@@ -1169,7 +1170,7 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.MatchView)).BeginInit();
             this.groupBox21.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ScheduleView)).BeginInit();
-            this.tabSeason.SuspendLayout();
+            this.tabDynasty.SuspendLayout();
             this.groupBox36.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.skillDrop)).BeginInit();
             this.groupBox35.SuspendLayout();
@@ -7228,28 +7229,41 @@ namespace DB_EDITOR
             this.SCHDScoreA.Name = "SCHDScoreA";
             this.SCHDScoreA.ReadOnly = true;
             // 
-            // tabSeason
+            // tabDynasty
             // 
-            this.tabSeason.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.tabSeason.Controls.Add(this.groupBox36);
-            this.tabSeason.Controls.Add(this.groupBox35);
-            this.tabSeason.Controls.Add(this.TransferPortalStats);
-            this.tabSeason.Controls.Add(this.RemoveBadTransfers);
-            this.tabSeason.Controls.Add(this.RemoveSanctionsButton);
-            this.tabSeason.Controls.Add(this.label180);
-            this.tabSeason.Controls.Add(this.ImpactPlayerMin);
-            this.tabSeason.Controls.Add(this.buttonImpactPlayers);
-            this.tabSeason.Controls.Add(this.BodyProgressionButton);
-            this.tabSeason.Controls.Add(this.buttonRealignment);
-            this.tabSeason.Controls.Add(this.dbToolsInfo);
-            this.tabSeason.Controls.Add(this.textBox1);
-            this.tabSeason.Controls.Add(this.groupBox37);
-            this.tabSeason.Location = new System.Drawing.Point(4, 24);
-            this.tabSeason.Name = "tabSeason";
-            this.tabSeason.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSeason.Size = new System.Drawing.Size(1152, 615);
-            this.tabSeason.TabIndex = 3;
-            this.tabSeason.Text = "Dynasty";
+            this.tabDynasty.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.tabDynasty.Controls.Add(this.ContractsCheckBox);
+            this.tabDynasty.Controls.Add(this.groupBox36);
+            this.tabDynasty.Controls.Add(this.groupBox35);
+            this.tabDynasty.Controls.Add(this.TransferPortalStats);
+            this.tabDynasty.Controls.Add(this.RemoveBadTransfers);
+            this.tabDynasty.Controls.Add(this.RemoveSanctionsButton);
+            this.tabDynasty.Controls.Add(this.label180);
+            this.tabDynasty.Controls.Add(this.ImpactPlayerMin);
+            this.tabDynasty.Controls.Add(this.buttonImpactPlayers);
+            this.tabDynasty.Controls.Add(this.BodyProgressionButton);
+            this.tabDynasty.Controls.Add(this.buttonRealignment);
+            this.tabDynasty.Controls.Add(this.dbToolsInfo);
+            this.tabDynasty.Controls.Add(this.textBox1);
+            this.tabDynasty.Controls.Add(this.groupBox37);
+            this.tabDynasty.Location = new System.Drawing.Point(4, 24);
+            this.tabDynasty.Name = "tabDynasty";
+            this.tabDynasty.Padding = new System.Windows.Forms.Padding(3);
+            this.tabDynasty.Size = new System.Drawing.Size(1152, 615);
+            this.tabDynasty.TabIndex = 3;
+            this.tabDynasty.Text = "Dynasty";
+            // 
+            // ContractsCheckBox
+            // 
+            this.ContractsCheckBox.AutoSize = true;
+            this.ContractsCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ContractsCheckBox.Location = new System.Drawing.Point(366, 13);
+            this.ContractsCheckBox.Name = "ContractsCheckBox";
+            this.ContractsCheckBox.Size = new System.Drawing.Size(128, 22);
+            this.ContractsCheckBox.TabIndex = 48;
+            this.ContractsCheckBox.Text = "Contracts On";
+            this.ContractsCheckBox.UseVisualStyleBackColor = true;
+            this.ContractsCheckBox.CheckedChanged += new System.EventHandler(this.ContractsCheckBox_CheckedChanged);
             // 
             // groupBox36
             // 
@@ -7406,7 +7420,7 @@ namespace DB_EDITOR
             this.TransferPortalStats.Name = "TransferPortalStats";
             this.TransferPortalStats.Size = new System.Drawing.Size(125, 75);
             this.TransferPortalStats.TabIndex = 43;
-            this.TransferPortalStats.Text = "[NEXT24+] Retain Transfer Portal Player Stats";
+            this.TransferPortalStats.Text = "[NEXT24] Retain Transfer Portal Player Stats";
             this.TransferPortalStats.UseVisualStyleBackColor = false;
             this.TransferPortalStats.Click += new System.EventHandler(this.TransferPortalStats_Click);
             // 
@@ -12203,7 +12217,7 @@ namespace DB_EDITOR
             this.tabControl1.Controls.Add(this.tabTeams);
             this.tabControl1.Controls.Add(this.tabPlayers);
             this.tabControl1.Controls.Add(this.tabCoaches);
-            this.tabControl1.Controls.Add(this.tabSeason);
+            this.tabControl1.Controls.Add(this.tabDynasty);
             this.tabControl1.Controls.Add(this.tabSchedule);
             this.tabControl1.Controls.Add(this.tabDepthCharts);
             this.tabControl1.Controls.Add(this.tabConf);
@@ -13252,8 +13266,8 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)(this.MatchView)).EndInit();
             this.groupBox21.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.ScheduleView)).EndInit();
-            this.tabSeason.ResumeLayout(false);
-            this.tabSeason.PerformLayout();
+            this.tabDynasty.ResumeLayout(false);
+            this.tabDynasty.PerformLayout();
             this.groupBox36.ResumeLayout(false);
             this.groupBox36.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.skillDrop)).EndInit();
@@ -13862,7 +13876,7 @@ namespace DB_EDITOR
         private Label label211;
         public ListBox SCHDTeamBox;
         private DataGridView ScheduleView;
-        public TabPage tabSeason;
+        public TabPage tabDynasty;
         private System.Windows.Forms.Button RemoveBadTransfers;
         private System.Windows.Forms.Button RemoveSanctionsButton;
         private Label label180;
@@ -14408,6 +14422,7 @@ namespace DB_EDITOR
         private Label label267;
         private System.Windows.Forms.Button UpdateMaxBody;
         private System.Windows.Forms.Button UpdateMinBody;
+        private CheckBox ContractsCheckBox;
     }
 }
 
