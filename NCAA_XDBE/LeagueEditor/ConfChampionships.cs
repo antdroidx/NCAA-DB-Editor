@@ -94,8 +94,17 @@ namespace DB_EDITOR
             //Add Non-Required Bowls to List (BIDX 1-16)
             for (int i = 0; i < main.GetTableRecCount("BOWL"); i++)
             {
-                if (main.GetDBValueInt("BOWL", "BIDX", i) > 1 && main.GetDBValueInt("BOWL", "BIDX", i) <= 16)
+                if (!Next26Mod) 
+                { 
+                    if (main.GetDBValueInt("BOWL", "BIDX", i) > 1 && main.GetDBValueInt("BOWL", "BIDX", i) <= 16)
                     availableBowls.Items.Add(main.GetDBValue("BOWL", "BNME", i));
+                }
+                else
+                {
+                    if (main.GetDBValueInt("BOWL", "BIDX", i) >= 28 && main.GetDBValueInt("BOWL", "BIDX", i) <= 53)
+                        availableBowls.Items.Add(main.GetDBValue("BOWL", "BNME", i));
+                }
+
             }
 
             return availableBowls;
@@ -143,8 +152,16 @@ namespace DB_EDITOR
             main.ChangeDBInt("BOWL", "SGNM", rec, count);
             main.ChangeDBInt("BOWL", "BMON", rec, 12);
             main.ChangeDBInt("BOWL", "SEWN", rec, 16);
-            main.ChangeDBInt("BOWL", "BIDX", rec, 33+count);
-            main.ChangeDBInt("BOWL", "BDAY", rec, 1);
+            if (!Next26Mod)
+            {
+                main.ChangeDBInt("BOWL", "BIDX", rec, 33 + count);
+                main.ChangeDBInt("BOWL", "BDAY", rec, 1);
+            }
+            else
+            {
+                main.ChangeDBInt("BOWL", "BIDX", rec, 54 + count);
+                main.ChangeDBInt("BOWL", "BDAY", rec, 6);
+            }
         }
 
         private void ReOrderBowl()

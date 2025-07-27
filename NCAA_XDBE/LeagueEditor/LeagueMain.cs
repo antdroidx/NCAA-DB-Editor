@@ -57,6 +57,7 @@ namespace DB_EDITOR
         int maxTeams = 20;
         bool ArmyNavy = false;
         bool NextMod = false;
+        bool Next26Mod = false;
 
 
         List<int> bowlsDeleted = new List<int>();
@@ -1717,14 +1718,59 @@ namespace DB_EDITOR
 
         private void NextConfigRadio_CheckedChanged(object sender, EventArgs e)
         {
-            //NextConfigRadio.Checked = true;
-            NextMod = true;
+            if (NextConfigRadio.Checked)
+            {
+                NextMod = true;
+                Next26Mod = false;
+            }
+            else if (Next26Config.Checked)
+            {
+                NextMod = false;
+                Next26Mod = true;
+            }
+            else
+            {
+                NextMod = false;
+                Next26Mod = false;
+            }
         }
 
         private void OGConfigRadio_CheckedChanged(object sender, EventArgs e)
         {
-            //OGConfigRadio.Checked = true;
-            NextMod = false;
+            if (NextConfigRadio.Checked)
+            {
+                NextMod = true;
+                Next26Mod = false;
+            }
+            else if (Next26Config.Checked)
+            {
+                NextMod = false;
+                Next26Mod = true;
+            }
+            else
+            {
+                NextMod = false;
+                Next26Mod = false;
+            }
+        }
+
+        private void Next26Config_CheckedChanged(object sender, EventArgs e)
+        {
+            if (NextConfigRadio.Checked)
+            {
+                NextMod = true;
+                Next26Mod = false;
+            }
+            else if (Next26Config.Checked)
+            {
+                NextMod = false;
+                Next26Mod = true;
+            }
+            else
+            {
+                NextMod = false;
+                Next26Mod = false;
+            }
         }
     }
 

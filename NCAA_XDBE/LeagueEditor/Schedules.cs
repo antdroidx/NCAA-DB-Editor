@@ -69,7 +69,7 @@ namespace DB_EDITOR
             GenerateConfSchedules();
             GenerateSKNW();
 
-            if(!ArmyNavy && NextMod)
+            if(!ArmyNavy && NextMod || !ArmyNavy && Next26Mod)
             {
                 ClearAnnuals();
                 TDB.TDBTableRecordAdd(dbIndex2, "SANN", false);

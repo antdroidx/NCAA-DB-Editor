@@ -193,7 +193,7 @@ namespace DB_EDITOR
                 }
             }
 
-            if (!ArmyNavy && NextMod)
+            if (!ArmyNavy && NextMod || !ArmyNavy && Next26Mod)
             {
                 TDB.TDBTableRecordAdd(dbIndex2, "SANN", false);
                 ChangeDBInt("SANN", "GTOD", 0, 1200);
