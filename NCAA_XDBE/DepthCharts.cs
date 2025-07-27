@@ -458,7 +458,7 @@ namespace DB_EDITOR
                     if (DC77.Checked)
                     {
                         //FBs
-                        rec = AddDCHTrecord(rec, 2, 1, DCRoster[TOID]);
+                        rec = AddDCHTrecord(rec, 2, 2, DCRoster[TOID]);
                         //Ks
                         rec = AddDCHTrecord(rec, 19, 2, DCRoster[TOID]);
                         //Ps
@@ -466,7 +466,7 @@ namespace DB_EDITOR
                         //KRs
                         rec = AddDCHTrecord(rec, 21, 2, DCRoster[TOID]);
                         //PRs
-                        rec = AddDCHTrecord(rec, 22, 3, DCRoster[TOID]);
+                        rec = AddDCHTrecord(rec, 22, 2, DCRoster[TOID]);
                         //KOSs
                         rec = AddDCHTrecord(rec, 23, 2, DCRoster[TOID]);
                         //LSs
@@ -611,9 +611,9 @@ namespace DB_EDITOR
                 //Ps
                 rec = AddDCHTrecord(rec, 20, 2, roster);
                 //KRs
-                rec = AddDCHTrecord(rec, 21, 4, roster);
+                rec = AddDCHTrecord(rec, 21, 2, roster);
                 //PRs
-                rec = AddDCHTrecord(rec, 22, 4, roster);
+                rec = AddDCHTrecord(rec, 22, 2, roster);
                 //KOSs
                 rec = AddDCHTrecord(rec, 23, 2, roster);
                 //LSs
