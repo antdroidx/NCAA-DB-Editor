@@ -7267,9 +7267,6 @@ This is the likelihood a player will join the portal if they meet the pre-reqs.<
     <value>Small Portal will only fill team needs if they do not have enough based on the Depth options or find players that can immediately start
 Large Portal will go through the entire roster and see if there are available players that can compete with top backups and starters.</value>
   </data>
-  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>956, 17</value>
-  </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>52</value>
   </metadata>

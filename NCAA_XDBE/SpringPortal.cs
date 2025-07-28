@@ -149,39 +149,13 @@ namespace DB_EDITOR
                 SpringRoster[TGID][count].Add(0); //TRAN status
                 SpringRoster[TGID][count].Add(RS);
 
+                if (PortalRatingBoost.Checked)
+                    SpringRoster[TGID][count][7] = POVR - (SpringRoster[TGID][count][6] / 2);
+                else
+                    SpringRoster[TGID][count][7] = POVR;
+
                 progressBar1.PerformStep();
             }
-
-            progressBar1.Visible = true;
-            progressBar1.Maximum = GetTable2RecCount("RCTN");
-            progressBar1.Value = 0;
-
-
-
-            //look up training results
-
-            for (int y = 0; y < GetTable2RecCount("RCTN"); y++)
-            {
-                int pgid = GetDB2ValueInt("RCTN", "PGID", y);
-                int tgid = pgid / 70;
-                for (int i = 0; i < SpringRoster[tgid].Count; i++)
-                {
-                    if (SpringRoster[tgid][i][2] == pgid)
-                    {
-
-                        int POVR = GetDB2ValueInt("RCTN", "POVR", y);
-
-                        SpringRoster[tgid][i][4] = POVR;
-                        if (PortalRatingBoost.Checked)
-                            SpringRoster[tgid][i][7] = POVR - (SpringRoster[tgid][i][6] / 2);
-                        else
-                            SpringRoster[tgid][i][7] = POVR;
-                        break;
-                    }
-                }
-                progressBar1.PerformStep();
-            }
-
 
             //Check for Transfers in TRAN
             for (int t = 0; t < GetTableRecCount("TRAN"); t++)
@@ -310,6 +284,15 @@ namespace DB_EDITOR
                     }
                 }
 
+                if(AllowBackupQBPortal.Checked && p == 0 && rand.Next(0,100) < portalChance.Value)
+                {
+                    // If the team has a backup QB, allow them to add a player to the portal
+                    if (posList[1][0] != -1 && posList[1][9] == 0 || posList[1][2] >= 21000 && PortalTransfers.Checked || posList[1][9] == 1 && PortalTransfers.Checked)
+                    {
+                        SpringPortal.Add(posList[1]);
+                        TeamPortalNeeds[tgid][p * 2 + 1] = 0;
+                    }
+                }
 
             }
         }
@@ -619,6 +602,52 @@ namespace DB_EDITOR
             }
 
             CompactDB();
+        }
+
+
+        //Set Default Roster Req
+
+        private void PortalDefaultSetting_Click(object sender, EventArgs e)
+        {
+            PortalQB.Value = 3;
+            PortalHB.Value = 4;
+            PortalFB.Value = 1;
+            PortalWR.Value = 6;
+            PortalTE.Value = 3;
+            PortalOT.Value = 6;
+            PortalOG.Value = 6;
+            PortalOC.Value = 3;
+            PortalDE.Value = 6;
+            PortalDT.Value = 5;
+            PortalOLB.Value = 6;
+            PortalMLB.Value = 4;
+            PortalCB.Value = 6;
+            PortalFS.Value = 3;
+            PortalSS.Value = 3;
+            PortalK.Value = 1;
+            PortalP.Value = 1;
+        }
+
+        //Set Minimum Roster Req
+        private void SpringPortalMin_Click(object sender, EventArgs e)
+        {
+            PortalQB.Value = 2;
+            PortalHB.Value = 3;
+            PortalFB.Value = 1; 
+            PortalWR.Value = 3;
+            PortalTE.Value = 2;
+            PortalOT.Value = 3;
+            PortalOG.Value = 3; 
+            PortalOC.Value = 2;
+            PortalDE.Value = 4;
+            PortalDT.Value = 4;
+            PortalOLB.Value = 3;
+            PortalMLB.Value = 3;
+            PortalCB.Value = 3;
+            PortalFS.Value = 2;
+            PortalSS.Value = 2;
+            PortalK.Value = 1;
+            PortalP.Value = 1;
         }
     }
 }

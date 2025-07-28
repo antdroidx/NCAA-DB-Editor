@@ -568,7 +568,7 @@ namespace DB_EDITOR
                         }
                         if (count >= 100)
                         {
-                            return rand.Next(0, 100);
+                            return rand.Next(0, 99);
                         }
 
                     }
