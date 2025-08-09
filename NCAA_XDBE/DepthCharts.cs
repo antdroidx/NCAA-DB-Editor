@@ -263,20 +263,6 @@ namespace DB_EDITOR
                     {
                         AddTableRecord("DCHT", false);
 
-
-
-                        /*
-                         * string[] temp = Convert.ToString(DCHTGrid.Rows[row].Cells[col].Value).Split(' ');
-
-                        string name = temp[1];
-                        for (int i = 2; i < temp.Length; i++)
-                        {
-                            name += " " + temp[i];
-                        }
-                        int pgid = GetDCHTPlayerPGID(name);
-                        */
-
-
                         int pgid = GetDCHTPlayerPGID(Convert.ToString(DCHTGrid.Rows[row].Cells[col].Value));
                         ChangeDBInt("DCHT", "PGID", rec, pgid);
                         ChangeDBInt("DCHT", "PPOS", rec, row);
@@ -286,7 +272,7 @@ namespace DB_EDITOR
                     }
                 }
 
-                row++;
+                //row++;
             }
 
             MessageBox.Show("Depth Chart Database Update Complete!\n\nRemember to Save!");

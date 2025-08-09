@@ -1085,10 +1085,13 @@ namespace DB_EDITOR
             ChangeDBString(tableName, "PFGM", i, Convert.ToString(shape));
 
             //Finds current skin tone and randomizes within it's Light/Medium/Dark general tone (PSKI)
+           
             int skin = GetDBValueInt(tableName, "PSKI", i);
+            
             if (skin <= 2) skin = rand.Next(0, 3);
             else if (skin <= 6) skin = rand.Next(3, 7);
-            else skin = rand.Next(7, 8);
+            else skin = 7;
+            
 
             ChangeDBString(tableName, "PSKI", i, Convert.ToString(skin));
 
@@ -1098,7 +1101,7 @@ namespace DB_EDITOR
 
             //Randomize Hair Color
             int hcl = 0;
-            if (skin < 3)
+            if (skin < 3 || skin == 7)
             {
                 hcl = rand.Next(1, 101);
                 if (hcl <= 55) hcl = 2; //brown
@@ -1116,8 +1119,38 @@ namespace DB_EDITOR
             ChangeDBString(tableName, "PHCL", i, Convert.ToString(hcl));
 
             //Randomize Hair Style
+            int hairstyle = 5;
+            
+            if (skin < 3 || skin == 7)
+            {
 
+                if (rand.Next(1, 101) <= 50)
+                    hairstyle = rand.Next(2, 8);
+                else
+                    hairstyle = rand.Next(9, 14);
 
+            }
+            else
+            {
+                if (rand.Next(1, 101) <= 50)
+                {
+                    int hair = rand.Next(1, 5);
+                    if (hair == 1) hairstyle = 1;
+                    else if (hair == 2) hairstyle = 2;
+                    else if (hair == 3) hairstyle = 3;
+                    else if (hair == 4) hairstyle = 14;
+                }
+                else
+                {
+                    if (rand.Next(1, 101) <= 50)
+                        hairstyle = rand.Next(0, 8);
+                    else
+                        hairstyle = rand.Next(9, 15);
+                }
+            }
+            
+
+            ChangeDBInt(tableName, "PHED", i, hairstyle);
 
         }
 

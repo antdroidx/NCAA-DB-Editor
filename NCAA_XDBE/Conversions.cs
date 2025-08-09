@@ -417,7 +417,7 @@ namespace DB_EDITOR
         {
             List<string> hair = new List<string>();
 
-            hair.Add("Bald");
+            hair.Add("Bald"); //0
             hair.Add("Corn Rows");
             hair.Add("Afro");
             hair.Add("Flat Top");
@@ -425,13 +425,13 @@ namespace DB_EDITOR
             hair.Add("Fade");
             hair.Add("Balding");
             hair.Add("Close Crop");
-            hair.Add("Bald (Hidden)");
+            hair.Add("Bald (Hidden)"); //8
             hair.Add("Bald 2");
             hair.Add("Balding 2");
             hair.Add("Buzzcut 2");
             hair.Add("Fade 2");
             hair.Add("Mullet");
-            hair.Add("Dreadlocks");
+            hair.Add("Dreadlocks");  //14
             return hair;
         }
 

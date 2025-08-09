@@ -198,7 +198,7 @@ namespace DB_EDITOR
                         }
                     }
 
-                    if (counter % 15 == 0) downgrade++;
+                    if (counter % 50 == 0) downgrade++;
                     counter++;
                 }
 
