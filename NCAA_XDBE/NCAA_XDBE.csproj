@@ -5,10 +5,12 @@
     <UseWindowsForms>true</UseWindowsForms>
     <RootNamespace>DB_EDITOR</RootNamespace>
     <AssemblyName>NCAA_XDBE</AssemblyName>
+    <Platforms>x86</Platforms>
+    <ApplicationIcon>Resources/images/ncaa-db-editor-icon.ico</ApplicationIcon>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="Resources\**\*.csv" CopyToOutputDirectory="PreserveNewest" />
-    <Content Include="Resources\tdbaccess.dll" CopyToOutputDirectory="PreserveNewest" />
+    <Content Include="Resources\\**\\*" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
 </Project>
