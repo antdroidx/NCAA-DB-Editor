@@ -4,6 +4,16 @@ DB/Save Editor for NCAA Football series on PS2/Xbox/PSP/GC Consoles
 This editor was designed using original source code from Madden Xtreme DB Editor (elguapo) and MaddenAMP (Colin Goudie/stringray68) and uses tdbaccess library from Artem Khassanov of NHLView.
 
 
+## Deployment
+
+Publish the application using the modern tooling with:
+
+```bash
+dotnet publish NCAA_XDBE/NCAA_XDBE.csproj -c Release
+```
+
+The ClickOnce package is created in the `publish/` directory.
+
 # New Features
 * Added better compatibility with NCAA PS2 Games and PS2 in general
 * Ability to view, edit and save NCAA off-season save files  (click Options, Load Off-Season Save, Reload save file)
