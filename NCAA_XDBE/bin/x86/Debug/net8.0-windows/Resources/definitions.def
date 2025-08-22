@@ -1,0 +1,870 @@
+DEFINITIONS,0
+ACTX,OWNER COMMENTS TEXT
+AGCM,Contract Negotiation Comments
+AGCX,AGENT COMMENT TEXT
+artx,pbor graphic
+arty,pbor graphic
+ASNN,min. players assigned to position on depth chart
+ASNN,Minimum Number of Players Assigned to Position
+ASPO,position number
+ASPP,min/max assigned players at a position
+BGID,PLAYBOOK ID
+BNAM,PLAYBOOK NAME
+BOFF,PLAYBOOK TYPE 1=OFFENSE; 0=DEFENSE
+BORD,PLAYBOOK ORDER
+caat,Pass Att.
+cacm,Pass Comp.
+CADH,City December High Temp
+CADO,City December Low Temp
+CAGE,Coach Age
+cain,INT Thrown
+calN,Pass Long
+CART,Custom Art
+casa,Times Sacked
+CASH,City September High Temp
+CASO,City September Low Temp
+catd,Pass TD
+CAVI,City Average Income
+CAWD,AWARD ID
+caya,Pass Yds
+CBLM,Coach Ratings = Worst Loss
+CBWM,Coach Ratings = Biggest Win
+ccca,Catches
+CCCS,CONTROLLER MOVE (DIVE; SPRINT; STRAFE; ETC)
+ccdr,Drops
+CCDS,Button Actions
+CCHM,Coach Chemistry
+CCID,Coach ID
+CCLN,Contract Length
+CCLO,Coach Ratings = Career Losses
+CCPL,Coach Ratings = Playoff Losses
+CCPW,Coach Ratings = Playoff Wins
+ccrL,Rec. Long
+cctd,Rec. TD
+CCTI,Coach Ratings = Career Ties
+CCWI,Coach Ratings = Career Wins
+CCWS,Coach Ratings = Winning Seasons
+ccya,Rec. Yds
+ccyc,YAC
+CDEF,Coach Defense Rating
+CDID,Coach Defense Playbook
+cdpd,Pass Def.
+CDPT,Priority Type
+cdta,Tackle
+CDTA,Coach Defense Agressiveness
+cdtl,Tackle for Loss
+CDTR,Coach Defense Strategy Pass
+CDTX,DRAFT CLASS WORKOUT TEXT
+CDTY,Coach Defense Philosophy = 95=4-3; 5=3-4
+cEID,EVENT ID
+CETH,Coach Ethics
+CFDA,Coach Management Draft Player = 0=user; 1=CPU
+CFDP,Coach Management Sign Draft Picks = 0=user; 1=CPU
+CFFA,Coach Management Sign Free Agents = 0=user; 1=CPU
+CFFR,Coach Management Fill Rosters = 0=user; 1=CPU
+CFRP,Coach Management Re-sign Players = 0=user; 1=CPU
+CFRR,Coach Management Depth Chart = 0=user; 1=CPU
+CFUC,Coach Control = 1=user; 0=CPU
+CGID,Conference ID
+cgmp,Games Played
+cgms,Games Started
+CGPT,City Growth Rate
+CHAR,Coach Hair?????
+CHGT,Coach Height???????
+CITY,Cities
+ckaa,FGA 1-29
+ckac,FGA 30-39
+ckad,FGA 40-49
+ckae,FGA 50+
+ckea,XPA
+ckeb,XP Blocked
+ckem,XPM
+ckfa,FGA
+ckfb,FG Blocked
+ckfL,FG Long
+ckfm,FGM
+ckma,FGM 1-29
+ckmc,FGM 30-39
+ckmd,FGM 40-49
+ckme,FGM 50+
+cknk,Kickoffs
+CKNW,Coach Knowledge
+cktb,Touchbacks
+clbl,Blocks
+clff,Forced Fumble
+clfr,Fumble Recov.
+clft,Fumble Rec. TD
+clfy,Fumble Yards
+CLNA,Coach Name
+clsa,Safety
+clsk,Sacks
+CLTF,Last Team (Franchise)
+cMON,months for Madden
+CMOT,Coach Motivation
+CMTX,MONTH TEXT
+CNAM,CONFERENCE NAME
+cNDA,DAYS IN MONTH
+COCH,Coaches
+COCX,NEW COACH COMMENTS TEXT
+COFF,Coach Offense Rating
+COID,COLLEGE ID
+COLL,Colleges
+CONA,COLLEGE NAME
+copa,Pancakes
+COPS,Coach Position = 0=HC; 1=OC; 2=DC; 3=ST
+cosa,Sacks Allowed
+COTA,Coach Offense Agressiveness
+COTR,Coach Offense Strategy
+cpat,Punts
+cpbl,Punts Blocked
+CPID,Coach Offense Playbook
+cplN,Punt Long
+cpny,Net Yds
+CPOP,City Population
+cppt,Inside 20
+CPT1,Captain 1
+CPT2,Captain 2
+CPT3,Captain 3
+cptb,Touchbacks
+cpya,Yards (punt)
+CRAT,Coach Approval Rating
+CRBT,Coach Running Strategy
+CRca,CRID
+CRcd,CRHEADER
+CRDB,Coach Rating DB
+CRde,CRNAME
+CRDL,Coach Rating DL
+CREG,City Region
+CRid,CRNAME ID
+crka,Kick Return Attempts
+crkL,Kick Return Long
+CRKS,Coach Rating K
+crkt,Kick Return TD
+crky,Kick Return Yards
+CRLB,Coach Rating LB
+CROL,Coach Rating OL
+crpa,Punt Return Attempts
+crpL,Punt Return Long
+CRPS,Coach Rating P
+crpt,Punt Return TD
+crpy,Punt Return Yards
+CRQB,Coach Rating QB
+CRRB,Coach Rating RB
+CRSA,Coach Rating S
+CRWR,Coach Rating WR
+CSAL,Coach Salary
+CSBL,Coach Ratings = Super Bowl Losses
+CSBW,Coach Ratings = Super Bowl Wins
+csin,INT
+csit,INT for TD
+csiy,INT yards
+CSKI,Coach Skin Color ID
+CSLO,Coach Ratings = Season Losses
+cslR,INT Long
+CSWI,Coach Ratings = Season Wins
+CSWM,Coach Ratings = Season's Biggest Winning Margin???????
+CSXP,Coach Portrait ID
+CTIZ,City Time Zone ????
+CTLC,all time teams
+CTLG,Create-a-team names
+cu2y,20+ Yds
+cuat,Rush Att
+cubt,Broken Tackles
+cufu,Fumbles
+culN,Rush Long
+cutd,Rush TD
+cuya,Rush Yds
+cuyh,After 1st Hit
+CYID,City ID
+CYNM,City Name
+CYNP,City Newspaper
+CYST,State
+DCHT,Depth Chart
+DCSB,Player Substitutions
+ddep,Depth Chart Order
+DGID,Division ID
+DGRA,Draft Grade
+DISN,Division Place
+DNAM,DIVISION NAME
+DPTG,order of depth chart auto-fill -> 0 is 1st; 1 is 2nd; ect.
+DRND,draft round
+DRPS,Depth Chart Info
+DRTY,Drill Type
+DRYR,Last Names for Draft Class
+DTRP,Drill Trophy
+ENUN,positions
+ENUN,Position
+ENVU,position number
+ETXT,EVENT TEXT
+EVBN,controller assignments
+EVIM,EVENT IMPORTANCE
+EVTX,KEY
+EXDI,division terminology
+FABD,Favorite Offer on the Table
+FCHL,Fan Hair Color
+FCTX,GAME PLANNING TEXT
+fmtx,formation layout graphic
+fmty,formation layout graphic
+FNTP,Create-a-fan
+FPTN,UNIFORM PART (?)
+FRID,Franchise ID
+FSKN,Fan Skin Color
+gaat,Pass Att.
+gacc,Pass Comp.
+GACH,Away Team Challenges. Found in GINF table. This contains the number of challenges remaining for the visiting team in an in-progress game.
+gacm,Pass Comp.
+gADV,GAME PLANNING TEXT
+gain,INT Thrown
+galN,Pass Long
+gasa,Times Sacked
+GASC,Away Team Score. Found in GINF table. This contains the value of the visiting team's score in an in-progress game.
+gatd,Pass TD
+GATG,Away Team TGID
+GATO,Away Team Time Outs. Found in GINF table. This contains the value of the visiting team's remaining time-outs in an in-progress game.
+gaya,Pass Yds
+gcca,Catches
+gcdr,Drops
+gcrL,Rec. Long
+gctd,Rec. TD
+gcya,Rec. Yds
+gcyc,YAC
+GDAT,"Day of the Week; 0 Thurs, 1 Fri, 2 Sat, 3 Sun, etc."
+gdpd,passes defended
+gdta,tackles
+gdtl,Tackle for Loss
+GFHU,User played game????
+GFOT,Game went into OT (for weekly scores/schedule)
+GFTG,"Thanksgiving Day Game, 1=yes, 0=no"
+ggdp,Points gained ( For calculating progression )
+ggmP,Games Played
+ggmP,Games Played
+ggmS,Games Started
+ggmS,Games Started
+GHCH,Home Team Challenges. Found in GINF table. This contains the number of challenges remaining for the home team in an in-progress game.
+GHSC,Home Team Score. Found in GINF table.This contains the value of the home team's score in an in-progress game.
+GHTG,Home Team TGID
+GHTO,Home Team Time Outs. Found in GINF table. This contains the value of the home team's remaining time-outs in an in-progress game.
+gkaa,FGA 1-29
+gkac,FGA 30-39
+gkad,FGA 40-49
+gkae,FGA 50+
+gkea,XPA
+gkeb,XP Blocked
+gkem,XPM
+gkfa,FGA
+gkfb,FG Blocked
+gkfL,FG Long
+gkfm,FGM
+gkma,FGM 1-29
+gkmc,FGM 30-39
+gkmd,FGM 40-49
+gkme,FGM 50+
+gknk,Kickoffs
+gktb,Touchbacks
+glbl,Blocks
+glff,Forced Fumble
+glfr,Fumble Recov.
+glft,Fumble Rec. TD
+glfy,Fumble Return Yards
+glsa,Safety
+glsk,Sacks
+gopa,Pancakes
+gosa,Sacks Allowed
+gpat,Punts
+gpbl,Punts Blocked
+gplN,Punt Long
+gpny,Net Yds
+gppt,Inside 20
+gptb,Touchbacks (punts)
+gpya,Yards (punt)
+GQTR,Game Quarter
+grka,Kick Return Attempts
+grkL,Kick Return Long
+grkt,Kick Return TD
+grky,Kick Return Yards
+grpa,Punt Return Attempts
+grpL,Punt Return Long
+grpt,Punt Return TD
+grpy,Punt Return Yards
+gsin,INT
+gsit,INT for TD
+gsiy,INT yards
+gslR,INT Long
+GSTA,0;postseason not including Pro Bowl; 1;everything else
+GTIM,Time Left In Quarter (seconds)
+GTOD,Game Time of Day (minutes past midnight)
+gu2y,20+ Yds
+guat,Rush Att
+gubt,Broken Tackles
+gufu,Fumbles
+gulN,Rush Long
+gutd,Rush TD
+guya,Rush Yds
+guyh,After 1st Hit
+INGI,In Game Injury
+INIR,Injury Reserve
+INJL,Injury Length
+INJT,Injury Type
+INJY,Injuries
+IWAS,Interview Responses
+IWQS,Interview Questions
+LDPC,Loading Screen Labels
+LGID,League ID
+LNAM,LEAGUE NAME
+MALN,ALBUM NAME
+MARN,ARTIST NAME
+MC(xx),Madden Cards
+MCDD,MADDEN CARD NUMBER
+MCDS,CARD DESCRIPTION
+MCID,MADDEN CARD ID
+MCMC,TEXT
+MCMI,MADDEN CARD TEXT ID
+MCNm,MADDEN CARD = PLAYER NAME
+MCUI,HOW TO EARN MADDEN CARD
+MDIR,MOVIE DIRECTOR
+MPRO,MOVIE PRODUCER
+MRDS,RECORD DATE
+MREC,Default records
+MRHN,RECORD HOLDER NAME
+MRID,MADDEN RECORD ID
+MRNA,MADDEN RECORD NAME
+MRON,RECORD OCCURRED AGAINST
+MRUN,RECORD USER
+MRVA,RECORD AMOUNT
+MSON,SONG NAME
+MSTI,MADDEN SOUNDTRACK ID
+MSTN,MADDEN SOUNDTRACK NAME
+MTXT,MADDEN TEXT
+MUSO,Soundtrack Track Listing
+MUST,Soundtrack Title
+MVNM,MOVIE NAME
+MVPT,MOVIE DESCRIPTION
+OAAC,CPU QB Accuracy
+OAAW,CPU Awareness
+OADB,CPU Break Tackle
+OADK,CPU Knockdown
+OAFA,CPU FG Accuracy
+OAFL,CPU FG Strength
+OAIN,CPU INT
+OAKL,CPU Kickoff Strength
+OAOP,CPU Pass Blocking
+OAPA,CPU Punt Accuracy
+OAPL,CPU Punt Strength
+OARA,CPU RB Ability
+OARB,CPU Run Blocking
+OARC,CPU WR Catching
+OATA,CPU Tackling
+OCRC,what coaches say when retiring in franchise mode in offseason
+OGID,Opponent Team ID
+OGRN,Item being sold
+OPCL,Penalty Clipping
+OPDP,Penalty Def. Pass Interference
+OPFM,Penalty Face Mask
+OPFS,Penalty False Start
+OPHO,Penalty Holding
+OPIG,Penalty Intentional Grounding
+OPOP,Penalty Off. Pass Interference
+OPPI,Penalty KR/PR Catch Interference
+OPRK,Penalty Roughing Kicker
+OPRP,Penalty Roughing Passer
+OQLN,Quarter Length
+ORPS,TEAM RELOCATE
+OSMB,PROFAINE WORD
+OWAC,advisor comments in owner mode
+OWCP,owner mode stuff
+OWFA,ATTENDANCE % - 1=0; 101=100; 100%=5.00M
+OWFE,Franchise Mode = Fan Expectations
+OWFN,City Specific Merchandise for Fan Appreciation Day
+OWFS,FAN SUPPORT
+OWGA,Prices
+OWGP,PRICE
+OWGT,Item order
+OWGT,ITEM
+OWIC,INCOME CONCESSIONS
+OWID,Owner ID
+OWIM,INCOME MERCHANDISE
+OWIP,INCOME PARKING
+OWIT,INCOME TICKETS
+OWNC,text under Coach Options->Ratings
+PAat,Award Description
+PACC,Acceleration
+PACW,Acceleration
+PAGE,Player Age
+PAGI,Agility
+PAGW,Agility
+PATT,ID for various rating categories
+PAWR,Awareness
+PAWW,Awareness
+PBRE,Nasal Strip
+PBTK,Broken Tackle
+PBTW,Breaking Tackles
+PCAR,Carrying
+PCAW,Catching
+PCDE,Player Career Defensive
+PCHS,Pad Shelf
+PCKI,Player Career Kicking
+PCKP,Player Career Kick/Punt Return
+PCNG,Player Career In Game
+PCOF,Player Career Offense
+PCOL,Player Career O-Line
+PCON,Original Contract Years
+PCOS,endorsement info
+PCPH,Player Career Phase
+PCRW,Carrying
+PCSA,Contract Offer Total Salary
+PCTH,Catching
+PCYL,Contract Years Left
+PDPI,Draft Pick #
+PDRO,Round drafted
+PDRP,Position at Draft
+PDRP,"Position at Draft (0=QB,1=HB,2=FB,3=WR,4=TE,5=T,6=G,7=C,8=DE,9=DT,10=OLB,11=MLB,12=CB,13=FS,14=SS,15=K,16=P)"
+PEBO,EXPECTED SIGNING BONUS
+PECL,EXPECTED CONTRACT LENGTH
+PEGO,Player Ego
+PESA,EXPECTED SALARY
+pEXP,Super Star Mode = Starting Exposure out of college
+PEYE,Eye paint
+PFAS,Arm Fat
+PFCS,Leg Fat
+PFEx,Face ID
+PFHS,Thigh Fat
+PFMK,Face mask
+PFNA,Player First Name
+PFPB,Pro Bowl
+PFTS,Body Fat
+PGAC,Acceleration
+PGAG,Agility
+PGAW,Awareness
+PGBT,Break Tackle
+PGCA,Carry
+PGCT,Catch
+PGID,Player ID
+PGIN,Injury
+PGJU,Jumping
+PGKA,Kick Accuracy
+PGKP,Kick Power
+PGKR,Kick Returning
+PGPB,Pass Blocking
+PGRB,Run Blocking
+PGSA,Stamina
+PGSL,Sleeves
+PGSM,Stamina
+PGSP,Speed
+PGST,Strength
+PGTA,Throw Accuracy
+PGTK,Tackling
+PGTP,Throwing Power
+PHAN,Prefered Hand
+PHCL,Hair Color
+PHED,Hair Style
+PHGT,Height
+PHLM,Helmet
+PI34,"PRIMARY DEFENSE 3-4, 1=YES, 0=NO"
+PICN,Icon
+PIMP,Importance
+PINJ,Injury
+PINW,Injury
+PJEN,Jersey #
+PJMP,Jump
+PJUW,Jumping
+PKAC,Kick Accuracy
+PKAW,Kick Accuracy
+PKPR,Kick Power
+PKPW,Kicking Power
+PKRT,Kick Return
+PKRW,Kick Returning
+PLA1,Attribute (relates to subs) 0 = Strength; 1 = Agility; 2 = Speed; 3 = Acceleration; 4 = Awareness; 5 = Catching; 6 = Carrying; 7 = Throw Power; 8 = Throw Accuracy; 9 = Kick Power; 10 = Kick Accuracy; 11 = Breaking Tackles; 12 = Tackling; 13 = Pass Blocking; 14 = Run Blocking; 15 = Jumping; 16 = Kick Return
+PLA2,Attribute (relates to subs) 0 = Strength; 1 = Agility; 2 = Speed; 3 = Acceleration; 4 = Awareness; 5 = Catching; 6 = Carrying; 7 = Throw Power; 8 = Throw Accuracy; 9 = Kick Power; 10 = Kick Accuracy; 11 = Breaking Tackles; 12 = Tackling; 13 = Pass Blocking; 14 = Run Blocking; 15 = Jumping; 16 = Kick Return
+PLA3,Attribute (relates to subs) 0 = Strength; 1 = Agility; 2 = Speed; 3 = Acceleration; 4 = Awareness; 5 = Catching; 6 = Carrying; 7 = Throw Power; 8 = Throw Accuracy; 9 = Kick Power; 10 = Kick Accuracy; 11 = Breaking Tackles; 12 = Tackling; 13 = Pass Blocking; 14 = Run Blocking; 15 = Jumping; 16 = Kick Return
+PLAB,Playbooks
+PLAY,Players
+Pld,credits
+PLEL,Left elbow
+PLHA,Left Hand
+PLNA,Player Last Name
+PLP1,% of attribute reduction (relates to subs)
+PLP2,% of attribute reduction (relates to subs)
+PLP3,% of attribute reduction (relates to subs)
+PLPS,Positional info
+PLSB,position number of player you want to sub into PPOS
+PLSB,this is the position number of the position you want to be able to sub INTO another position
+PLSH,Left Shoe
+PLSS,Shoes
+PLTH,Left Knee
+PLWR,Left Wrist
+PMAS,Arm muscle
+PMCS,Leg Muscle
+PMHS,Thigh Muscle
+PMOD,Player Attribute to be Modified
+PMOR,Morale
+PMPC,Mouthpiece
+PMTS,Body Weight
+PMUS,Body Muscle
+PNEK,Neck pad
+POID,Player ID
+POPS,Original Position ID
+PORI,"0=offense, 1=defense, 2=special teams"
+POVR,Player Overall
+PPBK,Pass Block
+PPBW,Pass Blocking
+PPER,Position Percentage -> This is the probability for each generated player from each draft class that they will be a certain position.
+PPIA,Number of player required at position
+PPIM,Position Priority
+PPIR,Number of players required at position to start game
+pPOP,Super Star Mode = Starting Popularity out of college
+PPOS,"Player Position (0=QB,1=HB,2=FB,3=WR,4=TE,5=LT,6=LG,7=C,8=R,9=RT,10=LE,11=RE,12=DT,13=LOLB,14=MLB,15=ROLB,16=CB,17=FS,18=SS,19=K,20=P,21=KR,22=PR,23=KO,24=LS,25=TDRB)"
+PPRD,Progression Round
+PPTI,Acquired From
+PRBK,Run Block
+PRBW,Run Blocking
+PRCD,record number (just a counter)
+PRCT,main scouting table
+PRCT,comments
+PREL,Right elbow
+PRFW,Foul Words
+PRGR,"Player Rating Group (based on overall rating 0=90+,1=82-89,2=76-81,3=70-75,4=60-69,5=<59)"
+PRHA,Right Hand
+PRL2,Player Role 2
+PRMA,player rating max
+PRMI,player rating min
+PRNM,Role Name
+PROL,Player Role ID
+PRSH,Right Shoe
+PRTH,Right Knee
+PRTX,PLAYER RETIREMENT TEXT
+PRWR,Right Wrist
+PSBO,Player Signing Bonus
+PSBS,Body Build Overall
+PSDE,Player Stats Defense
+PSEW,Speed
+PSKI,Player Stats Kicking
+PSKP,Player Stats Kick/Punt Return
+PSNG,Player Started In Game
+PSOF,Player Stats Offense
+PSOL,Player Stats Offensive Line
+PSPD,Speed
+PSTA,Stamina
+PSTP,points gained or lost for stat( for calculating progression )
+PSTR,Strength
+PSTT,Stat Type
+PSTW,Strength
+PSTY,Throwing Style
+PSXP,Portrait ID
+PTAK,Tackling
+PTAL,Tatoo Left
+PTAR,Tatoo Right
+PTAW,Throwing Accuracy
+PTCW,Tackling
+PTEN,Player Tendency
+PTGH,Toughness
+PTHA,Throw Accuracy
+PTHP,Throwing Power
+PTPW,Throwing Power
+PTSA,Total Salary
+PTSL,Sleeves 2
+PVCO,Contract Years
+PVIS,Visor
+PVSB,Signing Bonus
+PVTS,Total Salary
+PWGT,Weight
+PWRA,Player Progression
+pXPC,Super Star Mode = Starting Expectations out of college
+PYRA,Player Regression
+PYRP,Player Years Pro
+PYRP,Years Played
+QSA1,ANSWER CHOICE 1
+QSA2,ANSWER CHOICE 2
+QSA3,ANSWER CHOICE 3
+QSS1,POINTS WITH THIS ANSWER
+QSS2,POINTS WITH THIS ANSWER
+QSS3,POINTS WITH THIS ANSWER
+QSTX,IQ TEST QUESTION
+RFA1,Restricted Free Agent Tender Amount level 1 (lowest)
+RFA2,Restricted Free Agent Tender Amount level 2
+RFA3,Restricted Free Agent Tender Amount level 3
+RFA4,Restricted Free Agent Tender Amount level 4 (highest)
+RINF,WEBMASTER PAINTING DESCRIPTION
+RLNM,ROLE NAME
+RLTX,ROLE DESCRIPTION TEXT
+ROLE,ROLE ID
+RTST,RATING CATEGORY
+saat,Pass Att.
+sacm,Pass Comp.
+sain,INT Thrown
+salN,Pass Long
+SAMU,Salary Monetary Units (increasing/decreasing amount you can adjust contract offers)
+sasa,Times Sacked
+satd,Pass TD
+saya,Pass Yds
+SBHY,Super Bowl History
+SCAD,Salary Cap Amount
+SCAP,Seating Capacity
+SCAR,info for rookies
+SCBU,"Marks if the Scouting Notes are unlocked for this player or not (1: unlocked, 0: locked)"
+scca,Catches
+SCCS,Club Seats
+scdr,Drops
+SCHD,Schedule
+SCID,SCRIPT ID
+SCLB,Luxury Box
+SCLL,Lower Level
+SCML,Mid Level
+SCPC,Salary Cap Percent
+scrL,Rec. Long
+sctd,Rec. TD
+SCUE,Upper Endzone
+SCUL,Upper Level
+scya,Rec. Yds
+scyc,YAC
+sdpd,Passes defended
+sdta,tackles
+sdtl,Tackles for loss
+SESI,The seasons in (?). The value is 0 for the first set (first year schedule) and changes to 1 for the second year's schedule
+SEST,"9 if preseason, 0 elsewise"
+SETL,formation set
+SEWN,Season Week Number
+SEWT,"Weight of the game, 0 preseason, 25 regular season, 50 wildcard, 75 divisional, 100 conference, 125 SB, 150 Pro Bowl"
+SEYL,Season Year
+SEYR,Season Year
+SGAC,rookie grades for scouting report
+SGF_,base locations & shifts
+SGID,Stadium ID
+sgmp,Games Played
+sgms,Games Started
+SGNM,Game Number; The place it appears on the list in franchise mode
+SgYY,Team played for during stat year
+SgYY,Team ID for Past Years Stats
+sgYY,TEAM ID
+SIMI,Sim Injury
+skaa,FGA 1-29
+skac,FGA 30-39
+skad,FGA 40-49
+skae,FGA 50+
+skea,XPA
+skeb,XP Blocked
+skem,XPM
+skfa,FGA
+skfb,FG Blocked
+skfL,FG Long
+skfm,FGM
+skma,FGM 1-29
+skmc,FGM 30-39
+skmd,FGM 40-49
+skme,FGM 50+
+sknk,Kickoffs
+sktb,Touchbacks
+slbl,Blocks
+slff,Forced Fumbles
+slfr,Fumble Rec.
+slft,Fumble Rec for TD
+slfy,Fumble Rec Yds
+SLID,SCRIPT LINE ID
+slsa,Safety
+slsk,Sacks
+SLTX,SCRIPT TEXT
+SMAD,Max. Yearly Contract Value
+SMID,MINIMUM CONTRACT
+SNAM,Stadium Name
+SNTE,SCOUTING NOTES TEXT
+sopa,Pancakes
+sosa,Sacks Allowed
+SP00,N. Endzone 1st Deck
+SP01,N. Endzone 2nd Deck
+SP02,N. Endzone 3rd Deck
+SP03,1st Deck NW Corner
+SP04,1st Deck NE Corner
+SP05,S. Endzone 1st Deck
+SP06,S. Endzone 2nd Deck
+SP07,S. Endzone 3rd Deck
+SP08,1st Deck SW Corner
+SP09,1st Deck SE Corner
+SP10,E. Sideline 1st Deck
+SP11,E. Sideline 2nd Deck
+SP12,E. Sideline 3rd Deck
+SP13,W. Sideline 1st Deck
+SP14,W. Sideline 2nd Deck
+SP15,W. Sideline 3rd Deck
+SP16,Roof Lights
+SP17,Roof
+SP19,Info Endzone Walls
+SP20,Info Sideline Pattern
+SP21,Grass Type
+SP24,Endzone Background
+SP25,Background
+spat,Punts
+spbl,Punts Blocked
+SPGE,SCRIPT PAGE
+splN,Punt Long
+SPNM,First Names for Draft Class
+spny,Net Yds
+sppt,Inside 20
+sptb,Touchbacks
+spya,Yards (punt)
+srka,Kick Return Attempts
+srkL,Kick Return Long
+srkt,Kick Return TD
+srky,Kick Return Yards
+SROK,Superstar Rookies
+srpa,Punt Return Attempts
+srpL,Punt Return Long
+srpt,Punt Return TD
+srpy,Punt Return Yards
+SSCT,"Times you ran a rookie drill with that player (0 for 1 time, 1 for 2 times etc.)"
+SSDE,Time of Possession (seconds)
+SSDP,Number of Plays
+ssin,INT
+ssit,INT for TD
+ssiy,INT Yds
+sslR,INT Long
+SSNE,Companies for naming stadium
+SSPT,EXTRA POINT 10=XP missed; 11=2pt fail; 13=XP good; 14=2pt good; 16=no extra point
+SSPY,Yards on Play
+SSSC,YARDS ON DRIVE -50,"100 yds, 50",0 yds
+SSTI,PGID of scorer
+SSTY,Score Type 0=TD Pass; 1=TD run; 3=Fumble Rtn TD; 5=INT Rtn TD; 6=KR TD; 7=PR TD; 9=Safety
+STAD,Stadiums
+STID,UPGRADE ID
+STUC,UPGRADE COST
+STUM,Annual Expense
+STUN,UPGRADE NAME
+STVL,Record
+su2y,20+ Yds
+suat,Rush Att
+subt,Broken Tackles
+SUDE,UPGRADE DESCRIPTION
+sufu,Fumbles
+sulN,Rush Long
+sutd,Rush TD
+suya,Rush Yds
+suyh,After 1st Hit
+SWEN,Season Week
+SYRO,Stadium Years Old
+Tccc,credits
+TCLO,All Time Losses
+TCP0,Team Salary Cap Penalty Current Year (1=$10k)
+TCP1,Team Salary Cap Penalty Next Year (1=$10k)
+TCTI,All Time Ties
+TCWI,All Time Wins
+TDNA,Team Name
+TDPB,Team Defense Playbook
+tdPt,TD Passing = Team Stats
+TDRI,Team Default Roster Number
+tdrt,TD Rushing = Team Stats
+TEAM,Team Info
+TEDS,TEAM DESCRIPTION
+TEVN,COMMENTS FROM PLAYERS ON TEAM EVENTS
+TEZ1,Team Endzone 1
+TEZ2,Team Endzone 2
+TF00,"Bears Offer (yes=1; no=0)"
+TF01,"Bengals Offer (yes=1; no=0)"
+TF02,"Bills Offer (yes=1; no=0)"
+TF03,"Broncos Offer (yes=1; no=0)"
+TF04,"Browns Offer (yes=1; no=0)"
+TF05,"Buccaneers Offer (yes=1; no=0)"
+TF06,"Cardinals Offer (yes=1; no=0)"
+TF07,"Chargers Offer (yes=1; no=0)"
+TF08,"Chiefs Offer (yes=1; no=0)"
+TF09,"Colts Offer (yes=1; no=0)"
+TF10,"Cowboys Offer (yes=1; no=0)"
+TF11,"Dolphins Offer (yes=1; no=0)"
+TF12,"Eagles Offer (yes=1; no=0)"
+TF13,"Falcons Offer (yes=1; no=0)"
+TF14,"49ers Offer (yes=1; no=0)"
+TF15,"Giants Offer (yes=1; no=0)"
+TF16,"Jaguars Offer (yes=1; no=0)"
+TF17,"Jets Offer (yes=1; no=0)"
+TF18,"Lions Offer (yes=1; no=0)"
+TF19,"Packers Offer (yes=1; no=0)"
+TF20,"Panthers Offer (yes=1; no=0)"
+TF21,"Patriots Offer (yes=1; no=0)"
+TF22,"Raiders Offer (yes=1; no=0)"
+TF23,"Rams Offer (yes=1; no=0)"
+TF24,"Ravens Offer (yes=1; no=0)"
+TF25,"Redskins Offer (yes=1; no=0)"
+TF26,"Saints Offer (yes=1; no=0)"
+TF27,"Seahawks Offer (yes=1; no=0)"
+TF28,"Steelers Offer (yes=1; no=0)"
+TF29,"Texans Offer (yes=1; no=0)"
+TF30,"Vikings Offer (yes=1; no=0)"
+TF31,"Titans Offer (yes=1; no=0)"
+TFID,Training Staff ID
+TFKN,Training Staff Knowledge
+TFNM,Training Staff Name
+TFPN,Training Staff Prevention
+TFRC,Training Staff Recovery
+TFSA,Training Staff Salary
+TFYL,Training Staff Contract Years Left
+TGID,Team ID
+TLEL,Left elbow
+TLGL,Team Logo
+TLGS,Team Roster Management Helmet
+TLHA,Left Hand 2
+TLNA,Team Long name
+TLSA,Team Short Name
+TLWR,Left Wrist 2
+TMNC,Team Nickname
+TMSA,Team Salary
+TOID,Team Official ID
+TOPB,Team Offense Playbook
+TORD,Team Roster Management Order
+TPSL,Prior Season Losses
+TPST,Prior Season Ties
+TPSW,Prior Season Wins
+TRDB,Team Rating DB
+TRDE,Team Rating DEF
+TRDL,Team Rating DL
+TREL,Right elbow
+TREP,Team Reputation
+TRHA,Right Hand 2
+TRIV,Rival ID
+TRLB,Team Rating LB
+TROF,Team Rating OFF
+TROL,Team Rating OL
+TROV,Team Rating OVR
+TRQB,Team Rating QB
+TRRB,Team Rating RB
+TRST,Team Rating ST
+TRV1,Rival 1
+TRV2,Rival 2
+TRV3,Rival 3
+TRWR,Right Wrist 2
+ts1d,1st Downs = Team Stats
+ts3c,3rd Down Conversions = Team Stats
+ts3d,3rd Down Attempts = Team Stats
+ts4c,4th Down Conversions = Team Stats
+ts4d,4th Down Attempts = Team Stats
+TSCS,Team Season Current Streak
+tsDi,Defensive INT = Team Stats
+tsdp,Passing Yds Allowed = Team Stats
+tsdy,Rushing Yds Allowed = Team Stats
+tsfl,Fumbles Lost = Team Stats
+tsfr,Fumbles Recovered = Team Stats
+TSIX,Record Description
+TSLO,Team Season Loss
+TSLW,Team Season Wins
+TSNA,TEAM SHORT NAME
+tsop,Total Passing Yards = Team Stats
+tsor,Total Rushing Yards = Team Stats
+tsoy,Total Offense = Team Stats
+tspi,INT Thrown = Team Stats
+TSRL,"3 if you don't make playoffs; 2 if you make but lose; 1 if you lose the superbowl; 0 if you win the superbowl"
+TSRO,Team Season Record Loses
+TSRW,Team Season Record Wins
+tssa,Sacks Allowed = Team Stats
+tssk,Sacks = Team Stats
+TSTI,Team Season Ties
+tsTy,Total Yards = Team Stats
+TSWI,Team Season Wins
+TTYP,Team Type
+TUNI,Uniforms
+TWRR,Team Rating WR
+UCRF,User Created Fan
+UDCH,Uniform Decal Code Hip
+UDSL,Uniform Decal Sleeve
+UFID,Uniform ID
+UHNB,Uniform Helmet Number Back
+UNHF,Uniform Helmet Number Front
+UNIF,Uniform ID
+UNUM,Uniform number....not sure if it's a type or where the number appears on the uniform
+URID,Pricing ID
+WLQS,IQ Test

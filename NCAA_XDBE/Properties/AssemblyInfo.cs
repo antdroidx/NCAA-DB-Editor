@@ -2,6 +2,7 @@
 using System.Runtime.InteropServices;
 
 // General assembly metadata
+/*
 [assembly: AssemblyTitle("NCAA Xtreme DB Editor")]
 [assembly: AssemblyDescription("Updated for NCAA Football by Antdroid. " +
     "\n\r\n\r\n\rCredits:\n\r\n\r\n* elguapo: Madden Xtreme DB Editor Source code. \n\r\n\r" +
@@ -19,3 +20,4 @@ using System.Runtime.InteropServices;
 [assembly: Guid("d1068195-ca21-4ccf-8198-e273ad8743f4")]
 
 [assembly: AssemblyVersion("1.0.*")]
+*/

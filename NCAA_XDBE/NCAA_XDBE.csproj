@@ -5,9 +5,11 @@
     <UseWindowsForms>true</UseWindowsForms>
     <RootNamespace>DB_EDITOR</RootNamespace>
     <AssemblyName>NCAA_XDBE</AssemblyName>
-    <Platforms>x86</Platforms>
+    <Platforms>x86;x64</Platforms>
     <ApplicationIcon>Resources/images/ncaa-db-editor-icon.ico</ApplicationIcon>
     <Prefer32Bit>false</Prefer32Bit>
+    <AnalysisLevel>latest</AnalysisLevel>
+    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
 
   <ItemGroup>
