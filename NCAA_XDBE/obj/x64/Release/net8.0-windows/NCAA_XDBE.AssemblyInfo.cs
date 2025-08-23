@@ -12,7 +12,7 @@ using System;
 using System.Reflection;
 
 [assembly: System.Reflection.AssemblyCompanyAttribute("Antdroid Interactive")]
-[assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
+[assembly: System.Reflection.AssemblyConfigurationAttribute("Release")]
 [assembly: System.Reflection.AssemblyCopyrightAttribute("2019-2025")]
 [assembly: System.Reflection.AssemblyDescriptionAttribute("Updated for NCAA Football by Anthony Nguyen (antdroid)\r\n\r\nCredits:\r\n* Artem Khass" +
     "anov: tdbaccess.dll\r\n* elguapo: Madden Xtreme DB Editor Source code.\r\n* Stingray" +

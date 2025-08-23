@@ -1,18 +1,56 @@
-<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
     <TargetFramework>net8.0-windows</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
+	  <Nullable>enable</Nullable>
+	  <UseWindowsForms>true</UseWindowsForms>
+	  <ImplicitUsings>enable</ImplicitUsings>
+	  <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
     <RootNamespace>DB_EDITOR</RootNamespace>
     <AssemblyName>NCAA_XDBE</AssemblyName>
-    <Platforms>x86;x64</Platforms>
+    <Platforms>x64</Platforms>
     <ApplicationIcon>Resources/images/ncaa-db-editor-icon.ico</ApplicationIcon>
     <Prefer32Bit>false</Prefer32Bit>
     <AnalysisLevel>latest</AnalysisLevel>
     <PlatformTarget>x64</PlatformTarget>
-  </PropertyGroup>
+    <SignAssembly>False</SignAssembly>
+    <Company>Antdroid Interactive</Company>
+    <Authors>Anthony Nguyen (Antdroid)</Authors>
+    <Product>NCAA Database Editor</Product>
+    <Title>NCAA Database Editor</Title>
+    <Description>Updated for NCAA Football by Anthony Nguyen (antdroid)
 
+Credits:
+* Artem Khassanov: tdbaccess.dll
+* elguapo: Madden Xtreme DB Editor Source code.
+* Stingray68: MaddenAmp Source Code
+* JDHalfrack: DAT File Replacer + more!
+* Colin Goudie: MaddenAmp</Description>
+    <Copyright>2019-2025</Copyright>
+    <PackageProjectUrl>https://www.ncaanext.com</PackageProjectUrl>
+    <Version></Version>
+    <AssemblyVersion>2.0.0</AssemblyVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Optimize>False</Optimize>
+    <DebugType>portable</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <DebugType>portable</DebugType>
+  </PropertyGroup>
   <ItemGroup>
     <Content Include="Resources\\**\\*" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
+  <ItemGroup>
+    <!-- Add this section to explicitly control resource naming -->
+    <EmbeddedResource Update="MainEditor.resx">
+      <LogicalName>DB_EDITOR.MainEditor.resources</LogicalName>
+    </EmbeddedResource>
+    <!-- If you have a designer file, add this -->
+    <EmbeddedResource Update="MainEditor.Designer.resx">
+      <DependentUpon>MainEditor.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+	
 </Project>

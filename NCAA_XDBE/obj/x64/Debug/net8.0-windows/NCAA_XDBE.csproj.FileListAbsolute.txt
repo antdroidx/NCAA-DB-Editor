@@ -58,8 +58,8 @@ D:\AppProjects\NCAA-DB-Editor-dotNET\NCAA_XDBE\bin\x64\Debug\net8.0-windows\NCAA
 D:\AppProjects\NCAA-DB-Editor-dotNET\NCAA_XDBE\bin\x64\Debug\net8.0-windows\NCAA_XDBE.dll
 D:\AppProjects\NCAA-DB-Editor-dotNET\NCAA_XDBE\bin\x64\Debug\net8.0-windows\NCAA_XDBE.pdb
 D:\AppProjects\NCAA-DB-Editor-dotNET\NCAA_XDBE\obj\x64\Debug\net8.0-windows\DB_EDITOR.AboutBox1.resources
-D:\AppProjects\NCAA-DB-Editor-dotNET\NCAA_XDBE\obj\x64\Debug\net8.0-windows\DB_EDITOR.LeagueMain.resources
 D:\AppProjects\NCAA-DB-Editor-dotNET\NCAA_XDBE\obj\x64\Debug\net8.0-windows\DB_EDITOR.MainEditor.resources
+D:\AppProjects\NCAA-DB-Editor-dotNET\NCAA_XDBE\obj\x64\Debug\net8.0-windows\DB_EDITOR.LeagueMain.resources
 D:\AppProjects\NCAA-DB-Editor-dotNET\NCAA_XDBE\obj\x64\Debug\net8.0-windows\DB_EDITOR.Properties.Resources.resources
 D:\AppProjects\NCAA-DB-Editor-dotNET\NCAA_XDBE\obj\x64\Debug\net8.0-windows\NCAA_XDBE.csproj.GenerateResource.cache
 D:\AppProjects\NCAA-DB-Editor-dotNET\NCAA_XDBE\obj\x64\Debug\net8.0-windows\NCAA_XDBE.GeneratedMSBuildEditorConfig.editorconfig

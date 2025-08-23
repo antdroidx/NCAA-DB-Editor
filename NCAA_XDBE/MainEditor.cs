@@ -117,8 +117,28 @@ namespace DB_EDITOR
 
         #endregion
 
+
+        // Add this near the top of the MainEditor class, after existing DllImport
+        [DllImport("user32.dll")]
+        private static extern bool SetProcessDPIAware();
+
+
         public MainEditor()
         {
+            // Add these lines at the start of the constructor
+            if (Environment.OSVersion.Version.Major >= 6)
+            {
+                SetProcessDPIAware();
+            }
+
+            this.AutoScaleMode = AutoScaleMode.Dpi;
+            //this.SetAutoScaleDimensions(new System.Drawing.SizeF(96F, 96F));
+            // Remove or comment out the following line in the MainEditor constructor:
+            // this.SetAutoScaleDimensions(new System.Drawing.SizeF(96F, 96F));
+
+            // Reason: There is no SetAutoScaleDimensions method in Form or MainEditor. 
+            // The correct way to set scaling is to use the AutoScaleDimensions property, like this:
+            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             InitializeComponent();
             DefaultSettings();
         }
@@ -303,7 +323,7 @@ namespace DB_EDITOR
 
                     byte[] dbLengthArray = new byte[4];
                     int c = 0;
-                    for(int b = i+8; b < i+12; b++)
+                    for (int b = i + 8; b < i + 12; b++)
                     {
                         dbLengthArray[c] = array[b];
                         c++;
@@ -314,7 +334,7 @@ namespace DB_EDITOR
 
 
                     // Save DB information.
-                    
+
                     for (int j = i; j < array.Length; j++)
                     {
                         dbData.Add(array[j]);
@@ -438,7 +458,7 @@ namespace DB_EDITOR
             if (SaveDB(dbSelected))
             {
                 SaveDB(0);
-                if(dbIndex2 == 1) SaveDB(1);
+                if (dbIndex2 == 1) SaveDB(1);
 
                 #region Compile Console Data and DB information.
                 byte[] db1, db2;
@@ -1114,8 +1134,6 @@ namespace DB_EDITOR
             }
         }
         #endregion
-
-
 
 
     }

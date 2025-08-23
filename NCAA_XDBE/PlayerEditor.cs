@@ -270,6 +270,12 @@ namespace DB_EDITOR
             PINJtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(PINJBox.Value)));
             PINJtext.BackColor = GetRatingColor(PINJtext).BackColor;
 
+
+            //Stamina
+            PSTAbox.Value = GetDBValueInt("PLAY", "PSTA", PlayerIndex);
+            PSTAtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(PSTAbox.Value)));
+            PSTAtext.BackColor = GetRatingColor(PSTAtext).BackColor;
+
             //Awareness
             PAWRBox.Maximum = maxRatingVal;
             PAWRBox.Value = GetDBValueInt("PLAY", "PAWR", PlayerIndex);
@@ -803,6 +809,20 @@ namespace DB_EDITOR
             DisplayNewOverallRating();
 
         }
+
+
+        private void PSTAbox_ValueChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger)
+                return;
+
+            ChangeDBInt("PLAY", "PSTA", PlayerIndex, Convert.ToInt32(PSTAbox.Value));
+            PSTAtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PSTA", PlayerIndex)));
+            PSTAtext.BackColor = GetRatingColor(PSTAtext).BackColor;
+
+            DisplayNewOverallRating();
+        }
+
 
         private void PINJBox_ValueChanged(object sender, EventArgs e)
         {
