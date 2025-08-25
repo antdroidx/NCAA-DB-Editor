@@ -838,7 +838,7 @@ namespace DB_EDITOR
                         ChangeDBInt("PLAY", "PHGT", i, height);
                     }
 
-                    RecalculateIndividualBMI(i);
+                    RecalculateIndividualBodyShape(i, "PLAY");
                 }
                 else
                 {

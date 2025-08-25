@@ -66,6 +66,7 @@ namespace DB_EDITOR
 
         private void ScheduleGenerator()
         {
+            ArmyNavy = false;
             GenerateConfSchedules();
             GenerateSKNW();
 

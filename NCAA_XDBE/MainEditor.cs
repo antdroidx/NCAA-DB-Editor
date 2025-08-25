@@ -1104,6 +1104,7 @@ namespace DB_EDITOR
             else if (tabControl1.SelectedTab == tabStats) StartStatsViewer();
             else if (tabControl1.SelectedTab == tabStadiums) StartStadiumEditor();
             else if (tabControl1.SelectedTab == tabPortal) StartSpringPortal();
+            else if (tabControl1.SelectedTab == tabSTRMDATA) { /* do nothing */ }
 
         }
 
@@ -1135,6 +1136,7 @@ namespace DB_EDITOR
         }
         #endregion
 
+        
 
     }
 

@@ -74,6 +74,8 @@ namespace DB_EDITOR
             KeyPreview = true;
             NextMod = next;
             if (NextMod) NextConfigRadio.Checked = true;
+
+            CheckArmyNavyLaunch();
         }
 
         private void DefaultSettings()
@@ -126,6 +128,18 @@ namespace DB_EDITOR
             main.dbIndex = 0;
 
             CustomLeagueToolStrip.Visible = false;
+
+        }
+
+        private void CheckArmyNavyLaunch()
+        {
+            int teamArmy = main.FindTeamRecfromTeamName("Army");
+            int teamNavy = main.FindTeamRecfromTeamName("Navy");
+
+            if(main.GetTeamCGID(teamNavy) == main.GetTeamCGID(teamArmy))
+            {
+                ArmyNavy = true;
+            }
 
         }
 

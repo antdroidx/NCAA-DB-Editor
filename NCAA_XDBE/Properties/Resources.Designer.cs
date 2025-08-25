@@ -88,7 +88,9 @@ namespace DB_EDITOR.Properties {
         ///1200,4,9,0,9,5,9
         ///1080,2,7,0,9,4,9
         ///750,10,8,0,9,4,9
-        ///1200,1,6,0,9,5 [rest of string was truncated]&quot;;.
+        ///1200,1,6,0,9,5,9
+        ///1080,1,3,0,10,5,10
+        ///930,4 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _10_team {
             get {
@@ -124,7 +126,9 @@ namespace DB_EDITOR.Properties {
         ///1080,6,8,0,8,5,8
         ///930,8,11,0,9,5,9
         ///1080,5,3,0,9,5,9
-        ///1200,2,10,0, [rest of string was truncated]&quot;;.
+        ///1200,2,10,0,9,5,9
+        ///1080,1,7,0,9,5,9
+        ///1080 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _11_team {
             get {
@@ -160,7 +164,9 @@ namespace DB_EDITOR.Properties {
         ///930,10,9,0,6,5,6
         ///1140,1,8,0,7,5,7
         ///930,3,7,0,7,5,7
-        ///1140,5,12,0,7 [rest of string was truncated]&quot;;.
+        ///1140,5,12,0,7,5,7
+        ///750,2,9,0,8,4,8
+        ///1200,4 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _12_team {
             get {
@@ -196,7 +202,9 @@ namespace DB_EDITOR.Properties {
         ///930,10,9,0,6,5,6
         ///1140,1,8,0,8,5,8
         ///930,3,7,0,7,5,7
-        ///1140,5,12,0,8 [rest of string was truncated]&quot;;.
+        ///1140,5,12,0,8,5,8
+        ///750,2,9,0,7,4,7
+        ///1200,4 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _12_teamB {
             get {
@@ -232,7 +240,8 @@ namespace DB_EDITOR.Properties {
         ///930,10,2,0,6,4,6
         ///1200,12,4,0,6,5,6
         ///1200,13,1,0,7,5,7
-        ///720,7 [rest of string was truncated]&quot;;.
+        ///720,7,11,0,7,5,7
+        ///750,9,5,0,7,5,7 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _14_team {
             get {
@@ -267,7 +276,9 @@ namespace DB_EDITOR.Properties {
         ///1080,11,15,0,5,5,5
         ///930,12,16,0,5,5,5
         ///930,10,1,0,6,5,6
-        ///1080,9,2,0,6 [rest of string was truncated]&quot;;.
+        ///1080,9,2,0,6,5,6
+        ///1080,12,3,0,6,5,6
+        ///930 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _16_team {
             get {
@@ -302,7 +313,9 @@ namespace DB_EDITOR.Properties {
         ///1200,10,6,0,6,5,6
         ///930,12,1,0,6,5,6
         ///1200,13,15,0,6,5,6
-        ///1080,14,17,0,6 [rest of string was truncated]&quot;;.
+        ///1080,14,17,0,6,5,6
+        ///1080,16,18,0,6,5,6
+        ///93 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _18_team {
             get {
@@ -337,7 +350,9 @@ namespace DB_EDITOR.Properties {
         ///1200,6,5,0,5,5,5
         ///1200,17,11,0,5,5,5
         ///930,18,12,0,5,5,5
-        ///1200,19,13, [rest of string was truncated]&quot;;.
+        ///1200,19,13,0,5,5,5
+        ///750,20,14,0,5,5,5
+        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _20_team {
             get {
@@ -373,7 +388,8 @@ namespace DB_EDITOR.Properties {
         ///930,4,8,0,11,5,11
         ///1080,6,5,0,11,5,11
         ///1200,8,7,0,12,5,12
-        ///10 [rest of string was truncated]&quot;;.
+        ///1080,1,6,0,12,5,12
+        ///750,3,4,0, [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _8_team {
             get {
@@ -409,7 +425,9 @@ namespace DB_EDITOR.Properties {
         ///1200,1,4,1,9,5,9
         ///1200,8,9,1,9,5,9
         ///1080,9,3,1,10,5,10
-        ///1200,4,6,1,10,5, [rest of string was truncated]&quot;;.
+        ///1200,4,6,1,10,5,10
+        ///1080,1,7,1,10,5,10
+        ///930,8 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _9_team {
             get {
@@ -450,7 +468,9 @@ namespace DB_EDITOR.Properties {
         ///Unused,29,
         ///Unused,30,
         ///Unused,31,
-        ///Spi [rest of string was truncated]&quot;;.
+        ///Spike,32,
+        ///Fake Spike,33,
+        ///4th &amp; Shor [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string AIGR {
             get {
@@ -548,7 +568,8 @@ namespace DB_EDITOR.Properties {
         ///3,3,2,3,2,1,0,1,0,1,2,1,2,3,3,3,3,3,3,3,3,6
         ///3,3,2,3,2,1,1,0,1,1,2,1,2,3,3,3,3,3,3,3,3,7
         ///3,3,2,3,2,1,0,1,0,1,2,1,2,3,3,3,3,3,3,3,3,8
-        ///3,3,2,3,2,0,1,2,1,0,2,1,2,3,3,3,3,3, [rest of string was truncated]&quot;;.
+        ///3,3,2,3,2,0,1,2,1,0,2,1,2,3,3,3,3,3,3,3,3,9
+        ///3, [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string awareness {
             get {
@@ -594,7 +615,10 @@ namespace DB_EDITOR.Properties {
         ///0.33,-1,0,4
         ///0.34,-1,-1,4
         ///0.35,-1,-1,4
-        ///0. [rest of string was truncated]&quot;;.
+        ///0.36,0,0,3
+        ///0.37,0,0,4
+        ///0.38,-1,-1,4
+        ///0.39 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string BMI_Calc {
             get {
@@ -640,7 +664,10 @@ namespace DB_EDITOR.Properties {
         ///0.33,-1,0,4
         ///0.34,-1,-1,4
         ///0.35,-1,-1,4
-        ///0. [rest of string was truncated]&quot;;.
+        ///0.36,0,0,3
+        ///0.37,0,0,4
+        ///0.38,-1,-1,4
+        ///0.39 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string BMI_Calc1 {
             get {
@@ -706,7 +733,7 @@ namespace DB_EDITOR.Properties {
         ///13,Boston College Eagles,Boston College
         ///14,Bowling Green Falcons,Bowling Green
         ///15,Brigham Young Cougars,BYU
-        ///16,Califo [rest of string was truncated]&quot;;.
+        ///16,California Golden Bear [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string college_football_usa {
             get {
@@ -740,7 +767,8 @@ namespace DB_EDITOR.Properties {
         ///Buffalo,15,14,20
         ///BYU,16,15,21
         ///Cal,17,16,22
-        ///Central Mich [rest of string was truncated]&quot;;.
+        ///Central Michigan,19,18,25
+        ///Chattanooga [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Color_Palettes {
             get {
@@ -797,7 +825,8 @@ namespace DB_EDITOR.Properties {
         ///229,Florida Atlantic,2,0
         ///28,Florida State,5,0
         ///29,Fresno State,3,0
-        ///3 [rest of string was truncated]&quot;;.
+        ///30,Georgia,6,0
+        ///193,Georgia So [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string FantasyGenData {
             get {
@@ -905,11 +934,24 @@ namespace DB_EDITOR.Properties {
         ///35,Illinois
         ///36,Indiana
         ///37,Iowa State
-        ///3 [rest of string was truncated]&quot;;.
+        ///38,Iowa
+        ///39,Kansas State
+        ///40,Kansas
+        ///41,Ke [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string PlaybookNames {
             get {
                 return ResourceManager.GetString("PlaybookNames", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap PlayerPicture {
+            get {
+                object obj = ResourceManager.GetObject("PlayerPicture", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -927,7 +969,7 @@ namespace DB_EDITOR.Properties {
         ///39,412,2,35,0,9,All Out Block,0,1,7,10
         ///40,413,2,33,0,11,FG Block,0,0,7,5
         ///12,452,2,3,32768,1,Spread Pass,0,0,7,0
-        /// [rest of string was truncated]&quot;;.
+        ///34,472,2,36,9 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string PLYL {
             get {
@@ -949,7 +991,7 @@ namespace DB_EDITOR.Properties {
         ///2,519,2,38,27,11,Fire Green,0,1,7,6
         ///2,526,2,34,49,1,Cover 2 Man,0,1,7,0
         ///2,552,2,39,69,24,Dog 3,0,1,7,5
-        ///2,556,2,37,11, [rest of string was truncated]&quot;;.
+        ///2,556,2,37,11,28,Fire 2,0,1 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string PLYL_Custom {
             get {
@@ -971,7 +1013,7 @@ namespace DB_EDITOR.Properties {
         ///2,519,2,38,27,11,Fire Green,0,1,7,6
         ///2,526,2,34,49,1,Cover 2 Man,0,1,7,0
         ///2,552,2,39,69,24,Dog 3,0,1,7,5
-        ///2,556,2,37,11, [rest of string was truncated]&quot;;.
+        ///2,556,2,37,11,28,Fire 2,0,1 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string PLYL_NEXT25 {
             get {
@@ -982,15 +1024,15 @@ namespace DB_EDITOR.Properties {
         /// <summary>
         ///   Looks up a localized string similar to PLDH,PLDL,PPOS,CAWT,KAWT,TAWT,PBWT,RBWT,ACWT,AGWT,TKWT,INWT,KPWT,SPWT,TPWT,BTWT,CTWT,STWT,JUWT,AWWT
         ///92,35,0,0,0,30,0,0,6,6,0,0,0,14,26,0,0,0,0,20
-        ///93,35,1,10,0,0,2,0,10,10,0,0,0,20,0,16,4,3,0,8
-        ///79,35,2,2,0,0,3,8,2,1,0,0,0,2,0,3,5,2,0,4
-        ///96,35,3,0,0,0,0,0,10,10,0,0,0,25,0,5,30,0,5,10
+        ///95,35,1,10,0,0,0,0,10,10,0,0,0,25,0,25,5,0,0,5
+        ///82,35,2,2,0,0,1,8,2,1,0,0,0,2,0,2,6,2,0,3
+        ///95,35,3,0,0,0,0,0,10,10,0,0,0,25,0,5,30,0,5,5
         ///85,35,4,0,0,0,1,3,2,2,0,0,0,4,0,1,5,3,0,3
         ///96,35,5,0,0,0,6,5,1,1,0,0,0,1,0,0,0,4,0,4
-        ///91,35,6,0,0,0,4,6,2,1,0,0,0,2,0,0,0,4,0,4
-        ///91,35,7,0,0,0,5,5,2,1,0,0,0,2,0,0,0,4,0,4
-        ///91,35,8,0,0,0,4,6,2,1,0,0,0,2,0,0,0,4,0,4
-        ///96,35,9,0, [rest of string was truncated]&quot;;.
+        ///92,35,6,0,0,0,4,6,2,1,0,0,0,2,0,0,0,4,0,4
+        ///92,35,7,0,0,0,4,6,2,1,0,0,0,2,0,0,0,4,0,4
+        ///92,35,8,0,0,0,4,6,2,1,0,0,0,2,0,0,0,4,0,4
+        ///96,35,9,0,0,0,6,5,1,1 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string POCI_NEXT {
             get {
@@ -1056,7 +1098,7 @@ namespace DB_EDITOR.Properties {
         ///11,Pass Rusher,Balanced,Run Stopper
         ///12,Pass Rusher,Balanced,Run Stopper
         ///13,Run Stopper,Balanced,Coverage
-        ///14,Run Sto [rest of string was truncated]&quot;;.
+        ///14,Run Stopper,Balanced,C [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string PTEN {
             get {
@@ -1123,9 +1165,9 @@ namespace DB_EDITOR.Properties {
         
         /// <summary>
         ///   Looks up a localized string similar to PTHA,PSTA,PLEB,PREB,PKAC,PACC,PHED,PSPD,PPOE,PBRE,PEYE,PFSH,PLSH,PMSH,PRSH,PSSH,RATH,PCTH,PAGI,PSKI,PINJ,PTAK,PPBK,PRBK,PNEK,PFMK,PBTK,PHCL,SPSL,HELM,PHAN,PLHN,PRHN,PSLO,PTTO,PLFP,PTHP,PJMP,PCAR,PKPR,PSTR,PAWR,PDIS,PVIS,PFJS,PPOS,PLWS,PRWS,MRCT,PHGT,PWGT,PSLT
-        ///0,19,11,11,1,20,7,25,22,1,0,-1,0,-1,0,4,0,12,21,1,22,3,1,2,0,1,0,2,0,0,0,2,2,0,0,0,0,16,2,0,0,1,6,1,0,3,0,0,1,72,19,2
-        ///0,20,11,11,0,17,2,13,26,1,0,1,0,3,0,3,0,3,12,4,18,13,0,2,0,4,0,0,1,0,0,2,2,0,0,0,0,9,2,0,10,7,2,1,0,13,6,6,1,76,70,2
-        ///0,10,11,0,0,13 [rest of string was truncated]&quot;;.
+        ///0,19,11,11,1,20,2,25,22,0,0,-1,0,-1,0,4,0,12,21,5,18,3,1,2,0,2,0,0,0,2,0,2,2,1,0,0,0,16,2,0,0,1,6,0,0,3,6,6,1,72,19,0
+        ///0,20,0,0,0,17,14,13,26,0,1,1,0,3,0,3,0,3,12,5,14,13,0,2,1,4,0,0,1,0,0,2,2,0,0,0,0,9,2,0,10,7,2,1,0,13,6,6,1,76,70,2
+        ///0,10,8,11,0,13,14, [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string RCAT_NEXT {
             get {
@@ -1202,7 +1244,20 @@ namespace DB_EDITOR.Properties {
         ///Ethan
         ///Jayden
         ///Adam
-        ///Mark        /// [rest of string was truncated]&quot;;.
+        ///Mark
+        ///Zion
+        ///Nik
+        ///Corey
+        ///DiMarco
+        ///Blake
+        ///Chu
+        ///Michael
+        ///Kyle
+        ///Sean
+        ///Juan
+        ///A.J.
+        ///Tyson
+        ///J [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string RCFN {
             get {
@@ -1250,7 +1305,9 @@ namespace DB_EDITOR.Properties {
         ///36,Foley
         ///37,Forestdale
         ///38,Fort McClellan
-        /// [rest of string was truncated]&quot;;.
+        ///39,Fort Payne
+        ///40,Fort Rucker
+        ///41,Fultond [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string RCHT {
             get {
@@ -1320,7 +1377,16 @@ namespace DB_EDITOR.Properties {
         ///Ndago
         ///Brittain
         ///Bein
-        ///Spiewak [rest of string was truncated]&quot;;.
+        ///Spiewak
+        ///Dapore
+        ///Jefferson
+        ///Blum
+        ///Erickson
+        ///Goodwin
+        ///Karas
+        ///Hiestand
+        ///Kelly
+        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string RCLN {
             get {
@@ -1345,7 +1411,8 @@ namespace DB_EDITOR.Properties {
         ///Dominick,McKinley,12,45,77,77,130
         ///Terry,Bussey,3,93,71,71,25
         ///Williams,Nwaneri,11,56,79,79,100
-        ///Micah,Hudson,3,94,73, [rest of string was truncated]&quot;;.
+        ///Micah,Hudson,3,94,73,73,35
+        ///Joshisa,Tr [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string recruits {
             get {
@@ -1428,7 +1495,17 @@ namespace DB_EDITOR.Properties {
         ///4,51,3
         ///3,14,3
         ///3,16,3
-        ///2,17,3        /// [rest of string was truncated]&quot;;.
+        ///2,17,3
+        ///5,19,3
+        ///5,29,3
+        ///4,34,3
+        ///2,41,3
+        ///6,44,3
+        ///4,47,3
+        ///5,0,4
+        ///3,5,4
+        ///5,7,4
+        ///5,16 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string SRGN {
             get {
@@ -1459,7 +1536,9 @@ namespace DB_EDITOR.Properties {
         ///20,Cincinnati,Bearcats
         ///21,Clemson,Tigers
         ///22,Colorado,Buffaloes
-        ///23,Colorado State,Ram [rest of string was truncated]&quot;;.
+        ///23,Colorado State,Rams
+        ///24,Duke,Blue Devils
+        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TeamDB {
             get {
@@ -1519,7 +1598,12 @@ namespace DB_EDITOR.Properties {
         ///49,80,40
         ///49,89,76
         ///51,77,32
-        ///52 [rest of string was truncated]&quot;;.
+        ///52,74,28
+        ///53,84,47
+        ///54,73,24
+        ///55,88,58
+        ///56,83,41
+        ///57,80,41 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string temp_data {
             get {
@@ -1547,7 +1631,8 @@ namespace DB_EDITOR.Properties {
         ///Domani Jackson,3,7151,0,7
         ///Keon Sabb,3,3605,0,7
         ///Dashawn Jones,3,7638,0,7
-        ///King Mack,3,5382,0, [rest of string was truncated]&quot;;.
+        ///King Mack,3,5382,0,7
+        ///Kameron Howard,3, [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string transfers {
             get {
@@ -1570,7 +1655,8 @@ namespace DB_EDITOR.Properties {
         ///Charles,Wright,0,188,Charles Wright
         ///William,Fowles,2,188,William Fowles
         ///Zavier,Short,2,188,Zavier Short
-        ///Michael,Marotta,4,188,Michael Marotta [rest of string was truncated]&quot;;.
+        ///Michael,Marotta,4,188,Michael Marotta
+        ///Luke,Burgess, [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string transfers_gen {
             get {
@@ -1604,7 +1690,8 @@ namespace DB_EDITOR.Properties {
         ///Arizona,21,4,0
         ///Arizona,22,4,2
         ///Arizona,23,4,3
-        /// [rest of string was truncated]&quot;;.
+        ///Arizona State,38,5,1
+        ///Ariz [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TUNI_MASTER {
             get {
@@ -1635,7 +1722,8 @@ namespace DB_EDITOR.Properties {
         ///18,Maine,23,27,8,42
         ///19,Maryland,21,5,10,64
         ///20,Massachusetts,23,15,7,55
-        ///21, [rest of string was truncated]&quot;;.
+        ///21,Michigan,20,20,8,52
+        ///22 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string weather_data {
             get {

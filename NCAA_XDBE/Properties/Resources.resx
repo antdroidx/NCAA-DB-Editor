@@ -118,131 +118,35 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="close" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\images\close.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="save3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\images\save3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="def file" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\images\def file.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="open2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\images\open2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="exit" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\images\exit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="BMI_Calc" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\players\BMI-Calc.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="ncaa_db_editor_TITLE" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\images\ncaa-db-editor-TITLE.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="ncaa_db_editor_icon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\images\ncaa-db-editor-icon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="FantasyGenData" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\FantasyGenData.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="PJEN" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\players\PJEN.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="RCAT_MAPPER" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\players\RCAT-MAPPER.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="RCFN" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\players\RCFN.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="RCLN" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\players\RCLN.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="TeamDB" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\teams\TeamDB.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="PlaybookNames" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\playbooks\PlaybookNames.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="transfers" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\rosters\transfers.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="recruits" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\rosters\recruits.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="transfers_gen" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\rosters\transfers-gen.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="college_football_usa" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\college-football-usa.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="Color_Palettes" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\teams\Color-Palettes.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="_10_team" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\schedules\10-team.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="_11_team" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\schedules\11-team.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="_12_team" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\schedules\12-team.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="_14_team" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\schedules\14-team.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="_16_team" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\schedules\16-team.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="_18_team" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\schedules\18-team.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="_8_team" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\schedules\8-team.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="_9_team" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\schedules\9-team.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
   <data name="PRLU" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\players\PRLU.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="POCI_NEXT" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\POCI-NEXT.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="RCAT_NEXT" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RCAT-NEXT.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="PLYL" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\playbooks\PLYL.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
-  <data name="AIGR" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\playbooks\AIGR.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="AIGR_DEF" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\playbooks\AIGR-DEF.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="_20_team" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\schedules\20-team.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="TeamDB" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\teams\TeamDB.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="attributes" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\players\attributes.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;iso-8859-1</value>
+  <data name="temp_data" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\misc\temp-data.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="BMI_Calc1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\players\BMI-Calc.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="exit" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\exit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="TUNI_MASTER" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\uniforms\TUNI-MASTER.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="transfers_gen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rosters\transfers-gen.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="Body_Size_AVG" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\players\Body_Size_AVG.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="save3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\save3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="_12_teamB" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\schedules\12-teamB.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="PTEN" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\players\PTEN.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="_16_team" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\schedules\16-team.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="PLYL_Custom" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\playbooks\PLYL-Custom.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="weather_data" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\misc\weather-data.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="PLYL_NEXT25" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\playbooks\PLYL-NEXT25.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
@@ -250,16 +154,115 @@
   <data name="RCHT" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\players\RCHT.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="weather_data" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\misc\weather-data.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="BMI_Calc1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\players\BMI-Calc.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="temp_data" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\misc\temp-data.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="PJEN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\players\PJEN.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="RCAT_MAPPER" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\players\RCAT-MAPPER.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="recruits" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rosters\recruits.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="TUNI_MASTER" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\uniforms\TUNI-MASTER.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_11_team" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\schedules\11-team.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="SRGN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\misc\SRGN.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="PLYL_Custom" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\playbooks\PLYL-Custom.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_20_team" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\schedules\20-team.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="FantasyGenData" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\FantasyGenData.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_18_team" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\schedules\18-team.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="PlaybookNames" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\playbooks\PlaybookNames.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="AIGR" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\playbooks\AIGR.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="Body_Size_AVG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\players\Body_Size_AVG.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="ncaa_db_editor_TITLE" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\ncaa-db-editor-TITLE.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RCAT_NEXT" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\RCAT-NEXT.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="PTEN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\players\PTEN.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="attributes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\players\attributes.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;iso-8859-1</value>
+  </data>
+  <data name="ncaa_db_editor_icon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\ncaa-db-editor-icon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BMI_Calc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\players\BMI-Calc.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="open2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\open2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="POCI_NEXT" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\POCI-NEXT.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_8_team" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\schedules\8-team.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="close" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\close.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="RCFN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\players\RCFN.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_9_team" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\schedules\9-team.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="RCLN" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\players\RCLN.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="def file" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\def file.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="college_football_usa" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\college-football-usa.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="awareness" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\players\awareness.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="SRGN" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\misc\SRGN.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="PLYL" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\playbooks\PLYL.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="Color_Palettes" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\teams\Color-Palettes.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_14_team" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\schedules\14-team.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="transfers" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\rosters\transfers.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_10_team" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\schedules\10-team.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="_12_team" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\schedules\12-team.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="PlayerPicture" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>C:\Users\ahngu\OneDrive\Pictures\Screenshots\PlayerPicture.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

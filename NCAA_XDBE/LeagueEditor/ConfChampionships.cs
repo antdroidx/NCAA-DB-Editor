@@ -152,7 +152,7 @@ namespace DB_EDITOR
             main.ChangeDBInt("BOWL", "SGNM", rec, count);
             main.ChangeDBInt("BOWL", "BMON", rec, 12);
             main.ChangeDBInt("BOWL", "SEWN", rec, 16);
-            if (!Next26Mod)
+            if (!Next26Mod || main.GetTableRecCount("BOWL") < 40)
             {
                 main.ChangeDBInt("BOWL", "BIDX", rec, 33 + count);
                 main.ChangeDBInt("BOWL", "BDAY", rec, 1);

@@ -594,7 +594,7 @@ namespace DB_EDITOR
             }
             else if (fieldProps.FieldType == TdbFieldType.tdbInt || fieldProps.FieldType == TdbFieldType.tdbSInt)
             {
-                int tmpval = Convert.ToInt32(fieldsGridView.Rows[rownum].Cells[colnum].Value);
+                sbyte tmpval = Convert.ToSByte(fieldsGridView.Rows[rownum].Cells[colnum].Value);
 
                 if (IsIntNumber(Convert.ToString(tmpval)))
                 {
@@ -757,7 +757,11 @@ namespace DB_EDITOR
                     {
                         if (!checkTabExists("Portal")) tabControl1.TabPages.Add(tabPortal);
                     }
-                    
+                    else if (table.Name == "RCAT" && !BigEndian)
+                    {
+                        if (!checkTabExists("STRMDATA")) tabControl1.TabPages.Add(tabSTRMDATA);
+                    }
+
                 }
             }
                 CreateTeamDB();

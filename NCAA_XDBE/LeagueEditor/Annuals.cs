@@ -70,6 +70,20 @@ namespace DB_EDITOR
                     int recH = main.FindTeamRecfromTeamName(teamNameDB[tgidH]);
 
 
+                    //check for Army-Navy game and change to week 15
+                    if (tgidA == 57 & tgidH == 8)
+                    {
+                        ChangeDBInt("SANN", "SEWN", i, 15);
+                        ChangeDBInt("SANN", "SEWT", i, 15);
+                        ArmyNavy = true;
+                    }
+                    else if (tgidA == 8 && tgidH == 57)
+                    {
+                        ChangeDBInt("SANN", "SEWN", i, 15);
+                        ChangeDBInt("SANN", "SEWT", i, 15);
+                        ArmyNavy = true;
+                    }
+
                     //check for same conference
                     if (main.GetTeamCGID(recA) != main.GetTeamCGID(recH) && main.GetTeamCGID(recA) != 5)
                     {
@@ -80,6 +94,36 @@ namespace DB_EDITOR
                     }
                 }
             }
+
+            //Add Army-Navy if not present
+            if (!ArmyNavy && NextMod || !ArmyNavy && Next26Mod)
+            {
+                int rec = GetTableRecCount("SANN");
+                TDB.TDBTableRecordAdd(dbIndex2, "SANN", false);
+                ChangeDBInt("SANN", "GTOD", rec, 1200);
+                ChangeDBInt("SANN", "GATG", rec, 8);
+                ChangeDBInt("SANN", "GHTG", rec, 57);
+                ChangeDBInt("SANN", "SESI", rec, 1);
+                ChangeDBInt("SANN", "SEWN", rec, 15);
+                ChangeDBInt("SANN", "GDAT", rec, 5);
+                ChangeDBInt("SANN", "SEWT", rec, 15);
+
+                TDB.TDBTableRecordAdd(dbIndex2, "SANN", false);
+                ChangeDBInt("SANN", "GTOD", rec+1, 1200);
+                ChangeDBInt("SANN", "GATG", rec+1, 57);
+                ChangeDBInt("SANN", "GHTG", rec+1, 8);
+                ChangeDBInt("SANN", "SESI", rec+1, 0);
+                ChangeDBInt("SANN", "SEWN", rec+1, 15);
+                ChangeDBInt("SANN", "GDAT", rec+1, 5);
+                ChangeDBInt("SANN", "SEWT", rec+1, 15);
+
+                ArmyNavy = true;
+
+                AddSANNData();
+            }
+
+            AddtoSKNW();
+
         }
 
         private ComboBox GetSANNTeamItems()

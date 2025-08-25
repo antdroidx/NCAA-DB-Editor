@@ -43,13 +43,19 @@ Credits:
     <Content Include="Resources\\**\\*" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
   <ItemGroup>
-    <!-- Add this section to explicitly control resource naming -->
-    <EmbeddedResource Update="MainEditor.resx">
-      <LogicalName>DB_EDITOR.MainEditor.resources</LogicalName>
-    </EmbeddedResource>
-    <!-- If you have a designer file, add this -->
-    <EmbeddedResource Update="MainEditor.Designer.resx">
-      <DependentUpon>MainEditor.cs</DependentUpon>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="DraftClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
 	

@@ -255,6 +255,7 @@ namespace DB_EDITOR
 
 
             //Importance
+            PIMPBox.Maximum = maxRatingVal;
             PIMPBox.Value = GetDBValueInt("PLAY", "PIMP", PlayerIndex);
             PIMPtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(PIMPBox.Value)));
             PIMPtext.BackColor = GetRatingColor(PIMPtext).BackColor;
@@ -272,6 +273,7 @@ namespace DB_EDITOR
 
 
             //Stamina
+            PSTAbox.Maximum = maxRatingVal;
             PSTAbox.Value = GetDBValueInt("PLAY", "PSTA", PlayerIndex);
             PSTAtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(PSTAbox.Value)));
             PSTAtext.BackColor = GetRatingColor(PSTAtext).BackColor;
@@ -722,7 +724,7 @@ namespace DB_EDITOR
                 return;
 
             ChangeDBInt("PLAY", "PHGT", PlayerIndex, Convert.ToInt32(PHGTBox.Value));
-            RecalculateIndividualBMI(PlayerIndex);
+            RecalculateIndividualBodyShape(PlayerIndex, "PLAY");
         }
 
         private void PWGTBox_ValueChanged(object sender, EventArgs e)
@@ -731,7 +733,7 @@ namespace DB_EDITOR
                 return;
 
             ChangeDBInt("PLAY", "PWGT", PlayerIndex, Convert.ToInt32(PWGTBox.Value) - 160);
-            RecalculateIndividualBMI(PlayerIndex);
+            RecalculateIndividualBodyShape(PlayerIndex, "PLAY");
 
         }
 
