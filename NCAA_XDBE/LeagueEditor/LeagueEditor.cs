@@ -634,7 +634,14 @@ namespace DB_EDITOR
                         statusLabels[i].Text = "Count: " + count + " | Valid";
                         statusLabels[i].BackColor = Color.LightGreen;
                     }
+                    /*
                     else if (count > 7 && count < 13 || count > 13 && count < 21 && count % 2 == 0 && valid)
+                    {
+                        statusLabels[i].Text = "Count: " + count + " | Valid";
+                        statusLabels[i].BackColor = Color.LightGreen;
+                    }
+                    */
+                    else if (count > 7 && count < 24)
                     {
                         statusLabels[i].Text = "Count: " + count + " | Valid";
                         statusLabels[i].BackColor = Color.LightGreen;
