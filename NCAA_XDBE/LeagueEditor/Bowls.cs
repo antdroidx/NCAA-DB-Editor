@@ -110,7 +110,7 @@ namespace DB_EDITOR
             for(int i = 0; i < main.GetTableRecCount("BOWL"); i++)
             {
                 BowlsGrid.Rows.Add(new DataGridViewRow());
-                if (main.GetDBValueInt("BOWL", "BIDX", i) == 0 || main.GetDBValueInt("BOWL", "BIDX", i) > 16)
+                if (main.GetTableRecCount("BOWL") > 40 && main.GetDBValueInt("BOWL", "BIDX", i) < 28 || main.GetTableRecCount("BOWL") > 40 && main.GetDBValueInt("BOWL", "BIDX", i) >= 54 || main.GetTableRecCount("BOWL") < 40 && main.GetDBValueInt("BOWL", "BIDX", i) == 0 || main.GetTableRecCount("BOWL") < 40 && main.GetDBValueInt("BOWL", "BIDX", i) > 16)
                 {
                     BowlsGrid.Rows[i].ReadOnly = true;
                     BowlsGrid.Rows[i].DefaultCellStyle.ForeColor = Color.Gray;
@@ -298,7 +298,14 @@ namespace DB_EDITOR
         {
             for (int i = 0; i < BowlsGrid.Rows.Count; i++)
             {
-                if (Convert.ToInt32(BowlsGrid.Rows[i].Cells[0].Value) < 28)
+                if(main.GetTableRecCount("BOWL") > 40 && Convert.ToInt32(BowlsGrid.Rows[i].Cells[0].Value) < 54)
+                {
+                    BowlsGrid.Rows[i].Cells[2].Value = "At-Large";
+                    BowlsGrid.Rows[i].Cells[3].Value = 0;
+                    BowlsGrid.Rows[i].Cells[4].Value = "At-Large";
+                    BowlsGrid.Rows[i].Cells[5].Value = 0;
+                }
+                else if (main.GetTableRecCount("BOWL") < 40 && Convert.ToInt32(BowlsGrid.Rows[i].Cells[0].Value) < 28)
                 {
                     BowlsGrid.Rows[i].Cells[2].Value = "At-Large";
                     BowlsGrid.Rows[i].Cells[3].Value = 0;

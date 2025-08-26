@@ -16,8 +16,16 @@ namespace DB_EDITOR
     partial class MainEditor : Form
     {
 
+        //RCAT RECRUIT
+        private void buttonRCATBody_Click(object sender, EventArgs e)
+        {
+            for(int i = 0; i < GetTableRecCount("RCAT"); i++)
+            {
+                RecalculateIndividualBodyShape(i, "RCAT");
+            }
 
-
+            MessageBox.Show("Body Model updates are complete!");
+        }
 
 
     }

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.ComTypes;
-using System.Runtime.Remoting.Metadata.W3cXsd2001;
+// using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
@@ -185,7 +185,7 @@ namespace DB_EDITOR
             MessageBox.Show("Fantasy Players Created!");
 
             RecalculateOverall();
-            RecalculateBMI("PLAY");
+            RecalculateBodyShape("PLAY");
             RecalculateQBTendencies();
             CalculateAllTeamRatings(tableName);
 

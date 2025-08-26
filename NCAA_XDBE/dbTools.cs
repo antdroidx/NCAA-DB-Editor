@@ -5,7 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.ComTypes;
-using System.Runtime.Remoting.Metadata.W3cXsd2001;
+// using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
@@ -57,7 +57,7 @@ namespace DB_EDITOR
         //Fixes Body Size Models if user does manipulation of the player attributes in the in-game player editor
         private void BodyFix_Click(object sender, EventArgs e)
         {
-            RecalculateBMI("PLAY");
+            RecalculateBodyShape("PLAY");
         }
 
         //Recalculates QB Tendencies based on original game criteria
@@ -173,11 +173,13 @@ namespace DB_EDITOR
         #endregion
 
 
+        #region BODY SIZE TOOLS
 
-        #region General Tools
         //Fixes Body Size Models if user does manipulation of the player attributes in the in-game player editor
-        private void RecalculateBMI(string tableName)
+        private void RecalculateBodyShape(string tableName)
         {
+
+            /*
             string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             string csvLocation = Path.Combine(executableLocation, @"resources\players\BMI-Calc.csv");
 
@@ -225,11 +227,19 @@ namespace DB_EDITOR
             progressBar1.Visible = false;
             progressBar1.Value = 0;
 
+            */
+
+            for (int i = 0; i < GetTableRecCount(tableName); i++)
+            {
+                RecalculateIndividualBodyShape(i, tableName);
+            }
+
             MessageBox.Show("Body Model updates are complete!");
         }
 
-        private void RecalculateIndividualBMI(int rec)
+        private void RecalculateIndividualBodyShape(int rec, string tableName)
         {
+            /*
             string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             string csvLocation = Path.Combine(executableLocation, @"resources\players\BMI-Calc.csv");
 
@@ -265,14 +275,26 @@ namespace DB_EDITOR
                     break;
                 }
             }
+            */
 
+            int ppos = GetDBValueInt(tableName, "PPOS", rec);
+            int height = GetDBValueInt(tableName, "PHGT", rec);
+            int weight = GetDBValueInt(tableName, "PWGT", rec);
+
+            var (pfsh, pmsh, pssh) = GetBodySizeFromPlayerData(ppos, height, weight);
+
+            ChangeDBInt(tableName, "PFSH", rec, pfsh);
+            ChangeDBInt(tableName, "PMSH", rec, pmsh);
+            ChangeDBInt(tableName, "PSSH", rec, pssh);
         }
 
 
         //Recalc Recruit BMI
 
-        private void RecalculateRecruitIndividualBMI(int rec)
+        private void RecalculateRecruitIndividualBodyShape(int rec)
         {
+
+            /*
             string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             string csvLocation = Path.Combine(executableLocation, @"resources\players\BMI-Calc.csv");
 
@@ -309,7 +331,27 @@ namespace DB_EDITOR
                 }
             }
 
+           */
+
+            string tableName = "RCPT";
+
+            int ppos = GetDBValueInt(tableName, "PPOS", rec);
+            int height = GetDBValueInt(tableName, "PHGT", rec);
+            int weight = GetDBValueInt(tableName, "PWGT", rec);
+
+            var (pfsh, pmsh, pssh) = GetBodySizeFromPlayerData(ppos, height, weight);
+
+            ChangeDBInt(tableName, "PFSH", rec, pfsh);
+            ChangeDBInt(tableName, "PMSH", rec, pmsh);
+            ChangeDBInt(tableName, "PSSH", rec, pssh);
+
         }
+
+        #endregion
+
+        #region General Tools
+
+
 
         //Recalculates QB Tendencies based on original game criteria
         private void RecalculateQBTendencies()
@@ -975,7 +1017,7 @@ namespace DB_EDITOR
             }
 
 
-            RecalculateBMI("PLAY");
+            RecalculateBodyShape("PLAY");
             RecalculateOverall();
             RecalculateQBTendencies();
 

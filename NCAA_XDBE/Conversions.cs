@@ -612,11 +612,23 @@ namespace DB_EDITOR
             Ratings.Clear();
             RatingsX.Clear();
 
-            if(TEAM && GetTableRecCount("PRLU") > 0)
+            TdbFieldProperties fieldProps = new TdbFieldProperties();
+
+            fieldProps.Name = TDBNameLength;
+
+
+            if (TEAM && GetTableRecCount("PRLU") > 0)
             {
                 for(int i = 0; i < GetTableRecCount("PRLU"); i++)
                 {
                     Ratings.Add(i, Convert.ToInt32(GetDBValue("PRLU", "LURT", i)));
+                }
+            }
+            else if (Convert.ToInt32(TDB.FieldBitmax(dbIndex, "PLAY", "POVR")) > 31)
+            {
+                for (int i = 0; i < 60; i++)
+                {
+                    Ratings.Add(i, i+40);
                 }
             }
             else

@@ -51,7 +51,7 @@ namespace DB_EDITOR
                             RecruitEditorList[row].Add(GetDB2Value("RCPT", "PRID", i));
                             RecruitEditorList[row].Add(Convert.ToString(i));
                             RecruitEditorList[row].Add(Convert.ToString(GetPOSGfromPPOS(GetDB2ValueInt("RCPT", "PPOS", i))));
-                            RecruitEditorList[row].Add(GetDB2Value("RCPT", "RATH", i));
+                            RecruitEditorList[row].Add(GetDB2Value("RCPT", "RATH", i)); //7
                             RecruitEditorList[row].Add(GetDB2Value("RCPT", "RCCB", i));
                             RecruitEditorList[row].Add(GetDB2Value("RCPT", "STID", i));
 
@@ -72,7 +72,10 @@ namespace DB_EDITOR
             RecruitListBox.Items.Clear();
             foreach (var player in RecruitEditorList)
             {
-                string text = player[0] + " " + player[1] + " [" + GetPositionName(Convert.ToInt32(player[2])) + "]";
+                string ath = "";
+                if (Convert.ToInt32(player[7]) == 1) ath = " [ATH]";
+
+                string text = player[0] + " " + player[1] + " [" + GetPositionName(Convert.ToInt32(player[2])) + "]" + ath;
                 if (Convert.ToInt32(player[4]) >= 21000)
                 {
                     //text += " (T)";
@@ -447,6 +450,13 @@ namespace DB_EDITOR
             RINJtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(RINJBox.Value)));
             RINJtext.BackColor = GetRatingColor(RINJtext).BackColor;
 
+            //Stamina
+            RSTAbox.Maximum = maxRatingVal;
+            RSTAbox.Value = GetDB2ValueInt("RCPT", "PSTA", RecruitIndex);
+            RSTAtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(RSTAbox.Value)));
+            RSTAtext.BackColor = GetRatingColor(RSTAtext).BackColor;
+
+
             //Awareness
             RAWRBox.Maximum = maxRatingVal;
             RAWRBox.Value = GetDB2ValueInt("RCPT", "PAWR", RecruitIndex);
@@ -508,7 +518,7 @@ namespace DB_EDITOR
             RCARtext.BackColor = GetRatingColor(RCARtext).BackColor;
 
             //Run Blocking
-            PRBKBox.Maximum = maxRatingVal;
+            RRBKBox.Maximum = maxRatingVal;
             RRBKBox.Value = GetDB2ValueInt("RCPT", "PRBK", RecruitIndex);
             RRBKtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(RRBKBox.Value)));
             RRBKtext.BackColor = GetRatingColor(RRBKtext).BackColor;
@@ -851,7 +861,7 @@ namespace DB_EDITOR
                 return;
 
             ChangeDB2Int("RCPT", "PHGT", RecruitIndex, Convert.ToInt32(RHGTBox.Value));
-            RecalculateRecruitIndividualBMI(RecruitIndex);
+            RecalculateRecruitIndividualBodyShape(RecruitIndex);
         }
 
         private void RWGTBox_ValueChanged(object sender, EventArgs e)
@@ -860,7 +870,7 @@ namespace DB_EDITOR
                 return;
 
             ChangeDB2Int("RCPT", "PWGT", RecruitIndex, Convert.ToInt32(RWGTBox.Value) - 160);
-            RecalculateRecruitIndividualBMI(RecruitIndex);
+            RecalculateRecruitIndividualBodyShape(RecruitIndex);
         }
 
         //Change Face

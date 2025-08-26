@@ -15,7 +15,30 @@ namespace DB_EDITOR
 {
     partial class MainEditor : Form
     {
+        private void ExportDraft_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This feature is not yet implemented.");
 
+        }
+
+        private void CreateDraftClass()
+        {
+
+
+
+
+        }
+
+        private void GetTopPositionProspects(int ppos, int count)
+        {
+
+
+        }
+
+        private void ExportData()
+        {
+            
+        }
 
 
 
