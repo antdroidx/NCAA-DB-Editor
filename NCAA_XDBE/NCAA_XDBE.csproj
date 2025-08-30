@@ -7,6 +7,7 @@
 	  <UseWindowsForms>true</UseWindowsForms>
 	  <ImplicitUsings>enable</ImplicitUsings>
 	  <ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
+	  <ForceDesignerDpiUnaware>true</ForceDesignerDpiUnaware>
     <RootNamespace>DB_EDITOR</RootNamespace>
     <AssemblyName>NCAA_XDBE</AssemblyName>
     <Platforms>x64</Platforms>
@@ -49,6 +50,9 @@ Credits:
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <Compile Update="DraftClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="PSUTools.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

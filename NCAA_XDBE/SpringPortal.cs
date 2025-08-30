@@ -55,35 +55,46 @@ namespace DB_EDITOR
 
         private void RunSpringPortal()
         {
-            SpringPortal = new List<List<int>>();
-            TeamPortalNeeds = new List<List<int>>();
+            PortalData.ClearSelection();
+            TotalTransfersCount.Text = "Total Transfers: 0";
 
-            for (int t = 0; t < 511; t++)
+            for (int x = 0; x < PortalCycleCount.Value; x++)
             {
-                TeamPortalNeeds.Add(new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-                                                      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 });
-            }
-
-            CollectSpringRoster();
-
-            progressBar1.Visible = true;
-            progressBar1.Maximum = GetTableRecCount("TEAM");
-            progressBar1.Value = 0;
-
-            for (int i = 0; i < GetTableRecCount("TEAM"); i++)
-            {
-                if (GetDBValueInt("TEAM", "TTYP", i) == 0)
                 {
-                    int tgid = GetDBValueInt("TEAM", "TGID", i);
-                    DetermineTeamCuts(tgid);
+                    SpringPortal = new List<List<int>>();
+                    TeamPortalNeeds = new List<List<int>>();
+
+                    for (int t = 0; t < 511; t++)
+                    {
+                        TeamPortalNeeds.Add(new List<int>() { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+                                                      0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 });
+                    }
+
+
+                    CollectSpringRoster();
+
+                    progressBar1.Visible = true;
+                    progressBar1.Maximum = GetTableRecCount("TEAM");
+                    progressBar1.Value = 0;
+
+                    for (int i = 0; i < GetTableRecCount("TEAM"); i++)
+                    {
+                        if (GetDBValueInt("TEAM", "TTYP", i) == 0)
+                        {
+                            int tgid = GetDBValueInt("TEAM", "TGID", i);
+                            DetermineTeamCuts(tgid);
+                        }
+                        progressBar1.PerformStep();
+                    }
+
+                    progressBar1.Visible = false;
+                    progressBar1.Value = 0;
+
+                    RedistributePlayers();
                 }
-                progressBar1.PerformStep();
             }
 
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
 
-            RedistributePlayers();
         }
 
         private void CollectSpringRoster()
@@ -284,7 +295,7 @@ namespace DB_EDITOR
                     }
                 }
 
-                if(AllowBackupQBPortal.Checked && p == 0 && rand.Next(0,100) < portalChance.Value)
+                if (AllowBackupQBPortal.Checked && p == 0 && rand.Next(0, 100) < portalChance.Value && posList.Count > 1)
                 {
                     // If the team has a backup QB, allow them to add a player to the portal
                     if (posList[1][0] != -1 && posList[1][9] == 0 || posList[1][2] >= 21000 && PortalTransfers.Checked || posList[1][9] == 1 && PortalTransfers.Checked)
@@ -439,7 +450,7 @@ namespace DB_EDITOR
 
                     if (pos == p / 2)
                     {
-                        if (ov < TeamPortalNeeds[tgid][p] || rand.Next(0, 99) > portalChance.Value)
+                        if (ov <= TeamPortalNeeds[tgid][p] || rand.Next(0, 99) > portalChance.Value)
                         {
                             break;
                         }
@@ -560,21 +571,24 @@ namespace DB_EDITOR
 
         private void DisplayPortalNews(List<List<string>> portalList2)
         {
-            PortalData.ClearSelection();
-            for (int x = 0; x < portalList2.Count; x++)
+            int NewsCount = PortalData.Rows.Count;
+            for (int x = NewsCount; x < portalList2.Count + NewsCount; x++)
             {
                 PortalData.Rows.Add(new DataGridViewRow());
 
-                PortalData.Rows[x].Cells[0].Value = portalList2[x][0];
-                PortalData.Rows[x].Cells[1].Value = portalList2[x][1];
-                PortalData.Rows[x].Cells[2].Value = portalList2[x][2];
-                PortalData.Rows[x].Cells[3].Value = portalList2[x][3];
-                PortalData.Rows[x].Cells[4].Value = portalList2[x][4];
-                PortalData.Rows[x].Cells[5].Value = portalList2[x][5];
+                PortalData.Rows[x].Cells[0].Value = portalList2[x - NewsCount][0];
+                PortalData.Rows[x].Cells[1].Value = portalList2[x - NewsCount][1];
+                PortalData.Rows[x].Cells[2].Value = portalList2[x - NewsCount][2];
+                PortalData.Rows[x].Cells[3].Value = portalList2[x - NewsCount][3];
+                PortalData.Rows[x].Cells[4].Value = portalList2[x - NewsCount][4];
+                PortalData.Rows[x].Cells[5].Value = portalList2[x - NewsCount][5];  
 
             }
 
-            TotalTransfersCount.Text = "Total Transfers: " + Convert.ToString(portalList2.Count);
+            int prevTransfersCount = TotalTransfersCount.Text.Contains(":") ? Convert.ToInt32(TotalTransfersCount.Text.Split(':')[1].Trim()) : 0;
+
+            TotalTransfersCount.Text = "Total Transfers: " + Convert.ToString(portalList2.Count + prevTransfersCount);
+
         }
 
         private void AddPlayertoTRAN(int PGID, int TGID)

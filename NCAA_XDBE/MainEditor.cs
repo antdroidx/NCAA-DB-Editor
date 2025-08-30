@@ -208,6 +208,7 @@ namespace DB_EDITOR
             tabControl1.TabPages.Remove(tabSchedule);
             tabControl1.TabPages.Remove(tabStadiums);
             tabControl1.TabPages.Remove(tabPortal);
+            tabControl1.TabPages.Remove(tabSTRMDATA);
 
 
 
@@ -1136,7 +1137,6 @@ namespace DB_EDITOR
         }
         #endregion
 
-        
 
     }
 

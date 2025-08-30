@@ -141,4 +141,34 @@
   <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>861, 17</value>
   </metadata>
+  <data name="richTextBox2.Text" xml:space="preserve">
+    <value>Priority:
+This determines the order in which teams select players. It will go through position by position.
+
+Portal Size:
+Small Portal will only fill team needs if they do not have enough based on the Depth options
+Large Portal will go through the entire roster and see if there are available players that can compete with backups and starters. They will join if they are better than the 2nd best player in the position group.
+
+Allow Winter Transfers:
+This lets players who transferred in the previous portal to be available in this portal.
+
+Immediate Eligibility:
+This is for non-NEXT mod users only. It will remove the Transfer 1 year wait period.
+
+Evaluate with JR/SR Rating Reduction:
+This evalutes the roster and portal feature with a rating reduction of -1 and -2 for juniors and seniors, respectively. This is to allow underclassmen more opportunity.
+
+Transfer Chance: 
+This is the likelihood a player will join the portal if they meet the pre-reqs.
+</value>
+  </data>
+  <data name="richTextBox1.Text" xml:space="preserve">
+    <value>Roster Depth Options are used to determine how many players are protected from transferring from each team based on their overall ranking. It is also used to determine which teams need to fill holes if they do not have enough players at the position based on the value set above.</value>
+  </data>
+  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>861, 17</value>
+  </metadata>
+  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>81</value>
+  </metadata>
 </root>

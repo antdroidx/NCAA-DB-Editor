@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup />
+  <ItemGroup>
+    <Compile Update="About\AboutBox1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="BodySizeMaker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="BowlEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="CFBUSA97.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="CoachCarousel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="CoachEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ConferenceEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Config.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Conversions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="DatabaseEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="dbTools.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="DepthCharts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="DynastyTools.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ExportTool.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="FantasyRoster.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ImportTool.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="LeagueEditor\Annuals.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="LeagueEditor\Bowls.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="LeagueEditor\ConfChampionships.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="LeagueEditor\LeagueEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="LeagueEditor\LeagueMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="LeagueEditor\LeagueUpdater.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="LeagueEditor\Rosters.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="LeagueEditor\Schedules.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="LeagueEditor\Tools.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="MainEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Playbooks.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="PlayerEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="RecruitEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="RecruitingTools.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="RosterTools.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Schedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="ScheduleEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="SpringPortal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="StadiumEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="StatsViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="StrmdataEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="TDB_Helper.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="TeamEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="Uniforms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="_UNUSED_.cs">
+      <SubType>Form</SubType>
+    </Compile>
+  </ItemGroup>
+</Project>
