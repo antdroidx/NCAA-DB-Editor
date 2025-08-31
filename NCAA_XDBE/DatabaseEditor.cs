@@ -33,7 +33,14 @@ namespace DB_EDITOR
             // Get Tableprops based on the selected index
             TDB.TDBTableGetProperties(dbSelected, SelectedTableIndex, ref TableProps);
 
-            TablePropsLabel.Text = "Fields: " + TableProps.FieldCount.ToString() + "   Capacity: " + TableProps.Capacity.ToString() + "   Records: " + TableProps.RecordCount.ToString() + "    DelRec: " + TableProps.DeletedCount.ToString() + "  CID: " + dbSelected;
+            string flags = "";
+            if(TableProps.Flag0) flags += " FL0";
+            if(TableProps.Flag1) flags += " FL1";
+            if(TableProps.Flag2) flags += " FL2";
+            if(TableProps.Flag3) flags += " FL3";
+            if (TableProps.NonAllocated) flags += " NonAlloc";
+
+            TablePropsLabel.Text = "Fields: " + TableProps.FieldCount.ToString() + "   Capacity: " + TableProps.Capacity.ToString() + "   Records: " + TableProps.RecordCount.ToString() + "    DelRec: " + TableProps.DeletedCount.ToString() + " " + flags;
 
         }
 
@@ -817,6 +824,113 @@ namespace DB_EDITOR
 
         }
 
+        #endregion
+
+        #region Table Capacity Editor
+
+        private void changeTableCapacityToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dbSelected == -1 || SelectedTableIndex < 0)
+                return;
+
+            // Get current table properties
+            TdbTableProperties tableProps = new TdbTableProperties();
+            tableProps.Name = TDBNameLength;
+            TDB.TDBTableGetProperties(dbSelected, SelectedTableIndex, ref tableProps);
+
+            // Create and configure the form
+            using (Form capacityDialog = new Form())
+            {
+                capacityDialog.Text = $"Change Capacity - {tableProps.Name}";
+                capacityDialog.Size = new Size(200, 200);
+                capacityDialog.StartPosition = FormStartPosition.CenterParent;
+                capacityDialog.FormBorderStyle = FormBorderStyle.FixedDialog;
+                capacityDialog.MaximizeBox = false;
+                capacityDialog.MinimizeBox = false;
+
+                // Create controls
+                Label currentCapLabel = new Label
+                {
+                    Text = $"Current Capacity: {tableProps.Capacity}",
+                    Location = new Point(20, 20),
+                    AutoSize = true
+                };
+
+                Label recordsLabel = new Label
+                {
+                    Text = $"Active Records: {tableProps.RecordCount}",
+                    Location = new Point(20, 40),
+                    AutoSize = true
+                };
+
+                Label newCapLabel = new Label
+                {
+                    Text = "New Capacity:",
+                    Location = new Point(20, 70),
+                    AutoSize = true
+                };
+
+                NumericUpDown capacityInput = new NumericUpDown
+                {
+                    Location = new Point(100, 68),
+                    Size = new Size(60, 20),
+                    Minimum = 0,
+                    Maximum = 65534,
+                    Value = tableProps.RecordCount
+                };
+
+                Button okButton = new Button
+                {
+                    Text = "OK",
+                    DialogResult = DialogResult.OK,
+                    Location = new Point(20, 110),
+                    Size = new Size(60, 30)
+                };
+
+                Button cancelButton = new Button
+                {
+                    Text = "Cancel",
+                    DialogResult = DialogResult.Cancel,
+                    Location = new Point(100, 110),
+                    Size = new Size(60, 30)
+                };
+
+                // Add controls to form
+                capacityDialog.Controls.AddRange(new Control[]
+                {
+                    currentCapLabel,
+                    recordsLabel,
+                    newCapLabel,
+                    capacityInput,
+                    okButton,
+                    cancelButton
+                });
+
+                capacityDialog.AcceptButton = okButton;
+                capacityDialog.CancelButton = cancelButton;
+
+                // Show dialog and process result
+                if (capacityDialog.ShowDialog() == DialogResult.OK)
+                {
+                    int newCapacity = (int)capacityInput.Value;
+                    if (newCapacity != tableProps.Capacity)
+                    {
+                        // Attempt to change the capacity
+                        if (TDB.TDBTableChangeCapacity(dbSelected, tableProps.Name, newCapacity))
+                        {
+                            MessageBox.Show($"Table capacity changed to {newCapacity}.", "Success",
+                                MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            GetTableProperties(); // Refresh the table properties display
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed to change table capacity.", "Error",
+                                MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                }
+            }
+        }
         #endregion
 
     }

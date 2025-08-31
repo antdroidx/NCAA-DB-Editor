@@ -98,6 +98,11 @@ namespace DB_EDITOR
 
         [DllImport(TDBACCESS_DLL, CharSet = CharSet.Unicode)]
         public static extern bool TDBTableRecordRemove(int DBIndex, string TableName, int RecNo);
+
+        [DllImport(TDBACCESS_DLL, CharSet = CharSet.Unicode)]
+        public static extern bool TDBTableChangeCapacity(int DBIndex, string TableName, int NewCapacity);
+
+
         #endregion
 
         #region user added functions

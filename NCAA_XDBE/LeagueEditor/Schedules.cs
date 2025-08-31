@@ -61,6 +61,7 @@ namespace DB_EDITOR
             {
                 TDB.TDBTableRecordChangeDeleted(dbIndex2, table, i, true);
             }
+            TDB.TDBTableChangeCapacity(dbIndex2, table, 0);
             TDB.TDBDatabaseCompact(dbIndex2);
         }
 
