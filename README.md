@@ -3,6 +3,7 @@ DB/Save Editor for NCAA Football series on PS2/Xbox/PSP/GC Consoles
 
 This editor was designed using original source code from Madden Xtreme DB Editor (elguapo) and MaddenAMP (Colin Goudie/stringray68) and uses tdbaccess library from Artem Khassanov of NHLView.
 
+As of August 25, 2025 - this application is designed for x64 only. If you are seeing any issues with display of tables or UI elements, please try changing the Resolution Scaling in Display Settings of Windows. This application is designed for 1440p or below primarily, but it does work on higher resolution but only with certain Res Scaling factor. This is something I am trying to improve on but it's challenging with WinForms...
 
 ## Deployment
 
