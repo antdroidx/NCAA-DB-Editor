@@ -126,23 +126,25 @@ namespace DB_EDITOR
 
         public MainEditor()
         {
-            // Add these lines at the start of the constructor
-            if (Environment.OSVersion.Version.Major >= 6)
-            {
-                SetProcessDPIAware();
-            }
+            // Enable DPI awareness - should be one of the first things we do
+            SetProcessDPIAware();
 
+            // Enable better DPI scaling
             this.AutoScaleMode = AutoScaleMode.Dpi;
-            //this.SetAutoScaleDimensions(new System.Drawing.SizeF(96F, 96F));
-            // Remove or comment out the following line in the MainEditor constructor:
-            // this.SetAutoScaleDimensions(new System.Drawing.SizeF(96F, 96F));
 
-            // Reason: There is no SetAutoScaleDimensions method in Form or MainEditor. 
-            // The correct way to set scaling is to use the AutoScaleDimensions property, like this:
-            this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
+            // Handle DPI changes dynamically
+            this.HandleCreated += (s, e) =>
+            {
+                if (Environment.OSVersion.Version.Major >= 6)
+                {
+                    SetProcessDPIAware();
+                }
+            };
+
             InitializeComponent();
             DefaultSettings();
         }
+
 
         private void DefaultSettings()
         {
@@ -199,7 +201,7 @@ namespace DB_EDITOR
             tabControl1.TabPages.Remove(tabTools);
             tabControl1.TabPages.Remove(tabCoaches);
             tabControl1.TabPages.Remove(tabConf);
-            //tabControl1.TabPages.Remove(tabDev);
+            tabControl1.TabPages.Remove(tabDev);
             tabControl1.TabPages.Remove(tabPlaybook);
             tabControl1.TabPages.Remove(tabDepthCharts);
             tabControl1.TabPages.Remove(tabRecruits);
@@ -1120,8 +1122,6 @@ namespace DB_EDITOR
         {
         }
         #endregion
-
-
 
     }
 

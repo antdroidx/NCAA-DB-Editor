@@ -374,14 +374,14 @@ namespace DB_EDITOR
             List<List<string>> pb = CreatePlaybookNames();
             //136-158 next ||  124 and below is vanilla
 
-            if (GetDBValueInt("COCH", "CPID", CoachIndex) > 135 || GetDBValueInt("COCH", "CPID", CoachIndex) < 161)
+            if (NextMod)
             {
                 for (int i = 136; i < pb.Count-2; i++)
                 {
                     CoachPlaybookBox.Items.Add(pb[i][1]);
                 }
             }
-            else if (GetDBValueInt("COCH", "CPID", CoachIndex) > 135)
+            else if (Next26Mod)
             {
                 for (int i = 136; i < pb.Count; i++)
                 {

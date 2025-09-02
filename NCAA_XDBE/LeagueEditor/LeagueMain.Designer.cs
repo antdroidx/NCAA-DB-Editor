@@ -33,2332 +33,2200 @@ namespace DB_EDITOR
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            components = new System.ComponentModel.Container();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LeagueMain));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.mainMenu = new System.Windows.Forms.MenuStrip();
-            this.fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveAsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.closeMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.definitionFileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
-            this.exitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.CSVMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exportToolItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.importMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.exportAllMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
-            this.tabDelimitedMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.optionsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tableFieldOrderMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.defaultFieldOrderMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ascendingFieldOrderMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.descendingFieldOrderMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.customOrderMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.CustomLeagueToolStrip = new System.Windows.Forms.ToolStripMenuItem();
-            this.importCustomLeagueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ExportCustomLeague = new System.Windows.Forms.ToolStripMenuItem();
-            this.aboutMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.tableMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.exportTableMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.importTableMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.exportAllTableMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fieldMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.copyRecordsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.addRecordsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteRecordsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.exportRecordsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.importRecordsMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.addendumMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.TablePropsLabel = new System.Windows.Forms.Label();
-            this.FieldsPropsLabel = new System.Windows.Forms.Label();
-            this.TablePropsgroupBox = new System.Windows.Forms.GroupBox();
-            this.FieldsPropsgroupBox = new System.Windows.Forms.GroupBox();
-            this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
-            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
-            this.tabConf = new System.Windows.Forms.TabPage();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.radio136 = new System.Windows.Forms.RadioButton();
-            this.radio120 = new System.Windows.Forms.RadioButton();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.label27 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.ClearLeagueButton = new System.Windows.Forms.Button();
-            this.RemoveButton = new System.Windows.Forms.Button();
-            this.LeagueTeamsLabel = new System.Windows.Forms.Label();
-            this.AddButton = new System.Windows.Forms.Button();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.numericUpDown7 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown8 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown9 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown10 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown11 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown12 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown6 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button11 = new System.Windows.Forms.Button();
-            this.button12 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.AllTeamsListBox = new System.Windows.Forms.ListBox();
-            this.confName12 = new System.Windows.Forms.TextBox();
-            this.confName11 = new System.Windows.Forms.TextBox();
-            this.confName10 = new System.Windows.Forms.TextBox();
-            this.confName9 = new System.Windows.Forms.TextBox();
-            this.confName8 = new System.Windows.Forms.TextBox();
-            this.confName7 = new System.Windows.Forms.TextBox();
-            this.confName6 = new System.Windows.Forms.TextBox();
-            this.confName5 = new System.Windows.Forms.TextBox();
-            this.confName4 = new System.Windows.Forms.TextBox();
-            this.confName3 = new System.Windows.Forms.TextBox();
-            this.confName2 = new System.Windows.Forms.TextBox();
-            this.confName1 = new System.Windows.Forms.TextBox();
-            this.labelTeamSelection = new System.Windows.Forms.Label();
-            this.DeselectButton = new System.Windows.Forms.Button();
-            this.SaveButton = new System.Windows.Forms.Button();
-            this.conf12 = new System.Windows.Forms.CheckedListBox();
-            this.conf11 = new System.Windows.Forms.CheckedListBox();
-            this.conf10 = new System.Windows.Forms.CheckedListBox();
-            this.conf9 = new System.Windows.Forms.CheckedListBox();
-            this.conf8 = new System.Windows.Forms.CheckedListBox();
-            this.conf7 = new System.Windows.Forms.CheckedListBox();
-            this.conf6 = new System.Windows.Forms.CheckedListBox();
-            this.conf5 = new System.Windows.Forms.CheckedListBox();
-            this.conf4 = new System.Windows.Forms.CheckedListBox();
-            this.conf3 = new System.Windows.Forms.CheckedListBox();
-            this.conf2 = new System.Windows.Forms.CheckedListBox();
-            this.conf1 = new System.Windows.Forms.CheckedListBox();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.label39 = new System.Windows.Forms.Label();
-            this.TeamSelectionBox = new System.Windows.Forms.ComboBox();
-            this.label38 = new System.Windows.Forms.Label();
-            this.TeamsPerConfBox = new System.Windows.Forms.ComboBox();
-            this.RandomizeLeagueButton = new System.Windows.Forms.Button();
-            this.tabDB = new System.Windows.Forms.TabPage();
-            this.tableGridView = new System.Windows.Forms.DataGridView();
-            this.fieldsGridView = new System.Windows.Forms.DataGridView();
-            this.tabHome = new System.Windows.Forms.TabPage();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.Next26Config = new System.Windows.Forms.RadioButton();
-            this.OGConfigRadio = new System.Windows.Forms.RadioButton();
-            this.NextConfigRadio = new System.Windows.Forms.RadioButton();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabAnnuals = new System.Windows.Forms.TabPage();
-            this.ClearAllButton = new System.Windows.Forms.Button();
-            this.SaveSANNButton = new System.Windows.Forms.Button();
-            this.DeleteGameButton = new System.Windows.Forms.Button();
-            this.AnnualsGrid = new System.Windows.Forms.DataGridView();
-            this.tabCChamps = new System.Windows.Forms.TabPage();
-            this.label37 = new System.Windows.Forms.Label();
-            this.SaveChamps = new System.Windows.Forms.Button();
-            this.ChampGrid = new System.Windows.Forms.DataGridView();
-            this.Conf = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Bowl = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.tabBowls = new System.Windows.Forms.TabPage();
-            this.AtLargeButton = new System.Windows.Forms.Button();
-            this.SaveBowlButton = new System.Windows.Forms.Button();
-            this.DeleteBowlButton = new System.Windows.Forms.Button();
-            this.BowlsGrid = new System.Windows.Forms.DataGridView();
-            this.BIDX = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BNME = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BCI1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.BCR1 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.BCI2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.BCR2 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.SGID = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.BMON = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.BDAY = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.mainMenu.SuspendLayout();
-            this.tableMenu.SuspendLayout();
-            this.fieldMenu.SuspendLayout();
-            this.TablePropsgroupBox.SuspendLayout();
-            this.FieldsPropsgroupBox.SuspendLayout();
-            this.tabConf.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown10)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown11)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown12)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            this.panel1.SuspendLayout();
-            this.tabDB.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.tableGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fieldsGridView)).BeginInit();
-            this.tabHome.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.tabControl1.SuspendLayout();
-            this.tabAnnuals.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.AnnualsGrid)).BeginInit();
-            this.tabCChamps.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ChampGrid)).BeginInit();
-            this.tabBowls.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.BowlsGrid)).BeginInit();
-            this.SuspendLayout();
+            mainMenu = new MenuStrip();
+            fileMenuItem = new ToolStripMenuItem();
+            openMenuItem = new ToolStripMenuItem();
+            saveMenuItem = new ToolStripMenuItem();
+            saveAsMenuItem = new ToolStripMenuItem();
+            closeMenuItem = new ToolStripMenuItem();
+            toolStripSeparator1 = new ToolStripSeparator();
+            definitionFileMenuItem = new ToolStripMenuItem();
+            toolStripSeparator7 = new ToolStripSeparator();
+            exitMenuItem = new ToolStripMenuItem();
+            CSVMenuItem = new ToolStripMenuItem();
+            exportToolItem = new ToolStripMenuItem();
+            importMenuItem = new ToolStripMenuItem();
+            toolStripSeparator2 = new ToolStripSeparator();
+            exportAllMenuItem = new ToolStripMenuItem();
+            toolStripSeparator9 = new ToolStripSeparator();
+            tabDelimitedMenuItem = new ToolStripMenuItem();
+            optionsMenuItem = new ToolStripMenuItem();
+            tableFieldOrderMenuItem = new ToolStripMenuItem();
+            defaultFieldOrderMenuItem = new ToolStripMenuItem();
+            ascendingFieldOrderMenuItem = new ToolStripMenuItem();
+            descendingFieldOrderMenuItem = new ToolStripMenuItem();
+            customOrderMenuItem = new ToolStripMenuItem();
+            CustomLeagueToolStrip = new ToolStripMenuItem();
+            importCustomLeagueToolStripMenuItem = new ToolStripMenuItem();
+            ExportCustomLeague = new ToolStripMenuItem();
+            aboutMenuItem = new ToolStripMenuItem();
+            progressBar1 = new System.Windows.Forms.ProgressBar();
+            tableMenu = new ContextMenuStrip(components);
+            exportTableMenuItem = new ToolStripMenuItem();
+            importTableMenuItem = new ToolStripMenuItem();
+            toolStripSeparator3 = new ToolStripSeparator();
+            exportAllTableMenuItem = new ToolStripMenuItem();
+            fieldMenu = new ContextMenuStrip(components);
+            copyRecordsMenuItem = new ToolStripMenuItem();
+            toolStripSeparator4 = new ToolStripSeparator();
+            addRecordsMenuItem = new ToolStripMenuItem();
+            deleteRecordsMenuItem = new ToolStripMenuItem();
+            toolStripSeparator5 = new ToolStripSeparator();
+            exportRecordsMenuItem = new ToolStripMenuItem();
+            importRecordsMenuItem = new ToolStripMenuItem();
+            toolStripSeparator6 = new ToolStripSeparator();
+            addendumMenuItem = new ToolStripMenuItem();
+            openFileDialog1 = new OpenFileDialog();
+            TablePropsLabel = new Label();
+            FieldsPropsLabel = new Label();
+            TablePropsgroupBox = new GroupBox();
+            FieldsPropsgroupBox = new GroupBox();
+            openFileDialog2 = new OpenFileDialog();
+            colorDialog1 = new ColorDialog();
+            tabConf = new TabPage();
+            groupBox2 = new GroupBox();
+            radio136 = new RadioButton();
+            radio120 = new RadioButton();
+            label31 = new Label();
+            label32 = new Label();
+            label33 = new Label();
+            label34 = new Label();
+            label35 = new Label();
+            label36 = new Label();
+            label30 = new Label();
+            label29 = new Label();
+            label28 = new Label();
+            label27 = new Label();
+            label26 = new Label();
+            label25 = new Label();
+            ClearLeagueButton = new System.Windows.Forms.Button();
+            RemoveButton = new System.Windows.Forms.Button();
+            LeagueTeamsLabel = new Label();
+            AddButton = new System.Windows.Forms.Button();
+            label19 = new Label();
+            label20 = new Label();
+            label21 = new Label();
+            label22 = new Label();
+            label23 = new Label();
+            label24 = new Label();
+            label17 = new Label();
+            label18 = new Label();
+            label15 = new Label();
+            label16 = new Label();
+            label14 = new Label();
+            label13 = new Label();
+            numericUpDown7 = new NumericUpDown();
+            numericUpDown8 = new NumericUpDown();
+            numericUpDown9 = new NumericUpDown();
+            numericUpDown10 = new NumericUpDown();
+            numericUpDown11 = new NumericUpDown();
+            numericUpDown12 = new NumericUpDown();
+            numericUpDown6 = new NumericUpDown();
+            numericUpDown5 = new NumericUpDown();
+            numericUpDown4 = new NumericUpDown();
+            numericUpDown3 = new NumericUpDown();
+            numericUpDown2 = new NumericUpDown();
+            numericUpDown1 = new NumericUpDown();
+            button7 = new System.Windows.Forms.Button();
+            button8 = new System.Windows.Forms.Button();
+            button9 = new System.Windows.Forms.Button();
+            button10 = new System.Windows.Forms.Button();
+            button11 = new System.Windows.Forms.Button();
+            button12 = new System.Windows.Forms.Button();
+            button6 = new System.Windows.Forms.Button();
+            button5 = new System.Windows.Forms.Button();
+            button4 = new System.Windows.Forms.Button();
+            button3 = new System.Windows.Forms.Button();
+            button2 = new System.Windows.Forms.Button();
+            button1 = new System.Windows.Forms.Button();
+            label8 = new Label();
+            label9 = new Label();
+            label10 = new Label();
+            label11 = new Label();
+            label12 = new Label();
+            label7 = new Label();
+            label6 = new Label();
+            label5 = new Label();
+            label4 = new Label();
+            label3 = new Label();
+            label2 = new Label();
+            label1 = new Label();
+            AllTeamsListBox = new ListBox();
+            confName12 = new System.Windows.Forms.TextBox();
+            confName11 = new System.Windows.Forms.TextBox();
+            confName10 = new System.Windows.Forms.TextBox();
+            confName9 = new System.Windows.Forms.TextBox();
+            confName8 = new System.Windows.Forms.TextBox();
+            confName7 = new System.Windows.Forms.TextBox();
+            confName6 = new System.Windows.Forms.TextBox();
+            confName5 = new System.Windows.Forms.TextBox();
+            confName4 = new System.Windows.Forms.TextBox();
+            confName3 = new System.Windows.Forms.TextBox();
+            confName2 = new System.Windows.Forms.TextBox();
+            confName1 = new System.Windows.Forms.TextBox();
+            labelTeamSelection = new Label();
+            DeselectButton = new System.Windows.Forms.Button();
+            SaveButton = new System.Windows.Forms.Button();
+            conf12 = new CheckedListBox();
+            conf11 = new CheckedListBox();
+            conf10 = new CheckedListBox();
+            conf9 = new CheckedListBox();
+            conf8 = new CheckedListBox();
+            conf7 = new CheckedListBox();
+            conf6 = new CheckedListBox();
+            conf5 = new CheckedListBox();
+            conf4 = new CheckedListBox();
+            conf3 = new CheckedListBox();
+            conf2 = new CheckedListBox();
+            conf1 = new CheckedListBox();
+            panel1 = new Panel();
+            label39 = new Label();
+            TeamSelectionBox = new System.Windows.Forms.ComboBox();
+            label38 = new Label();
+            TeamsPerConfBox = new System.Windows.Forms.ComboBox();
+            RandomizeLeagueButton = new System.Windows.Forms.Button();
+            tabDB = new TabPage();
+            tableGridView = new DataGridView();
+            fieldsGridView = new DataGridView();
+            tabHome = new TabPage();
+            groupBox1 = new GroupBox();
+            Next26Config = new RadioButton();
+            OGConfigRadio = new RadioButton();
+            NextConfigRadio = new RadioButton();
+            tabControl1 = new TabControl();
+            tabAnnuals = new TabPage();
+            ClearAllButton = new System.Windows.Forms.Button();
+            SaveSANNButton = new System.Windows.Forms.Button();
+            DeleteGameButton = new System.Windows.Forms.Button();
+            AnnualsGrid = new DataGridView();
+            tabCChamps = new TabPage();
+            label37 = new Label();
+            SaveChamps = new System.Windows.Forms.Button();
+            ChampGrid = new DataGridView();
+            Conf = new DataGridViewTextBoxColumn();
+            Bowl = new DataGridViewComboBoxColumn();
+            tabBowls = new TabPage();
+            AtLargeButton = new System.Windows.Forms.Button();
+            SaveBowlButton = new System.Windows.Forms.Button();
+            DeleteBowlButton = new System.Windows.Forms.Button();
+            BowlsGrid = new DataGridView();
+            BIDX = new DataGridViewTextBoxColumn();
+            BNME = new DataGridViewTextBoxColumn();
+            BCI1 = new DataGridViewComboBoxColumn();
+            BCR1 = new DataGridViewComboBoxColumn();
+            BCI2 = new DataGridViewComboBoxColumn();
+            BCR2 = new DataGridViewComboBoxColumn();
+            SGID = new DataGridViewComboBoxColumn();
+            BMON = new DataGridViewComboBoxColumn();
+            BDAY = new DataGridViewComboBoxColumn();
+            mainMenu.SuspendLayout();
+            tableMenu.SuspendLayout();
+            fieldMenu.SuspendLayout();
+            TablePropsgroupBox.SuspendLayout();
+            FieldsPropsgroupBox.SuspendLayout();
+            tabConf.SuspendLayout();
+            groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown7).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown8).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown9).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown10).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown11).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown12).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown6).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            panel1.SuspendLayout();
+            tabDB.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)tableGridView).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)fieldsGridView).BeginInit();
+            tabHome.SuspendLayout();
+            groupBox1.SuspendLayout();
+            tabControl1.SuspendLayout();
+            tabAnnuals.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)AnnualsGrid).BeginInit();
+            tabCChamps.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)ChampGrid).BeginInit();
+            tabBowls.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)BowlsGrid).BeginInit();
+            SuspendLayout();
             // 
             // mainMenu
             // 
-            this.mainMenu.BackColor = System.Drawing.SystemColors.Control;
-            this.mainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileMenuItem,
-            this.CSVMenuItem,
-            this.optionsMenuItem,
-            this.CustomLeagueToolStrip,
-            this.aboutMenuItem});
-            this.mainMenu.Location = new System.Drawing.Point(0, 0);
-            this.mainMenu.Name = "mainMenu";
-            this.mainMenu.Size = new System.Drawing.Size(1190, 24);
-            this.mainMenu.TabIndex = 0;
-            this.mainMenu.Text = "menuStrip1";
+            mainMenu.BackColor = SystemColors.Control;
+            mainMenu.Items.AddRange(new ToolStripItem[] { fileMenuItem, CSVMenuItem, optionsMenuItem, CustomLeagueToolStrip, aboutMenuItem });
+            mainMenu.Location = new Point(0, 0);
+            mainMenu.Name = "mainMenu";
+            mainMenu.Size = new Size(1190, 24);
+            mainMenu.TabIndex = 0;
+            mainMenu.Text = "menuStrip1";
             // 
             // fileMenuItem
             // 
-            this.fileMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.openMenuItem,
-            this.saveMenuItem,
-            this.saveAsMenuItem,
-            this.closeMenuItem,
-            this.toolStripSeparator1,
-            this.definitionFileMenuItem,
-            this.toolStripSeparator7,
-            this.exitMenuItem});
-            this.fileMenuItem.Name = "fileMenuItem";
-            this.fileMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileMenuItem.Text = "File";
+            fileMenuItem.DropDownItems.AddRange(new ToolStripItem[] { openMenuItem, saveMenuItem, saveAsMenuItem, closeMenuItem, toolStripSeparator1, definitionFileMenuItem, toolStripSeparator7, exitMenuItem });
+            fileMenuItem.Name = "fileMenuItem";
+            fileMenuItem.Size = new Size(37, 20);
+            fileMenuItem.Text = "File";
             // 
             // openMenuItem
             // 
-            this.openMenuItem.Image = global::DB_EDITOR.Properties.Resources.open2;
-            this.openMenuItem.Name = "openMenuItem";
-            this.openMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.openMenuItem.Text = "Open";
-            this.openMenuItem.Click += new System.EventHandler(this.OpenMenuItem_Click);
+            openMenuItem.Image = Properties.Resources.open2;
+            openMenuItem.Name = "openMenuItem";
+            openMenuItem.ShortcutKeys = Keys.Control | Keys.O;
+            openMenuItem.Size = new Size(148, 22);
+            openMenuItem.Text = "Open";
+            openMenuItem.Click += OpenMenuItem_Click;
             // 
             // saveMenuItem
             // 
-            this.saveMenuItem.Image = global::DB_EDITOR.Properties.Resources.save3;
-            this.saveMenuItem.Name = "saveMenuItem";
-            this.saveMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.saveMenuItem.Text = "Save";
-            this.saveMenuItem.Click += new System.EventHandler(this.SaveMenuItem_Click);
+            saveMenuItem.Image = Properties.Resources.save3;
+            saveMenuItem.Name = "saveMenuItem";
+            saveMenuItem.ShortcutKeys = Keys.Control | Keys.S;
+            saveMenuItem.Size = new Size(148, 22);
+            saveMenuItem.Text = "Save";
+            saveMenuItem.Click += SaveMenuItem_Click;
             // 
             // saveAsMenuItem
             // 
-            this.saveAsMenuItem.Name = "saveAsMenuItem";
-            this.saveAsMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.saveAsMenuItem.Text = "Save As...";
-            this.saveAsMenuItem.Click += new System.EventHandler(this.SaveAsMenuItem_Click);
+            saveAsMenuItem.Name = "saveAsMenuItem";
+            saveAsMenuItem.Size = new Size(148, 22);
+            saveAsMenuItem.Text = "Save As...";
+            saveAsMenuItem.Click += SaveAsMenuItem_Click;
             // 
             // closeMenuItem
             // 
-            this.closeMenuItem.Image = global::DB_EDITOR.Properties.Resources.close;
-            this.closeMenuItem.Name = "closeMenuItem";
-            this.closeMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.W)));
-            this.closeMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.closeMenuItem.Text = "Close";
-            this.closeMenuItem.Click += new System.EventHandler(this.CloseMenuItem_Click);
+            closeMenuItem.Image = Properties.Resources.close;
+            closeMenuItem.Name = "closeMenuItem";
+            closeMenuItem.ShortcutKeys = Keys.Control | Keys.W;
+            closeMenuItem.Size = new Size(148, 22);
+            closeMenuItem.Text = "Close";
+            closeMenuItem.Click += CloseMenuItem_Click;
             // 
             // toolStripSeparator1
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(145, 6);
+            toolStripSeparator1.Name = "toolStripSeparator1";
+            toolStripSeparator1.Size = new Size(145, 6);
             // 
             // definitionFileMenuItem
             // 
-            this.definitionFileMenuItem.Image = global::DB_EDITOR.Properties.Resources.def_file;
-            this.definitionFileMenuItem.Name = "definitionFileMenuItem";
-            this.definitionFileMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.definitionFileMenuItem.Text = "Definition File";
-            this.definitionFileMenuItem.Click += new System.EventHandler(this.DefinitionFileMenuItem_Click);
+            definitionFileMenuItem.Image = Properties.Resources.def_file;
+            definitionFileMenuItem.Name = "definitionFileMenuItem";
+            definitionFileMenuItem.Size = new Size(148, 22);
+            definitionFileMenuItem.Text = "Definition File";
+            definitionFileMenuItem.Click += DefinitionFileMenuItem_Click;
             // 
             // toolStripSeparator7
             // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(145, 6);
+            toolStripSeparator7.Name = "toolStripSeparator7";
+            toolStripSeparator7.Size = new Size(145, 6);
             // 
             // exitMenuItem
             // 
-            this.exitMenuItem.Image = global::DB_EDITOR.Properties.Resources.exit;
-            this.exitMenuItem.Name = "exitMenuItem";
-            this.exitMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4)));
-            this.exitMenuItem.Size = new System.Drawing.Size(148, 22);
-            this.exitMenuItem.Text = "Exit";
-            this.exitMenuItem.Click += new System.EventHandler(this.ExitToolItem_Click);
+            exitMenuItem.Image = Properties.Resources.exit;
+            exitMenuItem.Name = "exitMenuItem";
+            exitMenuItem.ShortcutKeys = Keys.Alt | Keys.F4;
+            exitMenuItem.Size = new Size(148, 22);
+            exitMenuItem.Text = "Exit";
+            exitMenuItem.Click += ExitToolItem_Click;
             // 
             // CSVMenuItem
             // 
-            this.CSVMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.exportToolItem,
-            this.importMenuItem,
-            this.toolStripSeparator2,
-            this.exportAllMenuItem,
-            this.toolStripSeparator9,
-            this.tabDelimitedMenuItem});
-            this.CSVMenuItem.Name = "CSVMenuItem";
-            this.CSVMenuItem.Size = new System.Drawing.Size(40, 20);
-            this.CSVMenuItem.Text = "CSV";
+            CSVMenuItem.DropDownItems.AddRange(new ToolStripItem[] { exportToolItem, importMenuItem, toolStripSeparator2, exportAllMenuItem, toolStripSeparator9, tabDelimitedMenuItem });
+            CSVMenuItem.Name = "CSVMenuItem";
+            CSVMenuItem.Size = new Size(40, 20);
+            CSVMenuItem.Text = "CSV";
             // 
             // exportToolItem
             // 
-            this.exportToolItem.Name = "exportToolItem";
-            this.exportToolItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-            this.exportToolItem.Size = new System.Drawing.Size(178, 22);
-            this.exportToolItem.Text = "Export Table";
-            this.exportToolItem.Click += new System.EventHandler(this.exportMenuItem_Click);
+            exportToolItem.Name = "exportToolItem";
+            exportToolItem.ShortcutKeys = Keys.Control | Keys.E;
+            exportToolItem.Size = new Size(178, 22);
+            exportToolItem.Text = "Export Table";
+            exportToolItem.Click += exportMenuItem_Click;
             // 
             // importMenuItem
             // 
-            this.importMenuItem.Name = "importMenuItem";
-            this.importMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
-            this.importMenuItem.Size = new System.Drawing.Size(178, 22);
-            this.importMenuItem.Text = "Import Table";
-            this.importMenuItem.Click += new System.EventHandler(this.importMenuItem_Click);
+            importMenuItem.Name = "importMenuItem";
+            importMenuItem.ShortcutKeys = Keys.Control | Keys.I;
+            importMenuItem.Size = new Size(178, 22);
+            importMenuItem.Text = "Import Table";
+            importMenuItem.Click += importMenuItem_Click;
             // 
             // toolStripSeparator2
             // 
-            this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(175, 6);
+            toolStripSeparator2.Name = "toolStripSeparator2";
+            toolStripSeparator2.Size = new Size(175, 6);
             // 
             // exportAllMenuItem
             // 
-            this.exportAllMenuItem.Name = "exportAllMenuItem";
-            this.exportAllMenuItem.ShowShortcutKeys = false;
-            this.exportAllMenuItem.Size = new System.Drawing.Size(178, 22);
-            this.exportAllMenuItem.Text = "Export All";
-            this.exportAllMenuItem.Click += new System.EventHandler(this.exportAllMenuItem_Click);
+            exportAllMenuItem.Name = "exportAllMenuItem";
+            exportAllMenuItem.ShowShortcutKeys = false;
+            exportAllMenuItem.Size = new Size(178, 22);
+            exportAllMenuItem.Text = "Export All";
+            exportAllMenuItem.Click += exportAllMenuItem_Click;
             // 
             // toolStripSeparator9
             // 
-            this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(175, 6);
+            toolStripSeparator9.Name = "toolStripSeparator9";
+            toolStripSeparator9.Size = new Size(175, 6);
             // 
             // tabDelimitedMenuItem
             // 
-            this.tabDelimitedMenuItem.Name = "tabDelimitedMenuItem";
-            this.tabDelimitedMenuItem.Size = new System.Drawing.Size(178, 22);
-            this.tabDelimitedMenuItem.Text = "Tab Delimited";
-            this.tabDelimitedMenuItem.Click += new System.EventHandler(this.tabDelimitedMenuItem_Click);
+            tabDelimitedMenuItem.Name = "tabDelimitedMenuItem";
+            tabDelimitedMenuItem.Size = new Size(178, 22);
+            tabDelimitedMenuItem.Text = "Tab Delimited";
+            tabDelimitedMenuItem.Click += tabDelimitedMenuItem_Click;
             // 
             // optionsMenuItem
             // 
-            this.optionsMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tableFieldOrderMenuItem});
-            this.optionsMenuItem.Name = "optionsMenuItem";
-            this.optionsMenuItem.Size = new System.Drawing.Size(61, 20);
-            this.optionsMenuItem.Text = "Options";
+            optionsMenuItem.DropDownItems.AddRange(new ToolStripItem[] { tableFieldOrderMenuItem });
+            optionsMenuItem.Name = "optionsMenuItem";
+            optionsMenuItem.Size = new Size(61, 20);
+            optionsMenuItem.Text = "Options";
             // 
             // tableFieldOrderMenuItem
             // 
-            this.tableFieldOrderMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.defaultFieldOrderMenuItem,
-            this.ascendingFieldOrderMenuItem,
-            this.descendingFieldOrderMenuItem,
-            this.customOrderMenuItem});
-            this.tableFieldOrderMenuItem.Name = "tableFieldOrderMenuItem";
-            this.tableFieldOrderMenuItem.Size = new System.Drawing.Size(163, 22);
-            this.tableFieldOrderMenuItem.Text = "Table Field Order";
+            tableFieldOrderMenuItem.DropDownItems.AddRange(new ToolStripItem[] { defaultFieldOrderMenuItem, ascendingFieldOrderMenuItem, descendingFieldOrderMenuItem, customOrderMenuItem });
+            tableFieldOrderMenuItem.Name = "tableFieldOrderMenuItem";
+            tableFieldOrderMenuItem.Size = new Size(163, 22);
+            tableFieldOrderMenuItem.Text = "Table Field Order";
             // 
             // defaultFieldOrderMenuItem
             // 
-            this.defaultFieldOrderMenuItem.Checked = true;
-            this.defaultFieldOrderMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.defaultFieldOrderMenuItem.Name = "defaultFieldOrderMenuItem";
-            this.defaultFieldOrderMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.defaultFieldOrderMenuItem.Text = "Default";
-            this.defaultFieldOrderMenuItem.Click += new System.EventHandler(this.defaultMenuItem_Click);
+            defaultFieldOrderMenuItem.Checked = true;
+            defaultFieldOrderMenuItem.CheckState = CheckState.Checked;
+            defaultFieldOrderMenuItem.Name = "defaultFieldOrderMenuItem";
+            defaultFieldOrderMenuItem.Size = new Size(136, 22);
+            defaultFieldOrderMenuItem.Text = "Default";
+            defaultFieldOrderMenuItem.Click += defaultMenuItem_Click;
             // 
             // ascendingFieldOrderMenuItem
             // 
-            this.ascendingFieldOrderMenuItem.Name = "ascendingFieldOrderMenuItem";
-            this.ascendingFieldOrderMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.ascendingFieldOrderMenuItem.Text = "Ascending";
-            this.ascendingFieldOrderMenuItem.Click += new System.EventHandler(this.ascendingMenuItem_Click);
+            ascendingFieldOrderMenuItem.Name = "ascendingFieldOrderMenuItem";
+            ascendingFieldOrderMenuItem.Size = new Size(136, 22);
+            ascendingFieldOrderMenuItem.Text = "Ascending";
+            ascendingFieldOrderMenuItem.Click += ascendingMenuItem_Click;
             // 
             // descendingFieldOrderMenuItem
             // 
-            this.descendingFieldOrderMenuItem.Name = "descendingFieldOrderMenuItem";
-            this.descendingFieldOrderMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.descendingFieldOrderMenuItem.Text = "Descending";
-            this.descendingFieldOrderMenuItem.Click += new System.EventHandler(this.descendingMenuItem_Click);
+            descendingFieldOrderMenuItem.Name = "descendingFieldOrderMenuItem";
+            descendingFieldOrderMenuItem.Size = new Size(136, 22);
+            descendingFieldOrderMenuItem.Text = "Descending";
+            descendingFieldOrderMenuItem.Click += descendingMenuItem_Click;
             // 
             // customOrderMenuItem
             // 
-            this.customOrderMenuItem.Name = "customOrderMenuItem";
-            this.customOrderMenuItem.Size = new System.Drawing.Size(136, 22);
-            this.customOrderMenuItem.Text = "Custom";
-            this.customOrderMenuItem.Click += new System.EventHandler(this.customMenuItem_Click);
+            customOrderMenuItem.Name = "customOrderMenuItem";
+            customOrderMenuItem.Size = new Size(136, 22);
+            customOrderMenuItem.Text = "Custom";
+            customOrderMenuItem.Click += customMenuItem_Click;
             // 
             // CustomLeagueToolStrip
             // 
-            this.CustomLeagueToolStrip.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.importCustomLeagueToolStripMenuItem,
-            this.ExportCustomLeague});
-            this.CustomLeagueToolStrip.Name = "CustomLeagueToolStrip";
-            this.CustomLeagueToolStrip.Size = new System.Drawing.Size(102, 20);
-            this.CustomLeagueToolStrip.Text = "Custom League";
+            CustomLeagueToolStrip.DropDownItems.AddRange(new ToolStripItem[] { importCustomLeagueToolStripMenuItem, ExportCustomLeague });
+            CustomLeagueToolStrip.Name = "CustomLeagueToolStrip";
+            CustomLeagueToolStrip.Size = new Size(102, 20);
+            CustomLeagueToolStrip.Text = "Custom League";
             // 
             // importCustomLeagueToolStripMenuItem
             // 
-            this.importCustomLeagueToolStripMenuItem.Name = "importCustomLeagueToolStripMenuItem";
-            this.importCustomLeagueToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.importCustomLeagueToolStripMenuItem.Text = "Import Custom League";
-            this.importCustomLeagueToolStripMenuItem.Click += new System.EventHandler(this.importCustomLeagueToolStripMenuItem_Click);
+            importCustomLeagueToolStripMenuItem.Name = "importCustomLeagueToolStripMenuItem";
+            importCustomLeagueToolStripMenuItem.Size = new Size(196, 22);
+            importCustomLeagueToolStripMenuItem.Text = "Import Custom League";
+            importCustomLeagueToolStripMenuItem.Click += importCustomLeagueToolStripMenuItem_Click;
             // 
             // ExportCustomLeague
             // 
-            this.ExportCustomLeague.Name = "ExportCustomLeague";
-            this.ExportCustomLeague.Size = new System.Drawing.Size(196, 22);
-            this.ExportCustomLeague.Text = "Export Custom League";
-            this.ExportCustomLeague.Click += new System.EventHandler(this.ExportCustomLeague_Click);
+            ExportCustomLeague.Name = "ExportCustomLeague";
+            ExportCustomLeague.Size = new Size(196, 22);
+            ExportCustomLeague.Text = "Export Custom League";
+            ExportCustomLeague.Click += ExportCustomLeague_Click;
             // 
             // aboutMenuItem
             // 
-            this.aboutMenuItem.Name = "aboutMenuItem";
-            this.aboutMenuItem.Size = new System.Drawing.Size(52, 20);
-            this.aboutMenuItem.Text = "About";
-            this.aboutMenuItem.Click += new System.EventHandler(this.AboutMenuItem_Click);
+            aboutMenuItem.Name = "aboutMenuItem";
+            aboutMenuItem.Size = new Size(52, 20);
+            aboutMenuItem.Text = "About";
+            aboutMenuItem.Click += AboutMenuItem_Click;
             // 
             // progressBar1
             // 
-            this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.progressBar1.BackColor = System.Drawing.SystemColors.Control;
-            this.progressBar1.Location = new System.Drawing.Point(974, 932);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(200, 23);
-            this.progressBar1.TabIndex = 1;
+            progressBar1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            progressBar1.BackColor = SystemColors.Control;
+            progressBar1.Location = new Point(974, 932);
+            progressBar1.Name = "progressBar1";
+            progressBar1.Size = new Size(200, 23);
+            progressBar1.TabIndex = 1;
             // 
             // tableMenu
             // 
-            this.tableMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.exportTableMenuItem,
-            this.importTableMenuItem,
-            this.toolStripSeparator3,
-            this.exportAllTableMenuItem});
-            this.tableMenu.Name = "tableMenu";
-            this.tableMenu.Size = new System.Drawing.Size(142, 76);
+            tableMenu.Items.AddRange(new ToolStripItem[] { exportTableMenuItem, importTableMenuItem, toolStripSeparator3, exportAllTableMenuItem });
+            tableMenu.Name = "tableMenu";
+            tableMenu.Size = new Size(142, 76);
             // 
             // exportTableMenuItem
             // 
-            this.exportTableMenuItem.Name = "exportTableMenuItem";
-            this.exportTableMenuItem.Size = new System.Drawing.Size(141, 22);
-            this.exportTableMenuItem.Text = "Export Table";
-            this.exportTableMenuItem.Click += new System.EventHandler(this.exportTableMenuItem_Click);
+            exportTableMenuItem.Name = "exportTableMenuItem";
+            exportTableMenuItem.Size = new Size(141, 22);
+            exportTableMenuItem.Text = "Export Table";
+            exportTableMenuItem.Click += exportTableMenuItem_Click;
             // 
             // importTableMenuItem
             // 
-            this.importTableMenuItem.Name = "importTableMenuItem";
-            this.importTableMenuItem.Size = new System.Drawing.Size(141, 22);
-            this.importTableMenuItem.Text = "Import Table";
-            this.importTableMenuItem.Click += new System.EventHandler(this.importTableMenuItem_Click);
+            importTableMenuItem.Name = "importTableMenuItem";
+            importTableMenuItem.Size = new Size(141, 22);
+            importTableMenuItem.Text = "Import Table";
+            importTableMenuItem.Click += importTableMenuItem_Click;
             // 
             // toolStripSeparator3
             // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(138, 6);
+            toolStripSeparator3.Name = "toolStripSeparator3";
+            toolStripSeparator3.Size = new Size(138, 6);
             // 
             // exportAllTableMenuItem
             // 
-            this.exportAllTableMenuItem.Name = "exportAllTableMenuItem";
-            this.exportAllTableMenuItem.Size = new System.Drawing.Size(141, 22);
-            this.exportAllTableMenuItem.Text = "Export All";
-            this.exportAllTableMenuItem.Click += new System.EventHandler(this.exportAllTableMenuItem_Click);
+            exportAllTableMenuItem.Name = "exportAllTableMenuItem";
+            exportAllTableMenuItem.Size = new Size(141, 22);
+            exportAllTableMenuItem.Text = "Export All";
+            exportAllTableMenuItem.Click += exportAllTableMenuItem_Click;
             // 
             // fieldMenu
             // 
-            this.fieldMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.copyRecordsMenuItem,
-            this.toolStripSeparator4,
-            this.addRecordsMenuItem,
-            this.deleteRecordsMenuItem,
-            this.toolStripSeparator5,
-            this.exportRecordsMenuItem,
-            this.importRecordsMenuItem,
-            this.toolStripSeparator6,
-            this.addendumMenuItem});
-            this.fieldMenu.Name = "contextMenuStrip2";
-            this.fieldMenu.Size = new System.Drawing.Size(164, 154);
+            fieldMenu.Items.AddRange(new ToolStripItem[] { copyRecordsMenuItem, toolStripSeparator4, addRecordsMenuItem, deleteRecordsMenuItem, toolStripSeparator5, exportRecordsMenuItem, importRecordsMenuItem, toolStripSeparator6, addendumMenuItem });
+            fieldMenu.Name = "contextMenuStrip2";
+            fieldMenu.Size = new Size(164, 154);
             // 
             // copyRecordsMenuItem
             // 
-            this.copyRecordsMenuItem.Name = "copyRecordsMenuItem";
-            this.copyRecordsMenuItem.Size = new System.Drawing.Size(163, 22);
-            this.copyRecordsMenuItem.Text = "Copy Record(s)";
-            this.copyRecordsMenuItem.Click += new System.EventHandler(this.copyRecordsMenuItem_Click);
+            copyRecordsMenuItem.Name = "copyRecordsMenuItem";
+            copyRecordsMenuItem.Size = new Size(163, 22);
+            copyRecordsMenuItem.Text = "Copy Record(s)";
+            copyRecordsMenuItem.Click += copyRecordsMenuItem_Click;
             // 
             // toolStripSeparator4
             // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(160, 6);
+            toolStripSeparator4.Name = "toolStripSeparator4";
+            toolStripSeparator4.Size = new Size(160, 6);
             // 
             // addRecordsMenuItem
             // 
-            this.addRecordsMenuItem.Name = "addRecordsMenuItem";
-            this.addRecordsMenuItem.Size = new System.Drawing.Size(163, 22);
-            this.addRecordsMenuItem.Text = "Add Record(s)";
-            this.addRecordsMenuItem.Click += new System.EventHandler(this.addRecordsMenuItem_Click);
+            addRecordsMenuItem.Name = "addRecordsMenuItem";
+            addRecordsMenuItem.Size = new Size(163, 22);
+            addRecordsMenuItem.Text = "Add Record(s)";
+            addRecordsMenuItem.Click += addRecordsMenuItem_Click;
             // 
             // deleteRecordsMenuItem
             // 
-            this.deleteRecordsMenuItem.Name = "deleteRecordsMenuItem";
-            this.deleteRecordsMenuItem.Size = new System.Drawing.Size(163, 22);
-            this.deleteRecordsMenuItem.Text = "Delete Record(s)";
-            this.deleteRecordsMenuItem.Click += new System.EventHandler(this.deleteRecordsMenuItem_Click);
+            deleteRecordsMenuItem.Name = "deleteRecordsMenuItem";
+            deleteRecordsMenuItem.Size = new Size(163, 22);
+            deleteRecordsMenuItem.Text = "Delete Record(s)";
+            deleteRecordsMenuItem.Click += deleteRecordsMenuItem_Click;
             // 
             // toolStripSeparator5
             // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(160, 6);
+            toolStripSeparator5.Name = "toolStripSeparator5";
+            toolStripSeparator5.Size = new Size(160, 6);
             // 
             // exportRecordsMenuItem
             // 
-            this.exportRecordsMenuItem.Name = "exportRecordsMenuItem";
-            this.exportRecordsMenuItem.Size = new System.Drawing.Size(163, 22);
-            this.exportRecordsMenuItem.Text = "Export Record(s)";
-            this.exportRecordsMenuItem.Click += new System.EventHandler(this.exportRecordsMenuItem_Click);
+            exportRecordsMenuItem.Name = "exportRecordsMenuItem";
+            exportRecordsMenuItem.Size = new Size(163, 22);
+            exportRecordsMenuItem.Text = "Export Record(s)";
+            exportRecordsMenuItem.Click += exportRecordsMenuItem_Click;
             // 
             // importRecordsMenuItem
             // 
-            this.importRecordsMenuItem.Name = "importRecordsMenuItem";
-            this.importRecordsMenuItem.Size = new System.Drawing.Size(163, 22);
-            this.importRecordsMenuItem.Text = "Import Record(s)";
-            this.importRecordsMenuItem.Click += new System.EventHandler(this.importRecordsMenuItem_Click);
+            importRecordsMenuItem.Name = "importRecordsMenuItem";
+            importRecordsMenuItem.Size = new Size(163, 22);
+            importRecordsMenuItem.Text = "Import Record(s)";
+            importRecordsMenuItem.Click += importRecordsMenuItem_Click;
             // 
             // toolStripSeparator6
             // 
-            this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(160, 6);
+            toolStripSeparator6.Name = "toolStripSeparator6";
+            toolStripSeparator6.Size = new Size(160, 6);
             // 
             // addendumMenuItem
             // 
-            this.addendumMenuItem.Name = "addendumMenuItem";
-            this.addendumMenuItem.Size = new System.Drawing.Size(163, 22);
-            this.addendumMenuItem.Text = "Addendum";
-            this.addendumMenuItem.Click += new System.EventHandler(this.addendumMenuItem_Click);
+            addendumMenuItem.Name = "addendumMenuItem";
+            addendumMenuItem.Size = new Size(163, 22);
+            addendumMenuItem.Text = "Addendum";
+            addendumMenuItem.Click += addendumMenuItem_Click;
             // 
             // openFileDialog1
             // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            this.openFileDialog1.Title = "Open File";
+            openFileDialog1.FileName = "openFileDialog1";
+            openFileDialog1.Title = "Open File";
             // 
             // TablePropsLabel
             // 
-            this.TablePropsLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.TablePropsLabel.AutoSize = true;
-            this.TablePropsLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.TablePropsLabel.Location = new System.Drawing.Point(6, 13);
-            this.TablePropsLabel.Name = "TablePropsLabel";
-            this.TablePropsLabel.Size = new System.Drawing.Size(87, 13);
-            this.TablePropsLabel.TabIndex = 5;
-            this.TablePropsLabel.Text = "TablePropsLabel";
+            TablePropsLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            TablePropsLabel.AutoSize = true;
+            TablePropsLabel.ForeColor = SystemColors.ControlText;
+            TablePropsLabel.Location = new Point(6, 13);
+            TablePropsLabel.Name = "TablePropsLabel";
+            TablePropsLabel.Size = new Size(87, 13);
+            TablePropsLabel.TabIndex = 5;
+            TablePropsLabel.Text = "TablePropsLabel";
             // 
             // FieldsPropsLabel
             // 
-            this.FieldsPropsLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.FieldsPropsLabel.AutoSize = true;
-            this.FieldsPropsLabel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.FieldsPropsLabel.Location = new System.Drawing.Point(6, 12);
-            this.FieldsPropsLabel.Name = "FieldsPropsLabel";
-            this.FieldsPropsLabel.Size = new System.Drawing.Size(87, 13);
-            this.FieldsPropsLabel.TabIndex = 6;
-            this.FieldsPropsLabel.Text = "FieldsPropsLabel";
+            FieldsPropsLabel.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            FieldsPropsLabel.AutoSize = true;
+            FieldsPropsLabel.ForeColor = SystemColors.ControlText;
+            FieldsPropsLabel.Location = new Point(6, 12);
+            FieldsPropsLabel.Name = "FieldsPropsLabel";
+            FieldsPropsLabel.Size = new Size(87, 13);
+            FieldsPropsLabel.TabIndex = 6;
+            FieldsPropsLabel.Text = "FieldsPropsLabel";
             // 
             // TablePropsgroupBox
             // 
-            this.TablePropsgroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.TablePropsgroupBox.Controls.Add(this.TablePropsLabel);
-            this.TablePropsgroupBox.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.TablePropsgroupBox.Location = new System.Drawing.Point(19, 925);
-            this.TablePropsgroupBox.Name = "TablePropsgroupBox";
-            this.TablePropsgroupBox.Size = new System.Drawing.Size(345, 31);
-            this.TablePropsgroupBox.TabIndex = 7;
-            this.TablePropsgroupBox.TabStop = false;
-            this.TablePropsgroupBox.Text = "Table Properties";
+            TablePropsgroupBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            TablePropsgroupBox.Controls.Add(TablePropsLabel);
+            TablePropsgroupBox.ForeColor = SystemColors.ScrollBar;
+            TablePropsgroupBox.Location = new Point(19, 925);
+            TablePropsgroupBox.Name = "TablePropsgroupBox";
+            TablePropsgroupBox.Size = new Size(345, 31);
+            TablePropsgroupBox.TabIndex = 7;
+            TablePropsgroupBox.TabStop = false;
+            TablePropsgroupBox.Text = "Table Properties";
             // 
             // FieldsPropsgroupBox
             // 
-            this.FieldsPropsgroupBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.FieldsPropsgroupBox.Controls.Add(this.FieldsPropsLabel);
-            this.FieldsPropsgroupBox.ForeColor = System.Drawing.SystemColors.ScrollBar;
-            this.FieldsPropsgroupBox.Location = new System.Drawing.Point(367, 925);
-            this.FieldsPropsgroupBox.Name = "FieldsPropsgroupBox";
-            this.FieldsPropsgroupBox.Size = new System.Drawing.Size(345, 31);
-            this.FieldsPropsgroupBox.TabIndex = 4;
-            this.FieldsPropsgroupBox.TabStop = false;
-            this.FieldsPropsgroupBox.Text = "Field Properties";
+            FieldsPropsgroupBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            FieldsPropsgroupBox.Controls.Add(FieldsPropsLabel);
+            FieldsPropsgroupBox.ForeColor = SystemColors.ScrollBar;
+            FieldsPropsgroupBox.Location = new Point(367, 925);
+            FieldsPropsgroupBox.Name = "FieldsPropsgroupBox";
+            FieldsPropsgroupBox.Size = new Size(345, 31);
+            FieldsPropsgroupBox.TabIndex = 4;
+            FieldsPropsgroupBox.TabStop = false;
+            FieldsPropsgroupBox.Text = "Field Properties";
             // 
             // openFileDialog2
             // 
-            this.openFileDialog2.FileName = "openFileDialog2";
+            openFileDialog2.FileName = "openFileDialog2";
             // 
             // tabConf
             // 
-            this.tabConf.AutoScroll = true;
-            this.tabConf.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.tabConf.Controls.Add(this.groupBox2);
-            this.tabConf.Controls.Add(this.label31);
-            this.tabConf.Controls.Add(this.label32);
-            this.tabConf.Controls.Add(this.label33);
-            this.tabConf.Controls.Add(this.label34);
-            this.tabConf.Controls.Add(this.label35);
-            this.tabConf.Controls.Add(this.label36);
-            this.tabConf.Controls.Add(this.label30);
-            this.tabConf.Controls.Add(this.label29);
-            this.tabConf.Controls.Add(this.label28);
-            this.tabConf.Controls.Add(this.label27);
-            this.tabConf.Controls.Add(this.label26);
-            this.tabConf.Controls.Add(this.label25);
-            this.tabConf.Controls.Add(this.ClearLeagueButton);
-            this.tabConf.Controls.Add(this.RemoveButton);
-            this.tabConf.Controls.Add(this.LeagueTeamsLabel);
-            this.tabConf.Controls.Add(this.AddButton);
-            this.tabConf.Controls.Add(this.label19);
-            this.tabConf.Controls.Add(this.label20);
-            this.tabConf.Controls.Add(this.label21);
-            this.tabConf.Controls.Add(this.label22);
-            this.tabConf.Controls.Add(this.label23);
-            this.tabConf.Controls.Add(this.label24);
-            this.tabConf.Controls.Add(this.label17);
-            this.tabConf.Controls.Add(this.label18);
-            this.tabConf.Controls.Add(this.label15);
-            this.tabConf.Controls.Add(this.label16);
-            this.tabConf.Controls.Add(this.label14);
-            this.tabConf.Controls.Add(this.label13);
-            this.tabConf.Controls.Add(this.numericUpDown7);
-            this.tabConf.Controls.Add(this.numericUpDown8);
-            this.tabConf.Controls.Add(this.numericUpDown9);
-            this.tabConf.Controls.Add(this.numericUpDown10);
-            this.tabConf.Controls.Add(this.numericUpDown11);
-            this.tabConf.Controls.Add(this.numericUpDown12);
-            this.tabConf.Controls.Add(this.numericUpDown6);
-            this.tabConf.Controls.Add(this.numericUpDown5);
-            this.tabConf.Controls.Add(this.numericUpDown4);
-            this.tabConf.Controls.Add(this.numericUpDown3);
-            this.tabConf.Controls.Add(this.numericUpDown2);
-            this.tabConf.Controls.Add(this.numericUpDown1);
-            this.tabConf.Controls.Add(this.button7);
-            this.tabConf.Controls.Add(this.button8);
-            this.tabConf.Controls.Add(this.button9);
-            this.tabConf.Controls.Add(this.button10);
-            this.tabConf.Controls.Add(this.button11);
-            this.tabConf.Controls.Add(this.button12);
-            this.tabConf.Controls.Add(this.button6);
-            this.tabConf.Controls.Add(this.button5);
-            this.tabConf.Controls.Add(this.button4);
-            this.tabConf.Controls.Add(this.button3);
-            this.tabConf.Controls.Add(this.button2);
-            this.tabConf.Controls.Add(this.button1);
-            this.tabConf.Controls.Add(this.label8);
-            this.tabConf.Controls.Add(this.label9);
-            this.tabConf.Controls.Add(this.label10);
-            this.tabConf.Controls.Add(this.label11);
-            this.tabConf.Controls.Add(this.label12);
-            this.tabConf.Controls.Add(this.label7);
-            this.tabConf.Controls.Add(this.label6);
-            this.tabConf.Controls.Add(this.label5);
-            this.tabConf.Controls.Add(this.label4);
-            this.tabConf.Controls.Add(this.label3);
-            this.tabConf.Controls.Add(this.label2);
-            this.tabConf.Controls.Add(this.label1);
-            this.tabConf.Controls.Add(this.AllTeamsListBox);
-            this.tabConf.Controls.Add(this.confName12);
-            this.tabConf.Controls.Add(this.confName11);
-            this.tabConf.Controls.Add(this.confName10);
-            this.tabConf.Controls.Add(this.confName9);
-            this.tabConf.Controls.Add(this.confName8);
-            this.tabConf.Controls.Add(this.confName7);
-            this.tabConf.Controls.Add(this.confName6);
-            this.tabConf.Controls.Add(this.confName5);
-            this.tabConf.Controls.Add(this.confName4);
-            this.tabConf.Controls.Add(this.confName3);
-            this.tabConf.Controls.Add(this.confName2);
-            this.tabConf.Controls.Add(this.confName1);
-            this.tabConf.Controls.Add(this.labelTeamSelection);
-            this.tabConf.Controls.Add(this.DeselectButton);
-            this.tabConf.Controls.Add(this.SaveButton);
-            this.tabConf.Controls.Add(this.conf12);
-            this.tabConf.Controls.Add(this.conf11);
-            this.tabConf.Controls.Add(this.conf10);
-            this.tabConf.Controls.Add(this.conf9);
-            this.tabConf.Controls.Add(this.conf8);
-            this.tabConf.Controls.Add(this.conf7);
-            this.tabConf.Controls.Add(this.conf6);
-            this.tabConf.Controls.Add(this.conf5);
-            this.tabConf.Controls.Add(this.conf4);
-            this.tabConf.Controls.Add(this.conf3);
-            this.tabConf.Controls.Add(this.conf2);
-            this.tabConf.Controls.Add(this.conf1);
-            this.tabConf.Controls.Add(this.panel1);
-            this.tabConf.Location = new System.Drawing.Point(4, 24);
-            this.tabConf.Name = "tabConf";
-            this.tabConf.Padding = new System.Windows.Forms.Padding(3);
-            this.tabConf.Size = new System.Drawing.Size(1158, 1022);
-            this.tabConf.TabIndex = 9;
-            this.tabConf.Text = "Conferences";
-            this.tabConf.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseDown_Click);
+            tabConf.AutoScroll = true;
+            tabConf.BackColor = SystemColors.ScrollBar;
+            tabConf.Controls.Add(groupBox2);
+            tabConf.Controls.Add(label31);
+            tabConf.Controls.Add(label32);
+            tabConf.Controls.Add(label33);
+            tabConf.Controls.Add(label34);
+            tabConf.Controls.Add(label35);
+            tabConf.Controls.Add(label36);
+            tabConf.Controls.Add(label30);
+            tabConf.Controls.Add(label29);
+            tabConf.Controls.Add(label28);
+            tabConf.Controls.Add(label27);
+            tabConf.Controls.Add(label26);
+            tabConf.Controls.Add(label25);
+            tabConf.Controls.Add(ClearLeagueButton);
+            tabConf.Controls.Add(RemoveButton);
+            tabConf.Controls.Add(LeagueTeamsLabel);
+            tabConf.Controls.Add(AddButton);
+            tabConf.Controls.Add(label19);
+            tabConf.Controls.Add(label20);
+            tabConf.Controls.Add(label21);
+            tabConf.Controls.Add(label22);
+            tabConf.Controls.Add(label23);
+            tabConf.Controls.Add(label24);
+            tabConf.Controls.Add(label17);
+            tabConf.Controls.Add(label18);
+            tabConf.Controls.Add(label15);
+            tabConf.Controls.Add(label16);
+            tabConf.Controls.Add(label14);
+            tabConf.Controls.Add(label13);
+            tabConf.Controls.Add(numericUpDown7);
+            tabConf.Controls.Add(numericUpDown8);
+            tabConf.Controls.Add(numericUpDown9);
+            tabConf.Controls.Add(numericUpDown10);
+            tabConf.Controls.Add(numericUpDown11);
+            tabConf.Controls.Add(numericUpDown12);
+            tabConf.Controls.Add(numericUpDown6);
+            tabConf.Controls.Add(numericUpDown5);
+            tabConf.Controls.Add(numericUpDown4);
+            tabConf.Controls.Add(numericUpDown3);
+            tabConf.Controls.Add(numericUpDown2);
+            tabConf.Controls.Add(numericUpDown1);
+            tabConf.Controls.Add(button7);
+            tabConf.Controls.Add(button8);
+            tabConf.Controls.Add(button9);
+            tabConf.Controls.Add(button10);
+            tabConf.Controls.Add(button11);
+            tabConf.Controls.Add(button12);
+            tabConf.Controls.Add(button6);
+            tabConf.Controls.Add(button5);
+            tabConf.Controls.Add(button4);
+            tabConf.Controls.Add(button3);
+            tabConf.Controls.Add(button2);
+            tabConf.Controls.Add(button1);
+            tabConf.Controls.Add(label8);
+            tabConf.Controls.Add(label9);
+            tabConf.Controls.Add(label10);
+            tabConf.Controls.Add(label11);
+            tabConf.Controls.Add(label12);
+            tabConf.Controls.Add(label7);
+            tabConf.Controls.Add(label6);
+            tabConf.Controls.Add(label5);
+            tabConf.Controls.Add(label4);
+            tabConf.Controls.Add(label3);
+            tabConf.Controls.Add(label2);
+            tabConf.Controls.Add(label1);
+            tabConf.Controls.Add(AllTeamsListBox);
+            tabConf.Controls.Add(confName12);
+            tabConf.Controls.Add(confName11);
+            tabConf.Controls.Add(confName10);
+            tabConf.Controls.Add(confName9);
+            tabConf.Controls.Add(confName8);
+            tabConf.Controls.Add(confName7);
+            tabConf.Controls.Add(confName6);
+            tabConf.Controls.Add(confName5);
+            tabConf.Controls.Add(confName4);
+            tabConf.Controls.Add(confName3);
+            tabConf.Controls.Add(confName2);
+            tabConf.Controls.Add(confName1);
+            tabConf.Controls.Add(labelTeamSelection);
+            tabConf.Controls.Add(DeselectButton);
+            tabConf.Controls.Add(SaveButton);
+            tabConf.Controls.Add(conf12);
+            tabConf.Controls.Add(conf11);
+            tabConf.Controls.Add(conf10);
+            tabConf.Controls.Add(conf9);
+            tabConf.Controls.Add(conf8);
+            tabConf.Controls.Add(conf7);
+            tabConf.Controls.Add(conf6);
+            tabConf.Controls.Add(conf5);
+            tabConf.Controls.Add(conf4);
+            tabConf.Controls.Add(conf3);
+            tabConf.Controls.Add(conf2);
+            tabConf.Controls.Add(conf1);
+            tabConf.Controls.Add(panel1);
+            tabConf.Location = new Point(4, 24);
+            tabConf.Name = "tabConf";
+            tabConf.Padding = new Padding(3);
+            tabConf.Size = new Size(1158, 1022);
+            tabConf.TabIndex = 9;
+            tabConf.Text = "Conferences";
+            tabConf.MouseDown += MouseDown_Click;
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.radio136);
-            this.groupBox2.Controls.Add(this.radio120);
-            this.groupBox2.Location = new System.Drawing.Point(642, 839);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(180, 51);
-            this.groupBox2.TabIndex = 111;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "League Team Count";
+            groupBox2.Controls.Add(radio136);
+            groupBox2.Controls.Add(radio120);
+            groupBox2.Location = new Point(642, 839);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(180, 51);
+            groupBox2.TabIndex = 111;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "League Team Count";
             // 
             // radio136
             // 
-            this.radio136.AutoSize = true;
-            this.radio136.Location = new System.Drawing.Point(91, 20);
-            this.radio136.Name = "radio136";
-            this.radio136.Size = new System.Drawing.Size(78, 17);
-            this.radio136.TabIndex = 2;
-            this.radio136.Text = "136 Teams";
-            this.radio136.UseVisualStyleBackColor = true;
+            radio136.AutoSize = true;
+            radio136.Location = new Point(91, 20);
+            radio136.Name = "radio136";
+            radio136.Size = new Size(78, 17);
+            radio136.TabIndex = 2;
+            radio136.Text = "136 Teams";
+            radio136.UseVisualStyleBackColor = true;
             // 
             // radio120
             // 
-            this.radio120.AutoSize = true;
-            this.radio120.Checked = true;
-            this.radio120.Location = new System.Drawing.Point(7, 20);
-            this.radio120.Name = "radio120";
-            this.radio120.Size = new System.Drawing.Size(78, 17);
-            this.radio120.TabIndex = 0;
-            this.radio120.TabStop = true;
-            this.radio120.Text = "120 Teams";
-            this.radio120.UseVisualStyleBackColor = true;
+            radio120.AutoSize = true;
+            radio120.Checked = true;
+            radio120.Location = new Point(7, 20);
+            radio120.Name = "radio120";
+            radio120.Size = new Size(78, 17);
+            radio120.TabIndex = 0;
+            radio120.TabStop = true;
+            radio120.Text = "120 Teams";
+            radio120.UseVisualStyleBackColor = true;
             // 
             // label31
             // 
-            this.label31.AutoSize = true;
-            this.label31.BackColor = System.Drawing.Color.LightCoral;
-            this.label31.Location = new System.Drawing.Point(21, 432);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(104, 13);
-            this.label31.TabIndex = 108;
-            this.label31.Text = "Count: XX  Valid: No";
+            label31.AutoSize = true;
+            label31.BackColor = Color.LightCoral;
+            label31.Location = new Point(21, 432);
+            label31.Name = "label31";
+            label31.Size = new Size(104, 13);
+            label31.TabIndex = 108;
+            label31.Text = "Count: XX  Valid: No";
             // 
             // label32
             // 
-            this.label32.AutoSize = true;
-            this.label32.BackColor = System.Drawing.Color.LightCoral;
-            this.label32.Location = new System.Drawing.Point(177, 432);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(104, 13);
-            this.label32.TabIndex = 107;
-            this.label32.Text = "Count: XX  Valid: No";
+            label32.AutoSize = true;
+            label32.BackColor = Color.LightCoral;
+            label32.Location = new Point(177, 432);
+            label32.Name = "label32";
+            label32.Size = new Size(104, 13);
+            label32.TabIndex = 107;
+            label32.Text = "Count: XX  Valid: No";
             // 
             // label33
             // 
-            this.label33.AutoSize = true;
-            this.label33.BackColor = System.Drawing.Color.LightCoral;
-            this.label33.Location = new System.Drawing.Point(331, 432);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(104, 13);
-            this.label33.TabIndex = 106;
-            this.label33.Text = "Count: XX  Valid: No";
+            label33.AutoSize = true;
+            label33.BackColor = Color.LightCoral;
+            label33.Location = new Point(331, 432);
+            label33.Name = "label33";
+            label33.Size = new Size(104, 13);
+            label33.TabIndex = 106;
+            label33.Text = "Count: XX  Valid: No";
             // 
             // label34
             // 
-            this.label34.AutoSize = true;
-            this.label34.BackColor = System.Drawing.Color.LightCoral;
-            this.label34.Location = new System.Drawing.Point(487, 432);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(104, 13);
-            this.label34.TabIndex = 105;
-            this.label34.Text = "Count: XX  Valid: No";
+            label34.AutoSize = true;
+            label34.BackColor = Color.LightCoral;
+            label34.Location = new Point(487, 432);
+            label34.Name = "label34";
+            label34.Size = new Size(104, 13);
+            label34.TabIndex = 105;
+            label34.Text = "Count: XX  Valid: No";
             // 
             // label35
             // 
-            this.label35.AutoSize = true;
-            this.label35.BackColor = System.Drawing.Color.LightCoral;
-            this.label35.Location = new System.Drawing.Point(645, 432);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(104, 13);
-            this.label35.TabIndex = 104;
-            this.label35.Text = "Count: XX  Valid: No";
+            label35.AutoSize = true;
+            label35.BackColor = Color.LightCoral;
+            label35.Location = new Point(645, 432);
+            label35.Name = "label35";
+            label35.Size = new Size(104, 13);
+            label35.TabIndex = 104;
+            label35.Text = "Count: XX  Valid: No";
             // 
             // label36
             // 
-            this.label36.AutoSize = true;
-            this.label36.BackColor = System.Drawing.Color.LightCoral;
-            this.label36.Location = new System.Drawing.Point(801, 432);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(104, 13);
-            this.label36.TabIndex = 103;
-            this.label36.Text = "Count: XX  Valid: No";
+            label36.AutoSize = true;
+            label36.BackColor = Color.LightCoral;
+            label36.Location = new Point(801, 432);
+            label36.Name = "label36";
+            label36.Size = new Size(104, 13);
+            label36.TabIndex = 103;
+            label36.Text = "Count: XX  Valid: No";
             // 
             // label30
             // 
-            this.label30.AutoSize = true;
-            this.label30.BackColor = System.Drawing.Color.LightCoral;
-            this.label30.Location = new System.Drawing.Point(802, 33);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(104, 13);
-            this.label30.TabIndex = 102;
-            this.label30.Text = "Count: XX  Valid: No";
+            label30.AutoSize = true;
+            label30.BackColor = Color.LightCoral;
+            label30.Location = new Point(802, 33);
+            label30.Name = "label30";
+            label30.Size = new Size(104, 13);
+            label30.TabIndex = 102;
+            label30.Text = "Count: XX  Valid: No";
             // 
             // label29
             // 
-            this.label29.AutoSize = true;
-            this.label29.BackColor = System.Drawing.Color.LightCoral;
-            this.label29.Location = new System.Drawing.Point(646, 33);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(104, 13);
-            this.label29.TabIndex = 101;
-            this.label29.Text = "Count: XX  Valid: No";
+            label29.AutoSize = true;
+            label29.BackColor = Color.LightCoral;
+            label29.Location = new Point(646, 33);
+            label29.Name = "label29";
+            label29.Size = new Size(104, 13);
+            label29.TabIndex = 101;
+            label29.Text = "Count: XX  Valid: No";
             // 
             // label28
             // 
-            this.label28.AutoSize = true;
-            this.label28.BackColor = System.Drawing.Color.LightCoral;
-            this.label28.Location = new System.Drawing.Point(488, 33);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(104, 13);
-            this.label28.TabIndex = 100;
-            this.label28.Text = "Count: XX  Valid: No";
+            label28.AutoSize = true;
+            label28.BackColor = Color.LightCoral;
+            label28.Location = new Point(488, 33);
+            label28.Name = "label28";
+            label28.Size = new Size(104, 13);
+            label28.TabIndex = 100;
+            label28.Text = "Count: XX  Valid: No";
             // 
             // label27
             // 
-            this.label27.AutoSize = true;
-            this.label27.BackColor = System.Drawing.Color.LightCoral;
-            this.label27.Location = new System.Drawing.Point(332, 33);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(104, 13);
-            this.label27.TabIndex = 99;
-            this.label27.Text = "Count: XX  Valid: No";
+            label27.AutoSize = true;
+            label27.BackColor = Color.LightCoral;
+            label27.Location = new Point(332, 33);
+            label27.Name = "label27";
+            label27.Size = new Size(104, 13);
+            label27.TabIndex = 99;
+            label27.Text = "Count: XX  Valid: No";
             // 
             // label26
             // 
-            this.label26.AutoSize = true;
-            this.label26.BackColor = System.Drawing.Color.LightCoral;
-            this.label26.Location = new System.Drawing.Point(176, 33);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(104, 13);
-            this.label26.TabIndex = 98;
-            this.label26.Text = "Count: XX  Valid: No";
+            label26.AutoSize = true;
+            label26.BackColor = Color.LightCoral;
+            label26.Location = new Point(176, 33);
+            label26.Name = "label26";
+            label26.Size = new Size(104, 13);
+            label26.TabIndex = 98;
+            label26.Text = "Count: XX  Valid: No";
             // 
             // label25
             // 
-            this.label25.AutoSize = true;
-            this.label25.BackColor = System.Drawing.Color.LightCoral;
-            this.label25.Location = new System.Drawing.Point(19, 33);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(104, 13);
-            this.label25.TabIndex = 97;
-            this.label25.Text = "Count: XX  Valid: No";
+            label25.AutoSize = true;
+            label25.BackColor = Color.LightCoral;
+            label25.Location = new Point(19, 33);
+            label25.Name = "label25";
+            label25.Size = new Size(104, 13);
+            label25.TabIndex = 97;
+            label25.Text = "Count: XX  Valid: No";
             // 
             // ClearLeagueButton
             // 
-            this.ClearLeagueButton.BackColor = System.Drawing.Color.SlateBlue;
-            this.ClearLeagueButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ClearLeagueButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.ClearLeagueButton.Location = new System.Drawing.Point(975, 3);
-            this.ClearLeagueButton.Name = "ClearLeagueButton";
-            this.ClearLeagueButton.Size = new System.Drawing.Size(161, 25);
-            this.ClearLeagueButton.TabIndex = 96;
-            this.ClearLeagueButton.Text = "CLEAR LEAGUE";
-            this.ClearLeagueButton.UseVisualStyleBackColor = false;
-            this.ClearLeagueButton.Click += new System.EventHandler(this.ClearLeagueButton_Click);
+            ClearLeagueButton.BackColor = Color.SlateBlue;
+            ClearLeagueButton.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            ClearLeagueButton.ForeColor = SystemColors.Control;
+            ClearLeagueButton.Location = new Point(975, 3);
+            ClearLeagueButton.Name = "ClearLeagueButton";
+            ClearLeagueButton.Size = new Size(161, 25);
+            ClearLeagueButton.TabIndex = 96;
+            ClearLeagueButton.Text = "CLEAR LEAGUE";
+            ClearLeagueButton.UseVisualStyleBackColor = false;
+            ClearLeagueButton.Click += ClearLeagueButton_Click;
             // 
             // RemoveButton
             // 
-            this.RemoveButton.BackColor = System.Drawing.Color.SlateBlue;
-            this.RemoveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RemoveButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.RemoveButton.Location = new System.Drawing.Point(975, 720);
-            this.RemoveButton.Name = "RemoveButton";
-            this.RemoveButton.Size = new System.Drawing.Size(161, 37);
-            this.RemoveButton.TabIndex = 95;
-            this.RemoveButton.Text = "REMOVE TEAM";
-            this.RemoveButton.UseVisualStyleBackColor = false;
-            this.RemoveButton.Click += new System.EventHandler(this.RemoveButton_Click);
+            RemoveButton.BackColor = Color.SlateBlue;
+            RemoveButton.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            RemoveButton.ForeColor = SystemColors.Control;
+            RemoveButton.Location = new Point(975, 720);
+            RemoveButton.Name = "RemoveButton";
+            RemoveButton.Size = new Size(161, 37);
+            RemoveButton.TabIndex = 95;
+            RemoveButton.Text = "REMOVE TEAM";
+            RemoveButton.UseVisualStyleBackColor = false;
+            RemoveButton.Click += RemoveButton_Click;
             // 
             // LeagueTeamsLabel
             // 
-            this.LeagueTeamsLabel.AutoSize = true;
-            this.LeagueTeamsLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LeagueTeamsLabel.Location = new System.Drawing.Point(6, 3);
-            this.LeagueTeamsLabel.Name = "LeagueTeamsLabel";
-            this.LeagueTeamsLabel.Size = new System.Drawing.Size(118, 18);
-            this.LeagueTeamsLabel.TabIndex = 94;
-            this.LeagueTeamsLabel.Text = "League Teams";
+            LeagueTeamsLabel.AutoSize = true;
+            LeagueTeamsLabel.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            LeagueTeamsLabel.Location = new Point(6, 3);
+            LeagueTeamsLabel.Name = "LeagueTeamsLabel";
+            LeagueTeamsLabel.Size = new Size(118, 18);
+            LeagueTeamsLabel.TabIndex = 94;
+            LeagueTeamsLabel.Text = "League Teams";
             // 
             // AddButton
             // 
-            this.AddButton.BackColor = System.Drawing.Color.RoyalBlue;
-            this.AddButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AddButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.AddButton.Location = new System.Drawing.Point(975, 677);
-            this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(161, 37);
-            this.AddButton.TabIndex = 93;
-            this.AddButton.Text = "ADD TEAM";
-            this.AddButton.UseVisualStyleBackColor = false;
-            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
+            AddButton.BackColor = Color.RoyalBlue;
+            AddButton.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            AddButton.ForeColor = SystemColors.Control;
+            AddButton.Location = new Point(975, 677);
+            AddButton.Name = "AddButton";
+            AddButton.Size = new Size(161, 37);
+            AddButton.TabIndex = 93;
+            AddButton.Text = "ADD TEAM";
+            AddButton.UseVisualStyleBackColor = false;
+            AddButton.Click += AddButton_Click;
             // 
             // label19
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(859, 797);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(48, 13);
-            this.label19.TabIndex = 92;
-            this.label19.Text = "Prestige:";
+            label19.AutoSize = true;
+            label19.Location = new Point(859, 797);
+            label19.Name = "label19";
+            label19.Size = new Size(48, 13);
+            label19.TabIndex = 92;
+            label19.Text = "Prestige:";
             // 
             // label20
             // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(701, 797);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(48, 13);
-            this.label20.TabIndex = 91;
-            this.label20.Text = "Prestige:";
+            label20.AutoSize = true;
+            label20.Location = new Point(701, 797);
+            label20.Name = "label20";
+            label20.Size = new Size(48, 13);
+            label20.TabIndex = 91;
+            label20.Text = "Prestige:";
             // 
             // label21
             // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(543, 797);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(48, 13);
-            this.label21.TabIndex = 90;
-            this.label21.Text = "Prestige:";
+            label21.AutoSize = true;
+            label21.Location = new Point(543, 797);
+            label21.Name = "label21";
+            label21.Size = new Size(48, 13);
+            label21.TabIndex = 90;
+            label21.Text = "Prestige:";
             // 
             // label22
             // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(387, 797);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(48, 13);
-            this.label22.TabIndex = 89;
-            this.label22.Text = "Prestige:";
+            label22.AutoSize = true;
+            label22.Location = new Point(387, 797);
+            label22.Name = "label22";
+            label22.Size = new Size(48, 13);
+            label22.TabIndex = 89;
+            label22.Text = "Prestige:";
             // 
             // label23
             // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(233, 797);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(48, 13);
-            this.label23.TabIndex = 88;
-            this.label23.Text = "Prestige:";
+            label23.AutoSize = true;
+            label23.Location = new Point(233, 797);
+            label23.Name = "label23";
+            label23.Size = new Size(48, 13);
+            label23.TabIndex = 88;
+            label23.Text = "Prestige:";
             // 
             // label24
             // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(77, 797);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(48, 13);
-            this.label24.TabIndex = 87;
-            this.label24.Text = "Prestige:";
+            label24.AutoSize = true;
+            label24.Location = new Point(77, 797);
+            label24.Name = "label24";
+            label24.Size = new Size(48, 13);
+            label24.TabIndex = 87;
+            label24.Text = "Prestige:";
             // 
             // label17
             // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(861, 398);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(48, 13);
-            this.label17.TabIndex = 86;
-            this.label17.Text = "Prestige:";
+            label17.AutoSize = true;
+            label17.Location = new Point(861, 398);
+            label17.Name = "label17";
+            label17.Size = new Size(48, 13);
+            label17.TabIndex = 86;
+            label17.Text = "Prestige:";
             // 
             // label18
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(703, 398);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(48, 13);
-            this.label18.TabIndex = 85;
-            this.label18.Text = "Prestige:";
+            label18.AutoSize = true;
+            label18.Location = new Point(703, 398);
+            label18.Name = "label18";
+            label18.Size = new Size(48, 13);
+            label18.TabIndex = 85;
+            label18.Text = "Prestige:";
             // 
             // label15
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(545, 398);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(48, 13);
-            this.label15.TabIndex = 84;
-            this.label15.Text = "Prestige:";
+            label15.AutoSize = true;
+            label15.Location = new Point(545, 398);
+            label15.Name = "label15";
+            label15.Size = new Size(48, 13);
+            label15.TabIndex = 84;
+            label15.Text = "Prestige:";
             // 
             // label16
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(389, 398);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(48, 13);
-            this.label16.TabIndex = 83;
-            this.label16.Text = "Prestige:";
+            label16.AutoSize = true;
+            label16.Location = new Point(389, 398);
+            label16.Name = "label16";
+            label16.Size = new Size(48, 13);
+            label16.TabIndex = 83;
+            label16.Text = "Prestige:";
             // 
             // label14
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(235, 398);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(48, 13);
-            this.label14.TabIndex = 82;
-            this.label14.Text = "Prestige:";
+            label14.AutoSize = true;
+            label14.Location = new Point(235, 398);
+            label14.Name = "label14";
+            label14.Size = new Size(48, 13);
+            label14.TabIndex = 82;
+            label14.Text = "Prestige:";
             // 
             // label13
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(79, 398);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(48, 13);
-            this.label13.TabIndex = 81;
-            this.label13.Text = "Prestige:";
+            label13.AutoSize = true;
+            label13.Location = new Point(79, 398);
+            label13.Name = "label13";
+            label13.Size = new Size(48, 13);
+            label13.TabIndex = 81;
+            label13.Text = "Prestige:";
             // 
             // numericUpDown7
             // 
-            this.numericUpDown7.Location = new System.Drawing.Point(126, 794);
-            this.numericUpDown7.Maximum = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
-            this.numericUpDown7.Name = "numericUpDown7";
-            this.numericUpDown7.Size = new System.Drawing.Size(41, 20);
-            this.numericUpDown7.TabIndex = 80;
+            numericUpDown7.Location = new Point(126, 794);
+            numericUpDown7.Maximum = new decimal(new int[] { 3, 0, 0, 0 });
+            numericUpDown7.Name = "numericUpDown7";
+            numericUpDown7.Size = new Size(41, 20);
+            numericUpDown7.TabIndex = 80;
             // 
             // numericUpDown8
             // 
-            this.numericUpDown8.Location = new System.Drawing.Point(281, 794);
-            this.numericUpDown8.Maximum = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
-            this.numericUpDown8.Name = "numericUpDown8";
-            this.numericUpDown8.Size = new System.Drawing.Size(41, 20);
-            this.numericUpDown8.TabIndex = 79;
+            numericUpDown8.Location = new Point(281, 794);
+            numericUpDown8.Maximum = new decimal(new int[] { 3, 0, 0, 0 });
+            numericUpDown8.Name = "numericUpDown8";
+            numericUpDown8.Size = new Size(41, 20);
+            numericUpDown8.TabIndex = 79;
             // 
             // numericUpDown9
             // 
-            this.numericUpDown9.Location = new System.Drawing.Point(438, 794);
-            this.numericUpDown9.Maximum = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
-            this.numericUpDown9.Name = "numericUpDown9";
-            this.numericUpDown9.Size = new System.Drawing.Size(41, 20);
-            this.numericUpDown9.TabIndex = 78;
+            numericUpDown9.Location = new Point(438, 794);
+            numericUpDown9.Maximum = new decimal(new int[] { 3, 0, 0, 0 });
+            numericUpDown9.Name = "numericUpDown9";
+            numericUpDown9.Size = new Size(41, 20);
+            numericUpDown9.TabIndex = 78;
             // 
             // numericUpDown10
             // 
-            this.numericUpDown10.Location = new System.Drawing.Point(592, 794);
-            this.numericUpDown10.Maximum = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
-            this.numericUpDown10.Name = "numericUpDown10";
-            this.numericUpDown10.Size = new System.Drawing.Size(41, 20);
-            this.numericUpDown10.TabIndex = 77;
+            numericUpDown10.Location = new Point(592, 794);
+            numericUpDown10.Maximum = new decimal(new int[] { 3, 0, 0, 0 });
+            numericUpDown10.Name = "numericUpDown10";
+            numericUpDown10.Size = new Size(41, 20);
+            numericUpDown10.TabIndex = 77;
             // 
             // numericUpDown11
             // 
-            this.numericUpDown11.Location = new System.Drawing.Point(748, 794);
-            this.numericUpDown11.Maximum = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
-            this.numericUpDown11.Name = "numericUpDown11";
-            this.numericUpDown11.Size = new System.Drawing.Size(41, 20);
-            this.numericUpDown11.TabIndex = 76;
+            numericUpDown11.Location = new Point(748, 794);
+            numericUpDown11.Maximum = new decimal(new int[] { 3, 0, 0, 0 });
+            numericUpDown11.Name = "numericUpDown11";
+            numericUpDown11.Size = new Size(41, 20);
+            numericUpDown11.TabIndex = 76;
             // 
             // numericUpDown12
             // 
-            this.numericUpDown12.Location = new System.Drawing.Point(907, 794);
-            this.numericUpDown12.Maximum = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
-            this.numericUpDown12.Name = "numericUpDown12";
-            this.numericUpDown12.Size = new System.Drawing.Size(41, 20);
-            this.numericUpDown12.TabIndex = 75;
+            numericUpDown12.Location = new Point(907, 794);
+            numericUpDown12.Maximum = new decimal(new int[] { 3, 0, 0, 0 });
+            numericUpDown12.Name = "numericUpDown12";
+            numericUpDown12.Size = new Size(41, 20);
+            numericUpDown12.TabIndex = 75;
             // 
             // numericUpDown6
             // 
-            this.numericUpDown6.Location = new System.Drawing.Point(911, 395);
-            this.numericUpDown6.Maximum = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
-            this.numericUpDown6.Name = "numericUpDown6";
-            this.numericUpDown6.Size = new System.Drawing.Size(41, 20);
-            this.numericUpDown6.TabIndex = 74;
+            numericUpDown6.Location = new Point(911, 395);
+            numericUpDown6.Maximum = new decimal(new int[] { 3, 0, 0, 0 });
+            numericUpDown6.Name = "numericUpDown6";
+            numericUpDown6.Size = new Size(41, 20);
+            numericUpDown6.TabIndex = 74;
             // 
             // numericUpDown5
             // 
-            this.numericUpDown5.Location = new System.Drawing.Point(752, 395);
-            this.numericUpDown5.Maximum = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
-            this.numericUpDown5.Name = "numericUpDown5";
-            this.numericUpDown5.Size = new System.Drawing.Size(41, 20);
-            this.numericUpDown5.TabIndex = 73;
+            numericUpDown5.Location = new Point(752, 395);
+            numericUpDown5.Maximum = new decimal(new int[] { 3, 0, 0, 0 });
+            numericUpDown5.Name = "numericUpDown5";
+            numericUpDown5.Size = new Size(41, 20);
+            numericUpDown5.TabIndex = 73;
             // 
             // numericUpDown4
             // 
-            this.numericUpDown4.Location = new System.Drawing.Point(596, 395);
-            this.numericUpDown4.Maximum = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(41, 20);
-            this.numericUpDown4.TabIndex = 72;
+            numericUpDown4.Location = new Point(596, 395);
+            numericUpDown4.Maximum = new decimal(new int[] { 3, 0, 0, 0 });
+            numericUpDown4.Name = "numericUpDown4";
+            numericUpDown4.Size = new Size(41, 20);
+            numericUpDown4.TabIndex = 72;
             // 
             // numericUpDown3
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(440, 395);
-            this.numericUpDown3.Maximum = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(41, 20);
-            this.numericUpDown3.TabIndex = 71;
+            numericUpDown3.Location = new Point(440, 395);
+            numericUpDown3.Maximum = new decimal(new int[] { 3, 0, 0, 0 });
+            numericUpDown3.Name = "numericUpDown3";
+            numericUpDown3.Size = new Size(41, 20);
+            numericUpDown3.TabIndex = 71;
             // 
             // numericUpDown2
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(285, 395);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(41, 20);
-            this.numericUpDown2.TabIndex = 70;
+            numericUpDown2.Location = new Point(285, 395);
+            numericUpDown2.Maximum = new decimal(new int[] { 3, 0, 0, 0 });
+            numericUpDown2.Name = "numericUpDown2";
+            numericUpDown2.Size = new Size(41, 20);
+            numericUpDown2.TabIndex = 70;
             // 
             // numericUpDown1
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(128, 395);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(41, 20);
-            this.numericUpDown1.TabIndex = 69;
+            numericUpDown1.Location = new Point(128, 395);
+            numericUpDown1.Maximum = new decimal(new int[] { 3, 0, 0, 0 });
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new Size(41, 20);
+            numericUpDown1.TabIndex = 69;
             // 
             // button7
             // 
-            this.button7.BackColor = System.Drawing.Color.LightBlue;
-            this.button7.Location = new System.Drawing.Point(124, 457);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(43, 23);
-            this.button7.TabIndex = 68;
-            this.button7.Text = "FBS";
-            this.button7.UseVisualStyleBackColor = false;
-            this.button7.Click += new System.EventHandler(this.LeagueChange_Click);
+            button7.BackColor = Color.LightBlue;
+            button7.Location = new Point(124, 457);
+            button7.Name = "button7";
+            button7.Size = new Size(43, 23);
+            button7.TabIndex = 68;
+            button7.Text = "FBS";
+            button7.UseVisualStyleBackColor = false;
+            button7.Click += LeagueChange_Click;
             // 
             // button8
             // 
-            this.button8.BackColor = System.Drawing.Color.LightBlue;
-            this.button8.Location = new System.Drawing.Point(281, 457);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(43, 23);
-            this.button8.TabIndex = 67;
-            this.button8.Text = "FBS";
-            this.button8.UseVisualStyleBackColor = false;
-            this.button8.Click += new System.EventHandler(this.LeagueChange_Click);
+            button8.BackColor = Color.LightBlue;
+            button8.Location = new Point(281, 457);
+            button8.Name = "button8";
+            button8.Size = new Size(43, 23);
+            button8.TabIndex = 67;
+            button8.Text = "FBS";
+            button8.UseVisualStyleBackColor = false;
+            button8.Click += LeagueChange_Click;
             // 
             // button9
             // 
-            this.button9.BackColor = System.Drawing.Color.LightBlue;
-            this.button9.Location = new System.Drawing.Point(436, 457);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(43, 23);
-            this.button9.TabIndex = 66;
-            this.button9.Text = "FBS";
-            this.button9.UseVisualStyleBackColor = false;
-            this.button9.Click += new System.EventHandler(this.LeagueChange_Click);
+            button9.BackColor = Color.LightBlue;
+            button9.Location = new Point(436, 457);
+            button9.Name = "button9";
+            button9.Size = new Size(43, 23);
+            button9.TabIndex = 66;
+            button9.Text = "FBS";
+            button9.UseVisualStyleBackColor = false;
+            button9.Click += LeagueChange_Click;
             // 
             // button10
             // 
-            this.button10.BackColor = System.Drawing.Color.LightBlue;
-            this.button10.Location = new System.Drawing.Point(592, 457);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(43, 23);
-            this.button10.TabIndex = 65;
-            this.button10.Text = "FBS";
-            this.button10.UseVisualStyleBackColor = false;
-            this.button10.Click += new System.EventHandler(this.LeagueChange_Click);
+            button10.BackColor = Color.LightBlue;
+            button10.Location = new Point(592, 457);
+            button10.Name = "button10";
+            button10.Size = new Size(43, 23);
+            button10.TabIndex = 65;
+            button10.Text = "FBS";
+            button10.UseVisualStyleBackColor = false;
+            button10.Click += LeagueChange_Click;
             // 
             // button11
             // 
-            this.button11.BackColor = System.Drawing.Color.LightBlue;
-            this.button11.Location = new System.Drawing.Point(749, 457);
-            this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(43, 23);
-            this.button11.TabIndex = 64;
-            this.button11.Text = "FBS";
-            this.button11.UseVisualStyleBackColor = false;
-            this.button11.Click += new System.EventHandler(this.LeagueChange_Click);
+            button11.BackColor = Color.LightBlue;
+            button11.Location = new Point(749, 457);
+            button11.Name = "button11";
+            button11.Size = new Size(43, 23);
+            button11.TabIndex = 64;
+            button11.Text = "FBS";
+            button11.UseVisualStyleBackColor = false;
+            button11.Click += LeagueChange_Click;
             // 
             // button12
             // 
-            this.button12.BackColor = System.Drawing.Color.LightBlue;
-            this.button12.Location = new System.Drawing.Point(904, 457);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(43, 23);
-            this.button12.TabIndex = 63;
-            this.button12.Text = "FBS";
-            this.button12.UseVisualStyleBackColor = false;
-            this.button12.Click += new System.EventHandler(this.LeagueChange_Click);
+            button12.BackColor = Color.LightBlue;
+            button12.Location = new Point(904, 457);
+            button12.Name = "button12";
+            button12.Size = new Size(43, 23);
+            button12.TabIndex = 63;
+            button12.Text = "FBS";
+            button12.UseVisualStyleBackColor = false;
+            button12.Click += LeagueChange_Click;
             // 
             // button6
             // 
-            this.button6.BackColor = System.Drawing.Color.LightBlue;
-            this.button6.Location = new System.Drawing.Point(905, 59);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(43, 23);
-            this.button6.TabIndex = 62;
-            this.button6.Text = "FBS";
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.LeagueChange_Click);
+            button6.BackColor = Color.LightBlue;
+            button6.Location = new Point(905, 59);
+            button6.Name = "button6";
+            button6.Size = new Size(43, 23);
+            button6.TabIndex = 62;
+            button6.Text = "FBS";
+            button6.UseVisualStyleBackColor = false;
+            button6.Click += LeagueChange_Click;
             // 
             // button5
             // 
-            this.button5.BackColor = System.Drawing.Color.LightBlue;
-            this.button5.Location = new System.Drawing.Point(749, 59);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(43, 23);
-            this.button5.TabIndex = 61;
-            this.button5.Text = "FBS";
-            this.button5.UseVisualStyleBackColor = false;
-            this.button5.Click += new System.EventHandler(this.LeagueChange_Click);
+            button5.BackColor = Color.LightBlue;
+            button5.Location = new Point(749, 59);
+            button5.Name = "button5";
+            button5.Size = new Size(43, 23);
+            button5.TabIndex = 61;
+            button5.Text = "FBS";
+            button5.UseVisualStyleBackColor = false;
+            button5.Click += LeagueChange_Click;
             // 
             // button4
             // 
-            this.button4.BackColor = System.Drawing.Color.LightBlue;
-            this.button4.Location = new System.Drawing.Point(593, 59);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(43, 23);
-            this.button4.TabIndex = 60;
-            this.button4.Text = "FBS";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.LeagueChange_Click);
+            button4.BackColor = Color.LightBlue;
+            button4.Location = new Point(593, 59);
+            button4.Name = "button4";
+            button4.Size = new Size(43, 23);
+            button4.TabIndex = 60;
+            button4.Text = "FBS";
+            button4.UseVisualStyleBackColor = false;
+            button4.Click += LeagueChange_Click;
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.Color.LightBlue;
-            this.button3.Location = new System.Drawing.Point(437, 59);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(43, 23);
-            this.button3.TabIndex = 59;
-            this.button3.Text = "FBS";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.LeagueChange_Click);
+            button3.BackColor = Color.LightBlue;
+            button3.Location = new Point(437, 59);
+            button3.Name = "button3";
+            button3.Size = new Size(43, 23);
+            button3.TabIndex = 59;
+            button3.Text = "FBS";
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += LeagueChange_Click;
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.LightBlue;
-            this.button2.Location = new System.Drawing.Point(282, 59);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(43, 23);
-            this.button2.TabIndex = 58;
-            this.button2.Text = "FBS";
-            this.button2.UseVisualStyleBackColor = false;
-            this.button2.Click += new System.EventHandler(this.LeagueChange_Click);
+            button2.BackColor = Color.LightBlue;
+            button2.Location = new Point(282, 59);
+            button2.Name = "button2";
+            button2.Size = new Size(43, 23);
+            button2.TabIndex = 58;
+            button2.Text = "FBS";
+            button2.UseVisualStyleBackColor = false;
+            button2.Click += LeagueChange_Click;
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.LightBlue;
-            this.button1.Location = new System.Drawing.Point(125, 59);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(43, 23);
-            this.button1.TabIndex = 57;
-            this.button1.Text = "FBS";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.LeagueChange_Click);
+            button1.BackColor = Color.LightBlue;
+            button1.Location = new Point(125, 59);
+            button1.Name = "button1";
+            button1.Size = new Size(43, 23);
+            button1.TabIndex = 57;
+            button1.Text = "FBS";
+            button1.UseVisualStyleBackColor = false;
+            button1.Click += LeagueChange_Click;
             // 
             // label8
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(171, 796);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(27, 13);
-            this.label8.TabIndex = 56;
-            this.label8.Text = "cgid";
+            label8.AutoSize = true;
+            label8.Location = new Point(171, 796);
+            label8.Name = "label8";
+            label8.Size = new Size(27, 13);
+            label8.TabIndex = 56;
+            label8.Text = "cgid";
             // 
             // label9
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(328, 796);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(27, 13);
-            this.label9.TabIndex = 55;
-            this.label9.Text = "cgid";
+            label9.AutoSize = true;
+            label9.Location = new Point(328, 796);
+            label9.Name = "label9";
+            label9.Size = new Size(27, 13);
+            label9.TabIndex = 55;
+            label9.Text = "cgid";
             // 
             // label10
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(483, 796);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(27, 13);
-            this.label10.TabIndex = 54;
-            this.label10.Text = "cgid";
+            label10.AutoSize = true;
+            label10.Location = new Point(483, 796);
+            label10.Name = "label10";
+            label10.Size = new Size(27, 13);
+            label10.TabIndex = 54;
+            label10.Text = "cgid";
             // 
             // label11
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(639, 796);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(27, 13);
-            this.label11.TabIndex = 53;
-            this.label11.Text = "cgid";
+            label11.AutoSize = true;
+            label11.Location = new Point(639, 796);
+            label11.Name = "label11";
+            label11.Size = new Size(27, 13);
+            label11.TabIndex = 53;
+            label11.Text = "cgid";
             // 
             // label12
             // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(795, 796);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(27, 13);
-            this.label12.TabIndex = 52;
-            this.label12.Text = "cgid";
+            label12.AutoSize = true;
+            label12.Location = new Point(795, 796);
+            label12.Name = "label12";
+            label12.Size = new Size(27, 13);
+            label12.TabIndex = 52;
+            label12.Text = "cgid";
             // 
             // label7
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(18, 796);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(27, 13);
-            this.label7.TabIndex = 51;
-            this.label7.Text = "cgid";
+            label7.AutoSize = true;
+            label7.Location = new Point(18, 796);
+            label7.Name = "label7";
+            label7.Size = new Size(27, 13);
+            label7.TabIndex = 51;
+            label7.Text = "cgid";
             // 
             // label6
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(799, 397);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(27, 13);
-            this.label6.TabIndex = 50;
-            this.label6.Text = "cgid";
+            label6.AutoSize = true;
+            label6.Location = new Point(799, 397);
+            label6.Name = "label6";
+            label6.Size = new Size(27, 13);
+            label6.TabIndex = 50;
+            label6.Text = "cgid";
             // 
             // label5
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(643, 397);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(27, 13);
-            this.label5.TabIndex = 49;
-            this.label5.Text = "cgid";
+            label5.AutoSize = true;
+            label5.Location = new Point(643, 397);
+            label5.Name = "label5";
+            label5.Size = new Size(27, 13);
+            label5.TabIndex = 49;
+            label5.Text = "cgid";
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(487, 397);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(27, 13);
-            this.label4.TabIndex = 48;
-            this.label4.Text = "cgid";
+            label4.AutoSize = true;
+            label4.Location = new Point(487, 397);
+            label4.Name = "label4";
+            label4.Size = new Size(27, 13);
+            label4.TabIndex = 48;
+            label4.Text = "cgid";
             // 
             // label3
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(331, 397);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(27, 13);
-            this.label3.TabIndex = 47;
-            this.label3.Text = "cgid";
+            label3.AutoSize = true;
+            label3.Location = new Point(331, 397);
+            label3.Name = "label3";
+            label3.Size = new Size(27, 13);
+            label3.TabIndex = 47;
+            label3.Text = "cgid";
             // 
             // label2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(175, 397);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(27, 13);
-            this.label2.TabIndex = 46;
-            this.label2.Text = "cgid";
+            label2.AutoSize = true;
+            label2.Location = new Point(175, 397);
+            label2.Name = "label2";
+            label2.Size = new Size(27, 13);
+            label2.TabIndex = 46;
+            label2.Text = "cgid";
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 397);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(27, 13);
-            this.label1.TabIndex = 45;
-            this.label1.Text = "cgid";
+            label1.AutoSize = true;
+            label1.Location = new Point(19, 397);
+            label1.Name = "label1";
+            label1.Size = new Size(27, 13);
+            label1.TabIndex = 45;
+            label1.Text = "cgid";
             // 
             // AllTeamsListBox
             // 
-            this.AllTeamsListBox.AllowDrop = true;
-            this.AllTeamsListBox.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.AllTeamsListBox.FormattingEnabled = true;
-            this.AllTeamsListBox.Location = new System.Drawing.Point(975, 59);
-            this.AllTeamsListBox.Name = "AllTeamsListBox";
-            this.AllTeamsListBox.Size = new System.Drawing.Size(161, 615);
-            this.AllTeamsListBox.TabIndex = 44;
-            this.AllTeamsListBox.SelectedIndexChanged += new System.EventHandler(this.AllTeamsListBox_SelectedIndexChanged);
-            this.AllTeamsListBox.MouseDown += new System.Windows.Forms.MouseEventHandler(this.MouseClick_AddTeam);
+            AllTeamsListBox.AllowDrop = true;
+            AllTeamsListBox.BackColor = SystemColors.ControlLight;
+            AllTeamsListBox.FormattingEnabled = true;
+            AllTeamsListBox.ItemHeight = 13;
+            AllTeamsListBox.Location = new Point(975, 59);
+            AllTeamsListBox.Name = "AllTeamsListBox";
+            AllTeamsListBox.Size = new Size(161, 615);
+            AllTeamsListBox.TabIndex = 44;
+            AllTeamsListBox.SelectedIndexChanged += AllTeamsListBox_SelectedIndexChanged;
+            AllTeamsListBox.MouseDown += MouseClick_AddTeam;
             // 
             // confName12
             // 
-            this.confName12.Location = new System.Drawing.Point(798, 460);
-            this.confName12.MaxLength = 31;
-            this.confName12.Name = "confName12";
-            this.confName12.Size = new System.Drawing.Size(100, 20);
-            this.confName12.TabIndex = 43;
+            confName12.Location = new Point(798, 460);
+            confName12.MaxLength = 31;
+            confName12.Name = "confName12";
+            confName12.Size = new Size(100, 20);
+            confName12.TabIndex = 43;
             // 
             // confName11
             // 
-            this.confName11.Location = new System.Drawing.Point(642, 460);
-            this.confName11.MaxLength = 31;
-            this.confName11.Name = "confName11";
-            this.confName11.Size = new System.Drawing.Size(100, 20);
-            this.confName11.TabIndex = 42;
+            confName11.Location = new Point(642, 460);
+            confName11.MaxLength = 31;
+            confName11.Name = "confName11";
+            confName11.Size = new Size(100, 20);
+            confName11.TabIndex = 42;
             // 
             // confName10
             // 
-            this.confName10.Location = new System.Drawing.Point(486, 460);
-            this.confName10.MaxLength = 31;
-            this.confName10.Name = "confName10";
-            this.confName10.Size = new System.Drawing.Size(100, 20);
-            this.confName10.TabIndex = 41;
+            confName10.Location = new Point(486, 460);
+            confName10.MaxLength = 31;
+            confName10.Name = "confName10";
+            confName10.Size = new Size(100, 20);
+            confName10.TabIndex = 41;
             // 
             // confName9
             // 
-            this.confName9.Location = new System.Drawing.Point(330, 460);
-            this.confName9.MaxLength = 31;
-            this.confName9.Name = "confName9";
-            this.confName9.Size = new System.Drawing.Size(100, 20);
-            this.confName9.TabIndex = 40;
+            confName9.Location = new Point(330, 460);
+            confName9.MaxLength = 31;
+            confName9.Name = "confName9";
+            confName9.Size = new Size(100, 20);
+            confName9.TabIndex = 40;
             // 
             // confName8
             // 
-            this.confName8.Location = new System.Drawing.Point(174, 460);
-            this.confName8.MaxLength = 31;
-            this.confName8.Name = "confName8";
-            this.confName8.Size = new System.Drawing.Size(100, 20);
-            this.confName8.TabIndex = 39;
+            confName8.Location = new Point(174, 460);
+            confName8.MaxLength = 31;
+            confName8.Name = "confName8";
+            confName8.Size = new Size(100, 20);
+            confName8.TabIndex = 39;
             // 
             // confName7
             // 
-            this.confName7.Location = new System.Drawing.Point(18, 460);
-            this.confName7.MaxLength = 31;
-            this.confName7.Name = "confName7";
-            this.confName7.Size = new System.Drawing.Size(100, 20);
-            this.confName7.TabIndex = 38;
+            confName7.Location = new Point(18, 460);
+            confName7.MaxLength = 31;
+            confName7.Name = "confName7";
+            confName7.Size = new Size(100, 20);
+            confName7.TabIndex = 38;
             // 
             // confName6
             // 
-            this.confName6.Location = new System.Drawing.Point(799, 59);
-            this.confName6.MaxLength = 31;
-            this.confName6.Name = "confName6";
-            this.confName6.Size = new System.Drawing.Size(100, 20);
-            this.confName6.TabIndex = 37;
+            confName6.Location = new Point(799, 59);
+            confName6.MaxLength = 31;
+            confName6.Name = "confName6";
+            confName6.Size = new Size(100, 20);
+            confName6.TabIndex = 37;
             // 
             // confName5
             // 
-            this.confName5.Location = new System.Drawing.Point(643, 59);
-            this.confName5.MaxLength = 31;
-            this.confName5.Name = "confName5";
-            this.confName5.Size = new System.Drawing.Size(100, 20);
-            this.confName5.TabIndex = 36;
+            confName5.Location = new Point(643, 59);
+            confName5.MaxLength = 31;
+            confName5.Name = "confName5";
+            confName5.Size = new Size(100, 20);
+            confName5.TabIndex = 36;
             // 
             // confName4
             // 
-            this.confName4.Location = new System.Drawing.Point(487, 59);
-            this.confName4.MaxLength = 31;
-            this.confName4.Name = "confName4";
-            this.confName4.Size = new System.Drawing.Size(100, 20);
-            this.confName4.TabIndex = 35;
+            confName4.Location = new Point(487, 59);
+            confName4.MaxLength = 31;
+            confName4.Name = "confName4";
+            confName4.Size = new Size(100, 20);
+            confName4.TabIndex = 35;
             // 
             // confName3
             // 
-            this.confName3.Location = new System.Drawing.Point(331, 59);
-            this.confName3.MaxLength = 31;
-            this.confName3.Name = "confName3";
-            this.confName3.Size = new System.Drawing.Size(100, 20);
-            this.confName3.TabIndex = 34;
+            confName3.Location = new Point(331, 59);
+            confName3.MaxLength = 31;
+            confName3.Name = "confName3";
+            confName3.Size = new Size(100, 20);
+            confName3.TabIndex = 34;
             // 
             // confName2
             // 
-            this.confName2.Location = new System.Drawing.Point(175, 59);
-            this.confName2.MaxLength = 31;
-            this.confName2.Name = "confName2";
-            this.confName2.Size = new System.Drawing.Size(100, 20);
-            this.confName2.TabIndex = 33;
+            confName2.Location = new Point(175, 59);
+            confName2.MaxLength = 31;
+            confName2.Name = "confName2";
+            confName2.Size = new Size(100, 20);
+            confName2.TabIndex = 33;
             // 
             // confName1
             // 
-            this.confName1.Location = new System.Drawing.Point(19, 59);
-            this.confName1.MaxLength = 31;
-            this.confName1.Name = "confName1";
-            this.confName1.Size = new System.Drawing.Size(100, 20);
-            this.confName1.TabIndex = 32;
+            confName1.Location = new Point(19, 59);
+            confName1.MaxLength = 31;
+            confName1.Name = "confName1";
+            confName1.Size = new Size(100, 20);
+            confName1.TabIndex = 32;
             // 
             // labelTeamSelection
             // 
-            this.labelTeamSelection.AllowDrop = true;
-            this.labelTeamSelection.AutoSize = true;
-            this.labelTeamSelection.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTeamSelection.Location = new System.Drawing.Point(972, 40);
-            this.labelTeamSelection.Name = "labelTeamSelection";
-            this.labelTeamSelection.Size = new System.Drawing.Size(116, 16);
-            this.labelTeamSelection.TabIndex = 30;
-            this.labelTeamSelection.Text = "Team Selection";
+            labelTeamSelection.AllowDrop = true;
+            labelTeamSelection.AutoSize = true;
+            labelTeamSelection.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelTeamSelection.Location = new Point(972, 40);
+            labelTeamSelection.Name = "labelTeamSelection";
+            labelTeamSelection.Size = new Size(116, 16);
+            labelTeamSelection.TabIndex = 30;
+            labelTeamSelection.Text = "Team Selection";
             // 
             // DeselectButton
             // 
-            this.DeselectButton.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.DeselectButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeselectButton.ForeColor = System.Drawing.SystemColors.Control;
-            this.DeselectButton.Location = new System.Drawing.Point(975, 763);
-            this.DeselectButton.Name = "DeselectButton";
-            this.DeselectButton.Size = new System.Drawing.Size(161, 37);
-            this.DeselectButton.TabIndex = 25;
-            this.DeselectButton.Text = "DESELECT TEAM";
-            this.DeselectButton.UseVisualStyleBackColor = false;
-            this.DeselectButton.Click += new System.EventHandler(this.DeselectTeamsButton_Click);
+            DeselectButton.BackColor = Color.DarkSlateBlue;
+            DeselectButton.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            DeselectButton.ForeColor = SystemColors.Control;
+            DeselectButton.Location = new Point(975, 763);
+            DeselectButton.Name = "DeselectButton";
+            DeselectButton.Size = new Size(161, 37);
+            DeselectButton.TabIndex = 25;
+            DeselectButton.Text = "DESELECT TEAM";
+            DeselectButton.UseVisualStyleBackColor = false;
+            DeselectButton.Click += DeselectTeamsButton_Click;
             // 
             // SaveButton
             // 
-            this.SaveButton.BackColor = System.Drawing.Color.Crimson;
-            this.SaveButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SaveButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.SaveButton.Location = new System.Drawing.Point(975, 808);
-            this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(161, 37);
-            this.SaveButton.TabIndex = 24;
-            this.SaveButton.Text = "Save";
-            this.SaveButton.UseVisualStyleBackColor = false;
-            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Cick);
+            SaveButton.BackColor = Color.Crimson;
+            SaveButton.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            SaveButton.ForeColor = SystemColors.ButtonFace;
+            SaveButton.Location = new Point(975, 808);
+            SaveButton.Name = "SaveButton";
+            SaveButton.Size = new Size(161, 37);
+            SaveButton.TabIndex = 24;
+            SaveButton.Text = "Save";
+            SaveButton.UseVisualStyleBackColor = false;
+            SaveButton.Click += SaveButton_Cick;
             // 
             // conf12
             // 
-            this.conf12.AllowDrop = true;
-            this.conf12.BackColor = System.Drawing.Color.Gainsboro;
-            this.conf12.CheckOnClick = true;
-            this.conf12.FormattingEnabled = true;
-            this.conf12.Location = new System.Drawing.Point(798, 486);
-            this.conf12.Name = "conf12";
-            this.conf12.Size = new System.Drawing.Size(150, 304);
-            this.conf12.TabIndex = 11;
-            this.conf12.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.TeamChecked);
-            this.conf12.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UserKeyDown);
-            this.conf12.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.UserKeyPreview);
+            conf12.AllowDrop = true;
+            conf12.BackColor = Color.Gainsboro;
+            conf12.CheckOnClick = true;
+            conf12.FormattingEnabled = true;
+            conf12.Location = new Point(798, 486);
+            conf12.Name = "conf12";
+            conf12.Size = new Size(150, 304);
+            conf12.TabIndex = 11;
+            conf12.ItemCheck += TeamChecked;
+            conf12.KeyDown += UserKeyDown;
+            conf12.PreviewKeyDown += UserKeyPreview;
             // 
             // conf11
             // 
-            this.conf11.AllowDrop = true;
-            this.conf11.BackColor = System.Drawing.Color.Gainsboro;
-            this.conf11.CheckOnClick = true;
-            this.conf11.FormattingEnabled = true;
-            this.conf11.Location = new System.Drawing.Point(642, 486);
-            this.conf11.Name = "conf11";
-            this.conf11.Size = new System.Drawing.Size(150, 304);
-            this.conf11.TabIndex = 10;
-            this.conf11.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.TeamChecked);
-            this.conf11.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UserKeyDown);
-            this.conf11.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.UserKeyPreview);
+            conf11.AllowDrop = true;
+            conf11.BackColor = Color.Gainsboro;
+            conf11.CheckOnClick = true;
+            conf11.FormattingEnabled = true;
+            conf11.Location = new Point(642, 486);
+            conf11.Name = "conf11";
+            conf11.Size = new Size(150, 304);
+            conf11.TabIndex = 10;
+            conf11.ItemCheck += TeamChecked;
+            conf11.KeyDown += UserKeyDown;
+            conf11.PreviewKeyDown += UserKeyPreview;
             // 
             // conf10
             // 
-            this.conf10.AllowDrop = true;
-            this.conf10.BackColor = System.Drawing.Color.Gainsboro;
-            this.conf10.CheckOnClick = true;
-            this.conf10.FormattingEnabled = true;
-            this.conf10.Location = new System.Drawing.Point(486, 486);
-            this.conf10.Name = "conf10";
-            this.conf10.Size = new System.Drawing.Size(150, 304);
-            this.conf10.TabIndex = 9;
-            this.conf10.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.TeamChecked);
-            this.conf10.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UserKeyDown);
-            this.conf10.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.UserKeyPreview);
+            conf10.AllowDrop = true;
+            conf10.BackColor = Color.Gainsboro;
+            conf10.CheckOnClick = true;
+            conf10.FormattingEnabled = true;
+            conf10.Location = new Point(486, 486);
+            conf10.Name = "conf10";
+            conf10.Size = new Size(150, 304);
+            conf10.TabIndex = 9;
+            conf10.ItemCheck += TeamChecked;
+            conf10.KeyDown += UserKeyDown;
+            conf10.PreviewKeyDown += UserKeyPreview;
             // 
             // conf9
             // 
-            this.conf9.AllowDrop = true;
-            this.conf9.BackColor = System.Drawing.Color.Gainsboro;
-            this.conf9.CheckOnClick = true;
-            this.conf9.FormattingEnabled = true;
-            this.conf9.Location = new System.Drawing.Point(330, 486);
-            this.conf9.Name = "conf9";
-            this.conf9.Size = new System.Drawing.Size(150, 304);
-            this.conf9.TabIndex = 8;
-            this.conf9.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.TeamChecked);
-            this.conf9.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UserKeyDown);
-            this.conf9.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.UserKeyPreview);
+            conf9.AllowDrop = true;
+            conf9.BackColor = Color.Gainsboro;
+            conf9.CheckOnClick = true;
+            conf9.FormattingEnabled = true;
+            conf9.Location = new Point(330, 486);
+            conf9.Name = "conf9";
+            conf9.Size = new Size(150, 304);
+            conf9.TabIndex = 8;
+            conf9.ItemCheck += TeamChecked;
+            conf9.KeyDown += UserKeyDown;
+            conf9.PreviewKeyDown += UserKeyPreview;
             // 
             // conf8
             // 
-            this.conf8.AllowDrop = true;
-            this.conf8.BackColor = System.Drawing.Color.Gainsboro;
-            this.conf8.CheckOnClick = true;
-            this.conf8.FormattingEnabled = true;
-            this.conf8.Location = new System.Drawing.Point(174, 486);
-            this.conf8.Name = "conf8";
-            this.conf8.Size = new System.Drawing.Size(150, 304);
-            this.conf8.TabIndex = 7;
-            this.conf8.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.TeamChecked);
-            this.conf8.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UserKeyDown);
-            this.conf8.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.UserKeyPreview);
+            conf8.AllowDrop = true;
+            conf8.BackColor = Color.Gainsboro;
+            conf8.CheckOnClick = true;
+            conf8.FormattingEnabled = true;
+            conf8.Location = new Point(174, 486);
+            conf8.Name = "conf8";
+            conf8.Size = new Size(150, 304);
+            conf8.TabIndex = 7;
+            conf8.ItemCheck += TeamChecked;
+            conf8.KeyDown += UserKeyDown;
+            conf8.PreviewKeyDown += UserKeyPreview;
             // 
             // conf7
             // 
-            this.conf7.AllowDrop = true;
-            this.conf7.BackColor = System.Drawing.Color.Gainsboro;
-            this.conf7.CheckOnClick = true;
-            this.conf7.FormattingEnabled = true;
-            this.conf7.Location = new System.Drawing.Point(18, 486);
-            this.conf7.Name = "conf7";
-            this.conf7.Size = new System.Drawing.Size(150, 304);
-            this.conf7.TabIndex = 6;
-            this.conf7.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.TeamChecked);
-            this.conf7.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UserKeyDown);
-            this.conf7.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.UserKeyPreview);
+            conf7.AllowDrop = true;
+            conf7.BackColor = Color.Gainsboro;
+            conf7.CheckOnClick = true;
+            conf7.FormattingEnabled = true;
+            conf7.Location = new Point(18, 486);
+            conf7.Name = "conf7";
+            conf7.Size = new Size(150, 304);
+            conf7.TabIndex = 6;
+            conf7.ItemCheck += TeamChecked;
+            conf7.KeyDown += UserKeyDown;
+            conf7.PreviewKeyDown += UserKeyPreview;
             // 
             // conf6
             // 
-            this.conf6.AllowDrop = true;
-            this.conf6.BackColor = System.Drawing.Color.Gainsboro;
-            this.conf6.CheckOnClick = true;
-            this.conf6.FormattingEnabled = true;
-            this.conf6.Location = new System.Drawing.Point(799, 85);
-            this.conf6.Name = "conf6";
-            this.conf6.Size = new System.Drawing.Size(150, 304);
-            this.conf6.TabIndex = 5;
-            this.conf6.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.TeamChecked);
-            this.conf6.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UserKeyDown);
-            this.conf6.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.UserKeyPreview);
+            conf6.AllowDrop = true;
+            conf6.BackColor = Color.Gainsboro;
+            conf6.CheckOnClick = true;
+            conf6.FormattingEnabled = true;
+            conf6.Location = new Point(799, 85);
+            conf6.Name = "conf6";
+            conf6.Size = new Size(150, 304);
+            conf6.TabIndex = 5;
+            conf6.ItemCheck += TeamChecked;
+            conf6.KeyDown += UserKeyDown;
+            conf6.PreviewKeyDown += UserKeyPreview;
             // 
             // conf5
             // 
-            this.conf5.AllowDrop = true;
-            this.conf5.BackColor = System.Drawing.Color.Gainsboro;
-            this.conf5.CheckOnClick = true;
-            this.conf5.FormattingEnabled = true;
-            this.conf5.Location = new System.Drawing.Point(643, 85);
-            this.conf5.Name = "conf5";
-            this.conf5.Size = new System.Drawing.Size(150, 304);
-            this.conf5.TabIndex = 4;
-            this.conf5.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.TeamChecked);
-            this.conf5.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UserKeyDown);
-            this.conf5.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.UserKeyPreview);
+            conf5.AllowDrop = true;
+            conf5.BackColor = Color.Gainsboro;
+            conf5.CheckOnClick = true;
+            conf5.FormattingEnabled = true;
+            conf5.Location = new Point(643, 85);
+            conf5.Name = "conf5";
+            conf5.Size = new Size(150, 304);
+            conf5.TabIndex = 4;
+            conf5.ItemCheck += TeamChecked;
+            conf5.KeyDown += UserKeyDown;
+            conf5.PreviewKeyDown += UserKeyPreview;
             // 
             // conf4
             // 
-            this.conf4.AllowDrop = true;
-            this.conf4.BackColor = System.Drawing.Color.Gainsboro;
-            this.conf4.CheckOnClick = true;
-            this.conf4.FormattingEnabled = true;
-            this.conf4.Location = new System.Drawing.Point(487, 85);
-            this.conf4.Name = "conf4";
-            this.conf4.Size = new System.Drawing.Size(150, 304);
-            this.conf4.TabIndex = 3;
-            this.conf4.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.TeamChecked);
-            this.conf4.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UserKeyDown);
-            this.conf4.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.UserKeyPreview);
+            conf4.AllowDrop = true;
+            conf4.BackColor = Color.Gainsboro;
+            conf4.CheckOnClick = true;
+            conf4.FormattingEnabled = true;
+            conf4.Location = new Point(487, 85);
+            conf4.Name = "conf4";
+            conf4.Size = new Size(150, 304);
+            conf4.TabIndex = 3;
+            conf4.ItemCheck += TeamChecked;
+            conf4.KeyDown += UserKeyDown;
+            conf4.PreviewKeyDown += UserKeyPreview;
             // 
             // conf3
             // 
-            this.conf3.AllowDrop = true;
-            this.conf3.BackColor = System.Drawing.Color.Gainsboro;
-            this.conf3.CheckOnClick = true;
-            this.conf3.FormattingEnabled = true;
-            this.conf3.Location = new System.Drawing.Point(331, 85);
-            this.conf3.Name = "conf3";
-            this.conf3.Size = new System.Drawing.Size(150, 304);
-            this.conf3.TabIndex = 2;
-            this.conf3.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.TeamChecked);
-            this.conf3.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UserKeyDown);
-            this.conf3.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.UserKeyPreview);
+            conf3.AllowDrop = true;
+            conf3.BackColor = Color.Gainsboro;
+            conf3.CheckOnClick = true;
+            conf3.FormattingEnabled = true;
+            conf3.Location = new Point(331, 85);
+            conf3.Name = "conf3";
+            conf3.Size = new Size(150, 304);
+            conf3.TabIndex = 2;
+            conf3.ItemCheck += TeamChecked;
+            conf3.KeyDown += UserKeyDown;
+            conf3.PreviewKeyDown += UserKeyPreview;
             // 
             // conf2
             // 
-            this.conf2.AllowDrop = true;
-            this.conf2.BackColor = System.Drawing.Color.Gainsboro;
-            this.conf2.CheckOnClick = true;
-            this.conf2.FormattingEnabled = true;
-            this.conf2.Location = new System.Drawing.Point(175, 85);
-            this.conf2.Name = "conf2";
-            this.conf2.Size = new System.Drawing.Size(150, 304);
-            this.conf2.TabIndex = 1;
-            this.conf2.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.TeamChecked);
-            this.conf2.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UserKeyDown);
-            this.conf2.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.UserKeyPreview);
+            conf2.AllowDrop = true;
+            conf2.BackColor = Color.Gainsboro;
+            conf2.CheckOnClick = true;
+            conf2.FormattingEnabled = true;
+            conf2.Location = new Point(175, 85);
+            conf2.Name = "conf2";
+            conf2.Size = new Size(150, 304);
+            conf2.TabIndex = 1;
+            conf2.ItemCheck += TeamChecked;
+            conf2.KeyDown += UserKeyDown;
+            conf2.PreviewKeyDown += UserKeyPreview;
             // 
             // conf1
             // 
-            this.conf1.AllowDrop = true;
-            this.conf1.BackColor = System.Drawing.Color.Gainsboro;
-            this.conf1.CheckOnClick = true;
-            this.conf1.FormattingEnabled = true;
-            this.conf1.Location = new System.Drawing.Point(19, 85);
-            this.conf1.Name = "conf1";
-            this.conf1.Size = new System.Drawing.Size(150, 304);
-            this.conf1.TabIndex = 0;
-            this.conf1.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.TeamChecked);
-            this.conf1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UserKeyDown);
-            this.conf1.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.UserKeyPreview);
+            conf1.AllowDrop = true;
+            conf1.BackColor = Color.Gainsboro;
+            conf1.CheckOnClick = true;
+            conf1.FormattingEnabled = true;
+            conf1.Location = new Point(19, 85);
+            conf1.Name = "conf1";
+            conf1.Size = new Size(150, 304);
+            conf1.TabIndex = 0;
+            conf1.ItemCheck += TeamChecked;
+            conf1.KeyDown += UserKeyDown;
+            conf1.PreviewKeyDown += UserKeyPreview;
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.panel1.Controls.Add(this.label39);
-            this.panel1.Controls.Add(this.TeamSelectionBox);
-            this.panel1.Controls.Add(this.label38);
-            this.panel1.Controls.Add(this.TeamsPerConfBox);
-            this.panel1.Controls.Add(this.RandomizeLeagueButton);
-            this.panel1.Location = new System.Drawing.Point(18, 841);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(461, 59);
-            this.panel1.TabIndex = 110;
+            panel1.BackColor = SystemColors.MenuBar;
+            panel1.Controls.Add(label39);
+            panel1.Controls.Add(TeamSelectionBox);
+            panel1.Controls.Add(label38);
+            panel1.Controls.Add(TeamsPerConfBox);
+            panel1.Controls.Add(RandomizeLeagueButton);
+            panel1.Location = new Point(18, 841);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(461, 59);
+            panel1.TabIndex = 110;
             // 
             // label39
             // 
-            this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(307, 12);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(81, 13);
-            this.label39.TabIndex = 113;
-            this.label39.Text = "Team Selection";
+            label39.AutoSize = true;
+            label39.Location = new Point(307, 12);
+            label39.Name = "label39";
+            label39.Size = new Size(81, 13);
+            label39.TabIndex = 113;
+            label39.Text = "Team Selection";
             // 
             // TeamSelectionBox
             // 
-            this.TeamSelectionBox.FormattingEnabled = true;
-            this.TeamSelectionBox.Items.AddRange(new object[] {
-            "FBS Only",
-            "FCS Only",
-            "Any Team"});
-            this.TeamSelectionBox.Location = new System.Drawing.Point(312, 28);
-            this.TeamSelectionBox.Name = "TeamSelectionBox";
-            this.TeamSelectionBox.Size = new System.Drawing.Size(121, 21);
-            this.TeamSelectionBox.TabIndex = 112;
+            TeamSelectionBox.FormattingEnabled = true;
+            TeamSelectionBox.Items.AddRange(new object[] { "FBS Only", "FCS Only", "Any Team" });
+            TeamSelectionBox.Location = new Point(312, 28);
+            TeamSelectionBox.Name = "TeamSelectionBox";
+            TeamSelectionBox.Size = new Size(121, 21);
+            TeamSelectionBox.TabIndex = 112;
             // 
             // label38
             // 
-            this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(198, 12);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(82, 13);
-            this.label38.TabIndex = 111;
-            this.label38.Text = "Teams per Conf";
+            label38.AutoSize = true;
+            label38.Location = new Point(198, 12);
+            label38.Name = "label38";
+            label38.Size = new Size(82, 13);
+            label38.TabIndex = 111;
+            label38.Text = "Teams per Conf";
             // 
             // TeamsPerConfBox
             // 
-            this.TeamsPerConfBox.FormattingEnabled = true;
-            this.TeamsPerConfBox.Items.AddRange(new object[] {
-            "10",
-            "12",
-            "20"});
-            this.TeamsPerConfBox.Location = new System.Drawing.Point(196, 28);
-            this.TeamsPerConfBox.Name = "TeamsPerConfBox";
-            this.TeamsPerConfBox.Size = new System.Drawing.Size(79, 21);
-            this.TeamsPerConfBox.Sorted = true;
-            this.TeamsPerConfBox.TabIndex = 110;
+            TeamsPerConfBox.FormattingEnabled = true;
+            TeamsPerConfBox.Items.AddRange(new object[] { "10", "12", "20" });
+            TeamsPerConfBox.Location = new Point(196, 28);
+            TeamsPerConfBox.Name = "TeamsPerConfBox";
+            TeamsPerConfBox.Size = new Size(79, 21);
+            TeamsPerConfBox.Sorted = true;
+            TeamsPerConfBox.TabIndex = 110;
             // 
             // RandomizeLeagueButton
             // 
-            this.RandomizeLeagueButton.BackColor = System.Drawing.Color.Navy;
-            this.RandomizeLeagueButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.RandomizeLeagueButton.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.RandomizeLeagueButton.Location = new System.Drawing.Point(9, 11);
-            this.RandomizeLeagueButton.Name = "RandomizeLeagueButton";
-            this.RandomizeLeagueButton.Size = new System.Drawing.Size(161, 37);
-            this.RandomizeLeagueButton.TabIndex = 109;
-            this.RandomizeLeagueButton.Text = "Randomize League";
-            this.RandomizeLeagueButton.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.RandomizeLeagueButton.UseVisualStyleBackColor = false;
-            this.RandomizeLeagueButton.Click += new System.EventHandler(this.RandomizeLeagueButton_Click);
+            RandomizeLeagueButton.BackColor = Color.Navy;
+            RandomizeLeagueButton.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            RandomizeLeagueButton.ForeColor = SystemColors.ButtonFace;
+            RandomizeLeagueButton.Location = new Point(9, 11);
+            RandomizeLeagueButton.Name = "RandomizeLeagueButton";
+            RandomizeLeagueButton.Size = new Size(161, 37);
+            RandomizeLeagueButton.TabIndex = 109;
+            RandomizeLeagueButton.Text = "Randomize League";
+            RandomizeLeagueButton.TextImageRelation = TextImageRelation.TextBeforeImage;
+            RandomizeLeagueButton.UseVisualStyleBackColor = false;
+            RandomizeLeagueButton.Click += RandomizeLeagueButton_Click;
             // 
             // tabDB
             // 
-            this.tabDB.BackColor = System.Drawing.SystemColors.Control;
-            this.tabDB.Controls.Add(this.tableGridView);
-            this.tabDB.Controls.Add(this.fieldsGridView);
-            this.tabDB.Location = new System.Drawing.Point(4, 24);
-            this.tabDB.Name = "tabDB";
-            this.tabDB.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDB.Size = new System.Drawing.Size(1158, 1022);
-            this.tabDB.TabIndex = 0;
-            this.tabDB.Text = "DB Editor";
+            tabDB.BackColor = SystemColors.Control;
+            tabDB.Controls.Add(tableGridView);
+            tabDB.Controls.Add(fieldsGridView);
+            tabDB.Location = new Point(4, 24);
+            tabDB.Name = "tabDB";
+            tabDB.Padding = new Padding(3);
+            tabDB.Size = new Size(1158, 1022);
+            tabDB.TabIndex = 0;
+            tabDB.Text = "DB Editor";
             // 
             // tableGridView
             // 
-            this.tableGridView.AllowUserToAddRows = false;
-            this.tableGridView.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.tableGridView.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.tableGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.tableGridView.ContextMenuStrip = this.tableMenu;
-            this.tableGridView.GridColor = System.Drawing.SystemColors.Window;
-            this.tableGridView.Location = new System.Drawing.Point(3, 6);
-            this.tableGridView.Name = "tableGridView";
-            this.tableGridView.RowHeadersVisible = false;
-            this.tableGridView.RowTemplate.Height = 18;
-            this.tableGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.tableGridView.Size = new System.Drawing.Size(107, 655);
-            this.tableGridView.TabIndex = 2;
-            this.tableGridView.SelectionChanged += new System.EventHandler(this.TableGridView_SelectionChanged);
+            tableGridView.AllowUserToAddRows = false;
+            tableGridView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            tableGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            tableGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            tableGridView.BackgroundColor = SystemColors.Control;
+            tableGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            tableGridView.ContextMenuStrip = tableMenu;
+            tableGridView.GridColor = SystemColors.Window;
+            tableGridView.Location = new Point(3, 6);
+            tableGridView.Name = "tableGridView";
+            tableGridView.RowHeadersVisible = false;
+            tableGridView.RowTemplate.Height = 18;
+            tableGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            tableGridView.Size = new Size(107, 655);
+            tableGridView.TabIndex = 2;
+            tableGridView.SelectionChanged += TableGridView_SelectionChanged;
             // 
             // fieldsGridView
             // 
-            this.fieldsGridView.AllowDrop = true;
-            this.fieldsGridView.AllowUserToAddRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            this.fieldsGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.fieldsGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.fieldsGridView.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.fieldsGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.fieldsGridView.ContextMenuStrip = this.fieldMenu;
-            this.fieldsGridView.GridColor = System.Drawing.SystemColors.ScrollBar;
-            this.fieldsGridView.Location = new System.Drawing.Point(116, 6);
-            this.fieldsGridView.Name = "fieldsGridView";
-            this.fieldsGridView.RowHeadersVisible = false;
-            this.fieldsGridView.RowTemplate.Height = 18;
-            this.fieldsGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.fieldsGridView.Size = new System.Drawing.Size(1030, 655);
-            this.fieldsGridView.TabIndex = 3;
-            this.fieldsGridView.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.FieldGridView_CellValueChanged);
-            this.fieldsGridView.CurrentCellChanged += new System.EventHandler(this.FieldGridView_CurrentCellChanged);
+            fieldsGridView.AllowDrop = true;
+            fieldsGridView.AllowUserToAddRows = false;
+            dataGridViewCellStyle1.BackColor = SystemColors.Control;
+            fieldsGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            fieldsGridView.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            fieldsGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            fieldsGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            fieldsGridView.BackgroundColor = SystemColors.Control;
+            fieldsGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            fieldsGridView.ContextMenuStrip = fieldMenu;
+            fieldsGridView.GridColor = SystemColors.ScrollBar;
+            fieldsGridView.Location = new Point(116, 6);
+            fieldsGridView.Name = "fieldsGridView";
+            fieldsGridView.RowHeadersVisible = false;
+            fieldsGridView.RowTemplate.Height = 18;
+            fieldsGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            fieldsGridView.Size = new Size(1030, 655);
+            fieldsGridView.TabIndex = 3;
+            fieldsGridView.CellValueChanged += FieldGridView_CellValueChanged;
+            fieldsGridView.CurrentCellChanged += FieldGridView_CurrentCellChanged;
             // 
             // tabHome
             // 
-            this.tabHome.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.tabHome.Controls.Add(this.groupBox1);
-            this.tabHome.Controls.Add(this.textBox1);
-            this.tabHome.Controls.Add(this.pictureBox1);
-            this.tabHome.Location = new System.Drawing.Point(4, 24);
-            this.tabHome.Name = "tabHome";
-            this.tabHome.Padding = new System.Windows.Forms.Padding(3);
-            this.tabHome.Size = new System.Drawing.Size(1158, 1022);
-            this.tabHome.TabIndex = 6;
-            this.tabHome.Text = "Home";
-            this.tabHome.UseVisualStyleBackColor = true;
+            tabHome.BackColor = Color.DarkSlateBlue;
+            tabHome.Controls.Add(groupBox1);
+            tabHome.Location = new Point(4, 24);
+            tabHome.Name = "tabHome";
+            tabHome.Padding = new Padding(3);
+            tabHome.Size = new Size(1158, 1022);
+            tabHome.TabIndex = 6;
+            tabHome.Text = "Home";
+            tabHome.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.Next26Config);
-            this.groupBox1.Controls.Add(this.OGConfigRadio);
-            this.groupBox1.Controls.Add(this.NextConfigRadio);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.SystemColors.Control;
-            this.groupBox1.Location = new System.Drawing.Point(34, 6);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(550, 48);
-            this.groupBox1.TabIndex = 144;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Configuration";
+            groupBox1.Controls.Add(Next26Config);
+            groupBox1.Controls.Add(OGConfigRadio);
+            groupBox1.Controls.Add(NextConfigRadio);
+            groupBox1.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            groupBox1.ForeColor = SystemColors.Control;
+            groupBox1.Location = new Point(34, 6);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(550, 281);
+            groupBox1.TabIndex = 144;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Configuration";
             // 
             // Next26Config
             // 
-            this.Next26Config.AutoSize = true;
-            this.Next26Config.Location = new System.Drawing.Point(349, 21);
-            this.Next26Config.Name = "Next26Config";
-            this.Next26Config.Size = new System.Drawing.Size(163, 20);
-            this.Next26Config.TabIndex = 2;
-            this.Next26Config.Text = "NCAA Next 26+ Mod";
-            this.Next26Config.UseVisualStyleBackColor = true;
-            this.Next26Config.CheckedChanged += new System.EventHandler(this.Next26Config_CheckedChanged);
+            Next26Config.AutoSize = true;
+            Next26Config.Location = new Point(23, 120);
+            Next26Config.Name = "Next26Config";
+            Next26Config.Size = new Size(163, 20);
+            Next26Config.TabIndex = 2;
+            Next26Config.Text = "NCAA Next 26+ Mod";
+            Next26Config.UseVisualStyleBackColor = true;
+            Next26Config.CheckedChanged += Next26Config_CheckedChanged;
             // 
             // OGConfigRadio
             // 
-            this.OGConfigRadio.AutoSize = true;
-            this.OGConfigRadio.Checked = true;
-            this.OGConfigRadio.Location = new System.Drawing.Point(23, 21);
-            this.OGConfigRadio.Name = "OGConfigRadio";
-            this.OGConfigRadio.Size = new System.Drawing.Size(144, 20);
-            this.OGConfigRadio.TabIndex = 1;
-            this.OGConfigRadio.TabStop = true;
-            this.OGConfigRadio.Text = "NCAA 06 Original";
-            this.OGConfigRadio.UseVisualStyleBackColor = true;
-            this.OGConfigRadio.CheckedChanged += new System.EventHandler(this.OGConfigRadio_CheckedChanged);
+            OGConfigRadio.AutoSize = true;
+            OGConfigRadio.Checked = true;
+            OGConfigRadio.Location = new Point(23, 21);
+            OGConfigRadio.Name = "OGConfigRadio";
+            OGConfigRadio.Size = new Size(144, 20);
+            OGConfigRadio.TabIndex = 1;
+            OGConfigRadio.TabStop = true;
+            OGConfigRadio.Text = "NCAA 06 Original";
+            OGConfigRadio.UseVisualStyleBackColor = true;
+            OGConfigRadio.CheckedChanged += OGConfigRadio_CheckedChanged;
             // 
             // NextConfigRadio
             // 
-            this.NextConfigRadio.AutoSize = true;
-            this.NextConfigRadio.Location = new System.Drawing.Point(201, 21);
-            this.NextConfigRadio.Name = "NextConfigRadio";
-            this.NextConfigRadio.Size = new System.Drawing.Size(121, 20);
-            this.NextConfigRadio.TabIndex = 0;
-            this.NextConfigRadio.Text = "NCAA Next 25";
-            this.NextConfigRadio.UseVisualStyleBackColor = true;
-            this.NextConfigRadio.CheckedChanged += new System.EventHandler(this.NextConfigRadio_CheckedChanged);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(618, 60);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(462, 550);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.Text = resources.GetString("textBox1.Text");
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::DB_EDITOR.Properties.Resources.ncaa_db_editor_TITLE;
-            this.pictureBox1.Location = new System.Drawing.Point(34, 60);
-            this.pictureBox1.MaximumSize = new System.Drawing.Size(1000, 1000);
-            this.pictureBox1.MinimumSize = new System.Drawing.Size(550, 550);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(550, 550);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            NextConfigRadio.AutoSize = true;
+            NextConfigRadio.Location = new Point(23, 68);
+            NextConfigRadio.Name = "NextConfigRadio";
+            NextConfigRadio.Size = new Size(121, 20);
+            NextConfigRadio.TabIndex = 0;
+            NextConfigRadio.Text = "NCAA Next 25";
+            NextConfigRadio.UseVisualStyleBackColor = true;
+            NextConfigRadio.CheckedChanged += NextConfigRadio_CheckedChanged;
             // 
             // tabControl1
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControl1.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
-            this.tabControl1.Controls.Add(this.tabHome);
-            this.tabControl1.Controls.Add(this.tabDB);
-            this.tabControl1.Controls.Add(this.tabConf);
-            this.tabControl1.Controls.Add(this.tabAnnuals);
-            this.tabControl1.Controls.Add(this.tabCChamps);
-            this.tabControl1.Controls.Add(this.tabBowls);
-            this.tabControl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabControl1.ItemSize = new System.Drawing.Size(125, 20);
-            this.tabControl1.Location = new System.Drawing.Point(12, 27);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1166, 1050);
-            this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
-            this.tabControl1.TabIndex = 4;
-            this.tabControl1.Visible = false;
-            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.TabControl1_IndexChange);
+            tabControl1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            tabControl1.Appearance = TabAppearance.FlatButtons;
+            tabControl1.Controls.Add(tabHome);
+            tabControl1.Controls.Add(tabDB);
+            tabControl1.Controls.Add(tabConf);
+            tabControl1.Controls.Add(tabAnnuals);
+            tabControl1.Controls.Add(tabCChamps);
+            tabControl1.Controls.Add(tabBowls);
+            tabControl1.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            tabControl1.ItemSize = new Size(125, 20);
+            tabControl1.Location = new Point(12, 27);
+            tabControl1.Name = "tabControl1";
+            tabControl1.SelectedIndex = 0;
+            tabControl1.Size = new Size(1166, 1050);
+            tabControl1.SizeMode = TabSizeMode.Fixed;
+            tabControl1.TabIndex = 4;
+            tabControl1.Visible = false;
+            tabControl1.SelectedIndexChanged += TabControl1_IndexChange;
             // 
             // tabAnnuals
             // 
-            this.tabAnnuals.Controls.Add(this.ClearAllButton);
-            this.tabAnnuals.Controls.Add(this.SaveSANNButton);
-            this.tabAnnuals.Controls.Add(this.DeleteGameButton);
-            this.tabAnnuals.Controls.Add(this.AnnualsGrid);
-            this.tabAnnuals.Location = new System.Drawing.Point(4, 24);
-            this.tabAnnuals.Name = "tabAnnuals";
-            this.tabAnnuals.Padding = new System.Windows.Forms.Padding(3);
-            this.tabAnnuals.Size = new System.Drawing.Size(1158, 1022);
-            this.tabAnnuals.TabIndex = 10;
-            this.tabAnnuals.Text = "Annuals";
-            this.tabAnnuals.UseVisualStyleBackColor = true;
+            tabAnnuals.Controls.Add(ClearAllButton);
+            tabAnnuals.Controls.Add(SaveSANNButton);
+            tabAnnuals.Controls.Add(DeleteGameButton);
+            tabAnnuals.Controls.Add(AnnualsGrid);
+            tabAnnuals.Location = new Point(4, 24);
+            tabAnnuals.Name = "tabAnnuals";
+            tabAnnuals.Padding = new Padding(3);
+            tabAnnuals.Size = new Size(1158, 1022);
+            tabAnnuals.TabIndex = 10;
+            tabAnnuals.Text = "Annuals";
+            tabAnnuals.UseVisualStyleBackColor = true;
             // 
             // ClearAllButton
             // 
-            this.ClearAllButton.BackColor = System.Drawing.Color.GhostWhite;
-            this.ClearAllButton.Location = new System.Drawing.Point(430, 236);
-            this.ClearAllButton.Name = "ClearAllButton";
-            this.ClearAllButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.ClearAllButton.Size = new System.Drawing.Size(122, 54);
-            this.ClearAllButton.TabIndex = 3;
-            this.ClearAllButton.Text = "Clear All";
-            this.ClearAllButton.UseVisualStyleBackColor = false;
-            this.ClearAllButton.Click += new System.EventHandler(this.ClearAllButton_Click);
+            ClearAllButton.BackColor = Color.GhostWhite;
+            ClearAllButton.Location = new Point(430, 236);
+            ClearAllButton.Name = "ClearAllButton";
+            ClearAllButton.RightToLeft = RightToLeft.No;
+            ClearAllButton.Size = new Size(122, 54);
+            ClearAllButton.TabIndex = 3;
+            ClearAllButton.Text = "Clear All";
+            ClearAllButton.UseVisualStyleBackColor = false;
+            ClearAllButton.Click += ClearAllButton_Click;
             // 
             // SaveSANNButton
             // 
-            this.SaveSANNButton.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.SaveSANNButton.Location = new System.Drawing.Point(430, 132);
-            this.SaveSANNButton.Name = "SaveSANNButton";
-            this.SaveSANNButton.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.SaveSANNButton.Size = new System.Drawing.Size(122, 54);
-            this.SaveSANNButton.TabIndex = 2;
-            this.SaveSANNButton.Text = "Save";
-            this.SaveSANNButton.UseVisualStyleBackColor = false;
-            this.SaveSANNButton.Click += new System.EventHandler(this.SaveSANNButton_Click);
+            SaveSANNButton.BackColor = Color.LightSkyBlue;
+            SaveSANNButton.Location = new Point(430, 132);
+            SaveSANNButton.Name = "SaveSANNButton";
+            SaveSANNButton.RightToLeft = RightToLeft.No;
+            SaveSANNButton.Size = new Size(122, 54);
+            SaveSANNButton.TabIndex = 2;
+            SaveSANNButton.Text = "Save";
+            SaveSANNButton.UseVisualStyleBackColor = false;
+            SaveSANNButton.Click += SaveSANNButton_Click;
             // 
             // DeleteGameButton
             // 
-            this.DeleteGameButton.BackColor = System.Drawing.Color.LightPink;
-            this.DeleteGameButton.Location = new System.Drawing.Point(430, 26);
-            this.DeleteGameButton.Name = "DeleteGameButton";
-            this.DeleteGameButton.Size = new System.Drawing.Size(122, 54);
-            this.DeleteGameButton.TabIndex = 1;
-            this.DeleteGameButton.Text = "Delete Game";
-            this.DeleteGameButton.UseVisualStyleBackColor = false;
-            this.DeleteGameButton.Click += new System.EventHandler(this.DeleteGameButton_Click);
+            DeleteGameButton.BackColor = Color.LightPink;
+            DeleteGameButton.Location = new Point(430, 26);
+            DeleteGameButton.Name = "DeleteGameButton";
+            DeleteGameButton.Size = new Size(122, 54);
+            DeleteGameButton.TabIndex = 1;
+            DeleteGameButton.Text = "Delete Game";
+            DeleteGameButton.UseVisualStyleBackColor = false;
+            DeleteGameButton.Click += DeleteGameButton_Click;
             // 
             // AnnualsGrid
             // 
-            this.AnnualsGrid.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.AnnualsGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.AnnualsGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.AnnualsGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.AnnualsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.AnnualsGrid.DefaultCellStyle = dataGridViewCellStyle4;
-            this.AnnualsGrid.Location = new System.Drawing.Point(12, 6);
-            this.AnnualsGrid.Name = "AnnualsGrid";
-            this.AnnualsGrid.Size = new System.Drawing.Size(400, 878);
-            this.AnnualsGrid.TabIndex = 0;
-            this.AnnualsGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.AnnualsGrid_DataError);
+            AnnualsGrid.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(224, 224, 224);
+            AnnualsGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            AnnualsGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = SystemColors.Control;
+            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            AnnualsGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            AnnualsGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = SystemColors.Window;
+            dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            AnnualsGrid.DefaultCellStyle = dataGridViewCellStyle4;
+            AnnualsGrid.Location = new Point(12, 6);
+            AnnualsGrid.Name = "AnnualsGrid";
+            AnnualsGrid.Size = new Size(400, 878);
+            AnnualsGrid.TabIndex = 0;
+            AnnualsGrid.DataError += AnnualsGrid_DataError;
             // 
             // tabCChamps
             // 
-            this.tabCChamps.Controls.Add(this.label37);
-            this.tabCChamps.Controls.Add(this.SaveChamps);
-            this.tabCChamps.Controls.Add(this.ChampGrid);
-            this.tabCChamps.Location = new System.Drawing.Point(4, 24);
-            this.tabCChamps.Name = "tabCChamps";
-            this.tabCChamps.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCChamps.Size = new System.Drawing.Size(1158, 1022);
-            this.tabCChamps.TabIndex = 12;
-            this.tabCChamps.Text = "Conf Championships";
-            this.tabCChamps.UseVisualStyleBackColor = true;
+            tabCChamps.Controls.Add(label37);
+            tabCChamps.Controls.Add(SaveChamps);
+            tabCChamps.Controls.Add(ChampGrid);
+            tabCChamps.Location = new Point(4, 24);
+            tabCChamps.Name = "tabCChamps";
+            tabCChamps.Padding = new Padding(3);
+            tabCChamps.Size = new Size(1158, 1022);
+            tabCChamps.TabIndex = 12;
+            tabCChamps.Text = "Conf Championships";
+            tabCChamps.UseVisualStyleBackColor = true;
             // 
             // label37
             // 
-            this.label37.AutoSize = true;
-            this.label37.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label37.Location = new System.Drawing.Point(23, 23);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(346, 24);
-            this.label37.TabIndex = 6;
-            this.label37.Text = "Missing Conference Championships";
+            label37.AutoSize = true;
+            label37.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label37.Location = new Point(23, 23);
+            label37.Name = "label37";
+            label37.Size = new Size(346, 24);
+            label37.TabIndex = 6;
+            label37.Text = "Missing Conference Championships";
             // 
             // SaveChamps
             // 
-            this.SaveChamps.BackColor = System.Drawing.Color.LightSkyBlue;
-            this.SaveChamps.Location = new System.Drawing.Point(247, 427);
-            this.SaveChamps.Name = "SaveChamps";
-            this.SaveChamps.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.SaveChamps.Size = new System.Drawing.Size(122, 54);
-            this.SaveChamps.TabIndex = 5;
-            this.SaveChamps.Text = "Save";
-            this.SaveChamps.UseVisualStyleBackColor = false;
-            this.SaveChamps.Click += new System.EventHandler(this.SaveChamps_Click);
+            SaveChamps.BackColor = Color.LightSkyBlue;
+            SaveChamps.Location = new Point(247, 427);
+            SaveChamps.Name = "SaveChamps";
+            SaveChamps.RightToLeft = RightToLeft.No;
+            SaveChamps.Size = new Size(122, 54);
+            SaveChamps.TabIndex = 5;
+            SaveChamps.Text = "Save";
+            SaveChamps.UseVisualStyleBackColor = false;
+            SaveChamps.Click += SaveChamps_Click;
             // 
             // ChampGrid
             // 
-            this.ChampGrid.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ChampGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.ChampGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.ChampGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ChampGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Conf,
-            this.Bowl});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.ChampGrid.DefaultCellStyle = dataGridViewCellStyle6;
-            this.ChampGrid.Location = new System.Drawing.Point(28, 51);
-            this.ChampGrid.Name = "ChampGrid";
-            this.ChampGrid.Size = new System.Drawing.Size(352, 358);
-            this.ChampGrid.TabIndex = 4;
-            this.ChampGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.ChampGrid_DataError);
+            ChampGrid.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(224, 224, 224);
+            ChampGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            ChampGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            ChampGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            ChampGrid.Columns.AddRange(new DataGridViewColumn[] { Conf, Bowl });
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = SystemColors.Window;
+            dataGridViewCellStyle6.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle6.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
+            ChampGrid.DefaultCellStyle = dataGridViewCellStyle6;
+            ChampGrid.Location = new Point(28, 51);
+            ChampGrid.Name = "ChampGrid";
+            ChampGrid.Size = new Size(352, 358);
+            ChampGrid.TabIndex = 4;
+            ChampGrid.DataError += ChampGrid_DataError;
             // 
             // Conf
             // 
-            this.Conf.HeaderText = "Conference";
-            this.Conf.Name = "Conf";
+            Conf.HeaderText = "Conference";
+            Conf.Name = "Conf";
             // 
             // Bowl
             // 
-            this.Bowl.HeaderText = "Bowl Selection";
-            this.Bowl.Name = "Bowl";
+            Bowl.HeaderText = "Bowl Selection";
+            Bowl.Name = "Bowl";
             // 
             // tabBowls
             // 
-            this.tabBowls.Controls.Add(this.AtLargeButton);
-            this.tabBowls.Controls.Add(this.SaveBowlButton);
-            this.tabBowls.Controls.Add(this.DeleteBowlButton);
-            this.tabBowls.Controls.Add(this.BowlsGrid);
-            this.tabBowls.Location = new System.Drawing.Point(4, 24);
-            this.tabBowls.Name = "tabBowls";
-            this.tabBowls.Padding = new System.Windows.Forms.Padding(3);
-            this.tabBowls.Size = new System.Drawing.Size(1158, 1022);
-            this.tabBowls.TabIndex = 11;
-            this.tabBowls.Text = "Bowls";
-            this.tabBowls.UseVisualStyleBackColor = true;
+            tabBowls.Controls.Add(AtLargeButton);
+            tabBowls.Controls.Add(SaveBowlButton);
+            tabBowls.Controls.Add(DeleteBowlButton);
+            tabBowls.Controls.Add(BowlsGrid);
+            tabBowls.Location = new Point(4, 24);
+            tabBowls.Name = "tabBowls";
+            tabBowls.Padding = new Padding(3);
+            tabBowls.Size = new Size(1158, 1022);
+            tabBowls.TabIndex = 11;
+            tabBowls.Text = "Bowls";
+            tabBowls.UseVisualStyleBackColor = true;
             // 
             // AtLargeButton
             // 
-            this.AtLargeButton.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.AtLargeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AtLargeButton.Location = new System.Drawing.Point(896, 201);
-            this.AtLargeButton.Name = "AtLargeButton";
-            this.AtLargeButton.Size = new System.Drawing.Size(115, 51);
-            this.AtLargeButton.TabIndex = 3;
-            this.AtLargeButton.Text = "Set All to At-Large";
-            this.AtLargeButton.UseVisualStyleBackColor = false;
-            this.AtLargeButton.Click += new System.EventHandler(this.AtLargeButton_Click);
+            AtLargeButton.BackColor = SystemColors.ActiveCaption;
+            AtLargeButton.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            AtLargeButton.Location = new Point(896, 201);
+            AtLargeButton.Name = "AtLargeButton";
+            AtLargeButton.Size = new Size(115, 51);
+            AtLargeButton.TabIndex = 3;
+            AtLargeButton.Text = "Set All to At-Large";
+            AtLargeButton.UseVisualStyleBackColor = false;
+            AtLargeButton.Click += AtLargeButton_Click;
             // 
             // SaveBowlButton
             // 
-            this.SaveBowlButton.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.SaveBowlButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SaveBowlButton.Location = new System.Drawing.Point(896, 23);
-            this.SaveBowlButton.Name = "SaveBowlButton";
-            this.SaveBowlButton.Size = new System.Drawing.Size(115, 52);
-            this.SaveBowlButton.TabIndex = 2;
-            this.SaveBowlButton.Text = "Save";
-            this.SaveBowlButton.UseVisualStyleBackColor = false;
-            this.SaveBowlButton.Click += new System.EventHandler(this.SaveBowlButton_Click);
+            SaveBowlButton.BackColor = Color.CornflowerBlue;
+            SaveBowlButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            SaveBowlButton.Location = new Point(896, 23);
+            SaveBowlButton.Name = "SaveBowlButton";
+            SaveBowlButton.Size = new Size(115, 52);
+            SaveBowlButton.TabIndex = 2;
+            SaveBowlButton.Text = "Save";
+            SaveBowlButton.UseVisualStyleBackColor = false;
+            SaveBowlButton.Click += SaveBowlButton_Click;
             // 
             // DeleteBowlButton
             // 
-            this.DeleteBowlButton.BackColor = System.Drawing.Color.PaleVioletRed;
-            this.DeleteBowlButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeleteBowlButton.Location = new System.Drawing.Point(896, 113);
-            this.DeleteBowlButton.Name = "DeleteBowlButton";
-            this.DeleteBowlButton.Size = new System.Drawing.Size(115, 52);
-            this.DeleteBowlButton.TabIndex = 1;
-            this.DeleteBowlButton.Text = "Delete Row";
-            this.DeleteBowlButton.UseVisualStyleBackColor = false;
-            this.DeleteBowlButton.Click += new System.EventHandler(this.DeleteBowlButton_Click);
+            DeleteBowlButton.BackColor = Color.PaleVioletRed;
+            DeleteBowlButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            DeleteBowlButton.Location = new Point(896, 113);
+            DeleteBowlButton.Name = "DeleteBowlButton";
+            DeleteBowlButton.Size = new Size(115, 52);
+            DeleteBowlButton.TabIndex = 1;
+            DeleteBowlButton.Text = "Delete Row";
+            DeleteBowlButton.UseVisualStyleBackColor = false;
+            DeleteBowlButton.Click += DeleteBowlButton_Click;
             // 
             // BowlsGrid
             // 
-            this.BowlsGrid.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            this.BowlsGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
-            this.BowlsGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.BowlsGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.BowlsGrid.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.BIDX,
-            this.BNME,
-            this.BCI1,
-            this.BCR1,
-            this.BCI2,
-            this.BCR2,
-            this.SGID,
-            this.BMON,
-            this.BDAY});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.BowlsGrid.DefaultCellStyle = dataGridViewCellStyle8;
-            this.BowlsGrid.Location = new System.Drawing.Point(38, 23);
-            this.BowlsGrid.Name = "BowlsGrid";
-            this.BowlsGrid.Size = new System.Drawing.Size(816, 875);
-            this.BowlsGrid.TabIndex = 0;
-            this.BowlsGrid.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.BowlCellValueChanged);
-            this.BowlsGrid.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.BowlsGrid_DataError);
+            BowlsGrid.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = Color.FromArgb(224, 224, 224);
+            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
+            BowlsGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            BowlsGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            BowlsGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            BowlsGrid.Columns.AddRange(new DataGridViewColumn[] { BIDX, BNME, BCI1, BCR1, BCI2, BCR2, SGID, BMON, BDAY });
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = SystemColors.Window;
+            dataGridViewCellStyle8.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle8.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
+            BowlsGrid.DefaultCellStyle = dataGridViewCellStyle8;
+            BowlsGrid.Location = new Point(38, 23);
+            BowlsGrid.Name = "BowlsGrid";
+            BowlsGrid.Size = new Size(816, 875);
+            BowlsGrid.TabIndex = 0;
+            BowlsGrid.CellValueChanged += BowlCellValueChanged;
+            BowlsGrid.DataError += BowlsGrid_DataError;
             // 
             // BIDX
             // 
-            this.BIDX.FillWeight = 58.21476F;
-            this.BIDX.HeaderText = "BIDX";
-            this.BIDX.Name = "BIDX";
-            this.BIDX.ReadOnly = true;
+            BIDX.FillWeight = 58.21476F;
+            BIDX.HeaderText = "BIDX";
+            BIDX.Name = "BIDX";
+            BIDX.ReadOnly = true;
             // 
             // BNME
             // 
-            this.BNME.FillWeight = 184.7952F;
-            this.BNME.HeaderText = "Bowl Name";
-            this.BNME.Name = "BNME";
+            BNME.FillWeight = 184.7952F;
+            BNME.HeaderText = "Bowl Name";
+            BNME.Name = "BNME";
             // 
             // BCI1
             // 
-            this.BCI1.FillWeight = 113.5889F;
-            this.BCI1.HeaderText = "Conf A";
-            this.BCI1.Name = "BCI1";
+            BCI1.FillWeight = 113.5889F;
+            BCI1.HeaderText = "Conf A";
+            BCI1.Name = "BCI1";
             // 
             // BCR1
             // 
-            this.BCR1.FillWeight = 56.59636F;
-            this.BCR1.HeaderText = "Conf A Seed";
-            this.BCR1.Name = "BCR1";
+            BCR1.FillWeight = 56.59636F;
+            BCR1.HeaderText = "Conf A Seed";
+            BCR1.Name = "BCR1";
             // 
             // BCI2
             // 
-            this.BCI2.FillWeight = 120.1694F;
-            this.BCI2.HeaderText = "Conf B";
-            this.BCI2.Name = "BCI2";
+            BCI2.FillWeight = 120.1694F;
+            BCI2.HeaderText = "Conf B";
+            BCI2.Name = "BCI2";
             // 
             // BCR2
             // 
-            this.BCR2.FillWeight = 59.46095F;
-            this.BCR2.HeaderText = "Conf B Seed";
-            this.BCR2.Name = "BCR2";
+            BCR2.FillWeight = 59.46095F;
+            BCR2.HeaderText = "Conf B Seed";
+            BCR2.Name = "BCR2";
             // 
             // SGID
             // 
-            this.SGID.FillWeight = 188.292F;
-            this.SGID.HeaderText = "Stadium";
-            this.SGID.Name = "SGID";
+            SGID.FillWeight = 188.292F;
+            SGID.HeaderText = "Stadium";
+            SGID.Name = "SGID";
             // 
             // BMON
             // 
-            this.BMON.FillWeight = 57.73386F;
-            this.BMON.HeaderText = "Month";
-            this.BMON.Name = "BMON";
+            BMON.FillWeight = 57.73386F;
+            BMON.HeaderText = "Month";
+            BMON.Name = "BMON";
             // 
             // BDAY
             // 
-            this.BDAY.FillWeight = 61.14862F;
-            this.BDAY.HeaderText = "Date";
-            this.BDAY.Name = "BDAY";
+            BDAY.FillWeight = 61.14862F;
+            BDAY.HeaderText = "Date";
+            BDAY.Name = "BDAY";
             // 
             // LeagueMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1190, 961);
-            this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.progressBar1);
-            this.Controls.Add(this.mainMenu);
-            this.Controls.Add(this.TablePropsgroupBox);
-            this.Controls.Add(this.FieldsPropsgroupBox);
-            this.DoubleBuffered = true;
-            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MainMenuStrip = this.mainMenu;
-            this.Name = "LeagueMain";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "League Editor";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainEditor_FormClosing);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.UserKeyDown);
-            this.PreviewKeyDown += new System.Windows.Forms.PreviewKeyDownEventHandler(this.UserKeyPreview);
-            this.mainMenu.ResumeLayout(false);
-            this.mainMenu.PerformLayout();
-            this.tableMenu.ResumeLayout(false);
-            this.fieldMenu.ResumeLayout(false);
-            this.TablePropsgroupBox.ResumeLayout(false);
-            this.TablePropsgroupBox.PerformLayout();
-            this.FieldsPropsgroupBox.ResumeLayout(false);
-            this.FieldsPropsgroupBox.PerformLayout();
-            this.tabConf.ResumeLayout(false);
-            this.tabConf.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown9)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown10)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown11)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown12)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.tabDB.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.tableGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fieldsGridView)).EndInit();
-            this.tabHome.ResumeLayout(false);
-            this.tabHome.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.tabControl1.ResumeLayout(false);
-            this.tabAnnuals.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.AnnualsGrid)).EndInit();
-            this.tabCChamps.ResumeLayout(false);
-            this.tabCChamps.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ChampGrid)).EndInit();
-            this.tabBowls.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.BowlsGrid)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AutoScaleDimensions = new SizeF(96F, 96F);
+            AutoScaleMode = AutoScaleMode.Dpi;
+            AutoSize = true;
+            BackColor = SystemColors.Control;
+            ClientSize = new Size(1190, 961);
+            Controls.Add(tabControl1);
+            Controls.Add(progressBar1);
+            Controls.Add(mainMenu);
+            Controls.Add(TablePropsgroupBox);
+            Controls.Add(FieldsPropsgroupBox);
+            DoubleBuffered = true;
+            Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MainMenuStrip = mainMenu;
+            Name = "LeagueMain";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "League Editor";
+            FormClosing += MainEditor_FormClosing;
+            KeyDown += UserKeyDown;
+            PreviewKeyDown += UserKeyPreview;
+            mainMenu.ResumeLayout(false);
+            mainMenu.PerformLayout();
+            tableMenu.ResumeLayout(false);
+            fieldMenu.ResumeLayout(false);
+            TablePropsgroupBox.ResumeLayout(false);
+            TablePropsgroupBox.PerformLayout();
+            FieldsPropsgroupBox.ResumeLayout(false);
+            FieldsPropsgroupBox.PerformLayout();
+            tabConf.ResumeLayout(false);
+            tabConf.PerformLayout();
+            groupBox2.ResumeLayout(false);
+            groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown7).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown8).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown9).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown10).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown11).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown12).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown6).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            tabDB.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)tableGridView).EndInit();
+            ((System.ComponentModel.ISupportInitialize)fieldsGridView).EndInit();
+            tabHome.ResumeLayout(false);
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            tabControl1.ResumeLayout(false);
+            tabAnnuals.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)AnnualsGrid).EndInit();
+            tabCChamps.ResumeLayout(false);
+            tabCChamps.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)ChampGrid).EndInit();
+            tabBowls.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)BowlsGrid).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
 
         }
 
@@ -2437,7 +2305,6 @@ namespace DB_EDITOR
         public DataGridView tableGridView;
         public DataGridView fieldsGridView;
         private TabPage tabHome;
-        private PictureBox pictureBox1;
         public TabControl tabControl1;
         private System.Windows.Forms.TextBox confName1;
         private System.Windows.Forms.TextBox confName12;
@@ -2542,7 +2409,6 @@ namespace DB_EDITOR
         private System.Windows.Forms.Button SaveBowlButton;
         private ToolStripMenuItem CustomLeagueToolStrip;
         private ToolStripMenuItem importCustomLeagueToolStripMenuItem;
-        private System.Windows.Forms.TextBox textBox1;
         private ToolStripMenuItem ExportCustomLeague;
         private System.Windows.Forms.Button RandomizeLeagueButton;
         private Panel panel1;

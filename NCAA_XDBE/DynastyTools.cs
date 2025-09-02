@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Text;
 using System.Windows.Forms;
 
 namespace DB_EDITOR
@@ -80,7 +81,7 @@ namespace DB_EDITOR
         }
 
         //Reset Games Played
-        private void ResetGamesPlayed_Click(object sender, EventArgs e)
+        private void ResetGP_Click(object sender, EventArgs e)
         {
             ResetGP();
         }
@@ -1208,5 +1209,99 @@ namespace DB_EDITOR
 
             MessageBox.Show("Completed! Removed " + counter + " players from the database.");
         }
+
+
+        //TEST - RANKING 
+
+        private void PlayoffRankerButton_Click(object sender, EventArgs e)
+        {
+            PlayoffRanker();
+        }
+        private void PlayoffRanker()
+        {
+            List<List<double>> TeamRankList = new List<List<double>>();
+            StringBuilder rankingOutput = new StringBuilder();
+
+            for (int i = 0; i < GetTableRecCount("TEAM"); i++)
+            {
+                if (GetDBValueInt("TEAM", "TTYP", i) == 0)
+                {
+                    int count = TeamRankList.Count;
+                    List<double> team = new List<double>();
+                    TeamRankList.Add(team);
+                    TeamRankList[count].Add(i); // team record ID in TEAM
+                    TeamRankList[count].Add(0); //total poll score
+                    TeamRankList[count].Add(0); //games played
+                    TeamRankList[count].Add(0); //Normalized Score over games played
+                }
+            }
+
+            for (int i = 0; i < GetTableRecCount("SCHD"); i++)
+            {
+                int awayScore = GetDBValueInt("SCHD", "GASC", i);
+                int awayTeam = GetDBValueInt("SCHD", "GATG", i);
+                int homeScore = GetDBValueInt("SCHD", "GHSC", i);
+                int homeTeam = GetDBValueInt("SCHD", "GHTG", i);
+                int awayRank = GetDBValueInt("TEAM", "TROV", FindTeamRecfromTeamName(teamNameDB[awayTeam]));
+                int homeRank = GetDBValueInt("TEAM", "TROV", FindTeamRecfromTeamName(teamNameDB[homeTeam]));
+
+                if (awayScore > homeScore)
+                {
+                    for (int j = 0; j < TeamRankList.Count; j++)
+                    {
+                        if (GetDBValueInt("TEAM", "TGID", Convert.ToInt32(TeamRankList[j][0])) == awayTeam)
+                        {
+                            TeamRankList[j][1] += homeRank;
+                            TeamRankList[j][2] += 1;
+                        }
+                        if (GetDBValueInt("TEAM", "TGID", Convert.ToInt32(TeamRankList[j][0])) == homeTeam)
+                        {
+                            TeamRankList[j][1] -= (100 - awayRank);
+                            TeamRankList[j][2] += 1;
+                        }
+                    }
+                }
+                else if (homeScore > awayScore)
+                {
+                    for (int j = 0; j < TeamRankList.Count; j++)
+                    {
+                        if (GetDBValueInt("TEAM", "TGID", Convert.ToInt32(TeamRankList[j][0])) == homeTeam)
+                        {
+                            TeamRankList[j][1] += awayRank;
+                            TeamRankList[j][2] += 1;
+                        }
+                        if (GetDBValueInt("TEAM", "TGID", Convert.ToInt32(TeamRankList[j][0])) == awayTeam)
+                        {
+                            TeamRankList[j][1] -= (100 - homeRank);
+                            TeamRankList[j][2] += 1;
+                        }
+                    }
+                }
+            }
+
+            foreach (var team in TeamRankList)
+            {
+                if (team[2] <= 12)
+                    team[3] = team[1] / team[2];
+                else
+                    team[3] = team[1] / 12;
+            }
+
+            TeamRankList.Sort((team1, team2) => team2[3].CompareTo(team1[3]));
+
+            rankingOutput.AppendLine("Team Rankings:\n");
+            for (int i = 0; i < TeamRankList.Count; i++)
+            {
+                ChangeDBInt("TEAM", "TCRK", Convert.ToInt32(TeamRankList[i][0]), i + 1);
+                if (i < 25)
+                    rankingOutput.AppendLine($"{i + 1}. {GetDBValue("TEAM", "TDNA", Convert.ToInt32(TeamRankList[i][0]))} - {TeamRankList[i][3]:F2}");
+
+
+            }
+
+            MessageBox.Show(rankingOutput.ToString(), "Top 25 Rankings");
+            MessageBox.Show("Ranking Update Completed!");
+        }
+
     }
 }

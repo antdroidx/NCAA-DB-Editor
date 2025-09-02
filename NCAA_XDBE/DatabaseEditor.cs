@@ -145,7 +145,7 @@ namespace DB_EDITOR
             tableGridView.Columns.Clear();
 
             tableGridView.ColumnCount = 2;
-            tableGridView.Columns[0].Name = "RecNo";
+            tableGridView.Columns[0].Name = "Rec";
             tableGridView.Columns[0].Width = 45;
             tableGridView.Columns[1].Name = "Name";
             tableGridView.Columns[1].Width = 47;
@@ -299,7 +299,7 @@ namespace DB_EDITOR
             #region Populate column header with field names.
 
             fieldsGridView.ColumnCount = tmpFIELDcount + 2;  // set maximum columns (FieldCount + RecNo + autofill last column)
-            fieldsGridView.Columns[0].Name = "RecNo";
+            fieldsGridView.Columns[0].Name = "Rec";
             fieldsGridView.Columns[0].Width = 47;
 
             progressBar1.Minimum = 0;

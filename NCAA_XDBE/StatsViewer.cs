@@ -74,7 +74,7 @@ namespace DB_EDITOR
 
             foreach (List<int> team in rankings)
             {
-                CoachPollListBox.Items.Add("#" + team[1] + " " + GetDBValue("TEAM", "TDNA", team[0]));
+                CoachPollListBox.Items.Add("#" + team[1] + " " + GetDBValue("TEAM", "TDNA", team[0]) + " (" + GetDBValue("TEAM", "TSWI", team[0]) + "-" + GetDBValue("TEAM", "TSLO", team[0]) + ")");
             }
         }
 

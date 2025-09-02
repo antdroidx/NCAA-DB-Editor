@@ -131,9 +131,9 @@ namespace DB_EDITOR
                         /* GTOD, GATG, GHTG, SESI, SEWN,GDAT, SEWT */
 
                         //Fill Schedules
-                        int tableRec = 0;
                         for (int g = 0; g < template.Count; g++)
                         {
+                            if (template[g][1] == 0 || template[g][2] == 0) continue; //skip bad records
                             int away = tgids[template[g][1] - 1];
                             int home = tgids[template[g][2] - 1];
                             string table = CONFTables[i];
@@ -141,32 +141,48 @@ namespace DB_EDITOR
                             //Add a record
                             TDB.TDBTableRecordAdd(dbIndex2, table, true);
 
-                            ChangeDBInt(table, "GTOD", tableRec, template[g][0]);
-                            ChangeDBInt(table, "GATG", tableRec, away);
-                            ChangeDBInt(table, "GHTG", tableRec, home);
-                            ChangeDBInt(table, "SESI", tableRec, template[g][3]);
-                            ChangeDBInt(table, "SEWN", tableRec, template[g][4]);
-                            ChangeDBInt(table, "GDAT", tableRec, template[g][5]);
-                            ChangeDBInt(table, "SEWT", tableRec, template[g][6]);
+                            ChangeDBInt(table, "GTOD", g, template[g][0]);
+                            ChangeDBInt(table, "GATG", g, away);
+                            ChangeDBInt(table, "GHTG", g, home);
+                            ChangeDBInt(table, "SESI", g, template[g][3]);
+                            ChangeDBInt(table, "SEWN", g, template[g][4]);
+                            ChangeDBInt(table, "GDAT", g, template[g][5]);
+                            ChangeDBInt(table, "SEWT", g, template[g][6]);
 
                             //check for Army-Navy game
                             if(away == 57 & home == 8)
                             {
-                                ChangeDBInt(table, "SEWN", tableRec, 15);
-                                ChangeDBInt(table, "SEWT", tableRec, 15);
+                                ChangeDBInt(table, "SEWN", g, 15);
+                                ChangeDBInt(table, "SEWT", g, 15);
                                 ArmyNavy = true;
                             }
                             else if (away == 8 && home == 57)
                             {
-                                ChangeDBInt(table, "SEWN", tableRec, 15);
-                                ChangeDBInt(table, "SEWT", tableRec, 15);
+                                ChangeDBInt(table, "SEWN", g, 15);
+                                ChangeDBInt(table, "SEWT", g, 15);
                                 ArmyNavy = true;
                             }
-
-                            tableRec++;
                         }
                     }
                 }
+            }
+
+            //Check Schedules for Errors
+            for (int i = 0; i < CONFTables.Count; i++)
+            {
+                string table = CONFTables[i];
+
+                for (int j = 0; j < GetTableRecCount(CONFTables[i]); j++)
+                {
+                    if(GetDBValueInt(table, "GATG", j) == 0 && GetDBValueInt(table, "GHTG", j) == 0)
+                    {
+                        TDB.TDBTableRecordChangeDeleted(dbIndex2, table, j, true);
+                    }
+                }
+
+
+                TDB.TDBDatabaseCompact(dbIndex2);
+
             }
 
         }
