@@ -441,7 +441,7 @@ namespace DB_EDITOR
 
                     //63 total up to here...
 
-                    if (DC77.Checked)
+                    if (DC77.Checked || Next26Mod)
                     {
                         //FBs
                         rec = AddDCHTrecord(rec, 2, 2, DCRoster[TOID]);
@@ -490,7 +490,7 @@ namespace DB_EDITOR
             MessageBox.Show("Depth Charts are complete!");
         }
 
-        public void DepthChartMakerSingle(string tableName, int tgid, int leaguesize)
+        public void DepthChartMakerSingle(string tableName, int tgid, int leaguesize, bool skipPrompt = false)
         {
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
@@ -588,7 +588,7 @@ namespace DB_EDITOR
             //SSs
             rec = AddDCHTrecord(rec, 17, 3, roster);
 
-            if (leaguesize >= 136)
+            if (leaguesize >= 136 || Next26Mod)
             {
                 //FBs
                 rec = AddDCHTrecord(rec, 2, 2, roster);
@@ -629,7 +629,7 @@ namespace DB_EDITOR
 
             progressBar1.Visible = false;
             progressBar1.Value = 0;
-            MessageBox.Show(teamNameDB[tgid] + " Depth Charts are complete!");
+            if(!skipPrompt) MessageBox.Show(teamNameDB[tgid] + " Depth Charts are complete!");
         }
 
         public void DepthChartRemoveTeam(int tgid)

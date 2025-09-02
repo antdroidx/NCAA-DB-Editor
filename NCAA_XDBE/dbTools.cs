@@ -176,7 +176,7 @@ namespace DB_EDITOR
         #region BODY SIZE TOOLS
 
         //Fixes Body Size Models if user does manipulation of the player attributes in the in-game player editor
-        private void RecalculateBodyShape(string tableName)
+        private void RecalculateBodyShape(string tableName, bool skip = false)
         {
 
             /*
@@ -234,7 +234,7 @@ namespace DB_EDITOR
                 RecalculateIndividualBodyShape(i, tableName);
             }
 
-            MessageBox.Show("Body Model updates are complete!");
+            if(!skip) MessageBox.Show("Body Model updates are complete!");
         }
 
         private void RecalculateIndividualBodyShape(int rec, string tableName)
@@ -354,7 +354,7 @@ namespace DB_EDITOR
 
 
         //Recalculates QB Tendencies based on original game criteria
-        private void RecalculateQBTendencies()
+        private void RecalculateQBTendencies(bool skip = false)
         {
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
@@ -395,7 +395,7 @@ namespace DB_EDITOR
 
             progressBar1.Visible = false;
             progressBar1.Value = 0;
-            MessageBox.Show("QB updates are complete!\n\nThe Stats:\n\n* Pocket-Passers: " + pocket + "\n\n* Balanced: " + balanced + "\n\n* Scramblers: " + scrambler);
+            if(!skip) MessageBox.Show("QB updates are complete!\n\nThe Stats:\n\n* Pocket-Passers: " + pocket + "\n\n* Balanced: " + balanced + "\n\n* Scramblers: " + scrambler);
         }
 
         //Randomize Player Potential
@@ -421,7 +421,7 @@ namespace DB_EDITOR
         }
 
         //Recalculate Player Overalls
-        public void RecalculateOverall()
+        public void RecalculateOverall(bool skip = false)
         {
             progressBar1.Visible = true;
             progressBar1.Minimum = 0;
@@ -437,7 +437,7 @@ namespace DB_EDITOR
 
             progressBar1.Visible = false;
             progressBar1.Value = 0;
-            MessageBox.Show("Player Overall Calculations are complete!");
+            if(!skip) MessageBox.Show("Player Overall Calculations are complete!");
         }
 
 

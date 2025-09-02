@@ -47,6 +47,7 @@ namespace DB_EDITOR
         bool TDYN = false;
         public bool TEAM = false;
         public bool NextMod = false;
+        public bool Next26Mod = false;
         bool PlaybookDB = false;
 
         int TeamIndex;
@@ -198,7 +199,7 @@ namespace DB_EDITOR
             tabControl1.TabPages.Remove(tabTools);
             tabControl1.TabPages.Remove(tabCoaches);
             tabControl1.TabPages.Remove(tabConf);
-            tabControl1.TabPages.Remove(tabDev);
+            //tabControl1.TabPages.Remove(tabDev);
             tabControl1.TabPages.Remove(tabPlaybook);
             tabControl1.TabPages.Remove(tabDepthCharts);
             tabControl1.TabPages.Remove(tabRecruits);
@@ -1046,38 +1047,31 @@ namespace DB_EDITOR
             TDB.TDBSave(dbIndex2);
         }
 
-        private void NCAANext25Config_Click(object sender, EventArgs e)
-        {
-            if (NCAANextConfig.Checked)
-            {
-                NCAANextConfig.Checked = false;
-                OGConfigRadio.Checked = true;
-                NextConfigRadio.Checked = false;
-                NextMod = false;
-            }
-            else
-            {
-                NCAANextConfig.Checked = true;
-                OGConfigRadio.Checked = false;
-                NextConfigRadio.Checked = true;
-                NextMod = true;
-            }
-
-            CreatePOCItable();
-        }
 
         private void OGConfigRadio_CheckedChanged(object sender, EventArgs e)
         {
-            NCAANextConfig.Checked = false;
             NextMod = false;
+            Next26Mod = false;
             CreatePOCItable();
+            CreateRatingsDB();
         }
 
         private void NextConfigRadio_CheckedChanged(object sender, EventArgs e)
         {
-            NCAANextConfig.Checked = true;
             NextMod = true;
+            Next26Mod = false;
             CreatePOCItable();
+            CreateRatingsDB();
+
+        }
+
+        private void radioNEXT26_CheckedChanged(object sender, EventArgs e)
+        {
+            NextMod = false;
+            Next26Mod = true;
+            CreatePOCItable();
+            CreateRatingsDB();
+
         }
 
         #endregion
@@ -1124,18 +1118,10 @@ namespace DB_EDITOR
 
         private void StartHomeTab()
         {
-            if (NCAANextConfig.Checked == true)
-            {
-                NextConfigRadio.Checked = true;
-                OGConfigRadio.Checked = false;
-            }
-            else
-            {
-                NextConfigRadio.Checked = false;
-                OGConfigRadio.Checked = true;
-            }
         }
         #endregion
+
+
 
     }
 

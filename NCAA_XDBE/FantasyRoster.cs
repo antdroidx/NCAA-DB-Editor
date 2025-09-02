@@ -44,9 +44,6 @@ namespace DB_EDITOR
             CreateRCATtable();
             CreateFirstNamesDB();
             CreateLastNamesDB();
-            List<List<int>> PJEN = CreateJerseyNumberDB();
-
-            List<List<string>> RCATmapper = CreateStringListsFromCSV(@"resources\players\RCAT-MAPPER.csv", false);
 
             List<List<string>> teamData = new List<List<string>>();
             teamData = CreateStringListsFromCSV(@"resources\FantasyGenData.csv", true);
@@ -80,99 +77,16 @@ namespace DB_EDITOR
             {
                 if (TDYN || GetDBValueInt(tableName, "TTYP", i) == 0)
                 {
-                    List<int> AvailablePJEN = new List<int>();
                     int TOID = GetDBValueInt(tableName, "TOID", i);
                     int PGIDbeg = TOID * 70;
                     int PGIDend = PGIDbeg + 69;
+                    if (Next26Mod) PGIDend = PGIDbeg + 65;
+
                     int rating = GetFantasyTeamRating(teamData, TOID);
                     int ST = 0;
                     int freshmanPCT = 25;
 
-
-                    for (int j = 0; j < MaxFantasyPlayers.Value; j++)
-                    {
-                        //Add a record
-                        AddTableRecord("PLAY", false);
-                        //QB
-                        if (j < 3) TransferRCATtoPLAY(rec, 0, PGIDbeg + j, RCATmapper, PJEN, AvailablePJEN, freshmanPCT);
-
-                        //RB
-                        else if (j < 6) TransferRCATtoPLAY(rec, 1, PGIDbeg + j, RCATmapper, PJEN, AvailablePJEN, freshmanPCT);
-
-                        //FB
-                        else if (j < 7) TransferRCATtoPLAY(rec, 2, PGIDbeg + j, RCATmapper, PJEN, AvailablePJEN, freshmanPCT);
-
-                        //WR
-                        else if (j < 13) TransferRCATtoPLAY(rec, 3, PGIDbeg + j, RCATmapper, PJEN, AvailablePJEN, freshmanPCT);
-
-                        //TE
-                        else if (j < 16) TransferRCATtoPLAY(rec, 4, PGIDbeg + j, RCATmapper, PJEN, AvailablePJEN, freshmanPCT);
-
-                        //LT
-                        else if (j < 18) TransferRCATtoPLAY(rec, 5, PGIDbeg + j, RCATmapper, PJEN, AvailablePJEN, freshmanPCT);
-
-                        //LG
-                        else if (j < 20) TransferRCATtoPLAY(rec, 6, PGIDbeg + j, RCATmapper, PJEN, AvailablePJEN, freshmanPCT);
-
-                        //C
-                        else if (j < 22) TransferRCATtoPLAY(rec, 7, PGIDbeg + j, RCATmapper, PJEN, AvailablePJEN, freshmanPCT);
-
-                        //RG
-                        else if (j < 24) TransferRCATtoPLAY(rec, 8, PGIDbeg + j, RCATmapper, PJEN, AvailablePJEN, freshmanPCT);
-
-                        //RT
-                        else if (j < 26) TransferRCATtoPLAY(rec, 9, PGIDbeg + j, RCATmapper, PJEN, AvailablePJEN, freshmanPCT);
-
-                        //LE
-                        else if (j < 28) TransferRCATtoPLAY(rec, 10, PGIDbeg + j, RCATmapper, PJEN, AvailablePJEN, freshmanPCT);
-
-                        //DT
-                        else if (j < 32) TransferRCATtoPLAY(rec, 11, PGIDbeg + j, RCATmapper, PJEN, AvailablePJEN, freshmanPCT);
-
-                        //RE
-                        else if (j < 34) TransferRCATtoPLAY(rec, 12, PGIDbeg + j, RCATmapper, PJEN, AvailablePJEN, freshmanPCT);
-
-                        //LOLB
-                        else if (j < 36) TransferRCATtoPLAY(rec, 13, PGIDbeg + j, RCATmapper, PJEN, AvailablePJEN, freshmanPCT);
-
-                        //MLB
-                        else if (j < 39) TransferRCATtoPLAY(rec, 14, PGIDbeg + j, RCATmapper, PJEN, AvailablePJEN, freshmanPCT);
-
-                        //ROLB
-                        else if (j < 41) TransferRCATtoPLAY(rec, 15, PGIDbeg + j, RCATmapper, PJEN, AvailablePJEN, freshmanPCT);
-
-                        //CB
-                        else if (j < 46) TransferRCATtoPLAY(rec, 16, PGIDbeg + j, RCATmapper, PJEN, AvailablePJEN, freshmanPCT);
-
-                        //SS
-                        else if (j < 48) TransferRCATtoPLAY(rec, 17, PGIDbeg + j, RCATmapper, PJEN, AvailablePJEN, freshmanPCT);
-
-                        //FS
-                        else if (j < 50) TransferRCATtoPLAY(rec, 18, PGIDbeg + j, RCATmapper, PJEN, AvailablePJEN, freshmanPCT);
-
-                        //K
-                        else if (j < 51) TransferRCATtoPLAY(rec, 19, PGIDbeg + j, RCATmapper, PJEN, AvailablePJEN, freshmanPCT);
-
-                        //P
-                        else if (j < 52) TransferRCATtoPLAY(rec, 20, PGIDbeg + j, RCATmapper, PJEN, AvailablePJEN, freshmanPCT);
-
-                        else
-                        {
-                            if (ST < 1)
-                            {
-                                TransferRCATtoPLAY(rec, rand.Next(0, 21), PGIDbeg + j, RCATmapper, PJEN, AvailablePJEN, freshmanPCT);
-                                ST++;
-                            }
-                            else TransferRCATtoPLAY(rec, rand.Next(0, 19), PGIDbeg + j, RCATmapper, PJEN, AvailablePJEN, freshmanPCT);
-                        }
-
-
-                        //randomizes the attributes from team overall
-                        RandomizeAttribute("PLAY", rec, rating + GetDBValueInt("PLAY", "PYER", rec) - 1);
-
-
-                        rec++;
-                    }
+                    FantasyRosterGeneratorSingle(TOID, rating, true);   
 
                     //Finish team and perform step counter
                     progressBar1.PerformStep();
@@ -193,12 +107,15 @@ namespace DB_EDITOR
 
         }
 
-        public void FantasyRosterGeneratorSingle(int tgid, int rating)
+        public void FantasyRosterGeneratorSingle(int tgid, int rating, bool skipPrompt = false)
         {
 
-            //Remove existing Players
-            ClearTeamPlayers(tgid);
-
+            if (!skipPrompt)
+            {
+                //Remove existing Players
+                ClearTeamPlayers(tgid);
+                CreateTeamDB();
+            }
 
             //Clear Old Stats
             ClearOldTeamStats(tgid);
@@ -207,8 +124,6 @@ namespace DB_EDITOR
             CreateRCATtable();
             CreateFirstNamesDB();
             CreateLastNamesDB();
-            CreateTeamDB();
-
 
             List<List<int>> PJEN = CreateJerseyNumberDB();
             List<int> AvailablePJEN = new List<int>();
@@ -217,15 +132,19 @@ namespace DB_EDITOR
 
             int rec = GetTableRecCount("PLAY");
             int PGIDbeg = tgid * 70;
-            int PGIDend = PGIDbeg + 69;
+            int end = 69;
+            if (Next26Mod) end = 65;
+            int PGIDend = PGIDbeg + end;
             int ST = 0;
             int freshmanPCT = 25;
 
 
-            for (int j = 0; j < 68; j++)
+            for (int j = 0; j < end; j++)
             {
                 //Add a record
-                AddTableRecord("PLAY", false);
+                if (GetTableRecCount("PLAY") < rec + 1)
+                    AddTableRecord("PLAY", true);
+                else AddTableRecord("PLAY", false);
 
                 //QB
                 if (j < 3) TransferRCATtoPLAY(rec, 0, PGIDbeg + j, RCATmapper, PJEN, AvailablePJEN, freshmanPCT);
@@ -303,12 +222,15 @@ namespace DB_EDITOR
 
 
                 //randomizes the attributes from team overall
-                RandomizeAttribute("PLAY", rec, rating + GetDBValueInt("PLAY", "PYER", rec) - 1);
+                RandomizeAttribute("PLAY", rec, rating);
                 rec++;
             }
 
+            RecalculateOverall(true);
+            RecalculateBodyShape("PLAY", true);
+            RecalculateQBTendencies(true);
 
-            MessageBox.Show(teamNameDB[tgid] + " Roster has been generated.");
+            if (!skipPrompt) MessageBox.Show(teamNameDB[tgid] + " Roster has been generated.");
         }
 
 
@@ -407,11 +329,13 @@ namespace DB_EDITOR
         }
 
         //Randomize the Players to give a little bit more variety and evaluation randomness
-        private void RandomizeAttribute(string TableName, int rec, int tol)
+        private void RandomizeAttribute(string TableName, int rec, int teamRating)
         {
-            tol += 3 - GetDBValueInt("PLAY", "PYER", rec);
+            int tolEXP = (int)(GetDBValueInt("PLAY", "PYER", rec)*2.5);
+       
+            int tolRAND = 3;  //half the tolerance for specific attributes
 
-            int tolB = tol / 2;  //half the tolerance for specific attributes
+            teamRating = (int)((teamRating-3)*4);
 
             //PTHA	PSTA	PKAC	PACC	PSPD	PPOE	PCTH	PAGI	PINJ	PTAK	PPBK	PRBK	PBTK	PTHP	PJMP	PCAR	PKPR	PSTR	PAWR
             //PPOE, PINJ, PAWR
@@ -449,62 +373,108 @@ namespace DB_EDITOR
             if (PHGT > 82) PHGT = 82;
             if (PHGT < 0) PHGT = 0;
 
-            PPOE = rand.Next(1, 30);
+            PPOE = rand.Next(1, 31);
             PINJ = rand.Next(1, maxRatingVal);
-            PIMP = rand.Next(1, 30);
-            PAWR = GetRandomPositiveAttribute(PAWR, tolB);
+            PIMP = rand.Next(1, maxRatingVal);
             PDIS = rand.Next(2, 7);
 
-            PSTA = GetRandomPositiveAttribute(PSTA, tol);
-            PKAC = GetRandomPositiveAttribute(PKAC, tol);
-            PACC = GetRandomPositiveAttribute(PACC, tolB);
-            PSPD = GetRandomPositiveAttribute(PSPD, tolB);
-            PCTH = GetRandomPositiveAttribute(PCTH, tol);
-            PAGI = GetRandomPositiveAttribute(PAGI, tolB);
-            PTAK = GetRandomPositiveAttribute(PTAK, tol);
-            PPBK = GetRandomPositiveAttribute(PPBK, tol);
-            PRBK = GetRandomPositiveAttribute(PRBK, tol);
-            PBTK = GetRandomPositiveAttribute(PBTK, tol);
 
-            PJMP = GetRandomPositiveAttribute(PJMP, tol);
-            PCAR = GetRandomPositiveAttribute(PCAR, tol);
-            PKPR = GetRandomPositiveAttribute(PKPR, tol);
-            PSTR = GetRandomPositiveAttribute(PSTR, tol);
+            //Add team rating factor
+            PAWR = GetRandomPositiveAttribute(PAWR, teamRating);
+            PSTA = GetRandomPositiveAttribute(PSTA, teamRating);
+            PKAC = GetRandomPositiveAttribute(PKAC, teamRating);
+            PACC = GetRandomPositiveAttribute(PACC, teamRating);
+            PSPD = GetRandomPositiveAttribute(PSPD, teamRating);
+            PCTH = GetRandomPositiveAttribute(PCTH, teamRating);
+            PAGI = GetRandomPositiveAttribute(PAGI, teamRating);
+            PTAK = GetRandomPositiveAttribute(PTAK, teamRating);
+            PPBK = GetRandomPositiveAttribute(PPBK, teamRating);
+            PRBK = GetRandomPositiveAttribute(PRBK, teamRating);
+            PBTK = GetRandomPositiveAttribute(PBTK, teamRating);
+
+            PJMP = GetRandomPositiveAttribute(PJMP, teamRating);
+            PCAR = GetRandomPositiveAttribute(PCAR, teamRating);
+            PKPR = GetRandomPositiveAttribute(PKPR, teamRating);
+            PSTR = GetRandomPositiveAttribute(PSTR, teamRating);
 
             if (GetDBValueInt("PLAY", "PPOS", rec) == 0)
             {
-                PTHA = GetRandomPositiveAttribute(PTHA, tol);
-                PTHP = GetRandomPositiveAttribute(PTHP, tol);
+                PTHA = GetRandomPositiveAttribute(PTHA, teamRating);
+                PTHP = GetRandomPositiveAttribute(PTHP, teamRating);
             }
 
 
-            ChangeDBString(TableName, "PBRE", rec, Convert.ToString(PBRE));
-            ChangeDBString(TableName, "PEYE", rec, Convert.ToString(PEYE));
-            ChangeDBString(TableName, "PPOE", rec, Convert.ToString(PPOE));
-            ChangeDBString(TableName, "PINJ", rec, Convert.ToString(PINJ));
-            ChangeDBString(TableName, "PAWR", rec, Convert.ToString(PAWR));
-            ChangeDBString(TableName, "PHGT", rec, Convert.ToString(PHGT));
-            ChangeDBString(TableName, "PWGT", rec, Convert.ToString(PWGT));
+            //Randomizer
+            PAWR = GetRandomAttribute(PAWR, tolRAND);
+            PSTA = GetRandomAttribute(PSTA, tolRAND);
+            PKAC = GetRandomAttribute(PKAC, tolRAND);
+            PACC = GetRandomAttribute(PACC, tolRAND);
+            PSPD = GetRandomAttribute(PSPD, tolRAND);
+            PCTH = GetRandomAttribute(PCTH, tolRAND);
+            PAGI = GetRandomAttribute(PAGI, tolRAND);
+            PTAK = GetRandomAttribute(PTAK, tolRAND);
+            PPBK = GetRandomAttribute(PPBK, tolRAND);
+            PRBK = GetRandomAttribute(PRBK, tolRAND);
+            PBTK = GetRandomAttribute(PBTK, tolRAND);
+
+            PJMP = GetRandomAttribute(PJMP, tolRAND);
+            PCAR = GetRandomAttribute(PCAR, tolRAND);
+            PKPR = GetRandomAttribute(PKPR, tolRAND);
+            PSTR = GetRandomAttribute(PSTR, tolRAND);
 
 
-            ChangeDBString(TableName, "PTHA", rec, Convert.ToString(PTHA));
-            ChangeDBString(TableName, "PSTA", rec, Convert.ToString(PSTA));
-            ChangeDBString(TableName, "PKAC", rec, Convert.ToString(PKAC));
-            ChangeDBString(TableName, "PACC", rec, Convert.ToString(PACC));
-            ChangeDBString(TableName, "PSPD", rec, Convert.ToString(PSPD));
-            ChangeDBString(TableName, "PCTH", rec, Convert.ToString(PCTH));
-            ChangeDBString(TableName, "PAGI", rec, Convert.ToString(PAGI));
-            ChangeDBString(TableName, "PTAK", rec, Convert.ToString(PTAK));
-            ChangeDBString(TableName, "PPBK", rec, Convert.ToString(PPBK));
-            ChangeDBString(TableName, "PRBK", rec, Convert.ToString(PRBK));
-            ChangeDBString(TableName, "PBTK", rec, Convert.ToString(PBTK));
-            ChangeDBString(TableName, "PTHP", rec, Convert.ToString(PTHP));
-            ChangeDBString(TableName, "PJMP", rec, Convert.ToString(PJMP));
-            ChangeDBString(TableName, "PCAR", rec, Convert.ToString(PCAR));
-            ChangeDBString(TableName, "PKPR", rec, Convert.ToString(PKPR));
-            ChangeDBString(TableName, "PSTR", rec, Convert.ToString(PSTR));
-            ChangeDBString(TableName, "PIMP", rec, Convert.ToString(PIMP));
-            ChangeDBString(TableName, "PDIS", rec, Convert.ToString(PDIS));
+            //Add Year Experience
+            PAWR = GetRandomPositiveAttribute(PAWR, tolEXP);
+            PSTA = GetRandomPositiveAttribute(PSTA, tolEXP);
+            PKAC = GetRandomPositiveAttribute(PKAC, tolEXP);
+            PACC = GetRandomPositiveAttribute(PACC, tolEXP);
+            PSPD = GetRandomPositiveAttribute(PSPD, tolEXP);
+            PCTH = GetRandomPositiveAttribute(PCTH, tolEXP);
+            PAGI = GetRandomPositiveAttribute(PAGI, tolEXP);
+            PTAK = GetRandomPositiveAttribute(PTAK, tolEXP);
+            PPBK = GetRandomPositiveAttribute(PPBK, tolEXP);
+            PRBK = GetRandomPositiveAttribute(PRBK, tolEXP);
+            PBTK = GetRandomPositiveAttribute(PBTK, tolEXP);
+
+            PJMP = GetRandomPositiveAttribute(PJMP, tolEXP);
+            PCAR = GetRandomPositiveAttribute(PCAR, tolEXP);
+            PKPR = GetRandomPositiveAttribute(PKPR, tolEXP);
+            PSTR = GetRandomPositiveAttribute(PSTR, tolEXP);
+
+            if (GetDBValueInt("PLAY", "PPOS", rec) == 0)
+            {
+                PTHA = GetRandomPositiveAttribute(PTHA, tolEXP);
+                PTHP = GetRandomPositiveAttribute(PTHP, tolEXP);
+            }
+
+
+            ChangeDBInt(TableName, "PBRE", rec, PBRE);
+            ChangeDBInt(TableName, "PEYE", rec, PEYE);
+            ChangeDBInt(TableName, "PPOE", rec, PPOE);
+            ChangeDBInt(TableName, "PINJ", rec, PINJ);
+            ChangeDBInt(TableName, "PAWR", rec, PAWR);
+            ChangeDBInt(TableName, "PHGT", rec, PHGT);
+            ChangeDBInt(TableName, "PWGT", rec, PWGT);
+
+
+            ChangeDBInt(TableName, "PTHA", rec, PTHA);
+            ChangeDBInt(TableName, "PSTA", rec, PSTA);
+            ChangeDBInt(TableName, "PKAC", rec, PKAC);
+            ChangeDBInt(TableName, "PACC", rec, PACC);
+            ChangeDBInt(TableName, "PSPD", rec, PSPD);
+            ChangeDBInt(TableName, "PCTH", rec, PCTH);
+            ChangeDBInt(TableName, "PAGI", rec, PAGI);
+            ChangeDBInt(TableName, "PTAK", rec, PTAK);
+            ChangeDBInt(TableName, "PPBK", rec, PPBK);
+            ChangeDBInt(TableName, "PRBK", rec, PRBK);
+            ChangeDBInt(TableName, "PBTK", rec, PBTK);
+            ChangeDBInt(TableName, "PTHP", rec, PTHP);
+            ChangeDBInt(TableName, "PJMP", rec, PJMP);
+            ChangeDBInt(TableName, "PCAR", rec, PCAR);
+            ChangeDBInt(TableName, "PKPR", rec, PKPR);
+            ChangeDBInt(TableName, "PSTR", rec, PSTR);
+            ChangeDBInt(TableName, "PIMP", rec, PIMP);
+            ChangeDBInt(TableName, "PDIS", rec, PDIS);
 
             RandomizePlayerHead(TableName, rec);
 
@@ -696,7 +666,7 @@ namespace DB_EDITOR
             ChangeDBInt("COCH", "CRPC", rec, recruit);
 
             //playbook & strategy
-            if (NextMod) ChangeDBInt("COCH", "CPID", rec, rand.Next(136, 159));
+            if (NextMod || Next26Mod) ChangeDBInt("COCH", "CPID", rec, rand.Next(136, 159));
             else ChangeDBInt("COCH", "CPID", rec, rand.Next(0, 125));
 
             ChangeDBInt("COCH", "COST", rec, rand.Next(0, 5));

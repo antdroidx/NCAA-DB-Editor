@@ -1041,6 +1041,16 @@ namespace DB_EDITOR.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] POCI_NEXT26 {
+            get {
+                object obj = ResourceManager.GetObject("POCI-NEXT26", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to LUVL,LURT
         ///0,40
         ///1,44
@@ -1172,6 +1182,16 @@ namespace DB_EDITOR.Properties {
         internal static string RCAT_NEXT {
             get {
                 return ResourceManager.GetString("RCAT_NEXT", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] RCAT_NEXT26 {
+            get {
+                object obj = ResourceManager.GetObject("RCAT-NEXT26", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         

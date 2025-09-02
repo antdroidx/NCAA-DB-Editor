@@ -527,7 +527,7 @@ namespace DB_EDITOR
 
 
                 //randomizes the attributes from team overall
-                RandomizeAttribute("PLAY", rec, rating + GetDBValueInt("PLAY", "PYER", rec) - 1);
+                RandomizeAttribute("PLAY", rec, rating);
                 rec++;
             }
 

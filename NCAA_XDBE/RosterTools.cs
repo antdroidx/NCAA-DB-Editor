@@ -564,7 +564,7 @@ namespace DB_EDITOR
 
 
             int recruitsCreated = 0;
-            double totalRecruits = RecruitsList.Count; 
+            double totalRecruits = RecruitsList.Count;
 
 
             for (int i = 0; i < RecruitsList.Count; i++)
@@ -575,7 +575,7 @@ namespace DB_EDITOR
                 int team = Convert.ToInt32(RecruitsList[i][3]);
                 int height = Convert.ToInt32(RecruitsList[i][4]);
                 int weight = Convert.ToInt32(RecruitsList[i][5]);
-                int rating = Convert.ToInt32(Math.Round(5 * ((totalRecruits - Convert.ToDouble(i)) / totalRecruits))); 
+                int rating = Convert.ToInt32(Math.Round(5 * ((totalRecruits - Convert.ToDouble(i)) / totalRecruits)));
 
                 if (teamList.Contains(team))
                 {
@@ -648,7 +648,7 @@ namespace DB_EDITOR
 
                     ChangeDBInt("PLAY", "PHGT", rec, height); //Height
 
-                    if(weight>=0) ChangeDBInt("PLAY", "PWGT", rec, weight); //Weight
+                    if (weight >= 0) ChangeDBInt("PLAY", "PWGT", rec, weight); //Weight
 
                     ConvertFirstNameStringToInt(FN, rec, "PLAY");
                     ConvertLastNameStringToInt(LN, rec, "PLAY");
@@ -660,6 +660,114 @@ namespace DB_EDITOR
                 }
             }
         }
+
+
+        //LEAGUE.DAT ROSTER TOOLS
+
+        private void buttonLEAGUEROSTERS_Click(object sender, EventArgs e)
+        {
+            BuildLeagueRosters();
+        }
+
+
+        private void BuildLeagueRosters()
+        {
+            for (int i = 1; i < 250; i++)
+            {
+               ClearLEAGUERoster();
+                CreateRoster(i);
+                SaveRoster(i);
+                progressBar1.PerformStep();
+            }
+            //MessageBox.Show("LEAGUE.DAT Rosters Created");
+
+            LoadLeagueDAT();
+            MessageBox.Show("LEAGUE.DAT Updated");
+        }
+
+        private void ClearLEAGUERoster()
+        {
+            for (int i = 0; i < GetTableRecCount("PLAY"); i++)
+            {
+                DeleteRecord("PLAY", i, true);
+            }
+            for (int i = 0; i < GetTableRecCount("DCHT"); i++)
+            {
+                DeleteRecord("DCHT", i, true);
+            }
+            CompactDB();
+        }
+
+        private void CreateRoster(int i)
+        {
+            FantasyRosterGeneratorSingle(i, 0, true);
+            RecalculateOverall(true);
+            DepthChartMakerSingle("PLAY", i, 136, true);
+            
+            CompactDB();
+        }
+
+        private void SaveRoster(int i)
+        {
+            TDB.TDBSave(0);
+            string location = Path.GetDirectoryName(dbFile);
+            File.Copy(dbFile, location + @"\TGID_" + i, true);
+        }
+
+
+        //DAT PATCHER
+
+        private void LoadLeagueDAT()
+        {
+            string location = Path.GetDirectoryName(dbFile);
+            string leaguefile = location + @"\LEAGUE.DAT";
+
+            byte[] array = File.ReadAllBytes(leaguefile);
+            byte[] pattern = new byte[] { 0x44, 0x42, 0x00, 0x08, 0x00, 0x00, 0x00, 0x00 };
+            int blockSize = 0x1474; // 5236 bytes
+
+            int i = 0;
+            int team = 0;
+            while (i < array.Length - pattern.Length)
+            {
+                bool match = true;
+                for (int j = 0; j < pattern.Length; j++)
+                {
+                    if (array[i + j] != pattern[j])
+                    {
+                        match = false;
+                        break;
+                    }
+                }
+
+                if (match)
+                {
+                    int offset = i;
+                    string tgidFile = location + @"\TGID_" + team;
+
+                    if (File.Exists(tgidFile))
+                    {
+                        byte[] tgidData = File.ReadAllBytes(tgidFile);
+                        Buffer.BlockCopy(tgidData, 0, array, offset, Math.Min(tgidData.Length, blockSize));
+                        
+                    }
+
+
+                    // Skip ahead by the size of one team's data block
+                    i += blockSize;
+                    team++;
+                }
+                else
+                {
+                    i++;
+                }
+            }
+
+            // Save the modified LEAGUE.DAT
+            string newLeagueFile = location + @"\LEAGUE_NEW.DAT";
+            File.WriteAllBytes(newLeagueFile, array);
+        }
+
 
     }
 }

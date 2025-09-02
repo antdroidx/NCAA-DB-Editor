@@ -618,7 +618,7 @@ namespace DB_EDITOR
                 AWRHmem = GetDBValueInt("PLAY", "PAWR", PlayerIndex);
                 double hit = 0.19;
 
-                if (NextMod)  hit = 0.08;
+                if (NextMod || !Next26Mod)  hit = 0.08;
 
                 ResetPlayerPOSbutton.Visible = true;
 

@@ -372,22 +372,29 @@ namespace DB_EDITOR
         {
             CoachPlaybookBox.Items.Clear();
             List<List<string>> pb = CreatePlaybookNames();
-                //136-158 next ||  124 and below is vanilla
+            //136-158 next ||  124 and below is vanilla
 
-                if (GetDBValueInt("COCH", "CPID", CoachIndex) > 135)
+            if (GetDBValueInt("COCH", "CPID", CoachIndex) > 135 || GetDBValueInt("COCH", "CPID", CoachIndex) < 161)
+            {
+                for (int i = 136; i < pb.Count-2; i++)
                 {
-                    for (int i = 136; i < pb.Count; i++)
-                    {
-                        CoachPlaybookBox.Items.Add(pb[i][1]);
-                    }
+                    CoachPlaybookBox.Items.Add(pb[i][1]);
                 }
-                else
+            }
+            else if (GetDBValueInt("COCH", "CPID", CoachIndex) > 135)
+            {
+                for (int i = 136; i < pb.Count; i++)
                 {
-                    for (int i = 0; i <= 124; i++)
-                    {
-                        CoachPlaybookBox.Items.Add(pb[i][1]);
-                    }
+                    CoachPlaybookBox.Items.Add(pb[i][1]);
                 }
+            }
+            else
+            {
+                for (int i = 0; i <= 124; i++)
+                {
+                    CoachPlaybookBox.Items.Add(pb[i][1]);
+                }
+            }
         }
 
         private int GetCoachPlaybookSelectedIndex()
@@ -1010,6 +1017,36 @@ namespace DB_EDITOR
             MessageBox.Show("Team Rating Calculations are complete!");
 
 
+        }
+
+        private void ResetCoachStatsButton_Click(object sender, EventArgs e)
+        {
+           ResetCoachStats();
+        }
+
+        private void ResetCoachStats()
+        {
+            
+            for(int i = 0; i < GetTableRecCount("COCH"); i++)
+            {
+                ChangeDBInt("COCH", "CYCD", i, 0);
+                ChangeDBInt("COCH", "CTYR", i, 0);
+                ChangeDBInt("COCH", "CSWI", i, 0);
+                ChangeDBInt("COCH", "CSLO", i, 0);
+                ChangeDBInt("COCH", "CBLW", i, 0);
+                ChangeDBInt("COCH", "CBLL", i, 0);
+                ChangeDBInt("COCH", "CTTW", i, 0);
+                ChangeDBInt("COCH", "CTTL", i, 0);
+                ChangeDBInt("COCH", "CCWI", i, 0);
+                ChangeDBInt("COCH", "CCLO", i, 0);
+                ChangeDBInt("COCH", "CCWS", i, 0);
+                ChangeDBInt("COCH", "CNTW", i, 0);
+                ChangeDBInt("COCH", "CCTW", i, 0);
+            }
+
+
+
+            MessageBox.Show("Coach Stats Reset!");
         }
 
         #endregion

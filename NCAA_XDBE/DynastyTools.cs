@@ -157,7 +157,7 @@ namespace DB_EDITOR
                         if (PGID == GetDBValue("PLAY", "PGID", j))
                         {
                             //checks to see if player has only played 4 or less games
-                            if (NextMod)
+                            if (NextMod || Next26Mod)
                             {
                                 if (Convert.ToInt32(GetDBValue("PLAY", "PL13", j)) <= 4 && GetDBValue("PLAY", "PRSD", j) != "1")
                                 {
@@ -271,7 +271,7 @@ namespace DB_EDITOR
              * 91-120 0
              * */
 
-            if (!NextMod)
+            if (!NextMod || !Next26Mod)
             {
                 string coach = "";
                 for (int i = 0; i < GetTableRecCount("COCH"); i++)

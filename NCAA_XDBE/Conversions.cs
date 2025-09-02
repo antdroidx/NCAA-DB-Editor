@@ -244,7 +244,8 @@ namespace DB_EDITOR
             RCAT = new List<List<int>>();
             string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             string csvLocation = Path.Combine(executableLocation, @"resources\RCAT.csv");
-            if (NCAANextConfig.Checked) csvLocation = Path.Combine(executableLocation, @"resources\RCAT-NEXT.csv");
+            if (NextMod) csvLocation = Path.Combine(executableLocation, @"resources\RCAT-NEXT.csv");
+            else if (Next26Mod) csvLocation = Path.Combine(executableLocation, @"resources\RCAT-NEXT26.csv");
 
             string filePath = csvLocation;
             StreamReader sr = new StreamReader(filePath);
@@ -671,7 +672,8 @@ namespace DB_EDITOR
             string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             string csvLocation = Path.Combine(executableLocation, @"resources\POCI.csv");
 
-            if (NCAANextConfig.Checked) csvLocation = Path.Combine(executableLocation, @"resources\POCI-NEXT.csv");
+            if (NextMod) csvLocation = Path.Combine(executableLocation, @"resources\POCI-NEXT.csv");
+            else if (Next26Mod) csvLocation = Path.Combine(executableLocation, @"resources\POCI-NEXT26.csv");
 
             string filePath = csvLocation;
             StreamReader sr = new StreamReader(filePath);
@@ -1367,11 +1369,14 @@ namespace DB_EDITOR
 
         public int GetRandomPositiveAttribute(int attribute, int tol)
         {
+            if (Next26Mod) tol = (int)(tol * 1.0);
             Random rand = new Random();
 
-            attribute += rand.Next(0, tol + 1);
+            if (tol < 0) attribute += rand.Next(tol, 0);
+            else attribute += rand.Next(0, tol + 1);
 
-            if (attribute < 0) attribute = 0; if (attribute > maxRatingVal) attribute = maxRatingVal;
+            if (attribute < minRatingVal) attribute = minRatingVal; 
+            if (attribute > maxRatingVal) attribute = maxRatingVal;
 
             return attribute;
         }
