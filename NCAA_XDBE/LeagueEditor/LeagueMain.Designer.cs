@@ -465,7 +465,7 @@ namespace DB_EDITOR
             // 
             progressBar1.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             progressBar1.BackColor = SystemColors.Control;
-            progressBar1.Location = new Point(974, 932);
+            progressBar1.Location = new Point(974, 912);
             progressBar1.Name = "progressBar1";
             progressBar1.Size = new Size(200, 23);
             progressBar1.TabIndex = 1;
@@ -597,7 +597,7 @@ namespace DB_EDITOR
             TablePropsgroupBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             TablePropsgroupBox.Controls.Add(TablePropsLabel);
             TablePropsgroupBox.ForeColor = SystemColors.ScrollBar;
-            TablePropsgroupBox.Location = new Point(19, 925);
+            TablePropsgroupBox.Location = new Point(19, 905);
             TablePropsgroupBox.Name = "TablePropsgroupBox";
             TablePropsgroupBox.Size = new Size(345, 31);
             TablePropsgroupBox.TabIndex = 7;
@@ -609,7 +609,7 @@ namespace DB_EDITOR
             FieldsPropsgroupBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
             FieldsPropsgroupBox.Controls.Add(FieldsPropsLabel);
             FieldsPropsgroupBox.ForeColor = SystemColors.ScrollBar;
-            FieldsPropsgroupBox.Location = new Point(367, 925);
+            FieldsPropsgroupBox.Location = new Point(367, 905);
             FieldsPropsgroupBox.Name = "FieldsPropsgroupBox";
             FieldsPropsgroupBox.Size = new Size(345, 31);
             FieldsPropsgroupBox.TabIndex = 4;
@@ -721,7 +721,7 @@ namespace DB_EDITOR
             tabConf.Location = new Point(4, 24);
             tabConf.Name = "tabConf";
             tabConf.Padding = new Padding(3);
-            tabConf.Size = new Size(1158, 1022);
+            tabConf.Size = new Size(1158, 1002);
             tabConf.TabIndex = 9;
             tabConf.Text = "Conferences";
             tabConf.MouseDown += MouseDown_Click;
@@ -730,7 +730,7 @@ namespace DB_EDITOR
             // 
             groupBox2.Controls.Add(radio136);
             groupBox2.Controls.Add(radio120);
-            groupBox2.Location = new Point(642, 839);
+            groupBox2.Location = new Point(972, 47);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(180, 51);
             groupBox2.TabIndex = 111;
@@ -763,7 +763,7 @@ namespace DB_EDITOR
             // 
             label31.AutoSize = true;
             label31.BackColor = Color.LightCoral;
-            label31.Location = new Point(21, 432);
+            label31.Location = new Point(21, 425);
             label31.Name = "label31";
             label31.Size = new Size(104, 13);
             label31.TabIndex = 108;
@@ -773,7 +773,7 @@ namespace DB_EDITOR
             // 
             label32.AutoSize = true;
             label32.BackColor = Color.LightCoral;
-            label32.Location = new Point(177, 432);
+            label32.Location = new Point(177, 425);
             label32.Name = "label32";
             label32.Size = new Size(104, 13);
             label32.TabIndex = 107;
@@ -783,7 +783,7 @@ namespace DB_EDITOR
             // 
             label33.AutoSize = true;
             label33.BackColor = Color.LightCoral;
-            label33.Location = new Point(331, 432);
+            label33.Location = new Point(331, 425);
             label33.Name = "label33";
             label33.Size = new Size(104, 13);
             label33.TabIndex = 106;
@@ -793,7 +793,7 @@ namespace DB_EDITOR
             // 
             label34.AutoSize = true;
             label34.BackColor = Color.LightCoral;
-            label34.Location = new Point(487, 432);
+            label34.Location = new Point(487, 425);
             label34.Name = "label34";
             label34.Size = new Size(104, 13);
             label34.TabIndex = 105;
@@ -803,7 +803,7 @@ namespace DB_EDITOR
             // 
             label35.AutoSize = true;
             label35.BackColor = Color.LightCoral;
-            label35.Location = new Point(645, 432);
+            label35.Location = new Point(645, 425);
             label35.Name = "label35";
             label35.Size = new Size(104, 13);
             label35.TabIndex = 104;
@@ -813,7 +813,7 @@ namespace DB_EDITOR
             // 
             label36.AutoSize = true;
             label36.BackColor = Color.LightCoral;
-            label36.Location = new Point(801, 432);
+            label36.Location = new Point(801, 425);
             label36.Name = "label36";
             label36.Size = new Size(104, 13);
             label36.TabIndex = 103;
@@ -884,7 +884,7 @@ namespace DB_EDITOR
             ClearLeagueButton.BackColor = Color.SlateBlue;
             ClearLeagueButton.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             ClearLeagueButton.ForeColor = SystemColors.Control;
-            ClearLeagueButton.Location = new Point(975, 3);
+            ClearLeagueButton.Location = new Point(975, 6);
             ClearLeagueButton.Name = "ClearLeagueButton";
             ClearLeagueButton.Size = new Size(161, 25);
             ClearLeagueButton.TabIndex = 96;
@@ -897,7 +897,7 @@ namespace DB_EDITOR
             RemoveButton.BackColor = Color.SlateBlue;
             RemoveButton.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             RemoveButton.ForeColor = SystemColors.Control;
-            RemoveButton.Location = new Point(975, 720);
+            RemoveButton.Location = new Point(972, 606);
             RemoveButton.Name = "RemoveButton";
             RemoveButton.Size = new Size(161, 37);
             RemoveButton.TabIndex = 95;
@@ -911,16 +911,16 @@ namespace DB_EDITOR
             LeagueTeamsLabel.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             LeagueTeamsLabel.Location = new Point(6, 3);
             LeagueTeamsLabel.Name = "LeagueTeamsLabel";
-            LeagueTeamsLabel.Size = new Size(118, 18);
+            LeagueTeamsLabel.Size = new Size(156, 18);
             LeagueTeamsLabel.TabIndex = 94;
-            LeagueTeamsLabel.Text = "League Teams";
+            LeagueTeamsLabel.Text = "League Teams XXX";
             // 
             // AddButton
             // 
             AddButton.BackColor = Color.RoyalBlue;
             AddButton.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             AddButton.ForeColor = SystemColors.Control;
-            AddButton.Location = new Point(975, 677);
+            AddButton.Location = new Point(972, 563);
             AddButton.Name = "AddButton";
             AddButton.Size = new Size(161, 37);
             AddButton.TabIndex = 93;
@@ -931,7 +931,7 @@ namespace DB_EDITOR
             // label19
             // 
             label19.AutoSize = true;
-            label19.Location = new Point(859, 797);
+            label19.Location = new Point(859, 785);
             label19.Name = "label19";
             label19.Size = new Size(48, 13);
             label19.TabIndex = 92;
@@ -940,7 +940,7 @@ namespace DB_EDITOR
             // label20
             // 
             label20.AutoSize = true;
-            label20.Location = new Point(701, 797);
+            label20.Location = new Point(701, 785);
             label20.Name = "label20";
             label20.Size = new Size(48, 13);
             label20.TabIndex = 91;
@@ -949,7 +949,7 @@ namespace DB_EDITOR
             // label21
             // 
             label21.AutoSize = true;
-            label21.Location = new Point(543, 797);
+            label21.Location = new Point(543, 785);
             label21.Name = "label21";
             label21.Size = new Size(48, 13);
             label21.TabIndex = 90;
@@ -958,7 +958,7 @@ namespace DB_EDITOR
             // label22
             // 
             label22.AutoSize = true;
-            label22.Location = new Point(387, 797);
+            label22.Location = new Point(387, 785);
             label22.Name = "label22";
             label22.Size = new Size(48, 13);
             label22.TabIndex = 89;
@@ -967,7 +967,7 @@ namespace DB_EDITOR
             // label23
             // 
             label23.AutoSize = true;
-            label23.Location = new Point(233, 797);
+            label23.Location = new Point(233, 785);
             label23.Name = "label23";
             label23.Size = new Size(48, 13);
             label23.TabIndex = 88;
@@ -976,7 +976,7 @@ namespace DB_EDITOR
             // label24
             // 
             label24.AutoSize = true;
-            label24.Location = new Point(77, 797);
+            label24.Location = new Point(77, 785);
             label24.Name = "label24";
             label24.Size = new Size(48, 13);
             label24.TabIndex = 87;
@@ -985,7 +985,7 @@ namespace DB_EDITOR
             // label17
             // 
             label17.AutoSize = true;
-            label17.Location = new Point(861, 398);
+            label17.Location = new Point(861, 393);
             label17.Name = "label17";
             label17.Size = new Size(48, 13);
             label17.TabIndex = 86;
@@ -994,7 +994,7 @@ namespace DB_EDITOR
             // label18
             // 
             label18.AutoSize = true;
-            label18.Location = new Point(703, 398);
+            label18.Location = new Point(703, 393);
             label18.Name = "label18";
             label18.Size = new Size(48, 13);
             label18.TabIndex = 85;
@@ -1003,7 +1003,7 @@ namespace DB_EDITOR
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new Point(545, 398);
+            label15.Location = new Point(545, 393);
             label15.Name = "label15";
             label15.Size = new Size(48, 13);
             label15.TabIndex = 84;
@@ -1012,7 +1012,7 @@ namespace DB_EDITOR
             // label16
             // 
             label16.AutoSize = true;
-            label16.Location = new Point(389, 398);
+            label16.Location = new Point(389, 393);
             label16.Name = "label16";
             label16.Size = new Size(48, 13);
             label16.TabIndex = 83;
@@ -1021,7 +1021,7 @@ namespace DB_EDITOR
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new Point(235, 398);
+            label14.Location = new Point(235, 393);
             label14.Name = "label14";
             label14.Size = new Size(48, 13);
             label14.TabIndex = 82;
@@ -1030,7 +1030,7 @@ namespace DB_EDITOR
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new Point(79, 398);
+            label13.Location = new Point(79, 393);
             label13.Name = "label13";
             label13.Size = new Size(48, 13);
             label13.TabIndex = 81;
@@ -1038,7 +1038,7 @@ namespace DB_EDITOR
             // 
             // numericUpDown7
             // 
-            numericUpDown7.Location = new Point(126, 794);
+            numericUpDown7.Location = new Point(126, 782);
             numericUpDown7.Maximum = new decimal(new int[] { 3, 0, 0, 0 });
             numericUpDown7.Name = "numericUpDown7";
             numericUpDown7.Size = new Size(41, 20);
@@ -1046,7 +1046,7 @@ namespace DB_EDITOR
             // 
             // numericUpDown8
             // 
-            numericUpDown8.Location = new Point(281, 794);
+            numericUpDown8.Location = new Point(281, 782);
             numericUpDown8.Maximum = new decimal(new int[] { 3, 0, 0, 0 });
             numericUpDown8.Name = "numericUpDown8";
             numericUpDown8.Size = new Size(41, 20);
@@ -1054,7 +1054,7 @@ namespace DB_EDITOR
             // 
             // numericUpDown9
             // 
-            numericUpDown9.Location = new Point(438, 794);
+            numericUpDown9.Location = new Point(438, 782);
             numericUpDown9.Maximum = new decimal(new int[] { 3, 0, 0, 0 });
             numericUpDown9.Name = "numericUpDown9";
             numericUpDown9.Size = new Size(41, 20);
@@ -1062,7 +1062,7 @@ namespace DB_EDITOR
             // 
             // numericUpDown10
             // 
-            numericUpDown10.Location = new Point(592, 794);
+            numericUpDown10.Location = new Point(592, 782);
             numericUpDown10.Maximum = new decimal(new int[] { 3, 0, 0, 0 });
             numericUpDown10.Name = "numericUpDown10";
             numericUpDown10.Size = new Size(41, 20);
@@ -1070,7 +1070,7 @@ namespace DB_EDITOR
             // 
             // numericUpDown11
             // 
-            numericUpDown11.Location = new Point(748, 794);
+            numericUpDown11.Location = new Point(748, 782);
             numericUpDown11.Maximum = new decimal(new int[] { 3, 0, 0, 0 });
             numericUpDown11.Name = "numericUpDown11";
             numericUpDown11.Size = new Size(41, 20);
@@ -1078,7 +1078,7 @@ namespace DB_EDITOR
             // 
             // numericUpDown12
             // 
-            numericUpDown12.Location = new Point(907, 794);
+            numericUpDown12.Location = new Point(907, 782);
             numericUpDown12.Maximum = new decimal(new int[] { 3, 0, 0, 0 });
             numericUpDown12.Name = "numericUpDown12";
             numericUpDown12.Size = new Size(41, 20);
@@ -1086,7 +1086,7 @@ namespace DB_EDITOR
             // 
             // numericUpDown6
             // 
-            numericUpDown6.Location = new Point(911, 395);
+            numericUpDown6.Location = new Point(911, 390);
             numericUpDown6.Maximum = new decimal(new int[] { 3, 0, 0, 0 });
             numericUpDown6.Name = "numericUpDown6";
             numericUpDown6.Size = new Size(41, 20);
@@ -1094,7 +1094,7 @@ namespace DB_EDITOR
             // 
             // numericUpDown5
             // 
-            numericUpDown5.Location = new Point(752, 395);
+            numericUpDown5.Location = new Point(752, 390);
             numericUpDown5.Maximum = new decimal(new int[] { 3, 0, 0, 0 });
             numericUpDown5.Name = "numericUpDown5";
             numericUpDown5.Size = new Size(41, 20);
@@ -1102,7 +1102,7 @@ namespace DB_EDITOR
             // 
             // numericUpDown4
             // 
-            numericUpDown4.Location = new Point(596, 395);
+            numericUpDown4.Location = new Point(596, 390);
             numericUpDown4.Maximum = new decimal(new int[] { 3, 0, 0, 0 });
             numericUpDown4.Name = "numericUpDown4";
             numericUpDown4.Size = new Size(41, 20);
@@ -1110,7 +1110,7 @@ namespace DB_EDITOR
             // 
             // numericUpDown3
             // 
-            numericUpDown3.Location = new Point(440, 395);
+            numericUpDown3.Location = new Point(440, 390);
             numericUpDown3.Maximum = new decimal(new int[] { 3, 0, 0, 0 });
             numericUpDown3.Name = "numericUpDown3";
             numericUpDown3.Size = new Size(41, 20);
@@ -1118,7 +1118,7 @@ namespace DB_EDITOR
             // 
             // numericUpDown2
             // 
-            numericUpDown2.Location = new Point(285, 395);
+            numericUpDown2.Location = new Point(285, 390);
             numericUpDown2.Maximum = new decimal(new int[] { 3, 0, 0, 0 });
             numericUpDown2.Name = "numericUpDown2";
             numericUpDown2.Size = new Size(41, 20);
@@ -1126,7 +1126,7 @@ namespace DB_EDITOR
             // 
             // numericUpDown1
             // 
-            numericUpDown1.Location = new Point(128, 395);
+            numericUpDown1.Location = new Point(128, 390);
             numericUpDown1.Maximum = new decimal(new int[] { 3, 0, 0, 0 });
             numericUpDown1.Name = "numericUpDown1";
             numericUpDown1.Size = new Size(41, 20);
@@ -1135,7 +1135,7 @@ namespace DB_EDITOR
             // button7
             // 
             button7.BackColor = Color.LightBlue;
-            button7.Location = new Point(124, 457);
+            button7.Location = new Point(124, 445);
             button7.Name = "button7";
             button7.Size = new Size(43, 23);
             button7.TabIndex = 68;
@@ -1146,7 +1146,7 @@ namespace DB_EDITOR
             // button8
             // 
             button8.BackColor = Color.LightBlue;
-            button8.Location = new Point(281, 457);
+            button8.Location = new Point(281, 445);
             button8.Name = "button8";
             button8.Size = new Size(43, 23);
             button8.TabIndex = 67;
@@ -1157,7 +1157,7 @@ namespace DB_EDITOR
             // button9
             // 
             button9.BackColor = Color.LightBlue;
-            button9.Location = new Point(436, 457);
+            button9.Location = new Point(436, 445);
             button9.Name = "button9";
             button9.Size = new Size(43, 23);
             button9.TabIndex = 66;
@@ -1168,7 +1168,7 @@ namespace DB_EDITOR
             // button10
             // 
             button10.BackColor = Color.LightBlue;
-            button10.Location = new Point(592, 457);
+            button10.Location = new Point(592, 445);
             button10.Name = "button10";
             button10.Size = new Size(43, 23);
             button10.TabIndex = 65;
@@ -1179,7 +1179,7 @@ namespace DB_EDITOR
             // button11
             // 
             button11.BackColor = Color.LightBlue;
-            button11.Location = new Point(749, 457);
+            button11.Location = new Point(749, 445);
             button11.Name = "button11";
             button11.Size = new Size(43, 23);
             button11.TabIndex = 64;
@@ -1190,7 +1190,7 @@ namespace DB_EDITOR
             // button12
             // 
             button12.BackColor = Color.LightBlue;
-            button12.Location = new Point(904, 457);
+            button12.Location = new Point(904, 445);
             button12.Name = "button12";
             button12.Size = new Size(43, 23);
             button12.TabIndex = 63;
@@ -1201,7 +1201,7 @@ namespace DB_EDITOR
             // button6
             // 
             button6.BackColor = Color.LightBlue;
-            button6.Location = new Point(905, 59);
+            button6.Location = new Point(905, 54);
             button6.Name = "button6";
             button6.Size = new Size(43, 23);
             button6.TabIndex = 62;
@@ -1212,7 +1212,7 @@ namespace DB_EDITOR
             // button5
             // 
             button5.BackColor = Color.LightBlue;
-            button5.Location = new Point(749, 59);
+            button5.Location = new Point(749, 54);
             button5.Name = "button5";
             button5.Size = new Size(43, 23);
             button5.TabIndex = 61;
@@ -1223,7 +1223,7 @@ namespace DB_EDITOR
             // button4
             // 
             button4.BackColor = Color.LightBlue;
-            button4.Location = new Point(593, 59);
+            button4.Location = new Point(593, 54);
             button4.Name = "button4";
             button4.Size = new Size(43, 23);
             button4.TabIndex = 60;
@@ -1234,7 +1234,7 @@ namespace DB_EDITOR
             // button3
             // 
             button3.BackColor = Color.LightBlue;
-            button3.Location = new Point(437, 59);
+            button3.Location = new Point(437, 54);
             button3.Name = "button3";
             button3.Size = new Size(43, 23);
             button3.TabIndex = 59;
@@ -1245,7 +1245,7 @@ namespace DB_EDITOR
             // button2
             // 
             button2.BackColor = Color.LightBlue;
-            button2.Location = new Point(282, 59);
+            button2.Location = new Point(282, 54);
             button2.Name = "button2";
             button2.Size = new Size(43, 23);
             button2.TabIndex = 58;
@@ -1256,7 +1256,7 @@ namespace DB_EDITOR
             // button1
             // 
             button1.BackColor = Color.LightBlue;
-            button1.Location = new Point(125, 59);
+            button1.Location = new Point(125, 54);
             button1.Name = "button1";
             button1.Size = new Size(43, 23);
             button1.TabIndex = 57;
@@ -1267,7 +1267,7 @@ namespace DB_EDITOR
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(171, 796);
+            label8.Location = new Point(171, 784);
             label8.Name = "label8";
             label8.Size = new Size(27, 13);
             label8.TabIndex = 56;
@@ -1276,7 +1276,7 @@ namespace DB_EDITOR
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(328, 796);
+            label9.Location = new Point(328, 784);
             label9.Name = "label9";
             label9.Size = new Size(27, 13);
             label9.TabIndex = 55;
@@ -1285,7 +1285,7 @@ namespace DB_EDITOR
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(483, 796);
+            label10.Location = new Point(483, 784);
             label10.Name = "label10";
             label10.Size = new Size(27, 13);
             label10.TabIndex = 54;
@@ -1294,7 +1294,7 @@ namespace DB_EDITOR
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(639, 796);
+            label11.Location = new Point(639, 784);
             label11.Name = "label11";
             label11.Size = new Size(27, 13);
             label11.TabIndex = 53;
@@ -1303,7 +1303,7 @@ namespace DB_EDITOR
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new Point(795, 796);
+            label12.Location = new Point(795, 784);
             label12.Name = "label12";
             label12.Size = new Size(27, 13);
             label12.TabIndex = 52;
@@ -1312,7 +1312,7 @@ namespace DB_EDITOR
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(18, 796);
+            label7.Location = new Point(18, 784);
             label7.Name = "label7";
             label7.Size = new Size(27, 13);
             label7.TabIndex = 51;
@@ -1321,7 +1321,7 @@ namespace DB_EDITOR
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(799, 397);
+            label6.Location = new Point(799, 392);
             label6.Name = "label6";
             label6.Size = new Size(27, 13);
             label6.TabIndex = 50;
@@ -1330,7 +1330,7 @@ namespace DB_EDITOR
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(643, 397);
+            label5.Location = new Point(643, 392);
             label5.Name = "label5";
             label5.Size = new Size(27, 13);
             label5.TabIndex = 49;
@@ -1339,7 +1339,7 @@ namespace DB_EDITOR
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(487, 397);
+            label4.Location = new Point(487, 392);
             label4.Name = "label4";
             label4.Size = new Size(27, 13);
             label4.TabIndex = 48;
@@ -1348,7 +1348,7 @@ namespace DB_EDITOR
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(331, 397);
+            label3.Location = new Point(331, 392);
             label3.Name = "label3";
             label3.Size = new Size(27, 13);
             label3.TabIndex = 47;
@@ -1357,7 +1357,7 @@ namespace DB_EDITOR
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(175, 397);
+            label2.Location = new Point(175, 392);
             label2.Name = "label2";
             label2.Size = new Size(27, 13);
             label2.TabIndex = 46;
@@ -1366,7 +1366,7 @@ namespace DB_EDITOR
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(19, 397);
+            label1.Location = new Point(19, 392);
             label1.Name = "label1";
             label1.Size = new Size(27, 13);
             label1.TabIndex = 45;
@@ -1378,16 +1378,16 @@ namespace DB_EDITOR
             AllTeamsListBox.BackColor = SystemColors.ControlLight;
             AllTeamsListBox.FormattingEnabled = true;
             AllTeamsListBox.ItemHeight = 13;
-            AllTeamsListBox.Location = new Point(975, 59);
+            AllTeamsListBox.Location = new Point(975, 156);
             AllTeamsListBox.Name = "AllTeamsListBox";
-            AllTeamsListBox.Size = new Size(161, 615);
+            AllTeamsListBox.Size = new Size(161, 381);
             AllTeamsListBox.TabIndex = 44;
             AllTeamsListBox.SelectedIndexChanged += AllTeamsListBox_SelectedIndexChanged;
             AllTeamsListBox.MouseDown += MouseClick_AddTeam;
             // 
             // confName12
             // 
-            confName12.Location = new Point(798, 460);
+            confName12.Location = new Point(798, 448);
             confName12.MaxLength = 31;
             confName12.Name = "confName12";
             confName12.Size = new Size(100, 20);
@@ -1395,7 +1395,7 @@ namespace DB_EDITOR
             // 
             // confName11
             // 
-            confName11.Location = new Point(642, 460);
+            confName11.Location = new Point(642, 448);
             confName11.MaxLength = 31;
             confName11.Name = "confName11";
             confName11.Size = new Size(100, 20);
@@ -1403,7 +1403,7 @@ namespace DB_EDITOR
             // 
             // confName10
             // 
-            confName10.Location = new Point(486, 460);
+            confName10.Location = new Point(486, 448);
             confName10.MaxLength = 31;
             confName10.Name = "confName10";
             confName10.Size = new Size(100, 20);
@@ -1411,7 +1411,7 @@ namespace DB_EDITOR
             // 
             // confName9
             // 
-            confName9.Location = new Point(330, 460);
+            confName9.Location = new Point(330, 448);
             confName9.MaxLength = 31;
             confName9.Name = "confName9";
             confName9.Size = new Size(100, 20);
@@ -1419,7 +1419,7 @@ namespace DB_EDITOR
             // 
             // confName8
             // 
-            confName8.Location = new Point(174, 460);
+            confName8.Location = new Point(174, 448);
             confName8.MaxLength = 31;
             confName8.Name = "confName8";
             confName8.Size = new Size(100, 20);
@@ -1427,7 +1427,7 @@ namespace DB_EDITOR
             // 
             // confName7
             // 
-            confName7.Location = new Point(18, 460);
+            confName7.Location = new Point(18, 448);
             confName7.MaxLength = 31;
             confName7.Name = "confName7";
             confName7.Size = new Size(100, 20);
@@ -1435,7 +1435,7 @@ namespace DB_EDITOR
             // 
             // confName6
             // 
-            confName6.Location = new Point(799, 59);
+            confName6.Location = new Point(799, 54);
             confName6.MaxLength = 31;
             confName6.Name = "confName6";
             confName6.Size = new Size(100, 20);
@@ -1443,7 +1443,7 @@ namespace DB_EDITOR
             // 
             // confName5
             // 
-            confName5.Location = new Point(643, 59);
+            confName5.Location = new Point(643, 54);
             confName5.MaxLength = 31;
             confName5.Name = "confName5";
             confName5.Size = new Size(100, 20);
@@ -1451,7 +1451,7 @@ namespace DB_EDITOR
             // 
             // confName4
             // 
-            confName4.Location = new Point(487, 59);
+            confName4.Location = new Point(487, 54);
             confName4.MaxLength = 31;
             confName4.Name = "confName4";
             confName4.Size = new Size(100, 20);
@@ -1459,7 +1459,7 @@ namespace DB_EDITOR
             // 
             // confName3
             // 
-            confName3.Location = new Point(331, 59);
+            confName3.Location = new Point(331, 54);
             confName3.MaxLength = 31;
             confName3.Name = "confName3";
             confName3.Size = new Size(100, 20);
@@ -1467,7 +1467,7 @@ namespace DB_EDITOR
             // 
             // confName2
             // 
-            confName2.Location = new Point(175, 59);
+            confName2.Location = new Point(175, 54);
             confName2.MaxLength = 31;
             confName2.Name = "confName2";
             confName2.Size = new Size(100, 20);
@@ -1475,7 +1475,7 @@ namespace DB_EDITOR
             // 
             // confName1
             // 
-            confName1.Location = new Point(19, 59);
+            confName1.Location = new Point(19, 54);
             confName1.MaxLength = 31;
             confName1.Name = "confName1";
             confName1.Size = new Size(100, 20);
@@ -1486,7 +1486,7 @@ namespace DB_EDITOR
             labelTeamSelection.AllowDrop = true;
             labelTeamSelection.AutoSize = true;
             labelTeamSelection.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelTeamSelection.Location = new Point(972, 40);
+            labelTeamSelection.Location = new Point(972, 137);
             labelTeamSelection.Name = "labelTeamSelection";
             labelTeamSelection.Size = new Size(116, 16);
             labelTeamSelection.TabIndex = 30;
@@ -1497,7 +1497,7 @@ namespace DB_EDITOR
             DeselectButton.BackColor = Color.DarkSlateBlue;
             DeselectButton.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             DeselectButton.ForeColor = SystemColors.Control;
-            DeselectButton.Location = new Point(975, 763);
+            DeselectButton.Location = new Point(972, 649);
             DeselectButton.Name = "DeselectButton";
             DeselectButton.Size = new Size(161, 37);
             DeselectButton.TabIndex = 25;
@@ -1510,7 +1510,7 @@ namespace DB_EDITOR
             SaveButton.BackColor = Color.Crimson;
             SaveButton.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
             SaveButton.ForeColor = SystemColors.ButtonFace;
-            SaveButton.Location = new Point(975, 808);
+            SaveButton.Location = new Point(972, 694);
             SaveButton.Name = "SaveButton";
             SaveButton.Size = new Size(161, 37);
             SaveButton.TabIndex = 24;
@@ -1524,7 +1524,7 @@ namespace DB_EDITOR
             conf12.BackColor = Color.Gainsboro;
             conf12.CheckOnClick = true;
             conf12.FormattingEnabled = true;
-            conf12.Location = new Point(798, 486);
+            conf12.Location = new Point(798, 474);
             conf12.Name = "conf12";
             conf12.Size = new Size(150, 304);
             conf12.TabIndex = 11;
@@ -1538,7 +1538,7 @@ namespace DB_EDITOR
             conf11.BackColor = Color.Gainsboro;
             conf11.CheckOnClick = true;
             conf11.FormattingEnabled = true;
-            conf11.Location = new Point(642, 486);
+            conf11.Location = new Point(642, 474);
             conf11.Name = "conf11";
             conf11.Size = new Size(150, 304);
             conf11.TabIndex = 10;
@@ -1552,7 +1552,7 @@ namespace DB_EDITOR
             conf10.BackColor = Color.Gainsboro;
             conf10.CheckOnClick = true;
             conf10.FormattingEnabled = true;
-            conf10.Location = new Point(486, 486);
+            conf10.Location = new Point(486, 474);
             conf10.Name = "conf10";
             conf10.Size = new Size(150, 304);
             conf10.TabIndex = 9;
@@ -1566,7 +1566,7 @@ namespace DB_EDITOR
             conf9.BackColor = Color.Gainsboro;
             conf9.CheckOnClick = true;
             conf9.FormattingEnabled = true;
-            conf9.Location = new Point(330, 486);
+            conf9.Location = new Point(330, 474);
             conf9.Name = "conf9";
             conf9.Size = new Size(150, 304);
             conf9.TabIndex = 8;
@@ -1580,7 +1580,7 @@ namespace DB_EDITOR
             conf8.BackColor = Color.Gainsboro;
             conf8.CheckOnClick = true;
             conf8.FormattingEnabled = true;
-            conf8.Location = new Point(174, 486);
+            conf8.Location = new Point(174, 474);
             conf8.Name = "conf8";
             conf8.Size = new Size(150, 304);
             conf8.TabIndex = 7;
@@ -1594,7 +1594,7 @@ namespace DB_EDITOR
             conf7.BackColor = Color.Gainsboro;
             conf7.CheckOnClick = true;
             conf7.FormattingEnabled = true;
-            conf7.Location = new Point(18, 486);
+            conf7.Location = new Point(18, 474);
             conf7.Name = "conf7";
             conf7.Size = new Size(150, 304);
             conf7.TabIndex = 6;
@@ -1608,7 +1608,7 @@ namespace DB_EDITOR
             conf6.BackColor = Color.Gainsboro;
             conf6.CheckOnClick = true;
             conf6.FormattingEnabled = true;
-            conf6.Location = new Point(799, 85);
+            conf6.Location = new Point(799, 80);
             conf6.Name = "conf6";
             conf6.Size = new Size(150, 304);
             conf6.TabIndex = 5;
@@ -1622,7 +1622,7 @@ namespace DB_EDITOR
             conf5.BackColor = Color.Gainsboro;
             conf5.CheckOnClick = true;
             conf5.FormattingEnabled = true;
-            conf5.Location = new Point(643, 85);
+            conf5.Location = new Point(643, 80);
             conf5.Name = "conf5";
             conf5.Size = new Size(150, 304);
             conf5.TabIndex = 4;
@@ -1636,7 +1636,7 @@ namespace DB_EDITOR
             conf4.BackColor = Color.Gainsboro;
             conf4.CheckOnClick = true;
             conf4.FormattingEnabled = true;
-            conf4.Location = new Point(487, 85);
+            conf4.Location = new Point(487, 80);
             conf4.Name = "conf4";
             conf4.Size = new Size(150, 304);
             conf4.TabIndex = 3;
@@ -1650,7 +1650,7 @@ namespace DB_EDITOR
             conf3.BackColor = Color.Gainsboro;
             conf3.CheckOnClick = true;
             conf3.FormattingEnabled = true;
-            conf3.Location = new Point(331, 85);
+            conf3.Location = new Point(331, 80);
             conf3.Name = "conf3";
             conf3.Size = new Size(150, 304);
             conf3.TabIndex = 2;
@@ -1664,7 +1664,7 @@ namespace DB_EDITOR
             conf2.BackColor = Color.Gainsboro;
             conf2.CheckOnClick = true;
             conf2.FormattingEnabled = true;
-            conf2.Location = new Point(175, 85);
+            conf2.Location = new Point(175, 80);
             conf2.Name = "conf2";
             conf2.Size = new Size(150, 304);
             conf2.TabIndex = 1;
@@ -1678,7 +1678,7 @@ namespace DB_EDITOR
             conf1.BackColor = Color.Gainsboro;
             conf1.CheckOnClick = true;
             conf1.FormattingEnabled = true;
-            conf1.Location = new Point(19, 85);
+            conf1.Location = new Point(19, 80);
             conf1.Name = "conf1";
             conf1.Size = new Size(150, 304);
             conf1.TabIndex = 0;
@@ -1694,7 +1694,7 @@ namespace DB_EDITOR
             panel1.Controls.Add(label38);
             panel1.Controls.Add(TeamsPerConfBox);
             panel1.Controls.Add(RandomizeLeagueButton);
-            panel1.Location = new Point(18, 841);
+            panel1.Location = new Point(18, 816);
             panel1.Name = "panel1";
             panel1.Size = new Size(461, 59);
             panel1.TabIndex = 110;
@@ -1758,7 +1758,7 @@ namespace DB_EDITOR
             tabDB.Location = new Point(4, 24);
             tabDB.Name = "tabDB";
             tabDB.Padding = new Padding(3);
-            tabDB.Size = new Size(1158, 1022);
+            tabDB.Size = new Size(1158, 1002);
             tabDB.TabIndex = 0;
             tabDB.Text = "DB Editor";
             // 
@@ -1777,7 +1777,7 @@ namespace DB_EDITOR
             tableGridView.RowHeadersVisible = false;
             tableGridView.RowTemplate.Height = 18;
             tableGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            tableGridView.Size = new Size(107, 655);
+            tableGridView.Size = new Size(107, 879);
             tableGridView.TabIndex = 2;
             tableGridView.SelectionChanged += TableGridView_SelectionChanged;
             // 
@@ -1799,7 +1799,7 @@ namespace DB_EDITOR
             fieldsGridView.RowHeadersVisible = false;
             fieldsGridView.RowTemplate.Height = 18;
             fieldsGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            fieldsGridView.Size = new Size(1030, 655);
+            fieldsGridView.Size = new Size(1030, 879);
             fieldsGridView.TabIndex = 3;
             fieldsGridView.CellValueChanged += FieldGridView_CellValueChanged;
             fieldsGridView.CurrentCellChanged += FieldGridView_CurrentCellChanged;
@@ -1880,7 +1880,7 @@ namespace DB_EDITOR
             tabControl1.Location = new Point(12, 27);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1166, 1050);
+            tabControl1.Size = new Size(1166, 1030);
             tabControl1.SizeMode = TabSizeMode.Fixed;
             tabControl1.TabIndex = 4;
             tabControl1.Visible = false;
@@ -1895,7 +1895,7 @@ namespace DB_EDITOR
             tabAnnuals.Location = new Point(4, 24);
             tabAnnuals.Name = "tabAnnuals";
             tabAnnuals.Padding = new Padding(3);
-            tabAnnuals.Size = new Size(1158, 1022);
+            tabAnnuals.Size = new Size(1158, 1002);
             tabAnnuals.TabIndex = 10;
             tabAnnuals.Text = "Annuals";
             tabAnnuals.UseVisualStyleBackColor = true;
@@ -1914,8 +1914,8 @@ namespace DB_EDITOR
             // 
             // SaveSANNButton
             // 
-            SaveSANNButton.BackColor = Color.LightSkyBlue;
-            SaveSANNButton.Location = new Point(430, 132);
+            SaveSANNButton.BackColor = Color.Crimson;
+            SaveSANNButton.Location = new Point(430, 130);
             SaveSANNButton.Name = "SaveSANNButton";
             SaveSANNButton.RightToLeft = RightToLeft.No;
             SaveSANNButton.Size = new Size(122, 54);
@@ -1973,7 +1973,7 @@ namespace DB_EDITOR
             tabCChamps.Location = new Point(4, 24);
             tabCChamps.Name = "tabCChamps";
             tabCChamps.Padding = new Padding(3);
-            tabCChamps.Size = new Size(1158, 1022);
+            tabCChamps.Size = new Size(1158, 1002);
             tabCChamps.TabIndex = 12;
             tabCChamps.Text = "Conf Championships";
             tabCChamps.UseVisualStyleBackColor = true;
@@ -1990,8 +1990,8 @@ namespace DB_EDITOR
             // 
             // SaveChamps
             // 
-            SaveChamps.BackColor = Color.LightSkyBlue;
-            SaveChamps.Location = new Point(247, 427);
+            SaveChamps.BackColor = Color.Crimson;
+            SaveChamps.Location = new Point(420, 51);
             SaveChamps.Name = "SaveChamps";
             SaveChamps.RightToLeft = RightToLeft.No;
             SaveChamps.Size = new Size(122, 54);
@@ -2042,7 +2042,7 @@ namespace DB_EDITOR
             tabBowls.Location = new Point(4, 24);
             tabBowls.Name = "tabBowls";
             tabBowls.Padding = new Padding(3);
-            tabBowls.Size = new Size(1158, 1022);
+            tabBowls.Size = new Size(1158, 1002);
             tabBowls.TabIndex = 11;
             tabBowls.Text = "Bowls";
             tabBowls.UseVisualStyleBackColor = true;
@@ -2061,7 +2061,7 @@ namespace DB_EDITOR
             // 
             // SaveBowlButton
             // 
-            SaveBowlButton.BackColor = Color.CornflowerBlue;
+            SaveBowlButton.BackColor = Color.Crimson;
             SaveBowlButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             SaveBowlButton.Location = new Point(896, 23);
             SaveBowlButton.Name = "SaveBowlButton";
@@ -2169,7 +2169,7 @@ namespace DB_EDITOR
             AutoScaleMode = AutoScaleMode.Dpi;
             AutoSize = true;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(1190, 961);
+            ClientSize = new Size(1190, 941);
             Controls.Add(tabControl1);
             Controls.Add(progressBar1);
             Controls.Add(mainMenu);

@@ -73,9 +73,12 @@ namespace DB_EDITOR
             foreach (var player in RecruitEditorList)
             {
                 string ath = "";
-                if (Convert.ToInt32(player[7]) == 1) ath = " [ATH]";
+                if (Convert.ToInt32(player[7]) == 1) ath = " @";
 
-                string text = player[0] + " " + player[1] + " [" + GetPositionName(Convert.ToInt32(player[2])) + "]" + ath;
+                string transfer = "";
+                if (Convert.ToInt32(player[4]) > 20000) transfer = " +";
+
+                string text = "[" + GetPositionName(Convert.ToInt32(player[2])) + "] " + player[0] + " " + player[1] + ath + transfer;
                 if (Convert.ToInt32(player[4]) >= 21000)
                 {
                     //text += " (T)";
@@ -138,6 +141,8 @@ namespace DB_EDITOR
 
         private void AddFilters()
         {
+            if (RecruitTypeFilter.Items.Count > 0) return;
+
             RecruitTypeFilter.Items.Clear();
             RecruitStateFilter.Items.Clear();
             RecruitPosFilter.Items.Clear();
@@ -158,7 +163,7 @@ namespace DB_EDITOR
 
             //Positions
             RecruitPosFilter.Items.Add("ALL");
-            RecruitPosFilter.Items.Add("Athlete");
+            RecruitPosFilter.Items.Add("ATH");
 
             for (int i = 0; i < 10; i++)
             {
@@ -331,15 +336,6 @@ namespace DB_EDITOR
             //Position
             AddRPositionsItems();
             RPPOSBox.SelectedIndex = GetDB2ValueInt("RCPT", "PPOS", RecruitIndex);
-
-            /*
-            //Home
-            AddRStateItems();
-            RStateBox.SelectedIndex = GetDB2ValueInt("RCPT", "STID", RecruitIndex);
-
-            AddRHometownItems();
-            RHometownBox.SelectedIndex = GetDB2ValueInt("RCPT", "RCHD", RecruitIndex) - (256 * GetDB2ValueInt("RCPT", "STID", RecruitIndex));
-            */
 
             //Home
             int home = GetDB2ValueInt("RCPT", "RCHD", RecruitIndex);
@@ -555,6 +551,60 @@ namespace DB_EDITOR
 
             //Rlayer Tendency/Archeatype
             RTENBox.Text = GetPTENType(GetDB2ValueInt("RCPT", "PROS", RecruitIndex), GetDB2ValueInt("RCPT", "PTEN", RecruitIndex));
+
+
+
+            //POCI CHECK
+            int Pos = GetDBValueInt("RCPT", "PPOS", PlayerIndex);
+            // PCAR, PKAC, PTHA, PPBK, PRBK, PACC, PAGI, PTAK, PINJ, PKPR, PSPD, PTHP, PBKT, PCTH, PSTR, PJMP, PAWR
+
+            if (POCI[Pos, 3] > 0) RCARlabel.ForeColor = Color.DarkSlateBlue;
+            else RCARlabel.ForeColor = Color.Black;
+
+            if (POCI[Pos, 4] > 0) RKAClabel.ForeColor = Color.DarkSlateBlue;
+            else RKAClabel.ForeColor = Color.Black;
+
+            if (POCI[Pos, 5] > 0) RTHAlabel.ForeColor = Color.DarkSlateBlue;
+            else RTHAlabel.ForeColor = Color.Black;
+
+            if (POCI[Pos, 6] > 0) RRBKlabel.ForeColor = Color.DarkSlateBlue;
+            else RRBKlabel.ForeColor = Color.Black;
+
+            if (POCI[Pos, 7] > 0) RRBKlabel.ForeColor = Color.DarkSlateBlue;
+            else RRBKlabel.ForeColor = Color.Black;
+
+            if (POCI[Pos, 8] > 0) RACClabel.ForeColor = Color.DarkSlateBlue;
+            else RACClabel.ForeColor = Color.Black;
+
+            if (POCI[Pos, 9] > 0) RAGIlabel.ForeColor = Color.DarkSlateBlue;
+            else RAGIlabel.ForeColor = Color.Black;
+
+            if (POCI[Pos, 10] > 0) RTAKlabel.ForeColor = Color.DarkSlateBlue;
+            else RTAKlabel.ForeColor = Color.Black;
+
+            if (POCI[Pos, 12] > 0) RKPRlabel.ForeColor = Color.DarkSlateBlue;
+            else RKPRlabel.ForeColor = Color.Black;
+
+            if (POCI[Pos, 13] > 0) RSPDlabel.ForeColor = Color.DarkSlateBlue;
+            else RSPDlabel.ForeColor = Color.Black;
+
+            if (POCI[Pos, 14] > 0) RTHPlabel.ForeColor = Color.DarkSlateBlue;
+            else RTHPlabel.ForeColor = Color.Black;
+
+            if (POCI[Pos, 15] > 0) RBTKlabel.ForeColor = Color.DarkSlateBlue;
+            else RBTKlabel.ForeColor = Color.Black;
+
+            if (POCI[Pos, 16] > 0) RCTHlabel.ForeColor = Color.DarkSlateBlue;
+            else RCTHlabel.ForeColor = Color.Black;
+
+            if (POCI[Pos, 17] > 0) RSTRlabel.ForeColor = Color.DarkSlateBlue;
+            else RSTRlabel.ForeColor = Color.Black;
+
+            if (POCI[Pos, 18] > 0) RJMPlabel.ForeColor = Color.DarkSlateBlue;
+            else RJMPlabel.ForeColor = Color.Black;
+
+            if (POCI[Pos, 19] > 0) RAWRlabel.ForeColor = Color.DarkSlateBlue;
+            else RAWRlabel.ForeColor = Color.Black;
 
 
             LoadRecruitingTable();
@@ -780,6 +830,7 @@ namespace DB_EDITOR
             DisplayNewRCPTOverallRating();
             RKACBox.BackColor = GetRatingColor(RKACtext).BackColor;
         }
+
 
 
 
@@ -1021,24 +1072,24 @@ namespace DB_EDITOR
 
         public void RecalculateRecruitOverallByRec(int rec)
         {
-            int ppos = Convert.ToInt32(GetDBValue("RCPT", "PPOS", rec));
-            double PCAR = Convert.ToInt32(GetDBValue("RCPT", "PCAR", rec)); //CAWT
-            double PKAC = Convert.ToInt32(GetDBValue("RCPT", "PKAC", rec)); //KAWT
-            double PTHA = Convert.ToInt32(GetDBValue("RCPT", "PTHA", rec)); //TAWT
-            double PPBK = Convert.ToInt32(GetDBValue("RCPT", "PPBK", rec)); //PBWT
-            double PRBK = Convert.ToInt32(GetDBValue("RCPT", "PRBK", rec)); //RBWT
-            double PACC = Convert.ToInt32(GetDBValue("RCPT", "PACC", rec)); //ACWT
-            double PAGI = Convert.ToInt32(GetDBValue("RCPT", "PAGI", rec)); //AGWT
-            double PTAK = Convert.ToInt32(GetDBValue("RCPT", "PTAK", rec)); //TKWT
-            double PINJ = Convert.ToInt32(GetDBValue("RCPT", "PINJ", rec)); //INWT
-            double PKPR = Convert.ToInt32(GetDBValue("RCPT", "PKPR", rec)); //KPWT
-            double PSPD = Convert.ToInt32(GetDBValue("RCPT", "PSPD", rec)); //SPWT
-            double PTHP = Convert.ToInt32(GetDBValue("RCPT", "PTHP", rec)); //TPWT
-            double PBKT = Convert.ToInt32(GetDBValue("RCPT", "PBTK", rec)); //BTWT
-            double PCTH = Convert.ToInt32(GetDBValue("RCPT", "PCTH", rec)); //CTWT
-            double PSTR = Convert.ToInt32(GetDBValue("RCPT", "PSTR", rec)); //STWT
-            double PJMP = Convert.ToInt32(GetDBValue("RCPT", "PJMP", rec)); //JUWT
-            double PAWR = Convert.ToInt32(GetDBValue("RCPT", "PAWR", rec)); //AWWT
+            int ppos = Convert.ToInt32(GetDB2Value("RCPT", "PPOS", rec));
+            double PCAR = Convert.ToInt32(GetDB2Value("RCPT", "PCAR", rec)); //CAWT
+            double PKAC = Convert.ToInt32(GetDB2Value("RCPT", "PKAC", rec)); //KAWT
+            double PTHA = Convert.ToInt32(GetDB2Value("RCPT", "PTHA", rec)); //TAWT
+            double PPBK = Convert.ToInt32(GetDB2Value("RCPT", "PPBK", rec)); //PBWT
+            double PRBK = Convert.ToInt32(GetDB2Value("RCPT", "PRBK", rec)); //RBWT
+            double PACC = Convert.ToInt32(GetDB2Value("RCPT", "PACC", rec)); //ACWT
+            double PAGI = Convert.ToInt32(GetDB2Value("RCPT", "PAGI", rec)); //AGWT
+            double PTAK = Convert.ToInt32(GetDB2Value("RCPT", "PTAK", rec)); //TKWT
+            double PINJ = Convert.ToInt32(GetDB2Value("RCPT", "PINJ", rec)); //INWT
+            double PKPR = Convert.ToInt32(GetDB2Value("RCPT", "PKPR", rec)); //KPWT
+            double PSPD = Convert.ToInt32(GetDB2Value("RCPT", "PSPD", rec)); //SPWT
+            double PTHP = Convert.ToInt32(GetDB2Value("RCPT", "PTHP", rec)); //TPWT
+            double PBKT = Convert.ToInt32(GetDB2Value("RCPT", "PBTK", rec)); //BTWT
+            double PCTH = Convert.ToInt32(GetDB2Value("RCPT", "PCTH", rec)); //CTWT
+            double PSTR = Convert.ToInt32(GetDB2Value("RCPT", "PSTR", rec)); //STWT
+            double PJMP = Convert.ToInt32(GetDB2Value("RCPT", "PJMP", rec)); //JUWT
+            double PAWR = Convert.ToInt32(GetDB2Value("RCPT", "PAWR", rec)); //AWWT
 
             double[] ratings = new double[] { PCAR, PKAC, PTHA, PPBK, PRBK, PACC, PAGI, PTAK, PINJ, PKPR, PSPD, PTHP, PBKT, PCTH, PSTR, PJMP, PAWR };
 

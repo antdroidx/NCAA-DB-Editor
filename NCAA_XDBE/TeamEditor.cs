@@ -17,10 +17,15 @@ namespace DB_EDITOR
 
         public void StartTeamEditor()
         {
-            LoadLeagueListBox();
+            if (LGIDcomboBox.Items.Count <= 0)
+            {
+                LoadLeagueListBox();
+                CreateTeamColorPalettes();
+                LoadTGIDlistBox(-1, LGIDcomboBox.SelectedIndex);  // 2 = to all teams.
+            }
+
             LoadCGIDListBox();
-            CreateTeamColorPalettes();
-            LoadTGIDlistBox(-1, LGIDcomboBox.SelectedIndex);  // 2 = to all teams.
+
             DoNotTrigger = false;
         }
         private void LoadLeagueListBox()

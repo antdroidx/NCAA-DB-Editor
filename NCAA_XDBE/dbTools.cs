@@ -826,6 +826,10 @@ namespace DB_EDITOR
                     double normalDef = GetDBValueInt(tableName, "TRDE", x) - meanDef;
                     int offRating = Convert.ToInt32(normalOff * rangeOffFactor + meanOff);
                     int defRating = Convert.ToInt32(normalDef * rangeDefFactor + meanDef);
+
+                    if(offRating > 99) offRating = 99;
+                    if(defRating > 99) defRating = 99;
+                   
                     ChangeDBInt(tableName, "TROF", x, offRating);
                     ChangeDBInt(tableName, "TRDE", x, defRating);
                     ChangeDBInt(tableName, "TROV", x, (offRating + defRating) / 2);
@@ -1435,6 +1439,7 @@ namespace DB_EDITOR
 
         private void AddAttributesToBoxes()
         {
+            if (GlobalAttBox.Items.Count > 0) return;
             /* Create attribute list || 0 - DB value  1 - Name */
             List<List<string>> atb = CreateStringListsFromCSV(@"resources\players\attributes.csv", true);
 
@@ -1452,6 +1457,7 @@ namespace DB_EDITOR
 
         private void AddPositionsToBoxes()
         {
+            if (GlobalAttPosBox.Items.Count > 0) return;
 
             GlobalAttPosBox.Items.Clear();
             MinAttPosBox.Items.Clear();
@@ -1550,7 +1556,12 @@ namespace DB_EDITOR
                 progressBar1.PerformStep();
             }
 
-            MessageBox.Show("Attribute has been updated!\n\nRecalculate Player Overall and Team Ratings when completed!");
+
+            string pos = "All Positions";
+            if (posg != -1) pos = GetPOSG2Name(posg);
+
+            MessageBox.Show("A change of " + val + " pts to " + attribute + " Attribute has been applied to " + pos + "!\n\nRecalculate Player Overall and Team Ratings when completed!");
+
             progressBar1.Value = 0;
             progressBar1.Visible = false;
         }
@@ -1585,7 +1596,11 @@ namespace DB_EDITOR
                 progressBar1.PerformStep();
             }
 
-            MessageBox.Show("Attribute has been updated!\n\nRecalculate Player Overall and Team Ratings when completed!");
+            string pos = "All Positions";
+            if(posg != -1) pos = GetPOSG2Name(posg);
+
+            MessageBox.Show("A change of " + val + " pts to " + attribute + " Attribute has been applied to " + pos + "!\n\nRecalculate Player Overall and Team Ratings when completed!" );
+
             progressBar1.Value = 0;
             progressBar1.Visible = false;
         }
@@ -1620,7 +1635,12 @@ namespace DB_EDITOR
                 progressBar1.PerformStep();
             }
 
-            MessageBox.Show("Attribute has been updated!\n\nRecalculate Player Overall and Team Ratings when completed!");
+
+            string pos = "All Positions";
+            if (posg != -1) pos = GetPOSG2Name(posg);
+
+            MessageBox.Show("A change of " + val + " pts to " + attribute + " Attribute has been applied to " + pos + "!\n\nRecalculate Player Overall and Team Ratings when completed!");
+
             progressBar1.Value = 0;
             progressBar1.Visible = false;
         }
@@ -1719,7 +1739,12 @@ namespace DB_EDITOR
                 progressBar1.PerformStep();
             }
 
-            MessageBox.Show("Body Attribute was updated!");
+
+            string pos = "All Positions";
+            if (posg != -1) pos = GetPOSG2Name(posg);
+
+            MessageBox.Show("A change of " + val + " to " + attribute + " has been applied to " + pos + "!\n\nRecalculate Player Overall and Team Ratings when completed!");
+
             progressBar1.Value = 0;
             progressBar1.Visible = false;
         }
@@ -1757,7 +1782,12 @@ namespace DB_EDITOR
                 progressBar1.PerformStep();
             }
 
-            MessageBox.Show("Body Attribute was updated!");
+
+            string pos = "All Positions";
+            if (posg != -1) pos = GetPOSG2Name(posg);
+
+            MessageBox.Show("A change of " + val + " to " + attribute + " has been applied to " + pos + "!\n\nRecalculate Player Overall and Team Ratings when completed!");
+            
             progressBar1.Value = 0;
             progressBar1.Visible = false;
         }

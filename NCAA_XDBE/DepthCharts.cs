@@ -127,6 +127,9 @@ namespace DB_EDITOR
 
             ComboBox comboBox = new ComboBox();
             comboBox.BackColor = Color.LightGray;
+            // Fix the black background on the drop down menu
+            
+            DCHTGrid.DefaultCellStyle.SelectionBackColor = Color.LightGray;
 
             DCHTPlayers.Sort((player1, player2) => Convert.ToDouble(player2[ppos]).CompareTo(Convert.ToDouble(player1[ppos])));
 

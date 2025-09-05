@@ -148,7 +148,10 @@ namespace DB_EDITOR
 
         private void DefaultSettings()
         {
-            this.Text = "NCAA Next DB Editor";
+            this.Text = "NCAA Next Database Editor";
+            this.Controls.Clear();
+            this.InitializeComponent();
+
             dbFile = "";
             TablePropsLabel.Text = "";
             FieldsPropsLabel.Text = "";
@@ -1122,6 +1125,8 @@ namespace DB_EDITOR
         {
         }
         #endregion
+
+
 
     }
 

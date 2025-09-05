@@ -54,7 +54,7 @@ namespace DB_EDITOR
         Point p = Point.Empty;
 
         int TeamCount = 0;
-        int maxTeams = 20;
+        int maxTeams = 24;
         bool ArmyNavy = false;
         bool NextMod = false;
         bool Next26Mod = false;

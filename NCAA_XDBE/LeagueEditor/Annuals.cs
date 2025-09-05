@@ -281,6 +281,9 @@ namespace DB_EDITOR
 
         private void AddtoSKNW()
         {
+            //Recreate SKNW table
+            GenerateSKNW();
+
             int tableRec = GetTableRecCount("SKNW");
             string table = "SANN";
 

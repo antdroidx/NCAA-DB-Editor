@@ -22,14 +22,16 @@ namespace DB_EDITOR
         {
             PlayerTransferButton.Visible = false;
             LoadPlayerTGIDBox();
+            LoadPlayerPosBox();
 
-            if(dbIndex2 == 1) PlayerTransferButton.Visible = true;
+            if (dbIndex2 == 1) PlayerTransferButton.Visible = true;
 
             if (PlayerIndex > 0) LoadPGIDlistBox();
         }
 
         private void LoadPlayerTGIDBox()
         {
+            if (TGIDplayerBox.Items.Count > 0) return;
             TGIDplayerBox.Items.Clear();
             List<string> teamList = new List<string>();
             if (TDYN)
@@ -57,6 +59,28 @@ namespace DB_EDITOR
             }
 
         }
+
+        private void LoadPlayerPosBox()
+        {
+            if(PlayerPosBox.Items.Count > 0) return;
+            PlayerPosBox.Items.Clear();
+            List<string> posList = new List<string>();
+            posList.Add("ALL");
+
+
+            for (int i = 0; i < 17; i++)
+            {
+                posList.Add(GetPOSG2Name(i));
+            }
+
+            for (int i = 0; i < posList.Count; i++)
+            {
+                if (posList[i] != null) PlayerPosBox.Items.Add(posList[i]);
+            }
+
+        }
+
+
 
         public void LoadPGIDlistBox()
         {
@@ -91,22 +115,29 @@ namespace DB_EDITOR
             {
                 if (GetDBValueInt("PLAY", "PGID", i) >= pgidBeg && GetDBValueInt("PLAY", "PGID", i) <= pgidEnd)
                 {
-                    PlayerEditorList.Add(new List<string>());
-                    PlayerEditorList[row].Add(GetFirstNameFromRecord(i));
-                    PlayerEditorList[row].Add(GetLastNameFromRecord(i));
-                    PlayerEditorList[row].Add(GetDBValue("PLAY", "PPOS", i));
-                    PlayerEditorList[row].Add(GetDBValue("PLAY", "POVR", i));
-                    PlayerEditorList[row].Add(GetDBValue("PLAY", "PGID", i));
-                    PlayerEditorList[row].Add(Convert.ToString(i));
-                    PlayerEditorList[row].Add(Convert.ToString(GetPOSG2fromPPOS(GetDBValueInt("PLAY", "PPOS", i))));
+                    int PlayerPOSG2 = GetPOSG2fromPPOS(GetDBValueInt("PLAY", "PPOS", i));
+                    if (PlayerPosBox.SelectedIndex <= 0 || PlayerPOSG2 == PlayerPosBox.SelectedIndex - 1)
+                    {
+                        PlayerEditorList.Add(new List<string>());
+                        PlayerEditorList[row].Add(GetFirstNameFromRecord(i));
+                        PlayerEditorList[row].Add(GetLastNameFromRecord(i));
+                        PlayerEditorList[row].Add(GetDBValue("PLAY", "PPOS", i));
+                        PlayerEditorList[row].Add(GetDBValue("PLAY", "POVR", i));
+                        PlayerEditorList[row].Add(GetDBValue("PLAY", "PGID", i));
+                        PlayerEditorList[row].Add(Convert.ToString(i));
+                        PlayerEditorList[row].Add(Convert.ToString(GetPOSG2fromPPOS(GetDBValueInt("PLAY", "PPOS", i))));
 
-                    // 0 First Name  1 Last Name 2 Position 3 Overall 4 PGID 5 rec
+                        // 0 First Name  1 Last Name 2 Position 3 Overall 4 PGID 5 rec
 
-                    if (TGIDplayerBox.Text != "_ALL PLAYERS_") PJENList.Add(GetDBValueInt("PLAY", "PJEN", i));
-                        
-                    row++;
+                        if (TGIDplayerBox.Text != "_ALL PLAYERS_") PJENList.Add(GetDBValueInt("PLAY", "PJEN", i));
+
+                        row++;
+                    }
                 }
             }
+
+
+            //Display Filters
 
             PlayerEditorList.Sort((player1, player2) => player1[0].CompareTo(player2[0]));
             if (ShowPosCheckBox.Checked && ShowRatingCheckbox.Checked)
@@ -155,6 +186,13 @@ namespace DB_EDITOR
 
             LoadPGIDlistBox();
         }
+
+        //Position Filter
+        private void PlayerPosBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadPGIDlistBox();
+        }
+
         //Player Selection
         public void PGIDlistBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -376,6 +414,62 @@ namespace DB_EDITOR
 
             //Player Tendency/Archeatype
             PTEN.Text = GetPTENType(GetDBValueInt("PLAY", "PPOS", PlayerIndex), GetDBValueInt("PLAY", "PTEN", PlayerIndex));
+
+
+            //POCI CHECK
+            int pos = GetDBValueInt("PLAY", "PPOS", PlayerIndex);
+            // PCAR, PKAC, PTHA, PPBK, PRBK, PACC, PAGI, PTAK, PINJ, PKPR, PSPD, PTHP, PBKT, PCTH, PSTR, PJMP, PAWR
+
+            if (POCI[pos, 3] > 0) PCARlabel.ForeColor = Color.DarkSlateBlue;
+            else PCARlabel.ForeColor = Color.Black;
+
+            if (POCI[pos, 4] > 0) PKAClabel.ForeColor = Color.DarkSlateBlue;
+            else PKAClabel.ForeColor = Color.Black;
+
+            if (POCI[pos, 5] > 0) PTHAlabel.ForeColor = Color.DarkSlateBlue;
+            else PTHAlabel.ForeColor = Color.Black;
+
+            if (POCI[pos, 6] > 0) PPBKlabel.ForeColor = Color.DarkSlateBlue;
+            else PPBKlabel.ForeColor = Color.Black;
+
+            if (POCI[pos, 7] > 0) PRBKlabel.ForeColor = Color.DarkSlateBlue;
+            else PRBKlabel.ForeColor = Color.Black;
+
+            if (POCI[pos, 8] > 0) PACClabel.ForeColor = Color.DarkSlateBlue;
+            else PACClabel.ForeColor = Color.Black;
+
+            if (POCI[pos, 9] > 0) PAGIlabel.ForeColor = Color.DarkSlateBlue;
+            else PAGIlabel.ForeColor = Color.Black;
+
+            if (POCI[pos, 10] > 0) PTAKlabel.ForeColor = Color.DarkSlateBlue;
+            else PTAKlabel.ForeColor = Color.Black;
+
+            if (POCI[pos, 12] > 0) PKPRlabel.ForeColor = Color.DarkSlateBlue;
+            else PKPRlabel.ForeColor = Color.Black;
+
+            if (POCI[pos, 13] > 0) PSPDlabel.ForeColor = Color.DarkSlateBlue;
+            else PSPDlabel.ForeColor = Color.Black;
+
+            if (POCI[pos, 14] > 0) PTHPlabel.ForeColor = Color.DarkSlateBlue;
+            else PTHPlabel.ForeColor = Color.Black;
+
+            if (POCI[pos, 15] > 0) PBTKlabel.ForeColor = Color.DarkSlateBlue;
+            else PBTKlabel.ForeColor = Color.Black;
+
+            if (POCI[pos, 16] > 0) PCTHlabel.ForeColor = Color.DarkSlateBlue;
+            else PCTHlabel.ForeColor = Color.Black;
+
+            if (POCI[pos, 17] > 0) PSTRlabel.ForeColor = Color.DarkSlateBlue;
+            else PSTRlabel.ForeColor = Color.Black;
+
+            if (POCI[pos, 18] > 0) PJMPlabel.ForeColor = Color.DarkSlateBlue;
+            else PJMPlabel.ForeColor = Color.Black;
+
+            if (POCI[pos, 19] > 0) PAWRlabel.ForeColor = Color.DarkSlateBlue;
+            else PAWRlabel.ForeColor = Color.Black;
+
+
+
 
 
             //Off-Season Type

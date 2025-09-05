@@ -641,7 +641,7 @@ namespace DB_EDITOR
                         statusLabels[i].BackColor = Color.LightGreen;
                     }
                     */
-                    else if (count > 7 && count < 24)
+                    else if (count >= 8 && count <= 24)
                     {
                         statusLabels[i].Text = "Count: " + count + " | Valid";
                         statusLabels[i].BackColor = Color.LightGreen;

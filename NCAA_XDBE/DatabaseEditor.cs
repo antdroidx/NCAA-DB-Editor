@@ -18,7 +18,7 @@ namespace DB_EDITOR
             GetTables(ind);
             LoadTables();
             GetFields(ind, SelectedTableIndex);
-            LoadFields();
+            //LoadFields();
         }
 
         #region Database Loading
