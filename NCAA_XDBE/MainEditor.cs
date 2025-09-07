@@ -1076,7 +1076,7 @@ namespace DB_EDITOR
             Next26Mod = true;
             CreatePOCItable();
             CreateRatingsDB();
-
+            maxPlayers = 66;
         }
 
         #endregion
@@ -1125,6 +1125,7 @@ namespace DB_EDITOR
         {
         }
         #endregion
+
 
     }
 

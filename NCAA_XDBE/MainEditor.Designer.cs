@@ -442,10 +442,11 @@ namespace DB_EDITOR
             label218 = new Label();
             PassingLeadersBox = new ListBox();
             groupBox24 = new GroupBox();
+            label65 = new Label();
+            PollComboBox = new System.Windows.Forms.ComboBox();
             label217 = new Label();
             label216 = new Label();
             label215 = new Label();
-            label214 = new Label();
             TopTeamDefBox = new ListBox();
             TopTeamOffBox = new ListBox();
             TopTeamRatingsBox = new ListBox();
@@ -2831,7 +2832,6 @@ namespace DB_EDITOR
             PlayoffRankerButton.TabIndex = 65;
             PlayoffRankerButton.Text = "Playoff Ranker";
             PlayoffRankerButton.UseVisualStyleBackColor = true;
-            PlayoffRankerButton.Visible = false;
             PlayoffRankerButton.Click += (this.PlayoffRankerButton_Click);
             // 
             // ExportDraft
@@ -5413,10 +5413,11 @@ namespace DB_EDITOR
             // 
             // groupBox24
             // 
+            groupBox24.Controls.Add(label65);
+            groupBox24.Controls.Add(PollComboBox);
             groupBox24.Controls.Add(label217);
             groupBox24.Controls.Add(label216);
             groupBox24.Controls.Add(label215);
-            groupBox24.Controls.Add(label214);
             groupBox24.Controls.Add(TopTeamDefBox);
             groupBox24.Controls.Add(TopTeamOffBox);
             groupBox24.Controls.Add(TopTeamRatingsBox);
@@ -5428,10 +5429,29 @@ namespace DB_EDITOR
             groupBox24.TabStop = false;
             groupBox24.Text = "Rankings";
             // 
+            // label65
+            // 
+            label65.AutoSize = true;
+            label65.Location = new Point(161, 37);
+            label65.Name = "label65";
+            label65.Size = new Size(41, 13);
+            label65.TabIndex = 9;
+            label65.Text = "Top 25";
+            // 
+            // PollComboBox
+            // 
+            PollComboBox.FormattingEnabled = true;
+            PollComboBox.Items.AddRange(new object[] { "Coach's Poll", "AP Poll", "Bowl Ranking" });
+            PollComboBox.Location = new Point(11, 29);
+            PollComboBox.Name = "PollComboBox";
+            PollComboBox.Size = new Size(121, 21);
+            PollComboBox.TabIndex = 8;
+            PollComboBox.SelectedIndexChanged += (this.PollComboBox_SelectedIndexChanged);
+            // 
             // label217
             // 
             label217.AutoSize = true;
-            label217.Location = new Point(339, 378);
+            label217.Location = new Point(339, 390);
             label217.Name = "label217";
             label217.Size = new Size(74, 13);
             label217.TabIndex = 7;
@@ -5440,7 +5460,7 @@ namespace DB_EDITOR
             // label216
             // 
             label216.AutoSize = true;
-            label216.Location = new Point(131, 378);
+            label216.Location = new Point(131, 390);
             label216.Name = "label216";
             label216.Size = new Size(71, 13);
             label216.TabIndex = 6;
@@ -5449,55 +5469,46 @@ namespace DB_EDITOR
             // label215
             // 
             label215.AutoSize = true;
-            label215.Location = new Point(339, 13);
+            label215.Location = new Point(339, 37);
             label215.Name = "label215";
             label215.Size = new Size(74, 13);
             label215.TabIndex = 5;
             label215.Text = "Overall Rating";
             // 
-            // label214
-            // 
-            label214.AutoSize = true;
-            label214.Location = new Point(141, 13);
-            label214.Name = "label214";
-            label214.Size = new Size(61, 13);
-            label214.TabIndex = 4;
-            label214.Text = "Top 25 Poll";
-            // 
             // TopTeamDefBox
             // 
             TopTeamDefBox.FormattingEnabled = true;
             TopTeamDefBox.ItemHeight = 13;
-            TopTeamDefBox.Location = new Point(222, 394);
+            TopTeamDefBox.Location = new Point(222, 406);
             TopTeamDefBox.Name = "TopTeamDefBox";
-            TopTeamDefBox.Size = new Size(191, 147);
+            TopTeamDefBox.Size = new Size(191, 160);
             TopTeamDefBox.TabIndex = 3;
             // 
             // TopTeamOffBox
             // 
             TopTeamOffBox.FormattingEnabled = true;
             TopTeamOffBox.ItemHeight = 13;
-            TopTeamOffBox.Location = new Point(11, 394);
+            TopTeamOffBox.Location = new Point(11, 406);
             TopTeamOffBox.Name = "TopTeamOffBox";
-            TopTeamOffBox.Size = new Size(191, 147);
+            TopTeamOffBox.Size = new Size(191, 160);
             TopTeamOffBox.TabIndex = 2;
             // 
             // TopTeamRatingsBox
             // 
             TopTeamRatingsBox.FormattingEnabled = true;
             TopTeamRatingsBox.ItemHeight = 13;
-            TopTeamRatingsBox.Location = new Point(222, 29);
+            TopTeamRatingsBox.Location = new Point(222, 56);
             TopTeamRatingsBox.Name = "TopTeamRatingsBox";
-            TopTeamRatingsBox.Size = new Size(191, 316);
+            TopTeamRatingsBox.Size = new Size(191, 329);
             TopTeamRatingsBox.TabIndex = 1;
             // 
             // CoachPollListBox
             // 
             CoachPollListBox.FormattingEnabled = true;
             CoachPollListBox.ItemHeight = 13;
-            CoachPollListBox.Location = new Point(11, 29);
+            CoachPollListBox.Location = new Point(11, 56);
             CoachPollListBox.Name = "CoachPollListBox";
-            CoachPollListBox.Size = new Size(191, 316);
+            CoachPollListBox.Size = new Size(191, 329);
             CoachPollListBox.TabIndex = 0;
             // 
             // tabStadiums
@@ -13323,7 +13334,6 @@ namespace DB_EDITOR
         private Label label217;
         private Label label216;
         private Label label215;
-        private Label label214;
         private ListBox TopTeamDefBox;
         private ListBox TopTeamOffBox;
         private ListBox TopTeamRatingsBox;
@@ -14031,6 +14041,8 @@ namespace DB_EDITOR
         private System.Windows.Forms.Button SetMinTeamPrestigeButton;
         private Label PlayerTransferLabel;
         private CheckBox FCSTransferPortalCheckBox;
+        private Label label65;
+        private System.Windows.Forms.ComboBox PollComboBox;
     }
 }
 

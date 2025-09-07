@@ -365,9 +365,8 @@ namespace DB_EDITOR
                 RandomizeAttribute("PLAY", rec, 1);
                 RecalculateOverallByRec(rec);
 
-                //Add to TRAN
+                //Assign a Team
                 int TGID = fcsTeams[rand.Next(0, fcsTeams.Count)];
-                AddPlayertoTRAN(PGID, TGID);
 
                 //Add To Portal
                 int POVR = GetDBValueInt("PLAY", "POVR", rec);
@@ -562,7 +561,7 @@ namespace DB_EDITOR
                         else
                         {
                             //Check for open PGID slots
-                            for (int j = tgid * 70; j <= tgid * 70 + 69; j++)
+                            for (int j = tgid * 70; j <= tgid * 70 + maxPlayers-1; j++)
                             {
                                 if (!OccupiedPGIDList[tgid].Contains(j))
                                 {
@@ -604,13 +603,15 @@ namespace DB_EDITOR
                                     }
                                     else
                                     {
-                                        if (pgid >= 30000)
+                                        //Denote special player status
+                                        if (pgid >= 30000) //fcs
                                             portalList[row].Add(teamNameDB[team] + "+");
-                                        else if (SpringPortal[i][9] == 1)
+                                        else if (SpringPortal[i][9] == 1) //transfer
                                             portalList[row].Add(teamNameDB[team] + "*");
                                         else
                                             portalList[row].Add(teamNameDB[team]);
 
+                                        //Change their ID
                                         ChangeDBInt("PLAY", "PGID", rec, j);
 
 
@@ -636,7 +637,8 @@ namespace DB_EDITOR
                                             }
                                         }
 
-                                        // Change Player Stats ID
+                                        // Delete old stats & Change Player Stats ID
+                                        ClearPlayerStats(j);
                                         ChangePlayerStatsID(SpringPortal[i][2], j);
                                     }
 
@@ -649,7 +651,7 @@ namespace DB_EDITOR
                                     TeamPortalNeeds[tgid][p] = 0;
 
                                     //Remove Player from TRAN table (if needed)
-                                    if (SpringPortal[i][9] == 1 || SpringPortal[i][2] >= 21000) RemovePlayerFromTRAN(pgid);
+                                    if (SpringPortal[i][9] == 1) RemovePlayerFromTRAN(pgid);
 
                                     //Add Player to TRAN Table
                                     AddPlayertoTRAN(j, team);

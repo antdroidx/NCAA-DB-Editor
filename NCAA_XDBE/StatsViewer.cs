@@ -47,6 +47,8 @@ namespace DB_EDITOR
 
 
             progressBar1.Visible = false;
+
+            PollComboBox.SelectedIndex = 0;
         }
 
         private void LoadTop25Rankings()
@@ -59,8 +61,15 @@ namespace DB_EDITOR
 
             for (int i = 0; i < GetTableRecCount("TEAM"); i++)
             {
-                int rank = GetDBValueInt("TEAM", "TCRK", i);
-                if(rank < 26)
+                int rank = 511;
+                if(PollComboBox.SelectedIndex == 0)
+                    rank = GetDBValueInt("TEAM", "TCRK", i);
+                else if (PollComboBox.SelectedIndex == 1)
+                    rank = GetDBValueInt("TEAM", "TMRK", i);
+                else
+                    rank = GetDBValueInt("TEAM", "TBRK", i);
+
+                if (rank > 0 && rank < 26)
                 {
                     rankings.Add(new List<int>());
                     rankings[num].Add(i);
@@ -309,6 +318,12 @@ namespace DB_EDITOR
             CompactDB();
         }
 
+        //Ranking Poll Change
+        private void PollComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadTop25Rankings();      
+                
+        }
     }
 
 }
