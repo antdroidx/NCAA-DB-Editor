@@ -257,6 +257,20 @@ namespace DB_EDITOR
 
             playerTeamBox.Text = teamNameDB[GetDBValueInt("PLAY", "PGID", PlayerIndex) / 70];
 
+            //Transfer
+            PlayerTransferLabel.Visible = false;
+
+            for (int i = 0; i < GetTableRecCount("TRAN"); i++)
+            {
+                if (GetDBValueInt("TRAN", "PGID", i) == (GetDBValueInt("PLAY", "PGID", PlayerIndex))) 
+                {
+                    PlayerTransferLabel.Visible = true;
+                    PlayerTransferLabel.Text = "Transfer From " + teamNameDB[GetDBValueInt("TRAN", "PTID", i)];
+                    break;
+                }
+            }
+
+
             //Pride Stickers
             PRST.Text = GetDBValue("PLAY", "PRST", PlayerIndex);
 

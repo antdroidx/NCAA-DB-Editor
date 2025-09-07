@@ -161,6 +161,31 @@ namespace DB_EDITOR
             return recCount = tableProps.RecordCount;
 
         }
+
+        public static int TableCapacity(int DBIndex, string TableName)
+        {//Get the table index from the table name and db file..
+
+            int capacity = -1;
+
+            #region Get TABLE Properties
+            TdbTableProperties tableProps = new TdbTableProperties();
+            tableProps.Name = new string((char)0, 5);
+
+            int tmpTableCount = TDB.TDBDatabaseGetTableCount(DBIndex);
+
+            for (int tmpTableIndex = 0; tmpTableIndex < tmpTableCount; tmpTableIndex++)
+            {
+                TDB.TDBTableGetProperties(DBIndex, tmpTableIndex, ref tableProps);
+
+                if (tableProps.Name == TableName)
+                    break;
+            }
+            #endregion
+
+            return capacity = tableProps.Capacity;
+
+        }
+
         public static int FieldCount(int DBIndex, string TableName)
         {//Get the field count from table name and db file.
 

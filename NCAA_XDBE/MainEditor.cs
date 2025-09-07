@@ -1126,8 +1126,6 @@ namespace DB_EDITOR
         }
         #endregion
 
-
-
     }
 
 }

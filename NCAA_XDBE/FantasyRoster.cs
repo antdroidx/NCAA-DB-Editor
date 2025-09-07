@@ -274,32 +274,32 @@ namespace DB_EDITOR
                         ChangeDBString("PLAY", field, rec, Convert.ToString(RCAT[r][RCATcol]));
                     }
 
-                    string redshirt = "0";
-                    if (rand.Next(0, 3) > 2) redshirt = "2";
+                    int redshirt = 0;
+                    if (rand.Next(0, 3) > 2) redshirt = 2;
 
 
                     int ht = PickRandomHometown();
 
                     ChangeDBInt("PLAY", "RCHD", rec, ht); //hometown
-                    ChangeDBString("PLAY", "PGID", rec, Convert.ToString(PGID)); //player id
-                    ChangeDBString("PLAY", "PHPD", rec, "0"); //PHPD
-                    ChangeDBString("PLAY", "PRSD", rec, redshirt); //Redshirt
-                    ChangeDBString("PLAY", "PLMG", rec, "0"); //Mouthguard
-                    ChangeDBString("PLAY", "PFGM", rec, "0"); //face shape (to be calculated later)
+                    ChangeDBInt("PLAY", "PGID", rec, PGID); //player id
+                    ChangeDBInt("PLAY", "PHPD", rec, 0); //PHPD
+                    ChangeDBInt("PLAY", "PRSD", rec, redshirt); //Redshirt
+                    ChangeDBInt("PLAY", "PLMG", rec, 0); //Mouthguard
+                    ChangeDBInt("PLAY", "PFGM", rec, 0); //face shape (to be calculated later)
                     ChangeDBInt("PLAY", "PJEN", rec, ChooseJerseyNumber(ppos, PJEN)); //jersey num
-                    ChangeDBString("PLAY", "PTEN", rec, "0"); //tendency (to be calculated later)
-                    ChangeDBString("PLAY", "PFMP", rec, "0"); //face (to be calculated later)
+                    ChangeDBInt("PLAY", "PTEN", rec, 15); //tendency (to be calculated later)
+                    ChangeDBInt("PLAY", "PFMP", rec, 0); //face (to be calculated later)
                     ChangeDBInt("PLAY", "PIMP", rec, rand.Next(0, 32)); //importance (to be re-calculated later)
-                    ChangeDBString("PLAY", "POVR", rec, "0"); //overall, to be calculated later
-                    ChangeDBString("PLAY", "PSLY", rec, "0"); //PSLY
-                    ChangeDBString("PLAY", "PRST", rec, "0"); //PRST
+                    ChangeDBInt("PLAY", "POVR", rec, 0); //overall, to be calculated later
+                    ChangeDBInt("PLAY", "PSLY", rec, 0); //PSLY
+                    ChangeDBInt("PLAY", "PRST", rec, 0); //PRST
 
                     if (rand.Next(1, 101) < FreshmanPCT) ChangeDBInt("PLAY", "PYER", rec, 0); //year/class
                     else ChangeDBInt("PLAY", "PYER", rec, rand.Next(1, 4)); //year/class
 
                     if (GetDBValueInt("PLAY", "PYER", rec) == 3)
-                        ChangeDBString("PLAY", "PTYP", rec, "3"); //player type (graduation/nfl,etc)
-                    else ChangeDBString("PLAY", "PTYP", rec, "0"); //player type (graduation/nfl,etc)
+                        ChangeDBInt("PLAY", "PTYP", rec, 3); //player type (graduation/nfl,etc)
+                    else ChangeDBInt("PLAY", "PTYP", rec, 0); //player type (graduation/nfl,etc)
 
 
 
@@ -331,7 +331,7 @@ namespace DB_EDITOR
         //Randomize the Players to give a little bit more variety and evaluation randomness
         private void RandomizeAttribute(string TableName, int rec, int teamRating)
         {
-            int tolEXP = (int)(GetDBValueInt("PLAY", "PYER", rec)*2.5);
+            int tolEXP = (int)(GetDBValueInt(TableName, "PYER", rec)*2.5);
        
             int tolRAND = 3;  //half the tolerance for specific attributes
 
@@ -342,27 +342,27 @@ namespace DB_EDITOR
 
             int PBRE, PEYE, PPOE, PINJ, PAWR, PWGT, PHGT, PTHA, PSTA, PKAC, PACC, PSPD, PCTH, PAGI, PTAK, PPBK, PRBK, PBTK, PTHP, PJMP, PCAR, PKPR, PSTR, PIMP, PDIS;
 
-            PHGT = Convert.ToInt32(GetDBValue(TableName, "PHGT", rec));
-            PWGT = Convert.ToInt32(GetDBValue(TableName, "PWGT", rec));
-            PAWR = Convert.ToInt32(GetDBValue(TableName, "PAWR", rec));
+            PHGT = GetDBValueInt(TableName, "PHGT", rec);
+            PWGT = GetDBValueInt(TableName, "PWGT", rec);
+            PAWR = GetDBValueInt(TableName, "PAWR", rec);
 
-            PTHA = Convert.ToInt32(GetDBValue(TableName, "PTHA", rec));
-            PSTA = Convert.ToInt32(GetDBValue(TableName, "PSTA", rec));
-            PKAC = Convert.ToInt32(GetDBValue(TableName, "PKAC", rec));
-            PACC = Convert.ToInt32(GetDBValue(TableName, "PACC", rec));
-            PSPD = Convert.ToInt32(GetDBValue(TableName, "PSPD", rec));
-            PCTH = Convert.ToInt32(GetDBValue(TableName, "PCTH", rec));
-            PAGI = Convert.ToInt32(GetDBValue(TableName, "PAGI", rec));
-            PTAK = Convert.ToInt32(GetDBValue(TableName, "PTAK", rec));
-            PPBK = Convert.ToInt32(GetDBValue(TableName, "PPBK", rec));
-            PRBK = Convert.ToInt32(GetDBValue(TableName, "PRBK", rec));
-            PBTK = Convert.ToInt32(GetDBValue(TableName, "PBTK", rec));
-            PTHP = Convert.ToInt32(GetDBValue(TableName, "PTHP", rec));
-            PJMP = Convert.ToInt32(GetDBValue(TableName, "PJMP", rec));
-            PCAR = Convert.ToInt32(GetDBValue(TableName, "PCAR", rec));
-            PKPR = Convert.ToInt32(GetDBValue(TableName, "PKPR", rec));
-            PSTR = Convert.ToInt32(GetDBValue(TableName, "PSTR", rec));
-            PDIS = Convert.ToInt32(GetDBValue(TableName, "PDIS", rec));
+            PTHA = GetDBValueInt(TableName, "PTHA", rec);
+            PSTA = GetDBValueInt(TableName, "PSTA", rec);
+            PKAC = GetDBValueInt(TableName, "PKAC", rec);
+            PACC = GetDBValueInt(TableName, "PACC", rec);
+            PSPD = GetDBValueInt(TableName, "PSPD", rec);
+            PCTH = GetDBValueInt(TableName, "PCTH", rec);
+            PAGI = GetDBValueInt(TableName, "PAGI", rec);
+            PTAK = GetDBValueInt(TableName, "PTAK", rec);
+            PPBK = GetDBValueInt(TableName, "PPBK", rec);
+            PRBK = GetDBValueInt(TableName, "PRBK", rec);
+            PBTK = GetDBValueInt(TableName, "PBTK", rec);
+            PTHP = GetDBValueInt(TableName, "PTHP", rec);
+            PJMP = GetDBValueInt(TableName, "PJMP", rec);
+            PCAR = GetDBValueInt(TableName, "PCAR", rec);
+            PKPR = GetDBValueInt(TableName, "PKPR", rec);
+            PSTR = GetDBValueInt(TableName, "PSTR", rec);
+            PDIS = GetDBValueInt(TableName, "PDIS", rec);
 
             PBRE = rand.Next(0, 2);
             PEYE = rand.Next(0, 2);
@@ -397,7 +397,7 @@ namespace DB_EDITOR
             PKPR = GetRandomPositiveAttribute(PKPR, teamRating);
             PSTR = GetRandomPositiveAttribute(PSTR, teamRating);
 
-            if (GetDBValueInt("PLAY", "PPOS", rec) == 0)
+            if (GetDBValueInt(TableName, "PPOS", rec) == 0)
             {
                 PTHA = GetRandomPositiveAttribute(PTHA, teamRating);
                 PTHP = GetRandomPositiveAttribute(PTHP, teamRating);
@@ -441,7 +441,7 @@ namespace DB_EDITOR
             PKPR = GetRandomPositiveAttribute(PKPR, tolEXP);
             PSTR = GetRandomPositiveAttribute(PSTR, tolEXP);
 
-            if (GetDBValueInt("PLAY", "PPOS", rec) == 0)
+            if (GetDBValueInt(TableName, "PPOS", rec) == 0)
             {
                 PTHA = GetRandomPositiveAttribute(PTHA, tolEXP);
                 PTHP = GetRandomPositiveAttribute(PTHP, tolEXP);

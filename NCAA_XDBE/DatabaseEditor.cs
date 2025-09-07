@@ -502,8 +502,7 @@ namespace DB_EDITOR
         private void FieldGridView_CurrentCellChanged(object sender, EventArgs e)
         {
             if (DoNotTrigger) return;
-            if (!PlaybookDB) GetFieldProps();
-            //GetFieldProps();
+            GetFieldProps();
         }
 
         private void FieldGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)

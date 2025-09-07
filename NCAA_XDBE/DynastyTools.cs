@@ -98,6 +98,13 @@ namespace DB_EDITOR
                 ChangeDBInt("GOPT", "OFCF", 0, 0);
             }
         }
+
+        //Set Min Team Prestige
+        private void SetMinTeamPrestigeButton_Click(object sender, EventArgs e)
+        {
+            SetMinTeamPrestige();
+        }
+
         #endregion
 
 
@@ -1208,6 +1215,22 @@ namespace DB_EDITOR
             progressBar1.Visible = false;
 
             MessageBox.Show("Completed! Removed " + counter + " players from the database.");
+        }
+
+        //Sets Team Prestige to a minimum value for power conferences
+        private void SetMinTeamPrestige()
+        {
+            for (int i = 0; i < GetTableRecCount("TEAM"); i++)
+            {
+                int CGID = GetDBValueInt("TEAM", "CGID", i);
+                int prestige = GetTeamPrestige(i);
+                int confRec = GetTeamCONFrecID(CGID);
+                if (GetDBValueInt("CONF", "CMNP", confRec) > prestige)
+                {
+                    ChangeDBInt("TEAM", "TMPR", i, 3);
+                }
+            }
+            MessageBox.Show("All Power Conference teams have been set to be at least the minimum prestige.");
         }
 
 
