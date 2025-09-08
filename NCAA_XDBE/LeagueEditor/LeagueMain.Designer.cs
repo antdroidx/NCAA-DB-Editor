@@ -1811,7 +1811,7 @@ namespace DB_EDITOR
             tabHome.Location = new Point(4, 24);
             tabHome.Name = "tabHome";
             tabHome.Padding = new Padding(3);
-            tabHome.Size = new Size(1158, 1022);
+            tabHome.Size = new Size(1158, 1002);
             tabHome.TabIndex = 6;
             tabHome.Text = "Home";
             tabHome.UseVisualStyleBackColor = true;
@@ -2019,6 +2019,7 @@ namespace DB_EDITOR
             ChampGrid.DefaultCellStyle = dataGridViewCellStyle6;
             ChampGrid.Location = new Point(28, 51);
             ChampGrid.Name = "ChampGrid";
+            ChampGrid.RowHeadersVisible = false;
             ChampGrid.Size = new Size(352, 358);
             ChampGrid.TabIndex = 4;
             ChampGrid.DataError += ChampGrid_DataError;

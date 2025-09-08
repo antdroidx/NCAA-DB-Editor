@@ -1279,7 +1279,7 @@ namespace DB_EDITOR
                         }
                         if (GetDBValueInt("TEAM", "TGID", Convert.ToInt32(TeamRankList[j][0])) == homeTeam)
                         {
-                            //TeamRankList[j][1] -= (100 - awayRank);
+                            TeamRankList[j][1] -= (100 - awayRank);
                             TeamRankList[j][2] += 1;
                         }
                     }
@@ -1295,7 +1295,7 @@ namespace DB_EDITOR
                         }
                         if (GetDBValueInt("TEAM", "TGID", Convert.ToInt32(TeamRankList[j][0])) == awayTeam)
                         {
-                            //TeamRankList[j][1] -= (100 - homeRank);
+                            TeamRankList[j][1] -= (100 - homeRank);
                             TeamRankList[j][2] += 1;
                         }
                     }

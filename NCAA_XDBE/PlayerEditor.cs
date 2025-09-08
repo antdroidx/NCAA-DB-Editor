@@ -27,6 +27,8 @@ namespace DB_EDITOR
             if (dbIndex2 == 1) PlayerTransferButton.Visible = true;
 
             if (PlayerIndex > 0) LoadPGIDlistBox();
+
+            PlayerStatsView.Rows.Clear();
         }
 
         private void LoadPlayerTGIDBox()
@@ -522,6 +524,8 @@ namespace DB_EDITOR
             LeftShoe.SelectedIndex = GetDBValueInt("PLAY", "PLSH", PlayerIndex);
             RightShoe.SelectedIndex = GetDBValueInt("PLAY", "PRSH", PlayerIndex);
 
+            LoadPlayerStats();
+            
             DoNotTrigger = false;
         }
 
@@ -1402,6 +1406,401 @@ namespace DB_EDITOR
         private void ExportPlayerTeam_Click(object sender, EventArgs e)
         {
 
+        }
+
+        #endregion
+
+        #region Player Stat Tables
+
+        private void LoadPlayerStats()
+        {
+            PlayerStatsView.Rows.Clear();
+            PlayerStatsView.Visible = true;
+            PlayerStatsView.Rows.Add(5);
+
+            int pos = GetDBValueInt("PLAY", "PPOS", PlayerIndex);
+            int pgid = GetDBValueInt("PLAY", "PGID", PlayerIndex);
+
+            if(pos == 0) LoadQBStatsView(pgid);
+            else if (pos == 1 || pos == 2) LoadRushingStatsView(pgid);
+            else if (pos == 3 || pos == 4) LoadReceivingStatsView(pgid);
+            else if (pos >= 5 && pos <=9) LoadOLStatsView(pgid);
+            else if (pos >= 10 && pos <= 18) LoadDefStatsView(pgid);
+            else if (pos == 19) LoadKickStats(pgid);
+            else if (pos == 20) LoadPuntStats(pgid);
+            else PlayerStatsView.Visible = false;
+
+
+            for (int i = 0; i < PlayerStatsView.Rows.Count; i++)
+            {
+                if (PlayerStatsView.Rows[i].Cells[0] == null || PlayerStatsView.Rows[i].Cells[0].Value == null)
+                {
+                    PlayerStatsView.Rows.RemoveAt(i);
+                    i--;
+                }
+            }
+
+        }
+
+        private void LoadQBStatsView(int pgid)
+        {
+            PS0.HeaderText = "Year";
+            PS1.HeaderText = "GP";
+            PS2.HeaderText = "QBR";
+            PS3.HeaderText = "Comp";
+            PS4.HeaderText = "Att";
+            PS5.HeaderText = "PCT";
+            PS6.HeaderText = "Yds";
+            PS7.HeaderText = "YPG";
+            PS8.HeaderText = "TD";
+            PS9.HeaderText = "Int";
+            PS10.HeaderText = "Sacks";
+
+            int year = GetDBValueInt("SEAI", "SEYR", 0);
+
+
+            for (int i = 0; i < GetTableRecCount("PSOF"); i++)
+            {
+                if (GetDBValueInt("PSOF", "PGID", i) == pgid)
+                {
+                    int sea = GetDBValueInt("PSOF", "SEYR", i);
+                    int row = 4 - (year - sea);
+                    int gp = GetDBValueInt("PSOF", "sgmp", i);
+                    int cmp = GetDBValueInt("PSOF", "sacm", i);
+                    int att = GetDBValueInt("PSOF", "saat", i);
+                    int yds = GetDBValueInt("PSOF", "saya", i);
+                    int td = GetDBValueInt("PSOF", "satd", i);
+                    int ints = GetDBValueInt("PSOF", "sain", i);
+                    int skd = GetDBValueInt("PSOF", "sasa", i);
+                   
+                    double pct = 0;
+                    if (att > 0) pct = Math.Round((Convert.ToDouble(cmp) / Convert.ToDouble(att)) * 100, 1);
+
+                    double ypg = 0;
+                    if (gp > 0) ypg = Math.Round((Convert.ToDouble(yds) / Convert.ToDouble(gp)), 1);
+
+
+                    // NCAA Passer Rating Formula:
+                    // (8.4 * YDS + 330 * TD + 100 * CMP - 200 * INT) / ATT
+                    double qbr = 0;
+                    if (att > 0)
+                    {
+                        qbr = Math.Round(
+                            ((8.4 * yds) + 
+                             (330 * td) + 
+                             (100 * cmp) - 
+                             (200 * ints)) / att, 1);
+                    }
+                    if (qbr < 0) qbr = 0;
+
+                    PlayerStatsView.Rows[row].Cells[0].Value = sea;
+                    PlayerStatsView.Rows[row].Cells[1].Value = gp;
+                    PlayerStatsView.Rows[row].Cells[2].Value = qbr;
+                    PlayerStatsView.Rows[row].Cells[3].Value = cmp;
+                    PlayerStatsView.Rows[row].Cells[4].Value = att;
+                    PlayerStatsView.Rows[row].Cells[5].Value = pct;
+                    PlayerStatsView.Rows[row].Cells[6].Value = yds;
+                    PlayerStatsView.Rows[row].Cells[7].Value = ypg;
+                    PlayerStatsView.Rows[row].Cells[8].Value = td;
+                    PlayerStatsView.Rows[row].Cells[9].Value = ints;
+                    PlayerStatsView.Rows[row].Cells[10].Value = skd;
+
+
+                }
+            }
+        }
+
+
+        private void LoadRushingStatsView(int pgid)
+        {
+            PS0.HeaderText = "Year";
+            PS1.HeaderText = "GP";
+            PS2.HeaderText = "Att";
+            PS3.HeaderText = "Yds";
+            PS4.HeaderText = "TD";
+            PS5.HeaderText = "YPC";
+            PS6.HeaderText = "YPG";
+            PS7.HeaderText = "Fum";
+            PS8.HeaderText = "YAI";
+            PS9.HeaderText = "BTk";
+            PS10.HeaderText = "20+";
+
+            int year = GetDBValueInt("SEAI", "SEYR", 0);
+
+            for (int i = 0; i < GetTableRecCount("PSOF"); i++)
+            {
+                if (GetDBValueInt("PSOF", "PGID", i) == pgid)
+                {
+                    int sea = GetDBValueInt("PSOF", "SEYR", i);
+                    int row = 4 - (year - sea);
+                    int gp = GetDBValueInt("PSOF", "sgmp", i);
+                    int att = GetDBValueInt("PSOF", "suat", i);
+                    int yds = GetDBValueInt("PSOF", "suya", i);
+                    int td = GetDBValueInt("PSOF", "sutd", i);
+                    int fum = GetDBValueInt("PSOF", "sufu", i);
+                    int yai = GetDBValueInt("PSOF", "suyh", i);
+                    int btk = GetDBValueInt("PSOF", "subt", i);
+                    int twenty = GetDBValueInt("PSOF", "su2y", i);
+
+                    double ypc = 0;
+                    if (att > 0) ypc = Math.Round((Convert.ToDouble(yds) / Convert.ToDouble(att)), 1);
+
+                    double ypg = 0;
+                    if (gp > 0) ypg = Math.Round((Convert.ToDouble(yds) / Convert.ToDouble(gp)), 1);
+
+                    PlayerStatsView.Rows[row].Cells[0].Value = sea;
+                    PlayerStatsView.Rows[row].Cells[1].Value = gp;
+                    PlayerStatsView.Rows[row].Cells[2].Value = att;
+                    PlayerStatsView.Rows[row].Cells[3].Value = yds;
+                    PlayerStatsView.Rows[row].Cells[4].Value = td;
+                    PlayerStatsView.Rows[row].Cells[5].Value = ypc;
+                    PlayerStatsView.Rows[row].Cells[6].Value = ypg;
+                    PlayerStatsView.Rows[row].Cells[7].Value = fum;
+                    PlayerStatsView.Rows[row].Cells[8].Value = yai;
+                    PlayerStatsView.Rows[row].Cells[9].Value = btk;
+                    PlayerStatsView.Rows[row].Cells[10].Value = twenty;
+
+                }
+            }
+
+        }
+
+
+        private void LoadReceivingStatsView(int pgid)
+        {
+            PS0.HeaderText = "Year";
+            PS1.HeaderText = "GP";
+            PS2.HeaderText = "Cat";
+            PS3.HeaderText = "Yds";
+            PS4.HeaderText = "TD";
+            PS5.HeaderText = "YPC";
+            PS6.HeaderText = "YPG";
+            PS7.HeaderText = "Fum";
+            PS8.HeaderText = "RAC";
+            PS9.HeaderText = "RCA";
+            PS10.HeaderText = "Drp";
+
+            int year = GetDBValueInt("SEAI", "SEYR", 0);
+
+            for (int i = 0; i < GetTableRecCount("PSOF"); i++)
+            {
+                if (GetDBValueInt("PSOF", "PGID", i) == pgid)
+                {
+                    int sea = GetDBValueInt("PSOF", "SEYR", i);
+                    int row = 4 - (year - sea);
+                    int gp = GetDBValueInt("PSOF", "sgmp", i);
+
+                    int cat = GetDBValueInt("PSOF", "scca", i);
+                    int yds = GetDBValueInt("PSOF", "scya", i);
+                    int td = GetDBValueInt("PSOF", "sctd", i);
+                    int fum = GetDBValueInt("PSOF", "sufu", i);
+                    int rac = GetDBValueInt("PSOF", "scyc", i);
+                    int drp = GetDBValueInt("PSOF", "scdr", i);
+
+                    double ypc = 0;
+                    if (cat > 0) ypc = Math.Round((Convert.ToDouble(yds) / Convert.ToDouble(cat)), 1);
+
+                    double ypg = 0;
+                    if (gp > 0) ypg = Math.Round((Convert.ToDouble(yds) / Convert.ToDouble(gp)), 1);
+
+                    double rca = 0;
+                    if (cat > 0) ypc = Math.Round((Convert.ToDouble(rac) / Convert.ToDouble(cat)), 1);
+
+
+                    PlayerStatsView.Rows[row].Cells[0].Value = sea;
+                    PlayerStatsView.Rows[row].Cells[1].Value = gp;
+                    PlayerStatsView.Rows[row].Cells[2].Value = cat;
+                    PlayerStatsView.Rows[row].Cells[3].Value = yds;
+                    PlayerStatsView.Rows[row].Cells[4].Value = td;
+                    PlayerStatsView.Rows[row].Cells[5].Value = ypc;
+                    PlayerStatsView.Rows[row].Cells[6].Value = ypg;
+                    PlayerStatsView.Rows[row].Cells[7].Value = fum;
+                    PlayerStatsView.Rows[row].Cells[8].Value = rac;
+                    PlayerStatsView.Rows[row].Cells[9].Value = rca;
+                    PlayerStatsView.Rows[row].Cells[10].Value = drp;
+
+                }
+            }
+
+        }
+
+        private void LoadOLStatsView(int pgid)
+        {
+            PS0.HeaderText = "Year";
+            PS1.HeaderText = "GP";
+            PS2.HeaderText = "Pnck";
+            PS3.HeaderText = "Sack";
+            PS4.HeaderText = "";
+            PS5.HeaderText = "";
+            PS6.HeaderText = "";
+            PS7.HeaderText = "";
+            PS8.HeaderText = "";
+            PS9.HeaderText = "";
+            PS10.HeaderText = "";
+
+
+            int year = GetDBValueInt("SEAI", "SEYR", 0);
+
+            for (int i = 0; i < GetTableRecCount("PSOL"); i++)
+            {
+                if (GetDBValueInt("PSOL", "PGID", i) == pgid)
+                {
+                    int sea = GetDBValueInt("PSOL", "SEYR", i);
+                    int row = 4 - (year - sea);
+                    int gp = GetDBValueInt("PSOL", "sgmp", i);
+
+                    int pan = GetDBValueInt("PSOL", "sopa", i);
+                    int sack = GetDBValueInt("PSOL", "sosa", i);
+
+
+                    PlayerStatsView.Rows[row].Cells[0].Value = sea;
+                    PlayerStatsView.Rows[row].Cells[1].Value = gp;
+                    PlayerStatsView.Rows[row].Cells[2].Value = pan;
+                    PlayerStatsView.Rows[row].Cells[3].Value = sack;
+
+                }
+            }
+        }
+
+        private void LoadDefStatsView(int pgid)
+        {
+            PS0.HeaderText = "Year";
+            PS1.HeaderText = "GP";
+            PS2.HeaderText = "Tkl";
+            PS3.HeaderText = "TFL";
+            PS4.HeaderText = "Sack";
+            PS5.HeaderText = "Int";
+            PS6.HeaderText = "PDf";
+            PS7.HeaderText = "FFum";
+            PS8.HeaderText = "FumR";
+            PS9.HeaderText = "DTD";
+            PS10.HeaderText = "";
+
+            int year = GetDBValueInt("SEAI", "SEYR", 0);
+
+            for (int i = 0; i < GetTableRecCount("PSDE"); i++)
+            {
+                if (GetDBValueInt("PSDE", "PGID", i) == pgid)
+                {
+                    int sea = GetDBValueInt("PSDE", "SEYR", i);
+                    int row = 4 - (year - sea);
+                    int gp = GetDBValueInt("PSDE", "sgmp", i);
+                    int tak = GetDBValueInt("PSDE", "sdta", i);
+                    int tfl = GetDBValueInt("PSDE", "sdtl", i);
+                    int sack = GetDBValueInt("PSDE", "slsk", i);
+                    int ints = GetDBValueInt("PSDE", "ssin", i);
+                    int pdef = GetDBValueInt("PSDE", "sdpd", i);
+                    int ffum = GetDBValueInt("PSDE", "slff", i);
+                    int fumr = GetDBValueInt("PSDE", "slfr", i);
+                    int defTD = GetDBValueInt("PSDE", "ssdt", i);
+
+                    PlayerStatsView.Rows[row].Cells[0].Value = sea;
+                    PlayerStatsView.Rows[row].Cells[1].Value = gp;
+                    PlayerStatsView.Rows[row].Cells[2].Value = tak;
+                    PlayerStatsView.Rows[row].Cells[3].Value = tfl;
+                    PlayerStatsView.Rows[row].Cells[4].Value = sack;
+                    PlayerStatsView.Rows[row].Cells[5].Value = ints;
+                    PlayerStatsView.Rows[row].Cells[6].Value = pdef;
+                    PlayerStatsView.Rows[row].Cells[7].Value = ffum;
+                    PlayerStatsView.Rows[row].Cells[8].Value = fumr;
+                    PlayerStatsView.Rows[row].Cells[9].Value = defTD;
+                }
+            }
+
+        }
+
+        private void LoadKickStats(int pgid)
+        {
+            PS0.HeaderText = "Year";
+            PS1.HeaderText = "GP";
+            PS2.HeaderText = "FGM";
+            PS3.HeaderText = "FGA";
+            PS4.HeaderText = "Pct";
+            PS5.HeaderText = "Long";
+            PS6.HeaderText = "XPM";
+            PS7.HeaderText = "XPA";
+            PS8.HeaderText = "PCT";
+            PS9.HeaderText = "40+";
+            PS10.HeaderText = "";
+
+            int year = GetDBValueInt("SEAI", "SEYR", 0);
+
+            for (int i = 0; i < GetTableRecCount("PSKI"); i++)
+            {
+                if (GetDBValueInt("PSKI", "PGID", i) == pgid)
+                {
+                    int sea = GetDBValueInt("PSKI", "SEYR", i);
+                    int row = 4 - (year - sea);
+                    int gp = GetDBValueInt("PSKI", "sgmp", i);
+                    int fgm = GetDBValueInt("PSKI", "skfm", i);
+                    int fga = GetDBValueInt("PSKI", "skfa", i);
+                    int longest = GetDBValueInt("PSKI", "skfL", i);
+                    int xpm = GetDBValueInt("PSKI", "skem", i);
+                    int xpa = GetDBValueInt("PSKI", "skea", i);
+                    int fourty = GetDBValueInt("PSKI", "", i);
+
+                    double fgpct = 0;
+                    if (fga > 0) fgpct = Math.Round((Convert.ToDouble(fgm) / Convert.ToDouble(fga)) * 100, 1);
+
+                    double xppct = 0;
+                    if (xpa > 0) xppct = Math.Round((Convert.ToDouble(xpm) / Convert.ToDouble(xpa)) * 100, 1);
+
+                    PlayerStatsView.Rows[row].Cells[0].Value = sea;
+                    PlayerStatsView.Rows[row].Cells[1].Value = gp;
+                    PlayerStatsView.Rows[row].Cells[2].Value = fgm;
+                    PlayerStatsView.Rows[row].Cells[3].Value = fga;
+                    PlayerStatsView.Rows[row].Cells[4].Value = fgpct;
+                    PlayerStatsView.Rows[row].Cells[5].Value = longest;
+                    PlayerStatsView.Rows[row].Cells[6].Value = xpm;
+                    PlayerStatsView.Rows[row].Cells[7].Value = xpa;
+                    PlayerStatsView.Rows[row].Cells[8].Value = xppct;
+                    PlayerStatsView.Rows[row].Cells[9].Value = fourty;
+                }
+            }
+        }
+
+        private void LoadPuntStats(int pgid)
+        {
+            PS0.HeaderText = "Year";
+            PS1.HeaderText = "GP";
+            PS2.HeaderText = "Punt";
+            PS3.HeaderText = "Yrd";
+            PS4.HeaderText = "Avg";
+            PS5.HeaderText = "Long";
+            PS6.HeaderText = "I20";
+            PS7.HeaderText = "Blk";
+            PS8.HeaderText = "";
+            PS9.HeaderText = "";
+            PS10.HeaderText = "";
+
+            int year = GetDBValueInt("SEAI", "SEYR", 0);
+
+            for (int i = 0; i < GetTableRecCount("PSKI"); i++)
+            {
+                if (GetDBValueInt("PSKI", "PGID", i) == pgid)
+                {
+                    int sea = GetDBValueInt("PSKI", "SEYR", i);
+                    int row = 4 - (year - sea);
+                    int gp = GetDBValueInt("PSKI", "sgmp", i);
+                    int punt = GetDBValueInt("PSKI", "spat", i);
+                    int yd = GetDBValueInt("PSKI", "spya", i);
+                    int longest = GetDBValueInt("PSKI", "splN", i);
+                    int intwenty = GetDBValueInt("PSKI", "sppt", i);
+                    int blocked = GetDBValueInt("PSKI", "spbl", i);
+
+                    double puntavg = 0;
+                    if (punt > 0) puntavg = Math.Round((Convert.ToDouble(yd) / Convert.ToDouble(punt)), 1);
+
+                    PlayerStatsView.Rows[row].Cells[0].Value = sea;
+                    PlayerStatsView.Rows[row].Cells[1].Value = gp;
+                    PlayerStatsView.Rows[row].Cells[2].Value = punt;
+                    PlayerStatsView.Rows[row].Cells[3].Value = yd;
+                    PlayerStatsView.Rows[row].Cells[4].Value = puntavg;
+                    PlayerStatsView.Rows[row].Cells[5].Value = longest;
+                    PlayerStatsView.Rows[row].Cells[6].Value = intwenty;
+                    PlayerStatsView.Rows[row].Cells[7].Value = blocked;
+                }
+            }
         }
 
         #endregion
