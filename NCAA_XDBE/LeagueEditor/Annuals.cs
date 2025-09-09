@@ -259,6 +259,17 @@ namespace DB_EDITOR
 
             }
 
+            //Check Schedules for Errors
+            for (int j = 0; j < GetTableRecCount("SANN"); j++)
+            {
+                if (GetDBValueInt("SANN", "GATG", j) == 0 && GetDBValueInt("SANN", "GHTG", j) == 0)
+                {
+                    TDB.TDBTableRecordChangeDeleted(dbIndex2, "SANN", j, true);
+                }
+            }
+
+            TDB.TDBDatabaseCompact(dbIndex2);
+
             AddtoSKNW();
 
             MessageBox.Show("Annual Match-Ups Added!");
@@ -303,6 +314,16 @@ namespace DB_EDITOR
                 }
             }
 
+            //Check Schedules for Errors
+            for (int j = 0; j < GetTableRecCount("SKNW"); j++)
+            {
+                if (GetDBValueInt("SKNW", "GATG", j) == 0 && GetDBValueInt("SKNW", "GHTG", j) == 0)
+                {
+                    TDB.TDBTableRecordChangeDeleted(dbIndex2, "SKNW", j, true);
+                }
+            }
+
+            TDB.TDBDatabaseCompact(dbIndex2);
         }
     }
 }

@@ -44,7 +44,7 @@ namespace DB_EDITOR
             List<List<int>> template = new List<List<int>>();
             if (count == 12)
             {
-                if(rand.Next(0,100) > 50) template = CreateIntListsFromCSV(@"resources\schedules\" + count + "-teamB.csv", true);
+                if (rand.Next(0, 100) > 50) template = CreateIntListsFromCSV(@"resources\schedules\" + count + "-teamB.csv", true);
                 else template = CreateIntListsFromCSV(@"resources\schedules\" + count + "-team.csv", true);
             }
             else
@@ -71,7 +71,7 @@ namespace DB_EDITOR
             GenerateConfSchedules();
             GenerateSKNW();
 
-            if(!ArmyNavy && NextMod || !ArmyNavy && Next26Mod)
+            if (!ArmyNavy && NextMod || !ArmyNavy && Next26Mod)
             {
                 ClearAnnuals();
                 TDB.TDBTableRecordAdd(dbIndex2, "SANN", false);
@@ -150,7 +150,7 @@ namespace DB_EDITOR
                             ChangeDBInt(table, "SEWT", g, template[g][6]);
 
                             //check for Army-Navy game
-                            if(away == 57 & home == 8)
+                            if (away == 57 & home == 8)
                             {
                                 ChangeDBInt(table, "SEWN", g, 15);
                                 ChangeDBInt(table, "SEWT", g, 15);
@@ -174,7 +174,7 @@ namespace DB_EDITOR
 
                 for (int j = 0; j < GetTableRecCount(CONFTables[i]); j++)
                 {
-                    if(GetDBValueInt(table, "GATG", j) == 0 && GetDBValueInt(table, "GHTG", j) == 0)
+                    if (GetDBValueInt(table, "GATG", j) == 0 && GetDBValueInt(table, "GHTG", j) == 0)
                     {
                         TDB.TDBTableRecordChangeDeleted(dbIndex2, table, j, true);
                     }
@@ -203,9 +203,9 @@ namespace DB_EDITOR
             for (int i = 0; i < CONFTables.Count; i++)
             {
                 string table = CONFTables[i];
-                for(int g = 0; g < GetTableRecCount(table); g++)
+                for (int g = 0; g < GetTableRecCount(table); g++)
                 {
-                    if(GetDBValueInt(table, "SESI", g) == 0)
+                    if (GetDBValueInt(table, "SESI", g) == 0)
                     {
                         TDB.TDBTableRecordAdd(dbIndex2, "SKNW", true);
                         ChangeDBInt("SKNW", "GTOD", tableRec, GetDBValueInt(table, "GTOD", g));
@@ -220,6 +220,16 @@ namespace DB_EDITOR
                 }
             }
 
+            //Check Schedules for Errors
+            for (int j = 0; j < GetTableRecCount("SKNW"); j++)
+            {
+                if (GetDBValueInt("SKNW", "GATG", j) == 0 && GetDBValueInt("SKNW", "GHTG", j) == 0)
+                {
+                    TDB.TDBTableRecordChangeDeleted(dbIndex2, "SKNW", j, true);
+                }
+            }
+
+            TDB.TDBDatabaseCompact(dbIndex2);
         }
 
 

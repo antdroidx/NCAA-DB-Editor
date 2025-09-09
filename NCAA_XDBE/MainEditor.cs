@@ -320,9 +320,9 @@ namespace DB_EDITOR
             int activeDB = 0;
             int i = 0;
 
-            while (i < array.Length)
+            while (i < array.Length-3)
             {
-                if (Convert.ToChar(array[i]) + "" + Convert.ToChar(array[i + 1]) == "DB")
+                if (Convert.ToChar(array[i]) + "" + Convert.ToChar(array[i + 1]) + "" + Convert.ToDecimal(array[i + 2]) + "" + Convert.ToDecimal(array[i + 3]) == "DB08")
                 {
                     // Check if DB is BigEndian.
                     if (Convert.ToUInt32(array[i + 4]) == 1)
@@ -451,7 +451,11 @@ namespace DB_EDITOR
 
         public void OpenDB()
         {
-            if (dbIndex == -1) dbIndex = TDB.TDBOpen(dbFile);
+            if (dbIndex == -1)
+            {
+                dbIndex = TDB.TDBOpen(dbFile);
+            }
+
             if (dbIndex2 == -1 && db2Data.Count > 0)
             {
                 dbIndex2 = TDB.TDBOpen(dbFile2);
