@@ -835,6 +835,26 @@ namespace DB_EDITOR.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] INJL {
+            get {
+                object obj = ResourceManager.GetObject("INJL", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] INJT {
+            get {
+                object obj = ResourceManager.GetObject("INJT", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
         /// </summary>
         internal static System.Drawing.Icon ncaa_db_editor_icon1 {
@@ -934,10 +954,7 @@ namespace DB_EDITOR.Properties {
         ///35,Illinois
         ///36,Indiana
         ///37,Iowa State
-        ///38,Iowa
-        ///39,Kansas State
-        ///40,Kansas
-        ///41,Ke [rest of string was truncated]&quot;;.
+        ///3 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string PlaybookNames {
             get {

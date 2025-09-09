@@ -666,7 +666,8 @@ namespace DB_EDITOR
             ChangeDBInt("COCH", "CRPC", rec, recruit);
 
             //playbook & strategy
-            if (NextMod || Next26Mod) ChangeDBInt("COCH", "CPID", rec, rand.Next(136, 159));
+            if (NextMod) ChangeDBInt("COCH", "CPID", rec, rand.Next(136, 159));
+            else if (Next26Mod) ChangeDBInt("COCH", "CPID", rec, rand.Next(136, 163));
             else ChangeDBInt("COCH", "CPID", rec, rand.Next(0, 125));
 
             ChangeDBInt("COCH", "COST", rec, rand.Next(0, 5));

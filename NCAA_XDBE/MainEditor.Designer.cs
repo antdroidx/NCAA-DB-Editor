@@ -60,13 +60,16 @@ namespace DB_EDITOR
             DataGridViewCellStyle dataGridViewCellStyle24 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle25 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle26 = new DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainEditor));
             DataGridViewCellStyle dataGridViewCellStyle27 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle28 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle29 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainEditor));
             DataGridViewCellStyle dataGridViewCellStyle30 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle31 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle32 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle33 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle34 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle35 = new DataGridViewCellStyle();
             qbTend = new System.Windows.Forms.Button();
             mainMenu = new MenuStrip();
             fileMenuItem = new ToolStripMenuItem();
@@ -600,7 +603,19 @@ namespace DB_EDITOR
             SCHDAWAY = new DataGridViewTextBoxColumn();
             SCHDScoreA = new DataGridViewTextBoxColumn();
             tabDynasty = new TabPage();
+            groupBox46 = new GroupBox();
+            RemoveAllInjuryButton = new System.Windows.Forms.Button();
+            RemoveInjuryButton = new System.Windows.Forms.Button();
+            StartInjuryEditorButton = new System.Windows.Forms.Button();
+            InjuryGridView = new DataGridView();
+            groupBox45 = new GroupBox();
+            buttonImpactPlayers = new System.Windows.Forms.Button();
             SetMinTeamPrestigeButton = new System.Windows.Forms.Button();
+            buttonRealignment = new System.Windows.Forms.Button();
+            BodyProgressionButton = new System.Windows.Forms.Button();
+            ImpactPlayerMin = new NumericUpDown();
+            label180 = new Label();
+            RemoveSanctionsButton = new System.Windows.Forms.Button();
             ContractsCheckBox = new CheckBox();
             groupBox36 = new GroupBox();
             medRS = new System.Windows.Forms.Button();
@@ -613,12 +628,6 @@ namespace DB_EDITOR
             numInjuries = new NumericUpDown();
             labelPSInjuries = new Label();
             MaxSkillDropPS = new NumericUpDown();
-            RemoveSanctionsButton = new System.Windows.Forms.Button();
-            label180 = new Label();
-            ImpactPlayerMin = new NumericUpDown();
-            buttonImpactPlayers = new System.Windows.Forms.Button();
-            BodyProgressionButton = new System.Windows.Forms.Button();
-            buttonRealignment = new System.Windows.Forms.Button();
             textBox1 = new System.Windows.Forms.TextBox();
             groupBox37 = new GroupBox();
             CoachFiringsCount = new Label();
@@ -736,7 +745,47 @@ namespace DB_EDITOR
             CoachFilter = new System.Windows.Forms.ComboBox();
             CoachListBox = new ListBox();
             tabPlayers = new TabPage();
+            groupBox44 = new GroupBox();
+            label66 = new Label();
+            PRST = new System.Windows.Forms.TextBox();
+            PlayerHandBox = new System.Windows.Forms.ComboBox();
+            label1 = new Label();
+            label2 = new Label();
+            PSKIBox = new System.Windows.Forms.ComboBox();
+            label83 = new Label();
+            PFGMBox = new System.Windows.Forms.ComboBox();
+            label206 = new Label();
+            label84 = new Label();
+            PDIS = new NumericUpDown();
+            PFMPBox = new System.Windows.Forms.ComboBox();
+            label153 = new Label();
+            label85 = new Label();
+            PHometownBox = new System.Windows.Forms.ComboBox();
+            PHCLBox = new System.Windows.Forms.ComboBox();
+            label203 = new Label();
+            label86 = new Label();
+            PStateBox = new System.Windows.Forms.ComboBox();
+            PHEDBox = new System.Windows.Forms.ComboBox();
+            ResetPlayerPOSbutton = new System.Windows.Forms.Button();
+            label87 = new Label();
+            PHGTBox = new NumericUpDown();
+            label90 = new Label();
+            AWHRBox = new CheckBox();
+            PWGTBox = new NumericUpDown();
+            label89 = new Label();
+            PYERBox = new System.Windows.Forms.ComboBox();
+            label91 = new Label();
+            PRSDBox = new System.Windows.Forms.ComboBox();
+            label92 = new Label();
+            PJEN = new NumericUpDown();
+            PLNAtextBox = new System.Windows.Forms.TextBox();
+            label113 = new Label();
+            PFNAtextBox = new System.Windows.Forms.TextBox();
+            label151 = new Label();
+            PPOSBox = new System.Windows.Forms.ComboBox();
+            label62 = new Label();
             groupBox42 = new GroupBox();
+            InjuryLabel = new Label();
             PlayerStatsView = new DataGridView();
             PS0 = new DataGridViewTextBoxColumn();
             PS1 = new DataGridViewTextBoxColumn();
@@ -752,13 +801,6 @@ namespace DB_EDITOR
             PlayerTransferLabel = new Label();
             label271 = new Label();
             PlayerPosBox = new System.Windows.Forms.ComboBox();
-            label206 = new Label();
-            PDIS = new NumericUpDown();
-            label153 = new Label();
-            PHometownBox = new System.Windows.Forms.ComboBox();
-            label203 = new Label();
-            PStateBox = new System.Windows.Forms.ComboBox();
-            ResetPlayerPOSbutton = new System.Windows.Forms.Button();
             groupBox6 = new GroupBox();
             PSTAtext = new System.Windows.Forms.TextBox();
             PSTAbox = new NumericUpDown();
@@ -824,21 +866,10 @@ namespace DB_EDITOR
             PKPRlabel = new Label();
             PKACBox = new NumericUpDown();
             PKAClabel = new Label();
-            ImportPlayerTeam = new System.Windows.Forms.Button();
-            AWHRBox = new CheckBox();
             PlayerTransferButton = new System.Windows.Forms.Button();
-            ExportPlayerTeam = new System.Windows.Forms.Button();
             label167 = new Label();
             playerTeamBox = new System.Windows.Forms.TextBox();
-            PRST = new System.Windows.Forms.TextBox();
             PGIDbox = new System.Windows.Forms.TextBox();
-            PLNAtextBox = new System.Windows.Forms.TextBox();
-            PFNAtextBox = new System.Windows.Forms.TextBox();
-            PPOSBox = new System.Windows.Forms.ComboBox();
-            label62 = new Label();
-            label151 = new Label();
-            label113 = new Label();
-            PJEN = new NumericUpDown();
             PlayerSetDepthChartButton = new System.Windows.Forms.Button();
             PGIDLabel = new Label();
             ShowPOSGBox = new CheckBox();
@@ -846,30 +877,10 @@ namespace DB_EDITOR
             ShowPosCheckBox = new CheckBox();
             label93 = new Label();
             PTYPBox = new System.Windows.Forms.ComboBox();
-            label92 = new Label();
-            PRSDBox = new System.Windows.Forms.ComboBox();
-            label91 = new Label();
-            PYERBox = new System.Windows.Forms.ComboBox();
-            label89 = new Label();
-            PWGTBox = new NumericUpDown();
-            label90 = new Label();
-            PHGTBox = new NumericUpDown();
-            label87 = new Label();
-            PHEDBox = new System.Windows.Forms.ComboBox();
-            label86 = new Label();
-            PHCLBox = new System.Windows.Forms.ComboBox();
-            label85 = new Label();
-            PFMPBox = new System.Windows.Forms.ComboBox();
-            label84 = new Label();
-            PFGMBox = new System.Windows.Forms.ComboBox();
-            label83 = new Label();
-            PSKIBox = new System.Windows.Forms.ComboBox();
             RosterSizeLabel = new Label();
             label3 = new Label();
             TGIDplayerBox = new System.Windows.Forms.ComboBox();
             PGIDlistBox = new ListBox();
-            label2 = new Label();
-            label1 = new Label();
             groupBox3 = new GroupBox();
             label120 = new Label();
             LeftWrist = new System.Windows.Forms.ComboBox();
@@ -1117,6 +1128,12 @@ namespace DB_EDITOR
             groupBox41 = new GroupBox();
             buttonRCATBody = new System.Windows.Forms.Button();
             toolTip1 = new System.Windows.Forms.ToolTip(components);
+            INJteam = new DataGridViewTextBoxColumn();
+            INJpos = new DataGridViewTextBoxColumn();
+            INJplayer = new DataGridViewTextBoxColumn();
+            INJrating = new DataGridViewTextBoxColumn();
+            INJtype = new DataGridViewTextBoxColumn();
+            INJlength = new DataGridViewTextBoxColumn();
             mainMenu.SuspendLayout();
             tableMenu.SuspendLayout();
             fieldMenu.SuspendLayout();
@@ -1212,12 +1229,15 @@ namespace DB_EDITOR
             groupBox21.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)ScheduleView).BeginInit();
             tabDynasty.SuspendLayout();
+            groupBox46.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)InjuryGridView).BeginInit();
+            groupBox45.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)ImpactPlayerMin).BeginInit();
             groupBox36.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)skillDrop).BeginInit();
             groupBox35.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numInjuries).BeginInit();
             ((System.ComponentModel.ISupportInitialize)MaxSkillDropPS).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)ImpactPlayerMin).BeginInit();
             groupBox37.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)CarouselDataGrid).BeginInit();
             ((System.ComponentModel.ISupportInitialize)maxFiredTransfers).BeginInit();
@@ -1240,9 +1260,13 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)CoachRecruitingBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)CoachCOTRBox).BeginInit();
             tabPlayers.SuspendLayout();
+            groupBox44.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)PDIS).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PHGTBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PWGTBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PJEN).BeginInit();
             groupBox42.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PlayerStatsView).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)PDIS).BeginInit();
             groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PSTAbox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PIMPBox).BeginInit();
@@ -1264,9 +1288,6 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)PTAKBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PKPRBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PKACBox).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)PJEN).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)PWGTBox).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)PHGTBox).BeginInit();
             groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             tabTeams.SuspendLayout();
@@ -7141,16 +7162,11 @@ namespace DB_EDITOR
             // tabDynasty
             // 
             tabDynasty.BackColor = SystemColors.ControlDark;
-            tabDynasty.Controls.Add(SetMinTeamPrestigeButton);
+            tabDynasty.Controls.Add(groupBox46);
+            tabDynasty.Controls.Add(groupBox45);
             tabDynasty.Controls.Add(ContractsCheckBox);
             tabDynasty.Controls.Add(groupBox36);
             tabDynasty.Controls.Add(groupBox35);
-            tabDynasty.Controls.Add(RemoveSanctionsButton);
-            tabDynasty.Controls.Add(label180);
-            tabDynasty.Controls.Add(ImpactPlayerMin);
-            tabDynasty.Controls.Add(buttonImpactPlayers);
-            tabDynasty.Controls.Add(BodyProgressionButton);
-            tabDynasty.Controls.Add(buttonRealignment);
             tabDynasty.Controls.Add(textBox1);
             tabDynasty.Controls.Add(groupBox37);
             tabDynasty.Location = new Point(4, 29);
@@ -7160,24 +7176,185 @@ namespace DB_EDITOR
             tabDynasty.TabIndex = 3;
             tabDynasty.Text = "Dynasty";
             // 
+            // groupBox46
+            // 
+            groupBox46.Controls.Add(RemoveAllInjuryButton);
+            groupBox46.Controls.Add(RemoveInjuryButton);
+            groupBox46.Controls.Add(StartInjuryEditorButton);
+            groupBox46.Controls.Add(InjuryGridView);
+            groupBox46.Location = new Point(6, 178);
+            groupBox46.Name = "groupBox46";
+            groupBox46.Size = new Size(516, 272);
+            groupBox46.TabIndex = 51;
+            groupBox46.TabStop = false;
+            groupBox46.Text = "Injury List";
+            // 
+            // RemoveAllInjuryButton
+            // 
+            RemoveAllInjuryButton.Location = new Point(427, 19);
+            RemoveAllInjuryButton.Name = "RemoveAllInjuryButton";
+            RemoveAllInjuryButton.Size = new Size(75, 34);
+            RemoveAllInjuryButton.TabIndex = 3;
+            RemoveAllInjuryButton.Text = "Remove All Injuries";
+            RemoveAllInjuryButton.UseVisualStyleBackColor = true;
+            RemoveAllInjuryButton.Click += (this.RemoveAllInjuryButton_Click);
+            // 
+            // RemoveInjuryButton
+            // 
+            RemoveInjuryButton.Location = new Point(346, 19);
+            RemoveInjuryButton.Name = "RemoveInjuryButton";
+            RemoveInjuryButton.Size = new Size(75, 34);
+            RemoveInjuryButton.TabIndex = 2;
+            RemoveInjuryButton.Text = "Remove Injury";
+            RemoveInjuryButton.UseVisualStyleBackColor = true;
+            RemoveInjuryButton.Click += (this.RemoveInjuryButton_Click);
+            // 
+            // StartInjuryEditorButton
+            // 
+            StartInjuryEditorButton.Location = new Point(13, 19);
+            StartInjuryEditorButton.Name = "StartInjuryEditorButton";
+            StartInjuryEditorButton.Size = new Size(99, 34);
+            StartInjuryEditorButton.TabIndex = 1;
+            StartInjuryEditorButton.Text = "Load Injury Table";
+            StartInjuryEditorButton.UseVisualStyleBackColor = true;
+            StartInjuryEditorButton.Click += (this.StartInjuryEditorButton_Click);
+            // 
+            // InjuryGridView
+            // 
+            InjuryGridView.AllowUserToAddRows = false;
+            dataGridViewCellStyle20.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = Color.White;
+            dataGridViewCellStyle20.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            InjuryGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle20;
+            InjuryGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            InjuryGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridViewCellStyle21.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = SystemColors.AppWorkspace;
+            dataGridViewCellStyle21.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle21.ForeColor = SystemColors.MenuBar;
+            dataGridViewCellStyle21.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle21.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle21.WrapMode = DataGridViewTriState.True;
+            InjuryGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            InjuryGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            InjuryGridView.Columns.AddRange(new DataGridViewColumn[] { INJteam, INJpos, INJplayer, INJrating, INJtype, INJlength });
+            dataGridViewCellStyle22.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = SystemColors.ScrollBar;
+            dataGridViewCellStyle22.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle22.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle22.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle22.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = DataGridViewTriState.False;
+            InjuryGridView.DefaultCellStyle = dataGridViewCellStyle22;
+            InjuryGridView.Location = new Point(4, 62);
+            InjuryGridView.Name = "InjuryGridView";
+            InjuryGridView.RowHeadersVisible = false;
+            InjuryGridView.Size = new Size(506, 204);
+            InjuryGridView.TabIndex = 0;
+            // 
+            // groupBox45
+            // 
+            groupBox45.Controls.Add(buttonImpactPlayers);
+            groupBox45.Controls.Add(SetMinTeamPrestigeButton);
+            groupBox45.Controls.Add(buttonRealignment);
+            groupBox45.Controls.Add(BodyProgressionButton);
+            groupBox45.Controls.Add(ImpactPlayerMin);
+            groupBox45.Controls.Add(label180);
+            groupBox45.Controls.Add(RemoveSanctionsButton);
+            groupBox45.Location = new Point(6, 456);
+            groupBox45.Name = "groupBox45";
+            groupBox45.Size = new Size(516, 148);
+            groupBox45.TabIndex = 50;
+            groupBox45.TabStop = false;
+            groupBox45.Text = "Misc Tools";
+            // 
+            // buttonImpactPlayers
+            // 
+            buttonImpactPlayers.BackColor = SystemColors.Control;
+            buttonImpactPlayers.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
+            buttonImpactPlayers.ForeColor = SystemColors.ActiveCaptionText;
+            buttonImpactPlayers.Location = new Point(8, 19);
+            buttonImpactPlayers.Name = "buttonImpactPlayers";
+            buttonImpactPlayers.Size = new Size(106, 56);
+            buttonImpactPlayers.TabIndex = 35;
+            buttonImpactPlayers.Text = "Determine Impact Players";
+            buttonImpactPlayers.UseVisualStyleBackColor = false;
+            buttonImpactPlayers.Click += (this.buttonImpactPlayers_Click);
+            // 
             // SetMinTeamPrestigeButton
             // 
             SetMinTeamPrestigeButton.BackColor = SystemColors.Control;
-            SetMinTeamPrestigeButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            SetMinTeamPrestigeButton.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
             SetMinTeamPrestigeButton.ForeColor = SystemColors.ActiveCaptionText;
-            SetMinTeamPrestigeButton.Location = new Point(201, 364);
+            SetMinTeamPrestigeButton.Location = new Point(175, 81);
             SetMinTeamPrestigeButton.Name = "SetMinTeamPrestigeButton";
-            SetMinTeamPrestigeButton.Size = new Size(125, 75);
+            SetMinTeamPrestigeButton.Size = new Size(89, 56);
             SetMinTeamPrestigeButton.TabIndex = 49;
             SetMinTeamPrestigeButton.Text = "Set Minimum Power Conf Team Prestige";
             SetMinTeamPrestigeButton.UseVisualStyleBackColor = false;
             SetMinTeamPrestigeButton.Click += (this.SetMinTeamPrestigeButton_Click);
             // 
+            // buttonRealignment
+            // 
+            buttonRealignment.BackColor = SystemColors.Control;
+            buttonRealignment.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
+            buttonRealignment.ForeColor = SystemColors.ActiveCaptionText;
+            buttonRealignment.Location = new Point(287, 81);
+            buttonRealignment.Name = "buttonRealignment";
+            buttonRealignment.Size = new Size(89, 56);
+            buttonRealignment.TabIndex = 28;
+            buttonRealignment.Text = "Automated Conference Realignment";
+            buttonRealignment.UseVisualStyleBackColor = false;
+            buttonRealignment.Click += (this.buttonRealignment_Click);
+            // 
+            // BodyProgressionButton
+            // 
+            BodyProgressionButton.BackColor = SystemColors.Control;
+            BodyProgressionButton.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
+            BodyProgressionButton.Location = new Point(175, 19);
+            BodyProgressionButton.Name = "BodyProgressionButton";
+            BodyProgressionButton.Size = new Size(89, 56);
+            BodyProgressionButton.TabIndex = 34;
+            BodyProgressionButton.Text = "Body Size Progression";
+            BodyProgressionButton.UseVisualStyleBackColor = false;
+            BodyProgressionButton.Click += (this.BodyProgressionButton_Click);
+            // 
+            // ImpactPlayerMin
+            // 
+            ImpactPlayerMin.Location = new Point(70, 88);
+            ImpactPlayerMin.Maximum = new decimal(new int[] { 99, 0, 0, 0 });
+            ImpactPlayerMin.Minimum = new decimal(new int[] { 40, 0, 0, 0 });
+            ImpactPlayerMin.Name = "ImpactPlayerMin";
+            ImpactPlayerMin.Size = new Size(44, 20);
+            ImpactPlayerMin.TabIndex = 38;
+            ImpactPlayerMin.Value = new decimal(new int[] { 40, 0, 0, 0 });
+            // 
+            // label180
+            // 
+            label180.AutoSize = true;
+            label180.Location = new Point(8, 90);
+            label180.Name = "label180";
+            label180.Size = new Size(58, 13);
+            label180.TabIndex = 39;
+            label180.Text = "Min Rating";
+            // 
+            // RemoveSanctionsButton
+            // 
+            RemoveSanctionsButton.BackColor = SystemColors.Control;
+            RemoveSanctionsButton.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
+            RemoveSanctionsButton.Location = new Point(287, 19);
+            RemoveSanctionsButton.Name = "RemoveSanctionsButton";
+            RemoveSanctionsButton.Size = new Size(89, 56);
+            RemoveSanctionsButton.TabIndex = 40;
+            RemoveSanctionsButton.Text = "Remove All Sanctions";
+            RemoveSanctionsButton.UseVisualStyleBackColor = false;
+            RemoveSanctionsButton.Click += (this.RemoveSanctionsButton_Click);
+            // 
             // ContractsCheckBox
             // 
             ContractsCheckBox.AutoSize = true;
             ContractsCheckBox.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            ContractsCheckBox.Location = new Point(366, 13);
+            ContractsCheckBox.Location = new Point(380, 17);
             ContractsCheckBox.Name = "ContractsCheckBox";
             ContractsCheckBox.Size = new Size(128, 22);
             ContractsCheckBox.TabIndex = 48;
@@ -7191,9 +7368,9 @@ namespace DB_EDITOR
             groupBox36.Controls.Add(skillDrop);
             groupBox36.Controls.Add(checkBoxInjuryRatings);
             groupBox36.Controls.Add(labelSkillDrop);
-            groupBox36.Location = new Point(263, 55);
+            groupBox36.Location = new Point(273, 55);
             groupBox36.Name = "groupBox36";
-            groupBox36.Size = new Size(242, 117);
+            groupBox36.Size = new Size(250, 117);
             groupBox36.TabIndex = 45;
             groupBox36.TabStop = false;
             groupBox36.Text = "Medical Redshirt";
@@ -7203,9 +7380,9 @@ namespace DB_EDITOR
             medRS.BackColor = SystemColors.Control;
             medRS.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             medRS.ForeColor = SystemColors.ActiveCaptionText;
-            medRS.Location = new Point(135, 21);
+            medRS.Location = new Point(125, 25);
             medRS.Name = "medRS";
-            medRS.Size = new Size(96, 72);
+            medRS.Size = new Size(119, 72);
             medRS.TabIndex = 0;
             medRS.Text = "Medical Redshirt";
             medRS.UseVisualStyleBackColor = false;
@@ -7213,17 +7390,17 @@ namespace DB_EDITOR
             // 
             // skillDrop
             // 
-            skillDrop.Location = new Point(6, 61);
+            skillDrop.Location = new Point(13, 63);
             skillDrop.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
             skillDrop.Name = "skillDrop";
-            skillDrop.Size = new Size(44, 20);
+            skillDrop.Size = new Size(60, 20);
             skillDrop.TabIndex = 10;
             skillDrop.Value = new decimal(new int[] { 3, 0, 0, 0 });
             // 
             // checkBoxInjuryRatings
             // 
             checkBoxInjuryRatings.AutoSize = true;
-            checkBoxInjuryRatings.Location = new Point(5, 30);
+            checkBoxInjuryRatings.Location = new Point(13, 26);
             checkBoxInjuryRatings.Name = "checkBoxInjuryRatings";
             checkBoxInjuryRatings.Size = new Size(103, 17);
             checkBoxInjuryRatings.TabIndex = 9;
@@ -7234,7 +7411,7 @@ namespace DB_EDITOR
             // labelSkillDrop
             // 
             labelSkillDrop.AutoSize = true;
-            labelSkillDrop.Location = new Point(54, 63);
+            labelSkillDrop.Location = new Point(13, 86);
             labelSkillDrop.Name = "labelSkillDrop";
             labelSkillDrop.Size = new Size(75, 13);
             labelSkillDrop.TabIndex = 11;
@@ -7249,7 +7426,7 @@ namespace DB_EDITOR
             groupBox35.Controls.Add(MaxSkillDropPS);
             groupBox35.Location = new Point(6, 55);
             groupBox35.Name = "groupBox35";
-            groupBox35.Size = new Size(251, 117);
+            groupBox35.Size = new Size(250, 117);
             groupBox35.TabIndex = 44;
             groupBox35.TabStop = false;
             groupBox35.Text = "Injuries";
@@ -7261,7 +7438,7 @@ namespace DB_EDITOR
             buttonPSInjuries.ForeColor = SystemColors.ActiveCaptionText;
             buttonPSInjuries.Location = new Point(6, 23);
             buttonPSInjuries.Name = "buttonPSInjuries";
-            buttonPSInjuries.Size = new Size(106, 74);
+            buttonPSInjuries.Size = new Size(119, 74);
             buttonPSInjuries.TabIndex = 18;
             buttonPSInjuries.Text = "Pre-Season Injuries";
             buttonPSInjuries.UseVisualStyleBackColor = false;
@@ -7270,7 +7447,7 @@ namespace DB_EDITOR
             // labelMaxSkilDrop_PS
             // 
             labelMaxSkilDrop_PS.AutoSize = true;
-            labelMaxSkilDrop_PS.Location = new Point(166, 75);
+            labelMaxSkilDrop_PS.Location = new Point(134, 92);
             labelMaxSkilDrop_PS.Name = "labelMaxSkilDrop_PS";
             labelMaxSkilDrop_PS.Size = new Size(75, 13);
             labelMaxSkilDrop_PS.TabIndex = 22;
@@ -7279,7 +7456,7 @@ namespace DB_EDITOR
             // numInjuries
             // 
             numInjuries.Increment = new decimal(new int[] { 20, 0, 0, 0 });
-            numInjuries.Location = new Point(118, 23);
+            numInjuries.Location = new Point(134, 23);
             numInjuries.Maximum = new decimal(new int[] { 300, 0, 0, 0 });
             numInjuries.Name = "numInjuries";
             numInjuries.Size = new Size(60, 20);
@@ -7289,7 +7466,7 @@ namespace DB_EDITOR
             // labelPSInjuries
             // 
             labelPSInjuries.AutoSize = true;
-            labelPSInjuries.Location = new Point(115, 46);
+            labelPSInjuries.Location = new Point(131, 46);
             labelPSInjuries.Name = "labelPSInjuries";
             labelPSInjuries.Size = new Size(93, 13);
             labelPSInjuries.TabIndex = 20;
@@ -7297,81 +7474,12 @@ namespace DB_EDITOR
             // 
             // MaxSkillDropPS
             // 
-            MaxSkillDropPS.Location = new Point(118, 73);
+            MaxSkillDropPS.Location = new Point(134, 69);
             MaxSkillDropPS.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
             MaxSkillDropPS.Name = "MaxSkillDropPS";
-            MaxSkillDropPS.Size = new Size(44, 20);
+            MaxSkillDropPS.Size = new Size(60, 20);
             MaxSkillDropPS.TabIndex = 21;
             MaxSkillDropPS.Value = new decimal(new int[] { 3, 0, 0, 0 });
-            // 
-            // RemoveSanctionsButton
-            // 
-            RemoveSanctionsButton.BackColor = SystemColors.Control;
-            RemoveSanctionsButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            RemoveSanctionsButton.Location = new Point(360, 200);
-            RemoveSanctionsButton.Name = "RemoveSanctionsButton";
-            RemoveSanctionsButton.Size = new Size(125, 75);
-            RemoveSanctionsButton.TabIndex = 40;
-            RemoveSanctionsButton.Text = "Remove All Sanctions";
-            RemoveSanctionsButton.UseVisualStyleBackColor = false;
-            RemoveSanctionsButton.Click += (this.RemoveSanctionsButton_Click);
-            // 
-            // label180
-            // 
-            label180.AutoSize = true;
-            label180.Location = new Point(47, 278);
-            label180.Name = "label180";
-            label180.Size = new Size(58, 13);
-            label180.TabIndex = 39;
-            label180.Text = "Min Rating";
-            // 
-            // ImpactPlayerMin
-            // 
-            ImpactPlayerMin.Location = new Point(109, 276);
-            ImpactPlayerMin.Maximum = new decimal(new int[] { 99, 0, 0, 0 });
-            ImpactPlayerMin.Minimum = new decimal(new int[] { 40, 0, 0, 0 });
-            ImpactPlayerMin.Name = "ImpactPlayerMin";
-            ImpactPlayerMin.Size = new Size(44, 20);
-            ImpactPlayerMin.TabIndex = 38;
-            ImpactPlayerMin.Value = new decimal(new int[] { 40, 0, 0, 0 });
-            // 
-            // buttonImpactPlayers
-            // 
-            buttonImpactPlayers.BackColor = SystemColors.Control;
-            buttonImpactPlayers.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            buttonImpactPlayers.ForeColor = SystemColors.ActiveCaptionText;
-            buttonImpactPlayers.Location = new Point(39, 200);
-            buttonImpactPlayers.Name = "buttonImpactPlayers";
-            buttonImpactPlayers.Size = new Size(125, 75);
-            buttonImpactPlayers.TabIndex = 35;
-            buttonImpactPlayers.Text = "Determine Impact Players";
-            buttonImpactPlayers.UseVisualStyleBackColor = false;
-            buttonImpactPlayers.Click += (this.buttonImpactPlayers_Click);
-            // 
-            // BodyProgressionButton
-            // 
-            BodyProgressionButton.BackColor = SystemColors.Control;
-            BodyProgressionButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            BodyProgressionButton.Location = new Point(201, 200);
-            BodyProgressionButton.Name = "BodyProgressionButton";
-            BodyProgressionButton.Size = new Size(125, 75);
-            BodyProgressionButton.TabIndex = 34;
-            BodyProgressionButton.Text = "Body Size Progression";
-            BodyProgressionButton.UseVisualStyleBackColor = false;
-            BodyProgressionButton.Click += (this.BodyProgressionButton_Click);
-            // 
-            // buttonRealignment
-            // 
-            buttonRealignment.BackColor = SystemColors.Control;
-            buttonRealignment.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            buttonRealignment.ForeColor = SystemColors.ActiveCaptionText;
-            buttonRealignment.Location = new Point(39, 364);
-            buttonRealignment.Name = "buttonRealignment";
-            buttonRealignment.Size = new Size(125, 75);
-            buttonRealignment.TabIndex = 28;
-            buttonRealignment.Text = "Automated Conference Realignment";
-            buttonRealignment.UseVisualStyleBackColor = false;
-            buttonRealignment.Click += (this.buttonRealignment_Click);
             // 
             // textBox1
             // 
@@ -7401,9 +7509,9 @@ namespace DB_EDITOR
             groupBox37.Controls.Add(checkBoxFiredTransfers);
             groupBox37.Controls.Add(numberPlayerCoach);
             groupBox37.Controls.Add(buttonPlayerCoach);
-            groupBox37.Location = new Point(512, 23);
+            groupBox37.Location = new Point(528, 23);
             groupBox37.Name = "groupBox37";
-            groupBox37.Size = new Size(634, 589);
+            groupBox37.Size = new Size(618, 589);
             groupBox37.TabIndex = 47;
             groupBox37.TabStop = false;
             groupBox37.Text = "Coaching Carousel";
@@ -7412,7 +7520,7 @@ namespace DB_EDITOR
             // 
             CoachFiringsCount.AutoSize = true;
             CoachFiringsCount.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            CoachFiringsCount.Location = new Point(524, 168);
+            CoachFiringsCount.Location = new Point(500, 168);
             CoachFiringsCount.Name = "CoachFiringsCount";
             CoachFiringsCount.Size = new Size(104, 13);
             CoachFiringsCount.TabIndex = 47;
@@ -7422,7 +7530,7 @@ namespace DB_EDITOR
             // 
             label13.AutoSize = true;
             label13.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            label13.Location = new Point(259, 16);
+            label13.Location = new Point(244, 16);
             label13.Name = "label13";
             label13.Size = new Size(359, 30);
             label13.TabIndex = 27;
@@ -7432,36 +7540,36 @@ namespace DB_EDITOR
             // 
             CarouselDataGrid.AllowUserToAddRows = false;
             CarouselDataGrid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle20.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle20.BackColor = Color.FromArgb((int)(byte)224, (int)(byte)224, (int)(byte)224);
-            CarouselDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle20;
-            CarouselDataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            dataGridViewCellStyle23.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle23.BackColor = Color.FromArgb((int)(byte)224, (int)(byte)224, (int)(byte)224);
+            CarouselDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle23;
+            CarouselDataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             CarouselDataGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
-            dataGridViewCellStyle21.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle21.BackColor = SystemColors.Control;
-            dataGridViewCellStyle21.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle21.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle21.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle21.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle21.WrapMode = DataGridViewTriState.True;
-            CarouselDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle24.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle24.BackColor = SystemColors.Control;
+            dataGridViewCellStyle24.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle24.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle24.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle24.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle24.WrapMode = DataGridViewTriState.True;
+            CarouselDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle24;
             CarouselDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             CarouselDataGrid.Columns.AddRange(new DataGridViewColumn[] { CCName, CCStatus, CCTeam, CCTmPrestige, CCPrestige, CCRecord });
-            dataGridViewCellStyle22.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle22.BackColor = SystemColors.Window;
-            dataGridViewCellStyle22.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle22.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle22.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle22.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle22.WrapMode = DataGridViewTriState.False;
-            CarouselDataGrid.DefaultCellStyle = dataGridViewCellStyle22;
-            CarouselDataGrid.Location = new Point(8, 184);
+            dataGridViewCellStyle25.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle25.BackColor = SystemColors.Window;
+            dataGridViewCellStyle25.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle25.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle25.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle25.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle25.WrapMode = DataGridViewTriState.False;
+            CarouselDataGrid.DefaultCellStyle = dataGridViewCellStyle25;
+            CarouselDataGrid.Location = new Point(10, 184);
             CarouselDataGrid.Name = "CarouselDataGrid";
             CarouselDataGrid.ReadOnly = true;
             CarouselDataGrid.RowHeadersVisible = false;
             CarouselDataGrid.RowHeadersWidth = 72;
             CarouselDataGrid.RowTemplate.Height = 31;
-            CarouselDataGrid.Size = new Size(620, 399);
+            CarouselDataGrid.Size = new Size(598, 399);
             CarouselDataGrid.TabIndex = 46;
             // 
             // CCName
@@ -7471,7 +7579,6 @@ namespace DB_EDITOR
             CCName.MinimumWidth = 9;
             CCName.Name = "CCName";
             CCName.ReadOnly = true;
-            CCName.Width = 87;
             // 
             // CCStatus
             // 
@@ -7480,7 +7587,6 @@ namespace DB_EDITOR
             CCStatus.MinimumWidth = 9;
             CCStatus.Name = "CCStatus";
             CCStatus.ReadOnly = true;
-            CCStatus.Width = 62;
             // 
             // CCTeam
             // 
@@ -7489,7 +7595,6 @@ namespace DB_EDITOR
             CCTeam.MinimumWidth = 9;
             CCTeam.Name = "CCTeam";
             CCTeam.ReadOnly = true;
-            CCTeam.Width = 59;
             // 
             // CCTmPrestige
             // 
@@ -7498,7 +7603,6 @@ namespace DB_EDITOR
             CCTmPrestige.MinimumWidth = 9;
             CCTmPrestige.Name = "CCTmPrestige";
             CCTmPrestige.ReadOnly = true;
-            CCTmPrestige.Width = 92;
             // 
             // CCPrestige
             // 
@@ -7507,7 +7611,6 @@ namespace DB_EDITOR
             CCPrestige.MinimumWidth = 9;
             CCPrestige.Name = "CCPrestige";
             CCPrestige.ReadOnly = true;
-            CCPrestige.Width = 96;
             // 
             // CCRecord
             // 
@@ -7516,7 +7619,6 @@ namespace DB_EDITOR
             CCRecord.MinimumWidth = 9;
             CCRecord.Name = "CCRecord";
             CCRecord.ReadOnly = true;
-            CCRecord.Width = 93;
             // 
             // buttonCarousel
             // 
@@ -7589,7 +7691,7 @@ namespace DB_EDITOR
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new Point(447, 142);
+            label14.Location = new Point(423, 142);
             label14.Name = "label14";
             label14.Size = new Size(93, 13);
             label14.TabIndex = 32;
@@ -7607,7 +7709,7 @@ namespace DB_EDITOR
             // 
             // numberPlayerCoach
             // 
-            numberPlayerCoach.Location = new Point(546, 138);
+            numberPlayerCoach.Location = new Point(522, 138);
             numberPlayerCoach.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
             numberPlayerCoach.Name = "numberPlayerCoach";
             numberPlayerCoach.Size = new Size(72, 20);
@@ -7618,7 +7720,7 @@ namespace DB_EDITOR
             buttonPlayerCoach.BackColor = SystemColors.Control;
             buttonPlayerCoach.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             buttonPlayerCoach.ForeColor = SystemColors.ActiveCaptionText;
-            buttonPlayerCoach.Location = new Point(422, 71);
+            buttonPlayerCoach.Location = new Point(398, 71);
             buttonPlayerCoach.Name = "buttonPlayerCoach";
             buttonPlayerCoach.Size = new Size(206, 65);
             buttonPlayerCoach.TabIndex = 30;
@@ -8657,33 +8759,16 @@ namespace DB_EDITOR
             // tabPlayers
             // 
             tabPlayers.BackColor = SystemColors.AppWorkspace;
+            tabPlayers.Controls.Add(groupBox44);
             tabPlayers.Controls.Add(groupBox42);
             tabPlayers.Controls.Add(PlayerTransferLabel);
             tabPlayers.Controls.Add(label271);
             tabPlayers.Controls.Add(PlayerPosBox);
-            tabPlayers.Controls.Add(label206);
-            tabPlayers.Controls.Add(PDIS);
-            tabPlayers.Controls.Add(label153);
-            tabPlayers.Controls.Add(PHometownBox);
-            tabPlayers.Controls.Add(label203);
-            tabPlayers.Controls.Add(PStateBox);
-            tabPlayers.Controls.Add(ResetPlayerPOSbutton);
             tabPlayers.Controls.Add(groupBox6);
-            tabPlayers.Controls.Add(ImportPlayerTeam);
-            tabPlayers.Controls.Add(AWHRBox);
             tabPlayers.Controls.Add(PlayerTransferButton);
-            tabPlayers.Controls.Add(ExportPlayerTeam);
             tabPlayers.Controls.Add(label167);
             tabPlayers.Controls.Add(playerTeamBox);
-            tabPlayers.Controls.Add(PRST);
             tabPlayers.Controls.Add(PGIDbox);
-            tabPlayers.Controls.Add(PLNAtextBox);
-            tabPlayers.Controls.Add(PFNAtextBox);
-            tabPlayers.Controls.Add(PPOSBox);
-            tabPlayers.Controls.Add(label62);
-            tabPlayers.Controls.Add(label151);
-            tabPlayers.Controls.Add(label113);
-            tabPlayers.Controls.Add(PJEN);
             tabPlayers.Controls.Add(PlayerSetDepthChartButton);
             tabPlayers.Controls.Add(PGIDLabel);
             tabPlayers.Controls.Add(ShowPOSGBox);
@@ -8691,30 +8776,10 @@ namespace DB_EDITOR
             tabPlayers.Controls.Add(ShowPosCheckBox);
             tabPlayers.Controls.Add(label93);
             tabPlayers.Controls.Add(PTYPBox);
-            tabPlayers.Controls.Add(label92);
-            tabPlayers.Controls.Add(PRSDBox);
-            tabPlayers.Controls.Add(label91);
-            tabPlayers.Controls.Add(PYERBox);
-            tabPlayers.Controls.Add(label89);
-            tabPlayers.Controls.Add(PWGTBox);
-            tabPlayers.Controls.Add(label90);
-            tabPlayers.Controls.Add(PHGTBox);
-            tabPlayers.Controls.Add(label87);
-            tabPlayers.Controls.Add(PHEDBox);
-            tabPlayers.Controls.Add(label86);
-            tabPlayers.Controls.Add(PHCLBox);
-            tabPlayers.Controls.Add(label85);
-            tabPlayers.Controls.Add(PFMPBox);
-            tabPlayers.Controls.Add(label84);
-            tabPlayers.Controls.Add(PFGMBox);
-            tabPlayers.Controls.Add(label83);
-            tabPlayers.Controls.Add(PSKIBox);
             tabPlayers.Controls.Add(RosterSizeLabel);
             tabPlayers.Controls.Add(label3);
             tabPlayers.Controls.Add(TGIDplayerBox);
             tabPlayers.Controls.Add(PGIDlistBox);
-            tabPlayers.Controls.Add(label2);
-            tabPlayers.Controls.Add(label1);
             tabPlayers.Controls.Add(groupBox3);
             tabPlayers.ForeColor = SystemColors.ControlText;
             tabPlayers.Location = new Point(4, 29);
@@ -8723,58 +8788,478 @@ namespace DB_EDITOR
             tabPlayers.TabIndex = 2;
             tabPlayers.Text = "Players";
             // 
+            // groupBox44
+            // 
+            groupBox44.Controls.Add(label66);
+            groupBox44.Controls.Add(PRST);
+            groupBox44.Controls.Add(PlayerHandBox);
+            groupBox44.Controls.Add(label1);
+            groupBox44.Controls.Add(label2);
+            groupBox44.Controls.Add(PSKIBox);
+            groupBox44.Controls.Add(label83);
+            groupBox44.Controls.Add(PFGMBox);
+            groupBox44.Controls.Add(label206);
+            groupBox44.Controls.Add(label84);
+            groupBox44.Controls.Add(PDIS);
+            groupBox44.Controls.Add(PFMPBox);
+            groupBox44.Controls.Add(label153);
+            groupBox44.Controls.Add(label85);
+            groupBox44.Controls.Add(PHometownBox);
+            groupBox44.Controls.Add(PHCLBox);
+            groupBox44.Controls.Add(label203);
+            groupBox44.Controls.Add(label86);
+            groupBox44.Controls.Add(PStateBox);
+            groupBox44.Controls.Add(PHEDBox);
+            groupBox44.Controls.Add(ResetPlayerPOSbutton);
+            groupBox44.Controls.Add(label87);
+            groupBox44.Controls.Add(PHGTBox);
+            groupBox44.Controls.Add(label90);
+            groupBox44.Controls.Add(AWHRBox);
+            groupBox44.Controls.Add(PWGTBox);
+            groupBox44.Controls.Add(label89);
+            groupBox44.Controls.Add(PYERBox);
+            groupBox44.Controls.Add(label91);
+            groupBox44.Controls.Add(PRSDBox);
+            groupBox44.Controls.Add(label92);
+            groupBox44.Controls.Add(PJEN);
+            groupBox44.Controls.Add(PLNAtextBox);
+            groupBox44.Controls.Add(label113);
+            groupBox44.Controls.Add(PFNAtextBox);
+            groupBox44.Controls.Add(label151);
+            groupBox44.Controls.Add(PPOSBox);
+            groupBox44.Controls.Add(label62);
+            groupBox44.Location = new Point(196, 3);
+            groupBox44.Name = "groupBox44";
+            groupBox44.Size = new Size(451, 198);
+            groupBox44.TabIndex = 167;
+            groupBox44.TabStop = false;
+            groupBox44.Text = "Player Info";
+            // 
+            // label66
+            // 
+            label66.AutoSize = true;
+            label66.Location = new Point(384, 149);
+            label66.Name = "label66";
+            label66.Size = new Size(33, 13);
+            label66.TabIndex = 166;
+            label66.Text = "Hand";
+            // 
+            // PRST
+            // 
+            PRST.BackColor = SystemColors.Info;
+            PRST.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            PRST.Location = new Point(324, 35);
+            PRST.Name = "PRST";
+            PRST.ReadOnly = true;
+            PRST.Size = new Size(82, 22);
+            PRST.TabIndex = 139;
+            PRST.TextAlign = HorizontalAlignment.Center;
+            // 
+            // PlayerHandBox
+            // 
+            PlayerHandBox.FormattingEnabled = true;
+            PlayerHandBox.Items.AddRange(new object[] { "Right", "Left" });
+            PlayerHandBox.Location = new Point(387, 166);
+            PlayerHandBox.Name = "PlayerHandBox";
+            PlayerHandBox.Size = new Size(51, 21);
+            PlayerHandBox.TabIndex = 165;
+            PlayerHandBox.SelectedIndexChanged += (this.PlayerHandBox_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            label1.Location = new Point(6, 17);
+            label1.Name = "label1";
+            label1.Size = new Size(82, 16);
+            label1.TabIndex = 2;
+            label1.Text = "First Name";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            label2.Location = new Point(125, 17);
+            label2.Name = "label2";
+            label2.Size = new Size(81, 16);
+            label2.TabIndex = 3;
+            label2.Text = "Last Name";
+            // 
+            // PSKIBox
+            // 
+            PSKIBox.FormattingEnabled = true;
+            PSKIBox.Location = new Point(10, 166);
+            PSKIBox.Name = "PSKIBox";
+            PSKIBox.Size = new Size(67, 21);
+            PSKIBox.TabIndex = 72;
+            PSKIBox.SelectedIndexChanged += (this.PSKIBox_SelectedIndexChanged);
+            // 
+            // label83
+            // 
+            label83.AutoSize = true;
+            label83.Location = new Point(11, 149);
+            label83.Name = "label83";
+            label83.Size = new Size(56, 13);
+            label83.TabIndex = 73;
+            label83.Text = "Skin Tone";
+            // 
+            // PFGMBox
+            // 
+            PFGMBox.FormattingEnabled = true;
+            PFGMBox.Location = new Point(83, 166);
+            PFGMBox.Name = "PFGMBox";
+            PFGMBox.Size = new Size(45, 21);
+            PFGMBox.TabIndex = 74;
+            PFGMBox.SelectedIndexChanged += (this.PFGMBox_SelectedIndexChanged);
+            // 
+            // label206
+            // 
+            label206.AutoSize = true;
+            label206.Location = new Point(185, 63);
+            label206.Name = "label206";
+            label206.Size = new Size(52, 13);
+            label206.TabIndex = 160;
+            label206.Text = "Discipline";
+            // 
+            // label84
+            // 
+            label84.AutoSize = true;
+            label84.Location = new Point(80, 149);
+            label84.Name = "label84";
+            label84.Size = new Size(38, 13);
+            label84.TabIndex = 75;
+            label84.Text = "Shape";
+            // 
+            // PDIS
+            // 
+            PDIS.Location = new Point(188, 79);
+            PDIS.Maximum = new decimal(new int[] { 6, 0, 0, 0 });
+            PDIS.Name = "PDIS";
+            PDIS.Size = new Size(57, 20);
+            PDIS.TabIndex = 149;
+            PDIS.TextAlign = HorizontalAlignment.Center;
+            PDIS.ValueChanged += (this.PDIS_ValueChanged);
+            // 
+            // PFMPBox
+            // 
+            PFMPBox.FormattingEnabled = true;
+            PFMPBox.Location = new Point(134, 166);
+            PFMPBox.Name = "PFMPBox";
+            PFMPBox.Size = new Size(51, 21);
+            PFMPBox.TabIndex = 76;
+            PFMPBox.SelectedIndexChanged += (this.PFMPBox_SelectedIndexChanged);
+            // 
+            // label153
+            // 
+            label153.AutoSize = true;
+            label153.Location = new Point(71, 63);
+            label153.Name = "label153";
+            label153.Size = new Size(58, 13);
+            label153.TabIndex = 159;
+            label153.Text = "Hometown";
+            // 
+            // label85
+            // 
+            label85.AutoSize = true;
+            label85.Location = new Point(131, 149);
+            label85.Name = "label85";
+            label85.Size = new Size(31, 13);
+            label85.TabIndex = 77;
+            label85.Text = "Face";
+            // 
+            // PHometownBox
+            // 
+            PHometownBox.FormattingEnabled = true;
+            PHometownBox.Location = new Point(69, 79);
+            PHometownBox.Name = "PHometownBox";
+            PHometownBox.Size = new Size(116, 21);
+            PHometownBox.TabIndex = 158;
+            PHometownBox.SelectedIndexChanged += (this.PHometownBox_SelectedIndexChanged);
+            // 
+            // PHCLBox
+            // 
+            PHCLBox.FormattingEnabled = true;
+            PHCLBox.Location = new Point(191, 166);
+            PHCLBox.Name = "PHCLBox";
+            PHCLBox.Size = new Size(94, 21);
+            PHCLBox.TabIndex = 78;
+            PHCLBox.SelectedIndexChanged += (this.PHCLBox_SelectedIndexChanged);
+            // 
+            // label203
+            // 
+            label203.AutoSize = true;
+            label203.Location = new Point(7, 63);
+            label203.Name = "label203";
+            label203.Size = new Size(32, 13);
+            label203.TabIndex = 157;
+            label203.Text = "State";
+            // 
+            // label86
+            // 
+            label86.AutoSize = true;
+            label86.Location = new Point(188, 150);
+            label86.Name = "label86";
+            label86.Size = new Size(53, 13);
+            label86.TabIndex = 79;
+            label86.Text = "Hair Color";
+            // 
+            // PStateBox
+            // 
+            PStateBox.FormattingEnabled = true;
+            PStateBox.Location = new Point(10, 79);
+            PStateBox.Name = "PStateBox";
+            PStateBox.Size = new Size(53, 21);
+            PStateBox.TabIndex = 156;
+            PStateBox.SelectedIndexChanged += (this.PStateBox_SelectedIndexChanged);
+            // 
+            // PHEDBox
+            // 
+            PHEDBox.FormattingEnabled = true;
+            PHEDBox.Location = new Point(291, 166);
+            PHEDBox.Name = "PHEDBox";
+            PHEDBox.Size = new Size(90, 21);
+            PHEDBox.TabIndex = 80;
+            PHEDBox.SelectedIndexChanged += (this.PHEDBox_SelectedIndexChanged);
+            // 
+            // ResetPlayerPOSbutton
+            // 
+            ResetPlayerPOSbutton.Location = new Point(254, 79);
+            ResetPlayerPOSbutton.Name = "ResetPlayerPOSbutton";
+            ResetPlayerPOSbutton.Size = new Size(101, 23);
+            ResetPlayerPOSbutton.TabIndex = 151;
+            ResetPlayerPOSbutton.Text = "Reset Position";
+            ResetPlayerPOSbutton.UseVisualStyleBackColor = true;
+            ResetPlayerPOSbutton.Click += (this.ResetPlayerPOSbutton_Click);
+            // 
+            // label87
+            // 
+            label87.AutoSize = true;
+            label87.Location = new Point(288, 150);
+            label87.Name = "label87";
+            label87.Size = new Size(52, 13);
+            label87.TabIndex = 81;
+            label87.Text = "Hair Style";
+            // 
+            // PHGTBox
+            // 
+            PHGTBox.Location = new Point(254, 124);
+            PHGTBox.Maximum = new decimal(new int[] { 127, 0, 0, 0 });
+            PHGTBox.Name = "PHGTBox";
+            PHGTBox.Size = new Size(57, 20);
+            PHGTBox.TabIndex = 83;
+            PHGTBox.TextAlign = HorizontalAlignment.Center;
+            PHGTBox.ValueChanged += (this.PHGTBox_ValueChanged);
+            // 
+            // label90
+            // 
+            label90.AutoSize = true;
+            label90.Location = new Point(251, 109);
+            label90.Name = "label90";
+            label90.Size = new Size(55, 13);
+            label90.TabIndex = 84;
+            label90.Text = "Height (in)";
+            label90.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // AWHRBox
+            // 
+            AWHRBox.AutoSize = true;
+            AWHRBox.Location = new Point(254, 59);
+            AWHRBox.Name = "AWHRBox";
+            AWHRBox.Size = new Size(148, 17);
+            AWHRBox.TabIndex = 149;
+            AWHRBox.Text = "Position Change AWR Hit";
+            AWHRBox.UseVisualStyleBackColor = true;
+            // 
+            // PWGTBox
+            // 
+            PWGTBox.Location = new Point(317, 124);
+            PWGTBox.Maximum = new decimal(new int[] { 415, 0, 0, 0 });
+            PWGTBox.Minimum = new decimal(new int[] { 160, 0, 0, 0 });
+            PWGTBox.Name = "PWGTBox";
+            PWGTBox.Size = new Size(57, 20);
+            PWGTBox.TabIndex = 86;
+            PWGTBox.TextAlign = HorizontalAlignment.Center;
+            PWGTBox.Value = new decimal(new int[] { 160, 0, 0, 0 });
+            PWGTBox.ValueChanged += (this.PWGTBox_ValueChanged);
+            // 
+            // label89
+            // 
+            label89.AutoSize = true;
+            label89.Location = new Point(318, 109);
+            label89.Name = "label89";
+            label89.Size = new Size(63, 13);
+            label89.TabIndex = 87;
+            label89.Text = "Weight (lbs)";
+            label89.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // PYERBox
+            // 
+            PYERBox.FormattingEnabled = true;
+            PYERBox.Location = new Point(10, 124);
+            PYERBox.Name = "PYERBox";
+            PYERBox.Size = new Size(79, 21);
+            PYERBox.TabIndex = 88;
+            PYERBox.SelectedIndexChanged += (this.PYERBox_SelectedIndexChanged);
+            // 
+            // label91
+            // 
+            label91.AutoSize = true;
+            label91.Location = new Point(9, 109);
+            label91.Name = "label91";
+            label91.Size = new Size(29, 13);
+            label91.TabIndex = 89;
+            label91.Text = "Year";
+            // 
+            // PRSDBox
+            // 
+            PRSDBox.FormattingEnabled = true;
+            PRSDBox.Location = new Point(95, 124);
+            PRSDBox.Name = "PRSDBox";
+            PRSDBox.Size = new Size(79, 21);
+            PRSDBox.TabIndex = 90;
+            PRSDBox.SelectedIndexChanged += (this.PRSDBox_SelectedIndexChanged);
+            // 
+            // label92
+            // 
+            label92.AutoSize = true;
+            label92.Location = new Point(92, 108);
+            label92.Name = "label92";
+            label92.Size = new Size(46, 13);
+            label92.TabIndex = 91;
+            label92.Text = "Redshirt";
+            // 
+            // PJEN
+            // 
+            PJEN.Location = new Point(188, 124);
+            PJEN.Maximum = new decimal(new int[] { 99, 0, 0, 0 });
+            PJEN.Name = "PJEN";
+            PJEN.Size = new Size(53, 20);
+            PJEN.TabIndex = 100;
+            PJEN.ValueChanged += (this.PJEN_ValueChanged);
+            // 
+            // PLNAtextBox
+            // 
+            PLNAtextBox.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            PLNAtextBox.Location = new Point(128, 35);
+            PLNAtextBox.Name = "PLNAtextBox";
+            PLNAtextBox.Size = new Size(111, 22);
+            PLNAtextBox.TabIndex = 1;
+            PLNAtextBox.TextChanged += (this.PLNAtextBox_TextChanged);
+            PLNAtextBox.Leave += (this.PLNA_Leave);
+            // 
+            // label113
+            // 
+            label113.AutoSize = true;
+            label113.Location = new Point(188, 109);
+            label113.Name = "label113";
+            label113.Size = new Size(37, 13);
+            label113.TabIndex = 101;
+            label113.Text = "Jersey";
+            label113.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // PFNAtextBox
+            // 
+            PFNAtextBox.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            PFNAtextBox.Location = new Point(6, 35);
+            PFNAtextBox.Name = "PFNAtextBox";
+            PFNAtextBox.Size = new Size(116, 22);
+            PFNAtextBox.TabIndex = 0;
+            PFNAtextBox.TextChanged += (this.PFNAtextBox_TextChanged);
+            PFNAtextBox.Leave += (this.PFNA_Leave);
+            // 
+            // label151
+            // 
+            label151.AutoSize = true;
+            label151.Font = new Font("Microsoft Sans Serif", 8F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            label151.Location = new Point(324, 17);
+            label151.Name = "label151";
+            label151.Size = new Size(86, 13);
+            label151.TabIndex = 140;
+            label151.Text = "Pride Stickers";
+            // 
+            // PPOSBox
+            // 
+            PPOSBox.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            PPOSBox.FormattingEnabled = true;
+            PPOSBox.Location = new Point(245, 33);
+            PPOSBox.Name = "PPOSBox";
+            PPOSBox.Size = new Size(71, 24);
+            PPOSBox.TabIndex = 10;
+            PPOSBox.SelectedIndexChanged += (this.PPOSBox_SelectedIndexChanged);
+            // 
+            // label62
+            // 
+            label62.AutoSize = true;
+            label62.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            label62.Location = new Point(242, 17);
+            label62.Name = "label62";
+            label62.Size = new Size(63, 16);
+            label62.TabIndex = 11;
+            label62.Text = "Position";
+            // 
             // groupBox42
             // 
+            groupBox42.Controls.Add(InjuryLabel);
             groupBox42.Controls.Add(PlayerStatsView);
-            groupBox42.Location = new Point(665, 31);
+            groupBox42.Location = new Point(658, 3);
             groupBox42.Name = "groupBox42";
-            groupBox42.Size = new Size(484, 170);
+            groupBox42.Size = new Size(484, 198);
             groupBox42.TabIndex = 164;
             groupBox42.TabStop = false;
             groupBox42.Text = "Player Stats";
+            // 
+            // InjuryLabel
+            // 
+            InjuryLabel.AutoSize = true;
+            InjuryLabel.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            InjuryLabel.Location = new Point(10, 168);
+            InjuryLabel.Name = "InjuryLabel";
+            InjuryLabel.Size = new Size(280, 16);
+            InjuryLabel.TabIndex = 168;
+            InjuryLabel.Text = "Injury: xxxxxxxxxxxxxxxxxxxx for xx weeks";
             // 
             // PlayerStatsView
             // 
             PlayerStatsView.AllowUserToAddRows = false;
             PlayerStatsView.AllowUserToDeleteRows = false;
             PlayerStatsView.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle23.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle23.BackColor = Color.Gainsboro;
-            dataGridViewCellStyle23.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle23.SelectionBackColor = Color.FromArgb((int)(byte)128, (int)(byte)255, (int)(byte)255);
-            PlayerStatsView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle26.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle26.BackColor = Color.Gainsboro;
+            dataGridViewCellStyle26.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle26.SelectionBackColor = Color.FromArgb((int)(byte)128, (int)(byte)255, (int)(byte)255);
+            PlayerStatsView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle26;
             PlayerStatsView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             PlayerStatsView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             PlayerStatsView.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle24.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = SystemColors.InactiveCaption;
-            dataGridViewCellStyle24.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle24.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle24.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle24.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle24.WrapMode = DataGridViewTriState.True;
-            PlayerStatsView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle27.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle27.BackColor = SystemColors.InactiveCaption;
+            dataGridViewCellStyle27.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle27.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle27.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle27.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle27.WrapMode = DataGridViewTriState.True;
+            PlayerStatsView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle27;
             PlayerStatsView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             PlayerStatsView.Columns.AddRange(new DataGridViewColumn[] { PS0, PS1, PS2, PS3, PS4, PS5, PS6, PS7, PS8, PS9, PS10 });
-            dataGridViewCellStyle25.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle25.BackColor = SystemColors.ButtonFace;
-            dataGridViewCellStyle25.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle25.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle25.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle25.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle25.WrapMode = DataGridViewTriState.False;
-            PlayerStatsView.DefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle28.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle28.BackColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle28.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle28.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle28.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle28.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle28.WrapMode = DataGridViewTriState.False;
+            PlayerStatsView.DefaultCellStyle = dataGridViewCellStyle28;
             PlayerStatsView.Location = new Point(10, 21);
             PlayerStatsView.Name = "PlayerStatsView";
             PlayerStatsView.ReadOnly = true;
-            dataGridViewCellStyle26.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle26.BackColor = SystemColors.Control;
-            dataGridViewCellStyle26.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle26.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle26.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle26.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle26.WrapMode = DataGridViewTriState.True;
-            PlayerStatsView.RowHeadersDefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle29.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle29.BackColor = SystemColors.Control;
+            dataGridViewCellStyle29.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle29.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle29.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle29.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle29.WrapMode = DataGridViewTriState.True;
+            PlayerStatsView.RowHeadersDefaultCellStyle = dataGridViewCellStyle29;
             PlayerStatsView.RowHeadersVisible = false;
             PlayerStatsView.Size = new Size(468, 134);
             PlayerStatsView.TabIndex = 0;
@@ -8874,71 +9359,6 @@ namespace DB_EDITOR
             PlayerPosBox.TabIndex = 161;
             PlayerPosBox.SelectedIndexChanged += (this.PlayerPosBox_SelectedIndexChanged);
             // 
-            // label206
-            // 
-            label206.AutoSize = true;
-            label206.Location = new Point(386, 53);
-            label206.Name = "label206";
-            label206.Size = new Size(52, 13);
-            label206.TabIndex = 160;
-            label206.Text = "Discipline";
-            // 
-            // PDIS
-            // 
-            PDIS.Location = new Point(389, 69);
-            PDIS.Maximum = new decimal(new int[] { 6, 0, 0, 0 });
-            PDIS.Name = "PDIS";
-            PDIS.Size = new Size(57, 20);
-            PDIS.TabIndex = 149;
-            PDIS.TextAlign = HorizontalAlignment.Center;
-            PDIS.ValueChanged += (this.PDIS_ValueChanged);
-            // 
-            // label153
-            // 
-            label153.AutoSize = true;
-            label153.Location = new Point(272, 53);
-            label153.Name = "label153";
-            label153.Size = new Size(58, 13);
-            label153.TabIndex = 159;
-            label153.Text = "Hometown";
-            // 
-            // PHometownBox
-            // 
-            PHometownBox.FormattingEnabled = true;
-            PHometownBox.Location = new Point(270, 69);
-            PHometownBox.Name = "PHometownBox";
-            PHometownBox.Size = new Size(116, 21);
-            PHometownBox.TabIndex = 158;
-            PHometownBox.SelectedIndexChanged += (this.PHometownBox_SelectedIndexChanged);
-            // 
-            // label203
-            // 
-            label203.AutoSize = true;
-            label203.Location = new Point(208, 53);
-            label203.Name = "label203";
-            label203.Size = new Size(32, 13);
-            label203.TabIndex = 157;
-            label203.Text = "State";
-            // 
-            // PStateBox
-            // 
-            PStateBox.FormattingEnabled = true;
-            PStateBox.Location = new Point(211, 69);
-            PStateBox.Name = "PStateBox";
-            PStateBox.Size = new Size(53, 21);
-            PStateBox.TabIndex = 156;
-            PStateBox.SelectedIndexChanged += (this.PStateBox_SelectedIndexChanged);
-            // 
-            // ResetPlayerPOSbutton
-            // 
-            ResetPlayerPOSbutton.Location = new Point(455, 69);
-            ResetPlayerPOSbutton.Name = "ResetPlayerPOSbutton";
-            ResetPlayerPOSbutton.Size = new Size(101, 23);
-            ResetPlayerPOSbutton.TabIndex = 151;
-            ResetPlayerPOSbutton.Text = "Reset Position";
-            ResetPlayerPOSbutton.UseVisualStyleBackColor = true;
-            ResetPlayerPOSbutton.Click += (this.ResetPlayerPOSbutton_Click);
-            // 
             // groupBox6
             // 
             groupBox6.AutoSize = true;
@@ -9006,9 +9426,9 @@ namespace DB_EDITOR
             groupBox6.Controls.Add(PKPRlabel);
             groupBox6.Controls.Add(PKACBox);
             groupBox6.Controls.Add(PKAClabel);
-            groupBox6.Location = new Point(203, 207);
+            groupBox6.Location = new Point(197, 207);
             groupBox6.Name = "groupBox6";
-            groupBox6.Size = new Size(444, 361);
+            groupBox6.Size = new Size(450, 361);
             groupBox6.TabIndex = 150;
             groupBox6.TabStop = false;
             groupBox6.Text = "Attributes";
@@ -9017,7 +9437,7 @@ namespace DB_EDITOR
             // 
             PSTAtext.Anchor = AnchorStyles.None;
             PSTAtext.BackColor = SystemColors.Info;
-            PSTAtext.Location = new Point(301, 86);
+            PSTAtext.Location = new Point(304, 86);
             PSTAtext.Name = "PSTAtext";
             PSTAtext.ReadOnly = true;
             PSTAtext.Size = new Size(40, 20);
@@ -9027,7 +9447,7 @@ namespace DB_EDITOR
             // PSTAbox
             // 
             PSTAbox.Anchor = AnchorStyles.None;
-            PSTAbox.Location = new Point(346, 86);
+            PSTAbox.Location = new Point(349, 86);
             PSTAbox.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             PSTAbox.Name = "PSTAbox";
             PSTAbox.Size = new Size(55, 20);
@@ -9039,7 +9459,7 @@ namespace DB_EDITOR
             // 
             label268.Anchor = AnchorStyles.None;
             label268.AutoSize = true;
-            label268.Location = new Point(249, 90);
+            label268.Location = new Point(252, 90);
             label268.Name = "label268";
             label268.Size = new Size(45, 13);
             label268.TabIndex = 150;
@@ -9051,7 +9471,7 @@ namespace DB_EDITOR
             PTEN.Anchor = AnchorStyles.None;
             PTEN.BackColor = SystemColors.Info;
             PTEN.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            PTEN.Location = new Point(297, 19);
+            PTEN.Location = new Point(300, 19);
             PTEN.Name = "PTEN";
             PTEN.ReadOnly = true;
             PTEN.Size = new Size(102, 22);
@@ -9062,7 +9482,7 @@ namespace DB_EDITOR
             // 
             label173.Anchor = AnchorStyles.None;
             label173.AutoSize = true;
-            label173.Location = new Point(207, 23);
+            label173.Location = new Point(210, 23);
             label173.Name = "label173";
             label173.Size = new Size(87, 13);
             label173.TabIndex = 148;
@@ -9073,7 +9493,7 @@ namespace DB_EDITOR
             // 
             PTHAtext.Anchor = AnchorStyles.None;
             PTHAtext.BackColor = SystemColors.Info;
-            PTHAtext.Location = new Point(301, 201);
+            PTHAtext.Location = new Point(304, 201);
             PTHAtext.Name = "PTHAtext";
             PTHAtext.ReadOnly = true;
             PTHAtext.Size = new Size(40, 20);
@@ -9083,7 +9503,7 @@ namespace DB_EDITOR
             // PIMPBox
             // 
             PIMPBox.Anchor = AnchorStyles.None;
-            PIMPBox.Location = new Point(144, 57);
+            PIMPBox.Location = new Point(147, 57);
             PIMPBox.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             PIMPBox.Name = "PIMPBox";
             PIMPBox.Size = new Size(55, 20);
@@ -9095,7 +9515,7 @@ namespace DB_EDITOR
             // 
             label63.Anchor = AnchorStyles.None;
             label63.AutoSize = true;
-            label63.Location = new Point(37, 59);
+            label63.Location = new Point(40, 59);
             label63.Name = "label63";
             label63.Size = new Size(60, 13);
             label63.TabIndex = 13;
@@ -9105,7 +9525,7 @@ namespace DB_EDITOR
             // PINJBox
             // 
             PINJBox.Anchor = AnchorStyles.None;
-            PINJBox.Location = new Point(144, 85);
+            PINJBox.Location = new Point(147, 85);
             PINJBox.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             PINJBox.Name = "PINJBox";
             PINJBox.Size = new Size(55, 20);
@@ -9117,7 +9537,7 @@ namespace DB_EDITOR
             // 
             label64.Anchor = AnchorStyles.None;
             label64.AutoSize = true;
-            label64.Location = new Point(34, 87);
+            label64.Location = new Point(37, 87);
             label64.Name = "label64";
             label64.Size = new Size(63, 13);
             label64.TabIndex = 16;
@@ -9128,7 +9548,7 @@ namespace DB_EDITOR
             // 
             PKACtext.Anchor = AnchorStyles.None;
             PKACtext.BackColor = SystemColors.Info;
-            PKACtext.Location = new Point(300, 316);
+            PKACtext.Location = new Point(303, 316);
             PKACtext.Name = "PKACtext";
             PKACtext.ReadOnly = true;
             PKACtext.Size = new Size(40, 20);
@@ -9138,7 +9558,7 @@ namespace DB_EDITOR
             // PSPDBox
             // 
             PSPDBox.Anchor = AnchorStyles.None;
-            PSPDBox.Location = new Point(144, 113);
+            PSPDBox.Location = new Point(147, 113);
             PSPDBox.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             PSPDBox.Name = "PSPDBox";
             PSPDBox.Size = new Size(55, 20);
@@ -9150,7 +9570,7 @@ namespace DB_EDITOR
             // 
             PKPRtext.Anchor = AnchorStyles.None;
             PKPRtext.BackColor = SystemColors.Info;
-            PKPRtext.Location = new Point(99, 316);
+            PKPRtext.Location = new Point(102, 316);
             PKPRtext.Name = "PKPRtext";
             PKPRtext.ReadOnly = true;
             PKPRtext.Size = new Size(40, 20);
@@ -9161,7 +9581,7 @@ namespace DB_EDITOR
             // 
             PSPDlabel.Anchor = AnchorStyles.None;
             PSPDlabel.AutoSize = true;
-            PSPDlabel.Location = new Point(59, 116);
+            PSPDlabel.Location = new Point(62, 116);
             PSPDlabel.Name = "PSPDlabel";
             PSPDlabel.Size = new Size(38, 13);
             PSPDlabel.TabIndex = 19;
@@ -9172,7 +9592,7 @@ namespace DB_EDITOR
             // 
             PTAKtext.Anchor = AnchorStyles.None;
             PTAKtext.BackColor = SystemColors.Info;
-            PTAKtext.Location = new Point(300, 288);
+            PTAKtext.Location = new Point(303, 288);
             PTAKtext.Name = "PTAKtext";
             PTAKtext.ReadOnly = true;
             PTAKtext.Size = new Size(40, 20);
@@ -9182,7 +9602,7 @@ namespace DB_EDITOR
             // PACCBox
             // 
             PACCBox.Anchor = AnchorStyles.None;
-            PACCBox.Location = new Point(144, 142);
+            PACCBox.Location = new Point(147, 142);
             PACCBox.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             PACCBox.Name = "PACCBox";
             PACCBox.Size = new Size(55, 20);
@@ -9195,7 +9615,7 @@ namespace DB_EDITOR
             POVRbox.Anchor = AnchorStyles.None;
             POVRbox.BackColor = SystemColors.Info;
             POVRbox.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            POVRbox.Location = new Point(115, 15);
+            POVRbox.Location = new Point(118, 15);
             POVRbox.Name = "POVRbox";
             POVRbox.ReadOnly = true;
             POVRbox.Size = new Size(53, 26);
@@ -9206,7 +9626,7 @@ namespace DB_EDITOR
             // 
             PPBKtext.Anchor = AnchorStyles.None;
             PPBKtext.BackColor = SystemColors.Info;
-            PPBKtext.Location = new Point(300, 260);
+            PPBKtext.Location = new Point(303, 260);
             PPBKtext.Name = "PPBKtext";
             PPBKtext.ReadOnly = true;
             PPBKtext.Size = new Size(40, 20);
@@ -9217,7 +9637,7 @@ namespace DB_EDITOR
             // 
             PACClabel.Anchor = AnchorStyles.None;
             PACClabel.AutoSize = true;
-            PACClabel.Location = new Point(31, 144);
+            PACClabel.Location = new Point(34, 144);
             PACClabel.Name = "PACClabel";
             PACClabel.Size = new Size(66, 13);
             PACClabel.TabIndex = 22;
@@ -9227,7 +9647,7 @@ namespace DB_EDITOR
             // PSTRBox
             // 
             PSTRBox.Anchor = AnchorStyles.None;
-            PSTRBox.Location = new Point(144, 171);
+            PSTRBox.Location = new Point(147, 171);
             PSTRBox.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             PSTRBox.Name = "PSTRBox";
             PSTRBox.Size = new Size(55, 20);
@@ -9239,7 +9659,7 @@ namespace DB_EDITOR
             // 
             PCARtext.Anchor = AnchorStyles.None;
             PCARtext.BackColor = SystemColors.Info;
-            PCARtext.Location = new Point(301, 230);
+            PCARtext.Location = new Point(304, 230);
             PCARtext.Name = "PCARtext";
             PCARtext.ReadOnly = true;
             PCARtext.Size = new Size(40, 20);
@@ -9250,7 +9670,7 @@ namespace DB_EDITOR
             // 
             PSTRlabel.Anchor = AnchorStyles.None;
             PSTRlabel.AutoSize = true;
-            PSTRlabel.Location = new Point(50, 173);
+            PSTRlabel.Location = new Point(53, 173);
             PSTRlabel.Name = "PSTRlabel";
             PSTRlabel.Size = new Size(47, 13);
             PSTRlabel.TabIndex = 25;
@@ -9261,7 +9681,7 @@ namespace DB_EDITOR
             // 
             PCTHtext.Anchor = AnchorStyles.None;
             PCTHtext.BackColor = SystemColors.Info;
-            PCTHtext.Location = new Point(99, 288);
+            PCTHtext.Location = new Point(102, 288);
             PCTHtext.Name = "PCTHtext";
             PCTHtext.ReadOnly = true;
             PCTHtext.Size = new Size(40, 20);
@@ -9271,7 +9691,7 @@ namespace DB_EDITOR
             // PBTKBox
             // 
             PBTKBox.Anchor = AnchorStyles.None;
-            PBTKBox.Location = new Point(144, 229);
+            PBTKBox.Location = new Point(147, 229);
             PBTKBox.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             PBTKBox.Name = "PBTKBox";
             PBTKBox.Size = new Size(55, 20);
@@ -9283,7 +9703,7 @@ namespace DB_EDITOR
             // 
             PJMPtext.Anchor = AnchorStyles.None;
             PJMPtext.BackColor = SystemColors.Info;
-            PJMPtext.Location = new Point(300, 172);
+            PJMPtext.Location = new Point(303, 172);
             PJMPtext.Name = "PJMPtext";
             PJMPtext.ReadOnly = true;
             PJMPtext.Size = new Size(40, 20);
@@ -9294,7 +9714,7 @@ namespace DB_EDITOR
             // 
             PBTKlabel.Anchor = AnchorStyles.None;
             PBTKlabel.AutoSize = true;
-            PBTKlabel.Location = new Point(27, 231);
+            PBTKlabel.Location = new Point(30, 231);
             PBTKlabel.Name = "PBTKlabel";
             PBTKlabel.Size = new Size(71, 13);
             PBTKlabel.TabIndex = 28;
@@ -9304,7 +9724,7 @@ namespace DB_EDITOR
             // PTHPBox
             // 
             PTHPBox.Anchor = AnchorStyles.None;
-            PTHPBox.Location = new Point(144, 200);
+            PTHPBox.Location = new Point(147, 200);
             PTHPBox.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             PTHPBox.Name = "PTHPBox";
             PTHPBox.Size = new Size(55, 20);
@@ -9316,7 +9736,7 @@ namespace DB_EDITOR
             // 
             PTHPlabel.Anchor = AnchorStyles.None;
             PTHPlabel.AutoSize = true;
-            PTHPlabel.Location = new Point(27, 202);
+            PTHPlabel.Location = new Point(30, 202);
             PTHPlabel.Name = "PTHPlabel";
             PTHPlabel.Size = new Size(70, 13);
             PTHPlabel.TabIndex = 31;
@@ -9327,7 +9747,7 @@ namespace DB_EDITOR
             // 
             PAGItext.Anchor = AnchorStyles.None;
             PAGItext.BackColor = SystemColors.Info;
-            PAGItext.Location = new Point(300, 142);
+            PAGItext.Location = new Point(303, 142);
             PAGItext.Name = "PAGItext";
             PAGItext.ReadOnly = true;
             PAGItext.Size = new Size(40, 20);
@@ -9337,7 +9757,7 @@ namespace DB_EDITOR
             // PRBKBox
             // 
             PRBKBox.Anchor = AnchorStyles.None;
-            PRBKBox.Location = new Point(144, 259);
+            PRBKBox.Location = new Point(147, 259);
             PRBKBox.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             PRBKBox.Name = "PRBKBox";
             PRBKBox.Size = new Size(55, 20);
@@ -9349,7 +9769,7 @@ namespace DB_EDITOR
             // 
             PAWRtext.Anchor = AnchorStyles.None;
             PAWRtext.BackColor = SystemColors.Info;
-            PAWRtext.Location = new Point(300, 115);
+            PAWRtext.Location = new Point(303, 115);
             PAWRtext.Name = "PAWRtext";
             PAWRtext.ReadOnly = true;
             PAWRtext.Size = new Size(40, 20);
@@ -9360,7 +9780,7 @@ namespace DB_EDITOR
             // 
             PRBKlabel.Anchor = AnchorStyles.None;
             PRBKlabel.AutoSize = true;
-            PRBKlabel.Location = new Point(27, 261);
+            PRBKlabel.Location = new Point(30, 261);
             PRBKlabel.Name = "PRBKlabel";
             PRBKlabel.Size = new Size(71, 13);
             PRBKlabel.TabIndex = 34;
@@ -9371,7 +9791,7 @@ namespace DB_EDITOR
             // 
             PPOEtext.Anchor = AnchorStyles.None;
             PPOEtext.BackColor = SystemColors.Info;
-            PPOEtext.Location = new Point(301, 58);
+            PPOEtext.Location = new Point(304, 58);
             PPOEtext.Name = "PPOEtext";
             PPOEtext.ReadOnly = true;
             PPOEtext.Size = new Size(40, 20);
@@ -9381,7 +9801,7 @@ namespace DB_EDITOR
             // PPOEBox
             // 
             PPOEBox.Anchor = AnchorStyles.None;
-            PPOEBox.Location = new Point(346, 57);
+            PPOEBox.Location = new Point(349, 57);
             PPOEBox.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             PPOEBox.Name = "PPOEBox";
             PPOEBox.Size = new Size(55, 20);
@@ -9393,7 +9813,7 @@ namespace DB_EDITOR
             // 
             PRBKtext.Anchor = AnchorStyles.None;
             PRBKtext.BackColor = SystemColors.Info;
-            PRBKtext.Location = new Point(99, 259);
+            PRBKtext.Location = new Point(102, 259);
             PRBKtext.Name = "PRBKtext";
             PRBKtext.ReadOnly = true;
             PRBKtext.Size = new Size(40, 20);
@@ -9404,7 +9824,7 @@ namespace DB_EDITOR
             // 
             label78.Anchor = AnchorStyles.None;
             label78.AutoSize = true;
-            label78.Location = new Point(248, 62);
+            label78.Location = new Point(251, 62);
             label78.Name = "label78";
             label78.Size = new Size(48, 13);
             label78.TabIndex = 37;
@@ -9415,7 +9835,7 @@ namespace DB_EDITOR
             // 
             PTHPtext.Anchor = AnchorStyles.None;
             PTHPtext.BackColor = SystemColors.Info;
-            PTHPtext.Location = new Point(99, 200);
+            PTHPtext.Location = new Point(102, 200);
             PTHPtext.Name = "PTHPtext";
             PTHPtext.ReadOnly = true;
             PTHPtext.Size = new Size(40, 20);
@@ -9425,7 +9845,7 @@ namespace DB_EDITOR
             // PAWRBox
             // 
             PAWRBox.Anchor = AnchorStyles.None;
-            PAWRBox.Location = new Point(345, 115);
+            PAWRBox.Location = new Point(348, 115);
             PAWRBox.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             PAWRBox.Name = "PAWRBox";
             PAWRBox.Size = new Size(55, 20);
@@ -9437,7 +9857,7 @@ namespace DB_EDITOR
             // 
             PBTKtext.Anchor = AnchorStyles.None;
             PBTKtext.BackColor = SystemColors.Info;
-            PBTKtext.Location = new Point(99, 229);
+            PBTKtext.Location = new Point(102, 229);
             PBTKtext.Name = "PBTKtext";
             PBTKtext.ReadOnly = true;
             PBTKtext.Size = new Size(40, 20);
@@ -9448,7 +9868,7 @@ namespace DB_EDITOR
             // 
             PAWRlabel.Anchor = AnchorStyles.None;
             PAWRlabel.AutoSize = true;
-            PAWRlabel.Location = new Point(236, 119);
+            PAWRlabel.Location = new Point(239, 119);
             PAWRlabel.Name = "PAWRlabel";
             PAWRlabel.Size = new Size(59, 13);
             PAWRlabel.TabIndex = 40;
@@ -9459,7 +9879,7 @@ namespace DB_EDITOR
             // 
             PSTRtext.Anchor = AnchorStyles.None;
             PSTRtext.BackColor = SystemColors.Info;
-            PSTRtext.Location = new Point(99, 171);
+            PSTRtext.Location = new Point(102, 171);
             PSTRtext.Name = "PSTRtext";
             PSTRtext.ReadOnly = true;
             PSTRtext.Size = new Size(40, 20);
@@ -9469,7 +9889,7 @@ namespace DB_EDITOR
             // PAGIBox
             // 
             PAGIBox.Anchor = AnchorStyles.None;
-            PAGIBox.Location = new Point(345, 142);
+            PAGIBox.Location = new Point(348, 142);
             PAGIBox.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             PAGIBox.Name = "PAGIBox";
             PAGIBox.Size = new Size(55, 20);
@@ -9481,7 +9901,7 @@ namespace DB_EDITOR
             // 
             PACCtext.Anchor = AnchorStyles.None;
             PACCtext.BackColor = SystemColors.Info;
-            PACCtext.Location = new Point(99, 142);
+            PACCtext.Location = new Point(102, 142);
             PACCtext.Name = "PACCtext";
             PACCtext.ReadOnly = true;
             PACCtext.Size = new Size(40, 20);
@@ -9492,7 +9912,7 @@ namespace DB_EDITOR
             // 
             PAGIlabel.Anchor = AnchorStyles.None;
             PAGIlabel.AutoSize = true;
-            PAGIlabel.Location = new Point(261, 147);
+            PAGIlabel.Location = new Point(264, 147);
             PAGIlabel.Name = "PAGIlabel";
             PAGIlabel.Size = new Size(34, 13);
             PAGIlabel.TabIndex = 43;
@@ -9503,7 +9923,7 @@ namespace DB_EDITOR
             // 
             PSPDtext.Anchor = AnchorStyles.None;
             PSPDtext.BackColor = SystemColors.Info;
-            PSPDtext.Location = new Point(99, 113);
+            PSPDtext.Location = new Point(102, 113);
             PSPDtext.Name = "PSPDtext";
             PSPDtext.ReadOnly = true;
             PSPDtext.Size = new Size(40, 20);
@@ -9513,7 +9933,7 @@ namespace DB_EDITOR
             // PJMPBox
             // 
             PJMPBox.Anchor = AnchorStyles.None;
-            PJMPBox.Location = new Point(345, 172);
+            PJMPBox.Location = new Point(348, 172);
             PJMPBox.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             PJMPBox.Name = "PJMPBox";
             PJMPBox.Size = new Size(55, 20);
@@ -9525,7 +9945,7 @@ namespace DB_EDITOR
             // 
             PINJtext.Anchor = AnchorStyles.None;
             PINJtext.BackColor = SystemColors.Info;
-            PINJtext.Location = new Point(99, 85);
+            PINJtext.Location = new Point(102, 85);
             PINJtext.Name = "PINJtext";
             PINJtext.ReadOnly = true;
             PINJtext.Size = new Size(40, 20);
@@ -9536,7 +9956,7 @@ namespace DB_EDITOR
             // 
             PJMPlabel.Anchor = AnchorStyles.None;
             PJMPlabel.AutoSize = true;
-            PJMPlabel.Location = new Point(249, 176);
+            PJMPlabel.Location = new Point(252, 176);
             PJMPlabel.Name = "PJMPlabel";
             PJMPlabel.Size = new Size(46, 13);
             PJMPlabel.TabIndex = 46;
@@ -9547,7 +9967,7 @@ namespace DB_EDITOR
             // 
             PIMPtext.Anchor = AnchorStyles.None;
             PIMPtext.BackColor = SystemColors.Info;
-            PIMPtext.Location = new Point(99, 57);
+            PIMPtext.Location = new Point(102, 57);
             PIMPtext.Name = "PIMPtext";
             PIMPtext.ReadOnly = true;
             PIMPtext.Size = new Size(40, 20);
@@ -9559,7 +9979,7 @@ namespace DB_EDITOR
             label61.Anchor = AnchorStyles.None;
             label61.AutoSize = true;
             label61.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            label61.Location = new Point(52, 20);
+            label61.Location = new Point(55, 20);
             label61.Name = "label61";
             label61.Size = new Size(57, 16);
             label61.TabIndex = 9;
@@ -9568,7 +9988,7 @@ namespace DB_EDITOR
             // PCTHBox
             // 
             PCTHBox.Anchor = AnchorStyles.None;
-            PCTHBox.Location = new Point(144, 288);
+            PCTHBox.Location = new Point(147, 288);
             PCTHBox.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             PCTHBox.Name = "PCTHBox";
             PCTHBox.Size = new Size(55, 20);
@@ -9580,7 +10000,7 @@ namespace DB_EDITOR
             // 
             PCTHlabel.Anchor = AnchorStyles.None;
             PCTHlabel.AutoSize = true;
-            PCTHlabel.Location = new Point(45, 290);
+            PCTHlabel.Location = new Point(48, 290);
             PCTHlabel.Name = "PCTHlabel";
             PCTHlabel.Size = new Size(49, 13);
             PCTHlabel.TabIndex = 49;
@@ -9590,7 +10010,7 @@ namespace DB_EDITOR
             // PCARBox
             // 
             PCARBox.Anchor = AnchorStyles.None;
-            PCARBox.Location = new Point(346, 230);
+            PCARBox.Location = new Point(349, 230);
             PCARBox.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             PCARBox.Name = "PCARBox";
             PCARBox.Size = new Size(55, 20);
@@ -9602,7 +10022,7 @@ namespace DB_EDITOR
             // 
             PCARlabel.Anchor = AnchorStyles.None;
             PCARlabel.AutoSize = true;
-            PCARlabel.Location = new Point(232, 234);
+            PCARlabel.Location = new Point(235, 234);
             PCARlabel.Name = "PCARlabel";
             PCARlabel.Size = new Size(65, 13);
             PCARlabel.TabIndex = 52;
@@ -9612,7 +10032,7 @@ namespace DB_EDITOR
             // PTHABox
             // 
             PTHABox.Anchor = AnchorStyles.None;
-            PTHABox.Location = new Point(346, 201);
+            PTHABox.Location = new Point(349, 201);
             PTHABox.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             PTHABox.Name = "PTHABox";
             PTHABox.Size = new Size(55, 20);
@@ -9624,7 +10044,7 @@ namespace DB_EDITOR
             // 
             PTHAlabel.Anchor = AnchorStyles.None;
             PTHAlabel.AutoSize = true;
-            PTHAlabel.Location = new Point(213, 204);
+            PTHAlabel.Location = new Point(216, 204);
             PTHAlabel.Name = "PTHAlabel";
             PTHAlabel.Size = new Size(85, 13);
             PTHAlabel.TabIndex = 55;
@@ -9634,7 +10054,7 @@ namespace DB_EDITOR
             // PPBKBox
             // 
             PPBKBox.Anchor = AnchorStyles.None;
-            PPBKBox.Location = new Point(345, 260);
+            PPBKBox.Location = new Point(348, 260);
             PPBKBox.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             PPBKBox.Name = "PPBKBox";
             PPBKBox.Size = new Size(55, 20);
@@ -9646,7 +10066,7 @@ namespace DB_EDITOR
             // 
             PPBKlabel.Anchor = AnchorStyles.None;
             PPBKlabel.AutoSize = true;
-            PPBKlabel.Location = new Point(225, 263);
+            PPBKlabel.Location = new Point(228, 263);
             PPBKlabel.Name = "PPBKlabel";
             PPBKlabel.Size = new Size(74, 13);
             PPBKlabel.TabIndex = 58;
@@ -9656,7 +10076,7 @@ namespace DB_EDITOR
             // PTAKBox
             // 
             PTAKBox.Anchor = AnchorStyles.None;
-            PTAKBox.Location = new Point(345, 288);
+            PTAKBox.Location = new Point(348, 288);
             PTAKBox.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             PTAKBox.Name = "PTAKBox";
             PTAKBox.Size = new Size(55, 20);
@@ -9668,7 +10088,7 @@ namespace DB_EDITOR
             // 
             PTAKlabel.Anchor = AnchorStyles.None;
             PTAKlabel.AutoSize = true;
-            PTAKlabel.Location = new Point(249, 290);
+            PTAKlabel.Location = new Point(252, 290);
             PTAKlabel.Name = "PTAKlabel";
             PTAKlabel.Size = new Size(48, 13);
             PTAKlabel.TabIndex = 61;
@@ -9678,7 +10098,7 @@ namespace DB_EDITOR
             // PKPRBox
             // 
             PKPRBox.Anchor = AnchorStyles.None;
-            PKPRBox.Location = new Point(144, 316);
+            PKPRBox.Location = new Point(147, 316);
             PKPRBox.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             PKPRBox.Name = "PKPRBox";
             PKPRBox.Size = new Size(55, 20);
@@ -9690,7 +10110,7 @@ namespace DB_EDITOR
             // 
             PKPRlabel.Anchor = AnchorStyles.None;
             PKPRlabel.AutoSize = true;
-            PKPRlabel.Location = new Point(37, 319);
+            PKPRlabel.Location = new Point(40, 319);
             PKPRlabel.Name = "PKPRlabel";
             PKPRlabel.Size = new Size(61, 13);
             PKPRlabel.TabIndex = 64;
@@ -9700,7 +10120,7 @@ namespace DB_EDITOR
             // PKACBox
             // 
             PKACBox.Anchor = AnchorStyles.None;
-            PKACBox.Location = new Point(345, 316);
+            PKACBox.Location = new Point(348, 316);
             PKACBox.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             PKACBox.Name = "PKACBox";
             PKACBox.Size = new Size(55, 20);
@@ -9712,33 +10132,12 @@ namespace DB_EDITOR
             // 
             PKAClabel.Anchor = AnchorStyles.None;
             PKAClabel.AutoSize = true;
-            PKAClabel.Location = new Point(220, 319);
+            PKAClabel.Location = new Point(223, 319);
             PKAClabel.Name = "PKAClabel";
             PKAClabel.Size = new Size(76, 13);
             PKAClabel.TabIndex = 70;
             PKAClabel.Text = "Kick Accuracy";
             PKAClabel.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // ImportPlayerTeam
-            // 
-            ImportPlayerTeam.Location = new Point(989, 4);
-            ImportPlayerTeam.Name = "ImportPlayerTeam";
-            ImportPlayerTeam.Size = new Size(75, 23);
-            ImportPlayerTeam.TabIndex = 145;
-            ImportPlayerTeam.Text = "Import Team";
-            ImportPlayerTeam.UseVisualStyleBackColor = true;
-            ImportPlayerTeam.Visible = false;
-            ImportPlayerTeam.Click += (this.ImportPlayerTeam_Click);
-            // 
-            // AWHRBox
-            // 
-            AWHRBox.AutoSize = true;
-            AWHRBox.Location = new Point(455, 49);
-            AWHRBox.Name = "AWHRBox";
-            AWHRBox.Size = new Size(148, 17);
-            AWHRBox.TabIndex = 149;
-            AWHRBox.Text = "Position Change AWR Hit";
-            AWHRBox.UseVisualStyleBackColor = true;
             // 
             // PlayerTransferButton
             // 
@@ -9749,17 +10148,6 @@ namespace DB_EDITOR
             PlayerTransferButton.Text = "Send to Transfer Portal";
             PlayerTransferButton.UseVisualStyleBackColor = true;
             PlayerTransferButton.Click += (this.PlayerTransferButton_Click);
-            // 
-            // ExportPlayerTeam
-            // 
-            ExportPlayerTeam.Location = new Point(1074, 4);
-            ExportPlayerTeam.Name = "ExportPlayerTeam";
-            ExportPlayerTeam.Size = new Size(75, 23);
-            ExportPlayerTeam.TabIndex = 144;
-            ExportPlayerTeam.Text = "Export Team";
-            ExportPlayerTeam.UseVisualStyleBackColor = true;
-            ExportPlayerTeam.Visible = false;
-            ExportPlayerTeam.Click += (this.ExportPlayerTeam_Click);
             // 
             // label167
             // 
@@ -9776,23 +10164,12 @@ namespace DB_EDITOR
             // 
             playerTeamBox.BackColor = SystemColors.Info;
             playerTeamBox.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            playerTeamBox.Location = new Point(9, 26);
+            playerTeamBox.Location = new Point(9, 25);
             playerTeamBox.Name = "playerTeamBox";
             playerTeamBox.ReadOnly = true;
             playerTeamBox.Size = new Size(118, 22);
             playerTeamBox.TabIndex = 142;
             playerTeamBox.TextAlign = HorizontalAlignment.Center;
-            // 
-            // PRST
-            // 
-            PRST.BackColor = SystemColors.Info;
-            PRST.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            PRST.Location = new Point(521, 25);
-            PRST.Name = "PRST";
-            PRST.ReadOnly = true;
-            PRST.Size = new Size(82, 22);
-            PRST.TabIndex = 139;
-            PRST.TextAlign = HorizontalAlignment.Center;
             // 
             // PGIDbox
             // 
@@ -9804,75 +10181,6 @@ namespace DB_EDITOR
             PGIDbox.Size = new Size(53, 22);
             PGIDbox.TabIndex = 97;
             PGIDbox.TextAlign = HorizontalAlignment.Center;
-            // 
-            // PLNAtextBox
-            // 
-            PLNAtextBox.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            PLNAtextBox.Location = new Point(325, 25);
-            PLNAtextBox.Name = "PLNAtextBox";
-            PLNAtextBox.Size = new Size(111, 22);
-            PLNAtextBox.TabIndex = 1;
-            PLNAtextBox.TextChanged += (this.PLNAtextBox_TextChanged);
-            PLNAtextBox.Leave += (this.PLNA_Leave);
-            // 
-            // PFNAtextBox
-            // 
-            PFNAtextBox.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            PFNAtextBox.Location = new Point(203, 25);
-            PFNAtextBox.Name = "PFNAtextBox";
-            PFNAtextBox.Size = new Size(116, 22);
-            PFNAtextBox.TabIndex = 0;
-            PFNAtextBox.TextChanged += (this.PFNAtextBox_TextChanged);
-            PFNAtextBox.Leave += (this.PFNA_Leave);
-            // 
-            // PPOSBox
-            // 
-            PPOSBox.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            PPOSBox.FormattingEnabled = true;
-            PPOSBox.Location = new Point(442, 23);
-            PPOSBox.Name = "PPOSBox";
-            PPOSBox.Size = new Size(71, 24);
-            PPOSBox.TabIndex = 10;
-            PPOSBox.SelectedIndexChanged += (this.PPOSBox_SelectedIndexChanged);
-            // 
-            // label62
-            // 
-            label62.AutoSize = true;
-            label62.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            label62.Location = new Point(439, 7);
-            label62.Name = "label62";
-            label62.Size = new Size(63, 16);
-            label62.TabIndex = 11;
-            label62.Text = "Position";
-            // 
-            // label151
-            // 
-            label151.AutoSize = true;
-            label151.Font = new Font("Microsoft Sans Serif", 8F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            label151.Location = new Point(521, 7);
-            label151.Name = "label151";
-            label151.Size = new Size(86, 13);
-            label151.TabIndex = 140;
-            label151.Text = "Pride Stickers";
-            // 
-            // label113
-            // 
-            label113.AutoSize = true;
-            label113.Location = new Point(389, 99);
-            label113.Name = "label113";
-            label113.Size = new Size(37, 13);
-            label113.TabIndex = 101;
-            label113.Text = "Jersey";
-            label113.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // PJEN
-            // 
-            PJEN.Location = new Point(389, 114);
-            PJEN.Maximum = new decimal(new int[] { 99, 0, 0, 0 });
-            PJEN.Name = "PJEN";
-            PJEN.Size = new Size(53, 20);
-            PJEN.TabIndex = 100;
-            PJEN.ValueChanged += (this.PJEN_ValueChanged);
             // 
             // PlayerSetDepthChartButton
             // 
@@ -9946,174 +10254,6 @@ namespace DB_EDITOR
             PTYPBox.TabIndex = 92;
             PTYPBox.SelectedIndexChanged += (this.PTYPBox_SelectedIndexChanged);
             // 
-            // label92
-            // 
-            label92.AutoSize = true;
-            label92.Location = new Point(293, 98);
-            label92.Name = "label92";
-            label92.Size = new Size(46, 13);
-            label92.TabIndex = 91;
-            label92.Text = "Redshirt";
-            // 
-            // PRSDBox
-            // 
-            PRSDBox.FormattingEnabled = true;
-            PRSDBox.Location = new Point(296, 114);
-            PRSDBox.Name = "PRSDBox";
-            PRSDBox.Size = new Size(79, 21);
-            PRSDBox.TabIndex = 90;
-            PRSDBox.SelectedIndexChanged += (this.PRSDBox_SelectedIndexChanged);
-            // 
-            // label91
-            // 
-            label91.AutoSize = true;
-            label91.Location = new Point(210, 99);
-            label91.Name = "label91";
-            label91.Size = new Size(29, 13);
-            label91.TabIndex = 89;
-            label91.Text = "Year";
-            // 
-            // PYERBox
-            // 
-            PYERBox.FormattingEnabled = true;
-            PYERBox.Location = new Point(211, 114);
-            PYERBox.Name = "PYERBox";
-            PYERBox.Size = new Size(79, 21);
-            PYERBox.TabIndex = 88;
-            PYERBox.SelectedIndexChanged += (this.PYERBox_SelectedIndexChanged);
-            // 
-            // label89
-            // 
-            label89.AutoSize = true;
-            label89.Location = new Point(519, 99);
-            label89.Name = "label89";
-            label89.Size = new Size(63, 13);
-            label89.TabIndex = 87;
-            label89.Text = "Weight (lbs)";
-            label89.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // PWGTBox
-            // 
-            PWGTBox.Location = new Point(518, 114);
-            PWGTBox.Maximum = new decimal(new int[] { 415, 0, 0, 0 });
-            PWGTBox.Minimum = new decimal(new int[] { 160, 0, 0, 0 });
-            PWGTBox.Name = "PWGTBox";
-            PWGTBox.Size = new Size(57, 20);
-            PWGTBox.TabIndex = 86;
-            PWGTBox.TextAlign = HorizontalAlignment.Center;
-            PWGTBox.Value = new decimal(new int[] { 160, 0, 0, 0 });
-            PWGTBox.ValueChanged += (this.PWGTBox_ValueChanged);
-            // 
-            // label90
-            // 
-            label90.AutoSize = true;
-            label90.Location = new Point(452, 99);
-            label90.Name = "label90";
-            label90.Size = new Size(55, 13);
-            label90.TabIndex = 84;
-            label90.Text = "Height (in)";
-            label90.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // PHGTBox
-            // 
-            PHGTBox.Location = new Point(455, 114);
-            PHGTBox.Maximum = new decimal(new int[] { 127, 0, 0, 0 });
-            PHGTBox.Name = "PHGTBox";
-            PHGTBox.Size = new Size(57, 20);
-            PHGTBox.TabIndex = 83;
-            PHGTBox.TextAlign = HorizontalAlignment.Center;
-            PHGTBox.ValueChanged += (this.PHGTBox_ValueChanged);
-            // 
-            // label87
-            // 
-            label87.AutoSize = true;
-            label87.Location = new Point(489, 140);
-            label87.Name = "label87";
-            label87.Size = new Size(52, 13);
-            label87.TabIndex = 81;
-            label87.Text = "Hair Style";
-            // 
-            // PHEDBox
-            // 
-            PHEDBox.FormattingEnabled = true;
-            PHEDBox.Location = new Point(492, 156);
-            PHEDBox.Name = "PHEDBox";
-            PHEDBox.Size = new Size(90, 21);
-            PHEDBox.TabIndex = 80;
-            PHEDBox.SelectedIndexChanged += (this.PHEDBox_SelectedIndexChanged);
-            // 
-            // label86
-            // 
-            label86.AutoSize = true;
-            label86.Location = new Point(389, 140);
-            label86.Name = "label86";
-            label86.Size = new Size(53, 13);
-            label86.TabIndex = 79;
-            label86.Text = "Hair Color";
-            // 
-            // PHCLBox
-            // 
-            PHCLBox.FormattingEnabled = true;
-            PHCLBox.Location = new Point(392, 156);
-            PHCLBox.Name = "PHCLBox";
-            PHCLBox.Size = new Size(94, 21);
-            PHCLBox.TabIndex = 78;
-            PHCLBox.SelectedIndexChanged += (this.PHCLBox_SelectedIndexChanged);
-            // 
-            // label85
-            // 
-            label85.AutoSize = true;
-            label85.Location = new Point(332, 139);
-            label85.Name = "label85";
-            label85.Size = new Size(31, 13);
-            label85.TabIndex = 77;
-            label85.Text = "Face";
-            // 
-            // PFMPBox
-            // 
-            PFMPBox.FormattingEnabled = true;
-            PFMPBox.Location = new Point(335, 156);
-            PFMPBox.Name = "PFMPBox";
-            PFMPBox.Size = new Size(51, 21);
-            PFMPBox.TabIndex = 76;
-            PFMPBox.SelectedIndexChanged += (this.PFMPBox_SelectedIndexChanged);
-            // 
-            // label84
-            // 
-            label84.AutoSize = true;
-            label84.Location = new Point(281, 139);
-            label84.Name = "label84";
-            label84.Size = new Size(38, 13);
-            label84.TabIndex = 75;
-            label84.Text = "Shape";
-            // 
-            // PFGMBox
-            // 
-            PFGMBox.FormattingEnabled = true;
-            PFGMBox.Location = new Point(284, 156);
-            PFGMBox.Name = "PFGMBox";
-            PFGMBox.Size = new Size(45, 21);
-            PFGMBox.TabIndex = 74;
-            PFGMBox.SelectedIndexChanged += (this.PFGMBox_SelectedIndexChanged);
-            // 
-            // label83
-            // 
-            label83.AutoSize = true;
-            label83.Location = new Point(212, 139);
-            label83.Name = "label83";
-            label83.Size = new Size(56, 13);
-            label83.TabIndex = 73;
-            label83.Text = "Skin Tone";
-            // 
-            // PSKIBox
-            // 
-            PSKIBox.FormattingEnabled = true;
-            PSKIBox.Location = new Point(211, 156);
-            PSKIBox.Name = "PSKIBox";
-            PSKIBox.Size = new Size(67, 21);
-            PSKIBox.TabIndex = 72;
-            PSKIBox.SelectedIndexChanged += (this.PSKIBox_SelectedIndexChanged);
-            // 
             // RosterSizeLabel
             // 
             RosterSizeLabel.AutoSize = true;
@@ -10153,26 +10293,6 @@ namespace DB_EDITOR
             PGIDlistBox.TabIndex = 4;
             PGIDlistBox.SelectedIndexChanged += (this.PGIDlistBox_SelectedIndexChanged);
             // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            label2.Location = new Point(322, 7);
-            label2.Name = "label2";
-            label2.Size = new Size(81, 16);
-            label2.TabIndex = 3;
-            label2.Text = "Last Name";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            label1.Location = new Point(203, 7);
-            label1.Name = "label1";
-            label1.Size = new Size(82, 16);
-            label1.TabIndex = 2;
-            label1.Text = "First Name";
-            // 
             // groupBox3
             // 
             groupBox3.AutoSize = true;
@@ -10210,9 +10330,9 @@ namespace DB_EDITOR
             groupBox3.Controls.Add(label124);
             groupBox3.Controls.Add(NeckPad);
             groupBox3.Controls.Add(pictureBox3);
-            groupBox3.Location = new Point(665, 207);
+            groupBox3.Location = new Point(658, 207);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(468, 402);
+            groupBox3.Size = new Size(484, 396);
             groupBox3.TabIndex = 141;
             groupBox3.TabStop = false;
             groupBox3.Text = "Gear Editor";
@@ -10220,7 +10340,7 @@ namespace DB_EDITOR
             // label120
             // 
             label120.AutoSize = true;
-            label120.Location = new Point(41, 228);
+            label120.Location = new Point(34, 222);
             label120.Name = "label120";
             label120.Size = new Size(41, 13);
             label120.TabIndex = 112;
@@ -10230,7 +10350,7 @@ namespace DB_EDITOR
             // 
             LeftWrist.FormattingEnabled = true;
             LeftWrist.Items.AddRange(new object[] { "Normal", "Wt QB Wrist", "BK QB Wrist", "TC QB Wrist", "Bk Wrist", "Wt Wrist", "TC Wrist", "Armpad", "Wt Half Sleeve", "Bk Half Sleeve", "TC Half Sleeve", "Taped" });
-            LeftWrist.Location = new Point(44, 290);
+            LeftWrist.Location = new Point(37, 284);
             LeftWrist.Name = "LeftWrist";
             LeftWrist.Size = new Size(103, 21);
             LeftWrist.TabIndex = 107;
@@ -10240,7 +10360,7 @@ namespace DB_EDITOR
             // 
             LeftHand.FormattingEnabled = true;
             LeftHand.Items.AddRange(new object[] { "Bare", "Taped", "Gloves" });
-            LeftHand.Location = new Point(44, 331);
+            LeftHand.Location = new Point(37, 325);
             LeftHand.Name = "LeftHand";
             LeftHand.Size = new Size(103, 21);
             LeftHand.TabIndex = 105;
@@ -10249,7 +10369,7 @@ namespace DB_EDITOR
             // label117
             // 
             label117.AutoSize = true;
-            label117.Location = new Point(40, 315);
+            label117.Location = new Point(33, 309);
             label117.Name = "label117";
             label117.Size = new Size(38, 13);
             label117.TabIndex = 106;
@@ -10258,7 +10378,7 @@ namespace DB_EDITOR
             // label118
             // 
             label118.AutoSize = true;
-            label118.Location = new Point(40, 274);
+            label118.Location = new Point(33, 268);
             label118.Name = "label118";
             label118.Size = new Size(36, 13);
             label118.TabIndex = 108;
@@ -10268,7 +10388,7 @@ namespace DB_EDITOR
             // 
             LeftElbow.FormattingEnabled = true;
             LeftElbow.Items.AddRange(new object[] { "Normal", "Rubber Pad", "Black Pad", "White Pad", "Bk TC Pad", "Wt TC Pad", "Bk Med Band", "Wt Med Band", "TC Med Band", "Bk Thin Band", "Wt Thin Band", "TC Thin Band" });
-            LeftElbow.Location = new Point(44, 245);
+            LeftElbow.Location = new Point(37, 239);
             LeftElbow.Name = "LeftElbow";
             LeftElbow.Size = new Size(103, 21);
             LeftElbow.TabIndex = 111;
@@ -10278,7 +10398,7 @@ namespace DB_EDITOR
             // 
             RightShoe.FormattingEnabled = true;
             RightShoe.Items.AddRange(new object[] { "Normal", "White Tape", "Black Tape", "TC Tape" });
-            RightShoe.Location = new Point(259, 357);
+            RightShoe.Location = new Point(252, 351);
             RightShoe.Name = "RightShoe";
             RightShoe.Size = new Size(103, 21);
             RightShoe.TabIndex = 137;
@@ -10287,7 +10407,7 @@ namespace DB_EDITOR
             // label126
             // 
             label126.AutoSize = true;
-            label126.Location = new Point(259, 341);
+            label126.Location = new Point(252, 335);
             label126.Name = "label126";
             label126.Size = new Size(37, 13);
             label126.TabIndex = 138;
@@ -10297,7 +10417,7 @@ namespace DB_EDITOR
             // 
             LeftShoe.FormattingEnabled = true;
             LeftShoe.Items.AddRange(new object[] { "Normal", "White Tape", "Black Tape", "TC Tape" });
-            LeftShoe.Location = new Point(150, 357);
+            LeftShoe.Location = new Point(143, 351);
             LeftShoe.Name = "LeftShoe";
             LeftShoe.Size = new Size(103, 21);
             LeftShoe.TabIndex = 103;
@@ -10306,7 +10426,7 @@ namespace DB_EDITOR
             // label116
             // 
             label116.AutoSize = true;
-            label116.Location = new Point(184, 341);
+            label116.Location = new Point(177, 335);
             label116.Name = "label116";
             label116.Size = new Size(37, 13);
             label116.TabIndex = 104;
@@ -10316,7 +10436,7 @@ namespace DB_EDITOR
             // 
             NasalStrip.FormattingEnabled = true;
             NasalStrip.Items.AddRange(new object[] { "No", "Yes" });
-            NasalStrip.Location = new Point(324, 111);
+            NasalStrip.Location = new Point(317, 105);
             NasalStrip.Name = "NasalStrip";
             NasalStrip.Size = new Size(103, 21);
             NasalStrip.TabIndex = 120;
@@ -10325,7 +10445,7 @@ namespace DB_EDITOR
             // label150
             // 
             label150.AutoSize = true;
-            label150.Location = new Point(84, 35);
+            label150.Location = new Point(77, 29);
             label150.Name = "label150";
             label150.Size = new Size(40, 13);
             label150.TabIndex = 136;
@@ -10334,7 +10454,7 @@ namespace DB_EDITOR
             // label123
             // 
             label123.AutoSize = true;
-            label123.Location = new Point(321, 96);
+            label123.Location = new Point(314, 90);
             label123.Name = "label123";
             label123.Size = new Size(58, 13);
             label123.TabIndex = 121;
@@ -10344,7 +10464,7 @@ namespace DB_EDITOR
             // 
             Helmet.FormattingEnabled = true;
             Helmet.Items.AddRange(new object[] { "Normal", "Adams", "Schutt", "Revolution" });
-            Helmet.Location = new Point(87, 50);
+            Helmet.Location = new Point(80, 44);
             Helmet.Name = "Helmet";
             Helmet.Size = new Size(103, 21);
             Helmet.TabIndex = 135;
@@ -10354,7 +10474,7 @@ namespace DB_EDITOR
             // 
             label149.AutoSize = true;
             label149.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            label149.Location = new Point(50, 212);
+            label149.Location = new Point(43, 206);
             label149.Name = "label149";
             label149.Size = new Size(85, 15);
             label149.TabIndex = 134;
@@ -10364,7 +10484,7 @@ namespace DB_EDITOR
             // 
             Sleeves.FormattingEnabled = true;
             Sleeves.Items.AddRange(new object[] { "Cold Only", "Always", "None" });
-            Sleeves.Location = new Point(44, 154);
+            Sleeves.Location = new Point(37, 148);
             Sleeves.Name = "Sleeves";
             Sleeves.Size = new Size(103, 21);
             Sleeves.TabIndex = 113;
@@ -10374,7 +10494,7 @@ namespace DB_EDITOR
             // 
             label148.AutoSize = true;
             label148.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            label148.Location = new Point(357, 212);
+            label148.Location = new Point(350, 206);
             label148.Name = "label148";
             label148.Size = new Size(76, 15);
             label148.TabIndex = 133;
@@ -10384,7 +10504,7 @@ namespace DB_EDITOR
             // 
             Facemask.FormattingEnabled = true;
             Facemask.Items.AddRange(new object[] { "2-Bar", "2-Bar", "3-Bar", "Half-Cage", "Full-Cage 1", "*", "*", "2-Bar RB", "3-Bar QB", "3-Bar RB 1", "Full Cage 2", "3-Bar RB 2" });
-            Facemask.Location = new Point(210, 49);
+            Facemask.Location = new Point(203, 43);
             Facemask.Name = "Facemask";
             Facemask.Size = new Size(103, 21);
             Facemask.TabIndex = 109;
@@ -10393,7 +10513,7 @@ namespace DB_EDITOR
             // label127
             // 
             label127.AutoSize = true;
-            label127.Location = new Point(347, 230);
+            label127.Location = new Point(340, 224);
             label127.Name = "label127";
             label127.Size = new Size(41, 13);
             label127.TabIndex = 129;
@@ -10402,7 +10522,7 @@ namespace DB_EDITOR
             // label119
             // 
             label119.AutoSize = true;
-            label119.Location = new Point(207, 34);
+            label119.Location = new Point(200, 28);
             label119.Name = "label119";
             label119.Size = new Size(60, 13);
             label119.TabIndex = 110;
@@ -10412,7 +10532,7 @@ namespace DB_EDITOR
             // 
             RightElbow.FormattingEnabled = true;
             RightElbow.Items.AddRange(new object[] { "Normal", "Rubber Pad", "Black Pad", "White Pad", "Bk TC Pad", "Wt TC Pad", "Bk Med Band", "Wt Med Band", "TC Med Band", "Bk Thin Band", "Wt Thin Band", "TC Thin Band" });
-            RightElbow.Location = new Point(350, 245);
+            RightElbow.Location = new Point(343, 239);
             RightElbow.Name = "RightElbow";
             RightElbow.Size = new Size(103, 21);
             RightElbow.TabIndex = 128;
@@ -10421,7 +10541,7 @@ namespace DB_EDITOR
             // label121
             // 
             label121.AutoSize = true;
-            label121.Location = new Point(50, 141);
+            label121.Location = new Point(43, 135);
             label121.Name = "label121";
             label121.Size = new Size(80, 13);
             label121.TabIndex = 114;
@@ -10430,7 +10550,7 @@ namespace DB_EDITOR
             // label128
             // 
             label128.AutoSize = true;
-            label128.Location = new Point(350, 274);
+            label128.Location = new Point(343, 268);
             label128.Name = "label128";
             label128.Size = new Size(36, 13);
             label128.TabIndex = 127;
@@ -10440,7 +10560,7 @@ namespace DB_EDITOR
             // 
             SleeveColor.FormattingEnabled = true;
             SleeveColor.Items.AddRange(new object[] { "Black", "White", "Team Color" });
-            SleeveColor.Location = new Point(44, 181);
+            SleeveColor.Location = new Point(37, 175);
             SleeveColor.Name = "SleeveColor";
             SleeveColor.Size = new Size(103, 21);
             SleeveColor.TabIndex = 115;
@@ -10450,7 +10570,7 @@ namespace DB_EDITOR
             // 
             RightWrist.FormattingEnabled = true;
             RightWrist.Items.AddRange(new object[] { "Normal", "Wt QB Wrist", "BK QB Wrist", "TC QB Wrist", "Bk Wrist", "Wt Wrist", "TC Wrist", "Armpad", "Wt Half Sleeve", "Bk Half Sleeve", "TC Half Sleeve", "Taped" });
-            RightWrist.Location = new Point(350, 290);
+            RightWrist.Location = new Point(343, 284);
             RightWrist.Name = "RightWrist";
             RightWrist.Size = new Size(103, 21);
             RightWrist.TabIndex = 126;
@@ -10460,7 +10580,7 @@ namespace DB_EDITOR
             // 
             EyeBlack.FormattingEnabled = true;
             EyeBlack.Items.AddRange(new object[] { "No", "Yes" });
-            EyeBlack.Location = new Point(81, 108);
+            EyeBlack.Location = new Point(74, 102);
             EyeBlack.Name = "EyeBlack";
             EyeBlack.Size = new Size(103, 21);
             EyeBlack.TabIndex = 116;
@@ -10469,7 +10589,7 @@ namespace DB_EDITOR
             // label147
             // 
             label147.AutoSize = true;
-            label147.Location = new Point(350, 315);
+            label147.Location = new Point(343, 309);
             label147.Name = "label147";
             label147.Size = new Size(38, 13);
             label147.TabIndex = 125;
@@ -10478,7 +10598,7 @@ namespace DB_EDITOR
             // label122
             // 
             label122.AutoSize = true;
-            label122.Location = new Point(78, 93);
+            label122.Location = new Point(71, 87);
             label122.Name = "label122";
             label122.Size = new Size(55, 13);
             label122.TabIndex = 117;
@@ -10488,7 +10608,7 @@ namespace DB_EDITOR
             // 
             RightHand.FormattingEnabled = true;
             RightHand.Items.AddRange(new object[] { "Bare", "Taped", "Gloves" });
-            RightHand.Location = new Point(350, 331);
+            RightHand.Location = new Point(343, 325);
             RightHand.Name = "RightHand";
             RightHand.Size = new Size(103, 21);
             RightHand.TabIndex = 124;
@@ -10498,7 +10618,7 @@ namespace DB_EDITOR
             // 
             Visor.FormattingEnabled = true;
             Visor.Items.AddRange(new object[] { "None", "Clear", "Dark", "Orange" });
-            Visor.Location = new Point(330, 49);
+            Visor.Location = new Point(323, 43);
             Visor.Name = "Visor";
             Visor.Size = new Size(103, 21);
             Visor.TabIndex = 118;
@@ -10507,7 +10627,7 @@ namespace DB_EDITOR
             // label125
             // 
             label125.AutoSize = true;
-            label125.Location = new Point(347, 141);
+            label125.Location = new Point(340, 135);
             label125.Name = "label125";
             label125.Size = new Size(55, 13);
             label125.TabIndex = 123;
@@ -10516,7 +10636,7 @@ namespace DB_EDITOR
             // label124
             // 
             label124.AutoSize = true;
-            label124.Location = new Point(327, 34);
+            label124.Location = new Point(320, 28);
             label124.Name = "label124";
             label124.Size = new Size(30, 13);
             label124.TabIndex = 119;
@@ -10526,7 +10646,7 @@ namespace DB_EDITOR
             // 
             NeckPad.FormattingEnabled = true;
             NeckPad.Items.AddRange(new object[] { "None", "Neck Roll", "Extended" });
-            NeckPad.Location = new Point(350, 156);
+            NeckPad.Location = new Point(343, 150);
             NeckPad.Name = "NeckPad";
             NeckPad.Size = new Size(103, 21);
             NeckPad.TabIndex = 122;
@@ -10535,7 +10655,7 @@ namespace DB_EDITOR
             // pictureBox3
             // 
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(147, 76);
+            pictureBox3.Location = new Point(140, 70);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(204, 274);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
@@ -11954,14 +12074,14 @@ namespace DB_EDITOR
             // 
             tableGridView.AllowUserToAddRows = false;
             tableGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle27.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle27.BackColor = SystemColors.Control;
-            dataGridViewCellStyle27.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle27.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle27.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle27.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle27.WrapMode = DataGridViewTriState.True;
-            tableGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle30.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle30.BackColor = SystemColors.Control;
+            dataGridViewCellStyle30.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle30.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle30.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle30.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle30.WrapMode = DataGridViewTriState.True;
+            tableGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle30;
             tableGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             tableGridView.ContextMenuStrip = tableMenu;
             tableGridView.GridColor = SystemColors.Window;
@@ -11979,18 +12099,18 @@ namespace DB_EDITOR
             // 
             fieldsGridView.AllowDrop = true;
             fieldsGridView.AllowUserToAddRows = false;
-            dataGridViewCellStyle28.BackColor = SystemColors.Control;
-            fieldsGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle31.BackColor = SystemColors.Control;
+            fieldsGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle31;
             fieldsGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             fieldsGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle29.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle29.BackColor = SystemColors.Control;
-            dataGridViewCellStyle29.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle29.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle29.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle29.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle29.WrapMode = DataGridViewTriState.True;
-            fieldsGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle32.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle32.BackColor = SystemColors.Control;
+            dataGridViewCellStyle32.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle32.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle32.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle32.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle32.WrapMode = DataGridViewTriState.True;
+            fieldsGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle32;
             fieldsGridView.ContextMenuStrip = fieldMenu;
             fieldsGridView.GridColor = SystemColors.ScrollBar;
             fieldsGridView.Location = new Point(116, 6);
@@ -12208,21 +12328,21 @@ namespace DB_EDITOR
             // 
             PortalData.AllowUserToAddRows = false;
             PortalData.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle30.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle30.BackColor = Color.FromArgb((int)(byte)224, (int)(byte)224, (int)(byte)224);
-            dataGridViewCellStyle30.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle30.WrapMode = DataGridViewTriState.True;
-            PortalData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle33.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle33.BackColor = Color.FromArgb((int)(byte)224, (int)(byte)224, (int)(byte)224);
+            dataGridViewCellStyle33.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle33.WrapMode = DataGridViewTriState.True;
+            PortalData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle33;
             PortalData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             PortalData.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle31.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle31.BackColor = SystemColors.Info;
-            dataGridViewCellStyle31.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle31.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle31.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle31.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle31.WrapMode = DataGridViewTriState.True;
-            PortalData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle34.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle34.BackColor = SystemColors.Info;
+            dataGridViewCellStyle34.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle34.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle34.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle34.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle34.WrapMode = DataGridViewTriState.True;
+            PortalData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle34;
             PortalData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             PortalData.Columns.AddRange(new DataGridViewColumn[] { PortalPosition, PortalTransferName, PortalClass, PortalRating, PortalNewSchool, PortalPrvTeam });
             PortalData.Location = new Point(238, 14);
@@ -12230,9 +12350,9 @@ namespace DB_EDITOR
             PortalData.ReadOnly = true;
             PortalData.RowHeadersVisible = false;
             PortalData.RowHeadersWidth = 72;
-            dataGridViewCellStyle32.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle32.WrapMode = DataGridViewTriState.True;
-            PortalData.RowsDefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle35.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle35.WrapMode = DataGridViewTriState.True;
+            PortalData.RowsDefaultCellStyle = dataGridViewCellStyle35;
             PortalData.RowTemplate.Height = 31;
             PortalData.Size = new Size(525, 587);
             PortalData.TabIndex = 40;
@@ -12880,6 +13000,50 @@ namespace DB_EDITOR
             buttonRCATBody.UseVisualStyleBackColor = true;
             buttonRCATBody.Click += (this.buttonRCATBody_Click);
             // 
+            // INJteam
+            // 
+            INJteam.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            INJteam.HeaderText = "Team";
+            INJteam.Name = "INJteam";
+            INJteam.Width = 63;
+            // 
+            // INJpos
+            // 
+            INJpos.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            INJpos.FillWeight = 35F;
+            INJpos.HeaderText = "Pos";
+            INJpos.Name = "INJpos";
+            INJpos.Width = 53;
+            // 
+            // INJplayer
+            // 
+            INJplayer.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            INJplayer.HeaderText = "Player";
+            INJplayer.Name = "INJplayer";
+            INJplayer.Width = 67;
+            // 
+            // INJrating
+            // 
+            INJrating.AutoSizeMode = DataGridViewAutoSizeColumnMode.ColumnHeader;
+            INJrating.FillWeight = 35F;
+            INJrating.HeaderText = "ovr";
+            INJrating.Name = "INJrating";
+            INJrating.Width = 50;
+            // 
+            // INJtype
+            // 
+            INJtype.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            INJtype.HeaderText = "Injury";
+            INJtype.Name = "INJtype";
+            INJtype.Width = 63;
+            // 
+            // INJlength
+            // 
+            INJlength.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            INJlength.HeaderText = "Length";
+            INJlength.Name = "INJlength";
+            INJlength.Width = 71;
+            // 
             // MainEditor
             // 
             this.AutoScaleDimensions = new SizeF(96F, 96F);
@@ -13029,6 +13193,11 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)ScheduleView).EndInit();
             tabDynasty.ResumeLayout(false);
             tabDynasty.PerformLayout();
+            groupBox46.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)InjuryGridView).EndInit();
+            groupBox45.ResumeLayout(false);
+            groupBox45.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)ImpactPlayerMin).EndInit();
             groupBox36.ResumeLayout(false);
             groupBox36.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)skillDrop).EndInit();
@@ -13036,7 +13205,6 @@ namespace DB_EDITOR
             groupBox35.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numInjuries).EndInit();
             ((System.ComponentModel.ISupportInitialize)MaxSkillDropPS).EndInit();
-            ((System.ComponentModel.ISupportInitialize)ImpactPlayerMin).EndInit();
             groupBox37.ResumeLayout(false);
             groupBox37.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)CarouselDataGrid).EndInit();
@@ -13065,9 +13233,15 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)CoachCOTRBox).EndInit();
             tabPlayers.ResumeLayout(false);
             tabPlayers.PerformLayout();
-            groupBox42.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)PlayerStatsView).EndInit();
+            groupBox44.ResumeLayout(false);
+            groupBox44.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)PDIS).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PHGTBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PWGTBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PJEN).EndInit();
+            groupBox42.ResumeLayout(false);
+            groupBox42.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)PlayerStatsView).EndInit();
             groupBox6.ResumeLayout(false);
             groupBox6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)PSTAbox).EndInit();
@@ -13090,9 +13264,6 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)PTAKBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)PKPRBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)PKACBox).EndInit();
-            ((System.ComponentModel.ISupportInitialize)PJEN).EndInit();
-            ((System.ComponentModel.ISupportInitialize)PWGTBox).EndInit();
-            ((System.ComponentModel.ISupportInitialize)PHGTBox).EndInit();
             groupBox3.ResumeLayout(false);
             groupBox3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
@@ -14230,6 +14401,22 @@ namespace DB_EDITOR
         private System.Windows.Forms.Button RemoveBadTransfers;
         public System.Windows.Forms.Button AutoAdjustCoachBudgetButton2;
         private GroupBox groupBox43;
+        public Label label66;
+        private System.Windows.Forms.ComboBox PlayerHandBox;
+        private Label InjuryLabel;
+        private GroupBox groupBox44;
+        private GroupBox groupBox46;
+        private DataGridView InjuryGridView;
+        private GroupBox groupBox45;
+        private System.Windows.Forms.Button RemoveAllInjuryButton;
+        private System.Windows.Forms.Button RemoveInjuryButton;
+        private System.Windows.Forms.Button StartInjuryEditorButton;
+        private DataGridViewTextBoxColumn INJteam;
+        private DataGridViewTextBoxColumn INJpos;
+        private DataGridViewTextBoxColumn INJplayer;
+        private DataGridViewTextBoxColumn INJrating;
+        private DataGridViewTextBoxColumn INJtype;
+        private DataGridViewTextBoxColumn INJlength;
     }
 }
 

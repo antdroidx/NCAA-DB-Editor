@@ -29,6 +29,8 @@ namespace DB_EDITOR
             if (PlayerIndex > 0) LoadPGIDlistBox();
 
             PlayerStatsView.Rows.Clear();
+
+            InjuryLabel.Visible = false;
         }
 
         private void LoadPlayerTGIDBox()
@@ -220,15 +222,6 @@ namespace DB_EDITOR
             AddPositionsItems();
             PPOSBox.SelectedIndex = GetDBValueInt("PLAY", "PPOS", PlayerIndex);
 
-            /*
-            //Home
-            AddStateItems();
-            PStateBox.SelectedIndex = GetDBValueInt("PLAY", "RCHD", PlayerIndex)/256;
-
-            AddPHometownItems();
-            PHometownBox.SelectedIndex = GetDBValueInt("PLAY", "RCHD", PlayerIndex)-(256 * PStateBox.SelectedIndex);
-            */
-
             //Home
             int home = GetDBValueInt("PLAY", "RCHD", PlayerIndex);
             int state = home / 256;
@@ -256,7 +249,6 @@ namespace DB_EDITOR
             PGIDbox.Text = GetDBValue("PLAY", "PGID", PlayerIndex);
 
             //Team
-
             playerTeamBox.Text = teamNameDB[GetDBValueInt("PLAY", "PGID", PlayerIndex) / 70];
 
             //Transfer
@@ -301,6 +293,24 @@ namespace DB_EDITOR
             PFMPBox.SelectedIndex = GetDBValueInt("PLAY", "PFMP", PlayerIndex) % 8;
             PHCLBox.SelectedIndex = GetDBValueInt("PLAY", "PHCL", PlayerIndex);
             PHEDBox.SelectedIndex = GetDBValueInt("PLAY", "PHED", PlayerIndex);
+
+            //Primary Hand
+            PlayerHandBox.SelectedIndex = GetDBValueInt("PLAY", "PHAN", PlayerIndex);
+
+            //Injury Status
+
+            int injuryrec =  CheckPlayerInjuryStatus();
+            if (injuryrec >= 0)
+            {
+                InjuryLabel.Visible = true;
+                List<string> injuryTypes = CreateInjuryTypeTable();
+                List<string> injuryLength = CreateInjuryLengthTable();
+                InjuryLabel.Text = "INJURED: " + injuryTypes[GetDBValueInt("INJY", "INJT", injuryrec)] + "  [" + injuryLength[GetDBValueInt("INJY", "INJL", injuryrec)] + "]";
+            }
+            else
+            {
+                InjuryLabel.Visible = false;
+            }
 
 
             //Attributes
@@ -895,6 +905,16 @@ namespace DB_EDITOR
             ChangeDBInt("PLAY", "PHED", PlayerIndex, PHEDBox.SelectedIndex);
         }
 
+        //Change Primary Hand
+
+        private void PlayerHandBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger)
+                return;
+
+            ChangeDBInt("PLAY", "PHAN", PlayerIndex, PlayerHandBox.SelectedIndex);
+
+        }
 
         //Rating Attributes
 
@@ -1395,6 +1415,22 @@ namespace DB_EDITOR
                 TransferPlayer(PlayerIndex, GetDBValueInt("PLAY", "PGID", PlayerIndex));
             }
             LoadPlayerData();
+        }
+
+        private int CheckPlayerInjuryStatus()
+        {
+            int rec = -1;
+            int PGID = GetDBValueInt("PLAY", "PGID", PlayerIndex);
+
+            for (int i = 0; i < GetTableRecCount("INJY"); i++)
+            {
+                if(GetDBValueInt("INJY", "PGID", i) == PGID)
+                {
+                    return i;
+                }
+            }
+
+            return rec;
         }
 
 

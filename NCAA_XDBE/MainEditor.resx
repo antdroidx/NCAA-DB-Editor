@@ -138,6 +138,24 @@
   <metadata name="notifyIcon1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>747, 17</value>
   </metadata>
+  <metadata name="INJteam.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="INJpos.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="INJplayer.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="INJrating.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="INJtype.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="INJlength.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="PS0.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -175,7 +193,7 @@
   <data name="pictureBox3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAVAAAALPCAYAAAA0MJjSAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
-        wgAADsIBFShKgAAA/7JJREFUeF7snQd0HNX1xlk127L6qtdVX/XqJslFkq3eLVuWe+82xphqeg89tIRO
+        vAAADrwBlbxySQAA/7JJREFUeF7snQd0HNX1xlk127L6qtdVX/XqJslFkq3eLVuWe+82xphqeg89tIRO
         aKG3QICEBEgghVBCDaSRQgghyT8kodvW/Z/v7V75+u6sbAi7NsnqnO/M7tPu7LyZeb/57quHEdFhAQUU
         UEABfXZ5JAQUUEABBXRg8kgIKKCAAgrowOSREFBAAQUU0IHJI8GXCg8PDyigzyKbhfRnAgrISPPGH/JI
         8KV0hgP6n5c3KAaHh4ePDw8Pjw0PD49TmuD+v7fvBvQ/Ks0bf8gjwZfSGQ7of1KAHgCIPwASinCn8f+T

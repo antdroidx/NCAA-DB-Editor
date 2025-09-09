@@ -30,7 +30,7 @@ namespace DB_EDITOR
         private void CoachCarousel()
         {
             int coachfirings = 0;
-            if (!coachProgComplete && !NextMod)
+            if (!coachProgComplete && !NextMod && !Next26Mod)
             {
                 MessageBox.Show("Please run Coaching Progressions first before running this module.");
                 return;
@@ -62,7 +62,7 @@ namespace DB_EDITOR
                     int CCPO = Convert.ToInt32(GetDBValue("COCH", "CCPO", i));
 
                     //FIRE COACHES
-                    if (CCPO <= jobSecurityValue.Value && CTOP >= TMPR && GetDBValue("COCH", "CFUC", i) != "1" && rand.Next(0, 100) < 70 && NextConfigRadio.Checked || GetDBValueInt("COCH", "CTYR", i) > 3 && TMPR < 2 && rand.Next(0, 100) < 70 || CCPO <= jobSecurityValue.Value && CTOP-2 >= TMPR && GetDBValue("COCH", "CFUC", i) != "1" && rand.Next(0, 100) < 70 && !NextConfigRadio.Checked)
+                    if (CCPO <= jobSecurityValue.Value && CTOP >= TMPR && GetDBValue("COCH", "CFUC", i) != "1" && rand.Next(0, 100) < 70 && NextMod || CCPO <= jobSecurityValue.Value && CTOP >= TMPR && GetDBValue("COCH", "CFUC", i) != "1" && rand.Next(0, 100) < 70 && Next26Mod || GetDBValueInt("COCH", "CTYR", i) > 3 && TMPR < 2 && rand.Next(0, 100) < 70 || CCPO <= jobSecurityValue.Value && CTOP-2 >= TMPR && GetDBValue("COCH", "CFUC", i) != "1" && rand.Next(0, 100) < 70 && !NextMod || CCPO <= jobSecurityValue.Value && CTOP - 2 >= TMPR && GetDBValue("COCH", "CFUC", i) != "1" && rand.Next(0, 100) < 70 && !Next26Mod)
                     {
                         CCID_FiredList.Add(GetDBValue("COCH", "CCID", i));
                         TGID_VacancyList.Add(GetDBValue("COCH", "TGID", i));

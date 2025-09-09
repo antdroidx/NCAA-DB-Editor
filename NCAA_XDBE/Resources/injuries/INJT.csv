@@ -1,0 +1,222 @@
+INJT,Type
+0,Bruised Ankle
+1,Sprained Ankle
+2,Bruised Forearm
+3,Strained Forearm
+4,Strain Bicep
+5,Strained Tricep
+6,Upper Arm Bruise
+7,Back Spasms
+8,Bruised Elbow
+9,Elbow Bursitis
+10,Foot Contusion
+11,Foot Sprain
+12,Bruised Hand
+13,Broken Finger
+14,Dislocated Finger
+15,Broken Thumb
+16,Dislocated Thumb
+17,Dislocated Wrist
+18,Sprained Wrist
+19,Pinched Nerve
+20,Hip bursitis
+21,Knee Bruise
+22,Knee Bursitis
+23,Strained Calf
+24,Leg Cramp
+25,Pulled Hamstring
+26,Bruised Quadricep
+27,Strained Quadricep
+28,Adbominal Strain
+29,Bruised Ribs
+30,Bruised Sternum
+31,Strained Pectoral
+32,Wind Knocked Out
+33,Bruised Shoulder
+34,Strained Shoulder
+35,Strained Achilles Tendon
+36,Bruised Ankle
+37,Sprained Ankle
+38,Bruised Forearm
+39,Strained Forearm
+40,Strained Bicep
+41,Strained Tricep
+42,Upper Arm Bruise
+43,Back Spasms
+44,Strained Back
+45,Bruised Elbow
+46,Elbow Bursitis
+47,Sprained Elbow
+48,Broken Toe
+49,Foot Contusion
+50,Foot Sprain
+51,Turf Toe
+52,Bruised Hand
+53,Broken Finger
+54,Dislocated Finger
+55,Broken Thumb
+56,Dislocated Thumb
+57,Dislocated Wrist
+58,Sprained Wrist
+59,Pinched Nerve
+60,Hip bursitis
+61,Hip Pointer
+62,ACL Sprain
+63,Knee Bruise
+64,Knee Bursitis
+65,MCL Sprain
+66,PCL Sprain
+67,Strained Calf
+68,Leg Cramp
+69,Pulled Groin
+70,Pulled Hamstring
+71,Bruised Quadricep
+72,Strained Quadricep
+73,Adbominal Strain
+74,Bruised Ribs
+75,Bruised Sternum
+76,Strained Pectoral
+77,Bruised Shoulder
+78,Dislocated Shoulder
+79,Strained Shoulder
+80,Strained Achilles Tendon
+81,Bruised Ankle
+82,Sprained Ankle
+83,High Ankle Sprain
+84,Strained Bicep
+85,Strained Tricep
+86,Back Spasms
+87,Strained Back
+88,Bruised Elbow
+89,Elbow Bursitis
+90,Sprained Elbow
+91,Broken Toe
+92,Foot Contusion
+93,Foot Sprain
+94,Foot Stress Fracture
+95,Turf Toe
+96,Bruised Hand
+97,Broken Finger
+98,Dislocated Finger
+99,Broken Thumb
+100,Dislocated Thumb
+101,Broken Wrist
+102,Dislocated Wrist
+103,Sprained Wrist
+104,Mild Concussion
+105,Pinched Nerve
+106,Hip Bursitis
+107,Hip Pointer
+108,ACL Sprain
+109,Knee Bruise
+110,Knee Bursitis
+111,MCL Sprain
+112,PCL Sprain
+113,Strained Knee
+114,Strained Calf
+115,Pulled Groin
+116,Pulled Hamstring
+117,Bruised Quadricep
+118,Strained Quadricep
+119,Abdominal Strain
+120,Bruised Ribs
+121,Bruised Sternum
+122,Strained Pectoral
+123,Bruised Shoulder
+124,Dislocated Shoulder
+125,Strained Shoulder
+126,Strained Achilles Tendon
+127,Sprained Ankle
+128,High Ankle Sprain
+129,Back Spasms
+130,Strained Back
+131,Sprained Elbow
+132,Broken Toe
+133,Foot Stress Fracture
+134,Turf Toe
+135,Broken Finger
+136,Broken Thumb
+137,Sprained Wrist
+138,Mild Concussion
+139,Pinched Nerve
+140,Hip bursitis
+141,Hip Pointer
+142,ACL Sprain
+143,Knee Bruise
+144,Knee Bursitis
+145,MCL Sprain
+146,PCL Sprain
+147,Strained Knee
+148,Pulled Groin
+149,Pulled Hamstring
+150,Strained Quadricep
+151,Abdominal Strain
+152,Abdominal Tear
+153,Broken Ribs
+154,Strained Pectoral
+155,Torn Pectoral
+156,Bruised Shoulder
+157,Strained Shoulder
+158,High Ankle Sprain
+159,Broken Ankle
+160,Dislocated Ankle
+161,Forearm Fracture
+162,Torn Bicep
+163,Torn Tricep
+164,Upper Arm Fracture
+165,Strained Back
+166,Dislocated Elbow
+167,Foot Fracture
+168,Foot Stress Fracture
+169,Broken Hand
+170,Broken Wrist
+171,Broken Jaw
+172,Broken Tailbone
+173,Partially Torn ACL
+174,Knee Cartilage Tear
+175,Dislocated Knee
+176,Partially Torn MCL
+177,Partially Torn PCL
+178,Strained Knee
+179,Broken Fibula
+180,Torn Groin
+181,Torn Hamstring
+182,Torn Quadricep
+183,Broken Tibia
+184,Abdominal Tear
+185,Broken Ribs
+186,Broken Collarbone
+187,Torn Pectoral
+188,Torn Shoulder Muscle
+189,Torn Achilles Tendon
+190,Broken Ankle
+191,Dislocated Ankle
+192,Forearm Fracture
+193,Upper Arm Fracture
+194,Ruptured Disk
+195,Broken Vertebrae
+196,Broken Elbow
+197,Foot Fracture
+198,Broken Wrist
+199,Severe Concussion
+200,Dislocated Hip
+201,Hip Fracture
+202,Broken Tailbone
+203,Complete ACL Tear
+204,Partially Torn ACL
+205,Knee Cartilage Tear
+206,Dislocated Knee
+207,Fractured Patella
+208,Complete MCL Tear
+209,Partially Torn MCL
+210,Complete PCL Tear
+211,Partially Torn PCL
+212,Broken Femur
+213,Broken Fibula
+214,Torn Hamstring
+215,Torn Quadricep
+216,Broken Tibia
+217,Broken Collarbone
+218,Broken Shoulder Blade
+219,Torn Rotator Cuff
+220,Torn Shoulder Muscle

@@ -271,4 +271,10 @@
   <data name="POCI-NEXT26" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\POCI-NEXT26.csv;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="INJL" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\injuries\INJL.csv;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="INJT" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\injuries\INJT.csv;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

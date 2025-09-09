@@ -381,7 +381,7 @@ namespace DB_EDITOR
                     CoachPlaybookBox.Items.Add(pb[i][1]);
                 }
             }
-            else if (Next26Mod)
+            else if (Next26Mod || GetDBValueInt("COCH", "CPID", CoachIndex) > 135)
             {
                 for (int i = 136; i < pb.Count; i++)
                 {

@@ -1394,6 +1394,69 @@ namespace DB_EDITOR
 
         #endregion
 
+        #region Injuries
+
+        public List<string> CreateInjuryTypeTable()
+        {
+            List<string> injuryTypes = new List<string>();
+
+            string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string csvLocation = Path.Combine(executableLocation, @"resources\injuries\INJT.csv");
+
+            string filePath = csvLocation;
+            StreamReader sr = new StreamReader(filePath);
+            int Row = 0;
+            double sum = 0;
+            while (!sr.EndOfStream)
+            {
+                string[] Line = sr.ReadLine().Split(',');
+                if (Row == 0)
+                {
+                    //do nothing
+                }
+                else
+                {
+                    injuryTypes.Add(Line[1]);
+                }
+                Row++;
+            }
+            sr.Close();
+
+            return injuryTypes;
+        }
+
+        public List<string> CreateInjuryLengthTable()
+        {
+            List<string> injuryTypes = new List<string>();
+
+            string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string csvLocation = Path.Combine(executableLocation, @"resources\injuries\INJL.csv");
+
+            string filePath = csvLocation;
+            StreamReader sr = new StreamReader(filePath);
+            int Row = 0;
+            double sum = 0;
+            while (!sr.EndOfStream)
+            {
+                string[] Line = sr.ReadLine().Split(',');
+                if (Row == 0)
+                {
+                    //do nothing
+                }
+                else
+                {
+                    injuryTypes.Add(Line[1]);
+                }
+                Row++;
+            }
+            sr.Close();
+
+            return injuryTypes;
+        }
+
+
+        #endregion
+
         #region Recruiting
 
         private string GetRecruitPitch(int pitch)
