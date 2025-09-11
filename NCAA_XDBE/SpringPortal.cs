@@ -90,23 +90,23 @@ namespace DB_EDITOR
                     progressBar1.Visible = false;
                     progressBar1.Value = 0;
 
-                    if(FCSTransferPortalCheckBox.Checked) CreateFCSPlayers();
+                    if (FCSTransferPortalCheckBox.Checked) CreateFCSPlayers();
 
                     RedistributePlayers();
                 }
             }
 
             //Remove unused FCS players
-            for(int i = 0; i < GetTableRecCount("PLAY"); i++)
+            for (int i = 0; i < GetTableRecCount("PLAY"); i++)
             {
                 int pgid = GetDBValueInt("PLAY", "PGID", i);
-                if(pgid >= 30000)
+                if (pgid >= 30000)
                 {
                     DeleteRecord("PLAY", i, true);
                 }
             }
 
-            for(int i = 0; i < GetTableRecCount("TRAN"); i++)
+            for (int i = 0; i < GetTableRecCount("TRAN"); i++)
             {
                 int pgid = GetDBValueInt("TRAN", "PGID", i);
                 if (pgid >= 30000)
@@ -114,8 +114,11 @@ namespace DB_EDITOR
                     DeleteRecord("TRAN", i, true);
                 }
             }
-
             CompactDB();
+
+            PostPortalRosterCheck();
+
+            CompactDB2();
 
         }
 
@@ -351,7 +354,7 @@ namespace DB_EDITOR
             int newPlayers = TDB.TableCapacity(dbIndex, "PLAY") - GetTableRecCount("PLAY");
 
             int maxFCSPlayers = 300;
-            if(newPlayers > maxFCSPlayers) newPlayers = maxFCSPlayers; //limit to XX players max
+            if (newPlayers > maxFCSPlayers) newPlayers = maxFCSPlayers; //limit to XX players max
 
             for (int i = 0; i < newPlayers; i++)
             {
@@ -561,7 +564,7 @@ namespace DB_EDITOR
                         else
                         {
                             //Check for open PGID slots
-                            for (int j = tgid * 70; j <= tgid * 70 + maxPlayers-1; j++)
+                            for (int j = tgid * 70; j <= tgid * 70 + maxPlayers - 1; j++)
                             {
                                 if (!OccupiedPGIDList[tgid].Contains(j))
                                 {
@@ -656,6 +659,8 @@ namespace DB_EDITOR
                                     //Add Player to TRAN Table
                                     AddPlayertoTRAN(j, team);
 
+                                    //Update Walk-On Needs
+                                    //CheckWalkOnNeeds(team, tgid, pos);
 
                                     OccupiedPGIDList[tgid].Add(j);
                                     if (pgid / 70 < 512) OccupiedPGIDList[pgid / 70].Remove(pgid);
@@ -771,6 +776,108 @@ namespace DB_EDITOR
             PortalSS.Value = 2;
             PortalK.Value = 1;
             PortalP.Value = 1;
+        }
+
+
+        //Check Depth Charts
+        private void CheckWalkOnNeeds(int teamA, int teamB, int posg)
+        {
+            //TGID, WOND, RGRP
+            //team A is team losing player & team B is team gaining player
+
+            bool teamANeeds = false;
+            bool teamBNeeds = false;
+
+            for (int i = 0; i < GetTable2RecCount("WONS"); i++)
+            {
+                int tgid = GetDB2ValueInt("WONS", "TGID", i);
+                int wond = GetDB2ValueInt("WONS", "WOND", i);
+                int rgrp = GetDB2ValueInt("WONS", "RGRP", i);
+
+                if (tgid == teamA && rgrp == posg)
+                {
+                    ChangeDB2Int("WONS", "WOND", i, wond + 1);
+                    teamANeeds = true;
+
+                    if(teamANeeds && teamBNeeds) break;
+                }
+                else if(tgid == teamB && rgrp == posg && wond > 0)
+                {
+                    ChangeDB2Int("WONS", "WOND", i, wond - 1);
+                    teamBNeeds = true;
+
+                    if (teamANeeds && teamBNeeds) break;
+                }
+            }
+
+            if(!teamANeeds)
+            {
+                int rec = GetTable2RecCount("WONS");
+                AddTable2Record("WONS", false);
+                ChangeDB2Int("WONS", "TGID", rec, teamA);
+                ChangeDB2Int("WONS", "WOND", rec, 1);
+                ChangeDB2Int("WONS", "RGRP", rec, posg);
+            }
+
+
+            for (int i = 0; i < GetTable2RecCount("WONS"); i++)
+            {
+                int wond = GetDB2ValueInt("WONS", "WOND", i);
+
+                if (wond == 0)
+                {
+                    DeleteRecord2("WONS", i, true);
+                }
+
+            }
+            CompactDB2();
+        }
+
+        private void PostPortalRosterCheck()
+        {
+            for(int i = 0; i < GetTable2RecCount("WONS"); i++)
+            {
+                DeleteRecord2("WONS", i, true);
+            }
+            CompactDB2();
+
+
+            CollectSpringRoster();
+
+            List<int> depth = new List<int> { 3, 4, 2, 6, 3, 4, 4, 2, 4, 4, 4, 4, 5, 2, 3, 1, 1 };
+
+            for (int tgid = 0; tgid < 512; tgid++)
+            {
+                if (FindTeamRecfromTeamName(teamNameDB[tgid]) > 0 && GetDBValueInt("TEAM", "TTYP", FindTeamRecfromTeamName(teamNameDB[tgid])) == 0)
+                {
+
+                    for (int p = 0; p < depth.Count; p++)
+                    {
+                        int posCount = 0;
+
+                        //Create a list of players at the position
+                        for (int i = 0; i < SpringRoster[tgid].Count; i++)
+                        {
+                            if (SpringRoster[tgid][i][3] == p)
+                            {
+                                posCount++;
+                            }
+                        }
+
+
+                        if (posCount < depth[p])
+                        {
+                            int needs = depth[p] - posCount;
+                            int rec = GetTable2RecCount("WONS");
+                            AddTable2Record("WONS", false);
+                            ChangeDB2Int("WONS", "TGID", rec, tgid);
+                            ChangeDB2Int("WONS", "WOND", rec, needs);
+                            ChangeDB2Int("WONS", "RGRP", rec, p);
+                        }
+                    }
+                }
+            }
+
         }
 
 

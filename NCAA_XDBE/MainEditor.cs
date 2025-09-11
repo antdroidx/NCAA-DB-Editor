@@ -33,10 +33,6 @@ namespace DB_EDITOR
         string SelectedTableName = "";
         int SelectedTableIndex = -1;
 
-        string SelectedTable2Name = "";
-        int SelectedTableIndex2 = -1;
-
-
         bool DBModified = false;
         bool exportAll = false;
         bool BigEndian = false;
@@ -116,12 +112,11 @@ namespace DB_EDITOR
         [DllImport("user32.dll")]
         public static extern void DisableProcessWindowsGhosting();
 
-        #endregion
-
 
         // Add this near the top of the MainEditor class, after existing DllImport
-        [DllImport("user32.dll")]
         private static extern bool SetProcessDPIAware();
+        #endregion
+
 
 
         public MainEditor()
@@ -320,7 +315,7 @@ namespace DB_EDITOR
             int activeDB = 0;
             int i = 0;
 
-            while (i < array.Length-3)
+            while (i < array.Length - 3)
             {
                 if (Convert.ToChar(array[i]) + "" + Convert.ToChar(array[i + 1]) + "" + Convert.ToDecimal(array[i + 2]) + "" + Convert.ToDecimal(array[i + 3]) == "DB08")
                 {
@@ -400,8 +395,6 @@ namespace DB_EDITOR
 
             // end Save DB information.
         }
-
-
 
         //Extra Console Data for PSU, MAX containers
         private void CreateExtraFileDataContainers()
@@ -656,6 +649,34 @@ namespace DB_EDITOR
             MessageBox.Show("Export Complete", "Export All Tables");
         }
 
+        private void importAllMenuItem_Click(object sender, EventArgs e)
+        {
+            // TdbTableProperties class
+            TdbTableProperties TableProps = new TdbTableProperties();
+
+            // 4 character string, max value of 5
+            StringBuilder TableName = new StringBuilder("    ", 5);
+
+            exportAll = true;
+            for (int i = 0; i < TDB.TDBDatabaseGetTableCount(dbSelected); i++)
+            {
+                // Init the tdbtableproperties name
+                TableProps.Name = TableName.ToString();
+
+                // Get the tableproperties for the given table number
+                if (TDB.TDBTableGetProperties(dbSelected, i, ref TableProps))
+                {
+                    SelectedTableName = TableProps.Name;
+                    SelectedTableIndex = i;
+
+                    if(TableProps.Name != "TEAM")
+                    importTableMenuItem.PerformClick();
+                }
+            }
+            exportAll = false;
+            MessageBox.Show("Import Complete", "Import All Tables");
+        }
+
         //tableMenuStrip
         private void exportTableMenuItem_Click(object sender, EventArgs e)
         {
@@ -668,6 +689,11 @@ namespace DB_EDITOR
         private void exportAllTableMenuItem_Click(object sender, EventArgs e)
         {
             exportAllMenuItem.PerformClick();
+        }
+
+        private void importAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            importAllMenuItem.PerformClick();
         }
 
         //fieldMenuStrip
@@ -1129,7 +1155,6 @@ namespace DB_EDITOR
         {
         }
         #endregion
-
 
     }
 

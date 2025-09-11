@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace DB_EDITOR
@@ -27,13 +28,20 @@ namespace DB_EDITOR
             OpenFileDialog openFileDialog2 = new OpenFileDialog();
             Stream myStream = null;
 
-            if (tabDelimited)
-                openFileDialog2.Filter = "TXT Files (*.txt)|*.txt|All files (*.*)|*.*";
-            else openFileDialog2.Filter = "CSV Files (*.csv)|*.csv|All files (*.*)|*.*";
-
-            if (openFileDialog2.ShowDialog() == DialogResult.OK)
+            if (exportAll)
             {
-                if ((myStream = openFileDialog2.OpenFile()) != null)
+                string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+                string csvLocation = Path.Combine(executableLocation, SelectedTableName + ".csv");
+                myStream = new FileStream(csvLocation, FileMode.Open, FileAccess.Read);
+            }
+            else if (tabDelimited)
+                openFileDialog2.Filter = "TXT Files (*.txt)|*.txt|All files (*.*)|*.*";
+            else 
+                openFileDialog2.Filter = "CSV Files (*.csv)|*.csv|All files (*.*)|*.*";
+
+            if (exportAll || openFileDialog2.ShowDialog() == DialogResult.OK)
+            {
+                if (exportAll & myStream != null || !exportAll && (myStream = openFileDialog2.OpenFile()) != null)
                 {
                     #region Setup  Existing table field names
                     //
@@ -263,7 +271,7 @@ namespace DB_EDITOR
                     DBModified = true;
                     saveMenuItem.Enabled = true;
                     GetTableProperties();
-                    LoadFields();
+                    if(!exportAll) LoadFields();
 
                 }
 
