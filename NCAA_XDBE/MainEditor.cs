@@ -114,6 +114,7 @@ namespace DB_EDITOR
 
 
         // Add this near the top of the MainEditor class, after existing DllImport
+        [DllImport("user32.dll")]
         private static extern bool SetProcessDPIAware();
         #endregion
 

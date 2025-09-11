@@ -41,8 +41,30 @@ namespace DB_EDITOR
 
         private List<List<int>> GetScheduleTemplate(int count)
         {
+            /* 12 A B C
+             * 14 A B
+             * 16 A B
+             * 18 A B
+             */
+
             List<List<int>> template = new List<List<int>>();
             if (count == 12)
+            {
+                if (rand.Next(0, 100) < 33) template = CreateIntListsFromCSV(@"resources\schedules\" + count + "-teamB.csv", true);
+                else if (rand.Next(0, 100) < 33) template = CreateIntListsFromCSV(@"resources\schedules\" + count + "-teamC.csv", true);
+                else template = CreateIntListsFromCSV(@"resources\schedules\" + count + "-team.csv", true);
+            }
+            if (count == 14)
+            {
+                if (rand.Next(0, 100) > 50) template = CreateIntListsFromCSV(@"resources\schedules\" + count + "-teamB.csv", true);
+                else template = CreateIntListsFromCSV(@"resources\schedules\" + count + "-team.csv", true);
+            }
+            if (count == 16)
+            {
+                if (rand.Next(0, 100) > 50) template = CreateIntListsFromCSV(@"resources\schedules\" + count + "-teamB.csv", true);
+                else template = CreateIntListsFromCSV(@"resources\schedules\" + count + "-team.csv", true);
+            }
+            if (count == 18)
             {
                 if (rand.Next(0, 100) > 50) template = CreateIntListsFromCSV(@"resources\schedules\" + count + "-teamB.csv", true);
                 else template = CreateIntListsFromCSV(@"resources\schedules\" + count + "-team.csv", true);
