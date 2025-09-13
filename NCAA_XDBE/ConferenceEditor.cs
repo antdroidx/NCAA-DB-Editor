@@ -53,21 +53,47 @@ namespace DB_EDITOR
             return confNames;
         }
 
+        //List of Labels
+        private List<NumericUpDown> GetConfPrestigeBoxes()
+        {
+            List<NumericUpDown> confNames = new List<NumericUpDown>();
+
+            confNames.Add(CPRS1);
+            confNames.Add(CPRS2);
+            confNames.Add(CPRS3);
+            confNames.Add(CPRS4);
+            confNames.Add(CPRS5);
+            confNames.Add(CPRS6);
+            confNames.Add(CPRS7);
+            confNames.Add(CPRS8);
+            confNames.Add(CPRS9);
+            confNames.Add(CPRS10);
+            confNames.Add(CPRS11);
+            confNames.Add(CPRS12);
+
+            return confNames;
+        }
+
         //Clear and Setup Tab Page
         private void ConferenceSetup()
         {
             if (GetDBValueInt("SEAI", "SEWN", 0) > 0 && GetDBValueInt("SEAI", "SEWN", 0) < 22)
             {
                 MessageBox.Show("Please only make conference edits during pre-season, at end of season, or in off-season!\n\n\nFCS Swapping will only safely work at end of season or beginning of off-season!");
-                tabConf.Enabled = false;
+                //tabConf.Enabled = false;
+                SwapButton.Enabled = false;
+                
             }
             else
             {
                 tabConf.Enabled = true;
+                SwapButton.Enabled = true;
+
             }
 
             List<CheckedListBox> confBoxes = GetConfBoxObjects();
             List<Label> confNames = GetConfNameLabels();
+            List<NumericUpDown> confPrestige = GetConfPrestigeBoxes();
 
             foreach (var c in confBoxes)
             {
@@ -80,6 +106,10 @@ namespace DB_EDITOR
                 c.Text = string.Empty;
             }
 
+            foreach (var c in confPrestige)
+            {
+                c.Value = 0;
+            }
 
             for (int i = 0; i < confBoxes.Count; i++)
             {
@@ -95,7 +125,7 @@ namespace DB_EDITOR
             {
                 if (GetDBValueInt("CONF", "LGID", i) == 0)
                 {
-                    double avgPrestige = AddTeamsToConfSetup(GetDBValueInt("CONF", "CGID", i), confBoxes[box], i, confNames[box]);
+                    double avgPrestige = AddTeamsToConfSetup(GetDBValueInt("CONF", "CGID", i), confBoxes[box], i, confNames[box], confPrestige[box]);
                     if (avgPrestige > 0) confNames[box].Text += " [" + avgPrestige.ToString("0.00") + "]";
 
                     box++;
@@ -106,6 +136,7 @@ namespace DB_EDITOR
             {
                 confBoxes[i].Visible = false;
                 confNames[i].Visible = false;
+                confPrestige[i].Visible = false;
             }
 
 
@@ -118,8 +149,11 @@ namespace DB_EDITOR
         }
 
         //Add Teams to Conferences and Label the Conference
-        private double AddTeamsToConfSetup(int conf, CheckedListBox conferenceBox, int confRec, Label confName)
+        private double AddTeamsToConfSetup(int conf, CheckedListBox conferenceBox, int confRec, Label confName, NumericUpDown confPrestige)
         {
+            confPrestige.Value = GetDBValueInt("CONF", "CPRS", confRec);
+            confName.Text = GetDBValue("CONF", "CNAM", confRec);
+
             double prestige = 0;
             double teams = 0;
             double avg = 0;
@@ -127,8 +161,7 @@ namespace DB_EDITOR
             {
                 if (GetDBValueInt("TEAM", "CGID", i) == conf)
                 {
-                    confName.Text = GetDBValue("CONF", "CNAM", confRec);
-
+              
                     if (ConfDisplayTeam.Checked)
                     {
                         conferenceBox.Items.Add(GetDBValue("TEAM", "TDNA", i));
@@ -753,6 +786,122 @@ namespace DB_EDITOR
 
         }
 
+
+        //Change Prestige Value
+
+        private void CPRS1_ValueChanged(object sender, EventArgs e)
+        {
+            int rec = GetCONFrecFromCNAM(ConfName1.Text);
+            ChangeDBInt("CONF", "CPRS", rec, (int)CPRS1.Value);
+            ChangeDBInt("CONF", "CMNP", rec, GetConfMinPrestige((int)CPRS1.Value));
+            ChangeDBInt("CONF", "CMXP", rec, GetConfMaxPrestige((int)CPRS1.Value));
+        }
+
+        private void CPRS2_ValueChanged(object sender, EventArgs e)
+        {
+            int rec = GetCONFrecFromCNAM(ConfName2.Text);
+            ChangeDBInt("CONF", "CPRS", rec, (int)CPRS2.Value);
+            ChangeDBInt("CONF", "CMNP", rec, GetConfMinPrestige((int)CPRS2.Value));
+            ChangeDBInt("CONF", "CMXP", rec, GetConfMaxPrestige((int)CPRS2.Value));
+        }
+
+        private void CPRS3_ValueChanged(object sender, EventArgs e)
+        {
+            int rec = GetCONFrecFromCNAM(ConfName3.Text);
+            ChangeDBInt("CONF", "CPRS", rec, (int)CPRS3.Value);
+            ChangeDBInt("CONF", "CMNP", rec, GetConfMinPrestige((int)CPRS3.Value));
+            ChangeDBInt("CONF", "CMXP", rec, GetConfMaxPrestige((int)CPRS3.Value));
+        }
+
+        private void CPRS4_ValueChanged(object sender, EventArgs e)
+        {
+            int rec = GetCONFrecFromCNAM(ConfName4.Text);
+            ChangeDBInt("CONF", "CPRS", rec, (int)CPRS4.Value);
+            ChangeDBInt("CONF", "CMNP", rec, GetConfMinPrestige((int)CPRS4.Value));
+            ChangeDBInt("CONF", "CMXP", rec, GetConfMaxPrestige((int)CPRS4.Value));
+        }
+
+        private void CPRS5_ValueChanged(object sender, EventArgs e)
+        {
+            int rec = GetCONFrecFromCNAM(ConfName5.Text);
+            ChangeDBInt("CONF", "CPRS", rec, (int)CPRS5.Value);
+            ChangeDBInt("CONF", "CMNP", rec, GetConfMinPrestige((int)CPRS5.Value));
+            ChangeDBInt("CONF", "CMXP", rec, GetConfMaxPrestige((int)CPRS5.Value));
+        }
+
+        private void CPRS6_ValueChanged(object sender, EventArgs e)
+        {
+            int rec = GetCONFrecFromCNAM(ConfName6.Text);
+            ChangeDBInt("CONF", "CPRS", rec, (int)CPRS6.Value);
+            ChangeDBInt("CONF", "CMNP", rec, GetConfMinPrestige((int)CPRS6.Value));
+            ChangeDBInt("CONF", "CMXP", rec, GetConfMaxPrestige((int)CPRS6.Value));
+        }
+
+        private void CPRS7_ValueChanged(object sender, EventArgs e)
+        {
+            int rec = GetCONFrecFromCNAM(ConfName7.Text);
+            ChangeDBInt("CONF", "CPRS", rec, (int)CPRS7.Value);
+            ChangeDBInt("CONF", "CMNP", rec, GetConfMinPrestige((int)CPRS7.Value));
+            ChangeDBInt("CONF", "CMXP", rec, GetConfMaxPrestige((int)CPRS7.Value));
+        }
+
+        private void CPRS8_ValueChanged(object sender, EventArgs e)
+        {
+            int rec = GetCONFrecFromCNAM(ConfName8.Text);
+            ChangeDBInt("CONF", "CPRS", rec, (int)CPRS8.Value);
+            ChangeDBInt("CONF", "CMNP", rec, GetConfMinPrestige((int)CPRS8.Value));
+            ChangeDBInt("CONF", "CMXP", rec, GetConfMaxPrestige((int)CPRS8.Value));
+        }
+
+        private void CPRS9_ValueChanged(object sender, EventArgs e)
+        {
+            int rec = GetCONFrecFromCNAM(ConfName9.Text);
+            ChangeDBInt("CONF", "CPRS", rec, (int)CPRS9.Value);
+            ChangeDBInt("CONF", "CMNP", rec, GetConfMinPrestige((int)CPRS9.Value));
+            ChangeDBInt("CONF", "CMXP", rec, GetConfMaxPrestige((int)CPRS9.Value));
+        }
+
+        private void CPRS10_ValueChanged(object sender, EventArgs e)
+        {
+            int rec = GetCONFrecFromCNAM(ConfName10.Text);
+            ChangeDBInt("CONF", "CPRS", rec, (int)CPRS10.Value);
+            ChangeDBInt("CONF", "CMNP", rec, GetConfMinPrestige((int)CPRS10.Value));
+            ChangeDBInt("CONF", "CMXP", rec, GetConfMaxPrestige((int)CPRS10.Value));
+        }
+
+        private void CPRS11_ValueChanged(object sender, EventArgs e)
+        {
+            int rec = GetCONFrecFromCNAM(ConfName11.Text);
+            ChangeDBInt("CONF", "CPRS", rec, (int)CPRS11.Value);
+            ChangeDBInt("CONF", "CMNP", rec, GetConfMinPrestige((int)CPRS11.Value));
+            ChangeDBInt("CONF", "CMXP", rec, GetConfMaxPrestige((int)CPRS11.Value));
+        }
+
+        private void CPRS12_ValueChanged(object sender, EventArgs e)
+        {
+            int rec = GetCONFrecFromCNAM(ConfName12.Text);
+            ChangeDBInt("CONF", "CPRS", rec, (int)CPRS12.Value);
+            ChangeDBInt("CONF", "CMNP", rec, GetConfMinPrestige((int)CPRS12.Value));
+            ChangeDBInt("CONF", "CMXP", rec, GetConfMaxPrestige((int)CPRS12.Value));
+        }
+
+        private int GetConfMinPrestige(int CPRS)
+        {
+            int min = 0;
+            if (CPRS == 3) return 3;
+            else if (CPRS == 2) return 2;
+            else if (CPRS == 1) return 1;
+            else return min;
+        }
+
+        private int GetConfMaxPrestige(int CPRS)
+        {
+            int min = 0;
+            if (CPRS == 3) return 6;
+            else if (CPRS == 2) return 4;
+            else if (CPRS == 1) return 3;
+            else return min;
+        }
 
     }
 }

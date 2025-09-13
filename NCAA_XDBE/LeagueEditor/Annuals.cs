@@ -25,6 +25,9 @@ namespace DB_EDITOR
             AnnualsGrid.AllowUserToDeleteRows = true;
             AnnualsGrid.Columns.Clear();
 
+            // Add the RowsAdded event handler
+            AnnualsGrid.RowsAdded += AnnualsGrid_RowsAdded;
+
             //Add Selection Boxes
             for (int i = 0; i < 3; i++)
             {
@@ -60,6 +63,7 @@ namespace DB_EDITOR
         private void AddSANNData()
         {
             string[] teamNameDB = main.GetTeamNameDB();
+            int count = 0;
             for (int i = 0; i < GetTableRecCount("SANN"); i++)
             {
                 if (GetDBValueInt("SANN", "SESI", i) == 0)
@@ -92,7 +96,11 @@ namespace DB_EDITOR
 
                         AnnualsGrid.Rows.Add(game);
                     }
+
+                    count++;
                 }
+
+                if (count >= 26) break; // Limit to 50 rows
             }
 
             //Add Army-Navy if not present
@@ -120,9 +128,9 @@ namespace DB_EDITOR
                 ArmyNavy = true;
 
                 AddSANNData();
+                AddtoSKNW();
             }
 
-            AddtoSKNW();
 
         }
 
@@ -240,22 +248,23 @@ namespace DB_EDITOR
             if (!ArmyNavy && NextMod || !ArmyNavy && Next26Mod)
             {
                 TDB.TDBTableRecordAdd(dbIndex2, "SANN", false);
-                ChangeDBInt("SANN", "GTOD", 0, 1200);
-                ChangeDBInt("SANN", "GATG", 0, 8);
-                ChangeDBInt("SANN", "GHTG", 0, 57);
-                ChangeDBInt("SANN", "SESI", 0, 1);
-                ChangeDBInt("SANN", "SEWN", 0, 15);
-                ChangeDBInt("SANN", "GDAT", 0, 5);
-                ChangeDBInt("SANN", "SEWT", 0, 15);
+                ChangeDBInt("SANN", "GTOD", rec, 1200);
+                ChangeDBInt("SANN", "GATG", rec, 8);
+                ChangeDBInt("SANN", "GHTG", rec, 57);
+                ChangeDBInt("SANN", "SESI", rec, 1);
+                ChangeDBInt("SANN", "SEWN", rec, 15);
+                ChangeDBInt("SANN", "GDAT", rec, 5);
+                ChangeDBInt("SANN", "SEWT", rec, 15);
 
+                rec++;
                 TDB.TDBTableRecordAdd(dbIndex2, "SANN", false);
-                ChangeDBInt("SANN", "GTOD", 1, 1200);
-                ChangeDBInt("SANN", "GATG", 1, 57);
-                ChangeDBInt("SANN", "GHTG", 1, 8);
-                ChangeDBInt("SANN", "SESI", 1, 0);
-                ChangeDBInt("SANN", "SEWN", 1, 15);
-                ChangeDBInt("SANN", "GDAT", 1, 5);
-                ChangeDBInt("SANN", "SEWT", 1, 15);
+                ChangeDBInt("SANN", "GTOD", rec, 1200);
+                ChangeDBInt("SANN", "GATG", rec, 57);
+                ChangeDBInt("SANN", "GHTG", rec, 8);
+                ChangeDBInt("SANN", "SESI", rec, 0);
+                ChangeDBInt("SANN", "SEWN", rec, 15);
+                ChangeDBInt("SANN", "GDAT", rec, 5);
+                ChangeDBInt("SANN", "SEWT", rec, 15);
 
             }
 
@@ -324,6 +333,20 @@ namespace DB_EDITOR
             }
 
             TDB.TDBDatabaseCompact(dbIndex2);
+        }
+
+        private void AnnualsGrid_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            if (AnnualsGrid.Rows.Count > 26)
+            {
+                MessageBox.Show("Maximum of 26 rows allowed.", "Row Limit Reached", 
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
+                while (AnnualsGrid.Rows.Count > 26)
+                {
+                    AnnualsGrid.Rows.RemoveAt(AnnualsGrid.Rows.Count - 1);
+                }
+            }
         }
     }
 }

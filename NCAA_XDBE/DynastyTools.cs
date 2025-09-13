@@ -158,16 +158,16 @@ namespace DB_EDITOR
                 //check to see if value is greater than 225
                 /* 254 = Season Ending
                  * 195-214 = 10 weeks
-                 * Coding:    ((INJL - 15) % 20)  + 1
+                 * Coding:    ((INJL - 15) / 20)  + 1
                  */
 
-                int injuryWeeks = ((injLength - 15) % 20) + 1;
+                int injuryWeeks = ((injLength - 15)/ 20) + 1;
                 int seaWeek = GetDBValueInt("SEAI", "SEWN", 0);
 
                 int val = seaWeek + injuryWeeks;
 
                 //Check at Mid-Season
-                if (val >= 13 && Convert.ToInt32(GetDBValue("SEAI", "SEWN", 0)) <= 6)
+                if (val >= 12 && Convert.ToInt32(GetDBValue("SEAI", "SEWN", 0)) <= 6)
                 {
                     //find the corresponding PGID
                     string PGID = GetDBValue("INJY", "PGID", i);
@@ -215,67 +215,13 @@ namespace DB_EDITOR
                             break;
                         }
                     }
-
-
-                    //Check at End of Reg Season
-                    if (injuryWeeks >= 10 && Convert.ToInt32(GetDBValue("SEAI", "SEWN", 0)) >= 14)
-                    {
-                        //find the corresponding PGID
-                        PGID = GetDBValue("INJY", "PGID", i);
-                        //find the corresponding recNo of the PGID in PLAY
-                        for (int j = 0; j < GetTableRecCount("PLAY"); j++)
-                        {
-                            if (PGID == GetDBValue("PLAY", "PGID", j))
-                            {
-                                //checks to see if player has only played 4 or less games
-                                if (NextMod || Next26Mod)
-                                {
-                                    if (Convert.ToInt32(GetDBValue("PLAY", "PL13", j)) <= 4 && GetDBValue("PLAY", "PRSD", j) != "1")
-                                    {
-                                        //changes redshirt status to "1" (active redshirt)
-                                        ChangeDBString("PLAY", "PRSD", j, "1");
-                                        string team = GetTeamName(Convert.ToInt32(GetDBValue("PLAY", "PGID", j)) / 70);
-
-                                        if (checkBoxInjuryRatings.Checked)
-                                        {
-                                            ReduceSkills(i, (int)skillDrop.Value);
-                                        }
-
-                                        names += "\n * " + GetFirstNameFromRecord(j) + " " + GetLastNameFromRecord(j) + " (" + team + ")";
-                                        break;
-                                    }
-                                }
-                                else
-                                {
-                                    if (GetDBValue("PLAY", "PRSD", j) != "1")
-                                    {
-                                        //changes redshirt status to "1" (active redshirt)
-                                        ChangeDBString("PLAY", "PRSD", j, "1");
-                                        string team = GetTeamName(Convert.ToInt32(GetDBValue("PLAY", "PGID", j)) / 70);
-
-                                        if (checkBoxInjuryRatings.Checked)
-                                        {
-                                            ReduceSkills(i, (int)skillDrop.Value);
-                                        }
-
-                                        names += "\n * " + GetFirstNameFromRecord(j) + " " + GetLastNameFromRecord(j) + " (" + team + ")";
-                                        break;
-                                    }
-                                }
-
-                                break;
-                            }
-                        }
-
-
-                    }
                     progressBar1.PerformStep();
                 }
-                progressBar1.Visible = false;
-                progressBar1.Value = 0;
-
-                MessageBox.Show("The NCAA has approved the following Medical Redshirts:\n\r" + names);
             }
+            progressBar1.Visible = false;
+            progressBar1.Value = 0;
+
+            MessageBox.Show("The NCAA has approved the following Medical Redshirts:\n\r" + names);
         }
 
         private void ReduceSkills(int i, int maxDrop)

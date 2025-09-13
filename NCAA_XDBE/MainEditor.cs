@@ -670,8 +670,8 @@ namespace DB_EDITOR
                     SelectedTableName = TableProps.Name;
                     SelectedTableIndex = i;
 
-                    if(TableProps.Name != "TEAM")
-                    importTableMenuItem.PerformClick();
+                    if (TableProps.Name != "TEAM")
+                        importTableMenuItem.PerformClick();
                 }
             }
             exportAll = false;
@@ -1156,6 +1156,8 @@ namespace DB_EDITOR
         {
         }
         #endregion
+
+
 
     }
 

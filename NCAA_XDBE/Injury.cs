@@ -46,17 +46,18 @@ namespace DB_EDITOR
                 string pos = Positions[GetDBValueInt("PLAY", "PPOS", rec)];
                 string name = GetPlayerNamefromPGID(pgid);
                 string team = teamNameDB[(int)(GetDBValueInt("PLAY", "PGID", rec) / 70)];
-                int rating = GetDBValueInt("PLAY", "POVR", rec);
+                int rating = ConvertRating( GetDBValueInt("PLAY", "POVR", rec));
                 string injuryType = InjuryType[GetDBValueInt("INJY", "INJT", i)];
                 string injuryLength = InjuryLength[GetDBValueInt("INJY", "INJL", i)];
 
                 InjuryGridView.Rows.Add(1);
-                InjuryGridView.Rows[i].Cells[0].Value = team;
-                InjuryGridView.Rows[i].Cells[1].Value = pos;
-                InjuryGridView.Rows[i].Cells[2].Value = name;
-                InjuryGridView.Rows[i].Cells[3].Value = rating;
-                InjuryGridView.Rows[i].Cells[4].Value = injuryType;
-                InjuryGridView.Rows[i].Cells[5].Value = injuryLength;
+                InjuryGridView.Rows[i].Cells[0].Value = i;
+                InjuryGridView.Rows[i].Cells[1].Value = team;
+                InjuryGridView.Rows[i].Cells[2].Value = pos;
+                InjuryGridView.Rows[i].Cells[3].Value = name;
+                InjuryGridView.Rows[i].Cells[4].Value = rating;
+                InjuryGridView.Rows[i].Cells[5].Value = injuryType;
+                InjuryGridView.Rows[i].Cells[6].Value = injuryLength;
 
             }
             InjuryGridView.ClearSelection();
@@ -72,11 +73,9 @@ namespace DB_EDITOR
                 if (result == DialogResult.Yes)
                 {
 
-                    for (int i = 0; i < InjuryGridView.SelectedRows.Count; i++)
-                    {
-                        int rowIndex = InjuryGridView.SelectedRows[i].Index;
-                        RemoveInjury(rowIndex);
-                    }
+                    int rowIndex = InjuryGridView.SelectedRows[0].Index;
+                    RemoveInjury(Convert.ToInt32(InjuryGridView.Rows[rowIndex].Cells[0].Value));
+                    
                     CompactDB();
 
                     LoadInjuryList(); // Refresh the grid after removal
