@@ -78,7 +78,9 @@ namespace DB_EDITOR
                 string transfer = "";
                 if (Convert.ToInt32(player[4]) > 20000) transfer = " +";
 
-                string text = "[" + GetPositionName(Convert.ToInt32(player[2])) + "] " + player[0] + " " + player[1] + ath + transfer;
+                string rating = " (" + ConvertRating(Convert.ToInt32(player[3])) + ")";
+
+                string text = "[" + GetPositionName(Convert.ToInt32(player[2])) + "] " + player[0] + " " + player[1] + rating + ath + transfer;
                 if (Convert.ToInt32(player[4]) >= 21000)
                 {
                     //text += " (T)";

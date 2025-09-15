@@ -19,7 +19,7 @@ namespace DB_EDITOR
 
 
         //Coaching Carousel -- Must be done at end of Season
-        private void ButtonCarousel_Click(object sender, EventArgs e)
+        private void buttonCarousel_Click(object sender, EventArgs e)
         {
             CarouselDataGrid.Rows.Clear();
             CoachCarousel();
@@ -348,6 +348,248 @@ namespace DB_EDITOR
 
 
 
+        //Graduate to Coaching Mod
+        #region Players to Coach Mod
+
+
+        //Players to Coaches
+        private void buttonPlayerCoach_Click(object sender, EventArgs e)
+        {
+            PlayerToCoach();
+        }
+
+
+        private void PlayerToCoach()
+        {
+
+            List<string> CCID_FAList = new List<string>();
+            List<int> PGID_List = new List<int>();
+            string news = "";
+
+            //Create a list of Free Agent Coach's from COCH
+
+            progressBar1.Visible = true;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = GetTableRecCount("COCH");
+
+            int minRating = 0;
+            while (CCID_FAList.Count < numberPlayerCoach.Value)
+            {
+                for (int i = 0; i < GetTableRecCount("COCH"); i++)
+                {
+                    //ADD COACHING FREE AGENCY POOL TO THE LIST
+                    if (GetDBValue("COCH", "TGID", i) == "511" && Convert.ToInt32(GetDBValue("COCH", "CPRE", i)) < minRating)
+                    {
+                        CCID_FAList.Add(GetDBValue("COCH", "CCID", i));
+                    }
+                    progressBar1.PerformStep();
+                }
+                minRating++;
+            }
+
+
+
+            //Create a list of graduating players
+            progressBar1.Visible = true;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = GetTableRecCount("PLAY");
+
+            for (int i = 0; i < GetTableRecCount("PLAY"); i++)
+            {
+                //Create a list of Players that are seniors and have high awareness
+                if (ConvertRating(GetDBValueInt("PLAY", "PAWR", i)) >= 90 && GetDBValue("PLAY", "PYER", i) == "3")
+                {
+                    PGID_List.Add(i);
+                }
+                progressBar1.PerformStep();
+            }
+
+            if (PGID_List.Count >= numberPlayerCoach.Value)
+            {
+                //Randomly pick a FA Coach and replace with Player
+
+                for (int i = 0; i < numberPlayerCoach.Value; i++)
+                {
+                    int x = rand.Next(0, CCID_FAList.Count);
+                    string ccid = CCID_FAList[x];
+                    int rec = FindRecNumberCCID(Convert.ToInt32(ccid));
+
+
+                    string coachFN = GetDBValue("COCH", "CLFN", rec);
+                    string coachLN = GetDBValue("COCH", "CLLN", rec);
+
+                    news += "Removed: " + coachFN + " " + coachLN + "\n\n";
+
+                    CCID_FAList.RemoveAt(x);
+
+                    int y = rand.Next(0, PGID_List.Count);
+                    int recP = PGID_List[y];
+
+                    string playFN = GetFirstNameFromRecord(recP);
+                    string playLN = GetLastNameFromRecord(recP);
+                    string team = GetTeamName(Convert.ToInt32(GetDBValue("PLAY", "PGID", recP)) / 70);
+                    PGID_List.RemoveAt(y);
+
+                    ChangeDBString("COCH", "CLFN", rec, playFN);
+                    ChangeDBString("COCH", "CLLN", rec, playLN);
+
+                    //SKIN COLOR, need to convert to 0, 1, 5
+
+                    int skin = GetDBValueInt("PLAY", "PSKI", recP);
+                    if (skin > 3) skin = 5;
+                    else if (skin > 0) skin = 2;
+                    ChangeDBInt("COCH", "CSKI", rec, skin);
+
+                    ChangeDBInt("COCH", "CHAR", rec, GetDBValueInt("PLAY", "PHCL", recP));
+
+                    ChangeDBInt("COCH", "CBSZ", rec, rand.Next(0, 3));
+
+                    x = rand.Next(0, 5);
+                    if (x > 0) x++;
+                    ChangeDBInt("COCH", "CThg", rec, x);
+
+                    ChangeDBInt("COCH", "CFEX", rec, rand.Next(0, 4));
+                    ChangeDBInt("COCH", "CTgw", rec, rand.Next(0, 2));
+
+                    x = rand.Next(0, 3);
+                    if (x == 1) ChangeDBInt("COCH", "CThg", rec, 1);
+                    else if (x == 2) ChangeDBInt("COCH", "CThg", rec, 0);
+
+                    ChangeDBInt("COCH", "COHT", rec, x);
+
+                    news += "Added: " + playFN + " " + playLN + " (" + team + ")\n\n";
+
+
+
+                    //Clear COCH Stats Data
+                    ClearCoachStats(rec);
+
+
+                    //Calculate COCH PRESTIGE
+                    int prestige = Convert.ToInt32(GetDBValue("PLAY", "POVR", recP));
+
+                    if (prestige > 27) prestige = 4;
+                    else if (prestige > 24) prestige = 3;
+                    else if (prestige > 21) prestige = 2;
+                    else prestige = 1;
+
+                    ChangeDBString("COCH", "CPRE", rec, Convert.ToString(prestige));
+
+
+                    //Determine Coaching Playbook and Strategies
+                    int TGID = Convert.ToInt32(GetDBValue("PLAY", "PGID", recP)) / 70;
+                    int recCOCH = -1;
+
+                    for (int j = 0; j < GetTableRecCount("COCH"); j++)
+                    {
+                        if (GetDBValue("COCH", "TGID", j) == Convert.ToString(TGID))
+                        {
+                            recCOCH = j;
+                        }
+                    }
+
+                    AssignPlayerCoachStrategies(recCOCH, rec);
+
+                }
+
+                MessageBox.Show(news, "Coaching List Changes");
+
+            }
+            else
+            {
+                MessageBox.Show("Please run this module with lower player settings");
+            }
+
+
+            progressBar1.Visible = false;
+
+
+        }
+
+        private void ClearCoachStats(int rec)
+        {
+            ChangeDBString("COCH", "CT05", rec, "0");
+            ChangeDBString("COCH", "CT15", rec, "0");
+            ChangeDBString("COCH", "CT25", rec, "0");
+            ChangeDBString("COCH", "CCBB", rec, "0");
+            ChangeDBString("COCH", "CFUC", rec, "0");
+            ChangeDBString("COCH", "CCWI", rec, "0");
+            ChangeDBString("COCH", "CSWI", rec, "0");
+            ChangeDBString("COCH", "C25L", rec, "0");
+            ChangeDBString("COCH", "CBLL", rec, "0");
+            ChangeDBString("COCH", "CCOL", rec, "0");
+            ChangeDBString("COCH", "CCRL", rec, "0");
+            ChangeDBString("COCH", "CNTL", rec, "0");
+            ChangeDBString("COCH", "CRVL", rec, "0");
+            ChangeDBString("COCH", "CCWN", rec, "0");
+            ChangeDBString("COCH", "CTWN", rec, "0");
+            ChangeDBString("COCH", "CCLO", rec, "0");
+            ChangeDBString("COCH", "CSLO", rec, "0");
+            ChangeDBString("COCH", "CCPO", rec, "60");
+            ChangeDBString("COCH", "CTOP", rec, "0");
+            ChangeDBString("COCH", "CCTP", rec, "0");
+            ChangeDBString("COCH", "CCYR", rec, "0");
+            ChangeDBString("COCH", "CTYR", rec, "0");
+            ChangeDBString("COCH", "COFS", rec, "0");
+            ChangeDBString("COCH", "CCLS", rec, "0");
+            ChangeDBString("COCH", "CSLS", rec, "0");
+            ChangeDBString("COCH", "CTLS", rec, "0");
+            ChangeDBString("COCH", "CCWS", rec, "0");
+            ChangeDBString("COCH", "CRWS", rec, "0");
+            ChangeDBString("COCH", "CSWS", rec, "0");
+            ChangeDBString("COCH", "CCCT", rec, "0");
+            ChangeDBString("COCH", "CCNT", rec, "0");
+            ChangeDBString("COCH", "CWST", rec, "0");
+            ChangeDBString("COCH", "C25W", rec, "0");
+            ChangeDBString("COCH", "CBLW", rec, "0");
+            ChangeDBString("COCH", "CCRW", rec, "0");
+            ChangeDBString("COCH", "CCSW", rec, "0");
+            ChangeDBString("COCH", "CCTW", rec, "0");
+            ChangeDBString("COCH", "CNTW", rec, "0");
+            ChangeDBString("COCH", "CRTW", rec, "0");
+            ChangeDBString("COCH", "CTTW", rec, "0");
+            ChangeDBString("COCH", "CNVW", rec, "0");
+            ChangeDBString("COCH", "CRVW", rec, "0");
+            ChangeDBString("COCH", "CCFY", rec, "0");
+            ChangeDBString("COCH", "COTY", rec, "0");
+
+        }
+
+        private void AssignPlayerCoachStrategies(int recCOCH, int rec)
+        {
+            ChangeDBString("COCH", "CDTA", rec, Convert.ToString(Convert.ToInt32(GetDBValue("COCH", "CDTA", recCOCH)) + rand.Next(-3, 4)));
+            ChangeDBString("COCH", "COTA", rec, Convert.ToString(Convert.ToInt32(GetDBValue("COCH", "COTA", recCOCH)) + rand.Next(-3, 4)));
+
+            ChangeDBString("COCH", "CDST", rec, GetDBValue("COCH", "CDST", recCOCH));
+            ChangeDBString("COCH", "COST", rec, GetDBValue("COCH", "COST", recCOCH));
+            ChangeDBString("COCH", "CPID", rec, GetDBValue("COCH", "CPID", recCOCH));
+
+            ChangeDBString("COCH", "CDTR", rec, Convert.ToString(Convert.ToInt32(GetDBValue("COCH", "CDTR", recCOCH)) + rand.Next(-3, 4)));
+            ChangeDBString("COCH", "COTR", rec, Convert.ToString(Convert.ToInt32(GetDBValue("COCH", "COTR", recCOCH)) + rand.Next(-3, 4)));
+
+            ChangeDBString("COCH", "CDTS", rec, Convert.ToString(Convert.ToInt32(GetDBValue("COCH", "CDTS", recCOCH)) + rand.Next(-3, 4)));
+            ChangeDBString("COCH", "COTS", rec, Convert.ToString(Convert.ToInt32(GetDBValue("COCH", "COTS", recCOCH)) + rand.Next(-3, 4)));
+
+            //CDPC, CRPC, CTPC
+            int CDPC, CRPC, CTPC;
+            CRPC = Convert.ToInt32(GetDBValue("COCH", "CRPC", rec));
+            CTPC = Convert.ToInt32(GetDBValue("COCH", "CTPC", rec));
+            CDPC = 0;
+
+            while (CDPC < 15 || CDPC > 25)
+            {
+                CTPC = rand.Next(25, 46);
+                CRPC = rand.Next(25, 46);
+                CDPC = 100 - CTPC - CRPC;
+            }
+
+            ChangeDBString("COCH", "CDPC", rec, Convert.ToString(CDPC));
+            ChangeDBString("COCH", "CRPC", rec, Convert.ToString(CRPC));
+            ChangeDBString("COCH", "CTPC", rec, Convert.ToString(CTPC));
+
+        }
+
+        #endregion
     }
 
 }

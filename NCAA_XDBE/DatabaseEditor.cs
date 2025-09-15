@@ -719,6 +719,8 @@ namespace DB_EDITOR
                     else if (table.Name == "TRAN" && !BigEndian)
                     {
                         if (!checkTabExists("Dynasty")) tabControl1.TabPages.Add(tabDynasty);
+                        if (!checkTabExists("Carousel")) tabControl1.TabPages.Add(tabCarousel);
+
                     }
                     else if (table.Name == "PBAI" && !BigEndian)
                     {
