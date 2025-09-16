@@ -36,8 +36,8 @@ namespace DB_EDITOR
             List<string> SuspensionType = CreateInjuryTypeTable();
             List<string> SuspensionLength = CreateInjuryLengthTable();
 
-
-            for (int i = 0; i < GetTableRecCount("SPYR"); i++)
+            int row = 0;
+            for (int i = GetTableRecCount("SPYR")-1; i >= 0; i--)
             {
                 int pgid = GetDBValueInt("SPYR", "PGID", i);
                 int rec = FindPGIDRecord(pgid);
@@ -80,16 +80,15 @@ namespace DB_EDITOR
                 {
                     length = "TBD";
                 }
-
                 SuspensionView.Rows.Add(1);
-                SuspensionView.Rows[i].Cells[0].Value = i;
-                SuspensionView.Rows[i].Cells[1].Value = team;
-                SuspensionView.Rows[i].Cells[2].Value = pos;
-                SuspensionView.Rows[i].Cells[3].Value = name;
-                SuspensionView.Rows[i].Cells[4].Value = rating;
-                SuspensionView.Rows[i].Cells[5].Value = suspensionType;
-                SuspensionView.Rows[i].Cells[6].Value = length;
-
+                SuspensionView.Rows[row].Cells[0].Value = i;
+                SuspensionView.Rows[row].Cells[1].Value = team;
+                SuspensionView.Rows[row].Cells[2].Value = pos;
+                SuspensionView.Rows[row].Cells[3].Value = name;
+                SuspensionView.Rows[row].Cells[4].Value = rating;
+                SuspensionView.Rows[row].Cells[5].Value = suspensionType;
+                SuspensionView.Rows[row].Cells[6].Value = length;
+                row++;
             }
             SuspensionView.ClearSelection();
         }

@@ -143,13 +143,13 @@ namespace DB_EDITOR
 
                     if (Convert.ToInt32(MatchView.Rows[i].Cells[1].Value) > Convert.ToInt32(MatchView.Rows[i].Cells[2].Value))
                     {
-                        MatchView.Rows[i].Cells[2].Style.ForeColor = Color.Gray;
+                        MatchView.Rows[i].Cells[2].Style.ForeColor = Color.DarkSlateGray;
                         MatchView.Rows[i].Cells[1].Style.Font = new Font(MatchView.Font, FontStyle.Bold);
 
                     }
                     else if (Convert.ToInt32(MatchView.Rows[i].Cells[1].Value) < Convert.ToInt32(MatchView.Rows[i].Cells[2].Value))
                     {
-                        MatchView.Rows[i].Cells[1].Style.ForeColor = Color.Gray;
+                        MatchView.Rows[i].Cells[1].Style.ForeColor = Color.DarkSlateGray;
                         MatchView.Rows[i].Cells[2].Style.Font = new Font(MatchView.Font, FontStyle.Bold);
 
                     }
@@ -166,13 +166,13 @@ namespace DB_EDITOR
 
                     if (Convert.ToInt32(MatchView.Rows[i].Cells[1].Value) > Convert.ToInt32(MatchView.Rows[i].Cells[2].Value))
                     {
-                        MatchView.Rows[i].Cells[2].Style.ForeColor = Color.Gray;
+                        MatchView.Rows[i].Cells[2].Style.ForeColor = Color.DarkSlateGray;
                         MatchView.Rows[i].Cells[1].Style.Font = new Font(MatchView.Font, FontStyle.Bold);
 
                     }
                     else if (Convert.ToInt32(MatchView.Rows[i].Cells[1].Value) < Convert.ToInt32(MatchView.Rows[i].Cells[2].Value))
                     {
-                        MatchView.Rows[i].Cells[1].Style.ForeColor = Color.Gray;
+                        MatchView.Rows[i].Cells[1].Style.ForeColor = Color.DarkSlateGray;
                         MatchView.Rows[i].Cells[2].Style.Font = new Font(MatchView.Font, FontStyle.Bold);
 
                     }
@@ -181,6 +181,11 @@ namespace DB_EDITOR
                         MatchView.Rows[i].Cells[1].Style.ForeColor = Color.Black;
                         MatchView.Rows[i].Cells[2].Style.ForeColor = Color.Black;
                     }
+                }
+                else if (i == 16)
+                {
+                    MatchView.Rows[i].Cells[1].Style.BackColor = GetPerformanceColor(MatchView.Rows[i].Cells[1]).Style.BackColor;
+                    MatchView.Rows[i].Cells[2].Style.BackColor = GetPerformanceColor(MatchView.Rows[i].Cells[2]).Style.BackColor;
                 }
 
             }
@@ -205,6 +210,7 @@ namespace DB_EDITOR
             categories.Add("Def Backs");
             categories.Add("Coach");
             categories.Add("Coach Prestige");
+            categories.Add("Coach Hot Seat");
 
 
             return categories;
@@ -232,6 +238,7 @@ namespace DB_EDITOR
 
             categories.Add(GetCoachFirstNamefromRec(cochrec) + " " + GetCoachLastNamefromRec(cochrec));
             categories.Add(GetDBValue("COCH", "CPRE", cochrec));
+            categories.Add(GetDBValue("COCH", "CCPO", cochrec));
 
 
             return categories;

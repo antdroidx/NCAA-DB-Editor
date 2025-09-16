@@ -1147,7 +1147,7 @@ namespace DB_EDITOR
 
             //Randomize Hair Color
             int hcl = 0;
-            if (skin < 3 || skin == 7)
+            if (skin < 2)
             {
                 hcl = rand.Next(1, 101);
                 if (hcl <= 55) hcl = 2; //brown
@@ -1156,18 +1156,26 @@ namespace DB_EDITOR
                 else if (hcl <= 95) hcl = 4; //light brown
                 else hcl = 3; //red
             }
+            else if (skin == 2 || skin == 7)
+            {
+                hcl = rand.Next(1, 101);
+                if (hcl <= 80) hcl = 0;
+                else hcl = 4;
+            }
             else
             {
                 hcl = rand.Next(1, 101);
                 if (hcl <= 92) hcl = 0;
-                else hcl = rand.Next(1, 6);
+                else if (hcl <= 70) hcl = 2;
+                else hcl = rand.Next(0, 6);
             }
+
             ChangeDBString(tableName, "PHCL", i, Convert.ToString(hcl));
 
             //Randomize Hair Style
             int hairstyle = 5;
             
-            if (skin < 3 || skin == 7)
+            if (skin < 3)
             {
 
                 if (rand.Next(1, 101) <= 50)

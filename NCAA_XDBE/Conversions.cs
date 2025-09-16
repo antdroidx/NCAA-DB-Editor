@@ -393,11 +393,11 @@ namespace DB_EDITOR
             skinColors.Add("Light - 0");
             skinColors.Add("Light - 1");
             skinColors.Add("Medium - 2");
-            skinColors.Add("Dark - 3");
+            skinColors.Add("Med-Dark - 3");
             skinColors.Add("Dark - 4");
             skinColors.Add("Dark - 5");
             skinColors.Add("Dark - 6");
-            skinColors.Add("Light - 7");
+            skinColors.Add("Med-Light - 7");
             return skinColors;
         }
 
@@ -1515,6 +1515,20 @@ namespace DB_EDITOR
             else if (colorBox.Value < 75) colorBox.BackColor = Color.LightGreen;
             else if (colorBox.Value < 100) colorBox.BackColor = Color.LightBlue;
             else colorBox.BackColor = Color.MediumPurple;
+
+            return colorBox;
+        }
+
+        private DataGridViewCell GetPerformanceColor(DataGridViewCell colorBox)
+        {
+            if (Convert.ToString(colorBox.Value) == "") return colorBox;
+
+            if (Convert.ToInt32(colorBox.Value) <= 5) colorBox.Style.BackColor = Color.FromArgb(255, 199, 206);
+            else if (Convert.ToInt32(colorBox.Value) <= 25) colorBox.Style.BackColor = Color.Orange;
+            else if (Convert.ToInt32(colorBox.Value) <= 49) colorBox.Style.BackColor = Color.PeachPuff;
+            else if (Convert.ToInt32(colorBox.Value) <= 75) colorBox.Style.BackColor = Color.LightGreen;
+            else if (Convert.ToInt32(colorBox.Value) < 100) colorBox.Style.BackColor = Color.LightBlue;
+            else colorBox.Style.BackColor = Color.MediumPurple;
 
             return colorBox;
         }

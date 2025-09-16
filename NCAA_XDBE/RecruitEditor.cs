@@ -353,6 +353,25 @@ namespace DB_EDITOR
             }
             RHometownBox.SelectedIndex = home - (state * 256);
 
+            //Transfer Status
+            TransferTeam.Visible = false;
+            string transfer = "";
+            if (GetDB2ValueInt("RCPT", "PRID", RecruitIndex) >= 21000)
+            {
+                //TransferTeam.Visible = true;
+                int prid = GetDB2ValueInt("RCPT", "PRID", RecruitIndex);
+                for (int i = 0; i < GetTableRecCount("TRAN"); i++)
+                {
+                    if (GetDBValueInt("TRAN", "PGID", i) == prid)
+                    {
+                        transfer = teamNameDB[GetDBValueInt("TRAN", "PTID", i)];
+                        break;
+                    }
+                }
+
+               TransferTeam.Text = "Transferring from " + transfer;
+            }
+
             //Overall Rating
             int xxx = GetDB2ValueInt("RCPT", "POVR", RecruitIndex);
             ROVR.Text = Convert.ToString(ConvertRating(GetDB2ValueInt("RCPT", "POVR", RecruitIndex)));
@@ -360,31 +379,12 @@ namespace DB_EDITOR
 
             if (GetDB2ValueInt("RCPT", "PRID", RecruitIndex) < 21000)
                 RecruitStarsText.Text = GetDB2Value("RCPT", "RCCB", RecruitIndex) + " Star Recruit";
-            else RecruitStarsText.Text = GetDB2Value("RCPT", "RCCB", RecruitIndex) + " Star Transfer";
+            else RecruitStarsText.Text = GetDB2Value("RCPT", "RCCB", RecruitIndex) + " Star Transfer" + " from " + transfer;
 
             PosRanking.Text = "Position Ranking: #" + (GetDB2ValueInt("RCPT", "RCRK", RecruitIndex)+1);
 
             //PGID Box
             PRIDBox.Text = GetDB2Value("RCPT", "PRID", RecruitIndex);
-
-            TransferTeam.Visible = false;
-            if(GetDB2ValueInt("RCPT", "PRID", RecruitIndex) >= 21000)
-            {
-                TransferTeam.Visible = true;
-                string transfer = "";
-                int prid = GetDB2ValueInt("RCPT", "PRID", RecruitIndex);
-                for(int i = 0; i < GetTableRecCount("TRAN"); i++)
-                {
-                    if(GetDBValueInt("TRAN", "PGID", i) == prid)
-                    {
-                        transfer = teamNameDB[GetDBValueInt("TRAN", "PTID", i)];
-                        break;
-                    }
-                }
-
-                TransferTeam.Text = "Transferring from " + transfer;
-
-            }
 
             //Year & Redshirt
             AddRYearItems();
@@ -393,6 +393,9 @@ namespace DB_EDITOR
             //Height & Weight
             RHGTBox.Value = GetDB2ValueInt("RCPT", "PHGT", RecruitIndex);
             RWGTBox.Value = GetDB2ValueInt("RCPT", "PWGT", RecruitIndex) + 160;
+
+            //Hand
+            RHAN.SelectedIndex = GetDB2ValueInt("RCPT", "PHAN", RecruitIndex);
 
             //Head Appearance
             AddRSkinColorItems();
@@ -610,6 +613,7 @@ namespace DB_EDITOR
 
 
             LoadRecruitingTable();
+
             RecruitPitch.Text = "Favorite Pitch: " + GetRecruitPitch(GetDB2ValueInt("RCPR", "PIT1", RecruitIndex));
 
 
@@ -924,6 +928,15 @@ namespace DB_EDITOR
 
             ChangeDB2Int("RCPT", "PWGT", RecruitIndex, Convert.ToInt32(RWGTBox.Value) - 160);
             RecalculateRecruitIndividualBodyShape(RecruitIndex);
+        }
+
+        //Change Hand
+        private void RHAN_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger)
+                return;
+
+            ChangeDB2Int("RCPT", "PHAN", RecruitIndex, RHAN.SelectedIndex);
         }
 
         //Change Face

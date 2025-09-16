@@ -50,6 +50,12 @@ namespace DB_EDITOR
                 string injuryType = InjuryType[GetDBValueInt("INJY", "INJT", i)];
                 string injuryLength = InjuryLength[GetDBValueInt("INJY", "INJL", i)];
 
+                if(GetDBValueInt("PLAY", "PRSD", rec) == 1)
+                {
+                    ChangeDBInt("INJY", "INJL", rec, 254);
+                    injuryLength = "Season (RS)";
+                }
+
                 InjuryGridView.Rows.Add(1);
                 InjuryGridView.Rows[i].Cells[0].Value = i;
                 InjuryGridView.Rows[i].Cells[1].Value = team;

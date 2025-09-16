@@ -17,6 +17,11 @@ namespace DB_EDITOR
     {
         private void StartStatsViewer()
         {
+
+        }
+
+        private void LoadStatDataButton_Click(object sender, EventArgs e)
+        {
             progressBar1.Visible = true;
             progressBar1.Value = 0;
             progressBar1.Step = 1;

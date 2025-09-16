@@ -330,9 +330,9 @@ namespace DB_EDITOR
 
                     //Finds current skin tone and randomizes within it's Light/Medium/Dark general tone (PSKI)
                     int skin = GetDB2ValueInt(tableName, "PSKI", i);
-                    if (skin <= 2) skin = rand.Next(0, 3);
-                    else if (skin <= 6) skin = rand.Next(3, 7);
-                    else skin = rand.Next(7, 8);
+                    if (skin <= 3) skin = rand.Next(0, 3);
+                    else if (skin > 3 && skin <= 6) skin = rand.Next(3, 7);
+                    else skin = 7;
 
                     ChangeDB2Int(tableName, "PSKI", i, skin);
 
@@ -342,7 +342,7 @@ namespace DB_EDITOR
 
                     //Randomize Hair Color
                     int hcl = 0;
-                    if (skin < 3)
+                    if (skin < 2)
                     {
                         hcl = rand.Next(1, 101);
                         if (hcl <= 55) hcl = 2; //brown
@@ -351,14 +351,54 @@ namespace DB_EDITOR
                         else if (hcl <= 95) hcl = 4; //light brown
                         else hcl = 3; //red
                     }
+                    else if (skin == 2 || skin == 7)
+                    {
+                        hcl = rand.Next(1, 101);
+                        if (hcl <= 80) hcl = 0;
+                        else hcl = 4;
+                    }
                     else
                     {
                         hcl = rand.Next(1, 101);
                         if (hcl <= 92) hcl = 0;
-                        else hcl = rand.Next(1, 6);
+                        else if (hcl <= 70) hcl = 2;
+                        else hcl = rand.Next(0, 6);
                     }
                     ChangeDB2Int(tableName, "PHCL", i, hcl);
 
+                    //Randomize Hair Style
+                    int hairstyle = 5;
+
+                    if (skin < 3)
+                    {
+
+                        if (rand.Next(1, 101) <= 50)
+                            hairstyle = rand.Next(2, 8);
+                        else
+                            hairstyle = rand.Next(9, 14);
+
+                    }
+                    else
+                    {
+                        if (rand.Next(1, 101) <= 50)
+                        {
+                            int hair = rand.Next(1, 5);
+                            if (hair == 1) hairstyle = 1;
+                            else if (hair == 2) hairstyle = 2;
+                            else if (hair == 3) hairstyle = 3;
+                            else if (hair == 4) hairstyle = 14;
+                        }
+                        else
+                        {
+                            if (rand.Next(1, 101) <= 50)
+                                hairstyle = rand.Next(0, 8);
+                            else
+                                hairstyle = rand.Next(9, 15);
+                        }
+                    }
+
+
+                    ChangeDBInt(tableName, "PHED", i, hairstyle);
                 }
 
                 progressBar1.PerformStep();
@@ -593,8 +633,19 @@ namespace DB_EDITOR
             int x = rand.Next(0, surnames.Count);
             string newName = surnames[x];
             ChangeDB2String("RCPT", "PLNA", i, newName);
-            ChangeDB2String("RCPT", "PSKI", i, "2");
-            ChangeDB2Int("RCPT", "PFMP", i, rand.Next(16, 24));
+            int skin = rand.Next(0, 101);
+
+            if(skin <= 40) skin = 2;
+            else if (skin <= 80) skin = 7;
+            else skin = 3;
+
+            ChangeDB2Int("RCPT", "PSKI", i, skin);
+            ChangeDB2Int("RCPT", "PFMP", i, rand.Next(skin*8, skin*8+8));
+            ChangeDB2Int("RCPT", "PFGM", i, rand.Next(0, 16));
+
+            int hairstyle = 13;
+            if (rand.Next(1, 101) <= 67) hairstyle = rand.Next(0, 15);
+            ChangeDB2Int("RCPT", "PHED", i, hairstyle);
         }
 
         //Randomize Recruit Names

@@ -162,7 +162,7 @@ namespace DB_EDITOR
                 int val = seaWeek + injuryWeeks;
 
                 //Check at Mid-Season
-                if (val >= 12 && Convert.ToInt32(GetDBValue("SEAI", "SEWN", 0)) <= 6)
+                if (val >= 12 && Convert.ToInt32(GetDBValue("SEAI", "SEWN", 0)) <= 7)
                 {
                     //find the corresponding PGID
                     string PGID = GetDBValue("INJY", "PGID", i);
@@ -186,6 +186,7 @@ namespace DB_EDITOR
                                     }
 
                                     names += "\n * " + GetFirstNameFromRecord(j) + " " + GetLastNameFromRecord(j) + " (" + team + ")";
+                                    ChangeDBInt("INJY", "INJL", i, 254); // set to season ending
                                     break;
                                 }
                             }
@@ -203,6 +204,7 @@ namespace DB_EDITOR
                                     }
 
                                     names += "\n * " + GetFirstNameFromRecord(j) + " " + GetLastNameFromRecord(j) + " (" + team + ")";
+                                    ChangeDBInt("INJY", "INJL", i, 254); // set to season ending
                                     break;
                                 }
                             }
