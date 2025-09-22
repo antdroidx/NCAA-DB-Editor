@@ -22,6 +22,7 @@ namespace DB_EDITOR
         private void buttonCarousel_Click(object sender, EventArgs e)
         {
             CarouselDataGrid.Rows.Clear();
+            CoachPortalNews.Rows.Clear();
             CoachCarousel();
         }
 
@@ -73,7 +74,7 @@ namespace DB_EDITOR
                         string teamID = GetTeamName(Convert.ToInt32(GetDBValue("COCH", "TGID", i)));
 
 
-                        if (checkBoxFiredTransfers.Checked) CoachTransferPortal(Convert.ToInt32(GetDBValue("COCH", "TGID", i)), false);
+                        if (checkBoxFiredTransfers.Checked) CoachTransferPortal(Convert.ToInt32(GetDBValue("COCH", "TGID", i)));
 
                         int newCounter = coachNews.Count;
                         coachNews.Add(new List<string>());
@@ -81,8 +82,10 @@ namespace DB_EDITOR
                         coachNews[newCounter].Add("Fired");
                         coachNews[newCounter].Add(teamID);
                         coachNews[newCounter].Add(Convert.ToString(TMPR));
-                        coachNews[newCounter].Add(GetDBValue("COCH", "CPRS", i));
+                        coachNews[newCounter].Add(GetDBValue("COCH", "CPRE", i));
                         coachNews[newCounter].Add(GetDBValue("COCH", "CCWI", i) + "-" + GetDBValue("COCH","CCLO", i));
+                        coachNews[newCounter].Add(GetDBValue("COCH", "CCPO", i));
+
 
                         ChangeDBString("COCH", "CCPO", i, "60");
                         ChangeDBString("COCH", "CTYR", i, "0");
@@ -145,6 +148,7 @@ namespace DB_EDITOR
                             coachNews[newCounter].Add(Convert.ToString(TMPR));
                             coachNews[newCounter].Add(Convert.ToString(CPRS));
                             coachNews[newCounter].Add(GetDBValue("COCH", "CCWI", x) + "-" + GetDBValue("COCH", "CCLO", x));
+                            coachNews[newCounter].Add(GetDBValue("COCH", "CCPO", x));
 
                             CCID_FAList.RemoveAt(r);
                             TGID_VacancyList.RemoveAt(0);
@@ -179,7 +183,7 @@ namespace DB_EDITOR
 
                             if (checkBoxFiredTransfers.Checked)
                             {
-                                CoachTransferPortal(currentTGID, true);
+                                CoachTransferPortal(currentTGID);
                             }
 
                             int newCounter = coachNews.Count;
@@ -188,8 +192,9 @@ namespace DB_EDITOR
                             coachNews[newCounter].Add("Hired\nfrom " + oldTeamID);
                             coachNews[newCounter].Add(teamID);
                             coachNews[newCounter].Add(Convert.ToString(TMPR));
-                            coachNews[newCounter].Add(GetDBValue("COCH", "CPRS", x));
+                            coachNews[newCounter].Add(GetDBValue("COCH", "CPRE", x));
                             coachNews[newCounter].Add(GetDBValue("COCH", "CCWI", x) + "-" + GetDBValue("COCH", "CCLO", x));
+                            coachNews[newCounter].Add(GetDBValue("COCH", "CCPO", x));
 
                             CCID_PromoteList.RemoveAt(r);
                             TGID_VacancyList.RemoveAt(0);
@@ -214,7 +219,7 @@ namespace DB_EDITOR
         }
 
         //Opens a Transfer Portal for Coach Firings
-        private void CoachTransferPortal(int teamRec, bool poached)
+        private void CoachTransferPortal(int TGID)
         {
             /*
              *  Coach Transfer Portal
@@ -222,45 +227,41 @@ namespace DB_EDITOR
              *  
              */
 
+            List<List<string>> TransferNews = new List<List<string>>();
             int maxTransfers = 1800;
             int currentRecCount = GetTableRecCount("TRAN");
 
             if (currentRecCount > maxTransfers) return;
 
-            string transferNews = "";
             int xfers = (int)maxFiredTransfers.Value;
-
-
-            int[,] players = GetTeamPlayersList(teamRec);
+            int[,] players = GetTeamPlayersList(TGID);
 
             for (int k = 0; k < xfers; k++)
             {
                 if (currentRecCount >= maxTransfers) break;
 
-                if (rand.Next(1, 100) < 66 && currentRecCount < maxTransfers)
+                if (rand.Next(1, 100) < 65 && currentRecCount < maxTransfers)
                 {
                     int xfer = rand.Next(0, 70);
-                    int tgid = teamRec;
+                    int tgid = TGID;
 
                     if (players[xfer, 0] != 0 && GetPTYPfromRecord(players[xfer, 0]) == 0)
                     {
                         TransferPlayer(players[xfer, 0], players[xfer, 1]);
 
-                        transferNews += GetPositionName(GetPPOSfromRecord(players[xfer, 3])) + " " + GetFirstNameFromRecord(players[xfer, 0]) + " " + GetLastNameFromRecord(players[xfer, 0]) + " (" + GetTeamName(tgid) + ") OVR: " + ConvertRating(players[xfer, 2]) + "\n";
+                        int row = TransferNews.Count;
+                        TransferNews.Add(new List<string>());
+                        TransferNews[row].Add(GetTeamName(tgid));
+                        TransferNews[row].Add(GetFirstNameFromRecord(players[xfer, 0]) + " " + GetLastNameFromRecord(players[xfer, 0]));
+                        TransferNews[row].Add(GetPositionName(GetPPOSfromRecord(players[xfer, 3])));
+                        TransferNews[row].Add( Convert.ToString(ConvertRating(players[xfer, 2])));
 
                         currentRecCount++;
                     }
                 }
             }
-            if (poached)
-            {
-                MessageBox.Show(transferNews, GetTeamName(teamRec) + "'s Coach Hired: TRANSFER PORTAL NEWS");
-            }
-            else
-            {
-                MessageBox.Show(transferNews, GetTeamName(teamRec) + "'s Coach Fired: TRANSFER PORTAL NEWS");
 
-            }
+            DisplayCoachPortalNews(TransferNews);
 
         }
 
@@ -274,7 +275,7 @@ namespace DB_EDITOR
 
             for (int i = 0; i < GetTableRecCount("PLAY"); i++)
             {
-                if (GetPGIDfromRecord(i) >= pgidStart && GetPGIDfromRecord(i) < pgidStart + 70 && GetPTYPfromRecord(i) != 3 && GetPTYPfromRecord(i) != 1 && GetPYERfromRecord(i) < 3 && GetPOVRfromRecord(i) < 25)
+                if (GetPGIDfromRecord(i) >= pgidStart && GetPGIDfromRecord(i) < pgidStart + 70 && GetPTYPfromRecord(i) != 3 && GetPTYPfromRecord(i) != 1 && GetPYERfromRecord(i) < 3)
                 {
                     list[j, 0] = i;
                     list[j, 1] = GetPGIDfromRecord(i);
@@ -328,21 +329,37 @@ namespace DB_EDITOR
             }
         }
 
-        private void DisplayCarouselNews(List<List<string>> portalList2)
+        private void DisplayCarouselNews(List<List<string>> CoachNews)
         {
-            CarouselDataGrid.ClearSelection();
             CarouselDataGrid.Columns[1].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
 
-            for (int x = 0; x < portalList2.Count; x++)
+            for (int x = 0; x < CoachNews.Count; x++)
             {
                 CarouselDataGrid.Rows.Add(new DataGridViewRow());
 
-                CarouselDataGrid.Rows[x].Cells[0].Value = portalList2[x][0];
-                CarouselDataGrid.Rows[x].Cells[1].Value = portalList2[x][1];
-                CarouselDataGrid.Rows[x].Cells[2].Value = portalList2[x][2];
-                CarouselDataGrid.Rows[x].Cells[3].Value = portalList2[x][3];
-                CarouselDataGrid.Rows[x].Cells[4].Value = portalList2[x][4];
-                CarouselDataGrid.Rows[x].Cells[5].Value = portalList2[x][5];
+                CarouselDataGrid.Rows[x].Cells[0].Value = CoachNews[x][0];
+                CarouselDataGrid.Rows[x].Cells[1].Value = CoachNews[x][1];
+                CarouselDataGrid.Rows[x].Cells[2].Value = CoachNews[x][2];
+                CarouselDataGrid.Rows[x].Cells[3].Value = CoachNews[x][3];
+                CarouselDataGrid.Rows[x].Cells[4].Value = CoachNews[x][4];
+                CarouselDataGrid.Rows[x].Cells[5].Value = CoachNews[x][5];
+                CarouselDataGrid.Rows[x].Cells[6].Value = CoachNews[x][6];
+
+            }
+        }
+
+        private void DisplayCoachPortalNews(List<List<string>> CoachNews)
+        {
+            CoachPortalNews.Columns[1].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
+
+            int prevCount = CoachPortalNews.RowCount;
+            for (int x = prevCount; x < prevCount+CoachNews.Count; x++)
+            {
+                CoachPortalNews.Rows.Add(new DataGridViewRow());
+                CoachPortalNews.Rows[x].Cells[0].Value = CoachNews[x - prevCount][0];
+                CoachPortalNews.Rows[x].Cells[1].Value = CoachNews[x - prevCount][1];
+                CoachPortalNews.Rows[x].Cells[2].Value = CoachNews[x - prevCount][2];
+                CoachPortalNews.Rows[x].Cells[3].Value = CoachNews[x - prevCount][3];
             }
         }
 

@@ -2740,6 +2740,9 @@
         AAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="CCCoachRating.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>861, 17</value>
   </metadata>
@@ -2767,9 +2770,6 @@ This is the likelihood a player will join the portal if they meet the pre-reqs.
   <data name="richTextBox1.Text" xml:space="preserve">
     <value>Roster Depth Options are used to determine how many players are protected from transferring from each team based on their overall ranking. It is also used to determine which teams need to fill holes if they do not have enough players at the position based on the value set above.</value>
   </data>
-  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>861, 17</value>
-  </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>25</value>
   </metadata>
