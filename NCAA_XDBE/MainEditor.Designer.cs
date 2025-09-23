@@ -1101,6 +1101,8 @@ namespace DB_EDITOR
             label13 = new Label();
             CoachFiringsCount = new Label();
             groupBox37 = new GroupBox();
+            LowPrestigeCoachValue = new NumericUpDown();
+            label187 = new Label();
             buttonCarousel = new System.Windows.Forms.Button();
             maxFiredTransfers = new NumericUpDown();
             labelMaxTransfers = new Label();
@@ -1113,13 +1115,6 @@ namespace DB_EDITOR
             labelPoaching = new Label();
             checkBoxFiredTransfers = new CheckBox();
             CarouselDataGrid = new DataGridView();
-            CCName = new DataGridViewTextBoxColumn();
-            CCStatus = new DataGridViewTextBoxColumn();
-            CCTeam = new DataGridViewTextBoxColumn();
-            CCTmPrestige = new DataGridViewTextBoxColumn();
-            CCPrestige = new DataGridViewTextBoxColumn();
-            CCRecord = new DataGridViewTextBoxColumn();
-            CCCoachRating = new DataGridViewTextBoxColumn();
             tabPortal = new TabPage();
             FCSTransferPortalCheckBox = new CheckBox();
             PortalCycleCount = new NumericUpDown();
@@ -1192,6 +1187,14 @@ namespace DB_EDITOR
             groupBox41 = new GroupBox();
             buttonRCATBody = new System.Windows.Forms.Button();
             toolTip1 = new System.Windows.Forms.ToolTip(components);
+            CCName = new DataGridViewTextBoxColumn();
+            CCStatus = new DataGridViewTextBoxColumn();
+            CCTeam = new DataGridViewTextBoxColumn();
+            CCTmPrestige = new DataGridViewTextBoxColumn();
+            CCPrestige = new DataGridViewTextBoxColumn();
+            CCRecord = new DataGridViewTextBoxColumn();
+            CCSeaRec = new DataGridViewTextBoxColumn();
+            CCCoachRating = new DataGridViewTextBoxColumn();
             mainMenu.SuspendLayout();
             tableMenu.SuspendLayout();
             fieldMenu.SuspendLayout();
@@ -1393,6 +1396,7 @@ namespace DB_EDITOR
             tabCarousel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)CoachPortalNews).BeginInit();
             groupBox37.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)LowPrestigeCoachValue).BeginInit();
             ((System.ComponentModel.ISupportInitialize)maxFiredTransfers).BeginInit();
             ((System.ComponentModel.ISupportInitialize)poachValue).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numberPlayerCoach).BeginInit();
@@ -12689,6 +12693,8 @@ namespace DB_EDITOR
             // 
             // groupBox37
             // 
+            groupBox37.Controls.Add(LowPrestigeCoachValue);
+            groupBox37.Controls.Add(label187);
             groupBox37.Controls.Add(buttonCarousel);
             groupBox37.Controls.Add(maxFiredTransfers);
             groupBox37.Controls.Add(labelMaxTransfers);
@@ -12707,6 +12713,24 @@ namespace DB_EDITOR
             groupBox37.TabStop = false;
             groupBox37.Text = "Coaching Carousel";
             // 
+            // LowPrestigeCoachValue
+            // 
+            LowPrestigeCoachValue.Location = new Point(18, 157);
+            LowPrestigeCoachValue.Maximum = new decimal(new int[] { 254, 0, 0, 0 });
+            LowPrestigeCoachValue.Name = "LowPrestigeCoachValue";
+            LowPrestigeCoachValue.Size = new Size(52, 20);
+            LowPrestigeCoachValue.TabIndex = 33;
+            LowPrestigeCoachValue.Value = new decimal(new int[] { 60, 0, 0, 0 });
+            // 
+            // label187
+            // 
+            label187.AutoSize = true;
+            label187.Location = new Point(74, 159);
+            label187.Name = "label187";
+            label187.Size = new Size(180, 13);
+            label187.TabIndex = 34;
+            label187.Text = "Low Prestige Coach Firing Threshold";
+            // 
             // buttonCarousel
             // 
             buttonCarousel.BackColor = SystemColors.Control;
@@ -12722,7 +12746,7 @@ namespace DB_EDITOR
             // 
             // maxFiredTransfers
             // 
-            maxFiredTransfers.Location = new Point(18, 155);
+            maxFiredTransfers.Location = new Point(18, 183);
             maxFiredTransfers.Maximum = new decimal(new int[] { 20, 0, 0, 0 });
             maxFiredTransfers.Name = "maxFiredTransfers";
             maxFiredTransfers.Size = new Size(52, 20);
@@ -12732,7 +12756,7 @@ namespace DB_EDITOR
             // labelMaxTransfers
             // 
             labelMaxTransfers.AutoSize = true;
-            labelMaxTransfers.Location = new Point(76, 157);
+            labelMaxTransfers.Location = new Point(74, 185);
             labelMaxTransfers.Name = "labelMaxTransfers";
             labelMaxTransfers.Size = new Size(74, 13);
             labelMaxTransfers.TabIndex = 26;
@@ -12760,7 +12784,6 @@ namespace DB_EDITOR
             buttonPlayerCoach.Text = "Promote Players to Coaching";
             buttonPlayerCoach.UseVisualStyleBackColor = false;
             buttonPlayerCoach.Click += (this.buttonPlayerCoach_Click);
-            buttonPlayerCoach.MouseClick += (this.buttonPlayerCoach_Click);
             // 
             // numberPlayerCoach
             // 
@@ -12793,9 +12816,9 @@ namespace DB_EDITOR
             labelJobSecurity.AutoSize = true;
             labelJobSecurity.Location = new Point(74, 108);
             labelJobSecurity.Name = "labelJobSecurity";
-            labelJobSecurity.Size = new Size(266, 13);
+            labelJobSecurity.Size = new Size(165, 13);
             labelJobSecurity.TabIndex = 14;
-            labelJobSecurity.Text = "Job Security Value To Fire Coach (Set to 60 for Vanilla)";
+            labelJobSecurity.Text = "Job Security Value To Fire Coach";
             // 
             // labelPoaching
             // 
@@ -12809,7 +12832,7 @@ namespace DB_EDITOR
             // checkBoxFiredTransfers
             // 
             checkBoxFiredTransfers.AutoSize = true;
-            checkBoxFiredTransfers.Location = new Point(18, 181);
+            checkBoxFiredTransfers.Location = new Point(16, 214);
             checkBoxFiredTransfers.Name = "checkBoxFiredTransfers";
             checkBoxFiredTransfers.Size = new Size(180, 17);
             checkBoxFiredTransfers.TabIndex = 24;
@@ -12834,7 +12857,7 @@ namespace DB_EDITOR
             dataGridViewCellStyle37.WrapMode = DataGridViewTriState.True;
             CarouselDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle37;
             CarouselDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            CarouselDataGrid.Columns.AddRange(new DataGridViewColumn[] { CCName, CCStatus, CCTeam, CCTmPrestige, CCPrestige, CCRecord, CCCoachRating });
+            CarouselDataGrid.Columns.AddRange(new DataGridViewColumn[] { CCName, CCStatus, CCTeam, CCTmPrestige, CCPrestige, CCRecord, CCSeaRec, CCCoachRating });
             dataGridViewCellStyle38.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle38.BackColor = SystemColors.Window;
             dataGridViewCellStyle38.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
@@ -12851,61 +12874,6 @@ namespace DB_EDITOR
             CarouselDataGrid.RowTemplate.Height = 31;
             CarouselDataGrid.Size = new Size(749, 317);
             CarouselDataGrid.TabIndex = 46;
-            // 
-            // CCName
-            // 
-            CCName.FillWeight = 30F;
-            CCName.HeaderText = "Coach Name";
-            CCName.MinimumWidth = 9;
-            CCName.Name = "CCName";
-            CCName.ReadOnly = true;
-            // 
-            // CCStatus
-            // 
-            CCStatus.FillWeight = 10F;
-            CCStatus.HeaderText = "Status";
-            CCStatus.MinimumWidth = 9;
-            CCStatus.Name = "CCStatus";
-            CCStatus.ReadOnly = true;
-            // 
-            // CCTeam
-            // 
-            CCTeam.FillWeight = 30F;
-            CCTeam.HeaderText = "Team";
-            CCTeam.MinimumWidth = 9;
-            CCTeam.Name = "CCTeam";
-            CCTeam.ReadOnly = true;
-            // 
-            // CCTmPrestige
-            // 
-            CCTmPrestige.FillWeight = 10F;
-            CCTmPrestige.HeaderText = "Team Prestige";
-            CCTmPrestige.MinimumWidth = 9;
-            CCTmPrestige.Name = "CCTmPrestige";
-            CCTmPrestige.ReadOnly = true;
-            // 
-            // CCPrestige
-            // 
-            CCPrestige.FillWeight = 10F;
-            CCPrestige.HeaderText = "Coach Prestige";
-            CCPrestige.MinimumWidth = 9;
-            CCPrestige.Name = "CCPrestige";
-            CCPrestige.ReadOnly = true;
-            // 
-            // CCRecord
-            // 
-            CCRecord.FillWeight = 10F;
-            CCRecord.HeaderText = "Coach Record";
-            CCRecord.MinimumWidth = 9;
-            CCRecord.Name = "CCRecord";
-            CCRecord.ReadOnly = true;
-            // 
-            // CCCoachRating
-            // 
-            CCCoachRating.FillWeight = 10F;
-            CCCoachRating.HeaderText = "Hot Seat";
-            CCCoachRating.Name = "CCCoachRating";
-            CCCoachRating.ReadOnly = true;
             // 
             // tabPortal
             // 
@@ -13659,7 +13627,7 @@ namespace DB_EDITOR
             groupBox41.Controls.Add(buttonRCATBody);
             groupBox41.Location = new Point(17, 15);
             groupBox41.Name = "groupBox41";
-            groupBox41.Size = new Size(427, 217);
+            groupBox41.Size = new Size(376, 231);
             groupBox41.TabIndex = 0;
             groupBox41.TabStop = false;
             groupBox41.Text = "Recruit Database (RCAT)";
@@ -13673,6 +13641,69 @@ namespace DB_EDITOR
             buttonRCATBody.Text = "Body Shape Fixer";
             buttonRCATBody.UseVisualStyleBackColor = true;
             buttonRCATBody.Click += (this.buttonRCATBody_Click);
+            // 
+            // CCName
+            // 
+            CCName.FillWeight = 30F;
+            CCName.HeaderText = "Coach Name";
+            CCName.MinimumWidth = 9;
+            CCName.Name = "CCName";
+            CCName.ReadOnly = true;
+            // 
+            // CCStatus
+            // 
+            CCStatus.FillWeight = 10F;
+            CCStatus.HeaderText = "Status";
+            CCStatus.MinimumWidth = 9;
+            CCStatus.Name = "CCStatus";
+            CCStatus.ReadOnly = true;
+            // 
+            // CCTeam
+            // 
+            CCTeam.FillWeight = 30F;
+            CCTeam.HeaderText = "Team";
+            CCTeam.MinimumWidth = 9;
+            CCTeam.Name = "CCTeam";
+            CCTeam.ReadOnly = true;
+            // 
+            // CCTmPrestige
+            // 
+            CCTmPrestige.FillWeight = 10F;
+            CCTmPrestige.HeaderText = "Team Prestige";
+            CCTmPrestige.MinimumWidth = 9;
+            CCTmPrestige.Name = "CCTmPrestige";
+            CCTmPrestige.ReadOnly = true;
+            // 
+            // CCPrestige
+            // 
+            CCPrestige.FillWeight = 10F;
+            CCPrestige.HeaderText = "Coach Prestige";
+            CCPrestige.MinimumWidth = 9;
+            CCPrestige.Name = "CCPrestige";
+            CCPrestige.ReadOnly = true;
+            // 
+            // CCRecord
+            // 
+            CCRecord.FillWeight = 10F;
+            CCRecord.HeaderText = "Coach Record";
+            CCRecord.MinimumWidth = 9;
+            CCRecord.Name = "CCRecord";
+            CCRecord.ReadOnly = true;
+            // 
+            // CCSeaRec
+            // 
+            CCSeaRec.FillWeight = 10F;
+            CCSeaRec.HeaderText = "Season Record";
+            CCSeaRec.MinimumWidth = 9;
+            CCSeaRec.Name = "CCSeaRec";
+            CCSeaRec.ReadOnly = true;
+            // 
+            // CCCoachRating
+            // 
+            CCCoachRating.FillWeight = 10F;
+            CCCoachRating.HeaderText = "Hot Seat";
+            CCCoachRating.Name = "CCCoachRating";
+            CCCoachRating.ReadOnly = true;
             // 
             // MainEditor
             // 
@@ -13952,6 +13983,7 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)CoachPortalNews).EndInit();
             groupBox37.ResumeLayout(false);
             groupBox37.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)LowPrestigeCoachValue).EndInit();
             ((System.ComponentModel.ISupportInitialize)maxFiredTransfers).EndInit();
             ((System.ComponentModel.ISupportInitialize)poachValue).EndInit();
             ((System.ComponentModel.ISupportInitialize)numberPlayerCoach).EndInit();
@@ -15111,12 +15143,15 @@ namespace DB_EDITOR
         private DataGridViewTextBoxColumn CoachPortalPlayer;
         private DataGridViewTextBoxColumn CoachPortalPos;
         private DataGridViewTextBoxColumn CoachPortalPOVR;
+        public NumericUpDown LowPrestigeCoachValue;
+        public Label label187;
         private DataGridViewTextBoxColumn CCName;
         private DataGridViewTextBoxColumn CCStatus;
         private DataGridViewTextBoxColumn CCTeam;
         private DataGridViewTextBoxColumn CCTmPrestige;
         private DataGridViewTextBoxColumn CCPrestige;
         private DataGridViewTextBoxColumn CCRecord;
+        private DataGridViewTextBoxColumn CCSeaRec;
         private DataGridViewTextBoxColumn CCCoachRating;
     }
 }

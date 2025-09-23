@@ -63,7 +63,7 @@ namespace DB_EDITOR
                     int CCPO = Convert.ToInt32(GetDBValue("COCH", "CCPO", i));
 
                     //FIRE COACHES
-                    if (CCPO <= jobSecurityValue.Value && CTOP >= TMPR && GetDBValue("COCH", "CFUC", i) != "1" && rand.Next(0, 100) < 70 && NextMod || CCPO <= jobSecurityValue.Value && CTOP >= TMPR && GetDBValue("COCH", "CFUC", i) != "1" && rand.Next(0, 100) < 70 && Next26Mod || GetDBValueInt("COCH", "CTYR", i) > 3 && TMPR < 2 && rand.Next(0, 100) < 70 || CCPO <= jobSecurityValue.Value && CTOP-2 >= TMPR && GetDBValue("COCH", "CFUC", i) != "1" && rand.Next(0, 100) < 70 && !NextMod || CCPO <= jobSecurityValue.Value && CTOP - 2 >= TMPR && GetDBValue("COCH", "CFUC", i) != "1" && rand.Next(0, 100) < 70 && !Next26Mod)
+                    if (CCPO <= jobSecurityValue.Value && CTOP >= TMPR && GetDBValue("COCH", "CFUC", i) != "1" && rand.Next(0, 100) < 70 && NextMod || CCPO <= jobSecurityValue.Value && CTOP >= TMPR && GetDBValue("COCH", "CFUC", i) != "1" && rand.Next(0, 100) < 70 && Next26Mod || GetDBValueInt("COCH", "CTYR", i) > 3 && TMPR < 2 && rand.Next(0, 100) < 70 && GetDBValueInt("COCH", "CCPO", i) < LowPrestigeCoachValue.Value || CCPO <= jobSecurityValue.Value && CTOP-2 >= TMPR && GetDBValue("COCH", "CFUC", i) != "1" && rand.Next(0, 100) < 70 && !NextMod || CCPO <= jobSecurityValue.Value && CTOP - 2 >= TMPR && GetDBValue("COCH", "CFUC", i) != "1" && rand.Next(0, 100) < 70 && !Next26Mod)
                     {
                         CCID_FiredList.Add(GetDBValue("COCH", "CCID", i));
                         TGID_VacancyList.Add(GetDBValue("COCH", "TGID", i));
@@ -84,6 +84,7 @@ namespace DB_EDITOR
                         coachNews[newCounter].Add(Convert.ToString(TMPR));
                         coachNews[newCounter].Add(GetDBValue("COCH", "CPRE", i));
                         coachNews[newCounter].Add(GetDBValue("COCH", "CCWI", i) + "-" + GetDBValue("COCH","CCLO", i));
+                        coachNews[newCounter].Add(GetDBValue("COCH", "CSWI", i) + "-" + GetDBValue("COCH", "CSLO", i));
                         coachNews[newCounter].Add(GetDBValue("COCH", "CCPO", i));
 
 
@@ -96,7 +97,7 @@ namespace DB_EDITOR
 
                     }
                     //ADD COACHES TO CANDIDATE LIST
-                    else if (CCPO > 89 && CTOP < TMPR && GetDBValue("COCH", "CFUC", i) != "1")
+                    else if (CCPO > 89 && CTOP < TMPR && GetDBValueInt("COCH", "CFUC", i) != 1 && GetDBValueInt("COCH", "CSWI", i) >= 8)
                     {
                         CCID_PromoteList.Add(GetDBValue("COCH", "CCID", i));
                     }
@@ -148,6 +149,7 @@ namespace DB_EDITOR
                             coachNews[newCounter].Add(Convert.ToString(TMPR));
                             coachNews[newCounter].Add(Convert.ToString(CPRS));
                             coachNews[newCounter].Add(GetDBValue("COCH", "CCWI", x) + "-" + GetDBValue("COCH", "CCLO", x));
+                            coachNews[newCounter].Add("N/A");
                             coachNews[newCounter].Add(GetDBValue("COCH", "CCPO", x));
 
                             CCID_FAList.RemoveAt(r);
@@ -194,6 +196,7 @@ namespace DB_EDITOR
                             coachNews[newCounter].Add(Convert.ToString(TMPR));
                             coachNews[newCounter].Add(GetDBValue("COCH", "CPRE", x));
                             coachNews[newCounter].Add(GetDBValue("COCH", "CCWI", x) + "-" + GetDBValue("COCH", "CCLO", x));
+                            coachNews[newCounter].Add(GetDBValue("COCH", "CSWI", x) + "-" + GetDBValue("COCH", "CSLO", x));
                             coachNews[newCounter].Add(GetDBValue("COCH", "CCPO", x));
 
                             CCID_PromoteList.RemoveAt(r);
@@ -203,8 +206,16 @@ namespace DB_EDITOR
                         }
                     }
 
-                    if (counter % 50 == 0) downgrade++;
-                    counter++;
+                    if (counter / 50 >= 1)
+                    {
+                        downgrade++;
+                        counter = 0;
+                    }
+                    else
+                    {
+                        counter++;
+                    }
+
                 }
 
                 TGID_VacancyList.OrderBy(z => z).ToList();
@@ -344,6 +355,8 @@ namespace DB_EDITOR
                 CarouselDataGrid.Rows[x].Cells[4].Value = CoachNews[x][4];
                 CarouselDataGrid.Rows[x].Cells[5].Value = CoachNews[x][5];
                 CarouselDataGrid.Rows[x].Cells[6].Value = CoachNews[x][6];
+                CarouselDataGrid.Rows[x].Cells[7].Value = CoachNews[x][7];
+
 
             }
         }
