@@ -24,6 +24,13 @@ namespace DB_EDITOR
 
         }
 
+        private void ExportDC2_Click(object sender, EventArgs e)
+        {
+            CreateDraftClass();
+
+        }
+
+
         private void CreateDraftClass()
         {
 

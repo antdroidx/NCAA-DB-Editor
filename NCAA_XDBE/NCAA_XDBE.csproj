@@ -61,6 +61,9 @@ Credits:
     <Compile Update="Injury.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Playoff.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Properties\Resources.resx">

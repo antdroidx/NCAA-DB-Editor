@@ -212,6 +212,7 @@ namespace DB_EDITOR
             tabControl1.TabPages.Remove(tabPortal);
             tabControl1.TabPages.Remove(tabSTRMDATA);
             tabControl1.TabPages.Remove(tabCarousel);
+            tabControl1.TabPages.Remove(tabPlayoff);
 
 
 
@@ -1137,6 +1138,7 @@ namespace DB_EDITOR
             else if (tabControl1.SelectedTab == tabStadiums) StartStadiumEditor();
             else if (tabControl1.SelectedTab == tabPortal) StartSpringPortal();
             else if (tabControl1.SelectedTab == tabSTRMDATA) { /* do nothing */ }
+            else if (tabControl1.SelectedTab == tabPlayoff) { StartPlayoffViewer(); }
 
         }
 
@@ -1146,7 +1148,6 @@ namespace DB_EDITOR
             progressBar1.Value = 0;
             TablePropsgroupBox.Visible = true;
             FieldsPropsgroupBox.Visible = true;
-            //TableGridView_SelectionChanged(null, null);
             fieldMenu.Enabled = true;
             tableMenu.Enabled = true;
             CSVMenu.Visible = true;

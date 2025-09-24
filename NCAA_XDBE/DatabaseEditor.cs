@@ -752,6 +752,7 @@ namespace DB_EDITOR
                     else if (table.Name == "SCHD" && !BigEndian)
                     {
                         if (!checkTabExists("Schedule")) tabControl1.TabPages.Add(tabSchedule);
+                        if (!checkTabExists("Playoff") && GetDBValueInt("SEAI", "SEWN", 0) >=8) tabControl1.TabPages.Add(tabPlayoff);
                     }
                     else if (table.Name == "PSOL" && !BigEndian)
                     {

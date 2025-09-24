@@ -389,7 +389,7 @@ namespace DB_EDITOR
                 else if (PPOS == 19) PPOS = 15;
                 else if (PPOS == 20) PPOS = 16;
 
-                if (ConvertRating(POVR) >= 65)
+                if (ConvertRating(POVR) >= 66)
                 {
 
                     int count = SpringPortal.Count;

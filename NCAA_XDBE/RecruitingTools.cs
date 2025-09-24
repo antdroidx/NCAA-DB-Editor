@@ -130,7 +130,174 @@ namespace DB_EDITOR
         }
 
 
+        //Auto Adjust Coach Budgets
+        private void AutoAdjustCoachBudgetButton2_Click(object sender, EventArgs e)
+        {
+            AutoAdjustCoachBudgets();
+        }
 
+        private void CreateFCSTransferPortalButton_Click(object sender, EventArgs e)
+        {
+            CreateFCSPlayersForRecruiting();
+        }
+
+        //Move Transferred Player Stats Over
+
+        private void TransferPortalStats_Click(object sender, EventArgs e)
+        {
+            bool correctWeek = false;
+            for (int i = 0; i < GetTable2RecCount("RCYR"); i++)
+            {
+                if (GetDB2ValueInt("RCYR", "SEWN", i) >= 5)
+                {
+                    CompactDB();
+                    CompactDB2();
+                    MoveTransferredPlayerStats();
+                    MessageBox.Show("Transferred Player Stats Moved!");
+                    correctWeek = true;
+
+                }
+            }
+            if (!correctWeek)
+            {
+                MessageBox.Show("Please use this feature at the after recruiting is completed in off-season!");
+            }
+
+        }
+
+        private void MoveTransferredPlayerStats()
+        {
+            progressBar1.Visible = true;
+            progressBar1.Minimum = 0;
+            progressBar1.Maximum = GetTableRecCount("TRAN");
+            progressBar1.Step = 1;
+
+            OccupiedPGIDList = new List<List<int>>();
+            for (int i = 0; i < 512; i++)
+            {
+                OccupiedPGIDList.Add(new List<int>());
+            }
+            //Add Roster
+            for (int i = 0; i < GetTableRecCount("PLAY"); i++)
+            {
+
+                int PGID = GetDBValueInt("PLAY", "PGID", i);
+                int TGID = PGID / 70;
+
+                if (TGID < 512) OccupiedPGIDList[TGID].Add(PGID);
+            }
+
+
+
+            //Transfers
+            for (int i = 0; i < GetTableRecCount("TRAN"); i++)
+            {
+                int team = -1;
+                int rec = -1;
+                int PGID = GetDBValueInt("TRAN", "PGID", i);
+
+                for (int r = 0; r < GetTable2RecCount("RCPR"); r++)
+                {
+                    if (GetDB2ValueInt("RCPR", "PRID", r) == PGID)
+                    {
+                        rec = r;
+                        team = GetDB2ValueInt("RCPR", "PTCM", r);
+                        break;
+                    }
+                }
+
+                //Check for open PGID slots
+                for (int j = team * 70; j <= team * 70 + 69; j++)
+                {
+                    if (!OccupiedPGIDList[team].Contains(j))
+                    {
+                        ChangePlayerStatsID(PGID, j);
+
+                        ChangePGID(PGID, j);
+
+                        DeleteRecord("TRAN", i, true);
+                        DeleteRecord2("RCPR", rec, true);
+                        OccupiedPGIDList[team].Add(j);
+                        break;
+                    }
+                }
+                progressBar1.PerformStep();
+            }
+
+            CompactDB();
+            CompactDB2();
+            progressBar1.Value = 0;
+            progressBar1.Visible = false;
+
+        }
+
+
+        //Remove Mediocre Transfers from Portal
+        private void RemoveBadTransfers_Click(object sender, EventArgs e)
+        {
+            RemoveTransfers();
+        }
+
+        private void RemoveTransfers()
+        {
+            progressBar1.Visible = true;
+            progressBar1.Value = 0;
+            progressBar1.Maximum = GetTableRecCount("TRAN");
+
+            List<List<List<int>>> teamPlayers = new List<List<List<int>>>();
+
+            for (int t = 0; t < 512; t++)
+            {
+                teamPlayers.Add(new List<List<int>>());
+            }
+
+            for (int p = 0; p < GetTableRecCount("PLAY"); p++)
+            {
+                int pgid = GetPGIDfromRecord(p);
+                int team = pgid / 70;
+
+                int count = teamPlayers[team].Count;
+                teamPlayers[team].Add(new List<int>());
+                teamPlayers[team][count].Add(p);
+                teamPlayers[team][count].Add(pgid);
+                teamPlayers[team][count].Add(GetDBValueInt("PLAY", "POVR", p));
+            }
+
+
+            int counter = 0;
+            for (int i = 0; i < GetTableRecCount("TRAN"); i++)
+            {
+                int pgid = GetDBValueInt("TRAN", "PGID", i);
+                int tgid = pgid / 70;
+
+                for (int p = 0; p < teamPlayers[tgid].Count; p++)
+                {
+                    if (teamPlayers[tgid][p][1] == pgid)
+                    {
+                        if (ConvertRating(teamPlayers[tgid][p][2]) < 68)
+                        {
+                            ChangeDBInt("PLAY", "PTYP", teamPlayers[tgid][p][0], 3);
+                            DeleteRecord("TRAN", i, true);
+                            counter++;
+                            break;
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+
+                }
+
+                progressBar1.PerformStep();
+            }
+
+            CompactDB();
+
+            progressBar1.Visible = false;
+
+            MessageBox.Show("Completed! Removed " + counter + " players from the database.");
+        }
         #endregion
 
 
@@ -1009,6 +1176,90 @@ namespace DB_EDITOR
 
         }
 
+
+        //Create FCS for Transfer Portal (in-game portal)
+
+        private void CreateFCSPlayersForRecruiting()
+        {
+            int fcsplayers = 0;
+            List<int> fcsTeams = new List<int>();
+            for (int i = 0; i < GetTableRecCount("TEAM"); i++)
+            {
+                if (GetDBValueInt("TEAM", "TTYP", i) == 1)
+                {
+                    fcsTeams.Add(GetDBValueInt("TEAM", "TGID", i));
+                }
+            }
+
+            //Create New Roster
+            CreateRCATtable();
+            CreateFirstNamesDB();
+            CreateLastNamesDB();
+
+            List<List<int>> PJEN = CreateJerseyNumberDB();
+            List<List<string>> RCATmapper = CreateStringListsFromCSV(@"resources\players\RCAT-MAPPER.csv", false);
+
+            int newPlayers = TDB.TableCapacity(dbIndex, "PLAY") - GetTableRecCount("PLAY");
+
+            int maxFCSPlayers = 70;
+            if (newPlayers > maxFCSPlayers) newPlayers = maxFCSPlayers; //limit to XX players max
+
+            for (int i = 0; i < newPlayers; i++)
+            {
+                int rec = GetTableRecCount("PLAY");
+                AddTableRecord("PLAY", false);
+
+                List<int> AvailablePJEN = new List<int>();
+
+
+                //Assign a Team
+                int TGID = fcsTeams[rand.Next(0, fcsTeams.Count)];
+
+                int PGID = TGID*70+i;
+                TransferRCATtoPLAY(rec, rand.Next(0, 17), PGID, RCATmapper, PJEN, AvailablePJEN, 0);
+                RandomizeAttribute("PLAY", rec, 2);
+                RecalculateOverallByRec(rec);
+                ChangeDBInt("PLAY", "PYER", rec, rand.Next(1,3)); //set to Senior
+                ChangeDBInt("PLAY", "PRSD", rec, 0); //not redshirted
+                ChangeDBInt("PLAY", "PTYP", rec, 1); //Set to Transfer
+
+                //Add To Portal
+                int POVR = GetDBValueInt("PLAY", "POVR", rec);
+                int PPOS = GetDBValueInt("PLAY", "PPOS", rec);
+                
+
+
+                if (PPOS == 8) PPOS = 6;
+                else if (PPOS == 9) PPOS = 5;
+                else if (PPOS == 10 || PPOS == 11) PPOS = 8;
+                else if (PPOS == 12) PPOS = 9;
+                else if (PPOS == 13 || PPOS == 15) PPOS = 10;
+                else if (PPOS == 14) PPOS = 11;
+                else if (PPOS == 16) PPOS = 12;
+                else if (PPOS == 17) PPOS = 13;
+                else if (PPOS == 18) PPOS = 14;
+                else if (PPOS == 19) PPOS = 15;
+                else if (PPOS == 20) PPOS = 16;
+
+                if (ConvertRating(POVR) >= 68)
+                {
+                    //add to transfer portal
+                    int portalRec = GetTableRecCount("TRAN");
+                    AddTableRecord("TRAN", false);
+                    ChangeDBInt("TRAN", "PGID", portalRec, PGID);
+                    ChangeDBInt("TRAN", "PTID", portalRec, 300);
+                    fcsplayers++;
+                }
+                else
+                {
+                    //remove
+                    DeleteRecord("PLAY", rec, true);
+                    CompactDB();
+                }
+            }
+
+            MessageBox.Show(fcsplayers + " FCS Players Created for Transfer Portal!");
+        }
 
 
 

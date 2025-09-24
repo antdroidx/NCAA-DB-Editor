@@ -300,26 +300,28 @@ namespace DB_EDITOR
             groupBox43 = new GroupBox();
             AutoAdjustCoachBudgetButton2 = new System.Windows.Forms.Button();
             groupBox17 = new GroupBox();
+            CreateFCSTransferPortalButton = new System.Windows.Forms.Button();
+            ExportDC2 = new System.Windows.Forms.Button();
             TransferPortalStats = new System.Windows.Forms.Button();
             RemoveBadTransfers = new System.Windows.Forms.Button();
-            removeInterestTeams = new NumericUpDown();
             buttonMinRecruitingPts = new System.Windows.Forms.Button();
             minRecPts = new NumericUpDown();
             labelMinRecPts = new Label();
-            labelIntTeams = new Label();
             minTRPA = new NumericUpDown();
             label12 = new Label();
-            buttonInterestedTeams = new System.Windows.Forms.Button();
             groupBox16 = new GroupBox();
             RecalculateStarRankingsButton = new System.Windows.Forms.Button();
             DetermineAthleteButton = new System.Windows.Forms.Button();
+            removeInterestTeams = new NumericUpDown();
             buttonRandWalkOns = new System.Windows.Forms.Button();
             buttonRandRecruits = new System.Windows.Forms.Button();
             RandomizeRecruitNamesButton = new System.Windows.Forms.Button();
             toleranceWalkOn = new NumericUpDown();
+            labelIntTeams = new Label();
             buttonRandomizeFaceShape = new System.Windows.Forms.Button();
             wkonLabel = new Label();
             polyNames = new System.Windows.Forms.Button();
+            buttonInterestedTeams = new System.Windows.Forms.Button();
             recruitTolerance = new NumericUpDown();
             labelRecruit = new Label();
             textBoxOffSeasonTitle = new System.Windows.Forms.TextBox();
@@ -1115,6 +1117,14 @@ namespace DB_EDITOR
             labelPoaching = new Label();
             checkBoxFiredTransfers = new CheckBox();
             CarouselDataGrid = new DataGridView();
+            CCName = new DataGridViewTextBoxColumn();
+            CCStatus = new DataGridViewTextBoxColumn();
+            CCTeam = new DataGridViewTextBoxColumn();
+            CCTmPrestige = new DataGridViewTextBoxColumn();
+            CCPrestige = new DataGridViewTextBoxColumn();
+            CCRecord = new DataGridViewTextBoxColumn();
+            CCSeaRec = new DataGridViewTextBoxColumn();
+            CCCoachRating = new DataGridViewTextBoxColumn();
             tabPortal = new TabPage();
             FCSTransferPortalCheckBox = new CheckBox();
             PortalCycleCount = new NumericUpDown();
@@ -1186,15 +1196,56 @@ namespace DB_EDITOR
             tabSTRMDATA = new TabPage();
             groupBox41 = new GroupBox();
             buttonRCATBody = new System.Windows.Forms.Button();
+            tabPlayoff = new TabPage();
+            PlayoffYearLabel = new Label();
+            pictureBox4 = new PictureBox();
+            Final2SC = new Label();
+            Final1SC = new Label();
+            Semi2_2SC = new Label();
+            Semi2_3SC = new Label();
+            Semi1_4SC = new Label();
+            Semi1_1SC = new Label();
+            Round2_710SC = new Label();
+            Round2_2SC = new Label();
+            Round2_611SC = new Label();
+            Round2_3SC = new Label();
+            Round2_512SC = new Label();
+            Round2_4SC = new Label();
+            Round2_89SC = new Label();
+            Round2_1SC = new Label();
+            Round1_10SC = new Label();
+            Round1_7SC = new Label();
+            Round1_11SC = new Label();
+            Round1_6SC = new Label();
+            Round1_12SC = new Label();
+            Round1_5SC = new Label();
+            Round1_9SC = new Label();
+            Round1_8SC = new Label();
+            Champ = new Label();
+            Round2_710 = new Label();
+            Round2_2 = new Label();
+            Round1_5 = new Label();
+            Round2_3 = new Label();
+            Round2_89 = new Label();
+            Round2_1 = new Label();
+            Semi2_3 = new Label();
+            Semi1_4 = new Label();
+            Final1 = new Label();
+            Semi2_2 = new Label();
+            Final2 = new Label();
+            Round2_4 = new Label();
+            Round2_512 = new Label();
+            Semi1_1 = new Label();
+            Round2_611 = new Label();
+            Round1_6 = new Label();
+            Round1_12 = new Label();
+            Round1_8 = new Label();
+            Round1_11 = new Label();
+            Round1_10 = new Label();
+            Round1_7 = new Label();
+            Round1_9 = new Label();
+            pictureBox2 = new PictureBox();
             toolTip1 = new System.Windows.Forms.ToolTip(components);
-            CCName = new DataGridViewTextBoxColumn();
-            CCStatus = new DataGridViewTextBoxColumn();
-            CCTeam = new DataGridViewTextBoxColumn();
-            CCTmPrestige = new DataGridViewTextBoxColumn();
-            CCPrestige = new DataGridViewTextBoxColumn();
-            CCRecord = new DataGridViewTextBoxColumn();
-            CCSeaRec = new DataGridViewTextBoxColumn();
-            CCCoachRating = new DataGridViewTextBoxColumn();
             mainMenu.SuspendLayout();
             tableMenu.SuspendLayout();
             fieldMenu.SuspendLayout();
@@ -1227,10 +1278,10 @@ namespace DB_EDITOR
             tabOffSeason.SuspendLayout();
             groupBox43.SuspendLayout();
             groupBox17.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)removeInterestTeams).BeginInit();
             ((System.ComponentModel.ISupportInitialize)minRecPts).BeginInit();
             ((System.ComponentModel.ISupportInitialize)minTRPA).BeginInit();
             groupBox16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)removeInterestTeams).BeginInit();
             ((System.ComponentModel.ISupportInitialize)toleranceWalkOn).BeginInit();
             ((System.ComponentModel.ISupportInitialize)recruitTolerance).BeginInit();
             tabRecruits.SuspendLayout();
@@ -1428,6 +1479,9 @@ namespace DB_EDITOR
             groupBox31.SuspendLayout();
             tabSTRMDATA.SuspendLayout();
             groupBox41.SuspendLayout();
+            tabPlayoff.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             this.SuspendLayout();
             // 
             // qbTend
@@ -3803,7 +3857,7 @@ namespace DB_EDITOR
             // groupBox43
             // 
             groupBox43.Controls.Add(AutoAdjustCoachBudgetButton2);
-            groupBox43.Location = new Point(12, 66);
+            groupBox43.Location = new Point(52, 66);
             groupBox43.Name = "groupBox43";
             groupBox43.Size = new Size(490, 90);
             groupBox43.TabIndex = 26;
@@ -3821,26 +3875,52 @@ namespace DB_EDITOR
             AutoAdjustCoachBudgetButton2.TabIndex = 40;
             AutoAdjustCoachBudgetButton2.Text = "Auto-Adjust Coaching Budgets";
             AutoAdjustCoachBudgetButton2.UseVisualStyleBackColor = false;
+            AutoAdjustCoachBudgetButton2.Click += (this.AutoAdjustCoachBudgetButton2_Click);
             // 
             // groupBox17
             // 
             groupBox17.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            groupBox17.Controls.Add(CreateFCSTransferPortalButton);
+            groupBox17.Controls.Add(ExportDC2);
             groupBox17.Controls.Add(TransferPortalStats);
             groupBox17.Controls.Add(RemoveBadTransfers);
-            groupBox17.Controls.Add(removeInterestTeams);
             groupBox17.Controls.Add(buttonMinRecruitingPts);
             groupBox17.Controls.Add(minRecPts);
             groupBox17.Controls.Add(labelMinRecPts);
-            groupBox17.Controls.Add(labelIntTeams);
             groupBox17.Controls.Add(minTRPA);
             groupBox17.Controls.Add(label12);
-            groupBox17.Controls.Add(buttonInterestedTeams);
-            groupBox17.Location = new Point(12, 184);
+            groupBox17.Location = new Point(52, 184);
             groupBox17.Name = "groupBox17";
-            groupBox17.Size = new Size(490, 319);
+            groupBox17.Size = new Size(490, 410);
             groupBox17.TabIndex = 25;
             groupBox17.TabStop = false;
             groupBox17.Text = "Players Leaving Phase";
+            // 
+            // CreateFCSTransferPortalButton
+            // 
+            CreateFCSTransferPortalButton.BackColor = SystemColors.Highlight;
+            CreateFCSTransferPortalButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+            CreateFCSTransferPortalButton.ForeColor = SystemColors.ButtonFace;
+            CreateFCSTransferPortalButton.Location = new Point(28, 156);
+            CreateFCSTransferPortalButton.Name = "CreateFCSTransferPortalButton";
+            CreateFCSTransferPortalButton.Size = new Size(404, 83);
+            CreateFCSTransferPortalButton.TabIndex = 66;
+            CreateFCSTransferPortalButton.Text = "[NEXT25+] Add FCS Players to Transfer Portal";
+            CreateFCSTransferPortalButton.UseVisualStyleBackColor = false;
+            CreateFCSTransferPortalButton.Click += (this.CreateFCSTransferPortalButton_Click);
+            // 
+            // ExportDC2
+            // 
+            ExportDC2.BackColor = SystemColors.Info;
+            ExportDC2.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            ExportDC2.ForeColor = SystemColors.ActiveCaptionText;
+            ExportDC2.Location = new Point(251, 267);
+            ExportDC2.Name = "ExportDC2";
+            ExportDC2.Size = new Size(181, 80);
+            ExportDC2.TabIndex = 65;
+            ExportDC2.Text = "Export Draft Class";
+            ExportDC2.UseVisualStyleBackColor = false;
+            ExportDC2.Click += (this.ExportDC2_Click);
             // 
             // TransferPortalStats
             // 
@@ -3853,6 +3933,7 @@ namespace DB_EDITOR
             TransferPortalStats.TabIndex = 45;
             TransferPortalStats.Text = "[NEXT24] Retain Transfer Portal Player Stats";
             TransferPortalStats.UseVisualStyleBackColor = false;
+            TransferPortalStats.Click += (this.TransferPortalStats_Click);
             // 
             // RemoveBadTransfers
             // 
@@ -3865,23 +3946,14 @@ namespace DB_EDITOR
             RemoveBadTransfers.TabIndex = 44;
             RemoveBadTransfers.Text = "[NEXT24+] Remove Low OVR Transfers";
             RemoveBadTransfers.UseVisualStyleBackColor = false;
-            // 
-            // removeInterestTeams
-            // 
-            removeInterestTeams.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            removeInterestTeams.Location = new Point(310, 251);
-            removeInterestTeams.Maximum = new decimal(new int[] { 11, 0, 0, 0 });
-            removeInterestTeams.Name = "removeInterestTeams";
-            removeInterestTeams.Size = new Size(56, 22);
-            removeInterestTeams.TabIndex = 13;
-            removeInterestTeams.Value = new decimal(new int[] { 10, 0, 0, 0 });
+            RemoveBadTransfers.Click += (this.RemoveBadTransfers_Click);
             // 
             // buttonMinRecruitingPts
             // 
             buttonMinRecruitingPts.BackColor = SystemColors.Highlight;
             buttonMinRecruitingPts.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             buttonMinRecruitingPts.ForeColor = SystemColors.ButtonFace;
-            buttonMinRecruitingPts.Location = new Point(31, 161);
+            buttonMinRecruitingPts.Location = new Point(28, 267);
             buttonMinRecruitingPts.Name = "buttonMinRecruitingPts";
             buttonMinRecruitingPts.Size = new Size(180, 80);
             buttonMinRecruitingPts.TabIndex = 1;
@@ -3893,7 +3965,7 @@ namespace DB_EDITOR
             // 
             minRecPts.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             minRecPts.Increment = new decimal(new int[] { 25, 0, 0, 0 });
-            minRecPts.Location = new Point(148, 247);
+            minRecPts.Location = new Point(145, 353);
             minRecPts.Maximum = new decimal(new int[] { 500, 0, 0, 0 });
             minRecPts.Minimum = new decimal(new int[] { 128, 0, 0, 0 });
             minRecPts.Name = "minRecPts";
@@ -3905,28 +3977,17 @@ namespace DB_EDITOR
             // 
             labelMinRecPts.AutoSize = true;
             labelMinRecPts.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            labelMinRecPts.Location = new Point(131, 275);
+            labelMinRecPts.Location = new Point(128, 381);
             labelMinRecPts.Name = "labelMinRecPts";
             labelMinRecPts.Size = new Size(78, 16);
             labelMinRecPts.TabIndex = 9;
             labelMinRecPts.Text = "Min Points";
             labelMinRecPts.TextAlign = ContentAlignment.TopCenter;
             // 
-            // labelIntTeams
-            // 
-            labelIntTeams.AutoSize = true;
-            labelIntTeams.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            labelIntTeams.Location = new Point(249, 253);
-            labelIntTeams.Name = "labelIntTeams";
-            labelIntTeams.Size = new Size(55, 16);
-            labelIntTeams.TabIndex = 14;
-            labelIntTeams.Text = "Teams";
-            labelIntTeams.TextAlign = ContentAlignment.TopCenter;
-            // 
             // minTRPA
             // 
             minTRPA.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            minTRPA.Location = new Point(43, 247);
+            minTRPA.Location = new Point(40, 353);
             minTRPA.Maximum = new decimal(new int[] { 17, 0, 0, 0 });
             minTRPA.Minimum = new decimal(new int[] { 4, 0, 0, 0 });
             minTRPA.Name = "minTRPA";
@@ -3938,42 +3999,32 @@ namespace DB_EDITOR
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            label12.Location = new Point(28, 272);
+            label12.Location = new Point(25, 378);
             label12.Name = "label12";
             label12.Size = new Size(76, 16);
             label12.TabIndex = 11;
             label12.Text = "Min TRPA";
-            // 
-            // buttonInterestedTeams
-            // 
-            buttonInterestedTeams.BackColor = SystemColors.Highlight;
-            buttonInterestedTeams.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            buttonInterestedTeams.ForeColor = SystemColors.ButtonFace;
-            buttonInterestedTeams.Location = new Point(252, 161);
-            buttonInterestedTeams.Name = "buttonInterestedTeams";
-            buttonInterestedTeams.Size = new Size(180, 80);
-            buttonInterestedTeams.TabIndex = 12;
-            buttonInterestedTeams.Text = "Modify Recruiting Interested Teams";
-            buttonInterestedTeams.UseVisualStyleBackColor = false;
-            buttonInterestedTeams.Click += (this.ButtonInterestedTeams_Click);
             // 
             // groupBox16
             // 
             groupBox16.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             groupBox16.Controls.Add(RecalculateStarRankingsButton);
             groupBox16.Controls.Add(DetermineAthleteButton);
+            groupBox16.Controls.Add(removeInterestTeams);
             groupBox16.Controls.Add(buttonRandWalkOns);
             groupBox16.Controls.Add(buttonRandRecruits);
             groupBox16.Controls.Add(RandomizeRecruitNamesButton);
             groupBox16.Controls.Add(toleranceWalkOn);
+            groupBox16.Controls.Add(labelIntTeams);
             groupBox16.Controls.Add(buttonRandomizeFaceShape);
             groupBox16.Controls.Add(wkonLabel);
             groupBox16.Controls.Add(polyNames);
+            groupBox16.Controls.Add(buttonInterestedTeams);
             groupBox16.Controls.Add(recruitTolerance);
             groupBox16.Controls.Add(labelRecruit);
-            groupBox16.Location = new Point(536, 66);
+            groupBox16.Location = new Point(601, 66);
             groupBox16.Name = "groupBox16";
-            groupBox16.Size = new Size(477, 437);
+            groupBox16.Size = new Size(514, 528);
             groupBox16.TabIndex = 24;
             groupBox16.TabStop = false;
             groupBox16.Text = "Recruiting Phase";
@@ -4003,6 +4054,16 @@ namespace DB_EDITOR
             DetermineAthleteButton.Text = "Determine Athlete Best Position";
             DetermineAthleteButton.UseVisualStyleBackColor = false;
             DetermineAthleteButton.Click += (this.DetermineAthleteButton_Click);
+            // 
+            // removeInterestTeams
+            // 
+            removeInterestTeams.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            removeInterestTeams.Location = new Point(400, 424);
+            removeInterestTeams.Maximum = new decimal(new int[] { 11, 0, 0, 0 });
+            removeInterestTeams.Name = "removeInterestTeams";
+            removeInterestTeams.Size = new Size(56, 22);
+            removeInterestTeams.TabIndex = 13;
+            removeInterestTeams.Value = new decimal(new int[] { 10, 0, 0, 0 });
             // 
             // buttonRandWalkOns
             // 
@@ -4053,6 +4114,17 @@ namespace DB_EDITOR
             toleranceWalkOn.TabIndex = 4;
             toleranceWalkOn.Value = new decimal(new int[] { 2, 0, 0, 0 });
             // 
+            // labelIntTeams
+            // 
+            labelIntTeams.AutoSize = true;
+            labelIntTeams.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            labelIntTeams.Location = new Point(400, 449);
+            labelIntTeams.Name = "labelIntTeams";
+            labelIntTeams.Size = new Size(55, 16);
+            labelIntTeams.TabIndex = 14;
+            labelIntTeams.Text = "Teams";
+            labelIntTeams.TextAlign = ContentAlignment.TopCenter;
+            // 
             // buttonRandomizeFaceShape
             // 
             buttonRandomizeFaceShape.BackColor = SystemColors.Highlight;
@@ -4090,6 +4162,19 @@ namespace DB_EDITOR
             polyNames.UseVisualStyleBackColor = false;
             polyNames.Click += (this.PolyNames_Click);
             // 
+            // buttonInterestedTeams
+            // 
+            buttonInterestedTeams.BackColor = SystemColors.Highlight;
+            buttonInterestedTeams.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            buttonInterestedTeams.ForeColor = SystemColors.ButtonFace;
+            buttonInterestedTeams.Location = new Point(29, 405);
+            buttonInterestedTeams.Name = "buttonInterestedTeams";
+            buttonInterestedTeams.Size = new Size(354, 96);
+            buttonInterestedTeams.TabIndex = 12;
+            buttonInterestedTeams.Text = "Modify Recruiting Interested Teams";
+            buttonInterestedTeams.UseVisualStyleBackColor = false;
+            buttonInterestedTeams.Click += (this.ButtonInterestedTeams_Click);
+            // 
             // recruitTolerance
             // 
             recruitTolerance.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
@@ -4116,7 +4201,7 @@ namespace DB_EDITOR
             textBoxOffSeasonTitle.BackColor = SystemColors.InactiveCaption;
             textBoxOffSeasonTitle.Enabled = false;
             textBoxOffSeasonTitle.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            textBoxOffSeasonTitle.Location = new Point(3, 3);
+            textBoxOffSeasonTitle.Location = new Point(271, 10);
             textBoxOffSeasonTitle.Name = "textBoxOffSeasonTitle";
             textBoxOffSeasonTitle.Size = new Size(615, 31);
             textBoxOffSeasonTitle.TabIndex = 15;
@@ -12566,6 +12651,7 @@ namespace DB_EDITOR
             tabControl1.Controls.Add(tabUniforms);
             tabControl1.Controls.Add(tabDev);
             tabControl1.Controls.Add(tabSTRMDATA);
+            tabControl1.Controls.Add(tabPlayoff);
             tabControl1.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
             tabControl1.ItemSize = new Size(65, 25);
             tabControl1.Location = new Point(12, 27);
@@ -12874,6 +12960,69 @@ namespace DB_EDITOR
             CarouselDataGrid.RowTemplate.Height = 31;
             CarouselDataGrid.Size = new Size(749, 317);
             CarouselDataGrid.TabIndex = 46;
+            // 
+            // CCName
+            // 
+            CCName.FillWeight = 30F;
+            CCName.HeaderText = "Coach Name";
+            CCName.MinimumWidth = 9;
+            CCName.Name = "CCName";
+            CCName.ReadOnly = true;
+            // 
+            // CCStatus
+            // 
+            CCStatus.FillWeight = 10F;
+            CCStatus.HeaderText = "Status";
+            CCStatus.MinimumWidth = 9;
+            CCStatus.Name = "CCStatus";
+            CCStatus.ReadOnly = true;
+            // 
+            // CCTeam
+            // 
+            CCTeam.FillWeight = 30F;
+            CCTeam.HeaderText = "Team";
+            CCTeam.MinimumWidth = 9;
+            CCTeam.Name = "CCTeam";
+            CCTeam.ReadOnly = true;
+            // 
+            // CCTmPrestige
+            // 
+            CCTmPrestige.FillWeight = 10F;
+            CCTmPrestige.HeaderText = "Team Prestige";
+            CCTmPrestige.MinimumWidth = 9;
+            CCTmPrestige.Name = "CCTmPrestige";
+            CCTmPrestige.ReadOnly = true;
+            // 
+            // CCPrestige
+            // 
+            CCPrestige.FillWeight = 10F;
+            CCPrestige.HeaderText = "Coach Prestige";
+            CCPrestige.MinimumWidth = 9;
+            CCPrestige.Name = "CCPrestige";
+            CCPrestige.ReadOnly = true;
+            // 
+            // CCRecord
+            // 
+            CCRecord.FillWeight = 10F;
+            CCRecord.HeaderText = "Coach Record";
+            CCRecord.MinimumWidth = 9;
+            CCRecord.Name = "CCRecord";
+            CCRecord.ReadOnly = true;
+            // 
+            // CCSeaRec
+            // 
+            CCSeaRec.FillWeight = 10F;
+            CCSeaRec.HeaderText = "Season Record";
+            CCSeaRec.MinimumWidth = 9;
+            CCSeaRec.Name = "CCSeaRec";
+            CCSeaRec.ReadOnly = true;
+            // 
+            // CCCoachRating
+            // 
+            CCCoachRating.FillWeight = 10F;
+            CCCoachRating.HeaderText = "Hot Seat";
+            CCCoachRating.Name = "CCCoachRating";
+            CCCoachRating.ReadOnly = true;
             // 
             // tabPortal
             // 
@@ -13642,68 +13791,653 @@ namespace DB_EDITOR
             buttonRCATBody.UseVisualStyleBackColor = true;
             buttonRCATBody.Click += (this.buttonRCATBody_Click);
             // 
-            // CCName
+            // tabPlayoff
             // 
-            CCName.FillWeight = 30F;
-            CCName.HeaderText = "Coach Name";
-            CCName.MinimumWidth = 9;
-            CCName.Name = "CCName";
-            CCName.ReadOnly = true;
+            tabPlayoff.BackColor = Color.Black;
+            tabPlayoff.BackgroundImage = (Image)resources.GetObject("tabPlayoff.BackgroundImage");
+            tabPlayoff.BackgroundImageLayout = ImageLayout.Stretch;
+            tabPlayoff.Controls.Add(PlayoffYearLabel);
+            tabPlayoff.Controls.Add(pictureBox4);
+            tabPlayoff.Controls.Add(Final2SC);
+            tabPlayoff.Controls.Add(Final1SC);
+            tabPlayoff.Controls.Add(Semi2_2SC);
+            tabPlayoff.Controls.Add(Semi2_3SC);
+            tabPlayoff.Controls.Add(Semi1_4SC);
+            tabPlayoff.Controls.Add(Semi1_1SC);
+            tabPlayoff.Controls.Add(Round2_710SC);
+            tabPlayoff.Controls.Add(Round2_2SC);
+            tabPlayoff.Controls.Add(Round2_611SC);
+            tabPlayoff.Controls.Add(Round2_3SC);
+            tabPlayoff.Controls.Add(Round2_512SC);
+            tabPlayoff.Controls.Add(Round2_4SC);
+            tabPlayoff.Controls.Add(Round2_89SC);
+            tabPlayoff.Controls.Add(Round2_1SC);
+            tabPlayoff.Controls.Add(Round1_10SC);
+            tabPlayoff.Controls.Add(Round1_7SC);
+            tabPlayoff.Controls.Add(Round1_11SC);
+            tabPlayoff.Controls.Add(Round1_6SC);
+            tabPlayoff.Controls.Add(Round1_12SC);
+            tabPlayoff.Controls.Add(Round1_5SC);
+            tabPlayoff.Controls.Add(Round1_9SC);
+            tabPlayoff.Controls.Add(Round1_8SC);
+            tabPlayoff.Controls.Add(Champ);
+            tabPlayoff.Controls.Add(Round2_710);
+            tabPlayoff.Controls.Add(Round2_2);
+            tabPlayoff.Controls.Add(Round1_5);
+            tabPlayoff.Controls.Add(Round2_3);
+            tabPlayoff.Controls.Add(Round2_89);
+            tabPlayoff.Controls.Add(Round2_1);
+            tabPlayoff.Controls.Add(Semi2_3);
+            tabPlayoff.Controls.Add(Semi1_4);
+            tabPlayoff.Controls.Add(Final1);
+            tabPlayoff.Controls.Add(Semi2_2);
+            tabPlayoff.Controls.Add(Final2);
+            tabPlayoff.Controls.Add(Round2_4);
+            tabPlayoff.Controls.Add(Round2_512);
+            tabPlayoff.Controls.Add(Semi1_1);
+            tabPlayoff.Controls.Add(Round2_611);
+            tabPlayoff.Controls.Add(Round1_6);
+            tabPlayoff.Controls.Add(Round1_12);
+            tabPlayoff.Controls.Add(Round1_8);
+            tabPlayoff.Controls.Add(Round1_11);
+            tabPlayoff.Controls.Add(Round1_10);
+            tabPlayoff.Controls.Add(Round1_7);
+            tabPlayoff.Controls.Add(Round1_9);
+            tabPlayoff.Controls.Add(pictureBox2);
+            tabPlayoff.Location = new Point(4, 29);
+            tabPlayoff.Name = "tabPlayoff";
+            tabPlayoff.Padding = new Padding(3);
+            tabPlayoff.Size = new Size(1152, 610);
+            tabPlayoff.TabIndex = 21;
+            tabPlayoff.Text = "Playoff";
             // 
-            // CCStatus
+            // PlayoffYearLabel
             // 
-            CCStatus.FillWeight = 10F;
-            CCStatus.HeaderText = "Status";
-            CCStatus.MinimumWidth = 9;
-            CCStatus.Name = "CCStatus";
-            CCStatus.ReadOnly = true;
+            PlayoffYearLabel.AutoSize = true;
+            PlayoffYearLabel.BackColor = Color.Transparent;
+            PlayoffYearLabel.Font = new Font("Microsoft Sans Serif", 27.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            PlayoffYearLabel.ForeColor = Color.Goldenrod;
+            PlayoffYearLabel.Location = new Point(529, 546);
+            PlayoffYearLabel.Margin = new Padding(3);
+            PlayoffYearLabel.Name = "PlayoffYearLabel";
+            PlayoffYearLabel.Size = new Size(179, 42);
+            PlayoffYearLabel.TabIndex = 49;
+            PlayoffYearLabel.Text = "YEAR 25";
+            PlayoffYearLabel.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // CCTeam
+            // pictureBox4
             // 
-            CCTeam.FillWeight = 30F;
-            CCTeam.HeaderText = "Team";
-            CCTeam.MinimumWidth = 9;
-            CCTeam.Name = "CCTeam";
-            CCTeam.ReadOnly = true;
+            pictureBox4.BackColor = Color.Transparent;
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(136, 430);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(933, 174);
+            pictureBox4.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox4.TabIndex = 48;
+            pictureBox4.TabStop = false;
             // 
-            // CCTmPrestige
+            // Final2SC
             // 
-            CCTmPrestige.FillWeight = 10F;
-            CCTmPrestige.HeaderText = "Team Prestige";
-            CCTmPrestige.MinimumWidth = 9;
-            CCTmPrestige.Name = "CCTmPrestige";
-            CCTmPrestige.ReadOnly = true;
+            Final2SC.BorderStyle = BorderStyle.FixedSingle;
+            Final2SC.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+            Final2SC.ForeColor = SystemColors.ButtonFace;
+            Final2SC.Location = new Point(896, 232);
+            Final2SC.Name = "Final2SC";
+            Final2SC.Size = new Size(50, 35);
+            Final2SC.TabIndex = 47;
+            Final2SC.Text = " ";
+            Final2SC.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // CCPrestige
+            // Final1SC
             // 
-            CCPrestige.FillWeight = 10F;
-            CCPrestige.HeaderText = "Coach Prestige";
-            CCPrestige.MinimumWidth = 9;
-            CCPrestige.Name = "CCPrestige";
-            CCPrestige.ReadOnly = true;
+            Final1SC.BorderStyle = BorderStyle.FixedSingle;
+            Final1SC.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+            Final1SC.ForeColor = SystemColors.ButtonFace;
+            Final1SC.Location = new Point(896, 193);
+            Final1SC.Name = "Final1SC";
+            Final1SC.Size = new Size(50, 35);
+            Final1SC.TabIndex = 46;
+            Final1SC.Text = " ";
+            Final1SC.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // CCRecord
+            // Semi2_2SC
             // 
-            CCRecord.FillWeight = 10F;
-            CCRecord.HeaderText = "Coach Record";
-            CCRecord.MinimumWidth = 9;
-            CCRecord.Name = "CCRecord";
-            CCRecord.ReadOnly = true;
+            Semi2_2SC.BorderStyle = BorderStyle.FixedSingle;
+            Semi2_2SC.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+            Semi2_2SC.ForeColor = SystemColors.ButtonFace;
+            Semi2_2SC.Location = new Point(723, 336);
+            Semi2_2SC.Name = "Semi2_2SC";
+            Semi2_2SC.Size = new Size(50, 35);
+            Semi2_2SC.TabIndex = 45;
+            Semi2_2SC.Text = " ";
+            Semi2_2SC.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // CCSeaRec
+            // Semi2_3SC
             // 
-            CCSeaRec.FillWeight = 10F;
-            CCSeaRec.HeaderText = "Season Record";
-            CCSeaRec.MinimumWidth = 9;
-            CCSeaRec.Name = "CCSeaRec";
-            CCSeaRec.ReadOnly = true;
+            Semi2_3SC.BorderStyle = BorderStyle.FixedSingle;
+            Semi2_3SC.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+            Semi2_3SC.ForeColor = SystemColors.ButtonFace;
+            Semi2_3SC.Location = new Point(723, 297);
+            Semi2_3SC.Name = "Semi2_3SC";
+            Semi2_3SC.Size = new Size(50, 35);
+            Semi2_3SC.TabIndex = 44;
+            Semi2_3SC.Text = " ";
+            Semi2_3SC.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // CCCoachRating
+            // Semi1_4SC
             // 
-            CCCoachRating.FillWeight = 10F;
-            CCCoachRating.HeaderText = "Hot Seat";
-            CCCoachRating.Name = "CCCoachRating";
-            CCCoachRating.ReadOnly = true;
+            Semi1_4SC.BorderStyle = BorderStyle.FixedSingle;
+            Semi1_4SC.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+            Semi1_4SC.ForeColor = SystemColors.ButtonFace;
+            Semi1_4SC.Location = new Point(723, 131);
+            Semi1_4SC.Name = "Semi1_4SC";
+            Semi1_4SC.Size = new Size(50, 35);
+            Semi1_4SC.TabIndex = 43;
+            Semi1_4SC.Text = " ";
+            Semi1_4SC.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // Semi1_1SC
+            // 
+            Semi1_1SC.BorderStyle = BorderStyle.FixedSingle;
+            Semi1_1SC.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+            Semi1_1SC.ForeColor = SystemColors.ButtonFace;
+            Semi1_1SC.Location = new Point(723, 92);
+            Semi1_1SC.Name = "Semi1_1SC";
+            Semi1_1SC.Size = new Size(50, 35);
+            Semi1_1SC.TabIndex = 42;
+            Semi1_1SC.Text = " ";
+            Semi1_1SC.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // Round2_710SC
+            // 
+            Round2_710SC.BorderStyle = BorderStyle.FixedSingle;
+            Round2_710SC.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+            Round2_710SC.ForeColor = SystemColors.ButtonFace;
+            Round2_710SC.Location = new Point(476, 377);
+            Round2_710SC.Name = "Round2_710SC";
+            Round2_710SC.Size = new Size(50, 35);
+            Round2_710SC.TabIndex = 41;
+            Round2_710SC.Text = " ";
+            Round2_710SC.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // Round2_2SC
+            // 
+            Round2_2SC.BorderStyle = BorderStyle.FixedSingle;
+            Round2_2SC.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+            Round2_2SC.ForeColor = SystemColors.ButtonFace;
+            Round2_2SC.Location = new Point(476, 338);
+            Round2_2SC.Name = "Round2_2SC";
+            Round2_2SC.Size = new Size(50, 35);
+            Round2_2SC.TabIndex = 40;
+            Round2_2SC.Text = " ";
+            Round2_2SC.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // Round2_611SC
+            // 
+            Round2_611SC.BorderStyle = BorderStyle.FixedSingle;
+            Round2_611SC.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+            Round2_611SC.ForeColor = SystemColors.ButtonFace;
+            Round2_611SC.Location = new Point(476, 273);
+            Round2_611SC.Name = "Round2_611SC";
+            Round2_611SC.Size = new Size(50, 35);
+            Round2_611SC.TabIndex = 39;
+            Round2_611SC.Text = " ";
+            Round2_611SC.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // Round2_3SC
+            // 
+            Round2_3SC.BorderStyle = BorderStyle.FixedSingle;
+            Round2_3SC.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+            Round2_3SC.ForeColor = SystemColors.ButtonFace;
+            Round2_3SC.Location = new Point(476, 234);
+            Round2_3SC.Name = "Round2_3SC";
+            Round2_3SC.Size = new Size(50, 35);
+            Round2_3SC.TabIndex = 38;
+            Round2_3SC.Text = " ";
+            Round2_3SC.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // Round2_512SC
+            // 
+            Round2_512SC.BorderStyle = BorderStyle.FixedSingle;
+            Round2_512SC.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+            Round2_512SC.ForeColor = SystemColors.ButtonFace;
+            Round2_512SC.Location = new Point(476, 172);
+            Round2_512SC.Name = "Round2_512SC";
+            Round2_512SC.Size = new Size(50, 35);
+            Round2_512SC.TabIndex = 37;
+            Round2_512SC.Text = " ";
+            Round2_512SC.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // Round2_4SC
+            // 
+            Round2_4SC.BorderStyle = BorderStyle.FixedSingle;
+            Round2_4SC.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+            Round2_4SC.ForeColor = SystemColors.ButtonFace;
+            Round2_4SC.Location = new Point(476, 133);
+            Round2_4SC.Name = "Round2_4SC";
+            Round2_4SC.Size = new Size(50, 35);
+            Round2_4SC.TabIndex = 36;
+            Round2_4SC.Text = " ";
+            Round2_4SC.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // Round2_89SC
+            // 
+            Round2_89SC.BorderStyle = BorderStyle.FixedSingle;
+            Round2_89SC.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+            Round2_89SC.ForeColor = SystemColors.ButtonFace;
+            Round2_89SC.Location = new Point(476, 65);
+            Round2_89SC.Name = "Round2_89SC";
+            Round2_89SC.Size = new Size(50, 35);
+            Round2_89SC.TabIndex = 35;
+            Round2_89SC.Text = " ";
+            Round2_89SC.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // Round2_1SC
+            // 
+            Round2_1SC.BorderStyle = BorderStyle.FixedSingle;
+            Round2_1SC.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+            Round2_1SC.ForeColor = SystemColors.ButtonFace;
+            Round2_1SC.Location = new Point(476, 26);
+            Round2_1SC.Name = "Round2_1SC";
+            Round2_1SC.Size = new Size(50, 35);
+            Round2_1SC.TabIndex = 34;
+            Round2_1SC.Text = " ";
+            Round2_1SC.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // Round1_10SC
+            // 
+            Round1_10SC.BorderStyle = BorderStyle.FixedSingle;
+            Round1_10SC.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+            Round1_10SC.ForeColor = SystemColors.ButtonFace;
+            Round1_10SC.Location = new Point(209, 377);
+            Round1_10SC.Name = "Round1_10SC";
+            Round1_10SC.Size = new Size(50, 35);
+            Round1_10SC.TabIndex = 33;
+            Round1_10SC.Text = " ";
+            Round1_10SC.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // Round1_7SC
+            // 
+            Round1_7SC.BorderStyle = BorderStyle.FixedSingle;
+            Round1_7SC.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+            Round1_7SC.ForeColor = SystemColors.ButtonFace;
+            Round1_7SC.Location = new Point(209, 338);
+            Round1_7SC.Name = "Round1_7SC";
+            Round1_7SC.Size = new Size(50, 35);
+            Round1_7SC.TabIndex = 32;
+            Round1_7SC.Text = " ";
+            Round1_7SC.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // Round1_11SC
+            // 
+            Round1_11SC.BorderStyle = BorderStyle.FixedSingle;
+            Round1_11SC.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+            Round1_11SC.ForeColor = SystemColors.ButtonFace;
+            Round1_11SC.Location = new Point(209, 273);
+            Round1_11SC.Name = "Round1_11SC";
+            Round1_11SC.Size = new Size(50, 35);
+            Round1_11SC.TabIndex = 31;
+            Round1_11SC.Text = " ";
+            Round1_11SC.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // Round1_6SC
+            // 
+            Round1_6SC.BorderStyle = BorderStyle.FixedSingle;
+            Round1_6SC.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+            Round1_6SC.ForeColor = SystemColors.ButtonFace;
+            Round1_6SC.Location = new Point(209, 234);
+            Round1_6SC.Name = "Round1_6SC";
+            Round1_6SC.Size = new Size(50, 35);
+            Round1_6SC.TabIndex = 30;
+            Round1_6SC.Text = " ";
+            Round1_6SC.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // Round1_12SC
+            // 
+            Round1_12SC.BorderStyle = BorderStyle.FixedSingle;
+            Round1_12SC.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+            Round1_12SC.ForeColor = SystemColors.ButtonFace;
+            Round1_12SC.Location = new Point(209, 172);
+            Round1_12SC.Name = "Round1_12SC";
+            Round1_12SC.Size = new Size(50, 35);
+            Round1_12SC.TabIndex = 29;
+            Round1_12SC.Text = " ";
+            Round1_12SC.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // Round1_5SC
+            // 
+            Round1_5SC.BorderStyle = BorderStyle.FixedSingle;
+            Round1_5SC.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+            Round1_5SC.ForeColor = SystemColors.ButtonFace;
+            Round1_5SC.Location = new Point(209, 133);
+            Round1_5SC.Name = "Round1_5SC";
+            Round1_5SC.Size = new Size(50, 35);
+            Round1_5SC.TabIndex = 28;
+            Round1_5SC.Text = " ";
+            Round1_5SC.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // Round1_9SC
+            // 
+            Round1_9SC.BorderStyle = BorderStyle.FixedSingle;
+            Round1_9SC.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+            Round1_9SC.ForeColor = SystemColors.ButtonFace;
+            Round1_9SC.Location = new Point(209, 65);
+            Round1_9SC.Name = "Round1_9SC";
+            Round1_9SC.Size = new Size(50, 35);
+            Round1_9SC.TabIndex = 27;
+            Round1_9SC.Text = " ";
+            Round1_9SC.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // Round1_8SC
+            // 
+            Round1_8SC.BorderStyle = BorderStyle.FixedSingle;
+            Round1_8SC.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+            Round1_8SC.ForeColor = SystemColors.ButtonFace;
+            Round1_8SC.Location = new Point(209, 26);
+            Round1_8SC.Name = "Round1_8SC";
+            Round1_8SC.Size = new Size(50, 35);
+            Round1_8SC.TabIndex = 26;
+            Round1_8SC.Text = " ";
+            Round1_8SC.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // Champ
+            // 
+            Champ.BackColor = Color.DarkGray;
+            Champ.BorderStyle = BorderStyle.FixedSingle;
+            Champ.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            Champ.Location = new Point(962, 336);
+            Champ.Margin = new Padding(3);
+            Champ.Name = "Champ";
+            Champ.Size = new Size(175, 35);
+            Champ.TabIndex = 24;
+            Champ.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // Round2_710
+            // 
+            Round2_710.BackColor = Color.DarkGray;
+            Round2_710.BorderStyle = BorderStyle.FixedSingle;
+            Round2_710.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+            Round2_710.Location = new Point(297, 377);
+            Round2_710.Margin = new Padding(3);
+            Round2_710.Name = "Round2_710";
+            Round2_710.Size = new Size(175, 35);
+            Round2_710.TabIndex = 22;
+            Round2_710.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // Round2_2
+            // 
+            Round2_2.BackColor = Color.LightGray;
+            Round2_2.BorderStyle = BorderStyle.FixedSingle;
+            Round2_2.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+            Round2_2.Location = new Point(297, 338);
+            Round2_2.Margin = new Padding(3);
+            Round2_2.Name = "Round2_2";
+            Round2_2.Size = new Size(175, 35);
+            Round2_2.TabIndex = 21;
+            Round2_2.Text = "#2 Team";
+            Round2_2.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // Round1_5
+            // 
+            Round1_5.BackColor = Color.LightGray;
+            Round1_5.BorderStyle = BorderStyle.FixedSingle;
+            Round1_5.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+            Round1_5.Location = new Point(30, 133);
+            Round1_5.Margin = new Padding(3);
+            Round1_5.Name = "Round1_5";
+            Round1_5.Size = new Size(175, 35);
+            Round1_5.TabIndex = 20;
+            Round1_5.Text = "#5 Team";
+            Round1_5.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // Round2_3
+            // 
+            Round2_3.BackColor = Color.LightGray;
+            Round2_3.BorderStyle = BorderStyle.FixedSingle;
+            Round2_3.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+            Round2_3.Location = new Point(297, 234);
+            Round2_3.Margin = new Padding(3);
+            Round2_3.Name = "Round2_3";
+            Round2_3.Size = new Size(175, 35);
+            Round2_3.TabIndex = 19;
+            Round2_3.Text = "#3 Team";
+            Round2_3.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // Round2_89
+            // 
+            Round2_89.BackColor = Color.DarkGray;
+            Round2_89.BorderStyle = BorderStyle.FixedSingle;
+            Round2_89.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+            Round2_89.Location = new Point(297, 65);
+            Round2_89.Margin = new Padding(3);
+            Round2_89.Name = "Round2_89";
+            Round2_89.Size = new Size(175, 35);
+            Round2_89.TabIndex = 18;
+            Round2_89.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // Round2_1
+            // 
+            Round2_1.BackColor = Color.LightGray;
+            Round2_1.BorderStyle = BorderStyle.FixedSingle;
+            Round2_1.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+            Round2_1.Location = new Point(297, 26);
+            Round2_1.Margin = new Padding(3);
+            Round2_1.Name = "Round2_1";
+            Round2_1.Size = new Size(175, 35);
+            Round2_1.TabIndex = 17;
+            Round2_1.Text = "#1 Team";
+            Round2_1.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // Semi2_3
+            // 
+            Semi2_3.BackColor = Color.DarkGray;
+            Semi2_3.BorderStyle = BorderStyle.FixedSingle;
+            Semi2_3.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+            Semi2_3.Location = new Point(546, 297);
+            Semi2_3.Margin = new Padding(3);
+            Semi2_3.Name = "Semi2_3";
+            Semi2_3.Size = new Size(175, 35);
+            Semi2_3.TabIndex = 16;
+            Semi2_3.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // Semi1_4
+            // 
+            Semi1_4.BackColor = Color.DarkGray;
+            Semi1_4.BorderStyle = BorderStyle.FixedSingle;
+            Semi1_4.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+            Semi1_4.Location = new Point(546, 131);
+            Semi1_4.Margin = new Padding(3);
+            Semi1_4.Name = "Semi1_4";
+            Semi1_4.Size = new Size(175, 35);
+            Semi1_4.TabIndex = 15;
+            Semi1_4.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // Final1
+            // 
+            Final1.BackColor = Color.DarkGray;
+            Final1.BorderStyle = BorderStyle.FixedSingle;
+            Final1.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+            Final1.Location = new Point(718, 193);
+            Final1.Margin = new Padding(3);
+            Final1.Name = "Final1";
+            Final1.Size = new Size(175, 35);
+            Final1.TabIndex = 14;
+            Final1.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // Semi2_2
+            // 
+            Semi2_2.BackColor = Color.DarkGray;
+            Semi2_2.BorderStyle = BorderStyle.FixedSingle;
+            Semi2_2.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+            Semi2_2.Location = new Point(546, 336);
+            Semi2_2.Margin = new Padding(3);
+            Semi2_2.Name = "Semi2_2";
+            Semi2_2.Size = new Size(175, 35);
+            Semi2_2.TabIndex = 13;
+            Semi2_2.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // Final2
+            // 
+            Final2.BackColor = Color.DarkGray;
+            Final2.BorderStyle = BorderStyle.FixedSingle;
+            Final2.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+            Final2.Location = new Point(718, 232);
+            Final2.Margin = new Padding(3);
+            Final2.Name = "Final2";
+            Final2.Size = new Size(175, 35);
+            Final2.TabIndex = 12;
+            Final2.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // Round2_4
+            // 
+            Round2_4.BackColor = Color.LightGray;
+            Round2_4.BorderStyle = BorderStyle.FixedSingle;
+            Round2_4.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+            Round2_4.Location = new Point(297, 133);
+            Round2_4.Margin = new Padding(3);
+            Round2_4.Name = "Round2_4";
+            Round2_4.Size = new Size(175, 35);
+            Round2_4.TabIndex = 11;
+            Round2_4.Text = "#4 Team";
+            Round2_4.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // Round2_512
+            // 
+            Round2_512.BackColor = Color.DarkGray;
+            Round2_512.BorderStyle = BorderStyle.FixedSingle;
+            Round2_512.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+            Round2_512.Location = new Point(297, 172);
+            Round2_512.Margin = new Padding(3);
+            Round2_512.Name = "Round2_512";
+            Round2_512.Size = new Size(175, 35);
+            Round2_512.TabIndex = 10;
+            Round2_512.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // Semi1_1
+            // 
+            Semi1_1.BackColor = Color.DarkGray;
+            Semi1_1.BorderStyle = BorderStyle.FixedSingle;
+            Semi1_1.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+            Semi1_1.Location = new Point(546, 92);
+            Semi1_1.Margin = new Padding(3);
+            Semi1_1.Name = "Semi1_1";
+            Semi1_1.Size = new Size(175, 35);
+            Semi1_1.TabIndex = 9;
+            Semi1_1.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // Round2_611
+            // 
+            Round2_611.BackColor = Color.DarkGray;
+            Round2_611.BorderStyle = BorderStyle.FixedSingle;
+            Round2_611.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+            Round2_611.Location = new Point(297, 273);
+            Round2_611.Margin = new Padding(3);
+            Round2_611.Name = "Round2_611";
+            Round2_611.Size = new Size(175, 35);
+            Round2_611.TabIndex = 8;
+            Round2_611.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // Round1_6
+            // 
+            Round1_6.BackColor = Color.LightGray;
+            Round1_6.BorderStyle = BorderStyle.FixedSingle;
+            Round1_6.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+            Round1_6.Location = new Point(30, 234);
+            Round1_6.Margin = new Padding(3);
+            Round1_6.Name = "Round1_6";
+            Round1_6.Size = new Size(175, 35);
+            Round1_6.TabIndex = 7;
+            Round1_6.Text = "#6 Team";
+            Round1_6.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // Round1_12
+            // 
+            Round1_12.BackColor = Color.LightGray;
+            Round1_12.BorderStyle = BorderStyle.FixedSingle;
+            Round1_12.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+            Round1_12.Location = new Point(30, 172);
+            Round1_12.Margin = new Padding(3);
+            Round1_12.Name = "Round1_12";
+            Round1_12.Size = new Size(175, 35);
+            Round1_12.TabIndex = 6;
+            Round1_12.Text = "#12 Team";
+            Round1_12.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // Round1_8
+            // 
+            Round1_8.BackColor = Color.LightGray;
+            Round1_8.BorderStyle = BorderStyle.FixedSingle;
+            Round1_8.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+            Round1_8.Location = new Point(30, 26);
+            Round1_8.Margin = new Padding(3);
+            Round1_8.Name = "Round1_8";
+            Round1_8.Size = new Size(175, 35);
+            Round1_8.TabIndex = 5;
+            Round1_8.Text = "#8 Team";
+            Round1_8.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // Round1_11
+            // 
+            Round1_11.BackColor = Color.LightGray;
+            Round1_11.BorderStyle = BorderStyle.FixedSingle;
+            Round1_11.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+            Round1_11.Location = new Point(30, 273);
+            Round1_11.Margin = new Padding(3);
+            Round1_11.Name = "Round1_11";
+            Round1_11.Size = new Size(175, 35);
+            Round1_11.TabIndex = 4;
+            Round1_11.Text = "#11 Team";
+            Round1_11.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // Round1_10
+            // 
+            Round1_10.BackColor = Color.LightGray;
+            Round1_10.BorderStyle = BorderStyle.FixedSingle;
+            Round1_10.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+            Round1_10.Location = new Point(30, 377);
+            Round1_10.Margin = new Padding(3);
+            Round1_10.Name = "Round1_10";
+            Round1_10.Size = new Size(175, 35);
+            Round1_10.TabIndex = 3;
+            Round1_10.Text = "#10 Team";
+            Round1_10.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // Round1_7
+            // 
+            Round1_7.BackColor = Color.LightGray;
+            Round1_7.BorderStyle = BorderStyle.FixedSingle;
+            Round1_7.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+            Round1_7.Location = new Point(30, 338);
+            Round1_7.Margin = new Padding(3);
+            Round1_7.Name = "Round1_7";
+            Round1_7.Size = new Size(175, 35);
+            Round1_7.TabIndex = 2;
+            Round1_7.Text = "#7 Team";
+            Round1_7.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // Round1_9
+            // 
+            Round1_9.BackColor = Color.LightGray;
+            Round1_9.BorderStyle = BorderStyle.FixedSingle;
+            Round1_9.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
+            Round1_9.Location = new Point(30, 65);
+            Round1_9.Margin = new Padding(3);
+            Round1_9.Name = "Round1_9";
+            Round1_9.Size = new Size(175, 35);
+            Round1_9.TabIndex = 1;
+            Round1_9.Text = "#9 Team";
+            Round1_9.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.BackColor = Color.Transparent;
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(962, 51);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(175, 320);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 25;
+            pictureBox2.TabStop = false;
             // 
             // MainEditor
             // 
@@ -13774,11 +14508,11 @@ namespace DB_EDITOR
             groupBox43.ResumeLayout(false);
             groupBox17.ResumeLayout(false);
             groupBox17.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)removeInterestTeams).EndInit();
             ((System.ComponentModel.ISupportInitialize)minRecPts).EndInit();
             ((System.ComponentModel.ISupportInitialize)minTRPA).EndInit();
             groupBox16.ResumeLayout(false);
             groupBox16.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)removeInterestTeams).EndInit();
             ((System.ComponentModel.ISupportInitialize)toleranceWalkOn).EndInit();
             ((System.ComponentModel.ISupportInitialize)recruitTolerance).EndInit();
             tabRecruits.ResumeLayout(false);
@@ -14019,6 +14753,10 @@ namespace DB_EDITOR
             groupBox31.PerformLayout();
             tabSTRMDATA.ResumeLayout(false);
             groupBox41.ResumeLayout(false);
+            tabPlayoff.ResumeLayout(false);
+            tabPlayoff.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -15153,6 +15891,57 @@ namespace DB_EDITOR
         private DataGridViewTextBoxColumn CCRecord;
         private DataGridViewTextBoxColumn CCSeaRec;
         private DataGridViewTextBoxColumn CCCoachRating;
+        public System.Windows.Forms.Button ExportDC2;
+        private System.Windows.Forms.Button CreateFCSTransferPortalButton;
+        private TabPage tabPlayoff;
+        private Label Round2_710;
+        private Label Round2_2;
+        private Label Round1_5;
+        private Label Round2_3;
+        private Label Round2_89;
+        private Label Round2_1;
+        private Label Semi2_3;
+        private Label Semi1_4;
+        private Label Final1;
+        private Label Semi2_2;
+        private Label Final2;
+        private Label Round2_4;
+        private Label Round2_512;
+        private Label Semi1_1;
+        private Label Round2_611;
+        private Label Round1_6;
+        private Label Round1_12;
+        private Label Round1_8;
+        private Label Round1_11;
+        private Label Round1_10;
+        private Label Round1_7;
+        private Label Round1_9;
+        private Label Champ;
+        private PictureBox pictureBox2;
+        private Label Final2SC;
+        private Label Final1SC;
+        private Label Semi2_2SC;
+        private Label Semi2_3SC;
+        private Label Semi1_4SC;
+        private Label Semi1_1SC;
+        private Label Round2_710SC;
+        private Label Round2_2SC;
+        private Label Round2_611SC;
+        private Label Round2_3SC;
+        private Label Round2_512SC;
+        private Label Round2_4SC;
+        private Label Round2_89SC;
+        private Label Round2_1SC;
+        private Label Round1_10SC;
+        private Label Round1_7SC;
+        private Label Round1_11SC;
+        private Label Round1_6SC;
+        private Label Round1_12SC;
+        private Label Round1_5SC;
+        private Label Round1_9SC;
+        private Label Round1_8SC;
+        private PictureBox pictureBox4;
+        private Label PlayoffYearLabel;
     }
 }
 
