@@ -913,7 +913,7 @@ namespace DB_EDITOR
                         }
                         else
                         {
-                            if (main.teamNameDB.Contains(LeagueData[row][column].ToString()))
+                            if (AllTeamsListBox.Items.Contains(LeagueData[row][column].ToString()))
                             {
                                 confBoxes[column].Items.Add(LeagueData[row][column].ToString());
                                 AllTeamsListBox.Items.Remove(LeagueData[row][column].ToString());

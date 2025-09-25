@@ -1736,16 +1736,19 @@ namespace DB_EDITOR
             {
                 NextMod = true;
                 Next26Mod = false;
+                radio120.Checked = true;
             }
             else if (Next26Config.Checked)
             {
                 NextMod = false;
                 Next26Mod = true;
+                radio136.Checked = true;
             }
             else
             {
                 NextMod = false;
                 Next26Mod = false;
+                radio120.Checked = true;
             }
         }
 
@@ -1755,16 +1758,19 @@ namespace DB_EDITOR
             {
                 NextMod = true;
                 Next26Mod = false;
+                radio120.Checked = true;
             }
             else if (Next26Config.Checked)
             {
                 NextMod = false;
                 Next26Mod = true;
+                radio136.Checked = true;
             }
             else
             {
                 NextMod = false;
                 Next26Mod = false;
+                radio120.Checked = true;
             }
         }
 
@@ -1774,16 +1780,19 @@ namespace DB_EDITOR
             {
                 NextMod = true;
                 Next26Mod = false;
+                radio120.Checked = true;
             }
             else if (Next26Config.Checked)
             {
                 NextMod = false;
                 Next26Mod = true;
+                radio136.Checked = true;
             }
             else
             {
                 NextMod = false;
                 Next26Mod = false;
+                radio120.Checked = true;
             }
         }
     }

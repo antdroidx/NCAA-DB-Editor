@@ -1110,6 +1110,7 @@ namespace DB_EDITOR
             CreatePOCItable();
             CreateRatingsDB();
             maxPlayers = 66;
+
         }
 
         #endregion

@@ -621,6 +621,7 @@ namespace DB_EDITOR
             DCHT4 = new DataGridViewComboBoxColumn();
             DCHT5 = new DataGridViewComboBoxColumn();
             tabSchedule = new TabPage();
+            ScheduleComboBox = new System.Windows.Forms.ComboBox();
             label213 = new Label();
             MatchView = new DataGridView();
             RatingCat = new DataGridViewTextBoxColumn();
@@ -629,7 +630,6 @@ namespace DB_EDITOR
             SCHDrecord = new Label();
             groupBox21 = new GroupBox();
             RescheduleOOC = new System.Windows.Forms.Button();
-            label212 = new Label();
             SchdTeamName = new Label();
             label211 = new Label();
             SCHDTeamBox = new ListBox();
@@ -7372,11 +7372,11 @@ namespace DB_EDITOR
             // tabSchedule
             // 
             tabSchedule.BackColor = SystemColors.ControlDark;
+            tabSchedule.Controls.Add(ScheduleComboBox);
             tabSchedule.Controls.Add(label213);
             tabSchedule.Controls.Add(MatchView);
             tabSchedule.Controls.Add(SCHDrecord);
             tabSchedule.Controls.Add(groupBox21);
-            tabSchedule.Controls.Add(label212);
             tabSchedule.Controls.Add(SchdTeamName);
             tabSchedule.Controls.Add(label211);
             tabSchedule.Controls.Add(SCHDTeamBox);
@@ -7387,6 +7387,17 @@ namespace DB_EDITOR
             tabSchedule.Size = new Size(1152, 610);
             tabSchedule.TabIndex = 16;
             tabSchedule.Text = "Schedule";
+            // 
+            // ScheduleComboBox
+            // 
+            ScheduleComboBox.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            ScheduleComboBox.FormattingEnabled = true;
+            ScheduleComboBox.Items.AddRange(new object[] { "View by Team", "View by Week" });
+            ScheduleComboBox.Location = new Point(15, 3);
+            ScheduleComboBox.Name = "ScheduleComboBox";
+            ScheduleComboBox.Size = new Size(168, 24);
+            ScheduleComboBox.TabIndex = 10;
+            ScheduleComboBox.SelectedIndexChanged += (this.ScheduleComboBox_SelectedIndexChanged);
             // 
             // label213
             // 
@@ -7486,16 +7497,6 @@ namespace DB_EDITOR
             RescheduleOOC.UseVisualStyleBackColor = true;
             RescheduleOOC.Click += (this.RescheduleOOC_Click);
             // 
-            // label212
-            // 
-            label212.AutoSize = true;
-            label212.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            label212.Location = new Point(15, 9);
-            label212.Name = "label212";
-            label212.Size = new Size(107, 15);
-            label212.TabIndex = 4;
-            label212.Text = "Team Selection";
-            // 
             // SchdTeamName
             // 
             SchdTeamName.Anchor = (AnchorStyles)(AnchorStyles.Top) | (AnchorStyles.Right);
@@ -7526,7 +7527,7 @@ namespace DB_EDITOR
             SCHDTeamBox.ItemHeight = 13;
             SCHDTeamBox.Location = new Point(15, 29);
             SCHDTeamBox.Name = "SCHDTeamBox";
-            SCHDTeamBox.Size = new Size(168, 576);
+            SCHDTeamBox.Size = new Size(168, 563);
             SCHDTeamBox.TabIndex = 1;
             SCHDTeamBox.SelectedIndexChanged += (this.SCHDTeamBox_SelectedIndexChanged);
             // 
@@ -13793,7 +13794,7 @@ namespace DB_EDITOR
             // 
             // tabPlayoff
             // 
-            tabPlayoff.BackColor = Color.Black;
+            tabPlayoff.BackColor = Color.DimGray;
             tabPlayoff.BackgroundImage = (Image)resources.GetObject("tabPlayoff.BackgroundImage");
             tabPlayoff.BackgroundImageLayout = ImageLayout.Stretch;
             tabPlayoff.Controls.Add(PlayoffYearLabel);
@@ -13857,7 +13858,7 @@ namespace DB_EDITOR
             PlayoffYearLabel.BackColor = Color.Transparent;
             PlayoffYearLabel.Font = new Font("Microsoft Sans Serif", 27.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             PlayoffYearLabel.ForeColor = Color.Goldenrod;
-            PlayoffYearLabel.Location = new Point(529, 546);
+            PlayoffYearLabel.Location = new Point(425, 546);
             PlayoffYearLabel.Margin = new Padding(3);
             PlayoffYearLabel.Name = "PlayoffYearLabel";
             PlayoffYearLabel.Size = new Size(179, 42);
@@ -13868,20 +13869,22 @@ namespace DB_EDITOR
             // pictureBox4
             // 
             pictureBox4.BackColor = Color.Transparent;
+            pictureBox4.BackgroundImageLayout = ImageLayout.Stretch;
             pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(136, 430);
+            pictureBox4.Location = new Point(0, 436);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(933, 174);
-            pictureBox4.SizeMode = PictureBoxSizeMode.AutoSize;
+            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox4.TabIndex = 48;
             pictureBox4.TabStop = false;
             // 
             // Final2SC
             // 
             Final2SC.BorderStyle = BorderStyle.FixedSingle;
+            Final2SC.FlatStyle = FlatStyle.Popup;
             Final2SC.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
             Final2SC.ForeColor = SystemColors.ButtonFace;
-            Final2SC.Location = new Point(896, 232);
+            Final2SC.Location = new Point(898, 215);
             Final2SC.Name = "Final2SC";
             Final2SC.Size = new Size(50, 35);
             Final2SC.TabIndex = 47;
@@ -13891,9 +13894,10 @@ namespace DB_EDITOR
             // Final1SC
             // 
             Final1SC.BorderStyle = BorderStyle.FixedSingle;
+            Final1SC.FlatStyle = FlatStyle.Popup;
             Final1SC.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
             Final1SC.ForeColor = SystemColors.ButtonFace;
-            Final1SC.Location = new Point(896, 193);
+            Final1SC.Location = new Point(898, 179);
             Final1SC.Name = "Final1SC";
             Final1SC.Size = new Size(50, 35);
             Final1SC.TabIndex = 46;
@@ -13903,9 +13907,10 @@ namespace DB_EDITOR
             // Semi2_2SC
             // 
             Semi2_2SC.BorderStyle = BorderStyle.FixedSingle;
+            Semi2_2SC.FlatStyle = FlatStyle.Popup;
             Semi2_2SC.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
             Semi2_2SC.ForeColor = SystemColors.ButtonFace;
-            Semi2_2SC.Location = new Point(723, 336);
+            Semi2_2SC.Location = new Point(722, 321);
             Semi2_2SC.Name = "Semi2_2SC";
             Semi2_2SC.Size = new Size(50, 35);
             Semi2_2SC.TabIndex = 45;
@@ -13915,9 +13920,10 @@ namespace DB_EDITOR
             // Semi2_3SC
             // 
             Semi2_3SC.BorderStyle = BorderStyle.FixedSingle;
+            Semi2_3SC.FlatStyle = FlatStyle.Popup;
             Semi2_3SC.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
             Semi2_3SC.ForeColor = SystemColors.ButtonFace;
-            Semi2_3SC.Location = new Point(723, 297);
+            Semi2_3SC.Location = new Point(722, 285);
             Semi2_3SC.Name = "Semi2_3SC";
             Semi2_3SC.Size = new Size(50, 35);
             Semi2_3SC.TabIndex = 44;
@@ -13927,9 +13933,10 @@ namespace DB_EDITOR
             // Semi1_4SC
             // 
             Semi1_4SC.BorderStyle = BorderStyle.FixedSingle;
+            Semi1_4SC.FlatStyle = FlatStyle.Popup;
             Semi1_4SC.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
             Semi1_4SC.ForeColor = SystemColors.ButtonFace;
-            Semi1_4SC.Location = new Point(723, 131);
+            Semi1_4SC.Location = new Point(722, 115);
             Semi1_4SC.Name = "Semi1_4SC";
             Semi1_4SC.Size = new Size(50, 35);
             Semi1_4SC.TabIndex = 43;
@@ -13939,9 +13946,10 @@ namespace DB_EDITOR
             // Semi1_1SC
             // 
             Semi1_1SC.BorderStyle = BorderStyle.FixedSingle;
+            Semi1_1SC.FlatStyle = FlatStyle.Popup;
             Semi1_1SC.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
             Semi1_1SC.ForeColor = SystemColors.ButtonFace;
-            Semi1_1SC.Location = new Point(723, 92);
+            Semi1_1SC.Location = new Point(722, 79);
             Semi1_1SC.Name = "Semi1_1SC";
             Semi1_1SC.Size = new Size(50, 35);
             Semi1_1SC.TabIndex = 42;
@@ -13951,9 +13959,10 @@ namespace DB_EDITOR
             // Round2_710SC
             // 
             Round2_710SC.BorderStyle = BorderStyle.FixedSingle;
+            Round2_710SC.FlatStyle = FlatStyle.Popup;
             Round2_710SC.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
             Round2_710SC.ForeColor = SystemColors.ButtonFace;
-            Round2_710SC.Location = new Point(476, 377);
+            Round2_710SC.Location = new Point(473, 374);
             Round2_710SC.Name = "Round2_710SC";
             Round2_710SC.Size = new Size(50, 35);
             Round2_710SC.TabIndex = 41;
@@ -13963,9 +13972,10 @@ namespace DB_EDITOR
             // Round2_2SC
             // 
             Round2_2SC.BorderStyle = BorderStyle.FixedSingle;
+            Round2_2SC.FlatStyle = FlatStyle.Popup;
             Round2_2SC.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
             Round2_2SC.ForeColor = SystemColors.ButtonFace;
-            Round2_2SC.Location = new Point(476, 338);
+            Round2_2SC.Location = new Point(473, 338);
             Round2_2SC.Name = "Round2_2SC";
             Round2_2SC.Size = new Size(50, 35);
             Round2_2SC.TabIndex = 40;
@@ -13975,9 +13985,10 @@ namespace DB_EDITOR
             // Round2_611SC
             // 
             Round2_611SC.BorderStyle = BorderStyle.FixedSingle;
+            Round2_611SC.FlatStyle = FlatStyle.Popup;
             Round2_611SC.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
             Round2_611SC.ForeColor = SystemColors.ButtonFace;
-            Round2_611SC.Location = new Point(476, 273);
+            Round2_611SC.Location = new Point(473, 273);
             Round2_611SC.Name = "Round2_611SC";
             Round2_611SC.Size = new Size(50, 35);
             Round2_611SC.TabIndex = 39;
@@ -13987,9 +13998,10 @@ namespace DB_EDITOR
             // Round2_3SC
             // 
             Round2_3SC.BorderStyle = BorderStyle.FixedSingle;
+            Round2_3SC.FlatStyle = FlatStyle.Popup;
             Round2_3SC.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
             Round2_3SC.ForeColor = SystemColors.ButtonFace;
-            Round2_3SC.Location = new Point(476, 234);
+            Round2_3SC.Location = new Point(473, 237);
             Round2_3SC.Name = "Round2_3SC";
             Round2_3SC.Size = new Size(50, 35);
             Round2_3SC.TabIndex = 38;
@@ -13999,9 +14011,10 @@ namespace DB_EDITOR
             // Round2_512SC
             // 
             Round2_512SC.BorderStyle = BorderStyle.FixedSingle;
+            Round2_512SC.FlatStyle = FlatStyle.Popup;
             Round2_512SC.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
             Round2_512SC.ForeColor = SystemColors.ButtonFace;
-            Round2_512SC.Location = new Point(476, 172);
+            Round2_512SC.Location = new Point(473, 170);
             Round2_512SC.Name = "Round2_512SC";
             Round2_512SC.Size = new Size(50, 35);
             Round2_512SC.TabIndex = 37;
@@ -14011,9 +14024,10 @@ namespace DB_EDITOR
             // Round2_4SC
             // 
             Round2_4SC.BorderStyle = BorderStyle.FixedSingle;
+            Round2_4SC.FlatStyle = FlatStyle.Popup;
             Round2_4SC.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
             Round2_4SC.ForeColor = SystemColors.ButtonFace;
-            Round2_4SC.Location = new Point(476, 133);
+            Round2_4SC.Location = new Point(473, 134);
             Round2_4SC.Name = "Round2_4SC";
             Round2_4SC.Size = new Size(50, 35);
             Round2_4SC.TabIndex = 36;
@@ -14023,9 +14037,10 @@ namespace DB_EDITOR
             // Round2_89SC
             // 
             Round2_89SC.BorderStyle = BorderStyle.FixedSingle;
+            Round2_89SC.FlatStyle = FlatStyle.Popup;
             Round2_89SC.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
             Round2_89SC.ForeColor = SystemColors.ButtonFace;
-            Round2_89SC.Location = new Point(476, 65);
+            Round2_89SC.Location = new Point(473, 65);
             Round2_89SC.Name = "Round2_89SC";
             Round2_89SC.Size = new Size(50, 35);
             Round2_89SC.TabIndex = 35;
@@ -14035,9 +14050,10 @@ namespace DB_EDITOR
             // Round2_1SC
             // 
             Round2_1SC.BorderStyle = BorderStyle.FixedSingle;
+            Round2_1SC.FlatStyle = FlatStyle.Popup;
             Round2_1SC.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
             Round2_1SC.ForeColor = SystemColors.ButtonFace;
-            Round2_1SC.Location = new Point(476, 26);
+            Round2_1SC.Location = new Point(473, 29);
             Round2_1SC.Name = "Round2_1SC";
             Round2_1SC.Size = new Size(50, 35);
             Round2_1SC.TabIndex = 34;
@@ -14047,9 +14063,10 @@ namespace DB_EDITOR
             // Round1_10SC
             // 
             Round1_10SC.BorderStyle = BorderStyle.FixedSingle;
+            Round1_10SC.FlatStyle = FlatStyle.Popup;
             Round1_10SC.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
             Round1_10SC.ForeColor = SystemColors.ButtonFace;
-            Round1_10SC.Location = new Point(209, 377);
+            Round1_10SC.Location = new Point(206, 374);
             Round1_10SC.Name = "Round1_10SC";
             Round1_10SC.Size = new Size(50, 35);
             Round1_10SC.TabIndex = 33;
@@ -14059,9 +14076,10 @@ namespace DB_EDITOR
             // Round1_7SC
             // 
             Round1_7SC.BorderStyle = BorderStyle.FixedSingle;
+            Round1_7SC.FlatStyle = FlatStyle.Popup;
             Round1_7SC.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
             Round1_7SC.ForeColor = SystemColors.ButtonFace;
-            Round1_7SC.Location = new Point(209, 338);
+            Round1_7SC.Location = new Point(206, 338);
             Round1_7SC.Name = "Round1_7SC";
             Round1_7SC.Size = new Size(50, 35);
             Round1_7SC.TabIndex = 32;
@@ -14071,9 +14089,10 @@ namespace DB_EDITOR
             // Round1_11SC
             // 
             Round1_11SC.BorderStyle = BorderStyle.FixedSingle;
+            Round1_11SC.FlatStyle = FlatStyle.Popup;
             Round1_11SC.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
             Round1_11SC.ForeColor = SystemColors.ButtonFace;
-            Round1_11SC.Location = new Point(209, 273);
+            Round1_11SC.Location = new Point(206, 273);
             Round1_11SC.Name = "Round1_11SC";
             Round1_11SC.Size = new Size(50, 35);
             Round1_11SC.TabIndex = 31;
@@ -14083,9 +14102,10 @@ namespace DB_EDITOR
             // Round1_6SC
             // 
             Round1_6SC.BorderStyle = BorderStyle.FixedSingle;
+            Round1_6SC.FlatStyle = FlatStyle.Popup;
             Round1_6SC.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
             Round1_6SC.ForeColor = SystemColors.ButtonFace;
-            Round1_6SC.Location = new Point(209, 234);
+            Round1_6SC.Location = new Point(206, 237);
             Round1_6SC.Name = "Round1_6SC";
             Round1_6SC.Size = new Size(50, 35);
             Round1_6SC.TabIndex = 30;
@@ -14095,9 +14115,10 @@ namespace DB_EDITOR
             // Round1_12SC
             // 
             Round1_12SC.BorderStyle = BorderStyle.FixedSingle;
+            Round1_12SC.FlatStyle = FlatStyle.Popup;
             Round1_12SC.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
             Round1_12SC.ForeColor = SystemColors.ButtonFace;
-            Round1_12SC.Location = new Point(209, 172);
+            Round1_12SC.Location = new Point(205, 169);
             Round1_12SC.Name = "Round1_12SC";
             Round1_12SC.Size = new Size(50, 35);
             Round1_12SC.TabIndex = 29;
@@ -14107,9 +14128,10 @@ namespace DB_EDITOR
             // Round1_5SC
             // 
             Round1_5SC.BorderStyle = BorderStyle.FixedSingle;
+            Round1_5SC.FlatStyle = FlatStyle.Popup;
             Round1_5SC.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
             Round1_5SC.ForeColor = SystemColors.ButtonFace;
-            Round1_5SC.Location = new Point(209, 133);
+            Round1_5SC.Location = new Point(205, 133);
             Round1_5SC.Name = "Round1_5SC";
             Round1_5SC.Size = new Size(50, 35);
             Round1_5SC.TabIndex = 28;
@@ -14119,9 +14141,10 @@ namespace DB_EDITOR
             // Round1_9SC
             // 
             Round1_9SC.BorderStyle = BorderStyle.FixedSingle;
+            Round1_9SC.FlatStyle = FlatStyle.Popup;
             Round1_9SC.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
             Round1_9SC.ForeColor = SystemColors.ButtonFace;
-            Round1_9SC.Location = new Point(209, 65);
+            Round1_9SC.Location = new Point(205, 65);
             Round1_9SC.Name = "Round1_9SC";
             Round1_9SC.Size = new Size(50, 35);
             Round1_9SC.TabIndex = 27;
@@ -14131,9 +14154,10 @@ namespace DB_EDITOR
             // Round1_8SC
             // 
             Round1_8SC.BorderStyle = BorderStyle.FixedSingle;
+            Round1_8SC.FlatStyle = FlatStyle.Popup;
             Round1_8SC.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
             Round1_8SC.ForeColor = SystemColors.ButtonFace;
-            Round1_8SC.Location = new Point(209, 26);
+            Round1_8SC.Location = new Point(205, 29);
             Round1_8SC.Name = "Round1_8SC";
             Round1_8SC.Size = new Size(50, 35);
             Round1_8SC.TabIndex = 26;
@@ -14144,11 +14168,11 @@ namespace DB_EDITOR
             // 
             Champ.BackColor = Color.DarkGray;
             Champ.BorderStyle = BorderStyle.FixedSingle;
-            Champ.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            Champ.Location = new Point(962, 336);
+            Champ.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            Champ.Location = new Point(941, 560);
             Champ.Margin = new Padding(3);
             Champ.Name = "Champ";
-            Champ.Size = new Size(175, 35);
+            Champ.Size = new Size(200, 40);
             Champ.TabIndex = 24;
             Champ.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -14156,8 +14180,9 @@ namespace DB_EDITOR
             // 
             Round2_710.BackColor = Color.DarkGray;
             Round2_710.BorderStyle = BorderStyle.FixedSingle;
+            Round2_710.FlatStyle = FlatStyle.Popup;
             Round2_710.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
-            Round2_710.Location = new Point(297, 377);
+            Round2_710.Location = new Point(297, 374);
             Round2_710.Margin = new Padding(3);
             Round2_710.Name = "Round2_710";
             Round2_710.Size = new Size(175, 35);
@@ -14168,6 +14193,7 @@ namespace DB_EDITOR
             // 
             Round2_2.BackColor = Color.LightGray;
             Round2_2.BorderStyle = BorderStyle.FixedSingle;
+            Round2_2.FlatStyle = FlatStyle.Popup;
             Round2_2.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
             Round2_2.Location = new Point(297, 338);
             Round2_2.Margin = new Padding(3);
@@ -14181,6 +14207,7 @@ namespace DB_EDITOR
             // 
             Round1_5.BackColor = Color.LightGray;
             Round1_5.BorderStyle = BorderStyle.FixedSingle;
+            Round1_5.FlatStyle = FlatStyle.Popup;
             Round1_5.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
             Round1_5.Location = new Point(30, 133);
             Round1_5.Margin = new Padding(3);
@@ -14194,8 +14221,9 @@ namespace DB_EDITOR
             // 
             Round2_3.BackColor = Color.LightGray;
             Round2_3.BorderStyle = BorderStyle.FixedSingle;
+            Round2_3.FlatStyle = FlatStyle.Popup;
             Round2_3.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
-            Round2_3.Location = new Point(297, 234);
+            Round2_3.Location = new Point(297, 237);
             Round2_3.Margin = new Padding(3);
             Round2_3.Name = "Round2_3";
             Round2_3.Size = new Size(175, 35);
@@ -14207,6 +14235,7 @@ namespace DB_EDITOR
             // 
             Round2_89.BackColor = Color.DarkGray;
             Round2_89.BorderStyle = BorderStyle.FixedSingle;
+            Round2_89.FlatStyle = FlatStyle.Popup;
             Round2_89.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
             Round2_89.Location = new Point(297, 65);
             Round2_89.Margin = new Padding(3);
@@ -14219,8 +14248,9 @@ namespace DB_EDITOR
             // 
             Round2_1.BackColor = Color.LightGray;
             Round2_1.BorderStyle = BorderStyle.FixedSingle;
+            Round2_1.FlatStyle = FlatStyle.Popup;
             Round2_1.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
-            Round2_1.Location = new Point(297, 26);
+            Round2_1.Location = new Point(297, 29);
             Round2_1.Margin = new Padding(3);
             Round2_1.Name = "Round2_1";
             Round2_1.Size = new Size(175, 35);
@@ -14232,8 +14262,9 @@ namespace DB_EDITOR
             // 
             Semi2_3.BackColor = Color.DarkGray;
             Semi2_3.BorderStyle = BorderStyle.FixedSingle;
+            Semi2_3.FlatStyle = FlatStyle.Popup;
             Semi2_3.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
-            Semi2_3.Location = new Point(546, 297);
+            Semi2_3.Location = new Point(546, 285);
             Semi2_3.Margin = new Padding(3);
             Semi2_3.Name = "Semi2_3";
             Semi2_3.Size = new Size(175, 35);
@@ -14244,8 +14275,9 @@ namespace DB_EDITOR
             // 
             Semi1_4.BackColor = Color.DarkGray;
             Semi1_4.BorderStyle = BorderStyle.FixedSingle;
+            Semi1_4.FlatStyle = FlatStyle.Popup;
             Semi1_4.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
-            Semi1_4.Location = new Point(546, 131);
+            Semi1_4.Location = new Point(546, 115);
             Semi1_4.Margin = new Padding(3);
             Semi1_4.Name = "Semi1_4";
             Semi1_4.Size = new Size(175, 35);
@@ -14256,8 +14288,9 @@ namespace DB_EDITOR
             // 
             Final1.BackColor = Color.DarkGray;
             Final1.BorderStyle = BorderStyle.FixedSingle;
+            Final1.FlatStyle = FlatStyle.Popup;
             Final1.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
-            Final1.Location = new Point(718, 193);
+            Final1.Location = new Point(722, 179);
             Final1.Margin = new Padding(3);
             Final1.Name = "Final1";
             Final1.Size = new Size(175, 35);
@@ -14268,8 +14301,9 @@ namespace DB_EDITOR
             // 
             Semi2_2.BackColor = Color.DarkGray;
             Semi2_2.BorderStyle = BorderStyle.FixedSingle;
+            Semi2_2.FlatStyle = FlatStyle.Popup;
             Semi2_2.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
-            Semi2_2.Location = new Point(546, 336);
+            Semi2_2.Location = new Point(546, 321);
             Semi2_2.Margin = new Padding(3);
             Semi2_2.Name = "Semi2_2";
             Semi2_2.Size = new Size(175, 35);
@@ -14280,8 +14314,9 @@ namespace DB_EDITOR
             // 
             Final2.BackColor = Color.DarkGray;
             Final2.BorderStyle = BorderStyle.FixedSingle;
+            Final2.FlatStyle = FlatStyle.Popup;
             Final2.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
-            Final2.Location = new Point(718, 232);
+            Final2.Location = new Point(722, 215);
             Final2.Margin = new Padding(3);
             Final2.Name = "Final2";
             Final2.Size = new Size(175, 35);
@@ -14292,8 +14327,9 @@ namespace DB_EDITOR
             // 
             Round2_4.BackColor = Color.LightGray;
             Round2_4.BorderStyle = BorderStyle.FixedSingle;
+            Round2_4.FlatStyle = FlatStyle.Popup;
             Round2_4.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
-            Round2_4.Location = new Point(297, 133);
+            Round2_4.Location = new Point(297, 134);
             Round2_4.Margin = new Padding(3);
             Round2_4.Name = "Round2_4";
             Round2_4.Size = new Size(175, 35);
@@ -14305,8 +14341,9 @@ namespace DB_EDITOR
             // 
             Round2_512.BackColor = Color.DarkGray;
             Round2_512.BorderStyle = BorderStyle.FixedSingle;
+            Round2_512.FlatStyle = FlatStyle.Popup;
             Round2_512.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
-            Round2_512.Location = new Point(297, 172);
+            Round2_512.Location = new Point(297, 170);
             Round2_512.Margin = new Padding(3);
             Round2_512.Name = "Round2_512";
             Round2_512.Size = new Size(175, 35);
@@ -14317,8 +14354,9 @@ namespace DB_EDITOR
             // 
             Semi1_1.BackColor = Color.DarkGray;
             Semi1_1.BorderStyle = BorderStyle.FixedSingle;
+            Semi1_1.FlatStyle = FlatStyle.Popup;
             Semi1_1.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
-            Semi1_1.Location = new Point(546, 92);
+            Semi1_1.Location = new Point(546, 79);
             Semi1_1.Margin = new Padding(3);
             Semi1_1.Name = "Semi1_1";
             Semi1_1.Size = new Size(175, 35);
@@ -14329,6 +14367,7 @@ namespace DB_EDITOR
             // 
             Round2_611.BackColor = Color.DarkGray;
             Round2_611.BorderStyle = BorderStyle.FixedSingle;
+            Round2_611.FlatStyle = FlatStyle.Popup;
             Round2_611.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
             Round2_611.Location = new Point(297, 273);
             Round2_611.Margin = new Padding(3);
@@ -14341,8 +14380,9 @@ namespace DB_EDITOR
             // 
             Round1_6.BackColor = Color.LightGray;
             Round1_6.BorderStyle = BorderStyle.FixedSingle;
+            Round1_6.FlatStyle = FlatStyle.Popup;
             Round1_6.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
-            Round1_6.Location = new Point(30, 234);
+            Round1_6.Location = new Point(30, 237);
             Round1_6.Margin = new Padding(3);
             Round1_6.Name = "Round1_6";
             Round1_6.Size = new Size(175, 35);
@@ -14354,8 +14394,9 @@ namespace DB_EDITOR
             // 
             Round1_12.BackColor = Color.LightGray;
             Round1_12.BorderStyle = BorderStyle.FixedSingle;
+            Round1_12.FlatStyle = FlatStyle.Popup;
             Round1_12.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
-            Round1_12.Location = new Point(30, 172);
+            Round1_12.Location = new Point(30, 169);
             Round1_12.Margin = new Padding(3);
             Round1_12.Name = "Round1_12";
             Round1_12.Size = new Size(175, 35);
@@ -14367,8 +14408,9 @@ namespace DB_EDITOR
             // 
             Round1_8.BackColor = Color.LightGray;
             Round1_8.BorderStyle = BorderStyle.FixedSingle;
+            Round1_8.FlatStyle = FlatStyle.Popup;
             Round1_8.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
-            Round1_8.Location = new Point(30, 26);
+            Round1_8.Location = new Point(30, 29);
             Round1_8.Margin = new Padding(3);
             Round1_8.Name = "Round1_8";
             Round1_8.Size = new Size(175, 35);
@@ -14380,6 +14422,7 @@ namespace DB_EDITOR
             // 
             Round1_11.BackColor = Color.LightGray;
             Round1_11.BorderStyle = BorderStyle.FixedSingle;
+            Round1_11.FlatStyle = FlatStyle.Popup;
             Round1_11.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
             Round1_11.Location = new Point(30, 273);
             Round1_11.Margin = new Padding(3);
@@ -14393,8 +14436,9 @@ namespace DB_EDITOR
             // 
             Round1_10.BackColor = Color.LightGray;
             Round1_10.BorderStyle = BorderStyle.FixedSingle;
+            Round1_10.FlatStyle = FlatStyle.Popup;
             Round1_10.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
-            Round1_10.Location = new Point(30, 377);
+            Round1_10.Location = new Point(30, 374);
             Round1_10.Margin = new Padding(3);
             Round1_10.Name = "Round1_10";
             Round1_10.Size = new Size(175, 35);
@@ -14406,6 +14450,7 @@ namespace DB_EDITOR
             // 
             Round1_7.BackColor = Color.LightGray;
             Round1_7.BorderStyle = BorderStyle.FixedSingle;
+            Round1_7.FlatStyle = FlatStyle.Popup;
             Round1_7.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
             Round1_7.Location = new Point(30, 338);
             Round1_7.Margin = new Padding(3);
@@ -14419,6 +14464,7 @@ namespace DB_EDITOR
             // 
             Round1_9.BackColor = Color.LightGray;
             Round1_9.BorderStyle = BorderStyle.FixedSingle;
+            Round1_9.FlatStyle = FlatStyle.Popup;
             Round1_9.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
             Round1_9.Location = new Point(30, 65);
             Round1_9.Margin = new Padding(3);
@@ -14432,7 +14478,7 @@ namespace DB_EDITOR
             // 
             pictureBox2.BackColor = Color.Transparent;
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(962, 51);
+            pictureBox2.Location = new Point(953, 273);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(175, 320);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -15225,7 +15271,6 @@ namespace DB_EDITOR
         private Label SCHDrecord;
         private GroupBox groupBox21;
         private System.Windows.Forms.Button RescheduleOOC;
-        private Label label212;
         private Label SchdTeamName;
         private Label label211;
         public ListBox SCHDTeamBox;
@@ -15942,6 +15987,7 @@ namespace DB_EDITOR
         private Label Round1_8SC;
         private PictureBox pictureBox4;
         private Label PlayoffYearLabel;
+        private System.Windows.Forms.ComboBox ScheduleComboBox;
     }
 }
 

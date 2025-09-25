@@ -20,14 +20,30 @@ namespace DB_EDITOR
         {
             DoNotTrigger = true;
             ScheduleView.Rows.Clear();
-            LoadScheduleTeamsBox();
             //LoadScheduleView();
 
+            ScheduleComboBox.SelectedIndex = 0;
+            LoadScheduleTeamsBox();
+
             DoNotTrigger = false;
+
         }
+
+        private void ScheduleComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ScheduleComboBoxChoice();
+        }
+
+        private void ScheduleComboBoxChoice()
+        {
+            if (ScheduleComboBox.SelectedIndex == 0) LoadScheduleTeamsBox();
+            else LoadScheduleWeekBox();
+        }
+
 
         private void LoadScheduleTeamsBox()
         {
+
             SCHDTeamBox.Items.Clear();
             List<string> teamList = new List<string>();
 
@@ -43,28 +59,55 @@ namespace DB_EDITOR
             {
                 if (teamList[i] != null) SCHDTeamBox.Items.Add(teamList[i]);
             }
+
+        }
+
+        private void LoadScheduleWeekBox()
+        {
+
+            SCHDTeamBox.Items.Clear();
+            int seow = GetDBValueInt("SEAI", "SEOW", 0);
+
+            for(int i = 0; i <= seow; i++)
+            {
+                SCHDTeamBox.Items.Add(i);
+            }
+
         }
 
         //Pick Team
         private void SCHDTeamBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (SCHDTeamBox.Items.Count < 1 || SCHDTeamBox.SelectedIndex == -1)
-                return;
+            if (ScheduleComboBox.SelectedIndex == -1) return;
 
-            int tgid = -1;
-            for (int i = 0; i < teamNameDB.Length; i++)
+
+            else if (ScheduleComboBox.SelectedIndex == 0)
             {
-                if (SCHDTeamBox.Text == teamNameDB[i])
+                if (SCHDTeamBox.Items.Count < 1 || SCHDTeamBox.SelectedIndex == -1)
+                    return;
+
+                int tgid = -1;
+                for (int i = 0; i < teamNameDB.Length; i++)
                 {
-                    tgid = i;
-                    break;
+                    if (SCHDTeamBox.Text == teamNameDB[i])
+                    {
+                        tgid = i;
+                        break;
+                    }
                 }
+
+                LoadScheduleTeamView(tgid);
             }
 
-            LoadScheduleView(tgid);
+            else
+            {
+                if (SCHDTeamBox.Items.Count < 1 || SCHDTeamBox.SelectedIndex == -1)
+                    return;
+                LoadScheduleWeekView(SCHDTeamBox.SelectedIndex);
+            }
         }
 
-        private void LoadScheduleView(int tgid)
+        private void LoadScheduleTeamView(int tgid)
         {
             ScheduleView.Rows.Clear();
 
@@ -103,6 +146,42 @@ namespace DB_EDITOR
             SCHDrecord.Text = "Season Record: " + GetDBValue("TEAM", "TSWI", rec) + " - " + GetDBValue("TEAM", "TSLO", rec);
 
         }
+
+        private void LoadScheduleWeekView(int sewn)
+        {
+            ScheduleView.Rows.Clear();
+            SchdTeamName.Text = "Week " + sewn;
+            SCHDrecord.Text = "";
+
+            for (int i = 0; i < GetTableRecCount("SCHD"); i++)
+            {
+                if (GetDBValueInt("SCHD", "SEWN", i) == sewn)
+                {
+                    int w = ScheduleView.Rows.Count;
+                    ScheduleView.Rows.Add(new DataGridViewRow());
+                    ScheduleView.Rows[w].Cells[0].Value = sewn;
+                    ScheduleView.Rows[w].Cells[1].Value = teamNameDB[GetDBValueInt("SCHD", "GHTG", i)];
+                    ScheduleView.Rows[w].Cells[2].Value = GetDBValueInt("SCHD", "GHSC", i);
+                    ScheduleView.Rows[w].Cells[3].Value = "vs";
+                    ScheduleView.Rows[w].Cells[4].Value = teamNameDB[GetDBValueInt("SCHD", "GATG", i)];
+                    ScheduleView.Rows[w].Cells[5].Value = GetDBValueInt("SCHD", "GASC", i);
+
+                    if (GetDBValueInt("SCHD", "GASC", i) > GetDBValueInt("SCHD", "GHSC", i))
+                    {
+                        ScheduleView.Rows[w].Cells[4].Style.Font = new Font(FontFamily.GenericSansSerif, emSize: 10, FontStyle.Bold);
+                    }
+                    else
+                    {
+                        ScheduleView.Rows[w].Cells[1].Style.Font = new Font(FontFamily.GenericSansSerif, emSize: 10, FontStyle.Bold);
+                    }
+                }
+            }
+
+        }
+
+
+
+
 
         //Match Viewer
 
@@ -251,6 +330,7 @@ namespace DB_EDITOR
             CreateMasterScheduleDB();
             OutOfConferenceScheduling();
         }
+
 
     }
 

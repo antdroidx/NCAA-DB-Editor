@@ -278,8 +278,9 @@ namespace DB_EDITOR
 
         private Label GetPlayoffLabel(Label lbl, int TGID, int teamRec)
         {
-            lbl.Text = "# " + GetDBValueInt("TEAM", "TBRK", teamRec) + " " + teamNameDB[TGID];
-            lbl.ForeColor = Color.FromArgb(GetDBValueInt("TEAM", "TFOR", teamRec), GetDBValueInt("TEAM", "TFOG", teamRec), GetDBValueInt("TEAM", "TFOB", teamRec));
+            lbl.Text = "" + GetDBValueInt("TEAM", "TBRK", teamRec) + " " + teamNameDB[TGID];
+            //lbl.ForeColor = Color.FromArgb(GetDBValueInt("TEAM", "TFOR", teamRec), GetDBValueInt("TEAM", "TFOG", teamRec), GetDBValueInt("TEAM", "TFOB", teamRec));
+            lbl.ForeColor = Color.White;
             lbl.BackColor = Color.FromArgb(GetDBValueInt("TEAM", "TFRD", teamRec), GetDBValueInt("TEAM", "TFFG", teamRec), GetDBValueInt("TEAM", "TFFB", teamRec));
            
             return lbl;
