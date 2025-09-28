@@ -339,7 +339,11 @@ namespace DB_EDITOR
             int rec = -1;
             for (int i = 0; i < GetTableRecCount("PLAY"); i++)
             {
-                if (GetDBValueInt("PLAY", "PGID", i) == PGID) return i;
+                if (GetDBValueInt("PLAY", "PGID", i) == PGID)
+                {
+                    return i;
+                    break;
+                }
             }
             return rec;
         }
@@ -351,6 +355,7 @@ namespace DB_EDITOR
             status.Add("None");
             status.Add("Current");
             status.Add("Redshirted");
+            if (Next26Mod) status.Add("Medical");
             return status;
         }
 
@@ -1469,6 +1474,35 @@ namespace DB_EDITOR
             else if(pitch == 6) return "Academics";
             else return "";
         }
+
+        private string ConvertStarNumber(int stars)
+        {
+            char whiteStar = '\u2606'; // ☆ White Star
+            char blackStar = '\u2605'; // ★ Black Star
+
+            string starPattern = "";
+            for (int i = 0; i < stars; i++)
+            {
+                starPattern += blackStar;
+            }
+
+            return starPattern;
+  
+        }
+
+        public int FindPRIDRecord(int PRID)
+        {
+            int rec = -1;
+            for (int i = 0; i < GetTable2RecCount("RCPT"); i++)
+            {
+                if (GetDB2ValueInt("RCPT", "PRID", i) == PRID)
+                {
+                    return i;
+                }
+            }
+            return rec;
+        }
+
 
         #endregion
 

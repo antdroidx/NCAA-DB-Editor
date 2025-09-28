@@ -94,27 +94,28 @@ namespace DB_EDITOR
 
                     RedistributePlayers();
                 }
-            }
 
-            //Remove unused FCS players
-            for (int i = 0; i < GetTableRecCount("PLAY"); i++)
-            {
-                int pgid = GetDBValueInt("PLAY", "PGID", i);
-                if (pgid >= 30000)
-                {
-                    DeleteRecord("PLAY", i, true);
-                }
-            }
 
-            for (int i = 0; i < GetTableRecCount("TRAN"); i++)
-            {
-                int pgid = GetDBValueInt("TRAN", "PGID", i);
-                if (pgid >= 30000)
+                //Remove unused FCS players
+                for (int i = 0; i < GetTableRecCount("PLAY"); i++)
                 {
-                    DeleteRecord("TRAN", i, true);
+                    int pgid = GetDBValueInt("PLAY", "PGID", i);
+                    if (pgid >= 30000)
+                    {
+                        DeleteRecord("PLAY", i, true);
+                    }
                 }
+
+                for (int i = 0; i < GetTableRecCount("TRAN"); i++)
+                {
+                    int pgid = GetDBValueInt("TRAN", "PGID", i);
+                    if (pgid >= 30000)
+                    {
+                        DeleteRecord("TRAN", i, true);
+                    }
+                }
+                CompactDB();
             }
-            CompactDB();
 
             PostPortalRosterCheck();
 

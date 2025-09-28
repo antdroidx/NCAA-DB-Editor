@@ -44,6 +44,9 @@ Credits:
     <Content Include="Resources\\**\\*" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="TeamStatsViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="Suspensions.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +65,9 @@ Credits:
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="Playoff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="RecruitRankings.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

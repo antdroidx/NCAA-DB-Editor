@@ -76,6 +76,42 @@ namespace DB_EDITOR
             DataGridViewCellStyle dataGridViewCellStyle39 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle40 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle41 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle42 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle43 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle44 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle45 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle46 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle47 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle48 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle49 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle50 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle51 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle52 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle53 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle54 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle55 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle56 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle57 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle58 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle59 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle60 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle61 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle62 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle63 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle64 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle65 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle66 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle67 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle68 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle69 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle70 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle71 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle72 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle73 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle74 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle75 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle76 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle77 = new DataGridViewCellStyle();
             qbTend = new System.Windows.Forms.Button();
             mainMenu = new MenuStrip();
             fileMenuItem = new ToolStripMenuItem();
@@ -1125,6 +1161,159 @@ namespace DB_EDITOR
             CCRecord = new DataGridViewTextBoxColumn();
             CCSeaRec = new DataGridViewTextBoxColumn();
             CCCoachRating = new DataGridViewTextBoxColumn();
+            tabPlayoff = new TabPage();
+            PlayoffYearLabel = new Label();
+            pictureBox4 = new PictureBox();
+            Final2SC = new Label();
+            Final1SC = new Label();
+            Semi2_2SC = new Label();
+            Semi2_3SC = new Label();
+            Semi1_4SC = new Label();
+            Semi1_1SC = new Label();
+            Round2_710SC = new Label();
+            Round2_2SC = new Label();
+            Round2_611SC = new Label();
+            Round2_3SC = new Label();
+            Round2_512SC = new Label();
+            Round2_4SC = new Label();
+            Round2_89SC = new Label();
+            Round2_1SC = new Label();
+            Round1_10SC = new Label();
+            Round1_7SC = new Label();
+            Round1_11SC = new Label();
+            Round1_6SC = new Label();
+            Round1_12SC = new Label();
+            Round1_5SC = new Label();
+            Round1_9SC = new Label();
+            Round1_8SC = new Label();
+            Champ = new Label();
+            Round2_710 = new Label();
+            Round2_2 = new Label();
+            Round1_5 = new Label();
+            Round2_3 = new Label();
+            Round2_89 = new Label();
+            Round2_1 = new Label();
+            Semi2_3 = new Label();
+            Semi1_4 = new Label();
+            Final1 = new Label();
+            Semi2_2 = new Label();
+            Final2 = new Label();
+            Round2_4 = new Label();
+            Round2_512 = new Label();
+            Semi1_1 = new Label();
+            Round2_611 = new Label();
+            Round1_6 = new Label();
+            Round1_12 = new Label();
+            Round1_8 = new Label();
+            Round1_11 = new Label();
+            Round1_10 = new Label();
+            Round1_7 = new Label();
+            Round1_9 = new Label();
+            pictureBox2 = new PictureBox();
+            tabTeamStats = new TabPage();
+            TSTeamBox = new System.Windows.Forms.ComboBox();
+            label195 = new Label();
+            TSReturn = new DataGridView();
+            dataGridViewTextBoxColumn67 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn76 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn68 = new DataGridViewTextBoxColumn();
+            TSKRYd = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn70 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn71 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn72 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn73 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn74 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn75 = new DataGridViewTextBoxColumn();
+            label194 = new Label();
+            label193 = new Label();
+            label191 = new Label();
+            label190 = new Label();
+            label189 = new Label();
+            label188 = new Label();
+            TSPunting = new DataGridView();
+            TSPunts = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn57 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn58 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn59 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn60 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn61 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn62 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn63 = new DataGridViewTextBoxColumn();
+            TSKicking = new DataGridView();
+            TSFGM = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn46 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn47 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn48 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn49 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn50 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn51 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn52 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn53 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn54 = new DataGridViewTextBoxColumn();
+            TSReceiving = new DataGridView();
+            dataGridViewTextBoxColumn34 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn35 = new DataGridViewTextBoxColumn();
+            TSCatch = new DataGridViewTextBoxColumn();
+            TSYdsCat = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn38 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn39 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn40 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn41 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn42 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn43 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn44 = new DataGridViewTextBoxColumn();
+            TSPassing = new DataGridView();
+            dataGridViewTextBoxColumn23 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn24 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn25 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn26 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn27 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn28 = new DataGridViewTextBoxColumn();
+            TSPassYds = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn30 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn31 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn32 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn33 = new DataGridViewTextBoxColumn();
+            TSDefense = new DataGridView();
+            dataGridViewTextBoxColumn12 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn13 = new DataGridViewTextBoxColumn();
+            TSTackles = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn15 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn16 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn17 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn18 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn19 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn20 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn21 = new DataGridViewTextBoxColumn();
+            TSRushing = new DataGridView();
+            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
+            TSRushYds = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn6 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn7 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn8 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn9 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn10 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn11 = new DataGridViewTextBoxColumn();
+            tabRecruiting = new TabPage();
+            label196 = new Label();
+            panel2 = new Panel();
+            RecruitRankingComboBox = new System.Windows.Forms.ComboBox();
+            RecruitTeamName = new Label();
+            RecruitTeamView = new DataGridView();
+            RecruitRankingView = new DataGridView();
+            dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn14 = new DataGridViewTextBoxColumn();
+            RB5Star = new DataGridViewTextBoxColumn();
+            RB4Star = new DataGridViewTextBoxColumn();
+            RB3Star = new DataGridViewTextBoxColumn();
+            RB2Star = new DataGridViewTextBoxColumn();
+            RB1Star = new DataGridViewTextBoxColumn();
+            RecruitRankingPts = new DataGridViewTextBoxColumn();
+            Column2 = new DataGridViewTextBoxColumn();
+            textBox2 = new System.Windows.Forms.TextBox();
             tabPortal = new TabPage();
             FCSTransferPortalCheckBox = new CheckBox();
             PortalCycleCount = new NumericUpDown();
@@ -1196,56 +1385,15 @@ namespace DB_EDITOR
             tabSTRMDATA = new TabPage();
             groupBox41 = new GroupBox();
             buttonRCATBody = new System.Windows.Forms.Button();
-            tabPlayoff = new TabPage();
-            PlayoffYearLabel = new Label();
-            pictureBox4 = new PictureBox();
-            Final2SC = new Label();
-            Final1SC = new Label();
-            Semi2_2SC = new Label();
-            Semi2_3SC = new Label();
-            Semi1_4SC = new Label();
-            Semi1_1SC = new Label();
-            Round2_710SC = new Label();
-            Round2_2SC = new Label();
-            Round2_611SC = new Label();
-            Round2_3SC = new Label();
-            Round2_512SC = new Label();
-            Round2_4SC = new Label();
-            Round2_89SC = new Label();
-            Round2_1SC = new Label();
-            Round1_10SC = new Label();
-            Round1_7SC = new Label();
-            Round1_11SC = new Label();
-            Round1_6SC = new Label();
-            Round1_12SC = new Label();
-            Round1_5SC = new Label();
-            Round1_9SC = new Label();
-            Round1_8SC = new Label();
-            Champ = new Label();
-            Round2_710 = new Label();
-            Round2_2 = new Label();
-            Round1_5 = new Label();
-            Round2_3 = new Label();
-            Round2_89 = new Label();
-            Round2_1 = new Label();
-            Semi2_3 = new Label();
-            Semi1_4 = new Label();
-            Final1 = new Label();
-            Semi2_2 = new Label();
-            Final2 = new Label();
-            Round2_4 = new Label();
-            Round2_512 = new Label();
-            Semi1_1 = new Label();
-            Round2_611 = new Label();
-            Round1_6 = new Label();
-            Round1_12 = new Label();
-            Round1_8 = new Label();
-            Round1_11 = new Label();
-            Round1_10 = new Label();
-            Round1_7 = new Label();
-            Round1_9 = new Label();
-            pictureBox2 = new PictureBox();
             toolTip1 = new System.Windows.Forms.ToolTip(components);
+            dataGridViewTextBoxColumn80 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn81 = new DataGridViewTextBoxColumn();
+            RecruitHomeTeam = new DataGridViewTextBoxColumn();
+            Column1 = new DataGridViewTextBoxColumn();
+            Column3 = new DataGridViewTextBoxColumn();
+            RecruitTeamOVR = new DataGridViewTextBoxColumn();
+            RecruitTeamStarRating = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn84 = new DataGridViewTextBoxColumn();
             mainMenu.SuspendLayout();
             tableMenu.SuspendLayout();
             fieldMenu.SuspendLayout();
@@ -1453,6 +1601,20 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)numberPlayerCoach).BeginInit();
             ((System.ComponentModel.ISupportInitialize)jobSecurityValue).BeginInit();
             ((System.ComponentModel.ISupportInitialize)CarouselDataGrid).BeginInit();
+            tabPlayoff.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            tabTeamStats.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)TSReturn).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)TSPunting).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)TSKicking).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)TSReceiving).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)TSPassing).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)TSDefense).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)TSRushing).BeginInit();
+            tabRecruiting.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)RecruitTeamView).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)RecruitRankingView).BeginInit();
             tabPortal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PortalCycleCount).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PortalData).BeginInit();
@@ -1479,9 +1641,6 @@ namespace DB_EDITOR
             groupBox31.SuspendLayout();
             tabSTRMDATA.SuspendLayout();
             groupBox41.SuspendLayout();
-            tabPlayoff.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             this.SuspendLayout();
             // 
             // qbTend
@@ -3852,7 +4011,7 @@ namespace DB_EDITOR
             tabOffSeason.Padding = new Padding(3);
             tabOffSeason.Size = new Size(1152, 610);
             tabOffSeason.TabIndex = 4;
-            tabOffSeason.Text = "Recruiting";
+            tabOffSeason.Text = "Off-Season";
             // 
             // groupBox43
             // 
@@ -5571,7 +5730,7 @@ namespace DB_EDITOR
             tabStats.Padding = new Padding(3);
             tabStats.Size = new Size(1152, 610);
             tabStats.TabIndex = 15;
-            tabStats.Text = "Stats";
+            tabStats.Text = "League Stats";
             // 
             // LoadStatDataButton
             // 
@@ -9903,7 +10062,7 @@ namespace DB_EDITOR
             PTEN.Location = new Point(300, 19);
             PTEN.Name = "PTEN";
             PTEN.ReadOnly = true;
-            PTEN.Size = new Size(102, 22);
+            PTEN.Size = new Size(130, 22);
             PTEN.TabIndex = 147;
             PTEN.TextAlign = HorizontalAlignment.Center;
             // 
@@ -12643,16 +12802,18 @@ namespace DB_EDITOR
             tabControl1.Controls.Add(tabConf);
             tabControl1.Controls.Add(tabBowls);
             tabControl1.Controls.Add(tabStadiums);
+            tabControl1.Controls.Add(tabPlayoff);
             tabControl1.Controls.Add(tabStats);
+            tabControl1.Controls.Add(tabTeamStats);
             tabControl1.Controls.Add(tabRecruits);
+            tabControl1.Controls.Add(tabRecruiting);
             tabControl1.Controls.Add(tabOffSeason);
             tabControl1.Controls.Add(tabPortal);
             tabControl1.Controls.Add(tabTools);
             tabControl1.Controls.Add(tabPlaybook);
+            tabControl1.Controls.Add(tabSTRMDATA);
             tabControl1.Controls.Add(tabUniforms);
             tabControl1.Controls.Add(tabDev);
-            tabControl1.Controls.Add(tabSTRMDATA);
-            tabControl1.Controls.Add(tabPlayoff);
             tabControl1.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
             tabControl1.ItemSize = new Size(65, 25);
             tabControl1.Location = new Point(12, 27);
@@ -13024,773 +13185,6 @@ namespace DB_EDITOR
             CCCoachRating.HeaderText = "Hot Seat";
             CCCoachRating.Name = "CCCoachRating";
             CCCoachRating.ReadOnly = true;
-            // 
-            // tabPortal
-            // 
-            tabPortal.BackColor = Color.Tan;
-            tabPortal.Controls.Add(FCSTransferPortalCheckBox);
-            tabPortal.Controls.Add(PortalCycleCount);
-            tabPortal.Controls.Add(label270);
-            tabPortal.Controls.Add(PortalRatingBoost);
-            tabPortal.Controls.Add(TransferEligible);
-            tabPortal.Controls.Add(TotalTransfersCount);
-            tabPortal.Controls.Add(PortalData);
-            tabPortal.Controls.Add(richTextBox3);
-            tabPortal.Controls.Add(richTextBox2);
-            tabPortal.Controls.Add(richTextBox1);
-            tabPortal.Controls.Add(PortalTransfers);
-            tabPortal.Controls.Add(portalChance);
-            tabPortal.Controls.Add(label259);
-            tabPortal.Controls.Add(groupBox33);
-            tabPortal.Controls.Add(groupBox32);
-            tabPortal.Controls.Add(groupBox31);
-            tabPortal.Controls.Add(SpringPortalButton);
-            tabPortal.Controls.Add(panel1);
-            tabPortal.Location = new Point(4, 29);
-            tabPortal.Name = "tabPortal";
-            tabPortal.Size = new Size(1152, 610);
-            tabPortal.TabIndex = 18;
-            tabPortal.Text = "Portal";
-            // 
-            // FCSTransferPortalCheckBox
-            // 
-            FCSTransferPortalCheckBox.AutoSize = true;
-            FCSTransferPortalCheckBox.Location = new Point(11, 399);
-            FCSTransferPortalCheckBox.Name = "FCSTransferPortalCheckBox";
-            FCSTransferPortalCheckBox.Size = new Size(151, 17);
-            FCSTransferPortalCheckBox.TabIndex = 45;
-            FCSTransferPortalCheckBox.Text = "Add FCS Players To Portal";
-            FCSTransferPortalCheckBox.TextAlign = ContentAlignment.MiddleCenter;
-            toolTip1.SetToolTip(FCSTransferPortalCheckBox, "This evalutes the roster and portal feature with a rating reduction of -1 and -2 for juniors and seniors, respectively. This is to allow underclassmen more opportunity.\r\n");
-            FCSTransferPortalCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // PortalCycleCount
-            // 
-            PortalCycleCount.Location = new Point(179, 86);
-            PortalCycleCount.Maximum = new decimal(new int[] { 25, 0, 0, 0 });
-            PortalCycleCount.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            PortalCycleCount.Name = "PortalCycleCount";
-            PortalCycleCount.Size = new Size(44, 20);
-            PortalCycleCount.TabIndex = 38;
-            PortalCycleCount.Value = new decimal(new int[] { 1, 0, 0, 0 });
-            // 
-            // label270
-            // 
-            label270.AutoSize = true;
-            label270.Location = new Point(11, 89);
-            label270.Name = "label270";
-            label270.Size = new Size(162, 13);
-            label270.TabIndex = 37;
-            label270.Text = "Number of Portal Cycles To Run:";
-            // 
-            // PortalRatingBoost
-            // 
-            PortalRatingBoost.AutoSize = true;
-            PortalRatingBoost.Location = new Point(11, 376);
-            PortalRatingBoost.Name = "PortalRatingBoost";
-            PortalRatingBoost.Size = new Size(212, 17);
-            PortalRatingBoost.TabIndex = 43;
-            PortalRatingBoost.Text = "Evaluate with JR/SR Rating Reduction";
-            PortalRatingBoost.TextAlign = ContentAlignment.MiddleCenter;
-            toolTip1.SetToolTip(PortalRatingBoost, "This evalutes the roster and portal feature with a rating reduction of -1 and -2 for juniors and seniors, respectively. This is to allow underclassmen more opportunity.\r\n");
-            PortalRatingBoost.UseVisualStyleBackColor = true;
-            // 
-            // TransferEligible
-            // 
-            TransferEligible.AutoSize = true;
-            TransferEligible.Location = new Point(11, 353);
-            TransferEligible.Name = "TransferEligible";
-            TransferEligible.Size = new Size(217, 17);
-            TransferEligible.TabIndex = 42;
-            TransferEligible.Text = "Immediate Eligibility Waiver (Vanilla Only)";
-            toolTip1.SetToolTip(TransferEligible, "This is for non-NEXT mod users only. It will remove the Transfer 1 year wait period.");
-            TransferEligible.UseVisualStyleBackColor = true;
-            // 
-            // TotalTransfersCount
-            // 
-            TotalTransfersCount.AutoSize = true;
-            TotalTransfersCount.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            TotalTransfersCount.Location = new Point(770, 588);
-            TotalTransfersCount.Name = "TotalTransfersCount";
-            TotalTransfersCount.Size = new Size(129, 16);
-            TotalTransfersCount.TabIndex = 41;
-            TotalTransfersCount.Text = "Total Transfers: 0";
-            // 
-            // PortalData
-            // 
-            PortalData.AllowUserToAddRows = false;
-            PortalData.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle39.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle39.BackColor = Color.FromArgb((int)(byte)224, (int)(byte)224, (int)(byte)224);
-            dataGridViewCellStyle39.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle39.WrapMode = DataGridViewTriState.True;
-            PortalData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle39;
-            PortalData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            PortalData.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle40.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle40.BackColor = SystemColors.Info;
-            dataGridViewCellStyle40.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle40.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle40.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle40.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle40.WrapMode = DataGridViewTriState.True;
-            PortalData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle40;
-            PortalData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            PortalData.Columns.AddRange(new DataGridViewColumn[] { PortalPosition, PortalTransferName, PortalClass, PortalRating, PortalNewSchool, PortalPrvTeam });
-            PortalData.Location = new Point(238, 14);
-            PortalData.Name = "PortalData";
-            PortalData.ReadOnly = true;
-            PortalData.RowHeadersVisible = false;
-            PortalData.RowHeadersWidth = 72;
-            dataGridViewCellStyle41.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle41.WrapMode = DataGridViewTriState.True;
-            PortalData.RowsDefaultCellStyle = dataGridViewCellStyle41;
-            PortalData.RowTemplate.Height = 31;
-            PortalData.Size = new Size(525, 587);
-            PortalData.TabIndex = 40;
-            // 
-            // PortalPosition
-            // 
-            PortalPosition.FillWeight = 8F;
-            PortalPosition.HeaderText = "Pos";
-            PortalPosition.MinimumWidth = 9;
-            PortalPosition.Name = "PortalPosition";
-            PortalPosition.ReadOnly = true;
-            // 
-            // PortalTransferName
-            // 
-            PortalTransferName.FillWeight = 35F;
-            PortalTransferName.HeaderText = "Player Name";
-            PortalTransferName.MinimumWidth = 9;
-            PortalTransferName.Name = "PortalTransferName";
-            PortalTransferName.ReadOnly = true;
-            // 
-            // PortalClass
-            // 
-            PortalClass.FillWeight = 13F;
-            PortalClass.HeaderText = "Year";
-            PortalClass.MinimumWidth = 9;
-            PortalClass.Name = "PortalClass";
-            PortalClass.ReadOnly = true;
-            // 
-            // PortalRating
-            // 
-            PortalRating.FillWeight = 7F;
-            PortalRating.HeaderText = "OVR";
-            PortalRating.MinimumWidth = 9;
-            PortalRating.Name = "PortalRating";
-            PortalRating.ReadOnly = true;
-            // 
-            // PortalNewSchool
-            // 
-            PortalNewSchool.FillWeight = 25F;
-            PortalNewSchool.HeaderText = "To";
-            PortalNewSchool.MinimumWidth = 9;
-            PortalNewSchool.Name = "PortalNewSchool";
-            PortalNewSchool.ReadOnly = true;
-            // 
-            // PortalPrvTeam
-            // 
-            PortalPrvTeam.FillWeight = 25F;
-            PortalPrvTeam.HeaderText = "From";
-            PortalPrvTeam.MinimumWidth = 9;
-            PortalPrvTeam.Name = "PortalPrvTeam";
-            PortalPrvTeam.ReadOnly = true;
-            // 
-            // richTextBox3
-            // 
-            richTextBox3.BackColor = SystemColors.Info;
-            richTextBox3.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            richTextBox3.Location = new Point(773, 505);
-            richTextBox3.Name = "richTextBox3";
-            richTextBox3.Size = new Size(361, 52);
-            richTextBox3.TabIndex = 39;
-            richTextBox3.Text = "The Spring Portal will only work after Spring Training Camp is over and before Team Cuts are performed.";
-            // 
-            // richTextBox2
-            // 
-            richTextBox2.BackColor = SystemColors.Info;
-            richTextBox2.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            richTextBox2.Location = new Point(12, 476);
-            richTextBox2.Name = "richTextBox2";
-            richTextBox2.Size = new Size(209, 125);
-            richTextBox2.TabIndex = 38;
-            richTextBox2.Text = resources.GetString("richTextBox2.Text");
-            // 
-            // richTextBox1
-            // 
-            richTextBox1.BackColor = SystemColors.Info;
-            richTextBox1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            richTextBox1.Location = new Point(773, 393);
-            richTextBox1.Name = "richTextBox1";
-            richTextBox1.Size = new Size(361, 97);
-            richTextBox1.TabIndex = 37;
-            richTextBox1.Text = resources.GetString("richTextBox1.Text");
-            // 
-            // PortalTransfers
-            // 
-            PortalTransfers.AutoSize = true;
-            PortalTransfers.Location = new Point(11, 330);
-            PortalTransfers.Name = "PortalTransfers";
-            PortalTransfers.Size = new Size(189, 17);
-            PortalTransfers.TabIndex = 36;
-            PortalTransfers.Text = "Allow Winter Transfers to Re-Enter";
-            toolTip1.SetToolTip(PortalTransfers, "This lets players who transferred in the previous portal to be available in this portal.");
-            PortalTransfers.UseVisualStyleBackColor = true;
-            // 
-            // portalChance
-            // 
-            portalChance.Location = new Point(176, 437);
-            portalChance.Name = "portalChance";
-            portalChance.Size = new Size(45, 20);
-            portalChance.TabIndex = 35;
-            portalChance.Value = new decimal(new int[] { 67, 0, 0, 0 });
-            // 
-            // label259
-            // 
-            label259.AutoSize = true;
-            label259.Location = new Point(23, 440);
-            label259.Name = "label259";
-            label259.Size = new Size(150, 13);
-            label259.TabIndex = 34;
-            label259.Text = "Transfer Chance Percentage: ";
-            toolTip1.SetToolTip(label259, "This is the likelihood a player will join the portal if they meet the pre-reqs.");
-            // 
-            // groupBox33
-            // 
-            groupBox33.Controls.Add(largePortal);
-            groupBox33.Controls.Add(smallPortal);
-            groupBox33.Location = new Point(21, 245);
-            groupBox33.Name = "groupBox33";
-            groupBox33.Size = new Size(200, 79);
-            groupBox33.TabIndex = 31;
-            groupBox33.TabStop = false;
-            groupBox33.Text = "Portal Size";
-            // 
-            // largePortal
-            // 
-            largePortal.AutoSize = true;
-            largePortal.Location = new Point(18, 48);
-            largePortal.Name = "largePortal";
-            largePortal.Size = new Size(82, 17);
-            largePortal.TabIndex = 1;
-            largePortal.Text = "Large Portal";
-            largePortal.UseVisualStyleBackColor = true;
-            // 
-            // smallPortal
-            // 
-            smallPortal.AutoSize = true;
-            smallPortal.Checked = true;
-            smallPortal.Location = new Point(18, 23);
-            smallPortal.Name = "smallPortal";
-            smallPortal.Size = new Size(80, 17);
-            smallPortal.TabIndex = 0;
-            smallPortal.TabStop = true;
-            smallPortal.Text = "Small Portal";
-            smallPortal.UseVisualStyleBackColor = true;
-            // 
-            // groupBox32
-            // 
-            groupBox32.Controls.Add(AllowBackupQBPortal);
-            groupBox32.Controls.Add(PortalDefaultSetting);
-            groupBox32.Controls.Add(SpringPortalMin);
-            groupBox32.Controls.Add(PortalK);
-            groupBox32.Controls.Add(label258);
-            groupBox32.Controls.Add(PortalP);
-            groupBox32.Controls.Add(label250);
-            groupBox32.Controls.Add(PortalSS);
-            groupBox32.Controls.Add(label251);
-            groupBox32.Controls.Add(PortalFS);
-            groupBox32.Controls.Add(label252);
-            groupBox32.Controls.Add(PortalCB);
-            groupBox32.Controls.Add(label253);
-            groupBox32.Controls.Add(PortalMLB);
-            groupBox32.Controls.Add(label254);
-            groupBox32.Controls.Add(PortalOLB);
-            groupBox32.Controls.Add(label255);
-            groupBox32.Controls.Add(PortalDT);
-            groupBox32.Controls.Add(label256);
-            groupBox32.Controls.Add(PortalDE);
-            groupBox32.Controls.Add(label257);
-            groupBox32.Controls.Add(PortalOC);
-            groupBox32.Controls.Add(label249);
-            groupBox32.Controls.Add(PortalOG);
-            groupBox32.Controls.Add(label248);
-            groupBox32.Controls.Add(PortalOT);
-            groupBox32.Controls.Add(label247);
-            groupBox32.Controls.Add(PortalTE);
-            groupBox32.Controls.Add(label246);
-            groupBox32.Controls.Add(PortalWR);
-            groupBox32.Controls.Add(label245);
-            groupBox32.Controls.Add(PortalFB);
-            groupBox32.Controls.Add(label244);
-            groupBox32.Controls.Add(PortalHB);
-            groupBox32.Controls.Add(label243);
-            groupBox32.Controls.Add(PortalQB);
-            groupBox32.Controls.Add(label242);
-            groupBox32.Location = new Point(773, 14);
-            groupBox32.Name = "groupBox32";
-            groupBox32.Size = new Size(361, 356);
-            groupBox32.TabIndex = 30;
-            groupBox32.TabStop = false;
-            groupBox32.Text = "Roster Depth Option";
-            // 
-            // AllowBackupQBPortal
-            // 
-            AllowBackupQBPortal.AutoSize = true;
-            AllowBackupQBPortal.Location = new Point(137, 301);
-            AllowBackupQBPortal.Name = "AllowBackupQBPortal";
-            AllowBackupQBPortal.Size = new Size(154, 17);
-            AllowBackupQBPortal.TabIndex = 36;
-            AllowBackupQBPortal.Text = "Allow Backup QB to Leave";
-            AllowBackupQBPortal.UseVisualStyleBackColor = true;
-            // 
-            // PortalDefaultSetting
-            // 
-            PortalDefaultSetting.Location = new Point(263, 112);
-            PortalDefaultSetting.Name = "PortalDefaultSetting";
-            PortalDefaultSetting.Size = new Size(75, 40);
-            PortalDefaultSetting.TabIndex = 35;
-            PortalDefaultSetting.Text = "Default Settings";
-            PortalDefaultSetting.UseVisualStyleBackColor = true;
-            PortalDefaultSetting.Click += (this.PortalDefaultSetting_Click);
-            // 
-            // SpringPortalMin
-            // 
-            SpringPortalMin.Location = new Point(263, 169);
-            SpringPortalMin.Name = "SpringPortalMin";
-            SpringPortalMin.Size = new Size(75, 40);
-            SpringPortalMin.TabIndex = 34;
-            SpringPortalMin.Text = "Set Minimum Roster";
-            SpringPortalMin.UseVisualStyleBackColor = true;
-            SpringPortalMin.Click += (this.SpringPortalMin_Click);
-            // 
-            // PortalK
-            // 
-            PortalK.Location = new Point(277, 42);
-            PortalK.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
-            PortalK.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            PortalK.Name = "PortalK";
-            PortalK.Size = new Size(44, 20);
-            PortalK.TabIndex = 33;
-            PortalK.Value = new decimal(new int[] { 1, 0, 0, 0 });
-            // 
-            // label258
-            // 
-            label258.AutoSize = true;
-            label258.Location = new Point(249, 44);
-            label258.Name = "label258";
-            label258.Size = new Size(14, 13);
-            label258.TabIndex = 32;
-            label258.Text = "K";
-            // 
-            // PortalP
-            // 
-            PortalP.Location = new Point(277, 75);
-            PortalP.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
-            PortalP.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
-            PortalP.Name = "PortalP";
-            PortalP.Size = new Size(44, 20);
-            PortalP.TabIndex = 31;
-            PortalP.Value = new decimal(new int[] { 1, 0, 0, 0 });
-            // 
-            // label250
-            // 
-            label250.AutoSize = true;
-            label250.Location = new Point(249, 77);
-            label250.Name = "label250";
-            label250.Size = new Size(14, 13);
-            label250.TabIndex = 30;
-            label250.Text = "P";
-            // 
-            // PortalSS
-            // 
-            PortalSS.Location = new Point(165, 264);
-            PortalSS.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
-            PortalSS.Minimum = new decimal(new int[] { 2, 0, 0, 0 });
-            PortalSS.Name = "PortalSS";
-            PortalSS.Size = new Size(44, 20);
-            PortalSS.TabIndex = 29;
-            PortalSS.Value = new decimal(new int[] { 3, 0, 0, 0 });
-            // 
-            // label251
-            // 
-            label251.AutoSize = true;
-            label251.Location = new Point(137, 266);
-            label251.Name = "label251";
-            label251.Size = new Size(21, 13);
-            label251.TabIndex = 28;
-            label251.Text = "SS";
-            // 
-            // PortalFS
-            // 
-            PortalFS.Location = new Point(165, 226);
-            PortalFS.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
-            PortalFS.Minimum = new decimal(new int[] { 2, 0, 0, 0 });
-            PortalFS.Name = "PortalFS";
-            PortalFS.Size = new Size(44, 20);
-            PortalFS.TabIndex = 27;
-            PortalFS.Value = new decimal(new int[] { 3, 0, 0, 0 });
-            // 
-            // label252
-            // 
-            label252.AutoSize = true;
-            label252.Location = new Point(137, 228);
-            label252.Name = "label252";
-            label252.Size = new Size(20, 13);
-            label252.TabIndex = 26;
-            label252.Text = "FS";
-            // 
-            // PortalCB
-            // 
-            PortalCB.Location = new Point(165, 189);
-            PortalCB.Maximum = new decimal(new int[] { 12, 0, 0, 0 });
-            PortalCB.Minimum = new decimal(new int[] { 3, 0, 0, 0 });
-            PortalCB.Name = "PortalCB";
-            PortalCB.Size = new Size(44, 20);
-            PortalCB.TabIndex = 25;
-            PortalCB.Value = new decimal(new int[] { 6, 0, 0, 0 });
-            // 
-            // label253
-            // 
-            label253.AutoSize = true;
-            label253.Location = new Point(137, 191);
-            label253.Name = "label253";
-            label253.Size = new Size(21, 13);
-            label253.TabIndex = 24;
-            label253.Text = "CB";
-            // 
-            // PortalMLB
-            // 
-            PortalMLB.Location = new Point(165, 151);
-            PortalMLB.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
-            PortalMLB.Minimum = new decimal(new int[] { 3, 0, 0, 0 });
-            PortalMLB.Name = "PortalMLB";
-            PortalMLB.Size = new Size(44, 20);
-            PortalMLB.TabIndex = 23;
-            PortalMLB.Value = new decimal(new int[] { 4, 0, 0, 0 });
-            // 
-            // label254
-            // 
-            label254.AutoSize = true;
-            label254.Location = new Point(137, 153);
-            label254.Name = "label254";
-            label254.Size = new Size(29, 13);
-            label254.TabIndex = 22;
-            label254.Text = "MLB";
-            // 
-            // PortalOLB
-            // 
-            PortalOLB.Location = new Point(165, 115);
-            PortalOLB.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
-            PortalOLB.Minimum = new decimal(new int[] { 3, 0, 0, 0 });
-            PortalOLB.Name = "PortalOLB";
-            PortalOLB.Size = new Size(44, 20);
-            PortalOLB.TabIndex = 21;
-            PortalOLB.Value = new decimal(new int[] { 6, 0, 0, 0 });
-            // 
-            // label255
-            // 
-            label255.AutoSize = true;
-            label255.Location = new Point(137, 117);
-            label255.Name = "label255";
-            label255.Size = new Size(28, 13);
-            label255.TabIndex = 20;
-            label255.Text = "OLB";
-            // 
-            // PortalDT
-            // 
-            PortalDT.Location = new Point(165, 75);
-            PortalDT.Maximum = new decimal(new int[] { 12, 0, 0, 0 });
-            PortalDT.Minimum = new decimal(new int[] { 4, 0, 0, 0 });
-            PortalDT.Name = "PortalDT";
-            PortalDT.Size = new Size(44, 20);
-            PortalDT.TabIndex = 19;
-            PortalDT.Value = new decimal(new int[] { 5, 0, 0, 0 });
-            // 
-            // label256
-            // 
-            label256.AutoSize = true;
-            label256.Location = new Point(137, 77);
-            label256.Name = "label256";
-            label256.Size = new Size(22, 13);
-            label256.TabIndex = 18;
-            label256.Text = "DT";
-            // 
-            // PortalDE
-            // 
-            PortalDE.Location = new Point(165, 40);
-            PortalDE.Maximum = new decimal(new int[] { 12, 0, 0, 0 });
-            PortalDE.Minimum = new decimal(new int[] { 4, 0, 0, 0 });
-            PortalDE.Name = "PortalDE";
-            PortalDE.Size = new Size(44, 20);
-            PortalDE.TabIndex = 17;
-            PortalDE.Value = new decimal(new int[] { 6, 0, 0, 0 });
-            // 
-            // label257
-            // 
-            label257.AutoSize = true;
-            label257.Location = new Point(137, 42);
-            label257.Name = "label257";
-            label257.Size = new Size(22, 13);
-            label257.TabIndex = 16;
-            label257.Text = "DE";
-            // 
-            // PortalOC
-            // 
-            PortalOC.Location = new Point(47, 303);
-            PortalOC.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
-            PortalOC.Minimum = new decimal(new int[] { 2, 0, 0, 0 });
-            PortalOC.Name = "PortalOC";
-            PortalOC.Size = new Size(44, 20);
-            PortalOC.TabIndex = 15;
-            PortalOC.Value = new decimal(new int[] { 2, 0, 0, 0 });
-            // 
-            // label249
-            // 
-            label249.AutoSize = true;
-            label249.Location = new Point(19, 305);
-            label249.Name = "label249";
-            label249.Size = new Size(22, 13);
-            label249.TabIndex = 14;
-            label249.Text = "OC";
-            // 
-            // PortalOG
-            // 
-            PortalOG.Location = new Point(47, 264);
-            PortalOG.Maximum = new decimal(new int[] { 12, 0, 0, 0 });
-            PortalOG.Minimum = new decimal(new int[] { 3, 0, 0, 0 });
-            PortalOG.Name = "PortalOG";
-            PortalOG.Size = new Size(44, 20);
-            PortalOG.TabIndex = 13;
-            PortalOG.Value = new decimal(new int[] { 6, 0, 0, 0 });
-            // 
-            // label248
-            // 
-            label248.AutoSize = true;
-            label248.Location = new Point(19, 266);
-            label248.Name = "label248";
-            label248.Size = new Size(23, 13);
-            label248.TabIndex = 12;
-            label248.Text = "OG";
-            // 
-            // PortalOT
-            // 
-            PortalOT.Location = new Point(47, 226);
-            PortalOT.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
-            PortalOT.Minimum = new decimal(new int[] { 3, 0, 0, 0 });
-            PortalOT.Name = "PortalOT";
-            PortalOT.Size = new Size(44, 20);
-            PortalOT.TabIndex = 11;
-            PortalOT.Value = new decimal(new int[] { 6, 0, 0, 0 });
-            // 
-            // label247
-            // 
-            label247.AutoSize = true;
-            label247.Location = new Point(19, 228);
-            label247.Name = "label247";
-            label247.Size = new Size(22, 13);
-            label247.TabIndex = 10;
-            label247.Text = "OT";
-            // 
-            // PortalTE
-            // 
-            PortalTE.Location = new Point(47, 189);
-            PortalTE.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
-            PortalTE.Minimum = new decimal(new int[] { 2, 0, 0, 0 });
-            PortalTE.Name = "PortalTE";
-            PortalTE.Size = new Size(44, 20);
-            PortalTE.TabIndex = 9;
-            PortalTE.Value = new decimal(new int[] { 3, 0, 0, 0 });
-            // 
-            // label246
-            // 
-            label246.AutoSize = true;
-            label246.Location = new Point(19, 191);
-            label246.Name = "label246";
-            label246.Size = new Size(21, 13);
-            label246.TabIndex = 8;
-            label246.Text = "TE";
-            // 
-            // PortalWR
-            // 
-            PortalWR.Location = new Point(47, 151);
-            PortalWR.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
-            PortalWR.Minimum = new decimal(new int[] { 3, 0, 0, 0 });
-            PortalWR.Name = "PortalWR";
-            PortalWR.Size = new Size(44, 20);
-            PortalWR.TabIndex = 7;
-            PortalWR.Value = new decimal(new int[] { 6, 0, 0, 0 });
-            // 
-            // label245
-            // 
-            label245.AutoSize = true;
-            label245.Location = new Point(19, 153);
-            label245.Name = "label245";
-            label245.Size = new Size(26, 13);
-            label245.TabIndex = 6;
-            label245.Text = "WR";
-            // 
-            // PortalFB
-            // 
-            PortalFB.Location = new Point(47, 115);
-            PortalFB.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
-            PortalFB.Name = "PortalFB";
-            PortalFB.Size = new Size(44, 20);
-            PortalFB.TabIndex = 5;
-            PortalFB.Value = new decimal(new int[] { 1, 0, 0, 0 });
-            // 
-            // label244
-            // 
-            label244.AutoSize = true;
-            label244.Location = new Point(19, 117);
-            label244.Name = "label244";
-            label244.Size = new Size(20, 13);
-            label244.TabIndex = 4;
-            label244.Text = "FB";
-            // 
-            // PortalHB
-            // 
-            PortalHB.Location = new Point(47, 75);
-            PortalHB.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
-            PortalHB.Minimum = new decimal(new int[] { 3, 0, 0, 0 });
-            PortalHB.Name = "PortalHB";
-            PortalHB.Size = new Size(44, 20);
-            PortalHB.TabIndex = 3;
-            PortalHB.Value = new decimal(new int[] { 4, 0, 0, 0 });
-            // 
-            // label243
-            // 
-            label243.AutoSize = true;
-            label243.Location = new Point(19, 77);
-            label243.Name = "label243";
-            label243.Size = new Size(22, 13);
-            label243.TabIndex = 2;
-            label243.Text = "HB";
-            // 
-            // PortalQB
-            // 
-            PortalQB.Location = new Point(47, 40);
-            PortalQB.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
-            PortalQB.Minimum = new decimal(new int[] { 2, 0, 0, 0 });
-            PortalQB.Name = "PortalQB";
-            PortalQB.Size = new Size(44, 20);
-            PortalQB.TabIndex = 1;
-            PortalQB.Value = new decimal(new int[] { 3, 0, 0, 0 });
-            // 
-            // label242
-            // 
-            label242.AutoSize = true;
-            label242.Location = new Point(19, 42);
-            label242.Name = "label242";
-            label242.Size = new Size(22, 13);
-            label242.TabIndex = 0;
-            label242.Text = "QB";
-            // 
-            // groupBox31
-            // 
-            groupBox31.Controls.Add(PortalSnake);
-            groupBox31.Controls.Add(PortalRandom);
-            groupBox31.Controls.Add(PortalFirst);
-            groupBox31.Controls.Add(PortalReverse);
-            groupBox31.Location = new Point(21, 120);
-            groupBox31.Name = "groupBox31";
-            groupBox31.Size = new Size(200, 119);
-            groupBox31.TabIndex = 29;
-            groupBox31.TabStop = false;
-            groupBox31.Text = "Portal Priority";
-            toolTip1.SetToolTip(groupBox31, "This determines the order in which teams select players. It will go through position by position.");
-            // 
-            // PortalSnake
-            // 
-            PortalSnake.AutoSize = true;
-            PortalSnake.Location = new Point(7, 66);
-            PortalSnake.Name = "PortalSnake";
-            PortalSnake.Size = new Size(85, 17);
-            PortalSnake.TabIndex = 3;
-            PortalSnake.Text = "Snake Order";
-            PortalSnake.UseVisualStyleBackColor = true;
-            // 
-            // PortalRandom
-            // 
-            PortalRandom.AutoSize = true;
-            PortalRandom.Location = new Point(7, 89);
-            PortalRandom.Name = "PortalRandom";
-            PortalRandom.Size = new Size(94, 17);
-            PortalRandom.TabIndex = 2;
-            PortalRandom.Text = "Random Order";
-            PortalRandom.UseVisualStyleBackColor = true;
-            // 
-            // PortalFirst
-            // 
-            PortalFirst.AutoSize = true;
-            PortalFirst.Location = new Point(7, 43);
-            PortalFirst.Name = "PortalFirst";
-            PortalFirst.Size = new Size(165, 17);
-            PortalFirst.TabIndex = 1;
-            PortalFirst.Text = "Ranking Order (First to Worst)";
-            PortalFirst.UseVisualStyleBackColor = true;
-            // 
-            // PortalReverse
-            // 
-            PortalReverse.AutoSize = true;
-            PortalReverse.Checked = true;
-            PortalReverse.Location = new Point(7, 20);
-            PortalReverse.Name = "PortalReverse";
-            PortalReverse.Size = new Size(165, 17);
-            PortalReverse.TabIndex = 0;
-            PortalReverse.TabStop = true;
-            PortalReverse.Text = "Reverse Order (Worst to First)";
-            PortalReverse.UseVisualStyleBackColor = true;
-            // 
-            // SpringPortalButton
-            // 
-            SpringPortalButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            SpringPortalButton.Location = new Point(21, 25);
-            SpringPortalButton.Name = "SpringPortalButton";
-            SpringPortalButton.Size = new Size(200, 56);
-            SpringPortalButton.TabIndex = 27;
-            SpringPortalButton.Text = "Spring Portal";
-            SpringPortalButton.UseVisualStyleBackColor = true;
-            SpringPortalButton.Click += (this.SpringPortalButton_Click);
-            // 
-            // panel1
-            // 
-            panel1.Location = new Point(6, 14);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(226, 100);
-            panel1.TabIndex = 44;
-            // 
-            // tabSTRMDATA
-            // 
-            tabSTRMDATA.BackColor = SystemColors.ActiveCaption;
-            tabSTRMDATA.Controls.Add(groupBox41);
-            tabSTRMDATA.Location = new Point(4, 29);
-            tabSTRMDATA.Name = "tabSTRMDATA";
-            tabSTRMDATA.Padding = new Padding(3);
-            tabSTRMDATA.Size = new Size(1152, 610);
-            tabSTRMDATA.TabIndex = 19;
-            tabSTRMDATA.Text = "STRMDATA";
-            // 
-            // groupBox41
-            // 
-            groupBox41.Controls.Add(buttonRCATBody);
-            groupBox41.Location = new Point(17, 15);
-            groupBox41.Name = "groupBox41";
-            groupBox41.Size = new Size(376, 231);
-            groupBox41.TabIndex = 0;
-            groupBox41.TabStop = false;
-            groupBox41.Text = "Recruit Database (RCAT)";
-            // 
-            // buttonRCATBody
-            // 
-            buttonRCATBody.Location = new Point(18, 28);
-            buttonRCATBody.Name = "buttonRCATBody";
-            buttonRCATBody.Size = new Size(125, 60);
-            buttonRCATBody.TabIndex = 0;
-            buttonRCATBody.Text = "Body Shape Fixer";
-            buttonRCATBody.UseVisualStyleBackColor = true;
-            buttonRCATBody.Click += (this.buttonRCATBody_Click);
             // 
             // tabPlayoff
             // 
@@ -14485,6 +13879,1932 @@ namespace DB_EDITOR
             pictureBox2.TabIndex = 25;
             pictureBox2.TabStop = false;
             // 
+            // tabTeamStats
+            // 
+            tabTeamStats.BackColor = SystemColors.ControlDarkDark;
+            tabTeamStats.Controls.Add(TSTeamBox);
+            tabTeamStats.Controls.Add(label195);
+            tabTeamStats.Controls.Add(TSReturn);
+            tabTeamStats.Controls.Add(label194);
+            tabTeamStats.Controls.Add(label193);
+            tabTeamStats.Controls.Add(label191);
+            tabTeamStats.Controls.Add(label190);
+            tabTeamStats.Controls.Add(label189);
+            tabTeamStats.Controls.Add(label188);
+            tabTeamStats.Controls.Add(TSPunting);
+            tabTeamStats.Controls.Add(TSKicking);
+            tabTeamStats.Controls.Add(TSReceiving);
+            tabTeamStats.Controls.Add(TSPassing);
+            tabTeamStats.Controls.Add(TSDefense);
+            tabTeamStats.Controls.Add(TSRushing);
+            tabTeamStats.Location = new Point(4, 29);
+            tabTeamStats.Name = "tabTeamStats";
+            tabTeamStats.Size = new Size(1152, 610);
+            tabTeamStats.TabIndex = 22;
+            tabTeamStats.Text = "Team Stats";
+            // 
+            // TSTeamBox
+            // 
+            TSTeamBox.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            TSTeamBox.FormattingEnabled = true;
+            TSTeamBox.Location = new Point(16, 12);
+            TSTeamBox.Name = "TSTeamBox";
+            TSTeamBox.Size = new Size(212, 24);
+            TSTeamBox.TabIndex = 15;
+            TSTeamBox.SelectedIndexChanged += (this.TSTeamBox_SelectedIndexChanged);
+            // 
+            // label195
+            // 
+            label195.AutoSize = true;
+            label195.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            label195.Location = new Point(465, 502);
+            label195.Name = "label195";
+            label195.Size = new Size(102, 18);
+            label195.TabIndex = 14;
+            label195.Text = "Return Stats";
+            // 
+            // TSReturn
+            // 
+            TSReturn.AllowUserToAddRows = false;
+            TSReturn.AllowUserToDeleteRows = false;
+            TSReturn.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle39.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle39.BackColor = Color.Gainsboro;
+            dataGridViewCellStyle39.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle39.SelectionBackColor = Color.MediumSlateBlue;
+            TSReturn.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle39;
+            TSReturn.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            TSReturn.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            TSReturn.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            dataGridViewCellStyle40.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle40.BackColor = SystemColors.InactiveCaption;
+            dataGridViewCellStyle40.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle40.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle40.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle40.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle40.WrapMode = DataGridViewTriState.True;
+            TSReturn.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle40;
+            TSReturn.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            TSReturn.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn67, dataGridViewTextBoxColumn76, dataGridViewTextBoxColumn68, TSKRYd, dataGridViewTextBoxColumn70, dataGridViewTextBoxColumn71, dataGridViewTextBoxColumn72, dataGridViewTextBoxColumn73, dataGridViewTextBoxColumn74, dataGridViewTextBoxColumn75 });
+            dataGridViewCellStyle41.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle41.BackColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle41.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle41.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle41.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle41.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle41.WrapMode = DataGridViewTriState.False;
+            TSReturn.DefaultCellStyle = dataGridViewCellStyle41;
+            TSReturn.Location = new Point(16, 523);
+            TSReturn.Name = "TSReturn";
+            TSReturn.ReadOnly = true;
+            dataGridViewCellStyle42.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle42.BackColor = SystemColors.Control;
+            dataGridViewCellStyle42.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle42.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle42.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle42.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle42.WrapMode = DataGridViewTriState.True;
+            TSReturn.RowHeadersDefaultCellStyle = dataGridViewCellStyle42;
+            TSReturn.RowHeadersVisible = false;
+            TSReturn.Size = new Size(551, 83);
+            TSReturn.TabIndex = 13;
+            // 
+            // dataGridViewTextBoxColumn67
+            // 
+            dataGridViewTextBoxColumn67.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewTextBoxColumn67.HeaderText = "Player";
+            dataGridViewTextBoxColumn67.Name = "dataGridViewTextBoxColumn67";
+            dataGridViewTextBoxColumn67.ReadOnly = true;
+            dataGridViewTextBoxColumn67.Width = 61;
+            // 
+            // dataGridViewTextBoxColumn76
+            // 
+            dataGridViewTextBoxColumn76.HeaderText = "GP";
+            dataGridViewTextBoxColumn76.Name = "dataGridViewTextBoxColumn76";
+            dataGridViewTextBoxColumn76.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn68
+            // 
+            dataGridViewTextBoxColumn68.HeaderText = "KR";
+            dataGridViewTextBoxColumn68.Name = "dataGridViewTextBoxColumn68";
+            dataGridViewTextBoxColumn68.ReadOnly = true;
+            // 
+            // TSKRYd
+            // 
+            TSKRYd.HeaderText = "Yds";
+            TSKRYd.Name = "TSKRYd";
+            TSKRYd.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn70
+            // 
+            dataGridViewTextBoxColumn70.HeaderText = "TD";
+            dataGridViewTextBoxColumn70.Name = "dataGridViewTextBoxColumn70";
+            dataGridViewTextBoxColumn70.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn71
+            // 
+            dataGridViewTextBoxColumn71.HeaderText = "Long";
+            dataGridViewTextBoxColumn71.Name = "dataGridViewTextBoxColumn71";
+            dataGridViewTextBoxColumn71.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn72
+            // 
+            dataGridViewTextBoxColumn72.HeaderText = "PR";
+            dataGridViewTextBoxColumn72.Name = "dataGridViewTextBoxColumn72";
+            dataGridViewTextBoxColumn72.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn73
+            // 
+            dataGridViewTextBoxColumn73.HeaderText = "Yds";
+            dataGridViewTextBoxColumn73.Name = "dataGridViewTextBoxColumn73";
+            dataGridViewTextBoxColumn73.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn74
+            // 
+            dataGridViewTextBoxColumn74.HeaderText = "TD";
+            dataGridViewTextBoxColumn74.Name = "dataGridViewTextBoxColumn74";
+            dataGridViewTextBoxColumn74.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn75
+            // 
+            dataGridViewTextBoxColumn75.HeaderText = "Long";
+            dataGridViewTextBoxColumn75.Name = "dataGridViewTextBoxColumn75";
+            dataGridViewTextBoxColumn75.ReadOnly = true;
+            // 
+            // label194
+            // 
+            label194.AutoSize = true;
+            label194.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            label194.Location = new Point(1031, 521);
+            label194.Name = "label194";
+            label194.Size = new Size(108, 18);
+            label194.TabIndex = 12;
+            label194.Text = "Punting Stats";
+            // 
+            // label193
+            // 
+            label193.AutoSize = true;
+            label193.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            label193.Location = new Point(1031, 433);
+            label193.Name = "label193";
+            label193.Size = new Size(107, 18);
+            label193.TabIndex = 11;
+            label193.Text = "Kicking Stats";
+            // 
+            // label191
+            // 
+            label191.AutoSize = true;
+            label191.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            label191.Location = new Point(1013, 21);
+            label191.Name = "label191";
+            label191.Size = new Size(126, 18);
+            label191.TabIndex = 10;
+            label191.Text = "Defensive Stats";
+            // 
+            // label190
+            // 
+            label190.AutoSize = true;
+            label190.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            label190.Location = new Point(442, 304);
+            label190.Name = "label190";
+            label190.Size = new Size(125, 18);
+            label190.TabIndex = 9;
+            label190.Text = "Receiving Stats";
+            // 
+            // label189
+            // 
+            label189.AutoSize = true;
+            label189.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            label189.Location = new Point(454, 131);
+            label189.Name = "label189";
+            label189.Size = new Size(113, 18);
+            label189.TabIndex = 8;
+            label189.Text = "Rushing Stats";
+            // 
+            // label188
+            // 
+            label188.AutoSize = true;
+            label188.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            label188.Location = new Point(455, 21);
+            label188.Name = "label188";
+            label188.Size = new Size(112, 18);
+            label188.TabIndex = 7;
+            label188.Text = "Passing Stats";
+            // 
+            // TSPunting
+            // 
+            TSPunting.AllowUserToAddRows = false;
+            TSPunting.AllowUserToDeleteRows = false;
+            TSPunting.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle43.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle43.BackColor = Color.Gainsboro;
+            dataGridViewCellStyle43.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle43.SelectionBackColor = Color.MediumSlateBlue;
+            TSPunting.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle43;
+            TSPunting.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            TSPunting.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            TSPunting.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            dataGridViewCellStyle44.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle44.BackColor = SystemColors.InactiveCaption;
+            dataGridViewCellStyle44.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle44.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle44.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle44.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle44.WrapMode = DataGridViewTriState.True;
+            TSPunting.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle44;
+            TSPunting.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            TSPunting.Columns.AddRange(new DataGridViewColumn[] { TSPunts, dataGridViewTextBoxColumn57, dataGridViewTextBoxColumn58, dataGridViewTextBoxColumn59, dataGridViewTextBoxColumn60, dataGridViewTextBoxColumn61, dataGridViewTextBoxColumn62, dataGridViewTextBoxColumn63 });
+            dataGridViewCellStyle45.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle45.BackColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle45.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle45.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle45.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle45.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle45.WrapMode = DataGridViewTriState.False;
+            TSPunting.DefaultCellStyle = dataGridViewCellStyle45;
+            TSPunting.Location = new Point(588, 542);
+            TSPunting.Name = "TSPunting";
+            TSPunting.ReadOnly = true;
+            dataGridViewCellStyle46.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle46.BackColor = SystemColors.Control;
+            dataGridViewCellStyle46.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle46.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle46.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle46.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle46.WrapMode = DataGridViewTriState.True;
+            TSPunting.RowHeadersDefaultCellStyle = dataGridViewCellStyle46;
+            TSPunting.RowHeadersVisible = false;
+            TSPunting.Size = new Size(551, 64);
+            TSPunting.TabIndex = 6;
+            // 
+            // TSPunts
+            // 
+            TSPunts.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            TSPunts.HeaderText = "Player";
+            TSPunts.Name = "TSPunts";
+            TSPunts.ReadOnly = true;
+            TSPunts.Width = 61;
+            // 
+            // dataGridViewTextBoxColumn57
+            // 
+            dataGridViewTextBoxColumn57.HeaderText = "GP";
+            dataGridViewTextBoxColumn57.Name = "dataGridViewTextBoxColumn57";
+            dataGridViewTextBoxColumn57.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn58
+            // 
+            dataGridViewTextBoxColumn58.HeaderText = "Punt";
+            dataGridViewTextBoxColumn58.Name = "dataGridViewTextBoxColumn58";
+            dataGridViewTextBoxColumn58.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn59
+            // 
+            dataGridViewTextBoxColumn59.HeaderText = "Yds";
+            dataGridViewTextBoxColumn59.Name = "dataGridViewTextBoxColumn59";
+            dataGridViewTextBoxColumn59.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn60
+            // 
+            dataGridViewTextBoxColumn60.HeaderText = "Avg";
+            dataGridViewTextBoxColumn60.Name = "dataGridViewTextBoxColumn60";
+            dataGridViewTextBoxColumn60.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn61
+            // 
+            dataGridViewTextBoxColumn61.HeaderText = "Long";
+            dataGridViewTextBoxColumn61.Name = "dataGridViewTextBoxColumn61";
+            dataGridViewTextBoxColumn61.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn62
+            // 
+            dataGridViewTextBoxColumn62.HeaderText = "In 20";
+            dataGridViewTextBoxColumn62.Name = "dataGridViewTextBoxColumn62";
+            dataGridViewTextBoxColumn62.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn63
+            // 
+            dataGridViewTextBoxColumn63.HeaderText = "Blocked";
+            dataGridViewTextBoxColumn63.Name = "dataGridViewTextBoxColumn63";
+            dataGridViewTextBoxColumn63.ReadOnly = true;
+            // 
+            // TSKicking
+            // 
+            TSKicking.AllowUserToAddRows = false;
+            TSKicking.AllowUserToDeleteRows = false;
+            TSKicking.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle47.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle47.BackColor = Color.Gainsboro;
+            dataGridViewCellStyle47.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle47.SelectionBackColor = Color.MediumSlateBlue;
+            TSKicking.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle47;
+            TSKicking.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            TSKicking.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            TSKicking.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            dataGridViewCellStyle48.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle48.BackColor = SystemColors.InactiveCaption;
+            dataGridViewCellStyle48.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle48.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle48.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle48.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle48.WrapMode = DataGridViewTriState.True;
+            TSKicking.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle48;
+            TSKicking.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            TSKicking.Columns.AddRange(new DataGridViewColumn[] { TSFGM, dataGridViewTextBoxColumn46, dataGridViewTextBoxColumn47, dataGridViewTextBoxColumn48, dataGridViewTextBoxColumn49, dataGridViewTextBoxColumn50, dataGridViewTextBoxColumn51, dataGridViewTextBoxColumn52, dataGridViewTextBoxColumn53, dataGridViewTextBoxColumn54 });
+            dataGridViewCellStyle49.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle49.BackColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle49.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle49.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle49.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle49.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle49.WrapMode = DataGridViewTriState.False;
+            TSKicking.DefaultCellStyle = dataGridViewCellStyle49;
+            TSKicking.Location = new Point(588, 454);
+            TSKicking.Name = "TSKicking";
+            TSKicking.ReadOnly = true;
+            dataGridViewCellStyle50.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle50.BackColor = SystemColors.Control;
+            dataGridViewCellStyle50.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle50.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle50.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle50.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle50.WrapMode = DataGridViewTriState.True;
+            TSKicking.RowHeadersDefaultCellStyle = dataGridViewCellStyle50;
+            TSKicking.RowHeadersVisible = false;
+            TSKicking.Size = new Size(551, 64);
+            TSKicking.TabIndex = 5;
+            // 
+            // TSFGM
+            // 
+            TSFGM.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            TSFGM.HeaderText = "Player";
+            TSFGM.Name = "TSFGM";
+            TSFGM.ReadOnly = true;
+            TSFGM.Width = 61;
+            // 
+            // dataGridViewTextBoxColumn46
+            // 
+            dataGridViewTextBoxColumn46.HeaderText = "GP";
+            dataGridViewTextBoxColumn46.Name = "dataGridViewTextBoxColumn46";
+            dataGridViewTextBoxColumn46.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn47
+            // 
+            dataGridViewTextBoxColumn47.HeaderText = "FGM";
+            dataGridViewTextBoxColumn47.Name = "dataGridViewTextBoxColumn47";
+            dataGridViewTextBoxColumn47.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn48
+            // 
+            dataGridViewTextBoxColumn48.HeaderText = "FGA";
+            dataGridViewTextBoxColumn48.Name = "dataGridViewTextBoxColumn48";
+            dataGridViewTextBoxColumn48.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn49
+            // 
+            dataGridViewTextBoxColumn49.HeaderText = "PCT";
+            dataGridViewTextBoxColumn49.Name = "dataGridViewTextBoxColumn49";
+            dataGridViewTextBoxColumn49.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn50
+            // 
+            dataGridViewTextBoxColumn50.HeaderText = "Long";
+            dataGridViewTextBoxColumn50.Name = "dataGridViewTextBoxColumn50";
+            dataGridViewTextBoxColumn50.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn51
+            // 
+            dataGridViewTextBoxColumn51.HeaderText = "XPM";
+            dataGridViewTextBoxColumn51.Name = "dataGridViewTextBoxColumn51";
+            dataGridViewTextBoxColumn51.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn52
+            // 
+            dataGridViewTextBoxColumn52.HeaderText = "XPA";
+            dataGridViewTextBoxColumn52.Name = "dataGridViewTextBoxColumn52";
+            dataGridViewTextBoxColumn52.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn53
+            // 
+            dataGridViewTextBoxColumn53.HeaderText = "PCT";
+            dataGridViewTextBoxColumn53.Name = "dataGridViewTextBoxColumn53";
+            dataGridViewTextBoxColumn53.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn54
+            // 
+            dataGridViewTextBoxColumn54.HeaderText = "40+";
+            dataGridViewTextBoxColumn54.Name = "dataGridViewTextBoxColumn54";
+            dataGridViewTextBoxColumn54.ReadOnly = true;
+            // 
+            // TSReceiving
+            // 
+            TSReceiving.AllowUserToAddRows = false;
+            TSReceiving.AllowUserToDeleteRows = false;
+            TSReceiving.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle51.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle51.BackColor = Color.Gainsboro;
+            dataGridViewCellStyle51.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle51.SelectionBackColor = Color.MediumSlateBlue;
+            TSReceiving.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle51;
+            TSReceiving.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            TSReceiving.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            TSReceiving.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            dataGridViewCellStyle52.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle52.BackColor = SystemColors.InactiveCaption;
+            dataGridViewCellStyle52.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle52.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle52.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle52.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle52.WrapMode = DataGridViewTriState.True;
+            TSReceiving.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle52;
+            TSReceiving.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            TSReceiving.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn34, dataGridViewTextBoxColumn35, TSCatch, TSYdsCat, dataGridViewTextBoxColumn38, dataGridViewTextBoxColumn39, dataGridViewTextBoxColumn40, dataGridViewTextBoxColumn41, dataGridViewTextBoxColumn42, dataGridViewTextBoxColumn43, dataGridViewTextBoxColumn44 });
+            dataGridViewCellStyle53.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle53.BackColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle53.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle53.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle53.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle53.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle53.WrapMode = DataGridViewTriState.False;
+            TSReceiving.DefaultCellStyle = dataGridViewCellStyle53;
+            TSReceiving.Location = new Point(16, 325);
+            TSReceiving.Name = "TSReceiving";
+            TSReceiving.ReadOnly = true;
+            dataGridViewCellStyle54.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle54.BackColor = SystemColors.Control;
+            dataGridViewCellStyle54.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle54.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle54.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle54.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle54.WrapMode = DataGridViewTriState.True;
+            TSReceiving.RowHeadersDefaultCellStyle = dataGridViewCellStyle54;
+            TSReceiving.RowHeadersVisible = false;
+            TSReceiving.Size = new Size(551, 174);
+            TSReceiving.TabIndex = 4;
+            // 
+            // dataGridViewTextBoxColumn34
+            // 
+            dataGridViewTextBoxColumn34.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewTextBoxColumn34.HeaderText = "Player";
+            dataGridViewTextBoxColumn34.Name = "dataGridViewTextBoxColumn34";
+            dataGridViewTextBoxColumn34.ReadOnly = true;
+            dataGridViewTextBoxColumn34.Width = 61;
+            // 
+            // dataGridViewTextBoxColumn35
+            // 
+            dataGridViewTextBoxColumn35.HeaderText = "GP";
+            dataGridViewTextBoxColumn35.Name = "dataGridViewTextBoxColumn35";
+            dataGridViewTextBoxColumn35.ReadOnly = true;
+            // 
+            // TSCatch
+            // 
+            TSCatch.HeaderText = "Cat";
+            TSCatch.Name = "TSCatch";
+            TSCatch.ReadOnly = true;
+            // 
+            // TSYdsCat
+            // 
+            TSYdsCat.HeaderText = "Yds";
+            TSYdsCat.Name = "TSYdsCat";
+            TSYdsCat.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn38
+            // 
+            dataGridViewTextBoxColumn38.HeaderText = "TD";
+            dataGridViewTextBoxColumn38.Name = "dataGridViewTextBoxColumn38";
+            dataGridViewTextBoxColumn38.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn39
+            // 
+            dataGridViewTextBoxColumn39.HeaderText = "YPC";
+            dataGridViewTextBoxColumn39.Name = "dataGridViewTextBoxColumn39";
+            dataGridViewTextBoxColumn39.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn40
+            // 
+            dataGridViewTextBoxColumn40.HeaderText = "YPG";
+            dataGridViewTextBoxColumn40.Name = "dataGridViewTextBoxColumn40";
+            dataGridViewTextBoxColumn40.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn41
+            // 
+            dataGridViewTextBoxColumn41.HeaderText = "Fum";
+            dataGridViewTextBoxColumn41.Name = "dataGridViewTextBoxColumn41";
+            dataGridViewTextBoxColumn41.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn42
+            // 
+            dataGridViewTextBoxColumn42.HeaderText = "RAC";
+            dataGridViewTextBoxColumn42.Name = "dataGridViewTextBoxColumn42";
+            dataGridViewTextBoxColumn42.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn43
+            // 
+            dataGridViewTextBoxColumn43.HeaderText = "RCA";
+            dataGridViewTextBoxColumn43.Name = "dataGridViewTextBoxColumn43";
+            dataGridViewTextBoxColumn43.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn44
+            // 
+            dataGridViewTextBoxColumn44.HeaderText = "Drops";
+            dataGridViewTextBoxColumn44.Name = "dataGridViewTextBoxColumn44";
+            dataGridViewTextBoxColumn44.ReadOnly = true;
+            // 
+            // TSPassing
+            // 
+            TSPassing.AllowUserToAddRows = false;
+            TSPassing.AllowUserToDeleteRows = false;
+            TSPassing.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle55.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle55.BackColor = Color.Gainsboro;
+            dataGridViewCellStyle55.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle55.SelectionBackColor = Color.MediumSlateBlue;
+            TSPassing.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle55;
+            TSPassing.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            TSPassing.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            TSPassing.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            dataGridViewCellStyle56.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle56.BackColor = SystemColors.InactiveCaption;
+            dataGridViewCellStyle56.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle56.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle56.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle56.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle56.WrapMode = DataGridViewTriState.True;
+            TSPassing.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle56;
+            TSPassing.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            TSPassing.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn23, dataGridViewTextBoxColumn24, dataGridViewTextBoxColumn25, dataGridViewTextBoxColumn26, dataGridViewTextBoxColumn27, dataGridViewTextBoxColumn28, TSPassYds, dataGridViewTextBoxColumn30, dataGridViewTextBoxColumn31, dataGridViewTextBoxColumn32, dataGridViewTextBoxColumn33 });
+            dataGridViewCellStyle57.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle57.BackColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle57.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle57.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle57.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle57.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle57.WrapMode = DataGridViewTriState.False;
+            TSPassing.DefaultCellStyle = dataGridViewCellStyle57;
+            TSPassing.Location = new Point(16, 42);
+            TSPassing.Name = "TSPassing";
+            TSPassing.ReadOnly = true;
+            dataGridViewCellStyle58.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle58.BackColor = SystemColors.Control;
+            dataGridViewCellStyle58.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle58.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle58.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle58.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle58.WrapMode = DataGridViewTriState.True;
+            TSPassing.RowHeadersDefaultCellStyle = dataGridViewCellStyle58;
+            TSPassing.RowHeadersVisible = false;
+            TSPassing.Size = new Size(551, 81);
+            TSPassing.TabIndex = 3;
+            // 
+            // dataGridViewTextBoxColumn23
+            // 
+            dataGridViewTextBoxColumn23.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewTextBoxColumn23.HeaderText = "Player";
+            dataGridViewTextBoxColumn23.MinimumWidth = 50;
+            dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
+            dataGridViewTextBoxColumn23.ReadOnly = true;
+            dataGridViewTextBoxColumn23.Width = 61;
+            // 
+            // dataGridViewTextBoxColumn24
+            // 
+            dataGridViewTextBoxColumn24.HeaderText = "GP";
+            dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
+            dataGridViewTextBoxColumn24.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn25
+            // 
+            dataGridViewTextBoxColumn25.HeaderText = "QBR";
+            dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
+            dataGridViewTextBoxColumn25.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn26
+            // 
+            dataGridViewTextBoxColumn26.HeaderText = "Comp";
+            dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
+            dataGridViewTextBoxColumn26.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn27
+            // 
+            dataGridViewTextBoxColumn27.HeaderText = "Att";
+            dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
+            dataGridViewTextBoxColumn27.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn28
+            // 
+            dataGridViewTextBoxColumn28.HeaderText = "PCT";
+            dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
+            dataGridViewTextBoxColumn28.ReadOnly = true;
+            // 
+            // TSPassYds
+            // 
+            TSPassYds.HeaderText = "Yds";
+            TSPassYds.Name = "TSPassYds";
+            TSPassYds.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn30
+            // 
+            dataGridViewTextBoxColumn30.HeaderText = "YPG";
+            dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
+            dataGridViewTextBoxColumn30.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn31
+            // 
+            dataGridViewTextBoxColumn31.HeaderText = "TD";
+            dataGridViewTextBoxColumn31.Name = "dataGridViewTextBoxColumn31";
+            dataGridViewTextBoxColumn31.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn32
+            // 
+            dataGridViewTextBoxColumn32.HeaderText = "Int";
+            dataGridViewTextBoxColumn32.Name = "dataGridViewTextBoxColumn32";
+            dataGridViewTextBoxColumn32.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn33
+            // 
+            dataGridViewTextBoxColumn33.HeaderText = "Sacks";
+            dataGridViewTextBoxColumn33.Name = "dataGridViewTextBoxColumn33";
+            dataGridViewTextBoxColumn33.ReadOnly = true;
+            // 
+            // TSDefense
+            // 
+            TSDefense.AllowUserToAddRows = false;
+            TSDefense.AllowUserToDeleteRows = false;
+            TSDefense.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle59.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle59.BackColor = Color.Gainsboro;
+            dataGridViewCellStyle59.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle59.SelectionBackColor = Color.MediumSlateBlue;
+            TSDefense.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle59;
+            TSDefense.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            TSDefense.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            TSDefense.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            dataGridViewCellStyle60.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle60.BackColor = SystemColors.InactiveCaption;
+            dataGridViewCellStyle60.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle60.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle60.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle60.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle60.WrapMode = DataGridViewTriState.True;
+            TSDefense.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle60;
+            TSDefense.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            TSDefense.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn12, dataGridViewTextBoxColumn13, TSTackles, dataGridViewTextBoxColumn15, dataGridViewTextBoxColumn16, dataGridViewTextBoxColumn17, dataGridViewTextBoxColumn18, dataGridViewTextBoxColumn19, dataGridViewTextBoxColumn20, dataGridViewTextBoxColumn21 });
+            dataGridViewCellStyle61.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle61.BackColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle61.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle61.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle61.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle61.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle61.WrapMode = DataGridViewTriState.False;
+            TSDefense.DefaultCellStyle = dataGridViewCellStyle61;
+            TSDefense.Location = new Point(588, 42);
+            TSDefense.Name = "TSDefense";
+            TSDefense.ReadOnly = true;
+            dataGridViewCellStyle62.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle62.BackColor = SystemColors.Control;
+            dataGridViewCellStyle62.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle62.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle62.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle62.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle62.WrapMode = DataGridViewTriState.True;
+            TSDefense.RowHeadersDefaultCellStyle = dataGridViewCellStyle62;
+            TSDefense.RowHeadersVisible = false;
+            TSDefense.Size = new Size(551, 388);
+            TSDefense.TabIndex = 2;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            dataGridViewTextBoxColumn12.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewTextBoxColumn12.HeaderText = "Player";
+            dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            dataGridViewTextBoxColumn12.ReadOnly = true;
+            dataGridViewTextBoxColumn12.Width = 61;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            dataGridViewTextBoxColumn13.HeaderText = "GP";
+            dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            dataGridViewTextBoxColumn13.ReadOnly = true;
+            // 
+            // TSTackles
+            // 
+            TSTackles.HeaderText = "Tkl";
+            TSTackles.Name = "TSTackles";
+            TSTackles.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            dataGridViewTextBoxColumn15.HeaderText = "TFL";
+            dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            dataGridViewTextBoxColumn15.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            dataGridViewTextBoxColumn16.HeaderText = "Sack";
+            dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            dataGridViewTextBoxColumn16.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            dataGridViewTextBoxColumn17.HeaderText = "Int";
+            dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            dataGridViewTextBoxColumn17.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            dataGridViewTextBoxColumn18.HeaderText = "PDf";
+            dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            dataGridViewTextBoxColumn18.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn19
+            // 
+            dataGridViewTextBoxColumn19.HeaderText = "FFum";
+            dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            dataGridViewTextBoxColumn19.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn20
+            // 
+            dataGridViewTextBoxColumn20.HeaderText = "FumR";
+            dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
+            dataGridViewTextBoxColumn20.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn21
+            // 
+            dataGridViewTextBoxColumn21.HeaderText = "DTD";
+            dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
+            dataGridViewTextBoxColumn21.ReadOnly = true;
+            // 
+            // TSRushing
+            // 
+            TSRushing.AllowUserToAddRows = false;
+            TSRushing.AllowUserToDeleteRows = false;
+            TSRushing.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle63.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle63.BackColor = Color.Gainsboro;
+            dataGridViewCellStyle63.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle63.SelectionBackColor = Color.MediumSlateBlue;
+            TSRushing.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle63;
+            TSRushing.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            TSRushing.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            TSRushing.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            dataGridViewCellStyle64.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle64.BackColor = SystemColors.InactiveCaption;
+            dataGridViewCellStyle64.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle64.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle64.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle64.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle64.WrapMode = DataGridViewTriState.True;
+            TSRushing.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle64;
+            TSRushing.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            TSRushing.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, TSRushYds, dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7, dataGridViewTextBoxColumn8, dataGridViewTextBoxColumn9, dataGridViewTextBoxColumn10, dataGridViewTextBoxColumn11 });
+            dataGridViewCellStyle65.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle65.BackColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle65.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle65.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle65.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle65.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle65.WrapMode = DataGridViewTriState.False;
+            TSRushing.DefaultCellStyle = dataGridViewCellStyle65;
+            TSRushing.Location = new Point(16, 152);
+            TSRushing.Name = "TSRushing";
+            TSRushing.ReadOnly = true;
+            dataGridViewCellStyle66.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle66.BackColor = SystemColors.Control;
+            dataGridViewCellStyle66.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle66.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle66.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle66.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle66.WrapMode = DataGridViewTriState.True;
+            TSRushing.RowHeadersDefaultCellStyle = dataGridViewCellStyle66;
+            TSRushing.RowHeadersVisible = false;
+            TSRushing.Size = new Size(551, 145);
+            TSRushing.TabIndex = 1;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            dataGridViewTextBoxColumn1.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewTextBoxColumn1.HeaderText = "Player";
+            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            dataGridViewTextBoxColumn1.ReadOnly = true;
+            dataGridViewTextBoxColumn1.Width = 61;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            dataGridViewTextBoxColumn2.HeaderText = "GP";
+            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            dataGridViewTextBoxColumn3.HeaderText = "Att";
+            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // TSRushYds
+            // 
+            TSRushYds.HeaderText = "Yds";
+            TSRushYds.Name = "TSRushYds";
+            TSRushYds.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            dataGridViewTextBoxColumn5.HeaderText = "TD";
+            dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            dataGridViewTextBoxColumn6.HeaderText = "YPC";
+            dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            dataGridViewTextBoxColumn7.HeaderText = "YPG";
+            dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            dataGridViewTextBoxColumn7.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            dataGridViewTextBoxColumn8.HeaderText = "Fum";
+            dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            dataGridViewTextBoxColumn8.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            dataGridViewTextBoxColumn9.HeaderText = "YAI";
+            dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            dataGridViewTextBoxColumn9.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            dataGridViewTextBoxColumn10.HeaderText = "BTk";
+            dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            dataGridViewTextBoxColumn10.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            dataGridViewTextBoxColumn11.HeaderText = "20+";
+            dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            dataGridViewTextBoxColumn11.ReadOnly = true;
+            // 
+            // tabRecruiting
+            // 
+            tabRecruiting.BackColor = Color.LightSlateGray;
+            tabRecruiting.Controls.Add(label196);
+            tabRecruiting.Controls.Add(panel2);
+            tabRecruiting.Controls.Add(RecruitRankingComboBox);
+            tabRecruiting.Controls.Add(RecruitTeamName);
+            tabRecruiting.Controls.Add(RecruitTeamView);
+            tabRecruiting.Controls.Add(RecruitRankingView);
+            tabRecruiting.Controls.Add(textBox2);
+            tabRecruiting.Location = new Point(4, 29);
+            tabRecruiting.Name = "tabRecruiting";
+            tabRecruiting.Size = new Size(1152, 610);
+            tabRecruiting.TabIndex = 23;
+            tabRecruiting.Text = "Recruiting";
+            // 
+            // label196
+            // 
+            label196.AutoSize = true;
+            label196.BackColor = Color.Transparent;
+            label196.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            label196.ForeColor = SystemColors.ControlLight;
+            label196.Location = new Point(6, 44);
+            label196.Name = "label196";
+            label196.Size = new Size(76, 16);
+            label196.TabIndex = 159;
+            label196.Text = "Rankings:";
+            // 
+            // panel2
+            // 
+            panel2.AutoSize = true;
+            panel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            panel2.BackColor = Color.LightSteelBlue;
+            panel2.Location = new Point(6, 36);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(0, 0);
+            panel2.TabIndex = 164;
+            // 
+            // RecruitRankingComboBox
+            // 
+            RecruitRankingComboBox.BackColor = Color.LightSteelBlue;
+            RecruitRankingComboBox.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            RecruitRankingComboBox.FormattingEnabled = true;
+            RecruitRankingComboBox.Location = new Point(84, 41);
+            RecruitRankingComboBox.Name = "RecruitRankingComboBox";
+            RecruitRankingComboBox.RightToLeft = RightToLeft.No;
+            RecruitRankingComboBox.Size = new Size(96, 24);
+            RecruitRankingComboBox.TabIndex = 163;
+            RecruitRankingComboBox.Text = "Pick List";
+            RecruitRankingComboBox.SelectedIndexChanged += (this.RecruitRankingComboBox_SelectedIndexChanged);
+            // 
+            // RecruitTeamName
+            // 
+            RecruitTeamName.AutoSize = true;
+            RecruitTeamName.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            RecruitTeamName.ForeColor = SystemColors.ControlLight;
+            RecruitTeamName.Location = new Point(558, 44);
+            RecruitTeamName.Name = "RecruitTeamName";
+            RecruitTeamName.Size = new Size(92, 16);
+            RecruitTeamName.TabIndex = 162;
+            RecruitTeamName.Text = "Team Name";
+            // 
+            // RecruitTeamView
+            // 
+            RecruitTeamView.AllowUserToAddRows = false;
+            RecruitTeamView.AllowUserToDeleteRows = false;
+            RecruitTeamView.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle67.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle67.BackColor = Color.Gainsboro;
+            dataGridViewCellStyle67.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle67.SelectionBackColor = Color.MediumSlateBlue;
+            RecruitTeamView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle67;
+            RecruitTeamView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            RecruitTeamView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            RecruitTeamView.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            dataGridViewCellStyle68.Alignment = DataGridViewContentAlignment.BottomCenter;
+            dataGridViewCellStyle68.BackColor = SystemColors.InactiveCaption;
+            dataGridViewCellStyle68.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle68.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle68.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle68.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle68.WrapMode = DataGridViewTriState.True;
+            RecruitTeamView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle68;
+            RecruitTeamView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            RecruitTeamView.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn80, dataGridViewTextBoxColumn81, RecruitHomeTeam, Column1, Column3, RecruitTeamOVR, RecruitTeamStarRating, dataGridViewTextBoxColumn84 });
+            dataGridViewCellStyle69.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle69.BackColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle69.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle69.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle69.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle69.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle69.WrapMode = DataGridViewTriState.False;
+            RecruitTeamView.DefaultCellStyle = dataGridViewCellStyle69;
+            RecruitTeamView.Location = new Point(555, 68);
+            RecruitTeamView.Name = "RecruitTeamView";
+            RecruitTeamView.ReadOnly = true;
+            dataGridViewCellStyle70.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle70.BackColor = SystemColors.Control;
+            dataGridViewCellStyle70.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle70.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle70.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle70.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle70.WrapMode = DataGridViewTriState.True;
+            RecruitTeamView.RowHeadersDefaultCellStyle = dataGridViewCellStyle70;
+            RecruitTeamView.RowHeadersVisible = false;
+            RecruitTeamView.Size = new Size(591, 526);
+            RecruitTeamView.TabIndex = 161;
+            // 
+            // RecruitRankingView
+            // 
+            RecruitRankingView.AllowUserToAddRows = false;
+            RecruitRankingView.AllowUserToDeleteRows = false;
+            RecruitRankingView.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle71.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle71.BackColor = Color.Gainsboro;
+            dataGridViewCellStyle71.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle71.SelectionBackColor = Color.MediumSlateBlue;
+            RecruitRankingView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle71;
+            RecruitRankingView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            RecruitRankingView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            RecruitRankingView.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            dataGridViewCellStyle72.Alignment = DataGridViewContentAlignment.BottomCenter;
+            dataGridViewCellStyle72.BackColor = SystemColors.InactiveCaption;
+            dataGridViewCellStyle72.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle72.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle72.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle72.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle72.WrapMode = DataGridViewTriState.True;
+            RecruitRankingView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle72;
+            RecruitRankingView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            RecruitRankingView.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn14, RB5Star, RB4Star, RB3Star, RB2Star, RB1Star, RecruitRankingPts, Column2 });
+            dataGridViewCellStyle73.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle73.BackColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle73.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle73.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle73.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle73.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle73.WrapMode = DataGridViewTriState.False;
+            RecruitRankingView.DefaultCellStyle = dataGridViewCellStyle73;
+            RecruitRankingView.Location = new Point(6, 68);
+            RecruitRankingView.MultiSelect = false;
+            RecruitRankingView.Name = "RecruitRankingView";
+            RecruitRankingView.ReadOnly = true;
+            dataGridViewCellStyle74.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle74.BackColor = SystemColors.Control;
+            dataGridViewCellStyle74.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle74.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle74.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle74.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle74.WrapMode = DataGridViewTriState.True;
+            RecruitRankingView.RowHeadersDefaultCellStyle = dataGridViewCellStyle74;
+            RecruitRankingView.RowHeadersVisible = false;
+            RecruitRankingView.Size = new Size(538, 526);
+            RecruitRankingView.TabIndex = 160;
+            RecruitRankingView.CellContentClick += (this.RecruitRankingView_CellContentClick);
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            dataGridViewTextBoxColumn4.AutoSizeMode = DataGridViewAutoSizeColumnMode.None;
+            dataGridViewTextBoxColumn4.HeaderText = "Rank";
+            dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            dataGridViewTextBoxColumn4.ReadOnly = true;
+            dataGridViewTextBoxColumn4.Width = 65;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            dataGridViewTextBoxColumn14.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewTextBoxColumn14.FillWeight = 251.798569F;
+            dataGridViewTextBoxColumn14.HeaderText = "Team";
+            dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            dataGridViewTextBoxColumn14.ReadOnly = true;
+            dataGridViewTextBoxColumn14.Width = 68;
+            // 
+            // RB5Star
+            // 
+            RB5Star.FillWeight = 74.70023F;
+            RB5Star.HeaderText = "5 Star";
+            RB5Star.Name = "RB5Star";
+            RB5Star.ReadOnly = true;
+            // 
+            // RB4Star
+            // 
+            RB4Star.FillWeight = 74.70023F;
+            RB4Star.HeaderText = "4 Star";
+            RB4Star.Name = "RB4Star";
+            RB4Star.ReadOnly = true;
+            // 
+            // RB3Star
+            // 
+            RB3Star.FillWeight = 74.70023F;
+            RB3Star.HeaderText = "3 Star";
+            RB3Star.Name = "RB3Star";
+            RB3Star.ReadOnly = true;
+            // 
+            // RB2Star
+            // 
+            RB2Star.FillWeight = 74.70023F;
+            RB2Star.HeaderText = "2 Star";
+            RB2Star.Name = "RB2Star";
+            RB2Star.ReadOnly = true;
+            // 
+            // RB1Star
+            // 
+            RB1Star.FillWeight = 74.70023F;
+            RB1Star.HeaderText = "1 Star";
+            RB1Star.Name = "RB1Star";
+            RB1Star.ReadOnly = true;
+            // 
+            // RecruitRankingPts
+            // 
+            RecruitRankingPts.FillWeight = 74.70023F;
+            RecruitRankingPts.HeaderText = "Score";
+            RecruitRankingPts.Name = "RecruitRankingPts";
+            RecruitRankingPts.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            Column2.HeaderText = "Avg";
+            Column2.Name = "Column2";
+            Column2.ReadOnly = true;
+            // 
+            // textBox2
+            // 
+            textBox2.BackColor = SystemColors.ActiveCaption;
+            textBox2.Enabled = false;
+            textBox2.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            textBox2.Location = new Point(6, 3);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(1143, 31);
+            textBox2.TabIndex = 16;
+            textBox2.Text = "Recruiting Board";
+            textBox2.TextAlign = HorizontalAlignment.Center;
+            // 
+            // tabPortal
+            // 
+            tabPortal.BackColor = Color.Tan;
+            tabPortal.Controls.Add(FCSTransferPortalCheckBox);
+            tabPortal.Controls.Add(PortalCycleCount);
+            tabPortal.Controls.Add(label270);
+            tabPortal.Controls.Add(PortalRatingBoost);
+            tabPortal.Controls.Add(TransferEligible);
+            tabPortal.Controls.Add(TotalTransfersCount);
+            tabPortal.Controls.Add(PortalData);
+            tabPortal.Controls.Add(richTextBox3);
+            tabPortal.Controls.Add(richTextBox2);
+            tabPortal.Controls.Add(richTextBox1);
+            tabPortal.Controls.Add(PortalTransfers);
+            tabPortal.Controls.Add(portalChance);
+            tabPortal.Controls.Add(label259);
+            tabPortal.Controls.Add(groupBox33);
+            tabPortal.Controls.Add(groupBox32);
+            tabPortal.Controls.Add(groupBox31);
+            tabPortal.Controls.Add(SpringPortalButton);
+            tabPortal.Controls.Add(panel1);
+            tabPortal.Location = new Point(4, 29);
+            tabPortal.Name = "tabPortal";
+            tabPortal.Size = new Size(1152, 610);
+            tabPortal.TabIndex = 18;
+            tabPortal.Text = "Portal";
+            // 
+            // FCSTransferPortalCheckBox
+            // 
+            FCSTransferPortalCheckBox.AutoSize = true;
+            FCSTransferPortalCheckBox.Location = new Point(11, 399);
+            FCSTransferPortalCheckBox.Name = "FCSTransferPortalCheckBox";
+            FCSTransferPortalCheckBox.Size = new Size(151, 17);
+            FCSTransferPortalCheckBox.TabIndex = 45;
+            FCSTransferPortalCheckBox.Text = "Add FCS Players To Portal";
+            FCSTransferPortalCheckBox.TextAlign = ContentAlignment.MiddleCenter;
+            toolTip1.SetToolTip(FCSTransferPortalCheckBox, "This evalutes the roster and portal feature with a rating reduction of -1 and -2 for juniors and seniors, respectively. This is to allow underclassmen more opportunity.\r\n");
+            FCSTransferPortalCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // PortalCycleCount
+            // 
+            PortalCycleCount.Location = new Point(179, 86);
+            PortalCycleCount.Maximum = new decimal(new int[] { 25, 0, 0, 0 });
+            PortalCycleCount.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            PortalCycleCount.Name = "PortalCycleCount";
+            PortalCycleCount.Size = new Size(44, 20);
+            PortalCycleCount.TabIndex = 38;
+            PortalCycleCount.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            // 
+            // label270
+            // 
+            label270.AutoSize = true;
+            label270.Location = new Point(11, 89);
+            label270.Name = "label270";
+            label270.Size = new Size(162, 13);
+            label270.TabIndex = 37;
+            label270.Text = "Number of Portal Cycles To Run:";
+            // 
+            // PortalRatingBoost
+            // 
+            PortalRatingBoost.AutoSize = true;
+            PortalRatingBoost.Location = new Point(11, 376);
+            PortalRatingBoost.Name = "PortalRatingBoost";
+            PortalRatingBoost.Size = new Size(212, 17);
+            PortalRatingBoost.TabIndex = 43;
+            PortalRatingBoost.Text = "Evaluate with JR/SR Rating Reduction";
+            PortalRatingBoost.TextAlign = ContentAlignment.MiddleCenter;
+            toolTip1.SetToolTip(PortalRatingBoost, "This evalutes the roster and portal feature with a rating reduction of -1 and -2 for juniors and seniors, respectively. This is to allow underclassmen more opportunity.\r\n");
+            PortalRatingBoost.UseVisualStyleBackColor = true;
+            // 
+            // TransferEligible
+            // 
+            TransferEligible.AutoSize = true;
+            TransferEligible.Location = new Point(11, 353);
+            TransferEligible.Name = "TransferEligible";
+            TransferEligible.Size = new Size(217, 17);
+            TransferEligible.TabIndex = 42;
+            TransferEligible.Text = "Immediate Eligibility Waiver (Vanilla Only)";
+            toolTip1.SetToolTip(TransferEligible, "This is for non-NEXT mod users only. It will remove the Transfer 1 year wait period.");
+            TransferEligible.UseVisualStyleBackColor = true;
+            // 
+            // TotalTransfersCount
+            // 
+            TotalTransfersCount.AutoSize = true;
+            TotalTransfersCount.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            TotalTransfersCount.Location = new Point(770, 588);
+            TotalTransfersCount.Name = "TotalTransfersCount";
+            TotalTransfersCount.Size = new Size(129, 16);
+            TotalTransfersCount.TabIndex = 41;
+            TotalTransfersCount.Text = "Total Transfers: 0";
+            // 
+            // PortalData
+            // 
+            PortalData.AllowUserToAddRows = false;
+            PortalData.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle75.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle75.BackColor = Color.FromArgb((int)(byte)224, (int)(byte)224, (int)(byte)224);
+            dataGridViewCellStyle75.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle75.WrapMode = DataGridViewTriState.True;
+            PortalData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle75;
+            PortalData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            PortalData.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            dataGridViewCellStyle76.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle76.BackColor = SystemColors.Info;
+            dataGridViewCellStyle76.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle76.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle76.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle76.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle76.WrapMode = DataGridViewTriState.True;
+            PortalData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle76;
+            PortalData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            PortalData.Columns.AddRange(new DataGridViewColumn[] { PortalPosition, PortalTransferName, PortalClass, PortalRating, PortalNewSchool, PortalPrvTeam });
+            PortalData.Location = new Point(238, 14);
+            PortalData.Name = "PortalData";
+            PortalData.ReadOnly = true;
+            PortalData.RowHeadersVisible = false;
+            PortalData.RowHeadersWidth = 72;
+            dataGridViewCellStyle77.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle77.WrapMode = DataGridViewTriState.True;
+            PortalData.RowsDefaultCellStyle = dataGridViewCellStyle77;
+            PortalData.RowTemplate.Height = 31;
+            PortalData.Size = new Size(525, 587);
+            PortalData.TabIndex = 40;
+            // 
+            // PortalPosition
+            // 
+            PortalPosition.FillWeight = 8F;
+            PortalPosition.HeaderText = "Pos";
+            PortalPosition.MinimumWidth = 9;
+            PortalPosition.Name = "PortalPosition";
+            PortalPosition.ReadOnly = true;
+            // 
+            // PortalTransferName
+            // 
+            PortalTransferName.FillWeight = 35F;
+            PortalTransferName.HeaderText = "Player Name";
+            PortalTransferName.MinimumWidth = 9;
+            PortalTransferName.Name = "PortalTransferName";
+            PortalTransferName.ReadOnly = true;
+            // 
+            // PortalClass
+            // 
+            PortalClass.FillWeight = 13F;
+            PortalClass.HeaderText = "Year";
+            PortalClass.MinimumWidth = 9;
+            PortalClass.Name = "PortalClass";
+            PortalClass.ReadOnly = true;
+            // 
+            // PortalRating
+            // 
+            PortalRating.FillWeight = 7F;
+            PortalRating.HeaderText = "OVR";
+            PortalRating.MinimumWidth = 9;
+            PortalRating.Name = "PortalRating";
+            PortalRating.ReadOnly = true;
+            // 
+            // PortalNewSchool
+            // 
+            PortalNewSchool.FillWeight = 25F;
+            PortalNewSchool.HeaderText = "To";
+            PortalNewSchool.MinimumWidth = 9;
+            PortalNewSchool.Name = "PortalNewSchool";
+            PortalNewSchool.ReadOnly = true;
+            // 
+            // PortalPrvTeam
+            // 
+            PortalPrvTeam.FillWeight = 25F;
+            PortalPrvTeam.HeaderText = "From";
+            PortalPrvTeam.MinimumWidth = 9;
+            PortalPrvTeam.Name = "PortalPrvTeam";
+            PortalPrvTeam.ReadOnly = true;
+            // 
+            // richTextBox3
+            // 
+            richTextBox3.BackColor = SystemColors.Info;
+            richTextBox3.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            richTextBox3.Location = new Point(773, 505);
+            richTextBox3.Name = "richTextBox3";
+            richTextBox3.Size = new Size(361, 52);
+            richTextBox3.TabIndex = 39;
+            richTextBox3.Text = "The Spring Portal will only work after Spring Training Camp is over and before Team Cuts are performed.";
+            // 
+            // richTextBox2
+            // 
+            richTextBox2.BackColor = SystemColors.Info;
+            richTextBox2.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            richTextBox2.Location = new Point(12, 476);
+            richTextBox2.Name = "richTextBox2";
+            richTextBox2.Size = new Size(209, 125);
+            richTextBox2.TabIndex = 38;
+            richTextBox2.Text = resources.GetString("richTextBox2.Text");
+            // 
+            // richTextBox1
+            // 
+            richTextBox1.BackColor = SystemColors.Info;
+            richTextBox1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            richTextBox1.Location = new Point(773, 393);
+            richTextBox1.Name = "richTextBox1";
+            richTextBox1.Size = new Size(361, 97);
+            richTextBox1.TabIndex = 37;
+            richTextBox1.Text = resources.GetString("richTextBox1.Text");
+            // 
+            // PortalTransfers
+            // 
+            PortalTransfers.AutoSize = true;
+            PortalTransfers.Location = new Point(11, 330);
+            PortalTransfers.Name = "PortalTransfers";
+            PortalTransfers.Size = new Size(189, 17);
+            PortalTransfers.TabIndex = 36;
+            PortalTransfers.Text = "Allow Winter Transfers to Re-Enter";
+            toolTip1.SetToolTip(PortalTransfers, "This lets players who transferred in the previous portal to be available in this portal.");
+            PortalTransfers.UseVisualStyleBackColor = true;
+            // 
+            // portalChance
+            // 
+            portalChance.Location = new Point(176, 437);
+            portalChance.Name = "portalChance";
+            portalChance.Size = new Size(45, 20);
+            portalChance.TabIndex = 35;
+            portalChance.Value = new decimal(new int[] { 67, 0, 0, 0 });
+            // 
+            // label259
+            // 
+            label259.AutoSize = true;
+            label259.Location = new Point(23, 440);
+            label259.Name = "label259";
+            label259.Size = new Size(150, 13);
+            label259.TabIndex = 34;
+            label259.Text = "Transfer Chance Percentage: ";
+            toolTip1.SetToolTip(label259, "This is the likelihood a player will join the portal if they meet the pre-reqs.");
+            // 
+            // groupBox33
+            // 
+            groupBox33.Controls.Add(largePortal);
+            groupBox33.Controls.Add(smallPortal);
+            groupBox33.Location = new Point(21, 245);
+            groupBox33.Name = "groupBox33";
+            groupBox33.Size = new Size(200, 79);
+            groupBox33.TabIndex = 31;
+            groupBox33.TabStop = false;
+            groupBox33.Text = "Portal Size";
+            // 
+            // largePortal
+            // 
+            largePortal.AutoSize = true;
+            largePortal.Location = new Point(18, 48);
+            largePortal.Name = "largePortal";
+            largePortal.Size = new Size(82, 17);
+            largePortal.TabIndex = 1;
+            largePortal.Text = "Large Portal";
+            largePortal.UseVisualStyleBackColor = true;
+            // 
+            // smallPortal
+            // 
+            smallPortal.AutoSize = true;
+            smallPortal.Checked = true;
+            smallPortal.Location = new Point(18, 23);
+            smallPortal.Name = "smallPortal";
+            smallPortal.Size = new Size(80, 17);
+            smallPortal.TabIndex = 0;
+            smallPortal.TabStop = true;
+            smallPortal.Text = "Small Portal";
+            smallPortal.UseVisualStyleBackColor = true;
+            // 
+            // groupBox32
+            // 
+            groupBox32.Controls.Add(AllowBackupQBPortal);
+            groupBox32.Controls.Add(PortalDefaultSetting);
+            groupBox32.Controls.Add(SpringPortalMin);
+            groupBox32.Controls.Add(PortalK);
+            groupBox32.Controls.Add(label258);
+            groupBox32.Controls.Add(PortalP);
+            groupBox32.Controls.Add(label250);
+            groupBox32.Controls.Add(PortalSS);
+            groupBox32.Controls.Add(label251);
+            groupBox32.Controls.Add(PortalFS);
+            groupBox32.Controls.Add(label252);
+            groupBox32.Controls.Add(PortalCB);
+            groupBox32.Controls.Add(label253);
+            groupBox32.Controls.Add(PortalMLB);
+            groupBox32.Controls.Add(label254);
+            groupBox32.Controls.Add(PortalOLB);
+            groupBox32.Controls.Add(label255);
+            groupBox32.Controls.Add(PortalDT);
+            groupBox32.Controls.Add(label256);
+            groupBox32.Controls.Add(PortalDE);
+            groupBox32.Controls.Add(label257);
+            groupBox32.Controls.Add(PortalOC);
+            groupBox32.Controls.Add(label249);
+            groupBox32.Controls.Add(PortalOG);
+            groupBox32.Controls.Add(label248);
+            groupBox32.Controls.Add(PortalOT);
+            groupBox32.Controls.Add(label247);
+            groupBox32.Controls.Add(PortalTE);
+            groupBox32.Controls.Add(label246);
+            groupBox32.Controls.Add(PortalWR);
+            groupBox32.Controls.Add(label245);
+            groupBox32.Controls.Add(PortalFB);
+            groupBox32.Controls.Add(label244);
+            groupBox32.Controls.Add(PortalHB);
+            groupBox32.Controls.Add(label243);
+            groupBox32.Controls.Add(PortalQB);
+            groupBox32.Controls.Add(label242);
+            groupBox32.Location = new Point(773, 14);
+            groupBox32.Name = "groupBox32";
+            groupBox32.Size = new Size(361, 356);
+            groupBox32.TabIndex = 30;
+            groupBox32.TabStop = false;
+            groupBox32.Text = "Roster Depth Option";
+            // 
+            // AllowBackupQBPortal
+            // 
+            AllowBackupQBPortal.AutoSize = true;
+            AllowBackupQBPortal.Location = new Point(137, 301);
+            AllowBackupQBPortal.Name = "AllowBackupQBPortal";
+            AllowBackupQBPortal.Size = new Size(154, 17);
+            AllowBackupQBPortal.TabIndex = 36;
+            AllowBackupQBPortal.Text = "Allow Backup QB to Leave";
+            AllowBackupQBPortal.UseVisualStyleBackColor = true;
+            // 
+            // PortalDefaultSetting
+            // 
+            PortalDefaultSetting.Location = new Point(263, 112);
+            PortalDefaultSetting.Name = "PortalDefaultSetting";
+            PortalDefaultSetting.Size = new Size(75, 40);
+            PortalDefaultSetting.TabIndex = 35;
+            PortalDefaultSetting.Text = "Default Settings";
+            PortalDefaultSetting.UseVisualStyleBackColor = true;
+            PortalDefaultSetting.Click += (this.PortalDefaultSetting_Click);
+            // 
+            // SpringPortalMin
+            // 
+            SpringPortalMin.Location = new Point(263, 169);
+            SpringPortalMin.Name = "SpringPortalMin";
+            SpringPortalMin.Size = new Size(75, 40);
+            SpringPortalMin.TabIndex = 34;
+            SpringPortalMin.Text = "Set Minimum Roster";
+            SpringPortalMin.UseVisualStyleBackColor = true;
+            SpringPortalMin.Click += (this.SpringPortalMin_Click);
+            // 
+            // PortalK
+            // 
+            PortalK.Location = new Point(277, 42);
+            PortalK.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
+            PortalK.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            PortalK.Name = "PortalK";
+            PortalK.Size = new Size(44, 20);
+            PortalK.TabIndex = 33;
+            PortalK.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            // 
+            // label258
+            // 
+            label258.AutoSize = true;
+            label258.Location = new Point(249, 44);
+            label258.Name = "label258";
+            label258.Size = new Size(14, 13);
+            label258.TabIndex = 32;
+            label258.Text = "K";
+            // 
+            // PortalP
+            // 
+            PortalP.Location = new Point(277, 75);
+            PortalP.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
+            PortalP.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+            PortalP.Name = "PortalP";
+            PortalP.Size = new Size(44, 20);
+            PortalP.TabIndex = 31;
+            PortalP.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            // 
+            // label250
+            // 
+            label250.AutoSize = true;
+            label250.Location = new Point(249, 77);
+            label250.Name = "label250";
+            label250.Size = new Size(14, 13);
+            label250.TabIndex = 30;
+            label250.Text = "P";
+            // 
+            // PortalSS
+            // 
+            PortalSS.Location = new Point(165, 264);
+            PortalSS.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
+            PortalSS.Minimum = new decimal(new int[] { 2, 0, 0, 0 });
+            PortalSS.Name = "PortalSS";
+            PortalSS.Size = new Size(44, 20);
+            PortalSS.TabIndex = 29;
+            PortalSS.Value = new decimal(new int[] { 3, 0, 0, 0 });
+            // 
+            // label251
+            // 
+            label251.AutoSize = true;
+            label251.Location = new Point(137, 266);
+            label251.Name = "label251";
+            label251.Size = new Size(21, 13);
+            label251.TabIndex = 28;
+            label251.Text = "SS";
+            // 
+            // PortalFS
+            // 
+            PortalFS.Location = new Point(165, 226);
+            PortalFS.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
+            PortalFS.Minimum = new decimal(new int[] { 2, 0, 0, 0 });
+            PortalFS.Name = "PortalFS";
+            PortalFS.Size = new Size(44, 20);
+            PortalFS.TabIndex = 27;
+            PortalFS.Value = new decimal(new int[] { 3, 0, 0, 0 });
+            // 
+            // label252
+            // 
+            label252.AutoSize = true;
+            label252.Location = new Point(137, 228);
+            label252.Name = "label252";
+            label252.Size = new Size(20, 13);
+            label252.TabIndex = 26;
+            label252.Text = "FS";
+            // 
+            // PortalCB
+            // 
+            PortalCB.Location = new Point(165, 189);
+            PortalCB.Maximum = new decimal(new int[] { 12, 0, 0, 0 });
+            PortalCB.Minimum = new decimal(new int[] { 3, 0, 0, 0 });
+            PortalCB.Name = "PortalCB";
+            PortalCB.Size = new Size(44, 20);
+            PortalCB.TabIndex = 25;
+            PortalCB.Value = new decimal(new int[] { 6, 0, 0, 0 });
+            // 
+            // label253
+            // 
+            label253.AutoSize = true;
+            label253.Location = new Point(137, 191);
+            label253.Name = "label253";
+            label253.Size = new Size(21, 13);
+            label253.TabIndex = 24;
+            label253.Text = "CB";
+            // 
+            // PortalMLB
+            // 
+            PortalMLB.Location = new Point(165, 151);
+            PortalMLB.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
+            PortalMLB.Minimum = new decimal(new int[] { 3, 0, 0, 0 });
+            PortalMLB.Name = "PortalMLB";
+            PortalMLB.Size = new Size(44, 20);
+            PortalMLB.TabIndex = 23;
+            PortalMLB.Value = new decimal(new int[] { 4, 0, 0, 0 });
+            // 
+            // label254
+            // 
+            label254.AutoSize = true;
+            label254.Location = new Point(137, 153);
+            label254.Name = "label254";
+            label254.Size = new Size(29, 13);
+            label254.TabIndex = 22;
+            label254.Text = "MLB";
+            // 
+            // PortalOLB
+            // 
+            PortalOLB.Location = new Point(165, 115);
+            PortalOLB.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
+            PortalOLB.Minimum = new decimal(new int[] { 3, 0, 0, 0 });
+            PortalOLB.Name = "PortalOLB";
+            PortalOLB.Size = new Size(44, 20);
+            PortalOLB.TabIndex = 21;
+            PortalOLB.Value = new decimal(new int[] { 6, 0, 0, 0 });
+            // 
+            // label255
+            // 
+            label255.AutoSize = true;
+            label255.Location = new Point(137, 117);
+            label255.Name = "label255";
+            label255.Size = new Size(28, 13);
+            label255.TabIndex = 20;
+            label255.Text = "OLB";
+            // 
+            // PortalDT
+            // 
+            PortalDT.Location = new Point(165, 75);
+            PortalDT.Maximum = new decimal(new int[] { 12, 0, 0, 0 });
+            PortalDT.Minimum = new decimal(new int[] { 4, 0, 0, 0 });
+            PortalDT.Name = "PortalDT";
+            PortalDT.Size = new Size(44, 20);
+            PortalDT.TabIndex = 19;
+            PortalDT.Value = new decimal(new int[] { 5, 0, 0, 0 });
+            // 
+            // label256
+            // 
+            label256.AutoSize = true;
+            label256.Location = new Point(137, 77);
+            label256.Name = "label256";
+            label256.Size = new Size(22, 13);
+            label256.TabIndex = 18;
+            label256.Text = "DT";
+            // 
+            // PortalDE
+            // 
+            PortalDE.Location = new Point(165, 40);
+            PortalDE.Maximum = new decimal(new int[] { 12, 0, 0, 0 });
+            PortalDE.Minimum = new decimal(new int[] { 4, 0, 0, 0 });
+            PortalDE.Name = "PortalDE";
+            PortalDE.Size = new Size(44, 20);
+            PortalDE.TabIndex = 17;
+            PortalDE.Value = new decimal(new int[] { 6, 0, 0, 0 });
+            // 
+            // label257
+            // 
+            label257.AutoSize = true;
+            label257.Location = new Point(137, 42);
+            label257.Name = "label257";
+            label257.Size = new Size(22, 13);
+            label257.TabIndex = 16;
+            label257.Text = "DE";
+            // 
+            // PortalOC
+            // 
+            PortalOC.Location = new Point(47, 303);
+            PortalOC.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
+            PortalOC.Minimum = new decimal(new int[] { 2, 0, 0, 0 });
+            PortalOC.Name = "PortalOC";
+            PortalOC.Size = new Size(44, 20);
+            PortalOC.TabIndex = 15;
+            PortalOC.Value = new decimal(new int[] { 2, 0, 0, 0 });
+            // 
+            // label249
+            // 
+            label249.AutoSize = true;
+            label249.Location = new Point(19, 305);
+            label249.Name = "label249";
+            label249.Size = new Size(22, 13);
+            label249.TabIndex = 14;
+            label249.Text = "OC";
+            // 
+            // PortalOG
+            // 
+            PortalOG.Location = new Point(47, 264);
+            PortalOG.Maximum = new decimal(new int[] { 12, 0, 0, 0 });
+            PortalOG.Minimum = new decimal(new int[] { 3, 0, 0, 0 });
+            PortalOG.Name = "PortalOG";
+            PortalOG.Size = new Size(44, 20);
+            PortalOG.TabIndex = 13;
+            PortalOG.Value = new decimal(new int[] { 6, 0, 0, 0 });
+            // 
+            // label248
+            // 
+            label248.AutoSize = true;
+            label248.Location = new Point(19, 266);
+            label248.Name = "label248";
+            label248.Size = new Size(23, 13);
+            label248.TabIndex = 12;
+            label248.Text = "OG";
+            // 
+            // PortalOT
+            // 
+            PortalOT.Location = new Point(47, 226);
+            PortalOT.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
+            PortalOT.Minimum = new decimal(new int[] { 3, 0, 0, 0 });
+            PortalOT.Name = "PortalOT";
+            PortalOT.Size = new Size(44, 20);
+            PortalOT.TabIndex = 11;
+            PortalOT.Value = new decimal(new int[] { 6, 0, 0, 0 });
+            // 
+            // label247
+            // 
+            label247.AutoSize = true;
+            label247.Location = new Point(19, 228);
+            label247.Name = "label247";
+            label247.Size = new Size(22, 13);
+            label247.TabIndex = 10;
+            label247.Text = "OT";
+            // 
+            // PortalTE
+            // 
+            PortalTE.Location = new Point(47, 189);
+            PortalTE.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
+            PortalTE.Minimum = new decimal(new int[] { 2, 0, 0, 0 });
+            PortalTE.Name = "PortalTE";
+            PortalTE.Size = new Size(44, 20);
+            PortalTE.TabIndex = 9;
+            PortalTE.Value = new decimal(new int[] { 3, 0, 0, 0 });
+            // 
+            // label246
+            // 
+            label246.AutoSize = true;
+            label246.Location = new Point(19, 191);
+            label246.Name = "label246";
+            label246.Size = new Size(21, 13);
+            label246.TabIndex = 8;
+            label246.Text = "TE";
+            // 
+            // PortalWR
+            // 
+            PortalWR.Location = new Point(47, 151);
+            PortalWR.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
+            PortalWR.Minimum = new decimal(new int[] { 3, 0, 0, 0 });
+            PortalWR.Name = "PortalWR";
+            PortalWR.Size = new Size(44, 20);
+            PortalWR.TabIndex = 7;
+            PortalWR.Value = new decimal(new int[] { 6, 0, 0, 0 });
+            // 
+            // label245
+            // 
+            label245.AutoSize = true;
+            label245.Location = new Point(19, 153);
+            label245.Name = "label245";
+            label245.Size = new Size(26, 13);
+            label245.TabIndex = 6;
+            label245.Text = "WR";
+            // 
+            // PortalFB
+            // 
+            PortalFB.Location = new Point(47, 115);
+            PortalFB.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
+            PortalFB.Name = "PortalFB";
+            PortalFB.Size = new Size(44, 20);
+            PortalFB.TabIndex = 5;
+            PortalFB.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            // 
+            // label244
+            // 
+            label244.AutoSize = true;
+            label244.Location = new Point(19, 117);
+            label244.Name = "label244";
+            label244.Size = new Size(20, 13);
+            label244.TabIndex = 4;
+            label244.Text = "FB";
+            // 
+            // PortalHB
+            // 
+            PortalHB.Location = new Point(47, 75);
+            PortalHB.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
+            PortalHB.Minimum = new decimal(new int[] { 3, 0, 0, 0 });
+            PortalHB.Name = "PortalHB";
+            PortalHB.Size = new Size(44, 20);
+            PortalHB.TabIndex = 3;
+            PortalHB.Value = new decimal(new int[] { 4, 0, 0, 0 });
+            // 
+            // label243
+            // 
+            label243.AutoSize = true;
+            label243.Location = new Point(19, 77);
+            label243.Name = "label243";
+            label243.Size = new Size(22, 13);
+            label243.TabIndex = 2;
+            label243.Text = "HB";
+            // 
+            // PortalQB
+            // 
+            PortalQB.Location = new Point(47, 40);
+            PortalQB.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
+            PortalQB.Minimum = new decimal(new int[] { 2, 0, 0, 0 });
+            PortalQB.Name = "PortalQB";
+            PortalQB.Size = new Size(44, 20);
+            PortalQB.TabIndex = 1;
+            PortalQB.Value = new decimal(new int[] { 3, 0, 0, 0 });
+            // 
+            // label242
+            // 
+            label242.AutoSize = true;
+            label242.Location = new Point(19, 42);
+            label242.Name = "label242";
+            label242.Size = new Size(22, 13);
+            label242.TabIndex = 0;
+            label242.Text = "QB";
+            // 
+            // groupBox31
+            // 
+            groupBox31.Controls.Add(PortalSnake);
+            groupBox31.Controls.Add(PortalRandom);
+            groupBox31.Controls.Add(PortalFirst);
+            groupBox31.Controls.Add(PortalReverse);
+            groupBox31.Location = new Point(21, 120);
+            groupBox31.Name = "groupBox31";
+            groupBox31.Size = new Size(200, 119);
+            groupBox31.TabIndex = 29;
+            groupBox31.TabStop = false;
+            groupBox31.Text = "Portal Priority";
+            toolTip1.SetToolTip(groupBox31, "This determines the order in which teams select players. It will go through position by position.");
+            // 
+            // PortalSnake
+            // 
+            PortalSnake.AutoSize = true;
+            PortalSnake.Location = new Point(7, 66);
+            PortalSnake.Name = "PortalSnake";
+            PortalSnake.Size = new Size(85, 17);
+            PortalSnake.TabIndex = 3;
+            PortalSnake.Text = "Snake Order";
+            PortalSnake.UseVisualStyleBackColor = true;
+            // 
+            // PortalRandom
+            // 
+            PortalRandom.AutoSize = true;
+            PortalRandom.Location = new Point(7, 89);
+            PortalRandom.Name = "PortalRandom";
+            PortalRandom.Size = new Size(94, 17);
+            PortalRandom.TabIndex = 2;
+            PortalRandom.Text = "Random Order";
+            PortalRandom.UseVisualStyleBackColor = true;
+            // 
+            // PortalFirst
+            // 
+            PortalFirst.AutoSize = true;
+            PortalFirst.Location = new Point(7, 43);
+            PortalFirst.Name = "PortalFirst";
+            PortalFirst.Size = new Size(165, 17);
+            PortalFirst.TabIndex = 1;
+            PortalFirst.Text = "Ranking Order (First to Worst)";
+            PortalFirst.UseVisualStyleBackColor = true;
+            // 
+            // PortalReverse
+            // 
+            PortalReverse.AutoSize = true;
+            PortalReverse.Checked = true;
+            PortalReverse.Location = new Point(7, 20);
+            PortalReverse.Name = "PortalReverse";
+            PortalReverse.Size = new Size(165, 17);
+            PortalReverse.TabIndex = 0;
+            PortalReverse.TabStop = true;
+            PortalReverse.Text = "Reverse Order (Worst to First)";
+            PortalReverse.UseVisualStyleBackColor = true;
+            // 
+            // SpringPortalButton
+            // 
+            SpringPortalButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            SpringPortalButton.Location = new Point(21, 25);
+            SpringPortalButton.Name = "SpringPortalButton";
+            SpringPortalButton.Size = new Size(200, 56);
+            SpringPortalButton.TabIndex = 27;
+            SpringPortalButton.Text = "Spring Portal";
+            SpringPortalButton.UseVisualStyleBackColor = true;
+            SpringPortalButton.Click += (this.SpringPortalButton_Click);
+            // 
+            // panel1
+            // 
+            panel1.Location = new Point(6, 14);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(226, 100);
+            panel1.TabIndex = 44;
+            // 
+            // tabSTRMDATA
+            // 
+            tabSTRMDATA.BackColor = SystemColors.ActiveCaption;
+            tabSTRMDATA.Controls.Add(groupBox41);
+            tabSTRMDATA.Location = new Point(4, 29);
+            tabSTRMDATA.Name = "tabSTRMDATA";
+            tabSTRMDATA.Padding = new Padding(3);
+            tabSTRMDATA.Size = new Size(1152, 610);
+            tabSTRMDATA.TabIndex = 19;
+            tabSTRMDATA.Text = "STRMDATA";
+            // 
+            // groupBox41
+            // 
+            groupBox41.Controls.Add(buttonRCATBody);
+            groupBox41.Location = new Point(17, 15);
+            groupBox41.Name = "groupBox41";
+            groupBox41.Size = new Size(376, 231);
+            groupBox41.TabIndex = 0;
+            groupBox41.TabStop = false;
+            groupBox41.Text = "Recruit Database (RCAT)";
+            // 
+            // buttonRCATBody
+            // 
+            buttonRCATBody.Location = new Point(18, 28);
+            buttonRCATBody.Name = "buttonRCATBody";
+            buttonRCATBody.Size = new Size(125, 60);
+            buttonRCATBody.TabIndex = 0;
+            buttonRCATBody.Text = "Body Shape Fixer";
+            buttonRCATBody.UseVisualStyleBackColor = true;
+            buttonRCATBody.Click += (this.buttonRCATBody_Click);
+            // 
+            // dataGridViewTextBoxColumn80
+            // 
+            dataGridViewTextBoxColumn80.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewTextBoxColumn80.HeaderText = "Pos";
+            dataGridViewTextBoxColumn80.Name = "dataGridViewTextBoxColumn80";
+            dataGridViewTextBoxColumn80.ReadOnly = true;
+            dataGridViewTextBoxColumn80.Width = 56;
+            // 
+            // dataGridViewTextBoxColumn81
+            // 
+            dataGridViewTextBoxColumn81.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewTextBoxColumn81.FillWeight = 251.798569F;
+            dataGridViewTextBoxColumn81.HeaderText = "Player";
+            dataGridViewTextBoxColumn81.Name = "dataGridViewTextBoxColumn81";
+            dataGridViewTextBoxColumn81.ReadOnly = true;
+            dataGridViewTextBoxColumn81.Width = 72;
+            // 
+            // RecruitHomeTeam
+            // 
+            RecruitHomeTeam.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            RecruitHomeTeam.FillWeight = 74.70023F;
+            RecruitHomeTeam.HeaderText = "Home";
+            RecruitHomeTeam.Name = "RecruitHomeTeam";
+            RecruitHomeTeam.ReadOnly = true;
+            RecruitHomeTeam.Width = 70;
+            // 
+            // Column1
+            // 
+            Column1.HeaderText = "Height";
+            Column1.Name = "Column1";
+            Column1.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            Column3.HeaderText = "Weight";
+            Column3.Name = "Column3";
+            Column3.ReadOnly = true;
+            // 
+            // RecruitTeamOVR
+            // 
+            RecruitTeamOVR.FillWeight = 74.70023F;
+            RecruitTeamOVR.HeaderText = "OVR";
+            RecruitTeamOVR.Name = "RecruitTeamOVR";
+            RecruitTeamOVR.ReadOnly = true;
+            // 
+            // RecruitTeamStarRating
+            // 
+            RecruitTeamStarRating.FillWeight = 74.70023F;
+            RecruitTeamStarRating.HeaderText = "Star Rating";
+            RecruitTeamStarRating.Name = "RecruitTeamStarRating";
+            RecruitTeamStarRating.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn84
+            // 
+            dataGridViewTextBoxColumn84.FillWeight = 74.70023F;
+            dataGridViewTextBoxColumn84.HeaderText = "Pos Rank";
+            dataGridViewTextBoxColumn84.Name = "dataGridViewTextBoxColumn84";
+            dataGridViewTextBoxColumn84.ReadOnly = true;
+            // 
             // MainEditor
             // 
             this.AutoScaleDimensions = new SizeF(96F, 96F);
@@ -14769,6 +16089,23 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)numberPlayerCoach).EndInit();
             ((System.ComponentModel.ISupportInitialize)jobSecurityValue).EndInit();
             ((System.ComponentModel.ISupportInitialize)CarouselDataGrid).EndInit();
+            tabPlayoff.ResumeLayout(false);
+            tabPlayoff.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            tabTeamStats.ResumeLayout(false);
+            tabTeamStats.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)TSReturn).EndInit();
+            ((System.ComponentModel.ISupportInitialize)TSPunting).EndInit();
+            ((System.ComponentModel.ISupportInitialize)TSKicking).EndInit();
+            ((System.ComponentModel.ISupportInitialize)TSReceiving).EndInit();
+            ((System.ComponentModel.ISupportInitialize)TSPassing).EndInit();
+            ((System.ComponentModel.ISupportInitialize)TSDefense).EndInit();
+            ((System.ComponentModel.ISupportInitialize)TSRushing).EndInit();
+            tabRecruiting.ResumeLayout(false);
+            tabRecruiting.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)RecruitTeamView).EndInit();
+            ((System.ComponentModel.ISupportInitialize)RecruitRankingView).EndInit();
             tabPortal.ResumeLayout(false);
             tabPortal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)PortalCycleCount).EndInit();
@@ -14799,10 +16136,6 @@ namespace DB_EDITOR
             groupBox31.PerformLayout();
             tabSTRMDATA.ResumeLayout(false);
             groupBox41.ResumeLayout(false);
-            tabPlayoff.ResumeLayout(false);
-            tabPlayoff.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -15988,6 +17321,118 @@ namespace DB_EDITOR
         private PictureBox pictureBox4;
         private Label PlayoffYearLabel;
         private System.Windows.Forms.ComboBox ScheduleComboBox;
+        private TabPage tabTeamStats;
+        private Label label190;
+        private Label label189;
+        private Label label188;
+        private DataGridView TSRushing;
+        private Label label195;
+        private Label label194;
+        private Label label193;
+        private Label label191;
+        private System.Windows.Forms.ComboBox TSTeamBox;
+        private DataGridView TSReturn;
+        private DataGridView TSPunting;
+        private DataGridView TSKicking;
+        private DataGridView TSReceiving;
+        private DataGridView TSPassing;
+        private DataGridView TSDefense;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn28;
+        private DataGridViewTextBoxColumn TSPassYds;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn30;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn31;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn32;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn33;
+        private DataGridViewTextBoxColumn TSPunts;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn57;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn58;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn59;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn60;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn61;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn62;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn63;
+        private DataGridViewTextBoxColumn TSFGM;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn46;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn47;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn48;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn49;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn50;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn51;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn52;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn53;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn54;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn34;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn35;
+        private DataGridViewTextBoxColumn TSCatch;
+        private DataGridViewTextBoxColumn TSYdsCat;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn38;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn39;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn40;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn41;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn42;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn43;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn44;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private DataGridViewTextBoxColumn TSTackles;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private DataGridViewTextBoxColumn TSRushYds;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn67;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn76;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn68;
+        private DataGridViewTextBoxColumn TSKRYd;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn70;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn71;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn72;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn73;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn74;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn75;
+        private TabPage tabRecruiting;
+        private Label label196;
+        public System.Windows.Forms.TextBox textBox2;
+        private DataGridView RecruitRankingView;
+        private DataGridView RecruitTeamView;
+        private Panel panel2;
+        private System.Windows.Forms.ComboBox RecruitRankingComboBox;
+        private Label RecruitTeamName;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private DataGridViewTextBoxColumn RB5Star;
+        private DataGridViewTextBoxColumn RB4Star;
+        private DataGridViewTextBoxColumn RB3Star;
+        private DataGridViewTextBoxColumn RB2Star;
+        private DataGridViewTextBoxColumn RB1Star;
+        private DataGridViewTextBoxColumn RecruitRankingPts;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn80;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn81;
+        private DataGridViewTextBoxColumn RecruitHomeTeam;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column3;
+        private DataGridViewTextBoxColumn RecruitTeamOVR;
+        private DataGridViewTextBoxColumn RecruitTeamStarRating;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn84;
     }
 }
 

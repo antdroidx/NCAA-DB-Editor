@@ -733,8 +733,9 @@ namespace DB_EDITOR
                     }
                     else if (table.Name == "RCPT" && !BigEndian)
                     {
-                        if (!checkTabExists("Recruiting")) tabControl1.TabPages.Add(tabOffSeason);
+                        if (!checkTabExists("Off-Season")) tabControl1.TabPages.Add(tabOffSeason);
                         if (!checkTabExists("Recruits")) tabControl1.TabPages.Add(tabRecruits);
+                        if (!checkTabExists("Recruiting")) tabControl1.TabPages.Add(tabRecruiting);
 
                     }
                     else if (table.Name == "UNIF" && !BigEndian)
@@ -745,10 +746,6 @@ namespace DB_EDITOR
                     {
                         if (!checkTabExists("Bowls")) tabControl1.TabPages.Add(tabBowls);
                     }
-                    else if (table.Name == "PACL" && !BigEndian)
-                    {
-                        if (checkTabExists("Bowls")) tabControl1.TabPages.Remove(tabBowls);
-                    }
                     else if (table.Name == "SCHD" && !BigEndian)
                     {
                         if (!checkTabExists("Schedule")) tabControl1.TabPages.Add(tabSchedule);
@@ -756,7 +753,8 @@ namespace DB_EDITOR
                     }
                     else if (table.Name == "PSOL" && !BigEndian)
                     {
-                        if (!checkTabExists("Stats")) tabControl1.TabPages.Add(tabStats);
+                        if (!checkTabExists("League Stats")) tabControl1.TabPages.Add(tabStats);
+                        if (!checkTabExists("Team Stats")) tabControl1.TabPages.Add(tabTeamStats);
                     }
                     else if (table.Name == "STAD" && !BigEndian)
                     {

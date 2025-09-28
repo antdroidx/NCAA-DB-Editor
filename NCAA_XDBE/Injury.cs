@@ -50,7 +50,7 @@ namespace DB_EDITOR
                 string injuryType = InjuryType[GetDBValueInt("INJY", "INJT", i)];
                 string injuryLength = InjuryLength[GetDBValueInt("INJY", "INJL", i)];
 
-                if(GetDBValueInt("PLAY", "PRSD", rec) == 1)
+                if(GetDBValueInt("PLAY", "PRSD", rec) == 1 || GetDBValueInt("PLAY", "PRSD", rec) == 3)
                 {
                     ChangeDBInt("INJY", "INJL", rec, 254);
                     injuryLength = "Season (RS)";

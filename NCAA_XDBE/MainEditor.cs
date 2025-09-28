@@ -213,7 +213,8 @@ namespace DB_EDITOR
             tabControl1.TabPages.Remove(tabSTRMDATA);
             tabControl1.TabPages.Remove(tabCarousel);
             tabControl1.TabPages.Remove(tabPlayoff);
-
+            tabControl1.TabPages.Remove(tabTeamStats);
+            tabControl1.TabPages.Remove(tabRecruiting);
 
 
             tabDelimited = false;
@@ -1140,6 +1141,8 @@ namespace DB_EDITOR
             else if (tabControl1.SelectedTab == tabPortal) StartSpringPortal();
             else if (tabControl1.SelectedTab == tabSTRMDATA) { /* do nothing */ }
             else if (tabControl1.SelectedTab == tabPlayoff) { StartPlayoffViewer(); }
+            else if (tabControl1.SelectedTab == tabTeamStats) { StartTeamStatsViewer(); }
+            else if (tabControl1.SelectedTab == tabRecruiting) { StartRecruitRankingsView(); }
 
         }
 
