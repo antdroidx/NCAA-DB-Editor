@@ -212,7 +212,7 @@ namespace DB_EDITOR
                         if (gp > 0) ypg = Math.Round((Convert.ToDouble(yds) / Convert.ToDouble(gp)), 1);
 
                         double rca = 0;
-                        if (cat > 0) ypc = Math.Round((Convert.ToDouble(rac) / Convert.ToDouble(cat)), 1);
+                        if (cat > 0) rca = Math.Round((Convert.ToDouble(rac) / Convert.ToDouble(cat)), 1);
 
                         int row = TSReceiving.Rows.Count;
                         TSReceiving.Rows.Add(1);

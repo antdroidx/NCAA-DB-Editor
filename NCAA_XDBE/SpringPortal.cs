@@ -329,7 +329,6 @@ namespace DB_EDITOR
                         TeamPortalNeeds[tgid][p * 2 + 1] = 0;
                     }
                 }
-
             }
         }
 

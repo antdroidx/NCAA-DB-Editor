@@ -79,7 +79,7 @@ namespace DB_EDITOR
         {
             if (GetDBValueInt("SEAI", "SEWN", 0) > 0 && GetDBValueInt("SEAI", "SEWN", 0) < 22)
             {
-                MessageBox.Show("Please only make conference edits during pre-season, at end of season, or in off-season!\n\n\nFCS Swapping will only safely work at end of season or beginning of off-season!");
+                //MessageBox.Show("Please only make conference edits during pre-season, at end of season, or in off-season!\n\n\nFCS Swapping will only safely work at end of season or beginning of off-season!");
                 //tabConf.Enabled = false;
                 SwapButton.Enabled = false;
                 
@@ -170,6 +170,17 @@ namespace DB_EDITOR
                     {
                         conferenceBox.Items.Add(GetDBValue("TEAM", "TDNA", i) + " [" + GetDBValue("TEAM", "TMPR", i) + "]");
                         prestige += GetDBValueInt("TEAM", "TMPR", i);
+                    }
+                    else if (ConfDisplayProjPrestige.Checked)
+                    {
+                        int newPrestige = ProjectTeamPrestige(i);
+                        int current = GetDBValueInt("TEAM", "TMPR", i);
+                        string change = "";
+                        if (newPrestige > current) change = " (+1)";
+                        else if (newPrestige < current) change = " (-1)";
+
+                        conferenceBox.Items.Add(GetDBValue("TEAM", "TDNA", i) + " [" + newPrestige + "] " + change + "");
+                        prestige += newPrestige;
                     }
                     else if (ConfDisplayRating.Checked)
                     {
@@ -786,9 +797,14 @@ namespace DB_EDITOR
 
         }
 
+        private void ConfDisplayProjPrestige_CheckedChanged(object sender, EventArgs e)
+        {
+            ConferenceSetup();
+        }
 
         //Change Prestige Value
 
+        #region Change prestige
         private void CPRS1_ValueChanged(object sender, EventArgs e)
         {
             int rec = GetCONFrecFromCNAM(ConfName1.Text);
@@ -885,6 +901,8 @@ namespace DB_EDITOR
             ChangeDBInt("CONF", "CMXP", rec, GetConfMaxPrestige((int)CPRS12.Value));
         }
 
+        #endregion
+
         private int GetConfMinPrestige(int CPRS)
         {
             int min = 0;
@@ -902,6 +920,33 @@ namespace DB_EDITOR
             else if (CPRS == 1) return 3;
             else return min;
         }
+
+        //Project Prestige for NEXT Mod
+
+        private int ProjectTeamPrestige(int teamRec)
+        {
+            int TMPR = GetDBValueInt("TEAM", "TMPR", teamRec);
+            int prestigePerformed = -1;
+            int TMRK = GetDBValueInt("TEAM", "TCRK", teamRec);
+            int newPrestige = TMPR;
+
+            //calculate the prestige level of the team's season performance
+            if (TMRK <= 10) prestigePerformed = 6;
+            else if (TMRK <= 20) prestigePerformed = 5;
+            else if (TMRK <= 35) prestigePerformed = 4;
+            else if (TMRK <= 60) prestigePerformed = 3;
+            else if (TMRK <= 90) prestigePerformed = 2;
+            else prestigePerformed = 1;
+
+            if (TMPR > prestigePerformed) newPrestige--;
+            if (TMPR < prestigePerformed) newPrestige++;
+
+            if (newPrestige > 6) newPrestige = 6;
+            if (newPrestige < 1) newPrestige = 1;
+
+            return newPrestige;
+        }
+
 
     }
 }
