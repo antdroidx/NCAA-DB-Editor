@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace DB_EDITOR
 {
@@ -180,9 +181,9 @@ namespace DB_EDITOR
                 string[] split = teamName[1].Split(' ');
                 string splitName = "";
 
-                for(int i = 1; i < split.Length; i++)
+                for (int i = 1; i < split.Length; i++)
                 {
-                    if(i == split.Length - 1) splitName += split[i];
+                    if (i == split.Length - 1) splitName += split[i];
                     else splitName += split[i] + " ";
                 }
 
@@ -205,13 +206,9 @@ namespace DB_EDITOR
         {
             DoNotTrigger = true;
 
-            progressBar1.Visible = true;
-            progressBar1.Value = 0;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = 11;
-            progressBar1.Step = 1;
+            StartProgressBar(11);
 
-            progressBar1.PerformStep();
+            ProgressBarStep();
 
             //User Coach
             if (GetDBValue("COCH", "CFUC", GetCOCHrecFromTeamRec(EditorIndex)) == "1") UserCoachCheckBox.Checked = true;
@@ -222,7 +219,7 @@ namespace DB_EDITOR
             TeamConferenceBox.Text = GetConfNameFromCGID(GetDBValueInt("TEAM", "CGID", EditorIndex));
             TeamDivisionBox.Text = GetDivisionNamefromDGID(GetDBValueInt("TEAM", "DGID", EditorIndex));
 
-            progressBar1.PerformStep();
+            ProgressBarStep();
 
             //Team Name
             TGIDtextBox.Text = GetDBValue("TEAM", "TGID", EditorIndex);
@@ -230,26 +227,22 @@ namespace DB_EDITOR
             TMNAtextBox.Text = GetDBValue("TEAM", "TMNA", EditorIndex);
             TSNAtextBox.Text = GetDBValue("TEAM", "TSNA", EditorIndex);
 
-            progressBar1.PerformStep();
+            ProgressBarStep();
 
             //Team Ratings
-            TeamOVRtextbox.Text = GetDBValue("TEAM", "TROV", EditorIndex);
-            TeamOffRating.Text = GetDBValue("TEAM", "TROF", EditorIndex);
-            TeamDefRating.Text = GetDBValue("TEAM", "TRDE", EditorIndex);
-            TeamSTRating.Text = GetDBValue("TEAM", "TRST", EditorIndex);
+           
 
             TMPRNumBox.Value = GetDBValueInt("TEAM", "TMPR", EditorIndex);
-            TMARNumBox.Value = GetDBValueInt("TEAM", "TMAR", EditorIndex);
+            tmprStars.Text = ConvertStarNumber(Convert.ToInt32(TMPRNumBox.Value));
 
-            TeamOVRtextbox.BackColor = GetRatingColor(TeamOVRtextbox).BackColor;
-            TeamOffRating.BackColor = GetRatingColor(TeamOffRating).BackColor;
-            TeamDefRating.BackColor = GetRatingColor(TeamDefRating).BackColor;
-            TeamSTRating.BackColor = GetRatingColor(TeamSTRating).BackColor;
+            TMARNumBox.Value = GetDBValueInt("TEAM", "TMAR", EditorIndex);
+            tmarStars.Text = ConvertStarNumber(Convert.ToInt32(TMARNumBox.Value));
+
             TMPRNumBox.BackColor = GetPrestigeColor(TMPRNumBox).BackColor;
             TMARNumBox.BackColor = GetPrestigeColor(TMARNumBox).BackColor;
 
 
-            progressBar1.PerformStep();
+            ProgressBarStep();
 
             //Season Records
             APPollBox.Text = GetDBValue("TEAM", "TMRK", EditorIndex);
@@ -257,7 +250,7 @@ namespace DB_EDITOR
             SeasonRecordBox.Text = GetDBValue("TEAM", "tsdw", EditorIndex) + " - " + GetDBValue("TEAM", "tsdl", EditorIndex);
             ConfRecordBox.Text = GetDBValue("TEAM", "tscw", EditorIndex) + " - " + GetDBValue("TEAM", "tscl", EditorIndex);
 
-            progressBar1.PerformStep();
+            ProgressBarStep();
 
             //NCAA Investigation
             INPOnumbox.Value = GetDBValueInt("TEAM", "INPO", EditorIndex);
@@ -266,7 +259,7 @@ namespace DB_EDITOR
             SDURnumbox.Value = GetDBValueInt("TEAM", "SDUR", EditorIndex);
             SNCTnumbox.Value = GetDBValueInt("TEAM", "SNCT", EditorIndex);
 
-            progressBar1.PerformStep();
+            ProgressBarStep();
 
 
             //Team Captains & Impact Players
@@ -287,7 +280,7 @@ namespace DB_EDITOR
             ImpactTSI1Select.SelectedIndex = FindImpactTSIPlayer(GetDBValueInt("TEAM", "TSI1", EditorIndex));
             ImpactTSI2Select.SelectedIndex = FindImpactTSIPlayer(GetDBValueInt("TEAM", "TSI2", EditorIndex));
 
-            progressBar1.PerformStep();
+            ProgressBarStep();
 
             //Head Coach Info
             HCFirstNameBox.Text = GetCoachFirstNamefromRec(GetCOCHrecFromTeamRec(EditorIndex));
@@ -297,14 +290,14 @@ namespace DB_EDITOR
             TeamCCPONumBox.Value = GetDBValueInt("COCH", "CCPO", GetCOCHrecFromTeamRec(EditorIndex));
             TeamCCPONumBox.BackColor = GetPerformanceColor(TeamCCPONumBox).BackColor;
 
-            progressBar1.PerformStep();
+            ProgressBarStep();
 
             //Off-Season Budgets
             TeamCDPCBox.Text = GetDBValue("COCH", "CDPC", GetCOCHrecFromTeamRec(EditorIndex));
             TeamCTPCNumber.Value = GetDBValueInt("COCH", "CTPC", GetCOCHrecFromTeamRec(EditorIndex));
             TeamCRPCNumber.Value = GetDBValueInt("COCH", "CRPC", GetCOCHrecFromTeamRec(EditorIndex));
 
-            progressBar1.PerformStep();
+            ProgressBarStep();
 
             //Playbook & Strategies
             GetPlaybookItems();
@@ -323,7 +316,7 @@ namespace DB_EDITOR
             TeamCDTAbox.Value = GetDBValueInt("COCH", "CDTA", GetCOCHrecFromTeamRec(EditorIndex));
             TeamCDTSbox.Value = GetDBValueInt("COCH", "CDTS", GetCOCHrecFromTeamRec(EditorIndex));
 
-            progressBar1.PerformStep();
+            ProgressBarStep();
 
 
             //Team Colors
@@ -337,7 +330,7 @@ namespace DB_EDITOR
             CrowdBox.SelectedIndex = FindTeamIndexfromPalette(GetDBValueInt("TEAM", "TCRP", EditorIndex), "crowd");
             CheerleaderBox.SelectedIndex = FindTeamIndexfromPalette(GetDBValueInt("TEAM", "TMCP", EditorIndex), "cheer");
 
-            progressBar1.PerformStep();
+            ProgressBarStep();
 
             //City, State, Stadium Info
             stadiumNameBox.Text = GetDBValue("STAD", "SNAM", FindSTADrecFromTEAMrec(EditorIndex));
@@ -355,8 +348,10 @@ namespace DB_EDITOR
             if (GetDBValueInt("TEAM", "TTYP", EditorIndex) == 0 && TEAM) GenerateNewRosterButton.Enabled = true;
             else GenerateNewRosterButton.Enabled = false;
 
+            LoadTeamRatingsViewer();
+
             DoNotTrigger = false;
-            progressBar1.Value = 0;
+            EndProgressBar();
         }
 
         private void GetStateBoxItems()
@@ -758,6 +753,8 @@ namespace DB_EDITOR
 
             ChangeDBString("TEAM", "TMPR", TeamIndex, Convert.ToString(TMPRNumBox.Value));
             TMPRNumBox.BackColor = GetPrestigeColor(TMPRNumBox).BackColor;
+            tmprStars.Text = ConvertStarNumber(Convert.ToInt32(TMPRNumBox.Value));
+
         }
         //Team Academics
         private void TMARNumBox_ValueChanged(object sender, EventArgs e)
@@ -767,6 +764,8 @@ namespace DB_EDITOR
 
             ChangeDBString("TEAM", "TMAR", TeamIndex, Convert.ToString(TMARNumBox.Value));
             TMARNumBox.BackColor = GetPrestigeColor(TMARNumBox).BackColor;
+            tmarStars.Text = ConvertStarNumber(Convert.ToInt32(TMARNumBox.Value));
+
         }
 
         //NCAA Investigation
@@ -1199,5 +1198,117 @@ namespace DB_EDITOR
             DetermineTeamImpactPlayers(TeamIndex, 0);
             GetTeamEditorData(TeamIndex);
         }
+
+
+        //Team Ratings Box
+
+        private void LoadTeamRatingsViewer()
+        {
+            TeamRatingView.Rows.Clear();
+
+            List<string> categories = LoadTeamViewRatingCats();
+            List<string> teamRat = LoadTeamViewRatings(TeamIndex);
+
+            for (int i = 0; i < categories.Count; i++)
+            {
+                TeamRatingView.Rows.Add(1);
+                TeamRatingView.Rows[i].Cells[0].Value = categories[i];
+                TeamRatingView.Rows[i].Cells[0].Style.BackColor = Color.LightGray;
+
+                TeamRatingView.Rows[i].Cells[1].Value = teamRat[i];
+                if(i == 0)
+                {
+                    TeamRatingView.Rows[i].DefaultCellStyle.Font = new Font(TeamRatingView.Font.FontFamily, 11, FontStyle.Bold);
+                } 
+            }
+
+            TeamRatingView.CellPainting += TeamRatingView_CellPainting;
+            TeamRatingView.ClearSelection();
+        }
+
+        private List<string> LoadTeamViewRatingCats()
+        {
+            List<string> categories = new List<string>();
+            categories.Add("OVR");
+            categories.Add("Off");
+            categories.Add("Def");
+            categories.Add("ST");
+            categories.Add("");
+            categories.Add("QB");
+            categories.Add("RB");
+            categories.Add("WR");
+            categories.Add("OL");
+            categories.Add("DL");
+            categories.Add("LB");
+            categories.Add("DB");
+
+            return categories;
+        }
+
+        private List<string> LoadTeamViewRatings(int rec)
+        {
+            List<string> categories = new List<string>();
+
+            categories.Add(GetDBValue("TEAM", "TROV", rec));
+            categories.Add(GetDBValue("TEAM", "TROF", rec));
+            categories.Add(GetDBValue("TEAM", "TRDE", rec));
+            categories.Add(GetDBValue("TEAM", "TRST", rec));
+            categories.Add("");
+            categories.Add(GetDBValue("TEAM", "TRQB", rec));
+            categories.Add(GetDBValue("TEAM", "TRRB", rec));
+            categories.Add(GetDBValue("TEAM", "TWRR", rec));
+            categories.Add(GetDBValue("TEAM", "TROL", rec));
+            categories.Add(GetDBValue("TEAM", "TRDL", rec));
+            categories.Add(GetDBValue("TEAM", "TRLB", rec));
+            categories.Add(GetDBValue("TEAM", "TRDB", rec));
+
+            return categories;
+        }
+
+        private void TeamRatingView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
+        {
+            // Only paint value bars for column 1
+            if (e.RowIndex >= 0 && e.ColumnIndex == 1)
+            {
+                e.Handled = true;
+                e.PaintBackground(e.ClipBounds, true);
+
+                // Get the value as integer
+                if (int.TryParse(Convert.ToString(e.FormattedValue), out int value))
+                {
+                    // Define min/max for the bar (adjust as needed)
+                    int min = 40;
+                    int max = 99;
+
+                    // Calculate bar width
+                    int barWidth = (int)((e.CellBounds.Width - 2) * (value - min) / (float)(max - min));
+                    barWidth = Math.Max(0, Math.Min(barWidth, e.CellBounds.Width - 2));
+
+                    Color col = GetColorValue(value);
+
+
+                    // Draw the bar
+                    Rectangle barRect = new Rectangle(e.CellBounds.X + 0, e.CellBounds.Y +1                                                                                                                            , barWidth, e.CellBounds.Height - 1);
+                    using (Brush b = new SolidBrush(col))
+                    {
+                        e.Graphics.FillRectangle(b, barRect);
+                    }
+
+                    // Draw the value as text on top of the bar
+                    TextRenderer.DrawText(
+                        e.Graphics,
+                        value.ToString(),
+                        e.CellStyle.Font,
+                        e.CellBounds,
+                        Color.WhiteSmoke,
+                        TextFormatFlags.Left | TextFormatFlags.VerticalCenter
+                    );
+                }
+            }
+        }
+
+
+
+
     }
 }

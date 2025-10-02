@@ -71,9 +71,7 @@ namespace DB_EDITOR
 
         private void LoadDCHTPlayerData()
         {
-            progressBar1.Visible = true;
-            progressBar1.Value = 0;
-            progressBar1.Maximum = GetTableRecCount("PLAY");
+            StartProgressBar(GetTableRecCount("PLAY"));
 
             DCHTPlayers = new List<List<string>>();
 
@@ -112,13 +110,12 @@ namespace DB_EDITOR
                     row++;
                     if (row > 69) break;
                 }
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
             DCHTPlayers.Sort((player1, player2) => player1[27].CompareTo(player2[27]));
 
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
+            EndProgressBar();
         }
 
 
@@ -155,9 +152,7 @@ namespace DB_EDITOR
 
         private void LoadTeamDCHTData()
         {
-            progressBar1.Visible = true;
-            progressBar1.Value = 0;
-            progressBar1.Maximum = GetTableRecCount("DCHT");
+            StartProgressBar(GetTableRecCount("DCHT"));
 
             int PGIDBeg = DepthChartIndex * 70;
             int PGIDEnd = PGIDBeg + 69;
@@ -187,14 +182,13 @@ namespace DB_EDITOR
                     DCHTGrid.Rows[ppos].Cells[ddep + 1].Value = (GetPOSG2Name(GetPOSG2fromPPOS(pos)) + ": " + name);
                     count++;
                 }
-                progressBar1.PerformStep();
+                ProgressBarStep();
                 if (count > 87) break;
             }
 
             DisableDCHTCells();
 
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
+            EndProgressBar();
         }
 
         private void DisableDCHTCells()
@@ -338,10 +332,7 @@ namespace DB_EDITOR
         //Depth Chart Maker
         public void DepthChartMaker(string tableName)
         {
-            progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = GetTableRecCount(tableName);
-            progressBar1.Step = 1; 
+            StartProgressBar(GetTableRecCount(tableName));
 
             //count num of teams
             int teamCount = 0;
@@ -483,22 +474,19 @@ namespace DB_EDITOR
                         //63 + 25 = 88
                     }
 
-                    progressBar1.PerformStep();
+                    ProgressBarStep();
 
                 }
             }
 
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
+            EndProgressBar();
             MessageBox.Show("Depth Charts are complete!");
         }
 
         public void DepthChartMakerSingle(string tableName, int tgid, int leaguesize, bool skipPrompt = false)
         {
-            progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = GetTableRecCount(tableName);
-            progressBar1.Step = 1;
+            StartProgressBar(GetTableRecCount(tableName));
+
 
             //count num of teams
             int teamCount = 0;
@@ -626,12 +614,11 @@ namespace DB_EDITOR
                 rec = AddDCHTrecord(rec, 24, 3, roster);
             }
 
-            progressBar1.PerformStep();
+            ProgressBarStep();
 
 
 
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
+            EndProgressBar();
             if(!skipPrompt) MessageBox.Show(teamNameDB[tgid] + " Depth Charts are complete!");
         }
 

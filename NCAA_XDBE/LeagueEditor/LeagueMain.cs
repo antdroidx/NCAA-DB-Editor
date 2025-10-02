@@ -981,7 +981,7 @@ namespace DB_EDITOR
 
                     TableNames.Add(i, tmpTABLEname);
                 }
-                //progressBar1.PerformStep();
+                //ProgressBarStep();
                 progressBar1.Value = i;
 
             }

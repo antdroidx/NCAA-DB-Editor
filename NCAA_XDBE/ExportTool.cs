@@ -183,7 +183,7 @@ namespace DB_EDITOR
                                 hbuilder.Append(GetPositionName((int)tmpPos)); //convert and write position name to csv
                             }
 
-                            progressBar1.PerformStep();
+                            ProgressBarStep();
                             wText.WriteLine(hbuilder.ToString());   // Convert the strin builder to an actual string and write to the stream/file
                         }
                         #endregion
@@ -275,9 +275,8 @@ namespace DB_EDITOR
                         #endregion
 
                         // Progress bar for large table records to write.
-                        progressBar1.Minimum = 0;
-                        progressBar1.Maximum = TableProps.RecordCount;
-                        progressBar1.Step = 1;
+                        StartProgressBar(TableProps.RecordCount);
+                        
 
                         #region Write CSV cells (field values).
 
@@ -337,7 +336,7 @@ namespace DB_EDITOR
                                 if (f != TableProps.FieldCount - 1)
                                     hbuilder.Append(",");
                             }
-                            progressBar1.PerformStep();
+                            ProgressBarStep();
                             wText.WriteLine(hbuilder.ToString());   // Convert the strin builder to an actual string and write to the stream/file
                         }
                         #endregion
@@ -359,6 +358,7 @@ namespace DB_EDITOR
             }
 
             DBModified = true;
+            EndProgressBar();
         }
 
 

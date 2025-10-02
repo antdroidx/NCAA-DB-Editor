@@ -22,36 +22,33 @@ namespace DB_EDITOR
 
         private void LoadStatDataButton_Click(object sender, EventArgs e)
         {
-            progressBar1.Visible = true;
-            progressBar1.Value = 0;
-            progressBar1.Step = 1;
-            progressBar1.Maximum = 6;
+            StartProgressBar(6);
 
             LoadTop25Rankings();
-            progressBar1.PerformStep();
+            ProgressBarStep();
 
             LoadTeamRatingsRankings();
-            progressBar1.PerformStep();
+            ProgressBarStep();
 
             int sewn = GetDBValueInt("SEAI", "SEWN", 0);
 
             if (sewn > 0)
             {
                 LoadTeamOffenseRankings();
-                progressBar1.PerformStep();
+                ProgressBarStep();
 
                 LoadTeamDefenseRankings();
-                progressBar1.PerformStep();
+                ProgressBarStep();
 
                 LoadPlayerOffStatLeaders();
-                progressBar1.PerformStep();
+                ProgressBarStep();
 
                 LoadPlayerDefStatLeaders();
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
 
-            progressBar1.Visible = false;
+            EndProgressBar();
 
             PollComboBox.SelectedIndex = 0;
         }

@@ -81,7 +81,7 @@ namespace DB_EDITOR
 
                 if (view == 0)
                 {
-                    RecruitHomeTeam.HeaderText = "Home / Prev";
+                    RecruitHomeTeam.HeaderText = "Home";
 
                     five = GetDB2ValueInt("RCTC", "RC5S", i);
                     four = GetDB2ValueInt("RCTC", "RC4S", i);
@@ -182,7 +182,7 @@ namespace DB_EDITOR
                 }
 
                 FillRecruitRankingView(tgid, five, four, three, two, one);
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
             RecruitRankingView.Sort(RecruitRankingPts, System.ComponentModel.ListSortDirection.Descending);
@@ -251,7 +251,7 @@ namespace DB_EDITOR
                         int prid = GetDB2ValueInt("RCPR", "PRID", x);
                         GetRecruitRankPlayer(prid);
                     }
-                    progressBar1.PerformStep();
+                    ProgressBarStep();
                 }
 
                 for (int x = 0; x < GetTableRecCount("TRAN"); x++)
@@ -262,7 +262,7 @@ namespace DB_EDITOR
                         int ptid = GetDBValueInt("TRAN", "PTID", x);
                         GetTransferRankPlayer(pgid, ptid);
                     }
-                    progressBar1.PerformStep();
+                    ProgressBarStep();
                 }
 
             }
@@ -278,7 +278,7 @@ namespace DB_EDITOR
                         int prid = GetDB2ValueInt("RCPR", "PRID", x);
                         if (prid < 21000) GetRecruitRankPlayer(prid);
                     }
-                    progressBar1.PerformStep();
+                    ProgressBarStep();
 
                 }
 
@@ -295,7 +295,7 @@ namespace DB_EDITOR
                         int prid = GetDB2ValueInt("RCPR", "PRID", x);
                         if (prid >= 21000) GetRecruitRankPlayer(prid);
                     }
-                    progressBar1.PerformStep();
+                    ProgressBarStep();
 
                 }
 
@@ -307,7 +307,7 @@ namespace DB_EDITOR
                         int ptid = GetDBValueInt("TRAN", "PTID", x);
                         GetTransferRankPlayer(pgid, ptid);
                     }
-                    progressBar1.PerformStep();
+                    ProgressBarStep();
 
                 }
             }

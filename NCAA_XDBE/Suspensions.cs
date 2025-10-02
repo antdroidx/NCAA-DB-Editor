@@ -36,6 +36,8 @@ namespace DB_EDITOR
             List<string> SuspensionType = CreateInjuryTypeTable();
             List<string> SuspensionLength = CreateInjuryLengthTable();
 
+            StartProgressBar(GetTableRecCount("SPYR"));
+
             int row = 0;
             for (int i = GetTableRecCount("SPYR")-1; i >= 0; i--)
             {
@@ -89,8 +91,10 @@ namespace DB_EDITOR
                 SuspensionView.Rows[row].Cells[5].Value = suspensionType;
                 SuspensionView.Rows[row].Cells[6].Value = length;
                 row++;
+                ProgressBarStep();
             }
             SuspensionView.ClearSelection();
+            EndProgressBar();
         }
 
         private void RemoveSuspensionButton_Click(object sender, EventArgs e)

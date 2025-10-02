@@ -169,7 +169,6 @@ namespace DB_EDITOR
         {
             DoNotTrigger = true;
 
-
             //User Coach
             if (GetDBValue("COCH", "CFUC", EditorIndex) == "1") CFUCBox.Checked = true;
             else CFUCBox.Checked = false;
@@ -268,7 +267,7 @@ namespace DB_EDITOR
             int ctop = GetDBValueInt("COCH", "CTOP", EditorIndex);
             int tmpr = FindTeamPrestige(GetDBValueInt("COCH", "TGID", EditorIndex));
 
-            string teamPrs = Convert.ToString(tmpr);
+            string teamPrs = ConvertStarNumber(tmpr);
             if (ctop > tmpr) teamPrs += "  (" + (tmpr - ctop) + ")";
             else if (ctop < tmpr) teamPrs += "  (+" + (tmpr - ctop) + ")";
 
@@ -289,7 +288,6 @@ namespace DB_EDITOR
 
 
             DoNotTrigger = false;
-            progressBar1.Value = 0;
         }
 
         private void GetCoachTeamList()
@@ -770,9 +768,7 @@ namespace DB_EDITOR
         //Randomizes the Coaching Budgets - Must be done prior to 1st Off-Season Task
         private void RandomizeBudgets()
         {
-            progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = GetTableRecCount("COCH");
+            StartProgressBar(GetTableRecCount("COCH"));
 
             for (int i = 0; i < GetTableRecCount("COCH"); i++)
             {
@@ -793,11 +789,10 @@ namespace DB_EDITOR
                 ChangeDBString("COCH", "CRPC", i, Convert.ToString(CRPC));
                 ChangeDBString("COCH", "CTPC", i, Convert.ToString(CTPC));
 
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
+            EndProgressBar();
 
             MessageBox.Show("Team Budgets Changed!");
         }
@@ -805,9 +800,7 @@ namespace DB_EDITOR
         //Adjust Coaching Budgets - Must be done prior to 1st Off-Season Task
         private void AutoAdjustCoachBudgets()
         {
-            progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = GetTableRecCount("COCH");
+            StartProgressBar(GetTableRecCount("COCH"));
 
             List<List<List<int>>> teamPlayers = new List<List<List<int>>>();
 
@@ -882,11 +875,10 @@ namespace DB_EDITOR
                     ChangeDBInt("COCH", "CTPC", i, CTPC);
                 }
 
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
+            EndProgressBar();
 
             MessageBox.Show("Team Budgets Changed!");
         }
@@ -894,11 +886,8 @@ namespace DB_EDITOR
         //Assign Random Coach Prestige to Free Agents
         private void AssignCoachPrestigeFreeAgents()
         {
-            progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = GetTableRecCount("COCH");
-            progressBar1.Step = 1;
-            progressBar1.Value = 0;
+            StartProgressBar(GetTableRecCount("COCH"));
+
 
             for (int i = 0; i < GetTableRecCount("COCH"); i++)
             {
@@ -906,18 +895,16 @@ namespace DB_EDITOR
                 {
                     ChangeDBInt("COCH", "CPRE", i, rand.Next(1, 4));
                 }
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
             MessageBox.Show("Free Agent Coaches now have prestige!");
-            progressBar1.Value = 0;
+            EndProgressBar();
         }
 
         private void SetMaxCoachCCPOValue()
         {
-            progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = GetTableRecCount("COCH");
+            StartProgressBar(GetTableRecCount("COCH"));
 
             int maxval = Convert.ToInt32(MaxCCPOVal.Value);
 
@@ -926,7 +913,7 @@ namespace DB_EDITOR
                 if(GetDBValueInt("COCH", "CCPO", i) > maxval)
                     ChangeDBInt("COCH", "CCPO", i, maxval);
 
-                progressBar1.PerformStep();
+                EndProgressBar();
             }
 
             MessageBox.Show("Max Value Set!");
@@ -956,10 +943,7 @@ namespace DB_EDITOR
             int westcoast = 0;
 
             string tableName = "TEAM";
-            progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = GetTableRecCount(tableName);
-            progressBar1.Step = 1;
+            StartProgressBar(GetTableRecCount("TEAM"));
 
 
             int rating, count;
@@ -1005,15 +989,14 @@ namespace DB_EDITOR
 
 
 
-                    progressBar1.PerformStep();
+                    ProgressBarStep();
 
                 }
             }
 
             NormalizeTeamRatings(tableName);
 
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
+            EndProgressBar();
             MessageBox.Show("Team Rating Calculations are complete!");
 
 

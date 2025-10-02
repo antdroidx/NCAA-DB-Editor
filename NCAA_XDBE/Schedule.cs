@@ -50,9 +50,7 @@ namespace DB_EDITOR
             }
 
 
-            progressBar1.Visible = true;
-            progressBar1.Value = 0;
-            progressBar1.Maximum = GetTableRecCount("SCHD");
+            StartProgressBar(GetTableRecCount("SCHD"));
 
             for (int i = 0; i < GetTableRecCount("SCHD"); i++)
             {
@@ -65,13 +63,11 @@ namespace DB_EDITOR
                     MasterSchedule[teamA][sewn] = teamH;
                 }
 
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
 
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
-
+            EndProgressBar();
         }
 
         private void ClearRegularSeasonSchedule()
@@ -87,9 +83,7 @@ namespace DB_EDITOR
 
         private void ClearOutOfConferenceOnly()
         {
-            progressBar1.Visible = true;
-            progressBar1.Value = 0;
-            progressBar1.Maximum = GetTableRecCount("SCHD");
+            StartProgressBar(GetTableRecCount("SCHD"));
 
             for (int i = 0; i < GetTableRecCount("SCHD"); i++)
             {
@@ -101,13 +95,12 @@ namespace DB_EDITOR
                     DeleteRecord("SCHD", i, true);
                 }
 
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
             CompactDB();
 
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
+            EndProgressBar();
         }
 
         private void ConferenceScheduling(int ConfRec)

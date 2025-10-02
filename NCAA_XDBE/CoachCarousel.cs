@@ -36,9 +36,8 @@ namespace DB_EDITOR
                 MessageBox.Show("Please run Coaching Progressions first before running this module.");
                 return;
             }
-            progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = GetTableRecCount("COCH");
+
+            StartProgressBar(GetTableRecCount("COCH"));
 
             List<string> CCID_FAList = new List<string>();
             List<string> CCID_FiredList = new List<string>();
@@ -102,12 +101,10 @@ namespace DB_EDITOR
                         CCID_PromoteList.Add(GetDBValue("COCH", "CCID", i));
                     }
                 }
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
-            progressBar1.Value = 0;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = TGID_VacancyList.Count;
+            StartProgressBar(TGID_VacancyList.Count);
 
             //HIRE NEW COACHES
             while (TGID_VacancyList.Count > 0)
@@ -219,14 +216,13 @@ namespace DB_EDITOR
                 }
 
                 TGID_VacancyList.OrderBy(z => z).ToList();
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
             DisplayCarouselNews(coachNews);
             CoachFiringsCount.Text = "Coach Firings: " + Convert.ToString(coachfirings);
 
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
+            EndProgressBar();
         }
 
         //Opens a Transfer Portal for Coach Firings
@@ -398,9 +394,7 @@ namespace DB_EDITOR
 
             //Create a list of Free Agent Coach's from COCH
 
-            progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = GetTableRecCount("COCH");
+            StartProgressBar(GetTableRecCount("COCH"));
 
             int minRating = 0;
             while (CCID_FAList.Count < numberPlayerCoach.Value)
@@ -412,7 +406,7 @@ namespace DB_EDITOR
                     {
                         CCID_FAList.Add(GetDBValue("COCH", "CCID", i));
                     }
-                    progressBar1.PerformStep();
+                    ProgressBarStep();
                 }
                 minRating++;
             }
@@ -420,9 +414,7 @@ namespace DB_EDITOR
 
 
             //Create a list of graduating players
-            progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = GetTableRecCount("PLAY");
+            StartProgressBar(GetTableRecCount("PLAY"));
 
             for (int i = 0; i < GetTableRecCount("PLAY"); i++)
             {
@@ -431,7 +423,7 @@ namespace DB_EDITOR
                 {
                     PGID_List.Add(i);
                 }
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
             if (PGID_List.Count >= numberPlayerCoach.Value)
@@ -531,7 +523,7 @@ namespace DB_EDITOR
             }
 
 
-            progressBar1.Visible = false;
+            EndProgressBar();
 
 
         }

@@ -167,10 +167,7 @@ namespace DB_EDITOR
 
         private void MoveTransferredPlayerStats()
         {
-            progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = GetTableRecCount("TRAN");
-            progressBar1.Step = 1;
+            StartProgressBar(GetTableRecCount("TRAN"));
 
             OccupiedPGIDList = new List<List<int>>();
             for (int i = 0; i < 512; i++)
@@ -221,13 +218,12 @@ namespace DB_EDITOR
                         break;
                     }
                 }
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
             CompactDB();
             CompactDB2();
-            progressBar1.Value = 0;
-            progressBar1.Visible = false;
+            EndProgressBar();
 
         }
 
@@ -240,9 +236,7 @@ namespace DB_EDITOR
 
         private void RemoveTransfers()
         {
-            progressBar1.Visible = true;
-            progressBar1.Value = 0;
-            progressBar1.Maximum = GetTableRecCount("TRAN");
+            StartProgressBar(GetTableRecCount("TRAN"));
 
             List<List<List<int>>> teamPlayers = new List<List<List<int>>>();
 
@@ -289,12 +283,12 @@ namespace DB_EDITOR
 
                 }
 
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
             CompactDB();
 
-            progressBar1.Visible = false;
+            EndProgressBar();
 
             MessageBox.Show("Completed! Removed " + counter + " players from the database.");
         }
@@ -304,9 +298,7 @@ namespace DB_EDITOR
         //Raise minimum recruiting point allocation and off-season TPRA values -- Must be done at start of Recruiting
         private void RaiseMinimumRecruitingPoints()
         {
-            progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = GetTable2RecCount("RTRI");
+            StartProgressBar(GetTable2RecCount("RTRI"));
 
             Random rand = new Random();
 
@@ -322,11 +314,10 @@ namespace DB_EDITOR
                 ChangeDB2Int("RTRI", "TRPA", i, TRPA);
                 ChangeDB2Int("RTRI", "TRPR", i, TRPR);
 
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
+            EndProgressBar();
 
             MessageBox.Show("Team Budgets Changed!");
         }
@@ -334,9 +325,7 @@ namespace DB_EDITOR
         //Randomize or Remove Recruiting Interested Teams
         private void RemoveInterestedTeams()
         {
-            progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = GetTable2RecCount("RCPR");
+            StartProgressBar(GetTable2RecCount("RCPR"));
 
             Random rand = new Random();
 
@@ -358,11 +347,10 @@ namespace DB_EDITOR
                     }
                 }
 
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
+            EndProgressBar();
 
             MessageBox.Show("Recruit Interested Teams Changed!");
         }
@@ -370,9 +358,7 @@ namespace DB_EDITOR
         //Randomize the Recruits to give a little bit more variety and evaluation randomness -- Must be done at start of Recruiting
         private void RandomizeRecruitDB(string FieldName)
         {
-            progressBar1.Visible = true;
-            progressBar1.Value = 0;
-            progressBar1.Maximum = GetTable2RecCount(FieldName);
+            StartProgressBar(GetTable2RecCount(FieldName));
 
             int tol = (int)recruitTolerance.Value;
             int tolA = 3;
@@ -468,11 +454,10 @@ namespace DB_EDITOR
                     row++;
 
                 }
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
+            EndProgressBar();
 
             MessageBox.Show("Recruits Randomized!");
 
@@ -482,9 +467,7 @@ namespace DB_EDITOR
         //Randomize the Recruits Skin Tone, Face and Face Shape
         private void RandomizeRecruitFace(string tableName)
         {
-            progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = GetTable2RecCount(tableName);
+            StartProgressBar(GetTable2RecCount(tableName));
 
             for (int i = 0; i < GetTable2RecCount(tableName); i++)
             {
@@ -568,11 +551,10 @@ namespace DB_EDITOR
                     ChangeDBInt(tableName, "PHED", i, hairstyle);
                 }
 
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
+            EndProgressBar();
 
             MessageBox.Show("Faces & Skin Tones Randomized!");
         }
@@ -580,9 +562,7 @@ namespace DB_EDITOR
         //Randomize Walk-On Database -- Must be done prior to Cut Players stage
         private void RandomizeWalkOnDB()
         {
-            progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = GetTable2RecCount("WKON");
+            StartProgressBar(GetTable2RecCount("WKON"));
 
             int tol = (int)toleranceWalkOn.Value;
 
@@ -665,11 +645,10 @@ namespace DB_EDITOR
                 ChangeDB2Int("WKON", "PKPR", i, PKPR);
                 ChangeDB2Int("WKON", "PSTR", i, PKPR);
 
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
+            EndProgressBar();
 
             RandomizeRecruitFace("WKON");
             DB2RecalculateBMI("WKON");
@@ -695,12 +674,7 @@ namespace DB_EDITOR
             //dont change in-season recruit names with this
             int start = GetTableRecCount("MRCT");
 
-            progressBar1.Visible = true;
-            progressBar1.Value = start;
-            progressBar1.Maximum = GetTable2RecCount("RCPT");
-            progressBar1.Step = 1;
-
-
+            StartProgressBar(GetTable2RecCount("RCPT"));
 
             for (int i = start; i < GetTable2RecCount("RCPT"); i++)
             {
@@ -784,11 +758,10 @@ namespace DB_EDITOR
                         PolynesianPlayerMaker(surnames, i);
                     }
                 }
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
+            EndProgressBar();
 
             MessageBox.Show("Polynesian Players & Names updates are complete!");
 
@@ -822,9 +795,7 @@ namespace DB_EDITOR
             //dont change in-season recruit names with this
             int start = GetTableRecCount("MRCT");
 
-            progressBar1.Visible = true;
-            progressBar1.Value = start;
-            progressBar1.Maximum = GetTable2RecCount(tableName);
+            StartProgressBar(GetTable2RecCount(tableName));
             CreateFirstNamesDB();
             CreateLastNamesDB();
 
@@ -843,11 +814,10 @@ namespace DB_EDITOR
                     ChangeDB2String("RCPT", "PLNA", i, LN);
                 }
 
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
+            EndProgressBar();
 
             MessageBox.Show("Recruit Names Randomized!");
         }
@@ -877,30 +847,25 @@ namespace DB_EDITOR
             }
             sr.Close();
 
-            progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = GetTable2RecCount(tableName);
-            progressBar1.Step = 1;
+            StartProgressBar(GetTable2RecCount(tableName));
 
-            for (int i = 0; i < GetTable2RecCount(tableName); i++)
+            for (int rec = 0; rec < GetTable2RecCount(tableName); rec++)
             {
-                double bmi = (double)Math.Round(Convert.ToDouble(GetDB2Value(tableName, "PWGT", i)) / Convert.ToDouble(GetDB2Value(tableName, "PHGT", i)), 2);
+                int ppos = GetDB2ValueInt(tableName, "PPOS", rec);
+                int height = GetDB2ValueInt(tableName, "PHGT", rec);
+                int weight = GetDB2ValueInt(tableName, "PWGT", rec);
 
-                for (int j = 0; j < 401; j++)
-                {
-                    if (Convert.ToString(bmi) == strArray[j, 0])
-                    {
-                        ChangeDB2String(tableName, "PFSH", i, strArray[j, 1]);
-                        ChangeDB2String(tableName, "PMSH", i, strArray[j, 2]);
-                        ChangeDB2String(tableName, "PSSH", i, strArray[j, 3]);
-                        break;
-                    }
-                }
-                progressBar1.PerformStep();
+                var (pfsh, pmsh, pssh) = GetBodySizeFromPlayerData(ppos, height, weight);
+
+                ChangeDB2Int(tableName, "PFSH", rec, pfsh);
+                ChangeDB2Int(tableName, "PMSH", rec, pmsh);
+                ChangeDB2Int(tableName, "PSSH", rec, pssh);
+
+                ProgressBarStep();
             }
 
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
+
+            EndProgressBar();
 
             MessageBox.Show("Body Model updates are complete!");
         }
@@ -952,9 +917,7 @@ namespace DB_EDITOR
         //Calculate Star Ratings for Recruits
         private void CalculateRecruitStarRating(List<List<int>> recruits)
         {
-            progressBar1.Visible = true;
-            progressBar1.Value = 0;
-            progressBar1.Maximum = recruits.Count;
+            StartProgressBar(recruits.Count);
 
             int five = Convert.ToInt32(recruits.Count * 0.01); //top 30
             int four = Convert.ToInt32(recruits.Count * 0.1); // top 300
@@ -968,18 +931,15 @@ namespace DB_EDITOR
                 else if (i <= three) RecordRecruitStarRating(i, recruits, 3);
                 else if (i <= two) RecordRecruitStarRating(i, recruits, 2);
                 else RecordRecruitStarRating(i, recruits, 1);
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
+            EndProgressBar();
         }
 
         private void CalculatePOSGRankings(List<List<int>> recruits)
         {
-            progressBar1.Visible = true;
-            progressBar1.Value = 0;
-            progressBar1.Maximum = 10;
+            StartProgressBar(10);
 
             for (int p = 0; p < 10; p++)
             {
@@ -1003,12 +963,11 @@ namespace DB_EDITOR
                     rank++;
                 }
 
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
 
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
+            EndProgressBar();
         }
 
         //Record Star Rating Update
@@ -1029,9 +988,7 @@ namespace DB_EDITOR
         //Calculate Recruit & Transfer Star Rating
         private void RecalculateAllStarRatings()
         {
-            progressBar1.Visible = true;
-            progressBar1.Value = 0;
-            progressBar1.Maximum = GetTable2RecCount("RCPT");
+            StartProgressBar(GetTable2RecCount("RCPT"));
 
             List<List<int>> recruits = new List<List<int>>();
             List<List<int>> transfers = new List<List<int>>();
@@ -1059,11 +1016,10 @@ namespace DB_EDITOR
                     rowT++;
                 }
 
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
+            EndProgressBar();
 
 
             recruits.Sort((player1, player2) => player2[1].CompareTo(player1[1]));
@@ -1081,9 +1037,7 @@ namespace DB_EDITOR
         //Choose Athlete Position
         private void ChooseAthletePosition()
         {
-            progressBar1.Visible = true;
-            progressBar1.Value = 0;
-            progressBar1.Maximum = GetTable2RecCount("RCPT");
+            StartProgressBar(GetTable2RecCount("RCPT"));
 
 
 
@@ -1108,10 +1062,10 @@ namespace DB_EDITOR
                     CalculateRecruitOverall(i);
                 }
 
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
-            progressBar1.Visible = false;
+            EndProgressBar();
 
             MessageBox.Show("Athlete Positions Optimized!");
 

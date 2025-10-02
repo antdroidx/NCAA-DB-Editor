@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "NCAA_XDBE": {
+      "commandName": "Project",
+      "nativeDebugging": false
+    }
+  }
+}

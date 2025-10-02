@@ -285,7 +285,7 @@ namespace DB_EDITOR
                 string val = new string((char)0, (fieldProps.Size / 8) + 1);
 
                 TDB.TDBFieldGetValueAsString(DBIndex, tableProps.Name, fieldProps.Name, RecNo, ref val);
-                val = val.Replace(",", "");
+                val = val.Replace(",", "-");
                 tmpValue = val;
             }
             else if (fieldProps.FieldType == TdbFieldType.tdbUInt)

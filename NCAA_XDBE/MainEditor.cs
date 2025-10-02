@@ -232,9 +232,6 @@ namespace DB_EDITOR
             PortalData.ClearSelection();
             PortalData.Rows.Clear();
 
-            progressBar1.Step = 1;
-            progressBar1.Value = 0;
-
             DoNotTrigger = false;
         }
 
@@ -275,7 +272,6 @@ namespace DB_EDITOR
 
                 TablePropsgroupBox.Visible = true;
                 FieldsPropsgroupBox.Visible = true;
-                progressBar1.Visible = true;
                 tabControl1.Visible = true;
 
                 #endregion
@@ -1148,8 +1144,6 @@ namespace DB_EDITOR
 
         private void TabDB_Start()
         {
-            progressBar1.Visible = true;
-            progressBar1.Value = 0;
             TablePropsgroupBox.Visible = true;
             FieldsPropsgroupBox.Visible = true;
             fieldMenu.Enabled = true;
@@ -1164,6 +1158,25 @@ namespace DB_EDITOR
         #endregion
 
 
+        private void StartProgressBar(int steps)
+        {
+            progressBar1.Visible = true;
+            progressBar1.Value = 0;
+            progressBar1.Step = 1;
+            progressBar1.Maximum = steps;
+            progressBar1.ForeColor = Color.Red;
+        }
+
+        private void ProgressBarStep()
+        {
+            progressBar1.PerformStep();
+        }
+
+        private void EndProgressBar()
+        {
+            progressBar1.Value = 0;
+            progressBar1.Visible = false;
+        }
 
     }
 

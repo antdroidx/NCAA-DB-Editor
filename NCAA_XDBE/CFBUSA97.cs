@@ -28,12 +28,7 @@ namespace DB_EDITOR
         {
 
             //Setup Progress bar
-            progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = GetTableRecCount("TDYN");
-            progressBar1.Step = 1;
-            progressBar1.Value = 0;
-
+            StartProgressBar(GetTableRecCount("TDYN"));
 
             List<List<int>> roster = new List<List<int>>();
             List<List<string>> cfbusa97 = CreateStringListsFromCSV(@"resources\college-football-usa.csv", false);
@@ -391,11 +386,13 @@ namespace DB_EDITOR
 
 
                 }
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
             MessageBox.Show("Complete");
             wText.Dispose();
             wText.Close();
+
+            EndProgressBar();
         }
 
         private string GetTeamNameCFBUSA(int TOID, List<List<string>> cfbusa97)

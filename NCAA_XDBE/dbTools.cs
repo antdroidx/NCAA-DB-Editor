@@ -221,7 +221,7 @@ namespace DB_EDITOR
                         break;
                     }
                 }
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
             progressBar1.Visible = false;
@@ -356,10 +356,8 @@ namespace DB_EDITOR
         //Recalculates QB Tendencies based on original game criteria
         private void RecalculateQBTendencies(bool skip = false)
         {
-            progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = GetTableRecCount("PLAY");
-            progressBar1.Step = 1;
+            StartProgressBar(GetTableRecCount("PLAY"));
+
 
             int pocket = 0;
             int balanced = 0;
@@ -390,21 +388,17 @@ namespace DB_EDITOR
                     else balanced++;
 
                 }
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
+            EndProgressBar();
             if(!skip) MessageBox.Show("QB updates are complete!\n\nThe Stats:\n\n* Pocket-Passers: " + pocket + "\n\n* Balanced: " + balanced + "\n\n* Scramblers: " + scrambler);
         }
 
         //Randomize Player Potential
         private void RandomizePotential()
         {
-            progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = GetTableRecCount("PLAY");
-            progressBar1.Step = 1;
+            StartProgressBar(GetTableRecCount("PLAY"));
 
             for (int i = 0; i < GetTableRecCount("PLAY"); i++)
             {
@@ -412,31 +406,26 @@ namespace DB_EDITOR
 
                 ChangeDBString("PLAY", "PPOE", i, Convert.ToString(x));
 
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
+            EndProgressBar();
             MessageBox.Show("Player Potential Updates are complete!");
         }
 
         //Recalculate Player Overalls
         public void RecalculateOverall(bool skip = false)
         {
-            progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = GetTableRecCount("PLAY");
-            progressBar1.Step = 1;
+            StartProgressBar(GetTableRecCount("PLAY"));
 
             for (int i = 0; i < GetTableRecCount("PLAY"); i++)
             {
                 RecalculateOverallByRec(i);
 
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
+            EndProgressBar();
             if(!skip) MessageBox.Show("Player Overall Calculations are complete!");
         }
 
@@ -444,12 +433,8 @@ namespace DB_EDITOR
         //Sync Playbook/Strategies with Team
         private void SyncTeamCoachPlaybooks()
         {
-            progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = GetTableRecCount("PLAY");
-            progressBar1.Step = 1;
-            progressBar1.Value = 0;
 
+            StartProgressBar(GetTableRecCount("PLAY"));
 
             for (int i = 0; i < GetTableRecCount("COCH"); i++)
             {
@@ -462,11 +447,10 @@ namespace DB_EDITOR
                     ChangeDBInt("TEAM", "TOPB", FindTeamRecfromTeamName(teamNameDB[tgid]), offPB);
                     ChangeDBInt("TEAM", "TDPB", FindTeamRecfromTeamName(teamNameDB[tgid]), defPB);
                 }
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
+            EndProgressBar();
             MessageBox.Show("Completed Sync");
 
         }
@@ -475,10 +459,7 @@ namespace DB_EDITOR
         public void CalculateAllTeamRatings(string tableName)
         {
 
-            progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = GetTableRecCount(tableName);
-            progressBar1.Step = 1;
+            StartProgressBar(GetTableRecCount(tableName));
 
             List<List<List<int>>> AllRosters = new List<List<List<int>>>();
 
@@ -487,8 +468,6 @@ namespace DB_EDITOR
                 List<List<int>> roster = new List<List<int>>();
                 AllRosters.Add(roster);
             }
-
-
 
             for (int j = 0; j < GetTableRecCount("PLAY"); j++)
             {
@@ -515,14 +494,13 @@ namespace DB_EDITOR
                     CalculateTeamRatings(tableName, i, AllRosters[TGID]);
                 }
 
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
 
             NormalizeTeamRatings(tableName);
 
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
+            EndProgressBar();
             MessageBox.Show("Team Rating Calculations are complete!");
         }
 
@@ -944,11 +922,8 @@ namespace DB_EDITOR
 
 
             //Setup Progress bar
-            progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = GetTableRecCount(tableName);
-            progressBar1.Step = 1;
-            progressBar1.Value = 0;
+            StartProgressBar(GetTableRecCount(tableName));
+
 
             //Go through each team and find missing PGID
             for (int i = 0; i < GetTableRecCount(tableName); i++)
@@ -1017,7 +992,7 @@ namespace DB_EDITOR
 
                     CheckSpecialTeamsCount(tgid, AvailablePJEN[tgid]);
                 }
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
 
@@ -1025,8 +1000,7 @@ namespace DB_EDITOR
             RecalculateOverall();
             RecalculateQBTendencies();
 
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
+            EndProgressBar();
             MessageBox.Show("Team Roster Filled in! " + created + " players created!");
         }
 
@@ -1107,18 +1081,15 @@ namespace DB_EDITOR
         //Randomize Player Faces
         private void RandomizeAllPlayerHeads()
         {
-            progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = GetTableRecCount("PLAY");
+            StartProgressBar(GetTableRecCount("PLAY"));
 
             for (int i = 0; i < GetTableRecCount("PLAY"); i++)
             {
                 RandomizePlayerHead("PLAY", i);
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
+            EndProgressBar();
 
             MessageBox.Show("Faces & Skin Tones Randomized!");
         }
@@ -1264,9 +1235,7 @@ namespace DB_EDITOR
         //Clear Expired Stats
         private void ClearExpiredStatsData()
         {
-            progressBar1.Visible = true;
-            progressBar1.Value = 0;
-            progressBar1.Maximum = GetTableRecCount("TEAM");
+            StartProgressBar(GetTableRecCount("TEAM"));
 
             for (int i = 0; i < GetTableRecCount("TEAM"); i++)
             {
@@ -1274,11 +1243,11 @@ namespace DB_EDITOR
                 {
                     ClearTeamPlayers(GetDBValueInt("TEAM", "TGID", i));
                 }
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
 
-            progressBar1.Visible = false;
+            EndProgressBar();
             MessageBox.Show("Task Complete!");
         }
 
@@ -1357,9 +1326,7 @@ namespace DB_EDITOR
         //Check and Fix hometowns if they exist or missing
         private void FixHometown()
         {
-            progressBar1.Visible = true;
-            progressBar1.Value = 0;
-            progressBar1.Maximum = GetTableRecCount("PLAY");
+            StartProgressBar(GetTableRecCount("PLAY"));
 
             for (int i = 0; i < GetTableRecCount("PLAY"); i++)
             {
@@ -1368,10 +1335,10 @@ namespace DB_EDITOR
                 hometown = CheckHometown(hometown);
                 ChangeDBInt("PLAY", "RCHD", i, hometown);
 
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
-            progressBar1.Visible = false;
+            EndProgressBar();
             MessageBox.Show("Hometowns Fixed!");
         }
 
@@ -1508,9 +1475,7 @@ namespace DB_EDITOR
             string attribute = atb[GlobalAttBox.SelectedIndex][0];
             int val = Convert.ToInt32(GlobalAttNum.Value);
             int posg = GlobalAttPosBox.SelectedIndex - 1;
-            progressBar1.Visible = true;
-            progressBar1.Value = 0;
-            progressBar1.Maximum = GetTableRecCount("PLAY");
+            StartProgressBar(GetTableRecCount("PLAY"));
 
             for (int i = 0; i < GetTableRecCount("PLAY"); i++)
             {
@@ -1561,7 +1526,7 @@ namespace DB_EDITOR
                     UpdatePlayerAttribute(i, val, attribute, tol);
                 }
 
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
 
@@ -1570,8 +1535,7 @@ namespace DB_EDITOR
 
             MessageBox.Show("A change of " + val + " pts to " + attribute + " Attribute has been applied to " + pos + "!\n\nRecalculate Player Overall and Team Ratings when completed!");
 
-            progressBar1.Value = 0;
-            progressBar1.Visible = false;
+            EndProgressBar();
         }
 
         private void MinAttButton_Click(object sender, EventArgs e)
@@ -1584,9 +1548,7 @@ namespace DB_EDITOR
             int val = Convert.ToInt32(MinAttNum.Value);
             int posg = MinAttPosBox.SelectedIndex - 1;
 
-            progressBar1.Visible = true;
-            progressBar1.Value = 0;
-            progressBar1.Maximum = GetTableRecCount("PLAY");
+            StartProgressBar(GetTableRecCount("PLAY"));
 
             for (int i = 0; i < GetTableRecCount("PLAY"); i++)
             {
@@ -1601,7 +1563,7 @@ namespace DB_EDITOR
                     if (rating < val) ChangeDBInt("PLAY", attribute, i, val);
                 }
 
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
             string pos = "All Positions";
@@ -1609,8 +1571,7 @@ namespace DB_EDITOR
 
             MessageBox.Show("A change of " + val + " pts to " + attribute + " Attribute has been applied to " + pos + "!\n\nRecalculate Player Overall and Team Ratings when completed!" );
 
-            progressBar1.Value = 0;
-            progressBar1.Visible = false;
+            EndProgressBar();
         }
 
         private void MaxAttButton_Click(object sender, EventArgs e)
@@ -1623,9 +1584,7 @@ namespace DB_EDITOR
             int val = Convert.ToInt32(MaxAttNum.Value);
             int posg = MaxAttPosBox.SelectedIndex - 1;
 
-            progressBar1.Visible = true;
-            progressBar1.Value = 0;
-            progressBar1.Maximum = GetTableRecCount("PLAY");
+            StartProgressBar(GetTableRecCount("PLAY"));
 
             for (int i = 0; i < GetTableRecCount("PLAY"); i++)
             {
@@ -1640,7 +1599,7 @@ namespace DB_EDITOR
                     if (rating > val) ChangeDBInt("PLAY", attribute, i, val);
                 }
 
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
 
@@ -1649,8 +1608,7 @@ namespace DB_EDITOR
 
             MessageBox.Show("A change of " + val + " pts to " + attribute + " Attribute has been applied to " + pos + "!\n\nRecalculate Player Overall and Team Ratings when completed!");
 
-            progressBar1.Value = 0;
-            progressBar1.Visible = false;
+            EndProgressBar();
         }
 
         private void UpdatePlayerAttribute(int rec, int val, string attribute, double tol)
@@ -1727,9 +1685,7 @@ namespace DB_EDITOR
                 val = val - 160;
             }
 
-            progressBar1.Visible = true;
-            progressBar1.Value = 0;
-            progressBar1.Maximum = GetTableRecCount("PLAY");
+            StartProgressBar(GetTableRecCount("PLAY"));
 
             for (int i = 0; i < GetTableRecCount("PLAY"); i++)
             {
@@ -1744,7 +1700,7 @@ namespace DB_EDITOR
                     if (rating < val) ChangeDBInt("PLAY", attribute, i, val);
                 }
 
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
 
@@ -1753,8 +1709,7 @@ namespace DB_EDITOR
 
             MessageBox.Show("A change of " + val + " to " + attribute + " has been applied to " + pos + "!\n\nRecalculate Player Overall and Team Ratings when completed!");
 
-            progressBar1.Value = 0;
-            progressBar1.Visible = false;
+            EndProgressBar();
         }
 
         private void UpdateMaxBody_Click(object sender, EventArgs e)
@@ -1770,9 +1725,7 @@ namespace DB_EDITOR
                 val = val - 160;
             }
 
-            progressBar1.Visible = true;
-            progressBar1.Value = 0;
-            progressBar1.Maximum = GetTableRecCount("PLAY");
+            StartProgressBar(GetTableRecCount("PLAY"));
 
             for (int i = 0; i < GetTableRecCount("PLAY"); i++)
             {
@@ -1787,7 +1740,7 @@ namespace DB_EDITOR
                     if (rating > val) ChangeDBInt("PLAY", attribute, i, val);
                 }
 
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
 
@@ -1795,9 +1748,8 @@ namespace DB_EDITOR
             if (posg != -1) pos = GetPOSG2Name(posg);
 
             MessageBox.Show("A change of " + val + " to " + attribute + " has been applied to " + pos + "!\n\nRecalculate Player Overall and Team Ratings when completed!");
-            
-            progressBar1.Value = 0;
-            progressBar1.Visible = false;
+
+            EndProgressBar();
         }
 
         #endregion

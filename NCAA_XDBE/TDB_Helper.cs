@@ -109,9 +109,7 @@ namespace DB_EDITOR
             List<List<string>> tmpTable = new List<List<string>>();
             int sortCol = TDB.FieldIndex(dbIndex, table, field);
 
-            progressBar1.Visible = true;
-            progressBar1.Value = 0;
-            progressBar1.Maximum = GetTableRecCount(table);
+            StartProgressBar(GetTableRecCount(table));
 
 
             //Copy Table
@@ -130,26 +128,22 @@ namespace DB_EDITOR
                     tmpTable[row].Add(GetDBValue(table, FieldProps.Name, row));
                 }
                 row++;
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
             //Sort
             tmpTable.Sort((player1, player2) => Convert.ToInt32(player1[sortCol]).CompareTo(Convert.ToInt32(player2[sortCol])));
 
 
-            progressBar1.Visible = true;
-            progressBar1.Value = 0;
-            progressBar1.Maximum = GetTableRecCount(table);
+            StartProgressBar(GetTableRecCount(table));
             //Clear Table
             for (int i = 0; i < GetTableRecCount(table); i++)
             {
                 TDB.TDBTableRecordRemove(dbIndex, table, i);
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
-            progressBar1.Visible = true;
-            progressBar1.Value = 0;
-            progressBar1.Maximum = tmpTable.Count;
+            StartProgressBar(tmpTable.Count);
 
             //Paste Table
             int rec = 0;
@@ -165,11 +159,10 @@ namespace DB_EDITOR
                     ChangeDBString(table, FieldProps.Name, rec, tmpTable[rec][f]);
                 }
                 rec++;
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
+            EndProgressBar();
         }
 
         public void CompactDB()
@@ -306,9 +299,7 @@ namespace DB_EDITOR
             List<List<string>> tmpTable = new List<List<string>>();
             int sortCol = TDB.FieldIndex(dbIndex2, table, field);
 
-            progressBar1.Visible = true;
-            progressBar1.Value = 0;
-            progressBar1.Maximum = GetTableRecCount(table);
+            StartProgressBar(GetTableRecCount(table));
 
 
             //Copy Table
@@ -327,26 +318,22 @@ namespace DB_EDITOR
                     tmpTable[row].Add(GetDBValue(table, FieldProps.Name, row));
                 }
                 row++;
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
             //Sort
             tmpTable.Sort((player1, player2) => Convert.ToInt32(player1[sortCol]).CompareTo(Convert.ToInt32(player2[sortCol])));
 
 
-            progressBar1.Visible = true;
-            progressBar1.Value = 0;
-            progressBar1.Maximum = GetTable2RecCount(table);
+            StartProgressBar(GetTable2RecCount(table));
             //Clear Table
             for (int i = 0; i < GetTable2RecCount(table); i++)
             {
                 TDB.TDBTableRecordRemove(dbIndex2, table, i);
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
-            progressBar1.Visible = true;
-            progressBar1.Value = 0;
-            progressBar1.Maximum = tmpTable.Count;
+            StartProgressBar(tmpTable.Count);
 
             //Paste Table
             int rec = 0;
@@ -362,11 +349,10 @@ namespace DB_EDITOR
                     ChangeDBString(table, FieldProps.Name, rec, tmpTable[rec][f]);
                 }
                 rec++;
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
+            EndProgressBar();
         }
 
         public void CompactDB2()

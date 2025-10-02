@@ -1607,6 +1607,9 @@ namespace DB_EDITOR
 
         private DataGridViewCell GetDataGridTextColor(DataGridViewCell colorBox)
         {
+            //colorBox.Style.BackColor = Color.Black;
+            return colorBox;
+
             if (Convert.ToString(colorBox.Value) == "") return colorBox;
 
             if (Convert.ToInt32(colorBox.Value) < 60) colorBox.Style.BackColor = Color.FromArgb(255, 199, 206);
@@ -1633,6 +1636,41 @@ namespace DB_EDITOR
 
             return colorBox;
         }
+
+        private Color GetColorValue(int value)
+        {
+            Color col = Color.Black;
+
+            if (value >= 95) col = Color.DarkSlateBlue;
+            else if (value >= 90) col = Color.DodgerBlue;
+            else if (value >= 80) col = Color.ForestGreen;
+            else if (value >= 70) col = Color.DarkOrange;
+            else if (value >= 60) col = Color.OrangeRed;
+            else if (value >= 40) col = Color.DarkRed;
+
+            return col;
+        }
+
+        private Color GetColorValueFullRange(int value)
+        {
+            Color col = Color.Black;
+
+            if (value >= 100) col = Color.DarkSlateBlue;
+            else if (value >= 65) col = Color.DodgerBlue;
+            else if (value >= 45) col = Color.ForestGreen;
+            else if (value >= 25) col = Color.DarkOrange;
+            else if (value >= 15) col = Color.OrangeRed;
+            else col = Color.DarkRed;
+
+            return col;
+        }
+
+        private Color GetTeamPrimaryColor(int tgid)
+        {
+            Color col = Color.FromArgb(GetDBValueInt("TEAM", "TFRD", tgid), GetDBValueInt("TEAM", "TFFG", tgid), GetDBValueInt("TEAM", "TFFB", tgid));
+            return col;
+        }
+
         #endregion
 
         #region CSV Tools

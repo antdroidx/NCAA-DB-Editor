@@ -65,7 +65,7 @@ namespace DB_EDITOR
 
                         TableFields.Add(FieldProps.Name, (int)FieldProps.FieldType);
 
-                        progressBar1.PerformStep();
+                        ProgressBarStep();
                     }
                     progressBar1.Value = 0;
                     #endregion
@@ -83,7 +83,7 @@ namespace DB_EDITOR
                             {
                                 TDB.TDBTableRecordRemove(dbSelected, SelectedTableName, r);
 
-                                progressBar1.PerformStep();
+                                ProgressBarStep();
                             }
                             progressBar1.Value = 0;
                         }
@@ -130,9 +130,8 @@ namespace DB_EDITOR
 
                     #region Main Loop
                     // Progress bar for large table records to write.
-                    progressBar1.Minimum = 0;
-                    progressBar1.Maximum = TableProps.RecordCount;
-                    progressBar1.Step = 1;
+                    StartProgressBar(TableProps.RecordCount);
+
 
                     int recnum = 0;
                     while (!sr.EndOfStream)
@@ -259,10 +258,10 @@ namespace DB_EDITOR
                         }
 
                         recnum++;
-                        progressBar1.PerformStep();
+                        ProgressBarStep();
                     }
 
-                    progressBar1.Value = 0;
+                    EndProgressBar();
 
                     myStream.Dispose();
                     myStream.Close();

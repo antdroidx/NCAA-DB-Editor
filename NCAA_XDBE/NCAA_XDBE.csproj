@@ -32,9 +32,11 @@ Credits:
     <PackageProjectUrl>https://www.ncaanext.com</PackageProjectUrl>
     <Version></Version>
     <AssemblyVersion>2.0.0</AssemblyVersion>
+    <StartupObject>DB_EDITOR.Program</StartupObject>
+    <IncludeSymbols>False</IncludeSymbols>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <Optimize>False</Optimize>
+    <Optimize>True</Optimize>
     <DebugType>portable</DebugType>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -42,6 +44,9 @@ Credits:
   </PropertyGroup>
   <ItemGroup>
     <Content Include="Resources\\**\\*" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="fmfjvkzb.z3w~" />
   </ItemGroup>
   <ItemGroup>
     <Compile Update="TeamStatsViewer.cs">

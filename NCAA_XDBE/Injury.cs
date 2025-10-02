@@ -36,6 +36,7 @@ namespace DB_EDITOR
             List<string> InjuryType = CreateInjuryTypeTable();
             List<string> InjuryLength = CreateInjuryLengthTable();
 
+            StartProgressBar(GetTableRecCount("INJY"));
 
             for (int i = 0; i < GetTableRecCount("INJY"); i++)
             {
@@ -65,8 +66,10 @@ namespace DB_EDITOR
                 InjuryGridView.Rows[i].Cells[5].Value = injuryType;
                 InjuryGridView.Rows[i].Cells[6].Value = injuryLength;
 
+                ProgressBarStep();
             }
             InjuryGridView.ClearSelection();
+            EndProgressBar();
         }
 
         private void RemoveInjuryButton_Click(object sender, EventArgs e)

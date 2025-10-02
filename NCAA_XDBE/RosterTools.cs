@@ -130,7 +130,7 @@ namespace DB_EDITOR
                     ChangeDBInt("PLAY", "PYER", i, year + 1);
                 }
 
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
             CompactDB();
@@ -193,7 +193,7 @@ namespace DB_EDITOR
                     }
                 }
 
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
 
@@ -218,7 +218,7 @@ namespace DB_EDITOR
                     RandomizeAttribute("PLAY", i, 4);
                 }
 
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
 
@@ -476,7 +476,7 @@ namespace DB_EDITOR
                     }
                 }
 
-                progressBar1.PerformStep();
+                ProgressBarStep();
 
             }
 
@@ -599,7 +599,7 @@ namespace DB_EDITOR
                         }
                     }
                 }
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
             progressBar1.Visible = false;
@@ -677,7 +677,7 @@ namespace DB_EDITOR
                ClearLEAGUERoster();
                 CreateRoster(i);
                 SaveRoster(i);
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
             //MessageBox.Show("LEAGUE.DAT Rosters Created");
 

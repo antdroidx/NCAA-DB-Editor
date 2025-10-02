@@ -29,11 +29,8 @@ namespace DB_EDITOR
 
 
             //Setup Progress bar
-            progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = GetTableRecCount(tableName);
-            progressBar1.Step = 1;
-            progressBar1.Value = 0;
+            StartProgressBar(GetTableRecCount(tableName));
+
 
 
             //Clear PLAY Table
@@ -89,13 +86,12 @@ namespace DB_EDITOR
                     FantasyRosterGeneratorSingle(TOID, rating, true);   
 
                     //Finish team and perform step counter
-                    progressBar1.PerformStep();
+                    ProgressBarStep();
                 }
             }
 
 
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
+            EndProgressBar();
             MessageBox.Show("Fantasy Players Created!");
 
             RecalculateOverall();
@@ -683,18 +679,15 @@ namespace DB_EDITOR
 
         private void CreateFantasyCoachDB()
         {
-            progressBar1.Visible = true;
-            progressBar1.Value = 0;
-            progressBar1.Maximum = GetTableRecCount("COCH");
+            StartProgressBar(GetTableRecCount("COCH"));
 
             for (int i = 0; i < GetTableRecCount("COCH"); i++)
             {
                 CreateFantasyCoach(i);
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
+            EndProgressBar();
             MessageBox.Show("Fantasy Coach Database Completed!");
         }
 

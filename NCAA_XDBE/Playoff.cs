@@ -28,9 +28,6 @@ namespace DB_EDITOR
         }
 
 
-        //Color.FromArgb(GetDBValueInt("TEAM", "TFRD", teamRec), GetDBValueInt("TEAM", "TFFG", teamRec), GetDBValueInt("TEAM", "TFFB", teamRec));
-
-
         private void LoadRound1()
         {
             int sewn = GetDBValueInt("SEAI", "SEWN", 0);
@@ -42,9 +39,6 @@ namespace DB_EDITOR
             if (sewn >= 8 && sewn <= 16)
             {
                 List<List<int>> playoffTeams = GetPlayoffTeams();
-
-                //Round2_1.Text = "#1 " + teamNameDB[playoffTeams[0][1]];
-                //Round2_1.BackColor = Color.FromArgb(GetDBValueInt("TEAM", "TFRD", playoffTeams[0][0]), GetDBValueInt("TEAM", "TFFG", playoffTeams[0][0]), GetDBValueInt("TEAM", "TFFB", playoffTeams[0][0]));
 
                 Round2_1 = GetPlayoffLabel(Round2_1, playoffTeams[0][1], playoffTeams[0][0]);
                 Round2_2 = GetPlayoffLabel(Round2_2, playoffTeams[1][1], playoffTeams[1][0]);

@@ -144,7 +144,7 @@ namespace DB_EDITOR
                 uniform.Cells[8].Value = HelmetNums.Items[GetDBValueInt("UNIF", "UHNB", i)];
                 LoadHelmetSideNum(i, UFID); //9
 
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
             progressBar1.Visible = false;
@@ -238,7 +238,7 @@ namespace DB_EDITOR
                 //uniform.Cells[3].Value = GetUFIDTeam(GetDBValueInt("TUNI", "TOID", i));
                 //uniform.Cells[4].Value = GetUniformSlot(GetDBValueInt("TUNI", "TUCO", i));
 
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
             progressBar1.Visible = false;
@@ -329,7 +329,7 @@ namespace DB_EDITOR
                     }
                 }
 
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
             progressBar1.Visible = false;

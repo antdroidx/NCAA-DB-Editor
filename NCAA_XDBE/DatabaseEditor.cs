@@ -13,19 +13,23 @@ namespace DB_EDITOR
 
         private void StartDBEditor()
         {
+            DoNotTrigger = true; 
             int ind = 0;
             if (DB2Button.Checked) ind = 1;
             GetTables(ind);
             LoadTables();
-            GetFields(ind, SelectedTableIndex);
+            //GetFields(ind, SelectedTableIndex);
             //LoadFields();
+            tableGridView.ClearSelection();
+
+            DoNotTrigger = false;
         }
 
         #region Database Loading
 
         private void GetTableProperties()
         {
-
+            
             TdbTableProperties TableProps = new TdbTableProperties();
 
             TableProps.Name = TDBNameLength;
@@ -41,7 +45,7 @@ namespace DB_EDITOR
             if (TableProps.NonAllocated) flags += " NonAlloc";
 
             TablePropsLabel.Text = "Fields: " + TableProps.FieldCount.ToString() + "   Capacity: " + TableProps.Capacity.ToString() + "   Records: " + TableProps.RecordCount.ToString() + "    DelRec: " + TableProps.DeletedCount.ToString() + " " + flags;
-
+            
         }
 
         private void GetFieldProps()
@@ -110,9 +114,7 @@ namespace DB_EDITOR
 
             int tmpTableCount = TDB.TDBDatabaseGetTableCount(dbFILEindex);
 
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = tmpTableCount;
-            progressBar1.Step = 1;
+            StartProgressBar(tmpTableCount);
 
             for (int i = 0; i < tmpTableCount; i++)
             {
@@ -132,9 +134,9 @@ namespace DB_EDITOR
                 progressBar1.Value = i;
 
             }
-            progressBar1.Value = 0;
-            SortTables();
 
+            EndProgressBar();
+            SortTables();
         }
 
         private void LoadTables()
@@ -175,6 +177,8 @@ namespace DB_EDITOR
 
         private void TableGridView_SelectionChanged(object sender, EventArgs e)
         {
+            if (DoNotTrigger) return;
+
             FieldNames.Clear();
 
             TablePropsLabel.Text = "";
@@ -220,9 +224,8 @@ namespace DB_EDITOR
             if (!TDB.TDBTableGetProperties(dbFILEindex, tmpTABLEindex, ref TableProps))
                 return;
 
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = TableProps.FieldCount;
-            progressBar1.Step = 1;
+            StartProgressBar(TableProps.FieldCount);
+
 
             for (int i = 0; i < TableProps.FieldCount; i++)
             {
@@ -243,10 +246,10 @@ namespace DB_EDITOR
 
                 FieldNames.Add(i, tmpFIELDname);
 
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
-            progressBar1.Value = 0;
+            EndProgressBar();
 
             DBFieldAddOns(TableProps);
             SortFields();
@@ -302,10 +305,8 @@ namespace DB_EDITOR
             fieldsGridView.Columns[0].Name = "Rec";
             fieldsGridView.Columns[0].Width = 47;
 
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = tmpFIELDcount + 2;
-            progressBar1.Step = 1;
-
+            StartProgressBar(tmpFIELDcount + 2);
+           
             int tmpi = 0;
             foreach (KeyValuePair<int, string> sortAZ in FieldNames)
             {
@@ -321,10 +322,10 @@ namespace DB_EDITOR
                     fieldsGridView.Columns[tmpi + 1].HeaderCell.Style.BackColor = Color.Khaki;
 
                 tmpi++;
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
-            progressBar1.Value = 0;
+            EndProgressBar();
             fieldsGridView.Columns[tmpFIELDcount + 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             //
 
@@ -341,9 +342,8 @@ namespace DB_EDITOR
             if (!TDB.TDBTableGetProperties(dbSelected, SelectedTableIndex, ref TableProps))
                 return;
 
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = TableProps.RecordCount;
-            progressBar1.Step = 1;
+            StartProgressBar(TableProps.RecordCount);
+
 
             for (int r = 0; r < TableProps.RecordCount; r++)
             {
@@ -471,9 +471,11 @@ namespace DB_EDITOR
                     }
                     else if (FieldProps.FieldType == TdbFieldType.tdbBinary || FieldProps.FieldType == TdbFieldType.tdbVarchar || FieldProps.FieldType == TdbFieldType.tdbLongVarchar)
                     {
-                        string val = new string((char)0, (FieldProps.Size / 8) + 1);
-                        TDB.TDBFieldGetValueAsString(dbSelected, TableProps.Name, FieldProps.Name, r, ref val);
+                        //string val = new string((char)0, (FieldProps.Size / 8) + 1);
 
+                        //TDB.TDBFieldGetValueAsString(dbSelected, TableProps.Name, FieldProps.Name, r, ref val);
+
+                        string val = "na";
                         DataGridRow[tmpf + 1] = val;
                     }
                     else
@@ -489,11 +491,11 @@ namespace DB_EDITOR
 
 
                 fieldsGridView.Rows.Add(DataGridRow);
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
 
-            progressBar1.Value = 0;
+            EndProgressBar();
             #endregion
 
             DoNotTrigger = false;
@@ -579,7 +581,7 @@ namespace DB_EDITOR
             {
                 string tmpval = Convert.ToString(fieldsGridView.Rows[rownum].Cells[colnum].Value);
 
-                tmpval = tmpval.Replace(",", "");
+                tmpval = tmpval.Replace(",", "-");
 
                 if (!TDB.TDBFieldSetValueAsString(dbSelected, SelectedTableName, fieldProps.Name, tmpcol, tmpval))
                     fieldsGridView.Rows[rownum].Cells[colnum].Value = tmpval;
@@ -634,14 +636,12 @@ namespace DB_EDITOR
                         fieldsGridView.Rows[rownum].Cells[colnum].Style.ForeColor = Color.Red;
                         DBModified = true;
                     }
-
-
                 }
 
             }
             else if (fieldProps.FieldType == TdbFieldType.tdbBinary || fieldProps.FieldType == TdbFieldType.tdbVarchar || fieldProps.FieldType == TdbFieldType.tdbLongVarchar)
             {
-
+                //Not supported Field
             }
 
 

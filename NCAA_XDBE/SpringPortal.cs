@@ -73,9 +73,8 @@ namespace DB_EDITOR
 
                     CollectSpringRoster();
 
-                    progressBar1.Visible = true;
-                    progressBar1.Maximum = GetTableRecCount("TEAM");
-                    progressBar1.Value = 0;
+                    StartProgressBar(GetTableRecCount("TEAM"));
+
 
                     for (int i = 0; i < GetTableRecCount("TEAM"); i++)
                     {
@@ -84,11 +83,10 @@ namespace DB_EDITOR
                             int tgid = GetDBValueInt("TEAM", "TGID", i);
                             DetermineTeamCuts(tgid);
                         }
-                        progressBar1.PerformStep();
+                        ProgressBarStep();
                     }
 
-                    progressBar1.Visible = false;
-                    progressBar1.Value = 0;
+                    EndProgressBar();
 
                     if (FCSTransferPortalCheckBox.Checked) CreateFCSPlayers();
 
@@ -137,9 +135,8 @@ namespace DB_EDITOR
                 SpringRoster.Add(new List<List<int>>());
             }
 
-            progressBar1.Visible = true;
-            progressBar1.Maximum = GetTableRecCount("PLAY");
-            progressBar1.Value = 0;
+            StartProgressBar(GetTableRecCount("PLAY"));
+  
 
             //Add Roster
             for (int i = 0; i < GetTableRecCount("PLAY"); i++)
@@ -191,7 +188,7 @@ namespace DB_EDITOR
                 else
                     SpringRoster[TGID][count][7] = POVR;
 
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
             //Check for Transfers in TRAN
@@ -211,8 +208,7 @@ namespace DB_EDITOR
 
 
 
-            progressBar1.Value = 0;
-            progressBar1.Maximum = GetTable2RecCount("RCPR");
+            StartProgressBar(GetTable2RecCount("RCPR"));
 
             //Add Recruits
             for (int i = 0; i < GetTable2RecCount("RCPR"); i++)
@@ -259,11 +255,10 @@ namespace DB_EDITOR
                 else
                     SpringRoster[TGID][count][7] = POVR;
 
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
+            EndProgressBar();
         }
 
         private void DetermineTeamCuts(int tgid)
@@ -459,9 +454,8 @@ namespace DB_EDITOR
             List<List<string>> portalList = new List<List<string>>();
 
 
-            progressBar1.Visible = true;
-            progressBar1.Maximum = teamList.Count;
-            progressBar1.Value = 0;
+            StartProgressBar(teamList.Count);
+
 
             for (int t = 0; t < teamList.Count; t++)
             {
@@ -476,14 +470,13 @@ namespace DB_EDITOR
                         portalList = SpringTransfer(tgid, p, portalList);
                     }
                 }
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
 
             DisplayPortalNews(portalList);
 
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
+            EndProgressBar();
 
         }
 
@@ -493,9 +486,8 @@ namespace DB_EDITOR
 
             int round = 0;
 
-            progressBar1.Visible = true;
-            progressBar1.Maximum = teamList.Count * 34;
-            progressBar1.Value = 0;
+            StartProgressBar(teamList.Count * 34);
+
 
             List<int> randPos = new List<int>();
             for (int p = 0; p < 34; p++)
@@ -527,15 +519,14 @@ namespace DB_EDITOR
                     if (SpringPortal.Count <= 0) break;
                     int tgid = teamList[t][0];
                     portalList = SpringTransfer(tgid, randPos[p], portalList);
-                    progressBar1.PerformStep();
+                    ProgressBarStep();
                 }
 
             }
 
             DisplayPortalNews(portalList);
 
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
+            EndProgressBar();
 
         }
 

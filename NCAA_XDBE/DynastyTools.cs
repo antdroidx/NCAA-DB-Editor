@@ -110,10 +110,7 @@ namespace DB_EDITOR
         //Pre-Season Injuries -- randomly give injuries to players in pre-season
         private void PreseasonInjuries()
         {
-            progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = GetTableRecCount("PLAY");
-            progressBar1.Step = 1;
+            StartProgressBar(GetTableRecCount("PLAY"));
 
             int inj = 0;
 
@@ -131,20 +128,17 @@ namespace DB_EDITOR
                     ReduceSkills(i, (int)MaxSkillDropPS.Value);
                     inj++;
                 }
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
+            EndProgressBar();
             MessageBox.Show("Injury Distributions are complete!");
         }
 
         //Medical Redshirt - If player's INJL = 254, they are out of season. Let's give them a medical year!
         private void MedicalRedshirt()
         {
-            progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = GetTableRecCount("INJY");
+            StartProgressBar(GetTableRecCount("INJY"));
             string names = "";
             //looks at INJY table
             for (int i = 0; i < GetTableRecCount("INJY"); i++)
@@ -212,11 +206,10 @@ namespace DB_EDITOR
                             break;
                         }
                     }
-                    progressBar1.PerformStep();
+                    ProgressBarStep();
                 }
             }
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
+            EndProgressBar();
 
             MessageBox.Show("The NCAA has approved the following Medical Redshirts:\n\r" + names);
         }
@@ -264,9 +257,7 @@ namespace DB_EDITOR
 
         private void CoachPrestigeProgression()
         {
-            progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = GetTableRecCount("COCH");
+            StartProgressBar(GetTableRecCount("COCH"));
 
 
             /* new method idea: 
@@ -337,11 +328,10 @@ namespace DB_EDITOR
                     ChangeDBInt("COCH", "CTYR", i, (year+1));
 
 
-                    progressBar1.PerformStep();
+                    ProgressBarStep();
                 }
 
-                progressBar1.Visible = false;
-                progressBar1.Value = 0;
+                EndProgressBar();
 
                 MessageBox.Show("Coach Prestige Changes:\n\n" + coach);
                 coachProgComplete = true;
@@ -364,9 +354,7 @@ namespace DB_EDITOR
              *  Pick a random position, find the highest ranked active starter
              */
 
-            progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = GetTableRecCount("TEAM");
+            StartProgressBar(GetTableRecCount("TEAM"));
 
             int maxTransfers = 500;
             int currentRecCount = GetTableRecCount("TRAN");
@@ -417,14 +405,13 @@ namespace DB_EDITOR
                     }
 
                 }
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
 
             MessageBox.Show(transferNews, "TRANSFER PORTAL NEWS");
 
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
+            EndProgressBar();
         }
 
 
@@ -595,9 +582,7 @@ namespace DB_EDITOR
         //body size progression
         private void PlayerBodySizeProgression()
         {
-            progressBar1.Visible = true;
-            progressBar1.Value = 0;
-            progressBar1.Maximum = GetTableRecCount("PLAY");
+            StartProgressBar(GetTableRecCount("PLAY"));
 
             List<List<int>> bodysize = GetBodySizeAverages();
 
@@ -630,11 +615,10 @@ namespace DB_EDITOR
                 {
 
                 }
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
-            progressBar1.Visible = false;
-
+            EndProgressBar();
             MessageBox.Show("Body Progressions Completed!");
         }
 
@@ -642,10 +626,8 @@ namespace DB_EDITOR
         //Determine Impact Players
         private void DetermineAllImpactPlayers()
         {
-            progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = GetTableRecCount("TEAM");
-            progressBar1.Step = 1;
+            StartProgressBar(GetTableRecCount("TEAM"));
+            
 
             int minRating = 0;
             minRating = RevertRating(Convert.ToInt32(ImpactPlayerMin.Value));
@@ -662,11 +644,10 @@ namespace DB_EDITOR
 
                     DetermineTeamImpactPlayers(i, minRating);
                 }
-                progressBar1.PerformStep();
+                ProgressBarStep();
             }
 
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
+            EndProgressBar();
             MessageBox.Show("Impact Players are Set!");
         }
 
