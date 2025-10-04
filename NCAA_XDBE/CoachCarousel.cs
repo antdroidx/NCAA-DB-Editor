@@ -260,7 +260,7 @@ namespace DB_EDITOR
                         TransferNews.Add(new List<string>());
                         TransferNews[row].Add(GetTeamName(tgid));
                         TransferNews[row].Add(GetFirstNameFromRecord(players[xfer, 0]) + " " + GetLastNameFromRecord(players[xfer, 0]));
-                        TransferNews[row].Add(GetPositionName(GetPPOSfromRecord(players[xfer, 3])));
+                        TransferNews[row].Add(GetPositionName(players[xfer, 3]));
                         TransferNews[row].Add( Convert.ToString(ConvertRating(players[xfer, 2])));
 
                         currentRecCount++;

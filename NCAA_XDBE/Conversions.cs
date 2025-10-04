@@ -1466,12 +1466,12 @@ namespace DB_EDITOR
 
         private string GetRecruitPitch(int pitch)
         {
-            if (pitch == 1) return "Team Prestige";
-            else if (pitch == 2) return "Location";
-            else if (pitch == 3) return "Playing Time";
-            else if(pitch == 4) return "Coaching Style";
-            else if(pitch == 5) return "Coaching Prestige";
-            else if(pitch == 6) return "Academics";
+            if (pitch == 0) return "Team Prestige";
+            else if (pitch == 1) return "Location";
+            else if (pitch == 2) return "Playing Time";
+            else if(pitch == 3) return "Coaching Style";
+            else if(pitch == 4) return "Coaching Prestige";
+            else if(pitch == 5) return "Academics";
             else return "";
         }
 

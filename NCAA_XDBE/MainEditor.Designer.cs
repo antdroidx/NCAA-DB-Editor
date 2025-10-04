@@ -1002,6 +1002,7 @@ namespace DB_EDITOR
             NeckPad = new System.Windows.Forms.ComboBox();
             pictureBox3 = new PictureBox();
             tabTeams = new TabPage();
+            label19 = new Label();
             groupBox49 = new GroupBox();
             TeamAutoImpact = new System.Windows.Forms.Button();
             TeamSetDepthChart = new System.Windows.Forms.Button();
@@ -1403,7 +1404,7 @@ namespace DB_EDITOR
             groupBox41 = new GroupBox();
             buttonRCATBody = new System.Windows.Forms.Button();
             toolTip1 = new System.Windows.Forms.ToolTip(components);
-            label19 = new Label();
+            IncludeReturningTransfersBox = new CheckBox();
             mainMenu.SuspendLayout();
             tableMenu.SuspendLayout();
             fieldMenu.SuspendLayout();
@@ -11312,6 +11313,16 @@ namespace DB_EDITOR
             tabTeams.Text = "Teams";
             tabTeams.Click += (this.tabTeams_Click);
             // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            label19.Location = new Point(528, 57);
+            label19.Name = "label19";
+            label19.Size = new Size(104, 16);
+            label19.TabIndex = 151;
+            label19.Text = "Team Ratings";
+            // 
             // groupBox49
             // 
             groupBox49.Controls.Add(TeamAutoImpact);
@@ -14417,13 +14428,13 @@ namespace DB_EDITOR
             // 
             // dataGridViewTextBoxColumn42
             // 
-            dataGridViewTextBoxColumn42.HeaderText = "RAC";
+            dataGridViewTextBoxColumn42.HeaderText = "YAC";
             dataGridViewTextBoxColumn42.Name = "dataGridViewTextBoxColumn42";
             dataGridViewTextBoxColumn42.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn43
             // 
-            dataGridViewTextBoxColumn43.HeaderText = "RCA";
+            dataGridViewTextBoxColumn43.HeaderText = "YACA";
             dataGridViewTextBoxColumn43.Name = "dataGridViewTextBoxColumn43";
             dataGridViewTextBoxColumn43.ReadOnly = true;
             // 
@@ -14757,7 +14768,7 @@ namespace DB_EDITOR
             // 
             // dataGridViewTextBoxColumn9
             // 
-            dataGridViewTextBoxColumn9.HeaderText = "YAI";
+            dataGridViewTextBoxColumn9.HeaderText = "YAC";
             dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             dataGridViewTextBoxColumn9.ReadOnly = true;
             // 
@@ -14776,6 +14787,7 @@ namespace DB_EDITOR
             // tabRecruiting
             // 
             tabRecruiting.BackColor = Color.LightSlateGray;
+            tabRecruiting.Controls.Add(IncludeReturningTransfersBox);
             tabRecruiting.Controls.Add(label196);
             tabRecruiting.Controls.Add(panel2);
             tabRecruiting.Controls.Add(RecruitRankingComboBox);
@@ -15844,15 +15856,15 @@ namespace DB_EDITOR
             buttonRCATBody.UseVisualStyleBackColor = true;
             buttonRCATBody.Click += (this.buttonRCATBody_Click);
             // 
-            // label19
+            // IncludeReturningTransfersBox
             // 
-            label19.AutoSize = true;
-            label19.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            label19.Location = new Point(528, 57);
-            label19.Name = "label19";
-            label19.Size = new Size(104, 16);
-            label19.TabIndex = 151;
-            label19.Text = "Team Ratings";
+            IncludeReturningTransfersBox.AutoSize = true;
+            IncludeReturningTransfersBox.Location = new Point(992, 48);
+            IncludeReturningTransfersBox.Name = "IncludeReturningTransfersBox";
+            IncludeReturningTransfersBox.Size = new Size(157, 17);
+            IncludeReturningTransfersBox.TabIndex = 165;
+            IncludeReturningTransfersBox.Text = "Include Returning Transfers";
+            IncludeReturningTransfersBox.UseVisualStyleBackColor = true;
             // 
             // MainEditor
             // 
@@ -17407,17 +17419,6 @@ namespace DB_EDITOR
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn52;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn53;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn54;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn34;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn35;
-        private DataGridViewTextBoxColumn TSCatch;
-        private DataGridViewTextBoxColumn TSYdsCat;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn38;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn39;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn40;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn41;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn42;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn43;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn44;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
@@ -17439,17 +17440,6 @@ namespace DB_EDITOR
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private DataGridViewTextBoxColumn TSRushYds;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn80;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn81;
         private DataGridViewTextBoxColumn RecruitHomeTeam;
@@ -17482,6 +17472,29 @@ namespace DB_EDITOR
         private DataGridViewTextBoxColumn Column4;
         private GroupBox groupBox49;
         private Label label19;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn34;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn35;
+        private DataGridViewTextBoxColumn TSCatch;
+        private DataGridViewTextBoxColumn TSYdsCat;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn38;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn39;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn40;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn41;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn42;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn43;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn44;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private DataGridViewTextBoxColumn TSRushYds;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private CheckBox IncludeReturningTransfersBox;
     }
 }
 
