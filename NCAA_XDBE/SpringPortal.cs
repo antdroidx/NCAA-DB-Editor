@@ -265,6 +265,16 @@ namespace DB_EDITOR
                 else
                     SpringRoster[TGID][count][7] = POVR;
 
+                if (PRID >= 21000)
+                {
+                    int playRec = FindPGIDRecord(PRID);
+                    PYER = GetDBValueInt("PLAY", "PYER", playRec);
+                    SpringRoster[TGID][count][6] = PYER;
+                    SpringRoster[TGID][count][9] = 1;
+                    SpringRoster[TGID][count][10] = GetDBValueInt("PLAY", "PRSD", playRec);
+                }
+
+
                 ProgressBarStep();
             }
 
@@ -337,7 +347,7 @@ namespace DB_EDITOR
                 }
 
                 //STARTERS
-                if (AllowStartersLeave.Checked && p >= 0 && rand.Next(0, 100) < 9 && posList.Count > 1)
+                if (AllowStartersLeave.Checked && p >= 0 && rand.Next(0, 100) < 8 && posList.Count > 1)
                 {
                     // If the team has a backup QB, allow them to add a player to the portal
                     if (posList[0][0] != -1 && posList[0][9] == 0 || posList[0][2] >= 21000 && PortalTransfers.Checked || posList[0][9] == 1 && PortalTransfers.Checked)
