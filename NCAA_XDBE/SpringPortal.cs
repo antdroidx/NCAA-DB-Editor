@@ -750,7 +750,7 @@ namespace DB_EDITOR
                 PortalData.Rows[x].Cells[5].Value = portalList2[x - NewsCount][5];
 
                 string test = PortalData.Rows[x].Cells[1].Value.ToString();
-                if (test.Contains("(STARTER)"))
+                if (test.Contains("(S)"))
                 {
                     starterCount++;
                 }
@@ -761,7 +761,8 @@ namespace DB_EDITOR
             int prevStarters = startersCount.Text.Contains(":") ? Convert.ToInt32(startersCount.Text.Split(':')[1].Trim()) : 0;
 
             TotalTransfersCount.Text = "Total Transfers: " + Convert.ToString(portalList2.Count + prevTransfersCount);
-            startersCount.Text = "Starters: " + Convert.ToString(starterCount + prevStarters);
+            if (!AllowStartersLeave.Checked) startersCount.Text = "";
+            else startersCount.Text = "Starters: " + Convert.ToString(starterCount + prevStarters);
         }
 
         private void AddPlayertoTRAN(int PGID, int TGID)
