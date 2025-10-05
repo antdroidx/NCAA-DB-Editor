@@ -566,8 +566,9 @@ namespace DB_EDITOR
 
             for (double x = total; x > 0; x--)
             {
-                double recruitFactor = Math.Pow(x / total, .33);
-                points += (double)(starValues[total - Convert.ToInt32(x)] * recruitFactor);
+                double slotFactor = x/ total;
+                double rankFactor = Math.Pow(slotFactor, 0.15/slotFactor);
+                points += (double)(starValues[total - Convert.ToInt32(x)] * rankFactor);
             }
 
             return Math.Round((double)points, 2);

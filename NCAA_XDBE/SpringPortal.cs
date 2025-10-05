@@ -152,6 +152,8 @@ namespace DB_EDITOR
                 int PYER = GetDBValueInt("PLAY", "PYER", i);
                 int RS = GetDBValueInt("PLAY", "PRSD", i);
                 int PJEN = GetDBValueInt("PLAY", "PJEN", i);
+                int DISC = GetDBValueInt("PLAY", "PDIS", i);
+                int POE = GetDBValueInt("PLAY", "PPOE", i);
 
                 AvailablePJEN[TGID].Add(PJEN);
 
@@ -182,9 +184,13 @@ namespace DB_EDITOR
                 SpringRoster[TGID][count].Add(PJEN);
                 SpringRoster[TGID][count].Add(0); //TRAN status
                 SpringRoster[TGID][count].Add(RS);
+                SpringRoster[TGID][count].Add(DISC);
+                SpringRoster[TGID][count].Add(0);
+                SpringRoster[TGID][count].Add(POE);
+
 
                 if (PortalRatingBoost.Checked)
-                    SpringRoster[TGID][count][7] = POVR - (SpringRoster[TGID][count][6] / 2);
+                    SpringRoster[TGID][count][7] = POVR - (int)(SpringRoster[TGID][count][6]/1.5);
                 else
                     SpringRoster[TGID][count][7] = POVR;
 
@@ -218,6 +224,8 @@ namespace DB_EDITOR
                 int POVR = GetDB2ValueInt("RCPT", "POVR", i);
                 int PPOS = GetDB2ValueInt("RCPT", "PPOS", i);
                 int PYER = GetDBValueInt("RCPT", "PYER", i);
+                int DISC = GetDBValueInt("RCPT", "PDIS", i);
+                int POE = GetDBValueInt("RCPT", "PPOE", i);
 
                 if (PPOS == 8) PPOS = 6;
                 else if (PPOS == 9) PPOS = 5;
@@ -247,7 +255,9 @@ namespace DB_EDITOR
                 SpringRoster[TGID][count].Add(18); //jersey number
                 SpringRoster[TGID][count].Add(0); //TRAN status
                 SpringRoster[TGID][count].Add(0);
-
+                SpringRoster[TGID][count].Add(DISC);
+                SpringRoster[TGID][count].Add(0);  //is Starter?
+                SpringRoster[TGID][count].Add(POE);
 
                 SpringRoster[TGID][count][4] = POVR;
                 if (PortalRatingBoost.Checked)
@@ -315,6 +325,7 @@ namespace DB_EDITOR
                     }
                 }
 
+                //QB BACKUPS
                 if (AllowBackupQBPortal.Checked && p == 0 && rand.Next(0, 100) < portalChance.Value && posList.Count > 1)
                 {
                     // If the team has a backup QB, allow them to add a player to the portal
@@ -324,6 +335,26 @@ namespace DB_EDITOR
                         TeamPortalNeeds[tgid][p * 2 + 1] = 0;
                     }
                 }
+
+                //STARTERS
+                if (AllowStartersLeave.Checked && p >= 0 && rand.Next(0, 100) < 9 && posList.Count > 1)
+                {
+                    // If the team has a backup QB, allow them to add a player to the portal
+                    if (posList[0][0] != -1 && posList[0][9] == 0 || posList[0][2] >= 21000 && PortalTransfers.Checked || posList[0][9] == 1 && PortalTransfers.Checked)
+                    {
+                        int disc = posList[0][11];
+                        int tmpr = FindTeamPrestige(tgid);
+                        int poe = posList[0][13];
+
+                        if (disc <= rand.Next(0, 8) && tmpr <= rand.Next(0, 8) || poe >= rand.Next(0, 25) && tmpr <= rand.Next(0, 8))
+                        {
+                            posList[0][12] = 1; //mark as starter leaving
+                            SpringPortal.Add(posList[0]);
+                            TeamPortalNeeds[tgid][p * 2 + 1] = 1;
+                        }
+                    }
+                }
+
             }
         }
 
@@ -370,7 +401,8 @@ namespace DB_EDITOR
                 int POVR = GetDBValueInt("PLAY", "POVR", rec);
                 int PPOS = GetDBValueInt("PLAY", "PPOS", rec);
                 int PYER = GetDBValueInt("PLAY", "PYER", rec);
-
+                int DISC = GetDBValueInt("PLAY", "PDIS", rec);
+                int POE = GetDBValueInt("PLAY", "PPOE", rec);
 
                 if (PPOS == 8) PPOS = 6;
                 else if (PPOS == 9) PPOS = 5;
@@ -402,6 +434,9 @@ namespace DB_EDITOR
                     SpringPortal[count].Add(18); //jersey number
                     SpringPortal[count].Add(0); //TRAN status
                     SpringPortal[count].Add(0);
+                    SpringPortal[count].Add(DISC);
+                    SpringPortal[count].Add(0);
+                    SpringPortal[count].Add(POE);
 
                     SpringPortal[count][4] = POVR;
                     if (PortalRatingBoost.Checked)
@@ -448,7 +483,6 @@ namespace DB_EDITOR
             }
         }
 
-
         private void SpringPortalNormalDistribution(List<List<int>> teamList)
         {
             List<List<string>> portalList = new List<List<string>>();
@@ -485,10 +519,6 @@ namespace DB_EDITOR
             List<List<string>> portalList = new List<List<string>>();
 
             int round = 0;
-
-            StartProgressBar(teamList.Count * 34);
-
-
             List<int> randPos = new List<int>();
             for (int p = 0; p < 34; p++)
             {
@@ -498,6 +528,8 @@ namespace DB_EDITOR
             Random rnd = new Random();
             randPos = randPos.OrderBy(x => rnd.Next()).ToList();
 
+            StartProgressBar(teamList.Count * 34);
+
             for (int p = 0; p < randPos.Count; p++)
             {
 
@@ -506,6 +538,21 @@ namespace DB_EDITOR
                     if (round % 2 == 0) teamList.Sort((team1, team2) => team2[1].CompareTo(team1[1]));
                     else teamList.Sort((team1, team2) => team1[1].CompareTo(team2[1]));
                     round++;
+                }
+                if (RankingOrderPriority.Checked)
+                {
+                    teamList.Clear();
+                    for (int i = 0; i < GetTableRecCount("TEAM"); i++)
+                    {
+                        if (GetDBValueInt("TEAM", "TTYP", i) == 0)
+                        {
+                            int tgid = GetDBValueInt("TEAM", "TGID", i);
+                            int rank = GetDBValueInt("TEAM", "TMRK", i);
+                            int rankVal = rand.Next(0, (150 - rank)) + rand.Next(0, (150 - rank)) + rand.Next(0, (150 - rank));
+                            teamList.Add(new List<int> { tgid, rankVal });
+                        }
+                    }
+                    teamList.Sort((player1, player2) => player2[1].CompareTo(player1[1]));
                 }
                 else
                 {
@@ -524,9 +571,11 @@ namespace DB_EDITOR
 
             }
 
-            DisplayPortalNews(portalList);
 
             EndProgressBar();
+
+            DisplayPortalNews(portalList);
+
 
         }
 
@@ -545,10 +594,14 @@ namespace DB_EDITOR
                     int pos = SpringPortal[i][3];
                     int ov = SpringPortal[i][7];
                     int team = SpringPortal[i][5];
+                    int starter = SpringPortal[i][12];
 
                     if (pos == p / 2)
                     {
-                        if (ov <= TeamPortalNeeds[tgid][p] || rand.Next(0, 99) > portalChance.Value)
+                        int tmpr = FindTeamPrestige(tgid);
+                        int playerteamprestige = FindTeamPrestige(team);
+
+                        if (starter == 1 && tmpr >= playerteamprestige && ov <= TeamPortalNeeds[tgid][p] || starter == 0 && ov <= TeamPortalNeeds[tgid][p] ||  rand.Next(0, 99) > portalChance.Value)
                         {
                             break;
                         }
@@ -563,7 +616,13 @@ namespace DB_EDITOR
                                     int row = portalList.Count;
                                     portalList.Add(new List<string>());
                                     portalList[row].Add(GetPOSG2Name(pos));
-                                    portalList[row].Add(GetPlayerNamefromPGID(pgid));
+
+                                    string playerStarter = "";                                    
+                                    playerStarter += GetPlayerNamefromPGID(pgid);
+                                    if (SpringPortal[i][12] == 1) playerStarter += " (S)";
+
+
+                                    portalList[row].Add(playerStarter);
 
                                     string yr = years[SpringPortal[i][6]];
                                     if (SpringPortal[i][10] == 2) yr += " (RS)";
@@ -677,6 +736,8 @@ namespace DB_EDITOR
         private void DisplayPortalNews(List<List<string>> portalList2)
         {
             int NewsCount = PortalData.Rows.Count;
+            int starterCount = 0;
+
             for (int x = NewsCount; x < portalList2.Count + NewsCount; x++)
             {
                 PortalData.Rows.Add(new DataGridViewRow());
@@ -688,12 +749,19 @@ namespace DB_EDITOR
                 PortalData.Rows[x].Cells[4].Value = portalList2[x - NewsCount][4];
                 PortalData.Rows[x].Cells[5].Value = portalList2[x - NewsCount][5];
 
+                string test = PortalData.Rows[x].Cells[1].Value.ToString();
+                if (test.Contains("(STARTER)"))
+                {
+                    starterCount++;
+                }
+
             }
 
             int prevTransfersCount = TotalTransfersCount.Text.Contains(":") ? Convert.ToInt32(TotalTransfersCount.Text.Split(':')[1].Trim()) : 0;
+            int prevStarters = startersCount.Text.Contains(":") ? Convert.ToInt32(startersCount.Text.Split(':')[1].Trim()) : 0;
 
             TotalTransfersCount.Text = "Total Transfers: " + Convert.ToString(portalList2.Count + prevTransfersCount);
-
+            startersCount.Text = "Starters: " + Convert.ToString(starterCount + prevStarters);
         }
 
         private void AddPlayertoTRAN(int PGID, int TGID)

@@ -1308,6 +1308,7 @@ namespace DB_EDITOR
             dataGridViewTextBoxColumn10 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn11 = new DataGridViewTextBoxColumn();
             tabRecruiting = new TabPage();
+            IncludeReturningTransfersBox = new CheckBox();
             label196 = new Label();
             panel2 = new Panel();
             RecruitRankingComboBox = new System.Windows.Forms.ComboBox();
@@ -1333,6 +1334,7 @@ namespace DB_EDITOR
             Column2 = new DataGridViewTextBoxColumn();
             textBox2 = new System.Windows.Forms.TextBox();
             tabPortal = new TabPage();
+            startersCount = new Label();
             FCSTransferPortalCheckBox = new CheckBox();
             PortalCycleCount = new NumericUpDown();
             label270 = new Label();
@@ -1356,6 +1358,7 @@ namespace DB_EDITOR
             largePortal = new RadioButton();
             smallPortal = new RadioButton();
             groupBox32 = new GroupBox();
+            AllowStartersLeave = new CheckBox();
             AllowBackupQBPortal = new CheckBox();
             PortalDefaultSetting = new System.Windows.Forms.Button();
             SpringPortalMin = new System.Windows.Forms.Button();
@@ -1394,6 +1397,7 @@ namespace DB_EDITOR
             PortalQB = new NumericUpDown();
             label242 = new Label();
             groupBox31 = new GroupBox();
+            RankingOrderPriority = new RadioButton();
             PortalSnake = new RadioButton();
             PortalRandom = new RadioButton();
             PortalFirst = new RadioButton();
@@ -1404,7 +1408,6 @@ namespace DB_EDITOR
             groupBox41 = new GroupBox();
             buttonRCATBody = new System.Windows.Forms.Button();
             toolTip1 = new System.Windows.Forms.ToolTip(components);
-            IncludeReturningTransfersBox = new CheckBox();
             mainMenu.SuspendLayout();
             tableMenu.SuspendLayout();
             fieldMenu.SuspendLayout();
@@ -14801,6 +14804,16 @@ namespace DB_EDITOR
             tabRecruiting.TabIndex = 23;
             tabRecruiting.Text = "Recruiting";
             // 
+            // IncludeReturningTransfersBox
+            // 
+            IncludeReturningTransfersBox.AutoSize = true;
+            IncludeReturningTransfersBox.Location = new Point(992, 48);
+            IncludeReturningTransfersBox.Name = "IncludeReturningTransfersBox";
+            IncludeReturningTransfersBox.Size = new Size(157, 17);
+            IncludeReturningTransfersBox.TabIndex = 165;
+            IncludeReturningTransfersBox.Text = "Include Returning Transfers";
+            IncludeReturningTransfersBox.UseVisualStyleBackColor = true;
+            // 
             // label196
             // 
             label196.AutoSize = true;
@@ -15092,6 +15105,7 @@ namespace DB_EDITOR
             // tabPortal
             // 
             tabPortal.BackColor = Color.Tan;
+            tabPortal.Controls.Add(startersCount);
             tabPortal.Controls.Add(FCSTransferPortalCheckBox);
             tabPortal.Controls.Add(PortalCycleCount);
             tabPortal.Controls.Add(label270);
@@ -15116,10 +15130,19 @@ namespace DB_EDITOR
             tabPortal.TabIndex = 18;
             tabPortal.Text = "Portal";
             // 
+            // startersCount
+            // 
+            startersCount.AutoSize = true;
+            startersCount.Location = new Point(1068, 588);
+            startersCount.Name = "startersCount";
+            startersCount.Size = new Size(43, 13);
+            startersCount.TabIndex = 46;
+            startersCount.Text = "Starters";
+            // 
             // FCSTransferPortalCheckBox
             // 
             FCSTransferPortalCheckBox.AutoSize = true;
-            FCSTransferPortalCheckBox.Location = new Point(11, 399);
+            FCSTransferPortalCheckBox.Location = new Point(11, 422);
             FCSTransferPortalCheckBox.Name = "FCSTransferPortalCheckBox";
             FCSTransferPortalCheckBox.Size = new Size(151, 17);
             FCSTransferPortalCheckBox.TabIndex = 45;
@@ -15150,7 +15173,7 @@ namespace DB_EDITOR
             // PortalRatingBoost
             // 
             PortalRatingBoost.AutoSize = true;
-            PortalRatingBoost.Location = new Point(11, 376);
+            PortalRatingBoost.Location = new Point(11, 399);
             PortalRatingBoost.Name = "PortalRatingBoost";
             PortalRatingBoost.Size = new Size(212, 17);
             PortalRatingBoost.TabIndex = 43;
@@ -15162,7 +15185,7 @@ namespace DB_EDITOR
             // TransferEligible
             // 
             TransferEligible.AutoSize = true;
-            TransferEligible.Location = new Point(11, 353);
+            TransferEligible.Location = new Point(11, 376);
             TransferEligible.Name = "TransferEligible";
             TransferEligible.Size = new Size(217, 17);
             TransferEligible.TabIndex = 42;
@@ -15294,7 +15317,7 @@ namespace DB_EDITOR
             // PortalTransfers
             // 
             PortalTransfers.AutoSize = true;
-            PortalTransfers.Location = new Point(11, 330);
+            PortalTransfers.Location = new Point(11, 353);
             PortalTransfers.Name = "PortalTransfers";
             PortalTransfers.Size = new Size(189, 17);
             PortalTransfers.TabIndex = 36;
@@ -15304,7 +15327,7 @@ namespace DB_EDITOR
             // 
             // portalChance
             // 
-            portalChance.Location = new Point(176, 437);
+            portalChance.Location = new Point(176, 448);
             portalChance.Name = "portalChance";
             portalChance.Size = new Size(45, 20);
             portalChance.TabIndex = 35;
@@ -15313,7 +15336,7 @@ namespace DB_EDITOR
             // label259
             // 
             label259.AutoSize = true;
-            label259.Location = new Point(23, 440);
+            label259.Location = new Point(23, 451);
             label259.Name = "label259";
             label259.Size = new Size(150, 13);
             label259.TabIndex = 34;
@@ -15324,7 +15347,7 @@ namespace DB_EDITOR
             // 
             groupBox33.Controls.Add(largePortal);
             groupBox33.Controls.Add(smallPortal);
-            groupBox33.Location = new Point(21, 245);
+            groupBox33.Location = new Point(21, 268);
             groupBox33.Name = "groupBox33";
             groupBox33.Size = new Size(200, 79);
             groupBox33.TabIndex = 31;
@@ -15355,6 +15378,7 @@ namespace DB_EDITOR
             // 
             // groupBox32
             // 
+            groupBox32.Controls.Add(AllowStartersLeave);
             groupBox32.Controls.Add(AllowBackupQBPortal);
             groupBox32.Controls.Add(PortalDefaultSetting);
             groupBox32.Controls.Add(SpringPortalMin);
@@ -15398,6 +15422,16 @@ namespace DB_EDITOR
             groupBox32.TabIndex = 30;
             groupBox32.TabStop = false;
             groupBox32.Text = "Roster Depth Option";
+            // 
+            // AllowStartersLeave
+            // 
+            AllowStartersLeave.AutoSize = true;
+            AllowStartersLeave.Location = new Point(137, 324);
+            AllowStartersLeave.Name = "AllowStartersLeave";
+            AllowStartersLeave.Size = new Size(135, 17);
+            AllowStartersLeave.TabIndex = 37;
+            AllowStartersLeave.Text = "Allow Starters to Leave";
+            AllowStartersLeave.UseVisualStyleBackColor = true;
             // 
             // AllowBackupQBPortal
             // 
@@ -15753,22 +15787,35 @@ namespace DB_EDITOR
             // 
             // groupBox31
             // 
+            groupBox31.Controls.Add(RankingOrderPriority);
             groupBox31.Controls.Add(PortalSnake);
             groupBox31.Controls.Add(PortalRandom);
             groupBox31.Controls.Add(PortalFirst);
             groupBox31.Controls.Add(PortalReverse);
             groupBox31.Location = new Point(21, 120);
             groupBox31.Name = "groupBox31";
-            groupBox31.Size = new Size(200, 119);
+            groupBox31.Size = new Size(200, 135);
             groupBox31.TabIndex = 29;
             groupBox31.TabStop = false;
             groupBox31.Text = "Portal Priority";
             toolTip1.SetToolTip(groupBox31, "This determines the order in which teams select players. It will go through position by position.");
             // 
+            // RankingOrderPriority
+            // 
+            RankingOrderPriority.AutoSize = true;
+            RankingOrderPriority.Checked = true;
+            RankingOrderPriority.Location = new Point(7, 66);
+            RankingOrderPriority.Name = "RankingOrderPriority";
+            RankingOrderPriority.Size = new Size(128, 17);
+            RankingOrderPriority.TabIndex = 4;
+            RankingOrderPriority.TabStop = true;
+            RankingOrderPriority.Text = "Ranking Order Priority";
+            RankingOrderPriority.UseVisualStyleBackColor = true;
+            // 
             // PortalSnake
             // 
             PortalSnake.AutoSize = true;
-            PortalSnake.Location = new Point(7, 66);
+            PortalSnake.Location = new Point(7, 89);
             PortalSnake.Name = "PortalSnake";
             PortalSnake.Size = new Size(85, 17);
             PortalSnake.TabIndex = 3;
@@ -15778,7 +15825,7 @@ namespace DB_EDITOR
             // PortalRandom
             // 
             PortalRandom.AutoSize = true;
-            PortalRandom.Location = new Point(7, 89);
+            PortalRandom.Location = new Point(7, 112);
             PortalRandom.Name = "PortalRandom";
             PortalRandom.Size = new Size(94, 17);
             PortalRandom.TabIndex = 2;
@@ -15788,7 +15835,7 @@ namespace DB_EDITOR
             // PortalFirst
             // 
             PortalFirst.AutoSize = true;
-            PortalFirst.Location = new Point(7, 43);
+            PortalFirst.Location = new Point(7, 19);
             PortalFirst.Name = "PortalFirst";
             PortalFirst.Size = new Size(165, 17);
             PortalFirst.TabIndex = 1;
@@ -15798,12 +15845,10 @@ namespace DB_EDITOR
             // PortalReverse
             // 
             PortalReverse.AutoSize = true;
-            PortalReverse.Checked = true;
-            PortalReverse.Location = new Point(7, 20);
+            PortalReverse.Location = new Point(7, 42);
             PortalReverse.Name = "PortalReverse";
             PortalReverse.Size = new Size(165, 17);
             PortalReverse.TabIndex = 0;
-            PortalReverse.TabStop = true;
             PortalReverse.Text = "Reverse Order (Worst to First)";
             PortalReverse.UseVisualStyleBackColor = true;
             // 
@@ -15855,16 +15900,6 @@ namespace DB_EDITOR
             buttonRCATBody.Text = "Body Shape Fixer";
             buttonRCATBody.UseVisualStyleBackColor = true;
             buttonRCATBody.Click += (this.buttonRCATBody_Click);
-            // 
-            // IncludeReturningTransfersBox
-            // 
-            IncludeReturningTransfersBox.AutoSize = true;
-            IncludeReturningTransfersBox.Location = new Point(992, 48);
-            IncludeReturningTransfersBox.Name = "IncludeReturningTransfersBox";
-            IncludeReturningTransfersBox.Size = new Size(157, 17);
-            IncludeReturningTransfersBox.TabIndex = 165;
-            IncludeReturningTransfersBox.Text = "Include Returning Transfers";
-            IncludeReturningTransfersBox.UseVisualStyleBackColor = true;
             // 
             // MainEditor
             // 
@@ -17495,6 +17530,9 @@ namespace DB_EDITOR
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private CheckBox IncludeReturningTransfersBox;
+        private CheckBox AllowStartersLeave;
+        private RadioButton RankingOrderPriority;
+        private Label startersCount;
     }
 }
 
