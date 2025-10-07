@@ -75,13 +75,19 @@ namespace DB_EDITOR
 
                     StartProgressBar(GetTableRecCount("TEAM"));
 
+                    List<int> teamPrestigeList = new List<int>();
+
+                    for (int t = 0; t < 511; t++)
+                    {
+                        teamPrestigeList.Add(0);
+                    }
 
                     for (int i = 0; i < GetTableRecCount("TEAM"); i++)
                     {
                         if (GetDBValueInt("TEAM", "TTYP", i) == 0)
                         {
                             int tgid = GetDBValueInt("TEAM", "TGID", i);
-                            DetermineTeamCuts(tgid);
+                            DetermineTeamCuts(tgid, teamPrestigeList);
                         }
                         ProgressBarStep();
                     }
@@ -269,6 +275,7 @@ namespace DB_EDITOR
                 {
                     int playRec = FindPGIDRecord(PRID);
                     PYER = GetDBValueInt("PLAY", "PYER", playRec);
+                    SpringRoster[TGID][count][0] = playRec;
                     SpringRoster[TGID][count][6] = PYER;
                     SpringRoster[TGID][count][9] = 1;
                     SpringRoster[TGID][count][10] = GetDBValueInt("PLAY", "PRSD", playRec);
@@ -281,7 +288,7 @@ namespace DB_EDITOR
             EndProgressBar();
         }
 
-        private void DetermineTeamCuts(int tgid)
+        private void DetermineTeamCuts(int tgid, List<int> teamPrestigeList)
         {
             List<decimal> depth = new List<decimal> { PortalQB.Value, PortalHB.Value, PortalFB.Value, PortalWR.Value, PortalTE.Value, PortalOT.Value, PortalOG.Value, PortalOC.Value, PortalDE.Value, PortalDT.Value, PortalOLB.Value, PortalMLB.Value, PortalCB.Value, PortalFS.Value, PortalSS.Value, PortalK.Value, PortalP.Value };
 
@@ -353,7 +360,7 @@ namespace DB_EDITOR
                     if (posList[0][0] != -1 && posList[0][9] == 0 || posList[0][2] >= 21000 && PortalTransfers.Checked || posList[0][9] == 1 && PortalTransfers.Checked)
                     {
                         int disc = posList[0][11];
-                        int tmpr = FindTeamPrestige(tgid);
+                        int tmpr = teamPrestigeList[tgid];
                         int poe = posList[0][13];
 
                         if (disc <= rand.Next(0, 8) && tmpr <= rand.Next(0, 8) || poe >= rand.Next(0, 25) && tmpr <= rand.Next(0, 8))
@@ -471,7 +478,8 @@ namespace DB_EDITOR
                 {
                     int tgid = GetDBValueInt("TEAM", "TGID", i);
                     int rank = GetDBValueInt("TEAM", "TMRK", i);
-                    teamList.Add(new List<int> { tgid, rank });
+          
+                    teamList.Add(new List<int> { tgid, rank, i });
                 }
             }
 
@@ -497,6 +505,20 @@ namespace DB_EDITOR
         {
             List<List<string>> portalList = new List<List<string>>();
 
+            List<int> teamPRS = new List<int>();
+            for(int i = 0; i < 512; i++)
+            {
+                teamPRS.Add(0);
+            }
+
+            for (int i = 0; i < GetTableRecCount("TEAM"); i++)
+            {
+                int prs = GetDBValueInt("TEAM", "TMPR", i);
+                int tgid = GetDBValueInt("TEAM", "TGID", i);
+
+                teamPRS[tgid] = prs;
+            }
+
 
             StartProgressBar(teamList.Count);
 
@@ -511,7 +533,7 @@ namespace DB_EDITOR
                 {
                     for (int p = 0; p < TeamPortalNeeds[tgid].Count; p++)
                     {
-                        portalList = SpringTransfer(tgid, p, portalList);
+                        portalList = SpringTransfer(tgid, p, portalList, teamPRS);
                     }
                 }
                 ProgressBarStep();
@@ -527,6 +549,22 @@ namespace DB_EDITOR
         private void SpringPortalRandomDistribution(List<List<int>> teamList)
         {
             List<List<string>> portalList = new List<List<string>>();
+
+            List<int> teamPRS = new List<int>();
+            for (int i = 0; i < 512; i++)
+            {
+                teamPRS.Add(0);
+            }
+
+            for (int i = 0; i < GetTableRecCount("TEAM"); i++)
+            {
+                int prs = GetDBValueInt("TEAM", "TMPR", i);
+                int tgid = GetDBValueInt("TEAM", "TGID", i);
+
+                teamPRS[tgid] = prs;
+            }
+
+
 
             int round = 0;
             List<int> randPos = new List<int>();
@@ -558,7 +596,7 @@ namespace DB_EDITOR
                         {
                             int tgid = GetDBValueInt("TEAM", "TGID", i);
                             int rank = GetDBValueInt("TEAM", "TMRK", i);
-                            int rankVal = rand.Next(0, (150 - rank)) + rand.Next(0, (150 - rank)) + rand.Next(0, (150 - rank));
+                            int rankVal = rand.Next(0, (200 - rank)) + rand.Next(0, (200 - rank)) + rand.Next(0, (200 - rank));
                             teamList.Add(new List<int> { tgid, rankVal });
                         }
                     }
@@ -575,7 +613,8 @@ namespace DB_EDITOR
                 {
                     if (SpringPortal.Count <= 0) break;
                     int tgid = teamList[t][0];
-                    portalList = SpringTransfer(tgid, randPos[p], portalList);
+
+                    portalList = SpringTransfer(tgid, randPos[p], portalList, teamPRS);
                     ProgressBarStep();
                 }
 
@@ -589,7 +628,7 @@ namespace DB_EDITOR
 
         }
 
-        private List<List<string>> SpringTransfer(int tgid, int p, List<List<string>> portalList)
+        private List<List<string>> SpringTransfer(int tgid, int p, List<List<string>> portalList, List<int> teamPRS)
         {
             List<string> years = CreateClassYearsAbbr();
 
@@ -608,8 +647,8 @@ namespace DB_EDITOR
 
                     if (pos == p / 2)
                     {
-                        int tmpr = FindTeamPrestige(tgid);
-                        int playerteamprestige = FindTeamPrestige(team);
+                        int tmpr = teamPRS[tgid];
+                        int playerteamprestige = teamPRS[team];
 
                         if (starter == 1 && tmpr >= playerteamprestige && ov <= TeamPortalNeeds[tgid][p] || starter == 0 && ov <= TeamPortalNeeds[tgid][p] ||  rand.Next(0, 99) > portalChance.Value)
                         {
@@ -617,8 +656,10 @@ namespace DB_EDITOR
                         }
                         else
                         {
+                            int tgidStart = tgid * 70;
+                            int tgidEnd = tgidStart + maxPlayers - 1;
                             //Check for open PGID slots
-                            for (int j = tgid * 70; j <= tgid * 70 + maxPlayers - 1; j++)
+                            for (int j = tgidStart; j <= tgidEnd; j++)
                             {
                                 if (!OccupiedPGIDList[tgid].Contains(j))
                                 {
@@ -628,7 +669,8 @@ namespace DB_EDITOR
                                     portalList[row].Add(GetPOSG2Name(pos));
 
                                     string playerStarter = "";                                    
-                                    playerStarter += GetPlayerNamefromPGID(pgid);
+                                    //playerStarter += GetPlayerNamefromPGID(pgid);
+                                    playerStarter += GetFirstNameFromRecord(rec) + " " + GetLastNameFromRecord(rec);
                                     if (SpringPortal[i][12] == 1) playerStarter += " (S)";
 
 
@@ -657,12 +699,20 @@ namespace DB_EDITOR
                                         {
                                             if (GetDB2ValueInt("RCPR", "PRID", y) == pgid)
                                             {
+                                                /*
                                                 ChangeDB2Int("RCPR", "PTCM", y, tgid);
                                                 ChangeDB2Int("RCPR", "PT01", y, tgid);
+                                                */
+                                                DeleteRecord2("RCPR", y, true);
+                                                CompactDB2();
+
                                                 break;
                                             }
                                         }
 
+                                        ChangeDBInt("PLAY", "PGID", SpringPortal[i][0], j);
+
+                                        ChangePlayerStatsID(SpringPortal[i][2], j);
                                     }
                                     else
                                     {
@@ -718,9 +768,6 @@ namespace DB_EDITOR
 
                                     //Add Player to TRAN Table
                                     AddPlayertoTRAN(j, team);
-
-                                    //Update Walk-On Needs
-                                    //CheckWalkOnNeeds(team, tgid, pos);
 
                                     OccupiedPGIDList[tgid].Add(j);
                                     if (pgid / 70 < 512) OccupiedPGIDList[pgid / 70].Remove(pgid);
@@ -915,7 +962,7 @@ namespace DB_EDITOR
             CollectSpringRoster();
 
             List<int> depth = new List<int> { 3, 4, 2, 6, 3, 4, 4, 2, 4, 4, 4, 4, 5, 2, 3, 1, 1 };
-
+            StartProgressBar(512);
             for (int tgid = 0; tgid < 512; tgid++)
             {
                 if (FindTeamRecfromTeamName(teamNameDB[tgid]) > 0 && GetDBValueInt("TEAM", "TTYP", FindTeamRecfromTeamName(teamNameDB[tgid])) == 0)
@@ -946,8 +993,11 @@ namespace DB_EDITOR
                         }
                     }
                 }
+
+                ProgressBarStep();
             }
 
+            EndProgressBar();
         }
 
 

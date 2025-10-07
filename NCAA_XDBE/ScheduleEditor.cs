@@ -123,40 +123,104 @@ namespace DB_EDITOR
             {
                 if (GetDBValueInt("SCHD", "GATG", i) == tgid || GetDBValueInt("SCHD", "GHTG", i) == tgid)
                 {
+                    SCHDWeek.HeaderText = "Wk";
+                    SCHDAWAY.HeaderText = "Opponent";
+                    SCHDHOME.HeaderText = "Team";
                     int w = GetDBValueInt("SCHD", "SEWN", i);
 
-                    ScheduleView.Rows[w].Cells[1].Value = teamNameDB[GetDBValueInt("SCHD", "GHTG", i)];
-                    ScheduleView.Rows[w].Cells[1].Style.BackColor = GetTeamPrimaryColor(FindTeamRecfromTeamName(teamNameDB[GetDBValueInt("SCHD", "GHTG", i)]));
-                    ScheduleView.Rows[w].Cells[1].Style.ForeColor = Color.WhiteSmoke;
+                    string rankA = "";
+                    int teamRecA = -1;
+                    string teamNameA = "";
+                    int teamRecH = -1;
+                    string rankH = "";
+                    string teamNameH = teamNameDB[GetDBValueInt("SCHD", "GHTG", i)];
 
-                    ScheduleView.Rows[w].Cells[2].Value = GetDBValueInt("SCHD", "GHSC", i);
+                    if (GetDBValueInt("SCHD", "GATG", i) == tgid)
+                    {
 
-                    ScheduleView.Rows[w].Cells[3].Value = teamNameDB[GetDBValueInt("SCHD", "GATG", i)];
-                    ScheduleView.Rows[w].Cells[3].Style.BackColor = GetTeamPrimaryColor(FindTeamRecfromTeamName(teamNameDB[GetDBValueInt("SCHD", "GATG", i)]));
+                        teamNameA = teamNameDB[GetDBValueInt("SCHD", "GHTG", i)];
+                        teamRecA = FindTeamRecfromTeamName(teamNameA);
+                        int rank = GetDBValueInt("TEAM", "TCRK", teamRecA);
+                        rankA = "@ ";
+                        if (rank <= 25) rankA += "#" + rank + " ";
+
+
+                        teamNameH = teamNameDB[tgid];
+                        teamRecH = FindTeamRecfromTeamName(teamNameH);
+                        rank = GetDBValueInt("TEAM", "TCRK", teamRecH);
+                        if (rank <= 25) rankH += "#" + rank + " ";
+
+                        ScheduleView.Rows[w].Cells[2].Value = GetDBValueInt("SCHD", "GHSC", i);
+                        ScheduleView.Rows[w].Cells[3].Value = GetDBValueInt("SCHD", "GASC", i);
+
+                    }
+                    else
+                    {
+                        teamNameA = teamNameDB[GetDBValueInt("SCHD", "GATG", i)];
+                        teamRecA = FindTeamRecfromTeamName(teamNameA);
+                        int rank = GetDBValueInt("TEAM", "TCRK", teamRecA);
+                        rankA = "vs ";
+                        if (rank <= 25) rankA += "#" + rank + " ";
+
+
+                        teamNameH = teamNameDB[tgid];
+                        teamRecH = FindTeamRecfromTeamName(teamNameH);
+                        rank = GetDBValueInt("TEAM", "TCRK", teamRecH);
+                        if (rank <= 25) rankH += "#" + rank + " ";
+
+                        ScheduleView.Rows[w].Cells[2].Value = GetDBValueInt("SCHD", "GASC", i);
+                        ScheduleView.Rows[w].Cells[3].Value = GetDBValueInt("SCHD", "GHSC", i);
+                    }
+
+                    ScheduleView.Rows[w].Cells[1].Value = rankA + teamNameA;
+                    ScheduleView.Rows[w].Cells[1].Style.BackColor = GetTeamPrimaryColor(teamRecA);
+                    ScheduleView.Rows[w].Cells[1].Style.ForeColor = ChooseForeground(ScheduleView.Rows[w].Cells[1].Style.BackColor);
+                    ScheduleView.Rows[w].Cells[1].Style.Font = new Font(ScheduleView.Font.FontFamily, 9, FontStyle.Bold);
+
+
+                    ScheduleView.Rows[w].Cells[4].Value = rankH + teamNameH;
+                    ScheduleView.Rows[w].Cells[4].Style.BackColor = GetTeamPrimaryColor(teamRecH);
+                    ScheduleView.Rows[w].Cells[4].Style.ForeColor = ChooseForeground(ScheduleView.Rows[w].Cells[4].Style.BackColor);
+                    ScheduleView.Rows[w].Cells[4].Style.Font = new Font(ScheduleView.Font.FontFamily, 9, FontStyle.Bold);
+
+                    ScheduleView.Rows[w].Cells[2].Style.BackColor = Color.Black;
+                    ScheduleView.Rows[w].Cells[3].Style.BackColor = Color.Black;
+                    ScheduleView.Rows[w].Cells[2].Style.ForeColor = Color.WhiteSmoke;
                     ScheduleView.Rows[w].Cells[3].Style.ForeColor = Color.WhiteSmoke;
+                    
 
-                    ScheduleView.Rows[w].Cells[4].Value = GetDBValueInt("SCHD", "GASC", i);
 
-
-                    if (GetDBValueInt("SCHD", "GASC", i) > GetDBValueInt("SCHD", "GHSC", i))
+                    if (Convert.ToInt32(ScheduleView.Rows[w].Cells[2].Value) > Convert.ToInt32(ScheduleView.Rows[w].Cells[3].Value))
                     {
                         ScheduleView.Rows[w].Cells[2].Style.Font = new Font(ScheduleView.Font, FontStyle.Bold);
+                        ScheduleView.Rows[w].Cells[2].Style.ForeColor = Color.Goldenrod;
                     }
-                    else if (GetDBValueInt("SCHD", "GASC", i) < GetDBValueInt("SCHD", "GHSC", i))
+                    else if (Convert.ToInt32(ScheduleView.Rows[w].Cells[2].Value) < Convert.ToInt32(ScheduleView.Rows[w].Cells[3].Value))
                     {
-                        ScheduleView.Rows[w].Cells[4].Style.Font = new Font(ScheduleView.Font, FontStyle.Bold);
+                        ScheduleView.Rows[w].Cells[3].Style.Font = new Font(ScheduleView.Font, FontStyle.Bold);
+                        ScheduleView.Rows[w].Cells[3].Style.ForeColor = Color.Goldenrod;
                     }
                     else
                     {
                         ScheduleView.Rows[w].Cells[2].Value = "";
-                        ScheduleView.Rows[w].Cells[4].Value = "";
+                        ScheduleView.Rows[w].Cells[3].Value = "";
 
+                    }
+
+                    if (rankH.Contains("#") && rankA.Contains("#"))
+                    {
+                        ScheduleView.Rows[w].Cells[5].Value = ConvertStarNumber(2);
+                    }
+                    else if (rankA.Contains("#"))
+                    {
+                        ScheduleView.Rows[w].Cells[5].Value = ConvertStarNumber(1);
                     }
                 }
             }
 
             int rec = FindTeamRecfromTeamName(teamNameDB[tgid]);
             SCHDrecord.Text = "Season Record: " + GetDBValue("TEAM", "TSWI", rec) + " - " + GetDBValue("TEAM", "TSLO", rec);
+            ScheduleView.ClearSelection();
 
         }
 
@@ -164,7 +228,9 @@ namespace DB_EDITOR
         {
             ScheduleView.Rows.Clear();
             SchdTeamName.Text = "Week " + sewn;
-            SCHDrecord.Text = "  ";
+            SCHDrecord.Text = "   ";
+            SCHDAWAY.HeaderText = "Away Team";
+            SCHDHOME.HeaderText = "Home Team";
 
             for (int i = 0; i < GetTableRecCount("SCHD"); i++)
             {
@@ -172,32 +238,70 @@ namespace DB_EDITOR
                 {
                     int w = ScheduleView.Rows.Count;
                     ScheduleView.Rows.Add(new DataGridViewRow());
-                    ScheduleView.Rows[w].Cells[0].Value = sewn;
-                    ScheduleView.Rows[w].Cells[1].Value = teamNameDB[GetDBValueInt("SCHD", "GHTG", i)];
-                    ScheduleView.Rows[w].Cells[1].Style.BackColor = GetTeamPrimaryColor(FindTeamRecfromTeamName(teamNameDB[GetDBValueInt("SCHD", "GHTG", i)]));
-                    ScheduleView.Rows[w].Cells[1].Style.ForeColor = Color.WhiteSmoke;
+                    ScheduleView.Rows.Add(new DataGridViewRow());
 
-                    ScheduleView.Rows[w].Cells[2].Value = GetDBValueInt("SCHD", "GHSC", i);
+                    SCHDWeek.HeaderText = "   ";
+                    //ScheduleView.Rows[w].Cells[0].Value = sewn;
 
-                    ScheduleView.Rows[w].Cells[3].Value = teamNameDB[GetDBValueInt("SCHD", "GATG", i)];
-                    ScheduleView.Rows[w].Cells[3].Style.BackColor = GetTeamPrimaryColor(FindTeamRecfromTeamName(teamNameDB[GetDBValueInt("SCHD", "GATG", i)]));
+
+                    string rankA = "";
+                    string teamNameA = teamNameDB[GetDBValueInt("SCHD", "GATG", i)];
+                    int teamRecA = FindTeamRecfromTeamName(teamNameA);
+                    int rank = GetDBValueInt("TEAM", "TCRK", teamRecA);
+                    if(rank <= 25) rankA = "#" + rank + " ";
+
+                    ScheduleView.Rows[w].Cells[1].Value = rankA + teamNameA;
+                    ScheduleView.Rows[w].Cells[1].Style.BackColor = GetTeamPrimaryColor(teamRecA);
+                    ScheduleView.Rows[w].Cells[1].Style.ForeColor = ChooseForeground(ScheduleView.Rows[w].Cells[1].Style.BackColor);
+                    ScheduleView.Rows[w].Cells[1].Style.Font = new Font(ScheduleView.Font.FontFamily, 10, FontStyle.Bold);
+
+
+                    ScheduleView.Rows[w].Cells[2].Value = GetDBValueInt("SCHD", "GASC", i);
+                    ScheduleView.Rows[w].Cells[3].Value = GetDBValueInt("SCHD", "GHSC", i);
+
+
+                    string rankH = "";
+                    string teamNameH = teamNameDB[GetDBValueInt("SCHD", "GHTG", i)];
+                    int teamRecH = FindTeamRecfromTeamName(teamNameH);
+
+                    rank = GetDBValueInt("TEAM", "TCRK", teamRecH);
+                    if (rank <= 25) rankH = "#" + rank + " ";
+
+                    ScheduleView.Rows[w].Cells[4].Value = rankH + teamNameH;
+                    ScheduleView.Rows[w].Cells[4].Style.BackColor = GetTeamPrimaryColor(teamRecH);
+                    ScheduleView.Rows[w].Cells[4].Style.ForeColor = ChooseForeground(ScheduleView.Rows[w].Cells[4].Style.BackColor);
+                    ScheduleView.Rows[w].Cells[4].Style.Font = new Font(ScheduleView.Font.FontFamily, 10, FontStyle.Bold);
+
+                    ScheduleView.Rows[w].Cells[2].Style.BackColor = Color.Black;
+                    ScheduleView.Rows[w].Cells[3].Style.BackColor = Color.Black;
+                    ScheduleView.Rows[w].Cells[2].Style.ForeColor = Color.WhiteSmoke;
                     ScheduleView.Rows[w].Cells[3].Style.ForeColor = Color.WhiteSmoke;
 
-                    ScheduleView.Rows[w].Cells[4].Value = GetDBValueInt("SCHD", "GASC", i);
 
                     if (GetDBValueInt("SCHD", "GASC", i) > GetDBValueInt("SCHD", "GHSC", i))
                     {
                         ScheduleView.Rows[w].Cells[2].Style.Font = new Font(ScheduleView.Font, FontStyle.Bold);
+                        ScheduleView.Rows[w].Cells[2].Style.ForeColor = Color.Goldenrod;
                     }
-                    else if (GetDBValueInt("SCHD", "GASC", i) <  GetDBValueInt("SCHD", "GHSC", i))
+                    else if (GetDBValueInt("SCHD", "GASC", i) < GetDBValueInt("SCHD", "GHSC", i))
                     {
-                        ScheduleView.Rows[w].Cells[4].Style.Font = new Font(ScheduleView.Font, FontStyle.Bold);
+                        ScheduleView.Rows[w].Cells[3].Style.Font = new Font(ScheduleView.Font, FontStyle.Bold);
+                        ScheduleView.Rows[w].Cells[3].Style.ForeColor = Color.Goldenrod;
                     }
                     else
                     {
                         ScheduleView.Rows[w].Cells[2].Value = "";
-                        ScheduleView.Rows[w].Cells[4].Value = "";
+                        ScheduleView.Rows[w].Cells[3].Value = "";
 
+                    }
+
+                    if(rankH.Contains("#") && rankA.Contains("#"))
+                    {
+                        ScheduleView.Rows[w].Cells[0].Value = ConvertStarNumber(2);
+                    }
+                    else if (rankH.Contains("#") || rankA.Contains("#"))
+                    {
+                        ScheduleView.Rows[w].Cells[0].Value = ConvertStarNumber(1);
                     }
 
                 }
@@ -217,8 +321,43 @@ namespace DB_EDITOR
             if (DoNotTrigger) return;
             int row = (e.RowIndex);
 
-            string hometeam = Convert.ToString(ScheduleView.Rows[row].Cells[1].Value);
-            string awayteam = Convert.ToString(ScheduleView.Rows[row].Cells[3].Value);
+            string hometeam = Convert.ToString(ScheduleView.Rows[row].Cells[4].Value);
+            string awayteam = Convert.ToString(ScheduleView.Rows[row].Cells[1].Value);
+
+            List<string> homeTeamList = hometeam.Split('#').ToList();
+            if(homeTeamList.Count > 1)
+            {
+                homeTeamList.RemoveAt(0);
+                hometeam = string.Join(" ", homeTeamList).Trim();
+                homeTeamList = hometeam.Split(' ').ToList();
+                homeTeamList.RemoveAt(0);
+                hometeam = string.Join(" ", homeTeamList).Trim();
+            }
+
+            List<string> awayTeamList = awayteam.Split('#').ToList();
+            if (awayTeamList.Count > 1)
+            {
+                awayTeamList.RemoveAt(0);
+                awayteam = string.Join(" ", awayTeamList).Trim();
+                awayTeamList = awayteam.Split(' ').ToList();
+                awayTeamList.RemoveAt(0);
+                awayteam = string.Join(" ", awayTeamList).Trim();
+            }
+
+            awayTeamList = awayteam.Split("vs ").ToList();
+            if (awayTeamList.Count > 1)
+            {
+                awayTeamList.RemoveAt(0);
+                awayteam = string.Join(" ", awayTeamList).Trim();
+            }
+
+
+            awayTeamList = awayteam.Split("@ ").ToList();
+            if (awayTeamList.Count > 1)
+            {
+                awayTeamList.RemoveAt(0);
+                awayteam = string.Join(" ", awayTeamList).Trim();
+            }
 
             int recH = FindTeamRecfromTeamName(hometeam);
             int recA = FindTeamRecfromTeamName(awayteam);
@@ -241,16 +380,20 @@ namespace DB_EDITOR
             {
                 MatchView.Rows.Add(new DataGridViewRow());
                 MatchView.Rows[i].Cells[0].Value = categories[i];
-                MatchView.Rows[i].Cells[1].Value = homeTeam[i];
-                MatchView.Rows[i].Cells[2].Value = awayTeam[i];
+                MatchView.Rows[i].Cells[2].Value = homeTeam[i];
+                MatchView.Rows[i].Cells[1].Value = awayTeam[i];
 
                 if(i == 0)
                 {
-                    MatchView.Rows[i].Cells[1].Style.BackColor = GetTeamPrimaryColor(FindTeamRecfromTeamName(homeTeam[i]));
-                    MatchView.Rows[i].Cells[1].Style.ForeColor = Color.WhiteSmoke;
 
-                    MatchView.Rows[i].Cells[2].Style.BackColor = GetTeamPrimaryColor(FindTeamRecfromTeamName(awayTeam[i]));
-                    MatchView.Rows[i].Cells[2].Style.ForeColor = Color.WhiteSmoke;
+                    MatchView.Rows[i].Cells[1].Style.BackColor = GetTeamPrimaryColor(FindTeamRecfromTeamName(awayTeam[i]));
+                    MatchView.Rows[i].Cells[1].Style.ForeColor = ChooseForeground(MatchView.Rows[i].Cells[1].Style.BackColor);
+                    MatchView.Rows[i].Cells[1].Style.Font = new Font(ScheduleView.Font.FontFamily, 10, FontStyle.Bold);
+
+                    MatchView.Rows[i].Cells[2].Style.BackColor = GetTeamPrimaryColor(FindTeamRecfromTeamName(homeTeam[i]));
+                    MatchView.Rows[i].Cells[2].Style.ForeColor = ChooseForeground(MatchView.Rows[i].Cells[2].Style.BackColor);
+                    MatchView.Rows[i].Cells[2].Style.Font = new Font(ScheduleView.Font.FontFamily, 10, FontStyle.Bold);
+
                 }
 
             }
@@ -262,8 +405,9 @@ namespace DB_EDITOR
         {
             List<string> categories = new List<string>();
             categories.Add("Teams");
+            categories.Add("Record");
+            categories.Add("Coach Poll Rank");
             categories.Add("Team Prestige");
-            categories.Add("Playbook");
             categories.Add("Overall");
             categories.Add("Offense");
             categories.Add("Defense");
@@ -276,6 +420,7 @@ namespace DB_EDITOR
             categories.Add("Linebackers");
             categories.Add("Def Backs");
             categories.Add("Coach");
+            categories.Add("Playbook");
             categories.Add("Coach Prestige");
             categories.Add("Coach Hot Seat");
 
@@ -289,8 +434,9 @@ namespace DB_EDITOR
             int cochrec = FindCOCHRecordfromTeamTGID(GetDBValueInt("TEAM", "TGID", rec));
 
             categories.Add(teamNameDB[GetDBValueInt("TEAM", "TGID", rec)]);
+            categories.Add(GetDBValue("TEAM", "TSWI", rec) + " - " + GetDBValue("TEAM", "TSLO", rec));
+            categories.Add(GetDBValue("TEAM", "TCRK", rec));
             categories.Add(ConvertStarNumber(GetDBValueInt("TEAM", "TMPR", rec)));
-            categories.Add(GetPlaybookName(GetDBValueInt("COCH", "CPID", cochrec)));
             categories.Add(GetDBValue("TEAM", "TROV", rec));
             categories.Add(GetDBValue("TEAM", "TROF", rec));
             categories.Add(GetDBValue("TEAM", "TRDE", rec));
@@ -304,6 +450,7 @@ namespace DB_EDITOR
             categories.Add(GetDBValue("TEAM", "TRDB", rec));
 
             categories.Add(GetCoachFirstNamefromRec(cochrec) + " " + GetCoachLastNamefromRec(cochrec));
+            categories.Add(GetPlaybookName(GetDBValueInt("COCH", "CPID", cochrec)));
             categories.Add(ConvertStarNumber(GetDBValueInt("COCH", "CPRE", cochrec)));
             categories.Add(GetDBValue("COCH", "CCPO", cochrec));
 
@@ -322,7 +469,7 @@ namespace DB_EDITOR
         private void MatchView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
             // Only paint value bars for rows 3 to 13 (index 2 to 14) and columns 1 and 2 (team ratings)
-            if (e.RowIndex >= 3 && e.RowIndex <= 13 && (e.ColumnIndex == 1 || e.ColumnIndex == 2))
+            if (e.RowIndex >= 4 && e.RowIndex <= 14 && (e.ColumnIndex == 1 || e.ColumnIndex == 2))
             {
                 e.Handled = true;
                 e.PaintBackground(e.ClipBounds, true);
@@ -360,7 +507,7 @@ namespace DB_EDITOR
                 }
                 // Only paint value bars for rows 3 to 13 (index 2 to 14) and columns 1 and 2 (team ratings)
             }
-            else if (e.RowIndex == 16 && (e.ColumnIndex == 1 || e.ColumnIndex == 2))
+            else if (e.RowIndex == 18 && (e.ColumnIndex == 1 || e.ColumnIndex == 2))
             {
                 e.Handled = true;
                 e.PaintBackground(e.ClipBounds, true);

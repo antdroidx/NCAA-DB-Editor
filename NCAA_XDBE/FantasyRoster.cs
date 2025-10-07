@@ -75,13 +75,7 @@ namespace DB_EDITOR
                 if (TDYN || GetDBValueInt(tableName, "TTYP", i) == 0)
                 {
                     int TOID = GetDBValueInt(tableName, "TOID", i);
-                    int PGIDbeg = TOID * 70;
-                    int PGIDend = PGIDbeg + 69;
-                    if (Next26Mod) PGIDend = PGIDbeg + 65;
-
                     int rating = GetFantasyTeamRating(teamData, TOID);
-                    int ST = 0;
-                    int freshmanPCT = 25;
 
                     FantasyRosterGeneratorSingle(TOID, rating, true);   
 

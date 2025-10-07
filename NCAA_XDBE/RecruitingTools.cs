@@ -519,13 +519,14 @@ namespace DB_EDITOR
                     //Randomize Hair Style
                     int hairstyle = 5;
 
-                    if (skin < 3)
+                    if (skin < 3 || skin == 7)
                     {
 
                         if (rand.Next(1, 101) <= 50)
                             hairstyle = rand.Next(2, 8);
-                        else
-                            hairstyle = rand.Next(9, 14);
+                        else if (rand.Next(1, 101) <= 75)
+                            hairstyle = rand.Next(11, 14);
+                        else hairstyle = 0;
 
                     }
                     else
@@ -543,7 +544,7 @@ namespace DB_EDITOR
                             if (rand.Next(1, 101) <= 50)
                                 hairstyle = rand.Next(0, 8);
                             else
-                                hairstyle = rand.Next(9, 15);
+                                hairstyle = rand.Next(11, 15);
                         }
                     }
 

@@ -433,7 +433,7 @@ namespace DB_EDITOR
             hair.Add("Close Crop");
             hair.Add("Bald (Hidden)"); //8
             hair.Add("Bald 2");
-            hair.Add("Balding 2");
+            hair.Add("Balding 2"); //10
             hair.Add("Buzzcut 2");
             hair.Add("Fade 2");
             hair.Add("Mullet");
@@ -1669,6 +1669,15 @@ namespace DB_EDITOR
         {
             Color col = Color.FromArgb(GetDBValueInt("TEAM", "TFRD", tgid), GetDBValueInt("TEAM", "TFFG", tgid), GetDBValueInt("TEAM", "TFFB", tgid));
             return col;
+        }
+
+
+        Color ChooseForeground(Color bg)
+        {
+            if (bg.R * 2 + bg.G * 7 + bg.B < 1000)
+                return Color.LightGray;
+            else
+                return Color.Black;
         }
 
         #endregion
