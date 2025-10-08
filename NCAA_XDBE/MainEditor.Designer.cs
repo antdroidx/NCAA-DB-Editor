@@ -34,96 +34,112 @@ namespace DB_EDITOR
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle90 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle91 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle92 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle93 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle94 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle96 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle97 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle95 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle98 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle99 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle100 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle101 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle102 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle104 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle103 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle105 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle106 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle107 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle108 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle109 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle110 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle111 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle112 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle113 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle114 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle115 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle116 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle117 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle118 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle13 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle16 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle15 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle17 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle18 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle19 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle20 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle21 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle22 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle23 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle24 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle25 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle26 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle27 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle28 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle29 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle30 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainEditor));
-            DataGridViewCellStyle dataGridViewCellStyle119 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle120 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle121 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle31 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle32 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle122 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle33 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle34 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle123 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle124 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle125 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle126 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle127 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle128 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle130 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle131 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle129 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle132 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle133 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle135 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle136 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle134 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle137 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle138 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle140 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle141 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle139 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle142 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle143 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle145 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle146 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle144 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle147 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle148 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle150 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle151 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle149 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle152 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle153 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle155 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle156 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle154 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle157 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle158 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle160 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle161 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle159 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle162 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle163 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle165 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle166 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle164 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle167 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle168 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle171 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle172 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle169 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle170 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle173 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle174 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle175 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle35 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle36 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle37 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle38 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle39 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle40 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle41 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle42 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle43 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle45 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle46 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle44 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle47 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle48 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle50 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle51 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle49 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle52 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle53 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle55 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle56 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle54 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle57 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle58 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle60 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle61 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle59 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle62 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle63 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle65 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle66 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle64 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle67 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle68 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle70 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle71 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle69 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle72 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle73 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle75 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle76 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle74 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle77 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle78 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle84 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle85 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle79 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle80 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle81 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle82 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle83 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle86 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle87 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle90 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle91 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle88 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle89 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle92 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle93 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle95 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle96 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle94 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle97 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle98 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle101 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle102 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle99 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle100 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle103 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle104 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle105 = new DataGridViewCellStyle();
             qbTend = new System.Windows.Forms.Button();
             mainMenu = new MenuStrip();
             fileMenuItem = new ToolStripMenuItem();
@@ -498,32 +514,6 @@ namespace DB_EDITOR
             RKACBox = new NumericUpDown();
             RKAClabel = new Label();
             RecruitListBox = new ListBox();
-            tabStats = new TabPage();
-            LoadStatDataButton = new System.Windows.Forms.Button();
-            groupBox26 = new GroupBox();
-            label221 = new Label();
-            SacksLeadersBox = new ListBox();
-            IntLeadersBox = new ListBox();
-            label223 = new Label();
-            label222 = new Label();
-            TacklesLeadersBox = new ListBox();
-            groupBox25 = new GroupBox();
-            label220 = new Label();
-            ReceivingLeadersBox = new ListBox();
-            label219 = new Label();
-            RushingLeadersBox = new ListBox();
-            label218 = new Label();
-            PassingLeadersBox = new ListBox();
-            groupBox24 = new GroupBox();
-            label65 = new Label();
-            PollComboBox = new System.Windows.Forms.ComboBox();
-            label217 = new Label();
-            label216 = new Label();
-            label215 = new Label();
-            TopTeamDefBox = new ListBox();
-            TopTeamOffBox = new ListBox();
-            TopTeamRatingsBox = new ListBox();
-            CoachPollListBox = new ListBox();
             tabStadiums = new TabPage();
             groupBox30 = new GroupBox();
             GrassToTurf = new System.Windows.Forms.Button();
@@ -1308,6 +1298,29 @@ namespace DB_EDITOR
             dataGridViewTextBoxColumn9 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn10 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn11 = new DataGridViewTextBoxColumn();
+            tabLeagueStats = new TabPage();
+            LeagueStatsBox = new System.Windows.Forms.ComboBox();
+            LeagueRankingBox = new System.Windows.Forms.ComboBox();
+            label197 = new Label();
+            LeagueRankingView = new DataGridView();
+            dataGridViewTextBoxColumn37 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn36 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn45 = new DataGridViewTextBoxColumn();
+            Column7 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn55 = new DataGridViewTextBoxColumn();
+            label181 = new Label();
+            LeagueStatsView = new DataGridView();
+            LS00 = new DataGridViewTextBoxColumn();
+            LS01 = new DataGridViewTextBoxColumn();
+            LS1 = new DataGridViewTextBoxColumn();
+            LS2 = new DataGridViewTextBoxColumn();
+            LS3 = new DataGridViewTextBoxColumn();
+            LS4 = new DataGridViewTextBoxColumn();
+            LS5 = new DataGridViewTextBoxColumn();
+            LS6 = new DataGridViewTextBoxColumn();
+            LS7 = new DataGridViewTextBoxColumn();
+            LS8 = new DataGridViewTextBoxColumn();
+            LS9 = new DataGridViewTextBoxColumn();
             tabRecruiting = new TabPage();
             IncludeReturningTransfersBox = new CheckBox();
             label196 = new Label();
@@ -1475,10 +1488,6 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)RTAKBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)RKPRBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)RKACBox).BeginInit();
-            tabStats.SuspendLayout();
-            groupBox26.SuspendLayout();
-            groupBox25.SuspendLayout();
-            groupBox24.SuspendLayout();
             tabStadiums.SuspendLayout();
             groupBox30.SuspendLayout();
             groupBox29.SuspendLayout();
@@ -1630,6 +1639,9 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)TSPassing).BeginInit();
             ((System.ComponentModel.ISupportInitialize)TSDefense).BeginInit();
             ((System.ComponentModel.ISupportInitialize)TSRushing).BeginInit();
+            tabLeagueStats.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)LeagueRankingView).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)LeagueStatsView).BeginInit();
             tabRecruiting.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)RecruitTeamView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)RecruitRankingView).BeginInit();
@@ -2577,29 +2589,29 @@ namespace DB_EDITOR
             // 
             UniformGrid.AllowUserToAddRows = false;
             UniformGrid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle90.BackColor = Color.LightGray;
-            UniformGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle90;
+            dataGridViewCellStyle1.BackColor = Color.LightGray;
+            UniformGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             UniformGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             UniformGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle91.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle91.BackColor = SystemColors.MenuBar;
-            dataGridViewCellStyle91.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle91.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle91.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle91.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle91.WrapMode = DataGridViewTriState.True;
-            UniformGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle91;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = SystemColors.MenuBar;
+            dataGridViewCellStyle2.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            UniformGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             UniformGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             UniformGrid.Columns.AddRange(new DataGridViewColumn[] { UniformActivation, UFID, UnifTeam, TUNI, ULTF, ShoulderNums, SleeveNums, SleeveDecal, HelmetNums, HelmetSideNum });
-            dataGridViewCellStyle92.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle92.BackColor = SystemColors.Window;
-            dataGridViewCellStyle92.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle92.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle92.NullValue = "N/A";
-            dataGridViewCellStyle92.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle92.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle92.WrapMode = DataGridViewTriState.False;
-            UniformGrid.DefaultCellStyle = dataGridViewCellStyle92;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = SystemColors.Window;
+            dataGridViewCellStyle3.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle3.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle3.NullValue = "N/A";
+            dataGridViewCellStyle3.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            UniformGrid.DefaultCellStyle = dataGridViewCellStyle3;
             UniformGrid.EnableHeadersVisualStyles = false;
             UniformGrid.Location = new Point(32, 15);
             UniformGrid.Name = "UniformGrid";
@@ -3019,40 +3031,40 @@ namespace DB_EDITOR
             PlaybookGrid.AllowUserToAddRows = false;
             PlaybookGrid.AllowUserToDeleteRows = false;
             PlaybookGrid.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle93.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle93.BackColor = Color.FromArgb((int)(byte)224, (int)(byte)224, (int)(byte)224);
-            PlaybookGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle93;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb((int)(byte)224, (int)(byte)224, (int)(byte)224);
+            PlaybookGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             PlaybookGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             PlaybookGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle94.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle94.BackColor = Color.LightSkyBlue;
-            dataGridViewCellStyle94.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle94.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle94.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle94.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle94.WrapMode = DataGridViewTriState.True;
-            PlaybookGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle94;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = Color.LightSkyBlue;
+            dataGridViewCellStyle5.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle5.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
+            PlaybookGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             PlaybookGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             PlaybookGrid.Columns.AddRange(new DataGridViewColumn[] { PBRec, PBPL, AIGRVal, AIGRname, prct, PLYL, PlayName, PLYTVal, PLYT });
-            dataGridViewCellStyle96.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle96.BackColor = SystemColors.Window;
-            dataGridViewCellStyle96.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle96.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle96.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle96.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle96.WrapMode = DataGridViewTriState.False;
-            PlaybookGrid.DefaultCellStyle = dataGridViewCellStyle96;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = SystemColors.Window;
+            dataGridViewCellStyle7.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle7.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.False;
+            PlaybookGrid.DefaultCellStyle = dataGridViewCellStyle7;
             PlaybookGrid.EnableHeadersVisualStyles = false;
             PlaybookGrid.Location = new Point(12, 3);
             PlaybookGrid.Name = "PlaybookGrid";
-            dataGridViewCellStyle97.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle97.BackColor = SystemColors.Control;
-            dataGridViewCellStyle97.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle97.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle97.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle97.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle97.WrapMode = DataGridViewTriState.True;
-            PlaybookGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle97;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = SystemColors.Control;
+            dataGridViewCellStyle8.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle8.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.True;
+            PlaybookGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             PlaybookGrid.RowHeadersVisible = false;
             PlaybookGrid.RowHeadersWidth = 72;
             PlaybookGrid.Size = new Size(746, 606);
@@ -3092,8 +3104,8 @@ namespace DB_EDITOR
             // 
             // prct
             // 
-            dataGridViewCellStyle95.BackColor = SystemColors.Info;
-            prct.DefaultCellStyle = dataGridViewCellStyle95;
+            dataGridViewCellStyle6.BackColor = SystemColors.Info;
+            prct.DefaultCellStyle = dataGridViewCellStyle6;
             prct.FillWeight = 81.47587F;
             prct.HeaderText = "PRCT ";
             prct.MinimumWidth = 9;
@@ -5736,268 +5748,6 @@ namespace DB_EDITOR
             RecruitListBox.TabIndex = 130;
             RecruitListBox.SelectedIndexChanged += (this.RecruitListBox_SelectedIndexChanged);
             // 
-            // tabStats
-            // 
-            tabStats.BackColor = SystemColors.AppWorkspace;
-            tabStats.Controls.Add(LoadStatDataButton);
-            tabStats.Controls.Add(groupBox26);
-            tabStats.Controls.Add(groupBox25);
-            tabStats.Controls.Add(groupBox24);
-            tabStats.Location = new Point(4, 29);
-            tabStats.Name = "tabStats";
-            tabStats.Padding = new Padding(3);
-            tabStats.Size = new Size(1152, 610);
-            tabStats.TabIndex = 15;
-            tabStats.Text = "League Stats";
-            // 
-            // LoadStatDataButton
-            // 
-            LoadStatDataButton.Location = new Point(6, 6);
-            LoadStatDataButton.Name = "LoadStatDataButton";
-            LoadStatDataButton.Size = new Size(108, 23);
-            LoadStatDataButton.TabIndex = 3;
-            LoadStatDataButton.Text = "Load Data";
-            LoadStatDataButton.UseVisualStyleBackColor = true;
-            LoadStatDataButton.Click += (this.LoadStatDataButton_Click);
-            // 
-            // groupBox26
-            // 
-            groupBox26.Controls.Add(label221);
-            groupBox26.Controls.Add(SacksLeadersBox);
-            groupBox26.Controls.Add(IntLeadersBox);
-            groupBox26.Controls.Add(label223);
-            groupBox26.Controls.Add(label222);
-            groupBox26.Controls.Add(TacklesLeadersBox);
-            groupBox26.Location = new Point(797, 32);
-            groupBox26.Name = "groupBox26";
-            groupBox26.Size = new Size(280, 572);
-            groupBox26.TabIndex = 2;
-            groupBox26.TabStop = false;
-            groupBox26.Text = "Defense Leaders";
-            // 
-            // label221
-            // 
-            label221.AutoSize = true;
-            label221.Location = new Point(194, 381);
-            label221.Name = "label221";
-            label221.Size = new Size(68, 13);
-            label221.TabIndex = 19;
-            label221.Text = "Interceptions";
-            // 
-            // SacksLeadersBox
-            // 
-            SacksLeadersBox.FormattingEnabled = true;
-            SacksLeadersBox.ItemHeight = 13;
-            SacksLeadersBox.Location = new Point(19, 29);
-            SacksLeadersBox.Name = "SacksLeadersBox";
-            SacksLeadersBox.Size = new Size(243, 147);
-            SacksLeadersBox.TabIndex = 14;
-            // 
-            // IntLeadersBox
-            // 
-            IntLeadersBox.FormattingEnabled = true;
-            IntLeadersBox.ItemHeight = 13;
-            IntLeadersBox.Location = new Point(20, 397);
-            IntLeadersBox.Name = "IntLeadersBox";
-            IntLeadersBox.Size = new Size(243, 147);
-            IntLeadersBox.TabIndex = 18;
-            // 
-            // label223
-            // 
-            label223.AutoSize = true;
-            label223.Location = new Point(225, 13);
-            label223.Name = "label223";
-            label223.Size = new Size(37, 13);
-            label223.TabIndex = 15;
-            label223.Text = "Sacks";
-            // 
-            // label222
-            // 
-            label222.AutoSize = true;
-            label222.Location = new Point(217, 198);
-            label222.Name = "label222";
-            label222.Size = new Size(45, 13);
-            label222.TabIndex = 17;
-            label222.Text = "Tackles";
-            // 
-            // TacklesLeadersBox
-            // 
-            TacklesLeadersBox.FormattingEnabled = true;
-            TacklesLeadersBox.ItemHeight = 13;
-            TacklesLeadersBox.Location = new Point(22, 214);
-            TacklesLeadersBox.Name = "TacklesLeadersBox";
-            TacklesLeadersBox.Size = new Size(243, 147);
-            TacklesLeadersBox.TabIndex = 16;
-            // 
-            // groupBox25
-            // 
-            groupBox25.Controls.Add(label220);
-            groupBox25.Controls.Add(ReceivingLeadersBox);
-            groupBox25.Controls.Add(label219);
-            groupBox25.Controls.Add(RushingLeadersBox);
-            groupBox25.Controls.Add(label218);
-            groupBox25.Controls.Add(PassingLeadersBox);
-            groupBox25.Location = new Point(511, 32);
-            groupBox25.Name = "groupBox25";
-            groupBox25.Size = new Size(280, 572);
-            groupBox25.TabIndex = 1;
-            groupBox25.TabStop = false;
-            groupBox25.Text = "Offense Leaders";
-            // 
-            // label220
-            // 
-            label220.AutoSize = true;
-            label220.Location = new Point(174, 381);
-            label220.Name = "label220";
-            label220.Size = new Size(85, 13);
-            label220.TabIndex = 13;
-            label220.Text = "Receiving Yards";
-            // 
-            // ReceivingLeadersBox
-            // 
-            ReceivingLeadersBox.FormattingEnabled = true;
-            ReceivingLeadersBox.ItemHeight = 13;
-            ReceivingLeadersBox.Location = new Point(16, 397);
-            ReceivingLeadersBox.Name = "ReceivingLeadersBox";
-            ReceivingLeadersBox.Size = new Size(243, 147);
-            ReceivingLeadersBox.TabIndex = 12;
-            // 
-            // label219
-            // 
-            label219.AutoSize = true;
-            label219.Location = new Point(187, 198);
-            label219.Name = "label219";
-            label219.Size = new Size(76, 13);
-            label219.TabIndex = 11;
-            label219.Text = "Rushing Yards";
-            // 
-            // RushingLeadersBox
-            // 
-            RushingLeadersBox.FormattingEnabled = true;
-            RushingLeadersBox.ItemHeight = 13;
-            RushingLeadersBox.Location = new Point(19, 214);
-            RushingLeadersBox.Name = "RushingLeadersBox";
-            RushingLeadersBox.Size = new Size(243, 147);
-            RushingLeadersBox.TabIndex = 10;
-            // 
-            // label218
-            // 
-            label218.AutoSize = true;
-            label218.Location = new Point(185, 13);
-            label218.Name = "label218";
-            label218.Size = new Size(74, 13);
-            label218.TabIndex = 9;
-            label218.Text = "Passing Yards";
-            // 
-            // PassingLeadersBox
-            // 
-            PassingLeadersBox.FormattingEnabled = true;
-            PassingLeadersBox.ItemHeight = 13;
-            PassingLeadersBox.Location = new Point(16, 29);
-            PassingLeadersBox.Name = "PassingLeadersBox";
-            PassingLeadersBox.Size = new Size(243, 147);
-            PassingLeadersBox.TabIndex = 8;
-            // 
-            // groupBox24
-            // 
-            groupBox24.Controls.Add(label65);
-            groupBox24.Controls.Add(PollComboBox);
-            groupBox24.Controls.Add(label217);
-            groupBox24.Controls.Add(label216);
-            groupBox24.Controls.Add(label215);
-            groupBox24.Controls.Add(TopTeamDefBox);
-            groupBox24.Controls.Add(TopTeamOffBox);
-            groupBox24.Controls.Add(TopTeamRatingsBox);
-            groupBox24.Controls.Add(CoachPollListBox);
-            groupBox24.Location = new Point(82, 32);
-            groupBox24.Name = "groupBox24";
-            groupBox24.Size = new Size(423, 572);
-            groupBox24.TabIndex = 0;
-            groupBox24.TabStop = false;
-            groupBox24.Text = "Rankings";
-            // 
-            // label65
-            // 
-            label65.AutoSize = true;
-            label65.Location = new Point(161, 37);
-            label65.Name = "label65";
-            label65.Size = new Size(41, 13);
-            label65.TabIndex = 9;
-            label65.Text = "Top 25";
-            // 
-            // PollComboBox
-            // 
-            PollComboBox.FormattingEnabled = true;
-            PollComboBox.Items.AddRange(new object[] { "Coach's Poll", "AP Poll", "Bowl Ranking" });
-            PollComboBox.Location = new Point(11, 29);
-            PollComboBox.Name = "PollComboBox";
-            PollComboBox.Size = new Size(121, 21);
-            PollComboBox.TabIndex = 8;
-            PollComboBox.SelectedIndexChanged += (this.PollComboBox_SelectedIndexChanged);
-            // 
-            // label217
-            // 
-            label217.AutoSize = true;
-            label217.Location = new Point(339, 390);
-            label217.Name = "label217";
-            label217.Size = new Size(74, 13);
-            label217.TabIndex = 7;
-            label217.Text = "Total Defense";
-            // 
-            // label216
-            // 
-            label216.AutoSize = true;
-            label216.Location = new Point(131, 390);
-            label216.Name = "label216";
-            label216.Size = new Size(71, 13);
-            label216.TabIndex = 6;
-            label216.Text = "Total Offense";
-            // 
-            // label215
-            // 
-            label215.AutoSize = true;
-            label215.Location = new Point(339, 37);
-            label215.Name = "label215";
-            label215.Size = new Size(74, 13);
-            label215.TabIndex = 5;
-            label215.Text = "Overall Rating";
-            // 
-            // TopTeamDefBox
-            // 
-            TopTeamDefBox.FormattingEnabled = true;
-            TopTeamDefBox.ItemHeight = 13;
-            TopTeamDefBox.Location = new Point(222, 406);
-            TopTeamDefBox.Name = "TopTeamDefBox";
-            TopTeamDefBox.Size = new Size(191, 160);
-            TopTeamDefBox.TabIndex = 3;
-            // 
-            // TopTeamOffBox
-            // 
-            TopTeamOffBox.FormattingEnabled = true;
-            TopTeamOffBox.ItemHeight = 13;
-            TopTeamOffBox.Location = new Point(11, 406);
-            TopTeamOffBox.Name = "TopTeamOffBox";
-            TopTeamOffBox.Size = new Size(191, 160);
-            TopTeamOffBox.TabIndex = 2;
-            // 
-            // TopTeamRatingsBox
-            // 
-            TopTeamRatingsBox.FormattingEnabled = true;
-            TopTeamRatingsBox.ItemHeight = 13;
-            TopTeamRatingsBox.Location = new Point(222, 56);
-            TopTeamRatingsBox.Name = "TopTeamRatingsBox";
-            TopTeamRatingsBox.Size = new Size(191, 329);
-            TopTeamRatingsBox.TabIndex = 1;
-            // 
-            // CoachPollListBox
-            // 
-            CoachPollListBox.FormattingEnabled = true;
-            CoachPollListBox.ItemHeight = 13;
-            CoachPollListBox.Location = new Point(11, 56);
-            CoachPollListBox.Name = "CoachPollListBox";
-            CoachPollListBox.Size = new Size(191, 329);
-            CoachPollListBox.TabIndex = 0;
-            // 
             // tabStadiums
             // 
             tabStadiums.BackColor = SystemColors.ControlDark;
@@ -6566,22 +6316,22 @@ namespace DB_EDITOR
             BowlsGrid.AllowUserToAddRows = false;
             BowlsGrid.AllowUserToDeleteRows = false;
             BowlsGrid.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle98.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle98.BackColor = Color.FromArgb((int)(byte)224, (int)(byte)224, (int)(byte)224);
-            dataGridViewCellStyle98.SelectionBackColor = SystemColors.Highlight;
-            BowlsGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle98;
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = Color.FromArgb((int)(byte)224, (int)(byte)224, (int)(byte)224);
+            dataGridViewCellStyle9.SelectionBackColor = SystemColors.Highlight;
+            BowlsGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             BowlsGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             BowlsGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             BowlsGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             BowlsGrid.Columns.AddRange(new DataGridViewColumn[] { ActiveBowl, BIDX, BNME, TeamA, ScoreA, vs, ScoreB, TeamB, SGID, BMON, BDAY, SEWN });
-            dataGridViewCellStyle99.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle99.BackColor = SystemColors.Window;
-            dataGridViewCellStyle99.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle99.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle99.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle99.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle99.WrapMode = DataGridViewTriState.False;
-            BowlsGrid.DefaultCellStyle = dataGridViewCellStyle99;
+            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = SystemColors.Window;
+            dataGridViewCellStyle10.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle10.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.False;
+            BowlsGrid.DefaultCellStyle = dataGridViewCellStyle10;
             BowlsGrid.Location = new Point(6, 6);
             BowlsGrid.Name = "BowlsGrid";
             BowlsGrid.RowHeadersVisible = false;
@@ -7487,8 +7237,8 @@ namespace DB_EDITOR
             // 
             DCHTGrid.AllowUserToAddRows = false;
             DCHTGrid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle100.BackColor = Color.FromArgb((int)(byte)224, (int)(byte)224, (int)(byte)224);
-            DCHTGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle100;
+            dataGridViewCellStyle11.BackColor = Color.FromArgb((int)(byte)224, (int)(byte)224, (int)(byte)224);
+            DCHTGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
             DCHTGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             DCHTGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             DCHTGrid.BackgroundColor = SystemColors.Control;
@@ -7509,11 +7259,15 @@ namespace DB_EDITOR
             // 
             // DCHTPPOS
             // 
+            DCHTPPOS.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleRight;
+            DCHTPPOS.DefaultCellStyle = dataGridViewCellStyle12;
             DCHTPPOS.FillWeight = 30F;
-            DCHTPPOS.HeaderText = "Position";
+            DCHTPPOS.HeaderText = "Pos";
             DCHTPPOS.MinimumWidth = 9;
             DCHTPPOS.Name = "DCHTPPOS";
             DCHTPPOS.ReadOnly = true;
+            DCHTPPOS.Width = 50;
             // 
             // DCHT0
             // 
@@ -7604,29 +7358,29 @@ namespace DB_EDITOR
             MatchView.AllowUserToAddRows = false;
             MatchView.AllowUserToDeleteRows = false;
             MatchView.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle101.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            MatchView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle101;
+            dataGridViewCellStyle13.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            MatchView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle13;
             MatchView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             MatchView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             MatchView.CellBorderStyle = DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle102.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle102.BackColor = SystemColors.GradientInactiveCaption;
-            dataGridViewCellStyle102.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle102.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle102.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle102.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle102.WrapMode = DataGridViewTriState.True;
-            MatchView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle102;
+            dataGridViewCellStyle14.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle14.BackColor = SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle14.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle14.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = DataGridViewTriState.True;
+            MatchView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             MatchView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             MatchView.Columns.AddRange(new DataGridViewColumn[] { RatingCat, MatchAwayTeam, MatchHomeTeam });
-            dataGridViewCellStyle104.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle104.BackColor = SystemColors.AppWorkspace;
-            dataGridViewCellStyle104.Font = new Font("Microsoft Sans Serif", 9.75F);
-            dataGridViewCellStyle104.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle104.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle104.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle104.WrapMode = DataGridViewTriState.False;
-            MatchView.DefaultCellStyle = dataGridViewCellStyle104;
+            dataGridViewCellStyle16.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle16.BackColor = SystemColors.AppWorkspace;
+            dataGridViewCellStyle16.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle16.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle16.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle16.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle16.WrapMode = DataGridViewTriState.False;
+            MatchView.DefaultCellStyle = dataGridViewCellStyle16;
             MatchView.GridColor = SystemColors.ControlDarkDark;
             MatchView.Location = new Point(729, 29);
             MatchView.MultiSelect = false;
@@ -7639,8 +7393,8 @@ namespace DB_EDITOR
             // 
             // RatingCat
             // 
-            dataGridViewCellStyle103.Alignment = DataGridViewContentAlignment.MiddleRight;
-            RatingCat.DefaultCellStyle = dataGridViewCellStyle103;
+            dataGridViewCellStyle15.Alignment = DataGridViewContentAlignment.MiddleRight;
+            RatingCat.DefaultCellStyle = dataGridViewCellStyle15;
             RatingCat.HeaderText = "Rating";
             RatingCat.MinimumWidth = 9;
             RatingCat.Name = "RatingCat";
@@ -7735,45 +7489,45 @@ namespace DB_EDITOR
             ScheduleView.AllowUserToDeleteRows = false;
             ScheduleView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             ScheduleView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle105.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle105.BackColor = SystemColors.AppWorkspace;
-            dataGridViewCellStyle105.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle105.ForeColor = SystemColors.MenuText;
-            dataGridViewCellStyle105.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle105.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle105.WrapMode = DataGridViewTriState.True;
-            ScheduleView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle105;
+            dataGridViewCellStyle17.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.BackColor = SystemColors.AppWorkspace;
+            dataGridViewCellStyle17.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle17.ForeColor = SystemColors.MenuText;
+            dataGridViewCellStyle17.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = DataGridViewTriState.True;
+            ScheduleView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             ScheduleView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             ScheduleView.Columns.AddRange(new DataGridViewColumn[] { SCHDWeek, SCHDAWAY, SCHDScoreA, SCHDScoreH, SCHDHOME, Column5 });
-            dataGridViewCellStyle106.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle106.BackColor = SystemColors.ControlDark;
-            dataGridViewCellStyle106.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle106.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle106.Padding = new Padding(2);
-            dataGridViewCellStyle106.SelectionBackColor = SystemColors.GradientActiveCaption;
-            dataGridViewCellStyle106.SelectionForeColor = SystemColors.MenuText;
-            dataGridViewCellStyle106.WrapMode = DataGridViewTriState.False;
-            ScheduleView.DefaultCellStyle = dataGridViewCellStyle106;
+            dataGridViewCellStyle18.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle18.BackColor = SystemColors.ControlDark;
+            dataGridViewCellStyle18.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle18.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle18.Padding = new Padding(2);
+            dataGridViewCellStyle18.SelectionBackColor = SystemColors.GradientActiveCaption;
+            dataGridViewCellStyle18.SelectionForeColor = SystemColors.MenuText;
+            dataGridViewCellStyle18.WrapMode = DataGridViewTriState.False;
+            ScheduleView.DefaultCellStyle = dataGridViewCellStyle18;
             ScheduleView.GridColor = SystemColors.ControlDark;
             ScheduleView.Location = new Point(159, 29);
             ScheduleView.Margin = new Padding(2, 4, 4, 2);
             ScheduleView.MultiSelect = false;
             ScheduleView.Name = "ScheduleView";
             ScheduleView.ReadOnly = true;
-            dataGridViewCellStyle107.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle107.BackColor = SystemColors.ControlLightLight;
-            dataGridViewCellStyle107.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle107.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle107.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle107.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle107.WrapMode = DataGridViewTriState.True;
-            ScheduleView.RowHeadersDefaultCellStyle = dataGridViewCellStyle107;
+            dataGridViewCellStyle19.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = SystemColors.ControlLightLight;
+            dataGridViewCellStyle19.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle19.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle19.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle19.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = DataGridViewTriState.True;
+            ScheduleView.RowHeadersDefaultCellStyle = dataGridViewCellStyle19;
             ScheduleView.RowHeadersVisible = false;
             ScheduleView.RowHeadersWidth = 72;
             ScheduleView.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle108.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle108.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            ScheduleView.RowsDefaultCellStyle = dataGridViewCellStyle108;
+            dataGridViewCellStyle20.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle20.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            ScheduleView.RowsDefaultCellStyle = dataGridViewCellStyle20;
             ScheduleView.Size = new Size(562, 576);
             ScheduleView.TabIndex = 0;
             ScheduleView.RowEnter += (this.ScheduleView_RowEnter);
@@ -7786,7 +7540,7 @@ namespace DB_EDITOR
             SCHDWeek.MinimumWidth = 2;
             SCHDWeek.Name = "SCHDWeek";
             SCHDWeek.ReadOnly = true;
-            SCHDWeek.Width = 55;
+            SCHDWeek.Width = 53;
             // 
             // SCHDAWAY
             // 
@@ -7804,7 +7558,7 @@ namespace DB_EDITOR
             SCHDScoreA.Name = "SCHDScoreA";
             SCHDScoreA.ReadOnly = true;
             SCHDScoreA.SortMode = DataGridViewColumnSortMode.NotSortable;
-            SCHDScoreA.Width = 54;
+            SCHDScoreA.Width = 45;
             // 
             // SCHDScoreH
             // 
@@ -7815,7 +7569,7 @@ namespace DB_EDITOR
             SCHDScoreH.Name = "SCHDScoreH";
             SCHDScoreH.ReadOnly = true;
             SCHDScoreH.SortMode = DataGridViewColumnSortMode.NotSortable;
-            SCHDScoreH.Width = 54;
+            SCHDScoreH.Width = 45;
             // 
             // SCHDHOME
             // 
@@ -7831,7 +7585,7 @@ namespace DB_EDITOR
             Column5.MinimumWidth = 2;
             Column5.Name = "Column5";
             Column5.ReadOnly = true;
-            Column5.Width = 40;
+            Column5.Width = 39;
             // 
             // tabDynasty
             // 
@@ -7896,30 +7650,30 @@ namespace DB_EDITOR
             // SuspensionView
             // 
             SuspensionView.AllowUserToAddRows = false;
-            dataGridViewCellStyle109.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle109.BackColor = Color.White;
-            dataGridViewCellStyle109.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            SuspensionView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle109;
+            dataGridViewCellStyle21.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = Color.White;
+            dataGridViewCellStyle21.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            SuspensionView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
             SuspensionView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             SuspensionView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle110.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle110.BackColor = SystemColors.AppWorkspace;
-            dataGridViewCellStyle110.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle110.ForeColor = SystemColors.MenuBar;
-            dataGridViewCellStyle110.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle110.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle110.WrapMode = DataGridViewTriState.True;
-            SuspensionView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle110;
+            dataGridViewCellStyle22.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = SystemColors.AppWorkspace;
+            dataGridViewCellStyle22.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle22.ForeColor = SystemColors.MenuBar;
+            dataGridViewCellStyle22.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle22.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = DataGridViewTriState.True;
+            SuspensionView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
             SuspensionView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             SuspensionView.Columns.AddRange(new DataGridViewColumn[] { SusRec, SusTeam, SusPos, SusPlayer, SusOvr, SusReason, SusLength });
-            dataGridViewCellStyle111.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle111.BackColor = SystemColors.ScrollBar;
-            dataGridViewCellStyle111.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle111.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle111.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle111.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle111.WrapMode = DataGridViewTriState.False;
-            SuspensionView.DefaultCellStyle = dataGridViewCellStyle111;
+            dataGridViewCellStyle23.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = SystemColors.ScrollBar;
+            dataGridViewCellStyle23.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle23.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle23.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle23.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = DataGridViewTriState.False;
+            SuspensionView.DefaultCellStyle = dataGridViewCellStyle23;
             SuspensionView.Location = new Point(6, 62);
             SuspensionView.MultiSelect = false;
             SuspensionView.Name = "SuspensionView";
@@ -8026,30 +7780,30 @@ namespace DB_EDITOR
             // InjuryGridView
             // 
             InjuryGridView.AllowUserToAddRows = false;
-            dataGridViewCellStyle112.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle112.BackColor = Color.White;
-            dataGridViewCellStyle112.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            InjuryGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle112;
+            dataGridViewCellStyle24.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = Color.White;
+            dataGridViewCellStyle24.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            InjuryGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle24;
             InjuryGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             InjuryGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle113.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle113.BackColor = SystemColors.AppWorkspace;
-            dataGridViewCellStyle113.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle113.ForeColor = SystemColors.MenuBar;
-            dataGridViewCellStyle113.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle113.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle113.WrapMode = DataGridViewTriState.True;
-            InjuryGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle113;
+            dataGridViewCellStyle25.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle25.BackColor = SystemColors.AppWorkspace;
+            dataGridViewCellStyle25.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle25.ForeColor = SystemColors.MenuBar;
+            dataGridViewCellStyle25.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle25.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle25.WrapMode = DataGridViewTriState.True;
+            InjuryGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
             InjuryGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             InjuryGridView.Columns.AddRange(new DataGridViewColumn[] { INJrec, INJteam, INJpos, INJplayer, INJrating, INJtype, INJlength });
-            dataGridViewCellStyle114.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle114.BackColor = SystemColors.ScrollBar;
-            dataGridViewCellStyle114.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle114.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle114.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle114.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle114.WrapMode = DataGridViewTriState.False;
-            InjuryGridView.DefaultCellStyle = dataGridViewCellStyle114;
+            dataGridViewCellStyle26.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle26.BackColor = SystemColors.ScrollBar;
+            dataGridViewCellStyle26.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle26.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle26.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle26.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle26.WrapMode = DataGridViewTriState.False;
+            InjuryGridView.DefaultCellStyle = dataGridViewCellStyle26;
             InjuryGridView.Location = new Point(4, 62);
             InjuryGridView.MultiSelect = false;
             InjuryGridView.Name = "InjuryGridView";
@@ -8071,7 +7825,7 @@ namespace DB_EDITOR
             INJteam.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             INJteam.HeaderText = "Team";
             INJteam.Name = "INJteam";
-            INJteam.Width = 63;
+            INJteam.Width = 59;
             // 
             // INJpos
             // 
@@ -8079,14 +7833,14 @@ namespace DB_EDITOR
             INJpos.FillWeight = 35F;
             INJpos.HeaderText = "Pos";
             INJpos.Name = "INJpos";
-            INJpos.Width = 53;
+            INJpos.Width = 50;
             // 
             // INJplayer
             // 
             INJplayer.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             INJplayer.HeaderText = "Player";
             INJplayer.Name = "INJplayer";
-            INJplayer.Width = 67;
+            INJplayer.Width = 61;
             // 
             // INJrating
             // 
@@ -8094,21 +7848,21 @@ namespace DB_EDITOR
             INJrating.FillWeight = 35F;
             INJrating.HeaderText = "ovr";
             INJrating.Name = "INJrating";
-            INJrating.Width = 50;
+            INJrating.Width = 47;
             // 
             // INJtype
             // 
             INJtype.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             INJtype.HeaderText = "Injury";
             INJtype.Name = "INJtype";
-            INJtype.Width = 63;
+            INJtype.Width = 57;
             // 
             // INJlength
             // 
             INJlength.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             INJlength.HeaderText = "Length";
             INJlength.Name = "INJlength";
-            INJlength.Width = 71;
+            INJlength.Width = 65;
             // 
             // groupBox45
             // 
@@ -9856,43 +9610,43 @@ namespace DB_EDITOR
             PlayerStatsView.AllowUserToAddRows = false;
             PlayerStatsView.AllowUserToDeleteRows = false;
             PlayerStatsView.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle115.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle115.BackColor = Color.Gainsboro;
-            dataGridViewCellStyle115.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle115.SelectionBackColor = Color.FromArgb((int)(byte)128, (int)(byte)255, (int)(byte)255);
-            PlayerStatsView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle115;
+            dataGridViewCellStyle27.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle27.BackColor = Color.Gainsboro;
+            dataGridViewCellStyle27.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle27.SelectionBackColor = Color.FromArgb((int)(byte)128, (int)(byte)255, (int)(byte)255);
+            PlayerStatsView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle27;
             PlayerStatsView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             PlayerStatsView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             PlayerStatsView.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle116.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle116.BackColor = SystemColors.InactiveCaption;
-            dataGridViewCellStyle116.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle116.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle116.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle116.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle116.WrapMode = DataGridViewTriState.True;
-            PlayerStatsView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle116;
+            dataGridViewCellStyle28.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle28.BackColor = SystemColors.InactiveCaption;
+            dataGridViewCellStyle28.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle28.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle28.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle28.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle28.WrapMode = DataGridViewTriState.True;
+            PlayerStatsView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle28;
             PlayerStatsView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             PlayerStatsView.Columns.AddRange(new DataGridViewColumn[] { PS0, PS1, PS2, PS3, PS4, PS5, PS6, PS7, PS8, PS9, PS10 });
-            dataGridViewCellStyle117.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle117.BackColor = SystemColors.ButtonFace;
-            dataGridViewCellStyle117.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle117.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle117.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle117.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle117.WrapMode = DataGridViewTriState.False;
-            PlayerStatsView.DefaultCellStyle = dataGridViewCellStyle117;
+            dataGridViewCellStyle29.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle29.BackColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle29.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle29.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle29.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle29.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle29.WrapMode = DataGridViewTriState.False;
+            PlayerStatsView.DefaultCellStyle = dataGridViewCellStyle29;
             PlayerStatsView.Location = new Point(10, 21);
             PlayerStatsView.Name = "PlayerStatsView";
             PlayerStatsView.ReadOnly = true;
-            dataGridViewCellStyle118.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle118.BackColor = SystemColors.Control;
-            dataGridViewCellStyle118.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle118.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle118.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle118.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle118.WrapMode = DataGridViewTriState.True;
-            PlayerStatsView.RowHeadersDefaultCellStyle = dataGridViewCellStyle118;
+            dataGridViewCellStyle30.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle30.BackColor = SystemColors.Control;
+            dataGridViewCellStyle30.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle30.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle30.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle30.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle30.WrapMode = DataGridViewTriState.True;
+            PlayerStatsView.RowHeadersDefaultCellStyle = dataGridViewCellStyle30;
             PlayerStatsView.RowHeadersVisible = false;
             PlayerStatsView.Size = new Size(468, 134);
             PlayerStatsView.TabIndex = 0;
@@ -11388,25 +11142,25 @@ namespace DB_EDITOR
             TeamRatingView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             TeamRatingView.BackgroundColor = SystemColors.AppWorkspace;
             TeamRatingView.CellBorderStyle = DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle119.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle119.BackColor = SystemColors.ButtonFace;
-            dataGridViewCellStyle119.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle119.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle119.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle119.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle119.WrapMode = DataGridViewTriState.True;
-            TeamRatingView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle119;
+            dataGridViewCellStyle31.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle31.BackColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle31.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle31.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle31.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle31.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle31.WrapMode = DataGridViewTriState.True;
+            TeamRatingView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle31;
             TeamRatingView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             TeamRatingView.ColumnHeadersVisible = false;
             TeamRatingView.Columns.AddRange(new DataGridViewColumn[] { TeamPos, Column4 });
-            dataGridViewCellStyle120.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle120.BackColor = SystemColors.AppWorkspace;
-            dataGridViewCellStyle120.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle120.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle120.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle120.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle120.WrapMode = DataGridViewTriState.False;
-            TeamRatingView.DefaultCellStyle = dataGridViewCellStyle120;
+            dataGridViewCellStyle32.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle32.BackColor = SystemColors.AppWorkspace;
+            dataGridViewCellStyle32.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle32.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle32.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle32.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle32.WrapMode = DataGridViewTriState.False;
+            TeamRatingView.DefaultCellStyle = dataGridViewCellStyle32;
             TeamRatingView.EnableHeadersVisualStyles = false;
             TeamRatingView.GridColor = SystemColors.ControlDarkDark;
             TeamRatingView.Location = new Point(528, 77);
@@ -12716,14 +12470,14 @@ namespace DB_EDITOR
             // 
             tableGridView.AllowUserToAddRows = false;
             tableGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle121.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle121.BackColor = SystemColors.Control;
-            dataGridViewCellStyle121.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle121.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle121.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle121.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle121.WrapMode = DataGridViewTriState.True;
-            tableGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle121;
+            dataGridViewCellStyle33.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle33.BackColor = SystemColors.Control;
+            dataGridViewCellStyle33.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle33.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle33.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle33.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle33.WrapMode = DataGridViewTriState.True;
+            tableGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle33;
             tableGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             tableGridView.ContextMenuStrip = tableMenu;
             tableGridView.GridColor = SystemColors.Window;
@@ -12741,18 +12495,18 @@ namespace DB_EDITOR
             // 
             fieldsGridView.AllowDrop = true;
             fieldsGridView.AllowUserToAddRows = false;
-            dataGridViewCellStyle32.BackColor = SystemColors.Control;
-            fieldsGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle34.BackColor = SystemColors.Control;
+            fieldsGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle34;
             fieldsGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             fieldsGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle122.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle122.BackColor = SystemColors.Control;
-            dataGridViewCellStyle122.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle122.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle122.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle122.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle122.WrapMode = DataGridViewTriState.True;
-            fieldsGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle122;
+            dataGridViewCellStyle35.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle35.BackColor = SystemColors.Control;
+            dataGridViewCellStyle35.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle35.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle35.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle35.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle35.WrapMode = DataGridViewTriState.True;
+            fieldsGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle35;
             fieldsGridView.ContextMenuStrip = fieldMenu;
             fieldsGridView.GridColor = SystemColors.ScrollBar;
             fieldsGridView.Location = new Point(116, 6);
@@ -12849,16 +12603,16 @@ namespace DB_EDITOR
             tabControl1.Controls.Add(tabTeams);
             tabControl1.Controls.Add(tabPlayers);
             tabControl1.Controls.Add(tabCoaches);
+            tabControl1.Controls.Add(tabConf);
             tabControl1.Controls.Add(tabDynasty);
             tabControl1.Controls.Add(tabCarousel);
             tabControl1.Controls.Add(tabSchedule);
+            tabControl1.Controls.Add(tabPlayoff);
+            tabControl1.Controls.Add(tabTeamStats);
+            tabControl1.Controls.Add(tabLeagueStats);
             tabControl1.Controls.Add(tabDepthCharts);
-            tabControl1.Controls.Add(tabConf);
             tabControl1.Controls.Add(tabBowls);
             tabControl1.Controls.Add(tabStadiums);
-            tabControl1.Controls.Add(tabPlayoff);
-            tabControl1.Controls.Add(tabStats);
-            tabControl1.Controls.Add(tabTeamStats);
             tabControl1.Controls.Add(tabRecruits);
             tabControl1.Controls.Add(tabRecruiting);
             tabControl1.Controls.Add(tabOffSeason);
@@ -12909,29 +12663,29 @@ namespace DB_EDITOR
             // 
             CoachPortalNews.AllowUserToAddRows = false;
             CoachPortalNews.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle33.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle33.BackColor = Color.FromArgb((int)(byte)224, (int)(byte)224, (int)(byte)224);
-            CoachPortalNews.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle36.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle36.BackColor = Color.FromArgb((int)(byte)224, (int)(byte)224, (int)(byte)224);
+            CoachPortalNews.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle36;
             CoachPortalNews.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             CoachPortalNews.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
-            dataGridViewCellStyle34.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle34.BackColor = SystemColors.Control;
-            dataGridViewCellStyle34.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle34.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle34.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle34.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle34.WrapMode = DataGridViewTriState.True;
-            CoachPortalNews.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle37.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle37.BackColor = SystemColors.Control;
+            dataGridViewCellStyle37.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle37.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle37.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle37.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle37.WrapMode = DataGridViewTriState.True;
+            CoachPortalNews.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle37;
             CoachPortalNews.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             CoachPortalNews.Columns.AddRange(new DataGridViewColumn[] { CoachPortalTeam, CoachPortalPlayer, CoachPortalPos, CoachPortalPOVR });
-            dataGridViewCellStyle123.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle123.BackColor = SystemColors.Window;
-            dataGridViewCellStyle123.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle123.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle123.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle123.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle123.WrapMode = DataGridViewTriState.False;
-            CoachPortalNews.DefaultCellStyle = dataGridViewCellStyle123;
+            dataGridViewCellStyle38.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle38.BackColor = SystemColors.Window;
+            dataGridViewCellStyle38.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle38.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle38.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle38.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle38.WrapMode = DataGridViewTriState.False;
+            CoachPortalNews.DefaultCellStyle = dataGridViewCellStyle38;
             CoachPortalNews.Location = new Point(397, 369);
             CoachPortalNews.Name = "CoachPortalNews";
             CoachPortalNews.ReadOnly = true;
@@ -13145,29 +12899,29 @@ namespace DB_EDITOR
             // 
             CarouselDataGrid.AllowUserToAddRows = false;
             CarouselDataGrid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle124.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle124.BackColor = Color.FromArgb((int)(byte)224, (int)(byte)224, (int)(byte)224);
-            CarouselDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle124;
+            dataGridViewCellStyle39.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle39.BackColor = Color.FromArgb((int)(byte)224, (int)(byte)224, (int)(byte)224);
+            CarouselDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle39;
             CarouselDataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             CarouselDataGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
-            dataGridViewCellStyle125.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle125.BackColor = SystemColors.Control;
-            dataGridViewCellStyle125.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle125.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle125.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle125.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle125.WrapMode = DataGridViewTriState.True;
-            CarouselDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle125;
+            dataGridViewCellStyle40.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle40.BackColor = SystemColors.Control;
+            dataGridViewCellStyle40.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle40.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle40.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle40.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle40.WrapMode = DataGridViewTriState.True;
+            CarouselDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle40;
             CarouselDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             CarouselDataGrid.Columns.AddRange(new DataGridViewColumn[] { CCName, CCStatus, CCTeam, CCTmPrestige, CCPrestige, CCRecord, CCSeaRec, CCCoachRating });
-            dataGridViewCellStyle126.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle126.BackColor = SystemColors.Window;
-            dataGridViewCellStyle126.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle126.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle126.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle126.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle126.WrapMode = DataGridViewTriState.False;
-            CarouselDataGrid.DefaultCellStyle = dataGridViewCellStyle126;
+            dataGridViewCellStyle41.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle41.BackColor = SystemColors.Window;
+            dataGridViewCellStyle41.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle41.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle41.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle41.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle41.WrapMode = DataGridViewTriState.False;
+            CarouselDataGrid.DefaultCellStyle = dataGridViewCellStyle41;
             CarouselDataGrid.Location = new Point(397, 26);
             CarouselDataGrid.Name = "CarouselDataGrid";
             CarouselDataGrid.ReadOnly = true;
@@ -13971,6 +13725,7 @@ namespace DB_EDITOR
             // 
             label195.AutoSize = true;
             label195.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            label195.ForeColor = SystemColors.ButtonFace;
             label195.Location = new Point(465, 502);
             label195.Name = "label195";
             label195.Size = new Size(102, 18);
@@ -13982,42 +13737,42 @@ namespace DB_EDITOR
             TSReturn.AllowUserToAddRows = false;
             TSReturn.AllowUserToDeleteRows = false;
             TSReturn.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle127.BackColor = Color.Gainsboro;
-            dataGridViewCellStyle127.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle127.SelectionBackColor = Color.MediumSlateBlue;
-            TSReturn.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle127;
+            dataGridViewCellStyle42.BackColor = Color.Gainsboro;
+            dataGridViewCellStyle42.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle42.SelectionBackColor = Color.MediumSlateBlue;
+            TSReturn.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle42;
             TSReturn.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             TSReturn.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             TSReturn.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle128.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle128.BackColor = SystemColors.InactiveCaption;
-            dataGridViewCellStyle128.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle128.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle128.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle128.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle128.WrapMode = DataGridViewTriState.True;
-            TSReturn.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle128;
+            dataGridViewCellStyle43.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle43.BackColor = SystemColors.InactiveCaption;
+            dataGridViewCellStyle43.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle43.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle43.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle43.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle43.WrapMode = DataGridViewTriState.True;
+            TSReturn.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle43;
             TSReturn.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             TSReturn.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn67, dataGridViewTextBoxColumn76, dataGridViewTextBoxColumn68, TSKRYd, dataGridViewTextBoxColumn70, dataGridViewTextBoxColumn71, dataGridViewTextBoxColumn72, dataGridViewTextBoxColumn73, dataGridViewTextBoxColumn74, dataGridViewTextBoxColumn75 });
-            dataGridViewCellStyle130.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle130.BackColor = SystemColors.ButtonFace;
-            dataGridViewCellStyle130.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle130.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle130.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle130.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle130.WrapMode = DataGridViewTriState.False;
-            TSReturn.DefaultCellStyle = dataGridViewCellStyle130;
+            dataGridViewCellStyle45.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle45.BackColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle45.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle45.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle45.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle45.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle45.WrapMode = DataGridViewTriState.False;
+            TSReturn.DefaultCellStyle = dataGridViewCellStyle45;
             TSReturn.Location = new Point(16, 523);
             TSReturn.Name = "TSReturn";
             TSReturn.ReadOnly = true;
-            dataGridViewCellStyle131.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle131.BackColor = SystemColors.Control;
-            dataGridViewCellStyle131.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle131.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle131.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle131.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle131.WrapMode = DataGridViewTriState.True;
-            TSReturn.RowHeadersDefaultCellStyle = dataGridViewCellStyle131;
+            dataGridViewCellStyle46.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle46.BackColor = SystemColors.Control;
+            dataGridViewCellStyle46.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle46.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle46.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle46.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle46.WrapMode = DataGridViewTriState.True;
+            TSReturn.RowHeadersDefaultCellStyle = dataGridViewCellStyle46;
             TSReturn.RowHeadersVisible = false;
             TSReturn.Size = new Size(551, 83);
             TSReturn.TabIndex = 13;
@@ -14025,8 +13780,8 @@ namespace DB_EDITOR
             // dataGridViewTextBoxColumn67
             // 
             dataGridViewTextBoxColumn67.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle129.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridViewTextBoxColumn67.DefaultCellStyle = dataGridViewCellStyle129;
+            dataGridViewCellStyle44.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewTextBoxColumn67.DefaultCellStyle = dataGridViewCellStyle44;
             dataGridViewTextBoxColumn67.HeaderText = "Player";
             dataGridViewTextBoxColumn67.Name = "dataGridViewTextBoxColumn67";
             dataGridViewTextBoxColumn67.ReadOnly = true;
@@ -14090,6 +13845,7 @@ namespace DB_EDITOR
             // 
             label194.AutoSize = true;
             label194.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            label194.ForeColor = SystemColors.ButtonFace;
             label194.Location = new Point(1031, 521);
             label194.Name = "label194";
             label194.Size = new Size(108, 18);
@@ -14100,6 +13856,7 @@ namespace DB_EDITOR
             // 
             label193.AutoSize = true;
             label193.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            label193.ForeColor = SystemColors.ButtonFace;
             label193.Location = new Point(1031, 433);
             label193.Name = "label193";
             label193.Size = new Size(107, 18);
@@ -14110,6 +13867,7 @@ namespace DB_EDITOR
             // 
             label191.AutoSize = true;
             label191.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            label191.ForeColor = SystemColors.ButtonFace;
             label191.Location = new Point(1013, 21);
             label191.Name = "label191";
             label191.Size = new Size(126, 18);
@@ -14120,6 +13878,7 @@ namespace DB_EDITOR
             // 
             label190.AutoSize = true;
             label190.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            label190.ForeColor = SystemColors.ButtonFace;
             label190.Location = new Point(442, 304);
             label190.Name = "label190";
             label190.Size = new Size(125, 18);
@@ -14130,6 +13889,7 @@ namespace DB_EDITOR
             // 
             label189.AutoSize = true;
             label189.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            label189.ForeColor = SystemColors.ButtonFace;
             label189.Location = new Point(454, 131);
             label189.Name = "label189";
             label189.Size = new Size(113, 18);
@@ -14140,6 +13900,7 @@ namespace DB_EDITOR
             // 
             label188.AutoSize = true;
             label188.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            label188.ForeColor = SystemColors.ButtonFace;
             label188.Location = new Point(455, 21);
             label188.Name = "label188";
             label188.Size = new Size(112, 18);
@@ -14151,42 +13912,42 @@ namespace DB_EDITOR
             TSPunting.AllowUserToAddRows = false;
             TSPunting.AllowUserToDeleteRows = false;
             TSPunting.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle132.BackColor = Color.Gainsboro;
-            dataGridViewCellStyle132.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle132.SelectionBackColor = Color.MediumSlateBlue;
-            TSPunting.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle132;
+            dataGridViewCellStyle47.BackColor = Color.Gainsboro;
+            dataGridViewCellStyle47.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle47.SelectionBackColor = Color.MediumSlateBlue;
+            TSPunting.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle47;
             TSPunting.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             TSPunting.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             TSPunting.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle133.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle133.BackColor = SystemColors.InactiveCaption;
-            dataGridViewCellStyle133.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle133.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle133.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle133.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle133.WrapMode = DataGridViewTriState.True;
-            TSPunting.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle133;
+            dataGridViewCellStyle48.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle48.BackColor = SystemColors.InactiveCaption;
+            dataGridViewCellStyle48.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle48.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle48.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle48.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle48.WrapMode = DataGridViewTriState.True;
+            TSPunting.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle48;
             TSPunting.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             TSPunting.Columns.AddRange(new DataGridViewColumn[] { TSPunts, dataGridViewTextBoxColumn57, dataGridViewTextBoxColumn58, dataGridViewTextBoxColumn59, dataGridViewTextBoxColumn60, dataGridViewTextBoxColumn61, dataGridViewTextBoxColumn62, dataGridViewTextBoxColumn63 });
-            dataGridViewCellStyle135.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle135.BackColor = SystemColors.ButtonFace;
-            dataGridViewCellStyle135.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle135.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle135.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle135.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle135.WrapMode = DataGridViewTriState.False;
-            TSPunting.DefaultCellStyle = dataGridViewCellStyle135;
+            dataGridViewCellStyle50.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle50.BackColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle50.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle50.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle50.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle50.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle50.WrapMode = DataGridViewTriState.False;
+            TSPunting.DefaultCellStyle = dataGridViewCellStyle50;
             TSPunting.Location = new Point(588, 542);
             TSPunting.Name = "TSPunting";
             TSPunting.ReadOnly = true;
-            dataGridViewCellStyle136.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle136.BackColor = SystemColors.Control;
-            dataGridViewCellStyle136.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle136.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle136.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle136.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle136.WrapMode = DataGridViewTriState.True;
-            TSPunting.RowHeadersDefaultCellStyle = dataGridViewCellStyle136;
+            dataGridViewCellStyle51.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle51.BackColor = SystemColors.Control;
+            dataGridViewCellStyle51.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle51.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle51.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle51.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle51.WrapMode = DataGridViewTriState.True;
+            TSPunting.RowHeadersDefaultCellStyle = dataGridViewCellStyle51;
             TSPunting.RowHeadersVisible = false;
             TSPunting.Size = new Size(551, 64);
             TSPunting.TabIndex = 6;
@@ -14194,8 +13955,8 @@ namespace DB_EDITOR
             // TSPunts
             // 
             TSPunts.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle134.Alignment = DataGridViewContentAlignment.MiddleRight;
-            TSPunts.DefaultCellStyle = dataGridViewCellStyle134;
+            dataGridViewCellStyle49.Alignment = DataGridViewContentAlignment.MiddleRight;
+            TSPunts.DefaultCellStyle = dataGridViewCellStyle49;
             TSPunts.HeaderText = "Player";
             TSPunts.Name = "TSPunts";
             TSPunts.ReadOnly = true;
@@ -14248,42 +14009,42 @@ namespace DB_EDITOR
             TSKicking.AllowUserToAddRows = false;
             TSKicking.AllowUserToDeleteRows = false;
             TSKicking.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle137.BackColor = Color.Gainsboro;
-            dataGridViewCellStyle137.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle137.SelectionBackColor = Color.MediumSlateBlue;
-            TSKicking.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle137;
+            dataGridViewCellStyle52.BackColor = Color.Gainsboro;
+            dataGridViewCellStyle52.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle52.SelectionBackColor = Color.MediumSlateBlue;
+            TSKicking.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle52;
             TSKicking.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             TSKicking.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             TSKicking.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle138.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle138.BackColor = SystemColors.InactiveCaption;
-            dataGridViewCellStyle138.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle138.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle138.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle138.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle138.WrapMode = DataGridViewTriState.True;
-            TSKicking.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle138;
+            dataGridViewCellStyle53.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle53.BackColor = SystemColors.InactiveCaption;
+            dataGridViewCellStyle53.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle53.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle53.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle53.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle53.WrapMode = DataGridViewTriState.True;
+            TSKicking.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle53;
             TSKicking.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             TSKicking.Columns.AddRange(new DataGridViewColumn[] { TSFGM, dataGridViewTextBoxColumn46, dataGridViewTextBoxColumn47, dataGridViewTextBoxColumn48, dataGridViewTextBoxColumn49, dataGridViewTextBoxColumn50, dataGridViewTextBoxColumn51, dataGridViewTextBoxColumn52, dataGridViewTextBoxColumn53, dataGridViewTextBoxColumn54 });
-            dataGridViewCellStyle140.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle140.BackColor = SystemColors.ButtonFace;
-            dataGridViewCellStyle140.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle140.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle140.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle140.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle140.WrapMode = DataGridViewTriState.False;
-            TSKicking.DefaultCellStyle = dataGridViewCellStyle140;
+            dataGridViewCellStyle55.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle55.BackColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle55.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle55.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle55.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle55.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle55.WrapMode = DataGridViewTriState.False;
+            TSKicking.DefaultCellStyle = dataGridViewCellStyle55;
             TSKicking.Location = new Point(588, 454);
             TSKicking.Name = "TSKicking";
             TSKicking.ReadOnly = true;
-            dataGridViewCellStyle141.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle141.BackColor = SystemColors.Control;
-            dataGridViewCellStyle141.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle141.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle141.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle141.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle141.WrapMode = DataGridViewTriState.True;
-            TSKicking.RowHeadersDefaultCellStyle = dataGridViewCellStyle141;
+            dataGridViewCellStyle56.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle56.BackColor = SystemColors.Control;
+            dataGridViewCellStyle56.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle56.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle56.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle56.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle56.WrapMode = DataGridViewTriState.True;
+            TSKicking.RowHeadersDefaultCellStyle = dataGridViewCellStyle56;
             TSKicking.RowHeadersVisible = false;
             TSKicking.Size = new Size(551, 64);
             TSKicking.TabIndex = 5;
@@ -14291,8 +14052,8 @@ namespace DB_EDITOR
             // TSFGM
             // 
             TSFGM.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle139.Alignment = DataGridViewContentAlignment.MiddleRight;
-            TSFGM.DefaultCellStyle = dataGridViewCellStyle139;
+            dataGridViewCellStyle54.Alignment = DataGridViewContentAlignment.MiddleRight;
+            TSFGM.DefaultCellStyle = dataGridViewCellStyle54;
             TSFGM.HeaderText = "Player";
             TSFGM.Name = "TSFGM";
             TSFGM.ReadOnly = true;
@@ -14357,42 +14118,42 @@ namespace DB_EDITOR
             TSReceiving.AllowUserToAddRows = false;
             TSReceiving.AllowUserToDeleteRows = false;
             TSReceiving.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle142.BackColor = Color.Gainsboro;
-            dataGridViewCellStyle142.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle142.SelectionBackColor = Color.MediumSlateBlue;
-            TSReceiving.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle142;
+            dataGridViewCellStyle57.BackColor = Color.Gainsboro;
+            dataGridViewCellStyle57.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle57.SelectionBackColor = Color.MediumSlateBlue;
+            TSReceiving.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle57;
             TSReceiving.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             TSReceiving.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             TSReceiving.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle143.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle143.BackColor = SystemColors.InactiveCaption;
-            dataGridViewCellStyle143.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle143.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle143.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle143.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle143.WrapMode = DataGridViewTriState.True;
-            TSReceiving.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle143;
+            dataGridViewCellStyle58.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle58.BackColor = SystemColors.InactiveCaption;
+            dataGridViewCellStyle58.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle58.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle58.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle58.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle58.WrapMode = DataGridViewTriState.True;
+            TSReceiving.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle58;
             TSReceiving.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             TSReceiving.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn34, dataGridViewTextBoxColumn35, TSCatch, TSYdsCat, dataGridViewTextBoxColumn38, dataGridViewTextBoxColumn39, dataGridViewTextBoxColumn40, dataGridViewTextBoxColumn41, dataGridViewTextBoxColumn42, dataGridViewTextBoxColumn43, dataGridViewTextBoxColumn44 });
-            dataGridViewCellStyle145.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle145.BackColor = SystemColors.ButtonFace;
-            dataGridViewCellStyle145.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle145.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle145.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle145.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle145.WrapMode = DataGridViewTriState.False;
-            TSReceiving.DefaultCellStyle = dataGridViewCellStyle145;
+            dataGridViewCellStyle60.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle60.BackColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle60.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle60.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle60.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle60.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle60.WrapMode = DataGridViewTriState.False;
+            TSReceiving.DefaultCellStyle = dataGridViewCellStyle60;
             TSReceiving.Location = new Point(16, 325);
             TSReceiving.Name = "TSReceiving";
             TSReceiving.ReadOnly = true;
-            dataGridViewCellStyle146.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle146.BackColor = SystemColors.Control;
-            dataGridViewCellStyle146.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle146.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle146.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle146.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle146.WrapMode = DataGridViewTriState.True;
-            TSReceiving.RowHeadersDefaultCellStyle = dataGridViewCellStyle146;
+            dataGridViewCellStyle61.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle61.BackColor = SystemColors.Control;
+            dataGridViewCellStyle61.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle61.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle61.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle61.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle61.WrapMode = DataGridViewTriState.True;
+            TSReceiving.RowHeadersDefaultCellStyle = dataGridViewCellStyle61;
             TSReceiving.RowHeadersVisible = false;
             TSReceiving.Size = new Size(551, 174);
             TSReceiving.TabIndex = 4;
@@ -14400,8 +14161,8 @@ namespace DB_EDITOR
             // dataGridViewTextBoxColumn34
             // 
             dataGridViewTextBoxColumn34.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle144.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridViewTextBoxColumn34.DefaultCellStyle = dataGridViewCellStyle144;
+            dataGridViewCellStyle59.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewTextBoxColumn34.DefaultCellStyle = dataGridViewCellStyle59;
             dataGridViewTextBoxColumn34.HeaderText = "Player";
             dataGridViewTextBoxColumn34.Name = "dataGridViewTextBoxColumn34";
             dataGridViewTextBoxColumn34.ReadOnly = true;
@@ -14472,42 +14233,42 @@ namespace DB_EDITOR
             TSPassing.AllowUserToAddRows = false;
             TSPassing.AllowUserToDeleteRows = false;
             TSPassing.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle147.BackColor = Color.Gainsboro;
-            dataGridViewCellStyle147.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle147.SelectionBackColor = Color.MediumSlateBlue;
-            TSPassing.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle147;
+            dataGridViewCellStyle62.BackColor = Color.Gainsboro;
+            dataGridViewCellStyle62.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle62.SelectionBackColor = Color.MediumSlateBlue;
+            TSPassing.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle62;
             TSPassing.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             TSPassing.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             TSPassing.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle148.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle148.BackColor = SystemColors.InactiveCaption;
-            dataGridViewCellStyle148.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle148.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle148.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle148.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle148.WrapMode = DataGridViewTriState.True;
-            TSPassing.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle148;
+            dataGridViewCellStyle63.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle63.BackColor = SystemColors.InactiveCaption;
+            dataGridViewCellStyle63.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle63.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle63.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle63.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle63.WrapMode = DataGridViewTriState.True;
+            TSPassing.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle63;
             TSPassing.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             TSPassing.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn23, dataGridViewTextBoxColumn24, dataGridViewTextBoxColumn25, dataGridViewTextBoxColumn26, dataGridViewTextBoxColumn27, dataGridViewTextBoxColumn28, TSPassYds, dataGridViewTextBoxColumn30, dataGridViewTextBoxColumn31, dataGridViewTextBoxColumn32, dataGridViewTextBoxColumn33 });
-            dataGridViewCellStyle150.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle150.BackColor = SystemColors.ButtonFace;
-            dataGridViewCellStyle150.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle150.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle150.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle150.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle150.WrapMode = DataGridViewTriState.False;
-            TSPassing.DefaultCellStyle = dataGridViewCellStyle150;
+            dataGridViewCellStyle65.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle65.BackColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle65.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle65.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle65.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle65.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle65.WrapMode = DataGridViewTriState.False;
+            TSPassing.DefaultCellStyle = dataGridViewCellStyle65;
             TSPassing.Location = new Point(16, 42);
             TSPassing.Name = "TSPassing";
             TSPassing.ReadOnly = true;
-            dataGridViewCellStyle151.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle151.BackColor = SystemColors.Control;
-            dataGridViewCellStyle151.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle151.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle151.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle151.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle151.WrapMode = DataGridViewTriState.True;
-            TSPassing.RowHeadersDefaultCellStyle = dataGridViewCellStyle151;
+            dataGridViewCellStyle66.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle66.BackColor = SystemColors.Control;
+            dataGridViewCellStyle66.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle66.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle66.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle66.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle66.WrapMode = DataGridViewTriState.True;
+            TSPassing.RowHeadersDefaultCellStyle = dataGridViewCellStyle66;
             TSPassing.RowHeadersVisible = false;
             TSPassing.Size = new Size(551, 81);
             TSPassing.TabIndex = 3;
@@ -14515,8 +14276,8 @@ namespace DB_EDITOR
             // dataGridViewTextBoxColumn23
             // 
             dataGridViewTextBoxColumn23.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle149.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridViewTextBoxColumn23.DefaultCellStyle = dataGridViewCellStyle149;
+            dataGridViewCellStyle64.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewTextBoxColumn23.DefaultCellStyle = dataGridViewCellStyle64;
             dataGridViewTextBoxColumn23.HeaderText = "Player";
             dataGridViewTextBoxColumn23.MinimumWidth = 50;
             dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
@@ -14588,42 +14349,42 @@ namespace DB_EDITOR
             TSDefense.AllowUserToAddRows = false;
             TSDefense.AllowUserToDeleteRows = false;
             TSDefense.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle152.BackColor = Color.Gainsboro;
-            dataGridViewCellStyle152.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle152.SelectionBackColor = Color.MediumSlateBlue;
-            TSDefense.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle152;
+            dataGridViewCellStyle67.BackColor = Color.Gainsboro;
+            dataGridViewCellStyle67.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle67.SelectionBackColor = Color.MediumSlateBlue;
+            TSDefense.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle67;
             TSDefense.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             TSDefense.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             TSDefense.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle153.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle153.BackColor = SystemColors.InactiveCaption;
-            dataGridViewCellStyle153.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle153.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle153.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle153.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle153.WrapMode = DataGridViewTriState.True;
-            TSDefense.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle153;
+            dataGridViewCellStyle68.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle68.BackColor = SystemColors.InactiveCaption;
+            dataGridViewCellStyle68.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle68.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle68.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle68.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle68.WrapMode = DataGridViewTriState.True;
+            TSDefense.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle68;
             TSDefense.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             TSDefense.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn12, dataGridViewTextBoxColumn13, TSTackles, dataGridViewTextBoxColumn15, dataGridViewTextBoxColumn16, dataGridViewTextBoxColumn17, dataGridViewTextBoxColumn18, dataGridViewTextBoxColumn19, dataGridViewTextBoxColumn20, dataGridViewTextBoxColumn21 });
-            dataGridViewCellStyle155.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle155.BackColor = SystemColors.ButtonFace;
-            dataGridViewCellStyle155.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle155.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle155.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle155.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle155.WrapMode = DataGridViewTriState.False;
-            TSDefense.DefaultCellStyle = dataGridViewCellStyle155;
+            dataGridViewCellStyle70.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle70.BackColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle70.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle70.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle70.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle70.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle70.WrapMode = DataGridViewTriState.False;
+            TSDefense.DefaultCellStyle = dataGridViewCellStyle70;
             TSDefense.Location = new Point(588, 42);
             TSDefense.Name = "TSDefense";
             TSDefense.ReadOnly = true;
-            dataGridViewCellStyle156.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle156.BackColor = SystemColors.Control;
-            dataGridViewCellStyle156.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle156.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle156.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle156.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle156.WrapMode = DataGridViewTriState.True;
-            TSDefense.RowHeadersDefaultCellStyle = dataGridViewCellStyle156;
+            dataGridViewCellStyle71.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle71.BackColor = SystemColors.Control;
+            dataGridViewCellStyle71.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle71.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle71.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle71.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle71.WrapMode = DataGridViewTriState.True;
+            TSDefense.RowHeadersDefaultCellStyle = dataGridViewCellStyle71;
             TSDefense.RowHeadersVisible = false;
             TSDefense.Size = new Size(551, 388);
             TSDefense.TabIndex = 2;
@@ -14631,8 +14392,8 @@ namespace DB_EDITOR
             // dataGridViewTextBoxColumn12
             // 
             dataGridViewTextBoxColumn12.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle154.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridViewTextBoxColumn12.DefaultCellStyle = dataGridViewCellStyle154;
+            dataGridViewCellStyle69.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewTextBoxColumn12.DefaultCellStyle = dataGridViewCellStyle69;
             dataGridViewTextBoxColumn12.HeaderText = "Player";
             dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             dataGridViewTextBoxColumn12.ReadOnly = true;
@@ -14697,42 +14458,42 @@ namespace DB_EDITOR
             TSRushing.AllowUserToAddRows = false;
             TSRushing.AllowUserToDeleteRows = false;
             TSRushing.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle157.BackColor = Color.Gainsboro;
-            dataGridViewCellStyle157.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle157.SelectionBackColor = Color.MediumSlateBlue;
-            TSRushing.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle157;
+            dataGridViewCellStyle72.BackColor = Color.Gainsboro;
+            dataGridViewCellStyle72.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle72.SelectionBackColor = Color.MediumSlateBlue;
+            TSRushing.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle72;
             TSRushing.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             TSRushing.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             TSRushing.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle158.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle158.BackColor = SystemColors.InactiveCaption;
-            dataGridViewCellStyle158.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle158.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle158.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle158.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle158.WrapMode = DataGridViewTriState.True;
-            TSRushing.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle158;
+            dataGridViewCellStyle73.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle73.BackColor = SystemColors.InactiveCaption;
+            dataGridViewCellStyle73.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle73.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle73.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle73.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle73.WrapMode = DataGridViewTriState.True;
+            TSRushing.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle73;
             TSRushing.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             TSRushing.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, TSRushYds, dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7, dataGridViewTextBoxColumn8, dataGridViewTextBoxColumn9, dataGridViewTextBoxColumn10, dataGridViewTextBoxColumn11 });
-            dataGridViewCellStyle160.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle160.BackColor = SystemColors.ButtonFace;
-            dataGridViewCellStyle160.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle160.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle160.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle160.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle160.WrapMode = DataGridViewTriState.False;
-            TSRushing.DefaultCellStyle = dataGridViewCellStyle160;
+            dataGridViewCellStyle75.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle75.BackColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle75.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle75.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle75.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle75.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle75.WrapMode = DataGridViewTriState.False;
+            TSRushing.DefaultCellStyle = dataGridViewCellStyle75;
             TSRushing.Location = new Point(16, 152);
             TSRushing.Name = "TSRushing";
             TSRushing.ReadOnly = true;
-            dataGridViewCellStyle161.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle161.BackColor = SystemColors.Control;
-            dataGridViewCellStyle161.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle161.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle161.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle161.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle161.WrapMode = DataGridViewTriState.True;
-            TSRushing.RowHeadersDefaultCellStyle = dataGridViewCellStyle161;
+            dataGridViewCellStyle76.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle76.BackColor = SystemColors.Control;
+            dataGridViewCellStyle76.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle76.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle76.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle76.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle76.WrapMode = DataGridViewTriState.True;
+            TSRushing.RowHeadersDefaultCellStyle = dataGridViewCellStyle76;
             TSRushing.RowHeadersVisible = false;
             TSRushing.Size = new Size(551, 145);
             TSRushing.TabIndex = 1;
@@ -14740,8 +14501,8 @@ namespace DB_EDITOR
             // dataGridViewTextBoxColumn1
             // 
             dataGridViewTextBoxColumn1.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle159.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle159;
+            dataGridViewCellStyle74.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle74;
             dataGridViewTextBoxColumn1.HeaderText = "Player";
             dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             dataGridViewTextBoxColumn1.ReadOnly = true;
@@ -14807,6 +14568,277 @@ namespace DB_EDITOR
             dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
             dataGridViewTextBoxColumn11.ReadOnly = true;
             // 
+            // tabLeagueStats
+            // 
+            tabLeagueStats.BackColor = SystemColors.ControlDarkDark;
+            tabLeagueStats.Controls.Add(LeagueStatsBox);
+            tabLeagueStats.Controls.Add(LeagueRankingBox);
+            tabLeagueStats.Controls.Add(label197);
+            tabLeagueStats.Controls.Add(LeagueRankingView);
+            tabLeagueStats.Controls.Add(label181);
+            tabLeagueStats.Controls.Add(LeagueStatsView);
+            tabLeagueStats.Location = new Point(4, 29);
+            tabLeagueStats.Name = "tabLeagueStats";
+            tabLeagueStats.Padding = new Padding(3);
+            tabLeagueStats.Size = new Size(1152, 610);
+            tabLeagueStats.TabIndex = 24;
+            tabLeagueStats.Text = "League Stats";
+            // 
+            // LeagueStatsBox
+            // 
+            LeagueStatsBox.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            LeagueStatsBox.FormattingEnabled = true;
+            LeagueStatsBox.Location = new Point(460, 10);
+            LeagueStatsBox.Name = "LeagueStatsBox";
+            LeagueStatsBox.Size = new Size(171, 24);
+            LeagueStatsBox.TabIndex = 16;
+            LeagueStatsBox.SelectedIndexChanged += (this.LeagueStatsBox_SelectedIndexChanged);
+            // 
+            // LeagueRankingBox
+            // 
+            LeagueRankingBox.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            LeagueRankingBox.FormattingEnabled = true;
+            LeagueRankingBox.Location = new Point(25, 10);
+            LeagueRankingBox.Name = "LeagueRankingBox";
+            LeagueRankingBox.Size = new Size(171, 24);
+            LeagueRankingBox.TabIndex = 15;
+            LeagueRankingBox.SelectedIndexChanged += (this.LeagueRankingBox_SelectedIndexChanged);
+            // 
+            // label197
+            // 
+            label197.AutoSize = true;
+            label197.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            label197.ForeColor = SystemColors.ButtonFace;
+            label197.Location = new Point(303, 16);
+            label197.Name = "label197";
+            label197.Size = new Size(128, 18);
+            label197.TabIndex = 14;
+            label197.Text = "League Ranking";
+            // 
+            // LeagueRankingView
+            // 
+            LeagueRankingView.AllowUserToAddRows = false;
+            LeagueRankingView.AllowUserToDeleteRows = false;
+            LeagueRankingView.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle77.BackColor = Color.Gainsboro;
+            dataGridViewCellStyle77.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle77.SelectionBackColor = Color.MediumSlateBlue;
+            LeagueRankingView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle77;
+            LeagueRankingView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            LeagueRankingView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            LeagueRankingView.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            dataGridViewCellStyle78.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle78.BackColor = SystemColors.InactiveCaption;
+            dataGridViewCellStyle78.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle78.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle78.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle78.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle78.WrapMode = DataGridViewTriState.True;
+            LeagueRankingView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle78;
+            LeagueRankingView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            LeagueRankingView.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn37, dataGridViewTextBoxColumn36, dataGridViewTextBoxColumn45, Column7, dataGridViewTextBoxColumn55 });
+            dataGridViewCellStyle84.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle84.BackColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle84.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle84.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle84.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle84.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle84.WrapMode = DataGridViewTriState.False;
+            LeagueRankingView.DefaultCellStyle = dataGridViewCellStyle84;
+            LeagueRankingView.Location = new Point(25, 37);
+            LeagueRankingView.Name = "LeagueRankingView";
+            LeagueRankingView.ReadOnly = true;
+            dataGridViewCellStyle85.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle85.BackColor = SystemColors.Control;
+            dataGridViewCellStyle85.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle85.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle85.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle85.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle85.WrapMode = DataGridViewTriState.True;
+            LeagueRankingView.RowHeadersDefaultCellStyle = dataGridViewCellStyle85;
+            LeagueRankingView.RowHeadersVisible = false;
+            LeagueRankingView.Size = new Size(406, 555);
+            LeagueRankingView.TabIndex = 13;
+            // 
+            // dataGridViewTextBoxColumn37
+            // 
+            dataGridViewTextBoxColumn37.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle79.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewTextBoxColumn37.DefaultCellStyle = dataGridViewCellStyle79;
+            dataGridViewTextBoxColumn37.HeaderText = "Rank";
+            dataGridViewTextBoxColumn37.Name = "dataGridViewTextBoxColumn37";
+            dataGridViewTextBoxColumn37.ReadOnly = true;
+            dataGridViewTextBoxColumn37.Width = 58;
+            // 
+            // dataGridViewTextBoxColumn36
+            // 
+            dataGridViewTextBoxColumn36.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle80.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewTextBoxColumn36.DefaultCellStyle = dataGridViewCellStyle80;
+            dataGridViewTextBoxColumn36.HeaderText = "Team Name";
+            dataGridViewTextBoxColumn36.Name = "dataGridViewTextBoxColumn36";
+            dataGridViewTextBoxColumn36.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn45
+            // 
+            dataGridViewTextBoxColumn45.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle81.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewTextBoxColumn45.DefaultCellStyle = dataGridViewCellStyle81;
+            dataGridViewTextBoxColumn45.HeaderText = "Record";
+            dataGridViewTextBoxColumn45.Name = "dataGridViewTextBoxColumn45";
+            dataGridViewTextBoxColumn45.ReadOnly = true;
+            dataGridViewTextBoxColumn45.Width = 67;
+            // 
+            // Column7
+            // 
+            Column7.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle82.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            Column7.DefaultCellStyle = dataGridViewCellStyle82;
+            Column7.HeaderText = "Prestige";
+            Column7.Name = "Column7";
+            Column7.ReadOnly = true;
+            Column7.Width = 70;
+            // 
+            // dataGridViewTextBoxColumn55
+            // 
+            dataGridViewTextBoxColumn55.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle83.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewTextBoxColumn55.DefaultCellStyle = dataGridViewCellStyle83;
+            dataGridViewTextBoxColumn55.HeaderText = "Score";
+            dataGridViewTextBoxColumn55.Name = "dataGridViewTextBoxColumn55";
+            dataGridViewTextBoxColumn55.ReadOnly = true;
+            dataGridViewTextBoxColumn55.Width = 60;
+            // 
+            // label181
+            // 
+            label181.AutoSize = true;
+            label181.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            label181.ForeColor = SystemColors.ButtonFace;
+            label181.Location = new Point(1029, 16);
+            label181.Name = "label181";
+            label181.Size = new Size(106, 18);
+            label181.TabIndex = 12;
+            label181.Text = "League Stats";
+            // 
+            // LeagueStatsView
+            // 
+            LeagueStatsView.AllowUserToAddRows = false;
+            LeagueStatsView.AllowUserToDeleteRows = false;
+            LeagueStatsView.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle86.BackColor = Color.Gainsboro;
+            dataGridViewCellStyle86.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle86.SelectionBackColor = Color.MediumSlateBlue;
+            LeagueStatsView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle86;
+            LeagueStatsView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            LeagueStatsView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            LeagueStatsView.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            dataGridViewCellStyle87.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle87.BackColor = SystemColors.InactiveCaption;
+            dataGridViewCellStyle87.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle87.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle87.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle87.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle87.WrapMode = DataGridViewTriState.True;
+            LeagueStatsView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle87;
+            LeagueStatsView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            LeagueStatsView.Columns.AddRange(new DataGridViewColumn[] { LS00, LS01, LS1, LS2, LS3, LS4, LS5, LS6, LS7, LS8, LS9 });
+            dataGridViewCellStyle90.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle90.BackColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle90.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle90.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle90.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle90.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle90.WrapMode = DataGridViewTriState.False;
+            LeagueStatsView.DefaultCellStyle = dataGridViewCellStyle90;
+            LeagueStatsView.Location = new Point(460, 37);
+            LeagueStatsView.Name = "LeagueStatsView";
+            LeagueStatsView.ReadOnly = true;
+            dataGridViewCellStyle91.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle91.BackColor = SystemColors.Control;
+            dataGridViewCellStyle91.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle91.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle91.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle91.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle91.WrapMode = DataGridViewTriState.True;
+            LeagueStatsView.RowHeadersDefaultCellStyle = dataGridViewCellStyle91;
+            LeagueStatsView.RowHeadersVisible = false;
+            LeagueStatsView.Size = new Size(675, 555);
+            LeagueStatsView.TabIndex = 11;
+            // 
+            // LS00
+            // 
+            LS00.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle88.Alignment = DataGridViewContentAlignment.MiddleRight;
+            LS00.DefaultCellStyle = dataGridViewCellStyle88;
+            LS00.HeaderText = "Team";
+            LS00.Name = "LS00";
+            LS00.ReadOnly = true;
+            LS00.Width = 59;
+            // 
+            // LS01
+            // 
+            LS01.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle89.Alignment = DataGridViewContentAlignment.MiddleRight;
+            LS01.DefaultCellStyle = dataGridViewCellStyle89;
+            LS01.HeaderText = "Player";
+            LS01.Name = "LS01";
+            LS01.ReadOnly = true;
+            LS01.Width = 61;
+            // 
+            // LS1
+            // 
+            LS1.HeaderText = "LS1";
+            LS1.Name = "LS1";
+            LS1.ReadOnly = true;
+            // 
+            // LS2
+            // 
+            LS2.HeaderText = "LS2";
+            LS2.Name = "LS2";
+            LS2.ReadOnly = true;
+            // 
+            // LS3
+            // 
+            LS3.HeaderText = "LS3";
+            LS3.Name = "LS3";
+            LS3.ReadOnly = true;
+            // 
+            // LS4
+            // 
+            LS4.HeaderText = "LS4";
+            LS4.Name = "LS4";
+            LS4.ReadOnly = true;
+            // 
+            // LS5
+            // 
+            LS5.HeaderText = "LS5";
+            LS5.Name = "LS5";
+            LS5.ReadOnly = true;
+            // 
+            // LS6
+            // 
+            LS6.HeaderText = "LS6";
+            LS6.Name = "LS6";
+            LS6.ReadOnly = true;
+            // 
+            // LS7
+            // 
+            LS7.HeaderText = "LS7";
+            LS7.Name = "LS7";
+            LS7.ReadOnly = true;
+            // 
+            // LS8
+            // 
+            LS8.HeaderText = "LS8";
+            LS8.Name = "LS8";
+            LS8.ReadOnly = true;
+            // 
+            // LS9
+            // 
+            LS9.HeaderText = "LS9";
+            LS9.Name = "LS9";
+            LS9.ReadOnly = true;
+            // 
             // tabRecruiting
             // 
             tabRecruiting.BackColor = Color.LightSlateGray;
@@ -14829,11 +14861,11 @@ namespace DB_EDITOR
             IncludeReturningTransfersBox.AutoSize = true;
             IncludeReturningTransfersBox.Checked = true;
             IncludeReturningTransfersBox.CheckState = CheckState.Checked;
-            IncludeReturningTransfersBox.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            IncludeReturningTransfersBox.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             IncludeReturningTransfersBox.ForeColor = SystemColors.ButtonFace;
-            IncludeReturningTransfersBox.Location = new Point(969, 44);
+            IncludeReturningTransfersBox.Location = new Point(942, 46);
             IncludeReturningTransfersBox.Name = "IncludeReturningTransfersBox";
-            IncludeReturningTransfersBox.Size = new Size(177, 19);
+            IncludeReturningTransfersBox.Size = new Size(204, 19);
             IncludeReturningTransfersBox.TabIndex = 165;
             IncludeReturningTransfersBox.Text = "Include Returning Transfers";
             IncludeReturningTransfersBox.UseVisualStyleBackColor = true;
@@ -14889,42 +14921,42 @@ namespace DB_EDITOR
             RecruitTeamView.AllowUserToAddRows = false;
             RecruitTeamView.AllowUserToDeleteRows = false;
             RecruitTeamView.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle162.BackColor = Color.Gainsboro;
-            dataGridViewCellStyle162.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle162.SelectionBackColor = Color.MediumSlateBlue;
-            RecruitTeamView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle162;
+            dataGridViewCellStyle92.BackColor = Color.Gainsboro;
+            dataGridViewCellStyle92.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle92.SelectionBackColor = Color.MediumSlateBlue;
+            RecruitTeamView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle92;
             RecruitTeamView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             RecruitTeamView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             RecruitTeamView.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle163.Alignment = DataGridViewContentAlignment.BottomCenter;
-            dataGridViewCellStyle163.BackColor = SystemColors.InactiveCaption;
-            dataGridViewCellStyle163.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle163.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle163.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle163.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle163.WrapMode = DataGridViewTriState.True;
-            RecruitTeamView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle163;
+            dataGridViewCellStyle93.Alignment = DataGridViewContentAlignment.BottomCenter;
+            dataGridViewCellStyle93.BackColor = SystemColors.InactiveCaption;
+            dataGridViewCellStyle93.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle93.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle93.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle93.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle93.WrapMode = DataGridViewTriState.True;
+            RecruitTeamView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle93;
             RecruitTeamView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             RecruitTeamView.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn80, dataGridViewTextBoxColumn81, RecruitHomeTeam, Column1, Column3, RecruitTeamOVR, RecruitTeamStarRating, dataGridViewTextBoxColumn84 });
-            dataGridViewCellStyle165.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle165.BackColor = SystemColors.ButtonFace;
-            dataGridViewCellStyle165.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle165.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle165.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle165.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle165.WrapMode = DataGridViewTriState.False;
-            RecruitTeamView.DefaultCellStyle = dataGridViewCellStyle165;
+            dataGridViewCellStyle95.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle95.BackColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle95.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle95.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle95.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle95.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle95.WrapMode = DataGridViewTriState.False;
+            RecruitTeamView.DefaultCellStyle = dataGridViewCellStyle95;
             RecruitTeamView.Location = new Point(542, 68);
             RecruitTeamView.Name = "RecruitTeamView";
             RecruitTeamView.ReadOnly = true;
-            dataGridViewCellStyle166.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle166.BackColor = SystemColors.Control;
-            dataGridViewCellStyle166.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle166.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle166.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle166.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle166.WrapMode = DataGridViewTriState.True;
-            RecruitTeamView.RowHeadersDefaultCellStyle = dataGridViewCellStyle166;
+            dataGridViewCellStyle96.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle96.BackColor = SystemColors.Control;
+            dataGridViewCellStyle96.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle96.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle96.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle96.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle96.WrapMode = DataGridViewTriState.True;
+            RecruitTeamView.RowHeadersDefaultCellStyle = dataGridViewCellStyle96;
             RecruitTeamView.RowHeadersVisible = false;
             RecruitTeamView.Size = new Size(604, 526);
             RecruitTeamView.TabIndex = 161;
@@ -14935,18 +14967,18 @@ namespace DB_EDITOR
             dataGridViewTextBoxColumn80.HeaderText = "Pos";
             dataGridViewTextBoxColumn80.Name = "dataGridViewTextBoxColumn80";
             dataGridViewTextBoxColumn80.ReadOnly = true;
-            dataGridViewTextBoxColumn80.Width = 56;
+            dataGridViewTextBoxColumn80.Width = 50;
             // 
             // dataGridViewTextBoxColumn81
             // 
             dataGridViewTextBoxColumn81.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle164.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridViewTextBoxColumn81.DefaultCellStyle = dataGridViewCellStyle164;
+            dataGridViewCellStyle94.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewTextBoxColumn81.DefaultCellStyle = dataGridViewCellStyle94;
             dataGridViewTextBoxColumn81.FillWeight = 251.798569F;
             dataGridViewTextBoxColumn81.HeaderText = "Player";
             dataGridViewTextBoxColumn81.Name = "dataGridViewTextBoxColumn81";
             dataGridViewTextBoxColumn81.ReadOnly = true;
-            dataGridViewTextBoxColumn81.Width = 72;
+            dataGridViewTextBoxColumn81.Width = 61;
             // 
             // RecruitHomeTeam
             // 
@@ -14955,7 +14987,7 @@ namespace DB_EDITOR
             RecruitHomeTeam.HeaderText = "Home";
             RecruitHomeTeam.Name = "RecruitHomeTeam";
             RecruitHomeTeam.ReadOnly = true;
-            RecruitHomeTeam.Width = 70;
+            RecruitHomeTeam.Width = 60;
             // 
             // Column1
             // 
@@ -14963,7 +14995,7 @@ namespace DB_EDITOR
             Column1.HeaderText = "Height";
             Column1.Name = "Column1";
             Column1.ReadOnly = true;
-            Column1.Width = 74;
+            Column1.Width = 63;
             // 
             // Column3
             // 
@@ -14971,7 +15003,7 @@ namespace DB_EDITOR
             Column3.HeaderText = "Weight";
             Column3.Name = "Column3";
             Column3.ReadOnly = true;
-            Column3.Width = 76;
+            Column3.Width = 66;
             // 
             // RecruitTeamOVR
             // 
@@ -14980,7 +15012,7 @@ namespace DB_EDITOR
             RecruitTeamOVR.HeaderText = "OVR";
             RecruitTeamOVR.Name = "RecruitTeamOVR";
             RecruitTeamOVR.ReadOnly = true;
-            RecruitTeamOVR.Width = 60;
+            RecruitTeamOVR.Width = 55;
             // 
             // RecruitTeamStarRating
             // 
@@ -15003,43 +15035,43 @@ namespace DB_EDITOR
             RecruitRankingView.AllowUserToAddRows = false;
             RecruitRankingView.AllowUserToDeleteRows = false;
             RecruitRankingView.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle167.BackColor = Color.Gainsboro;
-            dataGridViewCellStyle167.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle167.SelectionBackColor = Color.MediumSlateBlue;
-            RecruitRankingView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle167;
+            dataGridViewCellStyle97.BackColor = Color.Gainsboro;
+            dataGridViewCellStyle97.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle97.SelectionBackColor = Color.MediumSlateBlue;
+            RecruitRankingView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle97;
             RecruitRankingView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             RecruitRankingView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             RecruitRankingView.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle168.Alignment = DataGridViewContentAlignment.BottomCenter;
-            dataGridViewCellStyle168.BackColor = SystemColors.InactiveCaption;
-            dataGridViewCellStyle168.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle168.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle168.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle168.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle168.WrapMode = DataGridViewTriState.True;
-            RecruitRankingView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle168;
+            dataGridViewCellStyle98.Alignment = DataGridViewContentAlignment.BottomCenter;
+            dataGridViewCellStyle98.BackColor = SystemColors.InactiveCaption;
+            dataGridViewCellStyle98.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle98.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle98.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle98.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle98.WrapMode = DataGridViewTriState.True;
+            RecruitRankingView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle98;
             RecruitRankingView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             RecruitRankingView.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn14, Column6, RB5Star, RB4Star, RB3Star, RB2Star, RB1Star, RecruitRankingPts, Column2 });
-            dataGridViewCellStyle171.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle171.BackColor = SystemColors.ButtonFace;
-            dataGridViewCellStyle171.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle171.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle171.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle171.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle171.WrapMode = DataGridViewTriState.False;
-            RecruitRankingView.DefaultCellStyle = dataGridViewCellStyle171;
+            dataGridViewCellStyle101.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle101.BackColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle101.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle101.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle101.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle101.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle101.WrapMode = DataGridViewTriState.False;
+            RecruitRankingView.DefaultCellStyle = dataGridViewCellStyle101;
             RecruitRankingView.Location = new Point(6, 68);
             RecruitRankingView.MultiSelect = false;
             RecruitRankingView.Name = "RecruitRankingView";
             RecruitRankingView.ReadOnly = true;
-            dataGridViewCellStyle172.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle172.BackColor = SystemColors.Control;
-            dataGridViewCellStyle172.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle172.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle172.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle172.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle172.WrapMode = DataGridViewTriState.True;
-            RecruitRankingView.RowHeadersDefaultCellStyle = dataGridViewCellStyle172;
+            dataGridViewCellStyle102.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle102.BackColor = SystemColors.Control;
+            dataGridViewCellStyle102.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle102.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle102.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle102.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle102.WrapMode = DataGridViewTriState.True;
+            RecruitRankingView.RowHeadersDefaultCellStyle = dataGridViewCellStyle102;
             RecruitRankingView.RowHeadersVisible = false;
             RecruitRankingView.Size = new Size(530, 526);
             RecruitRankingView.TabIndex = 160;
@@ -15049,23 +15081,23 @@ namespace DB_EDITOR
             // dataGridViewTextBoxColumn4
             // 
             dataGridViewTextBoxColumn4.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle169.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle169;
+            dataGridViewCellStyle99.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle99;
             dataGridViewTextBoxColumn4.HeaderText = "#";
             dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             dataGridViewTextBoxColumn4.ReadOnly = true;
-            dataGridViewTextBoxColumn4.Width = 40;
+            dataGridViewTextBoxColumn4.Width = 39;
             // 
             // dataGridViewTextBoxColumn14
             // 
             dataGridViewTextBoxColumn14.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle170.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle170;
+            dataGridViewCellStyle100.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle100;
             dataGridViewTextBoxColumn14.FillWeight = 251.798569F;
             dataGridViewTextBoxColumn14.HeaderText = "Team";
             dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             dataGridViewTextBoxColumn14.ReadOnly = true;
-            dataGridViewTextBoxColumn14.Width = 68;
+            dataGridViewTextBoxColumn14.Width = 59;
             // 
             // Column6
             // 
@@ -15073,7 +15105,7 @@ namespace DB_EDITOR
             Column6.HeaderText = "Total";
             Column6.Name = "Column6";
             Column6.ReadOnly = true;
-            Column6.Width = 64;
+            Column6.Width = 56;
             // 
             // RB5Star
             // 
@@ -15240,21 +15272,21 @@ namespace DB_EDITOR
             // 
             PortalData.AllowUserToAddRows = false;
             PortalData.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle173.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle173.BackColor = Color.FromArgb((int)(byte)224, (int)(byte)224, (int)(byte)224);
-            dataGridViewCellStyle173.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle173.WrapMode = DataGridViewTriState.True;
-            PortalData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle173;
+            dataGridViewCellStyle103.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle103.BackColor = Color.FromArgb((int)(byte)224, (int)(byte)224, (int)(byte)224);
+            dataGridViewCellStyle103.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle103.WrapMode = DataGridViewTriState.True;
+            PortalData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle103;
             PortalData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             PortalData.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle174.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle174.BackColor = SystemColors.Info;
-            dataGridViewCellStyle174.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle174.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle174.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle174.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle174.WrapMode = DataGridViewTriState.True;
-            PortalData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle174;
+            dataGridViewCellStyle104.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle104.BackColor = SystemColors.Info;
+            dataGridViewCellStyle104.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle104.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle104.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle104.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle104.WrapMode = DataGridViewTriState.True;
+            PortalData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle104;
             PortalData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             PortalData.Columns.AddRange(new DataGridViewColumn[] { PortalPosition, PortalTransferName, PortalClass, PortalRating, PortalNewSchool, PortalPrvTeam });
             PortalData.Location = new Point(238, 14);
@@ -15262,9 +15294,9 @@ namespace DB_EDITOR
             PortalData.ReadOnly = true;
             PortalData.RowHeadersVisible = false;
             PortalData.RowHeadersWidth = 72;
-            dataGridViewCellStyle175.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle175.WrapMode = DataGridViewTriState.True;
-            PortalData.RowsDefaultCellStyle = dataGridViewCellStyle175;
+            dataGridViewCellStyle105.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle105.WrapMode = DataGridViewTriState.True;
+            PortalData.RowsDefaultCellStyle = dataGridViewCellStyle105;
             PortalData.RowTemplate.Height = 31;
             PortalData.Size = new Size(525, 587);
             PortalData.TabIndex = 40;
@@ -15954,7 +15986,6 @@ namespace DB_EDITOR
             this.FormBorderStyle = FormBorderStyle.Fixed3D;
             this.Icon = (Icon)resources.GetObject("$this.Icon");
             this.MainMenuStrip = mainMenu;
-            this.MinimumSize = new Size(1200, 750);
             this.Name = "MainEditor";
             this.ShowIcon = false;
             this.StartPosition = FormStartPosition.CenterScreen;
@@ -16046,13 +16077,6 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)RTAKBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)RKPRBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)RKACBox).EndInit();
-            tabStats.ResumeLayout(false);
-            groupBox26.ResumeLayout(false);
-            groupBox26.PerformLayout();
-            groupBox25.ResumeLayout(false);
-            groupBox25.PerformLayout();
-            groupBox24.ResumeLayout(false);
-            groupBox24.PerformLayout();
             tabStadiums.ResumeLayout(false);
             tabStadiums.PerformLayout();
             groupBox30.ResumeLayout(false);
@@ -16238,6 +16262,10 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)TSPassing).EndInit();
             ((System.ComponentModel.ISupportInitialize)TSDefense).EndInit();
             ((System.ComponentModel.ISupportInitialize)TSRushing).EndInit();
+            tabLeagueStats.ResumeLayout(false);
+            tabLeagueStats.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)LeagueRankingView).EndInit();
+            ((System.ComponentModel.ISupportInitialize)LeagueStatsView).EndInit();
             tabRecruiting.ResumeLayout(false);
             tabRecruiting.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)RecruitTeamView).EndInit();
@@ -16592,29 +16620,6 @@ namespace DB_EDITOR
         private System.Windows.Forms.ComboBox RPPOSBox;
         public Label label165;
         public Label label166;
-        private TabPage tabStats;
-        private GroupBox groupBox26;
-        private Label label221;
-        private ListBox SacksLeadersBox;
-        private ListBox IntLeadersBox;
-        private Label label223;
-        private Label label222;
-        private ListBox TacklesLeadersBox;
-        private GroupBox groupBox25;
-        private Label label220;
-        private ListBox ReceivingLeadersBox;
-        private Label label219;
-        private ListBox RushingLeadersBox;
-        private Label label218;
-        private ListBox PassingLeadersBox;
-        private GroupBox groupBox24;
-        private Label label217;
-        private Label label216;
-        private Label label215;
-        private ListBox TopTeamDefBox;
-        private ListBox TopTeamOffBox;
-        private ListBox TopTeamRatingsBox;
-        private ListBox CoachPollListBox;
         private TabPage tabStadiums;
         private GroupBox groupBox30;
         private System.Windows.Forms.Button GlobalWeather;
@@ -16724,13 +16729,6 @@ namespace DB_EDITOR
         private System.Windows.Forms.ComboBox DCHTTeam;
         private Label label152;
         private DataGridView DCHTGrid;
-        private DataGridViewTextBoxColumn DCHTPPOS;
-        private DataGridViewComboBoxColumn DCHT0;
-        private DataGridViewComboBoxColumn DCHT1;
-        private DataGridViewComboBoxColumn DCHT2;
-        private DataGridViewComboBoxColumn DCHT3;
-        private DataGridViewComboBoxColumn DCHT4;
-        private DataGridViewComboBoxColumn DCHT5;
         private TabPage tabSchedule;
         private Label label213;
         private DataGridView MatchView;
@@ -17277,8 +17275,6 @@ namespace DB_EDITOR
         private System.Windows.Forms.Button SetMinTeamPrestigeButton;
         private Label PlayerTransferLabel;
         private CheckBox FCSTransferPortalCheckBox;
-        private Label label65;
-        private System.Windows.Forms.ComboBox PollComboBox;
         private GroupBox groupBox42;
         private DataGridView PlayerStatsView;
         private DataGridViewTextBoxColumn PS0;
@@ -17368,7 +17364,6 @@ namespace DB_EDITOR
         private DataGridViewTextBoxColumn INJrating;
         private DataGridViewTextBoxColumn INJtype;
         private DataGridViewTextBoxColumn INJlength;
-        private System.Windows.Forms.Button LoadStatDataButton;
         private GroupBox groupBox48;
         public Label label82;
         private System.Windows.Forms.ComboBox RHAN;
@@ -17573,6 +17568,36 @@ namespace DB_EDITOR
         private DataGridViewTextBoxColumn RB1Star;
         private DataGridViewTextBoxColumn RecruitRankingPts;
         private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn DCHTPPOS;
+        private DataGridViewComboBoxColumn DCHT0;
+        private DataGridViewComboBoxColumn DCHT1;
+        private DataGridViewComboBoxColumn DCHT2;
+        private DataGridViewComboBoxColumn DCHT3;
+        private DataGridViewComboBoxColumn DCHT4;
+        private DataGridViewComboBoxColumn DCHT5;
+        private TabPage tabLeagueStats;
+        private Label label181;
+        private DataGridView LeagueStatsView;
+        private DataGridView LeagueRankingView;
+        private System.Windows.Forms.ComboBox LeagueStatsBox;
+        private System.Windows.Forms.ComboBox LeagueRankingBox;
+        private Label label197;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn37;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn36;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn45;
+        private DataGridViewTextBoxColumn Column7;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn55;
+        private DataGridViewTextBoxColumn LS00;
+        private DataGridViewTextBoxColumn LS01;
+        private DataGridViewTextBoxColumn LS1;
+        private DataGridViewTextBoxColumn LS2;
+        private DataGridViewTextBoxColumn LS3;
+        private DataGridViewTextBoxColumn LS4;
+        private DataGridViewTextBoxColumn LS5;
+        private DataGridViewTextBoxColumn LS6;
+        private DataGridViewTextBoxColumn LS7;
+        private DataGridViewTextBoxColumn LS8;
+        private DataGridViewTextBoxColumn LS9;
     }
 }
 

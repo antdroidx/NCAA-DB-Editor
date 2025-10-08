@@ -15,6 +15,7 @@ namespace DB_EDITOR
 {
     partial class MainEditor : Form
     {
+        /*
         private void StartStatsViewer()
         {
 
@@ -326,6 +327,8 @@ namespace DB_EDITOR
             LoadTop25Rankings();      
                 
         }
+        */
     }
 
 }
+

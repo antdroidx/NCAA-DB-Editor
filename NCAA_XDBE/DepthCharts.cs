@@ -97,7 +97,7 @@ namespace DB_EDITOR
 
                     int pos = GetDBValueInt("PLAY", "PPOS", i);
 
-                    DCHTPlayers[row].Add(GetPOSG2Name(GetPOSG2fromPPOS(pos)) + ": " + GetFirstNameFromRecord(i) + " " + GetLastNameFromRecord(i)); //27
+                    DCHTPlayers[row].Add(GetPOSG2Name(GetPOSG2fromPPOS(pos)) + ": " + GetPlayerNamefromRec(i) + " [" + ConvertRating(GetDBValueInt("PLAY", "POVR", i)) + "]"); //27
                     //DCHTPlayers[row].Add(GetPOSG2Name(GetPOSG2fromPPOS(pos)) + ": " + GetFirstNameFromRecord(i) + " " + GetLastNameFromRecord(i) + DCHTPlayers[row][4]); //debug use to see pos ratings
 
                     DCHTPlayers[row].Add(GetDBValue("PLAY", "PPOS", i)); //28
@@ -165,8 +165,11 @@ namespace DB_EDITOR
                     int ppos = GetDBValueInt("DCHT", "PPOS", i);
                     int ddep = GetDBValueInt("DCHT", "ddep", i);
 
-                    string name = GetPlayerNamefromPGID(pgid);
-                    int pos = GetPPOSfromRecord(FindPGIDRecord(pgid));
+                    int rec = FindPGIDRecord(pgid);
+                    string name = GetPlayerNamefromRec(rec);
+                    int pos = GetPPOSfromRecord(rec);
+                    int povr = GetDBValueInt("PLAY", "POVR", rec);
+
 
                     int dchtrow = -1;
                     for (int x = 0; x < DCHTPlayers.Count; x++)
@@ -179,7 +182,7 @@ namespace DB_EDITOR
                     }
 
 
-                    DCHTGrid.Rows[ppos].Cells[ddep + 1].Value = (GetPOSG2Name(GetPOSG2fromPPOS(pos)) + ": " + name);
+                    DCHTGrid.Rows[ppos].Cells[ddep + 1].Value = (GetPOSG2Name(GetPOSG2fromPPOS(pos)) + ": " + name + " [" + ConvertRating(povr) + "]");
                     count++;
                 }
                 ProgressBarStep();

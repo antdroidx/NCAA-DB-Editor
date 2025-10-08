@@ -668,9 +668,9 @@ namespace DB_EDITOR
                                     portalList.Add(new List<string>());
                                     portalList[row].Add(GetPOSG2Name(pos));
 
-                                    string playerStarter = "";                                    
+                                    string playerStarter = "";
                                     //playerStarter += GetPlayerNamefromPGID(pgid);
-                                    playerStarter += GetFirstNameFromRecord(rec) + " " + GetLastNameFromRecord(rec);
+                                    playerStarter += GetPlayerNamefromRec(rec);
                                     if (SpringPortal[i][12] == 1) playerStarter += " (S)";
 
 

@@ -334,6 +334,18 @@ namespace DB_EDITOR
             return playername;
         }
 
+        public string GetPlayerNamefromRec(int rec)
+        {
+            string playername = "";
+
+            String FN = GetFirstNameFromRecord(rec);
+            String LN = GetLastNameFromRecord(rec);
+
+            playername = FN + " " + LN;
+
+            return playername;
+        }
+
         public int FindPGIDRecord(int PGID)
         {
             int rec = -1;

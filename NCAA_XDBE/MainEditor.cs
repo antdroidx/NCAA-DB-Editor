@@ -206,7 +206,7 @@ namespace DB_EDITOR
             tabControl1.TabPages.Remove(tabRecruits);
             tabControl1.TabPages.Remove(tabUniforms);
             tabControl1.TabPages.Remove(tabBowls);
-            tabControl1.TabPages.Remove(tabStats);
+            tabControl1.TabPages.Remove(tabLeagueStats);
             tabControl1.TabPages.Remove(tabSchedule);
             tabControl1.TabPages.Remove(tabStadiums);
             tabControl1.TabPages.Remove(tabPortal);
@@ -1132,7 +1132,7 @@ namespace DB_EDITOR
             else if (tabControl1.SelectedTab == tabBowls) StartBowlEditor();
             else if (tabControl1.SelectedTab == tabRecruits) StartRecruitEditor();
             else if (tabControl1.SelectedTab == tabSchedule) StartScheduleEditor();
-            else if (tabControl1.SelectedTab == tabStats) StartStatsViewer();
+            else if (tabControl1.SelectedTab == tabLeagueStats) StartStatsViewer();
             else if (tabControl1.SelectedTab == tabStadiums) StartStadiumEditor();
             else if (tabControl1.SelectedTab == tabPortal) StartSpringPortal();
             else if (tabControl1.SelectedTab == tabSTRMDATA) { /* do nothing */ }

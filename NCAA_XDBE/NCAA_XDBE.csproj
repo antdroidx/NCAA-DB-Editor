@@ -49,6 +49,9 @@ Credits:
     <None Remove="fmfjvkzb.z3w~" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="LeagueStats.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="TeamStatsViewer.cs">
       <SubType>Form</SubType>
     </Compile>
