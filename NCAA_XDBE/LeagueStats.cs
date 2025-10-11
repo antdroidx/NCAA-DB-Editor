@@ -299,14 +299,14 @@ namespace DB_EDITOR
         private void LoadLeagueTeamOffenseStats()
         {
 
-            LS1.HeaderText = "TotYds";
-            LS2.HeaderText = "OffYds";
-            LS3.HeaderText = "Pass";
-            LS4.HeaderText = "TD";
-            LS5.HeaderText = "Rush";
-            LS6.HeaderText = "TD";
-            LS7.HeaderText = "PPG";
-            LS8.HeaderText = "1st Dwn";
+            LS1.HeaderText = "Yds/gm";
+            LS2.HeaderText = "Pts/gm";
+            LS3.HeaderText = "Tot Yds";
+            LS4.HeaderText = "Off Yds";
+            LS5.HeaderText = "Pass Yds";
+            LS6.HeaderText = "Pass TD";
+            LS7.HeaderText = "Rush Yds";
+            LS8.HeaderText = "Rush TD";
             LS9.HeaderText = "Sacks";
 
             List<List<int>> teamGP = new List<List<int>>();
@@ -325,22 +325,16 @@ namespace DB_EDITOR
                 int Ascore = GetDBValueInt("SCHD", "GASC", g);
                 int Hscore = GetDBValueInt("SCHD", "GHSC", g);
 
-                if(Ascore >= 0 && Hscore >= 0)
+                if(Ascore > 0 || Hscore > 0)
                 {
-                    if (tgidA < 512)
-                    {
                         teamGP[tgidA][0]++;
                         teamGP[tgidA][1] += Ascore;
                         teamGP[tgidA][2] += Hscore;
-                    }
-                    if (tgidH < 512)
-                    {
+
                         teamGP[tgidH][0]++;
                         teamGP[tgidH][1] += Hscore;
                         teamGP[tgidH][2] += Ascore;
-                    }
                 }
-
             }
 
             StartProgressBar(GetTableRecCount("TSSE"));
@@ -362,21 +356,22 @@ namespace DB_EDITOR
                 int pts = teamGP[GetDBValueInt("TSSE", "TGID", i)][1];
                 double gp = teamGP[GetDBValueInt("TSSE", "TGID", i)][0];
 
-
+                double ypg = 0;
+                if (gp > 0) ypg = Math.Round((Convert.ToDouble(offYds) / Convert.ToDouble(gp)), 1);
                 double ppg = 0;
                 if (gp > 0) ppg = Math.Round((Convert.ToDouble(pts) / Convert.ToDouble(gp)), 1);
 
                 int row = LeagueStatsView.Rows.Count;
                 LeagueStatsView.Rows.Add(1);
                 LeagueStatsView.Rows[row].Cells[1].Value = team;
-                LeagueStatsView.Rows[row].Cells[2].Value = totYds;
-                LeagueStatsView.Rows[row].Cells[3].Value = offYds;
-                LeagueStatsView.Rows[row].Cells[4].Value = passYds;
-                LeagueStatsView.Rows[row].Cells[5].Value = passTD;
-                LeagueStatsView.Rows[row].Cells[6].Value = rushYds;
-                LeagueStatsView.Rows[row].Cells[7].Value = rushTD;
-                LeagueStatsView.Rows[row].Cells[8].Value = ppg;
-                LeagueStatsView.Rows[row].Cells[9].Value = firstdowns;
+                LeagueStatsView.Rows[row].Cells[2].Value = ypg;
+                LeagueStatsView.Rows[row].Cells[3].Value = ppg;
+                LeagueStatsView.Rows[row].Cells[4].Value = totYds;
+                LeagueStatsView.Rows[row].Cells[5].Value = offYds;
+                LeagueStatsView.Rows[row].Cells[6].Value = passYds;
+                LeagueStatsView.Rows[row].Cells[7].Value = passTD;
+                LeagueStatsView.Rows[row].Cells[8].Value = rushYds;
+                LeagueStatsView.Rows[row].Cells[9].Value = rushTD;
                 LeagueStatsView.Rows[row].Cells[10].Value = sacks;
 
             }
@@ -391,14 +386,14 @@ namespace DB_EDITOR
         private void LoadLeagueTeamDefenseStats()
         {
 
-            LS1.HeaderText = "TotYds";
-            LS2.HeaderText = "Pass Yds";
-            LS3.HeaderText = "Rush Yds";
-            LS4.HeaderText = "PPG";
-            LS5.HeaderText = "Sacks";
-            LS6.HeaderText = "Int";
-            LS7.HeaderText = "FumRec";
-            LS8.HeaderText = "";
+            LS1.HeaderText = "Yds/Gm";
+            LS2.HeaderText = "Pts/Gm";
+            LS3.HeaderText = "Tot Yds";
+            LS4.HeaderText = "Pass Yds";
+            LS5.HeaderText = "Rush Yds";
+            LS6.HeaderText = "Sacks";
+            LS7.HeaderText = "Ints";
+            LS8.HeaderText = "Fum Rec";
             LS9.HeaderText = "";
 
             List<List<int>> teamGP = new List<List<int>>();
@@ -417,24 +412,18 @@ namespace DB_EDITOR
                 int Ascore = GetDBValueInt("SCHD", "GASC", g);
                 int Hscore = GetDBValueInt("SCHD", "GHSC", g);
 
-                if (Ascore >= 0 && Hscore >= 0)
+                if (Ascore > 0 || Hscore > 0)
                 {
-                    if (tgidA < 512)
-                    {
-                        teamGP[tgidA][0]++;
-                        teamGP[tgidA][1] += Ascore;
-                        teamGP[tgidA][2] += Hscore;
+                    teamGP[tgidA][0]++;
+                    teamGP[tgidA][1] += Ascore;
+                    teamGP[tgidA][2] += Hscore;
 
-                    }
-                    if (tgidH < 512)
-                    {
-                        teamGP[tgidH][0]++;
-                        teamGP[tgidH][1] += Hscore;
-                        teamGP[tgidH][2] += Ascore;
-                    }
+                    teamGP[tgidH][0]++;
+                    teamGP[tgidH][1] += Hscore;
+                    teamGP[tgidH][2] += Ascore;
                 }
-
             }
+
 
             StartProgressBar(GetTableRecCount("TSSE"));
 
@@ -455,24 +444,27 @@ namespace DB_EDITOR
                 double gp = teamGP[GetDBValueInt("TSSE", "TGID", i)][0];
 
 
+                double ypg = 0;
+                if (gp > 0) ypg = Math.Round((Convert.ToDouble(totYds) / Convert.ToDouble(gp)), 1);
                 double ppg = 0;
                 if (gp > 0) ppg = Math.Round((Convert.ToDouble(pts) / Convert.ToDouble(gp)), 1);
 
                 int row = LeagueStatsView.Rows.Count;
                 LeagueStatsView.Rows.Add(1);
                 LeagueStatsView.Rows[row].Cells[1].Value = team;
-                LeagueStatsView.Rows[row].Cells[2].Value = totYds;
-                LeagueStatsView.Rows[row].Cells[3].Value = passYds;
-                LeagueStatsView.Rows[row].Cells[4].Value = rushYds;
-                LeagueStatsView.Rows[row].Cells[5].Value = ppg;
-                LeagueStatsView.Rows[row].Cells[6].Value = sacks;
-                LeagueStatsView.Rows[row].Cells[7].Value = ints;
-                LeagueStatsView.Rows[row].Cells[8].Value = fumrec;
+                LeagueStatsView.Rows[row].Cells[2].Value = ypg;
+                LeagueStatsView.Rows[row].Cells[3].Value = ppg;
+                LeagueStatsView.Rows[row].Cells[4].Value = totYds;
+                LeagueStatsView.Rows[row].Cells[5].Value = passYds;
+                LeagueStatsView.Rows[row].Cells[6].Value = rushYds;
+                LeagueStatsView.Rows[row].Cells[7].Value = sacks;
+                LeagueStatsView.Rows[row].Cells[8].Value = ints;
+                LeagueStatsView.Rows[row].Cells[9].Value = fumrec;
             }
             ProgressBarStep();
 
 
-            LeagueStatsView.Sort(LeagueStatsView.Columns[2], System.ComponentModel.ListSortDirection.Descending);
+            LeagueStatsView.Sort(LeagueStatsView.Columns[2], System.ComponentModel.ListSortDirection.Ascending);
 
             EndProgressBar();
         }
@@ -488,7 +480,7 @@ namespace DB_EDITOR
             LS6.HeaderText = "YPG";
             LS7.HeaderText = "TD";
             LS8.HeaderText = "INT";
-            LS9.HeaderText = "SKD";
+            LS9.HeaderText = "Sack";
 
             StartProgressBar(GetTableRecCount("PSOF"));
 

@@ -738,12 +738,12 @@ namespace DB_EDITOR
             ChangeDBString(tableName, "TRDE", teamRec, Convert.ToString(rating));
 
             //TROF - Offense 0 - 9, 19
-            rating = (Convert.ToInt32(GetDBValue(tableName, "TRQB", teamRec)) * 2 + Convert.ToInt32(GetDBValue(tableName, "TRRB", teamRec)) + Convert.ToInt32(GetDBValue(tableName, "TWRR", teamRec)) + Convert.ToInt32(GetDBValue(tableName, "TROL", teamRec))) / 5;
+            rating = (Convert.ToInt32(GetDBValue(tableName, "TRQB", teamRec)) * 35 + Convert.ToInt32(GetDBValue(tableName, "TRRB", teamRec)) * 25 + Convert.ToInt32(GetDBValue(tableName, "TWRR", teamRec)) * 20 + Convert.ToInt32(GetDBValue(tableName, "TROL", teamRec)) * 20 ) / 100;
 
             ChangeDBString(tableName, "TROF", teamRec, Convert.ToString(rating));
 
             //TROV - Team Overall
-            rating = (Convert.ToInt32(GetDBValue(tableName, "TROF", teamRec)) * 3 + Convert.ToInt32(GetDBValue(tableName, "TRDE", teamRec)) * 3 + Convert.ToInt32(GetDBValue(tableName, "TRST", teamRec))) / 7;
+            rating = (Convert.ToInt32(GetDBValue(tableName, "TROF", teamRec)) * 4 + Convert.ToInt32(GetDBValue(tableName, "TRDE", teamRec)) * 4 + Convert.ToInt32(GetDBValue(tableName, "TRST", teamRec))) / 9;
 
             ChangeDBString(tableName, "TROV", teamRec, Convert.ToString(rating));
 
@@ -774,12 +774,12 @@ namespace DB_EDITOR
                         ChangeDBString(tableName, "TRDE", x, Convert.ToString(rating));
 
                         //TROF - Offense 0 - 9, 19
-                        rating = (Convert.ToInt32(GetDBValue(tableName, "TRQB", x)) * 2 + Convert.ToInt32(GetDBValue(tableName, "TRRB", x)) + Convert.ToInt32(GetDBValue(tableName, "TWRR", x)) + Convert.ToInt32(GetDBValue(tableName, "TROL", x))) / 5;
+                        rating = (Convert.ToInt32(GetDBValue(tableName, "TRQB", x)) * 35 + Convert.ToInt32(GetDBValue(tableName, "TRRB", x)) *25 + Convert.ToInt32(GetDBValue(tableName, "TWRR", x)) * 20 + Convert.ToInt32(GetDBValue(tableName, "TROL", x)) * 20) / 100;
 
                         ChangeDBString(tableName, "TROF", x, Convert.ToString(rating));
 
                         //TROV - Team Overall
-                        rating = (Convert.ToInt32(GetDBValue(tableName, "TROF", x)) * 3 + Convert.ToInt32(GetDBValue(tableName, "TRDE", x)) * 3 + Convert.ToInt32(GetDBValue(tableName, "TRST", x))) / 7;
+                        rating = (Convert.ToInt32(GetDBValue(tableName, "TROF", x)) * 4 + Convert.ToInt32(GetDBValue(tableName, "TRDE", x)) * 4 + Convert.ToInt32(GetDBValue(tableName, "TRST", x))) / 9;
 
                         offRatings.Add(GetDBValueInt(tableName, "TROF", x));
                         defRatings.Add(GetDBValueInt(tableName, "TRDE", x));
@@ -796,6 +796,8 @@ namespace DB_EDITOR
             }
 
             //Calculate Normalized Rating on a 55-99scale
+            int highOff = 0;
+            int highDef = 0;
             for (int x = 0; x < GetTableRecCount(tableName); x++)
             {
                 if (TEAM && GetDBValueInt(tableName, "TTYP", x) < 1 || TDYN)
@@ -804,15 +806,56 @@ namespace DB_EDITOR
                     double normalDef = GetDBValueInt(tableName, "TRDE", x) - meanDef;
                     int offRating = Convert.ToInt32(normalOff * rangeOffFactor + meanOff);
                     int defRating = Convert.ToInt32(normalDef * rangeDefFactor + meanDef);
-
-                    if(offRating > 99) offRating = 99;
-                    if(defRating > 99) defRating = 99;
                    
+                    int stRating = GetDBValueInt(tableName, "TRST", x);
+
                     ChangeDBInt(tableName, "TROF", x, offRating);
                     ChangeDBInt(tableName, "TRDE", x, defRating);
-                    ChangeDBInt(tableName, "TROV", x, (offRating + defRating) / 2);
+
+
+                    ChangeDBInt(tableName, "TROV", x, (offRating*45 + defRating*45 + stRating*10) / 100);
+
+                    if (offRating > highOff) highOff = offRating;
+                    if (defRating > highDef) highDef = defRating;
                 }
             }
+
+            if(highOff > 99)
+            {
+                int diff = highOff - 99;
+
+                for (int x = 0; x < GetTableRecCount(tableName); x++)
+                {
+                    if (TEAM && GetDBValueInt(tableName, "TTYP", x) < 1 || TDYN)
+                    {
+                        int rating = GetDBValueInt(tableName, "TROF", x);
+                        int def = GetDBValueInt(tableName, "TRDE", x);
+                        int st = GetDBValueInt(tableName, "TRST", x);
+
+                        ChangeDBInt(tableName, "TROF", x, rating - diff);
+                        ChangeDBInt(tableName, "TROV", x, ((rating - diff)*45 + def * 45 + st*10) / 100);
+                    }
+                }
+            }
+
+            if (highDef > 99)
+            {
+                int diff = highDef - 99;
+
+                for (int x = 0; x < GetTableRecCount(tableName); x++)
+                {
+                    if (TEAM && GetDBValueInt(tableName, "TTYP", x) < 1 || TDYN)
+                    {
+                        int rating = GetDBValueInt(tableName, "TRDE", x);
+                        int off = GetDBValueInt(tableName, "TROF", x);
+                        int st = GetDBValueInt(tableName, "TRST", x);
+
+                        ChangeDBInt(tableName, "TRDE", x, rating - diff);
+                        ChangeDBInt(tableName, "TROV", x, ((rating - diff) * 45 + off * 45 + st * 10) / 100);
+                    }
+                }
+            }
+
 
             if (ReRankTeams.Checked || ReRankTeamsAP.Checked) ReRankPreseason();
         }
