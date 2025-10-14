@@ -170,9 +170,12 @@ namespace DB_EDITOR
             closeMenuItem.Visible = true;
             definitionFileMenuItem.Visible = true;
             toolStripSeparator7.Visible = true;
-
-
+            
+            optionsMenuItem.Enabled = true;
+            CSVMenu.Enabled = true;
             CSVMenu.Visible = false;
+            optionsMenuItem.Visible = false;
+
 
             TablePropsgroupBox.Visible = false;
             FieldsPropsgroupBox.Visible = false;
@@ -1116,7 +1119,13 @@ namespace DB_EDITOR
         #region TAB CONTROLS
         private void TabControl1_IndexChange(object sender, EventArgs e)
         {
-            if (tabControl1.SelectedTab != tabDB) CSVMenu.Visible = false;
+
+            if (tabControl1.SelectedTab != tabDB)
+            {
+                CSVMenu.Visible = false;
+                optionsMenuItem.Visible = false;
+            }
+
 
             if (tabControl1.SelectedTab == tabDB) TabDB_Start();
             else if (tabControl1.SelectedTab == tabDynasty) StartDynastyEditor();
@@ -1142,15 +1151,7 @@ namespace DB_EDITOR
 
         }
 
-        private void TabDB_Start()
-        {
-            TablePropsgroupBox.Visible = true;
-            FieldsPropsgroupBox.Visible = true;
-            fieldMenu.Enabled = true;
-            tableMenu.Enabled = true;
-            CSVMenu.Visible = true;
-            StartDBEditor();
-        }
+
 
         private void StartHomeTab()
         {

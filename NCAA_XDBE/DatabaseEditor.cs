@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Drawing;
+using System.Drawing.Text;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
@@ -11,15 +13,24 @@ namespace DB_EDITOR
     {
         /* Database Editor */
 
+        private void TabDB_Start()
+        {
+            TablePropsgroupBox.Visible = true;
+            FieldsPropsgroupBox.Visible = true;
+            fieldMenu.Enabled = true;
+            tableMenu.Enabled = true;
+            CSVMenu.Visible = true;
+            optionsMenuItem.Visible = true;
+            StartDBEditor();
+        }
+
         private void StartDBEditor()
         {
-            DoNotTrigger = true; 
+            DoNotTrigger = true;
             int ind = 0;
             if (DB2Button.Checked) ind = 1;
             GetTables(ind);
             LoadTables();
-            //GetFields(ind, SelectedTableIndex);
-            //LoadFields();
             tableGridView.ClearSelection();
 
             DoNotTrigger = false;
@@ -29,7 +40,7 @@ namespace DB_EDITOR
 
         private void GetTableProperties()
         {
-            
+
             TdbTableProperties TableProps = new TdbTableProperties();
 
             TableProps.Name = TDBNameLength;
@@ -38,14 +49,14 @@ namespace DB_EDITOR
             TDB.TDBTableGetProperties(dbSelected, SelectedTableIndex, ref TableProps);
 
             string flags = "";
-            if(TableProps.Flag0) flags += " FL0";
-            if(TableProps.Flag1) flags += " FL1";
-            if(TableProps.Flag2) flags += " FL2";
-            if(TableProps.Flag3) flags += " FL3";
+            if (TableProps.Flag0) flags += " FL0";
+            if (TableProps.Flag1) flags += " FL1";
+            if (TableProps.Flag2) flags += " FL2";
+            if (TableProps.Flag3) flags += " FL3";
             if (TableProps.NonAllocated) flags += " NonAlloc";
 
             TablePropsLabel.Text = "Fields: " + TableProps.FieldCount.ToString() + "   Capacity: " + TableProps.Capacity.ToString() + "   Records: " + TableProps.RecordCount.ToString() + "    DelRec: " + TableProps.DeletedCount.ToString() + " " + flags;
-            
+
         }
 
         private void GetFieldProps()
@@ -251,7 +262,9 @@ namespace DB_EDITOR
 
             EndProgressBar();
 
+            // Add any special Add-Ons for certain tables
             DBFieldAddOns(TableProps);
+
             SortFields();
         }
 
@@ -285,28 +298,22 @@ namespace DB_EDITOR
         {
             DoNotTrigger = true;
 
-            
-            int fCount_addon = 5; //number of extra columns (fields) to add to PLAY table
-            int fCount_First = 4; //5-4 = 1 = 1st new column
-            int fCount_Last = 3;
-            int fCount_Pos = 2;
-            int fCount_Team = 1;
-            
-
             int tmpFIELDcount = FieldNames.Count;
 
             fieldsGridView.EnableHeadersVisualStyles = false;
+
+
             fieldsGridView.Rows.Clear();
             fieldsGridView.Columns.Clear();
 
-            #region Populate column header with field names.
-
             fieldsGridView.ColumnCount = tmpFIELDcount + 2;  // set maximum columns (FieldCount + RecNo + autofill last column)
+
             fieldsGridView.Columns[0].Name = "Rec";
             fieldsGridView.Columns[0].Width = 47;
 
+
             StartProgressBar(tmpFIELDcount + 2);
-           
+
             int tmpi = 0;
             foreach (KeyValuePair<int, string> sortAZ in FieldNames)
             {
@@ -325,13 +332,19 @@ namespace DB_EDITOR
                 ProgressBarStep();
             }
 
+            HidePLAYColumns();
+
             EndProgressBar();
             fieldsGridView.Columns[tmpFIELDcount + 1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             //
 
-            #endregion
 
-            #region Populate Field DataGrid
+            LoadFieldData();
+        }
+
+        private void LoadFieldData()
+        {
+            DoNotTrigger = true;
 
             TdbTableProperties TableProps = new TdbTableProperties();
 
@@ -342,8 +355,11 @@ namespace DB_EDITOR
             if (!TDB.TDBTableGetProperties(dbSelected, SelectedTableIndex, ref TableProps))
                 return;
 
-            StartProgressBar(TableProps.RecordCount);
 
+            //int fCount = TableProps.FieldCount + 1;
+            int fCount = FieldNames.Count + 1;
+
+            StartProgressBar(TableProps.RecordCount);
 
             for (int r = 0; r < TableProps.RecordCount; r++)
             {
@@ -353,40 +369,14 @@ namespace DB_EDITOR
 
                 int tmpf = 0;
 
-                int fCount = TableProps.FieldCount + 1;
-
-                
-                
-                if (TableProps.Name == "PLAY" && TDB.FieldIndex(dbSelected, SelectedTableName, "First Name") == -1 && TDB.FieldIndex(dbSelected, SelectedTableName, "PF10") == 0)
-                {
-                    fCount = TableProps.FieldCount + fCount_addon;
-                }
-                
-
-                // Format FieldGridView by tdbFieldType.
+                //Format FieldGridView by tdbFieldType.
                 object[] DataGridRow = new object[fCount];
                 DataGridRow[0] = r;
 
-                
-                if (SelectedTableName == "PLAY" && TDB.FieldIndex(dbSelected, SelectedTableName, "First Name") == -1 && TDB.FieldIndex(dbSelected, SelectedTableName, "PF10") == 0)
-                {
-                    fieldsGridView.Columns[fCount - fCount_First].Width = 86;
-                    DataGridRow[fCount - fCount_First] = GetFirstNameFromRecord(r);
-                    fieldsGridView.Columns[fCount - fCount_Last].Width = 86;
-                    DataGridRow[fCount - fCount_Last] = GetLastNameFromRecord(r);
-                }
-                
-                
-
-
                 foreach (KeyValuePair<int, string> f in FieldNames)
                 {
-                    
-                    
-                    if (TableProps.Name == "PLAY" && TDB.FieldIndex(dbSelected, SelectedTableName, "PF10") == 0 && f.Key > FieldNames.Count - fCount_addon)
+                    if (TableProps.Name == "PLAY" && TDB.FieldIndex(dbSelected, SelectedTableName, "PF10") >= 0 && f.Key > FieldNames.Count - 5)
                         continue;
-                    
-
 
                     TdbFieldProperties FieldProps = new TdbFieldProperties();
 
@@ -396,19 +386,15 @@ namespace DB_EDITOR
 
                     #region Load fieldsGridView by tdbFieldType.
                     //
+
                     if (FieldProps.FieldType == TdbFieldType.tdbString)
                     {
                         // I think Values that are a string might have to be formatted to a specific length
                         // it probably has something to do with the language he made the dll with
                         string val = new string((char)0, (FieldProps.Size / 8) + 1);
 
-
-
-
                         TDB.TDBFieldGetValueAsString(dbSelected, TableProps.Name, FieldProps.Name, r, ref val);
                         val = val.Replace(",", "");
-
-
 
                         fieldsGridView.Columns[tmpf + 1].Width = 86;  // Increase the width size for string literals.
 
@@ -430,30 +416,13 @@ namespace DB_EDITOR
                         #endregion
 
                         DataGridRow[tmpf + 1] = val;
-
                     }
                     else if (FieldProps.FieldType == TdbFieldType.tdbUInt)
                     {
                         UInt32 intval;
-                        UInt32 pos;
                         intval = (UInt32)TDB.TDBFieldGetValueAsInteger(dbSelected, TableProps.Name, FieldProps.Name, r);
 
                         DataGridRow[tmpf + 1] = intval;
-
-                        
-                        if (FieldProps.Name == "PGID" && teamNameDB.Length > 0 && TableProps.Name == "PLAY" && TDB.FieldIndex(dbSelected, SelectedTableName, "PF10") == 0)
-                        {
-                            DataGridRow[fCount - fCount_Team] = GetTeamName((int)intval / 70);
-                            fieldsGridView.Columns[fCount - fCount_Team].Width = 86;
-                        }
-                        else if (FieldProps.Name == "PPOS" && TableProps.Name == "PLAY" && TDB.FieldIndex(dbSelected, SelectedTableName, "PF10") == 0)
-                        {
-                            pos = (UInt32)TDB.TDBFieldGetValueAsInteger(dbSelected, "PLAY", "PPOS", r);
-                            DataGridRow[fCount - fCount_Pos] = GetPositionName((int)pos);
-                            fieldsGridView.Columns[fCount - fCount_Pos].Width = 86;
-                        }
-                        
-
 
                     }
                     else if (FieldProps.FieldType == TdbFieldType.tdbInt || FieldProps.FieldType == TdbFieldType.tdbSInt)
@@ -462,12 +431,14 @@ namespace DB_EDITOR
                         signedval = TDB.TDBFieldGetValueAsInteger(dbSelected, TableProps.Name, FieldProps.Name, r);
 
                         DataGridRow[tmpf + 1] = signedval;
+
                     }
                     else if (FieldProps.FieldType == TdbFieldType.tdbFloat)
                     {
                         float floatval;
                         floatval = TDB.TDBFieldGetValueAsFloat(dbSelected, TableProps.Name, FieldProps.Name, r);
                         DataGridRow[tmpf + 1] = floatval.ToString("0.00");
+
                     }
                     else if (FieldProps.FieldType == TdbFieldType.tdbBinary || FieldProps.FieldType == TdbFieldType.tdbVarchar || FieldProps.FieldType == TdbFieldType.tdbLongVarchar)
                     {
@@ -490,13 +461,21 @@ namespace DB_EDITOR
                 }
 
 
+                if (SelectedTableName == "PLAY" && TDB.FieldIndex(dbSelected, SelectedTableName, "PF10") >= 0)
+                {
+                    DataGridRow[fCount - 4] = GetFirstNameFromRecord(r);
+                    DataGridRow[fCount - 3] = GetLastNameFromRecord(r);
+                    DataGridRow[fCount - 2] = GetPositionName(GetDBValueInt("PLAY", "PPOS", r));
+                    DataGridRow[fCount - 1] = GetTeamName(GetDBValueInt("PLAY", "PGID", r) / 70);
+                }
+
                 fieldsGridView.Rows.Add(DataGridRow);
                 ProgressBarStep();
             }
 
+            MovePLAYTextColumns();
 
             EndProgressBar();
-            #endregion
 
             DoNotTrigger = false;
         }
@@ -509,6 +488,7 @@ namespace DB_EDITOR
 
         private void FieldGridView_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
+            if (DoNotTrigger) return;
 
             int rownum = fieldsGridView.CurrentCellAddress.Y;
             int colnum = fieldsGridView.CurrentCellAddress.X;
@@ -553,9 +533,7 @@ namespace DB_EDITOR
             }
             #endregion
 
-
-            
-            if (SelectedTableName == "PLAY" && tmpFieldName == "First Name" || tmpFieldName == "Last Name" && !DoNotTrigger)
+            if (SelectedTableName == "PLAY" && tmpFieldName == "First Name" && !DoNotTrigger || SelectedTableName == "PLAY" && tmpFieldName == "Last Name" && !DoNotTrigger)
             {
                 if (tmpFieldName == "First Name" && TDB.FieldIndex(dbSelected, SelectedTableName, "First Name") == -1)
                 {
@@ -574,7 +552,7 @@ namespace DB_EDITOR
                     return;
                 }
             }
-            
+
 
 
             if (fieldProps.FieldType == TdbFieldType.tdbString)
@@ -643,8 +621,6 @@ namespace DB_EDITOR
             {
                 //Not supported Field
             }
-
-
         }
 
         private void SortTables()
@@ -677,7 +653,7 @@ namespace DB_EDITOR
 
         #region Add-Ons
 
-        
+
         private void DBTableAddOns()
         {
             TdbTableProperties table = new TdbTableProperties();
@@ -750,15 +726,15 @@ namespace DB_EDITOR
 
                 }
             }
-            
 
-                CreateTeamDB();
-                SetPositions();
-                CreateRatingsDB();
-                CreatePOCItable();
-                CreateNameConversionTable();
+
+            CreateTeamDB();
+            SetPositions();
+            CreateRatingsDB();
+            CreatePOCItable();
+            CreateNameConversionTable();
         }
-        
+
 
         private void AddPlaybooksTab()
         {
@@ -786,25 +762,43 @@ namespace DB_EDITOR
 
         private void DBFieldAddOns(TdbTableProperties TableProps)
         {
-            
-            if (TableProps.Name == "PLAY" && TDB.FieldIndex(dbSelected, SelectedTableName, "PF10") == 0)
+            if (TableProps.Name == "PLAY" && TDB.FieldIndex(dbSelected, SelectedTableName, "PF10") >= 0)
             {
-                if (TDB.TableIndex(dbSelected, "First Name") == -1)
-                    FieldNames.Add(FieldNames.Count, "First Name");
+                fieldsGridView.Columns.Add("First Name", "First Name");
+                fieldsGridView.Columns.Add("Last Name", "Last Name");
+                fieldsGridView.Columns.Add("Position", "Position");
+                fieldsGridView.Columns.Add("College", "College");
 
-                if (TDB.TableIndex(dbSelected, "Last Name") == -1)
-                    FieldNames.Add(FieldNames.Count, "Last Name");
-
-                if (TDB.TableIndex(dbSelected, "Position") == -1)
-                    FieldNames.Add(FieldNames.Count, "Position");
-
-                if (TDB.TableIndex(dbSelected, "Team Name") == -1)
-                    FieldNames.Add(FieldNames.Count, "College");
+                FieldNames.Add(FieldNames.Count, "First Name");
+                FieldNames.Add(FieldNames.Count, "Last Name");
+                FieldNames.Add(FieldNames.Count, "Position");
+                FieldNames.Add(FieldNames.Count, "College");
             }
-            
-
         }
 
+        private void HidePLAYColumns()
+        {
+            if (SelectedTableName != "PLAY" || TDB.FieldIndex(dbSelected, SelectedTableName, "PF10") < 0)
+                return;
+
+            for (int PF = 1; PF <= 10; PF++)
+            {
+                fieldsGridView.Columns["PF" + AddLeadingZeros(Convert.ToString(PF), 2) + ""].Visible = false;
+                fieldsGridView.Columns["PL" + AddLeadingZeros(Convert.ToString(PF), 2) + ""].Visible = false;
+            }
+        }
+
+        private void MovePLAYTextColumns()
+        {
+            if (SelectedTableName != "PLAY" || TDB.FieldIndex(dbSelected, SelectedTableName, "PF10") < 0)
+                return;
+
+            fieldsGridView.Columns["First Name"].DisplayIndex = 1;
+            fieldsGridView.Columns["Last Name"].DisplayIndex = 2;
+            fieldsGridView.Columns["Position"].DisplayIndex = 3;
+            fieldsGridView.Columns["College"].DisplayIndex = 4;
+
+        }
         #endregion
 
         #region Table Capacity Editor

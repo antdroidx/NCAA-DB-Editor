@@ -7375,7 +7375,7 @@ namespace DB_EDITOR
             MatchView.Columns.AddRange(new DataGridViewColumn[] { RatingCat, MatchAwayTeam, MatchHomeTeam });
             dataGridViewCellStyle16.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle16.BackColor = SystemColors.AppWorkspace;
-            dataGridViewCellStyle16.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle16.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
             dataGridViewCellStyle16.ForeColor = SystemColors.ControlText;
             dataGridViewCellStyle16.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle16.SelectionForeColor = SystemColors.HighlightText;
