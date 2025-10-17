@@ -248,9 +248,6 @@ namespace DB_EDITOR
             //PGID Box
             PGIDbox.Text = GetDBValue("PLAY", "PGID", PlayerIndex);
 
-            //Team
-            playerTeamBox.Text = teamNameDB[GetDBValueInt("PLAY", "PGID", PlayerIndex) / 70];
-
             //Transfer
             PlayerTransferLabel.Visible = false;
 

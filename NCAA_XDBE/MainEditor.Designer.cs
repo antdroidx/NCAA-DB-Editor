@@ -831,14 +831,15 @@ namespace DB_EDITOR
             tabPlayers = new TabPage();
             groupBox44 = new GroupBox();
             label66 = new Label();
-            PRST = new System.Windows.Forms.TextBox();
             PlayerHandBox = new System.Windows.Forms.ComboBox();
             label1 = new Label();
             label2 = new Label();
             PSKIBox = new System.Windows.Forms.ComboBox();
             label83 = new Label();
             PFGMBox = new System.Windows.Forms.ComboBox();
+            PGIDbox = new System.Windows.Forms.TextBox();
             label206 = new Label();
+            PGIDLabel = new Label();
             label84 = new Label();
             PDIS = new NumericUpDown();
             PFMPBox = new System.Windows.Forms.ComboBox();
@@ -865,11 +866,11 @@ namespace DB_EDITOR
             PLNAtextBox = new System.Windows.Forms.TextBox();
             label113 = new Label();
             PFNAtextBox = new System.Windows.Forms.TextBox();
-            label151 = new Label();
             PPOSBox = new System.Windows.Forms.ComboBox();
             label62 = new Label();
             groupBox42 = new GroupBox();
             InjuryLabel = new Label();
+            PRST = new System.Windows.Forms.TextBox();
             PlayerStatsView = new DataGridView();
             PS0 = new DataGridViewTextBoxColumn();
             PS1 = new DataGridViewTextBoxColumn();
@@ -883,6 +884,7 @@ namespace DB_EDITOR
             PS9 = new DataGridViewTextBoxColumn();
             PS10 = new DataGridViewTextBoxColumn();
             PlayerTransferLabel = new Label();
+            label151 = new Label();
             label271 = new Label();
             PlayerPosBox = new System.Windows.Forms.ComboBox();
             groupBox6 = new GroupBox();
@@ -951,11 +953,7 @@ namespace DB_EDITOR
             PKACBox = new NumericUpDown();
             PKAClabel = new Label();
             PlayerTransferButton = new System.Windows.Forms.Button();
-            label167 = new Label();
-            playerTeamBox = new System.Windows.Forms.TextBox();
-            PGIDbox = new System.Windows.Forms.TextBox();
             PlayerSetDepthChartButton = new System.Windows.Forms.Button();
-            PGIDLabel = new Label();
             ShowPOSGBox = new CheckBox();
             ShowRatingCheckbox = new CheckBox();
             ShowPosCheckBox = new CheckBox();
@@ -9208,6 +9206,7 @@ namespace DB_EDITOR
             // 
             // CoachFilter
             // 
+            CoachFilter.BackColor = SystemColors.Menu;
             CoachFilter.FormattingEnabled = true;
             CoachFilter.Location = new Point(12, 25);
             CoachFilter.Name = "CoachFilter";
@@ -9217,7 +9216,7 @@ namespace DB_EDITOR
             // 
             // CoachListBox
             // 
-            CoachListBox.BackColor = Color.White;
+            CoachListBox.BackColor = SystemColors.Menu;
             CoachListBox.ForeColor = SystemColors.ControlText;
             CoachListBox.FormattingEnabled = true;
             CoachListBox.ItemHeight = 13;
@@ -9232,16 +9231,11 @@ namespace DB_EDITOR
             tabPlayers.BackColor = SystemColors.AppWorkspace;
             tabPlayers.Controls.Add(groupBox44);
             tabPlayers.Controls.Add(groupBox42);
-            tabPlayers.Controls.Add(PlayerTransferLabel);
             tabPlayers.Controls.Add(label271);
             tabPlayers.Controls.Add(PlayerPosBox);
             tabPlayers.Controls.Add(groupBox6);
             tabPlayers.Controls.Add(PlayerTransferButton);
-            tabPlayers.Controls.Add(label167);
-            tabPlayers.Controls.Add(playerTeamBox);
-            tabPlayers.Controls.Add(PGIDbox);
             tabPlayers.Controls.Add(PlayerSetDepthChartButton);
-            tabPlayers.Controls.Add(PGIDLabel);
             tabPlayers.Controls.Add(ShowPOSGBox);
             tabPlayers.Controls.Add(ShowRatingCheckbox);
             tabPlayers.Controls.Add(ShowPosCheckBox);
@@ -9262,14 +9256,15 @@ namespace DB_EDITOR
             // groupBox44
             // 
             groupBox44.Controls.Add(label66);
-            groupBox44.Controls.Add(PRST);
             groupBox44.Controls.Add(PlayerHandBox);
             groupBox44.Controls.Add(label1);
             groupBox44.Controls.Add(label2);
             groupBox44.Controls.Add(PSKIBox);
             groupBox44.Controls.Add(label83);
             groupBox44.Controls.Add(PFGMBox);
+            groupBox44.Controls.Add(PGIDbox);
             groupBox44.Controls.Add(label206);
+            groupBox44.Controls.Add(PGIDLabel);
             groupBox44.Controls.Add(label84);
             groupBox44.Controls.Add(PDIS);
             groupBox44.Controls.Add(PFMPBox);
@@ -9296,7 +9291,6 @@ namespace DB_EDITOR
             groupBox44.Controls.Add(PLNAtextBox);
             groupBox44.Controls.Add(label113);
             groupBox44.Controls.Add(PFNAtextBox);
-            groupBox44.Controls.Add(label151);
             groupBox44.Controls.Add(PPOSBox);
             groupBox44.Controls.Add(label62);
             groupBox44.Location = new Point(196, 3);
@@ -9315,17 +9309,6 @@ namespace DB_EDITOR
             label66.TabIndex = 166;
             label66.Text = "Hand";
             // 
-            // PRST
-            // 
-            PRST.BackColor = SystemColors.Info;
-            PRST.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            PRST.Location = new Point(324, 35);
-            PRST.Name = "PRST";
-            PRST.ReadOnly = true;
-            PRST.Size = new Size(82, 22);
-            PRST.TabIndex = 139;
-            PRST.TextAlign = HorizontalAlignment.Center;
-            // 
             // PlayerHandBox
             // 
             PlayerHandBox.FormattingEnabled = true;
@@ -9340,7 +9323,7 @@ namespace DB_EDITOR
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            label1.Location = new Point(6, 17);
+            label1.Location = new Point(71, 15);
             label1.Name = "label1";
             label1.Size = new Size(82, 16);
             label1.TabIndex = 2;
@@ -9350,7 +9333,7 @@ namespace DB_EDITOR
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            label2.Location = new Point(125, 17);
+            label2.Location = new Point(195, 15);
             label2.Name = "label2";
             label2.Size = new Size(81, 16);
             label2.TabIndex = 3;
@@ -9383,6 +9366,17 @@ namespace DB_EDITOR
             PFGMBox.TabIndex = 74;
             PFGMBox.SelectedIndexChanged += (this.PFGMBox_SelectedIndexChanged);
             // 
+            // PGIDbox
+            // 
+            PGIDbox.BackColor = SystemColors.Info;
+            PGIDbox.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            PGIDbox.Location = new Point(10, 33);
+            PGIDbox.Name = "PGIDbox";
+            PGIDbox.ReadOnly = true;
+            PGIDbox.Size = new Size(53, 22);
+            PGIDbox.TabIndex = 97;
+            PGIDbox.TextAlign = HorizontalAlignment.Center;
+            // 
             // label206
             // 
             label206.AutoSize = true;
@@ -9391,6 +9385,16 @@ namespace DB_EDITOR
             label206.Size = new Size(52, 13);
             label206.TabIndex = 160;
             label206.Text = "Discipline";
+            // 
+            // PGIDLabel
+            // 
+            PGIDLabel.AutoSize = true;
+            PGIDLabel.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            PGIDLabel.Location = new Point(11, 15);
+            PGIDLabel.Name = "PGIDLabel";
+            PGIDLabel.Size = new Size(43, 16);
+            PGIDLabel.TabIndex = 98;
+            PGIDLabel.Text = "PGID";
             // 
             // label84
             // 
@@ -9494,7 +9498,7 @@ namespace DB_EDITOR
             // 
             // ResetPlayerPOSbutton
             // 
-            ResetPlayerPOSbutton.Location = new Point(254, 79);
+            ResetPlayerPOSbutton.Location = new Point(301, 79);
             ResetPlayerPOSbutton.Name = "ResetPlayerPOSbutton";
             ResetPlayerPOSbutton.Size = new Size(101, 23);
             ResetPlayerPOSbutton.TabIndex = 151;
@@ -9534,7 +9538,7 @@ namespace DB_EDITOR
             // AWHRBox
             // 
             AWHRBox.AutoSize = true;
-            AWHRBox.Location = new Point(254, 59);
+            AWHRBox.Location = new Point(297, 59);
             AWHRBox.Name = "AWHRBox";
             AWHRBox.Size = new Size(148, 17);
             AWHRBox.TabIndex = 149;
@@ -9611,7 +9615,7 @@ namespace DB_EDITOR
             // PLNAtextBox
             // 
             PLNAtextBox.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            PLNAtextBox.Location = new Point(128, 35);
+            PLNAtextBox.Location = new Point(193, 33);
             PLNAtextBox.Name = "PLNAtextBox";
             PLNAtextBox.Size = new Size(111, 22);
             PLNAtextBox.TabIndex = 1;
@@ -9631,28 +9635,18 @@ namespace DB_EDITOR
             // PFNAtextBox
             // 
             PFNAtextBox.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            PFNAtextBox.Location = new Point(6, 35);
+            PFNAtextBox.Location = new Point(71, 33);
             PFNAtextBox.Name = "PFNAtextBox";
             PFNAtextBox.Size = new Size(116, 22);
             PFNAtextBox.TabIndex = 0;
             PFNAtextBox.TextChanged += (this.PFNAtextBox_TextChanged);
             PFNAtextBox.Leave += (this.PFNA_Leave);
             // 
-            // label151
-            // 
-            label151.AutoSize = true;
-            label151.Font = new Font("Microsoft Sans Serif", 8F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            label151.Location = new Point(324, 17);
-            label151.Name = "label151";
-            label151.Size = new Size(86, 13);
-            label151.TabIndex = 140;
-            label151.Text = "Pride Stickers";
-            // 
             // PPOSBox
             // 
             PPOSBox.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             PPOSBox.FormattingEnabled = true;
-            PPOSBox.Location = new Point(245, 33);
+            PPOSBox.Location = new Point(310, 31);
             PPOSBox.Name = "PPOSBox";
             PPOSBox.Size = new Size(71, 24);
             PPOSBox.TabIndex = 10;
@@ -9662,7 +9656,7 @@ namespace DB_EDITOR
             // 
             label62.AutoSize = true;
             label62.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            label62.Location = new Point(242, 17);
+            label62.Location = new Point(311, 15);
             label62.Name = "label62";
             label62.Size = new Size(63, 16);
             label62.TabIndex = 11;
@@ -9671,7 +9665,10 @@ namespace DB_EDITOR
             // groupBox42
             // 
             groupBox42.Controls.Add(InjuryLabel);
+            groupBox42.Controls.Add(PRST);
             groupBox42.Controls.Add(PlayerStatsView);
+            groupBox42.Controls.Add(PlayerTransferLabel);
+            groupBox42.Controls.Add(label151);
             groupBox42.Location = new Point(658, 3);
             groupBox42.Name = "groupBox42";
             groupBox42.Size = new Size(484, 198);
@@ -9683,11 +9680,22 @@ namespace DB_EDITOR
             // 
             InjuryLabel.AutoSize = true;
             InjuryLabel.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            InjuryLabel.Location = new Point(10, 168);
+            InjuryLabel.Location = new Point(10, 177);
             InjuryLabel.Name = "InjuryLabel";
             InjuryLabel.Size = new Size(280, 16);
             InjuryLabel.TabIndex = 168;
             InjuryLabel.Text = "Injury: xxxxxxxxxxxxxxxxxxxx for xx weeks";
+            // 
+            // PRST
+            // 
+            PRST.BackColor = SystemColors.Info;
+            PRST.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            PRST.Location = new Point(428, 166);
+            PRST.Name = "PRST";
+            PRST.ReadOnly = true;
+            PRST.Size = new Size(50, 22);
+            PRST.TabIndex = 139;
+            PRST.TextAlign = HorizontalAlignment.Center;
             // 
             // PlayerStatsView
             // 
@@ -9804,18 +9812,28 @@ namespace DB_EDITOR
             // PlayerTransferLabel
             // 
             PlayerTransferLabel.AutoSize = true;
-            PlayerTransferLabel.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            PlayerTransferLabel.Location = new Point(8, 52);
+            PlayerTransferLabel.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            PlayerTransferLabel.Location = new Point(10, 158);
             PlayerTransferLabel.Name = "PlayerTransferLabel";
-            PlayerTransferLabel.Size = new Size(149, 13);
+            PlayerTransferLabel.Size = new Size(175, 15);
             PlayerTransferLabel.TabIndex = 163;
             PlayerTransferLabel.Text = "Transfer from Mississippi State";
             PlayerTransferLabel.Visible = false;
             // 
+            // label151
+            // 
+            label151.AutoSize = true;
+            label151.Font = new Font("Microsoft Sans Serif", 8F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            label151.Location = new Point(336, 171);
+            label151.Name = "label151";
+            label151.Size = new Size(86, 13);
+            label151.TabIndex = 140;
+            label151.Text = "Pride Stickers";
+            // 
             // label271
             // 
             label271.AutoSize = true;
-            label271.Location = new Point(132, 76);
+            label271.Location = new Point(132, 10);
             label271.Name = "label271";
             label271.Size = new Size(44, 13);
             label271.TabIndex = 162;
@@ -9823,10 +9841,12 @@ namespace DB_EDITOR
             // 
             // PlayerPosBox
             // 
+            PlayerPosBox.BackColor = SystemColors.Menu;
+            PlayerPosBox.Font = new Font("Microsoft Sans Serif", 9F);
             PlayerPosBox.FormattingEnabled = true;
-            PlayerPosBox.Location = new Point(133, 90);
+            PlayerPosBox.Location = new Point(133, 24);
             PlayerPosBox.Name = "PlayerPosBox";
-            PlayerPosBox.Size = new Size(51, 21);
+            PlayerPosBox.Size = new Size(51, 23);
             PlayerPosBox.TabIndex = 161;
             PlayerPosBox.SelectedIndexChanged += (this.PlayerPosBox_SelectedIndexChanged);
             // 
@@ -10620,39 +10640,6 @@ namespace DB_EDITOR
             PlayerTransferButton.UseVisualStyleBackColor = true;
             PlayerTransferButton.Click += (this.PlayerTransferButton_Click);
             // 
-            // label167
-            // 
-            label167.AutoSize = true;
-            label167.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            label167.Location = new Point(10, 7);
-            label167.Name = "label167";
-            label167.Size = new Size(47, 16);
-            label167.TabIndex = 143;
-            label167.Text = "Team";
-            label167.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // playerTeamBox
-            // 
-            playerTeamBox.BackColor = SystemColors.Info;
-            playerTeamBox.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            playerTeamBox.Location = new Point(9, 25);
-            playerTeamBox.Name = "playerTeamBox";
-            playerTeamBox.ReadOnly = true;
-            playerTeamBox.Size = new Size(118, 22);
-            playerTeamBox.TabIndex = 142;
-            playerTeamBox.TextAlign = HorizontalAlignment.Center;
-            // 
-            // PGIDbox
-            // 
-            PGIDbox.BackColor = SystemColors.Info;
-            PGIDbox.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            PGIDbox.Location = new Point(133, 25);
-            PGIDbox.Name = "PGIDbox";
-            PGIDbox.ReadOnly = true;
-            PGIDbox.Size = new Size(53, 22);
-            PGIDbox.TabIndex = 97;
-            PGIDbox.TextAlign = HorizontalAlignment.Center;
-            // 
             // PlayerSetDepthChartButton
             // 
             PlayerSetDepthChartButton.Location = new Point(206, 572);
@@ -10662,16 +10649,6 @@ namespace DB_EDITOR
             PlayerSetDepthChartButton.Text = "Auto-Set Team Depth Chart";
             PlayerSetDepthChartButton.UseVisualStyleBackColor = true;
             PlayerSetDepthChartButton.Click += (this.PlayerSetDepthChartButton_Click);
-            // 
-            // PGIDLabel
-            // 
-            PGIDLabel.AutoSize = true;
-            PGIDLabel.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            PGIDLabel.Location = new Point(133, 7);
-            PGIDLabel.Name = "PGIDLabel";
-            PGIDLabel.Size = new Size(43, 16);
-            PGIDLabel.TabIndex = 98;
-            PGIDLabel.Text = "PGID";
             // 
             // ShowPOSGBox
             // 
@@ -10728,16 +10705,17 @@ namespace DB_EDITOR
             // RosterSizeLabel
             // 
             RosterSizeLabel.AutoSize = true;
-            RosterSizeLabel.Location = new Point(12, 541);
+            RosterSizeLabel.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            RosterSizeLabel.Location = new Point(10, 538);
             RosterSizeLabel.Name = "RosterSizeLabel";
-            RosterSizeLabel.Size = new Size(64, 13);
+            RosterSizeLabel.Size = new Size(85, 15);
             RosterSizeLabel.TabIndex = 7;
             RosterSizeLabel.Text = "Roster Size:";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(10, 75);
+            label3.Location = new Point(10, 9);
             label3.Name = "label3";
             label3.Size = new Size(34, 13);
             label3.TabIndex = 6;
@@ -10745,22 +10723,24 @@ namespace DB_EDITOR
             // 
             // TGIDplayerBox
             // 
+            TGIDplayerBox.BackColor = SystemColors.Menu;
+            TGIDplayerBox.Font = new Font("Microsoft Sans Serif", 9F);
             TGIDplayerBox.FormattingEnabled = true;
-            TGIDplayerBox.Location = new Point(9, 90);
+            TGIDplayerBox.Location = new Point(9, 24);
             TGIDplayerBox.Name = "TGIDplayerBox";
-            TGIDplayerBox.Size = new Size(118, 21);
+            TGIDplayerBox.Size = new Size(118, 23);
             TGIDplayerBox.TabIndex = 5;
             TGIDplayerBox.SelectedIndexChanged += (this.TGIDplayerBox_SelectedIndexChanged);
             // 
             // PGIDlistBox
             // 
-            PGIDlistBox.BackColor = Color.White;
+            PGIDlistBox.BackColor = SystemColors.Menu;
             PGIDlistBox.ForeColor = SystemColors.ControlText;
             PGIDlistBox.FormattingEnabled = true;
             PGIDlistBox.ItemHeight = 13;
-            PGIDlistBox.Location = new Point(9, 113);
+            PGIDlistBox.Location = new Point(9, 48);
             PGIDlistBox.Name = "PGIDlistBox";
-            PGIDlistBox.Size = new Size(175, 420);
+            PGIDlistBox.Size = new Size(175, 485);
             PGIDlistBox.TabIndex = 4;
             PGIDlistBox.SelectedIndexChanged += (this.PGIDlistBox_SelectedIndexChanged);
             // 
@@ -12137,6 +12117,7 @@ namespace DB_EDITOR
             // 
             // CGIDcomboBox
             // 
+            CGIDcomboBox.BackColor = SystemColors.Menu;
             CGIDcomboBox.FormattingEnabled = true;
             CGIDcomboBox.Location = new Point(82, 24);
             CGIDcomboBox.Name = "CGIDcomboBox";
@@ -12155,6 +12136,7 @@ namespace DB_EDITOR
             // 
             // LGIDcomboBox
             // 
+            LGIDcomboBox.BackColor = SystemColors.Menu;
             LGIDcomboBox.FormattingEnabled = true;
             LGIDcomboBox.Location = new Point(12, 24);
             LGIDcomboBox.Name = "LGIDcomboBox";
@@ -12164,6 +12146,7 @@ namespace DB_EDITOR
             // 
             // TGIDlistBox
             // 
+            TGIDlistBox.BackColor = SystemColors.Menu;
             TGIDlistBox.FormattingEnabled = true;
             TGIDlistBox.ItemHeight = 13;
             TGIDlistBox.Location = new Point(12, 51);
@@ -17007,8 +16990,6 @@ namespace DB_EDITOR
         private CheckBox AWHRBox;
         private System.Windows.Forms.Button PlayerTransferButton;
         private System.Windows.Forms.Button ExportPlayerTeam;
-        private Label label167;
-        public System.Windows.Forms.TextBox playerTeamBox;
         public System.Windows.Forms.TextBox PRST;
         public System.Windows.Forms.TextBox PGIDbox;
         public System.Windows.Forms.TextBox POVRbox;
