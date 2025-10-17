@@ -31,7 +31,7 @@ namespace DB_EDITOR
         private void LoadRound1()
         {
             int sewn = GetDBValueInt("SEAI", "SEWN", 0);
-            if (sewn <= 8)
+            if (sewn < 8)
             {
                 return;
             }
@@ -214,7 +214,41 @@ namespace DB_EDITOR
 
             playoffTeams.Sort((team1, team2) => team1[2].CompareTo(team2[2]));
 
-            return playoffTeams;
+            List<List<int>> tmpList = new List<List<int>>();
+
+            List<int> confs = new List<int>();
+            for(int i = 0; i < 15; i++)
+            {
+                confs.Add(0);
+            }
+
+            for (int i = 0; i < 12; i++)
+            {
+                tmpList.Add(playoffTeams[i]);
+                if (confs[playoffTeams[i][3]] < 1) confs[playoffTeams[i][3]] = 1;
+            }
+
+            int confCount = 0;
+            foreach (int conf in confs)
+            {
+                if (conf == 1) confCount++;
+            }
+
+            if (confCount < 5)
+            {
+                for (int i = 12; i < playoffTeams.Count; i++)
+                {
+                    int conf = playoffTeams[i][3];
+                    if (confs[conf] == 0)
+                    {
+                        tmpList.Insert(11, playoffTeams[i]);
+                        break;
+                    }
+
+                }
+            }
+
+            return tmpList;
         }
 
 
