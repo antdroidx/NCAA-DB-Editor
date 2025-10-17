@@ -644,7 +644,7 @@ namespace DB_EDITOR
                     rating += roster[j][0];
                     count++;
                 }
-                if (count >= 3) break;
+                if (count >= 2) break;
             }
 
             rating = ConvertRating(rating / count) + bonus;
@@ -663,7 +663,7 @@ namespace DB_EDITOR
                     rating += roster[j][0];
                     count++;
                 }
-                if (count >= 4) break;
+                if (count >= 6) break;
             }
 
             rating = ConvertRating(rating / count) + bonus;
@@ -748,8 +748,6 @@ namespace DB_EDITOR
             ChangeDBString(tableName, "TROV", teamRec, Convert.ToString(rating));
 
         }
-
-
 
         public void NormalizeTeamRatings(string tableName)
         {
