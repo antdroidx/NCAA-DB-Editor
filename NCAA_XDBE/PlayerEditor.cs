@@ -278,6 +278,12 @@ namespace DB_EDITOR
             PHGTBox.Value = GetDBValueInt("PLAY", "PHGT", PlayerIndex);
             PWGTBox.Value = GetDBValueInt("PLAY", "PWGT", PlayerIndex) + 160;
 
+            int height = Convert.ToInt32(PHGTBox.Value);
+            int feet = height / 12;
+            int inches = height % 12;
+            PlayerHeight.Text = feet + "'" + inches + "\"";
+
+
             //Head Appearance
             AddSkinColorItems();
             AddFaceShapeItems();
@@ -313,13 +319,6 @@ namespace DB_EDITOR
             //Attributes
             //
             //
-
-
-            //Importance
-            PIMPBox.Maximum = maxRatingVal;
-            PIMPBox.Value = GetDBValueInt("PLAY", "PIMP", PlayerIndex);
-            PIMPtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(PIMPBox.Value)));
-            PIMPtext.BackColor = GetRatingColor(PIMPtext).BackColor;
 
             //Potential
             PPOEBox.Value = GetDBValueInt("PLAY", "PPOE", PlayerIndex);
@@ -844,6 +843,12 @@ namespace DB_EDITOR
 
             ChangeDBInt("PLAY", "PHGT", PlayerIndex, Convert.ToInt32(PHGTBox.Value));
             RecalculateIndividualBodyShape(PlayerIndex, "PLAY");
+
+
+            int height = Convert.ToInt32(PHGTBox.Value);
+            int feet = height / 12;
+            int inches = height % 12;
+            PlayerHeight.Text = feet + "'" + inches + "\"";
         }
 
         private void PWGTBox_ValueChanged(object sender, EventArgs e)
@@ -915,18 +920,6 @@ namespace DB_EDITOR
 
         //Rating Attributes
 
-
-        private void PIMPBox_ValueChanged(object sender, EventArgs e)
-        {
-            if (DoNotTrigger)
-                return;
-
-            ChangeDBInt("PLAY", "PIMP", PlayerIndex, Convert.ToInt32(PIMPBox.Value));
-            PIMPtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PIMP", PlayerIndex)));
-            DisplayNewOverallRating();
-            PIMPtext.BackColor = GetRatingColor(PIMPtext).BackColor;
-
-        }
 
         private void PPOEBox_ValueChanged(object sender, EventArgs e)
         {

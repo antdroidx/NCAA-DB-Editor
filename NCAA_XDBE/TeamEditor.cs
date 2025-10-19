@@ -230,7 +230,7 @@ namespace DB_EDITOR
             ProgressBarStep();
 
             //Team Ratings
-           
+
 
             TMPRNumBox.Value = GetDBValueInt("TEAM", "TMPR", EditorIndex);
             tmprStars.Text = ConvertStarNumber(Convert.ToInt32(TMPRNumBox.Value));
@@ -349,6 +349,7 @@ namespace DB_EDITOR
             else GenerateNewRosterButton.Enabled = false;
 
             LoadTeamRatingsViewer();
+            LoadTopPlayersViewer();
 
             DoNotTrigger = false;
             EndProgressBar();
@@ -1216,10 +1217,10 @@ namespace DB_EDITOR
                 TeamRatingView.Rows[i].Cells[0].Style.BackColor = Color.LightGray;
 
                 TeamRatingView.Rows[i].Cells[1].Value = teamRat[i];
-                if(i == 0)
+                if (i == 0)
                 {
                     TeamRatingView.Rows[i].DefaultCellStyle.Font = new Font(TeamRatingView.Font.FontFamily, 11, FontStyle.Bold);
-                } 
+                }
             }
 
             TeamRatingView.CellPainting += TeamRatingView_CellPainting;
@@ -1241,6 +1242,7 @@ namespace DB_EDITOR
             categories.Add("DL");
             categories.Add("LB");
             categories.Add("DB");
+            categories.Add("");
 
             return categories;
         }
@@ -1261,6 +1263,7 @@ namespace DB_EDITOR
             categories.Add(GetDBValue("TEAM", "TRDL", rec));
             categories.Add(GetDBValue("TEAM", "TRLB", rec));
             categories.Add(GetDBValue("TEAM", "TRDB", rec));
+            categories.Add("");
 
             return categories;
         }
@@ -1288,7 +1291,7 @@ namespace DB_EDITOR
 
 
                     // Draw the bar
-                    Rectangle barRect = new Rectangle(e.CellBounds.X + 0, e.CellBounds.Y +1                                                                                                                            , barWidth, e.CellBounds.Height - 1);
+                    Rectangle barRect = new Rectangle(e.CellBounds.X + 0, e.CellBounds.Y + 1, barWidth, e.CellBounds.Height - 1);
                     using (Brush b = new SolidBrush(col))
                     {
                         e.Graphics.FillRectangle(b, barRect);
@@ -1307,8 +1310,53 @@ namespace DB_EDITOR
             }
         }
 
+        //Top Players Viewer
+
+        private void LoadTopPlayersViewer()
+        {
+            TopPlayersView.Rows.Clear();
+
+            int tgid = GetDBValueInt("TEAM", "TGID", TeamIndex);
+
+            int pgidBeg = tgid * 70;
+            int pgidEnd = tgid * 70 + 69;
+
+            List<List<string>> PlayerList = new List<List<string>>();
+
+            int row = 0;
+            for (int i = 0; i < GetTableRecCount("PLAY"); i++)
+            {
+                if (GetDBValueInt("PLAY", "PGID", i) >= pgidBeg && GetDBValueInt("PLAY", "PGID", i) <= pgidEnd)
+                {
+                    int PlayerPOSG2 = GetPOSG2fromPPOS(GetDBValueInt("PLAY", "PPOS", i));
+                    PlayerList.Add(new List<string>());
+                    PlayerList[row].Add(GetFirstNameFromRecord(i));
+                    PlayerList[row].Add(GetLastNameFromRecord(i));
+                    PlayerList[row].Add(GetPOSG2Name(PlayerPOSG2));
+                    PlayerList[row].Add(Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "POVR", i))));
+                    row++;
+                }
+            }
+
+            PlayerList.Sort((player1, player2) => Convert.ToInt32(player2[3]).CompareTo(Convert.ToInt32(player1[3])));
+
+            for(int i = 0; i < 11; i++)
+            {
+                TopPlayersView.Rows.Add(1);
+                TopPlayersView.Rows[i].Cells[0].Value = PlayerList[i][2];
+                TopPlayersView.Rows[i].Cells[1].Value = PlayerList[i][0] + " " + PlayerList[i][1];
+                TopPlayersView.Rows[i].Cells[2].Value = PlayerList[i][3];
+                TopPlayersView.Rows[i].Cells[2].Style.BackColor = GetColorValue(Convert.ToInt32(TopPlayersView.Rows[i].Cells[2].Value));
+            }
+
+            TopPlayersView.Rows.Add(1);
+            TopPlayersView.ClearSelection();
+        }
+
 
 
 
     }
 }
+    
+

@@ -1617,6 +1617,19 @@ namespace DB_EDITOR
             return colorBox;
         }
 
+        private TextBox GetRatingColorUnconverted(TextBox colorBox)
+        {
+
+            if (Convert.ToInt32(colorBox.Text) < 6) colorBox.BackColor = Color.FromArgb(255, 199, 206);
+            else if (Convert.ToInt32(colorBox.Text) < 10) colorBox.BackColor = Color.Orange;
+            else if (Convert.ToInt32(colorBox.Text) < 15) colorBox.BackColor = Color.PeachPuff;
+            else if (Convert.ToInt32(colorBox.Text) < 23) colorBox.BackColor = Color.LightGreen;
+            else if (Convert.ToInt32(colorBox.Text) < 27) colorBox.BackColor = Color.LightBlue;
+            else colorBox.BackColor = Color.MediumPurple;
+
+            return colorBox;
+        }
+
         private DataGridViewCell GetDataGridTextColor(DataGridViewCell colorBox)
         {
             //colorBox.Style.BackColor = Color.Black;

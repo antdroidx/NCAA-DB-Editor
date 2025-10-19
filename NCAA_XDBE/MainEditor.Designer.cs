@@ -72,8 +72,8 @@ namespace DB_EDITOR
             DataGridViewCellStyle dataGridViewCellStyle36 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainEditor));
             DataGridViewCellStyle dataGridViewCellStyle37 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle38 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle39 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle38 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle40 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle41 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle42 = new DataGridViewCellStyle();
@@ -84,68 +84,71 @@ namespace DB_EDITOR
             DataGridViewCellStyle dataGridViewCellStyle47 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle48 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle49 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle50 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle51 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle52 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle50 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle53 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle54 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle55 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle53 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle56 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle57 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle55 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle58 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle59 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle60 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle58 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle61 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle62 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle60 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle63 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle64 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle65 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle63 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle66 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle67 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle65 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle68 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle69 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle70 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle68 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle71 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle72 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle70 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle73 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle74 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle75 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle73 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle76 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle77 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle75 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle78 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle79 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle80 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle78 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle81 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle82 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle80 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle83 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle84 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle90 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle91 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle85 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle83 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle86 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle87 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle93 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle94 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle88 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle89 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle90 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle91 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle92 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle93 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle96 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle97 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle94 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle95 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle98 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle96 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle99 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle100 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle97 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle98 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle101 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle102 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle100 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle103 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle104 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle107 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle108 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle105 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle103 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle106 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle109 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle107 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle110 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle111 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle108 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle109 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle112 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle113 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle114 = new DataGridViewCellStyle();
             qbTend = new System.Windows.Forms.Button();
             mainMenu = new MenuStrip();
             fileMenuItem = new ToolStripMenuItem();
@@ -829,7 +832,16 @@ namespace DB_EDITOR
             CoachFilter = new System.Windows.Forms.ComboBox();
             CoachListBox = new ListBox();
             tabPlayers = new TabPage();
+            groupBox15 = new GroupBox();
+            PlayerSetDepthChartButton = new System.Windows.Forms.Button();
+            PlayerTransferButton = new System.Windows.Forms.Button();
+            PTYPBox = new System.Windows.Forms.ComboBox();
+            label93 = new Label();
+            ResetPlayerPOSbutton = new System.Windows.Forms.Button();
+            AWHRBox = new CheckBox();
             groupBox44 = new GroupBox();
+            label63 = new Label();
+            PlayerHeight = new System.Windows.Forms.TextBox();
             label66 = new Label();
             PlayerHandBox = new System.Windows.Forms.ComboBox();
             label1 = new Label();
@@ -838,10 +850,8 @@ namespace DB_EDITOR
             label83 = new Label();
             PFGMBox = new System.Windows.Forms.ComboBox();
             PGIDbox = new System.Windows.Forms.TextBox();
-            label206 = new Label();
             PGIDLabel = new Label();
             label84 = new Label();
-            PDIS = new NumericUpDown();
             PFMPBox = new System.Windows.Forms.ComboBox();
             label153 = new Label();
             label85 = new Label();
@@ -851,11 +861,9 @@ namespace DB_EDITOR
             label86 = new Label();
             PStateBox = new System.Windows.Forms.ComboBox();
             PHEDBox = new System.Windows.Forms.ComboBox();
-            ResetPlayerPOSbutton = new System.Windows.Forms.Button();
             label87 = new Label();
             PHGTBox = new NumericUpDown();
             label90 = new Label();
-            AWHRBox = new CheckBox();
             PWGTBox = new NumericUpDown();
             label89 = new Label();
             PYERBox = new System.Windows.Forms.ComboBox();
@@ -894,13 +902,13 @@ namespace DB_EDITOR
             PTEN = new System.Windows.Forms.TextBox();
             label173 = new Label();
             PTHAtext = new System.Windows.Forms.TextBox();
-            PIMPBox = new NumericUpDown();
-            label63 = new Label();
             PINJBox = new NumericUpDown();
             label64 = new Label();
+            label206 = new Label();
             PKACtext = new System.Windows.Forms.TextBox();
             PSPDBox = new NumericUpDown();
             PKPRtext = new System.Windows.Forms.TextBox();
+            PDIS = new NumericUpDown();
             PSPDlabel = new Label();
             PTAKtext = new System.Windows.Forms.TextBox();
             PACCBox = new NumericUpDown();
@@ -936,7 +944,6 @@ namespace DB_EDITOR
             PJMPBox = new NumericUpDown();
             PINJtext = new System.Windows.Forms.TextBox();
             PJMPlabel = new Label();
-            PIMPtext = new System.Windows.Forms.TextBox();
             label61 = new Label();
             PCTHBox = new NumericUpDown();
             PCTHlabel = new Label();
@@ -952,13 +959,9 @@ namespace DB_EDITOR
             PKPRlabel = new Label();
             PKACBox = new NumericUpDown();
             PKAClabel = new Label();
-            PlayerTransferButton = new System.Windows.Forms.Button();
-            PlayerSetDepthChartButton = new System.Windows.Forms.Button();
             ShowPOSGBox = new CheckBox();
             ShowRatingCheckbox = new CheckBox();
             ShowPosCheckBox = new CheckBox();
-            label93 = new Label();
-            PTYPBox = new System.Windows.Forms.ComboBox();
             RosterSizeLabel = new Label();
             label3 = new Label();
             TGIDplayerBox = new System.Windows.Forms.ComboBox();
@@ -999,19 +1002,26 @@ namespace DB_EDITOR
             NeckPad = new System.Windows.Forms.ComboBox();
             pictureBox3 = new PictureBox();
             tabTeams = new TabPage();
+            label65 = new Label();
+            TopPlayersView = new DataGridView();
+            TPPos = new DataGridViewTextBoxColumn();
+            TPPlayer = new DataGridViewTextBoxColumn();
+            TPRating = new DataGridViewTextBoxColumn();
             label19 = new Label();
             groupBox49 = new GroupBox();
+            GenerateNewRosterButton = new System.Windows.Forms.Button();
             TeamAutoImpact = new System.Windows.Forms.Button();
+            DeathPenaltyButton = new System.Windows.Forms.Button();
             TeamSetDepthChart = new System.Windows.Forms.Button();
+            FireCoachButton = new System.Windows.Forms.Button();
+            TGIDtextBox = new System.Windows.Forms.TextBox();
+            label11 = new Label();
             TeamRatingView = new DataGridView();
             TeamPos = new DataGridViewTextBoxColumn();
             Column4 = new DataGridViewTextBoxColumn();
             groupBox34 = new GroupBox();
             TeamShowNormal = new RadioButton();
             TeamShowRanking = new RadioButton();
-            groupBox15 = new GroupBox();
-            GenerateNewRosterButton = new System.Windows.Forms.Button();
-            DeathPenaltyButton = new System.Windows.Forms.Button();
             groupBox14 = new GroupBox();
             tmarStars = new Label();
             tmprStars = new Label();
@@ -1076,14 +1086,12 @@ namespace DB_EDITOR
             TSNAtextBox = new System.Windows.Forms.TextBox();
             TeamDivisionBox = new System.Windows.Forms.TextBox();
             TeamConferenceBox = new System.Windows.Forms.TextBox();
-            TGIDtextBox = new System.Windows.Forms.TextBox();
             TMNAtextBox = new System.Windows.Forms.TextBox();
             TDNAtextBox = new System.Windows.Forms.TextBox();
             label27 = new Label();
             label26 = new Label();
             label25 = new Label();
             label24 = new Label();
-            label11 = new Label();
             label10 = new Label();
             label9 = new Label();
             label7 = new Label();
@@ -1123,7 +1131,6 @@ namespace DB_EDITOR
             label50 = new Label();
             TeamCDTSbox = new NumericUpDown();
             TeamCDPCBox = new System.Windows.Forms.TextBox();
-            FireCoachButton = new System.Windows.Forms.Button();
             HCLastNameBox = new System.Windows.Forms.TextBox();
             HCFirstNameBox = new System.Windows.Forms.TextBox();
             tabDB = new TabPage();
@@ -1562,8 +1569,8 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)CoachRecruitingBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)CoachCOTRBox).BeginInit();
             tabPlayers.SuspendLayout();
+            groupBox15.SuspendLayout();
             groupBox44.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)PDIS).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PHGTBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PWGTBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PJEN).BeginInit();
@@ -1571,9 +1578,9 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)PlayerStatsView).BeginInit();
             groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PSTAbox).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)PIMPBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PINJBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PSPDBox).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)PDIS).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PACCBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PSTRBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PBTKBox).BeginInit();
@@ -1593,10 +1600,10 @@ namespace DB_EDITOR
             groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             tabTeams.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)TopPlayersView).BeginInit();
             groupBox49.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)TeamRatingView).BeginInit();
             groupBox34.SuspendLayout();
-            groupBox15.SuspendLayout();
             groupBox14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)SDURnumbox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)TMPRNumBox).BeginInit();
@@ -7416,6 +7423,7 @@ namespace DB_EDITOR
             // 
             // ScheduleComboBox
             // 
+            ScheduleComboBox.BackColor = SystemColors.ControlDark;
             ScheduleComboBox.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             ScheduleComboBox.FormattingEnabled = true;
             ScheduleComboBox.Items.AddRange(new object[] { "View by Team", "View by Week" });
@@ -9229,18 +9237,15 @@ namespace DB_EDITOR
             // tabPlayers
             // 
             tabPlayers.BackColor = SystemColors.AppWorkspace;
+            tabPlayers.Controls.Add(groupBox15);
             tabPlayers.Controls.Add(groupBox44);
             tabPlayers.Controls.Add(groupBox42);
             tabPlayers.Controls.Add(label271);
             tabPlayers.Controls.Add(PlayerPosBox);
             tabPlayers.Controls.Add(groupBox6);
-            tabPlayers.Controls.Add(PlayerTransferButton);
-            tabPlayers.Controls.Add(PlayerSetDepthChartButton);
             tabPlayers.Controls.Add(ShowPOSGBox);
             tabPlayers.Controls.Add(ShowRatingCheckbox);
             tabPlayers.Controls.Add(ShowPosCheckBox);
-            tabPlayers.Controls.Add(label93);
-            tabPlayers.Controls.Add(PTYPBox);
             tabPlayers.Controls.Add(RosterSizeLabel);
             tabPlayers.Controls.Add(label3);
             tabPlayers.Controls.Add(TGIDplayerBox);
@@ -9253,8 +9258,84 @@ namespace DB_EDITOR
             tabPlayers.TabIndex = 2;
             tabPlayers.Text = "Players";
             // 
+            // groupBox15
+            // 
+            groupBox15.Controls.Add(PlayerSetDepthChartButton);
+            groupBox15.Controls.Add(PlayerTransferButton);
+            groupBox15.Controls.Add(PTYPBox);
+            groupBox15.Controls.Add(label93);
+            groupBox15.Controls.Add(ResetPlayerPOSbutton);
+            groupBox15.Controls.Add(AWHRBox);
+            groupBox15.Location = new Point(196, 540);
+            groupBox15.Name = "groupBox15";
+            groupBox15.Size = new Size(451, 63);
+            groupBox15.TabIndex = 168;
+            groupBox15.TabStop = false;
+            groupBox15.Text = "Player Options";
+            // 
+            // PlayerSetDepthChartButton
+            // 
+            PlayerSetDepthChartButton.Location = new Point(15, 20);
+            PlayerSetDepthChartButton.Name = "PlayerSetDepthChartButton";
+            PlayerSetDepthChartButton.Size = new Size(80, 35);
+            PlayerSetDepthChartButton.TabIndex = 99;
+            PlayerSetDepthChartButton.Text = "Auto-Set Team Depth Chart";
+            PlayerSetDepthChartButton.UseVisualStyleBackColor = true;
+            PlayerSetDepthChartButton.Click += (this.PlayerSetDepthChartButton_Click);
+            // 
+            // PlayerTransferButton
+            // 
+            PlayerTransferButton.Location = new Point(363, 20);
+            PlayerTransferButton.Name = "PlayerTransferButton";
+            PlayerTransferButton.Size = new Size(80, 35);
+            PlayerTransferButton.TabIndex = 146;
+            PlayerTransferButton.Text = "Send to Transfer Portal";
+            PlayerTransferButton.UseVisualStyleBackColor = true;
+            PlayerTransferButton.Click += (this.PlayerTransferButton_Click);
+            // 
+            // PTYPBox
+            // 
+            PTYPBox.DropDownWidth = 150;
+            PTYPBox.FormattingEnabled = true;
+            PTYPBox.Location = new Point(101, 33);
+            PTYPBox.Name = "PTYPBox";
+            PTYPBox.Size = new Size(120, 21);
+            PTYPBox.TabIndex = 92;
+            PTYPBox.SelectedIndexChanged += (this.PTYPBox_SelectedIndexChanged);
+            // 
+            // label93
+            // 
+            label93.AutoSize = true;
+            label93.Location = new Point(100, 18);
+            label93.Name = "label93";
+            label93.Size = new Size(87, 13);
+            label93.TabIndex = 93;
+            label93.Text = "Off-Season Type";
+            // 
+            // ResetPlayerPOSbutton
+            // 
+            ResetPlayerPOSbutton.Location = new Point(228, 32);
+            ResetPlayerPOSbutton.Name = "ResetPlayerPOSbutton";
+            ResetPlayerPOSbutton.Size = new Size(101, 23);
+            ResetPlayerPOSbutton.TabIndex = 151;
+            ResetPlayerPOSbutton.Text = "Reset Position";
+            ResetPlayerPOSbutton.UseVisualStyleBackColor = true;
+            ResetPlayerPOSbutton.Click += (this.ResetPlayerPOSbutton_Click);
+            // 
+            // AWHRBox
+            // 
+            AWHRBox.AutoSize = true;
+            AWHRBox.Location = new Point(228, 13);
+            AWHRBox.Name = "AWHRBox";
+            AWHRBox.Size = new Size(129, 17);
+            AWHRBox.TabIndex = 149;
+            AWHRBox.Text = "Pos Change AWR Hit";
+            AWHRBox.UseVisualStyleBackColor = true;
+            // 
             // groupBox44
             // 
+            groupBox44.Controls.Add(label63);
+            groupBox44.Controls.Add(PlayerHeight);
             groupBox44.Controls.Add(label66);
             groupBox44.Controls.Add(PlayerHandBox);
             groupBox44.Controls.Add(label1);
@@ -9263,10 +9344,8 @@ namespace DB_EDITOR
             groupBox44.Controls.Add(label83);
             groupBox44.Controls.Add(PFGMBox);
             groupBox44.Controls.Add(PGIDbox);
-            groupBox44.Controls.Add(label206);
             groupBox44.Controls.Add(PGIDLabel);
             groupBox44.Controls.Add(label84);
-            groupBox44.Controls.Add(PDIS);
             groupBox44.Controls.Add(PFMPBox);
             groupBox44.Controls.Add(label153);
             groupBox44.Controls.Add(label85);
@@ -9276,11 +9355,9 @@ namespace DB_EDITOR
             groupBox44.Controls.Add(label86);
             groupBox44.Controls.Add(PStateBox);
             groupBox44.Controls.Add(PHEDBox);
-            groupBox44.Controls.Add(ResetPlayerPOSbutton);
             groupBox44.Controls.Add(label87);
             groupBox44.Controls.Add(PHGTBox);
             groupBox44.Controls.Add(label90);
-            groupBox44.Controls.Add(AWHRBox);
             groupBox44.Controls.Add(PWGTBox);
             groupBox44.Controls.Add(label89);
             groupBox44.Controls.Add(PYERBox);
@@ -9293,6 +9370,7 @@ namespace DB_EDITOR
             groupBox44.Controls.Add(PFNAtextBox);
             groupBox44.Controls.Add(PPOSBox);
             groupBox44.Controls.Add(label62);
+            groupBox44.Font = new Font("Microsoft Sans Serif", 9F);
             groupBox44.Location = new Point(196, 3);
             groupBox44.Name = "groupBox44";
             groupBox44.Size = new Size(451, 198);
@@ -9300,22 +9378,45 @@ namespace DB_EDITOR
             groupBox44.TabStop = false;
             groupBox44.Text = "Player Info";
             // 
+            // label63
+            // 
+            label63.AutoSize = true;
+            label63.Location = new Point(280, 105);
+            label63.Name = "label63";
+            label63.Size = new Size(43, 15);
+            label63.TabIndex = 168;
+            label63.Text = "Height";
+            label63.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // PlayerHeight
+            // 
+            PlayerHeight.Anchor = AnchorStyles.Top;
+            PlayerHeight.BackColor = SystemColors.Info;
+            PlayerHeight.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            PlayerHeight.Location = new Point(280, 124);
+            PlayerHeight.Name = "PlayerHeight";
+            PlayerHeight.ReadOnly = true;
+            PlayerHeight.Size = new Size(52, 22);
+            PlayerHeight.TabIndex = 167;
+            PlayerHeight.TextAlign = HorizontalAlignment.Center;
+            // 
             // label66
             // 
             label66.AutoSize = true;
-            label66.Location = new Point(380, 108);
+            label66.Location = new Point(96, 105);
             label66.Name = "label66";
-            label66.Size = new Size(33, 13);
+            label66.Size = new Size(37, 15);
             label66.TabIndex = 166;
             label66.Text = "Hand";
             // 
             // PlayerHandBox
             // 
+            PlayerHandBox.Font = new Font("Microsoft Sans Serif", 9F);
             PlayerHandBox.FormattingEnabled = true;
             PlayerHandBox.Items.AddRange(new object[] { "Right", "Left" });
-            PlayerHandBox.Location = new Point(380, 124);
+            PlayerHandBox.Location = new Point(96, 124);
             PlayerHandBox.Name = "PlayerHandBox";
-            PlayerHandBox.Size = new Size(51, 21);
+            PlayerHandBox.Size = new Size(83, 23);
             PlayerHandBox.TabIndex = 165;
             PlayerHandBox.SelectedIndexChanged += (this.PlayerHandBox_SelectedIndexChanged);
             // 
@@ -9323,7 +9424,7 @@ namespace DB_EDITOR
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            label1.Location = new Point(71, 15);
+            label1.Location = new Point(88, 16);
             label1.Name = "label1";
             label1.Size = new Size(82, 16);
             label1.TabIndex = 2;
@@ -9333,7 +9434,7 @@ namespace DB_EDITOR
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            label2.Location = new Point(195, 15);
+            label2.Location = new Point(212, 16);
             label2.Name = "label2";
             label2.Size = new Size(81, 16);
             label2.TabIndex = 3;
@@ -9341,28 +9442,30 @@ namespace DB_EDITOR
             // 
             // PSKIBox
             // 
+            PSKIBox.Font = new Font("Microsoft Sans Serif", 9F);
             PSKIBox.FormattingEnabled = true;
-            PSKIBox.Location = new Point(10, 166);
+            PSKIBox.Location = new Point(27, 167);
             PSKIBox.Name = "PSKIBox";
-            PSKIBox.Size = new Size(103, 21);
+            PSKIBox.Size = new Size(85, 23);
             PSKIBox.TabIndex = 72;
             PSKIBox.SelectedIndexChanged += (this.PSKIBox_SelectedIndexChanged);
             // 
             // label83
             // 
             label83.AutoSize = true;
-            label83.Location = new Point(11, 149);
+            label83.Location = new Point(28, 150);
             label83.Name = "label83";
-            label83.Size = new Size(56, 13);
+            label83.Size = new Size(62, 15);
             label83.TabIndex = 73;
             label83.Text = "Skin Tone";
             // 
             // PFGMBox
             // 
+            PFGMBox.Font = new Font("Microsoft Sans Serif", 9F);
             PFGMBox.FormattingEnabled = true;
-            PFGMBox.Location = new Point(123, 166);
+            PFGMBox.Location = new Point(120, 167);
             PFGMBox.Name = "PFGMBox";
-            PFGMBox.Size = new Size(45, 21);
+            PFGMBox.Size = new Size(45, 23);
             PFGMBox.TabIndex = 74;
             PFGMBox.SelectedIndexChanged += (this.PFGMBox_SelectedIndexChanged);
             // 
@@ -9370,27 +9473,18 @@ namespace DB_EDITOR
             // 
             PGIDbox.BackColor = SystemColors.Info;
             PGIDbox.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            PGIDbox.Location = new Point(10, 33);
+            PGIDbox.Location = new Point(27, 34);
             PGIDbox.Name = "PGIDbox";
             PGIDbox.ReadOnly = true;
             PGIDbox.Size = new Size(53, 22);
             PGIDbox.TabIndex = 97;
             PGIDbox.TextAlign = HorizontalAlignment.Center;
             // 
-            // label206
-            // 
-            label206.AutoSize = true;
-            label206.Location = new Point(185, 63);
-            label206.Name = "label206";
-            label206.Size = new Size(52, 13);
-            label206.TabIndex = 160;
-            label206.Text = "Discipline";
-            // 
             // PGIDLabel
             // 
             PGIDLabel.AutoSize = true;
             PGIDLabel.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            PGIDLabel.Location = new Point(11, 15);
+            PGIDLabel.Location = new Point(28, 16);
             PGIDLabel.Name = "PGIDLabel";
             PGIDLabel.Size = new Size(43, 16);
             PGIDLabel.TabIndex = 98;
@@ -9399,128 +9493,114 @@ namespace DB_EDITOR
             // label84
             // 
             label84.AutoSize = true;
-            label84.Location = new Point(120, 149);
+            label84.Location = new Point(117, 150);
             label84.Name = "label84";
-            label84.Size = new Size(38, 13);
+            label84.Size = new Size(43, 15);
             label84.TabIndex = 75;
             label84.Text = "Shape";
             // 
-            // PDIS
-            // 
-            PDIS.Location = new Point(188, 79);
-            PDIS.Maximum = new decimal(new int[] { 6, 0, 0, 0 });
-            PDIS.Name = "PDIS";
-            PDIS.Size = new Size(57, 20);
-            PDIS.TabIndex = 149;
-            PDIS.TextAlign = HorizontalAlignment.Center;
-            PDIS.ValueChanged += (this.PDIS_ValueChanged);
-            // 
             // PFMPBox
             // 
+            PFMPBox.Font = new Font("Microsoft Sans Serif", 9F);
             PFMPBox.FormattingEnabled = true;
-            PFMPBox.Location = new Point(174, 166);
+            PFMPBox.Location = new Point(171, 167);
             PFMPBox.Name = "PFMPBox";
-            PFMPBox.Size = new Size(51, 21);
+            PFMPBox.Size = new Size(51, 23);
             PFMPBox.TabIndex = 76;
             PFMPBox.SelectedIndexChanged += (this.PFMPBox_SelectedIndexChanged);
             // 
             // label153
             // 
             label153.AutoSize = true;
-            label153.Location = new Point(71, 63);
+            label153.Location = new Point(272, 60);
             label153.Name = "label153";
-            label153.Size = new Size(58, 13);
+            label153.Size = new Size(67, 15);
             label153.TabIndex = 159;
             label153.Text = "Hometown";
             // 
             // label85
             // 
             label85.AutoSize = true;
-            label85.Location = new Point(171, 149);
+            label85.Location = new Point(168, 150);
             label85.Name = "label85";
-            label85.Size = new Size(31, 13);
+            label85.Size = new Size(34, 15);
             label85.TabIndex = 77;
             label85.Text = "Face";
             // 
             // PHometownBox
             // 
+            PHometownBox.Font = new Font("Microsoft Sans Serif", 9F);
             PHometownBox.FormattingEnabled = true;
-            PHometownBox.Location = new Point(69, 79);
+            PHometownBox.Location = new Point(270, 76);
             PHometownBox.Name = "PHometownBox";
-            PHometownBox.Size = new Size(116, 21);
+            PHometownBox.Size = new Size(116, 23);
             PHometownBox.TabIndex = 158;
             PHometownBox.SelectedIndexChanged += (this.PHometownBox_SelectedIndexChanged);
             // 
             // PHCLBox
             // 
+            PHCLBox.Font = new Font("Microsoft Sans Serif", 9F);
             PHCLBox.FormattingEnabled = true;
-            PHCLBox.Location = new Point(231, 166);
+            PHCLBox.Location = new Point(228, 167);
             PHCLBox.Name = "PHCLBox";
-            PHCLBox.Size = new Size(94, 21);
+            PHCLBox.Size = new Size(94, 23);
             PHCLBox.TabIndex = 78;
             PHCLBox.SelectedIndexChanged += (this.PHCLBox_SelectedIndexChanged);
             // 
             // label203
             // 
             label203.AutoSize = true;
-            label203.Location = new Point(7, 63);
+            label203.Location = new Point(208, 60);
             label203.Name = "label203";
-            label203.Size = new Size(32, 13);
+            label203.Size = new Size(35, 15);
             label203.TabIndex = 157;
             label203.Text = "State";
             // 
             // label86
             // 
             label86.AutoSize = true;
-            label86.Location = new Point(228, 150);
+            label86.Location = new Point(225, 151);
             label86.Name = "label86";
-            label86.Size = new Size(53, 13);
+            label86.Size = new Size(62, 15);
             label86.TabIndex = 79;
             label86.Text = "Hair Color";
             // 
             // PStateBox
             // 
+            PStateBox.Font = new Font("Microsoft Sans Serif", 9F);
             PStateBox.FormattingEnabled = true;
-            PStateBox.Location = new Point(10, 79);
+            PStateBox.Location = new Point(211, 76);
             PStateBox.Name = "PStateBox";
-            PStateBox.Size = new Size(53, 21);
+            PStateBox.Size = new Size(53, 23);
             PStateBox.TabIndex = 156;
             PStateBox.SelectedIndexChanged += (this.PStateBox_SelectedIndexChanged);
             // 
             // PHEDBox
             // 
+            PHEDBox.Font = new Font("Microsoft Sans Serif", 9F);
             PHEDBox.FormattingEnabled = true;
-            PHEDBox.Location = new Point(331, 166);
+            PHEDBox.Location = new Point(328, 167);
             PHEDBox.Name = "PHEDBox";
-            PHEDBox.Size = new Size(99, 21);
+            PHEDBox.Size = new Size(99, 23);
             PHEDBox.TabIndex = 80;
             PHEDBox.SelectedIndexChanged += (this.PHEDBox_SelectedIndexChanged);
-            // 
-            // ResetPlayerPOSbutton
-            // 
-            ResetPlayerPOSbutton.Location = new Point(301, 79);
-            ResetPlayerPOSbutton.Name = "ResetPlayerPOSbutton";
-            ResetPlayerPOSbutton.Size = new Size(101, 23);
-            ResetPlayerPOSbutton.TabIndex = 151;
-            ResetPlayerPOSbutton.Text = "Reset Position";
-            ResetPlayerPOSbutton.UseVisualStyleBackColor = true;
-            ResetPlayerPOSbutton.Click += (this.ResetPlayerPOSbutton_Click);
             // 
             // label87
             // 
             label87.AutoSize = true;
-            label87.Location = new Point(331, 150);
+            label87.Location = new Point(328, 151);
             label87.Name = "label87";
-            label87.Size = new Size(52, 13);
+            label87.Size = new Size(59, 15);
             label87.TabIndex = 81;
             label87.Text = "Hair Style";
             // 
             // PHGTBox
             // 
-            PHGTBox.Location = new Point(254, 124);
+            PHGTBox.Font = new Font("Microsoft Sans Serif", 9.75F);
+            PHGTBox.Location = new Point(212, 124);
             PHGTBox.Maximum = new decimal(new int[] { 127, 0, 0, 0 });
             PHGTBox.Name = "PHGTBox";
-            PHGTBox.Size = new Size(57, 20);
+            PHGTBox.Size = new Size(57, 22);
             PHGTBox.TabIndex = 83;
             PHGTBox.TextAlign = HorizontalAlignment.Center;
             PHGTBox.ValueChanged += (this.PHGTBox_ValueChanged);
@@ -9528,30 +9608,21 @@ namespace DB_EDITOR
             // label90
             // 
             label90.AutoSize = true;
-            label90.Location = new Point(251, 109);
+            label90.Location = new Point(212, 105);
             label90.Name = "label90";
-            label90.Size = new Size(55, 13);
+            label90.Size = new Size(64, 15);
             label90.TabIndex = 84;
             label90.Text = "Height (in)";
             label90.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // AWHRBox
-            // 
-            AWHRBox.AutoSize = true;
-            AWHRBox.Location = new Point(297, 59);
-            AWHRBox.Name = "AWHRBox";
-            AWHRBox.Size = new Size(148, 17);
-            AWHRBox.TabIndex = 149;
-            AWHRBox.Text = "Position Change AWR Hit";
-            AWHRBox.UseVisualStyleBackColor = true;
-            // 
             // PWGTBox
             // 
-            PWGTBox.Location = new Point(317, 124);
+            PWGTBox.Font = new Font("Microsoft Sans Serif", 9.75F);
+            PWGTBox.Location = new Point(341, 124);
             PWGTBox.Maximum = new decimal(new int[] { 415, 0, 0, 0 });
             PWGTBox.Minimum = new decimal(new int[] { 160, 0, 0, 0 });
             PWGTBox.Name = "PWGTBox";
-            PWGTBox.Size = new Size(57, 20);
+            PWGTBox.Size = new Size(57, 22);
             PWGTBox.TabIndex = 86;
             PWGTBox.TextAlign = HorizontalAlignment.Center;
             PWGTBox.Value = new decimal(new int[] { 160, 0, 0, 0 });
@@ -9560,62 +9631,65 @@ namespace DB_EDITOR
             // label89
             // 
             label89.AutoSize = true;
-            label89.Location = new Point(318, 109);
+            label89.Location = new Point(341, 106);
             label89.Name = "label89";
-            label89.Size = new Size(63, 13);
+            label89.Size = new Size(72, 15);
             label89.TabIndex = 87;
             label89.Text = "Weight (lbs)";
             label89.TextAlign = ContentAlignment.MiddleRight;
             // 
             // PYERBox
             // 
+            PYERBox.Font = new Font("Microsoft Sans Serif", 9F);
             PYERBox.FormattingEnabled = true;
-            PYERBox.Location = new Point(10, 124);
+            PYERBox.Location = new Point(28, 77);
             PYERBox.Name = "PYERBox";
-            PYERBox.Size = new Size(79, 21);
+            PYERBox.Size = new Size(79, 23);
             PYERBox.TabIndex = 88;
             PYERBox.SelectedIndexChanged += (this.PYERBox_SelectedIndexChanged);
             // 
             // label91
             // 
             label91.AutoSize = true;
-            label91.Location = new Point(9, 109);
+            label91.Location = new Point(27, 62);
             label91.Name = "label91";
-            label91.Size = new Size(29, 13);
+            label91.Size = new Size(32, 15);
             label91.TabIndex = 89;
             label91.Text = "Year";
             // 
             // PRSDBox
             // 
+            PRSDBox.Font = new Font("Microsoft Sans Serif", 9F);
             PRSDBox.FormattingEnabled = true;
-            PRSDBox.Location = new Point(95, 124);
+            PRSDBox.Location = new Point(113, 77);
             PRSDBox.Name = "PRSDBox";
-            PRSDBox.Size = new Size(79, 21);
+            PRSDBox.Size = new Size(89, 23);
             PRSDBox.TabIndex = 90;
             PRSDBox.SelectedIndexChanged += (this.PRSDBox_SelectedIndexChanged);
             // 
             // label92
             // 
             label92.AutoSize = true;
-            label92.Location = new Point(92, 108);
+            label92.Location = new Point(110, 61);
             label92.Name = "label92";
-            label92.Size = new Size(46, 13);
+            label92.Size = new Size(53, 15);
             label92.TabIndex = 91;
             label92.Text = "Redshirt";
             // 
             // PJEN
             // 
-            PJEN.Location = new Point(188, 124);
+            PJEN.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            PJEN.Location = new Point(27, 123);
             PJEN.Maximum = new decimal(new int[] { 99, 0, 0, 0 });
             PJEN.Name = "PJEN";
-            PJEN.Size = new Size(53, 20);
+            PJEN.Size = new Size(53, 22);
             PJEN.TabIndex = 100;
             PJEN.ValueChanged += (this.PJEN_ValueChanged);
             // 
             // PLNAtextBox
             // 
             PLNAtextBox.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            PLNAtextBox.Location = new Point(193, 33);
+            PLNAtextBox.Location = new Point(210, 34);
             PLNAtextBox.Name = "PLNAtextBox";
             PLNAtextBox.Size = new Size(111, 22);
             PLNAtextBox.TabIndex = 1;
@@ -9625,9 +9699,9 @@ namespace DB_EDITOR
             // label113
             // 
             label113.AutoSize = true;
-            label113.Location = new Point(188, 109);
+            label113.Location = new Point(27, 105);
             label113.Name = "label113";
-            label113.Size = new Size(37, 13);
+            label113.Size = new Size(42, 15);
             label113.TabIndex = 101;
             label113.Text = "Jersey";
             label113.TextAlign = ContentAlignment.MiddleRight;
@@ -9635,7 +9709,7 @@ namespace DB_EDITOR
             // PFNAtextBox
             // 
             PFNAtextBox.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            PFNAtextBox.Location = new Point(71, 33);
+            PFNAtextBox.Location = new Point(88, 34);
             PFNAtextBox.Name = "PFNAtextBox";
             PFNAtextBox.Size = new Size(116, 22);
             PFNAtextBox.TabIndex = 0;
@@ -9646,7 +9720,7 @@ namespace DB_EDITOR
             // 
             PPOSBox.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             PPOSBox.FormattingEnabled = true;
-            PPOSBox.Location = new Point(310, 31);
+            PPOSBox.Location = new Point(327, 32);
             PPOSBox.Name = "PPOSBox";
             PPOSBox.Size = new Size(71, 24);
             PPOSBox.TabIndex = 10;
@@ -9656,7 +9730,7 @@ namespace DB_EDITOR
             // 
             label62.AutoSize = true;
             label62.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            label62.Location = new Point(311, 15);
+            label62.Location = new Point(328, 16);
             label62.Name = "label62";
             label62.Size = new Size(63, 16);
             label62.TabIndex = 11;
@@ -9852,20 +9926,19 @@ namespace DB_EDITOR
             // 
             // groupBox6
             // 
-            groupBox6.AutoSize = true;
             groupBox6.Controls.Add(PSTAtext);
             groupBox6.Controls.Add(PSTAbox);
             groupBox6.Controls.Add(label268);
             groupBox6.Controls.Add(PTEN);
             groupBox6.Controls.Add(label173);
             groupBox6.Controls.Add(PTHAtext);
-            groupBox6.Controls.Add(PIMPBox);
-            groupBox6.Controls.Add(label63);
             groupBox6.Controls.Add(PINJBox);
             groupBox6.Controls.Add(label64);
+            groupBox6.Controls.Add(label206);
             groupBox6.Controls.Add(PKACtext);
             groupBox6.Controls.Add(PSPDBox);
             groupBox6.Controls.Add(PKPRtext);
+            groupBox6.Controls.Add(PDIS);
             groupBox6.Controls.Add(PSPDlabel);
             groupBox6.Controls.Add(PTAKtext);
             groupBox6.Controls.Add(PACCBox);
@@ -9901,7 +9974,6 @@ namespace DB_EDITOR
             groupBox6.Controls.Add(PJMPBox);
             groupBox6.Controls.Add(PINJtext);
             groupBox6.Controls.Add(PJMPlabel);
-            groupBox6.Controls.Add(PIMPtext);
             groupBox6.Controls.Add(label61);
             groupBox6.Controls.Add(PCTHBox);
             groupBox6.Controls.Add(PCTHlabel);
@@ -9917,18 +9989,19 @@ namespace DB_EDITOR
             groupBox6.Controls.Add(PKPRlabel);
             groupBox6.Controls.Add(PKACBox);
             groupBox6.Controls.Add(PKAClabel);
-            groupBox6.Location = new Point(197, 207);
+            groupBox6.Location = new Point(197, 202);
             groupBox6.Name = "groupBox6";
-            groupBox6.Size = new Size(450, 357);
+            groupBox6.Padding = new Padding(0);
+            groupBox6.Size = new Size(450, 331);
             groupBox6.TabIndex = 150;
             groupBox6.TabStop = false;
             groupBox6.Text = "Attributes";
             // 
             // PSTAtext
             // 
-            PSTAtext.Anchor = AnchorStyles.None;
+            PSTAtext.Anchor = AnchorStyles.Top;
             PSTAtext.BackColor = SystemColors.Info;
-            PSTAtext.Location = new Point(304, 82);
+            PSTAtext.Location = new Point(319, 75);
             PSTAtext.Name = "PSTAtext";
             PSTAtext.ReadOnly = true;
             PSTAtext.Size = new Size(40, 20);
@@ -9937,8 +10010,8 @@ namespace DB_EDITOR
             // 
             // PSTAbox
             // 
-            PSTAbox.Anchor = AnchorStyles.None;
-            PSTAbox.Location = new Point(349, 82);
+            PSTAbox.Anchor = AnchorStyles.Top;
+            PSTAbox.Location = new Point(364, 75);
             PSTAbox.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             PSTAbox.Name = "PSTAbox";
             PSTAbox.Size = new Size(55, 20);
@@ -9948,9 +10021,9 @@ namespace DB_EDITOR
             // 
             // label268
             // 
-            label268.Anchor = AnchorStyles.None;
+            label268.Anchor = AnchorStyles.Top;
             label268.AutoSize = true;
-            label268.Location = new Point(252, 86);
+            label268.Location = new Point(267, 79);
             label268.Name = "label268";
             label268.Size = new Size(45, 13);
             label268.TabIndex = 150;
@@ -9959,10 +10032,10 @@ namespace DB_EDITOR
             // 
             // PTEN
             // 
-            PTEN.Anchor = AnchorStyles.None;
+            PTEN.Anchor = AnchorStyles.Top;
             PTEN.BackColor = SystemColors.Info;
             PTEN.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            PTEN.Location = new Point(300, 19);
+            PTEN.Location = new Point(102, 47);
             PTEN.Name = "PTEN";
             PTEN.ReadOnly = true;
             PTEN.Size = new Size(130, 22);
@@ -9971,9 +10044,9 @@ namespace DB_EDITOR
             // 
             // label173
             // 
-            label173.Anchor = AnchorStyles.None;
+            label173.Anchor = AnchorStyles.Top;
             label173.AutoSize = true;
-            label173.Location = new Point(210, 23);
+            label173.Location = new Point(12, 51);
             label173.Name = "label173";
             label173.Size = new Size(87, 13);
             label173.TabIndex = 148;
@@ -9982,41 +10055,19 @@ namespace DB_EDITOR
             // 
             // PTHAtext
             // 
-            PTHAtext.Anchor = AnchorStyles.None;
+            PTHAtext.Anchor = AnchorStyles.Top;
             PTHAtext.BackColor = SystemColors.Info;
-            PTHAtext.Location = new Point(304, 197);
+            PTHAtext.Location = new Point(319, 190);
             PTHAtext.Name = "PTHAtext";
             PTHAtext.ReadOnly = true;
             PTHAtext.Size = new Size(40, 20);
             PTHAtext.TabIndex = 56;
             PTHAtext.TextAlign = HorizontalAlignment.Center;
             // 
-            // PIMPBox
-            // 
-            PIMPBox.Anchor = AnchorStyles.None;
-            PIMPBox.Location = new Point(147, 53);
-            PIMPBox.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
-            PIMPBox.Name = "PIMPBox";
-            PIMPBox.Size = new Size(55, 20);
-            PIMPBox.TabIndex = 12;
-            PIMPBox.TextAlign = HorizontalAlignment.Center;
-            PIMPBox.ValueChanged += (this.PIMPBox_ValueChanged);
-            // 
-            // label63
-            // 
-            label63.Anchor = AnchorStyles.None;
-            label63.AutoSize = true;
-            label63.Location = new Point(40, 55);
-            label63.Name = "label63";
-            label63.Size = new Size(60, 13);
-            label63.TabIndex = 13;
-            label63.Text = "Importance";
-            label63.TextAlign = ContentAlignment.MiddleRight;
-            // 
             // PINJBox
             // 
-            PINJBox.Anchor = AnchorStyles.None;
-            PINJBox.Location = new Point(147, 81);
+            PINJBox.Anchor = AnchorStyles.Top;
+            PINJBox.Location = new Point(147, 74);
             PINJBox.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             PINJBox.Name = "PINJBox";
             PINJBox.Size = new Size(55, 20);
@@ -10026,20 +10077,29 @@ namespace DB_EDITOR
             // 
             // label64
             // 
-            label64.Anchor = AnchorStyles.None;
+            label64.Anchor = AnchorStyles.Top;
             label64.AutoSize = true;
-            label64.Location = new Point(37, 83);
+            label64.Location = new Point(37, 76);
             label64.Name = "label64";
             label64.Size = new Size(63, 13);
             label64.TabIndex = 16;
             label64.Text = "Injury Prone";
             label64.TextAlign = ContentAlignment.MiddleRight;
             // 
+            // label206
+            // 
+            label206.AutoSize = true;
+            label206.Location = new Point(303, 23);
+            label206.Name = "label206";
+            label206.Size = new Size(52, 13);
+            label206.TabIndex = 160;
+            label206.Text = "Discipline";
+            // 
             // PKACtext
             // 
-            PKACtext.Anchor = AnchorStyles.None;
+            PKACtext.Anchor = AnchorStyles.Top;
             PKACtext.BackColor = SystemColors.Info;
-            PKACtext.Location = new Point(303, 312);
+            PKACtext.Location = new Point(318, 305);
             PKACtext.Name = "PKACtext";
             PKACtext.ReadOnly = true;
             PKACtext.Size = new Size(40, 20);
@@ -10048,8 +10108,8 @@ namespace DB_EDITOR
             // 
             // PSPDBox
             // 
-            PSPDBox.Anchor = AnchorStyles.None;
-            PSPDBox.Location = new Point(147, 109);
+            PSPDBox.Anchor = AnchorStyles.Top;
+            PSPDBox.Location = new Point(147, 102);
             PSPDBox.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             PSPDBox.Name = "PSPDBox";
             PSPDBox.Size = new Size(55, 20);
@@ -10059,20 +10119,30 @@ namespace DB_EDITOR
             // 
             // PKPRtext
             // 
-            PKPRtext.Anchor = AnchorStyles.None;
+            PKPRtext.Anchor = AnchorStyles.Top;
             PKPRtext.BackColor = SystemColors.Info;
-            PKPRtext.Location = new Point(102, 312);
+            PKPRtext.Location = new Point(102, 305);
             PKPRtext.Name = "PKPRtext";
             PKPRtext.ReadOnly = true;
             PKPRtext.Size = new Size(40, 20);
             PKPRtext.TabIndex = 65;
             PKPRtext.TextAlign = HorizontalAlignment.Center;
             // 
+            // PDIS
+            // 
+            PDIS.Location = new Point(364, 20);
+            PDIS.Maximum = new decimal(new int[] { 6, 0, 0, 0 });
+            PDIS.Name = "PDIS";
+            PDIS.Size = new Size(54, 20);
+            PDIS.TabIndex = 149;
+            PDIS.TextAlign = HorizontalAlignment.Center;
+            PDIS.ValueChanged += (this.PDIS_ValueChanged);
+            // 
             // PSPDlabel
             // 
-            PSPDlabel.Anchor = AnchorStyles.None;
+            PSPDlabel.Anchor = AnchorStyles.Top;
             PSPDlabel.AutoSize = true;
-            PSPDlabel.Location = new Point(62, 112);
+            PSPDlabel.Location = new Point(62, 105);
             PSPDlabel.Name = "PSPDlabel";
             PSPDlabel.Size = new Size(38, 13);
             PSPDlabel.TabIndex = 19;
@@ -10081,9 +10151,9 @@ namespace DB_EDITOR
             // 
             // PTAKtext
             // 
-            PTAKtext.Anchor = AnchorStyles.None;
+            PTAKtext.Anchor = AnchorStyles.Top;
             PTAKtext.BackColor = SystemColors.Info;
-            PTAKtext.Location = new Point(303, 284);
+            PTAKtext.Location = new Point(318, 277);
             PTAKtext.Name = "PTAKtext";
             PTAKtext.ReadOnly = true;
             PTAKtext.Size = new Size(40, 20);
@@ -10092,8 +10162,8 @@ namespace DB_EDITOR
             // 
             // PACCBox
             // 
-            PACCBox.Anchor = AnchorStyles.None;
-            PACCBox.Location = new Point(147, 138);
+            PACCBox.Anchor = AnchorStyles.Top;
+            PACCBox.Location = new Point(147, 131);
             PACCBox.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             PACCBox.Name = "PACCBox";
             PACCBox.Size = new Size(55, 20);
@@ -10103,21 +10173,21 @@ namespace DB_EDITOR
             // 
             // POVRbox
             // 
-            POVRbox.Anchor = AnchorStyles.None;
+            POVRbox.Anchor = AnchorStyles.Top;
             POVRbox.BackColor = SystemColors.Info;
-            POVRbox.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            POVRbox.Location = new Point(118, 17);
+            POVRbox.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            POVRbox.Location = new Point(102, 12);
             POVRbox.Name = "POVRbox";
             POVRbox.ReadOnly = true;
-            POVRbox.Size = new Size(53, 26);
+            POVRbox.Size = new Size(53, 29);
             POVRbox.TabIndex = 8;
             POVRbox.TextAlign = HorizontalAlignment.Center;
             // 
             // PPBKtext
             // 
-            PPBKtext.Anchor = AnchorStyles.None;
+            PPBKtext.Anchor = AnchorStyles.Top;
             PPBKtext.BackColor = SystemColors.Info;
-            PPBKtext.Location = new Point(303, 256);
+            PPBKtext.Location = new Point(318, 249);
             PPBKtext.Name = "PPBKtext";
             PPBKtext.ReadOnly = true;
             PPBKtext.Size = new Size(40, 20);
@@ -10126,9 +10196,9 @@ namespace DB_EDITOR
             // 
             // PACClabel
             // 
-            PACClabel.Anchor = AnchorStyles.None;
+            PACClabel.Anchor = AnchorStyles.Top;
             PACClabel.AutoSize = true;
-            PACClabel.Location = new Point(34, 140);
+            PACClabel.Location = new Point(34, 133);
             PACClabel.Name = "PACClabel";
             PACClabel.Size = new Size(66, 13);
             PACClabel.TabIndex = 22;
@@ -10137,8 +10207,8 @@ namespace DB_EDITOR
             // 
             // PSTRBox
             // 
-            PSTRBox.Anchor = AnchorStyles.None;
-            PSTRBox.Location = new Point(147, 167);
+            PSTRBox.Anchor = AnchorStyles.Top;
+            PSTRBox.Location = new Point(147, 160);
             PSTRBox.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             PSTRBox.Name = "PSTRBox";
             PSTRBox.Size = new Size(55, 20);
@@ -10148,9 +10218,9 @@ namespace DB_EDITOR
             // 
             // PCARtext
             // 
-            PCARtext.Anchor = AnchorStyles.None;
+            PCARtext.Anchor = AnchorStyles.Top;
             PCARtext.BackColor = SystemColors.Info;
-            PCARtext.Location = new Point(304, 226);
+            PCARtext.Location = new Point(319, 219);
             PCARtext.Name = "PCARtext";
             PCARtext.ReadOnly = true;
             PCARtext.Size = new Size(40, 20);
@@ -10159,9 +10229,9 @@ namespace DB_EDITOR
             // 
             // PSTRlabel
             // 
-            PSTRlabel.Anchor = AnchorStyles.None;
+            PSTRlabel.Anchor = AnchorStyles.Top;
             PSTRlabel.AutoSize = true;
-            PSTRlabel.Location = new Point(53, 169);
+            PSTRlabel.Location = new Point(53, 162);
             PSTRlabel.Name = "PSTRlabel";
             PSTRlabel.Size = new Size(47, 13);
             PSTRlabel.TabIndex = 25;
@@ -10170,9 +10240,9 @@ namespace DB_EDITOR
             // 
             // PCTHtext
             // 
-            PCTHtext.Anchor = AnchorStyles.None;
+            PCTHtext.Anchor = AnchorStyles.Top;
             PCTHtext.BackColor = SystemColors.Info;
-            PCTHtext.Location = new Point(102, 284);
+            PCTHtext.Location = new Point(102, 277);
             PCTHtext.Name = "PCTHtext";
             PCTHtext.ReadOnly = true;
             PCTHtext.Size = new Size(40, 20);
@@ -10181,8 +10251,8 @@ namespace DB_EDITOR
             // 
             // PBTKBox
             // 
-            PBTKBox.Anchor = AnchorStyles.None;
-            PBTKBox.Location = new Point(147, 225);
+            PBTKBox.Anchor = AnchorStyles.Top;
+            PBTKBox.Location = new Point(147, 218);
             PBTKBox.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             PBTKBox.Name = "PBTKBox";
             PBTKBox.Size = new Size(55, 20);
@@ -10192,9 +10262,9 @@ namespace DB_EDITOR
             // 
             // PJMPtext
             // 
-            PJMPtext.Anchor = AnchorStyles.None;
+            PJMPtext.Anchor = AnchorStyles.Top;
             PJMPtext.BackColor = SystemColors.Info;
-            PJMPtext.Location = new Point(303, 168);
+            PJMPtext.Location = new Point(318, 161);
             PJMPtext.Name = "PJMPtext";
             PJMPtext.ReadOnly = true;
             PJMPtext.Size = new Size(40, 20);
@@ -10203,9 +10273,9 @@ namespace DB_EDITOR
             // 
             // PBTKlabel
             // 
-            PBTKlabel.Anchor = AnchorStyles.None;
+            PBTKlabel.Anchor = AnchorStyles.Top;
             PBTKlabel.AutoSize = true;
-            PBTKlabel.Location = new Point(30, 227);
+            PBTKlabel.Location = new Point(30, 220);
             PBTKlabel.Name = "PBTKlabel";
             PBTKlabel.Size = new Size(71, 13);
             PBTKlabel.TabIndex = 28;
@@ -10214,8 +10284,8 @@ namespace DB_EDITOR
             // 
             // PTHPBox
             // 
-            PTHPBox.Anchor = AnchorStyles.None;
-            PTHPBox.Location = new Point(147, 196);
+            PTHPBox.Anchor = AnchorStyles.Top;
+            PTHPBox.Location = new Point(147, 189);
             PTHPBox.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             PTHPBox.Name = "PTHPBox";
             PTHPBox.Size = new Size(55, 20);
@@ -10225,9 +10295,9 @@ namespace DB_EDITOR
             // 
             // PTHPlabel
             // 
-            PTHPlabel.Anchor = AnchorStyles.None;
+            PTHPlabel.Anchor = AnchorStyles.Top;
             PTHPlabel.AutoSize = true;
-            PTHPlabel.Location = new Point(30, 198);
+            PTHPlabel.Location = new Point(30, 191);
             PTHPlabel.Name = "PTHPlabel";
             PTHPlabel.Size = new Size(70, 13);
             PTHPlabel.TabIndex = 31;
@@ -10236,9 +10306,9 @@ namespace DB_EDITOR
             // 
             // PAGItext
             // 
-            PAGItext.Anchor = AnchorStyles.None;
+            PAGItext.Anchor = AnchorStyles.Top;
             PAGItext.BackColor = SystemColors.Info;
-            PAGItext.Location = new Point(303, 138);
+            PAGItext.Location = new Point(318, 131);
             PAGItext.Name = "PAGItext";
             PAGItext.ReadOnly = true;
             PAGItext.Size = new Size(40, 20);
@@ -10247,8 +10317,8 @@ namespace DB_EDITOR
             // 
             // PRBKBox
             // 
-            PRBKBox.Anchor = AnchorStyles.None;
-            PRBKBox.Location = new Point(147, 255);
+            PRBKBox.Anchor = AnchorStyles.Top;
+            PRBKBox.Location = new Point(147, 248);
             PRBKBox.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             PRBKBox.Name = "PRBKBox";
             PRBKBox.Size = new Size(55, 20);
@@ -10258,9 +10328,9 @@ namespace DB_EDITOR
             // 
             // PAWRtext
             // 
-            PAWRtext.Anchor = AnchorStyles.None;
+            PAWRtext.Anchor = AnchorStyles.Top;
             PAWRtext.BackColor = SystemColors.Info;
-            PAWRtext.Location = new Point(303, 111);
+            PAWRtext.Location = new Point(318, 104);
             PAWRtext.Name = "PAWRtext";
             PAWRtext.ReadOnly = true;
             PAWRtext.Size = new Size(40, 20);
@@ -10269,9 +10339,9 @@ namespace DB_EDITOR
             // 
             // PRBKlabel
             // 
-            PRBKlabel.Anchor = AnchorStyles.None;
+            PRBKlabel.Anchor = AnchorStyles.Top;
             PRBKlabel.AutoSize = true;
-            PRBKlabel.Location = new Point(30, 257);
+            PRBKlabel.Location = new Point(30, 250);
             PRBKlabel.Name = "PRBKlabel";
             PRBKlabel.Size = new Size(71, 13);
             PRBKlabel.TabIndex = 34;
@@ -10280,9 +10350,9 @@ namespace DB_EDITOR
             // 
             // PPOEtext
             // 
-            PPOEtext.Anchor = AnchorStyles.None;
+            PPOEtext.Anchor = AnchorStyles.Top;
             PPOEtext.BackColor = SystemColors.Info;
-            PPOEtext.Location = new Point(304, 54);
+            PPOEtext.Location = new Point(319, 47);
             PPOEtext.Name = "PPOEtext";
             PPOEtext.ReadOnly = true;
             PPOEtext.Size = new Size(40, 20);
@@ -10291,8 +10361,8 @@ namespace DB_EDITOR
             // 
             // PPOEBox
             // 
-            PPOEBox.Anchor = AnchorStyles.None;
-            PPOEBox.Location = new Point(349, 53);
+            PPOEBox.Anchor = AnchorStyles.Top;
+            PPOEBox.Location = new Point(364, 46);
             PPOEBox.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             PPOEBox.Name = "PPOEBox";
             PPOEBox.Size = new Size(55, 20);
@@ -10302,9 +10372,9 @@ namespace DB_EDITOR
             // 
             // PRBKtext
             // 
-            PRBKtext.Anchor = AnchorStyles.None;
+            PRBKtext.Anchor = AnchorStyles.Top;
             PRBKtext.BackColor = SystemColors.Info;
-            PRBKtext.Location = new Point(102, 255);
+            PRBKtext.Location = new Point(102, 248);
             PRBKtext.Name = "PRBKtext";
             PRBKtext.ReadOnly = true;
             PRBKtext.Size = new Size(40, 20);
@@ -10313,9 +10383,9 @@ namespace DB_EDITOR
             // 
             // label78
             // 
-            label78.Anchor = AnchorStyles.None;
+            label78.Anchor = AnchorStyles.Top;
             label78.AutoSize = true;
-            label78.Location = new Point(251, 58);
+            label78.Location = new Point(266, 51);
             label78.Name = "label78";
             label78.Size = new Size(48, 13);
             label78.TabIndex = 37;
@@ -10324,9 +10394,9 @@ namespace DB_EDITOR
             // 
             // PTHPtext
             // 
-            PTHPtext.Anchor = AnchorStyles.None;
+            PTHPtext.Anchor = AnchorStyles.Top;
             PTHPtext.BackColor = SystemColors.Info;
-            PTHPtext.Location = new Point(102, 196);
+            PTHPtext.Location = new Point(102, 189);
             PTHPtext.Name = "PTHPtext";
             PTHPtext.ReadOnly = true;
             PTHPtext.Size = new Size(40, 20);
@@ -10335,8 +10405,8 @@ namespace DB_EDITOR
             // 
             // PAWRBox
             // 
-            PAWRBox.Anchor = AnchorStyles.None;
-            PAWRBox.Location = new Point(348, 111);
+            PAWRBox.Anchor = AnchorStyles.Top;
+            PAWRBox.Location = new Point(363, 104);
             PAWRBox.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             PAWRBox.Name = "PAWRBox";
             PAWRBox.Size = new Size(55, 20);
@@ -10346,9 +10416,9 @@ namespace DB_EDITOR
             // 
             // PBTKtext
             // 
-            PBTKtext.Anchor = AnchorStyles.None;
+            PBTKtext.Anchor = AnchorStyles.Top;
             PBTKtext.BackColor = SystemColors.Info;
-            PBTKtext.Location = new Point(102, 225);
+            PBTKtext.Location = new Point(102, 218);
             PBTKtext.Name = "PBTKtext";
             PBTKtext.ReadOnly = true;
             PBTKtext.Size = new Size(40, 20);
@@ -10357,9 +10427,9 @@ namespace DB_EDITOR
             // 
             // PAWRlabel
             // 
-            PAWRlabel.Anchor = AnchorStyles.None;
+            PAWRlabel.Anchor = AnchorStyles.Top;
             PAWRlabel.AutoSize = true;
-            PAWRlabel.Location = new Point(239, 115);
+            PAWRlabel.Location = new Point(254, 108);
             PAWRlabel.Name = "PAWRlabel";
             PAWRlabel.Size = new Size(59, 13);
             PAWRlabel.TabIndex = 40;
@@ -10368,9 +10438,9 @@ namespace DB_EDITOR
             // 
             // PSTRtext
             // 
-            PSTRtext.Anchor = AnchorStyles.None;
+            PSTRtext.Anchor = AnchorStyles.Top;
             PSTRtext.BackColor = SystemColors.Info;
-            PSTRtext.Location = new Point(102, 167);
+            PSTRtext.Location = new Point(102, 160);
             PSTRtext.Name = "PSTRtext";
             PSTRtext.ReadOnly = true;
             PSTRtext.Size = new Size(40, 20);
@@ -10379,8 +10449,8 @@ namespace DB_EDITOR
             // 
             // PAGIBox
             // 
-            PAGIBox.Anchor = AnchorStyles.None;
-            PAGIBox.Location = new Point(348, 138);
+            PAGIBox.Anchor = AnchorStyles.Top;
+            PAGIBox.Location = new Point(363, 131);
             PAGIBox.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             PAGIBox.Name = "PAGIBox";
             PAGIBox.Size = new Size(55, 20);
@@ -10390,9 +10460,9 @@ namespace DB_EDITOR
             // 
             // PACCtext
             // 
-            PACCtext.Anchor = AnchorStyles.None;
+            PACCtext.Anchor = AnchorStyles.Top;
             PACCtext.BackColor = SystemColors.Info;
-            PACCtext.Location = new Point(102, 138);
+            PACCtext.Location = new Point(102, 131);
             PACCtext.Name = "PACCtext";
             PACCtext.ReadOnly = true;
             PACCtext.Size = new Size(40, 20);
@@ -10401,9 +10471,9 @@ namespace DB_EDITOR
             // 
             // PAGIlabel
             // 
-            PAGIlabel.Anchor = AnchorStyles.None;
+            PAGIlabel.Anchor = AnchorStyles.Top;
             PAGIlabel.AutoSize = true;
-            PAGIlabel.Location = new Point(264, 143);
+            PAGIlabel.Location = new Point(279, 136);
             PAGIlabel.Name = "PAGIlabel";
             PAGIlabel.Size = new Size(34, 13);
             PAGIlabel.TabIndex = 43;
@@ -10412,9 +10482,9 @@ namespace DB_EDITOR
             // 
             // PSPDtext
             // 
-            PSPDtext.Anchor = AnchorStyles.None;
+            PSPDtext.Anchor = AnchorStyles.Top;
             PSPDtext.BackColor = SystemColors.Info;
-            PSPDtext.Location = new Point(102, 109);
+            PSPDtext.Location = new Point(102, 102);
             PSPDtext.Name = "PSPDtext";
             PSPDtext.ReadOnly = true;
             PSPDtext.Size = new Size(40, 20);
@@ -10423,8 +10493,8 @@ namespace DB_EDITOR
             // 
             // PJMPBox
             // 
-            PJMPBox.Anchor = AnchorStyles.None;
-            PJMPBox.Location = new Point(348, 168);
+            PJMPBox.Anchor = AnchorStyles.Top;
+            PJMPBox.Location = new Point(363, 161);
             PJMPBox.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             PJMPBox.Name = "PJMPBox";
             PJMPBox.Size = new Size(55, 20);
@@ -10434,9 +10504,9 @@ namespace DB_EDITOR
             // 
             // PINJtext
             // 
-            PINJtext.Anchor = AnchorStyles.None;
+            PINJtext.Anchor = AnchorStyles.Top;
             PINJtext.BackColor = SystemColors.Info;
-            PINJtext.Location = new Point(102, 81);
+            PINJtext.Location = new Point(102, 74);
             PINJtext.Name = "PINJtext";
             PINJtext.ReadOnly = true;
             PINJtext.Size = new Size(40, 20);
@@ -10445,32 +10515,21 @@ namespace DB_EDITOR
             // 
             // PJMPlabel
             // 
-            PJMPlabel.Anchor = AnchorStyles.None;
+            PJMPlabel.Anchor = AnchorStyles.Top;
             PJMPlabel.AutoSize = true;
-            PJMPlabel.Location = new Point(252, 172);
+            PJMPlabel.Location = new Point(267, 165);
             PJMPlabel.Name = "PJMPlabel";
             PJMPlabel.Size = new Size(46, 13);
             PJMPlabel.TabIndex = 46;
             PJMPlabel.Text = "Jumping";
             PJMPlabel.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // PIMPtext
-            // 
-            PIMPtext.Anchor = AnchorStyles.None;
-            PIMPtext.BackColor = SystemColors.Info;
-            PIMPtext.Location = new Point(102, 53);
-            PIMPtext.Name = "PIMPtext";
-            PIMPtext.ReadOnly = true;
-            PIMPtext.Size = new Size(40, 20);
-            PIMPtext.TabIndex = 14;
-            PIMPtext.TextAlign = HorizontalAlignment.Center;
-            // 
             // label61
             // 
-            label61.Anchor = AnchorStyles.None;
+            label61.Anchor = AnchorStyles.Top;
             label61.AutoSize = true;
             label61.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            label61.Location = new Point(55, 22);
+            label61.Location = new Point(39, 17);
             label61.Name = "label61";
             label61.Size = new Size(57, 16);
             label61.TabIndex = 9;
@@ -10478,8 +10537,8 @@ namespace DB_EDITOR
             // 
             // PCTHBox
             // 
-            PCTHBox.Anchor = AnchorStyles.None;
-            PCTHBox.Location = new Point(147, 284);
+            PCTHBox.Anchor = AnchorStyles.Top;
+            PCTHBox.Location = new Point(147, 277);
             PCTHBox.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             PCTHBox.Name = "PCTHBox";
             PCTHBox.Size = new Size(55, 20);
@@ -10489,9 +10548,9 @@ namespace DB_EDITOR
             // 
             // PCTHlabel
             // 
-            PCTHlabel.Anchor = AnchorStyles.None;
+            PCTHlabel.Anchor = AnchorStyles.Top;
             PCTHlabel.AutoSize = true;
-            PCTHlabel.Location = new Point(48, 286);
+            PCTHlabel.Location = new Point(48, 279);
             PCTHlabel.Name = "PCTHlabel";
             PCTHlabel.Size = new Size(49, 13);
             PCTHlabel.TabIndex = 49;
@@ -10500,8 +10559,8 @@ namespace DB_EDITOR
             // 
             // PCARBox
             // 
-            PCARBox.Anchor = AnchorStyles.None;
-            PCARBox.Location = new Point(349, 226);
+            PCARBox.Anchor = AnchorStyles.Top;
+            PCARBox.Location = new Point(364, 219);
             PCARBox.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             PCARBox.Name = "PCARBox";
             PCARBox.Size = new Size(55, 20);
@@ -10511,9 +10570,9 @@ namespace DB_EDITOR
             // 
             // PCARlabel
             // 
-            PCARlabel.Anchor = AnchorStyles.None;
+            PCARlabel.Anchor = AnchorStyles.Top;
             PCARlabel.AutoSize = true;
-            PCARlabel.Location = new Point(235, 230);
+            PCARlabel.Location = new Point(250, 223);
             PCARlabel.Name = "PCARlabel";
             PCARlabel.Size = new Size(65, 13);
             PCARlabel.TabIndex = 52;
@@ -10522,8 +10581,8 @@ namespace DB_EDITOR
             // 
             // PTHABox
             // 
-            PTHABox.Anchor = AnchorStyles.None;
-            PTHABox.Location = new Point(349, 197);
+            PTHABox.Anchor = AnchorStyles.Top;
+            PTHABox.Location = new Point(364, 190);
             PTHABox.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             PTHABox.Name = "PTHABox";
             PTHABox.Size = new Size(55, 20);
@@ -10533,9 +10592,9 @@ namespace DB_EDITOR
             // 
             // PTHAlabel
             // 
-            PTHAlabel.Anchor = AnchorStyles.None;
+            PTHAlabel.Anchor = AnchorStyles.Top;
             PTHAlabel.AutoSize = true;
-            PTHAlabel.Location = new Point(216, 200);
+            PTHAlabel.Location = new Point(231, 193);
             PTHAlabel.Name = "PTHAlabel";
             PTHAlabel.Size = new Size(85, 13);
             PTHAlabel.TabIndex = 55;
@@ -10544,8 +10603,8 @@ namespace DB_EDITOR
             // 
             // PPBKBox
             // 
-            PPBKBox.Anchor = AnchorStyles.None;
-            PPBKBox.Location = new Point(348, 256);
+            PPBKBox.Anchor = AnchorStyles.Top;
+            PPBKBox.Location = new Point(363, 249);
             PPBKBox.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             PPBKBox.Name = "PPBKBox";
             PPBKBox.Size = new Size(55, 20);
@@ -10555,9 +10614,9 @@ namespace DB_EDITOR
             // 
             // PPBKlabel
             // 
-            PPBKlabel.Anchor = AnchorStyles.None;
+            PPBKlabel.Anchor = AnchorStyles.Top;
             PPBKlabel.AutoSize = true;
-            PPBKlabel.Location = new Point(228, 259);
+            PPBKlabel.Location = new Point(243, 252);
             PPBKlabel.Name = "PPBKlabel";
             PPBKlabel.Size = new Size(74, 13);
             PPBKlabel.TabIndex = 58;
@@ -10566,8 +10625,8 @@ namespace DB_EDITOR
             // 
             // PTAKBox
             // 
-            PTAKBox.Anchor = AnchorStyles.None;
-            PTAKBox.Location = new Point(348, 284);
+            PTAKBox.Anchor = AnchorStyles.Top;
+            PTAKBox.Location = new Point(363, 277);
             PTAKBox.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             PTAKBox.Name = "PTAKBox";
             PTAKBox.Size = new Size(55, 20);
@@ -10577,9 +10636,9 @@ namespace DB_EDITOR
             // 
             // PTAKlabel
             // 
-            PTAKlabel.Anchor = AnchorStyles.None;
+            PTAKlabel.Anchor = AnchorStyles.Top;
             PTAKlabel.AutoSize = true;
-            PTAKlabel.Location = new Point(252, 286);
+            PTAKlabel.Location = new Point(267, 279);
             PTAKlabel.Name = "PTAKlabel";
             PTAKlabel.Size = new Size(48, 13);
             PTAKlabel.TabIndex = 61;
@@ -10588,8 +10647,8 @@ namespace DB_EDITOR
             // 
             // PKPRBox
             // 
-            PKPRBox.Anchor = AnchorStyles.None;
-            PKPRBox.Location = new Point(147, 312);
+            PKPRBox.Anchor = AnchorStyles.Top;
+            PKPRBox.Location = new Point(147, 305);
             PKPRBox.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             PKPRBox.Name = "PKPRBox";
             PKPRBox.Size = new Size(55, 20);
@@ -10599,9 +10658,9 @@ namespace DB_EDITOR
             // 
             // PKPRlabel
             // 
-            PKPRlabel.Anchor = AnchorStyles.None;
+            PKPRlabel.Anchor = AnchorStyles.Top;
             PKPRlabel.AutoSize = true;
-            PKPRlabel.Location = new Point(40, 315);
+            PKPRlabel.Location = new Point(40, 308);
             PKPRlabel.Name = "PKPRlabel";
             PKPRlabel.Size = new Size(61, 13);
             PKPRlabel.TabIndex = 64;
@@ -10610,8 +10669,8 @@ namespace DB_EDITOR
             // 
             // PKACBox
             // 
-            PKACBox.Anchor = AnchorStyles.None;
-            PKACBox.Location = new Point(348, 312);
+            PKACBox.Anchor = AnchorStyles.Top;
+            PKACBox.Location = new Point(363, 305);
             PKACBox.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             PKACBox.Name = "PKACBox";
             PKACBox.Size = new Size(55, 20);
@@ -10621,34 +10680,14 @@ namespace DB_EDITOR
             // 
             // PKAClabel
             // 
-            PKAClabel.Anchor = AnchorStyles.None;
+            PKAClabel.Anchor = AnchorStyles.Top;
             PKAClabel.AutoSize = true;
-            PKAClabel.Location = new Point(223, 315);
+            PKAClabel.Location = new Point(238, 308);
             PKAClabel.Name = "PKAClabel";
             PKAClabel.Size = new Size(76, 13);
             PKAClabel.TabIndex = 70;
             PKAClabel.Text = "Kick Accuracy";
             PKAClabel.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // PlayerTransferButton
-            // 
-            PlayerTransferButton.Location = new Point(499, 573);
-            PlayerTransferButton.Name = "PlayerTransferButton";
-            PlayerTransferButton.Size = new Size(91, 34);
-            PlayerTransferButton.TabIndex = 146;
-            PlayerTransferButton.Text = "Send to Transfer Portal";
-            PlayerTransferButton.UseVisualStyleBackColor = true;
-            PlayerTransferButton.Click += (this.PlayerTransferButton_Click);
-            // 
-            // PlayerSetDepthChartButton
-            // 
-            PlayerSetDepthChartButton.Location = new Point(206, 572);
-            PlayerSetDepthChartButton.Name = "PlayerSetDepthChartButton";
-            PlayerSetDepthChartButton.Size = new Size(133, 36);
-            PlayerSetDepthChartButton.TabIndex = 99;
-            PlayerSetDepthChartButton.Text = "Auto-Set Team Depth Chart";
-            PlayerSetDepthChartButton.UseVisualStyleBackColor = true;
-            PlayerSetDepthChartButton.Click += (this.PlayerSetDepthChartButton_Click);
             // 
             // ShowPOSGBox
             // 
@@ -10682,25 +10721,6 @@ namespace DB_EDITOR
             ShowPosCheckBox.Text = "Show Position";
             ShowPosCheckBox.UseVisualStyleBackColor = true;
             ShowPosCheckBox.CheckedChanged += (this.ShowPosCheckBox_CheckedChanged);
-            // 
-            // label93
-            // 
-            label93.AutoSize = true;
-            label93.Location = new Point(350, 570);
-            label93.Name = "label93";
-            label93.Size = new Size(87, 13);
-            label93.TabIndex = 93;
-            label93.Text = "Off-Season Type";
-            // 
-            // PTYPBox
-            // 
-            PTYPBox.DropDownWidth = 150;
-            PTYPBox.FormattingEnabled = true;
-            PTYPBox.Location = new Point(351, 585);
-            PTYPBox.Name = "PTYPBox";
-            PTYPBox.Size = new Size(133, 21);
-            PTYPBox.TabIndex = 92;
-            PTYPBox.SelectedIndexChanged += (this.PTYPBox_SelectedIndexChanged);
             // 
             // RosterSizeLabel
             // 
@@ -10781,9 +10801,9 @@ namespace DB_EDITOR
             groupBox3.Controls.Add(label124);
             groupBox3.Controls.Add(NeckPad);
             groupBox3.Controls.Add(pictureBox3);
-            groupBox3.Location = new Point(658, 207);
+            groupBox3.Location = new Point(658, 202);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(484, 396);
+            groupBox3.Size = new Size(484, 404);
             groupBox3.TabIndex = 141;
             groupBox3.TabStop = false;
             groupBox3.Text = "Gear Editor";
@@ -11116,11 +11136,12 @@ namespace DB_EDITOR
             // tabTeams
             // 
             tabTeams.BackColor = SystemColors.AppWorkspace;
+            tabTeams.Controls.Add(label65);
+            tabTeams.Controls.Add(TopPlayersView);
             tabTeams.Controls.Add(label19);
             tabTeams.Controls.Add(groupBox49);
             tabTeams.Controls.Add(TeamRatingView);
             tabTeams.Controls.Add(groupBox34);
-            tabTeams.Controls.Add(groupBox15);
             tabTeams.Controls.Add(groupBox14);
             tabTeams.Controls.Add(groupBox13);
             tabTeams.Controls.Add(groupBox12);
@@ -11129,14 +11150,12 @@ namespace DB_EDITOR
             tabTeams.Controls.Add(TSNAtextBox);
             tabTeams.Controls.Add(TeamDivisionBox);
             tabTeams.Controls.Add(TeamConferenceBox);
-            tabTeams.Controls.Add(TGIDtextBox);
             tabTeams.Controls.Add(TMNAtextBox);
             tabTeams.Controls.Add(TDNAtextBox);
             tabTeams.Controls.Add(label27);
             tabTeams.Controls.Add(label26);
             tabTeams.Controls.Add(label25);
             tabTeams.Controls.Add(label24);
-            tabTeams.Controls.Add(label11);
             tabTeams.Controls.Add(label10);
             tabTeams.Controls.Add(label9);
             tabTeams.Controls.Add(label7);
@@ -11153,11 +11172,86 @@ namespace DB_EDITOR
             tabTeams.Text = "Teams";
             tabTeams.Click += (this.tabTeams_Click);
             // 
+            // label65
+            // 
+            label65.AutoSize = true;
+            label65.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            label65.Location = new Point(528, 279);
+            label65.Name = "label65";
+            label65.Size = new Size(92, 16);
+            label65.TabIndex = 153;
+            label65.Text = "Top Players";
+            // 
+            // TopPlayersView
+            // 
+            TopPlayersView.AllowUserToAddRows = false;
+            TopPlayersView.AllowUserToDeleteRows = false;
+            TopPlayersView.AllowUserToResizeColumns = false;
+            TopPlayersView.AllowUserToResizeRows = false;
+            TopPlayersView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            TopPlayersView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
+            TopPlayersView.BackgroundColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle37.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle37.BackColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle37.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle37.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle37.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle37.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle37.WrapMode = DataGridViewTriState.True;
+            TopPlayersView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle37;
+            TopPlayersView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            TopPlayersView.ColumnHeadersVisible = false;
+            TopPlayersView.Columns.AddRange(new DataGridViewColumn[] { TPPos, TPPlayer, TPRating });
+            dataGridViewCellStyle39.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle39.BackColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle39.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle39.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle39.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle39.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle39.WrapMode = DataGridViewTriState.False;
+            TopPlayersView.DefaultCellStyle = dataGridViewCellStyle39;
+            TopPlayersView.EnableHeadersVisualStyles = false;
+            TopPlayersView.GridColor = SystemColors.ControlDarkDark;
+            TopPlayersView.Location = new Point(528, 300);
+            TopPlayersView.MultiSelect = false;
+            TopPlayersView.Name = "TopPlayersView";
+            TopPlayersView.ReadOnly = true;
+            TopPlayersView.RowHeadersVisible = false;
+            TopPlayersView.ScrollBars = ScrollBars.None;
+            TopPlayersView.Size = new Size(193, 226);
+            TopPlayersView.TabIndex = 152;
+            // 
+            // TPPos
+            // 
+            TPPos.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            TPPos.HeaderText = "Pos";
+            TPPos.Name = "TPPos";
+            TPPos.ReadOnly = true;
+            TPPos.Width = 5;
+            // 
+            // TPPlayer
+            // 
+            TPPlayer.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            TPPlayer.HeaderText = "Player";
+            TPPlayer.Name = "TPPlayer";
+            TPPlayer.ReadOnly = true;
+            // 
+            // TPRating
+            // 
+            TPRating.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            dataGridViewCellStyle38.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle38.ForeColor = SystemColors.ControlLight;
+            TPRating.DefaultCellStyle = dataGridViewCellStyle38;
+            TPRating.HeaderText = "Rating";
+            TPRating.Name = "TPRating";
+            TPRating.ReadOnly = true;
+            TPRating.Width = 5;
+            // 
             // label19
             // 
             label19.AutoSize = true;
             label19.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            label19.Location = new Point(528, 57);
+            label19.Location = new Point(528, 9);
             label19.Name = "label19";
             label19.Size = new Size(104, 16);
             label19.TabIndex = 151;
@@ -11165,36 +11259,99 @@ namespace DB_EDITOR
             // 
             // groupBox49
             // 
+            groupBox49.Controls.Add(GenerateNewRosterButton);
             groupBox49.Controls.Add(TeamAutoImpact);
+            groupBox49.Controls.Add(DeathPenaltyButton);
             groupBox49.Controls.Add(TeamSetDepthChart);
-            groupBox49.Location = new Point(528, 333);
+            groupBox49.Controls.Add(FireCoachButton);
+            groupBox49.Controls.Add(TGIDtextBox);
+            groupBox49.Controls.Add(label11);
+            groupBox49.Location = new Point(528, 536);
             groupBox49.Name = "groupBox49";
-            groupBox49.Size = new Size(193, 113);
+            groupBox49.Size = new Size(612, 66);
             groupBox49.TabIndex = 150;
             groupBox49.TabStop = false;
             groupBox49.Text = "Team Options";
             // 
+            // GenerateNewRosterButton
+            // 
+            GenerateNewRosterButton.BackColor = Color.LightPink;
+            GenerateNewRosterButton.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
+            GenerateNewRosterButton.Location = new Point(506, 17);
+            GenerateNewRosterButton.Name = "GenerateNewRosterButton";
+            GenerateNewRosterButton.Size = new Size(100, 42);
+            GenerateNewRosterButton.TabIndex = 140;
+            GenerateNewRosterButton.Text = "Fantasy Roster";
+            GenerateNewRosterButton.UseVisualStyleBackColor = false;
+            GenerateNewRosterButton.Click += (this.TeamEditorGenRoster_Click);
+            // 
             // TeamAutoImpact
             // 
             TeamAutoImpact.BackColor = SystemColors.ActiveCaption;
-            TeamAutoImpact.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            TeamAutoImpact.Location = new Point(20, 60);
+            TeamAutoImpact.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
+            TeamAutoImpact.Location = new Point(188, 18);
             TeamAutoImpact.Name = "TeamAutoImpact";
-            TeamAutoImpact.Size = new Size(141, 42);
+            TeamAutoImpact.Size = new Size(100, 42);
             TeamAutoImpact.TabIndex = 139;
             TeamAutoImpact.Text = "Determine Impact Players";
             TeamAutoImpact.UseVisualStyleBackColor = false;
             TeamAutoImpact.Click += (this.TeamAutoImpact_Click);
             // 
+            // DeathPenaltyButton
+            // 
+            DeathPenaltyButton.BackColor = Color.NavajoWhite;
+            DeathPenaltyButton.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
+            DeathPenaltyButton.Location = new Point(294, 17);
+            DeathPenaltyButton.Name = "DeathPenaltyButton";
+            DeathPenaltyButton.Size = new Size(100, 42);
+            DeathPenaltyButton.TabIndex = 139;
+            DeathPenaltyButton.Text = "Death Penalty";
+            DeathPenaltyButton.UseVisualStyleBackColor = false;
+            DeathPenaltyButton.Click += (this.DeathPenaltyButton_Click);
+            // 
             // TeamSetDepthChart
             // 
-            TeamSetDepthChart.Location = new Point(20, 19);
+            TeamSetDepthChart.BackColor = Color.OliveDrab;
+            TeamSetDepthChart.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
+            TeamSetDepthChart.Location = new Point(82, 18);
             TeamSetDepthChart.Name = "TeamSetDepthChart";
-            TeamSetDepthChart.Size = new Size(141, 36);
+            TeamSetDepthChart.Size = new Size(100, 42);
             TeamSetDepthChart.TabIndex = 141;
             TeamSetDepthChart.Text = "Auto-Set Depth Chart";
-            TeamSetDepthChart.UseVisualStyleBackColor = true;
+            TeamSetDepthChart.UseVisualStyleBackColor = false;
             TeamSetDepthChart.Click += (this.TeamSetDepthChart_Click);
+            // 
+            // FireCoachButton
+            // 
+            FireCoachButton.BackColor = Color.LightCoral;
+            FireCoachButton.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
+            FireCoachButton.Location = new Point(400, 17);
+            FireCoachButton.Name = "FireCoachButton";
+            FireCoachButton.Size = new Size(100, 42);
+            FireCoachButton.TabIndex = 110;
+            FireCoachButton.Text = "Fire Coach";
+            FireCoachButton.UseVisualStyleBackColor = false;
+            FireCoachButton.Click += (this.FireCoachButton_Click);
+            // 
+            // TGIDtextBox
+            // 
+            TGIDtextBox.BackColor = SystemColors.Info;
+            TGIDtextBox.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            TGIDtextBox.Location = new Point(16, 18);
+            TGIDtextBox.Name = "TGIDtextBox";
+            TGIDtextBox.ReadOnly = true;
+            TGIDtextBox.Size = new Size(54, 24);
+            TGIDtextBox.TabIndex = 16;
+            TGIDtextBox.TextAlign = HorizontalAlignment.Center;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(16, 46);
+            label11.Name = "label11";
+            label11.Size = new Size(48, 13);
+            label11.TabIndex = 17;
+            label11.Text = "Team ID";
             // 
             // TeamRatingView
             // 
@@ -11204,34 +11361,35 @@ namespace DB_EDITOR
             TeamRatingView.AllowUserToResizeRows = false;
             TeamRatingView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             TeamRatingView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            TeamRatingView.BackgroundColor = SystemColors.AppWorkspace;
+            TeamRatingView.BackgroundColor = SystemColors.ButtonFace;
             TeamRatingView.CellBorderStyle = DataGridViewCellBorderStyle.SingleVertical;
-            dataGridViewCellStyle37.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle37.BackColor = SystemColors.ButtonFace;
-            dataGridViewCellStyle37.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle37.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle37.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle37.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle37.WrapMode = DataGridViewTriState.True;
-            TeamRatingView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle37;
+            dataGridViewCellStyle40.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle40.BackColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle40.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle40.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle40.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle40.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle40.WrapMode = DataGridViewTriState.True;
+            TeamRatingView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle40;
             TeamRatingView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             TeamRatingView.ColumnHeadersVisible = false;
             TeamRatingView.Columns.AddRange(new DataGridViewColumn[] { TeamPos, Column4 });
-            dataGridViewCellStyle38.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle38.BackColor = SystemColors.AppWorkspace;
-            dataGridViewCellStyle38.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle38.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle38.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle38.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle38.WrapMode = DataGridViewTriState.False;
-            TeamRatingView.DefaultCellStyle = dataGridViewCellStyle38;
+            dataGridViewCellStyle41.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle41.BackColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle41.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle41.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle41.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle41.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle41.WrapMode = DataGridViewTriState.False;
+            TeamRatingView.DefaultCellStyle = dataGridViewCellStyle41;
             TeamRatingView.EnableHeadersVisualStyles = false;
             TeamRatingView.GridColor = SystemColors.ControlDarkDark;
-            TeamRatingView.Location = new Point(528, 77);
+            TeamRatingView.Location = new Point(528, 29);
             TeamRatingView.MultiSelect = false;
             TeamRatingView.Name = "TeamRatingView";
             TeamRatingView.ReadOnly = true;
             TeamRatingView.RowHeadersVisible = false;
+            TeamRatingView.ScrollBars = ScrollBars.None;
             TeamRatingView.Size = new Size(193, 246);
             TeamRatingView.TabIndex = 149;
             // 
@@ -11284,42 +11442,6 @@ namespace DB_EDITOR
             TeamShowRanking.Text = "Show Ranking";
             TeamShowRanking.UseVisualStyleBackColor = true;
             TeamShowRanking.CheckedChanged += (this.TeamShowRanking_CheckedChanged);
-            // 
-            // groupBox15
-            // 
-            groupBox15.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            groupBox15.Controls.Add(GenerateNewRosterButton);
-            groupBox15.Controls.Add(DeathPenaltyButton);
-            groupBox15.Location = new Point(528, 452);
-            groupBox15.Name = "groupBox15";
-            groupBox15.Size = new Size(193, 150);
-            groupBox15.TabIndex = 147;
-            groupBox15.TabStop = false;
-            groupBox15.Text = "Fantasy";
-            // 
-            // GenerateNewRosterButton
-            // 
-            GenerateNewRosterButton.BackColor = Color.LightCoral;
-            GenerateNewRosterButton.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            GenerateNewRosterButton.Location = new Point(26, 88);
-            GenerateNewRosterButton.Name = "GenerateNewRosterButton";
-            GenerateNewRosterButton.Size = new Size(141, 43);
-            GenerateNewRosterButton.TabIndex = 140;
-            GenerateNewRosterButton.Text = "GENERATE NEW ROSTER";
-            GenerateNewRosterButton.UseVisualStyleBackColor = false;
-            GenerateNewRosterButton.Click += (this.TeamEditorGenRoster_Click);
-            // 
-            // DeathPenaltyButton
-            // 
-            DeathPenaltyButton.BackColor = Color.NavajoWhite;
-            DeathPenaltyButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            DeathPenaltyButton.Location = new Point(26, 26);
-            DeathPenaltyButton.Name = "DeathPenaltyButton";
-            DeathPenaltyButton.Size = new Size(141, 43);
-            DeathPenaltyButton.TabIndex = 139;
-            DeathPenaltyButton.Text = "Death Penalty";
-            DeathPenaltyButton.UseVisualStyleBackColor = false;
-            DeathPenaltyButton.Click += (this.DeathPenaltyButton_Click);
             // 
             // groupBox14
             // 
@@ -11663,7 +11785,6 @@ namespace DB_EDITOR
             // 
             // groupBox12
             // 
-            groupBox12.AutoSize = true;
             groupBox12.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             groupBox12.Controls.Add(label224);
             groupBox12.Controls.Add(TeamStadRank);
@@ -11815,7 +11936,7 @@ namespace DB_EDITOR
             groupBox11.Controls.Add(ImpactTPIDSelect);
             groupBox11.Location = new Point(739, 9);
             groupBox11.Name = "groupBox11";
-            groupBox11.Size = new Size(399, 229);
+            groupBox11.Size = new Size(397, 209);
             groupBox11.TabIndex = 143;
             groupBox11.TabStop = false;
             groupBox11.Text = "Team Leadership";
@@ -11928,7 +12049,7 @@ namespace DB_EDITOR
             // 
             ResetImpactPlayersButton.BackColor = Color.NavajoWhite;
             ResetImpactPlayersButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            ResetImpactPlayersButton.Location = new Point(312, 175);
+            ResetImpactPlayersButton.Location = new Point(310, 155);
             ResetImpactPlayersButton.Name = "ResetImpactPlayersButton";
             ResetImpactPlayersButton.Size = new Size(81, 35);
             ResetImpactPlayersButton.TabIndex = 129;
@@ -11952,7 +12073,7 @@ namespace DB_EDITOR
             // 
             TeamRosterSizeLabel.AutoSize = true;
             TeamRosterSizeLabel.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            TeamRosterSizeLabel.Location = new Point(5, 198);
+            TeamRosterSizeLabel.Location = new Point(23, 164);
             TeamRosterSizeLabel.Name = "TeamRosterSizeLabel";
             TeamRosterSizeLabel.Size = new Size(73, 15);
             TeamRosterSizeLabel.TabIndex = 138;
@@ -11974,7 +12095,7 @@ namespace DB_EDITOR
             // LeagueBox
             // 
             LeagueBox.Font = new Font("Microsoft Sans Serif", 11.25F);
-            LeagueBox.Location = new Point(264, 71);
+            LeagueBox.Location = new Point(267, 71);
             LeagueBox.Name = "LeagueBox";
             LeagueBox.ReadOnly = true;
             LeagueBox.Size = new Size(54, 24);
@@ -11984,10 +12105,10 @@ namespace DB_EDITOR
             // TSNAtextBox
             // 
             TSNAtextBox.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            TSNAtextBox.Location = new Point(554, 24);
+            TSNAtextBox.Location = new Point(193, 70);
             TSNAtextBox.MaxLength = 7;
             TSNAtextBox.Name = "TSNAtextBox";
-            TSNAtextBox.Size = new Size(78, 24);
+            TSNAtextBox.Size = new Size(65, 24);
             TSNAtextBox.TabIndex = 44;
             TSNAtextBox.Leave += (this.TSNAtextBox_Leave);
             // 
@@ -12013,23 +12134,13 @@ namespace DB_EDITOR
             TeamConferenceBox.Text = "Conference";
             TeamConferenceBox.TextAlign = HorizontalAlignment.Center;
             // 
-            // TGIDtextBox
-            // 
-            TGIDtextBox.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            TGIDtextBox.Location = new Point(202, 71);
-            TGIDtextBox.Name = "TGIDtextBox";
-            TGIDtextBox.ReadOnly = true;
-            TGIDtextBox.Size = new Size(54, 24);
-            TGIDtextBox.TabIndex = 16;
-            TGIDtextBox.TextAlign = HorizontalAlignment.Center;
-            // 
             // TMNAtextBox
             // 
             TMNAtextBox.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            TMNAtextBox.Location = new Point(379, 24);
+            TMNAtextBox.Location = new Point(359, 24);
             TMNAtextBox.MaxLength = 32;
             TMNAtextBox.Name = "TMNAtextBox";
-            TMNAtextBox.Size = new Size(162, 24);
+            TMNAtextBox.Size = new Size(151, 24);
             TMNAtextBox.TabIndex = 14;
             TMNAtextBox.Leave += (this.TMNAtextBox_Leave);
             // 
@@ -12039,14 +12150,14 @@ namespace DB_EDITOR
             TDNAtextBox.Location = new Point(201, 24);
             TDNAtextBox.MaxLength = 32;
             TDNAtextBox.Name = "TDNAtextBox";
-            TDNAtextBox.Size = new Size(162, 24);
+            TDNAtextBox.Size = new Size(149, 24);
             TDNAtextBox.TabIndex = 12;
             TDNAtextBox.Leave += (this.TDNAtextBox_Leave);
             // 
             // label27
             // 
             label27.AutoSize = true;
-            label27.Location = new Point(266, 53);
+            label27.Location = new Point(269, 53);
             label27.Name = "label27";
             label27.Size = new Size(43, 13);
             label27.TabIndex = 47;
@@ -12055,7 +12166,7 @@ namespace DB_EDITOR
             // label26
             // 
             label26.AutoSize = true;
-            label26.Location = new Point(551, 8);
+            label26.Location = new Point(193, 54);
             label26.Name = "label26";
             label26.Size = new Size(60, 13);
             label26.TabIndex = 45;
@@ -12079,19 +12190,10 @@ namespace DB_EDITOR
             label24.TabIndex = 41;
             label24.Text = "Conference";
             // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Location = new Point(202, 53);
-            label11.Name = "label11";
-            label11.Size = new Size(48, 13);
-            label11.TabIndex = 17;
-            label11.Text = "Team ID";
-            // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(381, 9);
+            label10.Location = new Point(361, 9);
             label10.Name = "label10";
             label10.Size = new Size(65, 13);
             label10.TabIndex = 15;
@@ -12189,12 +12291,11 @@ namespace DB_EDITOR
             groupBox10.Controls.Add(label50);
             groupBox10.Controls.Add(TeamCDTSbox);
             groupBox10.Controls.Add(TeamCDPCBox);
-            groupBox10.Controls.Add(FireCoachButton);
             groupBox10.Controls.Add(HCLastNameBox);
             groupBox10.Controls.Add(HCFirstNameBox);
-            groupBox10.Location = new Point(739, 242);
+            groupBox10.Location = new Point(741, 224);
             groupBox10.Name = "groupBox10";
-            groupBox10.Size = new Size(399, 359);
+            groupBox10.Size = new Size(399, 307);
             groupBox10.TabIndex = 142;
             groupBox10.TabStop = false;
             groupBox10.Text = "Head Coach";
@@ -12203,7 +12304,7 @@ namespace DB_EDITOR
             // 
             UserCoachCheckBox.AutoSize = true;
             UserCoachCheckBox.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            UserCoachCheckBox.Location = new Point(10, 321);
+            UserCoachCheckBox.Location = new Point(275, 12);
             UserCoachCheckBox.Name = "UserCoachCheckBox";
             UserCoachCheckBox.Size = new Size(122, 24);
             UserCoachCheckBox.TabIndex = 111;
@@ -12491,18 +12592,6 @@ namespace DB_EDITOR
             TeamCDPCBox.TabIndex = 72;
             TeamCDPCBox.TextAlign = HorizontalAlignment.Center;
             // 
-            // FireCoachButton
-            // 
-            FireCoachButton.BackColor = Color.LightCoral;
-            FireCoachButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            FireCoachButton.Location = new Point(291, 307);
-            FireCoachButton.Name = "FireCoachButton";
-            FireCoachButton.Size = new Size(100, 43);
-            FireCoachButton.TabIndex = 110;
-            FireCoachButton.Text = "Fire Coach";
-            FireCoachButton.UseVisualStyleBackColor = false;
-            FireCoachButton.Click += (this.FireCoachButton_Click);
-            // 
             // HCLastNameBox
             // 
             HCLastNameBox.Location = new Point(135, 54);
@@ -12537,14 +12626,14 @@ namespace DB_EDITOR
             // 
             tableGridView.AllowUserToAddRows = false;
             tableGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle39.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle39.BackColor = SystemColors.Control;
-            dataGridViewCellStyle39.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle39.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle39.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle39.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle39.WrapMode = DataGridViewTriState.True;
-            tableGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle39;
+            dataGridViewCellStyle42.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle42.BackColor = SystemColors.Control;
+            dataGridViewCellStyle42.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle42.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle42.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle42.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle42.WrapMode = DataGridViewTriState.True;
+            tableGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle42;
             tableGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             tableGridView.ContextMenuStrip = tableMenu;
             tableGridView.GridColor = SystemColors.Window;
@@ -12562,18 +12651,18 @@ namespace DB_EDITOR
             // 
             fieldsGridView.AllowDrop = true;
             fieldsGridView.AllowUserToAddRows = false;
-            dataGridViewCellStyle40.BackColor = SystemColors.Control;
-            fieldsGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle40;
+            dataGridViewCellStyle43.BackColor = SystemColors.Control;
+            fieldsGridView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle43;
             fieldsGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             fieldsGridView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle41.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle41.BackColor = SystemColors.Control;
-            dataGridViewCellStyle41.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle41.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle41.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle41.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle41.WrapMode = DataGridViewTriState.True;
-            fieldsGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle41;
+            dataGridViewCellStyle44.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle44.BackColor = SystemColors.Control;
+            dataGridViewCellStyle44.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle44.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle44.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle44.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle44.WrapMode = DataGridViewTriState.True;
+            fieldsGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle44;
             fieldsGridView.ContextMenuStrip = fieldMenu;
             fieldsGridView.GridColor = SystemColors.ScrollBar;
             fieldsGridView.Location = new Point(116, 6);
@@ -12730,29 +12819,29 @@ namespace DB_EDITOR
             // 
             CoachPortalNews.AllowUserToAddRows = false;
             CoachPortalNews.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle42.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle42.BackColor = Color.FromArgb((int)(byte)224, (int)(byte)224, (int)(byte)224);
-            CoachPortalNews.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle42;
+            dataGridViewCellStyle45.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle45.BackColor = Color.FromArgb((int)(byte)224, (int)(byte)224, (int)(byte)224);
+            CoachPortalNews.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle45;
             CoachPortalNews.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             CoachPortalNews.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
-            dataGridViewCellStyle43.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle43.BackColor = SystemColors.Control;
-            dataGridViewCellStyle43.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle43.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle43.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle43.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle43.WrapMode = DataGridViewTriState.True;
-            CoachPortalNews.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle43;
+            dataGridViewCellStyle46.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle46.BackColor = SystemColors.Control;
+            dataGridViewCellStyle46.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle46.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle46.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle46.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle46.WrapMode = DataGridViewTriState.True;
+            CoachPortalNews.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle46;
             CoachPortalNews.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             CoachPortalNews.Columns.AddRange(new DataGridViewColumn[] { CoachPortalTeam, CoachPortalPlayer, CoachPortalPos, CoachPortalPOVR });
-            dataGridViewCellStyle44.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle44.BackColor = SystemColors.Window;
-            dataGridViewCellStyle44.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle44.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle44.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle44.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle44.WrapMode = DataGridViewTriState.False;
-            CoachPortalNews.DefaultCellStyle = dataGridViewCellStyle44;
+            dataGridViewCellStyle47.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle47.BackColor = SystemColors.Window;
+            dataGridViewCellStyle47.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle47.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle47.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle47.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle47.WrapMode = DataGridViewTriState.False;
+            CoachPortalNews.DefaultCellStyle = dataGridViewCellStyle47;
             CoachPortalNews.Location = new Point(397, 369);
             CoachPortalNews.Name = "CoachPortalNews";
             CoachPortalNews.ReadOnly = true;
@@ -12966,29 +13055,29 @@ namespace DB_EDITOR
             // 
             CarouselDataGrid.AllowUserToAddRows = false;
             CarouselDataGrid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle45.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle45.BackColor = Color.FromArgb((int)(byte)224, (int)(byte)224, (int)(byte)224);
-            CarouselDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle45;
+            dataGridViewCellStyle48.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle48.BackColor = Color.FromArgb((int)(byte)224, (int)(byte)224, (int)(byte)224);
+            CarouselDataGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle48;
             CarouselDataGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             CarouselDataGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.DisplayedCells;
-            dataGridViewCellStyle46.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle46.BackColor = SystemColors.Control;
-            dataGridViewCellStyle46.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle46.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle46.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle46.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle46.WrapMode = DataGridViewTriState.True;
-            CarouselDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle46;
+            dataGridViewCellStyle49.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle49.BackColor = SystemColors.Control;
+            dataGridViewCellStyle49.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle49.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle49.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle49.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle49.WrapMode = DataGridViewTriState.True;
+            CarouselDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle49;
             CarouselDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             CarouselDataGrid.Columns.AddRange(new DataGridViewColumn[] { CCName, CCStatus, CCTeam, CCTmPrestige, CCPrestige, CCRecord, CCSeaRec, CCCoachRating });
-            dataGridViewCellStyle47.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle47.BackColor = SystemColors.Window;
-            dataGridViewCellStyle47.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle47.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle47.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle47.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle47.WrapMode = DataGridViewTriState.False;
-            CarouselDataGrid.DefaultCellStyle = dataGridViewCellStyle47;
+            dataGridViewCellStyle50.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle50.BackColor = SystemColors.Window;
+            dataGridViewCellStyle50.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle50.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle50.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle50.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle50.WrapMode = DataGridViewTriState.False;
+            CarouselDataGrid.DefaultCellStyle = dataGridViewCellStyle50;
             CarouselDataGrid.Location = new Point(397, 26);
             CarouselDataGrid.Name = "CarouselDataGrid";
             CarouselDataGrid.ReadOnly = true;
@@ -13804,42 +13893,42 @@ namespace DB_EDITOR
             TSReturn.AllowUserToAddRows = false;
             TSReturn.AllowUserToDeleteRows = false;
             TSReturn.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle48.BackColor = Color.Gainsboro;
-            dataGridViewCellStyle48.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle48.SelectionBackColor = Color.MediumSlateBlue;
-            TSReturn.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle48;
+            dataGridViewCellStyle51.BackColor = Color.Gainsboro;
+            dataGridViewCellStyle51.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle51.SelectionBackColor = Color.MediumSlateBlue;
+            TSReturn.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle51;
             TSReturn.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             TSReturn.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             TSReturn.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle49.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle49.BackColor = SystemColors.InactiveCaption;
-            dataGridViewCellStyle49.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle49.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle49.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle49.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle49.WrapMode = DataGridViewTriState.True;
-            TSReturn.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle49;
-            TSReturn.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            TSReturn.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn67, dataGridViewTextBoxColumn76, dataGridViewTextBoxColumn68, TSKRYd, dataGridViewTextBoxColumn70, dataGridViewTextBoxColumn71, dataGridViewTextBoxColumn72, dataGridViewTextBoxColumn73, dataGridViewTextBoxColumn74, dataGridViewTextBoxColumn75 });
-            dataGridViewCellStyle51.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle51.BackColor = SystemColors.ButtonFace;
-            dataGridViewCellStyle51.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle51.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle51.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle51.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle51.WrapMode = DataGridViewTriState.False;
-            TSReturn.DefaultCellStyle = dataGridViewCellStyle51;
-            TSReturn.Location = new Point(16, 523);
-            TSReturn.Name = "TSReturn";
-            TSReturn.ReadOnly = true;
             dataGridViewCellStyle52.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle52.BackColor = SystemColors.Control;
+            dataGridViewCellStyle52.BackColor = SystemColors.InactiveCaption;
             dataGridViewCellStyle52.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
             dataGridViewCellStyle52.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle52.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle52.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle52.WrapMode = DataGridViewTriState.True;
-            TSReturn.RowHeadersDefaultCellStyle = dataGridViewCellStyle52;
+            TSReturn.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle52;
+            TSReturn.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            TSReturn.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn67, dataGridViewTextBoxColumn76, dataGridViewTextBoxColumn68, TSKRYd, dataGridViewTextBoxColumn70, dataGridViewTextBoxColumn71, dataGridViewTextBoxColumn72, dataGridViewTextBoxColumn73, dataGridViewTextBoxColumn74, dataGridViewTextBoxColumn75 });
+            dataGridViewCellStyle54.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle54.BackColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle54.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle54.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle54.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle54.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle54.WrapMode = DataGridViewTriState.False;
+            TSReturn.DefaultCellStyle = dataGridViewCellStyle54;
+            TSReturn.Location = new Point(16, 523);
+            TSReturn.Name = "TSReturn";
+            TSReturn.ReadOnly = true;
+            dataGridViewCellStyle55.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle55.BackColor = SystemColors.Control;
+            dataGridViewCellStyle55.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle55.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle55.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle55.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle55.WrapMode = DataGridViewTriState.True;
+            TSReturn.RowHeadersDefaultCellStyle = dataGridViewCellStyle55;
             TSReturn.RowHeadersVisible = false;
             TSReturn.Size = new Size(551, 83);
             TSReturn.TabIndex = 13;
@@ -13847,8 +13936,8 @@ namespace DB_EDITOR
             // dataGridViewTextBoxColumn67
             // 
             dataGridViewTextBoxColumn67.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle50.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridViewTextBoxColumn67.DefaultCellStyle = dataGridViewCellStyle50;
+            dataGridViewCellStyle53.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewTextBoxColumn67.DefaultCellStyle = dataGridViewCellStyle53;
             dataGridViewTextBoxColumn67.HeaderText = "Player";
             dataGridViewTextBoxColumn67.Name = "dataGridViewTextBoxColumn67";
             dataGridViewTextBoxColumn67.ReadOnly = true;
@@ -13979,42 +14068,42 @@ namespace DB_EDITOR
             TSPunting.AllowUserToAddRows = false;
             TSPunting.AllowUserToDeleteRows = false;
             TSPunting.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle53.BackColor = Color.Gainsboro;
-            dataGridViewCellStyle53.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle53.SelectionBackColor = Color.MediumSlateBlue;
-            TSPunting.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle53;
+            dataGridViewCellStyle56.BackColor = Color.Gainsboro;
+            dataGridViewCellStyle56.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle56.SelectionBackColor = Color.MediumSlateBlue;
+            TSPunting.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle56;
             TSPunting.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             TSPunting.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             TSPunting.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle54.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle54.BackColor = SystemColors.InactiveCaption;
-            dataGridViewCellStyle54.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle54.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle54.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle54.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle54.WrapMode = DataGridViewTriState.True;
-            TSPunting.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle54;
-            TSPunting.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            TSPunting.Columns.AddRange(new DataGridViewColumn[] { TSPunts, dataGridViewTextBoxColumn57, dataGridViewTextBoxColumn58, dataGridViewTextBoxColumn59, dataGridViewTextBoxColumn60, dataGridViewTextBoxColumn61, dataGridViewTextBoxColumn62, dataGridViewTextBoxColumn63 });
-            dataGridViewCellStyle56.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle56.BackColor = SystemColors.ButtonFace;
-            dataGridViewCellStyle56.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle56.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle56.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle56.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle56.WrapMode = DataGridViewTriState.False;
-            TSPunting.DefaultCellStyle = dataGridViewCellStyle56;
-            TSPunting.Location = new Point(588, 542);
-            TSPunting.Name = "TSPunting";
-            TSPunting.ReadOnly = true;
             dataGridViewCellStyle57.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle57.BackColor = SystemColors.Control;
+            dataGridViewCellStyle57.BackColor = SystemColors.InactiveCaption;
             dataGridViewCellStyle57.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
             dataGridViewCellStyle57.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle57.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle57.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle57.WrapMode = DataGridViewTriState.True;
-            TSPunting.RowHeadersDefaultCellStyle = dataGridViewCellStyle57;
+            TSPunting.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle57;
+            TSPunting.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            TSPunting.Columns.AddRange(new DataGridViewColumn[] { TSPunts, dataGridViewTextBoxColumn57, dataGridViewTextBoxColumn58, dataGridViewTextBoxColumn59, dataGridViewTextBoxColumn60, dataGridViewTextBoxColumn61, dataGridViewTextBoxColumn62, dataGridViewTextBoxColumn63 });
+            dataGridViewCellStyle59.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle59.BackColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle59.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle59.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle59.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle59.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle59.WrapMode = DataGridViewTriState.False;
+            TSPunting.DefaultCellStyle = dataGridViewCellStyle59;
+            TSPunting.Location = new Point(588, 542);
+            TSPunting.Name = "TSPunting";
+            TSPunting.ReadOnly = true;
+            dataGridViewCellStyle60.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle60.BackColor = SystemColors.Control;
+            dataGridViewCellStyle60.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle60.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle60.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle60.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle60.WrapMode = DataGridViewTriState.True;
+            TSPunting.RowHeadersDefaultCellStyle = dataGridViewCellStyle60;
             TSPunting.RowHeadersVisible = false;
             TSPunting.Size = new Size(551, 64);
             TSPunting.TabIndex = 6;
@@ -14022,8 +14111,8 @@ namespace DB_EDITOR
             // TSPunts
             // 
             TSPunts.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle55.Alignment = DataGridViewContentAlignment.MiddleRight;
-            TSPunts.DefaultCellStyle = dataGridViewCellStyle55;
+            dataGridViewCellStyle58.Alignment = DataGridViewContentAlignment.MiddleRight;
+            TSPunts.DefaultCellStyle = dataGridViewCellStyle58;
             TSPunts.HeaderText = "Player";
             TSPunts.Name = "TSPunts";
             TSPunts.ReadOnly = true;
@@ -14076,42 +14165,42 @@ namespace DB_EDITOR
             TSKicking.AllowUserToAddRows = false;
             TSKicking.AllowUserToDeleteRows = false;
             TSKicking.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle58.BackColor = Color.Gainsboro;
-            dataGridViewCellStyle58.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle58.SelectionBackColor = Color.MediumSlateBlue;
-            TSKicking.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle58;
+            dataGridViewCellStyle61.BackColor = Color.Gainsboro;
+            dataGridViewCellStyle61.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle61.SelectionBackColor = Color.MediumSlateBlue;
+            TSKicking.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle61;
             TSKicking.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             TSKicking.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             TSKicking.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle59.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle59.BackColor = SystemColors.InactiveCaption;
-            dataGridViewCellStyle59.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle59.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle59.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle59.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle59.WrapMode = DataGridViewTriState.True;
-            TSKicking.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle59;
-            TSKicking.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            TSKicking.Columns.AddRange(new DataGridViewColumn[] { TSFGM, dataGridViewTextBoxColumn46, dataGridViewTextBoxColumn47, dataGridViewTextBoxColumn48, dataGridViewTextBoxColumn49, dataGridViewTextBoxColumn50, dataGridViewTextBoxColumn51, dataGridViewTextBoxColumn52, dataGridViewTextBoxColumn53, dataGridViewTextBoxColumn54 });
-            dataGridViewCellStyle61.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle61.BackColor = SystemColors.ButtonFace;
-            dataGridViewCellStyle61.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle61.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle61.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle61.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle61.WrapMode = DataGridViewTriState.False;
-            TSKicking.DefaultCellStyle = dataGridViewCellStyle61;
-            TSKicking.Location = new Point(588, 454);
-            TSKicking.Name = "TSKicking";
-            TSKicking.ReadOnly = true;
             dataGridViewCellStyle62.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle62.BackColor = SystemColors.Control;
+            dataGridViewCellStyle62.BackColor = SystemColors.InactiveCaption;
             dataGridViewCellStyle62.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
             dataGridViewCellStyle62.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle62.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle62.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle62.WrapMode = DataGridViewTriState.True;
-            TSKicking.RowHeadersDefaultCellStyle = dataGridViewCellStyle62;
+            TSKicking.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle62;
+            TSKicking.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            TSKicking.Columns.AddRange(new DataGridViewColumn[] { TSFGM, dataGridViewTextBoxColumn46, dataGridViewTextBoxColumn47, dataGridViewTextBoxColumn48, dataGridViewTextBoxColumn49, dataGridViewTextBoxColumn50, dataGridViewTextBoxColumn51, dataGridViewTextBoxColumn52, dataGridViewTextBoxColumn53, dataGridViewTextBoxColumn54 });
+            dataGridViewCellStyle64.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle64.BackColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle64.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle64.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle64.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle64.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle64.WrapMode = DataGridViewTriState.False;
+            TSKicking.DefaultCellStyle = dataGridViewCellStyle64;
+            TSKicking.Location = new Point(588, 454);
+            TSKicking.Name = "TSKicking";
+            TSKicking.ReadOnly = true;
+            dataGridViewCellStyle65.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle65.BackColor = SystemColors.Control;
+            dataGridViewCellStyle65.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle65.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle65.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle65.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle65.WrapMode = DataGridViewTriState.True;
+            TSKicking.RowHeadersDefaultCellStyle = dataGridViewCellStyle65;
             TSKicking.RowHeadersVisible = false;
             TSKicking.Size = new Size(551, 64);
             TSKicking.TabIndex = 5;
@@ -14119,8 +14208,8 @@ namespace DB_EDITOR
             // TSFGM
             // 
             TSFGM.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle60.Alignment = DataGridViewContentAlignment.MiddleRight;
-            TSFGM.DefaultCellStyle = dataGridViewCellStyle60;
+            dataGridViewCellStyle63.Alignment = DataGridViewContentAlignment.MiddleRight;
+            TSFGM.DefaultCellStyle = dataGridViewCellStyle63;
             TSFGM.HeaderText = "Player";
             TSFGM.Name = "TSFGM";
             TSFGM.ReadOnly = true;
@@ -14185,42 +14274,42 @@ namespace DB_EDITOR
             TSReceiving.AllowUserToAddRows = false;
             TSReceiving.AllowUserToDeleteRows = false;
             TSReceiving.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle63.BackColor = Color.Gainsboro;
-            dataGridViewCellStyle63.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle63.SelectionBackColor = Color.MediumSlateBlue;
-            TSReceiving.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle63;
+            dataGridViewCellStyle66.BackColor = Color.Gainsboro;
+            dataGridViewCellStyle66.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle66.SelectionBackColor = Color.MediumSlateBlue;
+            TSReceiving.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle66;
             TSReceiving.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             TSReceiving.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             TSReceiving.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle64.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle64.BackColor = SystemColors.InactiveCaption;
-            dataGridViewCellStyle64.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle64.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle64.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle64.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle64.WrapMode = DataGridViewTriState.True;
-            TSReceiving.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle64;
-            TSReceiving.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            TSReceiving.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn34, dataGridViewTextBoxColumn35, TSCatch, TSYdsCat, dataGridViewTextBoxColumn38, dataGridViewTextBoxColumn39, dataGridViewTextBoxColumn40, dataGridViewTextBoxColumn41, dataGridViewTextBoxColumn42, dataGridViewTextBoxColumn43, dataGridViewTextBoxColumn44 });
-            dataGridViewCellStyle66.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle66.BackColor = SystemColors.ButtonFace;
-            dataGridViewCellStyle66.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle66.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle66.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle66.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle66.WrapMode = DataGridViewTriState.False;
-            TSReceiving.DefaultCellStyle = dataGridViewCellStyle66;
-            TSReceiving.Location = new Point(16, 325);
-            TSReceiving.Name = "TSReceiving";
-            TSReceiving.ReadOnly = true;
             dataGridViewCellStyle67.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle67.BackColor = SystemColors.Control;
+            dataGridViewCellStyle67.BackColor = SystemColors.InactiveCaption;
             dataGridViewCellStyle67.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
             dataGridViewCellStyle67.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle67.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle67.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle67.WrapMode = DataGridViewTriState.True;
-            TSReceiving.RowHeadersDefaultCellStyle = dataGridViewCellStyle67;
+            TSReceiving.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle67;
+            TSReceiving.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            TSReceiving.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn34, dataGridViewTextBoxColumn35, TSCatch, TSYdsCat, dataGridViewTextBoxColumn38, dataGridViewTextBoxColumn39, dataGridViewTextBoxColumn40, dataGridViewTextBoxColumn41, dataGridViewTextBoxColumn42, dataGridViewTextBoxColumn43, dataGridViewTextBoxColumn44 });
+            dataGridViewCellStyle69.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle69.BackColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle69.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle69.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle69.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle69.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle69.WrapMode = DataGridViewTriState.False;
+            TSReceiving.DefaultCellStyle = dataGridViewCellStyle69;
+            TSReceiving.Location = new Point(16, 325);
+            TSReceiving.Name = "TSReceiving";
+            TSReceiving.ReadOnly = true;
+            dataGridViewCellStyle70.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle70.BackColor = SystemColors.Control;
+            dataGridViewCellStyle70.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle70.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle70.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle70.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle70.WrapMode = DataGridViewTriState.True;
+            TSReceiving.RowHeadersDefaultCellStyle = dataGridViewCellStyle70;
             TSReceiving.RowHeadersVisible = false;
             TSReceiving.Size = new Size(551, 174);
             TSReceiving.TabIndex = 4;
@@ -14228,8 +14317,8 @@ namespace DB_EDITOR
             // dataGridViewTextBoxColumn34
             // 
             dataGridViewTextBoxColumn34.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle65.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridViewTextBoxColumn34.DefaultCellStyle = dataGridViewCellStyle65;
+            dataGridViewCellStyle68.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewTextBoxColumn34.DefaultCellStyle = dataGridViewCellStyle68;
             dataGridViewTextBoxColumn34.HeaderText = "Player";
             dataGridViewTextBoxColumn34.Name = "dataGridViewTextBoxColumn34";
             dataGridViewTextBoxColumn34.ReadOnly = true;
@@ -14300,42 +14389,42 @@ namespace DB_EDITOR
             TSPassing.AllowUserToAddRows = false;
             TSPassing.AllowUserToDeleteRows = false;
             TSPassing.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle68.BackColor = Color.Gainsboro;
-            dataGridViewCellStyle68.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle68.SelectionBackColor = Color.MediumSlateBlue;
-            TSPassing.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle68;
+            dataGridViewCellStyle71.BackColor = Color.Gainsboro;
+            dataGridViewCellStyle71.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle71.SelectionBackColor = Color.MediumSlateBlue;
+            TSPassing.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle71;
             TSPassing.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             TSPassing.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             TSPassing.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle69.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle69.BackColor = SystemColors.InactiveCaption;
-            dataGridViewCellStyle69.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle69.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle69.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle69.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle69.WrapMode = DataGridViewTriState.True;
-            TSPassing.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle69;
-            TSPassing.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            TSPassing.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn23, dataGridViewTextBoxColumn24, dataGridViewTextBoxColumn25, dataGridViewTextBoxColumn26, dataGridViewTextBoxColumn27, dataGridViewTextBoxColumn28, TSPassYds, dataGridViewTextBoxColumn30, dataGridViewTextBoxColumn31, dataGridViewTextBoxColumn32, dataGridViewTextBoxColumn33 });
-            dataGridViewCellStyle71.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle71.BackColor = SystemColors.ButtonFace;
-            dataGridViewCellStyle71.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle71.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle71.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle71.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle71.WrapMode = DataGridViewTriState.False;
-            TSPassing.DefaultCellStyle = dataGridViewCellStyle71;
-            TSPassing.Location = new Point(16, 42);
-            TSPassing.Name = "TSPassing";
-            TSPassing.ReadOnly = true;
             dataGridViewCellStyle72.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle72.BackColor = SystemColors.Control;
+            dataGridViewCellStyle72.BackColor = SystemColors.InactiveCaption;
             dataGridViewCellStyle72.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
             dataGridViewCellStyle72.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle72.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle72.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle72.WrapMode = DataGridViewTriState.True;
-            TSPassing.RowHeadersDefaultCellStyle = dataGridViewCellStyle72;
+            TSPassing.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle72;
+            TSPassing.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            TSPassing.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn23, dataGridViewTextBoxColumn24, dataGridViewTextBoxColumn25, dataGridViewTextBoxColumn26, dataGridViewTextBoxColumn27, dataGridViewTextBoxColumn28, TSPassYds, dataGridViewTextBoxColumn30, dataGridViewTextBoxColumn31, dataGridViewTextBoxColumn32, dataGridViewTextBoxColumn33 });
+            dataGridViewCellStyle74.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle74.BackColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle74.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle74.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle74.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle74.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle74.WrapMode = DataGridViewTriState.False;
+            TSPassing.DefaultCellStyle = dataGridViewCellStyle74;
+            TSPassing.Location = new Point(16, 42);
+            TSPassing.Name = "TSPassing";
+            TSPassing.ReadOnly = true;
+            dataGridViewCellStyle75.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle75.BackColor = SystemColors.Control;
+            dataGridViewCellStyle75.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle75.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle75.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle75.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle75.WrapMode = DataGridViewTriState.True;
+            TSPassing.RowHeadersDefaultCellStyle = dataGridViewCellStyle75;
             TSPassing.RowHeadersVisible = false;
             TSPassing.Size = new Size(551, 81);
             TSPassing.TabIndex = 3;
@@ -14343,8 +14432,8 @@ namespace DB_EDITOR
             // dataGridViewTextBoxColumn23
             // 
             dataGridViewTextBoxColumn23.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle70.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridViewTextBoxColumn23.DefaultCellStyle = dataGridViewCellStyle70;
+            dataGridViewCellStyle73.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewTextBoxColumn23.DefaultCellStyle = dataGridViewCellStyle73;
             dataGridViewTextBoxColumn23.HeaderText = "Player";
             dataGridViewTextBoxColumn23.MinimumWidth = 50;
             dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
@@ -14416,42 +14505,42 @@ namespace DB_EDITOR
             TSDefense.AllowUserToAddRows = false;
             TSDefense.AllowUserToDeleteRows = false;
             TSDefense.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle73.BackColor = Color.Gainsboro;
-            dataGridViewCellStyle73.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle73.SelectionBackColor = Color.MediumSlateBlue;
-            TSDefense.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle73;
+            dataGridViewCellStyle76.BackColor = Color.Gainsboro;
+            dataGridViewCellStyle76.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle76.SelectionBackColor = Color.MediumSlateBlue;
+            TSDefense.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle76;
             TSDefense.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             TSDefense.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             TSDefense.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle74.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle74.BackColor = SystemColors.InactiveCaption;
-            dataGridViewCellStyle74.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle74.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle74.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle74.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle74.WrapMode = DataGridViewTriState.True;
-            TSDefense.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle74;
-            TSDefense.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            TSDefense.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn12, dataGridViewTextBoxColumn13, TSTackles, dataGridViewTextBoxColumn15, dataGridViewTextBoxColumn16, dataGridViewTextBoxColumn17, dataGridViewTextBoxColumn18, dataGridViewTextBoxColumn19, dataGridViewTextBoxColumn20, dataGridViewTextBoxColumn21 });
-            dataGridViewCellStyle76.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle76.BackColor = SystemColors.ButtonFace;
-            dataGridViewCellStyle76.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle76.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle76.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle76.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle76.WrapMode = DataGridViewTriState.False;
-            TSDefense.DefaultCellStyle = dataGridViewCellStyle76;
-            TSDefense.Location = new Point(588, 42);
-            TSDefense.Name = "TSDefense";
-            TSDefense.ReadOnly = true;
             dataGridViewCellStyle77.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle77.BackColor = SystemColors.Control;
+            dataGridViewCellStyle77.BackColor = SystemColors.InactiveCaption;
             dataGridViewCellStyle77.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
             dataGridViewCellStyle77.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle77.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle77.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle77.WrapMode = DataGridViewTriState.True;
-            TSDefense.RowHeadersDefaultCellStyle = dataGridViewCellStyle77;
+            TSDefense.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle77;
+            TSDefense.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            TSDefense.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn12, dataGridViewTextBoxColumn13, TSTackles, dataGridViewTextBoxColumn15, dataGridViewTextBoxColumn16, dataGridViewTextBoxColumn17, dataGridViewTextBoxColumn18, dataGridViewTextBoxColumn19, dataGridViewTextBoxColumn20, dataGridViewTextBoxColumn21 });
+            dataGridViewCellStyle79.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle79.BackColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle79.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle79.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle79.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle79.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle79.WrapMode = DataGridViewTriState.False;
+            TSDefense.DefaultCellStyle = dataGridViewCellStyle79;
+            TSDefense.Location = new Point(588, 42);
+            TSDefense.Name = "TSDefense";
+            TSDefense.ReadOnly = true;
+            dataGridViewCellStyle80.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle80.BackColor = SystemColors.Control;
+            dataGridViewCellStyle80.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle80.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle80.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle80.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle80.WrapMode = DataGridViewTriState.True;
+            TSDefense.RowHeadersDefaultCellStyle = dataGridViewCellStyle80;
             TSDefense.RowHeadersVisible = false;
             TSDefense.Size = new Size(551, 388);
             TSDefense.TabIndex = 2;
@@ -14459,8 +14548,8 @@ namespace DB_EDITOR
             // dataGridViewTextBoxColumn12
             // 
             dataGridViewTextBoxColumn12.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle75.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridViewTextBoxColumn12.DefaultCellStyle = dataGridViewCellStyle75;
+            dataGridViewCellStyle78.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewTextBoxColumn12.DefaultCellStyle = dataGridViewCellStyle78;
             dataGridViewTextBoxColumn12.HeaderText = "Player";
             dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             dataGridViewTextBoxColumn12.ReadOnly = true;
@@ -14525,42 +14614,42 @@ namespace DB_EDITOR
             TSRushing.AllowUserToAddRows = false;
             TSRushing.AllowUserToDeleteRows = false;
             TSRushing.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle78.BackColor = Color.Gainsboro;
-            dataGridViewCellStyle78.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle78.SelectionBackColor = Color.MediumSlateBlue;
-            TSRushing.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle78;
+            dataGridViewCellStyle81.BackColor = Color.Gainsboro;
+            dataGridViewCellStyle81.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle81.SelectionBackColor = Color.MediumSlateBlue;
+            TSRushing.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle81;
             TSRushing.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             TSRushing.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             TSRushing.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle79.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle79.BackColor = SystemColors.InactiveCaption;
-            dataGridViewCellStyle79.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle79.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle79.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle79.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle79.WrapMode = DataGridViewTriState.True;
-            TSRushing.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle79;
-            TSRushing.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            TSRushing.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, TSRushYds, dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7, dataGridViewTextBoxColumn8, dataGridViewTextBoxColumn9, dataGridViewTextBoxColumn10, dataGridViewTextBoxColumn11 });
-            dataGridViewCellStyle81.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle81.BackColor = SystemColors.ButtonFace;
-            dataGridViewCellStyle81.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle81.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle81.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle81.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle81.WrapMode = DataGridViewTriState.False;
-            TSRushing.DefaultCellStyle = dataGridViewCellStyle81;
-            TSRushing.Location = new Point(16, 152);
-            TSRushing.Name = "TSRushing";
-            TSRushing.ReadOnly = true;
             dataGridViewCellStyle82.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle82.BackColor = SystemColors.Control;
+            dataGridViewCellStyle82.BackColor = SystemColors.InactiveCaption;
             dataGridViewCellStyle82.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
             dataGridViewCellStyle82.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle82.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle82.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle82.WrapMode = DataGridViewTriState.True;
-            TSRushing.RowHeadersDefaultCellStyle = dataGridViewCellStyle82;
+            TSRushing.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle82;
+            TSRushing.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            TSRushing.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, TSRushYds, dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7, dataGridViewTextBoxColumn8, dataGridViewTextBoxColumn9, dataGridViewTextBoxColumn10, dataGridViewTextBoxColumn11 });
+            dataGridViewCellStyle84.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle84.BackColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle84.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle84.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle84.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle84.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle84.WrapMode = DataGridViewTriState.False;
+            TSRushing.DefaultCellStyle = dataGridViewCellStyle84;
+            TSRushing.Location = new Point(16, 152);
+            TSRushing.Name = "TSRushing";
+            TSRushing.ReadOnly = true;
+            dataGridViewCellStyle85.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle85.BackColor = SystemColors.Control;
+            dataGridViewCellStyle85.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle85.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle85.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle85.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle85.WrapMode = DataGridViewTriState.True;
+            TSRushing.RowHeadersDefaultCellStyle = dataGridViewCellStyle85;
             TSRushing.RowHeadersVisible = false;
             TSRushing.Size = new Size(551, 145);
             TSRushing.TabIndex = 1;
@@ -14568,8 +14657,8 @@ namespace DB_EDITOR
             // dataGridViewTextBoxColumn1
             // 
             dataGridViewTextBoxColumn1.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle80.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle80;
+            dataGridViewCellStyle83.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle83;
             dataGridViewTextBoxColumn1.HeaderText = "Player";
             dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             dataGridViewTextBoxColumn1.ReadOnly = true;
@@ -14687,42 +14776,42 @@ namespace DB_EDITOR
             LeagueRankingView.AllowUserToAddRows = false;
             LeagueRankingView.AllowUserToDeleteRows = false;
             LeagueRankingView.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle83.BackColor = Color.Gainsboro;
-            dataGridViewCellStyle83.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle83.SelectionBackColor = Color.MediumSlateBlue;
-            LeagueRankingView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle83;
+            dataGridViewCellStyle86.BackColor = Color.Gainsboro;
+            dataGridViewCellStyle86.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle86.SelectionBackColor = Color.MediumSlateBlue;
+            LeagueRankingView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle86;
             LeagueRankingView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             LeagueRankingView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             LeagueRankingView.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle84.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle84.BackColor = SystemColors.InactiveCaption;
-            dataGridViewCellStyle84.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle84.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle84.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle84.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle84.WrapMode = DataGridViewTriState.True;
-            LeagueRankingView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle84;
+            dataGridViewCellStyle87.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle87.BackColor = SystemColors.InactiveCaption;
+            dataGridViewCellStyle87.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle87.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle87.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle87.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle87.WrapMode = DataGridViewTriState.True;
+            LeagueRankingView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle87;
             LeagueRankingView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             LeagueRankingView.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn37, dataGridViewTextBoxColumn36, dataGridViewTextBoxColumn45, Column7, dataGridViewTextBoxColumn55 });
-            dataGridViewCellStyle90.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle90.BackColor = SystemColors.ButtonFace;
-            dataGridViewCellStyle90.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle90.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle90.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle90.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle90.WrapMode = DataGridViewTriState.False;
-            LeagueRankingView.DefaultCellStyle = dataGridViewCellStyle90;
+            dataGridViewCellStyle93.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle93.BackColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle93.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle93.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle93.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle93.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle93.WrapMode = DataGridViewTriState.False;
+            LeagueRankingView.DefaultCellStyle = dataGridViewCellStyle93;
             LeagueRankingView.Location = new Point(25, 37);
             LeagueRankingView.Name = "LeagueRankingView";
             LeagueRankingView.ReadOnly = true;
-            dataGridViewCellStyle91.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle91.BackColor = SystemColors.Control;
-            dataGridViewCellStyle91.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle91.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle91.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle91.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle91.WrapMode = DataGridViewTriState.True;
-            LeagueRankingView.RowHeadersDefaultCellStyle = dataGridViewCellStyle91;
+            dataGridViewCellStyle94.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle94.BackColor = SystemColors.Control;
+            dataGridViewCellStyle94.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle94.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle94.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle94.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle94.WrapMode = DataGridViewTriState.True;
+            LeagueRankingView.RowHeadersDefaultCellStyle = dataGridViewCellStyle94;
             LeagueRankingView.RowHeadersVisible = false;
             LeagueRankingView.Size = new Size(406, 555);
             LeagueRankingView.TabIndex = 13;
@@ -14730,8 +14819,8 @@ namespace DB_EDITOR
             // dataGridViewTextBoxColumn37
             // 
             dataGridViewTextBoxColumn37.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle85.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridViewTextBoxColumn37.DefaultCellStyle = dataGridViewCellStyle85;
+            dataGridViewCellStyle88.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewTextBoxColumn37.DefaultCellStyle = dataGridViewCellStyle88;
             dataGridViewTextBoxColumn37.HeaderText = "Rank";
             dataGridViewTextBoxColumn37.Name = "dataGridViewTextBoxColumn37";
             dataGridViewTextBoxColumn37.ReadOnly = true;
@@ -14740,8 +14829,8 @@ namespace DB_EDITOR
             // dataGridViewTextBoxColumn36
             // 
             dataGridViewTextBoxColumn36.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle86.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewTextBoxColumn36.DefaultCellStyle = dataGridViewCellStyle86;
+            dataGridViewCellStyle89.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewTextBoxColumn36.DefaultCellStyle = dataGridViewCellStyle89;
             dataGridViewTextBoxColumn36.HeaderText = "Team Name";
             dataGridViewTextBoxColumn36.Name = "dataGridViewTextBoxColumn36";
             dataGridViewTextBoxColumn36.ReadOnly = true;
@@ -14749,8 +14838,8 @@ namespace DB_EDITOR
             // dataGridViewTextBoxColumn45
             // 
             dataGridViewTextBoxColumn45.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle87.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewTextBoxColumn45.DefaultCellStyle = dataGridViewCellStyle87;
+            dataGridViewCellStyle90.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewTextBoxColumn45.DefaultCellStyle = dataGridViewCellStyle90;
             dataGridViewTextBoxColumn45.HeaderText = "Record";
             dataGridViewTextBoxColumn45.Name = "dataGridViewTextBoxColumn45";
             dataGridViewTextBoxColumn45.ReadOnly = true;
@@ -14759,8 +14848,8 @@ namespace DB_EDITOR
             // Column7
             // 
             Column7.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle88.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            Column7.DefaultCellStyle = dataGridViewCellStyle88;
+            dataGridViewCellStyle91.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            Column7.DefaultCellStyle = dataGridViewCellStyle91;
             Column7.HeaderText = "Prestige";
             Column7.Name = "Column7";
             Column7.ReadOnly = true;
@@ -14769,8 +14858,8 @@ namespace DB_EDITOR
             // dataGridViewTextBoxColumn55
             // 
             dataGridViewTextBoxColumn55.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle89.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewTextBoxColumn55.DefaultCellStyle = dataGridViewCellStyle89;
+            dataGridViewCellStyle92.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewTextBoxColumn55.DefaultCellStyle = dataGridViewCellStyle92;
             dataGridViewTextBoxColumn55.HeaderText = "Score";
             dataGridViewTextBoxColumn55.Name = "dataGridViewTextBoxColumn55";
             dataGridViewTextBoxColumn55.ReadOnly = true;
@@ -14792,42 +14881,42 @@ namespace DB_EDITOR
             LeagueStatsView.AllowUserToAddRows = false;
             LeagueStatsView.AllowUserToDeleteRows = false;
             LeagueStatsView.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle92.BackColor = Color.Gainsboro;
-            dataGridViewCellStyle92.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle92.SelectionBackColor = Color.MediumSlateBlue;
-            LeagueStatsView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle92;
+            dataGridViewCellStyle95.BackColor = Color.Gainsboro;
+            dataGridViewCellStyle95.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle95.SelectionBackColor = Color.MediumSlateBlue;
+            LeagueStatsView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle95;
             LeagueStatsView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             LeagueStatsView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             LeagueStatsView.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle93.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle93.BackColor = SystemColors.InactiveCaption;
-            dataGridViewCellStyle93.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle93.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle93.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle93.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle93.WrapMode = DataGridViewTriState.True;
-            LeagueStatsView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle93;
-            LeagueStatsView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            LeagueStatsView.Columns.AddRange(new DataGridViewColumn[] { LS00, LS01, LS1, LS2, LS3, LS4, LS5, LS6, LS7, LS8, LS9 });
             dataGridViewCellStyle96.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle96.BackColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle96.BackColor = SystemColors.InactiveCaption;
             dataGridViewCellStyle96.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle96.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle96.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle96.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle96.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle96.WrapMode = DataGridViewTriState.False;
-            LeagueStatsView.DefaultCellStyle = dataGridViewCellStyle96;
+            dataGridViewCellStyle96.WrapMode = DataGridViewTriState.True;
+            LeagueStatsView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle96;
+            LeagueStatsView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            LeagueStatsView.Columns.AddRange(new DataGridViewColumn[] { LS00, LS01, LS1, LS2, LS3, LS4, LS5, LS6, LS7, LS8, LS9 });
+            dataGridViewCellStyle99.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle99.BackColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle99.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle99.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle99.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle99.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle99.WrapMode = DataGridViewTriState.False;
+            LeagueStatsView.DefaultCellStyle = dataGridViewCellStyle99;
             LeagueStatsView.Location = new Point(460, 37);
             LeagueStatsView.Name = "LeagueStatsView";
             LeagueStatsView.ReadOnly = true;
-            dataGridViewCellStyle97.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle97.BackColor = SystemColors.Control;
-            dataGridViewCellStyle97.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle97.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle97.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle97.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle97.WrapMode = DataGridViewTriState.True;
-            LeagueStatsView.RowHeadersDefaultCellStyle = dataGridViewCellStyle97;
+            dataGridViewCellStyle100.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle100.BackColor = SystemColors.Control;
+            dataGridViewCellStyle100.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle100.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle100.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle100.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle100.WrapMode = DataGridViewTriState.True;
+            LeagueStatsView.RowHeadersDefaultCellStyle = dataGridViewCellStyle100;
             LeagueStatsView.RowHeadersVisible = false;
             LeagueStatsView.Size = new Size(675, 555);
             LeagueStatsView.TabIndex = 11;
@@ -14835,8 +14924,8 @@ namespace DB_EDITOR
             // LS00
             // 
             LS00.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle94.Alignment = DataGridViewContentAlignment.MiddleRight;
-            LS00.DefaultCellStyle = dataGridViewCellStyle94;
+            dataGridViewCellStyle97.Alignment = DataGridViewContentAlignment.MiddleRight;
+            LS00.DefaultCellStyle = dataGridViewCellStyle97;
             LS00.HeaderText = "Team";
             LS00.Name = "LS00";
             LS00.ReadOnly = true;
@@ -14845,8 +14934,8 @@ namespace DB_EDITOR
             // LS01
             // 
             LS01.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle95.Alignment = DataGridViewContentAlignment.MiddleRight;
-            LS01.DefaultCellStyle = dataGridViewCellStyle95;
+            dataGridViewCellStyle98.Alignment = DataGridViewContentAlignment.MiddleRight;
+            LS01.DefaultCellStyle = dataGridViewCellStyle98;
             LS01.HeaderText = "Player";
             LS01.Name = "LS01";
             LS01.ReadOnly = true;
@@ -14988,42 +15077,42 @@ namespace DB_EDITOR
             RecruitTeamView.AllowUserToAddRows = false;
             RecruitTeamView.AllowUserToDeleteRows = false;
             RecruitTeamView.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle98.BackColor = Color.Gainsboro;
-            dataGridViewCellStyle98.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle98.SelectionBackColor = Color.MediumSlateBlue;
-            RecruitTeamView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle98;
+            dataGridViewCellStyle101.BackColor = Color.Gainsboro;
+            dataGridViewCellStyle101.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle101.SelectionBackColor = Color.MediumSlateBlue;
+            RecruitTeamView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle101;
             RecruitTeamView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             RecruitTeamView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             RecruitTeamView.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle99.Alignment = DataGridViewContentAlignment.BottomCenter;
-            dataGridViewCellStyle99.BackColor = SystemColors.InactiveCaption;
-            dataGridViewCellStyle99.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle99.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle99.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle99.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle99.WrapMode = DataGridViewTriState.True;
-            RecruitTeamView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle99;
-            RecruitTeamView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            RecruitTeamView.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn80, dataGridViewTextBoxColumn81, RecruitHomeTeam, Column1, Column3, RecruitTeamOVR, RecruitTeamStarRating, dataGridViewTextBoxColumn84 });
-            dataGridViewCellStyle101.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle101.BackColor = SystemColors.ButtonFace;
-            dataGridViewCellStyle101.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle101.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle101.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle101.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle101.WrapMode = DataGridViewTriState.False;
-            RecruitTeamView.DefaultCellStyle = dataGridViewCellStyle101;
-            RecruitTeamView.Location = new Point(542, 68);
-            RecruitTeamView.Name = "RecruitTeamView";
-            RecruitTeamView.ReadOnly = true;
-            dataGridViewCellStyle102.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle102.BackColor = SystemColors.Control;
+            dataGridViewCellStyle102.Alignment = DataGridViewContentAlignment.BottomCenter;
+            dataGridViewCellStyle102.BackColor = SystemColors.InactiveCaption;
             dataGridViewCellStyle102.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
             dataGridViewCellStyle102.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle102.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle102.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle102.WrapMode = DataGridViewTriState.True;
-            RecruitTeamView.RowHeadersDefaultCellStyle = dataGridViewCellStyle102;
+            RecruitTeamView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle102;
+            RecruitTeamView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            RecruitTeamView.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn80, dataGridViewTextBoxColumn81, RecruitHomeTeam, Column1, Column3, RecruitTeamOVR, RecruitTeamStarRating, dataGridViewTextBoxColumn84 });
+            dataGridViewCellStyle104.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle104.BackColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle104.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle104.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle104.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle104.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle104.WrapMode = DataGridViewTriState.False;
+            RecruitTeamView.DefaultCellStyle = dataGridViewCellStyle104;
+            RecruitTeamView.Location = new Point(542, 68);
+            RecruitTeamView.Name = "RecruitTeamView";
+            RecruitTeamView.ReadOnly = true;
+            dataGridViewCellStyle105.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle105.BackColor = SystemColors.Control;
+            dataGridViewCellStyle105.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle105.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle105.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle105.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle105.WrapMode = DataGridViewTriState.True;
+            RecruitTeamView.RowHeadersDefaultCellStyle = dataGridViewCellStyle105;
             RecruitTeamView.RowHeadersVisible = false;
             RecruitTeamView.Size = new Size(604, 526);
             RecruitTeamView.TabIndex = 161;
@@ -15039,8 +15128,8 @@ namespace DB_EDITOR
             // dataGridViewTextBoxColumn81
             // 
             dataGridViewTextBoxColumn81.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle100.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridViewTextBoxColumn81.DefaultCellStyle = dataGridViewCellStyle100;
+            dataGridViewCellStyle103.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewTextBoxColumn81.DefaultCellStyle = dataGridViewCellStyle103;
             dataGridViewTextBoxColumn81.FillWeight = 251.798569F;
             dataGridViewTextBoxColumn81.HeaderText = "Player";
             dataGridViewTextBoxColumn81.Name = "dataGridViewTextBoxColumn81";
@@ -15102,43 +15191,43 @@ namespace DB_EDITOR
             RecruitRankingView.AllowUserToAddRows = false;
             RecruitRankingView.AllowUserToDeleteRows = false;
             RecruitRankingView.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle103.BackColor = Color.Gainsboro;
-            dataGridViewCellStyle103.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle103.SelectionBackColor = Color.MediumSlateBlue;
-            RecruitRankingView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle103;
+            dataGridViewCellStyle106.BackColor = Color.Gainsboro;
+            dataGridViewCellStyle106.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle106.SelectionBackColor = Color.MediumSlateBlue;
+            RecruitRankingView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle106;
             RecruitRankingView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             RecruitRankingView.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             RecruitRankingView.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            dataGridViewCellStyle104.Alignment = DataGridViewContentAlignment.BottomCenter;
-            dataGridViewCellStyle104.BackColor = SystemColors.InactiveCaption;
-            dataGridViewCellStyle104.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle104.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle104.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle104.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle104.WrapMode = DataGridViewTriState.True;
-            RecruitRankingView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle104;
-            RecruitRankingView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            RecruitRankingView.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn14, Column6, RB5Star, RB4Star, RB3Star, RB2Star, RB1Star, RecruitRankingPts, Column2 });
-            dataGridViewCellStyle107.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle107.BackColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle107.Alignment = DataGridViewContentAlignment.BottomCenter;
+            dataGridViewCellStyle107.BackColor = SystemColors.InactiveCaption;
             dataGridViewCellStyle107.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle107.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle107.ForeColor = SystemColors.WindowText;
             dataGridViewCellStyle107.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle107.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle107.WrapMode = DataGridViewTriState.False;
-            RecruitRankingView.DefaultCellStyle = dataGridViewCellStyle107;
+            dataGridViewCellStyle107.WrapMode = DataGridViewTriState.True;
+            RecruitRankingView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle107;
+            RecruitRankingView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            RecruitRankingView.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn14, Column6, RB5Star, RB4Star, RB3Star, RB2Star, RB1Star, RecruitRankingPts, Column2 });
+            dataGridViewCellStyle110.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle110.BackColor = SystemColors.ButtonFace;
+            dataGridViewCellStyle110.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle110.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle110.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle110.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle110.WrapMode = DataGridViewTriState.False;
+            RecruitRankingView.DefaultCellStyle = dataGridViewCellStyle110;
             RecruitRankingView.Location = new Point(6, 68);
             RecruitRankingView.MultiSelect = false;
             RecruitRankingView.Name = "RecruitRankingView";
             RecruitRankingView.ReadOnly = true;
-            dataGridViewCellStyle108.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle108.BackColor = SystemColors.Control;
-            dataGridViewCellStyle108.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle108.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle108.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle108.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle108.WrapMode = DataGridViewTriState.True;
-            RecruitRankingView.RowHeadersDefaultCellStyle = dataGridViewCellStyle108;
+            dataGridViewCellStyle111.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle111.BackColor = SystemColors.Control;
+            dataGridViewCellStyle111.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle111.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle111.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle111.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle111.WrapMode = DataGridViewTriState.True;
+            RecruitRankingView.RowHeadersDefaultCellStyle = dataGridViewCellStyle111;
             RecruitRankingView.RowHeadersVisible = false;
             RecruitRankingView.Size = new Size(530, 526);
             RecruitRankingView.TabIndex = 160;
@@ -15148,8 +15237,8 @@ namespace DB_EDITOR
             // dataGridViewTextBoxColumn4
             // 
             dataGridViewTextBoxColumn4.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle105.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle105;
+            dataGridViewCellStyle108.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle108;
             dataGridViewTextBoxColumn4.HeaderText = "#";
             dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             dataGridViewTextBoxColumn4.ReadOnly = true;
@@ -15158,8 +15247,8 @@ namespace DB_EDITOR
             // dataGridViewTextBoxColumn14
             // 
             dataGridViewTextBoxColumn14.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle106.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle106;
+            dataGridViewCellStyle109.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewTextBoxColumn14.DefaultCellStyle = dataGridViewCellStyle109;
             dataGridViewTextBoxColumn14.FillWeight = 251.798569F;
             dataGridViewTextBoxColumn14.HeaderText = "Team";
             dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
@@ -15339,21 +15428,21 @@ namespace DB_EDITOR
             // 
             PortalData.AllowUserToAddRows = false;
             PortalData.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle109.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle109.BackColor = Color.FromArgb((int)(byte)224, (int)(byte)224, (int)(byte)224);
-            dataGridViewCellStyle109.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle109.WrapMode = DataGridViewTriState.True;
-            PortalData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle109;
+            dataGridViewCellStyle112.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle112.BackColor = Color.FromArgb((int)(byte)224, (int)(byte)224, (int)(byte)224);
+            dataGridViewCellStyle112.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle112.WrapMode = DataGridViewTriState.True;
+            PortalData.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle112;
             PortalData.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             PortalData.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
-            dataGridViewCellStyle110.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle110.BackColor = SystemColors.Info;
-            dataGridViewCellStyle110.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle110.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle110.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle110.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle110.WrapMode = DataGridViewTriState.True;
-            PortalData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle110;
+            dataGridViewCellStyle113.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle113.BackColor = SystemColors.Info;
+            dataGridViewCellStyle113.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle113.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle113.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle113.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle113.WrapMode = DataGridViewTriState.True;
+            PortalData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle113;
             PortalData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             PortalData.Columns.AddRange(new DataGridViewColumn[] { PortalPosition, PortalTransferName, PortalClass, PortalRating, PortalNewSchool, PortalPrvTeam });
             PortalData.Location = new Point(238, 14);
@@ -15361,9 +15450,9 @@ namespace DB_EDITOR
             PortalData.ReadOnly = true;
             PortalData.RowHeadersVisible = false;
             PortalData.RowHeadersWidth = 72;
-            dataGridViewCellStyle111.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle111.WrapMode = DataGridViewTriState.True;
-            PortalData.RowsDefaultCellStyle = dataGridViewCellStyle111;
+            dataGridViewCellStyle114.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle114.WrapMode = DataGridViewTriState.True;
+            PortalData.RowsDefaultCellStyle = dataGridViewCellStyle114;
             PortalData.RowTemplate.Height = 31;
             PortalData.Size = new Size(525, 587);
             PortalData.TabIndex = 40;
@@ -16230,9 +16319,10 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)CoachCOTRBox).EndInit();
             tabPlayers.ResumeLayout(false);
             tabPlayers.PerformLayout();
+            groupBox15.ResumeLayout(false);
+            groupBox15.PerformLayout();
             groupBox44.ResumeLayout(false);
             groupBox44.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)PDIS).EndInit();
             ((System.ComponentModel.ISupportInitialize)PHGTBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)PWGTBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)PJEN).EndInit();
@@ -16242,9 +16332,9 @@ namespace DB_EDITOR
             groupBox6.ResumeLayout(false);
             groupBox6.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)PSTAbox).EndInit();
-            ((System.ComponentModel.ISupportInitialize)PIMPBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)PINJBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)PSPDBox).EndInit();
+            ((System.ComponentModel.ISupportInitialize)PDIS).EndInit();
             ((System.ComponentModel.ISupportInitialize)PACCBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)PSTRBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)PBTKBox).EndInit();
@@ -16266,11 +16356,12 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             tabTeams.ResumeLayout(false);
             tabTeams.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)TopPlayersView).EndInit();
             groupBox49.ResumeLayout(false);
+            groupBox49.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)TeamRatingView).EndInit();
             groupBox34.ResumeLayout(false);
             groupBox34.PerformLayout();
-            groupBox15.ResumeLayout(false);
             groupBox14.ResumeLayout(false);
             groupBox14.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)SDURnumbox).EndInit();
@@ -16930,8 +17021,6 @@ namespace DB_EDITOR
         public System.Windows.Forms.TextBox PTEN;
         private Label label173;
         private System.Windows.Forms.TextBox PTHAtext;
-        private NumericUpDown PIMPBox;
-        private Label label63;
         private NumericUpDown PINJBox;
         private Label label64;
         private System.Windows.Forms.TextBox PKACtext;
@@ -16971,7 +17060,6 @@ namespace DB_EDITOR
         private NumericUpDown PJMPBox;
         private System.Windows.Forms.TextBox PINJtext;
         private Label PJMPlabel;
-        private System.Windows.Forms.TextBox PIMPtext;
         private NumericUpDown PCTHBox;
         private Label PCTHlabel;
         private NumericUpDown PCARBox;
@@ -17067,7 +17155,6 @@ namespace DB_EDITOR
         private Label label124;
         private System.Windows.Forms.ComboBox NeckPad;
         public TabPage tabTeams;
-        private GroupBox groupBox15;
         private System.Windows.Forms.Button GenerateNewRosterButton;
         private System.Windows.Forms.Button DeathPenaltyButton;
         private GroupBox groupBox14;
@@ -17667,6 +17754,14 @@ namespace DB_EDITOR
         private DataGridViewTextBoxColumn LS9;
         private DataGridView WeeklyBoxscoreView;
         private DataGridView WeeklyHighlightView;
+        private GroupBox groupBox15;
+        private System.Windows.Forms.TextBox PlayerHeight;
+        private Label label63;
+        private Label label65;
+        private DataGridView TopPlayersView;
+        private DataGridViewTextBoxColumn TPPos;
+        private DataGridViewTextBoxColumn TPPlayer;
+        private DataGridViewTextBoxColumn TPRating;
     }
 }
 
