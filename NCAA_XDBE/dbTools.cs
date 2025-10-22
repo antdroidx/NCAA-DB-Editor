@@ -351,8 +351,6 @@ namespace DB_EDITOR
 
         #region General Tools
 
-
-
         //Recalculates QB Tendencies based on original game criteria
         private void RecalculateQBTendencies(bool skip = false)
         {
@@ -529,13 +527,17 @@ namespace DB_EDITOR
 
                 if (PGID >= PGIDbeg && PGID <= PGIDend)
                 {
-                    int POVR = GetDBValueInt("PLAY", "POVR", j);
-                    int PPOS = GetDBValueInt("PLAY", "PPOS", j);
-                    List<int> player = new List<int>();
-                    roster.Add(player);
-                    roster[count].Add(POVR);
-                    roster[count].Add(PPOS);
-                    count++;
+                    int PRSD = GetDBValueInt("PLAY", "PRSD", j);
+                    if (PRSD != 1 || PRSD != 3)
+                    {
+                        int POVR = GetDBValueInt("PLAY", "POVR", j);
+                        int PPOS = GetDBValueInt("PLAY", "PPOS", j);
+                        List<int> player = new List<int>();
+                        roster.Add(player);
+                        roster[count].Add(POVR);
+                        roster[count].Add(PPOS);
+                        count++;
+                    }
                 }
             }
 

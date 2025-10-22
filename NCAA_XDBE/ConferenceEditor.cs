@@ -146,6 +146,7 @@ namespace DB_EDITOR
             EnableFCSSwapBox.Checked = false;
             if (GetDBValueInt("SEAI", "SEWN", 0) >= 22) EnableFCSSwapBox.Enabled = true;
             AddFCSTeams();
+
         }
 
         //Add Teams to Conferences and Label the Conference
@@ -200,6 +201,7 @@ namespace DB_EDITOR
 
                     teams++;
                 }
+
             }
             if (teams > 0) avg = prestige / teams;
             return avg;
@@ -946,7 +948,8 @@ namespace DB_EDITOR
 
             return newPrestige;
         }
+        // Add these helper methods to the `partial class MainEditor : Form` (e.g., near other helpers)
 
-
+        
     }
 }

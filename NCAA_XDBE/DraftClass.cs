@@ -37,10 +37,9 @@ namespace DB_EDITOR
             List<int> PositionReq = GetDraftClassTable();
             List<List<byte>> DraftClass = new List<List<byte>>();
 
-            progressBar1.Visible = true;
-            progressBar1.Maximum = PositionReq.Count + 1;
-            progressBar1.Value = 1;
+            StartProgressBar(1600);
             bool fb = false;
+            int classCount = 0;
 
             using (SaveFileDialog saveFileDialog = new SaveFileDialog())
             {
@@ -63,42 +62,39 @@ namespace DB_EDITOR
                             for (int j = 0; j < PlayerList.Count; j++)
                             {
                                 fs.Write(ExportDCPlayerData(PlayerList[j], fb).ToArray(), 0, ExportDCPlayerData(PlayerList[j], fb).Count);
+                                classCount++;
+                                ProgressBarStep();
                             }
-                            progressBar1.Value = i + 1;
+                            
                         }
+
+                        /*
+                        int pos = 0;
+                        while(classCount < 1600)
+                        {
+                            List<int> PlayerList = GetSupplementalPlayers(pos, PositionReq[pos]);
+                            for (int j = 0; j < PlayerList.Count; j++)
+                            {
+                                fs.Write(ExportDCPlayerData(PlayerList[j], fb).ToArray(), 0, ExportDCPlayerData(PlayerList[j], fb).Count);
+                                classCount++;
+                                ProgressBarStep();
+                            }
+
+                            pos++;
+                            if (pos > 20) pos = 0;
+                        }
+                        */
 
                         // Write 0x00 bytes of length 0x27C (636 in decimal) to the end of the file
                         byte[] padding = new byte[0x27C];
                         fs.Write(padding, 0, padding.Length);
                     }
-
-                    /*
-                    using (SaveFileDialog saveFileDialog2 = new SaveFileDialog())
-                    {
-                        //saveFileDialog2.Filter = "All files (*.*)|*.*";
-                        saveFileDialog2.Title = "PSU Save Location";
-                        saveFileDialog2.FileName = "draftclass.psu";
-
-
-                        if (saveFileDialog2.ShowDialog() == DialogResult.OK)
-                        {
-
-                            string folderPath = Path.GetDirectoryName(saveFileDialog.FileName);
-                            string filename = Path.GetFileNameWithoutExtension(saveFileDialog.FileName);
-                            string folderPath2 = Path.GetDirectoryName(saveFileDialog2.FileName);
-
-                            
-                            BuildPsuFromFolder(folderPath, folderPath2, filename);
-                        }
-
-                    }
-                    */
                 }
 
 
-                MessageBox.Show("Complete");
-                progressBar1.Value = 0;
-                progressBar1.Visible = false;
+                MessageBox.Show("Complete | total class: " + classCount);
+                EndProgressBar();
+
             }
         }
 
@@ -207,9 +203,65 @@ namespace DB_EDITOR
                 }
             }
 
-            if (ppos == 2 && TopPlayers.Count < count)
+            if (TopPlayers.Count < count)
             {
-                MessageBox.Show("Not enough FB prospects available to fill draft class requirements. Please add more FB prospects.");
+                string posName = Positions[ppos];
+                int needed = count - TopPlayers.Count;
+
+                List<List<int>> MoreFBPlayers = new List<List<int>>();
+                for (int i = 0; i < GetTableRecCount("PLAY"); i++)
+                {
+                    if (GetDBValueInt("PLAY", "PPOS", i) == ppos && GetDBValueInt("PLAY", "PTYP", i) == 0)
+                    {
+                        MoreFBPlayers.Add(new List<int>());
+                        MoreFBPlayers[MoreFBPlayers.Count - 1].Add(i); //Player Index
+                        MoreFBPlayers[MoreFBPlayers.Count - 1].Add(GetDBValueInt("PLAY", "POVR", i)); //Overall
+                    }
+                }
+
+                MoreFBPlayers.Sort((player1, player2) => player1[1].CompareTo(player2[1]));
+
+                for (int i = 0; i < MoreFBPlayers.Count; i++)
+                {
+                    TopPlayers.Add(MoreFBPlayers[i][0]);
+                    ChangeDBInt("PLAY", "PTYP", MoreFBPlayers[i][0], 3);
+                    needed--;
+                    if (needed <= 0) break;
+                }
+
+                if (needed > 0)  MessageBox.Show("Not enough " + posName + " prospects available to fill draft class requirements. It requires " + needed + " more players. Please pick players to graduate in PLAYER EDITOR.");
+
+            }
+
+
+            return TopPlayers;
+        }
+
+        private List<int> GetSupplementalPlayers(int ppos, int count)
+        {
+            List<List<int>> AllPosPlayers = new List<List<int>>();
+            List<int> TopPlayers = new List<int>();
+
+            for (int i = 0; i < GetTableRecCount("PLAY"); i++)
+            {
+                if (GetDBValueInt("PLAY", "PPOS", i) == ppos && GetDBValueInt("PLAY", "PTYP", i) == 3)
+                {
+                    AllPosPlayers.Add(new List<int>());
+                    AllPosPlayers[AllPosPlayers.Count - 1].Add(i); //Player Index
+                    AllPosPlayers[AllPosPlayers.Count - 1].Add(GetDBValueInt("PLAY", "POVR", i)); //Overall
+                }
+            }
+
+            AllPosPlayers.Sort((player1, player2) => player2[1].CompareTo(player1[1]));
+
+
+            if (TopPlayers.Count > count+1)
+            {
+                for (int i = count; i < AllPosPlayers.Count + 2; i++)
+                {
+                    TopPlayers.Add(AllPosPlayers[i][0]);
+                    break;
+                }
             }
 
             return TopPlayers;

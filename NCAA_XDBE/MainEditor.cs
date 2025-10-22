@@ -170,7 +170,7 @@ namespace DB_EDITOR
             closeMenuItem.Visible = true;
             definitionFileMenuItem.Visible = true;
             toolStripSeparator7.Visible = true;
-            
+
             optionsMenuItem.Enabled = true;
             CSVMenu.Enabled = true;
             CSVMenu.Visible = false;
@@ -1158,7 +1158,7 @@ namespace DB_EDITOR
         }
         #endregion
 
-
+        #region Global Progress Bar
         private void StartProgressBar(int steps)
         {
             progressBar1.Visible = true;
@@ -1179,7 +1179,7 @@ namespace DB_EDITOR
             progressBar1.Visible = false;
         }
 
-
+        #endregion
     }
 
 }

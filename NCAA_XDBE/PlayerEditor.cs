@@ -13,6 +13,7 @@ namespace DB_EDITOR
     partial class MainEditor : Form
     {
 
+
         /*
         * PLAYER EDITOR
         */
@@ -31,6 +32,12 @@ namespace DB_EDITOR
             PlayerStatsView.Rows.Clear();
 
             InjuryLabel.Visible = false;
+
+            PGIDlistBox.DrawMode = DrawMode.OwnerDrawVariable;
+            PGIDlistBox.MeasureItem -= PGIDlistBox_MeasureItem;
+            PGIDlistBox.MeasureItem += PGIDlistBox_MeasureItem;
+            PGIDlistBox.DrawItem -= PGIDlistBox_DrawItem;
+            PGIDlistBox.DrawItem += PGIDlistBox_DrawItem;
         }
 
         private void LoadPlayerTGIDBox()
@@ -92,6 +99,8 @@ namespace DB_EDITOR
             PJENList = new List<int>();
             int pgidBeg;
             int pgidEnd;
+            int playersLeaving = 0;
+           
 
             if (TGIDplayerBox.Text != "_ALL PLAYERS_")
             {
@@ -130,6 +139,10 @@ namespace DB_EDITOR
                         PlayerEditorList[row].Add(GetDBValue("PLAY", "PGID", i));
                         PlayerEditorList[row].Add(Convert.ToString(i));
                         PlayerEditorList[row].Add(Convert.ToString(GetPOSG2fromPPOS(GetDBValueInt("PLAY", "PPOS", i))));
+                        PlayerEditorList[row].Add(GetDBValue("PLAY", "PTYP", i));
+                        PlayerEditorList[row].Add(GetDBValue("PLAY", "PYER", i));
+                        PlayerEditorList[row].Add(GetDBValue("PLAY", "PRSD", i));
+
 
                         // 0 First Name  1 Last Name 2 Position 3 Overall 4 PGID 5 rec
 
@@ -167,21 +180,41 @@ namespace DB_EDITOR
             else if (ShowPOSGBox.Checked) PlayerEditorList.Sort((player1, player2) => Convert.ToInt32(player1[6]).CompareTo(Convert.ToInt32(player2[6])));
 
 
+            PGIDlistBox.BeginUpdate();
             PGIDlistBox.Items.Clear();
+
             foreach (var player in PlayerEditorList)
             {
                 string text = "";
+                string status = "";
+                if (player[9] == "1" || player[9] == "3") status = " [RS]";
+                if (player[7] == "1") status = " [Tran]";
+                else if (player[7] == "3" && player[8] == "3") status = " [Grad]";
+                else if (player[7] == "3" && player[8] != "3") status = " [NFL]";
+
+                if (status != "" && status != " [RS]") playersLeaving++;
+
                 if (ShowPosCheckBox.Checked) text += "[" + Convert.ToString(Positions[Convert.ToInt32(player[2])]) + "] ";
                 else if (ShowPOSGBox.Checked) text += "[" + GetPOSG2Name(Convert.ToInt32(player[6])) + "] ";
                 text += player[0] + " " + player[1];
                 if (ShowRatingCheckbox.Checked) text += "  (" + Convert.ToString(ConvertRating(Convert.ToInt32(player[3]))) + ")";
 
+                text += status;
                 PGIDlistBox.Items.Add(text);
-
-
             }
 
-            RosterSizeLabel.Text = "Roster Size: " + Convert.ToString(PlayerEditorList.Count);
+
+            PGIDlistBox.EndUpdate();
+
+            // ensure layout/measurement happens after form has laid out controls
+            PGIDlistBox.Invalidate();
+            PGIDlistBox.Update();
+            // Optionally force refresh on UI thread after layout:
+            this.BeginInvoke((Action)(() => PGIDlistBox.Refresh()));
+
+
+            RosterSizeLabel.Text = "Roster: " + Convert.ToString(PlayerEditorList.Count);
+            if (PlayerEditorList.Count > 0) RosterSizeLabel.Text += " | Leaving: " + playersLeaving;
         }
 
         //Change Selected Team
@@ -1830,5 +1863,49 @@ namespace DB_EDITOR
         }
 
         #endregion
+
+
+        private void PGIDlistBox_MeasureItem(object sender, MeasureItemEventArgs e)
+        {
+            if (e.Index < 0) return;
+            var lb = (ListBox)sender;
+
+            // Single-line height based on control font so we don't depend on control width yet
+            e.ItemHeight = lb.Font.Height + 6; // tweak padding as needed
+            e.ItemWidth = lb.ClientSize.Width;
+        }
+
+        private void PGIDlistBox_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            if (e.Index < 0) return;
+            var lb = (ListBox)sender;
+            string text = lb.Items[e.Index]?.ToString() ?? string.Empty;
+
+            // draw background
+            var bgColor = (e.State & DrawItemState.Selected) == DrawItemState.Selected ? SystemColors.Highlight : lb.BackColor;
+            using (var bgBrush = new SolidBrush(bgColor))
+            {
+                e.Graphics.FillRectangle(bgBrush, e.Bounds);
+            }
+
+            // choose color based on status substring (case-insensitive), but respect selection text color
+            Color foreColor = ((e.State & DrawItemState.Selected) == DrawItemState.Selected) ? SystemColors.HighlightText : lb.ForeColor;
+            if (text.IndexOf("[Tran]", StringComparison.OrdinalIgnoreCase) >= 0) foreColor = ((e.State & DrawItemState.Selected) == 0) ? Color.Red : SystemColors.HighlightText;
+            else if (text.IndexOf("[Grad]", StringComparison.OrdinalIgnoreCase) >= 0) foreColor = ((e.State & DrawItemState.Selected) == 0) ? Color.Green : SystemColors.HighlightText;
+            else if (text.IndexOf("[NFL]", StringComparison.OrdinalIgnoreCase) >= 0) foreColor = ((e.State & DrawItemState.Selected) == 0) ? Color.SlateBlue : SystemColors.HighlightText;
+            else if (text.IndexOf("[RS]", StringComparison.OrdinalIgnoreCase) >= 0) foreColor = ((e.State & DrawItemState.Selected) == 0) ? Color.DarkRed : SystemColors.HighlightText;
+
+            // draw text with TextRenderer (consistent with MeasureText)
+            var textRect = new Rectangle(e.Bounds.X + 2, e.Bounds.Y, e.Bounds.Width - 4, e.Bounds.Height);
+            TextRenderer.DrawText(e.Graphics, text, lb.Font, textRect, foreColor, TextFormatFlags.Left | TextFormatFlags.VerticalCenter | TextFormatFlags.EndEllipsis);
+
+            // draw focus rectangle if needed
+            if ((e.State & DrawItemState.Focus) == DrawItemState.Focus)
+            {
+                e.DrawFocusRectangle();
+            }
+        }
+
+
     }
 }

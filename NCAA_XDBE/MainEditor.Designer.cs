@@ -9266,7 +9266,7 @@ namespace DB_EDITOR
             groupBox15.Controls.Add(label93);
             groupBox15.Controls.Add(ResetPlayerPOSbutton);
             groupBox15.Controls.Add(AWHRBox);
-            groupBox15.Location = new Point(196, 540);
+            groupBox15.Location = new Point(205, 540);
             groupBox15.Name = "groupBox15";
             groupBox15.Size = new Size(451, 63);
             groupBox15.TabIndex = 168;
@@ -9371,7 +9371,7 @@ namespace DB_EDITOR
             groupBox44.Controls.Add(PPOSBox);
             groupBox44.Controls.Add(label62);
             groupBox44.Font = new Font("Microsoft Sans Serif", 9F);
-            groupBox44.Location = new Point(196, 3);
+            groupBox44.Location = new Point(205, 3);
             groupBox44.Name = "groupBox44";
             groupBox44.Size = new Size(451, 198);
             groupBox44.TabIndex = 167;
@@ -9743,7 +9743,7 @@ namespace DB_EDITOR
             groupBox42.Controls.Add(PlayerStatsView);
             groupBox42.Controls.Add(PlayerTransferLabel);
             groupBox42.Controls.Add(label151);
-            groupBox42.Location = new Point(658, 3);
+            groupBox42.Location = new Point(661, 3);
             groupBox42.Name = "groupBox42";
             groupBox42.Size = new Size(484, 198);
             groupBox42.TabIndex = 164;
@@ -9907,7 +9907,7 @@ namespace DB_EDITOR
             // label271
             // 
             label271.AutoSize = true;
-            label271.Location = new Point(132, 10);
+            label271.Location = new Point(142, 8);
             label271.Name = "label271";
             label271.Size = new Size(44, 13);
             label271.TabIndex = 162;
@@ -9918,9 +9918,9 @@ namespace DB_EDITOR
             PlayerPosBox.BackColor = SystemColors.Menu;
             PlayerPosBox.Font = new Font("Microsoft Sans Serif", 9F);
             PlayerPosBox.FormattingEnabled = true;
-            PlayerPosBox.Location = new Point(133, 24);
+            PlayerPosBox.Location = new Point(142, 24);
             PlayerPosBox.Name = "PlayerPosBox";
-            PlayerPosBox.Size = new Size(51, 23);
+            PlayerPosBox.Size = new Size(57, 23);
             PlayerPosBox.TabIndex = 161;
             PlayerPosBox.SelectedIndexChanged += (this.PlayerPosBox_SelectedIndexChanged);
             // 
@@ -9989,7 +9989,7 @@ namespace DB_EDITOR
             groupBox6.Controls.Add(PKPRlabel);
             groupBox6.Controls.Add(PKACBox);
             groupBox6.Controls.Add(PKAClabel);
-            groupBox6.Location = new Point(197, 202);
+            groupBox6.Location = new Point(206, 202);
             groupBox6.Name = "groupBox6";
             groupBox6.Padding = new Padding(0);
             groupBox6.Size = new Size(450, 331);
@@ -10692,6 +10692,8 @@ namespace DB_EDITOR
             // ShowPOSGBox
             // 
             ShowPOSGBox.AutoSize = true;
+            ShowPOSGBox.Checked = true;
+            ShowPOSGBox.CheckState = CheckState.Checked;
             ShowPOSGBox.Location = new Point(12, 589);
             ShowPOSGBox.Name = "ShowPOSGBox";
             ShowPOSGBox.Size = new Size(125, 17);
@@ -10703,6 +10705,8 @@ namespace DB_EDITOR
             // ShowRatingCheckbox
             // 
             ShowRatingCheckbox.AutoSize = true;
+            ShowRatingCheckbox.Checked = true;
+            ShowRatingCheckbox.CheckState = CheckState.Checked;
             ShowRatingCheckbox.Location = new Point(103, 565);
             ShowRatingCheckbox.Name = "ShowRatingCheckbox";
             ShowRatingCheckbox.Size = new Size(87, 17);
@@ -10725,17 +10729,17 @@ namespace DB_EDITOR
             // RosterSizeLabel
             // 
             RosterSizeLabel.AutoSize = true;
-            RosterSizeLabel.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            RosterSizeLabel.Location = new Point(10, 538);
+            RosterSizeLabel.Font = new Font("Microsoft Sans Serif", 8.142858F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            RosterSizeLabel.Location = new Point(3, 537);
             RosterSizeLabel.Name = "RosterSizeLabel";
-            RosterSizeLabel.Size = new Size(85, 15);
+            RosterSizeLabel.Size = new Size(76, 13);
             RosterSizeLabel.TabIndex = 7;
             RosterSizeLabel.Text = "Roster Size:";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(10, 9);
+            label3.Location = new Point(6, 8);
             label3.Name = "label3";
             label3.Size = new Size(34, 13);
             label3.TabIndex = 6;
@@ -10746,9 +10750,9 @@ namespace DB_EDITOR
             TGIDplayerBox.BackColor = SystemColors.Menu;
             TGIDplayerBox.Font = new Font("Microsoft Sans Serif", 9F);
             TGIDplayerBox.FormattingEnabled = true;
-            TGIDplayerBox.Location = new Point(9, 24);
+            TGIDplayerBox.Location = new Point(3, 24);
             TGIDplayerBox.Name = "TGIDplayerBox";
-            TGIDplayerBox.Size = new Size(118, 23);
+            TGIDplayerBox.Size = new Size(127, 23);
             TGIDplayerBox.TabIndex = 5;
             TGIDplayerBox.SelectedIndexChanged += (this.TGIDplayerBox_SelectedIndexChanged);
             // 
@@ -10758,9 +10762,9 @@ namespace DB_EDITOR
             PGIDlistBox.ForeColor = SystemColors.ControlText;
             PGIDlistBox.FormattingEnabled = true;
             PGIDlistBox.ItemHeight = 13;
-            PGIDlistBox.Location = new Point(9, 48);
+            PGIDlistBox.Location = new Point(3, 48);
             PGIDlistBox.Name = "PGIDlistBox";
-            PGIDlistBox.Size = new Size(175, 485);
+            PGIDlistBox.Size = new Size(197, 485);
             PGIDlistBox.TabIndex = 4;
             PGIDlistBox.SelectedIndexChanged += (this.PGIDlistBox_SelectedIndexChanged);
             // 
@@ -10801,7 +10805,7 @@ namespace DB_EDITOR
             groupBox3.Controls.Add(label124);
             groupBox3.Controls.Add(NeckPad);
             groupBox3.Controls.Add(pictureBox3);
-            groupBox3.Location = new Point(658, 202);
+            groupBox3.Location = new Point(661, 202);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(484, 404);
             groupBox3.TabIndex = 141;
@@ -14815,6 +14819,7 @@ namespace DB_EDITOR
             LeagueRankingView.RowHeadersVisible = false;
             LeagueRankingView.Size = new Size(406, 555);
             LeagueRankingView.TabIndex = 13;
+            LeagueRankingView.SortCompare += (this.LeagueRankingView_SortCompare);
             // 
             // dataGridViewTextBoxColumn37
             // 

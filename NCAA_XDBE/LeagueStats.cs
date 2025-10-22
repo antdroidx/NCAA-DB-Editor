@@ -58,14 +58,73 @@ namespace DB_EDITOR
                 int row = LeagueRankingView.Rows.Count;
                 LeagueRankingView.Rows.Add(1);
 
-                LeagueRankingView.Rows[row].Cells[0].Value = team[0];
+                LeagueRankingView.Rows[row].Cells[0].Value = Convert.ToInt32(team[0]);
                 LeagueRankingView.Rows[row].Cells[1].Value = team[1];
                 LeagueRankingView.Rows[row].Cells[2].Value = team[2];
-                LeagueRankingView.Rows[row].Cells[3].Value = team[3];
-                LeagueRankingView.Rows[row].Cells[4].Value = team[4];
+                LeagueRankingView.Rows[row].Cells[3].Value = Convert.ToInt32(team[3]);
+
+                if (team[4] == "N/A")
+                {
+                    LeagueRankingView.Rows[row].Cells[4].Value = "N/A";
+                }
+                else
+                {
+                    LeagueRankingView.Rows[row].Cells[4].Value = Convert.ToInt32(team[4]);
+                }
             }
 
         }
+
+        private void LeagueRankingView_SortCompare(object sender, DataGridViewSortCompareEventArgs e)
+        {
+            // Only handle the Win-Loss "W-L" column
+            if (e.Column.Index != 2)
+            {
+                e.Handled = false;
+                return;
+            }
+
+            string s1 = (e.CellValue1 ?? string.Empty).ToString().Trim();
+            string s2 = (e.CellValue2 ?? string.Empty).ToString().Trim();
+
+            bool ok1 = TryParseWinLoss(s1, out int wins1, out int losses1);
+            bool ok2 = TryParseWinLoss(s2, out int wins2, out int losses2);
+
+            int result;
+            if (ok1 && ok2)
+            {
+                // Primary: wins (descending). Secondary: losses (ascending = fewer losses is better).
+                result = wins2.CompareTo(wins1);
+                if (result == 0) result = losses1.CompareTo(losses2);
+            }
+            else
+            {
+                // Fallback to string compare if parse fails for either cell
+                result = string.Compare(s1, s2, StringComparison.OrdinalIgnoreCase);
+            }
+
+            e.SortResult = result;
+            e.Handled = true; // IMPORTANT: tell the grid we've provided the comparison
+        }
+
+        private static bool TryParseWinLoss(string s, out int wins, out int losses)
+        {
+            wins = 0;
+            losses = 0;
+            if (string.IsNullOrEmpty(s)) return false;
+
+            var parts = s.Split('-', StringSplitOptions.RemoveEmptyEntries);
+            if (parts.Length == 0) return false;
+
+            if (!int.TryParse(parts[0].Trim(), out wins)) return false;
+            if (parts.Length >= 2)
+            {
+                if (!int.TryParse(parts[1].Trim(), out losses)) losses = 0;
+            }
+            return true;
+        }
+
+
 
 
         private void LoadLeagueMediaPoll()
