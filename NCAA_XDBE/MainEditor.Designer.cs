@@ -298,6 +298,7 @@ namespace DB_EDITOR
             DefaultPlaysRadio = new RadioButton();
             CustomPlaysRadio = new RadioButton();
             tabTools = new TabPage();
+            LoadCoachAge = new System.Windows.Forms.Button();
             PlayoffRankerButton = new System.Windows.Forms.Button();
             ExportDraft = new System.Windows.Forms.Button();
             FixHometownButton = new System.Windows.Forms.Button();
@@ -740,6 +741,8 @@ namespace DB_EDITOR
             tabCoaches = new TabPage();
             CoachPerfCheckBox = new CheckBox();
             groupBox9 = new GroupBox();
+            label167 = new Label();
+            YearsCoachedBox = new NumericUpDown();
             label179 = new Label();
             YearsWithTeam = new Label();
             label177 = new Label();
@@ -757,7 +760,7 @@ namespace DB_EDITOR
             label38 = new Label();
             BowlRecord = new Label();
             label131 = new Label();
-            YearsCoached = new Label();
+            ProjectedAgeLabel = new Label();
             label54 = new Label();
             CareerRecord = new Label();
             label53 = new Label();
@@ -1144,15 +1147,18 @@ namespace DB_EDITOR
             pictureBox1 = new PictureBox();
             tabControl1 = new TabControl();
             tabCarousel = new TabPage();
-            label186 = new Label();
+            CoachTransferPortalLabel = new Label();
             CoachPortalNews = new DataGridView();
-            CoachPortalTeam = new DataGridViewTextBoxColumn();
-            CoachPortalPlayer = new DataGridViewTextBoxColumn();
-            CoachPortalPos = new DataGridViewTextBoxColumn();
             CoachPortalPOVR = new DataGridViewTextBoxColumn();
-            label13 = new Label();
+            CoachPortalPos = new DataGridViewTextBoxColumn();
+            CoachPortalPlayer = new DataGridViewTextBoxColumn();
+            Column9 = new DataGridViewTextBoxColumn();
+            CoachPortalTeam = new DataGridViewTextBoxColumn();
             CoachFiringsCount = new Label();
             groupBox37 = new GroupBox();
+            CoachesAddedBox = new ListBox();
+            AgeCoaches = new CheckBox();
+            CoachRetirement = new CheckBox();
             LowPrestigeCoachValue = new NumericUpDown();
             label187 = new Label();
             buttonCarousel = new System.Windows.Forms.Button();
@@ -1172,9 +1178,11 @@ namespace DB_EDITOR
             CCTeam = new DataGridViewTextBoxColumn();
             CCTmPrestige = new DataGridViewTextBoxColumn();
             CCPrestige = new DataGridViewTextBoxColumn();
+            Column8 = new DataGridViewTextBoxColumn();
             CCRecord = new DataGridViewTextBoxColumn();
             CCSeaRec = new DataGridViewTextBoxColumn();
             CCCoachRating = new DataGridViewTextBoxColumn();
+            label13 = new Label();
             tabPlayoff = new TabPage();
             PlayoffYearLabel = new Label();
             pictureBox4 = new PictureBox();
@@ -1555,6 +1563,7 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)MaxSkillDropPS).BeginInit();
             tabCoaches.SuspendLayout();
             groupBox9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)YearsCoachedBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)CoachCCPONum).BeginInit();
             ((System.ComponentModel.ISupportInitialize)HCPrestigeNum).BeginInit();
             groupBox8.SuspendLayout();
@@ -3196,6 +3205,7 @@ namespace DB_EDITOR
             // tabTools
             // 
             tabTools.BackColor = SystemColors.InactiveCaption;
+            tabTools.Controls.Add(LoadCoachAge);
             tabTools.Controls.Add(PlayoffRankerButton);
             tabTools.Controls.Add(ExportDraft);
             tabTools.Controls.Add(FixHometownButton);
@@ -3218,6 +3228,19 @@ namespace DB_EDITOR
             tabTools.TabIndex = 5;
             tabTools.Text = "dbTools";
             // 
+            // LoadCoachAge
+            // 
+            LoadCoachAge.BackColor = SystemColors.MenuHighlight;
+            LoadCoachAge.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
+            LoadCoachAge.ForeColor = SystemColors.ActiveCaptionText;
+            LoadCoachAge.Location = new Point(22, 526);
+            LoadCoachAge.Name = "LoadCoachAge";
+            LoadCoachAge.Size = new Size(109, 60);
+            LoadCoachAge.TabIndex = 66;
+            LoadCoachAge.Text = "Load Coach Age Data [NEXT26]";
+            LoadCoachAge.UseVisualStyleBackColor = false;
+            LoadCoachAge.Click += (this.LoadCoachAge_Click);
+            // 
             // PlayoffRankerButton
             // 
             PlayoffRankerButton.Location = new Point(123, 218);
@@ -3232,11 +3255,11 @@ namespace DB_EDITOR
             // ExportDraft
             // 
             ExportDraft.BackColor = SystemColors.GradientActiveCaption;
-            ExportDraft.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            ExportDraft.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             ExportDraft.ForeColor = SystemColors.ActiveCaptionText;
-            ExportDraft.Location = new Point(141, 443);
+            ExportDraft.Location = new Point(146, 394);
             ExportDraft.Name = "ExportDraft";
-            ExportDraft.Size = new Size(110, 80);
+            ExportDraft.Size = new Size(110, 60);
             ExportDraft.TabIndex = 64;
             ExportDraft.Text = "Export Draft Class";
             ExportDraft.UseVisualStyleBackColor = false;
@@ -3245,11 +3268,11 @@ namespace DB_EDITOR
             // FixHometownButton
             // 
             FixHometownButton.BackColor = SystemColors.MenuHighlight;
-            FixHometownButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            FixHometownButton.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             FixHometownButton.ForeColor = SystemColors.ActiveCaptionText;
-            FixHometownButton.Location = new Point(141, 349);
+            FixHometownButton.Location = new Point(146, 328);
             FixHometownButton.Name = "FixHometownButton";
-            FixHometownButton.Size = new Size(110, 80);
+            FixHometownButton.Size = new Size(110, 60);
             FixHometownButton.TabIndex = 63;
             FixHometownButton.Text = "Fix Hometowns\r\n";
             FixHometownButton.UseVisualStyleBackColor = false;
@@ -3268,11 +3291,11 @@ namespace DB_EDITOR
             // ResetDynYear
             // 
             ResetDynYear.BackColor = SystemColors.MenuHighlight;
-            ResetDynYear.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            ResetDynYear.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             ResetDynYear.ForeColor = SystemColors.ActiveCaptionText;
-            ResetDynYear.Location = new Point(11, 248);
+            ResetDynYear.Location = new Point(16, 263);
             ResetDynYear.Name = "ResetDynYear";
-            ResetDynYear.Size = new Size(110, 80);
+            ResetDynYear.Size = new Size(110, 60);
             ResetDynYear.TabIndex = 61;
             ResetDynYear.Text = "Reset Dynasty Seasons";
             ResetDynYear.UseVisualStyleBackColor = false;
@@ -3479,9 +3502,9 @@ namespace DB_EDITOR
             buttonFillRosters.BackColor = SystemColors.MenuHighlight;
             buttonFillRosters.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             buttonFillRosters.ForeColor = SystemColors.ActiveCaptionText;
-            buttonFillRosters.Location = new Point(259, 181);
+            buttonFillRosters.Location = new Point(259, 180);
             buttonFillRosters.Name = "buttonFillRosters";
-            buttonFillRosters.Size = new Size(145, 80);
+            buttonFillRosters.Size = new Size(145, 81);
             buttonFillRosters.TabIndex = 20;
             buttonFillRosters.Text = "Fill Rosters";
             buttonFillRosters.UseVisualStyleBackColor = false;
@@ -3584,11 +3607,11 @@ namespace DB_EDITOR
             // FixHCBugsButton
             // 
             FixHCBugsButton.BackColor = SystemColors.MenuHighlight;
-            FixHCBugsButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            FixHCBugsButton.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             FixHCBugsButton.ForeColor = SystemColors.ActiveCaptionText;
-            FixHCBugsButton.Location = new Point(142, 247);
+            FixHCBugsButton.Location = new Point(147, 262);
             FixHCBugsButton.Name = "FixHCBugsButton";
-            FixHCBugsButton.Size = new Size(110, 80);
+            FixHCBugsButton.Size = new Size(110, 60);
             FixHCBugsButton.TabIndex = 56;
             FixHCBugsButton.Text = "Fix Coach Head/Face Bugs";
             FixHCBugsButton.UseVisualStyleBackColor = false;
@@ -3969,11 +3992,11 @@ namespace DB_EDITOR
             // UniquePlayerButton
             // 
             UniquePlayerButton.BackColor = SystemColors.MenuHighlight;
-            UniquePlayerButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            UniquePlayerButton.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             UniquePlayerButton.ForeColor = SystemColors.ActiveCaptionText;
-            UniquePlayerButton.Location = new Point(11, 349);
+            UniquePlayerButton.Location = new Point(16, 328);
             UniquePlayerButton.Name = "UniquePlayerButton";
-            UniquePlayerButton.Size = new Size(110, 80);
+            UniquePlayerButton.Size = new Size(110, 60);
             UniquePlayerButton.TabIndex = 54;
             UniquePlayerButton.Text = "Texture Modding: Unique Players";
             UniquePlayerButton.UseVisualStyleBackColor = false;
@@ -3982,11 +4005,11 @@ namespace DB_EDITOR
             // SyncPBButton
             // 
             SyncPBButton.BackColor = SystemColors.GradientActiveCaption;
-            SyncPBButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            SyncPBButton.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             SyncPBButton.ForeColor = SystemColors.ActiveCaptionText;
-            SyncPBButton.Location = new Point(141, 529);
+            SyncPBButton.Location = new Point(148, 460);
             SyncPBButton.Name = "SyncPBButton";
-            SyncPBButton.Size = new Size(110, 80);
+            SyncPBButton.Size = new Size(110, 60);
             SyncPBButton.TabIndex = 52;
             SyncPBButton.Text = "Sync Team and Coach Playbooks";
             SyncPBButton.UseVisualStyleBackColor = false;
@@ -4008,11 +4031,11 @@ namespace DB_EDITOR
             // ReorderPGIDButton
             // 
             ReorderPGIDButton.BackColor = SystemColors.GradientActiveCaption;
-            ReorderPGIDButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            ReorderPGIDButton.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             ReorderPGIDButton.ForeColor = SystemColors.ActiveCaptionText;
-            ReorderPGIDButton.Location = new Point(14, 529);
+            ReorderPGIDButton.Location = new Point(21, 460);
             ReorderPGIDButton.Name = "ReorderPGIDButton";
-            ReorderPGIDButton.Size = new Size(110, 80);
+            ReorderPGIDButton.Size = new Size(110, 60);
             ReorderPGIDButton.TabIndex = 28;
             ReorderPGIDButton.Text = "Reorder PLAY Table (by PGID)";
             ReorderPGIDButton.UseVisualStyleBackColor = false;
@@ -4021,11 +4044,11 @@ namespace DB_EDITOR
             // TORDButton
             // 
             TORDButton.BackColor = SystemColors.GradientActiveCaption;
-            TORDButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            TORDButton.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             TORDButton.ForeColor = SystemColors.ActiveCaptionText;
-            TORDButton.Location = new Point(14, 443);
+            TORDButton.Location = new Point(19, 394);
             TORDButton.Name = "TORDButton";
-            TORDButton.Size = new Size(110, 80);
+            TORDButton.Size = new Size(110, 60);
             TORDButton.TabIndex = 26;
             TORDButton.Text = "Reorder Teams (Dynasty)";
             TORDButton.UseVisualStyleBackColor = false;
@@ -8237,6 +8260,8 @@ namespace DB_EDITOR
             // groupBox9
             // 
             groupBox9.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            groupBox9.Controls.Add(label167);
+            groupBox9.Controls.Add(YearsCoachedBox);
             groupBox9.Controls.Add(label179);
             groupBox9.Controls.Add(YearsWithTeam);
             groupBox9.Controls.Add(label177);
@@ -8254,7 +8279,7 @@ namespace DB_EDITOR
             groupBox9.Controls.Add(label38);
             groupBox9.Controls.Add(BowlRecord);
             groupBox9.Controls.Add(label131);
-            groupBox9.Controls.Add(YearsCoached);
+            groupBox9.Controls.Add(ProjectedAgeLabel);
             groupBox9.Controls.Add(label54);
             groupBox9.Controls.Add(CareerRecord);
             groupBox9.Controls.Add(label53);
@@ -8269,6 +8294,27 @@ namespace DB_EDITOR
             groupBox9.TabIndex = 241;
             groupBox9.TabStop = false;
             groupBox9.Text = "Coach History";
+            // 
+            // label167
+            // 
+            label167.AutoSize = true;
+            label167.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            label167.Location = new Point(295, 64);
+            label167.Name = "label167";
+            label167.Size = new Size(77, 13);
+            label167.TabIndex = 208;
+            label167.Text = "Projected Age:";
+            // 
+            // YearsCoachedBox
+            // 
+            YearsCoachedBox.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            YearsCoachedBox.Location = new Point(376, 29);
+            YearsCoachedBox.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
+            YearsCoachedBox.Name = "YearsCoachedBox";
+            YearsCoachedBox.Size = new Size(50, 22);
+            YearsCoachedBox.TabIndex = 207;
+            YearsCoachedBox.TextAlign = HorizontalAlignment.Center;
+            YearsCoachedBox.ValueChanged += (this.YearsCoachedBox_ValueChanged);
             // 
             // label179
             // 
@@ -8334,7 +8380,7 @@ namespace DB_EDITOR
             // 
             label176.AutoSize = true;
             label176.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            label176.Location = new Point(218, 79);
+            label176.Location = new Point(222, 90);
             label176.Name = "label176";
             label176.Size = new Size(68, 13);
             label176.TabIndex = 15;
@@ -8344,7 +8390,7 @@ namespace DB_EDITOR
             // 
             ContractInfo.AutoSize = true;
             ContractInfo.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            ContractInfo.Location = new Point(218, 98);
+            ContractInfo.Location = new Point(222, 109);
             ContractInfo.Name = "ContractInfo";
             ContractInfo.Size = new Size(161, 16);
             ContractInfo.TabIndex = 14;
@@ -8354,7 +8400,7 @@ namespace DB_EDITOR
             // 
             label175.AutoSize = true;
             label175.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            label175.Location = new Point(18, 78);
+            label175.Location = new Point(22, 89);
             label175.Name = "label175";
             label175.Size = new Size(75, 13);
             label175.TabIndex = 13;
@@ -8364,7 +8410,7 @@ namespace DB_EDITOR
             // 
             CoachTeamPrestige.AutoSize = true;
             CoachTeamPrestige.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            CoachTeamPrestige.Location = new Point(18, 97);
+            CoachTeamPrestige.Location = new Point(22, 108);
             CoachTeamPrestige.Name = "CoachTeamPrestige";
             CoachTeamPrestige.Size = new Size(178, 16);
             CoachTeamPrestige.TabIndex = 12;
@@ -8434,21 +8480,21 @@ namespace DB_EDITOR
             // 
             label131.AutoSize = true;
             label131.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            label131.Location = new Point(332, 16);
+            label131.Location = new Point(290, 32);
             label131.Name = "label131";
             label131.Size = new Size(80, 13);
             label131.TabIndex = 5;
             label131.Text = "Years Coached";
             // 
-            // YearsCoached
+            // ProjectedAgeLabel
             // 
-            YearsCoached.AutoSize = true;
-            YearsCoached.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            YearsCoached.Location = new Point(332, 35);
-            YearsCoached.Name = "YearsCoached";
-            YearsCoached.Size = new Size(34, 16);
-            YearsCoached.TabIndex = 4;
-            YearsCoached.Text = "XXX";
+            ProjectedAgeLabel.AutoSize = true;
+            ProjectedAgeLabel.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            ProjectedAgeLabel.Location = new Point(376, 62);
+            ProjectedAgeLabel.Name = "ProjectedAgeLabel";
+            ProjectedAgeLabel.Size = new Size(34, 16);
+            ProjectedAgeLabel.TabIndex = 4;
+            ProjectedAgeLabel.Text = "XXX";
             // 
             // label54
             // 
@@ -8493,7 +8539,7 @@ namespace DB_EDITOR
             // CoachCCPONum
             // 
             CoachCCPONum.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            CoachCCPONum.Location = new Point(224, 33);
+            CoachCCPONum.Location = new Point(224, 28);
             CoachCCPONum.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
             CoachCCPONum.Name = "CoachCCPONum";
             CoachCCPONum.Size = new Size(50, 22);
@@ -8504,7 +8550,7 @@ namespace DB_EDITOR
             // label141
             // 
             label141.AutoSize = true;
-            label141.Location = new Point(151, 38);
+            label141.Location = new Point(151, 33);
             label141.Name = "label141";
             label141.Size = new Size(67, 13);
             label141.TabIndex = 205;
@@ -8513,7 +8559,7 @@ namespace DB_EDITOR
             // HCPrestigeNum
             // 
             HCPrestigeNum.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            HCPrestigeNum.Location = new Point(86, 33);
+            HCPrestigeNum.Location = new Point(86, 28);
             HCPrestigeNum.Maximum = new decimal(new int[] { 6, 0, 0, 0 });
             HCPrestigeNum.Name = "HCPrestigeNum";
             HCPrestigeNum.Size = new Size(50, 22);
@@ -8524,7 +8570,7 @@ namespace DB_EDITOR
             // label146
             // 
             label146.AutoSize = true;
-            label146.Location = new Point(19, 37);
+            label146.Location = new Point(19, 32);
             label146.Name = "label146";
             label146.Size = new Size(63, 13);
             label146.TabIndex = 195;
@@ -9889,9 +9935,9 @@ namespace DB_EDITOR
             PlayerTransferLabel.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
             PlayerTransferLabel.Location = new Point(10, 158);
             PlayerTransferLabel.Name = "PlayerTransferLabel";
-            PlayerTransferLabel.Size = new Size(175, 15);
+            PlayerTransferLabel.Size = new Size(276, 15);
             PlayerTransferLabel.TabIndex = 163;
-            PlayerTransferLabel.Text = "Transfer from Mississippi State";
+            PlayerTransferLabel.Text = "Mississippi State | Transfer from Mississippi State";
             PlayerTransferLabel.Visible = false;
             // 
             // label151
@@ -12796,12 +12842,12 @@ namespace DB_EDITOR
             // tabCarousel
             // 
             tabCarousel.BackColor = Color.Tan;
-            tabCarousel.Controls.Add(label186);
+            tabCarousel.Controls.Add(CoachTransferPortalLabel);
             tabCarousel.Controls.Add(CoachPortalNews);
-            tabCarousel.Controls.Add(label13);
             tabCarousel.Controls.Add(CoachFiringsCount);
             tabCarousel.Controls.Add(groupBox37);
             tabCarousel.Controls.Add(CarouselDataGrid);
+            tabCarousel.Controls.Add(label13);
             tabCarousel.Location = new Point(4, 29);
             tabCarousel.Name = "tabCarousel";
             tabCarousel.Padding = new Padding(3);
@@ -12809,15 +12855,15 @@ namespace DB_EDITOR
             tabCarousel.TabIndex = 20;
             tabCarousel.Text = "Carousel";
             // 
-            // label186
+            // CoachTransferPortalLabel
             // 
-            label186.AutoSize = true;
-            label186.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            label186.Location = new Point(851, 346);
-            label186.Name = "label186";
-            label186.Size = new Size(295, 20);
-            label186.TabIndex = 50;
-            label186.Text = "Players Entering the Transfer Portal";
+            CoachTransferPortalLabel.AutoSize = true;
+            CoachTransferPortalLabel.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            CoachTransferPortalLabel.Location = new Point(798, 346);
+            CoachTransferPortalLabel.Name = "CoachTransferPortalLabel";
+            CoachTransferPortalLabel.Size = new Size(315, 20);
+            CoachTransferPortalLabel.TabIndex = 50;
+            CoachTransferPortalLabel.Text = "    Players Entering the Transfer Portal";
             // 
             // CoachPortalNews
             // 
@@ -12837,7 +12883,7 @@ namespace DB_EDITOR
             dataGridViewCellStyle46.WrapMode = DataGridViewTriState.True;
             CoachPortalNews.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle46;
             CoachPortalNews.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            CoachPortalNews.Columns.AddRange(new DataGridViewColumn[] { CoachPortalTeam, CoachPortalPlayer, CoachPortalPos, CoachPortalPOVR });
+            CoachPortalNews.Columns.AddRange(new DataGridViewColumn[] { CoachPortalPOVR, CoachPortalPos, CoachPortalPlayer, Column9, CoachPortalTeam });
             dataGridViewCellStyle47.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle47.BackColor = SystemColors.Window;
             dataGridViewCellStyle47.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
@@ -12846,38 +12892,14 @@ namespace DB_EDITOR
             dataGridViewCellStyle47.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle47.WrapMode = DataGridViewTriState.False;
             CoachPortalNews.DefaultCellStyle = dataGridViewCellStyle47;
-            CoachPortalNews.Location = new Point(397, 369);
+            CoachPortalNews.Location = new Point(348, 369);
             CoachPortalNews.Name = "CoachPortalNews";
             CoachPortalNews.ReadOnly = true;
             CoachPortalNews.RowHeadersVisible = false;
             CoachPortalNews.RowHeadersWidth = 72;
             CoachPortalNews.RowTemplate.Height = 31;
-            CoachPortalNews.Size = new Size(749, 235);
+            CoachPortalNews.Size = new Size(798, 235);
             CoachPortalNews.TabIndex = 49;
-            // 
-            // CoachPortalTeam
-            // 
-            CoachPortalTeam.FillWeight = 30F;
-            CoachPortalTeam.HeaderText = "Team";
-            CoachPortalTeam.MinimumWidth = 9;
-            CoachPortalTeam.Name = "CoachPortalTeam";
-            CoachPortalTeam.ReadOnly = true;
-            // 
-            // CoachPortalPlayer
-            // 
-            CoachPortalPlayer.FillWeight = 30F;
-            CoachPortalPlayer.HeaderText = "Player Name";
-            CoachPortalPlayer.MinimumWidth = 9;
-            CoachPortalPlayer.Name = "CoachPortalPlayer";
-            CoachPortalPlayer.ReadOnly = true;
-            // 
-            // CoachPortalPos
-            // 
-            CoachPortalPos.FillWeight = 10F;
-            CoachPortalPos.HeaderText = "Position";
-            CoachPortalPos.MinimumWidth = 9;
-            CoachPortalPos.Name = "CoachPortalPos";
-            CoachPortalPos.ReadOnly = true;
             // 
             // CoachPortalPOVR
             // 
@@ -12887,28 +12909,53 @@ namespace DB_EDITOR
             CoachPortalPOVR.Name = "CoachPortalPOVR";
             CoachPortalPOVR.ReadOnly = true;
             // 
-            // label13
+            // CoachPortalPos
             // 
-            label13.AutoSize = true;
-            label13.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            label13.Location = new Point(3, 11);
-            label13.Name = "label13";
-            label13.Size = new Size(359, 30);
-            label13.TabIndex = 27;
-            label13.Text = "NCAA NEXT USERS - Perform At Players Leaving Stage\r\nVanilla Users - Perform at Coaching Budgets Stage";
+            CoachPortalPos.FillWeight = 10F;
+            CoachPortalPos.HeaderText = "Position";
+            CoachPortalPos.MinimumWidth = 9;
+            CoachPortalPos.Name = "CoachPortalPos";
+            CoachPortalPos.ReadOnly = true;
+            // 
+            // CoachPortalPlayer
+            // 
+            CoachPortalPlayer.FillWeight = 30F;
+            CoachPortalPlayer.HeaderText = "Player Name";
+            CoachPortalPlayer.MinimumWidth = 9;
+            CoachPortalPlayer.Name = "CoachPortalPlayer";
+            CoachPortalPlayer.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            Column9.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            Column9.HeaderText = "Year";
+            Column9.Name = "Column9";
+            Column9.ReadOnly = true;
+            Column9.Width = 54;
+            // 
+            // CoachPortalTeam
+            // 
+            CoachPortalTeam.FillWeight = 30F;
+            CoachPortalTeam.HeaderText = "Team";
+            CoachPortalTeam.MinimumWidth = 9;
+            CoachPortalTeam.Name = "CoachPortalTeam";
+            CoachPortalTeam.ReadOnly = true;
             // 
             // CoachFiringsCount
             // 
             CoachFiringsCount.AutoSize = true;
             CoachFiringsCount.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            CoachFiringsCount.Location = new Point(1002, 3);
+            CoachFiringsCount.Location = new Point(973, 3);
             CoachFiringsCount.Name = "CoachFiringsCount";
-            CoachFiringsCount.Size = new Size(144, 20);
+            CoachFiringsCount.Size = new Size(163, 20);
             CoachFiringsCount.TabIndex = 47;
-            CoachFiringsCount.Text = "## Coach Firings";
+            CoachFiringsCount.Text = "   Coach Vacancies";
             // 
             // groupBox37
             // 
+            groupBox37.Controls.Add(CoachesAddedBox);
+            groupBox37.Controls.Add(AgeCoaches);
+            groupBox37.Controls.Add(CoachRetirement);
             groupBox37.Controls.Add(LowPrestigeCoachValue);
             groupBox37.Controls.Add(label187);
             groupBox37.Controls.Add(buttonCarousel);
@@ -12924,10 +12971,44 @@ namespace DB_EDITOR
             groupBox37.Controls.Add(checkBoxFiredTransfers);
             groupBox37.Location = new Point(17, 54);
             groupBox37.Name = "groupBox37";
-            groupBox37.Size = new Size(352, 535);
+            groupBox37.Size = new Size(304, 550);
             groupBox37.TabIndex = 48;
             groupBox37.TabStop = false;
             groupBox37.Text = "Coaching Carousel";
+            // 
+            // CoachesAddedBox
+            // 
+            CoachesAddedBox.BackColor = SystemColors.Menu;
+            CoachesAddedBox.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            CoachesAddedBox.FormattingEnabled = true;
+            CoachesAddedBox.ItemHeight = 15;
+            CoachesAddedBox.Location = new Point(6, 390);
+            CoachesAddedBox.Name = "CoachesAddedBox";
+            CoachesAddedBox.Size = new Size(292, 154);
+            CoachesAddedBox.TabIndex = 37;
+            CoachesAddedBox.Visible = false;
+            // 
+            // AgeCoaches
+            // 
+            AgeCoaches.AutoSize = true;
+            AgeCoaches.Checked = true;
+            AgeCoaches.CheckState = CheckState.Checked;
+            AgeCoaches.Location = new Point(16, 260);
+            AgeCoaches.Name = "AgeCoaches";
+            AgeCoaches.Size = new Size(180, 17);
+            AgeCoaches.TabIndex = 36;
+            AgeCoaches.Text = "Add 1 Year to Free Agent Coach";
+            AgeCoaches.UseVisualStyleBackColor = true;
+            // 
+            // CoachRetirement
+            // 
+            CoachRetirement.AutoSize = true;
+            CoachRetirement.Location = new Point(16, 237);
+            CoachRetirement.Name = "CoachRetirement";
+            CoachRetirement.Size = new Size(111, 17);
+            CoachRetirement.TabIndex = 35;
+            CoachRetirement.Text = "Coach Retirement";
+            CoachRetirement.UseVisualStyleBackColor = true;
             // 
             // LowPrestigeCoachValue
             // 
@@ -12936,7 +13017,7 @@ namespace DB_EDITOR
             LowPrestigeCoachValue.Name = "LowPrestigeCoachValue";
             LowPrestigeCoachValue.Size = new Size(52, 20);
             LowPrestigeCoachValue.TabIndex = 33;
-            LowPrestigeCoachValue.Value = new decimal(new int[] { 60, 0, 0, 0 });
+            LowPrestigeCoachValue.Value = new decimal(new int[] { 75, 0, 0, 0 });
             // 
             // label187
             // 
@@ -12954,7 +13035,7 @@ namespace DB_EDITOR
             buttonCarousel.ForeColor = SystemColors.ActiveCaptionText;
             buttonCarousel.Location = new Point(16, 32);
             buttonCarousel.Name = "buttonCarousel";
-            buttonCarousel.Size = new Size(322, 65);
+            buttonCarousel.Size = new Size(250, 65);
             buttonCarousel.TabIndex = 12;
             buttonCarousel.Text = "Coaching Carousel";
             buttonCarousel.UseVisualStyleBackColor = false;
@@ -12986,16 +13067,16 @@ namespace DB_EDITOR
             poachValue.Name = "poachValue";
             poachValue.Size = new Size(51, 20);
             poachValue.TabIndex = 15;
-            poachValue.Value = new decimal(new int[] { 50, 0, 0, 0 });
+            poachValue.Value = new decimal(new int[] { 75, 0, 0, 0 });
             // 
             // buttonPlayerCoach
             // 
             buttonPlayerCoach.BackColor = SystemColors.Control;
             buttonPlayerCoach.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             buttonPlayerCoach.ForeColor = SystemColors.ActiveCaptionText;
-            buttonPlayerCoach.Location = new Point(16, 315);
+            buttonPlayerCoach.Location = new Point(16, 283);
             buttonPlayerCoach.Name = "buttonPlayerCoach";
-            buttonPlayerCoach.Size = new Size(322, 65);
+            buttonPlayerCoach.Size = new Size(250, 65);
             buttonPlayerCoach.TabIndex = 30;
             buttonPlayerCoach.Text = "Promote Players to Coaching";
             buttonPlayerCoach.UseVisualStyleBackColor = false;
@@ -13003,7 +13084,7 @@ namespace DB_EDITOR
             // 
             // numberPlayerCoach
             // 
-            numberPlayerCoach.Location = new Point(117, 389);
+            numberPlayerCoach.Location = new Point(117, 357);
             numberPlayerCoach.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
             numberPlayerCoach.Name = "numberPlayerCoach";
             numberPlayerCoach.Size = new Size(72, 20);
@@ -13021,7 +13102,7 @@ namespace DB_EDITOR
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new Point(18, 393);
+            label14.Location = new Point(18, 361);
             label14.Name = "label14";
             label14.Size = new Size(93, 13);
             label14.TabIndex = 32;
@@ -13073,7 +13154,7 @@ namespace DB_EDITOR
             dataGridViewCellStyle49.WrapMode = DataGridViewTriState.True;
             CarouselDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle49;
             CarouselDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            CarouselDataGrid.Columns.AddRange(new DataGridViewColumn[] { CCName, CCStatus, CCTeam, CCTmPrestige, CCPrestige, CCRecord, CCSeaRec, CCCoachRating });
+            CarouselDataGrid.Columns.AddRange(new DataGridViewColumn[] { CCName, CCStatus, CCTeam, CCTmPrestige, CCPrestige, Column8, CCRecord, CCSeaRec, CCCoachRating });
             dataGridViewCellStyle50.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle50.BackColor = SystemColors.Window;
             dataGridViewCellStyle50.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
@@ -13082,77 +13163,112 @@ namespace DB_EDITOR
             dataGridViewCellStyle50.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle50.WrapMode = DataGridViewTriState.False;
             CarouselDataGrid.DefaultCellStyle = dataGridViewCellStyle50;
-            CarouselDataGrid.Location = new Point(397, 26);
+            CarouselDataGrid.Location = new Point(348, 26);
             CarouselDataGrid.Name = "CarouselDataGrid";
             CarouselDataGrid.ReadOnly = true;
             CarouselDataGrid.RowHeadersVisible = false;
             CarouselDataGrid.RowHeadersWidth = 72;
             CarouselDataGrid.RowTemplate.Height = 31;
-            CarouselDataGrid.Size = new Size(749, 317);
+            CarouselDataGrid.Size = new Size(798, 317);
             CarouselDataGrid.TabIndex = 46;
             // 
             // CCName
             // 
+            CCName.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             CCName.FillWeight = 30F;
-            CCName.HeaderText = "Coach Name";
-            CCName.MinimumWidth = 9;
+            CCName.HeaderText = "Coach";
+            CCName.MinimumWidth = 100;
             CCName.Name = "CCName";
             CCName.ReadOnly = true;
             // 
             // CCStatus
             // 
+            CCStatus.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             CCStatus.FillWeight = 10F;
             CCStatus.HeaderText = "Status";
-            CCStatus.MinimumWidth = 9;
+            CCStatus.MinimumWidth = 75;
             CCStatus.Name = "CCStatus";
             CCStatus.ReadOnly = true;
             // 
             // CCTeam
             // 
+            CCTeam.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             CCTeam.FillWeight = 30F;
             CCTeam.HeaderText = "Team";
             CCTeam.MinimumWidth = 9;
             CCTeam.Name = "CCTeam";
             CCTeam.ReadOnly = true;
+            CCTeam.Width = 59;
             // 
             // CCTmPrestige
             // 
+            CCTmPrestige.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             CCTmPrestige.FillWeight = 10F;
             CCTmPrestige.HeaderText = "Team Prestige";
             CCTmPrestige.MinimumWidth = 9;
             CCTmPrestige.Name = "CCTmPrestige";
             CCTmPrestige.ReadOnly = true;
+            CCTmPrestige.Width = 92;
             // 
             // CCPrestige
             // 
+            CCPrestige.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             CCPrestige.FillWeight = 10F;
             CCPrestige.HeaderText = "Coach Prestige";
             CCPrestige.MinimumWidth = 9;
             CCPrestige.Name = "CCPrestige";
             CCPrestige.ReadOnly = true;
+            CCPrestige.Width = 96;
+            // 
+            // Column8
+            // 
+            Column8.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            Column8.FillWeight = 10F;
+            Column8.HeaderText = "Years";
+            Column8.MinimumWidth = 10;
+            Column8.Name = "Column8";
+            Column8.ReadOnly = true;
+            Column8.Width = 59;
             // 
             // CCRecord
             // 
+            CCRecord.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             CCRecord.FillWeight = 10F;
             CCRecord.HeaderText = "Coach Record";
             CCRecord.MinimumWidth = 9;
             CCRecord.Name = "CCRecord";
             CCRecord.ReadOnly = true;
+            CCRecord.Width = 93;
             // 
             // CCSeaRec
             // 
+            CCSeaRec.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             CCSeaRec.FillWeight = 10F;
             CCSeaRec.HeaderText = "Season Record";
             CCSeaRec.MinimumWidth = 9;
             CCSeaRec.Name = "CCSeaRec";
             CCSeaRec.ReadOnly = true;
+            CCSeaRec.Width = 97;
             // 
             // CCCoachRating
             // 
+            CCCoachRating.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             CCCoachRating.FillWeight = 10F;
             CCCoachRating.HeaderText = "Hot Seat";
             CCCoachRating.Name = "CCCoachRating";
             CCCoachRating.ReadOnly = true;
+            CCCoachRating.Width = 69;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.BackColor = Color.Transparent;
+            label13.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            label13.Location = new Point(3, 6);
+            label13.Name = "label13";
+            label13.Size = new Size(359, 30);
+            label13.TabIndex = 27;
+            label13.Text = "NCAA NEXT USERS - Perform At Players Leaving Stage\r\nVanilla Users - Perform at Coaching Budgets Stage";
             // 
             // tabPlayoff
             // 
@@ -16307,6 +16423,7 @@ namespace DB_EDITOR
             tabCoaches.PerformLayout();
             groupBox9.ResumeLayout(false);
             groupBox9.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)YearsCoachedBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)CoachCCPONum).EndInit();
             ((System.ComponentModel.ISupportInitialize)HCPrestigeNum).EndInit();
             groupBox8.ResumeLayout(false);
@@ -16941,7 +17058,7 @@ namespace DB_EDITOR
         private Label label38;
         private Label BowlRecord;
         private Label label131;
-        private Label YearsCoached;
+        private Label ProjectedAgeLabel;
         private Label label54;
         private Label CareerRecord;
         private Label label53;
@@ -17526,22 +17643,10 @@ namespace DB_EDITOR
         private GroupBox groupBox48;
         public Label label82;
         private System.Windows.Forms.ComboBox RHAN;
-        private Label label186;
+        private Label CoachTransferPortalLabel;
         private DataGridView CoachPortalNews;
-        private DataGridViewTextBoxColumn CoachPortalTeam;
-        private DataGridViewTextBoxColumn CoachPortalPlayer;
-        private DataGridViewTextBoxColumn CoachPortalPos;
-        private DataGridViewTextBoxColumn CoachPortalPOVR;
         public NumericUpDown LowPrestigeCoachValue;
         public Label label187;
-        private DataGridViewTextBoxColumn CCName;
-        private DataGridViewTextBoxColumn CCStatus;
-        private DataGridViewTextBoxColumn CCTeam;
-        private DataGridViewTextBoxColumn CCTmPrestige;
-        private DataGridViewTextBoxColumn CCPrestige;
-        private DataGridViewTextBoxColumn CCRecord;
-        private DataGridViewTextBoxColumn CCSeaRec;
-        private DataGridViewTextBoxColumn CCCoachRating;
         public System.Windows.Forms.Button ExportDC2;
         private System.Windows.Forms.Button CreateFCSTransferPortalButton;
         private TabPage tabPlayoff;
@@ -17767,6 +17872,26 @@ namespace DB_EDITOR
         private DataGridViewTextBoxColumn TPPos;
         private DataGridViewTextBoxColumn TPPlayer;
         private DataGridViewTextBoxColumn TPRating;
+        private CheckBox AgeCoaches;
+        private CheckBox CoachRetirement;
+        private ListBox CoachesAddedBox;
+        private DataGridViewTextBoxColumn CCName;
+        private DataGridViewTextBoxColumn CCStatus;
+        private DataGridViewTextBoxColumn CCTeam;
+        private DataGridViewTextBoxColumn CCTmPrestige;
+        private DataGridViewTextBoxColumn CCPrestige;
+        private DataGridViewTextBoxColumn Column8;
+        private DataGridViewTextBoxColumn CCRecord;
+        private DataGridViewTextBoxColumn CCSeaRec;
+        private DataGridViewTextBoxColumn CCCoachRating;
+        private DataGridViewTextBoxColumn CoachPortalPOVR;
+        private DataGridViewTextBoxColumn CoachPortalPos;
+        private DataGridViewTextBoxColumn CoachPortalPlayer;
+        private DataGridViewTextBoxColumn Column9;
+        private DataGridViewTextBoxColumn CoachPortalTeam;
+        public System.Windows.Forms.Button LoadCoachAge;
+        private Label label167;
+        private NumericUpDown YearsCoachedBox;
     }
 }
 

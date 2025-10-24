@@ -393,6 +393,25 @@ namespace DB_EDITOR
             return status;
         }
 
+        public string GetClassYearsAbbr(int year, int redshirt)
+        {
+            if (redshirt == 0)
+            {
+                if (year == 0) return "FR";
+                else if (year == 1) return "SO";
+                else if (year == 2) return "JR";
+                else return "SR";
+            } 
+            else
+            {
+                if (year == 0) return "FR (RS)";
+                else if (year == 1) return "SO (RS)";
+                else if (year == 2) return "JR (RS)";
+                else return "SR (RS)";
+            }
+
+        }
+
         public List<string> CreateOffSeasonPTYP()
         {
             List<string> status = new List<string>();

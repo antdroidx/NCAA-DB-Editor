@@ -60,9 +60,12 @@ namespace DB_EDITOR
                         teamList.Add(teamNameDB[GetDBValueInt("TEAM", "TGID", i)]);
                 }
             }
-            teamList.Add("_ALL PLAYERS_");
+
 
             teamList.Sort();
+            //teamList.Add("_ALL PLAYERS_");
+            teamList.Insert(0, "ALL PLAYERS");
+            teamList.Add("OTHER");
 
             for (int i = 0; i < teamList.Count; i++)
             {
@@ -73,7 +76,7 @@ namespace DB_EDITOR
 
         private void LoadPlayerPosBox()
         {
-            if(PlayerPosBox.Items.Count > 0) return;
+            if (PlayerPosBox.Items.Count > 0) return;
             PlayerPosBox.Items.Clear();
             List<string> posList = new List<string>();
             posList.Add("ALL");
@@ -97,12 +100,12 @@ namespace DB_EDITOR
         {
             PlayerEditorList = new List<List<string>>();
             PJENList = new List<int>();
-            int pgidBeg;
-            int pgidEnd;
+            int pgidBeg = -1;
+            int pgidEnd = -1;
             int playersLeaving = 0;
-           
 
-            if (TGIDplayerBox.Text != "_ALL PLAYERS_")
+
+            if (TGIDplayerBox.Text != "ALL PLAYERS" && TGIDplayerBox.Text != "OTHER")
             {
                 int tgid = -1;
                 for (int i = 0; i < teamNameDB.Length; i++)
@@ -146,9 +149,55 @@ namespace DB_EDITOR
 
                         // 0 First Name  1 Last Name 2 Position 3 Overall 4 PGID 5 rec
 
-                        if (TGIDplayerBox.Text != "_ALL PLAYERS_") PJENList.Add(GetDBValueInt("PLAY", "PJEN", i));
+                        if (TGIDplayerBox.Text != "ALL PLAYERS") PJENList.Add(GetDBValueInt("PLAY", "PJEN", i));
 
                         row++;
+                    }
+                }
+            }
+
+            if (TGIDplayerBox.Text == "OTHER")
+            {
+                //create a list of fcs teams
+                PlayerEditorList = new List<List<string>>();
+                List<int> FCSpgid = new List<int>();
+
+                for (int i = 0; i < GetTableRecCount("TEAM"); i++)
+                {
+                    int tgid = GetDBValueInt("TEAM", "TGID", i);
+                    if (GetDBValueInt("TEAM", "TTYP", i) == 1)
+                    {
+                        for (int j = tgid * 70; j < tgid * 70 + 70; j++)
+                        {
+                            FCSpgid.Add(j);
+                        }
+                    }
+                }
+
+
+                row = 0;
+                for (int i = 0; i < GetTableRecCount("PLAY"); i++)
+                {
+                    if (FCSpgid.Contains(GetDBValueInt("PLAY", "PGID", i)))
+                    {
+                        int PlayerPOSG2 = GetPOSG2fromPPOS(GetDBValueInt("PLAY", "PPOS", i));
+                        if (PlayerPosBox.SelectedIndex <= 0 || PlayerPOSG2 == PlayerPosBox.SelectedIndex - 1)
+                        {
+                            PlayerEditorList.Add(new List<string>());
+                            PlayerEditorList[row].Add(GetFirstNameFromRecord(i));
+                            PlayerEditorList[row].Add(GetLastNameFromRecord(i));
+                            PlayerEditorList[row].Add(GetDBValue("PLAY", "PPOS", i));
+                            PlayerEditorList[row].Add(GetDBValue("PLAY", "POVR", i));
+                            PlayerEditorList[row].Add(GetDBValue("PLAY", "PGID", i));
+                            PlayerEditorList[row].Add(Convert.ToString(i));
+                            PlayerEditorList[row].Add(Convert.ToString(GetPOSG2fromPPOS(GetDBValueInt("PLAY", "PPOS", i))));
+                            PlayerEditorList[row].Add(GetDBValue("PLAY", "PTYP", i));
+                            PlayerEditorList[row].Add(GetDBValue("PLAY", "PYER", i));
+                            PlayerEditorList[row].Add(GetDBValue("PLAY", "PRSD", i));
+                            // 0 First Name  1 Last Name 2 Position 3 Overall 4 PGID 5 rec
+
+                            row++;
+                        }
                     }
                 }
             }
@@ -246,7 +295,7 @@ namespace DB_EDITOR
             DoNotTrigger = true;
 
             ResetPlayerPOSbutton.Visible = false;
-            
+
             //Player Name
             PFNAtextBox.Text = GetFirstNameFromRecord(PlayerIndex); //...first name from numeric to text conversion
             PLNAtextBox.Text = GetLastNameFromRecord(PlayerIndex); //...last name from numeric to text conversion
@@ -262,12 +311,12 @@ namespace DB_EDITOR
             PStateBox.SelectedIndex = state;
 
             AddPHometownItems();
-            if(home - (state * 256) > PHometownBox.Items.Count)
+            if (home - (state * 256) > PHometownBox.Items.Count)
             {
                 home = state * 256 + rand.Next(0, PHometownBox.Items.Count - 1);
                 ChangeDBInt("PLAY", "RCHD", PlayerIndex, home);
             }
-            PHometownBox.SelectedIndex = home - (state*256);
+            PHometownBox.SelectedIndex = home - (state * 256);
 
 
             //Overall Rating
@@ -281,15 +330,16 @@ namespace DB_EDITOR
             //PGID Box
             PGIDbox.Text = GetDBValue("PLAY", "PGID", PlayerIndex);
 
-            //Transfer
-            PlayerTransferLabel.Visible = false;
+            //Team & Transfer
+            PlayerTransferLabel.Visible = true;
+            string team = teamNameDB[GetDBValueInt("PLAY", "PGID", PlayerIndex) / 70];
+            PlayerTransferLabel.Text = "" + team;
 
             for (int i = 0; i < GetTableRecCount("TRAN"); i++)
             {
-                if (GetDBValueInt("TRAN", "PGID", i) == (GetDBValueInt("PLAY", "PGID", PlayerIndex))) 
+                if (GetDBValueInt("TRAN", "PGID", i) == (GetDBValueInt("PLAY", "PGID", PlayerIndex)) && GetDBValueInt("TRAN", "PTID", i) < 300)
                 {
-                    PlayerTransferLabel.Visible = true;
-                    PlayerTransferLabel.Text = "Transfer From " + teamNameDB[GetDBValueInt("TRAN", "PTID", i)];
+                    PlayerTransferLabel.Text += " | Transfer From " + teamNameDB[GetDBValueInt("TRAN", "PTID", i)];
                     break;
                 }
             }
@@ -335,7 +385,7 @@ namespace DB_EDITOR
 
             //Injury Status
 
-            int injuryrec =  CheckPlayerInjuryStatus();
+            int injuryrec = CheckPlayerInjuryStatus();
             if (injuryrec >= 0)
             {
                 InjuryLabel.Visible = true;
@@ -438,7 +488,7 @@ namespace DB_EDITOR
             PRBKtext.BackColor = GetRatingColor(PRBKtext).BackColor;
 
             //Pass Blocking
-            PPBKBox.Maximum = maxRatingVal; 
+            PPBKBox.Maximum = maxRatingVal;
             PPBKBox.Value = GetDBValueInt("PLAY", "PPBK", PlayerIndex);
             PPBKtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(PPBKBox.Value)));
             PPBKtext.BackColor = GetRatingColor(PPBKtext).BackColor;
@@ -450,7 +500,7 @@ namespace DB_EDITOR
             PCTHtext.BackColor = GetRatingColor(PCTHtext).BackColor;
 
             //Tackling
-            PTAKBox.Maximum = maxRatingVal; 
+            PTAKBox.Maximum = maxRatingVal;
             PTAKBox.Value = GetDBValueInt("PLAY", "PTAK", PlayerIndex);
             PTAKtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(PTAKBox.Value)));
             PTAKtext.BackColor = GetRatingColor(PTAKtext).BackColor;
@@ -564,7 +614,7 @@ namespace DB_EDITOR
             RightShoe.SelectedIndex = GetDBValueInt("PLAY", "PRSH", PlayerIndex);
 
             LoadPlayerStats();
-            
+
             DoNotTrigger = false;
         }
 
@@ -698,7 +748,7 @@ namespace DB_EDITOR
 
 
             int start = (GetDBValueInt("PLAY", "RCHD", PlayerIndex) / 256) * 256;
-            for (int i = start ; i < start + 256; i++)
+            for (int i = start; i < start + 256; i++)
             {
                 if (i >= home.Length) break;
                 if (home[i] == null) break;
@@ -762,14 +812,14 @@ namespace DB_EDITOR
             if (DoNotTrigger)
                 return;
 
-            if(AWHRBox.Checked)
+            if (AWHRBox.Checked)
             {
                 DoNotTrigger = true;
                 PPOSmem = GetDBValueInt("PLAY", "PPOS", PlayerIndex);
                 AWRHmem = GetDBValueInt("PLAY", "PAWR", PlayerIndex);
                 double hit = 0.19;
 
-                if (NextMod || !Next26Mod)  hit = 0.08;
+                if (NextMod || !Next26Mod) hit = 0.08;
 
                 ResetPlayerPOSbutton.Visible = true;
 
@@ -789,7 +839,7 @@ namespace DB_EDITOR
             else
             {
                 ChangeDBInt("PLAY", "PPOS", PlayerIndex, PPOSBox.SelectedIndex);
-            } 
+            }
 
             DisplayNewOverallRating();
             LoadPGIDlistBox();
@@ -1447,7 +1497,7 @@ namespace DB_EDITOR
 
             for (int i = 0; i < GetTableRecCount("INJY"); i++)
             {
-                if(GetDBValueInt("INJY", "PGID", i) == PGID)
+                if (GetDBValueInt("INJY", "PGID", i) == PGID)
                 {
                     return i;
                 }
@@ -1480,10 +1530,10 @@ namespace DB_EDITOR
             int pos = GetDBValueInt("PLAY", "PPOS", PlayerIndex);
             int pgid = GetDBValueInt("PLAY", "PGID", PlayerIndex);
 
-            if(pos == 0) LoadQBStatsView(pgid);
+            if (pos == 0) LoadQBStatsView(pgid);
             else if (pos == 1 || pos == 2) LoadRushingStatsView(pgid);
             else if (pos == 3 || pos == 4) LoadReceivingStatsView(pgid);
-            else if (pos >= 5 && pos <=9) LoadOLStatsView(pgid);
+            else if (pos >= 5 && pos <= 9) LoadOLStatsView(pgid);
             else if (pos >= 10 && pos <= 18) LoadDefStatsView(pgid);
             else if (pos == 19) LoadKickStats(pgid);
             else if (pos == 20) LoadPuntStats(pgid);
@@ -1531,7 +1581,7 @@ namespace DB_EDITOR
                     int td = GetDBValueInt("PSOF", "satd", i);
                     int ints = GetDBValueInt("PSOF", "sain", i);
                     int skd = GetDBValueInt("PSOF", "sasa", i);
-                   
+
                     double pct = 0;
                     if (att > 0) pct = Math.Round((Convert.ToDouble(cmp) / Convert.ToDouble(att)) * 100, 1);
 
@@ -1545,9 +1595,9 @@ namespace DB_EDITOR
                     if (att > 0)
                     {
                         qbr = Math.Round(
-                            ((8.4 * yds) + 
-                             (330 * td) + 
-                             (100 * cmp) - 
+                            ((8.4 * yds) +
+                             (330 * td) +
+                             (100 * cmp) -
                              (200 * ints)) / att, 1);
                     }
                     if (qbr < 0) qbr = 0;

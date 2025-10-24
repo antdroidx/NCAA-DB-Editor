@@ -260,10 +260,11 @@ namespace DB_EDITOR
 
 
             //Coaching History
+            int seyr = GetDBValueInt("SEAI", "SEYR", 0);
+            YearsCoachedBox.Value = GetDBValueInt("COCH", "CYCD", EditorIndex);
+            ProjectedAgeLabel.Text = "" + (GetDBValueInt("COCH", "CYCD", CoachIndex) + seyr + 23);
 
-            YearsCoached.Text = GetDBValue("COCH", "CYCD", EditorIndex);
 
-            
             int ctop = GetDBValueInt("COCH", "CTOP", EditorIndex);
             int tmpr = FindTeamPrestige(GetDBValueInt("COCH", "TGID", EditorIndex));
 
@@ -603,6 +604,19 @@ namespace DB_EDITOR
 
             ChangeDBString("COCH", "CPRE", CoachIndex, Convert.ToString(HCPrestigeNum.Value));
             HCPrestigeNum.BackColor = GetPrestigeColor(HCPrestigeNum).BackColor;
+
+        }
+
+        //Coach Years Coached
+        private void YearsCoachedBox_ValueChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger)
+                return;
+
+            ChangeDBString("COCH", "CYCD", CoachIndex, Convert.ToString(YearsCoachedBox.Value));
+            int seyr = GetDBValueInt("SEAI", "SEYR", 0);
+
+            ProjectedAgeLabel.Text = "" + (GetDBValueInt("COCH", "CYCD", CoachIndex) + seyr + 23);
 
         }
 
