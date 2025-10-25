@@ -16,6 +16,10 @@ namespace DB_EDITOR
         public void StartCoachEditor()
         {
             AddCoachFilters();
+            //LoadCoachList(CoachFilter.SelectedIndex);
+
+            CoachListBox.DrawMode = DrawMode.OwnerDrawFixed;
+            CoachListBox.DrawItem += CoachListBox_DrawItem;
             LoadCoachList(CoachFilter.SelectedIndex);
         }
         private void AddCoachFilters()
@@ -1047,5 +1051,56 @@ namespace DB_EDITOR
         }
 
         #endregion
+
+        // Add this method to handle drawing the items:
+        private void CoachListBox_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            if (e.Index < 0) return;
+
+            // Get the CCPO value from CoachEditorList
+            int ccpo = int.Parse(CoachEditorList[e.Index][6]); // Index 6 contains CCPO
+
+            // Draw the background
+            e.DrawBackground();
+
+            // Choose color based on CCPO value
+            Color textColor;
+            if (ccpo < 25)
+            {
+                textColor = Color.Red;
+            }
+            else if (ccpo < 50)
+            {
+                textColor = Color.Orange;
+            }
+            else
+            {
+                textColor = (e.State & DrawItemState.Selected) == DrawItemState.Selected ?
+                    SystemColors.HighlightText : SystemColors.ControlText;
+            }
+
+            // Get the text to draw based on current display mode
+            string text;
+            if (CoachShowTeamBox.Checked && !CoachPerfCheckBox.Checked)
+                text = CoachEditorList[e.Index][2];
+            else if (CoachPerfCheckBox.Checked && !CoachShowTeamBox.Checked)
+                text = CoachEditorList[e.Index][3];
+            else if (CoachPerfCheckBox.Checked && CoachShowTeamBox.Checked)
+                text = CoachEditorList[e.Index][4];
+            else
+                text = CoachEditorList[e.Index][1];
+
+            // Draw the text
+            using (var brush = new SolidBrush(textColor))
+            {
+                e.Graphics.DrawString(text, e.Font, brush, e.Bounds);
+            }
+
+            // Draw focus rectangle if needed
+            if ((e.State & DrawItemState.Focus) == DrawItemState.Focus)
+            {
+                e.DrawFocusRectangle();
+            }
+        }
     }
 }

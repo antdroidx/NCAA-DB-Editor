@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace DB_EDITOR
 {
@@ -146,7 +147,6 @@ namespace DB_EDITOR
             EnableFCSSwapBox.Checked = false;
             if (GetDBValueInt("SEAI", "SEWN", 0) >= 22) EnableFCSSwapBox.Enabled = true;
             AddFCSTeams();
-
         }
 
         //Add Teams to Conferences and Label the Conference
@@ -197,7 +197,6 @@ namespace DB_EDITOR
                     {
                         conferenceBox.Items.Add(GetDBValue("TEAM", "TDNA", i));
                     }
-
 
                     teams++;
                 }
@@ -948,8 +947,6 @@ namespace DB_EDITOR
 
             return newPrestige;
         }
-        // Add these helper methods to the `partial class MainEditor : Form` (e.g., near other helpers)
 
-        
     }
 }

@@ -108,7 +108,7 @@ namespace DB_EDITOR
 
             UniformGrid.ClearSelection();
 
-            for (int i = 0; i < UNIFORMDATsize+1; i++)
+            for (int i = 0; i < UNIFORMDATsize + 1; i++)
             {
                 UniformGrid.Rows.Add(new List<string>());
 
@@ -514,7 +514,7 @@ namespace DB_EDITOR
                             if (UniformGrid.Rows[j].Cells[0].Value.Equals(true)) alts++;
                         }
 
-                        if (alts == 18) 
+                        if (alts == 18)
                             TeamAltUniCheck.Checked = true;
 
                         UniformsActivated.Text = "Uniforms Exp Activated: " + (alts + 2) + " / 20";
@@ -630,7 +630,7 @@ namespace DB_EDITOR
                 {
                     UniformGrid.Rows[row].Cells[0].Value = false;
                 }
-                if (row == 12 || row == 13) //kennesaw state
+                if (NextMod && row == 12 || NextMod && row == 13) //kennesaw state
                 {
                     UniformGrid.Rows[row].Cells[0].Value = true;
                 }
@@ -644,6 +644,33 @@ namespace DB_EDITOR
                     else RemoveTeamExpansionAll(teamNameDB[i]);
                 }
             }
+            CheckUniformExpansion();
+            CheckTeamUniformExpansionCounter();
+            DoNotTrigger = false;
+        }
+
+
+
+        private void GlobalAltExpOnlyCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            DoNotTrigger = true;
+
+            for (int row = 1200; row < UniformGrid.Rows.Count; row+=20)
+            {
+                if (UniformGrid.Rows[row].Cells[2].Value == DBNull.Value || UniformGrid.Rows[row].Cells[2].Value == null || UniformGrid.Rows[row].Cells[2].Value.Equals("N/A") || UniformGrid.Rows[row].Cells[2].Value.Equals("XXX"))
+                {
+                    UniformGrid.Rows[row].Visible = false;
+                }
+                //CHECKED
+                else if (UniformGrid.Rows[row].Cells[0].Value.Equals(true) && UniformGrid.Rows[row].Cells[3].Value.Equals("Home") || UniformGrid.Rows[row].Cells[0].Value.Equals(true) && UniformGrid.Rows[row].Cells[3].Value.Equals("Away"))
+                {
+                    for (int i = row; i < row + 20; i++)
+                    {
+                        UniformGrid.Rows[i].Cells[0].Value = true;
+                    }
+                }
+            }
+
             CheckUniformExpansion();
             CheckTeamUniformExpansionCounter();
             DoNotTrigger = false;
@@ -739,7 +766,7 @@ namespace DB_EDITOR
                 StreamWriter wText = new StreamWriter(myStream);
                 StringBuilder hbuilder = new StringBuilder();
 
-                for(int i = 0; i < UniformGrid.Columns.Count; i++)
+                for (int i = 0; i < UniformGrid.Columns.Count; i++)
                 {
                     hbuilder.Append(Convert.ToString(UniformGrid.Columns[i].Name));
                     hbuilder.Append(", ");
@@ -774,134 +801,134 @@ namespace DB_EDITOR
             }
         }
 
-            #endregion
+        #endregion
 
 
-            #region Database Updates
+        #region Database Updates
 
-            private void UpdateUNIFButton_Click(object sender, EventArgs e)
-    {
-        UpdateTUNI();
-        UpdateUNIF();
-
-        MessageBox.Show("Database Update Completed!\n\nRemember to Save this file before exiting!");
-    }
-
-    private void UpdateTUNI()
-    {
-        //Clear TUCO table
-        for (int i = 0; i < GetTableRecCount("TUNI"); i++)
+        private void UpdateUNIFButton_Click(object sender, EventArgs e)
         {
-            DeleteRecord("TUNI", i, true);
+            UpdateTUNI();
+            UpdateUNIF();
+
+            MessageBox.Show("Database Update Completed!\n\nRemember to Save this file before exiting!");
         }
 
-        CompactDB();
-
-        //Add Data to UNIF table
-        int rec = 0;
-        for (int row = 0; row < UniformGrid.Rows.Count; row++)
+        private void UpdateTUNI()
         {
-            if (UniformGrid.Rows[row].Cells[0].Value.Equals(true) && !UniformGrid.Rows[row].Cells[2].Value.Equals("N/A"))
+            //Clear TUCO table
+            for (int i = 0; i < GetTableRecCount("TUNI"); i++)
             {
-                AddTableRecord("TUNI", true);
-                ChangeDBInt("TUNI", "UFID", rec, Convert.ToInt32(UniformGrid.Rows[row].Cells[1].Value));
-                ChangeDBInt("TUNI", "TOID", rec, FindTGIDfromTeamName(Convert.ToString(UniformGrid.Rows[row].Cells[2].Value)));
-                ChangeDBInt("TUNI", "TUCO", rec, ReturnUniformSlot(Convert.ToString(UniformGrid.Rows[row].Cells[3].Value)));
-                rec++;
+                DeleteRecord("TUNI", i, true);
+            }
+
+            CompactDB();
+
+            //Add Data to UNIF table
+            int rec = 0;
+            for (int row = 0; row < UniformGrid.Rows.Count; row++)
+            {
+                if (UniformGrid.Rows[row].Cells[0].Value.Equals(true) && !UniformGrid.Rows[row].Cells[2].Value.Equals("N/A"))
+                {
+                    AddTableRecord("TUNI", true);
+                    ChangeDBInt("TUNI", "UFID", rec, Convert.ToInt32(UniformGrid.Rows[row].Cells[1].Value));
+                    ChangeDBInt("TUNI", "TOID", rec, FindTGIDfromTeamName(Convert.ToString(UniformGrid.Rows[row].Cells[2].Value)));
+                    ChangeDBInt("TUNI", "TUCO", rec, ReturnUniformSlot(Convert.ToString(UniformGrid.Rows[row].Cells[3].Value)));
+                    rec++;
+                }
             }
         }
-    }
 
-    private void UpdateUNIF()
-    {
-        //Clear UNIF table
-        for (int i = 0; i < GetTableRecCount("UNIF"); i++)
+        private void UpdateUNIF()
         {
-            DeleteRecord("UNIF", i, true);
+            //Clear UNIF table
+            for (int i = 0; i < GetTableRecCount("UNIF"); i++)
+            {
+                DeleteRecord("UNIF", i, true);
+            }
+
+            CompactDB();
+
+            //Add Data to UNIF table
+            int rec = 0;
+            for (int row = 0; row < UniformGrid.Rows.Count; row++)
+            {
+                if (UniformGrid.Rows[row].Cells[2].Value == DBNull.Value || UniformGrid.Rows[row].Cells[2].Value == null || UniformGrid.Rows[row].Cells[2].Value.Equals("N/A") || UniformGrid.Rows[row].Cells[2].Value.Equals("XXX"))
+                {
+                    //skip
+                }
+                else
+                {
+                    AddTableRecord("UNIF", true);
+                    ChangeDBInt("UNIF", "UFID", rec, Convert.ToInt32(UniformGrid.Rows[row].Cells[1].Value));
+                    ChangeDBInt("UNIF", "ULTF", rec, ReturnUniformULTF(Convert.ToString(UniformGrid.Rows[row].Cells[4].Value)));
+                    ChangeDBInt("UNIF", "USHF", rec, Convert.ToInt32(UniformGrid.Rows[row].Cells[5].Value));
+                    ChangeDBInt("UNIF", "USLF", rec, Convert.ToInt32(UniformGrid.Rows[row].Cells[6].Value));
+                    ChangeDBInt("UNIF", "UDSV", rec, Convert.ToInt32(UniformGrid.Rows[row].Cells[7].Value));
+                    ChangeDBInt("UNIF", "UHNB", rec, ReturnHelmetNumberVal(Convert.ToString(UniformGrid.Rows[row].Cells[8].Value)));
+                    ChangeDBInt("UNIF", "UHNS", rec, Convert.ToInt32(UniformGrid.Rows[row].Cells[9].Value));
+                    rec++;
+                }
+            }
         }
 
-        CompactDB();
+        #endregion
 
-        //Add Data to UNIF table
-        int rec = 0;
-        for (int row = 0; row < UniformGrid.Rows.Count; row++)
+
+        #region Conversions
+
+        private string GetUniformSlot(int TUCO)
         {
-            if (UniformGrid.Rows[row].Cells[2].Value == DBNull.Value || UniformGrid.Rows[row].Cells[2].Value == null || UniformGrid.Rows[row].Cells[2].Value.Equals("N/A") || UniformGrid.Rows[row].Cells[2].Value.Equals("XXX"))
-            {
-                //skip
-            }
+            if (TUCO == 0) return "Home";
+            else if (TUCO == 1) return "Away";
+            else return "Alt " + (TUCO - 1);
+        }
+
+        private string GetUFIDTeam(int TOID)
+        {
+            string teamName = teamNameDB[TOID];
+            if (teamName == null) return "N/A";
+            else return teamName;
+        }
+
+        private int ReturnUniformSlot(string TUCO)
+        {
+            if (TUCO == "Home") return 0;
+            else if (TUCO == "Away") return 1;
             else
             {
-                AddTableRecord("UNIF", true);
-                ChangeDBInt("UNIF", "UFID", rec, Convert.ToInt32(UniformGrid.Rows[row].Cells[1].Value));
-                ChangeDBInt("UNIF", "ULTF", rec, ReturnUniformULTF(Convert.ToString(UniformGrid.Rows[row].Cells[4].Value)));
-                ChangeDBInt("UNIF", "USHF", rec, Convert.ToInt32(UniformGrid.Rows[row].Cells[5].Value));
-                ChangeDBInt("UNIF", "USLF", rec, Convert.ToInt32(UniformGrid.Rows[row].Cells[6].Value));
-                ChangeDBInt("UNIF", "UDSV", rec, Convert.ToInt32(UniformGrid.Rows[row].Cells[7].Value));
-                ChangeDBInt("UNIF", "UHNB", rec, ReturnHelmetNumberVal(Convert.ToString(UniformGrid.Rows[row].Cells[8].Value)));
-                ChangeDBInt("UNIF", "UHNS", rec, Convert.ToInt32(UniformGrid.Rows[row].Cells[9].Value));
-                rec++;
+                return (Convert.ToInt32(TUCO.Substring(4)) + 1);
             }
         }
-    }
 
-    #endregion
-
-
-    #region Conversions
-
-    private string GetUniformSlot(int TUCO)
-    {
-        if (TUCO == 0) return "Home";
-        else if (TUCO == 1) return "Away";
-        else return "Alt " + (TUCO - 1);
-    }
-
-    private string GetUFIDTeam(int TOID)
-    {
-        string teamName = teamNameDB[TOID];
-        if (teamName == null) return "N/A";
-        else return teamName;
-    }
-
-    private int ReturnUniformSlot(string TUCO)
-    {
-        if (TUCO == "Home") return 0;
-        else if (TUCO == "Away") return 1;
-        else
+        private int ReturnUniformULTF(string ULTF)
         {
-            return (Convert.ToInt32(TUCO.Substring(4)) + 1);
+            if (ULTF == "Dark") return 0;
+            else return 1;
         }
-    }
 
-    private int ReturnUniformULTF(string ULTF)
-    {
-        if (ULTF == "Dark") return 0;
-        else return 1;
-    }
+        #endregion
 
-    #endregion
+        /* Activate - 0
+        * UFID - 1
+        * Team Name - 2
+        * Uniform Slot - 3
+        * Uniform Color - 4
+        * Shoulder Num - 5
+        * Sleeve Num - 6
+        * Sleeve Decal - 7
+        * Helmnet Num - 8
+        * Helmet Side - 9
+        */
 
-    /* Activate - 0
-    * UFID - 1
-    * Team Name - 2
-    * Uniform Slot - 3
-    * Uniform Color - 4
-    * Shoulder Num - 5
-    * Sleeve Num - 6
-    * Sleeve Decal - 7
-    * Helmnet Num - 8
-    * Helmet Side - 9
-    */
+        #region Data Errors
 
-    #region Data Errors
+        private void UniformGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
+        {
 
-    private void UniformGrid_DataError(object sender, DataGridViewDataErrorEventArgs e)
-    {
+        }
+        #endregion
 
     }
-    #endregion
-
-}
 
 }

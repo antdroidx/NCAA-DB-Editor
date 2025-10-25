@@ -24,7 +24,7 @@ namespace DB_EDITOR
             CarouselDataGrid.Rows.Clear();
             CoachPortalNews.Rows.Clear();
             CoachCarousel();
-            
+
         }
 
 
@@ -48,10 +48,23 @@ namespace DB_EDITOR
             List<string> CCID_PromoteList = new List<string>();
             List<int> TGID_VacancyList = new List<int>();
             List<List<string>> coachNews = new List<List<string>>();
+            List<List<int>> ccidList = new List<List<int>>();
 
-            //Get List of Coaches and Fire Some
             for (int i = 0; i < GetTableRecCount("COCH"); i++)
             {
+                ccidList.Add(new List<int>());
+                ccidList[i].Add(i);
+                ccidList[i].Add(rand.Next(0,1000));
+            }
+
+            ccidList.Sort((coach1, coach2) => coach1[1].CompareTo(coach2[1]));
+
+
+
+            //Get List of Coaches and Fire Some
+            for (int x = 0; x < ccidList.Count; x++)
+            {
+                int i = ccidList[x][0];
                 int TGID = GetDBValueInt("COCH", "TGID", i);
                 int CTOP = Convert.ToInt32(GetDBValue("COCH", "CTOP", i));
                 int TMPR = FindTeamPrestige(Convert.ToInt32(TGID));
@@ -63,11 +76,11 @@ namespace DB_EDITOR
                 int CYCD = GetDBValueInt("COCH", "CYCD", i);
                 string team = teamNameDB[TGID];
                 if (TGID == 511) team = "Unemployed";
- 
+
                 //RETIRE COACHES
                 if (CoachRetirement.Checked && CYCD > rand.Next(40, 60) && GetDBValueInt("COCH", "CFUC", i) != 1)
                 {
-                    if(TGID != 511) TGID_VacancyList.Add(TGID);
+                    if (TGID != 511) TGID_VacancyList.Add(TGID);
 
 
                     if (checkBoxFiredTransfers.Checked) CoachTransferPortal(Convert.ToInt32(GetDBValue("COCH", "TGID", i)));
@@ -96,9 +109,9 @@ namespace DB_EDITOR
                 //ADD COACHING FREE AGENCY POOL TO THE LIST
                 else if (TGID == 511)
                 {
-                    if(AgeCoaches.Checked)
+                    if (AgeCoaches.Checked)
                     {
-                        ChangeDBInt("COCH", "CYCD", i, CYCD+1);
+                        ChangeDBInt("COCH", "CYCD", i, CYCD + 1);
                     }
 
                     CCID_FAList.Add(GetDBValue("COCH", "CCID", i));
@@ -131,7 +144,7 @@ namespace DB_EDITOR
                         ChangeDBString("COCH", "TGID", i, "511");
                         int cpreNew = CPRE + 1;
                         ChangeDBInt("COCH", "CPRE", i, cpreNew);
-                        
+
 
                         CCID_FAList.Add(GetDBValue("COCH", "CCID", i));
                         coachfirings++;
@@ -652,7 +665,7 @@ namespace DB_EDITOR
                 int COST = rand.Next(0, 6);
 
                 int CPID = rand.Next(0, 125);
-                if(Next26Mod)
+                if (Next26Mod)
                 {
                     CPID = rand.Next(136, 162);
                 }
@@ -731,7 +744,7 @@ namespace DB_EDITOR
         {
             CoachesAddedBox.Visible = true;
             List<int> PGID_List = new List<int>();
-            
+
             //Create a list of graduating players
             StartProgressBar(GetTableRecCount("PLAY"));
 
@@ -822,8 +835,8 @@ namespace DB_EDITOR
                         }
                     }
 
-                   AssignPlayerCoachStrategies(recCOCH, rec);
-                    
+                    AssignPlayerCoachStrategies(recCOCH, rec);
+
 
                 }
 
@@ -842,8 +855,8 @@ namespace DB_EDITOR
             {
                 int ccid = GetDBValueInt("COCH", "CCID", i);
                 int cfuc = GetDBValueInt("COCH", "CFUC", i);
-                if(cfuc != 1)
-                ChangeDBInt("COCH", "CYCD", i, ageList[ccid-1][1]);
+                if (cfuc != 1)
+                    ChangeDBInt("COCH", "CYCD", i, ageList[ccid - 1][1]);
 
             }
 

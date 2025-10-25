@@ -238,11 +238,9 @@ namespace DB_EDITOR
             label172 = new Label();
             UpdateUNIFButton = new System.Windows.Forms.Button();
             groupBox5 = new GroupBox();
-            label170 = new Label();
+            GlobalAltExpOnlyCheck = new CheckBox();
             GlobalAltCheck = new CheckBox();
             GlobalPrimaryCheck = new CheckBox();
-            GlobalUniFilter = new System.Windows.Forms.ComboBox();
-            label171 = new Label();
             UniformGrid = new DataGridView();
             UniformActivation = new DataGridViewCheckBoxColumn();
             UFID = new DataGridViewTextBoxColumn();
@@ -2546,11 +2544,9 @@ namespace DB_EDITOR
             // 
             // groupBox5
             // 
-            groupBox5.Controls.Add(label170);
+            groupBox5.Controls.Add(GlobalAltExpOnlyCheck);
             groupBox5.Controls.Add(GlobalAltCheck);
             groupBox5.Controls.Add(GlobalPrimaryCheck);
-            groupBox5.Controls.Add(GlobalUniFilter);
-            groupBox5.Controls.Add(label171);
             groupBox5.Location = new Point(846, 451);
             groupBox5.Name = "groupBox5";
             groupBox5.Size = new Size(293, 148);
@@ -2558,20 +2554,21 @@ namespace DB_EDITOR
             groupBox5.TabStop = false;
             groupBox5.Text = "Global Editor";
             // 
-            // label170
+            // GlobalAltExpOnlyCheck
             // 
-            label170.AutoSize = true;
-            label170.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            label170.Location = new Point(36, 69);
-            label170.Name = "label170";
-            label170.Size = new Size(109, 15);
-            label170.TabIndex = 5;
-            label170.Text = "Quick Functions";
+            GlobalAltExpOnlyCheck.AutoSize = true;
+            GlobalAltExpOnlyCheck.Location = new Point(16, 74);
+            GlobalAltExpOnlyCheck.Name = "GlobalAltExpOnlyCheck";
+            GlobalAltExpOnlyCheck.Size = new Size(271, 17);
+            GlobalAltExpOnlyCheck.TabIndex = 6;
+            GlobalAltExpOnlyCheck.Text = "Enable All Alternate Uniforms [expanded teams only]";
+            GlobalAltExpOnlyCheck.UseVisualStyleBackColor = true;
+            GlobalAltExpOnlyCheck.CheckedChanged += (this.GlobalAltExpOnlyCheck_CheckedChanged);
             // 
             // GlobalAltCheck
             // 
             GlobalAltCheck.AutoSize = true;
-            GlobalAltCheck.Location = new Point(56, 110);
+            GlobalAltCheck.Location = new Point(16, 51);
             GlobalAltCheck.Name = "GlobalAltCheck";
             GlobalAltCheck.Size = new Size(162, 17);
             GlobalAltCheck.TabIndex = 4;
@@ -2582,32 +2579,13 @@ namespace DB_EDITOR
             // GlobalPrimaryCheck
             // 
             GlobalPrimaryCheck.AutoSize = true;
-            GlobalPrimaryCheck.Location = new Point(56, 87);
+            GlobalPrimaryCheck.Location = new Point(16, 28);
             GlobalPrimaryCheck.Name = "GlobalPrimaryCheck";
             GlobalPrimaryCheck.Size = new Size(165, 17);
             GlobalPrimaryCheck.TabIndex = 3;
             GlobalPrimaryCheck.Text = "Enable Home/Away Uniforms";
             GlobalPrimaryCheck.UseVisualStyleBackColor = true;
             GlobalPrimaryCheck.CheckedChanged += (this.GlobalPrimaryCheck_CheckedChanged);
-            // 
-            // GlobalUniFilter
-            // 
-            GlobalUniFilter.FormattingEnabled = true;
-            GlobalUniFilter.Location = new Point(56, 31);
-            GlobalUniFilter.Name = "GlobalUniFilter";
-            GlobalUniFilter.Size = new Size(174, 21);
-            GlobalUniFilter.TabIndex = 1;
-            GlobalUniFilter.Visible = false;
-            // 
-            // label171
-            // 
-            label171.AutoSize = true;
-            label171.Location = new Point(168, 15);
-            label171.Name = "label171";
-            label171.Size = new Size(62, 13);
-            label171.TabIndex = 2;
-            label171.Text = "Global Filter";
-            label171.Visible = false;
             // 
             // UniformGrid
             // 
@@ -16679,11 +16657,8 @@ namespace DB_EDITOR
         private Label label172;
         private System.Windows.Forms.Button UpdateUNIFButton;
         private GroupBox groupBox5;
-        private Label label170;
         private CheckBox GlobalAltCheck;
         private CheckBox GlobalPrimaryCheck;
-        private System.Windows.Forms.ComboBox GlobalUniFilter;
-        private Label label171;
         private DataGridView UniformGrid;
         private DataGridViewCheckBoxColumn UniformActivation;
         private DataGridViewTextBoxColumn UFID;
@@ -17892,6 +17867,7 @@ namespace DB_EDITOR
         public System.Windows.Forms.Button LoadCoachAge;
         private Label label167;
         private NumericUpDown YearsCoachedBox;
+        private CheckBox GlobalAltExpOnlyCheck;
     }
 }
 

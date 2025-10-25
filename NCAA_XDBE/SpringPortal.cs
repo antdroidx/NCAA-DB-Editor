@@ -142,7 +142,7 @@ namespace DB_EDITOR
             }
 
             StartProgressBar(GetTableRecCount("PLAY"));
-  
+
 
             //Add Roster
             for (int i = 0; i < GetTableRecCount("PLAY"); i++)
@@ -196,7 +196,7 @@ namespace DB_EDITOR
 
 
                 if (PortalRatingBoost.Checked)
-                    SpringRoster[TGID][count][7] = POVR - (int)(SpringRoster[TGID][count][6]/1.5);
+                    SpringRoster[TGID][count][7] = POVR - (int)(SpringRoster[TGID][count][6] / 1.5);
                 else
                     SpringRoster[TGID][count][7] = POVR;
 
@@ -478,7 +478,7 @@ namespace DB_EDITOR
                 {
                     int tgid = GetDBValueInt("TEAM", "TGID", i);
                     int rank = GetDBValueInt("TEAM", "TMRK", i);
-          
+
                     teamList.Add(new List<int> { tgid, rank, i });
                 }
             }
@@ -506,7 +506,7 @@ namespace DB_EDITOR
             List<List<string>> portalList = new List<List<string>>();
 
             List<int> teamPRS = new List<int>();
-            for(int i = 0; i < 512; i++)
+            for (int i = 0; i < 512; i++)
             {
                 teamPRS.Add(0);
             }
@@ -590,6 +590,7 @@ namespace DB_EDITOR
                 if (RankingOrderPriority.Checked)
                 {
                     teamList.Clear();
+                    /*
                     for (int i = 0; i < GetTableRecCount("TEAM"); i++)
                     {
                         if (GetDBValueInt("TEAM", "TTYP", i) == 0)
@@ -601,6 +602,63 @@ namespace DB_EDITOR
                         }
                     }
                     teamList.Sort((player1, player2) => player2[1].CompareTo(player1[1]));
+                    */
+                    List<List<int>> Lottery = new List<List<int>>();
+
+                    for (int i = 0; i < GetTableRecCount("TEAM"); i++)
+                    {
+                        if (GetDBValueInt("TEAM", "TTYP", i) == 0)
+                        {
+                            int rank = GetDBValueInt("TEAM", "TCRK", i);
+                            int balls = 1;
+
+                            if (rank < 10) balls = 2000 + (150 - rank)*2;
+                            else if (rank < 25) balls = 1000;
+                            else if (rank < 50) balls = 500;
+                            else if (rank < 75) balls = 200;
+                            else if (rank < 100) balls = 50;
+                            else balls = 10;
+
+                            for (int j = 0; j < balls; j++)
+                            {
+                                int count = Lottery.Count;
+                                Lottery.Add(new List<int>());
+
+                                Lottery[count].Add(GetDBValueInt("TEAM", "TGID", i));
+                                Lottery[count].Add(rand.Next(0, 500000));
+                            }
+                        }
+                    }
+
+                    Lottery.Sort((coach1, coach2) => coach1[1].CompareTo(coach2[1]));
+
+
+                    teamList = new List<List<int>>();
+                    int order = 0;
+                    while (Lottery.Count > 0)
+                    {
+                        int pick = rand.Next(0, Lottery.Count);
+                        int tgid = Lottery[pick][0];
+
+                        teamList.Add(new List<int>());
+                        teamList[order].Add(tgid);
+                        teamList[order].Add(order);
+
+                        for (int j = 0; j < Lottery.Count; j++)
+                        {
+                            if (Lottery[j][0] == tgid)
+                            {
+                                Lottery.RemoveAt(j);
+                                j--;
+                            }
+                        }
+
+                        order++;
+                    }
+
+                    MessageBox.Show("" + teamNameDB[teamList[0][0]] + " " + teamNameDB[teamList[1][0]] + " " + teamNameDB[teamList[2][0]] + " " + teamNameDB[teamList[3][0]] + " " + teamNameDB[teamList[4][0]] + "");
+
+
                 }
                 else
                 {
@@ -650,7 +708,7 @@ namespace DB_EDITOR
                         int tmpr = teamPRS[tgid];
                         int playerteamprestige = teamPRS[team];
 
-                        if (starter == 1 && tmpr >= playerteamprestige && ov <= TeamPortalNeeds[tgid][p] || starter == 0 && ov <= TeamPortalNeeds[tgid][p] ||  rand.Next(0, 99) > portalChance.Value)
+                        if (starter == 1 && tmpr >= playerteamprestige && ov <= TeamPortalNeeds[tgid][p] || starter == 0 && ov <= TeamPortalNeeds[tgid][p] || rand.Next(0, 99) > portalChance.Value)
                         {
                             break;
                         }
@@ -916,9 +974,9 @@ namespace DB_EDITOR
                     ChangeDB2Int("WONS", "WOND", i, wond + 1);
                     teamANeeds = true;
 
-                    if(teamANeeds && teamBNeeds) break;
+                    if (teamANeeds && teamBNeeds) break;
                 }
-                else if(tgid == teamB && rgrp == posg && wond > 0)
+                else if (tgid == teamB && rgrp == posg && wond > 0)
                 {
                     ChangeDB2Int("WONS", "WOND", i, wond - 1);
                     teamBNeeds = true;
@@ -927,7 +985,7 @@ namespace DB_EDITOR
                 }
             }
 
-            if(!teamANeeds)
+            if (!teamANeeds)
             {
                 int rec = GetTable2RecCount("WONS");
                 AddTable2Record("WONS", false);
@@ -952,7 +1010,7 @@ namespace DB_EDITOR
 
         private void PostPortalRosterCheck()
         {
-            for(int i = 0; i < GetTable2RecCount("WONS"); i++)
+            for (int i = 0; i < GetTable2RecCount("WONS"); i++)
             {
                 DeleteRecord2("WONS", i, true);
             }
