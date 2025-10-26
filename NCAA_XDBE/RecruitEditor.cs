@@ -22,12 +22,19 @@ namespace DB_EDITOR
             CompactDB2();
             AddFilters();
             LoadRCPTBox();
+            LoadCommittedToBox();
             LoadGlobalTransferData();
         }
 
         public void LoadRCPTBox()
         {
             RecruitEditorList = new List<List<string>>();
+
+            int TGID = -1;
+            if(RecruitTeamComboBox.SelectedIndex > 0)
+            {
+                TGID = FindTGIDfromTeamName(RecruitTeamComboBox.Text);
+            }
 
             int row = 0;
             for (int i = 0; i < GetTable2RecCount("RCPT"); i++)
@@ -36,27 +43,31 @@ namespace DB_EDITOR
                 int POSG = GetPOSGfromPPOS(GetDB2ValueInt("RCPT", "PPOS", i));
                 int STID = GetDB2ValueInt("RCPT", "STID", i);
                 int RATH = GetDB2ValueInt("RCPT", "RATH", i);
+                int PTCM = GetDB2ValueInt("RCPR", "PTCM", i);
 
                 if (RecruitTypeFilter.SelectedIndex == 0 || RecruitTypeFilter.SelectedIndex == 1 && PRID < 21000 || RecruitTypeFilter.SelectedIndex == 2 && PRID >= 21000)
                 {
-                    if (RecruitStateFilter.SelectedIndex == 0 || RecruitStateFilter.SelectedIndex - 1 == STID)
+                    if (TGID == -1 || PTCM == TGID)
                     {
-                        if (RecruitPosFilter.SelectedIndex == 0 || RecruitPosFilter.SelectedIndex - 2 == POSG || RecruitPosFilter.SelectedIndex == 1 && RATH == 1)
+                        if (RecruitStateFilter.SelectedIndex == 0 || RecruitStateFilter.SelectedIndex - 1 == STID)
                         {
-                            RecruitEditorList.Add(new List<string>());
-                            RecruitEditorList[row].Add(GetDB2Value("RCPT", "PFNA", i));
-                            RecruitEditorList[row].Add(GetDB2Value("RCPT", "PLNA", i));
-                            RecruitEditorList[row].Add(GetDB2Value("RCPT", "PPOS", i));
-                            RecruitEditorList[row].Add(GetDB2Value("RCPT", "POVR", i));
-                            RecruitEditorList[row].Add(GetDB2Value("RCPT", "PRID", i));
-                            RecruitEditorList[row].Add(Convert.ToString(i));
-                            RecruitEditorList[row].Add(Convert.ToString(GetPOSGfromPPOS(GetDB2ValueInt("RCPT", "PPOS", i))));
-                            RecruitEditorList[row].Add(GetDB2Value("RCPT", "RATH", i)); //7
-                            RecruitEditorList[row].Add(GetDB2Value("RCPT", "RCCB", i));
-                            RecruitEditorList[row].Add(GetDB2Value("RCPT", "STID", i));
+                            if (RecruitPosFilter.SelectedIndex == 0 || RecruitPosFilter.SelectedIndex - 2 == POSG || RecruitPosFilter.SelectedIndex == 1 && RATH == 1)
+                            {
+                                RecruitEditorList.Add(new List<string>());
+                                RecruitEditorList[row].Add(GetDB2Value("RCPT", "PFNA", i));
+                                RecruitEditorList[row].Add(GetDB2Value("RCPT", "PLNA", i));
+                                RecruitEditorList[row].Add(GetDB2Value("RCPT", "PPOS", i));
+                                RecruitEditorList[row].Add(GetDB2Value("RCPT", "POVR", i));
+                                RecruitEditorList[row].Add(GetDB2Value("RCPT", "PRID", i));
+                                RecruitEditorList[row].Add(Convert.ToString(i));
+                                RecruitEditorList[row].Add(Convert.ToString(GetPOSGfromPPOS(GetDB2ValueInt("RCPT", "PPOS", i))));
+                                RecruitEditorList[row].Add(GetDB2Value("RCPT", "RATH", i)); //7
+                                RecruitEditorList[row].Add(GetDB2Value("RCPT", "RCCB", i));
+                                RecruitEditorList[row].Add(GetDB2Value("RCPT", "STID", i));
 
-                            // 0 First Name  1 Last Name 2 Position 3 Overall 4 PGID 5 rec
-                            row++;
+                                // 0 First Name  1 Last Name 2 Position 3 Overall 4 PGID 5 rec
+                                row++;
+                            }
                         }
                     }
 
@@ -96,11 +107,11 @@ namespace DB_EDITOR
             RecruitDataGrid.Rows.Clear();
             RCTeam.DataSource = RecruitTeams().Items;
 
-            for(int i = 1; i < 11; i++)
+            for (int i = 1; i < 11; i++)
             {
                 RecruitDataGrid.Rows.Add(new DataGridViewRow());
 
-                RecruitDataGrid.Rows[i-1].Cells[0].Value = i;
+                RecruitDataGrid.Rows[i - 1].Cells[0].Value = i;
 
                 //team data
                 int team = GetDB2ValueInt("RCPR", "PT" + AddLeadingZeros(Convert.ToString(i), 2), RecruitIndex);
@@ -127,17 +138,39 @@ namespace DB_EDITOR
 
         private void UpdateRecruitOffers_Click(object sender, EventArgs e)
         {
-            for(int i = 0; i < RecruitDataGrid.Rows.Count; i++)
+            for (int i = 0; i < RecruitDataGrid.Rows.Count; i++)
             {
                 int tgid = FindTGIDfromTeamName(Convert.ToString(RecruitDataGrid.Rows[i].Cells[1].Value));
-                ChangeDB2Int("RCPR", "PT" + AddLeadingZeros(Convert.ToString(i+1), 2), RecruitIndex, tgid);
+                ChangeDB2Int("RCPR", "PT" + AddLeadingZeros(Convert.ToString(i + 1), 2), RecruitIndex, tgid);
 
-                ChangeDB2Int("RCPR", "PS" + AddLeadingZeros(Convert.ToString(i+1), 2), RecruitIndex, Convert.ToInt32(RecruitDataGrid.Rows[i].Cells[2].Value));
+                ChangeDB2Int("RCPR", "PS" + AddLeadingZeros(Convert.ToString(i + 1), 2), RecruitIndex, Convert.ToInt32(RecruitDataGrid.Rows[i].Cells[2].Value));
             }
 
             MessageBox.Show("Recruiting Table Updated!");
         }
 
+        private void LoadCommittedToBox()
+        {
+            if (RecruitTeamComboBox.Items.Count > 0) return;
+            RecruitTeamComboBox.Items.Clear();
+            List<string> teamList = new List<string>();
+
+            for (int i = 0; i < GetTableRecCount("TEAM"); i++)
+            {
+                if (GetDBValueInt("TEAM", "TTYP", i) == 0)
+                    teamList.Add(teamNameDB[GetDBValueInt("TEAM", "TGID", i)]);
+            }
+
+            teamList.Sort();
+            teamList.Insert(0, "ALL PLAYERS");
+
+            for (int i = 0; i < teamList.Count; i++)
+            {
+                if (teamList[i] != null) RecruitTeamComboBox.Items.Add(teamList[i]);
+            }
+
+            RecruitTeamComboBox.SelectedIndex = 0;
+        }
 
         //Filters
 
@@ -150,7 +183,7 @@ namespace DB_EDITOR
             RecruitPosFilter.Items.Clear();
 
             //Type
-            RecruitTypeFilter.Items.Add("All");
+            RecruitTypeFilter.Items.Add("ALL");
             RecruitTypeFilter.Items.Add("Recruits");
             RecruitTypeFilter.Items.Add("Transfers");
 
@@ -185,10 +218,14 @@ namespace DB_EDITOR
         private void RecruitStateFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadRCPTBox();
-
         }
 
         private void RecruitPosFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            LoadRCPTBox();
+        }
+
+        private void RecruitTeamComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadRCPTBox();
         }
@@ -369,7 +406,7 @@ namespace DB_EDITOR
                     }
                 }
 
-               TransferTeam.Text = "Transferring from " + transfer;
+                TransferTeam.Text = "Transferring from " + transfer;
             }
 
             //Overall Rating
@@ -381,7 +418,7 @@ namespace DB_EDITOR
                 RecruitStarsText.Text = GetDB2Value("RCPT", "RCCB", RecruitIndex) + " Star Recruit";
             else RecruitStarsText.Text = GetDB2Value("RCPT", "RCCB", RecruitIndex) + " Star Transfer" + " from " + transfer;
 
-            PosRanking.Text = "Position Ranking: #" + (GetDB2ValueInt("RCPT", "RCRK", RecruitIndex)+1);
+            PosRanking.Text = "Position Ranking: #" + (GetDB2ValueInt("RCPT", "RCRK", RecruitIndex) + 1);
 
             //PGID Box
             PRIDBox.Text = GetDB2Value("RCPT", "PRID", RecruitIndex);
@@ -1003,11 +1040,11 @@ namespace DB_EDITOR
             GTransferOG.Items.Clear();
             GTransferNew.Items.Clear();
 
-            for(int i = 0; i < GetTableRecCount("TEAM"); i++)
+            for (int i = 0; i < GetTableRecCount("TEAM"); i++)
             {
                 if (GetDBValueInt("TEAM", "TTYP", i) == 0)
                 {
-                    int tgid = GetDBValueInt("TEAM", "TGID", i);    
+                    int tgid = GetDBValueInt("TEAM", "TGID", i);
                     GTransferOG.Items.Add(teamNameDB[tgid]);
                     GTransferNew.Items.Add(teamNameDB[tgid]);
                 }
@@ -1016,11 +1053,12 @@ namespace DB_EDITOR
 
         private void GlobalTransferInterest_Click(object sender, EventArgs e)
         {
-            if(GTransferOG.SelectedIndex == -1 || GTransferNew.SelectedIndex == -1)
+            if (GTransferOG.SelectedIndex == -1 || GTransferNew.SelectedIndex == -1)
             {
                 MessageBox.Show("Please select a team from both lists.");
                 return;
-            } else
+            }
+            else
             {
                 int og = FindTGIDfromTeamName(Convert.ToString(GTransferOG.SelectedItem));
                 int newT = FindTGIDfromTeamName(Convert.ToString(GTransferNew.SelectedItem));
@@ -1033,7 +1071,7 @@ namespace DB_EDITOR
 
             string transferNames = "";
 
-            for(int i = 0; i < GetTableRecCount("TRAN"); i++)
+            for (int i = 0; i < GetTableRecCount("TRAN"); i++)
             {
                 if (GetDBValueInt("TRAN", "PTID", i) == og)
                 {
@@ -1047,7 +1085,7 @@ namespace DB_EDITOR
 
         private string ChangeTransfersInterest(int tgid, int prid, string transferNames)
         {
-            for(int i = 0; i < GetTable2RecCount("RCPR"); i++)
+            for (int i = 0; i < GetTable2RecCount("RCPR"); i++)
             {
                 if (GetDB2ValueInt("RCPR", "PRID", i) == prid)
                 {

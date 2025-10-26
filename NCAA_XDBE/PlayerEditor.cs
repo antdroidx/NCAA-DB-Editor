@@ -129,7 +129,7 @@ namespace DB_EDITOR
             int row = 0;
             for (int i = 0; i < GetTableRecCount("PLAY"); i++)
             {
-                if (GetDBValueInt("PLAY", "PGID", i) >= pgidBeg && GetDBValueInt("PLAY", "PGID", i) <= pgidEnd)
+                if (GetDBValueInt("PLAY", "PGID", i) >= pgidBeg && GetDBValueInt("PLAY", "PGID", i) <= pgidEnd && !TDB.TDBTableRecordDeleted(dbIndex, "PLAY", i))
                 {
                     int PlayerPOSG2 = GetPOSG2fromPPOS(GetDBValueInt("PLAY", "PPOS", i));
                     if (PlayerPosBox.SelectedIndex <= 0 || PlayerPOSG2 == PlayerPosBox.SelectedIndex - 1)
@@ -178,7 +178,7 @@ namespace DB_EDITOR
                 row = 0;
                 for (int i = 0; i < GetTableRecCount("PLAY"); i++)
                 {
-                    if (FCSpgid.Contains(GetDBValueInt("PLAY", "PGID", i)))
+                    if (FCSpgid.Contains(GetDBValueInt("PLAY", "PGID", i)) && !TDB.TDBTableRecordDeleted(dbIndex, "PLAY", i))
                     {
                         int PlayerPOSG2 = GetPOSG2fromPPOS(GetDBValueInt("PLAY", "PPOS", i));
                         if (PlayerPosBox.SelectedIndex <= 0 || PlayerPOSG2 == PlayerPosBox.SelectedIndex - 1)

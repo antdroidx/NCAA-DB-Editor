@@ -398,6 +398,8 @@ namespace DB_EDITOR
             labelRecruit = new Label();
             textBoxOffSeasonTitle = new System.Windows.Forms.TextBox();
             tabRecruits = new TabPage();
+            label170 = new Label();
+            RecruitTeamComboBox = new System.Windows.Forms.ComboBox();
             groupBox48 = new GroupBox();
             label82 = new Label();
             RHAN = new System.Windows.Forms.ComboBox();
@@ -1368,12 +1370,16 @@ namespace DB_EDITOR
             Column2 = new DataGridViewTextBoxColumn();
             textBox2 = new System.Windows.Forms.TextBox();
             tabPortal = new TabPage();
-            startersCount = new Label();
+            groupBox24 = new GroupBox();
+            PortalTransfers = new CheckBox();
+            label259 = new Label();
             FCSTransferPortalCheckBox = new CheckBox();
+            portalChance = new NumericUpDown();
+            TransferEligible = new CheckBox();
+            PortalRatingBoost = new CheckBox();
+            startersCount = new Label();
             PortalCycleCount = new NumericUpDown();
             label270 = new Label();
-            PortalRatingBoost = new CheckBox();
-            TransferEligible = new CheckBox();
             TotalTransfersCount = new Label();
             PortalData = new DataGridView();
             PortalPosition = new DataGridViewTextBoxColumn();
@@ -1383,11 +1389,7 @@ namespace DB_EDITOR
             PortalNewSchool = new DataGridViewTextBoxColumn();
             PortalPrvTeam = new DataGridViewTextBoxColumn();
             richTextBox3 = new RichTextBox();
-            richTextBox2 = new RichTextBox();
             richTextBox1 = new RichTextBox();
-            PortalTransfers = new CheckBox();
-            portalChance = new NumericUpDown();
-            label259 = new Label();
             groupBox33 = new GroupBox();
             largePortal = new RadioButton();
             smallPortal = new RadioButton();
@@ -1431,6 +1433,7 @@ namespace DB_EDITOR
             PortalQB = new NumericUpDown();
             label242 = new Label();
             groupBox31 = new GroupBox();
+            ReverseRankingPriority = new RadioButton();
             RankingOrderPriority = new RadioButton();
             PortalSnake = new RadioButton();
             PortalRandom = new RadioButton();
@@ -1442,6 +1445,7 @@ namespace DB_EDITOR
             groupBox41 = new GroupBox();
             buttonRCATBody = new System.Windows.Forms.Button();
             toolTip1 = new System.Windows.Forms.ToolTip(components);
+            ResetSelectedCoachStats = new System.Windows.Forms.Button();
             mainMenu.SuspendLayout();
             tableMenu.SuspendLayout();
             fieldMenu.SuspendLayout();
@@ -1668,9 +1672,10 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)RecruitTeamView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)RecruitRankingView).BeginInit();
             tabPortal.SuspendLayout();
+            groupBox24.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)portalChance).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PortalCycleCount).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PortalData).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)portalChance).BeginInit();
             groupBox33.SuspendLayout();
             groupBox32.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PortalK).BeginInit();
@@ -4416,6 +4421,8 @@ namespace DB_EDITOR
             // tabRecruits
             // 
             tabRecruits.BackColor = SystemColors.ActiveCaption;
+            tabRecruits.Controls.Add(label170);
+            tabRecruits.Controls.Add(RecruitTeamComboBox);
             tabRecruits.Controls.Add(groupBox48);
             tabRecruits.Controls.Add(groupBox39);
             tabRecruits.Controls.Add(TransferTeam);
@@ -4438,6 +4445,26 @@ namespace DB_EDITOR
             tabRecruits.Size = new Size(1152, 610);
             tabRecruits.TabIndex = 12;
             tabRecruits.Text = "Recruits";
+            // 
+            // label170
+            // 
+            label170.AutoSize = true;
+            label170.Location = new Point(12, 544);
+            label170.Name = "label170";
+            label170.Size = new Size(75, 13);
+            label170.TabIndex = 174;
+            label170.Text = "Committed To:";
+            // 
+            // RecruitTeamComboBox
+            // 
+            RecruitTeamComboBox.BackColor = SystemColors.Menu;
+            RecruitTeamComboBox.Font = new Font("Microsoft Sans Serif", 9F);
+            RecruitTeamComboBox.FormattingEnabled = true;
+            RecruitTeamComboBox.Location = new Point(92, 539);
+            RecruitTeamComboBox.Name = "RecruitTeamComboBox";
+            RecruitTeamComboBox.Size = new Size(124, 23);
+            RecruitTeamComboBox.TabIndex = 173;
+            RecruitTeamComboBox.SelectedIndexChanged += (this.RecruitTeamComboBox_SelectedIndexChanged);
             // 
             // groupBox48
             // 
@@ -4909,7 +4936,7 @@ namespace DB_EDITOR
             // 
             TransferTeam.AutoSize = true;
             TransferTeam.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            TransferTeam.Location = new Point(12, 564);
+            TransferTeam.Location = new Point(12, 568);
             TransferTeam.Name = "TransferTeam";
             TransferTeam.Size = new Size(200, 16);
             TransferTeam.TabIndex = 170;
@@ -5021,6 +5048,7 @@ namespace DB_EDITOR
             // 
             // RecruitPosFilter
             // 
+            RecruitPosFilter.BackColor = SystemColors.Menu;
             RecruitPosFilter.FormattingEnabled = true;
             RecruitPosFilter.Location = new Point(162, 37);
             RecruitPosFilter.Name = "RecruitPosFilter";
@@ -5030,6 +5058,7 @@ namespace DB_EDITOR
             // 
             // RecruitStateFilter
             // 
+            RecruitStateFilter.BackColor = SystemColors.Menu;
             RecruitStateFilter.FormattingEnabled = true;
             RecruitStateFilter.Location = new Point(92, 37);
             RecruitStateFilter.Name = "RecruitStateFilter";
@@ -5051,6 +5080,7 @@ namespace DB_EDITOR
             // 
             // RecruitTypeFilter
             // 
+            RecruitTypeFilter.BackColor = SystemColors.Menu;
             RecruitTypeFilter.FormattingEnabled = true;
             RecruitTypeFilter.Location = new Point(12, 37);
             RecruitTypeFilter.Name = "RecruitTypeFilter";
@@ -5754,13 +5784,13 @@ namespace DB_EDITOR
             // 
             // RecruitListBox
             // 
-            RecruitListBox.BackColor = Color.White;
+            RecruitListBox.BackColor = SystemColors.Menu;
             RecruitListBox.ForeColor = SystemColors.ControlText;
             RecruitListBox.FormattingEnabled = true;
             RecruitListBox.ItemHeight = 13;
             RecruitListBox.Location = new Point(12, 64);
             RecruitListBox.Name = "RecruitListBox";
-            RecruitListBox.Size = new Size(203, 498);
+            RecruitListBox.Size = new Size(203, 472);
             RecruitListBox.TabIndex = 130;
             RecruitListBox.SelectedIndexChanged += (this.RecruitListBox_SelectedIndexChanged);
             // 
@@ -8238,6 +8268,7 @@ namespace DB_EDITOR
             // groupBox9
             // 
             groupBox9.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            groupBox9.Controls.Add(ResetSelectedCoachStats);
             groupBox9.Controls.Add(label167);
             groupBox9.Controls.Add(YearsCoachedBox);
             groupBox9.Controls.Add(label179);
@@ -8298,7 +8329,7 @@ namespace DB_EDITOR
             // 
             label179.AutoSize = true;
             label179.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            label179.Location = new Point(290, 205);
+            label179.Location = new Point(284, 145);
             label179.Name = "label179";
             label179.Size = new Size(86, 13);
             label179.TabIndex = 21;
@@ -8308,7 +8339,7 @@ namespace DB_EDITOR
             // 
             YearsWithTeam.AutoSize = true;
             YearsWithTeam.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            YearsWithTeam.Location = new Point(290, 224);
+            YearsWithTeam.Location = new Point(284, 164);
             YearsWithTeam.Name = "YearsWithTeam";
             YearsWithTeam.Size = new Size(70, 16);
             YearsWithTeam.TabIndex = 20;
@@ -8318,7 +8349,7 @@ namespace DB_EDITOR
             // 
             label177.AutoSize = true;
             label177.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            label177.Location = new Point(150, 261);
+            label177.Location = new Point(151, 256);
             label177.Name = "label177";
             label177.Size = new Size(90, 13);
             label177.TabIndex = 19;
@@ -8328,7 +8359,7 @@ namespace DB_EDITOR
             // 
             ConfTitles.AutoSize = true;
             ConfTitles.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            ConfTitles.Location = new Point(150, 280);
+            ConfTitles.Location = new Point(151, 275);
             ConfTitles.Name = "ConfTitles";
             ConfTitles.Size = new Size(38, 16);
             ConfTitles.TabIndex = 18;
@@ -8338,7 +8369,7 @@ namespace DB_EDITOR
             // 
             LabelNT.AutoSize = true;
             LabelNT.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            LabelNT.Location = new Point(18, 261);
+            LabelNT.Location = new Point(19, 256);
             LabelNT.Name = "LabelNT";
             LabelNT.Size = new Size(74, 13);
             LabelNT.TabIndex = 17;
@@ -8348,7 +8379,7 @@ namespace DB_EDITOR
             // 
             NationalTitles.AutoSize = true;
             NationalTitles.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            NationalTitles.Location = new Point(18, 280);
+            NationalTitles.Location = new Point(19, 275);
             NationalTitles.Name = "NationalTitles";
             NationalTitles.Size = new Size(38, 16);
             NationalTitles.TabIndex = 16;
@@ -8418,7 +8449,7 @@ namespace DB_EDITOR
             // 
             label88.AutoSize = true;
             label88.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            label88.Location = new Point(290, 261);
+            label88.Location = new Point(284, 206);
             label88.Name = "label88";
             label88.Size = new Size(90, 13);
             label88.TabIndex = 9;
@@ -8428,7 +8459,7 @@ namespace DB_EDITOR
             // 
             WinningSeasons.AutoSize = true;
             WinningSeasons.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            WinningSeasons.Location = new Point(290, 280);
+            WinningSeasons.Location = new Point(284, 225);
             WinningSeasons.Name = "WinningSeasons";
             WinningSeasons.Size = new Size(34, 16);
             WinningSeasons.TabIndex = 8;
@@ -8581,7 +8612,7 @@ namespace DB_EDITOR
             ResetCoachStatsButton.Name = "ResetCoachStatsButton";
             ResetCoachStatsButton.Size = new Size(120, 66);
             ResetCoachStatsButton.TabIndex = 40;
-            ResetCoachStatsButton.Text = "Reset Coaching Stats";
+            ResetCoachStatsButton.Text = "Reset ALL Coaching Stats";
             ResetCoachStatsButton.UseVisualStyleBackColor = false;
             ResetCoachStatsButton.Click += (this.ResetCoachStatsButton_Click);
             // 
@@ -15425,20 +15456,14 @@ namespace DB_EDITOR
             // tabPortal
             // 
             tabPortal.BackColor = Color.Tan;
+            tabPortal.Controls.Add(groupBox24);
             tabPortal.Controls.Add(startersCount);
-            tabPortal.Controls.Add(FCSTransferPortalCheckBox);
             tabPortal.Controls.Add(PortalCycleCount);
             tabPortal.Controls.Add(label270);
-            tabPortal.Controls.Add(PortalRatingBoost);
-            tabPortal.Controls.Add(TransferEligible);
             tabPortal.Controls.Add(TotalTransfersCount);
             tabPortal.Controls.Add(PortalData);
             tabPortal.Controls.Add(richTextBox3);
-            tabPortal.Controls.Add(richTextBox2);
             tabPortal.Controls.Add(richTextBox1);
-            tabPortal.Controls.Add(PortalTransfers);
-            tabPortal.Controls.Add(portalChance);
-            tabPortal.Controls.Add(label259);
             tabPortal.Controls.Add(groupBox33);
             tabPortal.Controls.Add(groupBox32);
             tabPortal.Controls.Add(groupBox31);
@@ -15450,6 +15475,85 @@ namespace DB_EDITOR
             tabPortal.TabIndex = 18;
             tabPortal.Text = "Portal";
             // 
+            // groupBox24
+            // 
+            groupBox24.Controls.Add(PortalTransfers);
+            groupBox24.Controls.Add(label259);
+            groupBox24.Controls.Add(FCSTransferPortalCheckBox);
+            groupBox24.Controls.Add(portalChance);
+            groupBox24.Controls.Add(TransferEligible);
+            groupBox24.Controls.Add(PortalRatingBoost);
+            groupBox24.Location = new Point(6, 393);
+            groupBox24.Name = "groupBox24";
+            groupBox24.Size = new Size(226, 208);
+            groupBox24.TabIndex = 47;
+            groupBox24.TabStop = false;
+            groupBox24.Text = "Portal Options";
+            // 
+            // PortalTransfers
+            // 
+            PortalTransfers.AutoSize = true;
+            PortalTransfers.Location = new Point(5, 55);
+            PortalTransfers.Name = "PortalTransfers";
+            PortalTransfers.Size = new Size(189, 17);
+            PortalTransfers.TabIndex = 36;
+            PortalTransfers.Text = "Allow Winter Transfers to Re-Enter";
+            toolTip1.SetToolTip(PortalTransfers, "This lets players who transferred in the previous portal to be available in this portal.");
+            PortalTransfers.UseVisualStyleBackColor = true;
+            // 
+            // label259
+            // 
+            label259.AutoSize = true;
+            label259.Location = new Point(5, 134);
+            label259.Name = "label259";
+            label259.Size = new Size(150, 13);
+            label259.TabIndex = 34;
+            label259.Text = "Transfer Chance Percentage: ";
+            toolTip1.SetToolTip(label259, "This is the likelihood a player will join the portal if they meet the pre-reqs.");
+            // 
+            // FCSTransferPortalCheckBox
+            // 
+            FCSTransferPortalCheckBox.AutoSize = true;
+            FCSTransferPortalCheckBox.Location = new Point(5, 101);
+            FCSTransferPortalCheckBox.Name = "FCSTransferPortalCheckBox";
+            FCSTransferPortalCheckBox.Size = new Size(151, 17);
+            FCSTransferPortalCheckBox.TabIndex = 45;
+            FCSTransferPortalCheckBox.Text = "Add FCS Players To Portal";
+            FCSTransferPortalCheckBox.TextAlign = ContentAlignment.MiddleCenter;
+            toolTip1.SetToolTip(FCSTransferPortalCheckBox, "This evalutes the roster and portal feature with a rating reduction of -1 and -2 for juniors and seniors, respectively. This is to allow underclassmen more opportunity.\r\n");
+            FCSTransferPortalCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // portalChance
+            // 
+            portalChance.Location = new Point(161, 127);
+            portalChance.Name = "portalChance";
+            portalChance.Size = new Size(45, 20);
+            portalChance.TabIndex = 35;
+            portalChance.Value = new decimal(new int[] { 67, 0, 0, 0 });
+            // 
+            // TransferEligible
+            // 
+            TransferEligible.AutoSize = true;
+            TransferEligible.Location = new Point(5, 32);
+            TransferEligible.Name = "TransferEligible";
+            TransferEligible.Size = new Size(217, 17);
+            TransferEligible.TabIndex = 42;
+            TransferEligible.Text = "Immediate Eligibility Waiver (Vanilla Only)";
+            toolTip1.SetToolTip(TransferEligible, "This is for non-NEXT mod users only. It will remove the Transfer 1 year wait period.");
+            TransferEligible.UseVisualStyleBackColor = true;
+            // 
+            // PortalRatingBoost
+            // 
+            PortalRatingBoost.AutoSize = true;
+            PortalRatingBoost.Location = new Point(5, 78);
+            PortalRatingBoost.Name = "PortalRatingBoost";
+            PortalRatingBoost.Size = new Size(212, 17);
+            PortalRatingBoost.TabIndex = 43;
+            PortalRatingBoost.Text = "Evaluate with JR/SR Rating Reduction";
+            PortalRatingBoost.TextAlign = ContentAlignment.MiddleCenter;
+            toolTip1.SetToolTip(PortalRatingBoost, "This evalutes the roster and portal feature with a rating reduction of -1 and -2 for juniors and seniors, respectively. This is to allow underclassmen more opportunity.\r\n");
+            PortalRatingBoost.UseVisualStyleBackColor = true;
+            // 
             // startersCount
             // 
             startersCount.AutoSize = true;
@@ -15458,18 +15562,6 @@ namespace DB_EDITOR
             startersCount.Size = new Size(43, 13);
             startersCount.TabIndex = 46;
             startersCount.Text = "Starters";
-            // 
-            // FCSTransferPortalCheckBox
-            // 
-            FCSTransferPortalCheckBox.AutoSize = true;
-            FCSTransferPortalCheckBox.Location = new Point(11, 422);
-            FCSTransferPortalCheckBox.Name = "FCSTransferPortalCheckBox";
-            FCSTransferPortalCheckBox.Size = new Size(151, 17);
-            FCSTransferPortalCheckBox.TabIndex = 45;
-            FCSTransferPortalCheckBox.Text = "Add FCS Players To Portal";
-            FCSTransferPortalCheckBox.TextAlign = ContentAlignment.MiddleCenter;
-            toolTip1.SetToolTip(FCSTransferPortalCheckBox, "This evalutes the roster and portal feature with a rating reduction of -1 and -2 for juniors and seniors, respectively. This is to allow underclassmen more opportunity.\r\n");
-            FCSTransferPortalCheckBox.UseVisualStyleBackColor = true;
             // 
             // PortalCycleCount
             // 
@@ -15489,29 +15581,6 @@ namespace DB_EDITOR
             label270.Size = new Size(162, 13);
             label270.TabIndex = 37;
             label270.Text = "Number of Portal Cycles To Run:";
-            // 
-            // PortalRatingBoost
-            // 
-            PortalRatingBoost.AutoSize = true;
-            PortalRatingBoost.Location = new Point(11, 399);
-            PortalRatingBoost.Name = "PortalRatingBoost";
-            PortalRatingBoost.Size = new Size(212, 17);
-            PortalRatingBoost.TabIndex = 43;
-            PortalRatingBoost.Text = "Evaluate with JR/SR Rating Reduction";
-            PortalRatingBoost.TextAlign = ContentAlignment.MiddleCenter;
-            toolTip1.SetToolTip(PortalRatingBoost, "This evalutes the roster and portal feature with a rating reduction of -1 and -2 for juniors and seniors, respectively. This is to allow underclassmen more opportunity.\r\n");
-            PortalRatingBoost.UseVisualStyleBackColor = true;
-            // 
-            // TransferEligible
-            // 
-            TransferEligible.AutoSize = true;
-            TransferEligible.Location = new Point(11, 376);
-            TransferEligible.Name = "TransferEligible";
-            TransferEligible.Size = new Size(217, 17);
-            TransferEligible.TabIndex = 42;
-            TransferEligible.Text = "Immediate Eligibility Waiver (Vanilla Only)";
-            toolTip1.SetToolTip(TransferEligible, "This is for non-NEXT mod users only. It will remove the Transfer 1 year wait period.");
-            TransferEligible.UseVisualStyleBackColor = true;
             // 
             // TotalTransfersCount
             // 
@@ -15614,16 +15683,6 @@ namespace DB_EDITOR
             richTextBox3.TabIndex = 39;
             richTextBox3.Text = "The Spring Portal will only work after Spring Training Camp is over and before Team Cuts are performed.";
             // 
-            // richTextBox2
-            // 
-            richTextBox2.BackColor = SystemColors.Info;
-            richTextBox2.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            richTextBox2.Location = new Point(12, 476);
-            richTextBox2.Name = "richTextBox2";
-            richTextBox2.Size = new Size(209, 125);
-            richTextBox2.TabIndex = 38;
-            richTextBox2.Text = resources.GetString("richTextBox2.Text");
-            // 
             // richTextBox1
             // 
             richTextBox1.BackColor = SystemColors.Info;
@@ -15634,42 +15693,13 @@ namespace DB_EDITOR
             richTextBox1.TabIndex = 37;
             richTextBox1.Text = resources.GetString("richTextBox1.Text");
             // 
-            // PortalTransfers
-            // 
-            PortalTransfers.AutoSize = true;
-            PortalTransfers.Location = new Point(11, 353);
-            PortalTransfers.Name = "PortalTransfers";
-            PortalTransfers.Size = new Size(189, 17);
-            PortalTransfers.TabIndex = 36;
-            PortalTransfers.Text = "Allow Winter Transfers to Re-Enter";
-            toolTip1.SetToolTip(PortalTransfers, "This lets players who transferred in the previous portal to be available in this portal.");
-            PortalTransfers.UseVisualStyleBackColor = true;
-            // 
-            // portalChance
-            // 
-            portalChance.Location = new Point(176, 448);
-            portalChance.Name = "portalChance";
-            portalChance.Size = new Size(45, 20);
-            portalChance.TabIndex = 35;
-            portalChance.Value = new decimal(new int[] { 67, 0, 0, 0 });
-            // 
-            // label259
-            // 
-            label259.AutoSize = true;
-            label259.Location = new Point(23, 451);
-            label259.Name = "label259";
-            label259.Size = new Size(150, 13);
-            label259.TabIndex = 34;
-            label259.Text = "Transfer Chance Percentage: ";
-            toolTip1.SetToolTip(label259, "This is the likelihood a player will join the portal if they meet the pre-reqs.");
-            // 
             // groupBox33
             // 
             groupBox33.Controls.Add(largePortal);
             groupBox33.Controls.Add(smallPortal);
-            groupBox33.Location = new Point(21, 268);
+            groupBox33.Location = new Point(6, 306);
             groupBox33.Name = "groupBox33";
-            groupBox33.Size = new Size(200, 79);
+            groupBox33.Size = new Size(226, 79);
             groupBox33.TabIndex = 31;
             groupBox33.TabStop = false;
             groupBox33.Text = "Portal Size";
@@ -16107,35 +16137,46 @@ namespace DB_EDITOR
             // 
             // groupBox31
             // 
+            groupBox31.Controls.Add(ReverseRankingPriority);
             groupBox31.Controls.Add(RankingOrderPriority);
             groupBox31.Controls.Add(PortalSnake);
             groupBox31.Controls.Add(PortalRandom);
             groupBox31.Controls.Add(PortalFirst);
             groupBox31.Controls.Add(PortalReverse);
-            groupBox31.Location = new Point(21, 120);
+            groupBox31.Location = new Point(6, 120);
             groupBox31.Name = "groupBox31";
-            groupBox31.Size = new Size(200, 135);
+            groupBox31.Size = new Size(226, 178);
             groupBox31.TabIndex = 29;
             groupBox31.TabStop = false;
             groupBox31.Text = "Portal Priority";
             toolTip1.SetToolTip(groupBox31, "This determines the order in which teams select players. It will go through position by position.");
             // 
+            // ReverseRankingPriority
+            // 
+            ReverseRankingPriority.AutoSize = true;
+            ReverseRankingPriority.Location = new Point(6, 44);
+            ReverseRankingPriority.Name = "ReverseRankingPriority";
+            ReverseRankingPriority.Size = new Size(154, 17);
+            ReverseRankingPriority.TabIndex = 5;
+            ReverseRankingPriority.Text = "Draft Lottery (Worst to First)";
+            ReverseRankingPriority.UseVisualStyleBackColor = true;
+            // 
             // RankingOrderPriority
             // 
             RankingOrderPriority.AutoSize = true;
             RankingOrderPriority.Checked = true;
-            RankingOrderPriority.Location = new Point(7, 66);
+            RankingOrderPriority.Location = new Point(6, 19);
             RankingOrderPriority.Name = "RankingOrderPriority";
-            RankingOrderPriority.Size = new Size(128, 17);
+            RankingOrderPriority.Size = new Size(205, 17);
             RankingOrderPriority.TabIndex = 4;
             RankingOrderPriority.TabStop = true;
-            RankingOrderPriority.Text = "Ranking Order Priority";
+            RankingOrderPriority.Text = "Ranking Priority Lottery (First to Worst)";
             RankingOrderPriority.UseVisualStyleBackColor = true;
             // 
             // PortalSnake
             // 
             PortalSnake.AutoSize = true;
-            PortalSnake.Location = new Point(7, 89);
+            PortalSnake.Location = new Point(6, 120);
             PortalSnake.Name = "PortalSnake";
             PortalSnake.Size = new Size(85, 17);
             PortalSnake.TabIndex = 3;
@@ -16145,7 +16186,7 @@ namespace DB_EDITOR
             // PortalRandom
             // 
             PortalRandom.AutoSize = true;
-            PortalRandom.Location = new Point(7, 112);
+            PortalRandom.Location = new Point(6, 144);
             PortalRandom.Name = "PortalRandom";
             PortalRandom.Size = new Size(94, 17);
             PortalRandom.TabIndex = 2;
@@ -16155,7 +16196,7 @@ namespace DB_EDITOR
             // PortalFirst
             // 
             PortalFirst.AutoSize = true;
-            PortalFirst.Location = new Point(7, 19);
+            PortalFirst.Location = new Point(6, 71);
             PortalFirst.Name = "PortalFirst";
             PortalFirst.Size = new Size(165, 17);
             PortalFirst.TabIndex = 1;
@@ -16165,7 +16206,7 @@ namespace DB_EDITOR
             // PortalReverse
             // 
             PortalReverse.AutoSize = true;
-            PortalReverse.Location = new Point(7, 42);
+            PortalReverse.Location = new Point(6, 95);
             PortalReverse.Name = "PortalReverse";
             PortalReverse.Size = new Size(165, 17);
             PortalReverse.TabIndex = 0;
@@ -16220,6 +16261,19 @@ namespace DB_EDITOR
             buttonRCATBody.Text = "Body Shape Fixer";
             buttonRCATBody.UseVisualStyleBackColor = true;
             buttonRCATBody.Click += (this.buttonRCATBody_Click);
+            // 
+            // ResetSelectedCoachStats
+            // 
+            ResetSelectedCoachStats.BackColor = SystemColors.ButtonFace;
+            ResetSelectedCoachStats.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            ResetSelectedCoachStats.ForeColor = SystemColors.ActiveCaptionText;
+            ResetSelectedCoachStats.Location = new Point(307, 275);
+            ResetSelectedCoachStats.Name = "ResetSelectedCoachStats";
+            ResetSelectedCoachStats.Size = new Size(120, 35);
+            ResetSelectedCoachStats.TabIndex = 41;
+            ResetSelectedCoachStats.Text = "Reset Coaching Stats";
+            ResetSelectedCoachStats.UseVisualStyleBackColor = false;
+            ResetSelectedCoachStats.Click += (this.ResetSelectedCoachStats_Click);
             // 
             // MainEditor
             // 
@@ -16532,9 +16586,11 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)RecruitRankingView).EndInit();
             tabPortal.ResumeLayout(false);
             tabPortal.PerformLayout();
+            groupBox24.ResumeLayout(false);
+            groupBox24.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)portalChance).EndInit();
             ((System.ComponentModel.ISupportInitialize)PortalCycleCount).EndInit();
             ((System.ComponentModel.ISupportInitialize)PortalData).EndInit();
-            ((System.ComponentModel.ISupportInitialize)portalChance).EndInit();
             groupBox33.ResumeLayout(false);
             groupBox33.PerformLayout();
             groupBox32.ResumeLayout(false);
@@ -17426,7 +17482,6 @@ namespace DB_EDITOR
         private Label label259;
         private NumericUpDown portalChance;
         private CheckBox PortalTransfers;
-        private RichTextBox richTextBox2;
         private RichTextBox richTextBox1;
         private RichTextBox richTextBox3;
         private DataGridView PortalData;
@@ -17868,6 +17923,11 @@ namespace DB_EDITOR
         private Label label167;
         private NumericUpDown YearsCoachedBox;
         private CheckBox GlobalAltExpOnlyCheck;
+        private GroupBox groupBox24;
+        private RadioButton ReverseRankingPriority;
+        public Label label170;
+        public System.Windows.Forms.ComboBox RecruitTeamComboBox;
+        public System.Windows.Forms.Button ResetSelectedCoachStats;
     }
 }
 

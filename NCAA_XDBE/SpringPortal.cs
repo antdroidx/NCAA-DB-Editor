@@ -587,22 +587,10 @@ namespace DB_EDITOR
                     else teamList.Sort((team1, team2) => team1[1].CompareTo(team2[1]));
                     round++;
                 }
-                if (RankingOrderPriority.Checked)
+                else if (RankingOrderPriority.Checked)
                 {
                     teamList.Clear();
-                    /*
-                    for (int i = 0; i < GetTableRecCount("TEAM"); i++)
-                    {
-                        if (GetDBValueInt("TEAM", "TTYP", i) == 0)
-                        {
-                            int tgid = GetDBValueInt("TEAM", "TGID", i);
-                            int rank = GetDBValueInt("TEAM", "TMRK", i);
-                            int rankVal = rand.Next(0, (200 - rank)) + rand.Next(0, (200 - rank)) + rand.Next(0, (200 - rank));
-                            teamList.Add(new List<int> { tgid, rankVal });
-                        }
-                    }
-                    teamList.Sort((player1, player2) => player2[1].CompareTo(player1[1]));
-                    */
+
                     List<List<int>> Lottery = new List<List<int>>();
 
                     for (int i = 0; i < GetTableRecCount("TEAM"); i++)
@@ -612,12 +600,12 @@ namespace DB_EDITOR
                             int rank = GetDBValueInt("TEAM", "TCRK", i);
                             int balls = 1;
 
-                            if (rank < 10) balls = 2000 + (150 - rank)*2;
-                            else if (rank < 25) balls = 1000;
-                            else if (rank < 50) balls = 500;
-                            else if (rank < 75) balls = 200;
-                            else if (rank < 100) balls = 50;
-                            else balls = 10;
+                            if (rank < 10) balls = 300;
+                            else if (rank < 25) balls = 150;
+                            else if (rank < 50) balls = 50;
+                            else if (rank < 75) balls = 25;
+                            else if (rank < 100) balls = 10;
+                            else balls = 5;
 
                             for (int j = 0; j < balls; j++)
                             {
@@ -625,7 +613,7 @@ namespace DB_EDITOR
                                 Lottery.Add(new List<int>());
 
                                 Lottery[count].Add(GetDBValueInt("TEAM", "TGID", i));
-                                Lottery[count].Add(rand.Next(0, 500000));
+                                Lottery[count].Add(rand.Next(0, 9999));
                             }
                         }
                     }
@@ -656,7 +644,68 @@ namespace DB_EDITOR
                         order++;
                     }
 
-                    MessageBox.Show("" + teamNameDB[teamList[0][0]] + " " + teamNameDB[teamList[1][0]] + " " + teamNameDB[teamList[2][0]] + " " + teamNameDB[teamList[3][0]] + " " + teamNameDB[teamList[4][0]] + "");
+                    //MessageBox.Show("" + teamNameDB[teamList[0][0]] + " " + teamNameDB[teamList[1][0]] + " " + teamNameDB[teamList[2][0]] + " " + teamNameDB[teamList[3][0]] + " " + teamNameDB[teamList[4][0]] + "");
+
+
+                }
+                else if (ReverseRankingPriority.Checked)
+                {
+                    teamList.Clear();
+
+                    List<List<int>> Lottery = new List<List<int>>();
+
+                    for (int i = 0; i < GetTableRecCount("TEAM"); i++)
+                    {
+                        if (GetDBValueInt("TEAM", "TTYP", i) == 0)
+                        {
+                            int rank = GetDBValueInt("TEAM", "TCRK", i);
+                            int balls = 1;
+
+                            if (rank < 10) balls = 5;
+                            else if (rank < 25) balls = 10;
+                            else if (rank < 50) balls = 25;
+                            else if (rank < 75) balls = 50;
+                            else if (rank < 100) balls = 150;
+                            else balls = 300;
+
+                            for (int j = 0; j < balls; j++)
+                            {
+                                int count = Lottery.Count;
+                                Lottery.Add(new List<int>());
+
+                                Lottery[count].Add(GetDBValueInt("TEAM", "TGID", i));
+                                Lottery[count].Add(rand.Next(0, 9999));
+                            }
+                        }
+                    }
+
+                    Lottery.Sort((coach1, coach2) => coach1[1].CompareTo(coach2[1]));
+
+
+                    teamList = new List<List<int>>();
+                    int order = 0;
+                    while (Lottery.Count > 0)
+                    {
+                        int pick = rand.Next(0, Lottery.Count);
+                        int tgid = Lottery[pick][0];
+
+                        teamList.Add(new List<int>());
+                        teamList[order].Add(tgid);
+                        teamList[order].Add(order);
+
+                        for (int j = 0; j < Lottery.Count; j++)
+                        {
+                            if (Lottery[j][0] == tgid)
+                            {
+                                Lottery.RemoveAt(j);
+                                j--;
+                            }
+                        }
+
+                        order++;
+                    }
+
+                    //MessageBox.Show("" + teamNameDB[teamList[0][0]] + " " + teamNameDB[teamList[1][0]] + " " + teamNameDB[teamList[2][0]] + " " + teamNameDB[teamList[3][0]] + " " + teamNameDB[teamList[4][0]] + "");
 
 
                 }

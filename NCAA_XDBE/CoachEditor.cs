@@ -18,7 +18,9 @@ namespace DB_EDITOR
             AddCoachFilters();
             //LoadCoachList(CoachFilter.SelectedIndex);
 
-            CoachListBox.DrawMode = DrawMode.OwnerDrawFixed;
+            CoachListBox.DrawMode = DrawMode.OwnerDrawVariable;
+            CoachListBox.MeasureItem -= CoachListBox_MeasureItem;
+            CoachListBox.MeasureItem += CoachListBox_MeasureItem;
             CoachListBox.DrawItem += CoachListBox_DrawItem;
             LoadCoachList(CoachFilter.SelectedIndex);
         }
@@ -40,6 +42,7 @@ namespace DB_EDITOR
 
         public void LoadCoachList(int active)
         {
+            CoachListBox.BeginUpdate();
             CoachListBox.Items.Clear();
             CoachEditorList = new List<List<string>>();
             int row = 0;
@@ -80,7 +83,8 @@ namespace DB_EDITOR
                         row++;
                     }
                 }
-            } else
+            }
+            else
             {
                 for (int i = 0; i < GetTableRecCount("COCH"); i++)
                 {
@@ -117,7 +121,7 @@ namespace DB_EDITOR
                 {
                     if (CoachEditorList[i] != null) CoachListBox.Items.Add(CoachEditorList[i][2]);
                 }
-            } 
+            }
             else if (CoachPerfCheckBox.Checked && !CoachShowTeamBox.Checked)
             {
                 CoachEditorList.Sort((player1, player2) => Convert.ToInt32(player2[6]).CompareTo(Convert.ToInt32(player1[6])));
@@ -147,6 +151,15 @@ namespace DB_EDITOR
                     if (CoachEditorList[i] != null) CoachListBox.Items.Add(CoachEditorList[i][1]);
                 }
             }
+
+
+            CoachListBox.EndUpdate();
+
+            // ensure layout/measurement happens after form has laid out controls
+            CoachListBox.Invalidate();
+            CoachListBox.Update();
+            // Optionally force refresh on UI thread after layout:
+            this.BeginInvoke((Action)(() => CoachListBox.Refresh()));
         }
 
         private void CoachListBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -217,7 +230,7 @@ namespace DB_EDITOR
             CBSZBox.SelectedIndex = GetDBValueInt("COCH", "CBSZ", EditorIndex);
             GetCoachHairColorItems();
             CHARBox.SelectedIndex = GetDBValueInt("COCH", "CHAR", EditorIndex);
-    
+
             GetCoachFaceItems();
             CFEXBox.SelectedIndex = GetDBValueInt("COCH", "CFEX", EditorIndex);
             GetCoachEyeItems();
@@ -254,7 +267,7 @@ namespace DB_EDITOR
 
             GetCoachDefTypeItems();
             CoachDefTypeBox.SelectedIndex = GetDBValueInt("COCH", "CDST", EditorIndex);
-            
+
             CoachCOTRBox.Value = GetDBValueInt("COCH", "COTR", EditorIndex);
             CoachCOTABox.Value = GetDBValueInt("COCH", "COTA", EditorIndex);
             CoachCOTSBox.Value = GetDBValueInt("COCH", "COTS", EditorIndex);
@@ -278,7 +291,7 @@ namespace DB_EDITOR
 
             CoachTeamPrestige.Text = teamPrs;
 
-            ContractInfo.Text = "Year " + (GetDBValueInt("COCH", "CCYR", CoachIndex)+1) + " of " + (GetDBValueInt("COCH", "CCFY", CoachIndex) + GetDBValueInt("COCH", "CCYR", CoachIndex) + 1);
+            ContractInfo.Text = "Year " + (GetDBValueInt("COCH", "CCYR", CoachIndex) + 1) + " of " + (GetDBValueInt("COCH", "CCFY", CoachIndex) + GetDBValueInt("COCH", "CCYR", CoachIndex) + 1);
 
             YearsWithTeam.Text = GetDBValue("COCH", "CTYR", EditorIndex);
 
@@ -301,8 +314,8 @@ namespace DB_EDITOR
 
             for (int i = 0; i < GetTableRecCount("TEAM"); i++)
             {
-                if(GetDBValueInt("TEAM", "TTYP", i) <= 1)
-                CoachTeamList.Items.Add(GetDBValue("TEAM", "TDNA", i));
+                if (GetDBValueInt("TEAM", "TTYP", i) <= 1)
+                    CoachTeamList.Items.Add(GetDBValue("TEAM", "TDNA", i));
             }
             CoachTeamList.Items.Add("INACTIVE");
         }
@@ -379,7 +392,7 @@ namespace DB_EDITOR
 
             if (NextMod)
             {
-                for (int i = 136; i < pb.Count-2; i++)
+                for (int i = 136; i < pb.Count - 2; i++)
                 {
                     CoachPlaybookBox.Items.Add(pb[i][1]);
                 }
@@ -406,7 +419,7 @@ namespace DB_EDITOR
 
             //136-158 next ||  124 and below is vanilla
             if (pbVal > 135) pbVal = pbVal - 136;
-           
+
             return pbVal;
         }
 
@@ -474,7 +487,7 @@ namespace DB_EDITOR
         private void CoachTeamList_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (DoNotTrigger) return;
-          
+
             var result = MessageBox.Show("Are you sure you want to change teams?\n\nThis will swap teams with the existing coach of that team.", "Change Coach Teams", MessageBoxButtons.OKCancel);
             if (result == DialogResult.OK)
             {
@@ -926,9 +939,9 @@ namespace DB_EDITOR
 
             int maxval = Convert.ToInt32(MaxCCPOVal.Value);
 
-            for(int i = 0; i < GetTableRecCount("COCH"); i++)
+            for (int i = 0; i < GetTableRecCount("COCH"); i++)
             {
-                if(GetDBValueInt("COCH", "CCPO", i) > maxval)
+                if (GetDBValueInt("COCH", "CCPO", i) > maxval)
                     ChangeDBInt("COCH", "CCPO", i, maxval);
 
                 EndProgressBar();
@@ -996,7 +1009,7 @@ namespace DB_EDITOR
                             roster[count].Add(PPOS);
                             roster[count].Add(POVR);
                             roster[count].Add(PSPD);
-                            roster[count].Add(PAGI); 
+                            roster[count].Add(PAGI);
                             roster[count].Add(PTHA);
 
                             count++;
@@ -1022,13 +1035,35 @@ namespace DB_EDITOR
 
         private void ResetCoachStatsButton_Click(object sender, EventArgs e)
         {
-           ResetCoachStats();
+            ResetCoachStats();
+        }
+
+        private void ResetSelectedCoachStats_Click(object sender, EventArgs e)
+        {
+            int i = CoachIndex;
+            ChangeDBInt("COCH", "CYCD", i, 0);
+            ChangeDBInt("COCH", "CTYR", i, 0);
+            ChangeDBInt("COCH", "CSWI", i, 0);
+            ChangeDBInt("COCH", "CSLO", i, 0);
+            ChangeDBInt("COCH", "CBLW", i, 0);
+            ChangeDBInt("COCH", "CBLL", i, 0);
+            ChangeDBInt("COCH", "CTTW", i, 0);
+            ChangeDBInt("COCH", "CTTL", i, 0);
+            ChangeDBInt("COCH", "CCWI", i, 0);
+            ChangeDBInt("COCH", "CCLO", i, 0);
+            ChangeDBInt("COCH", "CCWS", i, 0);
+            ChangeDBInt("COCH", "CNTW", i, 0);
+            ChangeDBInt("COCH", "CCTW", i, 0);
+
+            MessageBox.Show("Coach Stats Reset!");
+
+            GetCoachEditorData(CoachIndex);
         }
 
         private void ResetCoachStats()
         {
-            
-            for(int i = 0; i < GetTableRecCount("COCH"); i++)
+
+            for (int i = 0; i < GetTableRecCount("COCH"); i++)
             {
                 ChangeDBInt("COCH", "CYCD", i, 0);
                 ChangeDBInt("COCH", "CTYR", i, 0);
@@ -1045,12 +1080,20 @@ namespace DB_EDITOR
                 ChangeDBInt("COCH", "CCTW", i, 0);
             }
 
-
-
             MessageBox.Show("Coach Stats Reset!");
         }
 
         #endregion
+
+        private void CoachListBox_MeasureItem(object sender, MeasureItemEventArgs e)
+        {
+            if (e.Index < 0) return;
+            var lb = (ListBox)sender;
+
+            // Single-line height based on control font so we don't depend on control width yet
+            e.ItemHeight = lb.Font.Height + 6; // tweak padding as needed
+            e.ItemWidth = lb.ClientSize.Width;
+        }
 
         // Add this method to handle drawing the items:
         private void CoachListBox_DrawItem(object sender, DrawItemEventArgs e)

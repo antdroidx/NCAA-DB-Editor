@@ -78,7 +78,7 @@ namespace DB_EDITOR
                 if (TGID == 511) team = "Unemployed";
 
                 //RETIRE COACHES
-                if (CoachRetirement.Checked && CYCD > rand.Next(40, 60) && GetDBValueInt("COCH", "CFUC", i) != 1)
+                if (CoachRetirement.Checked && CYCD > rand.Next(42, 60) && GetDBValueInt("COCH", "CFUC", i) != 1)
                 {
                     if (TGID != 511) TGID_VacancyList.Add(TGID);
 
@@ -151,7 +151,7 @@ namespace DB_EDITOR
 
                     }
                     //ADD COACHES TO CANDIDATE LIST
-                    else if (CCPO > 89 && CTOP < TMPR && GetDBValueInt("COCH", "CFUC", i) != 1 && GetDBValueInt("COCH", "CSWI", i) >= 8)
+                    else if (CCPO > 84 && CTOP < TMPR && GetDBValueInt("COCH", "CFUC", i) != 1 && GetDBValueInt("COCH", "CSWI", i) >= 8)
                     {
                         CCID_PromoteList.Add(GetDBValue("COCH", "CCID", i));
                     }
@@ -488,7 +488,7 @@ namespace DB_EDITOR
             for (int i = 0; i < GetTableRecCount("PLAY"); i++)
             {
                 //Create a list of Players that are seniors and have high awareness
-                if (ConvertRating(GetDBValueInt("PLAY", "PAWR", i)) >= 90 && GetDBValue("PLAY", "PYER", i) == "3")
+                if (ConvertRating(GetDBValueInt("PLAY", "PAWR", i)) >= 90 && GetDBValue("PLAY", "PYER", i) == "3" || ConvertRating(GetDBValueInt("PLAY", "PAWR", i)) >= 90 && GetDBValue("PLAY", "PTYP", i) == "3")
                 {
                     PGID_List.Add(i);
                 }
@@ -751,7 +751,7 @@ namespace DB_EDITOR
             for (int i = 0; i < GetTableRecCount("PLAY"); i++)
             {
                 //Create a list of Players that are seniors and have high awareness
-                if (ConvertRating(GetDBValueInt("PLAY", "PAWR", i)) >= 90 && GetDBValue("PLAY", "PYER", i) == "3")
+                if (ConvertRating(GetDBValueInt("PLAY", "PAWR", i)) >= 90 && GetDBValue("PLAY", "PYER", i) == "3" || ConvertRating(GetDBValueInt("PLAY", "PAWR", i)) >= 90 && GetDBValue("PLAY", "PTYP", i) == "3")
                 {
                     PGID_List.Add(i);
                 }
@@ -850,13 +850,13 @@ namespace DB_EDITOR
         private void LoadCoachAge_Click(object sender, EventArgs e)
         {
             List<List<int>> ageList = CreateIntListsFromCSV(@"resources\misc\COCH-AGE.csv", true);
-
+            int seyr = GetDBValueInt("SEAI", "SEYR", 0);
             for (int i = 0; i < GetTableRecCount("COCH"); i++)
             {
                 int ccid = GetDBValueInt("COCH", "CCID", i);
                 int cfuc = GetDBValueInt("COCH", "CFUC", i);
                 if (cfuc != 1)
-                    ChangeDBInt("COCH", "CYCD", i, ageList[ccid - 1][1]);
+                    ChangeDBInt("COCH", "CYCD", i, ageList[ccid - 1][1] + seyr);
 
             }
 
