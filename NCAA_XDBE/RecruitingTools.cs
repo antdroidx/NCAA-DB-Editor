@@ -236,7 +236,7 @@ namespace DB_EDITOR
 
         private void RemoveTransfers()
         {
-            StartProgressBar(GetTableRecCount("TRAN"));
+            StartProgressBar(GetTableRecCount("TRAN") + GetTableRecCount("PLAY"));
 
             List<List<List<int>>> teamPlayers = new List<List<List<int>>>();
 
@@ -268,7 +268,7 @@ namespace DB_EDITOR
                 {
                     if (teamPlayers[tgid][p][1] == pgid)
                     {
-                        if (ConvertRating(teamPlayers[tgid][p][2]) < 68)
+                        if (ConvertRating(teamPlayers[tgid][p][2]) < 65)
                         {
                             ChangeDBInt("PLAY", "PTYP", teamPlayers[tgid][p][0], 3);
                             DeleteRecord("TRAN", i, true);
@@ -283,6 +283,17 @@ namespace DB_EDITOR
 
                 }
 
+                ProgressBarStep();
+            }
+
+
+            for (int i = 0; i < GetTableRecCount("PLAY"); i++)
+            {
+                if (ConvertRating(GetDBValueInt("PLAY", "POVR", i)) < 65 && GetDBValueInt("PLAY", "PTYP", i) == 1)
+                {
+                    ChangeDBInt("PLAY", "PTYP", i, 3);
+                    counter++;
+                }
                 ProgressBarStep();
             }
 
@@ -776,12 +787,12 @@ namespace DB_EDITOR
             ChangeDB2String("RCPT", "PLNA", i, newName);
             int skin = rand.Next(0, 101);
 
-            if(skin <= 40) skin = 2;
+            if (skin <= 40) skin = 2;
             else if (skin <= 80) skin = 7;
             else skin = 3;
 
             ChangeDB2Int("RCPT", "PSKI", i, skin);
-            ChangeDB2Int("RCPT", "PFMP", i, rand.Next(skin*8, skin*8+8));
+            ChangeDB2Int("RCPT", "PFMP", i, rand.Next(skin * 8, skin * 8 + 8));
             ChangeDB2Int("RCPT", "PFGM", i, rand.Next(0, 16));
 
             int hairstyle = 13;
@@ -1170,18 +1181,18 @@ namespace DB_EDITOR
                 //Assign a Team
                 int TGID = fcsTeams[rand.Next(0, fcsTeams.Count)];
 
-                int PGID = TGID*70+i;
+                int PGID = TGID * 70 + i;
                 TransferRCATtoPLAY(rec, rand.Next(0, 17), PGID, RCATmapper, PJEN, AvailablePJEN, 0);
                 RandomizeAttribute("PLAY", rec, 2);
                 RecalculateOverallByRec(rec);
-                ChangeDBInt("PLAY", "PYER", rec, rand.Next(1,3)); //set to Senior
+                ChangeDBInt("PLAY", "PYER", rec, rand.Next(1, 3)); //set to Senior
                 ChangeDBInt("PLAY", "PRSD", rec, 0); //not redshirted
                 ChangeDBInt("PLAY", "PTYP", rec, 1); //Set to Transfer
 
                 //Add To Portal
                 int POVR = GetDBValueInt("PLAY", "POVR", rec);
                 int PPOS = GetDBValueInt("PLAY", "PPOS", rec);
-                
+
 
 
                 if (PPOS == 8) PPOS = 6;
