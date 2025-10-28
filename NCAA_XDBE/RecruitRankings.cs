@@ -63,6 +63,8 @@ namespace DB_EDITOR
              */
 
             RecruitRankingView.Rows.Clear();
+            CompactDB2();
+            CompactDB();
 
             if (view <= 1) RecruitHomeTeam.HeaderText = "Home";
             else if (view == 2) RecruitHomeTeam.HeaderText = "Prev";

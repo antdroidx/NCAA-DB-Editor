@@ -223,9 +223,9 @@ namespace DB_EDITOR
             BIDX = new DataGridViewTextBoxColumn();
             BNME = new DataGridViewTextBoxColumn();
             BCI1 = new DataGridViewComboBoxColumn();
-            BCR1 = new DataGridViewComboBoxColumn();
+            BCR1 = new DataGridViewTextBoxColumn();
             BCI2 = new DataGridViewComboBoxColumn();
-            BCR2 = new DataGridViewComboBoxColumn();
+            BCR2 = new DataGridViewTextBoxColumn();
             SGID = new DataGridViewComboBoxColumn();
             BMON = new DataGridViewComboBoxColumn();
             BDAY = new DataGridViewComboBoxColumn();
@@ -2133,6 +2133,8 @@ namespace DB_EDITOR
             BCR1.FillWeight = 56.59636F;
             BCR1.HeaderText = "Conf A Seed";
             BCR1.Name = "BCR1";
+            BCR1.Resizable = DataGridViewTriState.True;
+            BCR1.SortMode = DataGridViewColumnSortMode.NotSortable;
             // 
             // BCI2
             // 
@@ -2145,6 +2147,8 @@ namespace DB_EDITOR
             BCR2.FillWeight = 59.46095F;
             BCR2.HeaderText = "Conf B Seed";
             BCR2.Name = "BCR2";
+            BCR2.Resizable = DataGridViewTriState.True;
+            BCR2.SortMode = DataGridViewColumnSortMode.NotSortable;
             // 
             // SGID
             // 
@@ -2397,15 +2401,6 @@ namespace DB_EDITOR
         private DataGridViewTextBoxColumn Conf;
         private DataGridViewComboBoxColumn Bowl;
         private DataGridView BowlsGrid;
-        private DataGridViewTextBoxColumn BIDX;
-        private DataGridViewTextBoxColumn BNME;
-        private DataGridViewComboBoxColumn BCI1;
-        private DataGridViewComboBoxColumn BCR1;
-        private DataGridViewComboBoxColumn BCI2;
-        private DataGridViewComboBoxColumn BCR2;
-        private DataGridViewComboBoxColumn SGID;
-        private DataGridViewComboBoxColumn BMON;
-        private DataGridViewComboBoxColumn BDAY;
         private System.Windows.Forms.Button DeleteBowlButton;
         private System.Windows.Forms.Button SaveBowlButton;
         private ToolStripMenuItem CustomLeagueToolStrip;
@@ -2425,6 +2420,15 @@ namespace DB_EDITOR
         private RadioButton radio120;
         private RadioButton radio136;
         private RadioButton Next26Config;
+        private DataGridViewTextBoxColumn BIDX;
+        private DataGridViewTextBoxColumn BNME;
+        private DataGridViewComboBoxColumn BCI1;
+        private DataGridViewTextBoxColumn BCR1;
+        private DataGridViewComboBoxColumn BCI2;
+        private DataGridViewTextBoxColumn BCR2;
+        private DataGridViewComboBoxColumn SGID;
+        private DataGridViewComboBoxColumn BMON;
+        private DataGridViewComboBoxColumn BDAY;
     }
 }
 

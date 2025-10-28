@@ -236,9 +236,10 @@ namespace DB_EDITOR
             {
                 string text = "";
                 string status = "";
-                if (player[9] == "1" || player[9] == "3") status = " [RS]";
-                if (player[7] == "1") status = " [Tran]";
-                else if (player[7] == "3" && player[8] == "3") status = " [Grad]";
+                if (player[9] == "1") status = " [RS]";
+                else if (player[9] == "3") status = " [MED]";
+                if (player[7] == "1") status = " [TRAN]";
+                else if (player[7] == "3" && player[8] == "3") status = " [GRAD]";
                 else if (player[7] == "3" && player[8] != "3") status = " [NFL]";
 
                 if (status != "" && status != " [RS]") playersLeaving++;
@@ -405,7 +406,7 @@ namespace DB_EDITOR
 
             //Potential
             PPOEBox.Value = GetDBValueInt("PLAY", "PPOE", PlayerIndex);
-            PPOEtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(PPOEBox.Value)));
+            PPOEtext.Text = Convert.ToString(ConvertPotentialRating(Convert.ToInt32(PPOEBox.Value)));
             PPOEtext.BackColor = GetRatingColor(PPOEtext).BackColor;
 
             //Injury
@@ -1010,10 +1011,8 @@ namespace DB_EDITOR
                 return;
 
             ChangeDBInt("PLAY", "PPOE", PlayerIndex, Convert.ToInt32(PPOEBox.Value));
-            PPOEtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PPOE", PlayerIndex)));
+            PPOEtext.Text = Convert.ToString(ConvertPotentialRating(GetDBValueInt("PLAY", "PPOE", PlayerIndex)));
             PPOEtext.BackColor = GetRatingColor(PPOEtext).BackColor;
-
-            DisplayNewOverallRating();
 
         }
 
@@ -1940,10 +1939,12 @@ namespace DB_EDITOR
 
             // choose color based on status substring (case-insensitive), but respect selection text color
             Color foreColor = ((e.State & DrawItemState.Selected) == DrawItemState.Selected) ? SystemColors.HighlightText : lb.ForeColor;
-            if (text.IndexOf("[Tran]", StringComparison.OrdinalIgnoreCase) >= 0) foreColor = ((e.State & DrawItemState.Selected) == 0) ? Color.Red : SystemColors.HighlightText;
-            else if (text.IndexOf("[Grad]", StringComparison.OrdinalIgnoreCase) >= 0) foreColor = ((e.State & DrawItemState.Selected) == 0) ? Color.Green : SystemColors.HighlightText;
+            if (text.IndexOf("[TRAN]", StringComparison.OrdinalIgnoreCase) >= 0) foreColor = ((e.State & DrawItemState.Selected) == 0) ? Color.Red : SystemColors.HighlightText;
+            else if (text.IndexOf("[GRAD]", StringComparison.OrdinalIgnoreCase) >= 0) foreColor = ((e.State & DrawItemState.Selected) == 0) ? Color.Green : SystemColors.HighlightText;
             else if (text.IndexOf("[NFL]", StringComparison.OrdinalIgnoreCase) >= 0) foreColor = ((e.State & DrawItemState.Selected) == 0) ? Color.SlateBlue : SystemColors.HighlightText;
             else if (text.IndexOf("[RS]", StringComparison.OrdinalIgnoreCase) >= 0) foreColor = ((e.State & DrawItemState.Selected) == 0) ? Color.DarkRed : SystemColors.HighlightText;
+            else if (text.IndexOf("[MED]", StringComparison.OrdinalIgnoreCase) >= 0) foreColor = ((e.State & DrawItemState.Selected) == 0) ? Color.DarkRed : SystemColors.HighlightText;
+
 
             // draw text with TextRenderer (consistent with MeasureText)
             var textRect = new Rectangle(e.Bounds.X + 2, e.Bounds.Y, e.Bounds.Width - 4, e.Bounds.Height);

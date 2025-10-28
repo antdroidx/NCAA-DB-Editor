@@ -479,7 +479,7 @@ namespace DB_EDITOR
 
             //Potential
             RPOEBox.Value = GetDB2ValueInt("RCPT", "PPOE", RecruitIndex);
-            RPOEtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(RPOEBox.Value)));
+            RPOEtext.Text = Convert.ToString(ConvertPotentialRating(Convert.ToInt32(RPOEBox.Value)));
             RPOEtext.BackColor = GetRatingColor(RPOEtext).BackColor;
 
             //Injury
@@ -780,7 +780,7 @@ namespace DB_EDITOR
                 return;
 
             ChangeDB2Int("RCPT", "PPOE", RecruitIndex, Convert.ToInt32(RPOEBox.Value));
-            RPOEtext.Text = Convert.ToString(ConvertRating(GetDB2ValueInt("RCPT", "PPOE", RecruitIndex)));
+            RPOEtext.Text = Convert.ToString(ConvertPotentialRating(GetDB2ValueInt("RCPT", "PPOE", RecruitIndex)));
             DisplayNewRCPTOverallRating();
             RPOEBox.BackColor = GetRatingColor(RPOEtext).BackColor;
 

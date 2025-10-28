@@ -172,6 +172,7 @@ namespace DB_EDITOR
                                 {
                                     //changes redshirt status to "1" (active redshirt)
                                     ChangeDBString("PLAY", "PRSD", j, "1");
+                                    if (Next26Mod) ChangeDBInt("PLAY", "PRSD", j, 3);
                                     string team = GetTeamName(Convert.ToInt32(GetDBValue("PLAY", "PGID", j)) / 70);
 
                                     if (checkBoxInjuryRatings.Checked)

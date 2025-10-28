@@ -535,7 +535,6 @@ namespace DB_EDITOR.Properties {
         ///PCAR,Ball Carrying
         ///PBTK,Break Tackles
         ///PCTH,Catching
-        ///PIMP,Importance
         ///PINJ,Injury
         ///PJMP,Jumping
         ///PKAC,Kick Accuracy
@@ -713,6 +712,16 @@ namespace DB_EDITOR.Properties {
             get {
                 object obj = ResourceManager.GetObject("close", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] COCH_AGE {
+            get {
+                object obj = ResourceManager.GetObject("COCH-AGE", resourceCulture);
+                return ((byte[])(obj));
             }
         }
         

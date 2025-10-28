@@ -703,6 +703,15 @@ namespace DB_EDITOR
             return RatingsX[value];
         }
 
+        private int ConvertPotentialRating(int value)
+        {
+            List<int> ratingsList = new List<int>();
+            ratingsList = CreateIntListfromCSV(@"resources\players\PRLU.csv", true);
+
+            return ratingsList[value];
+
+        }
+
         public void CreatePOCItable()
         {
             string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);

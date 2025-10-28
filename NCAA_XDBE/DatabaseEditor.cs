@@ -442,11 +442,13 @@ namespace DB_EDITOR
                     }
                     else if (FieldProps.FieldType == TdbFieldType.tdbBinary || FieldProps.FieldType == TdbFieldType.tdbVarchar || FieldProps.FieldType == TdbFieldType.tdbLongVarchar)
                     {
-                        //string val = new string((char)0, (FieldProps.Size / 8) + 1);
+                        string val = new string((char)0, (FieldProps.Size / 8) + 1);
 
-                        //TDB.TDBFieldGetValueAsString(dbSelected, TableProps.Name, FieldProps.Name, r, ref val);
+                        //string val = "";
 
-                        string val = "na";
+                        TDB.TDBFieldGetValueAsString(dbSelected, TableProps.Name, FieldProps.Name, r, ref val);
+
+                        //string val = "na";
                         DataGridRow[tmpf + 1] = val;
                     }
                     else

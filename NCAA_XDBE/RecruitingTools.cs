@@ -10,6 +10,11 @@ namespace DB_EDITOR
 {
     partial class MainEditor : Form
     {
+        private void StartOffSeasonEditor()
+        {
+            CompactDB();
+            CompactDB2();
+        }
 
         #region RECRUITING TOOLS CLICKS
 
@@ -942,7 +947,12 @@ namespace DB_EDITOR
                 else if (i <= four) RecordRecruitStarRating(i, recruits, 4);
                 else if (i <= three) RecordRecruitStarRating(i, recruits, 3);
                 else if (i <= two) RecordRecruitStarRating(i, recruits, 2);
-                else RecordRecruitStarRating(i, recruits, 1);
+                else
+                {
+                    if (min1Stars.Checked)
+                        RecordRecruitStarRating(i, recruits, 1);
+                    else RecordRecruitStarRating(i, recruits, 2);
+                }
                 ProgressBarStep();
             }
 

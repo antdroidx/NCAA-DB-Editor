@@ -97,16 +97,16 @@
     <Compile Update="RosterTools.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="Schedule.cs">
+    <Compile Update="ScheduleGenerator.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="ScheduleEditor.cs">
+    <Compile Update="ScheduleViewer.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="SpringPortal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="StadiumEditor.cs">
+    <Compile Update="Stadium.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="StatsViewer.cs">

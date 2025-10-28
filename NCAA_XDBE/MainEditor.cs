@@ -1148,6 +1148,7 @@ namespace DB_EDITOR
             else if (tabControl1.SelectedTab == tabPlayoff) { StartPlayoffViewer(); }
             else if (tabControl1.SelectedTab == tabTeamStats) { StartTeamStatsViewer(); }
             else if (tabControl1.SelectedTab == tabRecruiting) { StartRecruitRankingsView(); }
+            else if (tabControl1.SelectedTab == tabOffSeason) { StartOffSeasonEditor(); }
 
         }
 

@@ -190,7 +190,7 @@ namespace DB_EDITOR
                     }
                     else if (ConfDisplayRanking.Checked)
                     {
-                        conferenceBox.Items.Add(GetDBValue("TEAM", "TDNA", i) + " [#" + (GetDBValueInt("TEAM", "TCRK", i) + 1) + "]");
+                        conferenceBox.Items.Add(GetDBValue("TEAM", "TDNA", i) + " [#" + (GetDBValueInt("TEAM", "TCRK", i)) + "]");
                         prestige += GetDBValueInt("TEAM", "TCRK", i);
                     }
                     else

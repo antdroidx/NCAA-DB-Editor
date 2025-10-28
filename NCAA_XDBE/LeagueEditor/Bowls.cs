@@ -32,9 +32,9 @@ namespace DB_EDITOR
 
             //Set Data Source
             BCI1.DataSource = BowlConferences().Items;
-            BCR1.DataSource = BowlSeeds().Items;
+            //BCR1.DataSource = BowlSeeds().Items;
             BCI2.DataSource = BowlConferences().Items;
-            BCR2.DataSource = BowlSeeds().Items;
+            //BCR2.DataSource = BowlSeeds().Items;
             SGID.DataSource = StadiumNames().Items;
             BMON.DataSource = BowlMonths().Items;
             BDAY.DataSource = BowlDates().Items;
