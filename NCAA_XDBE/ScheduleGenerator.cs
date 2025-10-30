@@ -94,7 +94,14 @@ namespace DB_EDITOR
                 int recH = FindTeamRecfromTeamName(teamNameDB[teamH]);
                 int recA = FindTeamRecfromTeamName(teamNameDB[teamA]);
 
-                if (KeepNDACCGames.Checked)
+                int GASC = GetDBValueInt("SCHD", "GASC", i);
+                int GHSC = GetDBValueInt("SCHD", "GHSC", i);
+
+                if(GASC > 0 || GHSC > 0)
+                {
+                    //do nothing
+                }
+                else if (KeepNDACCGames.Checked)
                 {
                     if (GetDBValueInt("SCHD", "SEWN", i) < 16 && !CheckOOCMatchup(recH, recA) && !CheckNDACC(recH, recA) && !CheckMilitaryGames(recH, recA))
                     {
@@ -349,7 +356,8 @@ namespace DB_EDITOR
                     if (!CheckOOCMatchup(teamA, teamB))
                     {
                         //check for matchup if it already exists
-                        for (int w = 1; w < 16; w++)
+                        int sewn = GetDBValueInt("SEAI", "SEWN", 0) + 1;
+                        for (int w = sewn; w < 16; w++)
                         {
                             if (MasterSchedule[teamA][w] == teamB)
                             {
@@ -360,7 +368,7 @@ namespace DB_EDITOR
 
                         if (!matchupcheck)
                         {
-                            for (int w = 1; w < 16; w++)
+                            for (int w = sewn; w < 16; w++)
                             {
                                 if (MasterSchedule[teamA][w] == 511 && MasterSchedule[teamB][w] == 511)
                                 {
@@ -619,8 +627,8 @@ namespace DB_EDITOR
             while (!scheduled && count < 50)
             {
                 int teamA = fcs[rand.Next(0, fcs.Count)];
-
-                for (int w = 0; w < 16; w++)
+                int sewn = GetDBValueInt("SEAI", "SEWN", 0);
+                for (int w = sewn; w < 16; w++)
                 {
                     if (MasterSchedule[teamH][w] == 511 && MasterSchedule[teamA][w] == 511)
                     {
@@ -638,7 +646,8 @@ namespace DB_EDITOR
 
             if (!scheduled)
             {
-                for (int w = 0; w < 16; w++)
+                int sewn = GetDBValueInt("SEAI", "SEWN", 0);
+                for (int w = sewn; w < 16; w++)
                 {
                     if (MasterSchedule[teamH][w] == 511)
                     {

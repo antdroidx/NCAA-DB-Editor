@@ -96,7 +96,7 @@ namespace DB_EDITOR
             if (!ArmyNavy && NextMod || !ArmyNavy && Next26Mod)
             {
                 ClearAnnuals();
-                TDB.TDBTableRecordAdd(dbIndex2, "SANN", false);
+                TDB.TDBTableRecordAdd(dbIndex2, "SANN", true);
                 ChangeDBInt("SANN", "GTOD", 0, 1200);
                 ChangeDBInt("SANN", "GATG", 0, 8);
                 ChangeDBInt("SANN", "GHTG", 0, 57);
@@ -105,7 +105,7 @@ namespace DB_EDITOR
                 ChangeDBInt("SANN", "GDAT", 0, 5);
                 ChangeDBInt("SANN", "SEWT", 0, 15);
 
-                TDB.TDBTableRecordAdd(dbIndex2, "SANN", false);
+                TDB.TDBTableRecordAdd(dbIndex2, "SANN", true);
                 ChangeDBInt("SANN", "GTOD", 1, 1200);
                 ChangeDBInt("SANN", "GATG", 1, 57);
                 ChangeDBInt("SANN", "GHTG", 1, 8);
