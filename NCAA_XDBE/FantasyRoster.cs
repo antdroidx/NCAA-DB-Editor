@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -43,7 +44,8 @@ namespace DB_EDITOR
             CreateLastNamesDB();
 
             List<List<string>> teamData = new List<List<string>>();
-            teamData = CreateStringListsFromCSV(@"resources\FantasyGenData.csv", true);
+            if(Next26Mod) teamData = CreateStringListsFromCSV(@"resources\FantasyGenData136.csv", true);
+            else teamData = CreateStringListsFromCSV(@"resources\FantasyGenData.csv", true);
 
             int rec = 0;
             int leagueType = 0;
@@ -70,6 +72,7 @@ namespace DB_EDITOR
                 }
             }
 
+            
             for (int i = 0; i < GetTableRecCount(tableName); i++)
             {
                 if (TDYN || GetDBValueInt(tableName, "TTYP", i) == 0)
@@ -77,27 +80,28 @@ namespace DB_EDITOR
                     int TOID = GetDBValueInt(tableName, "TOID", i);
                     int rating = GetFantasyTeamRating(teamData, TOID);
 
-                    FantasyRosterGeneratorSingle(TOID, rating, true);   
+                    GenerateFantasyRoster(TOID, rating, true);   
 
                     //Finish team and perform step counter
                     ProgressBarStep();
                 }
             }
-
+            
 
             EndProgressBar();
             MessageBox.Show("Fantasy Players Created!");
 
-            RecalculateOverall();
-            RecalculateBodyShape("PLAY");
-            RecalculateQBTendencies();
+            RecalculateOverall(true);
+            RecalculateBodyShape("PLAY", true);
+            RecalculateQBTendencies(true);
             CalculateAllTeamRatings(tableName);
-
-            MessageBox.Show("Fantasy Roster Generation is complete!\n\nRun the Depth Chart Tool to create Depth Charts!");
+            DepthChartMaker(tableName);
+            MessageBox.Show("Fantasy Roster Generation & Depth Charts are complete!");
 
         }
 
-        public void FantasyRosterGeneratorSingle(int tgid, int rating, bool skipPrompt = false)
+        //Generate Roster
+        public void GenerateFantasyRoster(int tgid, int rating, bool skipPrompt = false)
         {
 
             if (!skipPrompt)
@@ -219,6 +223,8 @@ namespace DB_EDITOR
             RecalculateOverall(true);
             RecalculateBodyShape("PLAY", true);
             RecalculateQBTendencies(true);
+            if (Next26Mod) DepthChartMakerSingle("PLAY", tgid, 136, true);
+            else DepthChartMakerSingle("PLAY", tgid, 120, true);
 
             if (!skipPrompt) MessageBox.Show(teamNameDB[tgid] + " Roster has been generated.");
         }
@@ -537,7 +543,6 @@ namespace DB_EDITOR
 
             return jersey;
         }
-
         private int PickRandomHometown()
         {
             int ht = 0;
@@ -617,6 +622,10 @@ namespace DB_EDITOR
             ChangeDBString("COCH", "CLFN", rec, FN);
             ChangeDBString("COCH", "CLLN", rec, LN);
 
+            //set age
+            int age = rand.Next(0, 60);
+            ChangeDBInt("COCH", "CYCD", rec, age);
+
             //skin, body, hair color, hair style, face, glasses, headwear
 
             int x = rand.Next(0, 3);
@@ -634,6 +643,12 @@ namespace DB_EDITOR
             ChangeDBInt("COCH", "CThg", rec, x);
 
             ChangeDBInt("COCH", "CFEX", rec, rand.Next(0, 6));
+            
+            //set face based on age
+            if (age < 20) ChangeDBInt("COCH", "CFEX", rec, rand.Next(0, 2));
+            else if (age < 40) ChangeDBInt("COCH", "CFEX", rec, rand.Next(2,4));
+            else ChangeDBInt("COCH", "CFEX", rec, rand.Next(4, 6));
+
             ChangeDBInt("COCH", "CTgw", rec, rand.Next(0, 2));
 
             x = rand.Next(0, 3);

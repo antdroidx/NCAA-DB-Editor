@@ -123,7 +123,7 @@ namespace DB_EDITOR
             else
             {
                 pgidBeg = 0;
-                pgidEnd = 8400;
+                pgidEnd = 255*70;
             }
 
             int row = 0;
@@ -264,7 +264,7 @@ namespace DB_EDITOR
 
 
             RosterSizeLabel.Text = "Roster: " + Convert.ToString(PlayerEditorList.Count);
-            if (PlayerEditorList.Count > 0) RosterSizeLabel.Text += " | Leaving: " + playersLeaving;
+            if (PlayerEditorList.Count > 0 && playersLeaving > 0) RosterSizeLabel.Text += " | Leaving: " + playersLeaving;
         }
 
         //Change Selected Team

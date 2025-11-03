@@ -1,0 +1,205 @@
+TGID,TEAM,PRESTIGE,League
+3,Alabama,6,0
+30,Georgia,6,0
+70,Ohio State,6,0
+74,Oregon,6,0
+92,Texas,6,0
+21,Clemson,5,0
+36,Indiana,5,0
+45,LSU,5,0
+49,Miami,5,0
+51,Michigan,5,0
+68,Notre Dame,5,0
+71,Oklahoma,5,0
+73,Ole Miss,5,0
+76,Penn State,5,0
+91,Tennessee,5,0
+93,Texas A&M,5,0
+102,USC,5,0
+5,Arizona State,4,0
+9,Auburn,4,0
+16,BYU,4,0
+20,Cincinnati,4,0
+22,Colorado,4,0
+27,Florida,4,0
+28,Florida State,4,0
+31,Georgia Tech,4,0
+33,Houston,4,0
+35,Illinois,4,0
+37,Iowa,4,0
+38,Iowa State,4,0
+44,Louisville,4,0
+55,Mississippi State,4,0
+56,Missouri,4,0
+58,Nebraska,4,0
+83,SMU,4,0
+94,Texas Tech,4,0
+103,Utah,4,0
+106,Vanderbilt,4,0
+110,Washington,4,0
+114,Wisconsin,4,0
+12,Boise State,4,0
+24,Duke,4,0
+4,Arizona,3,0
+6,Arkansas,3,0
+11,Baylor,3,0
+13,Boston College,3,0
+17,Cal,3,0
+18,UCF,3,0
+39,Kansas,3,0
+40,Kansas State,3,0
+42,Kentucky,3,0
+47,Maryland,3,0
+52,Michigan State,3,0
+54,Minnesota,3,0
+62,North Carolina,3,0
+63,NC State,3,0
+64,North Texas,3,0
+67,Northwestern,3,0
+72,Oklahoma State,3,0
+75,Oregon State,3,0
+77,Pittsburgh,3,0
+78,Purdue,3,0
+80,Rutgers,3,0
+81,San Diego State,3,0
+84,South Carolina,3,0
+87,Stanford,3,0
+88,Syracuse,3,0
+89,TCU,3,0
+96,Tulane,3,0
+99,UCLA,3,0
+101,UNLV,3,0
+107,Virginia,3,0
+108,Virginia Tech,3,0
+109,Wake Forest,3,0
+111,Washington State,3,0
+112,West Virginia,3,0
+144,USF,3,0
+161,Liberty,3,0
+86,Louisiana,2,0
+1,Air Force,2,0
+7,Arkansas State,2,0
+8,Army,2,0
+23,Colorado State,2,0
+25,ECU,2,0
+29,Fresno State,2,0
+32,Hawaii,2,0
+43,Louisiana Tech,2,0
+46,Marshall,2,0
+48,Memphis,2,0
+53,Mid Tenn State,2,0
+57,Navy,2,0
+59,Nevada,2,0
+60,New Mexico,2,0
+65,UL Monroe,2,0
+79,Rice,2,0
+82,San Jose State,2,0
+85,Southern Miss,2,0
+90,Temple,2,0
+97,Tulsa,2,0
+98,UAB,2,0
+100,Connecticut,2,0
+104,Utah State,2,0
+115,Wyoming,2,0
+143,Troy,2,0
+160,South Alabama,2,0
+162,Georgia State,2,0
+163,UTSA,2,0
+164,Old Dominion,2,0
+178,Coastal Carolina,2,0
+179,James Madison,2,0
+183,Charlotte,2,0
+188,Appalachian State,2,0
+193,Georgia Southern,2,0
+211,Western Kentucky,2,0
+217,Sam Houston St,2,0
+218,Texas State,2,0
+229,Florida Atlantic,2,0
+2,Akron,2,0
+10,Ball State,2,0
+14,Bowling Green,2,0
+15,Buffalo,2,0
+19,Central Michigan,2,0
+26,Eastern Michigan,2,0
+41,Kent State,2,0
+50,Miami University,2,0
+61,New Mexico State,2,0
+66,Northern Illinois,2,0
+69,Ohio,2,0
+95,Toledo,2,0
+105,UTEP,2,0
+113,Western Michigan,2,0
+177,Delaware,2,0
+181,UMass,2,0
+209,SMS,2,0
+223,Jacksonville State,2,0
+230,FIU,2,0
+249,Kennesaw State,2,0
+34,Idaho,1,1
+116,Alabama A&M,1,1
+117,Alabama State,1,1
+118,Alcorn State,1,1
+119,Ark - Pine Bluff,1,1
+120,Bethune-Cookman,1,1
+121,Brown,1,1
+122,Columbia,1,1
+123,Cornell,1,1
+124,Dartmouth,1,1
+125,Delaware State,1,1
+126,Florida A&M,1,1
+127,Grambling State,1,1
+128,Hampton,1,1
+129,Harvard,1,1
+130,Howard,1,1
+131,Jackson State,1,1
+132,Miss Valley State,1,1
+133,Morgan State,1,1
+134,Norfolk State,1,1
+135,NC A&T State,1,1
+136,Penn,1,1
+137,Prairie View A&M,1,1
+138,Princeton,1,1
+139,S Carolina State,1,1
+140,Southern,1,1
+141,Texas Southern,1,1
+142,Yale,1,1
+180,Maine,1,1
+182,New Hampshire,1,1
+184,Rhode Island,1,1
+185,Richmond,1,1
+186,Villanova,1,1
+187,William and Mary,1,1
+189,The Citadel,1,1
+191,Elon,1,1
+192,Furman,1,1
+194,Chattanooga,1,1
+195,Western Carolina,1,1
+196,Wofford,1,1
+197,E Washington,1,1
+198,Idaho State,1,1
+199,Montana,1,1
+200,Montana State,1,1
+201,Northern Arizona,1,1
+202,Portland State,1,1
+203,Sacramento State,1,1
+204,Weber State,1,1
+205,Illinois State,1,1
+206,Indiana State,1,1
+207,UNI,1,1
+208,Southern Illinois,1,1
+210,Western Illinois,1,1
+212,Youngstown State,1,1
+213,McNeese State,1,1
+214,Northwestern St,1,1
+215,Nicholls State,1,1
+216,Stephen F. Austin,1,1
+219,Eastern Illinois,1,1
+220,Murray State,1,1
+221,Eastern Kentucky,1,1
+222,SE Missouri St,1,1
+224,Tennessee Tech,1,1
+225,Tennessee State,1,1
+226,Samford,1,1
+227,Tennessee-Martin,1,1
+228,Towson,1,1
+231,Southeastern,1,1

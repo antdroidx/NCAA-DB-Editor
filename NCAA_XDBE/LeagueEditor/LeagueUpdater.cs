@@ -166,17 +166,17 @@ namespace DB_EDITOR
                 for (int i = 0; i < teamsAdded.Count; i++)
                 {
                     int tgid = teamsAdded[i];
-                    main.FantasyRosterGeneratorSingle(tgid, 1);
+                    main.GenerateFantasyRoster(tgid, 2, true);
 
                     int leaguesize = 120;
                    if(radio136.Checked) leaguesize = 136;
-                    main.DepthChartMakerSingle("TEAM", tgid, leaguesize);
+                    main.DepthChartMakerSingle("TEAM", tgid, leaguesize, true);
                     progressBar1.PerformStep();
                 }
 
 
                 main.TEAM = true;
-                main.RecalculateOverall();
+                main.RecalculateOverall(true);
                 main.CalculateAllTeamRatings("TEAM");
             }
 

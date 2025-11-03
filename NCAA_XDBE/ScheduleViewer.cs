@@ -573,6 +573,7 @@ namespace DB_EDITOR
             WeeklyBoxscoreView.Rows[1].Cells[0].Style.ForeColor = ChooseForeground(WeeklyBoxscoreView.Rows[1].Cells[0].Style.BackColor);
             WeeklyBoxscoreView.Rows[1].Cells[0].Style.Font = new Font(WeeklyBoxscoreView.Font.FontFamily, 10, FontStyle.Bold);
 
+            WeeklyBoxscoreView.ClearSelection();
 
             if (rec < 0) return;
 
@@ -704,12 +705,12 @@ namespace DB_EDITOR
             }
             else if (PAty == 2) //QB1
             {
-                return highlights = "" + stat1 + "/" + stat5 + " " + stat3 + " yards and " + stat4 + " TDs. " + stat0 + " rush yds";
+                return highlights = "" + stat1 + "/" + stat5 + " " + stat3 + " yards, " + stat4 + " TDs and " + stat0 + " rush yds";
 
             }
             else if (PAty == 3) //QB1
             {
-                return highlights = "" + stat1 + "/" + stat5 + " " + stat3 + " yards and " + stat4 + " TDs. " + stat0 + " rush yds";
+                return highlights = "" + stat1 + "/" + stat5 + " " + stat3 + " yards, " + stat4 + " TDs and " + stat0 + " rush yds";
             }
             else if (PAty == 5) //RB1
             {
@@ -725,11 +726,11 @@ namespace DB_EDITOR
             }
             else if (PAty == 8) //Def1
             {
-                return highlights = "" + stat1 + " tkls, " + stat4 + " TFLs and " + stat3 + " sacks.";
+                return highlights = "" + stat1 + " tkls, " + stat4 + " TFLs and " + stat3 + " sacks and " + stat2 + " ints";
             }
             else if (PAty == 9) //Def1
             {
-                return highlights = "" + stat1 + " tkls, " + stat4 + " TFLs and " + stat2 + " ints.";
+                return highlights = "" + stat1 + " tkls, " + stat4 + " TFLs and " + stat3 + " sacks and " + stat2 + " ints";
             }
             else if (PAty == 10) //kicking
             {
@@ -745,10 +746,13 @@ namespace DB_EDITOR
         {
             ClearOutOfConferenceOnly();
             CreateMasterScheduleDB();
-            //OutOfConferenceScheduling();
             OutOfConferenceSchedulingNEW();
+            SCHDTeamBox_SelectedIndexChanged(sender, e);
         }
 
+
+
+        //Colorizations
         private void MatchView_CellPainting(object sender, DataGridViewCellPaintingEventArgs e)
         {
             // Only paint value bars for rows 3 to 13 (index 2 to 14) and columns 1 and 2 (team ratings)

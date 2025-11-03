@@ -22,7 +22,7 @@ namespace DB_EDITOR
 
 
             //Out of Conference Scheduling Weeks 0 - 4
-            OutOfConferenceSchedulingOLD();
+            OutOfConferenceSchedulingNEW();
 
             //Pick a Conference & Schedule Games (Weeks 5-15) -- 9 games
             for (int i = 0; i < GetTableRecCount("CONF"); i++)
@@ -107,6 +107,10 @@ namespace DB_EDITOR
                     {
                         DeleteRecord("SCHD", i, true);
                     }
+                    else
+                    {
+                        ChangeDBInt("SCHD", "GMFX", i, 1);
+                    }
                 }
                 else
                 {
@@ -148,7 +152,8 @@ namespace DB_EDITOR
 
         }
 
-        private void OutOfConferenceSchedulingOLD()
+        /*
+       private void OutOfConferenceSchedulingOLD()
         {
             //divide 120 teams into 3 parts and schedule within each one
             List<int> groupA = new List<int>();
@@ -242,10 +247,14 @@ namespace DB_EDITOR
 
             MessageBox.Show("Out of Conference Scheduling Completed!");
         }
+        */
 
         private void OutOfConferenceSchedulingNEW()
         {
             StartProgressBar(300);
+            int maxCounter = 25000;
+
+
             List<List<int>> teamList = new List<List<int>>();
             List<int> fcs = new List<int>();
 
@@ -349,11 +358,13 @@ namespace DB_EDITOR
                 {
                     int teamA = rand.Next(0, groupA.Count);
                     int teamB = rand.Next(0, groupB.Count);
+                    int teamArec = groupA[teamA][0];
+                    int teamBrec = groupB[teamB][0];
                     teamA = groupA[teamA][1];
                     teamB = groupB[teamB][1];
                     bool scheduled = false;
                     bool matchupcheck = false;
-                    if (!CheckOOCMatchup(teamA, teamB))
+                    if (CheckOOCMatchup(teamArec, teamBrec) == false)
                     {
                         //check for matchup if it already exists
                         int sewn = GetDBValueInt("SEAI", "SEWN", 0) + 1;
@@ -410,7 +421,7 @@ namespace DB_EDITOR
 
                 int schdCount = GetTableRecCount("SCHD");
                 counter++;
-                if(counter >= 25000 || schdCount > capacity)
+                if(counter >= maxCounter || schdCount > capacity)
                 {
                     if (schdCount > capacity) MessageBox.Show("Scheduling Failed!\n\nToo many FCS games scheduled.\n\n Please re-run again until it works!");
                     else  MessageBox.Show("Scheduling Failed!\n\nDid not schedule enough games.\n\n Please re-run again until it works!");
@@ -418,7 +429,7 @@ namespace DB_EDITOR
                 }
             }
            
-            if(counter < 25000)
+            if(counter < maxCounter)
             MessageBox.Show("Out of Conference Scheduling Completed Succcessfully!");
             EndProgressBar();
         }
@@ -426,7 +437,7 @@ namespace DB_EDITOR
 
         private bool CheckOOCMatchup(int teamArec, int teamBrec)
         {
-            if (TDB.FieldValue(dbIndex, "TEAM", "CGID", teamArec) == TDB.FieldValue(dbIndex, "TEAM", "CGID", teamBrec)) return true;
+            if (GetDBValueInt("TEAM", "CGID", teamArec) == GetDBValueInt("TEAM", "CGID", teamBrec)) return true;
             else return false;
         }
 
@@ -679,7 +690,7 @@ namespace DB_EDITOR
             ChangeDBInt("SCHD", "SEWN", rec, wk);
             ChangeDBInt("SCHD", "GDAT", rec, 5);
             ChangeDBInt("SCHD", "SEWT", rec, wk);
-            int gmfx = rand.Next(0, 2);
+            int gmfx = 0;
             ChangeDBInt("SCHD", "GMFX", rec, gmfx);
 
             int sgnm = 0;

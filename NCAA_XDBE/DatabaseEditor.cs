@@ -444,11 +444,9 @@ namespace DB_EDITOR
                     {
                         string val = new string((char)0, (FieldProps.Size / 8) + 1);
 
-                        //string val = "";
-
+                        if(!BigEndian)
                         TDB.TDBFieldGetValueAsString(dbSelected, TableProps.Name, FieldProps.Name, r, ref val);
-
-                        //string val = "na";
+                        else val = "na";
                         DataGridRow[tmpf + 1] = val;
                     }
                     else
@@ -710,7 +708,6 @@ namespace DB_EDITOR
                         if (!checkTabExists("League Stats")) tabControl1.TabPages.Insert(6, tabLeagueStats);
                         if (!checkTabExists("Schedule")) tabControl1.TabPages.Insert(7, tabSchedule);
                         if (!checkTabExists("Playoff") && GetDBValueInt("SEAI", "SEWN", 0) >= 8) tabControl1.TabPages.Insert(8, tabPlayoff);
-
                     }
                     else if (table.Name == "UNIF" && !BigEndian)
                     {

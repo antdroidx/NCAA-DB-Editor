@@ -700,7 +700,7 @@ namespace DB_EDITOR
 
         private void CreateRoster(int i)
         {
-            FantasyRosterGeneratorSingle(i, 0, true);
+            GenerateFantasyRoster(i, 0, true);
             RecalculateOverall(true);
             DepthChartMakerSingle("PLAY", i, 136, true);
             

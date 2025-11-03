@@ -1163,7 +1163,7 @@ namespace DB_EDITOR
 
             if (result == DialogResult.Yes)
             {
-                FantasyRosterGeneratorSingle(GetDBValueInt("TEAM", "TGID", TeamIndex), Convert.ToInt32(TMPRNumBox.Value));
+                GenerateFantasyRoster(GetDBValueInt("TEAM", "TGID", TeamIndex), Convert.ToInt32(TMPRNumBox.Value));
             }
             RecalculateOverall();
 
@@ -1315,6 +1315,11 @@ namespace DB_EDITOR
         private void LoadTopPlayersViewer()
         {
             TopPlayersView.Rows.Clear();
+            if(GetTableRecCount("PLAY") < 1)
+            {
+                TopPlayersView.ClearSelection();
+                return;
+            }
 
             int tgid = GetDBValueInt("TEAM", "TGID", TeamIndex);
 

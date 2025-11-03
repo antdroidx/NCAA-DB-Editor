@@ -77,6 +77,14 @@ namespace DB_EDITOR
                 string team = teamNameDB[TGID];
                 if (TGID == 511) team = "Unemployed";
 
+
+                //set face based on age
+                int age = GetDBValueInt("COCH", "CYCD", i);
+                if (age < 20) ChangeDBInt("COCH", "CFEX", i, rand.Next(0, 2));
+                else if (age < 40) ChangeDBInt("COCH", "CFEX", i, rand.Next(2, 4));
+                else ChangeDBInt("COCH", "CFEX", i, rand.Next(4, 6));
+
+
                 //RETIRE COACHES
                 if (CoachRetirement.Checked && CYCD > rand.Next(42, 60) && GetDBValueInt("COCH", "CFUC", i) != 1)
                 {
@@ -858,6 +866,12 @@ namespace DB_EDITOR
                 if (cfuc != 1)
                     ChangeDBInt("COCH", "CYCD", i, ageList[ccid - 1][1] + seyr);
 
+
+                //set face based on age
+                int age = GetDBValueInt("COCH", "CYCD", i);
+                if (age < 20) ChangeDBInt("COCH", "CFEX", i, rand.Next(0, 2));
+                else if (age < 40) ChangeDBInt("COCH", "CFEX", i, rand.Next(2, 4));
+                else ChangeDBInt("COCH", "CFEX", i, rand.Next(4, 6));
             }
 
             MessageBox.Show("Coach Ages Updated!");

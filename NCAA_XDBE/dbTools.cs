@@ -50,11 +50,22 @@ namespace DB_EDITOR
             if (TDYN) FantastyRosterLeague.Visible = true;
             else FantastyRosterLeague.Visible = false;
 
+            if (Next26Mod)
+            {
+                DC77.Checked = true;
+                MaxFantasyPlayers.Value = 66;
+            }
+            else
+            {
+                DC77.Checked = false;
+                MaxFantasyPlayers.Value = 70;
+
+            }
         }
 
         #region MAIN DB TOOLS CLICKS
 
-        //Fixes Body Size Models if user does manipulation of the player attributes in the in-game player editor
+            //Fixes Body Size Models if user does manipulation of the player attributes in the in-game player editor
         private void BodyFix_Click(object sender, EventArgs e)
         {
             RecalculateBodyShape("PLAY");
@@ -460,6 +471,24 @@ namespace DB_EDITOR
             StartProgressBar(GetTableRecCount(tableName));
 
             List<List<List<int>>> AllRosters = new List<List<List<int>>>();
+            
+            List<List<int>> InjuryList = new List<List<int>>();
+            for (int i = 0; i < (70 * 255); i++)
+            {
+                InjuryList.Add(new List<int>());
+                InjuryList[i].Add(0);
+            }
+
+
+            if (TeamRatingExcludeInjury.Checked)
+            {
+                for (int i = 0; i < GetTableRecCount("INJY"); i++)
+                {
+                    int PGID = GetDBValueInt("INJY", "PGID", i);
+                    InjuryList[PGID][0] = GetDBValueInt("INJY", "INJL", i);
+                }
+            }
+
 
             for (int i = 0; i < 512; i++)
             {
@@ -475,12 +504,18 @@ namespace DB_EDITOR
                 int POVR = GetDBValueInt("PLAY", "POVR", j);
                 int PPOS = GetDBValueInt("PLAY", "PPOS", j);
 
-                int count = AllRosters[TGID].Count;
-                List<int> player = new List<int>();
-                AllRosters[TGID].Add(player);
-                AllRosters[TGID][count].Add(POVR);
-                AllRosters[TGID][count].Add(PPOS);
-                AllRosters[TGID][count].Add(PGID); // Add PGID to roster for reference
+                int sewn = GetDBValueInt("SEAI", "SEWN", 0);
+
+
+                if (InjuryList[PGID][0] < (255 - sewn*15))
+                {
+                    int count = AllRosters[TGID].Count;
+                    List<int> player = new List<int>();
+                    AllRosters[TGID].Add(player);
+                    AllRosters[TGID][count].Add(POVR);
+                    AllRosters[TGID][count].Add(PPOS);
+                    AllRosters[TGID][count].Add(PGID); // Add PGID to roster for reference
+                }
             }
 
             for (int i = 0; i < GetTableRecCount(tableName); i++)
@@ -564,13 +599,14 @@ namespace DB_EDITOR
 
                 if (PPOS >= 16 && PPOS <= 18)
                 {
-                    rating += roster[j][0];
+                    if(count == 4) rating += roster[j][0];
+                    else rating += 2*roster[j][0];
                     count++;
                 }
                 if (count >= 5) break;
             }
 
-            rating = ConvertRating(rating / count) + bonus;
+            rating = ConvertRating(rating / ((count-1)*2 + 1)) + bonus;
 
             ChangeDBString(tableName, "TRDB", teamRec, Convert.ToString(rating));
 
@@ -643,13 +679,14 @@ namespace DB_EDITOR
 
                 if (PPOS >= 1 && PPOS <= 2)
                 {
-                    rating += roster[j][0];
+                    if(count == 1) rating += roster[j][0];
+                    else rating += 2*roster[j][0];
                     count++;
                 }
                 if (count >= 2) break;
             }
 
-            rating = ConvertRating(rating / count) + bonus;
+            rating = ConvertRating(rating / 3) + bonus;
 
             ChangeDBString(tableName, "TRRB", teamRec, Convert.ToString(rating));
 
@@ -662,13 +699,14 @@ namespace DB_EDITOR
 
                 if (PPOS >= 10 && PPOS <= 12)
                 {
-                    rating += roster[j][0];
+                    if (count == 4) rating += roster[j][0];
+                    else rating += 2 * roster[j][0];
                     count++;
                 }
-                if (count >= 6) break;
+                if (count >= 5) break;
             }
 
-            rating = ConvertRating(rating / count) + bonus;
+            rating = ConvertRating(rating / ((count - 1) * 2 + 1)) + bonus;
 
             ChangeDBString(tableName, "TRDL", teamRec, Convert.ToString(rating));
 
@@ -684,7 +722,7 @@ namespace DB_EDITOR
                     rating += roster[j][0];
                     count++;
                 }
-                if (count >= 6) break;
+                if (count >= 5) break;
             }
 
             rating = ConvertRating(rating / count) + bonus;
@@ -700,13 +738,14 @@ namespace DB_EDITOR
 
                 if (PPOS >= 3 && PPOS <= 4)
                 {
-                    rating += roster[j][0];
+                    if (count == 4) rating += roster[j][0];
+                    else rating += 2 * roster[j][0];
                     count++;
                 }
                 if (count >= 5) break;
             }
 
-            rating = ConvertRating(rating / count) + bonus;
+            rating = ConvertRating(rating / ((count - 1) * 2 + 1)) + bonus;
 
             ChangeDBString(tableName, "TWRR", teamRec, Convert.ToString(rating));
 
@@ -753,10 +792,20 @@ namespace DB_EDITOR
 
         public void NormalizeTeamRatings(string tableName)
         {
+            /*
             double meanOff = 78;
             double meanDef = 78;
             double rangeOffFactor = 1.33;
             double rangeDefFactor = 1.33;
+            */
+
+            double HRAC = 90;
+            double LRAC = 67;
+            double HRDE = 98;
+            double LRDE = 55;
+            double rangeAC = HRAC - LRAC;
+            double rangeDE = HRDE - LRDE;
+
             List<int> offRatings = new List<int>();
             List<int> defRatings = new List<int>();
 
@@ -787,12 +836,14 @@ namespace DB_EDITOR
                 }
 
                 //Calculate Stats
+                /*
                 meanOff = offRatings.Average();
                 meanDef = defRatings.Average();
                 int rangeOff = offRatings.Max() - offRatings.Min();
                 int rangeDef = defRatings.Max() - defRatings.Min();
                 rangeOffFactor = 50 / rangeOff;
                 rangeDefFactor = 50 / rangeDef;
+                */
             }
 
             //Calculate Normalized Rating on a 55-99scale
@@ -802,11 +853,18 @@ namespace DB_EDITOR
             {
                 if (TEAM && GetDBValueInt(tableName, "TTYP", x) < 1 || TDYN)
                 {
+                    /*
                     double normalOff = GetDBValueInt(tableName, "TROF", x) - meanOff;
                     double normalDef = GetDBValueInt(tableName, "TRDE", x) - meanDef;
                     int offRating = Convert.ToInt32(normalOff * rangeOffFactor + meanOff);
                     int defRating = Convert.ToInt32(normalDef * rangeDefFactor + meanDef);
-                   
+                    */
+
+                    double normalOff = GetDBValueInt(tableName, "TROF", x) - LRAC;
+                    double normalDef = GetDBValueInt(tableName, "TRDE", x) - LRAC;
+                    int offRating = Convert.ToInt32((normalOff * rangeDE / rangeAC) + LRDE);
+                    int defRating = Convert.ToInt32((normalDef * rangeDE / rangeAC) + LRDE);
+
                     int stRating = GetDBValueInt(tableName, "TRST", x);
 
                     ChangeDBInt(tableName, "TROF", x, offRating);
