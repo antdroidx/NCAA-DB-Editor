@@ -205,7 +205,7 @@ namespace DB_EDITOR
             notifyIcon1 = new NotifyIcon(components);
             DB1Button = new RadioButton();
             DB2Button = new RadioButton();
-            groupBox2 = new GroupBox();
+            DBChooserGroupBox = new GroupBox();
             tabDev = new TabPage();
             buttonLEAGUEROSTERS = new System.Windows.Forms.Button();
             CFUSAexportButton = new System.Windows.Forms.Button();
@@ -298,13 +298,16 @@ namespace DB_EDITOR
             DefaultPlaysRadio = new RadioButton();
             CustomPlaysRadio = new RadioButton();
             tabTools = new TabPage();
+            TeamRatingExcludeInjury = new CheckBox();
             LoadCoachAge = new System.Windows.Forms.Button();
             PlayoffRankerButton = new System.Windows.Forms.Button();
             ExportDraft = new System.Windows.Forms.Button();
             FixHometownButton = new System.Windows.Forms.Button();
+            ClearExpiredStats = new System.Windows.Forms.Button();
             ReRankTeamsAP = new CheckBox();
             ResetDynYear = new System.Windows.Forms.Button();
             groupBox38 = new GroupBox();
+            RandomizePlayerGearButton = new System.Windows.Forms.Button();
             FantastyRosterLeague = new Panel();
             label263 = new Label();
             radioButton1 = new RadioButton();
@@ -315,7 +318,6 @@ namespace DB_EDITOR
             MaxFantasyPlayers = new NumericUpDown();
             label262 = new Label();
             buttonAutoDepthChart = new System.Windows.Forms.Button();
-            ClearExpiredStats = new System.Windows.Forms.Button();
             buttonFantasyRoster = new System.Windows.Forms.Button();
             groupBox22 = new GroupBox();
             FantasyCSV = new RadioButton();
@@ -364,7 +366,7 @@ namespace DB_EDITOR
             MinAttButton = new System.Windows.Forms.Button();
             MaxAttRating = new System.Windows.Forms.TextBox();
             GlobalAttButton = new System.Windows.Forms.Button();
-            UniquePlayerButton = new System.Windows.Forms.Button();
+            RandomizeSkinTonesButton = new System.Windows.Forms.Button();
             SyncPBButton = new System.Windows.Forms.Button();
             textBox3 = new System.Windows.Forms.TextBox();
             ReorderPGIDButton = new System.Windows.Forms.Button();
@@ -385,6 +387,7 @@ namespace DB_EDITOR
             minRecPts = new NumericUpDown();
             labelMinRecPts = new Label();
             groupBox16 = new GroupBox();
+            RandomizeRecruitGear = new System.Windows.Forms.Button();
             groupBox25 = new GroupBox();
             min2Stars = new RadioButton();
             min1Stars = new RadioButton();
@@ -679,6 +682,7 @@ namespace DB_EDITOR
             DCHT4 = new DataGridViewComboBoxColumn();
             DCHT5 = new DataGridViewComboBoxColumn();
             tabSchedule = new TabPage();
+            ScheduleStrengthLabel = new Label();
             WeeklyHighlightView = new DataGridView();
             WeeklyBoxscoreView = new DataGridView();
             ScheduleComboBox = new System.Windows.Forms.ComboBox();
@@ -689,6 +693,11 @@ namespace DB_EDITOR
             MatchHomeTeam = new DataGridViewTextBoxColumn();
             SCHDrecord = new Label();
             groupBox21 = new GroupBox();
+            label186 = new Label();
+            label171 = new Label();
+            ConfGames = new NumericUpDown();
+            RoundRobinSchedule = new CheckBox();
+            ScheduleSeason = new System.Windows.Forms.Button();
             KeepNDACCGames = new CheckBox();
             RescheduleOOC = new System.Windows.Forms.Button();
             SchdTeamName = new Label();
@@ -1456,13 +1465,12 @@ namespace DB_EDITOR
             groupBox41 = new GroupBox();
             buttonRCATBody = new System.Windows.Forms.Button();
             toolTip1 = new System.Windows.Forms.ToolTip(components);
-            TeamRatingExcludeInjury = new CheckBox();
             mainMenu.SuspendLayout();
             tableMenu.SuspendLayout();
             fieldMenu.SuspendLayout();
             TablePropsgroupBox.SuspendLayout();
             FieldsPropsgroupBox.SuspendLayout();
-            groupBox2.SuspendLayout();
+            DBChooserGroupBox.SuspendLayout();
             tabDev.SuspendLayout();
             tabUniforms.SuspendLayout();
             groupBox5.SuspendLayout();
@@ -1566,6 +1574,7 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)WeeklyBoxscoreView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)MatchView).BeginInit();
             groupBox21.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)ConfGames).BeginInit();
             ((System.ComponentModel.ISupportInitialize)ScheduleView).BeginInit();
             tabDynasty.SuspendLayout();
             groupBox47.SuspendLayout();
@@ -1721,7 +1730,7 @@ namespace DB_EDITOR
             qbTend.BackColor = SystemColors.MenuHighlight;
             qbTend.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             qbTend.ForeColor = SystemColors.ActiveCaptionText;
-            qbTend.Location = new Point(259, 392);
+            qbTend.Location = new Point(259, 481);
             qbTend.Name = "qbTend";
             qbTend.Size = new Size(145, 80);
             qbTend.TabIndex = 11;
@@ -1737,7 +1746,7 @@ namespace DB_EDITOR
             mainMenu.Items.AddRange(new ToolStripItem[] { fileMenuItem, CSVMenu, optionsMenuItem, LeagueMakerToolStripMenuItem, aboutMenuItem });
             mainMenu.Location = new Point(0, 0);
             mainMenu.Name = "mainMenu";
-            mainMenu.Size = new Size(1184, 25);
+            mainMenu.Size = new Size(1180, 25);
             mainMenu.TabIndex = 0;
             mainMenu.Text = "menuStrip1";
             // 
@@ -1922,9 +1931,9 @@ namespace DB_EDITOR
             // 
             progressBar1.Anchor = (AnchorStyles)(AnchorStyles.Bottom) | (AnchorStyles.Right);
             progressBar1.BackColor = SystemColors.Control;
-            progressBar1.Location = new Point(930, 676);
+            progressBar1.Location = new Point(926, 672);
             progressBar1.Name = "progressBar1";
-            progressBar1.Size = new Size(238, 29);
+            progressBar1.Size = new Size(238, 32);
             progressBar1.Step = 1;
             progressBar1.Style = ProgressBarStyle.Continuous;
             progressBar1.TabIndex = 1;
@@ -2049,7 +2058,7 @@ namespace DB_EDITOR
             // 
             TablePropsLabel.Anchor = (AnchorStyles)(AnchorStyles.Bottom) | (AnchorStyles.Left);
             TablePropsLabel.ForeColor = SystemColors.ControlText;
-            TablePropsLabel.Location = new Point(6, 19);
+            TablePropsLabel.Location = new Point(6, 20);
             TablePropsLabel.Name = "TablePropsLabel";
             TablePropsLabel.Size = new Size(363, 19);
             TablePropsLabel.TabIndex = 5;
@@ -2069,8 +2078,8 @@ namespace DB_EDITOR
             // 
             TablePropsgroupBox.Anchor = (AnchorStyles)(AnchorStyles.Bottom) | (AnchorStyles.Left);
             TablePropsgroupBox.Controls.Add(TablePropsLabel);
-            TablePropsgroupBox.ForeColor = SystemColors.ScrollBar;
-            TablePropsgroupBox.Location = new Point(16, 668);
+            TablePropsgroupBox.ForeColor = SystemColors.ControlText;
+            TablePropsgroupBox.Location = new Point(16, 665);
             TablePropsgroupBox.Name = "TablePropsgroupBox";
             TablePropsgroupBox.Size = new Size(375, 46);
             TablePropsgroupBox.TabIndex = 7;
@@ -2081,8 +2090,8 @@ namespace DB_EDITOR
             // 
             FieldsPropsgroupBox.Anchor = (AnchorStyles)(AnchorStyles.Bottom) | (AnchorStyles.Left);
             FieldsPropsgroupBox.Controls.Add(FieldsPropsLabel);
-            FieldsPropsgroupBox.ForeColor = SystemColors.ScrollBar;
-            FieldsPropsgroupBox.Location = new Point(407, 668);
+            FieldsPropsgroupBox.ForeColor = SystemColors.ControlText;
+            FieldsPropsgroupBox.Location = new Point(407, 665);
             FieldsPropsgroupBox.Name = "FieldsPropsgroupBox";
             FieldsPropsgroupBox.Size = new Size(345, 46);
             FieldsPropsgroupBox.TabIndex = 4;
@@ -2122,17 +2131,18 @@ namespace DB_EDITOR
             DB2Button.UseVisualStyleBackColor = true;
             DB2Button.CheckedChanged += (this.DB2Button_CheckedChanged);
             // 
-            // groupBox2
+            // DBChooserGroupBox
             // 
-            groupBox2.Anchor = (AnchorStyles)(AnchorStyles.Bottom) | (AnchorStyles.Left);
-            groupBox2.Controls.Add(DB2Button);
-            groupBox2.Controls.Add(DB1Button);
-            groupBox2.Location = new Point(757, 668);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(157, 46);
-            groupBox2.TabIndex = 8;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "Database";
+            DBChooserGroupBox.Anchor = (AnchorStyles)(AnchorStyles.Bottom) | (AnchorStyles.Left);
+            DBChooserGroupBox.Controls.Add(DB2Button);
+            DBChooserGroupBox.Controls.Add(DB1Button);
+            DBChooserGroupBox.ForeColor = SystemColors.ControlText;
+            DBChooserGroupBox.Location = new Point(757, 665);
+            DBChooserGroupBox.Name = "DBChooserGroupBox";
+            DBChooserGroupBox.Size = new Size(157, 46);
+            DBChooserGroupBox.TabIndex = 8;
+            DBChooserGroupBox.TabStop = false;
+            DBChooserGroupBox.Text = "Database";
             // 
             // tabDev
             // 
@@ -2167,7 +2177,7 @@ namespace DB_EDITOR
             tabDev.Location = new Point(4, 29);
             tabDev.Name = "tabDev";
             tabDev.Padding = new Padding(3);
-            tabDev.Size = new Size(1152, 610);
+            tabDev.Size = new Size(1152, 611);
             tabDev.TabIndex = 8;
             tabDev.Text = "Dev";
             // 
@@ -2513,7 +2523,7 @@ namespace DB_EDITOR
             tabUniforms.Location = new Point(4, 29);
             tabUniforms.Name = "tabUniforms";
             tabUniforms.Padding = new Padding(3);
-            tabUniforms.Size = new Size(1152, 610);
+            tabUniforms.Size = new Size(1152, 611);
             tabUniforms.TabIndex = 13;
             tabUniforms.Text = "Uniforms";
             tabUniforms.UseVisualStyleBackColor = true;
@@ -2823,7 +2833,7 @@ namespace DB_EDITOR
             tabPlaybook.Location = new Point(4, 29);
             tabPlaybook.Name = "tabPlaybook";
             tabPlaybook.Padding = new Padding(3);
-            tabPlaybook.Size = new Size(1152, 610);
+            tabPlaybook.Size = new Size(1152, 611);
             tabPlaybook.TabIndex = 10;
             tabPlaybook.Text = "Playbook";
             tabPlaybook.UseVisualStyleBackColor = true;
@@ -3209,13 +3219,14 @@ namespace DB_EDITOR
             tabTools.Controls.Add(PlayoffRankerButton);
             tabTools.Controls.Add(ExportDraft);
             tabTools.Controls.Add(FixHometownButton);
+            tabTools.Controls.Add(ClearExpiredStats);
             tabTools.Controls.Add(ReRankTeamsAP);
             tabTools.Controls.Add(ResetDynYear);
             tabTools.Controls.Add(groupBox38);
             tabTools.Controls.Add(ReRankTeams);
             tabTools.Controls.Add(FixHCBugsButton);
             tabTools.Controls.Add(groupBox18);
-            tabTools.Controls.Add(UniquePlayerButton);
+            tabTools.Controls.Add(RandomizeSkinTonesButton);
             tabTools.Controls.Add(SyncPBButton);
             tabTools.Controls.Add(textBox3);
             tabTools.Controls.Add(ReorderPGIDButton);
@@ -3224,9 +3235,19 @@ namespace DB_EDITOR
             tabTools.Location = new Point(4, 29);
             tabTools.Name = "tabTools";
             tabTools.Padding = new Padding(3);
-            tabTools.Size = new Size(1152, 610);
+            tabTools.Size = new Size(1152, 611);
             tabTools.TabIndex = 5;
             tabTools.Text = "dbTools";
+            // 
+            // TeamRatingExcludeInjury
+            // 
+            TeamRatingExcludeInjury.AutoSize = true;
+            TeamRatingExcludeInjury.Location = new Point(22, 171);
+            TeamRatingExcludeInjury.Name = "TeamRatingExcludeInjury";
+            TeamRatingExcludeInjury.Size = new Size(136, 17);
+            TeamRatingExcludeInjury.TabIndex = 67;
+            TeamRatingExcludeInjury.Text = "Exclude Injured Players";
+            TeamRatingExcludeInjury.UseVisualStyleBackColor = true;
             // 
             // LoadCoachAge
             // 
@@ -3278,6 +3299,19 @@ namespace DB_EDITOR
             FixHometownButton.UseVisualStyleBackColor = false;
             FixHometownButton.Click += (this.FixHometownButton_Click);
             // 
+            // ClearExpiredStats
+            // 
+            ClearExpiredStats.BackColor = SystemColors.MenuHighlight;
+            ClearExpiredStats.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            ClearExpiredStats.ForeColor = SystemColors.ActiveCaptionText;
+            ClearExpiredStats.Location = new Point(148, 526);
+            ClearExpiredStats.Name = "ClearExpiredStats";
+            ClearExpiredStats.Size = new Size(108, 60);
+            ClearExpiredStats.TabIndex = 59;
+            ClearExpiredStats.Text = "Clear Expired Stats Data";
+            ClearExpiredStats.UseVisualStyleBackColor = false;
+            ClearExpiredStats.Click += (this.ClearExpiredStats_Click);
+            // 
             // ReRankTeamsAP
             // 
             ReRankTeamsAP.AutoSize = true;
@@ -3305,12 +3339,12 @@ namespace DB_EDITOR
             // 
             groupBox38.AutoSize = true;
             groupBox38.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            groupBox38.Controls.Add(RandomizePlayerGearButton);
             groupBox38.Controls.Add(FantastyRosterLeague);
             groupBox38.Controls.Add(DepthChartSize);
             groupBox38.Controls.Add(MaxFantasyPlayers);
             groupBox38.Controls.Add(label262);
             groupBox38.Controls.Add(buttonAutoDepthChart);
-            groupBox38.Controls.Add(ClearExpiredStats);
             groupBox38.Controls.Add(buttonFantasyRoster);
             groupBox38.Controls.Add(groupBox22);
             groupBox38.Controls.Add(buttonFillRosters);
@@ -3328,6 +3362,19 @@ namespace DB_EDITOR
             groupBox38.TabIndex = 60;
             groupBox38.TabStop = false;
             groupBox38.Text = "Roster Tools";
+            // 
+            // RandomizePlayerGearButton
+            // 
+            RandomizePlayerGearButton.BackColor = SystemColors.MenuHighlight;
+            RandomizePlayerGearButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            RandomizePlayerGearButton.ForeColor = SystemColors.ActiveCaptionText;
+            RandomizePlayerGearButton.Location = new Point(261, 305);
+            RandomizePlayerGearButton.Name = "RandomizePlayerGearButton";
+            RandomizePlayerGearButton.Size = new Size(143, 80);
+            RandomizePlayerGearButton.TabIndex = 64;
+            RandomizePlayerGearButton.Text = "Randomize Player Gear";
+            RandomizePlayerGearButton.UseVisualStyleBackColor = false;
+            RandomizePlayerGearButton.Click += (this.RandomizePlayerGearButton_Click);
             // 
             // FantastyRosterLeague
             // 
@@ -3430,26 +3477,13 @@ namespace DB_EDITOR
             buttonAutoDepthChart.BackColor = SystemColors.MenuHighlight;
             buttonAutoDepthChart.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             buttonAutoDepthChart.ForeColor = SystemColors.ActiveCaptionText;
-            buttonAutoDepthChart.Location = new Point(259, 86);
+            buttonAutoDepthChart.Location = new Point(259, 218);
             buttonAutoDepthChart.Name = "buttonAutoDepthChart";
-            buttonAutoDepthChart.Size = new Size(145, 80);
+            buttonAutoDepthChart.Size = new Size(143, 80);
             buttonAutoDepthChart.TabIndex = 19;
             buttonAutoDepthChart.Text = "Auto-Set Depth Chart";
             buttonAutoDepthChart.UseVisualStyleBackColor = false;
             buttonAutoDepthChart.Click += (this.buttonAutoDepthChart_Click);
-            // 
-            // ClearExpiredStats
-            // 
-            ClearExpiredStats.BackColor = SystemColors.MenuHighlight;
-            ClearExpiredStats.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            ClearExpiredStats.ForeColor = SystemColors.ActiveCaptionText;
-            ClearExpiredStats.Location = new Point(259, 482);
-            ClearExpiredStats.Name = "ClearExpiredStats";
-            ClearExpiredStats.Size = new Size(145, 80);
-            ClearExpiredStats.TabIndex = 59;
-            ClearExpiredStats.Text = "Clear Expired Stats Data";
-            ClearExpiredStats.UseVisualStyleBackColor = false;
-            ClearExpiredStats.Click += (this.ClearExpiredStats_Click);
             // 
             // buttonFantasyRoster
             // 
@@ -3502,7 +3536,7 @@ namespace DB_EDITOR
             buttonFillRosters.BackColor = SystemColors.MenuHighlight;
             buttonFillRosters.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             buttonFillRosters.ForeColor = SystemColors.ActiveCaptionText;
-            buttonFillRosters.Location = new Point(259, 180);
+            buttonFillRosters.Location = new Point(257, 130);
             buttonFillRosters.Name = "buttonFillRosters";
             buttonFillRosters.Size = new Size(145, 81);
             buttonFillRosters.TabIndex = 20;
@@ -3513,7 +3547,7 @@ namespace DB_EDITOR
             // FillRosterPCT
             // 
             FillRosterPCT.Increment = new decimal(new int[] { 5, 0, 0, 0 });
-            FillRosterPCT.Location = new Point(312, 280);
+            FillRosterPCT.Location = new Point(309, 101);
             FillRosterPCT.Name = "FillRosterPCT";
             FillRosterPCT.Size = new Size(42, 20);
             FillRosterPCT.TabIndex = 22;
@@ -3523,7 +3557,7 @@ namespace DB_EDITOR
             // label58
             // 
             label58.AutoSize = true;
-            label58.Location = new Point(270, 264);
+            label58.Location = new Point(267, 85);
             label58.Name = "label58";
             label58.Size = new Size(126, 13);
             label58.TabIndex = 23;
@@ -3547,9 +3581,9 @@ namespace DB_EDITOR
             buttonRandPotential.BackColor = SystemColors.MenuHighlight;
             buttonRandPotential.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             buttonRandPotential.ForeColor = SystemColors.ActiveCaptionText;
-            buttonRandPotential.Location = new Point(259, 305);
+            buttonRandPotential.Location = new Point(259, 394);
             buttonRandPotential.Name = "buttonRandPotential";
-            buttonRandPotential.Size = new Size(145, 74);
+            buttonRandPotential.Size = new Size(143, 77);
             buttonRandPotential.TabIndex = 12;
             buttonRandPotential.Text = "Randomize Player Potential";
             buttonRandPotential.UseVisualStyleBackColor = false;
@@ -3560,9 +3594,9 @@ namespace DB_EDITOR
             RandomizeHeadButton.BackColor = SystemColors.MenuHighlight;
             RandomizeHeadButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             RandomizeHeadButton.ForeColor = SystemColors.ActiveCaptionText;
-            RandomizeHeadButton.Location = new Point(8, 302);
+            RandomizeHeadButton.Location = new Point(8, 305);
             RandomizeHeadButton.Name = "RandomizeHeadButton";
-            RandomizeHeadButton.Size = new Size(239, 77);
+            RandomizeHeadButton.Size = new Size(239, 80);
             RandomizeHeadButton.TabIndex = 24;
             RandomizeHeadButton.Text = "Randomize Player Head/Face";
             RandomizeHeadButton.UseVisualStyleBackColor = false;
@@ -3573,7 +3607,7 @@ namespace DB_EDITOR
             bodyFix.BackColor = SystemColors.MenuHighlight;
             bodyFix.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             bodyFix.ForeColor = SystemColors.ActiveCaptionText;
-            bodyFix.Location = new Point(8, 391);
+            bodyFix.Location = new Point(8, 394);
             bodyFix.Name = "bodyFix";
             bodyFix.Size = new Size(239, 80);
             bodyFix.TabIndex = 9;
@@ -3989,18 +4023,18 @@ namespace DB_EDITOR
             GlobalAttButton.UseVisualStyleBackColor = false;
             GlobalAttButton.Click += (this.GlobalAttButton_Click);
             // 
-            // UniquePlayerButton
+            // RandomizeSkinTonesButton
             // 
-            UniquePlayerButton.BackColor = SystemColors.MenuHighlight;
-            UniquePlayerButton.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
-            UniquePlayerButton.ForeColor = SystemColors.ActiveCaptionText;
-            UniquePlayerButton.Location = new Point(16, 328);
-            UniquePlayerButton.Name = "UniquePlayerButton";
-            UniquePlayerButton.Size = new Size(110, 60);
-            UniquePlayerButton.TabIndex = 54;
-            UniquePlayerButton.Text = "Texture Modding: Unique Players";
-            UniquePlayerButton.UseVisualStyleBackColor = false;
-            UniquePlayerButton.Click += (this.UniquePlayer_Click);
+            RandomizeSkinTonesButton.BackColor = SystemColors.MenuHighlight;
+            RandomizeSkinTonesButton.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
+            RandomizeSkinTonesButton.ForeColor = SystemColors.ActiveCaptionText;
+            RandomizeSkinTonesButton.Location = new Point(16, 328);
+            RandomizeSkinTonesButton.Name = "RandomizeSkinTonesButton";
+            RandomizeSkinTonesButton.Size = new Size(110, 60);
+            RandomizeSkinTonesButton.TabIndex = 54;
+            RandomizeSkinTonesButton.Text = "Randomize Skin Tones";
+            RandomizeSkinTonesButton.UseVisualStyleBackColor = false;
+            RandomizeSkinTonesButton.Click += (this.RandomizeSkinTones_Click);
             // 
             // SyncPBButton
             // 
@@ -4077,14 +4111,14 @@ namespace DB_EDITOR
             tabOffSeason.Location = new Point(4, 29);
             tabOffSeason.Name = "tabOffSeason";
             tabOffSeason.Padding = new Padding(3);
-            tabOffSeason.Size = new Size(1152, 610);
+            tabOffSeason.Size = new Size(1152, 611);
             tabOffSeason.TabIndex = 4;
             tabOffSeason.Text = "Off-Season";
             // 
             // groupBox43
             // 
             groupBox43.Controls.Add(AutoAdjustCoachBudgetButton2);
-            groupBox43.Location = new Point(52, 66);
+            groupBox43.Location = new Point(52, 58);
             groupBox43.Name = "groupBox43";
             groupBox43.Size = new Size(490, 90);
             groupBox43.TabIndex = 26;
@@ -4093,7 +4127,7 @@ namespace DB_EDITOR
             // 
             // AutoAdjustCoachBudgetButton2
             // 
-            AutoAdjustCoachBudgetButton2.BackColor = SystemColors.Highlight;
+            AutoAdjustCoachBudgetButton2.BackColor = Color.MidnightBlue;
             AutoAdjustCoachBudgetButton2.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             AutoAdjustCoachBudgetButton2.ForeColor = SystemColors.ControlLight;
             AutoAdjustCoachBudgetButton2.Location = new Point(31, 23);
@@ -4115,16 +4149,16 @@ namespace DB_EDITOR
             groupBox17.Controls.Add(minTRPA);
             groupBox17.Controls.Add(label12);
             groupBox17.Controls.Add(groupBox52);
-            groupBox17.Location = new Point(52, 184);
+            groupBox17.Location = new Point(52, 167);
             groupBox17.Name = "groupBox17";
-            groupBox17.Size = new Size(490, 410);
+            groupBox17.Size = new Size(490, 427);
             groupBox17.TabIndex = 25;
             groupBox17.TabStop = false;
             groupBox17.Text = "Players Leaving Phase";
             // 
             // CreateFCSTransferPortalButton
             // 
-            CreateFCSTransferPortalButton.BackColor = SystemColors.Highlight;
+            CreateFCSTransferPortalButton.BackColor = Color.MidnightBlue;
             CreateFCSTransferPortalButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
             CreateFCSTransferPortalButton.ForeColor = SystemColors.ButtonFace;
             CreateFCSTransferPortalButton.Location = new Point(28, 147);
@@ -4137,9 +4171,9 @@ namespace DB_EDITOR
             // 
             // ExportDC2
             // 
-            ExportDC2.BackColor = SystemColors.Info;
+            ExportDC2.BackColor = Color.DodgerBlue;
             ExportDC2.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            ExportDC2.ForeColor = SystemColors.ActiveCaptionText;
+            ExportDC2.ForeColor = SystemColors.ButtonFace;
             ExportDC2.Location = new Point(251, 255);
             ExportDC2.Name = "ExportDC2";
             ExportDC2.Size = new Size(181, 71);
@@ -4150,7 +4184,7 @@ namespace DB_EDITOR
             // 
             // TransferPortalStats
             // 
-            TransferPortalStats.BackColor = SystemColors.Highlight;
+            TransferPortalStats.BackColor = Color.RoyalBlue;
             TransferPortalStats.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
             TransferPortalStats.ForeColor = SystemColors.ButtonFace;
             TransferPortalStats.Location = new Point(249, 43);
@@ -4163,7 +4197,7 @@ namespace DB_EDITOR
             // 
             // RemoveBadTransfers
             // 
-            RemoveBadTransfers.BackColor = SystemColors.Highlight;
+            RemoveBadTransfers.BackColor = Color.RoyalBlue;
             RemoveBadTransfers.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
             RemoveBadTransfers.ForeColor = SystemColors.ButtonFace;
             RemoveBadTransfers.Location = new Point(28, 43);
@@ -4176,7 +4210,7 @@ namespace DB_EDITOR
             // 
             // buttonMinRecruitingPts
             // 
-            buttonMinRecruitingPts.BackColor = SystemColors.Highlight;
+            buttonMinRecruitingPts.BackColor = Color.RoyalBlue;
             buttonMinRecruitingPts.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             buttonMinRecruitingPts.ForeColor = SystemColors.ButtonFace;
             buttonMinRecruitingPts.Location = new Point(28, 255);
@@ -4245,6 +4279,7 @@ namespace DB_EDITOR
             // groupBox16
             // 
             groupBox16.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            groupBox16.Controls.Add(RandomizeRecruitGear);
             groupBox16.Controls.Add(groupBox25);
             groupBox16.Controls.Add(RecalculateStarRankingsButton);
             groupBox16.Controls.Add(DetermineAthleteButton);
@@ -4257,18 +4292,31 @@ namespace DB_EDITOR
             groupBox16.Controls.Add(groupBox26);
             groupBox16.Controls.Add(groupBox51);
             groupBox16.Controls.Add(groupBox50);
-            groupBox16.Location = new Point(601, 66);
+            groupBox16.Location = new Point(601, 58);
             groupBox16.Name = "groupBox16";
-            groupBox16.Size = new Size(514, 528);
+            groupBox16.Size = new Size(514, 536);
             groupBox16.TabIndex = 24;
             groupBox16.TabStop = false;
             groupBox16.Text = "Recruiting Phase";
+            // 
+            // RandomizeRecruitGear
+            // 
+            RandomizeRecruitGear.BackColor = Color.MidnightBlue;
+            RandomizeRecruitGear.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            RandomizeRecruitGear.ForeColor = SystemColors.ButtonFace;
+            RandomizeRecruitGear.Location = new Point(273, 118);
+            RandomizeRecruitGear.Name = "RandomizeRecruitGear";
+            RandomizeRecruitGear.Size = new Size(235, 68);
+            RandomizeRecruitGear.TabIndex = 28;
+            RandomizeRecruitGear.Text = "Randomize Recruit Equipment";
+            RandomizeRecruitGear.UseVisualStyleBackColor = false;
+            RandomizeRecruitGear.Click += (this.RandomizeRecruitGear_Click);
             // 
             // groupBox25
             // 
             groupBox25.Controls.Add(min2Stars);
             groupBox25.Controls.Add(min1Stars);
-            groupBox25.Location = new Point(389, 308);
+            groupBox25.Location = new Point(386, 344);
             groupBox25.Name = "groupBox25";
             groupBox25.Size = new Size(119, 80);
             groupBox25.TabIndex = 24;
@@ -4299,10 +4347,10 @@ namespace DB_EDITOR
             // 
             // RecalculateStarRankingsButton
             // 
-            RecalculateStarRankingsButton.BackColor = SystemColors.Highlight;
+            RecalculateStarRankingsButton.BackColor = Color.RoyalBlue;
             RecalculateStarRankingsButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             RecalculateStarRankingsButton.ForeColor = SystemColors.ButtonFace;
-            RecalculateStarRankingsButton.Location = new Point(27, 308);
+            RecalculateStarRankingsButton.Location = new Point(24, 344);
             RecalculateStarRankingsButton.Name = "RecalculateStarRankingsButton";
             RecalculateStarRankingsButton.Size = new Size(357, 80);
             RecalculateStarRankingsButton.TabIndex = 22;
@@ -4312,12 +4360,12 @@ namespace DB_EDITOR
             // 
             // DetermineAthleteButton
             // 
-            DetermineAthleteButton.BackColor = SystemColors.Highlight;
+            DetermineAthleteButton.BackColor = Color.MidnightBlue;
             DetermineAthleteButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             DetermineAthleteButton.ForeColor = SystemColors.ButtonFace;
-            DetermineAthleteButton.Location = new Point(26, 217);
+            DetermineAthleteButton.Location = new Point(26, 265);
             DetermineAthleteButton.Name = "DetermineAthleteButton";
-            DetermineAthleteButton.Size = new Size(357, 80);
+            DetermineAthleteButton.Size = new Size(479, 68);
             DetermineAthleteButton.TabIndex = 23;
             DetermineAthleteButton.Text = "Determine Athlete Best Position";
             DetermineAthleteButton.UseVisualStyleBackColor = false;
@@ -4325,38 +4373,38 @@ namespace DB_EDITOR
             // 
             // buttonRandWalkOns
             // 
-            buttonRandWalkOns.BackColor = SystemColors.Highlight;
+            buttonRandWalkOns.BackColor = Color.RoyalBlue;
             buttonRandWalkOns.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             buttonRandWalkOns.ForeColor = SystemColors.ButtonFace;
             buttonRandWalkOns.Location = new Point(273, 23);
             buttonRandWalkOns.Name = "buttonRandWalkOns";
             buttonRandWalkOns.Size = new Size(110, 80);
             buttonRandWalkOns.TabIndex = 2;
-            buttonRandWalkOns.Text = "Randomize Walk-Ons";
+            buttonRandWalkOns.Text = "Randomize Walk-Ons Ratings";
             buttonRandWalkOns.UseVisualStyleBackColor = false;
             buttonRandWalkOns.Click += (this.ButtonRandWalkOns_Click);
             // 
             // buttonRandRecruits
             // 
-            buttonRandRecruits.BackColor = SystemColors.Highlight;
+            buttonRandRecruits.BackColor = Color.RoyalBlue;
             buttonRandRecruits.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             buttonRandRecruits.ForeColor = SystemColors.ButtonFace;
             buttonRandRecruits.Location = new Point(26, 23);
             buttonRandRecruits.Name = "buttonRandRecruits";
             buttonRandRecruits.Size = new Size(110, 80);
             buttonRandRecruits.TabIndex = 3;
-            buttonRandRecruits.Text = "Randomize Recruits";
+            buttonRandRecruits.Text = "Randomize Recruits Ratings";
             buttonRandRecruits.UseVisualStyleBackColor = false;
             buttonRandRecruits.Click += (this.ButtonRandRecruits_Click);
             // 
             // RandomizeRecruitNamesButton
             // 
-            RandomizeRecruitNamesButton.BackColor = SystemColors.Highlight;
+            RandomizeRecruitNamesButton.BackColor = Color.RoyalBlue;
             RandomizeRecruitNamesButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             RandomizeRecruitNamesButton.ForeColor = SystemColors.ButtonFace;
-            RandomizeRecruitNamesButton.Location = new Point(148, 118);
+            RandomizeRecruitNamesButton.Location = new Point(26, 192);
             RandomizeRecruitNamesButton.Name = "RandomizeRecruitNamesButton";
-            RandomizeRecruitNamesButton.Size = new Size(110, 80);
+            RandomizeRecruitNamesButton.Size = new Size(232, 67);
             RandomizeRecruitNamesButton.TabIndex = 21;
             RandomizeRecruitNamesButton.Text = "Randomize Recruits Names";
             RandomizeRecruitNamesButton.UseVisualStyleBackColor = false;
@@ -4364,12 +4412,12 @@ namespace DB_EDITOR
             // 
             // buttonRandomizeFaceShape
             // 
-            buttonRandomizeFaceShape.BackColor = SystemColors.Highlight;
+            buttonRandomizeFaceShape.BackColor = Color.MidnightBlue;
             buttonRandomizeFaceShape.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             buttonRandomizeFaceShape.ForeColor = SystemColors.ButtonFace;
             buttonRandomizeFaceShape.Location = new Point(26, 118);
             buttonRandomizeFaceShape.Name = "buttonRandomizeFaceShape";
-            buttonRandomizeFaceShape.Size = new Size(110, 80);
+            buttonRandomizeFaceShape.Size = new Size(232, 68);
             buttonRandomizeFaceShape.TabIndex = 20;
             buttonRandomizeFaceShape.Text = "Randomize Recruits Face/Skin";
             buttonRandomizeFaceShape.UseVisualStyleBackColor = false;
@@ -4377,23 +4425,23 @@ namespace DB_EDITOR
             // 
             // polyNames
             // 
-            polyNames.BackColor = SystemColors.Highlight;
+            polyNames.BackColor = Color.RoyalBlue;
             polyNames.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             polyNames.ForeColor = SystemColors.ButtonFace;
-            polyNames.Location = new Point(273, 116);
+            polyNames.Location = new Point(273, 192);
             polyNames.Name = "polyNames";
-            polyNames.Size = new Size(110, 82);
+            polyNames.Size = new Size(232, 67);
             polyNames.TabIndex = 17;
-            polyNames.Text = "Polynesian Player/Name Generator";
+            polyNames.Text = "Polynesian Player Generator";
             polyNames.UseVisualStyleBackColor = false;
             polyNames.Click += (this.PolyNames_Click);
             // 
             // buttonInterestedTeams
             // 
-            buttonInterestedTeams.BackColor = SystemColors.Highlight;
+            buttonInterestedTeams.BackColor = Color.MidnightBlue;
             buttonInterestedTeams.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             buttonInterestedTeams.ForeColor = SystemColors.ButtonFace;
-            buttonInterestedTeams.Location = new Point(29, 405);
+            buttonInterestedTeams.Location = new Point(24, 441);
             buttonInterestedTeams.Name = "buttonInterestedTeams";
             buttonInterestedTeams.Size = new Size(357, 80);
             buttonInterestedTeams.TabIndex = 12;
@@ -4405,7 +4453,7 @@ namespace DB_EDITOR
             // 
             groupBox26.Controls.Add(removeInterestTeams);
             groupBox26.Controls.Add(labelIntTeams);
-            groupBox26.Location = new Point(390, 405);
+            groupBox26.Location = new Point(387, 441);
             groupBox26.Name = "groupBox26";
             groupBox26.Size = new Size(118, 80);
             groupBox26.TabIndex = 25;
@@ -4533,7 +4581,7 @@ namespace DB_EDITOR
             tabRecruits.Controls.Add(RecruitListBox);
             tabRecruits.Location = new Point(4, 29);
             tabRecruits.Name = "tabRecruits";
-            tabRecruits.Size = new Size(1152, 610);
+            tabRecruits.Size = new Size(1152, 611);
             tabRecruits.TabIndex = 12;
             tabRecruits.Text = "Recruits";
             // 
@@ -5905,7 +5953,7 @@ namespace DB_EDITOR
             tabStadiums.Location = new Point(4, 29);
             tabStadiums.Name = "tabStadiums";
             tabStadiums.Padding = new Padding(3);
-            tabStadiums.Size = new Size(1152, 610);
+            tabStadiums.Size = new Size(1152, 611);
             tabStadiums.TabIndex = 17;
             tabStadiums.Text = "Stadiums";
             // 
@@ -6431,7 +6479,7 @@ namespace DB_EDITOR
             tabBowls.Location = new Point(4, 29);
             tabBowls.Name = "tabBowls";
             tabBowls.Padding = new Padding(3);
-            tabBowls.Size = new Size(1152, 610);
+            tabBowls.Size = new Size(1152, 611);
             tabBowls.TabIndex = 14;
             tabBowls.Text = "Bowls";
             tabBowls.UseVisualStyleBackColor = true;
@@ -6633,9 +6681,9 @@ namespace DB_EDITOR
             tabConf.Location = new Point(4, 29);
             tabConf.Name = "tabConf";
             tabConf.Padding = new Padding(3);
-            tabConf.Size = new Size(1152, 610);
+            tabConf.Size = new Size(1152, 611);
             tabConf.TabIndex = 9;
-            tabConf.Text = "League";
+            tabConf.Text = "Conferences";
             // 
             // label74
             // 
@@ -6650,6 +6698,7 @@ namespace DB_EDITOR
             // CPRS12
             // 
             CPRS12.Location = new Point(907, 583);
+            CPRS12.Maximum = new decimal(new int[] { 3, 0, 0, 0 });
             CPRS12.Name = "CPRS12";
             CPRS12.Size = new Size(35, 20);
             CPRS12.TabIndex = 55;
@@ -6669,6 +6718,7 @@ namespace DB_EDITOR
             // CPRS11
             // 
             CPRS11.Location = new Point(751, 583);
+            CPRS11.Maximum = new decimal(new int[] { 3, 0, 0, 0 });
             CPRS11.Name = "CPRS11";
             CPRS11.Size = new Size(35, 20);
             CPRS11.TabIndex = 53;
@@ -6688,6 +6738,7 @@ namespace DB_EDITOR
             // CPRS10
             // 
             CPRS10.Location = new Point(595, 583);
+            CPRS10.Maximum = new decimal(new int[] { 3, 0, 0, 0 });
             CPRS10.Name = "CPRS10";
             CPRS10.Size = new Size(35, 20);
             CPRS10.TabIndex = 51;
@@ -6707,6 +6758,7 @@ namespace DB_EDITOR
             // CPRS9
             // 
             CPRS9.Location = new Point(439, 583);
+            CPRS9.Maximum = new decimal(new int[] { 3, 0, 0, 0 });
             CPRS9.Name = "CPRS9";
             CPRS9.Size = new Size(35, 20);
             CPRS9.TabIndex = 49;
@@ -6726,6 +6778,7 @@ namespace DB_EDITOR
             // CPRS8
             // 
             CPRS8.Location = new Point(283, 583);
+            CPRS8.Maximum = new decimal(new int[] { 3, 0, 0, 0 });
             CPRS8.Name = "CPRS8";
             CPRS8.Size = new Size(35, 20);
             CPRS8.TabIndex = 47;
@@ -6745,6 +6798,7 @@ namespace DB_EDITOR
             // CPRS7
             // 
             CPRS7.Location = new Point(127, 583);
+            CPRS7.Maximum = new decimal(new int[] { 3, 0, 0, 0 });
             CPRS7.Name = "CPRS7";
             CPRS7.Size = new Size(35, 20);
             CPRS7.TabIndex = 45;
@@ -6764,6 +6818,7 @@ namespace DB_EDITOR
             // CPRS6
             // 
             CPRS6.Location = new Point(907, 283);
+            CPRS6.Maximum = new decimal(new int[] { 3, 0, 0, 0 });
             CPRS6.Name = "CPRS6";
             CPRS6.Size = new Size(35, 20);
             CPRS6.TabIndex = 43;
@@ -6783,6 +6838,7 @@ namespace DB_EDITOR
             // CPRS5
             // 
             CPRS5.Location = new Point(751, 283);
+            CPRS5.Maximum = new decimal(new int[] { 3, 0, 0, 0 });
             CPRS5.Name = "CPRS5";
             CPRS5.Size = new Size(35, 20);
             CPRS5.TabIndex = 41;
@@ -6802,6 +6858,7 @@ namespace DB_EDITOR
             // CPRS4
             // 
             CPRS4.Location = new Point(595, 283);
+            CPRS4.Maximum = new decimal(new int[] { 3, 0, 0, 0 });
             CPRS4.Name = "CPRS4";
             CPRS4.Size = new Size(35, 20);
             CPRS4.TabIndex = 39;
@@ -6821,6 +6878,7 @@ namespace DB_EDITOR
             // CPRS3
             // 
             CPRS3.Location = new Point(439, 283);
+            CPRS3.Maximum = new decimal(new int[] { 3, 0, 0, 0 });
             CPRS3.Name = "CPRS3";
             CPRS3.Size = new Size(35, 20);
             CPRS3.TabIndex = 37;
@@ -6840,6 +6898,7 @@ namespace DB_EDITOR
             // CPRS2
             // 
             CPRS2.Location = new Point(283, 283);
+            CPRS2.Maximum = new decimal(new int[] { 3, 0, 0, 0 });
             CPRS2.Name = "CPRS2";
             CPRS2.Size = new Size(35, 20);
             CPRS2.TabIndex = 35;
@@ -6859,6 +6918,7 @@ namespace DB_EDITOR
             // CPRS1
             // 
             CPRS1.Location = new Point(127, 283);
+            CPRS1.Maximum = new decimal(new int[] { 3, 0, 0, 0 });
             CPRS1.Name = "CPRS1";
             CPRS1.Size = new Size(35, 20);
             CPRS1.TabIndex = 33;
@@ -7279,7 +7339,7 @@ namespace DB_EDITOR
             tabDepthCharts.Location = new Point(4, 29);
             tabDepthCharts.Name = "tabDepthCharts";
             tabDepthCharts.Padding = new Padding(3);
-            tabDepthCharts.Size = new Size(1152, 610);
+            tabDepthCharts.Size = new Size(1152, 611);
             tabDepthCharts.TabIndex = 11;
             tabDepthCharts.Text = "Depth Charts";
             // 
@@ -7453,6 +7513,7 @@ namespace DB_EDITOR
             // tabSchedule
             // 
             tabSchedule.BackColor = SystemColors.AppWorkspace;
+            tabSchedule.Controls.Add(ScheduleStrengthLabel);
             tabSchedule.Controls.Add(WeeklyHighlightView);
             tabSchedule.Controls.Add(WeeklyBoxscoreView);
             tabSchedule.Controls.Add(ScheduleComboBox);
@@ -7467,9 +7528,22 @@ namespace DB_EDITOR
             tabSchedule.Location = new Point(4, 29);
             tabSchedule.Name = "tabSchedule";
             tabSchedule.Padding = new Padding(3);
-            tabSchedule.Size = new Size(1152, 610);
+            tabSchedule.Size = new Size(1152, 611);
             tabSchedule.TabIndex = 16;
             tabSchedule.Text = "Schedule";
+            // 
+            // ScheduleStrengthLabel
+            // 
+            ScheduleStrengthLabel.Anchor = (AnchorStyles)(AnchorStyles.Top) | (AnchorStyles.Right);
+            ScheduleStrengthLabel.AutoSize = true;
+            ScheduleStrengthLabel.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            ScheduleStrengthLabel.Location = new Point(159, 581);
+            ScheduleStrengthLabel.Name = "ScheduleStrengthLabel";
+            ScheduleStrengthLabel.RightToLeft = RightToLeft.No;
+            ScheduleStrengthLabel.Size = new Size(199, 16);
+            ScheduleStrengthLabel.TabIndex = 13;
+            ScheduleStrengthLabel.Text = "Schedule Strength:  100 | A+";
+            ScheduleStrengthLabel.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // WeeklyHighlightView
             // 
@@ -7648,19 +7722,71 @@ namespace DB_EDITOR
             // groupBox21
             // 
             groupBox21.BackColor = SystemColors.ControlDark;
+            groupBox21.Controls.Add(label186);
+            groupBox21.Controls.Add(label171);
+            groupBox21.Controls.Add(ConfGames);
+            groupBox21.Controls.Add(RoundRobinSchedule);
+            groupBox21.Controls.Add(ScheduleSeason);
             groupBox21.Controls.Add(KeepNDACCGames);
             groupBox21.Controls.Add(RescheduleOOC);
-            groupBox21.Location = new Point(9, 494);
+            groupBox21.Location = new Point(9, 379);
             groupBox21.Name = "groupBox21";
-            groupBox21.Size = new Size(140, 110);
+            groupBox21.Size = new Size(140, 226);
             groupBox21.TabIndex = 6;
             groupBox21.TabStop = false;
             groupBox21.Text = "Schedule Tools";
             // 
+            // label186
+            // 
+            label186.AutoSize = true;
+            label186.Location = new Point(8, 131);
+            label186.Name = "label186";
+            label186.Size = new Size(0, 13);
+            label186.TabIndex = 15;
+            // 
+            // label171
+            // 
+            label171.AutoSize = true;
+            label171.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            label171.Location = new Point(6, 178);
+            label171.Name = "label171";
+            label171.Size = new Size(75, 15);
+            label171.TabIndex = 14;
+            label171.Text = "Conf Games";
+            // 
+            // ConfGames
+            // 
+            ConfGames.Location = new Point(86, 175);
+            ConfGames.Maximum = new decimal(new int[] { 16, 0, 0, 0 });
+            ConfGames.Name = "ConfGames";
+            ConfGames.Size = new Size(48, 20);
+            ConfGames.TabIndex = 13;
+            ConfGames.Value = new decimal(new int[] { 9, 0, 0, 0 });
+            // 
+            // RoundRobinSchedule
+            // 
+            RoundRobinSchedule.AutoSize = true;
+            RoundRobinSchedule.Location = new Point(6, 201);
+            RoundRobinSchedule.Name = "RoundRobinSchedule";
+            RoundRobinSchedule.Size = new Size(124, 17);
+            RoundRobinSchedule.TabIndex = 8;
+            RoundRobinSchedule.Text = "Round-Robin Format";
+            RoundRobinSchedule.UseVisualStyleBackColor = true;
+            // 
+            // ScheduleSeason
+            // 
+            ScheduleSeason.Location = new Point(6, 116);
+            ScheduleSeason.Name = "ScheduleSeason";
+            ScheduleSeason.Size = new Size(128, 55);
+            ScheduleSeason.TabIndex = 7;
+            ScheduleSeason.Text = "Full Season Auto-Scheduler";
+            ScheduleSeason.UseVisualStyleBackColor = true;
+            ScheduleSeason.Click += (this.ScheduleSeason_Click);
+            // 
             // KeepNDACCGames
             // 
             KeepNDACCGames.AutoSize = true;
-            KeepNDACCGames.Location = new Point(4, 85);
+            KeepNDACCGames.Location = new Point(6, 80);
             KeepNDACCGames.Name = "KeepNDACCGames";
             KeepNDACCGames.Size = new Size(130, 17);
             KeepNDACCGames.TabIndex = 6;
@@ -7669,11 +7795,11 @@ namespace DB_EDITOR
             // 
             // RescheduleOOC
             // 
-            RescheduleOOC.Location = new Point(20, 20);
+            RescheduleOOC.Location = new Point(6, 19);
             RescheduleOOC.Name = "RescheduleOOC";
-            RescheduleOOC.Size = new Size(97, 55);
+            RescheduleOOC.Size = new Size(128, 55);
             RescheduleOOC.TabIndex = 5;
-            RescheduleOOC.Text = "Re-Schedule Out of Conference Games";
+            RescheduleOOC.Text = "Out of Conference Auto-Scheduler";
             RescheduleOOC.UseVisualStyleBackColor = true;
             RescheduleOOC.Click += (this.RescheduleOOC_Click);
             // 
@@ -7694,7 +7820,7 @@ namespace DB_EDITOR
             // 
             label211.AutoSize = true;
             label211.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            label211.Location = new Point(506, 2);
+            label211.Location = new Point(516, 3);
             label211.Name = "label211";
             label211.Size = new Size(205, 24);
             label211.TabIndex = 2;
@@ -7708,7 +7834,7 @@ namespace DB_EDITOR
             SCHDTeamBox.ItemHeight = 13;
             SCHDTeamBox.Location = new Point(9, 39);
             SCHDTeamBox.Name = "SCHDTeamBox";
-            SCHDTeamBox.Size = new Size(140, 444);
+            SCHDTeamBox.Size = new Size(140, 327);
             SCHDTeamBox.TabIndex = 1;
             SCHDTeamBox.SelectedIndexChanged += (this.SCHDTeamBox_SelectedIndexChanged);
             // 
@@ -7757,7 +7883,7 @@ namespace DB_EDITOR
             dataGridViewCellStyle28.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle28.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
             ScheduleView.RowsDefaultCellStyle = dataGridViewCellStyle28;
-            ScheduleView.Size = new Size(562, 576);
+            ScheduleView.Size = new Size(562, 543);
             ScheduleView.TabIndex = 0;
             ScheduleView.RowEnter += (this.ScheduleView_RowEnter);
             // 
@@ -7829,7 +7955,7 @@ namespace DB_EDITOR
             tabDynasty.Location = new Point(4, 29);
             tabDynasty.Name = "tabDynasty";
             tabDynasty.Padding = new Padding(3);
-            tabDynasty.Size = new Size(1152, 610);
+            tabDynasty.Size = new Size(1148, 607);
             tabDynasty.TabIndex = 3;
             tabDynasty.Text = "Dynasty";
             // 
@@ -8358,7 +8484,7 @@ namespace DB_EDITOR
             tabCoaches.Location = new Point(4, 29);
             tabCoaches.Name = "tabCoaches";
             tabCoaches.Padding = new Padding(3);
-            tabCoaches.Size = new Size(1152, 610);
+            tabCoaches.Size = new Size(1152, 611);
             tabCoaches.TabIndex = 7;
             tabCoaches.Text = "Coaches";
             // 
@@ -9430,7 +9556,7 @@ namespace DB_EDITOR
             tabPlayers.ForeColor = SystemColors.ControlText;
             tabPlayers.Location = new Point(4, 29);
             tabPlayers.Name = "tabPlayers";
-            tabPlayers.Size = new Size(1152, 610);
+            tabPlayers.Size = new Size(1148, 607);
             tabPlayers.TabIndex = 2;
             tabPlayers.Text = "Players";
             // 
@@ -11347,7 +11473,7 @@ namespace DB_EDITOR
             tabTeams.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
             tabTeams.Location = new Point(4, 29);
             tabTeams.Name = "tabTeams";
-            tabTeams.Size = new Size(1152, 610);
+            tabTeams.Size = new Size(1152, 611);
             tabTeams.TabIndex = 1;
             tabTeams.Text = "Teams";
             tabTeams.Click += (this.tabTeams_Click);
@@ -12798,7 +12924,7 @@ namespace DB_EDITOR
             tabDB.Location = new Point(4, 29);
             tabDB.Name = "tabDB";
             tabDB.Padding = new Padding(3);
-            tabDB.Size = new Size(1152, 610);
+            tabDB.Size = new Size(1152, 611);
             tabDB.TabIndex = 0;
             tabDB.Text = "DB Editor";
             // 
@@ -12864,7 +12990,7 @@ namespace DB_EDITOR
             tabHome.Location = new Point(4, 29);
             tabHome.Name = "tabHome";
             tabHome.Padding = new Padding(3);
-            tabHome.Size = new Size(1152, 610);
+            tabHome.Size = new Size(1148, 607);
             tabHome.TabIndex = 6;
             tabHome.Text = "Home";
             tabHome.UseVisualStyleBackColor = true;
@@ -12964,7 +13090,7 @@ namespace DB_EDITOR
             tabControl1.Name = "tabControl1";
             tabControl1.Padding = new Point(5, 3);
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1160, 643);
+            tabControl1.Size = new Size(1156, 640);
             tabControl1.TabIndex = 4;
             tabControl1.Visible = false;
             tabControl1.SelectedIndexChanged += (this.TabControl1_IndexChange);
@@ -12981,7 +13107,7 @@ namespace DB_EDITOR
             tabCarousel.Location = new Point(4, 29);
             tabCarousel.Name = "tabCarousel";
             tabCarousel.Padding = new Padding(3);
-            tabCarousel.Size = new Size(1152, 610);
+            tabCarousel.Size = new Size(1152, 611);
             tabCarousel.TabIndex = 20;
             tabCarousel.Text = "Carousel";
             // 
@@ -13456,7 +13582,7 @@ namespace DB_EDITOR
             tabPlayoff.Location = new Point(4, 29);
             tabPlayoff.Name = "tabPlayoff";
             tabPlayoff.Padding = new Padding(3);
-            tabPlayoff.Size = new Size(1152, 610);
+            tabPlayoff.Size = new Size(1152, 611);
             tabPlayoff.TabIndex = 21;
             tabPlayoff.Text = "Playoff";
             // 
@@ -14113,7 +14239,7 @@ namespace DB_EDITOR
             tabTeamStats.Controls.Add(TSRushing);
             tabTeamStats.Location = new Point(4, 29);
             tabTeamStats.Name = "tabTeamStats";
-            tabTeamStats.Size = new Size(1152, 610);
+            tabTeamStats.Size = new Size(1152, 611);
             tabTeamStats.TabIndex = 22;
             tabTeamStats.Text = "Team Stats";
             // 
@@ -14986,7 +15112,7 @@ namespace DB_EDITOR
             tabLeagueStats.Location = new Point(4, 29);
             tabLeagueStats.Name = "tabLeagueStats";
             tabLeagueStats.Padding = new Padding(3);
-            tabLeagueStats.Size = new Size(1152, 610);
+            tabLeagueStats.Size = new Size(1152, 611);
             tabLeagueStats.TabIndex = 24;
             tabLeagueStats.Text = "League Stats";
             // 
@@ -15259,7 +15385,7 @@ namespace DB_EDITOR
             tabRecruiting.Controls.Add(textBox2);
             tabRecruiting.Location = new Point(4, 29);
             tabRecruiting.Name = "tabRecruiting";
-            tabRecruiting.Size = new Size(1152, 610);
+            tabRecruiting.Size = new Size(1152, 611);
             tabRecruiting.TabIndex = 23;
             tabRecruiting.Text = "Recruit Board";
             // 
@@ -15592,7 +15718,7 @@ namespace DB_EDITOR
             tabPortal.Controls.Add(panel1);
             tabPortal.Location = new Point(4, 29);
             tabPortal.Name = "tabPortal";
-            tabPortal.Size = new Size(1152, 610);
+            tabPortal.Size = new Size(1152, 611);
             tabPortal.TabIndex = 18;
             tabPortal.Text = "Portal";
             // 
@@ -16359,7 +16485,7 @@ namespace DB_EDITOR
             tabSTRMDATA.Location = new Point(4, 29);
             tabSTRMDATA.Name = "tabSTRMDATA";
             tabSTRMDATA.Padding = new Padding(3);
-            tabSTRMDATA.Size = new Size(1152, 610);
+            tabSTRMDATA.Size = new Size(1152, 611);
             tabSTRMDATA.TabIndex = 19;
             tabSTRMDATA.Text = "STRMDATA";
             // 
@@ -16383,16 +16509,6 @@ namespace DB_EDITOR
             buttonRCATBody.UseVisualStyleBackColor = true;
             buttonRCATBody.Click += (this.buttonRCATBody_Click);
             // 
-            // TeamRatingExcludeInjury
-            // 
-            TeamRatingExcludeInjury.AutoSize = true;
-            TeamRatingExcludeInjury.Location = new Point(22, 171);
-            TeamRatingExcludeInjury.Name = "TeamRatingExcludeInjury";
-            TeamRatingExcludeInjury.Size = new Size(136, 17);
-            TeamRatingExcludeInjury.TabIndex = 67;
-            TeamRatingExcludeInjury.Text = "Exclude Injured Players";
-            TeamRatingExcludeInjury.UseVisualStyleBackColor = true;
-            // 
             // MainEditor
             // 
             this.AllowDrop = true;
@@ -16401,8 +16517,8 @@ namespace DB_EDITOR
             this.AutoScroll = true;
             this.AutoSize = true;
             this.BackColor = SystemColors.Control;
-            this.ClientSize = new Size(1184, 711);
-            this.Controls.Add(groupBox2);
+            this.ClientSize = new Size(1180, 707);
+            this.Controls.Add(DBChooserGroupBox);
             this.Controls.Add(tabControl1);
             this.Controls.Add(progressBar1);
             this.Controls.Add(mainMenu);
@@ -16424,8 +16540,8 @@ namespace DB_EDITOR
             fieldMenu.ResumeLayout(false);
             TablePropsgroupBox.ResumeLayout(false);
             FieldsPropsgroupBox.ResumeLayout(false);
-            groupBox2.ResumeLayout(false);
-            groupBox2.PerformLayout();
+            DBChooserGroupBox.ResumeLayout(false);
+            DBChooserGroupBox.PerformLayout();
             tabDev.ResumeLayout(false);
             tabDev.PerformLayout();
             tabUniforms.ResumeLayout(false);
@@ -16562,6 +16678,7 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)MatchView).EndInit();
             groupBox21.ResumeLayout(false);
             groupBox21.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)ConfGames).EndInit();
             ((System.ComponentModel.ISupportInitialize)ScheduleView).EndInit();
             tabDynasty.ResumeLayout(false);
             tabDynasty.PerformLayout();
@@ -16807,7 +16924,7 @@ namespace DB_EDITOR
         private NotifyIcon notifyIcon1;
         private RadioButton DB1Button;
         private RadioButton DB2Button;
-        private GroupBox groupBox2;
+        private GroupBox DBChooserGroupBox;
         private TabPage tabDev;
         public System.Windows.Forms.Button CFUSAexportButton;
         public System.Windows.Forms.TextBox textBox20;
@@ -16922,7 +17039,7 @@ namespace DB_EDITOR
         private System.Windows.Forms.Button MinAttButton;
         private System.Windows.Forms.TextBox MaxAttRating;
         private System.Windows.Forms.Button GlobalAttButton;
-        public System.Windows.Forms.Button UniquePlayerButton;
+        public System.Windows.Forms.Button RandomizeSkinTonesButton;
         public System.Windows.Forms.Button SyncPBButton;
         public System.Windows.Forms.TextBox textBox3;
         public System.Windows.Forms.Button ReorderPGIDButton;
@@ -18065,6 +18182,14 @@ namespace DB_EDITOR
         private GroupBox groupBox50;
         private CheckBox KeepNDACCGames;
         private CheckBox TeamRatingExcludeInjury;
+        private System.Windows.Forms.Button ScheduleSeason;
+        private CheckBox RoundRobinSchedule;
+        private Label label171;
+        private NumericUpDown ConfGames;
+        private Label label186;
+        private Label ScheduleStrengthLabel;
+        public System.Windows.Forms.Button RandomizePlayerGearButton;
+        public System.Windows.Forms.Button RandomizeRecruitGear;
     }
 }
 

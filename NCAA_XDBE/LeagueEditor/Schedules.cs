@@ -50,8 +50,7 @@ namespace DB_EDITOR
             List<List<int>> template = new List<List<int>>();
             if (count == 12)
             {
-                if (rand.Next(0, 100) < 33) template = CreateIntListsFromCSV(@"resources\schedules\" + count + "-teamB.csv", true);
-                else if (rand.Next(0, 100) < 33) template = CreateIntListsFromCSV(@"resources\schedules\" + count + "-teamC.csv", true);
+                if (rand.Next(0, 100) < 50) template = CreateIntListsFromCSV(@"resources\schedules\" + count + "-teamB.csv", true);
                 else template = CreateIntListsFromCSV(@"resources\schedules\" + count + "-team.csv", true);
             }
             if (count == 14)

@@ -10,6 +10,7 @@ using System.Runtime.InteropServices.ComTypes;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace DB_EDITOR
@@ -374,6 +375,12 @@ namespace DB_EDITOR
             PIMP = rand.Next(1, maxRatingVal);
             PDIS = rand.Next(2, 7);
 
+            //Thowing Hand
+            int handVal = rand.Next(1, 101);
+            int hand = 0;
+            if (handVal <= 91) hand = 1; //left handed 9% chance
+            ChangeDBInt(TableName, "PHAN", rec, hand);
+
 
             //Add team rating factor
             PAWR = GetRandomPositiveAttribute(PAWR, teamRating);
@@ -472,8 +479,9 @@ namespace DB_EDITOR
             ChangeDBInt(TableName, "PIMP", rec, PIMP);
             ChangeDBInt(TableName, "PDIS", rec, PDIS);
 
+            RandomizeSkinTone(TableName, rec);
             RandomizePlayerHead(TableName, rec);
-
+            RandomizePlayerGear(TableName, rec);
         }
 
         private int ChooseJerseyNumber(int PPOS, List<List<int>> PJEN)

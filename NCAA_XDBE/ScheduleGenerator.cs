@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
@@ -11,30 +12,96 @@ namespace DB_EDITOR
     partial class MainEditor : Form
     {
         //Quick n Dirty Schedule Generator - Divisionless & Rivalryless
-        private void ScheduleGenerator()
-        {
-            //Check League Setup
-            CheckLeagueSetupForScheduling();
 
+        private void ScheduleSeason_Click(object sender, EventArgs e)
+        {
+            ScheduleGenerator();
+            SCHDTeamBox_SelectedIndexChanged(sender, e);
+
+        }
+
+
+        //Reschedule Out of Conference Games
+        private void RescheduleOOC_Click(object sender, EventArgs e)
+        {
+            ClearOutOfConferenceOnly();
+            CreateMasterScheduleDB();
+            OutOfConferenceScheduling();
+
+            ScheduleFinalCheck(12, 99);
+
+            SCHDTeamBox_SelectedIndexChanged(sender, e);
+        }
+
+        private void ScheduleGenerator()
+        {  
+            //Check League Setup
+            if(LeagueConfCheck() == false)
+            {
+                ScheduleError();
+                return;
+            }
+            
 
             //Clear Regular Season Games
             ClearRegularSeasonSchedule();
 
 
-            //Out of Conference Scheduling Weeks 0 - 4
-            OutOfConferenceSchedulingNEW();
+            //Create Master Schedule DB
+            CreateMasterScheduleDB();
 
-            //Pick a Conference & Schedule Games (Weeks 5-15) -- 9 games
+            //Pick a Conference & Schedule Games
+            StartProgressBar(GetTableRecCount("CONF"));
             for (int i = 0; i < GetTableRecCount("CONF"); i++)
             {
-                if (TDB.FieldValue(dbIndex, "CONF", "LGID", i) == "0")
+                int conf = GetDBValueInt("CONF", "CGID", i);
+                if (GetDBValueInt("CONF", "LGID", i) == 0)
                 {
                     ConferenceScheduling(i);
-                }
-            }
 
+                    int confGames = Convert.ToInt32(ConfGames.Value);
+                    int confSize = GetConfTeamCount(i);
+
+
+                    if (confSize - 1 <= confGames)
+                    {
+                        confGames = confSize - 1;
+                        if (confSize > 12) confGames = 12;
+                    }
+                    else if (RoundRobinSchedule.Checked)
+                    {
+                        confGames = confSize - 1;
+                        if (confSize > 12) confGames = 12;
+                    }
+
+                    if (confSize % 2 == 1 && confGames % 2 == 1)
+                    {
+                        confGames -= 1; //adjust for odd sized conferences
+                    }
+
+                    ScheduleFinalCheck(confGames, conf);
+                }
+                ProgressBarStep();
+            }
+            EndProgressBar();
+
+            //Re-Create Master Schedule DB
+            CreateMasterScheduleDB();
+
+            //Out of Conference Scheduling
+            OutOfConferenceScheduling();
+
+            //Final Check
+            ScheduleFinalCheck(12, 99);
+
+            //Ensure Week 15 is used
+            Week15Check();
+
+
+            MessageBox.Show("Scheduling Complete!");
 
         }
+
 
         private void CreateMasterScheduleDB()
         {
@@ -50,9 +117,6 @@ namespace DB_EDITOR
                 }
             }
 
-
-            StartProgressBar(GetTableRecCount("SCHD"));
-
             for (int i = 0; i < GetTableRecCount("SCHD"); i++)
             {
                 if (GetDBValueInt("SCHD", "SEWN", i) < 16)
@@ -63,25 +127,153 @@ namespace DB_EDITOR
                     MasterSchedule[teamH][sewn] = teamA;
                     MasterSchedule[teamA][sewn] = teamH;
                 }
-
-                ProgressBarStep();
             }
-
-
-            EndProgressBar();
         }
 
+        //Conference Scheduling
         private void ClearRegularSeasonSchedule()
         {
             for (int i = 0; i < GetTableRecCount("SCHD"); i++)
             {
                 if (GetDBValueInt("SCHD", "SEWN", i) < 16)
                 {
-                    TDB.TDBTableRecordRemove(dbIndex, "SCHD", i);
+                    DeleteRecord("SCHD", i, true);
                 }
             }
+            CompactDB();
+
         }
 
+
+        private void ConferenceScheduling(int ConfRec)
+        {
+            //Create Conf Team List
+            List<int> teamList = new List<int>();
+            int CGID = GetDBValueInt("CONF", "CGID", ConfRec);
+
+            for (int x = 0; x < GetTableRecCount("TEAM"); x++)
+            {
+                if (GetDBValueInt("TEAM", "CGID", x) == CGID)
+                {
+                    teamList.Add(GetDBValueInt("TEAM", "TGID", x));
+                }
+            }
+
+            // Randomize the team list using Fisher-Yates shuffle
+            int teamCount = teamList.Count;
+            while (teamCount > 1)
+            {
+                teamCount--;
+                int k = rand.Next(teamCount + 1);
+                int temp = teamList[k];
+                teamList[k] = teamList[teamCount];
+                teamList[teamCount] = temp;
+            }
+
+            //Determine if Conference Size is Odd
+            int BYE = 999;
+            if (teamList.Count % 2 == 1)
+            {
+                teamList.Add(BYE); //add bye week team
+            }
+
+            // Recompute n using the (possibly) updated list
+            teamCount = teamList.Count;                  // total teams incl. BYE if present
+            int pivotIndex = teamCount - 1;              // fixed team/pivot (last slot)
+            int maxRounds = teamCount - 1;               // circle method: always n-1 rounds
+
+            // Determine requested number of conference games (rounds)
+            int requested = Convert.ToInt32(ConfGames.Value);
+            bool roundRobin = RoundRobinSchedule.Checked;
+
+            // Limit: at most 12 conference games
+            int rounds = roundRobin ? maxRounds : Math.Min(requested, maxRounds);
+            rounds = Math.Min(rounds, 12);
+
+
+            //Determine if Conference Size is Odd
+            if (teamList.Count % 2 == 1 && rounds % 2 == 1)
+            {
+                rounds--; //reduce rounds by 1 for odd teams
+            }
+
+
+            //Schedule Weeks
+            for (int r = 0; r < rounds; r++)
+            {
+                //Create a list of Teams and their game count
+                CreateMasterScheduleDB();
+                List<int> teamGames = new List<int>();
+                for (int t = 0; t < teamList.Count; t++)
+                {
+                    int tgid = teamList[t];
+                    teamGames.Add(0);
+                    if(tgid == BYE)
+                    {
+                        continue;
+                    }
+                    //Count Games:
+                    int games = 0;
+                    for (int g = 0; g < MasterSchedule[tgid].Count; g++)
+                    {
+                        if (MasterSchedule[tgid][g] != 511) games++;
+                    }
+
+                    teamGames[t] = games;
+                }
+
+                // Pair i-th from the start with i-th from the end; special-case first pair vs pivot
+                for (int i = 0; i < teamCount / 2; i++)
+                {
+                    // Indices into [0..n-2]; pivot is n-1
+                    int aIndex = (r + i) % (pivotIndex);
+                    int bIndex = (pivotIndex - i + r) % (pivotIndex);
+                    if (i == 0) bIndex = pivotIndex; // first pair each round uses the pivot
+
+                    int teamA = teamList[aIndex];
+                    int teamB = teamList[bIndex];
+
+                    // Skip BYE
+                    if (teamA == BYE || teamB == BYE) continue;
+
+                    // Avoid duplicates and self-games
+                    if (teamA == teamB) continue;
+                    if (MasterSchedule[teamA].Contains(teamB)) continue;
+
+                    //Schedule Game
+                    bool scheduled = false;
+                    int attempts = 0;
+
+                    while (scheduled == false && attempts < 10000)
+                    {
+
+                        int w = rand.Next(0, r + 16 - rounds);
+                        if (w > 15) w = 15;
+
+                        if (MasterSchedule[teamA][w] == 511 && MasterSchedule[teamB][w] == 511 && !MasterSchedule[teamA].Contains(teamB))
+                        {
+
+                            //MasterSchedule[teamA][w] = teamB;
+                            //MasterSchedule[teamB][w] = teamA;
+                            teamGames[aIndex]++;
+                            teamGames[bIndex]++;
+
+                            if (r % 2 == 0) ScheduleMatch(teamA, teamB, w, true);
+                            else ScheduleMatch(teamB, teamA, w, true);
+
+                            scheduled = true;
+                        }
+                        attempts++;
+                    }
+
+                }  
+                
+            }
+
+        }
+
+
+        //Out of Conference Scheduling
         private void ClearOutOfConferenceOnly()
         {
             StartProgressBar(GetTableRecCount("SCHD"));
@@ -97,13 +289,13 @@ namespace DB_EDITOR
                 int GASC = GetDBValueInt("SCHD", "GASC", i);
                 int GHSC = GetDBValueInt("SCHD", "GHSC", i);
 
-                if(GASC > 0 || GHSC > 0)
+                if (GASC > 0 || GHSC > 0)
                 {
                     //do nothing
                 }
                 else if (KeepNDACCGames.Checked)
                 {
-                    if (GetDBValueInt("SCHD", "SEWN", i) < 16 && !CheckOOCMatchup(recH, recA) && !CheckNDACC(recH, recA) && !CheckMilitaryGames(recH, recA))
+                    if (GetDBValueInt("SCHD", "SEWN", i) < 16 && CheckOOCMatchup(recH, recA) && !CheckNDACC(recH, recA) && !CheckMilitaryGames(recH, recA))
                     {
                         DeleteRecord("SCHD", i, true);
                     }
@@ -114,7 +306,7 @@ namespace DB_EDITOR
                 }
                 else
                 {
-                    if (GetDBValueInt("SCHD", "SEWN", i) < 16 && !CheckOOCMatchup(recH, recA) && !CheckMilitaryGames(recH, recA))
+                    if (GetDBValueInt("SCHD", "SEWN", i) < 16 && CheckOOCMatchup(recH, recA) && !CheckMilitaryGames(recH, recA))
                     {
                         DeleteRecord("SCHD", i, true);
                     }
@@ -128,132 +320,10 @@ namespace DB_EDITOR
             EndProgressBar();
         }
 
-        private void ConferenceScheduling(int ConfRec)
+        private void OutOfConferenceScheduling()
         {
-            //Create Conf Team List
-            List<string> teamList = new List<string>();
-            string CGID = TDB.FieldValue(dbIndex, "CONF", "CGID", ConfRec);
-
-            for (int x = 0; x < GetTableRecCount("TEAM"); x++)
-            {
-                if (TDB.FieldValue(dbIndex, "TEAM", "CGID", x) == CGID)
-                {
-                    teamList.Add(TDB.FieldValue(dbIndex, "TEAM", "TGID", x));
-                }
-            }
-
-            //Schedule Weeks 5-15
-            int byeWeek = rand.Next(5, 16);
-
-            for (int i = 5; i < 16; i++)
-            {
-
-            }
-
-        }
-
-        /*
-       private void OutOfConferenceSchedulingOLD()
-        {
-            //divide 120 teams into 3 parts and schedule within each one
-            List<int> groupA = new List<int>();
-            List<int> groupB = new List<int>();
-            List<int> groupC = new List<int>();
-            List<int> fcs = new List<int>();
-
-            int count = 0;
-            for (int i = 0; i < GetTableRecCount("TEAM"); i++)
-            {
-                if (GetDBValueInt("TEAM", "TTYP", i) == 0)
-                {
-                    count++;
-                    if (count % 3 == 0) groupA.Add(GetDBValueInt("TEAM", "TGID", i));
-                    else if (count % 2 == 0) groupB.Add(GetDBValueInt("TEAM", "TGID", i));
-                    else if (count % 1 == 0) groupC.Add(GetDBValueInt("TEAM", "TGID", i));
-                }
-                else if (GetDBValueInt("TEAM", "TTYP", i) == 1)
-                {
-                    fcs.Add(GetDBValueInt("TEAM", "TGID", i));
-                }
-            }
-
-            OOCGroupScheduler(groupA, fcs);
-            OOCGroupScheduler(groupB, fcs);
-            OOCGroupScheduler(groupC, fcs);
-
-
-            count = 0;
-            groupA = new List<int>();
-            groupB = new List<int>();
-            groupC = new List<int>();
-            for (int i = 0; i < GetTableRecCount("TEAM"); i++)
-            {
-                if (GetDBValueInt("TEAM", "TTYP", i) == 0)
-                {
-                    count++;
-                    if (count % 3 == 0) groupA.Add(GetDBValueInt("TEAM", "TGID", i));
-                    else if (count % 2 == 0) groupB.Add(GetDBValueInt("TEAM", "TGID", i));
-                    else if (count % 1 == 0) groupC.Add(GetDBValueInt("TEAM", "TGID", i));
-                }
-                else if (GetDBValueInt("TEAM", "TTYP", i) == 1)
-                {
-                    fcs.Add(GetDBValueInt("TEAM", "TGID", i));
-                }
-            }
-
-            OOCGroupsScheduler(groupA, groupB, fcs);
-
-            count = 0;
-            groupA = new List<int>();
-            groupB = new List<int>();
-            groupC = new List<int>();
-            for (int i = 0; i < GetTableRecCount("TEAM"); i++)
-            {
-                if (GetDBValueInt("TEAM", "TTYP", i) == 0)
-                {
-                    count++;
-                    if (count % 3 == 0) groupA.Add(GetDBValueInt("TEAM", "TGID", i));
-                    else if (count % 2 == 0) groupB.Add(GetDBValueInt("TEAM", "TGID", i));
-                    else if (count % 1 == 0) groupC.Add(GetDBValueInt("TEAM", "TGID", i));
-                }
-                else if (GetDBValueInt("TEAM", "TTYP", i) == 1)
-                {
-                    fcs.Add(GetDBValueInt("TEAM", "TGID", i));
-                }
-            }
-
-            OOCGroupsScheduler(groupB, groupC, fcs);
-
-            count = 0;
-            groupA = new List<int>();
-            groupB = new List<int>();
-            groupC = new List<int>();
-            for (int i = 0; i < GetTableRecCount("TEAM"); i++)
-            {
-                if (GetDBValueInt("TEAM", "TTYP", i) == 0)
-                {
-                    count++;
-                    if (count % 3 == 0) groupA.Add(GetDBValueInt("TEAM", "TGID", i));
-                    else if (count % 2 == 0) groupB.Add(GetDBValueInt("TEAM", "TGID", i));
-                    else if (count % 1 == 0) groupC.Add(GetDBValueInt("TEAM", "TGID", i));
-                }
-                else if (GetDBValueInt("TEAM", "TTYP", i) == 1)
-                {
-                    fcs.Add(GetDBValueInt("TEAM", "TGID", i));
-                }
-            }
-
-            OOCGroupsScheduler(groupC, groupA, fcs);
-
-            MessageBox.Show("Out of Conference Scheduling Completed!");
-        }
-        */
-
-        private void OutOfConferenceSchedulingNEW()
-        {
-            StartProgressBar(300);
+            StartProgressBar(350);
             int maxCounter = 25000;
-
 
             List<List<int>> teamList = new List<List<int>>();
             List<int> fcs = new List<int>();
@@ -291,19 +361,87 @@ namespace DB_EDITOR
                 }
             }
 
-            int capacity = TDB.TableCapacity(0, "SCHD");
 
+            //Start the Scheduling Loop
             bool complete = false;
             bool indiesDone = false;
             int counter = 0;
             while (!complete)
             {
+
+                //Count Games:
+                CreateMasterScheduleDB();
+
+                for (int t = 0; t < teamList.Count; t++)
+                {
+                    int tgid = teamList[t][1];
+                    int games = 0;
+                    for (int g = 0; g < MasterSchedule[tgid].Count; g++)
+                    {
+                        if (MasterSchedule[tgid][g] != 511) games++;
+                    }
+
+                    teamList[t][3] = games;
+                }
+
+                // Randomize the team list using Fisher-Yates shuffle
+                int n = teamList.Count;
+                while (n > 1)
+                {
+                    n--;
+                    int k = rand.Next(n + 1);
+                    List<int> temp = teamList[k];
+                    teamList[k] = teamList[n];
+                    teamList[n] = temp;
+                }
+
+                //Quality Checks
+                int schdCount = GetTableRecCount("SCHD");
+                if (CheckSCHDCapacity())
+                {
+                    return;
+                }
+                else if (counter > maxCounter)
+                {
+                    for (int t = 0; t < teamList.Count; t++)
+                    {
+                        if (teamList[t][3] < 12)
+                        {
+                            while (teamList[t][3] < 12)
+                            {
+
+                                if (CheckSCHDCapacity()) return;
+
+                                ScheduleFCSMatch(teamList[t][1], fcs);
+                                teamList[t][3]++;
+                            }
+                        }
+                    }
+
+                    for (int t = 0; t < teamList.Count; t++)
+                    {
+                        if (teamList[t][3] < 12)
+                        {
+
+                            MessageBox.Show("Scheduling Failed!\n\nDid not schedule enough OOC games.\n\n Please re-run again until it works!");
+
+                            MessageBox.Show("" + teamNameDB[teamList[t][1]]);
+                            break;
+                        }
+                    }
+
+                }
+
+                /* Start the actual scheduling process
+                 * Create two groups of teams that need games
+                 */
+
                 List<List<int>> groupA = new List<List<int>>();
                 List<List<int>> groupB = new List<List<int>>();
 
+                //schedule independents first to reduce errors.
                 if (!indiesDone)
                 {
-                    //schedule independents first to reduce errors.
                     for (int i = 0; i < teamList.Count; i++)
                     {
                         if (teamList[i][2] == 5 && teamList[i][3] < 12)
@@ -316,11 +454,12 @@ namespace DB_EDITOR
                         }
                     }
 
-                    if (groupA.Count < 1)
+                    if (groupA.Count == 0)
                     {
                         indiesDone = true;
                     }
                 }
+                //Schedule the rest of the teams
                 else
                 {
                     int count = 0;
@@ -354,91 +493,193 @@ namespace DB_EDITOR
                 {
                     ScheduleFCSMatch(groupA[0][1], fcs);
                 }
+                //Schedule Games
                 else
                 {
                     int teamA = rand.Next(0, groupA.Count);
                     int teamB = rand.Next(0, groupB.Count);
                     int teamArec = groupA[teamA][0];
                     int teamBrec = groupB[teamB][0];
-                    teamA = groupA[teamA][1];
-                    teamB = groupB[teamB][1];
+                    teamA = groupA[teamA][1];  //tgid
+                    teamB = groupB[teamB][1]; //tgid
                     bool scheduled = false;
-                    bool matchupcheck = false;
-                    if (CheckOOCMatchup(teamArec, teamBrec) == false)
+
+                    if (CheckOOCMatchup(teamArec, teamBrec) && !CheckScheduledMatchup(teamA, teamB))
                     {
-                        //check for matchup if it already exists
+
                         int sewn = GetDBValueInt("SEAI", "SEWN", 0) + 1;
+
                         for (int w = sewn; w < 16; w++)
                         {
-                            if (MasterSchedule[teamA][w] == teamB)
+                            if (MasterSchedule[teamA][w] == 511 && MasterSchedule[teamB][w] == 511)
                             {
-                                matchupcheck = true;
+                                ScheduleMatch(teamA, teamB, w, true);
+                                scheduled = true;
                                 break;
                             }
                         }
 
-                        if (!matchupcheck)
-                        {
-                            for (int w = sewn; w < 16; w++)
-                            {
-                                if (MasterSchedule[teamA][w] == 511 && MasterSchedule[teamB][w] == 511)
-                                {
-                                    ScheduleMatch(teamA, teamB, w);
-                                    MasterSchedule[teamA][w] = teamB;
-                                    MasterSchedule[teamB][w] = teamA;
-                                    scheduled = true;
-                                    break;
-                                }
-                            }
 
-                            if (!scheduled)
-                            {
-                                ScheduleFCSMatch(teamA, fcs);
-                                ScheduleFCSMatch(teamB, fcs);
-                                scheduled = true;
-                            }
-                        }
-                        else
+                        if (!scheduled)
                         {
                             ScheduleFCSMatch(teamA, fcs);
                             ScheduleFCSMatch(teamB, fcs);
                             scheduled = true;
                         }
 
-                        //add game counters
-                        if (scheduled)
-                        {
-                            for (int t = 0; t < teamList.Count; t++)
-                            {
-                                if (teamList[t][1] == teamA) teamList[t][3]++;
-                                else if (teamList[t][1] == teamB) teamList[t][3]++;
-                            }
-                        }
                     }
+                    else
+                    {
+                        ScheduleFCSMatch(teamA, fcs);
+                        ScheduleFCSMatch(teamB, fcs);
+                        scheduled = true;
+                    }
+
                 }
 
-                ProgressBarStep();
-
-                int schdCount = GetTableRecCount("SCHD");
                 counter++;
-                if(counter >= maxCounter || schdCount > capacity)
-                {
-                    if (schdCount > capacity) MessageBox.Show("Scheduling Failed!\n\nToo many FCS games scheduled.\n\n Please re-run again until it works!");
-                    else  MessageBox.Show("Scheduling Failed!\n\nDid not schedule enough games.\n\n Please re-run again until it works!");
-                    break;
-                }
+                ProgressBarStep();
             }
-           
-            if(counter < maxCounter)
-            MessageBox.Show("Out of Conference Scheduling Completed Succcessfully!");
+
+
+
+
+            if (counter < maxCounter)
+            {
+                MessageBox.Show("Out of Conference Scheduling Completed Succcessfully!");
+            }
+
+
             EndProgressBar();
         }
 
 
+        //Quality Checks
+
+        private bool LeagueConfCheck()
+        {
+            for (int i = 0; i < GetTableRecCount("CONF"); i++)
+            {
+                int lgid = GetDBValueInt("CONF", "LGID", i);
+                int cgid = GetDBValueInt("CONF", "CGID", i);
+                if (lgid == 0 && cgid != 5)
+                {
+                    int count = GetConfTeamCount(i);
+                    if (count % 2 == 1 && count < 11)
+                    {
+                        return false;
+                    }
+                }
+            }
+
+            return true;
+        }
+
+
+        private void ScheduleFinalCheck(int ExpectedGames, int conf)
+        {
+
+            CreateMasterScheduleDB();
+
+            List<List<int>> teamList = new List<List<int>>();
+
+            //teamList   rec | TGID | CGID | gameCount
+            //Create a list of Teams and their game count
+            for (int i = 0; i < GetTableRecCount("TEAM"); i++)
+            {
+                int ttyp = GetDBValueInt("TEAM", "TTYP", i);
+                int cgid = GetDBValueInt("TEAM", "CGID", i);
+                int tgid = GetDBValueInt("TEAM", "TGID", i);
+
+                if (ttyp == 0 && cgid == conf || ttyp == 0 && conf == 99)
+                {
+                    int x = teamList.Count;
+                    teamList.Add(new List<int>());
+                    teamList[x].Add(i);
+                    teamList[x].Add(tgid);
+                    teamList[x].Add(cgid);
+                    teamList[x].Add(0);
+
+                    //Count Games:
+                    int games = 0;
+                    for (int g = 0; g < MasterSchedule[tgid].Count; g++)
+                    {
+                        if (MasterSchedule[tgid][g] != 511) games++;
+                    }
+
+                    teamList[x][3] = games;
+                }
+
+            }
+
+            for (int t = 0; t < teamList.Count; t++)
+            {
+                if (teamList[t][3] != ExpectedGames)
+                {
+                    string gamecount = " not enough ";
+                    if (teamList[t][3] > ExpectedGames) gamecount = " too many ";
+                    string type = "[CONF]";
+                    if (conf == 99) type = "[OOC]";
+                    MessageBox.Show("Scheduling Failed!\n\nThere were" + gamecount + type + " games.\n\n Please re-run again until it works!\n\n\n Example: " + teamNameDB[teamList[t][1]]);
+                    break;
+                }
+            }
+
+
+        }
+
+        private void Week15Check()
+        {
+            CreateMasterScheduleDB();
+            bool week15used = false;
+
+            for (int i = 0; i < MasterSchedule.Count; i++)
+            {
+                if (MasterSchedule[i][15] != 511)
+                {
+                    week15used = true;
+                    break;
+                }
+            }
+
+            if (!week15used)
+            {
+                //reschedule a game to week 15
+                for (int i = 0; i < GetTableRecCount("SCHD"); i++)
+                {
+                    int sewn = GetDBValueInt("SCHD", "SEWN", i);
+                    if (sewn < 15)
+                    {
+                        //reschedule this game to week 15
+                        ChangeDBInt("SCHD", "SGNM", i, 0);
+                        ChangeDBInt("SCHD", "SEWN", i, 15);
+                        ChangeDBInt("SCHD", "SEWT", i, 15);
+                        week15used = true;
+                        break;
+                    }
+                }
+            }
+        }
+
+        private bool CheckScheduledMatchup(int teamA, int teamB)
+        {
+            CreateMasterScheduleDB();
+            //check for matchup if it already exists
+            for (int w = 0; w < 16; w++)
+            {
+                if (MasterSchedule[teamA][w] == teamB)
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         private bool CheckOOCMatchup(int teamArec, int teamBrec)
         {
-            if (GetDBValueInt("TEAM", "CGID", teamArec) == GetDBValueInt("TEAM", "CGID", teamBrec)) return true;
-            else return false;
+            if (GetDBValueInt("TEAM", "CGID", teamArec) == GetDBValueInt("TEAM", "CGID", teamBrec)) return false;
+            else return true;
         }
 
         private bool CheckNDACC(int teamArec, int teamBrec)
@@ -466,54 +707,13 @@ namespace DB_EDITOR
             else return false;
         }
 
-        private void CheckLeagueSetupForScheduling()
+        private int GetConfTeamCount(int i)
         {
-            if (Convert.ToInt32(GetTableRecCount("DIVI")) > 0)
-            {
-                ScheduleError();
-                return;
-            }
-
-            for (int i = 0; i < GetTableRecCount("CONF"); i++)
-            {
-                if (TDB.FieldValue(dbIndex, "CONF", "LGID", i) == "0")
-                {
-                    if (TDB.FieldValue(dbIndex, "CONF", "CGID", i) == "5")
-                    {
-                        ScheduleError();
-                        return;
-                    }
-                    else if (GetConfTeamCount(i) % 2 != 0)
-                    {
-                        ScheduleError();
-                        return;
-                    }
-                }
-            }
-
+            int CGID = GetDBValueInt("CONF", "CGID", i);
             int count = 0;
-            for (int i = 0; i < GetTableRecCount("TEAM"); i++)
-            {
-                if (TDB.FieldValue(dbIndex, "TEAM", "TTYP", i) == "0")
-                {
-                    count++;
-                }
-            }
-
-            if (count != 120)
-            {
-                ScheduleError();
-                return;
-            }
-        }
-
-        private double GetConfTeamCount(int i)
-        {
-            string CGID = TDB.FieldValue(dbIndex, "CONF", "CGID", i);
-            double count = 0;
             for (int x = 0; x < GetTableRecCount("TEAM"); x++)
             {
-                if (TDB.FieldValue(dbIndex, "TEAM", "CGID", x) == CGID)
+                if (GetDBValueInt("TEAM", "CGID", x) == CGID)
                 {
                     count++;
                 }
@@ -522,120 +722,37 @@ namespace DB_EDITOR
             return count;
         }
 
+        private bool CheckSCHDCapacity()
+        {
+            int capacity = TDB.TableCapacity(0, "SCHD");
+            int schdCount = GetTableRecCount("SCHD");
+            if (schdCount > capacity)
+            {
+                MessageBox.Show("Scheduling Failed!\n\nRan out of database capacity.\n\n Please re-run again until it works!");
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+        }
+
         private void ScheduleError()
         {
-            MessageBox.Show("This Schedule Generator only works with even, divisionless conferences and no independents!");
+            MessageBox.Show("This Schedule Generator only works with even-sized conferences!");
         }
 
-        private void OOCGroupScheduler(List<int> group, List<int> fcs)
-        {
-
-            while (group.Count > 0)
-            {
-                int teamA = group[rand.Next(0, group.Count)];
-                group.Remove(teamA);
-
-                if (group.Count == 0)
-                {
-                    ScheduleFCSMatch(teamA, fcs);
-                    break;
-                }
-
-                int teamB = group[rand.Next(0, group.Count)];
-                group.Remove(teamB);
-
-                if (!CheckOOCMatchup(FindTeamRecfromTeamName(teamNameDB[teamA]), FindTeamRecfromTeamName(teamNameDB[teamB])))
-                {
-                    bool scheduled = false;
-                    for (int w = 1; w < 16; w++)
-                    {
-                        if (MasterSchedule[teamA][w] == 511 && MasterSchedule[teamB][w] == 511)
-                        {
-                            ScheduleMatch(teamA, teamB, w);
-                            MasterSchedule[teamA][w] = teamB;
-                            MasterSchedule[teamB][w] = teamA;
-                            scheduled = true;
-                            break;
-                        }
-                    }
-
-                    if (!scheduled)
-                    {
-                        ScheduleFCSMatch(teamA, fcs);
-                        ScheduleFCSMatch(teamB, fcs);
-                    }
-                }
-                else
-                {
-                    ScheduleFCSMatch(teamA, fcs);
-                    ScheduleFCSMatch(teamB, fcs);
-                }
-
-            }
-
-        }
-
-        private void OOCGroupsScheduler(List<int> ListA, List<int> ListB, List<int> fcs)
-        {
-            while (ListA.Count > 0)
-            {
-                if (ListA.Count == 1 && ListB.Count == 0)
-                {
-                    int team = ListA[rand.Next(0, ListA.Count)];
-                    ScheduleFCSMatch(team, fcs);
-                    break;
-
-                }
-                else if (ListA.Count == 0 && ListB.Count == 1)
-                {
-                    int team = ListA[rand.Next(0, ListB.Count)];
-                    ScheduleFCSMatch(team, fcs);
-                    break;
-                }
 
 
-                int teamA = ListA[rand.Next(0, ListA.Count)];
-                ListA.Remove(teamA);
-                int teamB = ListB[rand.Next(0, ListB.Count)];
-                ListB.Remove(teamB);
 
-                if (!CheckOOCMatchup(FindTeamRecfromTeamName(teamNameDB[teamA]), FindTeamRecfromTeamName(teamNameDB[teamB])))
-                {
-                    bool scheduled = false;
-                    for (int w = 1; w < 16; w++)
-                    {
-                        if (MasterSchedule[teamA][w] == 511 && MasterSchedule[teamB][w] == 511)
-                        {
-                            ScheduleMatch(teamA, teamB, w);
-                            MasterSchedule[teamA][w] = teamB;
-                            MasterSchedule[teamB][w] = teamA;
-
-                            scheduled = true;
-                            break;
-                        }
-                    }
-                    if (!scheduled)
-                    {
-                        ScheduleFCSMatch(teamA, fcs);
-                        ScheduleFCSMatch(teamB, fcs);
-                    }
-                }
-                else
-                {
-                    ScheduleFCSMatch(teamA, fcs);
-                    ScheduleFCSMatch(teamB, fcs);
-                }
-
-            }
-
-        }
-
+        //Scheduling Helpers
         private void ScheduleFCSMatch(int team, List<int> fcs)
         {
             int teamH = team;
             bool scheduled = false;
             int count = 0;
-            while (!scheduled && count < 50)
+            while (!scheduled && count < 1000)
             {
                 int teamA = fcs[rand.Next(0, fcs.Count)];
                 int sewn = GetDBValueInt("SEAI", "SEWN", 0);
@@ -643,9 +760,7 @@ namespace DB_EDITOR
                 {
                     if (MasterSchedule[teamH][w] == 511 && MasterSchedule[teamA][w] == 511)
                     {
-                        ScheduleMatch(teamH, teamA, w);
-                        MasterSchedule[teamA][w] = teamH;
-                        MasterSchedule[teamH][w] = teamA;
+                        ScheduleMatch(teamH, teamA, w, false);
 
                         scheduled = true;
                         break;
@@ -663,9 +778,7 @@ namespace DB_EDITOR
                     if (MasterSchedule[teamH][w] == 511)
                     {
                         int teamA = fcs[rand.Next(0, fcs.Count)];
-                        ScheduleMatch(teamH, teamA, w);
-                        MasterSchedule[teamA][w] = teamH;
-                        MasterSchedule[teamH][w] = teamA;
+                        ScheduleMatch(teamH, teamA, w, false);
 
                         break;
                     }
@@ -675,7 +788,7 @@ namespace DB_EDITOR
 
         }
 
-        private void ScheduleMatch(int teamH, int teamA, int wk)
+        private void ScheduleMatch(int teamH, int teamA, int wk, bool locked)
         {
             int rec = GetTableRecCount("SCHD");
             AddTableRecord("SCHD", false);
@@ -691,7 +804,15 @@ namespace DB_EDITOR
             ChangeDBInt("SCHD", "GDAT", rec, 5);
             ChangeDBInt("SCHD", "SEWT", rec, wk);
             int gmfx = 0;
+            if (locked) gmfx = 1;
             ChangeDBInt("SCHD", "GMFX", rec, gmfx);
+
+            if (teamA == 8 && teamH == 57 || teamH == 8 && teamA == 57)
+            {
+                ChangeDBInt("SCHD", "SEWN", rec, 15);
+                ChangeDBInt("SCHD", "SEWT", rec, 15);
+            }
+
 
             int sgnm = 0;
             for (int i = 0; i < GetTableRecCount("SCHD"); i++)

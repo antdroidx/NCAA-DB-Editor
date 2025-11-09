@@ -78,6 +78,9 @@ Credits:
     <Compile Update="RecruitRankings.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="Randomizer.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Properties\Resources.resx">

@@ -19,14 +19,10 @@ namespace DB_EDITOR
     {
         private void StartScheduleEditor()
         {
-            DoNotTrigger = true;
             ScheduleView.Rows.Clear();
-            //LoadScheduleView();
-
             ScheduleComboBox.SelectedIndex = 0;
             LoadScheduleTeamsBox();
 
-            DoNotTrigger = false;
         }
 
         private void ScheduleComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -109,6 +105,8 @@ namespace DB_EDITOR
 
         private void LoadScheduleTeamView(int tgid)
         {
+            DoNotTrigger = true;
+
             ScheduleView.Rows.Clear();
 
             List<string> fcslist = new List<string>();
@@ -128,6 +126,8 @@ namespace DB_EDITOR
 
             SchdTeamName.Text = teamNameDB[tgid];
 
+            double strength = 0;
+            double games = 0;
             for (int i = 0; i < GetTableRecCount("SCHD"); i++)
             {
                 if (GetDBValueInt("SCHD", "GATG", i) == tgid || GetDBValueInt("SCHD", "GHTG", i) == tgid)
@@ -153,12 +153,13 @@ namespace DB_EDITOR
                         rankA = "@ ";
                         if (rank <= 25) rankA += "#" + rank + " ";
 
-
                         teamNameH = teamNameDB[tgid];
                         teamRecH = FindTeamRecfromTeamName(teamNameH);
                         rank = GetDBValueInt("TEAM", "TCRK", teamRecH);
                         if (rank <= 25) rankH += "#" + rank + " ";
 
+                        strength += GetDBValueInt("TEAM", "TROV", teamRecH);
+                        games++;
                         ScheduleView.Rows[w].Cells[2].Value = GetDBValueInt("SCHD", "GHSC", i);
                         ScheduleView.Rows[w].Cells[3].Value = GetDBValueInt("SCHD", "GASC", i);
 
@@ -176,6 +177,9 @@ namespace DB_EDITOR
                         teamRecH = FindTeamRecfromTeamName(teamNameH);
                         rank = GetDBValueInt("TEAM", "TCRK", teamRecH);
                         if (rank <= 25) rankH += "#" + rank + " ";
+
+                        strength += GetDBValueInt("TEAM", "TROV", teamRecA);
+                        games++;
 
                         ScheduleView.Rows[w].Cells[2].Value = GetDBValueInt("SCHD", "GASC", i);
                         ScheduleView.Rows[w].Cells[3].Value = GetDBValueInt("SCHD", "GHSC", i);
@@ -233,17 +237,56 @@ namespace DB_EDITOR
 
             int rec = FindTeamRecfromTeamName(teamNameDB[tgid]);
             SCHDrecord.Text = "Season Record: " + GetDBValue("TEAM", "TSWI", rec) + " - " + GetDBValue("TEAM", "TSLO", rec);
+
+            string StrengthGrade = "";
+            double score = Math.Round(strength / games, 2);
+            if (score >= 86) StrengthGrade = "A+";
+            else if (score >= 84) StrengthGrade = "A";
+            else if (score >= 82) StrengthGrade = "A-";
+            else if (score >= 80) StrengthGrade = "B+";
+            else if (score >= 78) StrengthGrade = "B";
+            else if (score >= 76) StrengthGrade = "B-";
+            else if (score >= 74) StrengthGrade = "C+";
+            else if (score >= 72) StrengthGrade = "C";
+            else if (score >= 68) StrengthGrade = "C-";
+            else if (score >= 66) StrengthGrade = "D+";
+            else if (score >= 64) StrengthGrade = "D";
+            else if (score >= 62) StrengthGrade = "D-";
+            else StrengthGrade = "(F)";
+            ScheduleStrengthLabel.Text = "Schedule Strength: " + score + " | " + StrengthGrade;
+
+            DoNotTrigger = false;
+
             ScheduleView.ClearSelection();
+            int currentWeek = GetDBValueInt("SEAI", "SEWN", 0);
+
+            // Force selection and trigger the event for any row including 0
+            if (currentWeek >= 0 && currentWeek < ScheduleView.Rows.Count)
+            {
+                // Set the current cell first (this helps with row 0 selection)
+                ScheduleView.CurrentCell = ScheduleView.Rows[currentWeek].Cells[0];
+
+                // Select the row
+                //ScheduleView.Rows[currentWeek].Selected = true;
+
+                // Manually trigger the row enter event if needed
+                DataGridViewCellEventArgs args = new DataGridViewCellEventArgs(0, currentWeek);
+                ScheduleView_RowEnter(ScheduleView, args);
+            }
 
         }
 
         private void LoadScheduleWeekView(int sewn)
         {
+            DoNotTrigger = true;
+
             ScheduleView.Rows.Clear();
             SchdTeamName.Text = "Week " + sewn;
             SCHDrecord.Text = "   ";
             SCHDAWAY.HeaderText = "Away Team";
             SCHDHOME.HeaderText = "Home Team";
+            ScheduleStrengthLabel.Text = "";
+            List<int> GameScore = new List<int>();
 
             List<string> fcslist = new List<string>();
             for (int i = 0; i < GetTableRecCount("TEAM"); i++)
@@ -259,6 +302,8 @@ namespace DB_EDITOR
                     int w = ScheduleView.Rows.Count;
                     ScheduleView.Rows.Add(new DataGridViewRow());
                     ScheduleView.Rows.Add(new DataGridViewRow());
+                    GameScore.Add(0);
+                    GameScore.Add(0);
 
                     SCHDWeek.HeaderText = "   ";
                     //ScheduleView.Rows[w].Cells[0].Value = sewn;
@@ -269,7 +314,7 @@ namespace DB_EDITOR
                     int teamRecA = FindTeamRecfromTeamName(teamNameA);
                     int rank = GetDBValueInt("TEAM", "TCRK", teamRecA);
                     if (rank <= 25) rankA = "#" + rank + " ";
-
+                    GameScore[w] += rank;
                     ScheduleView.Rows[w].Cells[1].Value = rankA + teamNameA;
                     ScheduleView.Rows[w].Cells[1].Style.BackColor = GetTeamPrimaryColor(teamRecA);
                     ScheduleView.Rows[w].Cells[1].Style.ForeColor = ChooseForeground(ScheduleView.Rows[w].Cells[1].Style.BackColor);
@@ -286,6 +331,7 @@ namespace DB_EDITOR
 
                     rank = GetDBValueInt("TEAM", "TCRK", teamRecH);
                     if (rank <= 25) rankH = "#" + rank + " ";
+                    GameScore[w] += rank;
 
                     ScheduleView.Rows[w].Cells[4].Value = rankH + teamNameH;
                     ScheduleView.Rows[w].Cells[4].Style.BackColor = GetTeamPrimaryColor(teamRecH);
@@ -328,10 +374,41 @@ namespace DB_EDITOR
                     if (fcslist.Contains(teamNameH) || fcslist.Contains(teamNameA))
                         ScheduleView.Rows[w].Cells[0].Value = "FCS";
 
+                    
                 }
             }
 
+            int topW = 0;
+            int lowscore = 1000;
+            for(int i = 0; i < GameScore.Count; i++)
+            {
+                if (GameScore[i] > 0 && GameScore[i] < lowscore)
+                {
+                    lowscore = GameScore[i];
+                    topW = i;
+                }
+            }
+
+            string GOTW = ScheduleView.Rows[topW].Cells[1].Value + " vs " + ScheduleView.Rows[topW].Cells[4].Value;
+            ScheduleStrengthLabel.Text = "Game of the Week: " + GOTW;
+
+            DoNotTrigger = false;
+
             ScheduleView.ClearSelection();
+            // Force selection and trigger the event for any row including 0
+            if (topW >= 0 && topW < ScheduleView.Rows.Count)
+            {
+                // Set the current cell first (this helps with row 0 selection)
+                ScheduleView.CurrentCell = ScheduleView.Rows[topW].Cells[0];
+
+                // Select the row
+                //ScheduleView.Rows[topW].Selected = true;
+
+                // Manually trigger the row enter event if needed
+                DataGridViewCellEventArgs args = new DataGridViewCellEventArgs(0, topW);
+                ScheduleView_RowEnter(ScheduleView, args);
+            }
+
         }
 
 
@@ -404,7 +481,7 @@ namespace DB_EDITOR
 
         private void LoadMatchViewerBox(int recH, int recA)
         {
-            if (DoNotTrigger) return;
+            //if (DoNotTrigger) return;
 
             MatchView.Rows.Clear();
             List<string> categories = LoadMatchViewRatingCats();
@@ -738,18 +815,6 @@ namespace DB_EDITOR
             }
             return highlights;
         }
-
-
-
-        //Reschedule Out of Conference Games
-        private void RescheduleOOC_Click(object sender, EventArgs e)
-        {
-            ClearOutOfConferenceOnly();
-            CreateMasterScheduleDB();
-            OutOfConferenceSchedulingNEW();
-            SCHDTeamBox_SelectedIndexChanged(sender, e);
-        }
-
 
 
         //Colorizations

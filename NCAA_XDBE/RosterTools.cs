@@ -529,7 +529,9 @@ namespace DB_EDITOR
                     ConvertLastNameStringToInt(LN, rec, "PLAY");
 
                     RandomizeAttribute("PLAY", rec, 4);
+                    RandomizeSkinTone("PLAY", rec);
                     RandomizePlayerHead("PLAY", rec);
+                    RandomizePlayerGear("PLAY", rec);
 
                     x = false;
                 }
@@ -654,7 +656,9 @@ namespace DB_EDITOR
                     ConvertLastNameStringToInt(LN, rec, "PLAY");
 
                     RandomizeAttribute("PLAY", rec, rating);
+                    RandomizeSkinTone("PLAY", rec);
                     RandomizePlayerHead("PLAY", rec);
+                    RandomizePlayerGear("PLAY", rec);
 
                     x = false;
                 }

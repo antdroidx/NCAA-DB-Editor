@@ -283,10 +283,10 @@ namespace DB_EDITOR
 
 
                 //NCAA Football Editor Tabs Check
-                
+
                 if (TDB.TableIndex(dbIndex, "SETL") >= 0) AddPlaybooksTab(); //checks Playbooks first because of SGF table (3 char) causes TDB problems (expecting 4 char)
                 else if (TDB.TableIndex(dbIndex, "AIGR") >= 0 || TDB.FieldIndex(dbIndex, "TEAM", "TMNA") != -1 || TDB.FieldIndex(dbIndex, "PLAY", "PF10") != -1) DBTableAddOns();
-                
+
 
                 //DBTableAddOns();
 
@@ -1184,7 +1184,6 @@ namespace DB_EDITOR
         }
 
         #endregion
-
 
 
     }

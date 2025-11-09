@@ -618,7 +618,7 @@ namespace DB_EDITOR
                         }
                     }
 
-                    Lottery.Sort((coach1, coach2) => coach1[1].CompareTo(coach2[1]));
+                    Lottery.Sort((team1, team2) => team1[1].CompareTo(team2[1]));
 
 
                     teamList = new List<List<int>>();
@@ -748,7 +748,7 @@ namespace DB_EDITOR
                     int rec = SpringPortal[i][0];
                     int pgid = SpringPortal[i][2];
                     int pos = SpringPortal[i][3];
-                    int ov = SpringPortal[i][7];
+                    int ov = SpringPortal[i][4];
                     int team = SpringPortal[i][5];
                     int starter = SpringPortal[i][12];
 

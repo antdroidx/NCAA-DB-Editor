@@ -69,23 +69,6 @@ namespace DB_EDITOR
             RandomizeWalkOnDB();
         }
 
-        //Polynesian Surname Generator
-        private void PolyNames_Click(object sender, EventArgs e)
-        {
-            bool correctWeek = false;
-            for (int i = 0; i < GetTable2RecCount("RCYR"); i++)
-            {
-                if (GetDB2Value("RCYR", "SEWN", i) == "1")
-                {
-                    PolynesianNameGenerator();
-                    correctWeek = true;
-                }
-            }
-            if (!correctWeek)
-            {
-                MessageBox.Show("Please use this feature at the beginning of Recruiting Stage!");
-            }
-        }
 
         //Randomize Face & Skins
         private void buttonRandomizeFaceSkin_Click(object sender, EventArgs e)
@@ -105,6 +88,12 @@ namespace DB_EDITOR
             }
         }
 
+        //Randomize Gears
+        private void RandomizeRecruitGear_Click(object sender, EventArgs e)
+        {
+            RandomizeAllPlayerGears("RCPT");
+        }
+
         //Randomize Names
         private void RandomizeRecruitNamesButton_Click(object sender, EventArgs e)
         {
@@ -122,6 +111,25 @@ namespace DB_EDITOR
                 MessageBox.Show("Please use this feature at the beginning of Recruiting Stage!");
             }
         }
+
+        //Polynesian Surname Generator
+        private void PolyNames_Click(object sender, EventArgs e)
+        {
+            bool correctWeek = false;
+            for (int i = 0; i < GetTable2RecCount("RCYR"); i++)
+            {
+                if (GetDB2Value("RCYR", "SEWN", i) == "1")
+                {
+                    PolynesianNameGenerator();
+                    correctWeek = true;
+                }
+            }
+            if (!correctWeek)
+            {
+                MessageBox.Show("Please use this feature at the beginning of Recruiting Stage!");
+            }
+        }
+
 
         //Recalculate Star Rankings     
         private void RecalculateStarRankingsButton_Click(object sender, EventArgs e)
@@ -418,6 +426,12 @@ namespace DB_EDITOR
                     if (PWGT > 340) PWGT = 340;
                     if (PHGT > 82) PHGT = 82;
                     if (PHGT < 0) PHGT = 0;
+
+                    int handVal = rand.Next(1, 101);
+                    int hand = 0;
+                    if (handVal <= 91) hand = 1; //left handed 9% chance
+                    ChangeDB2Int(FieldName, "PHAN", i, hand);
+
                     PPOE = rand.Next(1, 32);
                     PINJ = rand.Next(1, maxRatingVal);
                     PAWR = GetRandomAttribute(PAWR, tolA);
@@ -489,10 +503,21 @@ namespace DB_EDITOR
             {
                 if (tableName != "RCPT" || GetDB2ValueInt(tableName, "PRID", i) < 21000)  //skips transfers
                 {
+                    RandomizeSkinTone(tableName, i);
+                    RandomizePlayerHead(tableName, i);
 
+                    int handVal = rand.Next(1, 101);
+                    int hand = 0;
+                    if (handVal <= 91) hand = 1; //left handed 9% chance
+                    ChangeDB2Int(tableName, "PHAN", i, hand);
+
+                    /*
                     //Randomizes Face Shape (PGFM)
                     int shape = rand.Next(0, 16);
                     ChangeDB2Int(tableName, "PFGM", i, shape);
+
+                    //Randomizes Skin Tone
+                    RandomizeSkinTone(tableName, i);
 
                     //Finds current skin tone and randomizes within it's Light/Medium/Dark general tone (PSKI)
                     int skin = GetDB2ValueInt(tableName, "PSKI", i);
@@ -565,7 +590,33 @@ namespace DB_EDITOR
                     }
 
 
-                    ChangeDBInt(tableName, "PHED", i, hairstyle);
+                    ChangeDB2Int(tableName, "PHED", i, hairstyle);
+
+                    //Randomize Eye Black
+                    if (Next26Mod || NextMod)
+                    {
+                        ChangeDB2Int(tableName, "PEYE", i, rand.Next(0, 2));
+                    }
+                    else
+                    {
+                        int val = rand.Next(1, 101);
+                        if (val <= 15) ChangeDBInt(tableName, "PEYE", i, 1);
+                        else ChangeDB2Int(tableName, "PEYE", i, 0);
+                    }
+
+
+                    //Randomize Nasal Strip
+                    if (Next26Mod || NextMod)
+                    {
+                        ChangeDB2Int(tableName, "PBRE", i, rand.Next(0, 2));
+                    }
+                    else
+                    {
+                        int val = rand.Next(1, 101);
+                        if (val <= 15) ChangeDBInt(tableName, "PBRE", i, 1);
+                        else ChangeDB2Int(tableName, "PBRE", i, 0);
+                    }
+                    */
                 }
 
                 ProgressBarStep();
@@ -616,6 +667,12 @@ namespace DB_EDITOR
                 PWGT += rand.Next(-12, 13);
                 if (PWGT < 0) PWGT = 0;
                 if (PHGT > 82) PHGT = 82;
+
+                int handVal = rand.Next(1, 101);
+                int hand = 0;
+                if (handVal <= 91) hand = 1; //left handed 9% chance
+                ChangeDB2Int("WKON", "PHAN", i, hand);
+
                 PPOE = rand.Next(1, 32);
                 PINJ = rand.Next(1, maxRatingVal);
                 PAWR = rand.Next(1, maxRatingVal);

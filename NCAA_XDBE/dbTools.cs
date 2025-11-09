@@ -83,10 +83,23 @@ namespace DB_EDITOR
             RandomizePotential();
         }
 
+        //Unique Player Tool
+        private void RandomizeSkinTones_Click(object sender, EventArgs e)
+        {
+            RandomizeAllSkinTones("PLAY");
+            RandomizeAllPlayerHeads();
+        }
+
         //Randomize Player Faces/Heads
         private void RandomizeHeadButton_Click(object sender, EventArgs e)
         {
             RandomizeAllPlayerHeads();
+        }
+
+        //Randomize Player Gear
+        private void RandomizePlayerGearButton_Click(object sender, EventArgs e)
+        {
+            RandomizeAllPlayerGears("PLAY");
         }
 
         //Unique Player Tool
@@ -184,181 +197,6 @@ namespace DB_EDITOR
         #endregion
 
 
-        #region BODY SIZE TOOLS
-
-        //Fixes Body Size Models if user does manipulation of the player attributes in the in-game player editor
-        private void RecalculateBodyShape(string tableName, bool skip = false)
-        {
-
-            /*
-            string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            string csvLocation = Path.Combine(executableLocation, @"resources\players\BMI-Calc.csv");
-
-            string filePath = csvLocation;
-            StreamReader sr = new StreamReader(filePath);
-            string[,] strArray = null;
-            int Row = 0;
-            while (!sr.EndOfStream)
-            {
-                string[] Line = sr.ReadLine().Split(',');
-                if (Row == 0)
-                {
-                    strArray = new string[432, Line.Length];
-                }
-                for (int column = 0; column < Line.Length; column++)
-                {
-                    strArray[Row, column] = Line[column];
-                }
-                Row++;
-            }
-            sr.Close();
-
-            progressBar1.Visible = true;
-            progressBar1.Minimum = 0;
-            progressBar1.Maximum = GetTableRecCount(tableName);
-            progressBar1.Step = 1;
-
-            for (int i = 0; i < GetTableRecCount(tableName); i++)
-            {
-                double bmi = (double)Math.Round(Convert.ToDouble(GetDBValue(tableName, "PWGT", i)) / Convert.ToDouble(GetDBValue(tableName, "PHGT", i)), 2);
-
-                for (int j = 0; j < 401; j++)
-                {
-                    if (Convert.ToString(bmi) == strArray[j, 0])
-                    {
-                        ChangeDBString(tableName, "PFSH", i, strArray[j, 1]);
-                        ChangeDBString(tableName, "PMSH", i, strArray[j, 2]);
-                        ChangeDBString(tableName, "PSSH", i, strArray[j, 3]);
-                        break;
-                    }
-                }
-                ProgressBarStep();
-            }
-
-            progressBar1.Visible = false;
-            progressBar1.Value = 0;
-
-            */
-
-            for (int i = 0; i < GetTableRecCount(tableName); i++)
-            {
-                RecalculateIndividualBodyShape(i, tableName);
-            }
-
-            if(!skip) MessageBox.Show("Body Model updates are complete!");
-        }
-
-        private void RecalculateIndividualBodyShape(int rec, string tableName)
-        {
-            /*
-            string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            string csvLocation = Path.Combine(executableLocation, @"resources\players\BMI-Calc.csv");
-
-            string filePath = csvLocation;
-            StreamReader sr = new StreamReader(filePath);
-            string[,] strArray = null;
-            int Row = 0;
-            while (!sr.EndOfStream)
-            {
-                string[] Line = sr.ReadLine().Split(',');
-                if (Row == 0)
-                {
-                    strArray = new string[432, Line.Length];
-                }
-                for (int column = 0; column < Line.Length; column++)
-                {
-                    strArray[Row, column] = Line[column];
-                }
-                Row++;
-            }
-            sr.Close();
-
-
-
-            double bmi = (double)Math.Round(Convert.ToDouble(GetDBValue("PLAY", "PWGT", rec)) / Convert.ToDouble(GetDBValue("PLAY", "PHGT", rec)), 2);
-            for (int j = 0; j < 401; j++)
-            {
-                if (Convert.ToString(bmi) == strArray[j, 0])
-                {
-                    ChangeDBString("PLAY", "PFSH", rec, strArray[j, 1]);
-                    ChangeDBString("PLAY", "PMSH", rec, strArray[j, 2]);
-                    ChangeDBString("PLAY", "PSSH", rec, strArray[j, 3]);
-                    break;
-                }
-            }
-            */
-
-            int ppos = GetDBValueInt(tableName, "PPOS", rec);
-            int height = GetDBValueInt(tableName, "PHGT", rec);
-            int weight = GetDBValueInt(tableName, "PWGT", rec);
-
-            var (pfsh, pmsh, pssh) = GetBodySizeFromPlayerData(ppos, height, weight);
-
-            ChangeDBInt(tableName, "PFSH", rec, pfsh);
-            ChangeDBInt(tableName, "PMSH", rec, pmsh);
-            ChangeDBInt(tableName, "PSSH", rec, pssh);
-        }
-
-
-        //Recalc Recruit BMI
-
-        private void RecalculateRecruitIndividualBodyShape(int rec)
-        {
-
-            /*
-            string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            string csvLocation = Path.Combine(executableLocation, @"resources\players\BMI-Calc.csv");
-
-            string filePath = csvLocation;
-            StreamReader sr = new StreamReader(filePath);
-            string[,] strArray = null;
-            int Row = 0;
-            while (!sr.EndOfStream)
-            {
-                string[] Line = sr.ReadLine().Split(',');
-                if (Row == 0)
-                {
-                    strArray = new string[432, Line.Length];
-                }
-                for (int column = 0; column < Line.Length; column++)
-                {
-                    strArray[Row, column] = Line[column];
-                }
-                Row++;
-            }
-            sr.Close();
-
-
-
-            double bmi = (double)Math.Round(Convert.ToDouble(GetDB2Value("RCPT", "PWGT", rec)) / Convert.ToDouble(GetDB2Value("RCPT", "PHGT", rec)), 2);
-            for (int j = 0; j < 401; j++)
-            {
-                if (Convert.ToString(bmi) == strArray[j, 0])
-                {
-                    ChangeDB2String("RCPT", "PFSH", rec, strArray[j, 1]);
-                    ChangeDB2String("RCPT", "PMSH", rec, strArray[j, 2]);
-                    ChangeDB2String("RCPT", "PSSH", rec, strArray[j, 3]);
-                    break;
-                }
-            }
-
-           */
-
-            string tableName = "RCPT";
-
-            int ppos = GetDBValueInt(tableName, "PPOS", rec);
-            int height = GetDBValueInt(tableName, "PHGT", rec);
-            int weight = GetDBValueInt(tableName, "PWGT", rec);
-
-            var (pfsh, pmsh, pssh) = GetBodySizeFromPlayerData(ppos, height, weight);
-
-            ChangeDBInt(tableName, "PFSH", rec, pfsh);
-            ChangeDBInt(tableName, "PMSH", rec, pmsh);
-            ChangeDBInt(tableName, "PSSH", rec, pssh);
-
-        }
-
-        #endregion
 
         #region General Tools
 
@@ -1083,9 +921,9 @@ namespace DB_EDITOR
 
                             else TransferRCATtoPLAY(recCounter, rand.Next(0, 19), j, RCATmapper, PJEN, AvailablePJEN[tgid], FreshmanPCT);
 
-
+                            RandomizeSkinTone("PLAY", recCounter);
                             RandomizePlayerHead("PLAY", recCounter);
-
+                            RandomizePlayerGear("PLAY", recCounter);
                             recCounter++;
                             created++;
                         }
@@ -1170,115 +1008,15 @@ namespace DB_EDITOR
                         if (rosterList[x][1] != 19 && rosterList[x][1] != 20)
                         {
                             TransferRCATtoPLAY(rosterList[x][2], ChooseRandomPosFromPOSG(k), rosterList[x][3], RCATmapper, PJEN, AvailablePJEN, 50);
+                            RandomizeSkinTone("PLAY", Convert.ToInt32(rosterList[x][2]));
                             RandomizePlayerHead("PLAY", Convert.ToInt32(rosterList[x][2]));
+                            RandomizePlayerGear("PLAY", Convert.ToInt32(rosterList[x][2]));
                             rosterList.RemoveAt(x);
                             break;
                         }
                     }
                 }
             }
-        }
-
-        //Randomize Player Faces
-        private void RandomizeAllPlayerHeads()
-        {
-            StartProgressBar(GetTableRecCount("PLAY"));
-
-            for (int i = 0; i < GetTableRecCount("PLAY"); i++)
-            {
-                RandomizePlayerHead("PLAY", i);
-                ProgressBarStep();
-            }
-
-            EndProgressBar();
-
-            MessageBox.Show("Faces & Skin Tones Randomized!");
-        }
-
-        //Randomizes a specific player face based on record, i
-        private void RandomizePlayerHead(string tableName, int i)
-        {
-            //Randomizes Face Shape (PGFM)
-            int shape = rand.Next(0, 16);
-            ChangeDBString(tableName, "PFGM", i, Convert.ToString(shape));
-
-            //Finds current skin tone and randomizes within it's Light/Medium/Dark general tone (PSKI)
-           
-            int skin = GetDBValueInt(tableName, "PSKI", i);
-            
-            if (skin <= 2) skin = rand.Next(0, 3);
-            else if (skin <= 6) skin = rand.Next(3, 7);
-            else skin = 7;
-            
-
-            ChangeDBString(tableName, "PSKI", i, Convert.ToString(skin));
-
-            //Randomizes Face Type based on new Skin Type
-            int face = GetDBValueInt(tableName, "PSKI", i) * 8 + rand.Next(0, 8);
-            ChangeDBString(tableName, "PFMP", i, Convert.ToString(face));
-
-            //Randomize Hair Color
-            int hcl = 0;
-            if (skin < 2)
-            {
-                hcl = rand.Next(1, 101);
-                if (hcl <= 55) hcl = 2; //brown
-                else if (hcl <= 65) hcl = 0; //black
-                else if (hcl <= 80) hcl = 1; //blonde
-                else if (hcl <= 95) hcl = 4; //light brown
-                else hcl = 3; //red
-            }
-            else if (skin == 2 || skin == 7)
-            {
-                hcl = rand.Next(1, 101);
-                if (hcl <= 80) hcl = 0;
-                else hcl = 4;
-            }
-            else
-            {
-                hcl = rand.Next(1, 101);
-                if (hcl <= 92) hcl = 0;
-                else if (hcl <= 70) hcl = 2;
-                else hcl = rand.Next(0, 6);
-            }
-
-            ChangeDBString(tableName, "PHCL", i, Convert.ToString(hcl));
-
-            //Randomize Hair Style
-            int hairstyle = 5;
-
-            if (skin < 3 || skin == 7)
-            {
-
-                if (rand.Next(1, 101) <= 50)
-                    hairstyle = rand.Next(2, 8);
-                else if (rand.Next(1, 101) <= 75)
-                    hairstyle = rand.Next(11, 14);
-                else hairstyle = 0;
-
-            }
-            else
-            {
-                if (rand.Next(1, 101) <= 50)
-                {
-                    int hair = rand.Next(1, 5);
-                    if (hair == 1) hairstyle = 1;
-                    else if (hair == 2) hairstyle = 2;
-                    else if (hair == 3) hairstyle = 3;
-                    else if (hair == 4) hairstyle = 14;
-                }
-                else
-                {
-                    if (rand.Next(1, 101) <= 50)
-                        hairstyle = rand.Next(0, 8);
-                    else
-                        hairstyle = rand.Next(11, 15);
-                }
-            }
-
-
-            ChangeDBInt(tableName, "PHED", i, hairstyle);
-
         }
 
         //Unique Players

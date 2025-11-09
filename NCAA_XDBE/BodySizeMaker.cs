@@ -16,6 +16,57 @@ namespace DB_EDITOR
     partial class MainEditor : Form
     {
 
+        #region BODY SIZE TOOLS
+
+        //Fixes Body Size Models if user does manipulation of the player attributes in the in-game player editor
+        private void RecalculateBodyShape(string tableName, bool skip = false)
+        {
+
+            for (int i = 0; i < GetTableRecCount(tableName); i++)
+            {
+                RecalculateIndividualBodyShape(i, tableName);
+            }
+
+            if (!skip) MessageBox.Show("Body Model updates are complete!");
+        }
+
+        private void RecalculateIndividualBodyShape(int rec, string tableName)
+        {
+
+            int ppos = GetDBValueInt(tableName, "PPOS", rec);
+            int height = GetDBValueInt(tableName, "PHGT", rec);
+            int weight = GetDBValueInt(tableName, "PWGT", rec);
+
+            var (pfsh, pmsh, pssh) = GetBodySizeFromPlayerData(ppos, height, weight);
+
+            ChangeDBInt(tableName, "PFSH", rec, pfsh);
+            ChangeDBInt(tableName, "PMSH", rec, pmsh);
+            ChangeDBInt(tableName, "PSSH", rec, pssh);
+        }
+
+
+        //Recalc Recruit BMI
+
+        private void RecalculateRecruitIndividualBodyShape(int rec)
+        {
+            string tableName = "RCPT";
+
+            int ppos = GetDBValueInt(tableName, "PPOS", rec);
+            int height = GetDBValueInt(tableName, "PHGT", rec);
+            int weight = GetDBValueInt(tableName, "PWGT", rec);
+
+            var (pfsh, pmsh, pssh) = GetBodySizeFromPlayerData(ppos, height, weight);
+
+            ChangeDBInt(tableName, "PFSH", rec, pfsh);
+            ChangeDBInt(tableName, "PMSH", rec, pmsh);
+            ChangeDBInt(tableName, "PSSH", rec, pssh);
+
+        }
+
+        #endregion
+
+
+
         // ----- PUBLIC ENTRY POINTS ------------------------------------------------
 
         /// <summary>
