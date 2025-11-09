@@ -87,13 +87,13 @@ namespace DB_EDITOR
         private void RandomizeSkinTones_Click(object sender, EventArgs e)
         {
             RandomizeAllSkinTones("PLAY");
-            RandomizeAllPlayerHeads();
+            RandomizeAllPlayerHeads("PLAY");
         }
 
         //Randomize Player Faces/Heads
         private void RandomizeHeadButton_Click(object sender, EventArgs e)
         {
-            RandomizeAllPlayerHeads();
+            RandomizeAllPlayerHeads("PLAY");
         }
 
         //Randomize Player Gear

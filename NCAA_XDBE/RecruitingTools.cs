@@ -82,6 +82,13 @@ namespace DB_EDITOR
                     correctWeek = true;
                 }
             }
+            for (int i = 0; i < GetTable2RecCount("WKON"); i++)
+            {
+                if (GetDB2Value("RCYR", "SEWN", i) == "1")
+                {
+                    RandomizeRecruitFace("WKON");
+                }
+            }
             if (!correctWeek)
             {
                 MessageBox.Show("Please use this feature at the beginning of Recruiting Stage!");
@@ -92,6 +99,8 @@ namespace DB_EDITOR
         private void RandomizeRecruitGear_Click(object sender, EventArgs e)
         {
             RandomizeAllPlayerGears("RCPT");
+            RandomizeAllPlayerGears("WKON");
+            MessageBox.Show("Player Gears Randomized!");
         }
 
         //Randomize Names
@@ -429,7 +438,7 @@ namespace DB_EDITOR
 
                     int handVal = rand.Next(1, 101);
                     int hand = 0;
-                    if (handVal <= 91) hand = 1; //left handed 9% chance
+                    if (handVal <= 9) hand = 1; //left handed 9% chance
                     ChangeDB2Int(FieldName, "PHAN", i, hand);
 
                     PPOE = rand.Next(1, 32);
@@ -508,7 +517,7 @@ namespace DB_EDITOR
 
                     int handVal = rand.Next(1, 101);
                     int hand = 0;
-                    if (handVal <= 91) hand = 1; //left handed 9% chance
+                    if (handVal <= 9) hand = 1; //left handed 9% chance
                     ChangeDB2Int(tableName, "PHAN", i, hand);
 
                     /*
@@ -670,7 +679,7 @@ namespace DB_EDITOR
 
                 int handVal = rand.Next(1, 101);
                 int hand = 0;
-                if (handVal <= 91) hand = 1; //left handed 9% chance
+                if (handVal <= 9) hand = 1; //left handed 9% chance
                 ChangeDB2Int("WKON", "PHAN", i, hand);
 
                 PPOE = rand.Next(1, 32);

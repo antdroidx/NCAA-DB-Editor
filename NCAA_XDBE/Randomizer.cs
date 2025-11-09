@@ -55,6 +55,10 @@ namespace DB_EDITOR
         private void RandomizeSkinTone(string tableName, int rec)
         {
             List<List<int>> skinToneRatios = GetSkinToneRatios();
+            for(int i = 0; i < skinToneRatios.Count; i++)
+            {
+                skinToneRatios[i].RemoveAt(0);
+            }
 
             int ppos = GetDBValueInt(tableName, "PPOS", rec);
             List<int> positionSkinTones = skinToneRatios[ppos];
@@ -72,21 +76,21 @@ namespace DB_EDITOR
                 }
             }
 
-            if (tableName == "PLAY")
+            if (tableName == "PLAY" || tableName == "RCAT")
                 ChangeDBInt(tableName, "PSKI", rec, selectedSkinTone);
-            else if (tableName == "RCPT")
+            else if (tableName == "RCPT" || tableName ==  "WKON")
                 ChangeDB2Int(tableName, "PSKI", rec, selectedSkinTone);
         }
 
 
         //Randomize Player Faces
-        private void RandomizeAllPlayerHeads()
+        private void RandomizeAllPlayerHeads(string tableName)
         {
-            StartProgressBar(GetTableRecCount("PLAY"));
+            StartProgressBar(GetTableRecCount(tableName));
 
-            for (int i = 0; i < GetTableRecCount("PLAY"); i++)
+            for (int i = 0; i < GetTableRecCount(tableName); i++)
             {
-                RandomizePlayerHead("PLAY", i);
+                RandomizePlayerHead(tableName, i);
                 ProgressBarStep();
             }
 
@@ -102,33 +106,33 @@ namespace DB_EDITOR
             //Randomizes Face Shape (PGFM)
             int shape = rand.Next(0, 16);
 
-            if (tableName == "PLAY")
+            if (tableName == "PLAY" || tableName == "RCAT")
                 ChangeDBInt(tableName, "PFGM", rec, shape);
-            else if (tableName == "RCPT")
+            else if (tableName == "RCPT" || tableName ==  "WKON")
                 ChangeDB2Int(tableName, "PFGM", rec, shape);
 
 
             //Finds current skin tone and randomizes within it's Light/Medium/Dark general tone (PSKI)
             int skin = -1;
-            if (tableName == "PLAY") skin = GetDBValueInt(tableName, "PSKI", rec);
+            if (tableName == "PLAY" || tableName == "RCAT") skin = GetDBValueInt(tableName, "PSKI", rec);
             else skin = GetDB2ValueInt(tableName, "PSKI", rec);
 
             if (skin <= 2) skin = rand.Next(0, 3);
             else if (skin <= 6) skin = rand.Next(3, 7);
             else skin = 7;
 
-            if (tableName == "PLAY")
+            if (tableName == "PLAY" || tableName == "RCAT")
                 ChangeDBInt(tableName, "PSKI", rec, skin);
-            else if (tableName == "RCPT")
+            else if (tableName == "RCPT" || tableName ==  "WKON")
                 ChangeDB2Int(tableName, "PSKI", rec, skin);
 
 
             //Randomizes Face Type based on new Skin Type
             int face = skin * 8 + rand.Next(0, 8);
 
-            if (tableName == "PLAY")
+            if (tableName == "PLAY" || tableName == "RCAT")
                 ChangeDBInt(tableName, "PFMP", rec, face);
-            else if (tableName == "RCPT")
+            else if (tableName == "RCPT" || tableName ==  "WKON")
                 ChangeDB2Int(tableName, "PFMP", rec, face);
 
 
@@ -157,9 +161,9 @@ namespace DB_EDITOR
                 else hcl = rand.Next(0, 6);
             }
 
-            if (tableName == "PLAY")
+            if (tableName == "PLAY" || tableName == "RCAT")
                 ChangeDBInt(tableName, "PHCL", rec, hcl);
-            else if (tableName == "RCPT")
+            else if (tableName == "RCPT" || tableName ==  "WKON")
                 ChangeDB2Int(tableName, "PHCL", rec, hcl);
 
 
@@ -195,9 +199,9 @@ namespace DB_EDITOR
                 }
             }
 
-            if (tableName == "PLAY")
+            if (tableName == "PLAY" || tableName == "RCAT")
                 ChangeDBInt(tableName, "PHED", rec, hairstyle);
-            else if (tableName == "RCPT")
+            else if (tableName == "RCPT" || tableName ==  "WKON")
                 ChangeDB2Int(tableName, "PHED", rec, hairstyle);
 
             //Randomize Eye Black
@@ -205,9 +209,9 @@ namespace DB_EDITOR
             {
                 int eyeblack = rand.Next(0, 2);
 
-                if (tableName == "PLAY")
+                if (tableName == "PLAY" || tableName == "RCAT")
                     ChangeDBInt(tableName, "PEYE", rec, eyeblack);
-                else if (tableName == "RCPT")
+                else if (tableName == "RCPT" || tableName ==  "WKON")
                     ChangeDB2Int(tableName, "PEYE", rec, eyeblack);
             }
             else
@@ -216,9 +220,9 @@ namespace DB_EDITOR
                 int eyeblack = 0;
                 if (val <= 40) eyeblack = 1;
 
-                if (tableName == "PLAY")
+                if (tableName == "PLAY" || tableName == "RCAT")
                     ChangeDBInt(tableName, "PEYE", rec, eyeblack);
-                else if (tableName == "RCPT")
+                else if (tableName == "RCPT" || tableName ==  "WKON")
                     ChangeDB2Int(tableName, "PEYE", rec, eyeblack);
             }
 
@@ -228,9 +232,9 @@ namespace DB_EDITOR
             {
                 int nasal = rand.Next(0, 2);
 
-                if (tableName == "PLAY")
+                if (tableName == "PLAY" || tableName == "RCAT")
                     ChangeDBInt(tableName, "PBRE", rec, nasal);
-                else if (tableName == "RCPT")
+                else if (tableName == "RCPT" || tableName ==  "WKON")
                     ChangeDB2Int(tableName, "PBRE", rec, nasal);
             }
             else
@@ -239,9 +243,9 @@ namespace DB_EDITOR
                 int nasal = 0;
                 if (val <= 15) nasal = 1;
 
-                if (tableName == "PLAY")
+                if (tableName == "PLAY" || tableName == "RCAT")
                     ChangeDBInt(tableName, "PBRE", rec, nasal);
-                else if (tableName == "RCPT")
+                else if (tableName == "RCPT" || tableName ==  "WKON")
                     ChangeDB2Int(tableName, "PBRE", rec, nasal);
             }
 
@@ -278,7 +282,6 @@ namespace DB_EDITOR
 
             EndProgressBar();
 
-            MessageBox.Show("Player Gears Randomized!");
         }
 
         //Randomize Individual Player's Gear
@@ -307,11 +310,11 @@ namespace DB_EDITOR
             {
                 helmet = 0; //Normal
             }
-            else if (val <= 20)
+            else if (val <= 75)
             {
                 helmet = 1; //Adams
             }
-            else if (val <= 25)
+            else if (val <= 100)
             {
                 helmet = 2; //Schutt
             }
@@ -320,9 +323,9 @@ namespace DB_EDITOR
                 helmet = 3; //Revolution
             }
 
-            if (tableName == "PLAY")
+            if (tableName == "PLAY" || tableName == "RCAT")
                 ChangeDBInt(tableName, "HELM", rec, helmet);
-            else if (tableName == "RCPT")
+            else if (tableName == "RCPT" || tableName ==  "WKON")
                 ChangeDB2Int(tableName, "HELM", rec, helmet);
         }
 
@@ -330,9 +333,9 @@ namespace DB_EDITOR
         private void RandomizeFacemask(string tableName, int rec)
         {
             int pos = -1;
-            if (tableName == "PLAY")
+            if (tableName == "PLAY" || tableName == "RCAT")
                 pos = GetDBValueInt(tableName, "PPOS", rec);
-            else if (tableName == "RCPT")
+            else if (tableName == "RCPT" || tableName ==  "WKON")
                 pos = GetDB2ValueInt(tableName, "PPOS", rec);
 
             int val = rand.Next(1, 101);
@@ -660,9 +663,9 @@ namespace DB_EDITOR
             }
 
 
-            if (tableName == "PLAY")
+            if (tableName == "PLAY" || tableName == "RCAT")
                 ChangeDBInt(tableName, "PFMK", rec, facemask);
-            else if (tableName == "RCPT")
+            else if (tableName == "RCPT" || tableName ==  "WKON")
                 ChangeDB2Int(tableName, "PFMK", rec, facemask);
         }
 
@@ -671,9 +674,9 @@ namespace DB_EDITOR
         private void RandomizeNeckpad(string tableName, int rec)
         {
             int pos = -1;
-            if (tableName == "PLAY")
+            if (tableName == "PLAY" || tableName == "RCAT")
                 pos = GetDBValueInt(tableName, "PPOS", rec);
-            else if (tableName == "RCPT")
+            else if (tableName == "RCPT" || tableName ==  "WKON")
                 pos = GetDB2ValueInt(tableName, "PPOS", rec);
 
             int val = rand.Next(1, 101);
@@ -729,9 +732,9 @@ namespace DB_EDITOR
                 }
             }
 
-            if (tableName == "PLAY")
+            if (tableName == "PLAY" || tableName == "RCAT")
                 ChangeDBInt(tableName, "PNEK", rec, neckpad);
-            else if (tableName == "RCPT")
+            else if (tableName == "RCPT" || tableName ==  "WKON")
                 ChangeDB2Int(tableName, "PNEK", rec, neckpad);
         }
 
@@ -740,9 +743,9 @@ namespace DB_EDITOR
         private void RandomizeVisor(string tableName, int rec)
         {
             int pos = -1;
-            if (tableName == "PLAY")
+            if (tableName == "PLAY" || tableName == "RCAT")
                 pos = GetDBValueInt(tableName, "PPOS", rec);
-            else if (tableName == "RCPT")
+            else if (tableName == "RCPT" || tableName ==  "WKON")
                 pos = GetDB2ValueInt(tableName, "PPOS", rec);
 
             int val = rand.Next(1, 101);
@@ -788,9 +791,9 @@ namespace DB_EDITOR
                 }
             }
 
-            if (tableName == "PLAY")
+            if (tableName == "PLAY" || tableName == "RCAT")
                 ChangeDBInt(tableName, "PVIS", rec, visor);
-            else if (tableName == "RCPT")
+            else if (tableName == "RCPT" || tableName ==  "WKON")
                 ChangeDB2Int(tableName, "PVIS", rec, visor);
         }
 
@@ -809,9 +812,9 @@ namespace DB_EDITOR
                 mouthguard = 1; //Yes
             }
 
-            if (tableName == "PLAY")
+            if (tableName == "PLAY" || tableName == "RCAT")
                 ChangeDBInt(tableName, "PLMG", rec, mouthguard);
-            else if (tableName == "RCPT")
+            else if (tableName == "RCPT" || tableName ==  "WKON")
                 ChangeDB2Int(tableName, "PLMG", rec, mouthguard);
         }
 
@@ -823,7 +826,7 @@ namespace DB_EDITOR
             int val = rand.Next(1, 101);
             int sleeves = 0;
 
-            if (val <= 70)
+            if (val <= 60)
             {
                 sleeves = 0; //Cold Only
             }
@@ -836,20 +839,20 @@ namespace DB_EDITOR
                 sleeves = 2; //Never
             }
 
-            if (tableName == "PLAY")
+            if (tableName == "PLAY" || tableName == "RCAT")
                 ChangeDBInt(tableName, "PSLO", rec, sleeves);
-            else if (tableName == "RCPT")
+            else if (tableName == "RCPT" || tableName ==  "WKON")
                 ChangeDB2Int(tableName, "PSLO", rec, sleeves);
 
             //Sleeve Colors
             val = rand.Next(1, 101);
             sleeves = 0;
 
-            if (val <= 10)
+            if (val <= 33)
             {
                 sleeves = 0; //Black
             }
-            else if (val <= 20)
+            else if (val <= 66)
             {
                 sleeves = 1; //White
             }
@@ -858,9 +861,9 @@ namespace DB_EDITOR
                 sleeves = 2; //Team Color
             }
 
-            if (tableName == "PLAY")
+            if (tableName == "PLAY" || tableName == "RCAT")
                 ChangeDBInt(tableName, "PSLT", rec, sleeves);
-            else if (tableName == "RCPT")
+            else if (tableName == "RCPT" || tableName ==  "WKON")
                 ChangeDB2Int(tableName, "PSLT", rec, sleeves);
         }
 
@@ -868,14 +871,15 @@ namespace DB_EDITOR
         //Wrist Gears & Player Hand (PHAN)
         private void RandomizeWristGear(string tableName, int rec)
         {
+            int armpadRatio = 10;
             int pos = -1;
             int hand = 0;
-            if (tableName == "PLAY")
+            if (tableName == "PLAY" || tableName == "RCAT")
             {
                 pos = GetDBValueInt(tableName, "PPOS", rec);
                 hand = GetDBValueInt(tableName, "PHAN", rec);
             }
-            else if (tableName == "RCPT")
+            else if (tableName == "RCPT" || tableName ==  "WKON")
             {
                 pos = GetDB2ValueInt(tableName, "PPOS", rec);
                 hand = GetDB2ValueInt(tableName, "PHAN", rec);
@@ -883,13 +887,17 @@ namespace DB_EDITOR
 
 
             int val = rand.Next(1, 101);
+            int armpadRand = rand.Next(1, 101);
+            int randHand = rand.Next(0, 2);
             int wristLeft = 0;
             int wristRight = 0;
 
+            //Initial Choice
+            #region Initial Wrist Choice
             //QB only
             if (pos == 0)
             {
-                if (val <= 20) //NORMAL
+                if (val <= 30) //NORMAL
                 {
                     wristLeft = 0;
                     wristRight = 0;
@@ -947,6 +955,7 @@ namespace DB_EDITOR
                     }
                 }
             }
+            //Kickers & Punters
             else if (pos >= 19)
             {
                 if (val <= 60) //NORMAL
@@ -993,6 +1002,7 @@ namespace DB_EDITOR
                     }
                 }
             }
+            //RBs, WRs & Defense
             else if (pos <= 3 || pos >= 10)
             {
                 if (val <= 25) //NORMAL
@@ -1039,6 +1049,7 @@ namespace DB_EDITOR
                     }
                 }
             }
+            //TEs & OL
             else
             {
                 if (val <= 38) //NORMAL
@@ -1086,7 +1097,12 @@ namespace DB_EDITOR
                 }
             }
 
+            #endregion
+
             //Asymmetrical Wrist Gear Calculations
+            #region Assymetry Wrist Selection
+            randHand = rand.Next(0, 2);
+            armpadRand = rand.Next(1, 101);
 
             //QBs
             if (pos == 0)
@@ -1102,6 +1118,18 @@ namespace DB_EDITOR
                     else
                     {
                         wristLeft = 0;
+                    }
+                    //Add Arm Pad (used for single-sided tattoo in NEXT Mod)
+                    if (armpadRatio <= armpadRand)
+                    {
+                        if (hand == 0)
+                        {
+                            wristRight = 7;
+                        }
+                        else
+                        {
+                            wristLeft = 7;
+                        }
                     }
                 }
                 else if (val <= 85) //WRIST PAD
@@ -1141,7 +1169,8 @@ namespace DB_EDITOR
                         }
                     }
                 }
-                else //Half-Sleeve
+                //Half-Sleeve
+                else if (wristLeft >= 8)
                 {
                     int color = rand.Next(1, 101);
                     if (color <= 10)
@@ -1180,13 +1209,12 @@ namespace DB_EDITOR
                 }
             }
             //Half-Sleeve Wrists Assymetry
-            else if (wristLeft >= 8)
+            else /*if (wristLeft >= 8)*/
             {
                 val = rand.Next(1, 101);
-
                 if (val <= 25) //NORMAL
                 {
-                    if (hand == 0)
+                    if (randHand == 0)
                     {
                         wristRight = 0;
                     }
@@ -1194,13 +1222,26 @@ namespace DB_EDITOR
                     {
                         wristLeft = 0;
                     }
+
+                    //Add Arm Pad (used for single-sided tattoo in NEXT Mod)
+                    if (armpadRatio <= armpadRand)
+                    {
+                        if (randHand == 0)
+                        {
+                            wristRight = 7;
+                        }
+                        else
+                        {
+                            wristLeft = 7;
+                        }
+                    }
                 }
                 else if (val <= 75) //WRIST PAD
                 {
                     int color = rand.Next(1, 101);
                     if (color <= 10)
                     {
-                        if (hand == 0)
+                        if (randHand == 0)
                         {
                             wristRight = 4;
                         }
@@ -1211,7 +1252,7 @@ namespace DB_EDITOR
                     }
                     else if (color <= 20)
                     {
-                        if (hand == 0)
+                        if (randHand == 0)
                         {
                             wristRight = 5;
                         }
@@ -1222,7 +1263,7 @@ namespace DB_EDITOR
                     }
                     else
                     {
-                        if (hand == 0)
+                        if (randHand == 0)
                         {
                             wristRight = 6;
                         }
@@ -1237,7 +1278,7 @@ namespace DB_EDITOR
                     int color = rand.Next(1, 101);
                     if (color <= 10)
                     {
-                        if (hand == 0)
+                        if (randHand == 0)
                         {
                             wristRight = 8;
                         }
@@ -1248,7 +1289,7 @@ namespace DB_EDITOR
                     }
                     else if (color <= 20)
                     {
-                        if (hand == 0)
+                        if (randHand == 0)
                         {
                             wristRight = 9;
                         }
@@ -1259,7 +1300,7 @@ namespace DB_EDITOR
                     }
                     else
                     {
-                        if (hand == 0)
+                        if (randHand == 0)
                         {
                             wristRight = 10;
                         }
@@ -1268,15 +1309,33 @@ namespace DB_EDITOR
                             wristLeft = 10;
                         }
                     }
+
+
+                    //OVERRIDE - Matching Sleeve Colors
+                    if (wristLeft >= 8 && wristRight >= 8)
+                    {
+                        if (randHand <= 50)
+                        {
+                            wristRight = wristLeft;
+                        }
+                        else
+                        {
+                            wristLeft = wristRight;
+                        }
+                    }
+                    
                 }
             }
 
-            if (tableName == "PLAY")
+
+            #endregion
+
+            if (tableName == "PLAY" || tableName == "RCAT")
             {
                 ChangeDBInt(tableName, "PLWS", rec, wristLeft);
                 ChangeDBInt(tableName, "PRWS", rec, wristRight);
             }
-            else if (tableName == "RCPT")
+            else if (tableName == "RCPT" || tableName == "WKON")
             {
                 ChangeDB2Int(tableName, "PLWS", rec, wristLeft);
                 ChangeDB2Int(tableName, "PRWS", rec, wristRight);
@@ -1347,12 +1406,12 @@ namespace DB_EDITOR
             }
 
 
-            if (tableName == "PLAY")
+            if (tableName == "PLAY" || tableName == "RCAT")
             {
                 ChangeDBInt(tableName, "PLEB", rec, elbowLeft);
                 ChangeDBInt(tableName, "PREB", rec, elbowRight);
             }
-            else if (tableName == "RCPT")
+            else if (tableName == "RCPT" || tableName ==  "WKON")
             {
                 ChangeDB2Int(tableName, "PLEB", rec, elbowLeft);
                 ChangeDB2Int(tableName, "PREB", rec, elbowRight);
@@ -1366,9 +1425,9 @@ namespace DB_EDITOR
         private void RandomizeHands(string tableName, int rec)
         {
             int pos = -1;
-            if (tableName == "PLAY")
+            if (tableName == "PLAY" || tableName == "RCAT")
                 pos = GetDBValueInt(tableName, "PPOS", rec);
-            else if (tableName == "RCPT")
+            else if (tableName == "RCPT" || tableName ==  "WKON")
                 pos = GetDB2ValueInt(tableName, "PPOS", rec);
 
             int val = rand.Next(1, 101);
@@ -1405,13 +1464,13 @@ namespace DB_EDITOR
                 }
             }
 
-            if (tableName == "PLAY")
+            if (tableName == "PLAY" || tableName == "RCAT")
             {
                 ChangeDBInt(tableName, "PLHN", rec, hands);
                 ChangeDBInt(tableName, "PRHN", rec, hands);
             }
 
-            else if (tableName == "RCPT")
+            else if (tableName == "RCPT" || tableName ==  "WKON")
             {
                 ChangeDB2Int(tableName, "PLHN", rec, hands);
                 ChangeDB2Int(tableName, "PRHN", rec, hands);
@@ -1422,9 +1481,9 @@ namespace DB_EDITOR
         private void RandomizeShoe(string tableName, int rec)
         {
             int pos = -1;
-            if (tableName == "PLAY")
+            if (tableName == "PLAY" || tableName == "RCAT")
                 pos = GetDBValueInt(tableName, "PPOS", rec);
-            else if (tableName == "RCPT")
+            else if (tableName == "RCPT" || tableName ==  "WKON")
                 pos = GetDB2ValueInt(tableName, "PPOS", rec);
 
 
@@ -1513,12 +1572,12 @@ namespace DB_EDITOR
 
 
 
-            if (tableName == "PLAY")
+            if (tableName == "PLAY" || tableName == "RCAT")
             {
                 ChangeDBInt(tableName, "PLSH", rec, shoe);
                 ChangeDBInt(tableName, "PRSH", rec, shoe);
             }
-            else if (tableName == "RCPT")
+            else if (tableName == "RCPT" || tableName ==  "WKON")
             {
                 ChangeDB2Int(tableName, "PLSH", rec, shoe);
                 ChangeDB2Int(tableName, "PRSH", rec, shoe);

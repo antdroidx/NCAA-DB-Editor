@@ -378,7 +378,7 @@ namespace DB_EDITOR
             //Thowing Hand
             int handVal = rand.Next(1, 101);
             int hand = 0;
-            if (handVal <= 91) hand = 1; //left handed 9% chance
+            if (handVal <= 9) hand = 1; //left handed 9% chance
             ChangeDBInt(TableName, "PHAN", rec, hand);
 
 
