@@ -1186,6 +1186,17 @@ namespace DB_EDITOR
         #endregion
 
 
+        private void devTabToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (tabControl1.Contains(tabDev))
+            {
+                tabControl1.TabPages.Remove(tabDev);
+            }
+            else
+            {
+                tabControl1.TabPages.Add(tabDev);
+            }
+        }
 
 
     }

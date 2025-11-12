@@ -779,7 +779,7 @@ namespace DB_EDITOR
 
             }
 
-            FillRecruitTeamView(pos, player, home, height, weight, ovr, star, posRank);
+            FillRecruitTeamView(pos, player, home, height, weight, ovr, star, posRank, x);
         }
 
         private void GetTransferRankPlayer(int pgid, int ptid)
@@ -787,7 +787,7 @@ namespace DB_EDITOR
             int rec = FindPGIDRecord(pgid);
 
             string pos = GetPositionName(GetDBValueInt("PLAY", "PPOS", rec));
-            string player = GetFirstNameFromRecord(rec) + " " + GetLastNameFromRecord(rec);
+            string player = GetFirstNameFromRecord(rec) + " " + GetLastNameFromRecord(rec) + " +";
             string home = teamNameDB[ptid];
             int height = GetDBValueInt("PLAY", "PHGT", rec);
             int weight = GetDBValueInt("PLAY", "PWGT", rec) + 160;
@@ -802,11 +802,11 @@ namespace DB_EDITOR
             else star = 1;
 
 
-            FillRecruitTeamView(pos, player, home, height, weight, ovr, star, posRank);
+            FillRecruitTeamView(pos, player, home, height, weight, ovr, star, posRank, rec);
 
         }
 
-        private void FillRecruitTeamView(string pos, string player, string home, int height, int weight, int ovr, int star, int posRank)
+        private void FillRecruitTeamView(string pos, string player, string home, int height, int weight, int ovr, int star, int posRank, int playerRec)
         {
             int row = RecruitTeamView.Rows.Count;
 
@@ -820,6 +820,7 @@ namespace DB_EDITOR
             RecruitTeamView.Rows[row].Cells[5].Value = ovr;
             RecruitTeamView.Rows[row].Cells[6].Value = ConvertStarNumber(star);
             RecruitTeamView.Rows[row].Cells[7].Value = posRank + 1;
+            RecruitTeamView.Rows[row].Cells[8].Value = playerRec;
 
         }
 
@@ -914,6 +915,35 @@ namespace DB_EDITOR
             return rec;
         }
 
+
+        #region Hyperlinks
+        private void RecruitTeamView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int row = e.RowIndex;
+            int cell = e.ColumnIndex;
+
+            if (cell == 1)
+            {
+                int PLAYrec = Convert.ToInt32(RecruitTeamView.Rows[row].Cells[8].Value);
+                string playerName = Convert.ToString(RecruitTeamView.Rows[row].Cells[1].Value);
+
+                if (playerName.Contains("+"))
+                {
+                    PlayerIndex = PLAYrec;
+                    tabControl1.SelectedTab = tabPlayers;
+                    LoadPlayerData();
+                }
+                else
+                {
+                    RecruitIndex = PLAYrec;
+                    tabControl1.SelectedTab = tabRecruits;
+                    LoadRecruitData();
+                }
+            }
+
+        }
+
+        #endregion
     }
 
 }

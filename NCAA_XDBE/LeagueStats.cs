@@ -17,11 +17,15 @@ namespace DB_EDITOR
     {
         private void StartStatsViewer()
         {
-            LeagueStatsView.Rows.Clear();
-            LeagueRankingView.Rows.Clear();
+            if (LeagueRankingBox.Items.Count <= 0 || LeagueStatsBox.Items.Count <= 0)
+            {
+                LeagueStatsView.Rows.Clear();
+                LeagueRankingView.Rows.Clear();
 
-            LoadLeagueRankingBox();
-            LoadLeagueStatBox();
+
+                LoadLeagueRankingBox();
+                LoadLeagueStatBox();
+            }
         }
 
         #region League Ranking Viewer
@@ -597,6 +601,8 @@ namespace DB_EDITOR
                     LeagueStatsView.Rows[row].Cells[9].Value = ints;
                     LeagueStatsView.Rows[row].Cells[10].Value = skd;
 
+                    int playerRec = FindPGIDRecord(GetDBValueInt("PSOF", "PGID", i));
+                    DisplayLeagueStatsViewID(row, playerRec); 
                 }
                 ProgressBarStep();
             }
@@ -661,6 +667,8 @@ namespace DB_EDITOR
                     LeagueStatsView.Rows[row].Cells[9].Value = btk;
                     LeagueStatsView.Rows[row].Cells[10].Value = twenty;
 
+                    int playerRec = FindPGIDRecord(GetDBValueInt("PSOF", "PGID", i));
+                    DisplayLeagueStatsViewID(row, playerRec);
                 }
                 ProgressBarStep();
             }
@@ -727,6 +735,9 @@ namespace DB_EDITOR
                     LeagueStatsView.Rows[row].Cells[8].Value = rac;
                     LeagueStatsView.Rows[row].Cells[9].Value = rca;
                     LeagueStatsView.Rows[row].Cells[10].Value = drp;
+
+                    int playerRec = FindPGIDRecord(GetDBValueInt("PSOF", "PGID", i));
+                    DisplayLeagueStatsViewID(row, playerRec);
                 }
                 ProgressBarStep();
             }
@@ -785,6 +796,9 @@ namespace DB_EDITOR
                     LeagueStatsView.Rows[row].Cells[7].Value = ffum;
                     LeagueStatsView.Rows[row].Cells[8].Value = fumr;
                     LeagueStatsView.Rows[row].Cells[9].Value = defTD;
+
+                    int playerRec = FindPGIDRecord(GetDBValueInt("PSDE", "PGID", i));
+                    DisplayLeagueStatsViewID(row, playerRec);
                 }
                 ProgressBarStep();
             }
@@ -847,6 +861,9 @@ namespace DB_EDITOR
                     LeagueStatsView.Rows[row].Cells[7].Value = xpa;
                     LeagueStatsView.Rows[row].Cells[8].Value = xppct;
                     LeagueStatsView.Rows[row].Cells[9].Value = fourty;
+
+                    int playerRec = FindPGIDRecord(GetDBValueInt("PSKI", "PGID", i));
+                    DisplayLeagueStatsViewID(row, playerRec);
                 }
                 ProgressBarStep();
             }
@@ -903,6 +920,9 @@ namespace DB_EDITOR
                     LeagueStatsView.Rows[row].Cells[5].Value = longest;
                     LeagueStatsView.Rows[row].Cells[6].Value = intwenty;
                     LeagueStatsView.Rows[row].Cells[7].Value = blocked;
+
+                    int playerRec = FindPGIDRecord(GetDBValueInt("PSKI", "PGID", i));
+                    DisplayLeagueStatsViewID(row, playerRec);
                 }
                 ProgressBarStep();
             }
@@ -961,6 +981,9 @@ namespace DB_EDITOR
                     LeagueStatsView.Rows[row].Cells[8].Value = PRTD;
                     LeagueStatsView.Rows[row].Cells[9].Value = PRLong;
                     LeagueStatsView.Rows[row].Cells[10].Value = KRYds + PRYds;
+
+                    int playerRec = FindPGIDRecord(GetDBValueInt("PSKP", "PGID", i));
+                    DisplayLeagueStatsViewID(row, playerRec);
                 }
                 ProgressBarStep();
             }
@@ -971,6 +994,43 @@ namespace DB_EDITOR
         }
 
         #endregion
+        private void DisplayLeagueStatsViewID(int row, int ID)
+        {
+            LeagueStatsView.Rows[row].Cells[11].Value = ID;
+        }
+
+        //Hyperlinks
+        private void LeagueStatsView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int row = e.RowIndex;
+            int cell = e.ColumnIndex;
+
+            //Player
+            if (cell == 1 && LeagueStatsBox.SelectedIndex >= 2)
+            {
+                int PLAYrec = Convert.ToInt32(LeagueStatsView.Rows[row].Cells[11].Value);
+
+                PlayerIndex = PLAYrec;
+                tabControl1.SelectedTab = tabPlayers;
+                LoadPlayerData();
+            }
+            //Team
+            else if (cell == 0 && LeagueStatsBox.SelectedIndex >= 2)
+            {
+                int teamRec = FindTeamRecfromTeamName(Convert.ToString(LeagueStatsView.Rows[row].Cells[1].Value));
+                TeamIndex = teamRec;
+                tabControl1.SelectedTab = tabTeams;
+                GetTeamEditorData(teamRec);
+            }
+            //Team
+            else if (cell == 1 && LeagueStatsBox.SelectedIndex < 2)
+            {
+                int teamRec = FindTeamRecfromTeamName(Convert.ToString(LeagueStatsView.Rows[row].Cells[1].Value));
+                TeamIndex = teamRec;
+                tabControl1.SelectedTab = tabTeams;
+                GetTeamEditorData(teamRec);
+            }
+        }
     }
 
 }

@@ -257,7 +257,7 @@ namespace DB_EDITOR
         #region Randomizing Gear
 
         //Randomize Gears for all players
-        private void RandomizeAllPlayerGears(string tableName)
+        private void RandomizeAllPlayerGears(string tableName, bool keepSleeves = false)
         {
             int start = 0;
             int count = 0;
@@ -276,7 +276,7 @@ namespace DB_EDITOR
 
             for (int i = start; i < count; i++)
             {
-                RandomizePlayerGear(tableName, i);
+                RandomizePlayerGear(tableName, i, keepSleeves);
                 ProgressBarStep();
             }
 
@@ -285,20 +285,25 @@ namespace DB_EDITOR
         }
 
         //Randomize Individual Player's Gear
-        private void RandomizePlayerGear(string tableName, int rec)
+        private void RandomizePlayerGear(string tableName, int rec, bool keepSleeves = false)
         {
             RandomizeHelmet(tableName, rec);
             RandomizeFacemask(tableName, rec);
             RandomizeNeckpad(tableName, rec);
+            RandomizeQBJacket(tableName, rec);
+            RandomizeFaceProtectors(tableName, rec);
             RandomizeMouthguard(tableName, rec);
             RandomizeVisor(tableName, rec);
+
+            if(!keepSleeves)
             RandomizeSleeves(tableName, rec);
+
             RandomizeWristGear(tableName, rec);
             RandomizeElbowGear(tableName, rec);
+            RandomizeTurfTape(tableName, rec);
             RandomizeHands(tableName, rec);
             RandomizeShoe(tableName, rec);
         }
-
 
         //Randomize Helmets
         private void RandomizeHelmet(string tableName, int rec)
@@ -669,6 +674,118 @@ namespace DB_EDITOR
                 ChangeDB2Int(tableName, "PFMK", rec, facemask);
         }
 
+        //Visors
+        private void RandomizeVisor(string tableName, int rec)
+        {
+            int pos = -1;
+            if (tableName == "PLAY" || tableName == "RCAT")
+                pos = GetDBValueInt(tableName, "PPOS", rec);
+            else if (tableName == "RCPT" || tableName == "WKON")
+                pos = GetDB2ValueInt(tableName, "PPOS", rec);
+
+            int val = rand.Next(1, 101);
+            int visor = 0;
+
+            //HBs, LBs, Safeties
+            if (pos == 1 || pos >= 13 && pos <= 15 || pos >= 17 && pos <= 18)
+            {
+                if (val <= 60)
+                {
+                    visor = 0; //None
+                }
+                else if (val <= 100)
+                {
+                    visor = 1; //Clear
+                }
+                else if (val <= 100)
+                {
+                    visor = 2; //Dark
+                }
+                else
+                {
+                    visor = 3; //Orange
+                }
+            }
+            else
+            {
+                if (val <= 80)
+                {
+                    visor = 0; //None
+                }
+                else if (val <= 100)
+                {
+                    visor = 1; //Clear
+                }
+                else if (val <= 100)
+                {
+                    visor = 2; //Dark
+                }
+                else
+                {
+                    visor = 3; //Orange
+                }
+            }
+
+            if (tableName == "PLAY" || tableName == "RCAT")
+                ChangeDBInt(tableName, "PVIS", rec, visor);
+            else if (tableName == "RCPT" || tableName == "WKON")
+                ChangeDB2Int(tableName, "PVIS", rec, visor);
+        }
+
+        //Flak Jacket
+        private void RandomizeQBJacket(string tableName, int rec)
+        {
+            int pos = -1;
+            if (tableName == "PLAY" || tableName == "RCAT")
+                pos = GetDBValueInt(tableName, "PPOS", rec);
+            else if (tableName == "RCPT" || tableName == "WKON")
+                pos = GetDB2ValueInt(tableName, "PPOS", rec);
+
+            int val = rand.Next(1, 101);
+            int jacket = 0;
+
+            //QB only
+            if (pos == 0)
+            {
+                if (val <= 85)
+                    jacket = 1;
+                else 
+                    jacket = 0;
+            }
+            else
+            {
+                jacket = 0;
+            }
+
+            if (tableName == "PLAY" || tableName == "RCAT")
+                ChangeDBInt(tableName, "PFJS", rec, jacket);
+            else if (tableName == "RCPT" || tableName == "WKON")
+                ChangeDB2Int(tableName, "PFJS", rec, jacket);
+        }
+
+        //Face Protectors
+        private void RandomizeFaceProtectors(string tableName, int rec)
+        {
+            int pos = -1;
+            if (tableName == "PLAY" || tableName == "RCAT")
+                pos = GetDBValueInt(tableName, "PPOS", rec);
+            else if (tableName == "RCPT" || tableName == "WKON")
+                pos = GetDB2ValueInt(tableName, "PPOS", rec);
+
+            int val = rand.Next(1, 101);
+            int faceprotectors = 0;
+
+            if (pos == 1 || pos == 3 || pos >= 16)
+            {
+                if (val <= 30) faceprotectors = 1;
+            }
+ 
+            if (tableName == "PLAY" || tableName == "RCAT")
+                ChangeDBInt(tableName, "PLFP", rec, faceprotectors);
+            else if (tableName == "RCPT" || tableName == "WKON")
+                ChangeDB2Int(tableName, "PLFP", rec, faceprotectors);
+        }
+
 
         //Randomize Neckpads
         private void RandomizeNeckpad(string tableName, int rec)
@@ -736,65 +853,6 @@ namespace DB_EDITOR
                 ChangeDBInt(tableName, "PNEK", rec, neckpad);
             else if (tableName == "RCPT" || tableName ==  "WKON")
                 ChangeDB2Int(tableName, "PNEK", rec, neckpad);
-        }
-
-
-        //Visors
-        private void RandomizeVisor(string tableName, int rec)
-        {
-            int pos = -1;
-            if (tableName == "PLAY" || tableName == "RCAT")
-                pos = GetDBValueInt(tableName, "PPOS", rec);
-            else if (tableName == "RCPT" || tableName ==  "WKON")
-                pos = GetDB2ValueInt(tableName, "PPOS", rec);
-
-            int val = rand.Next(1, 101);
-            int visor = 0;
-
-            //HBs, LBs, Safeties
-            if (pos == 1 || pos >= 13 && pos <= 15 || pos >= 17 && pos <= 18)
-            {
-                if (val <= 60)
-                {
-                    visor = 0; //None
-                }
-                else if (val <= 100)
-                {
-                    visor = 1; //Clear
-                }
-                else if (val <= 100)
-                {
-                    visor = 2; //Dark
-                }
-                else
-                {
-                    visor = 3; //Orange
-                }
-            }
-            else
-            {
-                if (val <= 80)
-                {
-                    visor = 0; //None
-                }
-                else if (val <= 100)
-                {
-                    visor = 1; //Clear
-                }
-                else if (val <= 100)
-                {
-                    visor = 2; //Dark
-                }
-                else
-                {
-                    visor = 3; //Orange
-                }
-            }
-
-            if (tableName == "PLAY" || tableName == "RCAT")
-                ChangeDBInt(tableName, "PVIS", rec, visor);
-            else if (tableName == "RCPT" || tableName ==  "WKON")
-                ChangeDB2Int(tableName, "PVIS", rec, visor);
         }
 
 
@@ -1345,6 +1403,12 @@ namespace DB_EDITOR
         //Elbow Gears
         private void RandomizeElbowGear(string tableName, int rec)
         {
+            int pos = -1;
+            if (tableName == "PLAY" || tableName == "RCAT")
+                pos = GetDBValueInt(tableName, "PPOS", rec);
+            else if (tableName == "RCPT" || tableName == "WKON")
+                pos = GetDB2ValueInt(tableName, "PPOS", rec);
+
             int val = rand.Next(1, 101);
             int elbowLeft = 0;
             int elbowRight = 0;
@@ -1381,6 +1445,40 @@ namespace DB_EDITOR
                     elbowRight = 8;
                 }
             }
+            else if (pos >= 5 && pos <= 9 || pos == 11)
+            {
+                if (val <= 65)
+                {
+                    elbowLeft = 0;
+                    elbowRight = 0;
+
+                    if (val <= 20) elbowRight = 11;
+                    else if (val <= 30) elbowRight = 10;
+                }
+                else if (val <= 70)
+                {
+                    int color = rand.Next(2, 6); //elbow Pads
+                    elbowLeft = color;
+                    elbowRight = color;
+                    if (val <= 73) elbowRight = 0;
+                }
+                else if (val <= 80)
+                {
+                    elbowLeft = 9; //Black Thin Band (Black Undershirt)
+                    elbowRight = 9;
+                }
+                else if (val <= 90)
+                {
+                    elbowLeft = 10; //White Thin Band (White Undershirt)
+                    elbowRight = 10;
+                }
+                else
+                {
+                    elbowLeft = 11;
+                    elbowRight = 11;
+                    if (val <= 95) elbowRight = 0;
+                }
+            }
             else
             {
                 if (val <= 65)
@@ -1391,11 +1489,15 @@ namespace DB_EDITOR
                     if (val <= 20) elbowRight = 11;
                     else if (val <= 30) elbowRight = 10;
                 }
+                else if (val <= 78)
+                {
+                    elbowLeft = 9; //Black Thin Band (Black Undershirt)
+                    elbowRight = 9;
+                }
                 else if (val <= 90)
                 {
-                    elbowLeft = 10;
+                    elbowLeft = 10; //White Thin Band (White Undershirt)
                     elbowRight = 10;
-                    if (val <= 70) elbowRight = 0;
                 }
                 else
                 {
@@ -1420,6 +1522,44 @@ namespace DB_EDITOR
 
         }
 
+        private void RandomizeTurfTape(string tableName, int rec)
+        {
+            int pos = -1;
+            if (tableName == "PLAY" || tableName == "RCAT")
+                pos = GetDBValueInt(tableName, "PPOS", rec);
+            else if (tableName == "RCPT" || tableName == "WKON")
+                pos = GetDB2ValueInt(tableName, "PPOS", rec);
+
+            int val = rand.Next(1, 101);
+            int turftape = 0;
+
+            int elbowLeft = GetDBValueInt(tableName, "PLEB", rec);
+            int elbowRight = GetDBValueInt(tableName, "PREB", rec);
+
+            //Only for HB, WR, TE, CB, and Safeties
+            if (pos == 1 || pos == 3 || pos == 4 || pos == 16 || pos == 17 || pos == 18)
+            {
+                //Don't use if Med Band/Shooter Sleeves enabled
+                if (elbowLeft <= 5 && elbowLeft >= 9|| elbowRight <= 5 && elbowRight >= 9) 
+                {
+                    turftape = 2;
+                }
+            }
+            else
+            {
+                turftape = 0;
+            }
+
+
+            if (tableName == "PLAY" || tableName == "RCAT")
+            {
+                ChangeDBInt(tableName, "PTTO", rec, turftape);
+            }
+            else if (tableName == "RCPT" || tableName == "WKON")
+            {
+                ChangeDB2Int(tableName, "PTTO", rec, turftape);
+            }
+        }
 
         //Hand vs Gloves (PRHN PLHN)
         private void RandomizeHands(string tableName, int rec)
@@ -1510,6 +1650,7 @@ namespace DB_EDITOR
                     shoe = 3; //Team Color Tape
                 }
             }
+            //FB, TE, DE, LBs
             else if (pos == 2 || pos == 4 || pos == 10 || pos >= 12 && pos <= 15)
             {
                 if (val <= 50)

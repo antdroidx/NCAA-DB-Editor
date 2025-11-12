@@ -585,17 +585,46 @@ namespace DB_EDITOR
 
             /* PLAYER GEAR */
 
+            //Add Data
+            AddHelmetTypes();
+            AddFaceMaskItems();
+            AddVisorTypes();
+            AddQBJacketTypes();
+            AddFaceProtectorTypes();
+
+            AddEyeBlackTypes();
+            AddNasalStripTypes();
+            AddMouthGuardTypes();
+            AddNeckPadTypes();
+
+            AddSleevesTypes();
+            AddSleevesColors();
+            AddTurfTapeTypes();
+            AddLeftWristTypes();
+            AddRightWristTypes();
+            AddLeftElbowTypes();
+            AddRightElbowTypes();
+            AddLeftHandTypes();
+            AddRightHandTypes();
+
+            AddLeftShoeTypes();
+            AddRightShoeTypes();
+
             //Helmet & Head Gear
             Helmet.SelectedIndex = GetDBValueInt("PLAY", "HELM", PlayerIndex);
             Facemask.SelectedIndex = GetDBValueInt("PLAY", "PFMK", PlayerIndex);
             Visor.SelectedIndex = GetDBValueInt("PLAY", "PVIS", PlayerIndex);
-            NeckPad.SelectedIndex = GetDBValueInt("PLAY", "PNEK", PlayerIndex);
+            QBJacket.SelectedIndex = GetDBValueInt("PLAY", "PFJS", PlayerIndex);
+            FaceProtector.SelectedIndex = GetDBValueInt("PLAY", "PLFP", PlayerIndex);
             EyeBlack.SelectedIndex = GetDBValueInt("PLAY", "PEYE", PlayerIndex);
             NasalStrip.SelectedIndex = GetDBValueInt("PLAY", "PBRE", PlayerIndex);
+            Mouthguard.SelectedIndex = GetDBValueInt("PLAY", "PLMG", PlayerIndex);
+            NeckPad.SelectedIndex = GetDBValueInt("PLAY", "PNEK", PlayerIndex);
 
             // Arms
             Sleeves.SelectedIndex = GetDBValueInt("PLAY", "PSLO", PlayerIndex);
             SleeveColor.SelectedIndex = GetDBValueInt("PLAY", "PSLT", PlayerIndex);
+            TurfTape.SelectedIndex = GetDBValueInt("PLAY", "PTTO", PlayerIndex);
 
             //Elbows
             LeftElbow.SelectedIndex = GetDBValueInt("PLAY", "PLEB", PlayerIndex);
@@ -754,6 +783,207 @@ namespace DB_EDITOR
                 if (i >= home.Length) break;
                 if (home[i] == null) break;
                 PHometownBox.Items.Add(home[i]);
+            }
+        }
+
+        //GEAR
+
+        private void AddHelmetTypes()
+        {
+            Helmet.Items.Clear();
+            List<string> type = GetHelmetTypes();
+            foreach (var x in type)
+            {
+                Helmet.Items.Add(x);
+            }
+        }
+
+        private void AddFaceMaskItems()
+        {
+            Facemask.Items.Clear();
+            List<string> type = GetFaceMaskTypes();
+            foreach (var x in type)
+            {
+                Facemask.Items.Add(x);
+            }
+        }
+
+        private void AddVisorTypes()
+        {
+            Visor.Items.Clear();
+            List<string> type = GetVisorTypes();
+            foreach (var x in type)
+            {
+                Visor.Items.Add(x);
+            }
+        }
+        private void AddQBJacketTypes()
+        {
+            QBJacket.Items.Clear();
+            List<string> type = GetQBJacketTypes();
+            foreach (var x in type)
+            {
+                QBJacket.Items.Add(x);
+            }
+        }
+
+        private void AddFaceProtectorTypes()
+        {
+            FaceProtector.Items.Clear();
+            List<string> type = GetFaceProtectorTypes();
+            foreach (var x in type)
+            {
+                FaceProtector.Items.Add(x);
+            }
+        }
+
+
+        private void AddEyeBlackTypes()
+        {
+            EyeBlack.Items.Clear();
+            List<string> type = GetEyeBlackTypes();
+            foreach (var x in type)
+            {
+                EyeBlack.Items.Add(x);
+            }
+        }
+
+        private void AddNasalStripTypes()
+        {
+            NasalStrip.Items.Clear();
+            List<string> type = GetNasalStripTypes();
+            foreach (var x in type)
+            {
+                NasalStrip.Items.Add(x);
+            }
+        }
+
+        private void AddMouthGuardTypes()
+        {
+            Mouthguard.Items.Clear();
+            List<string> type = GetMouthguardTypes();
+            foreach (var x in type)
+            {
+                Mouthguard.Items.Add(x);
+            }
+        }
+
+        private void AddNeckPadTypes()
+        {
+            NeckPad.Items.Clear();
+            List<string> type = GetNeckPadTypes();
+            foreach (var x in type)
+            {
+                NeckPad.Items.Add(x);
+            }
+        }
+
+        private void AddTurfTapeTypes()
+        {
+            TurfTape.Items.Clear();
+            List<string> type = GetTurfTapeTypes();
+            foreach (var x in type)
+            {
+                TurfTape.Items.Add(x);
+            }
+        }
+        private void AddSleevesTypes()
+        {
+            Sleeves.Items.Clear();
+            List<string> type = GetSleevesType();
+            foreach (var x in type)
+            {
+                Sleeves.Items.Add(x);
+            }
+        }
+
+        private void AddSleevesColors()
+        {
+            SleeveColor.Items.Clear();
+            List<string> type = GetSleevesColors();
+            foreach (var x in type)
+            {
+                SleeveColor.Items.Add(x);
+            }
+        }
+
+        private void AddRightElbowTypes()
+        {
+            RightElbow.Items.Clear();
+            List<string> type = GetElbowTypes();
+            foreach (var x in type)
+            {
+                RightElbow.Items.Add(x);
+            }
+        }
+
+        private void AddLeftElbowTypes()
+        {
+            LeftElbow.Items.Clear();
+            List<string> type = GetElbowTypes();
+            foreach (var x in type)
+            {
+                LeftElbow.Items.Add(x);
+            }
+        }
+
+        private void AddRightWristTypes()
+        {
+            RightWrist.Items.Clear();
+            List<string> type = GetWristsTypes();
+            foreach (var x in type)
+            {
+                RightWrist.Items.Add(x);
+            }
+        }
+
+        private void AddLeftWristTypes()
+        {
+            LeftWrist.Items.Clear();
+            List<string> type = GetWristsTypes();
+            foreach (var x in type)
+            {
+                LeftWrist.Items.Add(x);
+            }
+        }
+
+        private void AddRightHandTypes()
+        {
+            RightHand.Items.Clear();
+            List<string> type = GetHandTypes();
+            foreach (var x in type)
+            {
+                RightHand.Items.Add(x);
+            }
+        }
+
+        private void AddLeftHandTypes()
+        {
+            LeftHand.Items.Clear();
+            List<string> type = GetHandTypes();
+            foreach (var x in type)
+            {
+                LeftHand.Items.Add(x);
+            }
+        }
+
+        private void AddRightShoeTypes()
+        {
+            RightShoe.Items.Clear();
+            List<string> type = GetCleatTypes();
+            foreach (var x in type)
+            {
+                RightShoe.Items.Add(x);
+            }
+        }
+
+        private void AddLeftShoeTypes()
+        {
+            LeftShoe.Items.Clear();
+            List<string> type = GetCleatTypes();
+            foreach (var x in type)
+            {
+                LeftShoe.Items.Add(x);
             }
         }
 
@@ -1261,6 +1491,25 @@ namespace DB_EDITOR
             ChangeDBInt("PLAY", "PVIS", PlayerIndex, Visor.SelectedIndex);
         }
 
+        private void QBJacket_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger)
+                return;
+            int x = Visor.SelectedIndex;
+            if (x > 0) x = 6;
+            ChangeDBInt("PLAY", "PFJS", PlayerIndex, x);
+        }
+
+
+        private void FaceProtector_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger)
+                return;
+            int x = Visor.SelectedIndex;
+            if (x > 0) x = 6;
+            ChangeDBInt("PLAY", "PLFP", PlayerIndex, x);
+        }
+
         private void EyeBlack_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (DoNotTrigger)
@@ -1277,12 +1526,28 @@ namespace DB_EDITOR
             ChangeDBInt("PLAY", "PBRE", PlayerIndex, NasalStrip.SelectedIndex);
         }
 
+        private void Mouthguard_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger)
+                return;
+
+            ChangeDBInt("PLAY", "PLMG", PlayerIndex, Mouthguard.SelectedIndex);
+        }
+
         private void NeckPad_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (DoNotTrigger)
                 return;
 
             ChangeDBInt("PLAY", "PNEK", PlayerIndex, NeckPad.SelectedIndex);
+        }
+
+        private void TurfTape_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger)
+                return;
+
+            ChangeDBInt("PLAY", "PTTO", PlayerIndex, TurfTape.SelectedIndex);
         }
 
         private void Sleeves_SelectedIndexChanged(object sender, EventArgs e)
@@ -1505,6 +1770,11 @@ namespace DB_EDITOR
             return rec;
         }
 
+        private void RandPlayerGear_Click(object sender, EventArgs e)
+        {
+            RandomizePlayerGear("PLAY", PlayerIndex);
+            LoadPlayerData();
+        }
 
         private void ImportPlayerTeam_Click(object sender, EventArgs e)
         {

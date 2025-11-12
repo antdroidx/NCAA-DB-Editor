@@ -354,7 +354,6 @@ namespace DB_EDITOR
                 if (GetDBValueInt("PLAY", "PGID", i) == PGID)
                 {
                     return i;
-                    break;
                 }
             }
             return rec;
@@ -401,7 +400,7 @@ namespace DB_EDITOR
                 else if (year == 1) return "SO";
                 else if (year == 2) return "JR";
                 else return "SR";
-            } 
+            }
             else
             {
                 if (year == 0) return "FR (RS)";
@@ -493,6 +492,267 @@ namespace DB_EDITOR
             type = types[ppos][cat];
 
             return type;
+        }
+
+        #endregion
+
+        #region Equipment Lists
+
+        private List<string> GetHelmetTypes()
+        {
+            List<string> Helmets = new List<string>();
+
+            Helmets.Add("Normal");
+            Helmets.Add("Adams");
+            Helmets.Add("Schutt");
+            Helmets.Add("Revolution");
+
+            return Helmets;
+        }
+
+        private List<string> GetFaceMaskTypes()
+        {
+            List<string> FaceMasks = new List<string>();
+            FaceMasks.Add("*");
+            FaceMasks.Add("2-Bar");
+            FaceMasks.Add("3-Bar");
+            FaceMasks.Add("Half-Cage");
+            FaceMasks.Add("Full-Cage 1");
+            FaceMasks.Add("2-Bar Thin");
+            FaceMasks.Add("1-Bar");
+            FaceMasks.Add("2-Bar RB");
+            FaceMasks.Add("3-Bar QB");
+            FaceMasks.Add("3-Bar RB 1");
+            FaceMasks.Add("Full-Cage 2");
+            FaceMasks.Add("3-Bar RB 2");
+            return FaceMasks;
+        }
+
+        private List<string> GetVisorTypes()
+        {
+            List<string> Visors = new List<string>();
+            Visors.Add("None");
+            Visors.Add("Clear");
+            Visors.Add("Dark");
+            Visors.Add("Orange");
+            return Visors;
+        }
+
+        private List<string> GetFaceProtectorTypes()
+        {
+            List<string> FaceProtector = new List<string>();
+            FaceProtector.Add("No");
+            FaceProtector.Add("Cold Only");
+            return FaceProtector;
+        }
+
+
+        private List<string> GetQBJacketTypes()
+        {
+            List<string> Flak = new List<string>();
+            Flak.Add("No");
+            Flak.Add("Yes");
+            return Flak;
+        }
+
+        private List<string> GetEyeBlackTypes()
+        {
+            List<string> EyeBlacks = new List<string>();
+            EyeBlacks.Add("None");
+            EyeBlacks.Add("Eye Black");
+            return EyeBlacks;
+        }
+
+        private List<string> GetNasalStripTypes()
+        {
+            List<string> NasalStrips = new List<string>();
+            NasalStrips.Add("None");
+            NasalStrips.Add("Nasal Strip");
+            return NasalStrips;
+        }
+
+        private List<string> GetMouthguardTypes()
+        {
+            List<string> Mouthguards = new List<string>();
+            Mouthguards.Add("None");
+            Mouthguards.Add("Normal");
+            return Mouthguards;
+        }
+
+        private List<string> GetNeckPadTypes()
+        {
+            List<string> NeckPads = new List<string>();
+            NeckPads.Add("None");
+            NeckPads.Add("Neck Roll");
+            NeckPads.Add("Extended");
+            return NeckPads;
+        }
+
+        private List<string> GetTurfTapeTypes()
+        {
+            List<string> TurfTape = new List<string>();
+            TurfTape.Add("None");
+            TurfTape.Add("Always");
+            TurfTape.Add("Turf Only");
+            return TurfTape;
+        }
+        private List<string> GetSleevesType()
+        {
+            List<string> Sleeves = new List<string>();
+            if (Next26Mod)
+            {
+                Sleeves.Add("Cold Only");
+                Sleeves.Add("Always/Tattoos");
+                Sleeves.Add("None");
+            }
+            else
+            {
+                Sleeves.Add("Cold Only");
+                Sleeves.Add("Always On");
+                Sleeves.Add("None");
+            }
+            return Sleeves;
+        }
+
+        private List<string> GetSleevesColors()
+        {
+            List<string> SleevesColors = new List<string>();
+            if (Next26Mod)
+            {
+                SleevesColors.Add("Tattoos 1");
+                SleevesColors.Add("Tattoos 2");
+                SleevesColors.Add("Team Color");
+            }
+            else
+            {
+                SleevesColors.Add("Black");
+                SleevesColors.Add("White");
+                SleevesColors.Add("Team Color");
+            }
+
+            return SleevesColors;
+        }
+
+        private List<string> GetElbowTypes()
+        {
+            List<string> Elbows = new List<string>();
+            if (Next26Mod)
+            {
+                Elbows.Add("Normal");
+                Elbows.Add("Rubber Pad");
+                Elbows.Add("Black Pad");
+                Elbows.Add("White Pad");
+                Elbows.Add("Black TC Pad");
+                Elbows.Add("White TC Pad");
+                Elbows.Add("Black Sleeve Top");
+                Elbows.Add("White Sleeve Top");
+                Elbows.Add("Team Sleeve Top");
+                Elbows.Add("Black Undershirt");
+                Elbows.Add("White Undershirt");
+                Elbows.Add("TC Thin Band");
+            }
+            else
+            {
+                Elbows.Add("Normal");
+                Elbows.Add("Rubber Pad");
+                Elbows.Add("Black Pad");
+                Elbows.Add("White Pad");
+                Elbows.Add("Black TC Pad");
+                Elbows.Add("White TC Pad");
+                Elbows.Add("Black Med Band");
+                Elbows.Add("White Med Band");
+                Elbows.Add("Team Med Band");
+                Elbows.Add("Black Thin Band");
+                Elbows.Add("White Thin Band");
+                Elbows.Add("TC Thin Band");
+            }
+
+            return Elbows;
+        }
+
+        private List<string> GetWristsTypes()
+        {
+            List<string> Wrists = new List<string>();
+            if (Next26Mod)
+            {
+                Wrists.Add("None");
+                Wrists.Add("White QB Wrist");
+                Wrists.Add("Black QB Wrist");
+                Wrists.Add("TC QB Wrist");
+                Wrists.Add("Black Wrist");
+                Wrists.Add("White Wrist");
+                Wrists.Add("Team Wrist");
+                Wrists.Add("Plain Arm");
+                Wrists.Add("White Sleeve Bot");
+                Wrists.Add("Black Sleeve Bot");
+                Wrists.Add("Team Sleeve Bot");
+                Wrists.Add("Taped");
+            }
+            else
+            {
+                Wrists.Add("Normal");
+                Wrists.Add("White QB Wrist");
+                Wrists.Add("Black QB Wrist");
+                Wrists.Add("TC QB Wrist");
+                Wrists.Add("Black Wrist");
+                Wrists.Add("White Wrist");
+                Wrists.Add("Team Wrist");
+                Wrists.Add("Arm Pad");
+                Wrists.Add("White Half-Sleeve");
+                Wrists.Add("Black Half-Sleeve");
+                Wrists.Add("Team Half-Sleeve");
+                Wrists.Add("Taped");
+            }
+
+            return Wrists;
+
+        }
+
+
+        private List<string> GetHandTypes()
+        {
+            List<string> Gloves = new List<string>();
+            if(Next26Mod)
+            {
+                Gloves.Add("Bare");
+                Gloves.Add("White");
+                Gloves.Add("Black");
+                Gloves.Add("Taped Hand");
+                Gloves.Add("Team 1");
+                Gloves.Add("Team 2");
+                Gloves.Add("Uniform 1");
+                Gloves.Add("Uniform 2");
+            }
+            else
+            {
+                Gloves.Add("None");
+                Gloves.Add("Taped Hand");
+                Gloves.Add("Gloves");
+            }
+                
+            return Gloves;
+        }
+
+        private List<string> GetCleatTypes()
+        {
+            List<string> Cleats = new List<string>();
+
+            if (Next26Mod)
+            {
+                Cleats.Add("Normal");
+                Cleats.Add("Alt 1");
+                Cleats.Add("Alt 2");
+                Cleats.Add("Alt 3");
+            }
+            else
+            {
+                Cleats.Add("Normal");
+                Cleats.Add("White Taped");
+                Cleats.Add("Black Taped");
+                Cleats.Add("Team Taped");
+            }
+
+            return Cleats;
         }
 
         #endregion
@@ -656,7 +916,7 @@ namespace DB_EDITOR
 
             if (TEAM && GetTableRecCount("PRLU") > 0)
             {
-                for(int i = 0; i < GetTableRecCount("PRLU"); i++)
+                for (int i = 0; i < GetTableRecCount("PRLU"); i++)
                 {
                     Ratings.Add(i, Convert.ToInt32(GetDBValue("PRLU", "LURT", i)));
                 }
@@ -665,7 +925,7 @@ namespace DB_EDITOR
             {
                 for (int i = 0; i < 60; i++)
                 {
-                    Ratings.Add(i, i+40);
+                    Ratings.Add(i, i + 40);
                 }
             }
             else
@@ -1177,11 +1437,11 @@ namespace DB_EDITOR
         public int FindTeamRecfromTeamName(string tmName)
         {
             int tgid = -1;
-            for(int i = 0; i < GetTableRecCount("TEAM"); i++)
+            for (int i = 0; i < GetTableRecCount("TEAM"); i++)
             {
-                if(GetDBValue("TEAM", "TDNA", i) == tmName)
+                if (GetDBValue("TEAM", "TDNA", i) == tmName)
                 {
-                    tgid = i; 
+                    tgid = i;
                     break;
                 }
             }
@@ -1193,9 +1453,9 @@ namespace DB_EDITOR
         {
             for (int i = 0; i < teamNameDB.Length; i++)
             {
-                if(teamNameDB[i] == tmName) 
+                if (teamNameDB[i] == tmName)
                 {
-                    return i; 
+                    return i;
                 }
 
             }
@@ -1233,9 +1493,9 @@ namespace DB_EDITOR
         {
             int tgid = -1;
 
-            for(int i = 0; i < GetTableRecCount("TEAM"); i++)
+            for (int i = 0; i < GetTableRecCount("TEAM"); i++)
             {
-                if (GetDBValueInt("TEAM", "SGID", i) == SGID) return GetDBValueInt("TEAM","TGID", i);
+                if (GetDBValueInt("TEAM", "SGID", i) == SGID) return GetDBValueInt("TEAM", "TGID", i);
             }
 
 
@@ -1324,7 +1584,7 @@ namespace DB_EDITOR
         public int GetCONFrecFromCNAM(string cnam)
         {
             if (cnam == "At-Large") return 17;
-            for(int i = 0; i < GetTableRecCount("CONF"); i++)
+            for (int i = 0; i < GetTableRecCount("CONF"); i++)
             {
                 if (GetDBValue("CONF", "CNAM", i) == cnam) return i;
             }
@@ -1420,7 +1680,7 @@ namespace DB_EDITOR
             if (tol < 0) attribute += rand.Next(tol, 0);
             else attribute += rand.Next(0, tol + 1);
 
-            if (attribute < minRatingVal) attribute = minRatingVal; 
+            if (attribute < minRatingVal) attribute = minRatingVal;
             if (attribute > maxRatingVal) attribute = maxRatingVal;
 
             return attribute;
@@ -1509,9 +1769,9 @@ namespace DB_EDITOR
             if (pitch == 0) return "Team Prestige";
             else if (pitch == 1) return "Location";
             else if (pitch == 2) return "Playing Time";
-            else if(pitch == 3) return "Coaching Style";
-            else if(pitch == 4) return "Coaching Prestige";
-            else if(pitch == 5) return "Academics";
+            else if (pitch == 3) return "Coaching Style";
+            else if (pitch == 4) return "Coaching Prestige";
+            else if (pitch == 5) return "Academics";
             else return "";
         }
 
@@ -1527,7 +1787,7 @@ namespace DB_EDITOR
             }
 
             return starPattern;
-  
+
         }
 
         public int FindPRIDRecord(int PRID)
@@ -1568,9 +1828,9 @@ namespace DB_EDITOR
 
         private int ReturnHelmetNumberVal(string helmet)
         {
-            List<string> helmets = GetHelmetNumbers(); 
-            
-            for(int i = 0; i < helmets.Count; i++)
+            List<string> helmets = GetHelmetNumbers();
+
+            for (int i = 0; i < helmets.Count; i++)
             {
                 if (helmets[i] == helmet) return i;
             }

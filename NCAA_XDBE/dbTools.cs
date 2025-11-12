@@ -99,6 +99,7 @@ namespace DB_EDITOR
         //Randomize Player Gear
         private void RandomizePlayerGearButton_Click(object sender, EventArgs e)
         {
+                  
             RandomizeAllPlayerGears("PLAY");
         }
 

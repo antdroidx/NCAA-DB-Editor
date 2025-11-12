@@ -91,37 +91,30 @@ namespace DB_EDITOR
             DataGridViewCellStyle dataGridViewCellStyle54 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle56 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle57 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle55 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle58 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle59 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle61 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle62 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle60 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle63 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle64 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle66 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle67 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle65 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle68 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle69 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle71 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle72 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle70 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle73 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle74 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle76 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle77 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle75 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle78 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle79 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle81 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle82 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle80 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle83 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle84 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle86 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle87 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle85 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle88 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle89 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle95 = new DataGridViewCellStyle();
@@ -151,6 +144,13 @@ namespace DB_EDITOR
             DataGridViewCellStyle dataGridViewCellStyle114 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle115 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle116 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle75 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle85 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle70 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle55 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle80 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle65 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle60 = new DataGridViewCellStyle();
             qbTend = new System.Windows.Forms.Button();
             mainMenu = new MenuStrip();
             fileMenuItem = new ToolStripMenuItem();
@@ -174,6 +174,7 @@ namespace DB_EDITOR
             descendingFieldOrderMenuItem = new ToolStripMenuItem();
             customOrderMenuItem = new ToolStripMenuItem();
             definitionFileMenuItem = new ToolStripMenuItem();
+            devTabToolStripMenuItem = new ToolStripMenuItem();
             LeagueMakerToolStripMenuItem = new ToolStripMenuItem();
             ScheduleGenMenuItem = new ToolStripMenuItem();
             aboutMenuItem = new ToolStripMenuItem();
@@ -207,6 +208,11 @@ namespace DB_EDITOR
             DB2Button = new RadioButton();
             DBChooserGroupBox = new GroupBox();
             tabDev = new TabPage();
+            TextureDumperButton = new System.Windows.Forms.Button();
+            PlayoffRankerButton = new System.Windows.Forms.Button();
+            FixHometownButton = new System.Windows.Forms.Button();
+            ClearExpiredStats = new System.Windows.Forms.Button();
+            FixHCBugsButton = new System.Windows.Forms.Button();
             buttonLEAGUEROSTERS = new System.Windows.Forms.Button();
             CFUSAexportButton = new System.Windows.Forms.Button();
             textBox20 = new System.Windows.Forms.TextBox();
@@ -225,7 +231,6 @@ namespace DB_EDITOR
             textBox7 = new System.Windows.Forms.TextBox();
             textBox5 = new System.Windows.Forms.TextBox();
             textBox4 = new System.Windows.Forms.TextBox();
-            textBox6 = new System.Windows.Forms.TextBox();
             DevCalcTeamRatingsButton = new System.Windows.Forms.Button();
             DevDepthChartButton = new System.Windows.Forms.Button();
             DevRandomizeFaceButton = new System.Windows.Forms.Button();
@@ -234,6 +239,7 @@ namespace DB_EDITOR
             CreateTransfersCSVButton = new System.Windows.Forms.Button();
             ImportRecruitsButton = new System.Windows.Forms.Button();
             GraduateButton = new System.Windows.Forms.Button();
+            groupBox2 = new GroupBox();
             tabUniforms = new TabPage();
             ImportTeamUNIF = new System.Windows.Forms.Button();
             ExportTeamUNIF = new System.Windows.Forms.Button();
@@ -298,14 +304,6 @@ namespace DB_EDITOR
             DefaultPlaysRadio = new RadioButton();
             CustomPlaysRadio = new RadioButton();
             tabTools = new TabPage();
-            TeamRatingExcludeInjury = new CheckBox();
-            LoadCoachAge = new System.Windows.Forms.Button();
-            PlayoffRankerButton = new System.Windows.Forms.Button();
-            ExportDraft = new System.Windows.Forms.Button();
-            FixHometownButton = new System.Windows.Forms.Button();
-            ClearExpiredStats = new System.Windows.Forms.Button();
-            ReRankTeamsAP = new CheckBox();
-            ResetDynYear = new System.Windows.Forms.Button();
             groupBox38 = new GroupBox();
             RandomizePlayerGearButton = new System.Windows.Forms.Button();
             FantastyRosterLeague = new Panel();
@@ -330,8 +328,6 @@ namespace DB_EDITOR
             RandomizeHeadButton = new System.Windows.Forms.Button();
             bodyFix = new System.Windows.Forms.Button();
             buttonCalcOverall = new System.Windows.Forms.Button();
-            ReRankTeams = new CheckBox();
-            FixHCBugsButton = new System.Windows.Forms.Button();
             groupBox18 = new GroupBox();
             MaxBodyValue = new NumericUpDown();
             label264 = new Label();
@@ -366,12 +362,19 @@ namespace DB_EDITOR
             MinAttButton = new System.Windows.Forms.Button();
             MaxAttRating = new System.Windows.Forms.TextBox();
             GlobalAttButton = new System.Windows.Forms.Button();
-            RandomizeSkinTonesButton = new System.Windows.Forms.Button();
-            SyncPBButton = new System.Windows.Forms.Button();
             textBox3 = new System.Windows.Forms.TextBox();
+            groupBox53 = new GroupBox();
+            LoadCoachAge = new System.Windows.Forms.Button();
+            TeamRatingExcludeInjury = new CheckBox();
+            ExportDraft = new System.Windows.Forms.Button();
+            TYDNButton = new System.Windows.Forms.Button();
+            SyncPBButton = new System.Windows.Forms.Button();
+            ResetDynYear = new System.Windows.Forms.Button();
+            ReRankTeams = new CheckBox();
             ReorderPGIDButton = new System.Windows.Forms.Button();
             TORDButton = new System.Windows.Forms.Button();
-            TYDNButton = new System.Windows.Forms.Button();
+            ReRankTeamsAP = new CheckBox();
+            RandomizeSkinTonesButton = new System.Windows.Forms.Button();
             tabOffSeason = new TabPage();
             groupBox43 = new GroupBox();
             AutoAdjustCoachBudgetButton2 = new System.Windows.Forms.Button();
@@ -990,6 +993,15 @@ namespace DB_EDITOR
             TGIDplayerBox = new System.Windows.Forms.ComboBox();
             PGIDlistBox = new ListBox();
             groupBox3 = new GroupBox();
+            FaceProtector = new System.Windows.Forms.ComboBox();
+            label200 = new Label();
+            QBJacket = new System.Windows.Forms.ComboBox();
+            QBJacketLabel = new Label();
+            Mouthguard = new System.Windows.Forms.ComboBox();
+            label199 = new Label();
+            label198 = new Label();
+            TurfTape = new System.Windows.Forms.ComboBox();
+            RandPlayerGear = new System.Windows.Forms.Button();
             label120 = new Label();
             LeftWrist = new System.Windows.Forms.ComboBox();
             LeftHand = new System.Windows.Forms.ComboBox();
@@ -1030,6 +1042,7 @@ namespace DB_EDITOR
             TPPos = new DataGridViewTextBoxColumn();
             TPPlayer = new DataGridViewTextBoxColumn();
             TPRating = new DataGridViewTextBoxColumn();
+            TopPlayerID = new DataGridViewTextBoxColumn();
             label19 = new Label();
             groupBox49 = new GroupBox();
             GenerateNewRosterButton = new System.Windows.Forms.Button();
@@ -1174,6 +1187,7 @@ namespace DB_EDITOR
             CoachPortalPlayer = new DataGridViewTextBoxColumn();
             Column9 = new DataGridViewTextBoxColumn();
             CoachPortalTeam = new DataGridViewTextBoxColumn();
+            CoachPortalID = new DataGridViewTextBoxColumn();
             CoachFiringsCount = new Label();
             groupBox37 = new GroupBox();
             CoachesAddedBox = new ListBox();
@@ -1202,6 +1216,7 @@ namespace DB_EDITOR
             CCRecord = new DataGridViewTextBoxColumn();
             CCSeaRec = new DataGridViewTextBoxColumn();
             CCCoachRating = new DataGridViewTextBoxColumn();
+            CCccid = new DataGridViewTextBoxColumn();
             label13 = new Label();
             tabPlayoff = new TabPage();
             PlayoffYearLabel = new Label();
@@ -1256,16 +1271,6 @@ namespace DB_EDITOR
             TSTeamBox = new System.Windows.Forms.ComboBox();
             label195 = new Label();
             TSReturn = new DataGridView();
-            dataGridViewTextBoxColumn67 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn76 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn68 = new DataGridViewTextBoxColumn();
-            TSKRYd = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn70 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn71 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn72 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn73 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn74 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn75 = new DataGridViewTextBoxColumn();
             label194 = new Label();
             label193 = new Label();
             label191 = new Label();
@@ -1273,72 +1278,11 @@ namespace DB_EDITOR
             label189 = new Label();
             label188 = new Label();
             TSPunting = new DataGridView();
-            TSPunts = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn57 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn58 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn59 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn60 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn61 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn62 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn63 = new DataGridViewTextBoxColumn();
             TSKicking = new DataGridView();
-            TSFGM = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn46 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn47 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn48 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn49 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn50 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn51 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn52 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn53 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn54 = new DataGridViewTextBoxColumn();
             TSReceiving = new DataGridView();
-            dataGridViewTextBoxColumn34 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn35 = new DataGridViewTextBoxColumn();
-            TSCatch = new DataGridViewTextBoxColumn();
-            TSYdsCat = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn38 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn39 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn40 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn41 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn42 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn43 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn44 = new DataGridViewTextBoxColumn();
             TSPassing = new DataGridView();
-            dataGridViewTextBoxColumn23 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn24 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn25 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn26 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn27 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn28 = new DataGridViewTextBoxColumn();
-            TSPassYds = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn30 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn31 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn32 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn33 = new DataGridViewTextBoxColumn();
             TSDefense = new DataGridView();
-            dataGridViewTextBoxColumn12 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn13 = new DataGridViewTextBoxColumn();
-            TSTackles = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn15 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn16 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn17 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn18 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn19 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn20 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn21 = new DataGridViewTextBoxColumn();
             TSRushing = new DataGridView();
-            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
-            TSRushYds = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn6 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn7 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn8 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn9 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn10 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn11 = new DataGridViewTextBoxColumn();
             tabLeagueStats = new TabPage();
             LeagueStatsBox = new System.Windows.Forms.ComboBox();
             LeagueRankingBox = new System.Windows.Forms.ComboBox();
@@ -1362,6 +1306,7 @@ namespace DB_EDITOR
             LS7 = new DataGridViewTextBoxColumn();
             LS8 = new DataGridViewTextBoxColumn();
             LS9 = new DataGridViewTextBoxColumn();
+            LSPGID = new DataGridViewTextBoxColumn();
             tabRecruiting = new TabPage();
             IncludeReturningTransfersBox = new CheckBox();
             label196 = new Label();
@@ -1377,6 +1322,7 @@ namespace DB_EDITOR
             RecruitTeamOVR = new DataGridViewTextBoxColumn();
             RecruitTeamStarRating = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn84 = new DataGridViewTextBoxColumn();
+            RecruitBoardID = new DataGridViewTextBoxColumn();
             RecruitRankingView = new DataGridView();
             dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn14 = new DataGridViewTextBoxColumn();
@@ -1408,6 +1354,7 @@ namespace DB_EDITOR
             PortalRating = new DataGridViewTextBoxColumn();
             PortalNewSchool = new DataGridViewTextBoxColumn();
             PortalPrvTeam = new DataGridViewTextBoxColumn();
+            springportalID = new DataGridViewTextBoxColumn();
             richTextBox3 = new RichTextBox();
             richTextBox1 = new RichTextBox();
             groupBox33 = new GroupBox();
@@ -1463,11 +1410,89 @@ namespace DB_EDITOR
             panel1 = new Panel();
             tabSTRMDATA = new TabPage();
             groupBox41 = new GroupBox();
+            ExportRCATButton = new System.Windows.Forms.Button();
             RCATGearRandomizerButton = new System.Windows.Forms.Button();
             RCATAppearanceRandomizerButton = new System.Windows.Forms.Button();
             buttonRCATBody = new System.Windows.Forms.Button();
             toolTip1 = new System.Windows.Forms.ToolTip(components);
-            ExportRCATButton = new System.Windows.Forms.Button();
+            dataGridViewTextBoxColumn23 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn24 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn25 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn26 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn27 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn28 = new DataGridViewTextBoxColumn();
+            TSPassYds = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn30 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn31 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn32 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn33 = new DataGridViewTextBoxColumn();
+            TeamStatsPassID = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
+            TSRushYds = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn6 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn7 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn8 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn9 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn10 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn11 = new DataGridViewTextBoxColumn();
+            TeamStatsRushID = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn34 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn35 = new DataGridViewTextBoxColumn();
+            TSCatch = new DataGridViewTextBoxColumn();
+            TSYdsCat = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn38 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn39 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn40 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn41 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn42 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn43 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn44 = new DataGridViewTextBoxColumn();
+            TeamStatsRecID = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn67 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn76 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn68 = new DataGridViewTextBoxColumn();
+            TSKRYd = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn70 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn71 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn72 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn73 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn74 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn75 = new DataGridViewTextBoxColumn();
+            TeamStatsRetID = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn12 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn13 = new DataGridViewTextBoxColumn();
+            TSTackles = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn15 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn16 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn17 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn18 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn19 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn20 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn21 = new DataGridViewTextBoxColumn();
+            TeamStatsDefID = new DataGridViewTextBoxColumn();
+            TSFGM = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn46 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn47 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn48 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn49 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn50 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn51 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn52 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn53 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn54 = new DataGridViewTextBoxColumn();
+            TeamStatsKickID = new DataGridViewTextBoxColumn();
+            TSPunts = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn57 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn58 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn59 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn60 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn61 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn62 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn63 = new DataGridViewTextBoxColumn();
+            TeamStatsPuntID = new DataGridViewTextBoxColumn();
             mainMenu.SuspendLayout();
             tableMenu.SuspendLayout();
             fieldMenu.SuspendLayout();
@@ -1497,6 +1522,7 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)MaxAttNum).BeginInit();
             ((System.ComponentModel.ISupportInitialize)GlobalAttNum).BeginInit();
             ((System.ComponentModel.ISupportInitialize)MinAttNum).BeginInit();
+            groupBox53.SuspendLayout();
             tabOffSeason.SuspendLayout();
             groupBox43.SuspendLayout();
             groupBox17.SuspendLayout();
@@ -1859,7 +1885,7 @@ namespace DB_EDITOR
             // 
             // optionsMenuItem
             // 
-            optionsMenuItem.DropDownItems.AddRange(new ToolStripItem[] { tableFieldOrderMenuItem, definitionFileMenuItem });
+            optionsMenuItem.DropDownItems.AddRange(new ToolStripItem[] { tableFieldOrderMenuItem, definitionFileMenuItem, devTabToolStripMenuItem });
             optionsMenuItem.Name = "optionsMenuItem";
             optionsMenuItem.Size = new Size(66, 21);
             optionsMenuItem.Text = "Options";
@@ -1908,6 +1934,13 @@ namespace DB_EDITOR
             definitionFileMenuItem.Size = new Size(189, 34);
             definitionFileMenuItem.Text = "Definition File";
             definitionFileMenuItem.Click += (this.DefinitionFileMenuItem_Click);
+            // 
+            // devTabToolStripMenuItem
+            // 
+            devTabToolStripMenuItem.Name = "devTabToolStripMenuItem";
+            devTabToolStripMenuItem.Size = new Size(189, 34);
+            devTabToolStripMenuItem.Text = "Dev Tab";
+            devTabToolStripMenuItem.Click += (this.devTabToolStripMenuItem_Click);
             // 
             // LeagueMakerToolStripMenuItem
             // 
@@ -2150,6 +2183,11 @@ namespace DB_EDITOR
             // tabDev
             // 
             tabDev.BackColor = SystemColors.ActiveCaption;
+            tabDev.Controls.Add(TextureDumperButton);
+            tabDev.Controls.Add(PlayoffRankerButton);
+            tabDev.Controls.Add(FixHometownButton);
+            tabDev.Controls.Add(ClearExpiredStats);
+            tabDev.Controls.Add(FixHCBugsButton);
             tabDev.Controls.Add(buttonLEAGUEROSTERS);
             tabDev.Controls.Add(CFUSAexportButton);
             tabDev.Controls.Add(textBox20);
@@ -2168,7 +2206,6 @@ namespace DB_EDITOR
             tabDev.Controls.Add(textBox7);
             tabDev.Controls.Add(textBox5);
             tabDev.Controls.Add(textBox4);
-            tabDev.Controls.Add(textBox6);
             tabDev.Controls.Add(DevCalcTeamRatingsButton);
             tabDev.Controls.Add(DevDepthChartButton);
             tabDev.Controls.Add(DevRandomizeFaceButton);
@@ -2177,6 +2214,7 @@ namespace DB_EDITOR
             tabDev.Controls.Add(CreateTransfersCSVButton);
             tabDev.Controls.Add(ImportRecruitsButton);
             tabDev.Controls.Add(GraduateButton);
+            tabDev.Controls.Add(groupBox2);
             tabDev.Location = new Point(4, 29);
             tabDev.Name = "tabDev";
             tabDev.Padding = new Padding(3);
@@ -2184,13 +2222,76 @@ namespace DB_EDITOR
             tabDev.TabIndex = 8;
             tabDev.Text = "Dev";
             // 
+            // TextureDumperButton
+            // 
+            TextureDumperButton.BackColor = Color.Gold;
+            TextureDumperButton.Font = new Font("Microsoft Sans Serif", 12F);
+            TextureDumperButton.Location = new Point(178, 34);
+            TextureDumperButton.Name = "TextureDumperButton";
+            TextureDumperButton.Size = new Size(140, 100);
+            TextureDumperButton.TabIndex = 150;
+            TextureDumperButton.Text = "Texture Dumper Roster Changer";
+            TextureDumperButton.UseVisualStyleBackColor = false;
+            TextureDumperButton.Click += (this.TextureDumperButton_Click);
+            // 
+            // PlayoffRankerButton
+            // 
+            PlayoffRankerButton.BackColor = Color.Gold;
+            PlayoffRankerButton.Font = new Font("Microsoft Sans Serif", 12F);
+            PlayoffRankerButton.Location = new Point(338, 34);
+            PlayoffRankerButton.Name = "PlayoffRankerButton";
+            PlayoffRankerButton.Size = new Size(140, 100);
+            PlayoffRankerButton.TabIndex = 149;
+            PlayoffRankerButton.Text = "Playoff Ranker";
+            PlayoffRankerButton.UseVisualStyleBackColor = false;
+            PlayoffRankerButton.Click += (this.PlayoffRankerButton_Click);
+            // 
+            // FixHometownButton
+            // 
+            FixHometownButton.BackColor = Color.Gold;
+            FixHometownButton.Font = new Font("Microsoft Sans Serif", 12F);
+            FixHometownButton.ForeColor = SystemColors.ActiveCaptionText;
+            FixHometownButton.Location = new Point(979, 383);
+            FixHometownButton.Name = "FixHometownButton";
+            FixHometownButton.Size = new Size(140, 100);
+            FixHometownButton.TabIndex = 148;
+            FixHometownButton.Text = "Fix Hometowns\r\n";
+            FixHometownButton.UseVisualStyleBackColor = false;
+            FixHometownButton.Click += (this.FixHometownButton_Click);
+            // 
+            // ClearExpiredStats
+            // 
+            ClearExpiredStats.BackColor = Color.Gold;
+            ClearExpiredStats.Font = new Font("Microsoft Sans Serif", 12F);
+            ClearExpiredStats.ForeColor = SystemColors.ActiveCaptionText;
+            ClearExpiredStats.Location = new Point(979, 501);
+            ClearExpiredStats.Name = "ClearExpiredStats";
+            ClearExpiredStats.Size = new Size(140, 100);
+            ClearExpiredStats.TabIndex = 147;
+            ClearExpiredStats.Text = "Clear Expired Stats Data";
+            ClearExpiredStats.UseVisualStyleBackColor = false;
+            ClearExpiredStats.Click += (this.ClearExpiredStats_Click);
+            // 
+            // FixHCBugsButton
+            // 
+            FixHCBugsButton.BackColor = Color.Gold;
+            FixHCBugsButton.Font = new Font("Microsoft Sans Serif", 12F);
+            FixHCBugsButton.ForeColor = SystemColors.ActiveCaptionText;
+            FixHCBugsButton.Location = new Point(979, 265);
+            FixHCBugsButton.Name = "FixHCBugsButton";
+            FixHCBugsButton.Size = new Size(140, 100);
+            FixHCBugsButton.TabIndex = 146;
+            FixHCBugsButton.Text = "Fix Coach Head/Face Bugs";
+            FixHCBugsButton.UseVisualStyleBackColor = false;
+            FixHCBugsButton.Click += (this.FixHCBugsButton_Click);
+            // 
             // buttonLEAGUEROSTERS
             // 
-            buttonLEAGUEROSTERS.BackColor = Color.Pink;
-            buttonLEAGUEROSTERS.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            buttonLEAGUEROSTERS.Location = new Point(1003, 290);
+            buttonLEAGUEROSTERS.BackColor = Color.Gold;
+            buttonLEAGUEROSTERS.Font = new Font("Microsoft Sans Serif", 12F);
+            buttonLEAGUEROSTERS.Location = new Point(498, 34);
             buttonLEAGUEROSTERS.Name = "buttonLEAGUEROSTERS";
-            buttonLEAGUEROSTERS.Size = new Size(110, 80);
+            buttonLEAGUEROSTERS.Size = new Size(140, 100);
             buttonLEAGUEROSTERS.TabIndex = 51;
             buttonLEAGUEROSTERS.Text = "Build LEAGUE.DAT Rosters";
             buttonLEAGUEROSTERS.UseVisualStyleBackColor = false;
@@ -2198,14 +2299,15 @@ namespace DB_EDITOR
             // 
             // CFUSAexportButton
             // 
-            CFUSAexportButton.BackColor = Color.Pink;
-            CFUSAexportButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            CFUSAexportButton.Location = new Point(1003, 196);
+            CFUSAexportButton.BackColor = Color.Gold;
+            CFUSAexportButton.Font = new Font("Microsoft Sans Serif", 12F);
+            CFUSAexportButton.Location = new Point(15, 34);
             CFUSAexportButton.Name = "CFUSAexportButton";
-            CFUSAexportButton.Size = new Size(110, 80);
+            CFUSAexportButton.Size = new Size(140, 100);
             CFUSAexportButton.TabIndex = 50;
             CFUSAexportButton.Text = "Export to CFB USA 97";
             CFUSAexportButton.UseVisualStyleBackColor = false;
+            CFUSAexportButton.Click += (this.CFUSAexportButton_Click);
             // 
             // textBox20
             // 
@@ -2225,7 +2327,7 @@ namespace DB_EDITOR
             textBox19.BackColor = Color.AntiqueWhite;
             textBox19.Enabled = false;
             textBox19.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            textBox19.Location = new Point(499, 417);
+            textBox19.Location = new Point(499, 443);
             textBox19.Multiline = true;
             textBox19.Name = "textBox19";
             textBox19.Size = new Size(49, 41);
@@ -2238,7 +2340,7 @@ namespace DB_EDITOR
             textBox18.BackColor = Color.AntiqueWhite;
             textBox18.Enabled = false;
             textBox18.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            textBox18.Location = new Point(499, 305);
+            textBox18.Location = new Point(498, 348);
             textBox18.Multiline = true;
             textBox18.Name = "textBox18";
             textBox18.Size = new Size(49, 41);
@@ -2251,7 +2353,7 @@ namespace DB_EDITOR
             textBox17.BackColor = Color.AntiqueWhite;
             textBox17.Enabled = false;
             textBox17.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            textBox17.Location = new Point(500, 212);
+            textBox17.Location = new Point(499, 255);
             textBox17.Multiline = true;
             textBox17.Name = "textBox17";
             textBox17.Size = new Size(49, 41);
@@ -2277,7 +2379,7 @@ namespace DB_EDITOR
             textBox15.BackColor = Color.AntiqueWhite;
             textBox15.Enabled = false;
             textBox15.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            textBox15.Location = new Point(15, 417);
+            textBox15.Location = new Point(15, 443);
             textBox15.Multiline = true;
             textBox15.Name = "textBox15";
             textBox15.Size = new Size(49, 41);
@@ -2290,7 +2392,7 @@ namespace DB_EDITOR
             textBox14.BackColor = Color.AntiqueWhite;
             textBox14.Enabled = false;
             textBox14.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            textBox14.Location = new Point(15, 306);
+            textBox14.Location = new Point(15, 349);
             textBox14.Multiline = true;
             textBox14.Name = "textBox14";
             textBox14.Size = new Size(49, 41);
@@ -2303,7 +2405,7 @@ namespace DB_EDITOR
             textBox13.BackColor = Color.AntiqueWhite;
             textBox13.Enabled = false;
             textBox13.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            textBox13.Location = new Point(16, 212);
+            textBox13.Location = new Point(16, 255);
             textBox13.Multiline = true;
             textBox13.Name = "textBox13";
             textBox13.Size = new Size(49, 41);
@@ -2316,7 +2418,7 @@ namespace DB_EDITOR
             textBox12.BackColor = Color.AntiqueWhite;
             textBox12.Enabled = false;
             textBox12.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            textBox12.Location = new Point(702, 519);
+            textBox12.Location = new Point(670, 521);
             textBox12.Multiline = true;
             textBox12.Name = "textBox12";
             textBox12.Size = new Size(247, 80);
@@ -2328,7 +2430,7 @@ namespace DB_EDITOR
             textBox11.BackColor = Color.AntiqueWhite;
             textBox11.Enabled = false;
             textBox11.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            textBox11.Location = new Point(702, 401);
+            textBox11.Location = new Point(670, 425);
             textBox11.Multiline = true;
             textBox11.Name = "textBox11";
             textBox11.Size = new Size(247, 80);
@@ -2340,7 +2442,7 @@ namespace DB_EDITOR
             textBox10.BackColor = Color.AntiqueWhite;
             textBox10.Enabled = false;
             textBox10.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            textBox10.Location = new Point(702, 289);
+            textBox10.Location = new Point(670, 332);
             textBox10.Multiline = true;
             textBox10.Name = "textBox10";
             textBox10.Size = new Size(247, 80);
@@ -2352,7 +2454,7 @@ namespace DB_EDITOR
             textBox9.BackColor = Color.AntiqueWhite;
             textBox9.Enabled = false;
             textBox9.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            textBox9.Location = new Point(703, 196);
+            textBox9.Location = new Point(670, 239);
             textBox9.Multiline = true;
             textBox9.Name = "textBox9";
             textBox9.Size = new Size(247, 80);
@@ -2364,7 +2466,7 @@ namespace DB_EDITOR
             textBox8.BackColor = Color.AntiqueWhite;
             textBox8.Enabled = false;
             textBox8.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            textBox8.Location = new Point(218, 519);
+            textBox8.Location = new Point(193, 519);
             textBox8.Multiline = true;
             textBox8.Name = "textBox8";
             textBox8.Size = new Size(247, 80);
@@ -2376,7 +2478,7 @@ namespace DB_EDITOR
             textBox7.BackColor = Color.AntiqueWhite;
             textBox7.Enabled = false;
             textBox7.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            textBox7.Location = new Point(218, 289);
+            textBox7.Location = new Point(193, 332);
             textBox7.Multiline = true;
             textBox7.Name = "textBox7";
             textBox7.Size = new Size(247, 80);
@@ -2388,7 +2490,7 @@ namespace DB_EDITOR
             textBox5.BackColor = Color.AntiqueWhite;
             textBox5.Enabled = false;
             textBox5.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            textBox5.Location = new Point(218, 399);
+            textBox5.Location = new Point(193, 425);
             textBox5.Multiline = true;
             textBox5.Name = "textBox5";
             textBox5.Size = new Size(247, 80);
@@ -2400,23 +2502,12 @@ namespace DB_EDITOR
             textBox4.BackColor = Color.AntiqueWhite;
             textBox4.Enabled = false;
             textBox4.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            textBox4.Location = new Point(219, 196);
+            textBox4.Location = new Point(193, 239);
             textBox4.Multiline = true;
             textBox4.Name = "textBox4";
             textBox4.Size = new Size(247, 80);
             textBox4.TabIndex = 34;
             textBox4.Text = "Graduate Players - Removes Players marked with PTYP = 3 and Transfer Players Marked PTYP =1 and relocates them per transfers.csv file. \r\nTransfer CSV colums:  Player Name, new TGID, PGID, 0";
-            // 
-            // textBox6
-            // 
-            textBox6.BackColor = Color.Honeydew;
-            textBox6.Enabled = false;
-            textBox6.Font = new Font("Microsoft Sans Serif", 11.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            textBox6.Location = new Point(16, 6);
-            textBox6.Multiline = true;
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(934, 167);
-            textBox6.TabIndex = 27;
             // 
             // DevCalcTeamRatingsButton
             // 
@@ -2434,7 +2525,7 @@ namespace DB_EDITOR
             // 
             DevDepthChartButton.BackColor = Color.DarkGray;
             DevDepthChartButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            DevDepthChartButton.Location = new Point(554, 401);
+            DevDepthChartButton.Location = new Point(554, 427);
             DevDepthChartButton.Name = "DevDepthChartButton";
             DevDepthChartButton.Size = new Size(110, 80);
             DevDepthChartButton.TabIndex = 32;
@@ -2446,7 +2537,7 @@ namespace DB_EDITOR
             // 
             DevRandomizeFaceButton.BackColor = Color.DarkGray;
             DevRandomizeFaceButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            DevRandomizeFaceButton.Location = new Point(554, 289);
+            DevRandomizeFaceButton.Location = new Point(553, 332);
             DevRandomizeFaceButton.Name = "DevRandomizeFaceButton";
             DevRandomizeFaceButton.Size = new Size(110, 80);
             DevRandomizeFaceButton.TabIndex = 31;
@@ -2470,7 +2561,7 @@ namespace DB_EDITOR
             // 
             DevFillRosterButton.BackColor = Color.DarkGray;
             DevFillRosterButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            DevFillRosterButton.Location = new Point(555, 196);
+            DevFillRosterButton.Location = new Point(554, 239);
             DevFillRosterButton.Name = "DevFillRosterButton";
             DevFillRosterButton.Size = new Size(110, 80);
             DevFillRosterButton.TabIndex = 29;
@@ -2482,7 +2573,7 @@ namespace DB_EDITOR
             // 
             CreateTransfersCSVButton.BackColor = Color.DarkGray;
             CreateTransfersCSVButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            CreateTransfersCSVButton.Location = new Point(76, 289);
+            CreateTransfersCSVButton.Location = new Point(76, 332);
             CreateTransfersCSVButton.Name = "CreateTransfersCSVButton";
             CreateTransfersCSVButton.Size = new Size(110, 80);
             CreateTransfersCSVButton.TabIndex = 28;
@@ -2494,7 +2585,7 @@ namespace DB_EDITOR
             // 
             ImportRecruitsButton.BackColor = Color.DarkGray;
             ImportRecruitsButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            ImportRecruitsButton.Location = new Point(76, 399);
+            ImportRecruitsButton.Location = new Point(76, 425);
             ImportRecruitsButton.Name = "ImportRecruitsButton";
             ImportRecruitsButton.Size = new Size(110, 80);
             ImportRecruitsButton.TabIndex = 26;
@@ -2506,13 +2597,22 @@ namespace DB_EDITOR
             // 
             GraduateButton.BackColor = Color.DarkGray;
             GraduateButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            GraduateButton.Location = new Point(77, 196);
+            GraduateButton.Location = new Point(77, 239);
             GraduateButton.Name = "GraduateButton";
             GraduateButton.Size = new Size(110, 80);
             GraduateButton.TabIndex = 25;
             GraduateButton.Text = "Graduate Players";
             GraduateButton.UseVisualStyleBackColor = false;
             GraduateButton.Click += (this.GraduateButton_Click);
+            // 
+            // groupBox2
+            // 
+            groupBox2.Location = new Point(15, 212);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(921, 387);
+            groupBox2.TabIndex = 151;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Roster Creation from CSV";
             // 
             // tabUniforms
             // 
@@ -3217,24 +3317,10 @@ namespace DB_EDITOR
             // tabTools
             // 
             tabTools.BackColor = SystemColors.InactiveCaption;
-            tabTools.Controls.Add(TeamRatingExcludeInjury);
-            tabTools.Controls.Add(LoadCoachAge);
-            tabTools.Controls.Add(PlayoffRankerButton);
-            tabTools.Controls.Add(ExportDraft);
-            tabTools.Controls.Add(FixHometownButton);
-            tabTools.Controls.Add(ClearExpiredStats);
-            tabTools.Controls.Add(ReRankTeamsAP);
-            tabTools.Controls.Add(ResetDynYear);
             tabTools.Controls.Add(groupBox38);
-            tabTools.Controls.Add(ReRankTeams);
-            tabTools.Controls.Add(FixHCBugsButton);
             tabTools.Controls.Add(groupBox18);
-            tabTools.Controls.Add(RandomizeSkinTonesButton);
-            tabTools.Controls.Add(SyncPBButton);
             tabTools.Controls.Add(textBox3);
-            tabTools.Controls.Add(ReorderPGIDButton);
-            tabTools.Controls.Add(TORDButton);
-            tabTools.Controls.Add(TYDNButton);
+            tabTools.Controls.Add(groupBox53);
             tabTools.Location = new Point(4, 29);
             tabTools.Name = "tabTools";
             tabTools.Padding = new Padding(3);
@@ -3242,105 +3328,8 @@ namespace DB_EDITOR
             tabTools.TabIndex = 5;
             tabTools.Text = "dbTools";
             // 
-            // TeamRatingExcludeInjury
-            // 
-            TeamRatingExcludeInjury.AutoSize = true;
-            TeamRatingExcludeInjury.Location = new Point(22, 171);
-            TeamRatingExcludeInjury.Name = "TeamRatingExcludeInjury";
-            TeamRatingExcludeInjury.Size = new Size(136, 17);
-            TeamRatingExcludeInjury.TabIndex = 67;
-            TeamRatingExcludeInjury.Text = "Exclude Injured Players";
-            TeamRatingExcludeInjury.UseVisualStyleBackColor = true;
-            // 
-            // LoadCoachAge
-            // 
-            LoadCoachAge.BackColor = SystemColors.MenuHighlight;
-            LoadCoachAge.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
-            LoadCoachAge.ForeColor = SystemColors.ActiveCaptionText;
-            LoadCoachAge.Location = new Point(22, 526);
-            LoadCoachAge.Name = "LoadCoachAge";
-            LoadCoachAge.Size = new Size(109, 60);
-            LoadCoachAge.TabIndex = 66;
-            LoadCoachAge.Text = "Load Coach Age Data [NEXT26]";
-            LoadCoachAge.UseVisualStyleBackColor = false;
-            LoadCoachAge.Click += (this.LoadCoachAge_Click);
-            // 
-            // PlayoffRankerButton
-            // 
-            PlayoffRankerButton.Location = new Point(125, 234);
-            PlayoffRankerButton.Name = "PlayoffRankerButton";
-            PlayoffRankerButton.Size = new Size(128, 23);
-            PlayoffRankerButton.TabIndex = 65;
-            PlayoffRankerButton.Text = "Playoff Ranker";
-            PlayoffRankerButton.UseVisualStyleBackColor = true;
-            PlayoffRankerButton.Visible = false;
-            PlayoffRankerButton.Click += (this.PlayoffRankerButton_Click);
-            // 
-            // ExportDraft
-            // 
-            ExportDraft.BackColor = SystemColors.GradientActiveCaption;
-            ExportDraft.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
-            ExportDraft.ForeColor = SystemColors.ActiveCaptionText;
-            ExportDraft.Location = new Point(146, 394);
-            ExportDraft.Name = "ExportDraft";
-            ExportDraft.Size = new Size(110, 60);
-            ExportDraft.TabIndex = 64;
-            ExportDraft.Text = "Export Draft Class";
-            ExportDraft.UseVisualStyleBackColor = false;
-            ExportDraft.Click += (this.ExportDraft_Click);
-            // 
-            // FixHometownButton
-            // 
-            FixHometownButton.BackColor = SystemColors.MenuHighlight;
-            FixHometownButton.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
-            FixHometownButton.ForeColor = SystemColors.ActiveCaptionText;
-            FixHometownButton.Location = new Point(146, 328);
-            FixHometownButton.Name = "FixHometownButton";
-            FixHometownButton.Size = new Size(110, 60);
-            FixHometownButton.TabIndex = 63;
-            FixHometownButton.Text = "Fix Hometowns\r\n";
-            FixHometownButton.UseVisualStyleBackColor = false;
-            FixHometownButton.Click += (this.FixHometownButton_Click);
-            // 
-            // ClearExpiredStats
-            // 
-            ClearExpiredStats.BackColor = SystemColors.MenuHighlight;
-            ClearExpiredStats.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            ClearExpiredStats.ForeColor = SystemColors.ActiveCaptionText;
-            ClearExpiredStats.Location = new Point(148, 526);
-            ClearExpiredStats.Name = "ClearExpiredStats";
-            ClearExpiredStats.Size = new Size(108, 60);
-            ClearExpiredStats.TabIndex = 59;
-            ClearExpiredStats.Text = "Clear Expired Stats Data";
-            ClearExpiredStats.UseVisualStyleBackColor = false;
-            ClearExpiredStats.Click += (this.ClearExpiredStats_Click);
-            // 
-            // ReRankTeamsAP
-            // 
-            ReRankTeamsAP.AutoSize = true;
-            ReRankTeamsAP.Location = new Point(22, 214);
-            ReRankTeamsAP.Name = "ReRankTeamsAP";
-            ReRankTeamsAP.Size = new Size(205, 17);
-            ReRankTeamsAP.TabIndex = 62;
-            ReRankTeamsAP.Text = "Re-Rank Media Poll Based on Overall";
-            ReRankTeamsAP.UseVisualStyleBackColor = true;
-            // 
-            // ResetDynYear
-            // 
-            ResetDynYear.BackColor = SystemColors.MenuHighlight;
-            ResetDynYear.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
-            ResetDynYear.ForeColor = SystemColors.ActiveCaptionText;
-            ResetDynYear.Location = new Point(16, 263);
-            ResetDynYear.Name = "ResetDynYear";
-            ResetDynYear.Size = new Size(110, 60);
-            ResetDynYear.TabIndex = 61;
-            ResetDynYear.Text = "Reset Dynasty Seasons";
-            ResetDynYear.UseVisualStyleBackColor = false;
-            ResetDynYear.Click += (this.ResetDynYear_Click);
-            // 
             // groupBox38
             // 
-            groupBox38.AutoSize = true;
             groupBox38.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             groupBox38.Controls.Add(RandomizePlayerGearButton);
             groupBox38.Controls.Add(FantastyRosterLeague);
@@ -3359,9 +3348,9 @@ namespace DB_EDITOR
             groupBox38.Controls.Add(bodyFix);
             groupBox38.Controls.Add(qbTend);
             groupBox38.Controls.Add(buttonCalcOverall);
-            groupBox38.Location = new Point(271, 17);
+            groupBox38.Location = new Point(319, 17);
             groupBox38.Name = "groupBox38";
-            groupBox38.Size = new Size(410, 581);
+            groupBox38.Size = new Size(411, 581);
             groupBox38.TabIndex = 60;
             groupBox38.TabStop = false;
             groupBox38.Text = "Roster Tools";
@@ -3631,29 +3620,6 @@ namespace DB_EDITOR
             buttonCalcOverall.UseVisualStyleBackColor = false;
             buttonCalcOverall.Click += (this.buttonCalcOverall_Click);
             // 
-            // ReRankTeams
-            // 
-            ReRankTeams.AutoSize = true;
-            ReRankTeams.Location = new Point(22, 193);
-            ReRankTeams.Name = "ReRankTeams";
-            ReRankTeams.Size = new Size(207, 17);
-            ReRankTeams.TabIndex = 57;
-            ReRankTeams.Text = "Re-Rank Coach Poll Based on Overall";
-            ReRankTeams.UseVisualStyleBackColor = true;
-            // 
-            // FixHCBugsButton
-            // 
-            FixHCBugsButton.BackColor = SystemColors.MenuHighlight;
-            FixHCBugsButton.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
-            FixHCBugsButton.ForeColor = SystemColors.ActiveCaptionText;
-            FixHCBugsButton.Location = new Point(147, 262);
-            FixHCBugsButton.Name = "FixHCBugsButton";
-            FixHCBugsButton.Size = new Size(110, 60);
-            FixHCBugsButton.TabIndex = 56;
-            FixHCBugsButton.Text = "Fix Coach Head/Face Bugs";
-            FixHCBugsButton.UseVisualStyleBackColor = false;
-            FixHCBugsButton.Click += (this.FixHCBugsButton_Click);
-            // 
             // groupBox18
             // 
             groupBox18.AutoSizeMode = AutoSizeMode.GrowAndShrink;
@@ -3690,9 +3656,9 @@ namespace DB_EDITOR
             groupBox18.Controls.Add(MinAttButton);
             groupBox18.Controls.Add(MaxAttRating);
             groupBox18.Controls.Add(GlobalAttButton);
-            groupBox18.Location = new Point(697, 18);
+            groupBox18.Location = new Point(741, 17);
             groupBox18.Name = "groupBox18";
-            groupBox18.Size = new Size(440, 580);
+            groupBox18.Size = new Size(387, 581);
             groupBox18.TabIndex = 55;
             groupBox18.TabStop = false;
             groupBox18.Text = "Global Player Editor";
@@ -4026,32 +3992,6 @@ namespace DB_EDITOR
             GlobalAttButton.UseVisualStyleBackColor = false;
             GlobalAttButton.Click += (this.GlobalAttButton_Click);
             // 
-            // RandomizeSkinTonesButton
-            // 
-            RandomizeSkinTonesButton.BackColor = SystemColors.MenuHighlight;
-            RandomizeSkinTonesButton.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
-            RandomizeSkinTonesButton.ForeColor = SystemColors.ActiveCaptionText;
-            RandomizeSkinTonesButton.Location = new Point(16, 328);
-            RandomizeSkinTonesButton.Name = "RandomizeSkinTonesButton";
-            RandomizeSkinTonesButton.Size = new Size(110, 60);
-            RandomizeSkinTonesButton.TabIndex = 54;
-            RandomizeSkinTonesButton.Text = "Randomize Skin Tones";
-            RandomizeSkinTonesButton.UseVisualStyleBackColor = false;
-            RandomizeSkinTonesButton.Click += (this.RandomizeSkinTones_Click);
-            // 
-            // SyncPBButton
-            // 
-            SyncPBButton.BackColor = SystemColors.GradientActiveCaption;
-            SyncPBButton.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
-            SyncPBButton.ForeColor = SystemColors.ActiveCaptionText;
-            SyncPBButton.Location = new Point(148, 460);
-            SyncPBButton.Name = "SyncPBButton";
-            SyncPBButton.Size = new Size(110, 60);
-            SyncPBButton.TabIndex = 52;
-            SyncPBButton.Text = "Sync Team and Coach Playbooks";
-            SyncPBButton.UseVisualStyleBackColor = false;
-            SyncPBButton.Click += (this.SyncPBButton_Click);
-            // 
             // textBox3
             // 
             textBox3.BackColor = SystemColors.Info;
@@ -4065,12 +4005,117 @@ namespace DB_EDITOR
             textBox3.Text = "NCAA Football\r\nModding Toolkit";
             textBox3.TextAlign = HorizontalAlignment.Center;
             // 
+            // groupBox53
+            // 
+            groupBox53.Controls.Add(LoadCoachAge);
+            groupBox53.Controls.Add(TeamRatingExcludeInjury);
+            groupBox53.Controls.Add(ExportDraft);
+            groupBox53.Controls.Add(TYDNButton);
+            groupBox53.Controls.Add(SyncPBButton);
+            groupBox53.Controls.Add(ResetDynYear);
+            groupBox53.Controls.Add(ReRankTeams);
+            groupBox53.Controls.Add(ReorderPGIDButton);
+            groupBox53.Controls.Add(TORDButton);
+            groupBox53.Controls.Add(ReRankTeamsAP);
+            groupBox53.Controls.Add(RandomizeSkinTonesButton);
+            groupBox53.Location = new Point(16, 85);
+            groupBox53.Name = "groupBox53";
+            groupBox53.Size = new Size(286, 513);
+            groupBox53.TabIndex = 68;
+            groupBox53.TabStop = false;
+            groupBox53.Text = "Misc Tools";
+            // 
+            // LoadCoachAge
+            // 
+            LoadCoachAge.BackColor = Color.AntiqueWhite;
+            LoadCoachAge.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
+            LoadCoachAge.ForeColor = SystemColors.ActiveCaptionText;
+            LoadCoachAge.Location = new Point(154, 437);
+            LoadCoachAge.Name = "LoadCoachAge";
+            LoadCoachAge.Size = new Size(109, 60);
+            LoadCoachAge.TabIndex = 66;
+            LoadCoachAge.Text = "Load Coach Age Data [NEXT26]";
+            LoadCoachAge.UseVisualStyleBackColor = false;
+            LoadCoachAge.Click += (this.LoadCoachAge_Click);
+            // 
+            // TeamRatingExcludeInjury
+            // 
+            TeamRatingExcludeInjury.AutoSize = true;
+            TeamRatingExcludeInjury.Location = new Point(12, 104);
+            TeamRatingExcludeInjury.Name = "TeamRatingExcludeInjury";
+            TeamRatingExcludeInjury.Size = new Size(136, 17);
+            TeamRatingExcludeInjury.TabIndex = 67;
+            TeamRatingExcludeInjury.Text = "Exclude Injured Players";
+            TeamRatingExcludeInjury.UseVisualStyleBackColor = true;
+            // 
+            // ExportDraft
+            // 
+            ExportDraft.BackColor = Color.LightSalmon;
+            ExportDraft.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
+            ExportDraft.ForeColor = SystemColors.ActiveCaptionText;
+            ExportDraft.Location = new Point(154, 198);
+            ExportDraft.Name = "ExportDraft";
+            ExportDraft.Size = new Size(110, 126);
+            ExportDraft.TabIndex = 64;
+            ExportDraft.Text = "Export Draft Class";
+            ExportDraft.UseVisualStyleBackColor = false;
+            ExportDraft.Click += (this.ExportDraft_Click);
+            // 
+            // TYDNButton
+            // 
+            TYDNButton.BackColor = SystemColors.MenuHighlight;
+            TYDNButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            TYDNButton.ForeColor = SystemColors.ActiveCaptionText;
+            TYDNButton.Location = new Point(6, 19);
+            TYDNButton.Name = "TYDNButton";
+            TYDNButton.Size = new Size(236, 80);
+            TYDNButton.TabIndex = 16;
+            TYDNButton.Text = "Recalculate Team Ratings";
+            TYDNButton.UseVisualStyleBackColor = false;
+            TYDNButton.Click += (this.TYDNButton_Click);
+            // 
+            // SyncPBButton
+            // 
+            SyncPBButton.BackColor = Color.AntiqueWhite;
+            SyncPBButton.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
+            SyncPBButton.ForeColor = SystemColors.ActiveCaptionText;
+            SyncPBButton.Location = new Point(153, 371);
+            SyncPBButton.Name = "SyncPBButton";
+            SyncPBButton.Size = new Size(110, 60);
+            SyncPBButton.TabIndex = 52;
+            SyncPBButton.Text = "Sync Team and Coach Playbooks";
+            SyncPBButton.UseVisualStyleBackColor = false;
+            SyncPBButton.Click += (this.SyncPBButton_Click);
+            // 
+            // ResetDynYear
+            // 
+            ResetDynYear.BackColor = SystemColors.MenuHighlight;
+            ResetDynYear.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
+            ResetDynYear.ForeColor = SystemColors.ActiveCaptionText;
+            ResetDynYear.Location = new Point(27, 198);
+            ResetDynYear.Name = "ResetDynYear";
+            ResetDynYear.Size = new Size(110, 60);
+            ResetDynYear.TabIndex = 61;
+            ResetDynYear.Text = "Reset Dynasty Seasons";
+            ResetDynYear.UseVisualStyleBackColor = false;
+            ResetDynYear.Click += (this.ResetDynYear_Click);
+            // 
+            // ReRankTeams
+            // 
+            ReRankTeams.AutoSize = true;
+            ReRankTeams.Location = new Point(12, 126);
+            ReRankTeams.Name = "ReRankTeams";
+            ReRankTeams.Size = new Size(207, 17);
+            ReRankTeams.TabIndex = 57;
+            ReRankTeams.Text = "Re-Rank Coach Poll Based on Overall";
+            ReRankTeams.UseVisualStyleBackColor = true;
+            // 
             // ReorderPGIDButton
             // 
-            ReorderPGIDButton.BackColor = SystemColors.GradientActiveCaption;
+            ReorderPGIDButton.BackColor = Color.AntiqueWhite;
             ReorderPGIDButton.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             ReorderPGIDButton.ForeColor = SystemColors.ActiveCaptionText;
-            ReorderPGIDButton.Location = new Point(21, 460);
+            ReorderPGIDButton.Location = new Point(26, 371);
             ReorderPGIDButton.Name = "ReorderPGIDButton";
             ReorderPGIDButton.Size = new Size(110, 60);
             ReorderPGIDButton.TabIndex = 28;
@@ -4080,10 +4125,10 @@ namespace DB_EDITOR
             // 
             // TORDButton
             // 
-            TORDButton.BackColor = SystemColors.GradientActiveCaption;
+            TORDButton.BackColor = Color.AntiqueWhite;
             TORDButton.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             TORDButton.ForeColor = SystemColors.ActiveCaptionText;
-            TORDButton.Location = new Point(19, 394);
+            TORDButton.Location = new Point(27, 437);
             TORDButton.Name = "TORDButton";
             TORDButton.Size = new Size(110, 60);
             TORDButton.TabIndex = 26;
@@ -4091,18 +4136,28 @@ namespace DB_EDITOR
             TORDButton.UseVisualStyleBackColor = false;
             TORDButton.Click += (this.TORDButton_Click);
             // 
-            // TYDNButton
+            // ReRankTeamsAP
             // 
-            TYDNButton.BackColor = SystemColors.MenuHighlight;
-            TYDNButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            TYDNButton.ForeColor = SystemColors.ActiveCaptionText;
-            TYDNButton.Location = new Point(16, 86);
-            TYDNButton.Name = "TYDNButton";
-            TYDNButton.Size = new Size(236, 80);
-            TYDNButton.TabIndex = 16;
-            TYDNButton.Text = "Recalculate Team Ratings";
-            TYDNButton.UseVisualStyleBackColor = false;
-            TYDNButton.Click += (this.TYDNButton_Click);
+            ReRankTeamsAP.AutoSize = true;
+            ReRankTeamsAP.Location = new Point(12, 147);
+            ReRankTeamsAP.Name = "ReRankTeamsAP";
+            ReRankTeamsAP.Size = new Size(205, 17);
+            ReRankTeamsAP.TabIndex = 62;
+            ReRankTeamsAP.Text = "Re-Rank Media Poll Based on Overall";
+            ReRankTeamsAP.UseVisualStyleBackColor = true;
+            // 
+            // RandomizeSkinTonesButton
+            // 
+            RandomizeSkinTonesButton.BackColor = SystemColors.MenuHighlight;
+            RandomizeSkinTonesButton.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
+            RandomizeSkinTonesButton.ForeColor = SystemColors.ActiveCaptionText;
+            RandomizeSkinTonesButton.Location = new Point(26, 264);
+            RandomizeSkinTonesButton.Name = "RandomizeSkinTonesButton";
+            RandomizeSkinTonesButton.Size = new Size(110, 60);
+            RandomizeSkinTonesButton.TabIndex = 54;
+            RandomizeSkinTonesButton.Text = "Randomize Skin Tones";
+            RandomizeSkinTonesButton.UseVisualStyleBackColor = false;
+            RandomizeSkinTonesButton.Click += (this.RandomizeSkinTones_Click);
             // 
             // tabOffSeason
             // 
@@ -11076,6 +11131,15 @@ namespace DB_EDITOR
             // groupBox3
             // 
             groupBox3.AutoSize = true;
+            groupBox3.Controls.Add(FaceProtector);
+            groupBox3.Controls.Add(label200);
+            groupBox3.Controls.Add(QBJacket);
+            groupBox3.Controls.Add(QBJacketLabel);
+            groupBox3.Controls.Add(Mouthguard);
+            groupBox3.Controls.Add(label199);
+            groupBox3.Controls.Add(label198);
+            groupBox3.Controls.Add(TurfTape);
+            groupBox3.Controls.Add(RandPlayerGear);
             groupBox3.Controls.Add(label120);
             groupBox3.Controls.Add(LeftWrist);
             groupBox3.Controls.Add(LeftHand);
@@ -11112,15 +11176,103 @@ namespace DB_EDITOR
             groupBox3.Controls.Add(pictureBox3);
             groupBox3.Location = new Point(661, 202);
             groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(484, 404);
+            groupBox3.Size = new Size(484, 420);
             groupBox3.TabIndex = 141;
             groupBox3.TabStop = false;
             groupBox3.Text = "Gear Editor";
             // 
+            // FaceProtector
+            // 
+            FaceProtector.FormattingEnabled = true;
+            FaceProtector.Items.AddRange(new object[] { "No", "Yes" });
+            FaceProtector.Location = new Point(356, 37);
+            FaceProtector.Name = "FaceProtector";
+            FaceProtector.Size = new Size(103, 21);
+            FaceProtector.TabIndex = 154;
+            FaceProtector.SelectedIndexChanged += (this.FaceProtector_SelectedIndexChanged);
+            // 
+            // label200
+            // 
+            label200.AutoSize = true;
+            label200.Location = new Point(382, 23);
+            label200.Name = "label200";
+            label200.Size = new Size(77, 13);
+            label200.TabIndex = 155;
+            label200.Text = "Face Protector";
+            // 
+            // QBJacket
+            // 
+            QBJacket.FormattingEnabled = true;
+            QBJacket.Items.AddRange(new object[] { "None", "Clear", "Dark", "Orange" });
+            QBJacket.Location = new Point(10, 374);
+            QBJacket.Name = "QBJacket";
+            QBJacket.Size = new Size(103, 21);
+            QBJacket.TabIndex = 152;
+            QBJacket.SelectedIndexChanged += (this.QBJacket_SelectedIndexChanged);
+            // 
+            // QBJacketLabel
+            // 
+            QBJacketLabel.AutoSize = true;
+            QBJacketLabel.Location = new Point(10, 361);
+            QBJacketLabel.Name = "QBJacketLabel";
+            QBJacketLabel.Size = new Size(62, 13);
+            QBJacketLabel.TabIndex = 153;
+            QBJacketLabel.Text = "Flak Jacket";
+            // 
+            // Mouthguard
+            // 
+            Mouthguard.FormattingEnabled = true;
+            Mouthguard.Items.AddRange(new object[] { "No", "Yes" });
+            Mouthguard.Location = new Point(37, 118);
+            Mouthguard.Name = "Mouthguard";
+            Mouthguard.Size = new Size(103, 21);
+            Mouthguard.TabIndex = 150;
+            Mouthguard.SelectedIndexChanged += (this.Mouthguard_SelectedIndexChanged);
+            // 
+            // label199
+            // 
+            label199.AutoSize = true;
+            label199.Location = new Point(34, 103);
+            label199.Name = "label199";
+            label199.Size = new Size(64, 13);
+            label199.TabIndex = 151;
+            label199.Text = "Mouthguard";
+            // 
+            // label198
+            // 
+            label198.AutoSize = true;
+            label198.Location = new Point(394, 169);
+            label198.Name = "label198";
+            label198.Size = new Size(54, 13);
+            label198.TabIndex = 149;
+            label198.Text = "Turf Tape";
+            // 
+            // TurfTape
+            // 
+            TurfTape.FormattingEnabled = true;
+            TurfTape.Items.AddRange(new object[] { "None", "Neck Roll", "Extended" });
+            TurfTape.Location = new Point(346, 185);
+            TurfTape.Name = "TurfTape";
+            TurfTape.Size = new Size(103, 21);
+            TurfTape.TabIndex = 148;
+            TurfTape.SelectedIndexChanged += (this.TurfTape_SelectedIndexChanged);
+            // 
+            // RandPlayerGear
+            // 
+            RandPlayerGear.BackColor = SystemColors.ActiveCaption;
+            RandPlayerGear.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            RandPlayerGear.Location = new Point(398, 363);
+            RandPlayerGear.Name = "RandPlayerGear";
+            RandPlayerGear.Size = new Size(80, 35);
+            RandPlayerGear.TabIndex = 147;
+            RandPlayerGear.Text = "Randomize Gear";
+            RandPlayerGear.UseVisualStyleBackColor = false;
+            RandPlayerGear.Click += (this.RandPlayerGear_Click);
+            // 
             // label120
             // 
             label120.AutoSize = true;
-            label120.Location = new Point(34, 222);
+            label120.Location = new Point(34, 230);
             label120.Name = "label120";
             label120.Size = new Size(41, 13);
             label120.TabIndex = 112;
@@ -11130,7 +11282,7 @@ namespace DB_EDITOR
             // 
             LeftWrist.FormattingEnabled = true;
             LeftWrist.Items.AddRange(new object[] { "Normal", "Wt QB Wrist", "BK QB Wrist", "TC QB Wrist", "Bk Wrist", "Wt Wrist", "TC Wrist", "Armpad", "Wt Half Sleeve", "Bk Half Sleeve", "TC Half Sleeve", "Taped" });
-            LeftWrist.Location = new Point(37, 284);
+            LeftWrist.Location = new Point(346, 292);
             LeftWrist.Name = "LeftWrist";
             LeftWrist.Size = new Size(103, 21);
             LeftWrist.TabIndex = 107;
@@ -11140,7 +11292,7 @@ namespace DB_EDITOR
             // 
             LeftHand.FormattingEnabled = true;
             LeftHand.Items.AddRange(new object[] { "Bare", "Taped", "Gloves" });
-            LeftHand.Location = new Point(37, 325);
+            LeftHand.Location = new Point(346, 333);
             LeftHand.Name = "LeftHand";
             LeftHand.Size = new Size(103, 21);
             LeftHand.TabIndex = 105;
@@ -11149,7 +11301,7 @@ namespace DB_EDITOR
             // label117
             // 
             label117.AutoSize = true;
-            label117.Location = new Point(33, 309);
+            label117.Location = new Point(33, 317);
             label117.Name = "label117";
             label117.Size = new Size(38, 13);
             label117.TabIndex = 106;
@@ -11158,7 +11310,7 @@ namespace DB_EDITOR
             // label118
             // 
             label118.AutoSize = true;
-            label118.Location = new Point(33, 268);
+            label118.Location = new Point(33, 276);
             label118.Name = "label118";
             label118.Size = new Size(36, 13);
             label118.TabIndex = 108;
@@ -11168,7 +11320,7 @@ namespace DB_EDITOR
             // 
             LeftElbow.FormattingEnabled = true;
             LeftElbow.Items.AddRange(new object[] { "Normal", "Rubber Pad", "Black Pad", "White Pad", "Bk TC Pad", "Wt TC Pad", "Bk Med Band", "Wt Med Band", "TC Med Band", "Bk Thin Band", "Wt Thin Band", "TC Thin Band" });
-            LeftElbow.Location = new Point(37, 239);
+            LeftElbow.Location = new Point(346, 247);
             LeftElbow.Name = "LeftElbow";
             LeftElbow.Size = new Size(103, 21);
             LeftElbow.TabIndex = 111;
@@ -11178,7 +11330,7 @@ namespace DB_EDITOR
             // 
             RightShoe.FormattingEnabled = true;
             RightShoe.Items.AddRange(new object[] { "Normal", "White Tape", "Black Tape", "TC Tape" });
-            RightShoe.Location = new Point(252, 351);
+            RightShoe.Location = new Point(140, 361);
             RightShoe.Name = "RightShoe";
             RightShoe.Size = new Size(103, 21);
             RightShoe.TabIndex = 137;
@@ -11187,17 +11339,17 @@ namespace DB_EDITOR
             // label126
             // 
             label126.AutoSize = true;
-            label126.Location = new Point(252, 335);
+            label126.Location = new Point(252, 343);
             label126.Name = "label126";
-            label126.Size = new Size(37, 13);
+            label126.Size = new Size(52, 13);
             label126.TabIndex = 138;
-            label126.Text = "Shoes";
+            label126.Text = "Left Cleat";
             // 
             // LeftShoe
             // 
             LeftShoe.FormattingEnabled = true;
             LeftShoe.Items.AddRange(new object[] { "Normal", "White Tape", "Black Tape", "TC Tape" });
-            LeftShoe.Location = new Point(143, 351);
+            LeftShoe.Location = new Point(255, 361);
             LeftShoe.Name = "LeftShoe";
             LeftShoe.Size = new Size(103, 21);
             LeftShoe.TabIndex = 103;
@@ -11206,17 +11358,17 @@ namespace DB_EDITOR
             // label116
             // 
             label116.AutoSize = true;
-            label116.Location = new Point(177, 335);
+            label116.Location = new Point(187, 343);
             label116.Name = "label116";
-            label116.Size = new Size(37, 13);
+            label116.Size = new Size(59, 13);
             label116.TabIndex = 104;
-            label116.Text = "Shoes";
+            label116.Text = "Right Cleat";
             // 
             // NasalStrip
             // 
             NasalStrip.FormattingEnabled = true;
             NasalStrip.Items.AddRange(new object[] { "No", "Yes" });
-            NasalStrip.Location = new Point(317, 105);
+            NasalStrip.Location = new Point(346, 98);
             NasalStrip.Name = "NasalStrip";
             NasalStrip.Size = new Size(103, 21);
             NasalStrip.TabIndex = 120;
@@ -11225,7 +11377,7 @@ namespace DB_EDITOR
             // label150
             // 
             label150.AutoSize = true;
-            label150.Location = new Point(77, 29);
+            label150.Location = new Point(22, 22);
             label150.Name = "label150";
             label150.Size = new Size(40, 13);
             label150.TabIndex = 136;
@@ -11234,7 +11386,7 @@ namespace DB_EDITOR
             // label123
             // 
             label123.AutoSize = true;
-            label123.Location = new Point(314, 90);
+            label123.Location = new Point(391, 82);
             label123.Name = "label123";
             label123.Size = new Size(58, 13);
             label123.TabIndex = 121;
@@ -11244,7 +11396,7 @@ namespace DB_EDITOR
             // 
             Helmet.FormattingEnabled = true;
             Helmet.Items.AddRange(new object[] { "Normal", "Adams", "Schutt", "Revolution" });
-            Helmet.Location = new Point(80, 44);
+            Helmet.Location = new Point(25, 37);
             Helmet.Name = "Helmet";
             Helmet.Size = new Size(103, 21);
             Helmet.TabIndex = 135;
@@ -11254,7 +11406,7 @@ namespace DB_EDITOR
             // 
             label149.AutoSize = true;
             label149.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            label149.Location = new Point(43, 206);
+            label149.Location = new Point(94, 214);
             label149.Name = "label149";
             label149.Size = new Size(85, 15);
             label149.TabIndex = 134;
@@ -11264,7 +11416,7 @@ namespace DB_EDITOR
             // 
             Sleeves.FormattingEnabled = true;
             Sleeves.Items.AddRange(new object[] { "Cold Only", "Always", "None" });
-            Sleeves.Location = new Point(37, 148);
+            Sleeves.Location = new Point(37, 161);
             Sleeves.Name = "Sleeves";
             Sleeves.Size = new Size(103, 21);
             Sleeves.TabIndex = 113;
@@ -11274,7 +11426,7 @@ namespace DB_EDITOR
             // 
             label148.AutoSize = true;
             label148.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            label148.Location = new Point(350, 206);
+            label148.Location = new Point(306, 214);
             label148.Name = "label148";
             label148.Size = new Size(76, 15);
             label148.TabIndex = 133;
@@ -11284,7 +11436,7 @@ namespace DB_EDITOR
             // 
             Facemask.FormattingEnabled = true;
             Facemask.Items.AddRange(new object[] { "2-Bar", "2-Bar", "3-Bar", "Half-Cage", "Full-Cage 1", "*", "*", "2-Bar RB", "3-Bar QB", "3-Bar RB 1", "Full Cage 2", "3-Bar RB 2" });
-            Facemask.Location = new Point(203, 43);
+            Facemask.Location = new Point(135, 37);
             Facemask.Name = "Facemask";
             Facemask.Size = new Size(103, 21);
             Facemask.TabIndex = 109;
@@ -11293,7 +11445,7 @@ namespace DB_EDITOR
             // label127
             // 
             label127.AutoSize = true;
-            label127.Location = new Point(340, 224);
+            label127.Location = new Point(410, 232);
             label127.Name = "label127";
             label127.Size = new Size(41, 13);
             label127.TabIndex = 129;
@@ -11302,7 +11454,7 @@ namespace DB_EDITOR
             // label119
             // 
             label119.AutoSize = true;
-            label119.Location = new Point(200, 28);
+            label119.Location = new Point(135, 22);
             label119.Name = "label119";
             label119.Size = new Size(60, 13);
             label119.TabIndex = 110;
@@ -11312,7 +11464,7 @@ namespace DB_EDITOR
             // 
             RightElbow.FormattingEnabled = true;
             RightElbow.Items.AddRange(new object[] { "Normal", "Rubber Pad", "Black Pad", "White Pad", "Bk TC Pad", "Wt TC Pad", "Bk Med Band", "Wt Med Band", "TC Med Band", "Bk Thin Band", "Wt Thin Band", "TC Thin Band" });
-            RightElbow.Location = new Point(343, 239);
+            RightElbow.Location = new Point(37, 247);
             RightElbow.Name = "RightElbow";
             RightElbow.Size = new Size(103, 21);
             RightElbow.TabIndex = 128;
@@ -11321,7 +11473,7 @@ namespace DB_EDITOR
             // label121
             // 
             label121.AutoSize = true;
-            label121.Location = new Point(43, 135);
+            label121.Location = new Point(37, 147);
             label121.Name = "label121";
             label121.Size = new Size(80, 13);
             label121.TabIndex = 114;
@@ -11330,7 +11482,7 @@ namespace DB_EDITOR
             // label128
             // 
             label128.AutoSize = true;
-            label128.Location = new Point(343, 268);
+            label128.Location = new Point(413, 276);
             label128.Name = "label128";
             label128.Size = new Size(36, 13);
             label128.TabIndex = 127;
@@ -11340,7 +11492,7 @@ namespace DB_EDITOR
             // 
             SleeveColor.FormattingEnabled = true;
             SleeveColor.Items.AddRange(new object[] { "Black", "White", "Team Color" });
-            SleeveColor.Location = new Point(37, 175);
+            SleeveColor.Location = new Point(37, 188);
             SleeveColor.Name = "SleeveColor";
             SleeveColor.Size = new Size(103, 21);
             SleeveColor.TabIndex = 115;
@@ -11350,7 +11502,7 @@ namespace DB_EDITOR
             // 
             RightWrist.FormattingEnabled = true;
             RightWrist.Items.AddRange(new object[] { "Normal", "Wt QB Wrist", "BK QB Wrist", "TC QB Wrist", "Bk Wrist", "Wt Wrist", "TC Wrist", "Armpad", "Wt Half Sleeve", "Bk Half Sleeve", "TC Half Sleeve", "Taped" });
-            RightWrist.Location = new Point(343, 284);
+            RightWrist.Location = new Point(37, 292);
             RightWrist.Name = "RightWrist";
             RightWrist.Size = new Size(103, 21);
             RightWrist.TabIndex = 126;
@@ -11360,7 +11512,7 @@ namespace DB_EDITOR
             // 
             EyeBlack.FormattingEnabled = true;
             EyeBlack.Items.AddRange(new object[] { "No", "Yes" });
-            EyeBlack.Location = new Point(74, 102);
+            EyeBlack.Location = new Point(37, 78);
             EyeBlack.Name = "EyeBlack";
             EyeBlack.Size = new Size(103, 21);
             EyeBlack.TabIndex = 116;
@@ -11369,7 +11521,7 @@ namespace DB_EDITOR
             // label147
             // 
             label147.AutoSize = true;
-            label147.Location = new Point(343, 309);
+            label147.Location = new Point(410, 317);
             label147.Name = "label147";
             label147.Size = new Size(38, 13);
             label147.TabIndex = 125;
@@ -11378,7 +11530,7 @@ namespace DB_EDITOR
             // label122
             // 
             label122.AutoSize = true;
-            label122.Location = new Point(71, 87);
+            label122.Location = new Point(34, 63);
             label122.Name = "label122";
             label122.Size = new Size(55, 13);
             label122.TabIndex = 117;
@@ -11388,7 +11540,7 @@ namespace DB_EDITOR
             // 
             RightHand.FormattingEnabled = true;
             RightHand.Items.AddRange(new object[] { "Bare", "Taped", "Gloves" });
-            RightHand.Location = new Point(343, 325);
+            RightHand.Location = new Point(37, 333);
             RightHand.Name = "RightHand";
             RightHand.Size = new Size(103, 21);
             RightHand.TabIndex = 124;
@@ -11398,7 +11550,7 @@ namespace DB_EDITOR
             // 
             Visor.FormattingEnabled = true;
             Visor.Items.AddRange(new object[] { "None", "Clear", "Dark", "Orange" });
-            Visor.Location = new Point(323, 43);
+            Visor.Location = new Point(247, 37);
             Visor.Name = "Visor";
             Visor.Size = new Size(103, 21);
             Visor.TabIndex = 118;
@@ -11407,7 +11559,7 @@ namespace DB_EDITOR
             // label125
             // 
             label125.AutoSize = true;
-            label125.Location = new Point(340, 135);
+            label125.Location = new Point(394, 126);
             label125.Name = "label125";
             label125.Size = new Size(55, 13);
             label125.TabIndex = 123;
@@ -11416,7 +11568,7 @@ namespace DB_EDITOR
             // label124
             // 
             label124.AutoSize = true;
-            label124.Location = new Point(320, 28);
+            label124.Location = new Point(320, 23);
             label124.Name = "label124";
             label124.Size = new Size(30, 13);
             label124.TabIndex = 119;
@@ -11426,7 +11578,7 @@ namespace DB_EDITOR
             // 
             NeckPad.FormattingEnabled = true;
             NeckPad.Items.AddRange(new object[] { "None", "Neck Roll", "Extended" });
-            NeckPad.Location = new Point(343, 150);
+            NeckPad.Location = new Point(346, 144);
             NeckPad.Name = "NeckPad";
             NeckPad.Size = new Size(103, 21);
             NeckPad.TabIndex = 122;
@@ -11435,7 +11587,7 @@ namespace DB_EDITOR
             // pictureBox3
             // 
             pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
-            pictureBox3.Location = new Point(140, 70);
+            pictureBox3.Location = new Point(141, 66);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(204, 274);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
@@ -11510,7 +11662,7 @@ namespace DB_EDITOR
             TopPlayersView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle39;
             TopPlayersView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             TopPlayersView.ColumnHeadersVisible = false;
-            TopPlayersView.Columns.AddRange(new DataGridViewColumn[] { TPPos, TPPlayer, TPRating });
+            TopPlayersView.Columns.AddRange(new DataGridViewColumn[] { TPPos, TPPlayer, TPRating, TopPlayerID });
             dataGridViewCellStyle41.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle41.BackColor = SystemColors.ButtonFace;
             dataGridViewCellStyle41.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
@@ -11529,6 +11681,7 @@ namespace DB_EDITOR
             TopPlayersView.ScrollBars = ScrollBars.None;
             TopPlayersView.Size = new Size(193, 226);
             TopPlayersView.TabIndex = 152;
+            TopPlayersView.CellContentClick += (this.TopPlayersView_CellContentClick);
             // 
             // TPPos
             // 
@@ -11555,6 +11708,13 @@ namespace DB_EDITOR
             TPRating.Name = "TPRating";
             TPRating.ReadOnly = true;
             TPRating.Width = 5;
+            // 
+            // TopPlayerID
+            // 
+            TopPlayerID.HeaderText = "ID";
+            TopPlayerID.Name = "TopPlayerID";
+            TopPlayerID.ReadOnly = true;
+            TopPlayerID.Visible = false;
             // 
             // label19
             // 
@@ -13142,7 +13302,7 @@ namespace DB_EDITOR
             dataGridViewCellStyle48.WrapMode = DataGridViewTriState.True;
             CoachPortalNews.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle48;
             CoachPortalNews.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            CoachPortalNews.Columns.AddRange(new DataGridViewColumn[] { CoachPortalPOVR, CoachPortalPos, CoachPortalPlayer, Column9, CoachPortalTeam });
+            CoachPortalNews.Columns.AddRange(new DataGridViewColumn[] { CoachPortalPOVR, CoachPortalPos, CoachPortalPlayer, Column9, CoachPortalTeam, CoachPortalID });
             dataGridViewCellStyle49.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle49.BackColor = SystemColors.Window;
             dataGridViewCellStyle49.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
@@ -13159,6 +13319,7 @@ namespace DB_EDITOR
             CoachPortalNews.RowTemplate.Height = 31;
             CoachPortalNews.Size = new Size(798, 235);
             CoachPortalNews.TabIndex = 49;
+            CoachPortalNews.CellContentClick += (this.CoachPortalNews_CellContentClick);
             // 
             // CoachPortalPOVR
             // 
@@ -13199,6 +13360,13 @@ namespace DB_EDITOR
             CoachPortalTeam.MinimumWidth = 9;
             CoachPortalTeam.Name = "CoachPortalTeam";
             CoachPortalTeam.ReadOnly = true;
+            // 
+            // CoachPortalID
+            // 
+            CoachPortalID.HeaderText = "ID";
+            CoachPortalID.Name = "CoachPortalID";
+            CoachPortalID.ReadOnly = true;
+            CoachPortalID.Visible = false;
             // 
             // CoachFiringsCount
             // 
@@ -13413,7 +13581,7 @@ namespace DB_EDITOR
             dataGridViewCellStyle51.WrapMode = DataGridViewTriState.True;
             CarouselDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle51;
             CarouselDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            CarouselDataGrid.Columns.AddRange(new DataGridViewColumn[] { CCName, CCStatus, CCTeam, CCTmPrestige, CCPrestige, Column8, CCRecord, CCSeaRec, CCCoachRating });
+            CarouselDataGrid.Columns.AddRange(new DataGridViewColumn[] { CCName, CCStatus, CCTeam, CCTmPrestige, CCPrestige, Column8, CCRecord, CCSeaRec, CCCoachRating, CCccid });
             dataGridViewCellStyle52.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle52.BackColor = SystemColors.Window;
             dataGridViewCellStyle52.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
@@ -13430,6 +13598,7 @@ namespace DB_EDITOR
             CarouselDataGrid.RowTemplate.Height = 31;
             CarouselDataGrid.Size = new Size(798, 317);
             CarouselDataGrid.TabIndex = 46;
+            CarouselDataGrid.CellContentClick += (this.CarouselDataGrid_CellContentClick);
             // 
             // CCName
             // 
@@ -13517,6 +13686,13 @@ namespace DB_EDITOR
             CCCoachRating.Name = "CCCoachRating";
             CCCoachRating.ReadOnly = true;
             CCCoachRating.Width = 69;
+            // 
+            // CCccid
+            // 
+            CCccid.HeaderText = "ID";
+            CCccid.Name = "CCccid";
+            CCccid.ReadOnly = true;
+            CCccid.Visible = false;
             // 
             // label13
             // 
@@ -14288,7 +14464,7 @@ namespace DB_EDITOR
             dataGridViewCellStyle54.WrapMode = DataGridViewTriState.True;
             TSReturn.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle54;
             TSReturn.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            TSReturn.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn67, dataGridViewTextBoxColumn76, dataGridViewTextBoxColumn68, TSKRYd, dataGridViewTextBoxColumn70, dataGridViewTextBoxColumn71, dataGridViewTextBoxColumn72, dataGridViewTextBoxColumn73, dataGridViewTextBoxColumn74, dataGridViewTextBoxColumn75 });
+            TSReturn.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn67, dataGridViewTextBoxColumn76, dataGridViewTextBoxColumn68, TSKRYd, dataGridViewTextBoxColumn70, dataGridViewTextBoxColumn71, dataGridViewTextBoxColumn72, dataGridViewTextBoxColumn73, dataGridViewTextBoxColumn74, dataGridViewTextBoxColumn75, TeamStatsRetID });
             dataGridViewCellStyle56.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle56.BackColor = SystemColors.ButtonFace;
             dataGridViewCellStyle56.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
@@ -14311,70 +14487,7 @@ namespace DB_EDITOR
             TSReturn.RowHeadersVisible = false;
             TSReturn.Size = new Size(551, 83);
             TSReturn.TabIndex = 13;
-            // 
-            // dataGridViewTextBoxColumn67
-            // 
-            dataGridViewTextBoxColumn67.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle55.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridViewTextBoxColumn67.DefaultCellStyle = dataGridViewCellStyle55;
-            dataGridViewTextBoxColumn67.HeaderText = "Player";
-            dataGridViewTextBoxColumn67.Name = "dataGridViewTextBoxColumn67";
-            dataGridViewTextBoxColumn67.ReadOnly = true;
-            dataGridViewTextBoxColumn67.Width = 61;
-            // 
-            // dataGridViewTextBoxColumn76
-            // 
-            dataGridViewTextBoxColumn76.HeaderText = "GP";
-            dataGridViewTextBoxColumn76.Name = "dataGridViewTextBoxColumn76";
-            dataGridViewTextBoxColumn76.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn68
-            // 
-            dataGridViewTextBoxColumn68.HeaderText = "KR";
-            dataGridViewTextBoxColumn68.Name = "dataGridViewTextBoxColumn68";
-            dataGridViewTextBoxColumn68.ReadOnly = true;
-            // 
-            // TSKRYd
-            // 
-            TSKRYd.HeaderText = "Yds";
-            TSKRYd.Name = "TSKRYd";
-            TSKRYd.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn70
-            // 
-            dataGridViewTextBoxColumn70.HeaderText = "TD";
-            dataGridViewTextBoxColumn70.Name = "dataGridViewTextBoxColumn70";
-            dataGridViewTextBoxColumn70.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn71
-            // 
-            dataGridViewTextBoxColumn71.HeaderText = "Long";
-            dataGridViewTextBoxColumn71.Name = "dataGridViewTextBoxColumn71";
-            dataGridViewTextBoxColumn71.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn72
-            // 
-            dataGridViewTextBoxColumn72.HeaderText = "PR";
-            dataGridViewTextBoxColumn72.Name = "dataGridViewTextBoxColumn72";
-            dataGridViewTextBoxColumn72.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn73
-            // 
-            dataGridViewTextBoxColumn73.HeaderText = "Yds";
-            dataGridViewTextBoxColumn73.Name = "dataGridViewTextBoxColumn73";
-            dataGridViewTextBoxColumn73.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn74
-            // 
-            dataGridViewTextBoxColumn74.HeaderText = "TD";
-            dataGridViewTextBoxColumn74.Name = "dataGridViewTextBoxColumn74";
-            dataGridViewTextBoxColumn74.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn75
-            // 
-            dataGridViewTextBoxColumn75.HeaderText = "Long";
-            dataGridViewTextBoxColumn75.Name = "dataGridViewTextBoxColumn75";
-            dataGridViewTextBoxColumn75.ReadOnly = true;
+            TSReturn.CellContentClick += (this.TSReturn_CellContentClick);
             // 
             // label194
             // 
@@ -14463,7 +14576,7 @@ namespace DB_EDITOR
             dataGridViewCellStyle59.WrapMode = DataGridViewTriState.True;
             TSPunting.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle59;
             TSPunting.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            TSPunting.Columns.AddRange(new DataGridViewColumn[] { TSPunts, dataGridViewTextBoxColumn57, dataGridViewTextBoxColumn58, dataGridViewTextBoxColumn59, dataGridViewTextBoxColumn60, dataGridViewTextBoxColumn61, dataGridViewTextBoxColumn62, dataGridViewTextBoxColumn63 });
+            TSPunting.Columns.AddRange(new DataGridViewColumn[] { TSPunts, dataGridViewTextBoxColumn57, dataGridViewTextBoxColumn58, dataGridViewTextBoxColumn59, dataGridViewTextBoxColumn60, dataGridViewTextBoxColumn61, dataGridViewTextBoxColumn62, dataGridViewTextBoxColumn63, TeamStatsPuntID });
             dataGridViewCellStyle61.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle61.BackColor = SystemColors.ButtonFace;
             dataGridViewCellStyle61.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
@@ -14486,58 +14599,7 @@ namespace DB_EDITOR
             TSPunting.RowHeadersVisible = false;
             TSPunting.Size = new Size(551, 64);
             TSPunting.TabIndex = 6;
-            // 
-            // TSPunts
-            // 
-            TSPunts.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle60.Alignment = DataGridViewContentAlignment.MiddleRight;
-            TSPunts.DefaultCellStyle = dataGridViewCellStyle60;
-            TSPunts.HeaderText = "Player";
-            TSPunts.Name = "TSPunts";
-            TSPunts.ReadOnly = true;
-            TSPunts.Width = 61;
-            // 
-            // dataGridViewTextBoxColumn57
-            // 
-            dataGridViewTextBoxColumn57.HeaderText = "GP";
-            dataGridViewTextBoxColumn57.Name = "dataGridViewTextBoxColumn57";
-            dataGridViewTextBoxColumn57.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn58
-            // 
-            dataGridViewTextBoxColumn58.HeaderText = "Punt";
-            dataGridViewTextBoxColumn58.Name = "dataGridViewTextBoxColumn58";
-            dataGridViewTextBoxColumn58.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn59
-            // 
-            dataGridViewTextBoxColumn59.HeaderText = "Yds";
-            dataGridViewTextBoxColumn59.Name = "dataGridViewTextBoxColumn59";
-            dataGridViewTextBoxColumn59.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn60
-            // 
-            dataGridViewTextBoxColumn60.HeaderText = "Avg";
-            dataGridViewTextBoxColumn60.Name = "dataGridViewTextBoxColumn60";
-            dataGridViewTextBoxColumn60.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn61
-            // 
-            dataGridViewTextBoxColumn61.HeaderText = "Long";
-            dataGridViewTextBoxColumn61.Name = "dataGridViewTextBoxColumn61";
-            dataGridViewTextBoxColumn61.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn62
-            // 
-            dataGridViewTextBoxColumn62.HeaderText = "In 20";
-            dataGridViewTextBoxColumn62.Name = "dataGridViewTextBoxColumn62";
-            dataGridViewTextBoxColumn62.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn63
-            // 
-            dataGridViewTextBoxColumn63.HeaderText = "Blocked";
-            dataGridViewTextBoxColumn63.Name = "dataGridViewTextBoxColumn63";
-            dataGridViewTextBoxColumn63.ReadOnly = true;
+            TSPunting.CellContentClick += (this.TSPunting_CellContentClick);
             // 
             // TSKicking
             // 
@@ -14560,7 +14622,7 @@ namespace DB_EDITOR
             dataGridViewCellStyle64.WrapMode = DataGridViewTriState.True;
             TSKicking.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle64;
             TSKicking.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            TSKicking.Columns.AddRange(new DataGridViewColumn[] { TSFGM, dataGridViewTextBoxColumn46, dataGridViewTextBoxColumn47, dataGridViewTextBoxColumn48, dataGridViewTextBoxColumn49, dataGridViewTextBoxColumn50, dataGridViewTextBoxColumn51, dataGridViewTextBoxColumn52, dataGridViewTextBoxColumn53, dataGridViewTextBoxColumn54 });
+            TSKicking.Columns.AddRange(new DataGridViewColumn[] { TSFGM, dataGridViewTextBoxColumn46, dataGridViewTextBoxColumn47, dataGridViewTextBoxColumn48, dataGridViewTextBoxColumn49, dataGridViewTextBoxColumn50, dataGridViewTextBoxColumn51, dataGridViewTextBoxColumn52, dataGridViewTextBoxColumn53, dataGridViewTextBoxColumn54, TeamStatsKickID });
             dataGridViewCellStyle66.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle66.BackColor = SystemColors.ButtonFace;
             dataGridViewCellStyle66.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
@@ -14583,70 +14645,7 @@ namespace DB_EDITOR
             TSKicking.RowHeadersVisible = false;
             TSKicking.Size = new Size(551, 64);
             TSKicking.TabIndex = 5;
-            // 
-            // TSFGM
-            // 
-            TSFGM.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle65.Alignment = DataGridViewContentAlignment.MiddleRight;
-            TSFGM.DefaultCellStyle = dataGridViewCellStyle65;
-            TSFGM.HeaderText = "Player";
-            TSFGM.Name = "TSFGM";
-            TSFGM.ReadOnly = true;
-            TSFGM.Width = 61;
-            // 
-            // dataGridViewTextBoxColumn46
-            // 
-            dataGridViewTextBoxColumn46.HeaderText = "GP";
-            dataGridViewTextBoxColumn46.Name = "dataGridViewTextBoxColumn46";
-            dataGridViewTextBoxColumn46.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn47
-            // 
-            dataGridViewTextBoxColumn47.HeaderText = "FGM";
-            dataGridViewTextBoxColumn47.Name = "dataGridViewTextBoxColumn47";
-            dataGridViewTextBoxColumn47.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn48
-            // 
-            dataGridViewTextBoxColumn48.HeaderText = "FGA";
-            dataGridViewTextBoxColumn48.Name = "dataGridViewTextBoxColumn48";
-            dataGridViewTextBoxColumn48.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn49
-            // 
-            dataGridViewTextBoxColumn49.HeaderText = "PCT";
-            dataGridViewTextBoxColumn49.Name = "dataGridViewTextBoxColumn49";
-            dataGridViewTextBoxColumn49.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn50
-            // 
-            dataGridViewTextBoxColumn50.HeaderText = "Long";
-            dataGridViewTextBoxColumn50.Name = "dataGridViewTextBoxColumn50";
-            dataGridViewTextBoxColumn50.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn51
-            // 
-            dataGridViewTextBoxColumn51.HeaderText = "XPM";
-            dataGridViewTextBoxColumn51.Name = "dataGridViewTextBoxColumn51";
-            dataGridViewTextBoxColumn51.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn52
-            // 
-            dataGridViewTextBoxColumn52.HeaderText = "XPA";
-            dataGridViewTextBoxColumn52.Name = "dataGridViewTextBoxColumn52";
-            dataGridViewTextBoxColumn52.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn53
-            // 
-            dataGridViewTextBoxColumn53.HeaderText = "PCT";
-            dataGridViewTextBoxColumn53.Name = "dataGridViewTextBoxColumn53";
-            dataGridViewTextBoxColumn53.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn54
-            // 
-            dataGridViewTextBoxColumn54.HeaderText = "40+";
-            dataGridViewTextBoxColumn54.Name = "dataGridViewTextBoxColumn54";
-            dataGridViewTextBoxColumn54.ReadOnly = true;
+            TSKicking.CellContentClick += (this.TSKicking_CellContentClick);
             // 
             // TSReceiving
             // 
@@ -14669,7 +14668,7 @@ namespace DB_EDITOR
             dataGridViewCellStyle69.WrapMode = DataGridViewTriState.True;
             TSReceiving.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle69;
             TSReceiving.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            TSReceiving.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn34, dataGridViewTextBoxColumn35, TSCatch, TSYdsCat, dataGridViewTextBoxColumn38, dataGridViewTextBoxColumn39, dataGridViewTextBoxColumn40, dataGridViewTextBoxColumn41, dataGridViewTextBoxColumn42, dataGridViewTextBoxColumn43, dataGridViewTextBoxColumn44 });
+            TSReceiving.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn34, dataGridViewTextBoxColumn35, TSCatch, TSYdsCat, dataGridViewTextBoxColumn38, dataGridViewTextBoxColumn39, dataGridViewTextBoxColumn40, dataGridViewTextBoxColumn41, dataGridViewTextBoxColumn42, dataGridViewTextBoxColumn43, dataGridViewTextBoxColumn44, TeamStatsRecID });
             dataGridViewCellStyle71.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle71.BackColor = SystemColors.ButtonFace;
             dataGridViewCellStyle71.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
@@ -14692,76 +14691,7 @@ namespace DB_EDITOR
             TSReceiving.RowHeadersVisible = false;
             TSReceiving.Size = new Size(551, 174);
             TSReceiving.TabIndex = 4;
-            // 
-            // dataGridViewTextBoxColumn34
-            // 
-            dataGridViewTextBoxColumn34.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle70.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridViewTextBoxColumn34.DefaultCellStyle = dataGridViewCellStyle70;
-            dataGridViewTextBoxColumn34.HeaderText = "Player";
-            dataGridViewTextBoxColumn34.Name = "dataGridViewTextBoxColumn34";
-            dataGridViewTextBoxColumn34.ReadOnly = true;
-            dataGridViewTextBoxColumn34.Width = 61;
-            // 
-            // dataGridViewTextBoxColumn35
-            // 
-            dataGridViewTextBoxColumn35.HeaderText = "GP";
-            dataGridViewTextBoxColumn35.Name = "dataGridViewTextBoxColumn35";
-            dataGridViewTextBoxColumn35.ReadOnly = true;
-            // 
-            // TSCatch
-            // 
-            TSCatch.HeaderText = "Cat";
-            TSCatch.Name = "TSCatch";
-            TSCatch.ReadOnly = true;
-            // 
-            // TSYdsCat
-            // 
-            TSYdsCat.HeaderText = "Yds";
-            TSYdsCat.Name = "TSYdsCat";
-            TSYdsCat.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn38
-            // 
-            dataGridViewTextBoxColumn38.HeaderText = "TD";
-            dataGridViewTextBoxColumn38.Name = "dataGridViewTextBoxColumn38";
-            dataGridViewTextBoxColumn38.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn39
-            // 
-            dataGridViewTextBoxColumn39.HeaderText = "YPC";
-            dataGridViewTextBoxColumn39.Name = "dataGridViewTextBoxColumn39";
-            dataGridViewTextBoxColumn39.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn40
-            // 
-            dataGridViewTextBoxColumn40.HeaderText = "YPG";
-            dataGridViewTextBoxColumn40.Name = "dataGridViewTextBoxColumn40";
-            dataGridViewTextBoxColumn40.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn41
-            // 
-            dataGridViewTextBoxColumn41.HeaderText = "Fum";
-            dataGridViewTextBoxColumn41.Name = "dataGridViewTextBoxColumn41";
-            dataGridViewTextBoxColumn41.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn42
-            // 
-            dataGridViewTextBoxColumn42.HeaderText = "YAC";
-            dataGridViewTextBoxColumn42.Name = "dataGridViewTextBoxColumn42";
-            dataGridViewTextBoxColumn42.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn43
-            // 
-            dataGridViewTextBoxColumn43.HeaderText = "YACA";
-            dataGridViewTextBoxColumn43.Name = "dataGridViewTextBoxColumn43";
-            dataGridViewTextBoxColumn43.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn44
-            // 
-            dataGridViewTextBoxColumn44.HeaderText = "Drops";
-            dataGridViewTextBoxColumn44.Name = "dataGridViewTextBoxColumn44";
-            dataGridViewTextBoxColumn44.ReadOnly = true;
+            TSReceiving.CellContentClick += (this.TSReceiving_CellContentClick);
             // 
             // TSPassing
             // 
@@ -14784,7 +14714,7 @@ namespace DB_EDITOR
             dataGridViewCellStyle74.WrapMode = DataGridViewTriState.True;
             TSPassing.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle74;
             TSPassing.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            TSPassing.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn23, dataGridViewTextBoxColumn24, dataGridViewTextBoxColumn25, dataGridViewTextBoxColumn26, dataGridViewTextBoxColumn27, dataGridViewTextBoxColumn28, TSPassYds, dataGridViewTextBoxColumn30, dataGridViewTextBoxColumn31, dataGridViewTextBoxColumn32, dataGridViewTextBoxColumn33 });
+            TSPassing.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn23, dataGridViewTextBoxColumn24, dataGridViewTextBoxColumn25, dataGridViewTextBoxColumn26, dataGridViewTextBoxColumn27, dataGridViewTextBoxColumn28, TSPassYds, dataGridViewTextBoxColumn30, dataGridViewTextBoxColumn31, dataGridViewTextBoxColumn32, dataGridViewTextBoxColumn33, TeamStatsPassID });
             dataGridViewCellStyle76.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle76.BackColor = SystemColors.ButtonFace;
             dataGridViewCellStyle76.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
@@ -14807,77 +14737,7 @@ namespace DB_EDITOR
             TSPassing.RowHeadersVisible = false;
             TSPassing.Size = new Size(551, 81);
             TSPassing.TabIndex = 3;
-            // 
-            // dataGridViewTextBoxColumn23
-            // 
-            dataGridViewTextBoxColumn23.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle75.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridViewTextBoxColumn23.DefaultCellStyle = dataGridViewCellStyle75;
-            dataGridViewTextBoxColumn23.HeaderText = "Player";
-            dataGridViewTextBoxColumn23.MinimumWidth = 50;
-            dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
-            dataGridViewTextBoxColumn23.ReadOnly = true;
-            dataGridViewTextBoxColumn23.Width = 61;
-            // 
-            // dataGridViewTextBoxColumn24
-            // 
-            dataGridViewTextBoxColumn24.HeaderText = "GP";
-            dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
-            dataGridViewTextBoxColumn24.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn25
-            // 
-            dataGridViewTextBoxColumn25.HeaderText = "QBR";
-            dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
-            dataGridViewTextBoxColumn25.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn26
-            // 
-            dataGridViewTextBoxColumn26.HeaderText = "Comp";
-            dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
-            dataGridViewTextBoxColumn26.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn27
-            // 
-            dataGridViewTextBoxColumn27.HeaderText = "Att";
-            dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
-            dataGridViewTextBoxColumn27.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn28
-            // 
-            dataGridViewTextBoxColumn28.HeaderText = "PCT";
-            dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
-            dataGridViewTextBoxColumn28.ReadOnly = true;
-            // 
-            // TSPassYds
-            // 
-            TSPassYds.HeaderText = "Yds";
-            TSPassYds.Name = "TSPassYds";
-            TSPassYds.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn30
-            // 
-            dataGridViewTextBoxColumn30.HeaderText = "YPG";
-            dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
-            dataGridViewTextBoxColumn30.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn31
-            // 
-            dataGridViewTextBoxColumn31.HeaderText = "TD";
-            dataGridViewTextBoxColumn31.Name = "dataGridViewTextBoxColumn31";
-            dataGridViewTextBoxColumn31.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn32
-            // 
-            dataGridViewTextBoxColumn32.HeaderText = "Int";
-            dataGridViewTextBoxColumn32.Name = "dataGridViewTextBoxColumn32";
-            dataGridViewTextBoxColumn32.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn33
-            // 
-            dataGridViewTextBoxColumn33.HeaderText = "Sacks";
-            dataGridViewTextBoxColumn33.Name = "dataGridViewTextBoxColumn33";
-            dataGridViewTextBoxColumn33.ReadOnly = true;
+            TSPassing.CellContentClick += (this.TSPassing_CellContentClick);
             // 
             // TSDefense
             // 
@@ -14900,7 +14760,7 @@ namespace DB_EDITOR
             dataGridViewCellStyle79.WrapMode = DataGridViewTriState.True;
             TSDefense.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle79;
             TSDefense.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            TSDefense.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn12, dataGridViewTextBoxColumn13, TSTackles, dataGridViewTextBoxColumn15, dataGridViewTextBoxColumn16, dataGridViewTextBoxColumn17, dataGridViewTextBoxColumn18, dataGridViewTextBoxColumn19, dataGridViewTextBoxColumn20, dataGridViewTextBoxColumn21 });
+            TSDefense.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn12, dataGridViewTextBoxColumn13, TSTackles, dataGridViewTextBoxColumn15, dataGridViewTextBoxColumn16, dataGridViewTextBoxColumn17, dataGridViewTextBoxColumn18, dataGridViewTextBoxColumn19, dataGridViewTextBoxColumn20, dataGridViewTextBoxColumn21, TeamStatsDefID });
             dataGridViewCellStyle81.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle81.BackColor = SystemColors.ButtonFace;
             dataGridViewCellStyle81.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
@@ -14923,70 +14783,7 @@ namespace DB_EDITOR
             TSDefense.RowHeadersVisible = false;
             TSDefense.Size = new Size(551, 388);
             TSDefense.TabIndex = 2;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            dataGridViewTextBoxColumn12.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle80.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridViewTextBoxColumn12.DefaultCellStyle = dataGridViewCellStyle80;
-            dataGridViewTextBoxColumn12.HeaderText = "Player";
-            dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            dataGridViewTextBoxColumn12.ReadOnly = true;
-            dataGridViewTextBoxColumn12.Width = 61;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            dataGridViewTextBoxColumn13.HeaderText = "GP";
-            dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            dataGridViewTextBoxColumn13.ReadOnly = true;
-            // 
-            // TSTackles
-            // 
-            TSTackles.HeaderText = "Tkl";
-            TSTackles.Name = "TSTackles";
-            TSTackles.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            dataGridViewTextBoxColumn15.HeaderText = "TFL";
-            dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            dataGridViewTextBoxColumn15.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            dataGridViewTextBoxColumn16.HeaderText = "Sack";
-            dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            dataGridViewTextBoxColumn16.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn17
-            // 
-            dataGridViewTextBoxColumn17.HeaderText = "Int";
-            dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            dataGridViewTextBoxColumn17.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn18
-            // 
-            dataGridViewTextBoxColumn18.HeaderText = "PDf";
-            dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            dataGridViewTextBoxColumn18.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn19
-            // 
-            dataGridViewTextBoxColumn19.HeaderText = "FFum";
-            dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
-            dataGridViewTextBoxColumn19.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn20
-            // 
-            dataGridViewTextBoxColumn20.HeaderText = "FumR";
-            dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
-            dataGridViewTextBoxColumn20.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn21
-            // 
-            dataGridViewTextBoxColumn21.HeaderText = "DTD";
-            dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
-            dataGridViewTextBoxColumn21.ReadOnly = true;
+            TSDefense.CellContentClick += (this.TSDefense_CellContentClick);
             // 
             // TSRushing
             // 
@@ -15009,7 +14806,7 @@ namespace DB_EDITOR
             dataGridViewCellStyle84.WrapMode = DataGridViewTriState.True;
             TSRushing.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle84;
             TSRushing.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            TSRushing.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, TSRushYds, dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7, dataGridViewTextBoxColumn8, dataGridViewTextBoxColumn9, dataGridViewTextBoxColumn10, dataGridViewTextBoxColumn11 });
+            TSRushing.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, TSRushYds, dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7, dataGridViewTextBoxColumn8, dataGridViewTextBoxColumn9, dataGridViewTextBoxColumn10, dataGridViewTextBoxColumn11, TeamStatsRushID });
             dataGridViewCellStyle86.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle86.BackColor = SystemColors.ButtonFace;
             dataGridViewCellStyle86.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
@@ -15032,76 +14829,7 @@ namespace DB_EDITOR
             TSRushing.RowHeadersVisible = false;
             TSRushing.Size = new Size(551, 145);
             TSRushing.TabIndex = 1;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            dataGridViewTextBoxColumn1.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle85.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle85;
-            dataGridViewTextBoxColumn1.HeaderText = "Player";
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            dataGridViewTextBoxColumn1.ReadOnly = true;
-            dataGridViewTextBoxColumn1.Width = 61;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            dataGridViewTextBoxColumn2.HeaderText = "GP";
-            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            dataGridViewTextBoxColumn3.HeaderText = "Att";
-            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // TSRushYds
-            // 
-            TSRushYds.HeaderText = "Yds";
-            TSRushYds.Name = "TSRushYds";
-            TSRushYds.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            dataGridViewTextBoxColumn5.HeaderText = "TD";
-            dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            dataGridViewTextBoxColumn6.HeaderText = "YPC";
-            dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            dataGridViewTextBoxColumn7.HeaderText = "YPG";
-            dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            dataGridViewTextBoxColumn7.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            dataGridViewTextBoxColumn8.HeaderText = "Fum";
-            dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            dataGridViewTextBoxColumn8.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            dataGridViewTextBoxColumn9.HeaderText = "YAC";
-            dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            dataGridViewTextBoxColumn9.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            dataGridViewTextBoxColumn10.HeaderText = "BTk";
-            dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            dataGridViewTextBoxColumn10.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            dataGridViewTextBoxColumn11.HeaderText = "20+";
-            dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            dataGridViewTextBoxColumn11.ReadOnly = true;
+            TSRushing.CellContentClick += (this.TSRushing_CellContentClick);
             // 
             // tabLeagueStats
             // 
@@ -15277,7 +15005,7 @@ namespace DB_EDITOR
             dataGridViewCellStyle98.WrapMode = DataGridViewTriState.True;
             LeagueStatsView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle98;
             LeagueStatsView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            LeagueStatsView.Columns.AddRange(new DataGridViewColumn[] { LS00, LS01, LS1, LS2, LS3, LS4, LS5, LS6, LS7, LS8, LS9 });
+            LeagueStatsView.Columns.AddRange(new DataGridViewColumn[] { LS00, LS01, LS1, LS2, LS3, LS4, LS5, LS6, LS7, LS8, LS9, LSPGID });
             dataGridViewCellStyle101.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle101.BackColor = SystemColors.ButtonFace;
             dataGridViewCellStyle101.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
@@ -15300,6 +15028,7 @@ namespace DB_EDITOR
             LeagueStatsView.RowHeadersVisible = false;
             LeagueStatsView.Size = new Size(675, 555);
             LeagueStatsView.TabIndex = 11;
+            LeagueStatsView.CellContentClick += (this.LeagueStatsView_CellContentClick);
             // 
             // LS00
             // 
@@ -15374,6 +15103,13 @@ namespace DB_EDITOR
             LS9.HeaderText = "LS9";
             LS9.Name = "LS9";
             LS9.ReadOnly = true;
+            // 
+            // LSPGID
+            // 
+            LSPGID.HeaderText = "pgid";
+            LSPGID.Name = "LSPGID";
+            LSPGID.ReadOnly = true;
+            LSPGID.Visible = false;
             // 
             // tabRecruiting
             // 
@@ -15473,7 +15209,7 @@ namespace DB_EDITOR
             dataGridViewCellStyle104.WrapMode = DataGridViewTriState.True;
             RecruitTeamView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle104;
             RecruitTeamView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            RecruitTeamView.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn80, dataGridViewTextBoxColumn81, RecruitHomeTeam, Column1, Column3, RecruitTeamOVR, RecruitTeamStarRating, dataGridViewTextBoxColumn84 });
+            RecruitTeamView.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn80, dataGridViewTextBoxColumn81, RecruitHomeTeam, Column1, Column3, RecruitTeamOVR, RecruitTeamStarRating, dataGridViewTextBoxColumn84, RecruitBoardID });
             dataGridViewCellStyle106.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle106.BackColor = SystemColors.ButtonFace;
             dataGridViewCellStyle106.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
@@ -15496,6 +15232,7 @@ namespace DB_EDITOR
             RecruitTeamView.RowHeadersVisible = false;
             RecruitTeamView.Size = new Size(604, 526);
             RecruitTeamView.TabIndex = 161;
+            RecruitTeamView.CellContentClick += (this.RecruitTeamView_CellContentClick);
             // 
             // dataGridViewTextBoxColumn80
             // 
@@ -15565,6 +15302,13 @@ namespace DB_EDITOR
             dataGridViewTextBoxColumn84.HeaderText = "Pos Rank";
             dataGridViewTextBoxColumn84.Name = "dataGridViewTextBoxColumn84";
             dataGridViewTextBoxColumn84.ReadOnly = true;
+            // 
+            // RecruitBoardID
+            // 
+            RecruitBoardID.HeaderText = "ID";
+            RecruitBoardID.Name = "RecruitBoardID";
+            RecruitBoardID.ReadOnly = true;
+            RecruitBoardID.Visible = false;
             // 
             // RecruitRankingView
             // 
@@ -15862,7 +15606,7 @@ namespace DB_EDITOR
             dataGridViewCellStyle115.WrapMode = DataGridViewTriState.True;
             PortalData.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle115;
             PortalData.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            PortalData.Columns.AddRange(new DataGridViewColumn[] { PortalPosition, PortalTransferName, PortalClass, PortalRating, PortalNewSchool, PortalPrvTeam });
+            PortalData.Columns.AddRange(new DataGridViewColumn[] { PortalPosition, PortalTransferName, PortalClass, PortalRating, PortalNewSchool, PortalPrvTeam, springportalID });
             PortalData.Location = new Point(238, 14);
             PortalData.Name = "PortalData";
             PortalData.ReadOnly = true;
@@ -15874,6 +15618,7 @@ namespace DB_EDITOR
             PortalData.RowTemplate.Height = 31;
             PortalData.Size = new Size(525, 587);
             PortalData.TabIndex = 40;
+            PortalData.CellContentClick += (this.PortalData_CellContentClick);
             // 
             // PortalPosition
             // 
@@ -15922,6 +15667,13 @@ namespace DB_EDITOR
             PortalPrvTeam.MinimumWidth = 9;
             PortalPrvTeam.Name = "PortalPrvTeam";
             PortalPrvTeam.ReadOnly = true;
+            // 
+            // springportalID
+            // 
+            springportalID.HeaderText = "ID";
+            springportalID.Name = "springportalID";
+            springportalID.ReadOnly = true;
+            springportalID.Visible = false;
             // 
             // richTextBox3
             // 
@@ -16505,6 +16257,16 @@ namespace DB_EDITOR
             groupBox41.TabStop = false;
             groupBox41.Text = "Recruit Database (RCAT)";
             // 
+            // ExportRCATButton
+            // 
+            ExportRCATButton.Location = new Point(18, 265);
+            ExportRCATButton.Name = "ExportRCATButton";
+            ExportRCATButton.Size = new Size(125, 60);
+            ExportRCATButton.TabIndex = 3;
+            ExportRCATButton.Text = "Export CSV";
+            ExportRCATButton.UseVisualStyleBackColor = true;
+            ExportRCATButton.Click += (this.ExportRCATButton_Click);
+            // 
             // RCATGearRandomizerButton
             // 
             RCATGearRandomizerButton.Location = new Point(18, 185);
@@ -16535,15 +16297,509 @@ namespace DB_EDITOR
             buttonRCATBody.UseVisualStyleBackColor = true;
             buttonRCATBody.Click += (this.buttonRCATBody_Click);
             // 
-            // ExportRCATButton
+            // dataGridViewTextBoxColumn23
             // 
-            ExportRCATButton.Location = new Point(18, 265);
-            ExportRCATButton.Name = "ExportRCATButton";
-            ExportRCATButton.Size = new Size(125, 60);
-            ExportRCATButton.TabIndex = 3;
-            ExportRCATButton.Text = "Export CSV";
-            ExportRCATButton.UseVisualStyleBackColor = true;
-            ExportRCATButton.Click += (this.ExportRCATButton_Click);
+            dataGridViewTextBoxColumn23.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle75.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewTextBoxColumn23.DefaultCellStyle = dataGridViewCellStyle75;
+            dataGridViewTextBoxColumn23.HeaderText = "Player";
+            dataGridViewTextBoxColumn23.MinimumWidth = 50;
+            dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
+            dataGridViewTextBoxColumn23.ReadOnly = true;
+            dataGridViewTextBoxColumn23.Width = 61;
+            // 
+            // dataGridViewTextBoxColumn24
+            // 
+            dataGridViewTextBoxColumn24.HeaderText = "GP";
+            dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
+            dataGridViewTextBoxColumn24.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn25
+            // 
+            dataGridViewTextBoxColumn25.HeaderText = "QBR";
+            dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
+            dataGridViewTextBoxColumn25.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn26
+            // 
+            dataGridViewTextBoxColumn26.HeaderText = "Comp";
+            dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
+            dataGridViewTextBoxColumn26.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn27
+            // 
+            dataGridViewTextBoxColumn27.HeaderText = "Att";
+            dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
+            dataGridViewTextBoxColumn27.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn28
+            // 
+            dataGridViewTextBoxColumn28.HeaderText = "PCT";
+            dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
+            dataGridViewTextBoxColumn28.ReadOnly = true;
+            // 
+            // TSPassYds
+            // 
+            TSPassYds.HeaderText = "Yds";
+            TSPassYds.Name = "TSPassYds";
+            TSPassYds.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn30
+            // 
+            dataGridViewTextBoxColumn30.HeaderText = "YPG";
+            dataGridViewTextBoxColumn30.Name = "dataGridViewTextBoxColumn30";
+            dataGridViewTextBoxColumn30.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn31
+            // 
+            dataGridViewTextBoxColumn31.HeaderText = "TD";
+            dataGridViewTextBoxColumn31.Name = "dataGridViewTextBoxColumn31";
+            dataGridViewTextBoxColumn31.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn32
+            // 
+            dataGridViewTextBoxColumn32.HeaderText = "Int";
+            dataGridViewTextBoxColumn32.Name = "dataGridViewTextBoxColumn32";
+            dataGridViewTextBoxColumn32.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn33
+            // 
+            dataGridViewTextBoxColumn33.HeaderText = "Sacks";
+            dataGridViewTextBoxColumn33.Name = "dataGridViewTextBoxColumn33";
+            dataGridViewTextBoxColumn33.ReadOnly = true;
+            // 
+            // TeamStatsPassID
+            // 
+            TeamStatsPassID.HeaderText = "ID";
+            TeamStatsPassID.Name = "TeamStatsPassID";
+            TeamStatsPassID.ReadOnly = true;
+            TeamStatsPassID.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            dataGridViewTextBoxColumn1.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle85.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle85;
+            dataGridViewTextBoxColumn1.HeaderText = "Player";
+            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            dataGridViewTextBoxColumn1.ReadOnly = true;
+            dataGridViewTextBoxColumn1.Width = 61;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            dataGridViewTextBoxColumn2.HeaderText = "GP";
+            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            dataGridViewTextBoxColumn3.HeaderText = "Att";
+            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            dataGridViewTextBoxColumn3.ReadOnly = true;
+            // 
+            // TSRushYds
+            // 
+            TSRushYds.HeaderText = "Yds";
+            TSRushYds.Name = "TSRushYds";
+            TSRushYds.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            dataGridViewTextBoxColumn5.HeaderText = "TD";
+            dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            dataGridViewTextBoxColumn6.HeaderText = "YPC";
+            dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            dataGridViewTextBoxColumn7.HeaderText = "YPG";
+            dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            dataGridViewTextBoxColumn7.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            dataGridViewTextBoxColumn8.HeaderText = "Fum";
+            dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            dataGridViewTextBoxColumn8.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            dataGridViewTextBoxColumn9.HeaderText = "YAC";
+            dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            dataGridViewTextBoxColumn9.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            dataGridViewTextBoxColumn10.HeaderText = "BTk";
+            dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            dataGridViewTextBoxColumn10.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            dataGridViewTextBoxColumn11.HeaderText = "20+";
+            dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            dataGridViewTextBoxColumn11.ReadOnly = true;
+            // 
+            // TeamStatsRushID
+            // 
+            TeamStatsRushID.HeaderText = "ID";
+            TeamStatsRushID.Name = "TeamStatsRushID";
+            TeamStatsRushID.ReadOnly = true;
+            TeamStatsRushID.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn34
+            // 
+            dataGridViewTextBoxColumn34.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle70.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewTextBoxColumn34.DefaultCellStyle = dataGridViewCellStyle70;
+            dataGridViewTextBoxColumn34.HeaderText = "Player";
+            dataGridViewTextBoxColumn34.Name = "dataGridViewTextBoxColumn34";
+            dataGridViewTextBoxColumn34.ReadOnly = true;
+            dataGridViewTextBoxColumn34.Width = 61;
+            // 
+            // dataGridViewTextBoxColumn35
+            // 
+            dataGridViewTextBoxColumn35.HeaderText = "GP";
+            dataGridViewTextBoxColumn35.Name = "dataGridViewTextBoxColumn35";
+            dataGridViewTextBoxColumn35.ReadOnly = true;
+            // 
+            // TSCatch
+            // 
+            TSCatch.HeaderText = "Cat";
+            TSCatch.Name = "TSCatch";
+            TSCatch.ReadOnly = true;
+            // 
+            // TSYdsCat
+            // 
+            TSYdsCat.HeaderText = "Yds";
+            TSYdsCat.Name = "TSYdsCat";
+            TSYdsCat.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn38
+            // 
+            dataGridViewTextBoxColumn38.HeaderText = "TD";
+            dataGridViewTextBoxColumn38.Name = "dataGridViewTextBoxColumn38";
+            dataGridViewTextBoxColumn38.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn39
+            // 
+            dataGridViewTextBoxColumn39.HeaderText = "YPC";
+            dataGridViewTextBoxColumn39.Name = "dataGridViewTextBoxColumn39";
+            dataGridViewTextBoxColumn39.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn40
+            // 
+            dataGridViewTextBoxColumn40.HeaderText = "YPG";
+            dataGridViewTextBoxColumn40.Name = "dataGridViewTextBoxColumn40";
+            dataGridViewTextBoxColumn40.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn41
+            // 
+            dataGridViewTextBoxColumn41.HeaderText = "Fum";
+            dataGridViewTextBoxColumn41.Name = "dataGridViewTextBoxColumn41";
+            dataGridViewTextBoxColumn41.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn42
+            // 
+            dataGridViewTextBoxColumn42.HeaderText = "YAC";
+            dataGridViewTextBoxColumn42.Name = "dataGridViewTextBoxColumn42";
+            dataGridViewTextBoxColumn42.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn43
+            // 
+            dataGridViewTextBoxColumn43.HeaderText = "YACA";
+            dataGridViewTextBoxColumn43.Name = "dataGridViewTextBoxColumn43";
+            dataGridViewTextBoxColumn43.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn44
+            // 
+            dataGridViewTextBoxColumn44.HeaderText = "Drops";
+            dataGridViewTextBoxColumn44.Name = "dataGridViewTextBoxColumn44";
+            dataGridViewTextBoxColumn44.ReadOnly = true;
+            // 
+            // TeamStatsRecID
+            // 
+            TeamStatsRecID.HeaderText = "ID";
+            TeamStatsRecID.Name = "TeamStatsRecID";
+            TeamStatsRecID.ReadOnly = true;
+            TeamStatsRecID.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn67
+            // 
+            dataGridViewTextBoxColumn67.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle55.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewTextBoxColumn67.DefaultCellStyle = dataGridViewCellStyle55;
+            dataGridViewTextBoxColumn67.HeaderText = "Player";
+            dataGridViewTextBoxColumn67.Name = "dataGridViewTextBoxColumn67";
+            dataGridViewTextBoxColumn67.ReadOnly = true;
+            dataGridViewTextBoxColumn67.Width = 61;
+            // 
+            // dataGridViewTextBoxColumn76
+            // 
+            dataGridViewTextBoxColumn76.HeaderText = "GP";
+            dataGridViewTextBoxColumn76.Name = "dataGridViewTextBoxColumn76";
+            dataGridViewTextBoxColumn76.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn68
+            // 
+            dataGridViewTextBoxColumn68.HeaderText = "KR";
+            dataGridViewTextBoxColumn68.Name = "dataGridViewTextBoxColumn68";
+            dataGridViewTextBoxColumn68.ReadOnly = true;
+            // 
+            // TSKRYd
+            // 
+            TSKRYd.HeaderText = "Yds";
+            TSKRYd.Name = "TSKRYd";
+            TSKRYd.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn70
+            // 
+            dataGridViewTextBoxColumn70.HeaderText = "TD";
+            dataGridViewTextBoxColumn70.Name = "dataGridViewTextBoxColumn70";
+            dataGridViewTextBoxColumn70.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn71
+            // 
+            dataGridViewTextBoxColumn71.HeaderText = "Long";
+            dataGridViewTextBoxColumn71.Name = "dataGridViewTextBoxColumn71";
+            dataGridViewTextBoxColumn71.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn72
+            // 
+            dataGridViewTextBoxColumn72.HeaderText = "PR";
+            dataGridViewTextBoxColumn72.Name = "dataGridViewTextBoxColumn72";
+            dataGridViewTextBoxColumn72.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn73
+            // 
+            dataGridViewTextBoxColumn73.HeaderText = "Yds";
+            dataGridViewTextBoxColumn73.Name = "dataGridViewTextBoxColumn73";
+            dataGridViewTextBoxColumn73.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn74
+            // 
+            dataGridViewTextBoxColumn74.HeaderText = "TD";
+            dataGridViewTextBoxColumn74.Name = "dataGridViewTextBoxColumn74";
+            dataGridViewTextBoxColumn74.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn75
+            // 
+            dataGridViewTextBoxColumn75.HeaderText = "Long";
+            dataGridViewTextBoxColumn75.Name = "dataGridViewTextBoxColumn75";
+            dataGridViewTextBoxColumn75.ReadOnly = true;
+            // 
+            // TeamStatsRetID
+            // 
+            TeamStatsRetID.HeaderText = "ID";
+            TeamStatsRetID.Name = "TeamStatsRetID";
+            TeamStatsRetID.ReadOnly = true;
+            TeamStatsRetID.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            dataGridViewTextBoxColumn12.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle80.Alignment = DataGridViewContentAlignment.MiddleRight;
+            dataGridViewTextBoxColumn12.DefaultCellStyle = dataGridViewCellStyle80;
+            dataGridViewTextBoxColumn12.HeaderText = "Player";
+            dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            dataGridViewTextBoxColumn12.ReadOnly = true;
+            dataGridViewTextBoxColumn12.Width = 61;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            dataGridViewTextBoxColumn13.HeaderText = "GP";
+            dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            dataGridViewTextBoxColumn13.ReadOnly = true;
+            // 
+            // TSTackles
+            // 
+            TSTackles.HeaderText = "Tkl";
+            TSTackles.Name = "TSTackles";
+            TSTackles.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            dataGridViewTextBoxColumn15.HeaderText = "TFL";
+            dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            dataGridViewTextBoxColumn15.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            dataGridViewTextBoxColumn16.HeaderText = "Sack";
+            dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            dataGridViewTextBoxColumn16.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            dataGridViewTextBoxColumn17.HeaderText = "Int";
+            dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            dataGridViewTextBoxColumn17.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            dataGridViewTextBoxColumn18.HeaderText = "PDf";
+            dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            dataGridViewTextBoxColumn18.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn19
+            // 
+            dataGridViewTextBoxColumn19.HeaderText = "FFum";
+            dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            dataGridViewTextBoxColumn19.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn20
+            // 
+            dataGridViewTextBoxColumn20.HeaderText = "FumR";
+            dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
+            dataGridViewTextBoxColumn20.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn21
+            // 
+            dataGridViewTextBoxColumn21.HeaderText = "DTD";
+            dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
+            dataGridViewTextBoxColumn21.ReadOnly = true;
+            // 
+            // TeamStatsDefID
+            // 
+            TeamStatsDefID.HeaderText = "ID";
+            TeamStatsDefID.Name = "TeamStatsDefID";
+            TeamStatsDefID.ReadOnly = true;
+            TeamStatsDefID.Visible = false;
+            // 
+            // TSFGM
+            // 
+            TSFGM.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle65.Alignment = DataGridViewContentAlignment.MiddleRight;
+            TSFGM.DefaultCellStyle = dataGridViewCellStyle65;
+            TSFGM.HeaderText = "Player";
+            TSFGM.Name = "TSFGM";
+            TSFGM.ReadOnly = true;
+            TSFGM.Width = 61;
+            // 
+            // dataGridViewTextBoxColumn46
+            // 
+            dataGridViewTextBoxColumn46.HeaderText = "GP";
+            dataGridViewTextBoxColumn46.Name = "dataGridViewTextBoxColumn46";
+            dataGridViewTextBoxColumn46.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn47
+            // 
+            dataGridViewTextBoxColumn47.HeaderText = "FGM";
+            dataGridViewTextBoxColumn47.Name = "dataGridViewTextBoxColumn47";
+            dataGridViewTextBoxColumn47.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn48
+            // 
+            dataGridViewTextBoxColumn48.HeaderText = "FGA";
+            dataGridViewTextBoxColumn48.Name = "dataGridViewTextBoxColumn48";
+            dataGridViewTextBoxColumn48.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn49
+            // 
+            dataGridViewTextBoxColumn49.HeaderText = "PCT";
+            dataGridViewTextBoxColumn49.Name = "dataGridViewTextBoxColumn49";
+            dataGridViewTextBoxColumn49.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn50
+            // 
+            dataGridViewTextBoxColumn50.HeaderText = "Long";
+            dataGridViewTextBoxColumn50.Name = "dataGridViewTextBoxColumn50";
+            dataGridViewTextBoxColumn50.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn51
+            // 
+            dataGridViewTextBoxColumn51.HeaderText = "XPM";
+            dataGridViewTextBoxColumn51.Name = "dataGridViewTextBoxColumn51";
+            dataGridViewTextBoxColumn51.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn52
+            // 
+            dataGridViewTextBoxColumn52.HeaderText = "XPA";
+            dataGridViewTextBoxColumn52.Name = "dataGridViewTextBoxColumn52";
+            dataGridViewTextBoxColumn52.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn53
+            // 
+            dataGridViewTextBoxColumn53.HeaderText = "PCT";
+            dataGridViewTextBoxColumn53.Name = "dataGridViewTextBoxColumn53";
+            dataGridViewTextBoxColumn53.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn54
+            // 
+            dataGridViewTextBoxColumn54.HeaderText = "40+";
+            dataGridViewTextBoxColumn54.Name = "dataGridViewTextBoxColumn54";
+            dataGridViewTextBoxColumn54.ReadOnly = true;
+            // 
+            // TeamStatsKickID
+            // 
+            TeamStatsKickID.HeaderText = "ID";
+            TeamStatsKickID.Name = "TeamStatsKickID";
+            TeamStatsKickID.ReadOnly = true;
+            TeamStatsKickID.Visible = false;
+            // 
+            // TSPunts
+            // 
+            TSPunts.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
+            dataGridViewCellStyle60.Alignment = DataGridViewContentAlignment.MiddleRight;
+            TSPunts.DefaultCellStyle = dataGridViewCellStyle60;
+            TSPunts.HeaderText = "Player";
+            TSPunts.Name = "TSPunts";
+            TSPunts.ReadOnly = true;
+            TSPunts.Width = 61;
+            // 
+            // dataGridViewTextBoxColumn57
+            // 
+            dataGridViewTextBoxColumn57.HeaderText = "GP";
+            dataGridViewTextBoxColumn57.Name = "dataGridViewTextBoxColumn57";
+            dataGridViewTextBoxColumn57.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn58
+            // 
+            dataGridViewTextBoxColumn58.HeaderText = "Punt";
+            dataGridViewTextBoxColumn58.Name = "dataGridViewTextBoxColumn58";
+            dataGridViewTextBoxColumn58.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn59
+            // 
+            dataGridViewTextBoxColumn59.HeaderText = "Yds";
+            dataGridViewTextBoxColumn59.Name = "dataGridViewTextBoxColumn59";
+            dataGridViewTextBoxColumn59.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn60
+            // 
+            dataGridViewTextBoxColumn60.HeaderText = "Avg";
+            dataGridViewTextBoxColumn60.Name = "dataGridViewTextBoxColumn60";
+            dataGridViewTextBoxColumn60.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn61
+            // 
+            dataGridViewTextBoxColumn61.HeaderText = "Long";
+            dataGridViewTextBoxColumn61.Name = "dataGridViewTextBoxColumn61";
+            dataGridViewTextBoxColumn61.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn62
+            // 
+            dataGridViewTextBoxColumn62.HeaderText = "In 20";
+            dataGridViewTextBoxColumn62.Name = "dataGridViewTextBoxColumn62";
+            dataGridViewTextBoxColumn62.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn63
+            // 
+            dataGridViewTextBoxColumn63.HeaderText = "Blocked";
+            dataGridViewTextBoxColumn63.Name = "dataGridViewTextBoxColumn63";
+            dataGridViewTextBoxColumn63.ReadOnly = true;
+            // 
+            // TeamStatsPuntID
+            // 
+            TeamStatsPuntID.HeaderText = "ID";
+            TeamStatsPuntID.Name = "TeamStatsPuntID";
+            TeamStatsPuntID.ReadOnly = true;
+            TeamStatsPuntID.Visible = false;
             // 
             // MainEditor
             // 
@@ -16613,6 +16869,8 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)MaxAttNum).EndInit();
             ((System.ComponentModel.ISupportInitialize)GlobalAttNum).EndInit();
             ((System.ComponentModel.ISupportInitialize)MinAttNum).EndInit();
+            groupBox53.ResumeLayout(false);
+            groupBox53.PerformLayout();
             tabOffSeason.ResumeLayout(false);
             tabOffSeason.PerformLayout();
             groupBox43.ResumeLayout(false);
@@ -16979,7 +17237,6 @@ namespace DB_EDITOR
         public System.Windows.Forms.TextBox textBox7;
         public System.Windows.Forms.TextBox textBox5;
         public System.Windows.Forms.TextBox textBox4;
-        public System.Windows.Forms.TextBox textBox6;
         public System.Windows.Forms.Button DevCalcTeamRatingsButton;
         public System.Windows.Forms.Button DevDepthChartButton;
         public System.Windows.Forms.Button DevRandomizeFaceButton;
@@ -17052,7 +17309,6 @@ namespace DB_EDITOR
         private RadioButton CustomPlaysRadio;
         private TabPage tabTools;
         private CheckBox ReRankTeams;
-        public System.Windows.Forms.Button FixHCBugsButton;
         private GroupBox groupBox18;
         private NumericUpDown MaxAttNum;
         private System.Windows.Forms.ComboBox GlobalAttBox;
@@ -17786,18 +18042,10 @@ namespace DB_EDITOR
         private CheckBox TransferEligible;
         private CheckBox PortalRatingBoost;
         private System.Windows.Forms.ToolTip toolTip1;
-        private DataGridViewTextBoxColumn PortalPosition;
-        private DataGridViewTextBoxColumn PortalTransferName;
-        private DataGridViewTextBoxColumn PortalClass;
-        private DataGridViewTextBoxColumn PortalRating;
-        private DataGridViewTextBoxColumn PortalNewSchool;
-        private DataGridViewTextBoxColumn PortalPrvTeam;
-        public System.Windows.Forms.Button FixHometownButton;
         private GroupBox groupBox38;
         private NumericUpDown MaxFantasyPlayers;
         private Label label262;
         public System.Windows.Forms.Button buttonAutoDepthChart;
-        public System.Windows.Forms.Button ClearExpiredStats;
         public System.Windows.Forms.Button buttonFantasyRoster;
         private GroupBox groupBox22;
         private RadioButton FantasyCSV;
@@ -17855,7 +18103,6 @@ namespace DB_EDITOR
         public System.Windows.Forms.Button buttonLEAGUEROSTERS;
         private RadioButton radioNEXT26;
         public System.Windows.Forms.Button ResetCoachStatsButton;
-        private System.Windows.Forms.Button PlayoffRankerButton;
         private Panel panel1;
         public Label label271;
         public System.Windows.Forms.ComboBox PlayerPosBox;
@@ -18034,63 +18281,6 @@ namespace DB_EDITOR
         private Panel panel2;
         private System.Windows.Forms.ComboBox RecruitRankingComboBox;
         private Label RecruitTeamName;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn67;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn76;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn68;
-        private DataGridViewTextBoxColumn TSKRYd;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn70;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn71;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn72;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn73;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn74;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn75;
-        private DataGridViewTextBoxColumn TSPunts;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn57;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn58;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn59;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn60;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn61;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn62;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn63;
-        private DataGridViewTextBoxColumn TSFGM;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn46;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn47;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn48;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn49;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn50;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn51;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn52;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn53;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn54;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn28;
-        private DataGridViewTextBoxColumn TSPassYds;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn30;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn31;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn32;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn33;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
-        private DataGridViewTextBoxColumn TSTackles;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn80;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn81;
-        private DataGridViewTextBoxColumn RecruitHomeTeam;
-        private DataGridViewTextBoxColumn Column1;
-        private DataGridViewTextBoxColumn Column3;
-        private DataGridViewTextBoxColumn RecruitTeamOVR;
-        private DataGridViewTextBoxColumn RecruitTeamStarRating;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn84;
         private RadioButton ConfDisplayProjPrestige;
         private Label tmarStars;
         private DataGridView TeamRatingView;
@@ -18098,28 +18288,6 @@ namespace DB_EDITOR
         private DataGridViewTextBoxColumn Column4;
         private GroupBox groupBox49;
         private Label label19;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn34;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn35;
-        private DataGridViewTextBoxColumn TSCatch;
-        private DataGridViewTextBoxColumn TSYdsCat;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn38;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn39;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn40;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn41;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn42;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn43;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn44;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private DataGridViewTextBoxColumn TSRushYds;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private CheckBox IncludeReturningTransfersBox;
         private CheckBox AllowStartersLeave;
         private RadioButton RankingOrderPriority;
@@ -18162,17 +18330,6 @@ namespace DB_EDITOR
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn45;
         private DataGridViewTextBoxColumn Column7;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn55;
-        private DataGridViewTextBoxColumn LS00;
-        private DataGridViewTextBoxColumn LS01;
-        private DataGridViewTextBoxColumn LS1;
-        private DataGridViewTextBoxColumn LS2;
-        private DataGridViewTextBoxColumn LS3;
-        private DataGridViewTextBoxColumn LS4;
-        private DataGridViewTextBoxColumn LS5;
-        private DataGridViewTextBoxColumn LS6;
-        private DataGridViewTextBoxColumn LS7;
-        private DataGridViewTextBoxColumn LS8;
-        private DataGridViewTextBoxColumn LS9;
         private DataGridView WeeklyBoxscoreView;
         private DataGridView WeeklyHighlightView;
         private GroupBox groupBox15;
@@ -18180,26 +18337,9 @@ namespace DB_EDITOR
         private Label label63;
         private Label label65;
         private DataGridView TopPlayersView;
-        private DataGridViewTextBoxColumn TPPos;
-        private DataGridViewTextBoxColumn TPPlayer;
-        private DataGridViewTextBoxColumn TPRating;
         private CheckBox AgeCoaches;
         private CheckBox CoachRetirement;
         private ListBox CoachesAddedBox;
-        private DataGridViewTextBoxColumn CCName;
-        private DataGridViewTextBoxColumn CCStatus;
-        private DataGridViewTextBoxColumn CCTeam;
-        private DataGridViewTextBoxColumn CCTmPrestige;
-        private DataGridViewTextBoxColumn CCPrestige;
-        private DataGridViewTextBoxColumn Column8;
-        private DataGridViewTextBoxColumn CCRecord;
-        private DataGridViewTextBoxColumn CCSeaRec;
-        private DataGridViewTextBoxColumn CCCoachRating;
-        private DataGridViewTextBoxColumn CoachPortalPOVR;
-        private DataGridViewTextBoxColumn CoachPortalPos;
-        private DataGridViewTextBoxColumn CoachPortalPlayer;
-        private DataGridViewTextBoxColumn Column9;
-        private DataGridViewTextBoxColumn CoachPortalTeam;
         public System.Windows.Forms.Button LoadCoachAge;
         private Label label167;
         private NumericUpDown YearsCoachedBox;
@@ -18229,6 +18369,149 @@ namespace DB_EDITOR
         private System.Windows.Forms.Button RCATGearRandomizerButton;
         private System.Windows.Forms.Button RCATAppearanceRandomizerButton;
         private System.Windows.Forms.Button ExportRCATButton;
+        private System.Windows.Forms.Button RandPlayerGear;
+        private Label label198;
+        private System.Windows.Forms.ComboBox TurfTape;
+        private System.Windows.Forms.ComboBox Mouthguard;
+        private Label label199;
+        private System.Windows.Forms.ComboBox QBJacket;
+        private Label QBJacketLabel;
+        private DataGridViewTextBoxColumn TPPos;
+        private DataGridViewTextBoxColumn TPPlayer;
+        private DataGridViewTextBoxColumn TPRating;
+        private DataGridViewTextBoxColumn TopPlayerID;
+        private System.Windows.Forms.ComboBox FaceProtector;
+        private Label label200;
+        private System.Windows.Forms.Button TextureDumperButton;
+        private System.Windows.Forms.Button PlayoffRankerButton;
+        public System.Windows.Forms.Button FixHometownButton;
+        public System.Windows.Forms.Button ClearExpiredStats;
+        public System.Windows.Forms.Button FixHCBugsButton;
+        private GroupBox groupBox2;
+        private GroupBox groupBox53;
+        private ToolStripMenuItem devTabToolStripMenuItem;
+        private DataGridViewTextBoxColumn CoachPortalPOVR;
+        private DataGridViewTextBoxColumn CoachPortalPos;
+        private DataGridViewTextBoxColumn CoachPortalPlayer;
+        private DataGridViewTextBoxColumn Column9;
+        private DataGridViewTextBoxColumn CoachPortalTeam;
+        private DataGridViewTextBoxColumn CoachPortalID;
+        private DataGridViewTextBoxColumn CCName;
+        private DataGridViewTextBoxColumn CCStatus;
+        private DataGridViewTextBoxColumn CCTeam;
+        private DataGridViewTextBoxColumn CCTmPrestige;
+        private DataGridViewTextBoxColumn CCPrestige;
+        private DataGridViewTextBoxColumn Column8;
+        private DataGridViewTextBoxColumn CCRecord;
+        private DataGridViewTextBoxColumn CCSeaRec;
+        private DataGridViewTextBoxColumn CCCoachRating;
+        private DataGridViewTextBoxColumn CCccid;
+        private DataGridViewTextBoxColumn LS00;
+        private DataGridViewTextBoxColumn LS01;
+        private DataGridViewTextBoxColumn LS1;
+        private DataGridViewTextBoxColumn LS2;
+        private DataGridViewTextBoxColumn LS3;
+        private DataGridViewTextBoxColumn LS4;
+        private DataGridViewTextBoxColumn LS5;
+        private DataGridViewTextBoxColumn LS6;
+        private DataGridViewTextBoxColumn LS7;
+        private DataGridViewTextBoxColumn LS8;
+        private DataGridViewTextBoxColumn LS9;
+        private DataGridViewTextBoxColumn LSPGID;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn80;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn81;
+        private DataGridViewTextBoxColumn RecruitHomeTeam;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column3;
+        private DataGridViewTextBoxColumn RecruitTeamOVR;
+        private DataGridViewTextBoxColumn RecruitTeamStarRating;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn84;
+        private DataGridViewTextBoxColumn RecruitBoardID;
+        private DataGridViewTextBoxColumn PortalPosition;
+        private DataGridViewTextBoxColumn PortalTransferName;
+        private DataGridViewTextBoxColumn PortalClass;
+        private DataGridViewTextBoxColumn PortalRating;
+        private DataGridViewTextBoxColumn PortalNewSchool;
+        private DataGridViewTextBoxColumn PortalPrvTeam;
+        private DataGridViewTextBoxColumn springportalID;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn67;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn76;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn68;
+        private DataGridViewTextBoxColumn TSKRYd;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn70;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn71;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn72;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn73;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn74;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn75;
+        private DataGridViewTextBoxColumn TeamStatsRetID;
+        private DataGridViewTextBoxColumn TSPunts;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn57;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn58;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn59;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn60;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn61;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn62;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn63;
+        private DataGridViewTextBoxColumn TeamStatsPuntID;
+        private DataGridViewTextBoxColumn TSFGM;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn46;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn47;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn48;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn49;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn50;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn51;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn52;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn53;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn54;
+        private DataGridViewTextBoxColumn TeamStatsKickID;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn34;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn35;
+        private DataGridViewTextBoxColumn TSCatch;
+        private DataGridViewTextBoxColumn TSYdsCat;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn38;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn39;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn40;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn41;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn42;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn43;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn44;
+        private DataGridViewTextBoxColumn TeamStatsRecID;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn28;
+        private DataGridViewTextBoxColumn TSPassYds;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn30;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn31;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn32;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn33;
+        private DataGridViewTextBoxColumn TeamStatsPassID;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
+        private DataGridViewTextBoxColumn TSTackles;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn15;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn16;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn17;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
+        private DataGridViewTextBoxColumn TeamStatsDefID;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private DataGridViewTextBoxColumn TSRushYds;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private DataGridViewTextBoxColumn TeamStatsRushID;
     }
 }
 

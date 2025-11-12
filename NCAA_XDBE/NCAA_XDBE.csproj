@@ -81,6 +81,9 @@ Credits:
     <Compile Update="Randomizer.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="TextureDumper.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Update="Properties\Resources.resx">

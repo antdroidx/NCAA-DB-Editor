@@ -862,6 +862,8 @@ namespace DB_EDITOR
                                         ChangePlayerStatsID(SpringPortal[i][2], j);
                                     }
 
+                                    portalList[row].Add(Convert.ToString(SpringPortal[i][0]));
+
                                     if (p % 2 == 1 && TeamPortalNeeds[tgid][p] == 1 && smallPortal.Checked)
                                         TeamPortalNeeds[tgid][p - 1] = 0;
 
@@ -881,7 +883,6 @@ namespace DB_EDITOR
                                     SpringPortal.RemoveAt(i);
                                     i--;
                                     need = false;
-
 
                                     break;
                                 }
@@ -912,6 +913,7 @@ namespace DB_EDITOR
                 PortalData.Rows[x].Cells[3].Value = portalList2[x - NewsCount][3];
                 PortalData.Rows[x].Cells[4].Value = portalList2[x - NewsCount][4];
                 PortalData.Rows[x].Cells[5].Value = portalList2[x - NewsCount][5];
+                PortalData.Rows[x].Cells[6].Value = portalList2[x - NewsCount][6];
 
                 string test = PortalData.Rows[x].Cells[1].Value.ToString();
                 if (test.Contains("(S)"))
@@ -1389,5 +1391,38 @@ namespace DB_EDITOR
         }
 
         #endregion
+
+
+        //HyperLinks
+        private void PortalData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int row = e.RowIndex;
+            int cell = e.ColumnIndex;
+
+            //Player
+            if (cell == 1)
+            {
+                int PLAYrec = Convert.ToInt32(PortalData.Rows[row].Cells[6].Value);
+
+                PlayerIndex = PLAYrec;
+                tabControl1.SelectedTab = tabPlayers;
+                LoadPlayerData();
+            }
+            //Team
+            else if (cell == 4)
+            {
+                int teamRec = FindTeamRecfromTeamName(Convert.ToString(PortalData.Rows[row].Cells[4].Value));
+                TeamIndex = teamRec;
+                tabControl1.SelectedTab = tabTeams;
+                GetTeamEditorData(teamRec);
+            }
+            else if (cell == 5)
+            {
+                int teamRec = FindTeamRecfromTeamName(Convert.ToString(PortalData.Rows[row].Cells[5].Value));
+                TeamIndex = teamRec;
+                tabControl1.SelectedTab = tabTeams;
+                GetTeamEditorData(teamRec);
+            }
+        }
     }
 }

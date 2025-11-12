@@ -104,6 +104,7 @@ namespace DB_EDITOR
                     coachNews[newCounter].Add(GetDBValue("COCH", "CCWI", i) + "-" + GetDBValue("COCH", "CCLO", i));
                     coachNews[newCounter].Add(GetDBValue("COCH", "CSWI", i) + "-" + GetDBValue("COCH", "CSLO", i));
                     coachNews[newCounter].Add(GetDBValue("COCH", "CCPO", i));
+                    coachNews[newCounter].Add(Convert.ToString(i));
 
 
                     ChangeDBString("COCH", "CCPO", i, "60");
@@ -145,6 +146,7 @@ namespace DB_EDITOR
                         coachNews[newCounter].Add(GetDBValue("COCH", "CCWI", i) + "-" + GetDBValue("COCH", "CCLO", i));
                         coachNews[newCounter].Add(GetDBValue("COCH", "CSWI", i) + "-" + GetDBValue("COCH", "CSLO", i));
                         coachNews[newCounter].Add(GetDBValue("COCH", "CCPO", i));
+                        coachNews[newCounter].Add(Convert.ToString(i));
 
 
                         ChangeDBString("COCH", "CCPO", i, "60");
@@ -215,6 +217,7 @@ namespace DB_EDITOR
                             coachNews[newCounter].Add(GetDBValue("COCH", "CCWI", x) + "-" + GetDBValue("COCH", "CCLO", x));
                             coachNews[newCounter].Add("N/A");
                             coachNews[newCounter].Add(GetDBValue("COCH", "CCPO", x));
+                            coachNews[newCounter].Add(Convert.ToString(x));
 
                             CCID_FAList.RemoveAt(r);
                             TGID_VacancyList.RemoveAt(0);
@@ -265,6 +268,7 @@ namespace DB_EDITOR
                             coachNews[newCounter].Add(GetDBValue("COCH", "CCWI", x) + "-" + GetDBValue("COCH", "CCLO", x));
                             coachNews[newCounter].Add(GetDBValue("COCH", "CSWI", x) + "-" + GetDBValue("COCH", "CSLO", x));
                             coachNews[newCounter].Add(GetDBValue("COCH", "CCPO", x));
+                            coachNews[newCounter].Add(Convert.ToString(x));
 
                             CCID_PromoteList.RemoveAt(r);
                             TGID_VacancyList.RemoveAt(0);
@@ -333,7 +337,7 @@ namespace DB_EDITOR
                         TransferNews[row].Add(GetFirstNameFromRecord(players[xfer, 0]) + " " + GetLastNameFromRecord(players[xfer, 0]));
                         TransferNews[row].Add(GetClassYearsAbbr(players[xfer, 4], players[xfer, 5]));
                         TransferNews[row].Add(GetTeamName(tgid));
-
+                        TransferNews[row].Add(Convert.ToString(players[xfer, 0]));
 
                         currentRecCount++;
                     }
@@ -428,9 +432,12 @@ namespace DB_EDITOR
                 CarouselDataGrid.Rows[x].Cells[6].Value = CoachNews[x][6];
                 CarouselDataGrid.Rows[x].Cells[7].Value = CoachNews[x][7];
                 CarouselDataGrid.Rows[x].Cells[8].Value = CoachNews[x][8];
+                CarouselDataGrid.Rows[x].Cells[9].Value = CoachNews[x][9];
 
 
             }
+
+            CarouselDataGrid.ClearSelection();
         }
 
         private void DisplayCoachPortalNews(List<List<string>> CoachNews)
@@ -446,7 +453,11 @@ namespace DB_EDITOR
                 CoachPortalNews.Rows[x].Cells[2].Value = CoachNews[x - prevCount][2];
                 CoachPortalNews.Rows[x].Cells[3].Value = CoachNews[x - prevCount][3];
                 CoachPortalNews.Rows[x].Cells[4].Value = CoachNews[x - prevCount][4];
+                CoachPortalNews.Rows[x].Cells[5].Value = CoachNews[x - prevCount][5];
+
             }
+
+            CoachPortalNews.ClearSelection();
         }
 
 
@@ -876,6 +887,59 @@ namespace DB_EDITOR
 
             MessageBox.Show("Coach Ages Updated!");
 
+        }
+
+
+        //Coach & Player Hyperlinks
+
+
+        private void CarouselDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int row = e.RowIndex;
+            int cell = e.ColumnIndex;
+
+            //Player
+            if (cell == 0 && Convert.ToString(CarouselDataGrid.Rows[row].Cells[1].Value) != "Retired")
+            {
+                int PLAYrec = Convert.ToInt32(CarouselDataGrid.Rows[row].Cells[9].Value);
+
+                CoachIndex = PLAYrec;
+                tabControl1.SelectedTab = tabCoaches;
+                GetCoachEditorData(CoachIndex);
+            }
+            //Team
+            else if (cell == 2)
+            {
+                int teamRec = FindTeamRecfromTeamName(Convert.ToString(CarouselDataGrid.Rows[row].Cells[2].Value));
+                
+                TeamIndex = teamRec;
+                tabControl1.SelectedTab = tabTeams;
+                GetTeamEditorData(teamRec);
+            }
+        }
+
+        private void CoachPortalNews_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int row = e.RowIndex;
+            int cell = e.ColumnIndex;
+
+            //Player
+            if (cell == 2)
+            {
+                int PLAYrec = Convert.ToInt32(CoachPortalNews.Rows[row].Cells[5].Value);
+
+                PlayerIndex = PLAYrec;
+                tabControl1.SelectedTab = tabPlayers;
+                LoadPlayerData();
+            }
+            //Team
+            else if(cell == 4)
+            {
+                int teamRec = FindTeamRecfromTeamName(Convert.ToString(CoachPortalNews.Rows[row].Cells[4].Value));
+                TeamIndex = teamRec;
+                tabControl1.SelectedTab = tabTeams;
+                GetTeamEditorData(teamRec);
+            }
         }
 
     }

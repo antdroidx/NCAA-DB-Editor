@@ -124,6 +124,9 @@ namespace DB_EDITOR
                         TSPassing.Rows[row].Cells[8].Value = td;
                         TSPassing.Rows[row].Cells[9].Value = ints;
                         TSPassing.Rows[row].Cells[10].Value = skd;
+
+                        int playerRec = FindPGIDRecord(GetDBValueInt("PSOF", "PGID", i));
+                        TSPassing.Rows[row].Cells[11].Value = playerRec;
                     } 
                 }
             }
@@ -175,6 +178,9 @@ namespace DB_EDITOR
                         TSRushing.Rows[row].Cells[8].Value = yai;
                         TSRushing.Rows[row].Cells[9].Value = btk;
                         TSRushing.Rows[row].Cells[10].Value = twenty;
+
+                        int playerRec = FindPGIDRecord(GetDBValueInt("PSOF", "PGID", i));
+                        TSRushing.Rows[row].Cells[11].Value = playerRec;
                     }
                 }
             }
@@ -227,6 +233,9 @@ namespace DB_EDITOR
                         TSReceiving.Rows[row].Cells[8].Value = rac;
                         TSReceiving.Rows[row].Cells[9].Value = rca;
                         TSReceiving.Rows[row].Cells[10].Value = drp;
+
+                        int playerRec = FindPGIDRecord(GetDBValueInt("PSOF", "PGID", i));
+                        TSReceiving.Rows[row].Cells[11].Value = playerRec;
                     }
                 }
             }
@@ -271,6 +280,9 @@ namespace DB_EDITOR
                         TSDefense.Rows[row].Cells[7].Value = ffum;
                         TSDefense.Rows[row].Cells[8].Value = fumr;
                         TSDefense.Rows[row].Cells[9].Value = defTD;
+
+                        int playerRec = FindPGIDRecord(GetDBValueInt("PSDE", "PGID", i));
+                        TSDefense.Rows[row].Cells[10].Value = playerRec;
                     }
                 }
             }
@@ -320,6 +332,9 @@ namespace DB_EDITOR
                         TSKicking.Rows[row].Cells[7].Value = xpa;
                         TSKicking.Rows[row].Cells[8].Value = xppct;
                         TSKicking.Rows[row].Cells[9].Value = fourty;
+
+                        int playerRec = FindPGIDRecord(GetDBValueInt("PSKI", "PGID", i));
+                        TSKicking.Rows[row].Cells[10].Value = playerRec;
                     }
                 }
             }
@@ -362,6 +377,9 @@ namespace DB_EDITOR
                         TSPunting.Rows[row].Cells[5].Value = longest;
                         TSPunting.Rows[row].Cells[6].Value = intwenty;
                         TSPunting.Rows[row].Cells[7].Value = blocked;
+
+                        int playerRec = FindPGIDRecord(GetDBValueInt("PSKI", "PGID", i));
+                        TSPunting.Rows[row].Cells[8].Value = playerRec;
                     }
                 }
             }
@@ -408,6 +426,9 @@ namespace DB_EDITOR
                         TSReturn.Rows[row].Cells[7].Value = PRYds;
                         TSReturn.Rows[row].Cells[8].Value = PRTD;
                         TSReturn.Rows[row].Cells[9].Value = PRLong;
+
+                        int playerRec = FindPGIDRecord(GetDBValueInt("PSKP", "PGID", i));
+                        TSReturn.Rows[row].Cells[10].Value = playerRec;
                     }
                 }
             }
@@ -416,6 +437,122 @@ namespace DB_EDITOR
             TSReturn.ClearSelection();
         }
 
+
+        //HyperLinks
+
+ 
+
+        private void TSPassing_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int row = e.RowIndex;
+            int cell = e.ColumnIndex;
+
+            //Player
+            if (cell == 0)
+            {
+                int PLAYrec = Convert.ToInt32(TSPassing.Rows[row].Cells[11].Value);
+
+                PlayerIndex = PLAYrec;
+                tabControl1.SelectedTab = tabPlayers;
+                LoadPlayerData();
+            }
+        }
+
+        private void TSRushing_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int row = e.RowIndex;
+            int cell = e.ColumnIndex;
+
+            //Player
+            if (cell == 0)
+            {
+                int PLAYrec = Convert.ToInt32(TSRushing.Rows[row].Cells[11].Value);
+
+                PlayerIndex = PLAYrec;
+                tabControl1.SelectedTab = tabPlayers;
+                LoadPlayerData();
+            }
+        }
+
+        private void TSReceiving_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int row = e.RowIndex;
+            int cell = e.ColumnIndex;
+
+            //Player
+            if (cell == 0)
+            {
+                int PLAYrec = Convert.ToInt32(TSReceiving.Rows[row].Cells[11].Value);
+
+                PlayerIndex = PLAYrec;
+                tabControl1.SelectedTab = tabPlayers;
+                LoadPlayerData();
+            }
+        }
+
+        private void TSReturn_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int row = e.RowIndex;
+            int cell = e.ColumnIndex;
+
+            //Player
+            if (cell == 0)
+            {
+                int PLAYrec = Convert.ToInt32(TSReturn.Rows[row].Cells[10].Value);
+
+                PlayerIndex = PLAYrec;
+                tabControl1.SelectedTab = tabPlayers;
+                LoadPlayerData();
+            }
+        }
+
+        private void TSDefense_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int row = e.RowIndex;
+            int cell = e.ColumnIndex;
+
+            //Player
+            if (cell == 0)
+            {
+                int PLAYrec = Convert.ToInt32(TSDefense.Rows[row].Cells[10].Value);
+
+                PlayerIndex = PLAYrec;
+                tabControl1.SelectedTab = tabPlayers;
+                LoadPlayerData();
+            }
+        }
+
+        private void TSKicking_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int row = e.RowIndex;
+            int cell = e.ColumnIndex;
+
+            //Player
+            if (cell == 0)
+            {
+                int PLAYrec = Convert.ToInt32(TSKicking.Rows[row].Cells[10].Value);
+
+                PlayerIndex = PLAYrec;
+                tabControl1.SelectedTab = tabPlayers;
+                LoadPlayerData();
+            }
+        }
+
+        private void TSPunting_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int row = e.RowIndex;
+            int cell = e.ColumnIndex;
+
+            //Player
+            if (cell == 0)
+            {
+                int PLAYrec = Convert.ToInt32(TSPunting.Rows[row].Cells[8].Value);
+
+                PlayerIndex = PLAYrec;
+                tabControl1.SelectedTab = tabPlayers;
+                LoadPlayerData();
+            }
+        }
     }
 
 }

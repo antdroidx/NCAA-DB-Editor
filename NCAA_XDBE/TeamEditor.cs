@@ -1339,6 +1339,7 @@ namespace DB_EDITOR
                     PlayerList[row].Add(GetLastNameFromRecord(i));
                     PlayerList[row].Add(GetPOSG2Name(PlayerPOSG2));
                     PlayerList[row].Add(Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "POVR", i))));
+                    PlayerList[row].Add(Convert.ToString(i));
                     row++;
                 }
             }
@@ -1352,13 +1353,28 @@ namespace DB_EDITOR
                 TopPlayersView.Rows[i].Cells[1].Value = PlayerList[i][0] + " " + PlayerList[i][1];
                 TopPlayersView.Rows[i].Cells[2].Value = PlayerList[i][3];
                 TopPlayersView.Rows[i].Cells[2].Style.BackColor = GetColorValue(Convert.ToInt32(TopPlayersView.Rows[i].Cells[2].Value));
+                TopPlayersView.Rows[i].Cells[3].Value = PlayerList[i][4];
             }
 
             TopPlayersView.Rows.Add(1);
             TopPlayersView.ClearSelection();
         }
 
+        private void TopPlayersView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int row = e.RowIndex;
+            int cell = e.ColumnIndex;
 
+            if (cell == 1)
+            {
+                int PLAYrec = Convert.ToInt32(TopPlayersView.Rows[row].Cells[3].Value);
+
+                PlayerIndex = PLAYrec;
+                tabControl1.SelectedTab = tabPlayers;
+                LoadPlayerData();
+            }
+
+        }
 
 
     }
