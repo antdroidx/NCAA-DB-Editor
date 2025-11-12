@@ -13,100 +13,105 @@ TGID,CFB-USA,TDNA
 12,Boise State Broncos,Boise State
 13,Boston College Eagles,Boston College
 14,Bowling Green Falcons,Bowling Green
-15,Brigham Young Cougars,BYU
-16,California Golden Bears,Cal
-17,Central Florida Golden Knights,UCF
-18,CMU Chippewas,Central Michigan
-19,Cincinnati Bearcats,Cincinnati
-20,Clemson Tigers,Clemson
-21,Colorado Buffaloes,Colorado
-22,Colorado State Rams,Colorado State
-23,Duke Blue Devils,Duke
-24,East Carolina Pirates,ECU
-25,EMU Eagles,Eastern Michigan
-26,Florida Gators,Florida
-27,Florida State Seminoles,Florida State
-28,Fresno State Bulldogs,Fresno State
-29,Georgia Bulldogs,Georgia
-30,Georgia Tech Yellow Jackets,Georgia Tech
-31,Hawaii Rainbow Warriors,Hawaii
-32,Houston Cougars,Houston
-33,Idaho Vandals,Idaho
-34,Illinois Fighting Illini,Illinois
-35,Indiana Hoosiers,Indiana
-36,Iowa Hawkeyes,Iowa
-37,Iowa State Cyclones,Iowa State
-38,Kansas Jayhawks,Kansas
-39,Kansas State Wildcats,Kansas State
-40,Kent Golden Flashes,Kent State
-41,Kentucky Wildcats,Kentucky
-42,Louisiana Tech Bulldogs,Louisiana Tech
-43,Louisville Cardinals,Louisville
-44,LSU Tigers,LSU
-45,Maryland Terrapins,Maryland
-46,Memphis Tigers,Memphis
-47,Miami Hurricanes,Miami
-48,Miami of Ohio RedHawks,Miami University
-49,Michigan Wolverines,Michigan
-50,Michigan State Spartans,Michigan State
-51,Minnesota Golden Gophers,Minnesota
-52,Mississippi State Bulldogs,Mississippi State
-53,Missouri Tigers,Missouri
-54,Navy Midshipmen,Navy
-55,Nebraska Cornhuskers,Nebraska
-56,Nevada Wolf Pack,Nevada
-57,New Mexico Lobos,New Mexico
-58,New Mexico State Aggies,New Mexico State
-59,North Carolina Tar Heels,North Carolina
-60,N.C. State Wolfpack,NC State
-61,North Texas Mascot,North Texas
-62,Northeast LA. Indians,UL Monroe
-63,NIU Huskies,Northern Illinois
-64,Northwestern Wildcats,Northwestern
-65,Notre Dame Fighting Irish,Notre Dame
-66,Ohio Bobcats,Ohio
-67,Ohio State Buckeyes,Ohio State
-68,Oklahoma Sooners,Oklahoma
-69,Oklahoma State Cowboys,Oklahoma State
-70,Ole Miss Rebels,Ole Miss
-71,Oregon Ducks,Oregon
-72,Oregon State Beavers,Oregon State
-73,Penn State Nittany Lions,Penn State
-74,Pittsburgh Panthers,Pittsburgh
-75,Purdue Boilermakers,Purdue
-76,Rice Owls,Rice
-77,Rutgers Scarlet Knights,Rutgers
-78,San Diego State Aztecs,San Diego State
-79,San Jose State Spartan,San Jose State
-80,SMU Mustangs,SMU
-81,South Carolina Gamecocks,South Carolina
-82,Southern Mississippi Golden Eagles,Southern Miss
-83,USL Ragin Cajuns,UL Lafayette
-84,Stanford Cardinal,Stanford
-85,Syracuse Orange,Syracuse
-86,TCU Horned Frogs,TCU
-87,Temple Owls,Temple
-88,Tennessee Volunteers,Tennessee
-89,Texas Longhorns,Texas
-90,Texas A&M Aggies,Texas A&M
-91,Texas Tech Red Raiders,Texas Tech
-92,Toledo Rockets,Toledo
-93,Tulane Green Wave,Tulane
-94,Tulsa Golden Hurricane,Tulsa
-95,UAB Blazers,UAB
-96,UCLA Bruins,UCLA
-97,BLANK,BLANK
-98,USC Trojans,USC
-99,Utah Utes,Utah
-100,Utah State Aggies,Utah State
-101,UTEP Miners,UTEP
-102,Vanderbilt Commodores,Vanderbilt
-103,Virginia Cavaliers,Virginia
-104,Virginia Tech Hokies,Virginia Tech
-105,Wake Forest Demon Deacons,Wake Forest
-106,Washington Huskies,Washington
-107,Washington State Cougars,Washington State
-108,West Virginia Mountaineers,West Virginia
-109,WMU Broncos,Western Michigan
-110,Wisconsin Badgers,Wisconsin
-111,Wyoming Cowboys,Wyoming
+16,Brigham Young Cougars,BYU
+17,California Golden Bears,Cal
+18,Central Florida Golden Knights,UCF
+19,CMU Chippewas,Central Michigan
+20,Cincinnati Bearcats,Cincinnati
+21,Clemson Tigers,Clemson
+22,Colorado Buffaloes,Colorado
+23,Colorado State Rams,Colorado State
+24,Duke Blue Devils,Duke
+25,East Carolina Pirates,ECU
+26,EMU Eagles,Eastern Michigan
+27,Florida Gators,Florida
+28,Florida State Seminoles,Florida State
+29,Fresno State Bulldogs,Fresno State
+30,Georgia Bulldogs,Georgia
+31,Georgia Tech Yellow Jackets,Georgia Tech
+32,Hawaii Rainbow Warriors,Hawaii
+33,Houston Cougars,Houston
+34,Idaho Vandals,Idaho
+35,Illinois Fighting Illini,Illinois
+36,Indiana Hoosiers,Indiana
+37,Iowa Hawkeyes,Iowa
+38,Iowa State Cyclones,Iowa State
+39,Kansas Jayhawks,Kansas
+40,Kansas State Wildcats,Kansas State
+41,Kent Golden Flashes,Kent State
+42,Kentucky Wildcats,Kentucky
+43,Louisiana Tech Bulldogs,Louisiana Tech
+44,Louisville Cardinals,Louisville
+45,LSU Tigers,LSU
+47,Maryland Terrapins,Maryland
+48,Memphis Tigers,Memphis
+49,Miami Hurricanes,Miami
+50,Miami of Ohio Redskins,Miami University
+51,Michigan Wolverines,Michigan
+52,Michigan State Spartans,Michigan State
+54,Minnesota Golden Gophers,Minnesota
+55,Mississippi State Bulldogs,Mississippi State
+56,Missouri Tigers,Missouri
+57,Navy Midshipmen,Navy
+58,Nebraska Cornhuskers,Nebraska
+59,Nevada Wolfpack,Nevada
+60,New Mexico Lobos,New Mexico
+61,New Mexico State Aggies,New Mexico State
+62,North Carolina Tar Heels,North Carolina
+63,N.C. State Wolfpack,NC State
+64,North Texas Mean Green,North Texas
+65,Northeast LA. Indians,UL Monroe
+66,NIU Huskies,Northern Illinois
+67,Northwestern Wildcats,Northwestern
+68,Notre Dame Fighting Irish,Notre Dame
+69,Ohio Bobcats,Ohio
+70,Ohio State Buckeyes,Ohio State
+71,Oklahoma Sooners,Oklahoma
+72,Oklahoma State Cowboys,Oklahoma State
+73,Ole Miss Rebels,Ole Miss
+74,Oregon Ducks,Oregon
+75,Oregon State Beavers,Oregon State
+76,Penn State Nittany Lions,Penn State
+77,Pittsburgh Panthers,Pittsburgh
+78,Purdue Boilermakers,Purdue
+79,Rice Owls,Rice
+80,Rutgers Scarlet Knights,Rutgers
+81,San Diego State Aztecs,San Diego State
+82,San Jose State Spartan,San Jose State
+83,SMU Mustangs,SMU
+84,South Carolina Gamecocks,South Carolina
+85,Southern Mississippi Golden Eagles,Southern Miss
+86,USL Ragin Cajuns,UL Lafayette
+87,Stanford Cardinals,Stanford
+88,Syracuse Orangemen,Syracuse
+89,TCU Horned Frogs,TCU
+90,Temple Owls,Temple
+91,Tennessee Volunteers,Tennessee
+92,Texas Longhorns,Texas
+93,Texas A&M Aggies,Texas A&M
+94,Texas Tech Red Raiders,Texas Tech
+95,Toledo Rockets,Toledo
+96,Tulane Green Wave,Tulane
+97,Tulsa Golden Hurricanes,Tulsa
+98,UAB Blazers,UAB
+99,UCLA Bruins,UCLA
+102,USC Trojans,USC
+103,Utah Utes,Utah
+104,Utah State Aggies,Utah State
+105,UTEP Miners,UTEP
+106,Vanderbilt Commodores,Vanderbilt
+107,Virginia Cavaliers,Virginia
+108,Virginia Tech Hokies,Virginia Tech
+109,Wake Forest Demon Deacons,Wake Forest
+110,Washington Huskies,Washington
+111,Washington State Cougars,Washington State
+112,West Virginia Mountaineers,West Virginia
+113,WMU Broncos,Western Michigan
+114,Wisconsin Badgers,Wisconsin
+115,Wyoming Cowboys,Wyoming
+15,Buffalo Bulls,Buffalo
+46,Marshall Thundering Herd,Marshall
+53,Mid Tenn State Blue Raiders,Mid Tenn State
+100,Uconn Huskies,Connecticut
+101,UNLV Runnin Rebels,UNLV
+211,Western Kentucky Hill Toppers,Western Kentucky

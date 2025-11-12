@@ -38,14 +38,14 @@ namespace DB_EDITOR
             //StringBuilder hbuilder = new StringBuilder();
 
             //write headers
-            wText.WriteLine("Team Name,Pos,Name,Overall,No.,Awareness,Speed,Quickness,Power,Hands,Blocking,Tackling,QB Range,Kick Range,Kick Accuracy,Weight");
+            wText.WriteLine("Team,Position,Full Name,Overall Rating,Jersey Number,Awareness,Speed,Quickness,Power,Catching,Blocking,Tackling,Throw Power,Throw Accuracy,Kick Power,Kick Accuracy,Weight");
 
             //Get Roster Lists
             for (int i = 0; i < GetTableRecCount("TDYN"); i++)
             {
                 int TOID = GetDBValueInt("TDYN", "TOID", i);
 
-                if (TDYN && GetDBValueInt("TDYN", "TOID", i) <= 111)
+                if (TDYN && TOID <= 115)
                 {
                     int PGIDbeg = TOID * 70;
                     int PGIDend = PGIDbeg + 69;
@@ -223,22 +223,22 @@ namespace DB_EDITOR
                     {
                         if (roster[j][1] == 10 && count % 2 == 0 || roster[j][1] == 11 && count == 0)
                         {
-                            wText.WriteLine(GetTeamNameCFBUSA(TOID, cfbusa97) + ",LDE," + GetPlayerInfoCFBUSA(roster[j][2]));
+                            wText.WriteLine(GetTeamNameCFBUSA(TOID, cfbusa97) + ",LE," + GetPlayerInfoCFBUSA(roster[j][2]));
                             count++;
                         }
                         else if (roster[j][1] == 10 && count == 1 || roster[j][1] == 11 && count == 1)
                         {
-                            wText.WriteLine(GetTeamNameCFBUSA(TOID, cfbusa97) + ",RDE," + GetPlayerInfoCFBUSA(roster[j][2]));
+                            wText.WriteLine(GetTeamNameCFBUSA(TOID, cfbusa97) + ",RE," + GetPlayerInfoCFBUSA(roster[j][2]));
                             count++;
                         }
                         else if (roster[j][1] == 10 && count == 3 || roster[j][1] == 11 && count == 3)
                         {
-                            wText.WriteLine(GetTeamNameCFBUSA(TOID, cfbusa97) + ",RDT," + GetPlayerInfoCFBUSA(roster[j][2]));
+                            wText.WriteLine(GetTeamNameCFBUSA(TOID, cfbusa97) + ",LE," + GetPlayerInfoCFBUSA(roster[j][2]));
                             count++;
                         }
                         else if (roster[j][1] == 10 && count == 4 || roster[j][1] == 11 && count == 4)
                         {
-                            wText.WriteLine(GetTeamNameCFBUSA(TOID, cfbusa97) + ",LDE," + GetPlayerInfoCFBUSA(roster[j][2]));
+                            wText.WriteLine(GetTeamNameCFBUSA(TOID, cfbusa97) + ",RE," + GetPlayerInfoCFBUSA(roster[j][2]));
                             count++;
                         }
                         if (count >= 4) break;
@@ -253,12 +253,12 @@ namespace DB_EDITOR
                     {
                         if (roster[j][1] == 12 && count == 0)
                         {
-                            wText.WriteLine(GetTeamNameCFBUSA(TOID, cfbusa97) + ",LDT," + GetPlayerInfoCFBUSA(roster[j][2]));
+                            wText.WriteLine(GetTeamNameCFBUSA(TOID, cfbusa97) + ",DT," + GetPlayerInfoCFBUSA(roster[j][2]));
                             count++;
                         }
                         else if (roster[j][1] == 12 && count == 1)
                         {
-                            wText.WriteLine(GetTeamNameCFBUSA(TOID, cfbusa97) + ",NT," + GetPlayerInfoCFBUSA(roster[j][2]));
+                            wText.WriteLine(GetTeamNameCFBUSA(TOID, cfbusa97) + ",DT," + GetPlayerInfoCFBUSA(roster[j][2]));
                             count++;
                         }
                         if (count >= 2) break;
@@ -296,12 +296,12 @@ namespace DB_EDITOR
                     {
                         if (roster[j][1] == 14 && count % 2 == 0)
                         {
-                            wText.WriteLine(GetTeamNameCFBUSA(TOID, cfbusa97) + ",LILB," + GetPlayerInfoCFBUSA(roster[j][2]));
+                            wText.WriteLine(GetTeamNameCFBUSA(TOID, cfbusa97) + ",MLB," + GetPlayerInfoCFBUSA(roster[j][2]));
                             count++;
                         }
                         else if (roster[j][1] == 14 && count % 2 != 0)
                         {
-                            wText.WriteLine(GetTeamNameCFBUSA(TOID, cfbusa97) + ",RILB," + GetPlayerInfoCFBUSA(roster[j][2]));
+                            wText.WriteLine(GetTeamNameCFBUSA(TOID, cfbusa97) + ",MLB," + GetPlayerInfoCFBUSA(roster[j][2]));
                             count++;
                         }
                         if (count >= 2) break;
@@ -317,12 +317,12 @@ namespace DB_EDITOR
                     {
                         if (roster[j][1] == 16 && count % 2 == 0)
                         {
-                            wText.WriteLine(GetTeamNameCFBUSA(TOID, cfbusa97) + ",LCB," + GetPlayerInfoCFBUSA(roster[j][2]));
+                            wText.WriteLine(GetTeamNameCFBUSA(TOID, cfbusa97) + ",CB," + GetPlayerInfoCFBUSA(roster[j][2]));
                             count++;
                         }
                         else if (roster[j][1] == 16 && count % 2 != 0)
                         {
-                            wText.WriteLine(GetTeamNameCFBUSA(TOID, cfbusa97) + ",RCB," + GetPlayerInfoCFBUSA(roster[j][2]));
+                            wText.WriteLine(GetTeamNameCFBUSA(TOID, cfbusa97) + ",CB," + GetPlayerInfoCFBUSA(roster[j][2]));
                             count++;
                         }
                         if (count >= 4) break;
@@ -397,13 +397,17 @@ namespace DB_EDITOR
 
         private string GetTeamNameCFBUSA(int TOID, List<List<string>> cfbusa97)
         {
-            return cfbusa97[TOID][1];
+            for(int i = 0; i < cfbusa97.Count; i++)
+            {
+                if (cfbusa97[i][0] == Convert.ToString(TOID)) return cfbusa97[i][1];
+            }
+            return "";
         }
 
         private string GetPlayerInfoCFBUSA(int rec)
         {
-            return GetLastNameFromRecord(rec) + "," + ConvertRating(GetDBValueInt("PLAY", "POVR", rec)) + "," + GetDBValue("PLAY", "PJEN", rec) + "," + ConvertRating(GetDBValueInt("PLAY", "PAWR", rec)) + "," + ConvertRating(GetDBValueInt("PLAY", "PSPD", rec)) + ","
-                + ConvertRating(GetDBValueInt("PLAY", "PAGI", rec)) + "," + ConvertRating(GetDBValueInt("PLAY", "PSTR", rec)) + "," + ConvertRating(GetDBValueInt("PLAY", "PCTH", rec)) + "," + ConvertRating(GetDBValueInt("PLAY", "PPBK", rec)) + "," + ConvertRating(GetDBValueInt("PLAY", "PTAK", rec)) + "," + ConvertRating(GetDBValueInt("PLAY", "PTHP", rec)) + ","
+            return GetFirstNameFromRecord(rec) + " " + GetLastNameFromRecord(rec) + "," + ConvertRating(GetDBValueInt("PLAY", "POVR", rec)) + "," + GetDBValue("PLAY", "PJEN", rec) + "," + ConvertRating(GetDBValueInt("PLAY", "PAWR", rec)) + "," + ConvertRating(GetDBValueInt("PLAY", "PSPD", rec)) + ","
+                + ConvertRating(GetDBValueInt("PLAY", "PAGI", rec)) + "," + ConvertRating(GetDBValueInt("PLAY", "PSTR", rec)) + "," + ConvertRating(GetDBValueInt("PLAY", "PCTH", rec)) + "," + ConvertRating(GetDBValueInt("PLAY", "PPBK", rec)) + "," + ConvertRating(GetDBValueInt("PLAY", "PTAK", rec)) + "," + ConvertRating(GetDBValueInt("PLAY", "PTHP", rec)) + "," + ConvertRating(GetDBValueInt("PLAY", "PTHA", rec)) + ","
                 + ConvertRating(GetDBValueInt("PLAY", "PKPR", rec)) + "," + ConvertRating(GetDBValueInt("PLAY", "PKAC", rec)) + "," + (GetDBValueInt("PLAY", "PWGT", rec) + 160);
         }
         #endregion
