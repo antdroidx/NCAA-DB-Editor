@@ -332,7 +332,7 @@ namespace DB_EDITOR
        
             int tolRAND = 3;  //half the tolerance for specific attributes
 
-            teamRating = (int)((teamRating-3)*4);
+            teamRating = (int)((teamRating-2)*4);
 
             //PTHA	PSTA	PKAC	PACC	PSPD	PPOE	PCTH	PAGI	PINJ	PTAK	PPBK	PRBK	PBTK	PTHP	PJMP	PCAR	PKPR	PSTR	PAWR
             //PPOE, PINJ, PAWR

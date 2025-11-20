@@ -19,9 +19,16 @@ namespace DB_EDITOR
 
         private void TextureDumperButton_Click(object sender, EventArgs e)
         {
+            DUMPER = true;
+
+
+            DepthChartMaker("TDYN");
+
+
             CreateDumpRoster();
 
             MessageBox.Show("COMPLETE");
+            DUMPER = false;
         }
 
         private void CreateDumpRoster()

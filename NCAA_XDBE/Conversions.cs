@@ -510,22 +510,35 @@ namespace DB_EDITOR
             return Helmets;
         }
 
-        private List<string> GetFaceMaskTypes()
+        private List<string> GetFaceMaskTypes(int HELM)
         {
             List<string> FaceMasks = new List<string>();
-            FaceMasks.Add("*");
-            FaceMasks.Add("2-Bar");
-            FaceMasks.Add("3-Bar");
-            FaceMasks.Add("Half-Cage");
-            FaceMasks.Add("Full-Cage 1");
-            FaceMasks.Add("2-Bar Thin");
-            FaceMasks.Add("1-Bar");
-            FaceMasks.Add("2-Bar RB");
-            FaceMasks.Add("3-Bar QB");
-            FaceMasks.Add("3-Bar RB 1");
-            FaceMasks.Add("Full-Cage 2");
-            FaceMasks.Add("3-Bar RB 2");
-            return FaceMasks;
+
+            if (HELM == 3)
+            {
+                FaceMasks.Add("*");
+                FaceMasks.Add("REVOG3BDU");
+                FaceMasks.Add("REVOG2EG");
+                FaceMasks.Add("REVOG2B");
+            }
+            else
+            {
+                FaceMasks.Add("*");
+                FaceMasks.Add("2-Bar");
+                FaceMasks.Add("3-Bar");
+                FaceMasks.Add("Half-Cage");
+                FaceMasks.Add("Full-Cage 1");
+                FaceMasks.Add("2-Bar Thin");
+                FaceMasks.Add("1-Bar");
+                FaceMasks.Add("2-Bar RB");
+                FaceMasks.Add("3-Bar QB");
+                FaceMasks.Add("3-Bar RB 1");
+                FaceMasks.Add("Full-Cage 2");
+                FaceMasks.Add("3-Bar RB 2");
+            }
+
+
+                return FaceMasks;
         }
 
         private List<string> GetVisorTypes()
@@ -714,6 +727,7 @@ namespace DB_EDITOR
             List<string> Gloves = new List<string>();
             if(Next26Mod)
             {
+                
                 Gloves.Add("Bare");
                 Gloves.Add("White");
                 Gloves.Add("Black");
@@ -722,6 +736,11 @@ namespace DB_EDITOR
                 Gloves.Add("Team 2");
                 Gloves.Add("Uniform 1");
                 Gloves.Add("Uniform 2");
+                /*
+                Gloves.Add("None");
+                Gloves.Add("Gloves (not used)");
+                Gloves.Add("Gloves");
+                */
             }
             else
             {

@@ -99,8 +99,26 @@ namespace DB_EDITOR
         //Randomize Player Gear
         private void RandomizePlayerGearButton_Click(object sender, EventArgs e)
         {
-                  
-            RandomizeAllPlayerGears("PLAY");
+            // Ask user whether to keep sleeves/tattoos or randomize them.
+            // Mapping:
+            //  - Yes = keep sleeves/tattoos as-is (pass keepSleeves = true)
+            //  - No  = randomize sleeves/tattoos (pass keepSleeves = false)
+            //  - Cancel = abort action
+            var result = MessageBox.Show(
+                "Do you want to keep sleeves/tattoos as-is or randomize?",
+                "Randomize Player Gear",
+                MessageBoxButtons.YesNoCancel,
+                MessageBoxIcon.Question,
+                MessageBoxDefaultButton.Button2);
+
+            if (result == DialogResult.Cancel)
+                return;
+
+            bool keepSleeves = (result == DialogResult.Yes);
+
+            RandomizeAllPlayerGears("PLAY", keepSleeves);
+
+            MessageBox.Show("Player Gears Randomized!");
         }
 
         //Unique Player Tool
@@ -312,7 +330,7 @@ namespace DB_EDITOR
             List<List<List<int>>> AllRosters = new List<List<List<int>>>();
             
             List<List<int>> InjuryList = new List<List<int>>();
-            for (int i = 0; i < (70 * 255); i++)
+            for (int i = 0; i < (70 * 511); i++)
             {
                 InjuryList.Add(new List<int>());
                 InjuryList[i].Add(0);

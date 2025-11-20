@@ -1314,8 +1314,10 @@ namespace DB_EDITOR
 
         private void LoadTopPlayersViewer()
         {
+            int ttyp = GetDBValueInt("TEAM", "TTYP", TeamIndex);
+
             TopPlayersView.Rows.Clear();
-            if(GetTableRecCount("PLAY") < 1)
+            if(GetTableRecCount("PLAY") < 1 || ttyp > 0)
             {
                 TopPlayersView.ClearSelection();
                 return;

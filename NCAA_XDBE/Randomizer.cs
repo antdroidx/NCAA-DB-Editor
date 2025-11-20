@@ -311,15 +311,15 @@ namespace DB_EDITOR
             int val = rand.Next(1, 101);
             int helmet = 0;
 
-            if (val <= 55)
+            if (val <= 45)  //50
             {
                 helmet = 0; //Normal
             }
-            else if (val <= 75)
+            else if (val <= 65)  //70
             {
                 helmet = 1; //Adams
             }
-            else if (val <= 100)
+            else if (val <= 88)  //100
             {
                 helmet = 2; //Schutt
             }
@@ -667,6 +667,22 @@ namespace DB_EDITOR
                 }
             }
 
+            int helm = GetDBValueInt(tableName, "HELM", rec);
+            if (helm == 3)
+            {
+                if(pos >= 5 && pos <= 15)
+                {
+                    facemask = 3;
+                } 
+                else if (pos == 0 || pos == 3 || pos >= 16)
+                {
+                    facemask = 1;
+                }
+                else
+                {
+                    facemask = 2;
+                }
+            }
 
             if (tableName == "PLAY" || tableName == "RCAT")
                 ChangeDBInt(tableName, "PFMK", rec, facemask);

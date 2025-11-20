@@ -716,7 +716,6 @@ namespace DB_EDITOR
                     else if (table.Name == "PBAI" && !BigEndian)
                     {
                         if (!checkTabExists("Playbooks") && table.RecordCount > 0) tabControl1.TabPages.Add(tabPlaybook);
-                        PlaybookDB = true;
                     }
                     else if (table.Name == "RCAT" && !BigEndian)
                     {
@@ -742,7 +741,6 @@ namespace DB_EDITOR
                 if (!checkTabExists("Playbook"))
                 {
                     tabControl1.TabPages.Add(tabPlaybook);
-                    PlaybookDB = true;
                 }
             }
         }
@@ -812,76 +810,227 @@ namespace DB_EDITOR
             tableProps.Name = TDBNameLength;
             TDB.TDBTableGetProperties(dbSelected, SelectedTableIndex, ref tableProps);
 
-            // Create and configure the form
+            /*
+               // Create and configure the form
+               using (Form capacityDialog = new Form())
+               {
+                   capacityDialog.Text = $"Change Capacity - {tableProps.Name}";
+                   capacityDialog.Size = new Size(200, 200);
+                   capacityDialog.StartPosition = FormStartPosition.CenterParent;
+                   capacityDialog.FormBorderStyle = FormBorderStyle.FixedDialog;
+                   capacityDialog.MaximizeBox = false;
+                   capacityDialog.MinimizeBox = false;
+
+                   // Create controls
+                   Label currentCapLabel = new Label
+                   {
+                       Text = $"Current Capacity: {tableProps.Capacity}",
+                       Location = new Point(20, 20),
+                       AutoSize = true
+                   };
+
+                   Label recordsLabel = new Label
+                   {
+                       Text = $"Active Records: {tableProps.RecordCount}",
+                       Location = new Point(20, 40),
+                       AutoSize = true
+                   };
+
+                   Label newCapLabel = new Label
+                   {
+                       Text = "New Capacity:",
+                       Location = new Point(20, 70),
+                       AutoSize = true
+                   };
+
+                   NumericUpDown capacityInput = new NumericUpDown
+                   {
+                       Location = new Point(100, 68),
+                       Size = new Size(60, 20),
+                       Minimum = 0,
+                       Maximum = 65534,
+                       Value = tableProps.RecordCount
+                   };
+
+                   Button okButton = new Button
+                   {
+                       Text = "OK",
+                       DialogResult = DialogResult.OK,
+                       Location = new Point(20, 110),
+                       Size = new Size(60, 30)
+                   };
+
+                   Button cancelButton = new Button
+                   {
+                       Text = "Cancel",
+                       DialogResult = DialogResult.Cancel,
+                       Location = new Point(100, 110),
+                       Size = new Size(60, 30)
+                   };
+
+                   // Add controls to form
+                   capacityDialog.Controls.AddRange(new Control[]
+                   {
+                       currentCapLabel,
+                       recordsLabel,
+                       newCapLabel,
+                       capacityInput,
+                       okButton,
+                       cancelButton
+                   });
+
+                   capacityDialog.AcceptButton = okButton;
+                   capacityDialog.CancelButton = cancelButton;
+
+                   // Show dialog and process result
+                   if (capacityDialog.ShowDialog() == DialogResult.OK)
+                   {
+                       int newCapacity = (int)capacityInput.Value;
+                       if (newCapacity != tableProps.Capacity)
+                       {
+                           // Attempt to change the capacity
+                           if (TDB.TDBTableChangeCapacity(dbSelected, tableProps.Name, newCapacity))
+                           {
+                               MessageBox.Show($"Table capacity changed to {newCapacity}.", "Success",
+                                   MessageBoxButtons.OK, MessageBoxIcon.Information);
+                               GetTableProperties(); // Refresh the table properties display
+                           }
+                           else
+                           {
+                               MessageBox.Show("Failed to change table capacity.", "Error",
+                                   MessageBoxButtons.OK, MessageBoxIcon.Error);
+                           }
+                       }
+
+
+                   }
+               }
+
+               */
+
+
+            // Create and configure the form (responsive layout, DPI-aware)
             using (Form capacityDialog = new Form())
             {
                 capacityDialog.Text = $"Change Capacity - {tableProps.Name}";
-                capacityDialog.Size = new Size(200, 200);
                 capacityDialog.StartPosition = FormStartPosition.CenterParent;
                 capacityDialog.FormBorderStyle = FormBorderStyle.FixedDialog;
                 capacityDialog.MaximizeBox = false;
                 capacityDialog.MinimizeBox = false;
+                capacityDialog.Size = new Size(300, 300);
 
-                // Create controls
-                Label currentCapLabel = new Label
+                // Make the dialog DPI-aware and auto-size to its contents
+                capacityDialog.AutoScaleMode = AutoScaleMode.Dpi;
+                capacityDialog.AutoSize = true;
+                capacityDialog.AutoSizeMode = AutoSizeMode.GrowOnly;
+                capacityDialog.Padding = new Padding(12);
+
+
+                // Table layout for labels + input
+                var tlp = new TableLayoutPanel
                 {
-                    Text = $"Current Capacity: {tableProps.Capacity}",
-                    Location = new Point(20, 20),
-                    AutoSize = true
+                    Dock = DockStyle.Top,
+                    AutoSize = true,
+                    AutoSizeMode = AutoSizeMode.GrowAndShrink,
+                    ColumnCount = 2,
+                    RowCount = 3,
+                    Margin = new Padding(0)
+                };
+                tlp.ColumnStyles.Add(new ColumnStyle(SizeType.AutoSize));
+                tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100f));
+
+                var currentCapLabel = new Label
+                {
+                    Text = "Current Capacity:",
+                    Anchor = AnchorStyles.Left,
+                    AutoSize = true,
+                    Margin = new Padding(3)
+                };
+                var currentCapValue = new Label
+                {
+                    Text = tableProps.Capacity.ToString(),
+                    Anchor = AnchorStyles.Left,
+                    AutoSize = true,
+                    Margin = new Padding(3)
                 };
 
-                Label recordsLabel = new Label
+                var recordsLabel = new Label
                 {
-                    Text = $"Active Records: {tableProps.RecordCount}",
-                    Location = new Point(20, 40),
-                    AutoSize = true
+                    Text = "Active Records:",
+                    Anchor = AnchorStyles.Left,
+                    AutoSize = true,
+                    Margin = new Padding(3)
+                };
+                var recordsValue = new Label
+                {
+                    Text = tableProps.RecordCount.ToString(),
+                    Anchor = AnchorStyles.Left,
+                    AutoSize = true,
+                    Margin = new Padding(3)
                 };
 
-                Label newCapLabel = new Label
+                var newCapLabel = new Label
                 {
                     Text = "New Capacity:",
-                    Location = new Point(20, 70),
-                    AutoSize = true
+                    Anchor = AnchorStyles.Left,
+                    AutoSize = true,
+                    Margin = new Padding(3)
                 };
-
-                NumericUpDown capacityInput = new NumericUpDown
+                var capacityInput = new NumericUpDown
                 {
-                    Location = new Point(100, 68),
-                    Size = new Size(60, 20),
+                    Anchor = AnchorStyles.Left | AnchorStyles.Right,
                     Minimum = 0,
                     Maximum = 65534,
-                    Value = tableProps.RecordCount
+                    Value = Math.Max(tableProps.RecordCount, Math.Min(tableProps.Capacity, 65534)),
+                    Margin = new Padding(3),
+                    Width = 200
                 };
 
-                Button okButton = new Button
+                tlp.Controls.Add(currentCapLabel, 0, 0);
+                tlp.Controls.Add(currentCapValue, 1, 0);
+                tlp.Controls.Add(recordsLabel, 0, 1);
+                tlp.Controls.Add(recordsValue, 1, 1);
+                tlp.Controls.Add(newCapLabel, 0, 2);
+                tlp.Controls.Add(capacityInput, 1, 2);
+
+                // Buttons in a right-aligned flow panel
+                var flp = new FlowLayoutPanel
+                {
+                    FlowDirection = FlowDirection.RightToLeft,
+                    Dock = DockStyle.Bottom,
+                    AutoSize = true,
+                    AutoSizeMode = AutoSizeMode.GrowAndShrink,
+                    Padding = new Padding(0),
+                    Margin = new Padding(0)
+                };
+
+                var okButton = new Button
                 {
                     Text = "OK",
                     DialogResult = DialogResult.OK,
-                    Location = new Point(20, 110),
-                    Size = new Size(60, 30)
+                    AutoSize = true,
+                    Margin = new Padding(6, 8, 6, 0)
                 };
-
-                Button cancelButton = new Button
+                var cancelButton = new Button
                 {
                     Text = "Cancel",
                     DialogResult = DialogResult.Cancel,
-                    Location = new Point(100, 110),
-                    Size = new Size(60, 30)
+                    AutoSize = true,
+                    Margin = new Padding(6, 8, 6, 0)
                 };
 
+                flp.Controls.Add(okButton);
+                flp.Controls.Add(cancelButton);
+
                 // Add controls to form
-                capacityDialog.Controls.AddRange(new Control[]
-                {
-                    currentCapLabel,
-                    recordsLabel,
-                    newCapLabel,
-                    capacityInput,
-                    okButton,
-                    cancelButton
-                });
+                capacityDialog.Controls.Add(tlp);
+                capacityDialog.Controls.Add(flp);
 
                 capacityDialog.AcceptButton = okButton;
                 capacityDialog.CancelButton = cancelButton;
+
+                // Ensure the dialog is not too small on very small screens
+                capacityDialog.MinimumSize = new Size(280, capacityDialog.PreferredSize.Height);
 
                 // Show dialog and process result
                 if (capacityDialog.ShowDialog() == DialogResult.OK)

@@ -801,7 +801,7 @@ namespace DB_EDITOR
         private void AddFaceMaskItems()
         {
             Facemask.Items.Clear();
-            List<string> type = GetFaceMaskTypes();
+            List<string> type = GetFaceMaskTypes(GetDBValueInt("PLAY", "HELM", PlayerIndex));
             foreach (var x in type)
             {
                 Facemask.Items.Add(x);

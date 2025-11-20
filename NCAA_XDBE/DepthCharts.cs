@@ -659,9 +659,10 @@ namespace DB_EDITOR
 
                 PosRating.Add(new List<double>());
                 if (roster[k][2] == ppos) rating += 0;
-                PosRating[k].Add(rating);
-                PosRating[k].Add(roster[k][1]);
-                PosRating[k].Add(roster[k][2]);
+                PosRating[k].Add(rating); //rating
+                PosRating[k].Add(roster[k][1]); //pgid
+                PosRating[k].Add(roster[k][2]); //ppos
+                PosRating[k].Add(roster[k][0]); //rec
 
             }
 
@@ -676,9 +677,12 @@ namespace DB_EDITOR
                 {
                     AddTableRecord("DCHT", true);
                     double pgid = PosRating[i][1];
+                    int playRec = Convert.ToInt32(PosRating[i][3]);
                     ChangeDBString("DCHT", "PGID", rec, Convert.ToString(pgid));
                     ChangeDBString("DCHT", "PPOS", rec, Convert.ToString(ppos));
                     ChangeDBString("DCHT", "ddep", rec, Convert.ToString(count));
+
+                    if (DUMPER && ppos <= 18) ChangeDBInt("PLAY", "PPOS", playRec, ppos);
                     count++;
                     rec++;
                 }

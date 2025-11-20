@@ -44,7 +44,6 @@ namespace DB_EDITOR
         public bool TEAM = false;
         public bool NextMod = false;
         public bool Next26Mod = false;
-        bool PlaybookDB = false;
 
         int TeamIndex;
         int PlayerIndex;
@@ -78,7 +77,7 @@ namespace DB_EDITOR
         int PPOSmem, AWRHmem;
 
         bool tabDelimited = false;
-
+        bool DUMPER = false;
 
         List<byte> binData = new List<byte>();     // Holds file header data. (MC02, FBChunks...)
         List<byte> dbData = new List<byte>();      // Holds the db file.
@@ -192,7 +191,6 @@ namespace DB_EDITOR
             TDYN = false;
             TEAM = false;
             TeamIndex = -1;
-            PlaybookDB = false;
 
             tabControl1.Visible = false;
 
@@ -1127,8 +1125,18 @@ namespace DB_EDITOR
             {
                 CSVMenu.Visible = false;
                 optionsMenuItem.Visible = false;
+                TablePropsgroupBox.Visible = false;
+                FieldsPropsgroupBox.Visible = false;
+                DBChooserGroupBox.Visible = false;
             }
-
+            else
+            {
+                CSVMenu.Visible = true;
+                optionsMenuItem.Visible = true;
+                TablePropsgroupBox.Visible = true;
+                FieldsPropsgroupBox.Visible = true;
+                DBChooserGroupBox.Visible = true;
+            }
 
             if (tabControl1.SelectedTab == tabDB) TabDB_Start();
             else if (tabControl1.SelectedTab == tabDynasty) StartDynastyEditor();
