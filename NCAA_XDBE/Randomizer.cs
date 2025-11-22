@@ -311,6 +311,12 @@ namespace DB_EDITOR
             int val = rand.Next(1, 101);
             int helmet = 0;
 
+            int pos = -1;
+            if (tableName == "PLAY" || tableName == "RCAT")
+                pos = GetDBValueInt(tableName, "PPOS", rec);
+            else if (tableName == "RCPT" || tableName == "WKON")
+                pos = GetDB2ValueInt(tableName, "PPOS", rec);
+
             if (val <= 45)  //50
             {
                 helmet = 0; //Normal
@@ -325,7 +331,14 @@ namespace DB_EDITOR
             }
             else
             {
-                helmet = 3; //Revolution
+                if (pos != 0)
+                {
+                    helmet = 3; //Revolution
+                }
+                else
+                {
+                    helmet = rand.Next(0, 3);
+                }
             }
 
             if (tableName == "PLAY" || tableName == "RCAT")

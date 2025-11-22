@@ -614,7 +614,11 @@ namespace DB_EDITOR
             Helmet.SelectedIndex = GetDBValueInt("PLAY", "HELM", PlayerIndex);
             Facemask.SelectedIndex = GetDBValueInt("PLAY", "PFMK", PlayerIndex);
             Visor.SelectedIndex = GetDBValueInt("PLAY", "PVIS", PlayerIndex);
-            QBJacket.SelectedIndex = GetDBValueInt("PLAY", "PFJS", PlayerIndex);
+
+            int pfjs = GetDBValueInt("PLAY", "PFJS", PlayerIndex);
+            if (pfjs > 0) QBJacket.SelectedIndex = 1;
+            else QBJacket.SelectedIndex = 0;
+
             FaceProtector.SelectedIndex = GetDBValueInt("PLAY", "PLFP", PlayerIndex);
             EyeBlack.SelectedIndex = GetDBValueInt("PLAY", "PEYE", PlayerIndex);
             NasalStrip.SelectedIndex = GetDBValueInt("PLAY", "PBRE", PlayerIndex);

@@ -517,9 +517,9 @@ namespace DB_EDITOR
             if (HELM == 3)
             {
                 FaceMasks.Add("*");
-                FaceMasks.Add("REVOG3BDU");
-                FaceMasks.Add("REVOG2EG");
-                FaceMasks.Add("REVOG2B");
+                FaceMasks.Add("REVOG3BDU");  //K+P
+                FaceMasks.Add("REVOG2EG"); //Skill
+                FaceMasks.Add("REVOG2B"); //Linemen
             }
             else
             {
