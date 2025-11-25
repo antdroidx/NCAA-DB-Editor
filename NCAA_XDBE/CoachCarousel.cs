@@ -24,11 +24,10 @@ namespace DB_EDITOR
             CarouselDataGrid.Rows.Clear();
             CoachPortalNews.Rows.Clear();
             CoachCarousel();
-
         }
 
 
-        //Coaching Carousel Mod
+        //Coaching Carousel Mod (Firing/Retiring Phase)
         private void CoachCarousel()
         {
             CoachesAddedBox.Visible = false;
@@ -112,7 +111,7 @@ namespace DB_EDITOR
                     ChangeDBString("COCH", "TGID", i, "511");
 
                     RetiredCoachReplacement(GetDBValueInt("COCH", "CCID", i));
-                    coachfirings++;
+                    if(team != "Unemployed") coachfirings++;
                 }
 
                 //ADD COACHING FREE AGENCY POOL TO THE LIST
@@ -169,6 +168,104 @@ namespace DB_EDITOR
                 ProgressBarStep();
             }
 
+            EndProgressBar();
+           
+            DisplayCarouselNews(coachNews);
+            CoachFiringsCount.Text = "Vacancies: " + Convert.ToString(coachfirings);
+
+            //Offer User a new job
+            if(UserJobOffers.Checked) TGID_VacancyList = OfferCoachingJobs(TGID_VacancyList);
+            
+            //Send to Hiring Phase
+            CoachCarouselHiringPhase(CCID_FAList, CCID_PromoteList, TGID_VacancyList);
+
+        }
+
+
+        private List<int> OfferCoachingJobs(List<int> TGID_VacancyList)
+        {
+            List<List<int>> teamPrestigeList = new List<List<int>>();
+            for(int i = 0; i < TGID_VacancyList.Count; i++)
+            {
+                int teamRec = FindTeamRecfromTeamName(teamNameDB[TGID_VacancyList[i]]);
+
+                teamPrestigeList.Add(new List<int>());
+                teamPrestigeList[i].Add(teamRec);
+                teamPrestigeList[i].Add(TGID_VacancyList[i]);
+                teamPrestigeList[i].Add(GetDBValueInt("TEAM", "TMPR", teamRec));
+            }
+
+            teamPrestigeList.Sort((coach1, coach2) => coach2[2].CompareTo(coach1[2]));
+
+            for(int i = 0; i < GetTableRecCount("COCH"); i++)
+            {
+                int cfuc = GetDBValueInt("COCH", "CFUC", i);
+                if (cfuc == 1)
+                {
+                    int cpre = GetDBValueInt("COCH", "CPRE", i);
+                    int prvTGID = GetDBValueInt("COCH", "TGID", i);
+                    int CTOP = Convert.ToInt32(GetDBValue("COCH", "CTOP", i));
+                    int TMPR = FindTeamPrestige(Convert.ToInt32(prvTGID));
+                    int CCPO = Convert.ToInt32(GetDBValue("COCH", "CCPO", i));
+
+                    if (CCPO > 84 && CTOP < TMPR)
+                    {
+                        for (int x = 0; x < teamPrestigeList.Count; x++)
+                        {
+                            if (teamPrestigeList[x][2] <= cpre && rand.Next(0, 100) < poachValue.Value)
+                            {
+                                string coachName = GetDBValue("COCH", "CLFN", i) + " " + GetDBValue("COCH", "CLLN", i);
+                                string teamOffer = GetDBValue("TEAM", "TDNA", teamPrestigeList[x][0]);
+                                int tgid = teamPrestigeList[x][1];
+                                var result = MessageBox.Show("Hi " + coachName + "!\n\n" + teamOffer + " wants to offer you the head coaching job. Their Team Prestige is " + teamPrestigeList[x][2] + ".\n\n\nDo you want to accept this offer?",
+                                    "Coaching Job Offer",
+                                    MessageBoxButtons.YesNo,
+                                    MessageBoxIcon.Question,
+                                    MessageBoxDefaultButton.Button2);
+
+                                if (result == DialogResult.No) break;
+
+                                else if (result == DialogResult.Yes)
+                                {
+                                    string prvTeam = teamNameDB[prvTGID];
+                                    TGID_VacancyList.Add(GetDBValueInt("COCH", "TGID", i));
+                                    ChangeDBInt("COCH", "TGID", i, tgid);
+                                    TGID_VacancyList.Remove(tgid);
+
+                                    //Add news
+                                    List<List<string>> coachNews = new List<List<string>>();
+                                    int newCounter = coachNews.Count;
+                                    coachNews.Add(new List<string>());
+                                    coachNews[newCounter].Add(coachName);
+                                    coachNews[newCounter].Add("Hired from " + prvTeam);
+                                    coachNews[newCounter].Add(teamNameDB[tgid]);
+                                    coachNews[newCounter].Add(ConvertStarNumber(teamPrestigeList[x][2]));
+                                    coachNews[newCounter].Add(ConvertStarNumber(cpre));
+                                    coachNews[newCounter].Add(GetDBValue("COCH", "CCYD", i));
+                                    coachNews[newCounter].Add(GetDBValue("COCH", "CCWI", i) + "-" + GetDBValue("COCH", "CCLO", i));
+                                    coachNews[newCounter].Add(GetDBValue("COCH", "CSWI", i) + "-" + GetDBValue("COCH", "CSLO", i));
+                                    coachNews[newCounter].Add(GetDBValue("COCH", "CCPO", i));
+                                    coachNews[newCounter].Add(Convert.ToString(i));
+                                    DisplayCarouselNews(coachNews);
+
+                                }
+
+                                break;
+                            }
+                        }
+                    }
+
+                    break;
+                }
+            }
+
+            return TGID_VacancyList;
+        }
+
+
+        private void CoachCarouselHiringPhase(List<string> CCID_FAList, List<string> CCID_PromoteList, List<int> TGID_VacancyList)
+        {
+            List<List<string>> coachNews = new List<List<string>>();
             StartProgressBar(TGID_VacancyList.Count);
 
             //HIRE NEW COACHES
@@ -294,7 +391,6 @@ namespace DB_EDITOR
             }
 
             DisplayCarouselNews(coachNews);
-            CoachFiringsCount.Text = "Vacancies: " + Convert.ToString(coachfirings);
 
             EndProgressBar();
         }
@@ -308,7 +404,7 @@ namespace DB_EDITOR
              *  
              */
 
-            List<List<string>> TransferNews = new List<List<string>>();
+        List<List<string>> TransferNews = new List<List<string>>();
             int maxTransfers = 1800;
             int currentRecCount = GetTableRecCount("TRAN");
 
@@ -345,7 +441,6 @@ namespace DB_EDITOR
             }
 
             DisplayCoachPortalNews(TransferNews);
-            CoachTransferPortalLabel.Text = "" + TransferNews.Count + " Players Entering the Transfer Portal";
         }
 
         //Get a list of Players for the Coaching Portal
@@ -421,18 +516,18 @@ namespace DB_EDITOR
 
             for (int x = 0; x < CoachNews.Count; x++)
             {
+                int row = CarouselDataGrid.Rows.Count;
                 CarouselDataGrid.Rows.Add(new DataGridViewRow());
-
-                CarouselDataGrid.Rows[x].Cells[0].Value = CoachNews[x][0];
-                CarouselDataGrid.Rows[x].Cells[1].Value = CoachNews[x][1];
-                CarouselDataGrid.Rows[x].Cells[2].Value = CoachNews[x][2];
-                CarouselDataGrid.Rows[x].Cells[3].Value = CoachNews[x][3];
-                CarouselDataGrid.Rows[x].Cells[4].Value = CoachNews[x][4];
-                CarouselDataGrid.Rows[x].Cells[5].Value = CoachNews[x][5];
-                CarouselDataGrid.Rows[x].Cells[6].Value = CoachNews[x][6];
-                CarouselDataGrid.Rows[x].Cells[7].Value = CoachNews[x][7];
-                CarouselDataGrid.Rows[x].Cells[8].Value = CoachNews[x][8];
-                CarouselDataGrid.Rows[x].Cells[9].Value = CoachNews[x][9];
+                CarouselDataGrid.Rows[row].Cells[0].Value = CoachNews[x][0];
+                CarouselDataGrid.Rows[row].Cells[1].Value = CoachNews[x][1];
+                CarouselDataGrid.Rows[row].Cells[2].Value = CoachNews[x][2];
+                CarouselDataGrid.Rows[row].Cells[3].Value = CoachNews[x][3];
+                CarouselDataGrid.Rows[row].Cells[4].Value = CoachNews[x][4];
+                CarouselDataGrid.Rows[row].Cells[5].Value = CoachNews[x][5];
+                CarouselDataGrid.Rows[row].Cells[6].Value = CoachNews[x][6];
+                CarouselDataGrid.Rows[row].Cells[7].Value = CoachNews[x][7];
+                CarouselDataGrid.Rows[row].Cells[8].Value = CoachNews[x][8];
+                CarouselDataGrid.Rows[row].Cells[9].Value = CoachNews[x][9];
 
 
             }
@@ -456,6 +551,8 @@ namespace DB_EDITOR
                 CoachPortalNews.Rows[x].Cells[5].Value = CoachNews[x - prevCount][5];
 
             }
+
+            CoachTransferPortalLabel.Text = "" + CoachPortalNews.Rows.Count + " Players Entering the Transfer Portal";
 
             CoachPortalNews.ClearSelection();
         }
@@ -659,7 +756,7 @@ namespace DB_EDITOR
             ChangeDBString("COCH", "CRVW", rec, "0");
             ChangeDBString("COCH", "CCFY", rec, "0");
             ChangeDBString("COCH", "COTY", rec, "0");
-
+            ChangeDBInt("COCH", "CYCD", rec, 0);
         }
 
         private void AssignPlayerCoachStrategies(int recCOCH, int rec)
@@ -796,7 +893,7 @@ namespace DB_EDITOR
                     string playLN = GetLastNameFromRecord(recP);
                     string team = GetTeamName(Convert.ToInt32(GetDBValue("PLAY", "PGID", recP)) / 70);
                     string pos = Positions[GetDBValueInt("PLAY", "PPOS", recP)];
-                    PGID_List.RemoveAt(y);
+                    PGID_List.Remove(recP);
 
                     ChangeDBString("COCH", "CLFN", rec, playFN);
                     ChangeDBString("COCH", "CLLN", rec, playLN);

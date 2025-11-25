@@ -301,7 +301,10 @@ namespace DB_EDITOR
             RandomizeWristGear(tableName, rec);
             RandomizeElbowGear(tableName, rec);
             RandomizeTurfTape(tableName, rec);
-            RandomizeHands(tableName, rec);
+
+            if(devMode) RandomizeEXPHands(tableName, rec);
+            else RandomizeHands(tableName, rec);
+
             RandomizeShoe(tableName, rec);
         }
 
@@ -1640,6 +1643,139 @@ namespace DB_EDITOR
             }
 
             else if (tableName == "RCPT" || tableName ==  "WKON")
+            {
+                ChangeDB2Int(tableName, "PLHN", rec, hands);
+                ChangeDB2Int(tableName, "PRHN", rec, hands);
+            }
+        }
+
+        private void RandomizeEXPHands(string tableName, int rec)
+        {
+
+            int pos = -1;
+            if (tableName == "PLAY" || tableName == "RCAT")
+                pos = GetDBValueInt(tableName, "PPOS", rec);
+            else if (tableName == "RCPT" || tableName == "WKON")
+                pos = GetDB2ValueInt(tableName, "PPOS", rec);
+
+            int val = rand.Next(1, 101);
+            int hands = 0;
+
+            //QB + K + P
+            if (pos == 0 || pos >= 19)
+            {
+                if (val <= 90)
+                {
+                    hands = 0; //None
+                }
+                else if (val <= 100)
+                {
+                    hands = 3; //Taped Fingers
+                }
+                else
+                {
+                    hands = 1; //Gloves
+                }
+            }
+            //RB
+            else if (pos == 1 || pos == 2)
+            {
+                if (val <= 5)
+                {
+                    hands = 0; //None
+                }
+                else if (val <= 15)
+                {
+                    hands = 3; //Taped Fingers
+                }
+                else
+                {
+                    hands = 1; //Gloves
+                }
+            }
+            //WR, TE, DB
+            else if (pos >= 3 && pos <= 4 || pos >= 16 && pos <= 18)
+            {
+                if (val <= 2)
+                {
+                    hands = 0; //None
+                }
+                else if (val <= 4)
+                {
+                    hands = 3; //Taped Fingers
+                }
+                else
+                {
+                    hands = 1; //Gloves
+                }
+            }
+            //C
+            else if (pos == 7)
+            {
+                if (val <= 5)
+                {
+                    hands = 0; //None
+                }
+                else if (val <= 85)
+                {
+                    hands = 3; //Taped Fingers
+                }
+                else
+                {
+                    hands = 1; //Gloves
+                }
+            }
+            //OT OG
+            else if (pos >= 5 && pos <= 9 || pos == 11)
+            {
+                if (val <= 5)
+                {
+                    hands = 0; //None
+                }
+                else if (val <= 25)
+                {
+                    hands = 3; //Taped Fingers
+                }
+                else
+                {
+                    hands = 1; //Gloves
+                }
+            }
+            //DE, LB
+            else
+            {
+                if (val <= 5)
+                {
+                    hands = 0; //None
+                }
+                else if (val <= 10)
+                {
+                    hands = 1; //Taped Fingers
+                }
+                else
+                {
+                    hands = 2; //Gloves
+                }
+            }
+
+            //Select a Glove Style
+            if(hands != 0 && hands != 3) 
+            {
+                val = rand.Next(1, 101);
+
+                if (val <= 5) hands = 1; //white
+                else if (val <= 15) hands = 2; //black
+                else if (val <= 75) hands = 4; //team
+                else hands = 5; //team 2
+            }
+
+            if (tableName == "PLAY" || tableName == "RCAT")
+            {
+                ChangeDBInt(tableName, "PLHN", rec, hands);
+                ChangeDBInt(tableName, "PRHN", rec, hands);
+            }
+
+            else if (tableName == "RCPT" || tableName == "WKON")
             {
                 ChangeDB2Int(tableName, "PLHN", rec, hands);
                 ChangeDB2Int(tableName, "PRHN", rec, hands);

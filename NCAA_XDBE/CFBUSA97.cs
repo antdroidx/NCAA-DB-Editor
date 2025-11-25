@@ -209,7 +209,7 @@ namespace DB_EDITOR
                     {
                         if (roster[j][1] == 7)
                         {
-                            wText.WriteLine(GetTeamNameCFBUSA(TOID, cfbusa97) + "," + Positions[roster[j][1]] + "," + GetPlayerInfoCFBUSA(roster[j][2]));
+                            wText.WriteLine(GetTeamNameCFBUSA(TOID, cfbusa97) + ",C," + GetPlayerInfoCFBUSA(roster[j][2]));
                             count++;
                         }
                         if (count >= 2) break;

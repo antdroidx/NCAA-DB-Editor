@@ -78,7 +78,7 @@ namespace DB_EDITOR
                 if (GetDBValueInt("PSOF", "SEYR", i) == year && GetDBValueInt("PSOF", "PGID", i) >= pgidStart && GetDBValueInt("PSOF", "PGID", i) <= pgidEnd && GetDBValueInt("PSOF", "saat", i) > 0)
                 {
                     int gp = GetDBValueInt("PSOF", "sgmp", i);
-
+                    if (gp <= 0) gp = CountTeamGames(pgidStart / 70);
 
                     if (gp > 0)
                     {
@@ -142,10 +142,13 @@ namespace DB_EDITOR
 
             for (int i = 0; i < GetTableRecCount("PSOF"); i++)
             {
-                if (GetDBValueInt("PSOF", "SEYR", i) == year && GetDBValueInt("PSOF", "PGID", i) >= pgidStart && GetDBValueInt("PSOF", "PGID", i) <= pgidEnd && GetDBValueInt("PSOF", "suat", i) > 0)
+                int pgid = GetDBValueInt("PSOF", "PGID", i);
+                int pyear = GetDBValueInt("PSOF", "SEYR", i);
+                int suat = GetDBValueInt("PSOF", "suat", i);
+                if (pyear == year && pgid >= pgidStart && pgid <= pgidEnd && suat > 0)
                 {
                     int gp = GetDBValueInt("PSOF", "sgmp", i);
-
+                    if (gp <= 0) gp = CountTeamGames(pgidStart / 70);
 
                     if (gp > 0)
                     {
@@ -198,7 +201,7 @@ namespace DB_EDITOR
                 if (GetDBValueInt("PSOF", "SEYR", i) == year && GetDBValueInt("PSOF", "PGID", i) >= pgidStart && GetDBValueInt("PSOF", "PGID", i) <= pgidEnd && GetDBValueInt("PSOF", "scca", i) > 0)
                 {
                     int gp = GetDBValueInt("PSOF", "sgmp", i);
-
+                    if (gp <= 0) gp = CountTeamGames(pgidStart / 70);
 
                     if (gp > 0)
                     {
@@ -254,6 +257,7 @@ namespace DB_EDITOR
                 if (GetDBValueInt("PSDE", "SEYR", i) == year && GetDBValueInt("PSDE", "PGID", i) >= pgidStart && GetDBValueInt("PSDE", "PGID", i) <= pgidEnd && GetDBValueInt("PSDE", "sgmp", i) > 0)
                 {
                     int gp = GetDBValueInt("PSDE", "sgmp", i);
+                    if (gp <= 0) gp = CountTeamGames(pgidStart / 70);
 
                     if (gp > 0)
                     {
@@ -302,6 +306,7 @@ namespace DB_EDITOR
                 if (GetDBValueInt("PSKI", "SEYR", i) == year && GetDBValueInt("PSKI", "PGID", i) >= pgidStart && GetDBValueInt("PSKI", "PGID", i) <= pgidEnd && GetDBValueInt("PSKI", "skfa", i) > 0)
                 {
                     int gp = GetDBValueInt("PSKI", "sgmp", i);
+                    if (gp <= 0) gp = CountTeamGames(pgidStart / 70);
 
                     if (gp > 0)
                     {
@@ -352,6 +357,7 @@ namespace DB_EDITOR
                 if (GetDBValueInt("PSKI", "SEYR", i) == year && GetDBValueInt("PSKI", "PGID", i) >= pgidStart && GetDBValueInt("PSKI", "PGID", i) <= pgidEnd && GetDBValueInt("PSKI", "spat", i) > 0)
                 {
                     int gp = GetDBValueInt("PSKI", "sgmp", i);
+                    if (gp <= 0) gp = CountTeamGames(pgidStart / 70);
 
                     if (gp > 0)
                     {
@@ -399,7 +405,7 @@ namespace DB_EDITOR
                 if (GetDBValueInt("PSKP", "SEYR", i) == year && GetDBValueInt("PSKP", "PGID", i) >= pgidStart && GetDBValueInt("PSKP", "PGID", i) <= pgidEnd && GetDBValueInt("PSKP", "sgmp", i) > 0)
                 {
                     int gp = GetDBValueInt("PSKP", "sgmp", i);
-
+                    if (gp <= 0) gp = CountTeamGames(pgidStart / 70);
 
                     if (gp > 0)
                     {
@@ -552,6 +558,22 @@ namespace DB_EDITOR
                 tabControl1.SelectedTab = tabPlayers;
                 LoadPlayerData();
             }
+        }
+
+        private int CountTeamGames(int tgid)
+        {
+            int games = 0;
+
+            for(int i = 0; i < GetTableRecCount("SCHD"); i++)
+            {
+                if(GetDBValueInt("SCHD","GATG", i) == tgid || GetDBValueInt("SCHD", "GHTG", i) == tgid)
+                {
+                    games++;
+                }
+
+            }
+
+            return games;
         }
     }
 

@@ -44,6 +44,7 @@ namespace DB_EDITOR
         public bool TEAM = false;
         public bool NextMod = false;
         public bool Next26Mod = false;
+        public bool devMode = false;
 
         int TeamIndex;
         int PlayerIndex;
@@ -232,6 +233,8 @@ namespace DB_EDITOR
 
             PortalData.ClearSelection();
             PortalData.Rows.Clear();
+
+            devMode = false;
 
             DoNotTrigger = false;
         }
@@ -1206,6 +1209,11 @@ namespace DB_EDITOR
             }
         }
 
+        private void EnableDevGearsMod_Click(object sender, EventArgs e)
+        {
+            devMode = true;
+            MessageBox.Show("Dev Mode Enabled for New Glove Expansion Mod Features!");
+        }
 
     }
 

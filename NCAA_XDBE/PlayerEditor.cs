@@ -1854,6 +1854,7 @@ namespace DB_EDITOR
                     int td = GetDBValueInt("PSOF", "satd", i);
                     int ints = GetDBValueInt("PSOF", "sain", i);
                     int skd = GetDBValueInt("PSOF", "sasa", i);
+                    if (gp <= 0) gp = CountTeamGames(pgid/ 70);
 
                     double pct = 0;
                     if (att > 0) pct = Math.Round((Convert.ToDouble(cmp) / Convert.ToDouble(att)) * 100, 1);
@@ -1923,6 +1924,7 @@ namespace DB_EDITOR
                     int yai = GetDBValueInt("PSOF", "suyh", i);
                     int btk = GetDBValueInt("PSOF", "subt", i);
                     int twenty = GetDBValueInt("PSOF", "su2y", i);
+                    if (gp <= 0) gp = CountTeamGames(pgid / 70);
 
                     double ypc = 0;
                     if (att > 0) ypc = Math.Round((Convert.ToDouble(yds) / Convert.ToDouble(att)), 1);
@@ -1978,6 +1980,7 @@ namespace DB_EDITOR
                     int fum = GetDBValueInt("PSOF", "sufu", i);
                     int rac = GetDBValueInt("PSOF", "scyc", i);
                     int drp = GetDBValueInt("PSOF", "scdr", i);
+                    if (gp <= 0) gp = CountTeamGames(pgid / 70);
 
                     double ypc = 0;
                     if (cat > 0) ypc = Math.Round((Convert.ToDouble(yds) / Convert.ToDouble(cat)), 1);
@@ -2033,6 +2036,7 @@ namespace DB_EDITOR
 
                     int pan = GetDBValueInt("PSOL", "sopa", i);
                     int sack = GetDBValueInt("PSOL", "sosa", i);
+                    if (gp <= 0) gp = CountTeamGames(pgid / 70);
 
 
                     PlayerStatsView.Rows[row].Cells[0].Value = sea;
@@ -2075,6 +2079,7 @@ namespace DB_EDITOR
                     int ffum = GetDBValueInt("PSDE", "slff", i);
                     int fumr = GetDBValueInt("PSDE", "slfr", i);
                     int defTD = GetDBValueInt("PSDE", "ssdt", i);
+                    if (gp <= 0) gp = CountTeamGames(pgid / 70);
 
                     PlayerStatsView.Rows[row].Cells[0].Value = sea;
                     PlayerStatsView.Rows[row].Cells[1].Value = gp;
@@ -2120,6 +2125,7 @@ namespace DB_EDITOR
                     int xpm = GetDBValueInt("PSKI", "skem", i);
                     int xpa = GetDBValueInt("PSKI", "skea", i);
                     int fourty = GetDBValueInt("PSKI", "", i);
+                    if (gp <= 0) gp = CountTeamGames(pgid / 70);
 
                     double fgpct = 0;
                     if (fga > 0) fgpct = Math.Round((Convert.ToDouble(fgm) / Convert.ToDouble(fga)) * 100, 1);
@@ -2169,6 +2175,7 @@ namespace DB_EDITOR
                     int longest = GetDBValueInt("PSKI", "splN", i);
                     int intwenty = GetDBValueInt("PSKI", "sppt", i);
                     int blocked = GetDBValueInt("PSKI", "spbl", i);
+                    if (gp <= 0) gp = CountTeamGames(pgid / 70);
 
                     double puntavg = 0;
                     if (punt > 0) puntavg = Math.Round((Convert.ToDouble(yd) / Convert.ToDouble(punt)), 1);

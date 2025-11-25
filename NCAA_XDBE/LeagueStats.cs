@@ -554,6 +554,7 @@ namespace DB_EDITOR
                 int att = GetDBValueInt("PSOF", "saat", i);
                 int seyr = GetDBValueInt("PSOF", "SEYR", i);
                 int sewn = GetDBValueInt("SEAI", "SEWN", 0);
+                if (gp <= 0) gp = CountTeamGames(GetDBValueInt("PSOF", "PGID", i) / 70);
 
                 if (seyr == year && att > 0)
                 {
@@ -634,6 +635,7 @@ namespace DB_EDITOR
                 int att = GetDBValueInt("PSOF", "suat", i);
                 int seyr = GetDBValueInt("PSOF", "SEYR", i);
                 int sewn = GetDBValueInt("SEAI", "SEWN", 0);
+                if (gp <= 0) gp = CountTeamGames(GetDBValueInt("PSOF", "PGID", i) / 70);
 
                 if (seyr == year && att > gp * 3)
                 {
@@ -700,6 +702,7 @@ namespace DB_EDITOR
                 int cat = GetDBValueInt("PSOF", "scca", i);
                 int seyr = GetDBValueInt("PSOF", "SEYR", i);
                 int sewn = GetDBValueInt("SEAI", "SEWN", 0);
+                if (gp <= 0) gp = CountTeamGames(GetDBValueInt("PSOF", "PGID", i) / 70);
 
                 if (seyr == year && cat > 3 * gp)
                 {
@@ -769,6 +772,7 @@ namespace DB_EDITOR
                 int tak = GetDBValueInt("PSDE", "sdta", i);
                 int seyr = GetDBValueInt("PSDE", "SEYR", i);
                 int sewn = GetDBValueInt("SEAI", "SEWN", 0);
+                if (gp <= 0) gp = CountTeamGames(GetDBValueInt("PSOF", "PGID", i) / 70);
 
                 if (seyr == year && tak > 2 * gp)
                 {
@@ -830,6 +834,7 @@ namespace DB_EDITOR
                 int fga = GetDBValueInt("PSKI", "skfa", i);
                 int seyr = GetDBValueInt("PSKI", "SEYR", i);
                 int sewn = GetDBValueInt("SEAI", "SEWN", 0);
+                if (gp <= 0) gp = CountTeamGames(GetDBValueInt("PSOF", "PGID", i) / 70);
 
                 if (seyr == year && fga > 0)
                 {
@@ -895,6 +900,7 @@ namespace DB_EDITOR
                 int punt = GetDBValueInt("PSKI", "spat", i);
                 int seyr = GetDBValueInt("PSKI", "SEYR", i);
                 int sewn = GetDBValueInt("SEAI", "SEWN", 0);
+                if (gp <= 0) gp = CountTeamGames(GetDBValueInt("PSOF", "PGID", i) / 70);
 
                 if (seyr == year && punt > 0)
                 {
@@ -955,6 +961,7 @@ namespace DB_EDITOR
                 int PRAtt = GetDBValueInt("PSKP", "srpa", i);
                 int seyr = GetDBValueInt("PSKP", "SEYR", i);
                 int sewn = GetDBValueInt("SEAI", "SEWN", 0);
+                if (gp <= 0) gp = CountTeamGames(GetDBValueInt("PSOF", "PGID", i) / 70);
 
                 if (seyr == year && (KRAtt > gp || PRAtt > gp))
                 {

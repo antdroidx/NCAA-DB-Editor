@@ -676,7 +676,7 @@ namespace DB_EDITOR
 
         private void BuildLeagueRosters()
         {
-            for (int i = 1; i < 250; i++)
+            for (int i = 1; i < 255; i++)
             {
                ClearLEAGUERoster();
                 CreateRoster(i);
@@ -704,7 +704,8 @@ namespace DB_EDITOR
 
         private void CreateRoster(int i)
         {
-            GenerateFantasyRoster(i, 0, true);
+            if(i >=250 && i <=251) GenerateFantasyRoster(i, 2, true);
+            else GenerateFantasyRoster(i, 0, true);
             RecalculateOverall(true);
             DepthChartMakerSingle("PLAY", i, 136, true);
             

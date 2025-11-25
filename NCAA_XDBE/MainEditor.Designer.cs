@@ -208,6 +208,11 @@ namespace DB_EDITOR
             DB2Button = new RadioButton();
             DBChooserGroupBox = new GroupBox();
             tabDev = new TabPage();
+            EnableDevGears = new System.Windows.Forms.Button();
+            textBox25 = new System.Windows.Forms.TextBox();
+            textBox23 = new System.Windows.Forms.TextBox();
+            textBox22 = new System.Windows.Forms.TextBox();
+            textBox6 = new System.Windows.Forms.TextBox();
             TextureDumperButton = new System.Windows.Forms.Button();
             PlayoffRankerButton = new System.Windows.Forms.Button();
             FixHometownButton = new System.Windows.Forms.Button();
@@ -1190,6 +1195,7 @@ namespace DB_EDITOR
             CoachPortalID = new DataGridViewTextBoxColumn();
             CoachFiringsCount = new Label();
             groupBox37 = new GroupBox();
+            UserJobOffers = new CheckBox();
             CoachesAddedBox = new ListBox();
             AgeCoaches = new CheckBox();
             CoachRetirement = new CheckBox();
@@ -2183,6 +2189,11 @@ namespace DB_EDITOR
             // tabDev
             // 
             tabDev.BackColor = SystemColors.ActiveCaption;
+            tabDev.Controls.Add(EnableDevGears);
+            tabDev.Controls.Add(textBox25);
+            tabDev.Controls.Add(textBox23);
+            tabDev.Controls.Add(textBox22);
+            tabDev.Controls.Add(textBox6);
             tabDev.Controls.Add(TextureDumperButton);
             tabDev.Controls.Add(PlayoffRankerButton);
             tabDev.Controls.Add(FixHometownButton);
@@ -2222,11 +2233,71 @@ namespace DB_EDITOR
             tabDev.TabIndex = 8;
             tabDev.Text = "Dev";
             // 
+            // EnableDevGears
+            // 
+            EnableDevGears.BackColor = Color.Gold;
+            EnableDevGears.Font = new Font("Microsoft Sans Serif", 12F);
+            EnableDevGears.Location = new Point(979, 142);
+            EnableDevGears.Name = "EnableDevGears";
+            EnableDevGears.Size = new Size(140, 55);
+            EnableDevGears.TabIndex = 156;
+            EnableDevGears.Text = "Enable Dev Gloves Mod";
+            EnableDevGears.UseVisualStyleBackColor = false;
+            EnableDevGears.Click += (this.EnableDevGearsMod_Click);
+            // 
+            // textBox25
+            // 
+            textBox25.BackColor = Color.AntiqueWhite;
+            textBox25.Enabled = false;
+            textBox25.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            textBox25.Location = new Point(524, 124);
+            textBox25.Multiline = true;
+            textBox25.Name = "textBox25";
+            textBox25.Size = new Size(140, 73);
+            textBox25.TabIndex = 155;
+            textBox25.Text = "This is to test re-ranking formulas for Playoff Ranking";
+            // 
+            // textBox23
+            // 
+            textBox23.BackColor = Color.AntiqueWhite;
+            textBox23.Enabled = false;
+            textBox23.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            textBox23.Location = new Point(76, 127);
+            textBox23.Multiline = true;
+            textBox23.Name = "textBox23";
+            textBox23.Size = new Size(140, 73);
+            textBox23.TabIndex = 154;
+            textBox23.Text = "Load a roster or dynasty and it will export a CSV file to the DB Editor folder";
+            // 
+            // textBox22
+            // 
+            textBox22.BackColor = Color.AntiqueWhite;
+            textBox22.Enabled = false;
+            textBox22.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            textBox22.Location = new Point(300, 127);
+            textBox22.Multiline = true;
+            textBox22.Name = "textBox22";
+            textBox22.Size = new Size(140, 73);
+            textBox22.TabIndex = 153;
+            textBox22.Text = "Load a Roster, and press the button create a dumper roster. The Config file is in Resources\\Roster folder\r\n";
+            // 
+            // textBox6
+            // 
+            textBox6.BackColor = Color.AntiqueWhite;
+            textBox6.Enabled = false;
+            textBox6.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            textBox6.Location = new Point(872, 18);
+            textBox6.Multiline = true;
+            textBox6.Name = "textBox6";
+            textBox6.Size = new Size(247, 100);
+            textBox6.TabIndex = 152;
+            textBox6.Text = "Open a \"roster\" from LEAGUE.DAT and place a copy of LEAGUE.DAT in the DB Editor folder.\r\n\r\nThis will create 255 roster files and then import them into LEAGUE.DAT";
+            // 
             // TextureDumperButton
             // 
             TextureDumperButton.BackColor = Color.Gold;
             TextureDumperButton.Font = new Font("Microsoft Sans Serif", 12F);
-            TextureDumperButton.Location = new Point(178, 34);
+            TextureDumperButton.Location = new Point(300, 18);
             TextureDumperButton.Name = "TextureDumperButton";
             TextureDumperButton.Size = new Size(140, 100);
             TextureDumperButton.TabIndex = 150;
@@ -2238,7 +2309,7 @@ namespace DB_EDITOR
             // 
             PlayoffRankerButton.BackColor = Color.Gold;
             PlayoffRankerButton.Font = new Font("Microsoft Sans Serif", 12F);
-            PlayoffRankerButton.Location = new Point(338, 34);
+            PlayoffRankerButton.Location = new Point(524, 18);
             PlayoffRankerButton.Name = "PlayoffRankerButton";
             PlayoffRankerButton.Size = new Size(140, 100);
             PlayoffRankerButton.TabIndex = 149;
@@ -2289,7 +2360,7 @@ namespace DB_EDITOR
             // 
             buttonLEAGUEROSTERS.BackColor = Color.Gold;
             buttonLEAGUEROSTERS.Font = new Font("Microsoft Sans Serif", 12F);
-            buttonLEAGUEROSTERS.Location = new Point(498, 34);
+            buttonLEAGUEROSTERS.Location = new Point(726, 18);
             buttonLEAGUEROSTERS.Name = "buttonLEAGUEROSTERS";
             buttonLEAGUEROSTERS.Size = new Size(140, 100);
             buttonLEAGUEROSTERS.TabIndex = 51;
@@ -2301,11 +2372,11 @@ namespace DB_EDITOR
             // 
             CFUSAexportButton.BackColor = Color.Gold;
             CFUSAexportButton.Font = new Font("Microsoft Sans Serif", 12F);
-            CFUSAexportButton.Location = new Point(15, 34);
+            CFUSAexportButton.Location = new Point(76, 18);
             CFUSAexportButton.Name = "CFUSAexportButton";
             CFUSAexportButton.Size = new Size(140, 100);
             CFUSAexportButton.TabIndex = 50;
-            CFUSAexportButton.Text = "Export to CFB USA 97";
+            CFUSAexportButton.Text = "Export to CFB USA 96/97";
             CFUSAexportButton.UseVisualStyleBackColor = false;
             CFUSAexportButton.Click += (this.CFUSAexportButton_Click);
             // 
@@ -4185,7 +4256,7 @@ namespace DB_EDITOR
             // 
             // AutoAdjustCoachBudgetButton2
             // 
-            AutoAdjustCoachBudgetButton2.BackColor = Color.MidnightBlue;
+            AutoAdjustCoachBudgetButton2.BackColor = Color.RoyalBlue;
             AutoAdjustCoachBudgetButton2.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             AutoAdjustCoachBudgetButton2.ForeColor = SystemColors.ControlLight;
             AutoAdjustCoachBudgetButton2.Location = new Point(31, 23);
@@ -4216,7 +4287,7 @@ namespace DB_EDITOR
             // 
             // CreateFCSTransferPortalButton
             // 
-            CreateFCSTransferPortalButton.BackColor = Color.MidnightBlue;
+            CreateFCSTransferPortalButton.BackColor = Color.RoyalBlue;
             CreateFCSTransferPortalButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
             CreateFCSTransferPortalButton.ForeColor = SystemColors.ButtonFace;
             CreateFCSTransferPortalButton.Location = new Point(28, 147);
@@ -4229,7 +4300,7 @@ namespace DB_EDITOR
             // 
             // ExportDC2
             // 
-            ExportDC2.BackColor = Color.DodgerBlue;
+            ExportDC2.BackColor = Color.RoyalBlue;
             ExportDC2.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             ExportDC2.ForeColor = SystemColors.ButtonFace;
             ExportDC2.Location = new Point(251, 255);
@@ -4359,7 +4430,7 @@ namespace DB_EDITOR
             // 
             // RandomizeRecruitGear
             // 
-            RandomizeRecruitGear.BackColor = Color.MidnightBlue;
+            RandomizeRecruitGear.BackColor = Color.RoyalBlue;
             RandomizeRecruitGear.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             RandomizeRecruitGear.ForeColor = SystemColors.ButtonFace;
             RandomizeRecruitGear.Location = new Point(273, 118);
@@ -4418,7 +4489,7 @@ namespace DB_EDITOR
             // 
             // DetermineAthleteButton
             // 
-            DetermineAthleteButton.BackColor = Color.MidnightBlue;
+            DetermineAthleteButton.BackColor = Color.RoyalBlue;
             DetermineAthleteButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             DetermineAthleteButton.ForeColor = SystemColors.ButtonFace;
             DetermineAthleteButton.Location = new Point(26, 265);
@@ -4470,7 +4541,7 @@ namespace DB_EDITOR
             // 
             // buttonRandomizeFaceShape
             // 
-            buttonRandomizeFaceShape.BackColor = Color.MidnightBlue;
+            buttonRandomizeFaceShape.BackColor = Color.RoyalBlue;
             buttonRandomizeFaceShape.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             buttonRandomizeFaceShape.ForeColor = SystemColors.ButtonFace;
             buttonRandomizeFaceShape.Location = new Point(26, 118);
@@ -4496,7 +4567,7 @@ namespace DB_EDITOR
             // 
             // buttonInterestedTeams
             // 
-            buttonInterestedTeams.BackColor = Color.MidnightBlue;
+            buttonInterestedTeams.BackColor = Color.RoyalBlue;
             buttonInterestedTeams.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             buttonInterestedTeams.ForeColor = SystemColors.ButtonFace;
             buttonInterestedTeams.Location = new Point(24, 441);
@@ -13380,6 +13451,7 @@ namespace DB_EDITOR
             // 
             // groupBox37
             // 
+            groupBox37.Controls.Add(UserJobOffers);
             groupBox37.Controls.Add(CoachesAddedBox);
             groupBox37.Controls.Add(AgeCoaches);
             groupBox37.Controls.Add(CoachRetirement);
@@ -13402,6 +13474,18 @@ namespace DB_EDITOR
             groupBox37.TabIndex = 48;
             groupBox37.TabStop = false;
             groupBox37.Text = "Coaching Carousel";
+            // 
+            // UserJobOffers
+            // 
+            UserJobOffers.AutoSize = true;
+            UserJobOffers.Checked = true;
+            UserJobOffers.CheckState = CheckState.Checked;
+            UserJobOffers.Location = new Point(16, 282);
+            UserJobOffers.Name = "UserJobOffers";
+            UserJobOffers.Size = new Size(99, 17);
+            UserJobOffers.TabIndex = 38;
+            UserJobOffers.Text = "User Job Offers";
+            UserJobOffers.UseVisualStyleBackColor = true;
             // 
             // CoachesAddedBox
             // 
@@ -13501,9 +13585,9 @@ namespace DB_EDITOR
             buttonPlayerCoach.BackColor = SystemColors.Control;
             buttonPlayerCoach.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             buttonPlayerCoach.ForeColor = SystemColors.ActiveCaptionText;
-            buttonPlayerCoach.Location = new Point(16, 283);
+            buttonPlayerCoach.Location = new Point(16, 305);
             buttonPlayerCoach.Name = "buttonPlayerCoach";
-            buttonPlayerCoach.Size = new Size(250, 65);
+            buttonPlayerCoach.Size = new Size(250, 43);
             buttonPlayerCoach.TabIndex = 30;
             buttonPlayerCoach.Text = "Promote Players to Coaching";
             buttonPlayerCoach.UseVisualStyleBackColor = false;
@@ -18512,6 +18596,12 @@ namespace DB_EDITOR
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private DataGridViewTextBoxColumn TeamStatsRushID;
+        private CheckBox UserJobOffers;
+        public System.Windows.Forms.TextBox textBox6;
+        public System.Windows.Forms.TextBox textBox25;
+        public System.Windows.Forms.TextBox textBox23;
+        public System.Windows.Forms.TextBox textBox22;
+        public System.Windows.Forms.Button EnableDevGears;
     }
 }
 

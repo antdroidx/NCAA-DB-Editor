@@ -725,22 +725,26 @@ namespace DB_EDITOR
         private List<string> GetHandTypes()
         {
             List<string> Gloves = new List<string>();
-            if(Next26Mod)
+            if(Next26Mod && devMode)
             {
                 
-                Gloves.Add("Bare");
+                Gloves.Add("Bare"); //0
                 Gloves.Add("White");
                 Gloves.Add("Black");
-                Gloves.Add("Taped Hand");
+                Gloves.Add("Taped Hand");  //3
                 Gloves.Add("Team 1");
                 Gloves.Add("Team 2");
                 Gloves.Add("Uniform 1");
                 Gloves.Add("Uniform 2");
-                /*
+
+            }
+            else if (Next26Mod)
+            {
+               
                 Gloves.Add("None");
                 Gloves.Add("Gloves (not used)");
                 Gloves.Add("Gloves");
-                */
+
             }
             else
             {
@@ -759,9 +763,9 @@ namespace DB_EDITOR
             if (Next26Mod)
             {
                 Cleats.Add("Normal");
-                Cleats.Add("Alt 1");
-                Cleats.Add("Alt 2");
-                Cleats.Add("Alt 3");
+                Cleats.Add("Alt 1 (White)");
+                Cleats.Add("Alt 2 (Black)");
+                Cleats.Add("Alt 3 (Team)");
             }
             else
             {

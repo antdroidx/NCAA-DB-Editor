@@ -46,6 +46,13 @@ Credits:
     <Content Include="Resources\\**\\*" CopyToOutputDirectory="PreserveNewest" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Remove="JobOffers.cs" />
+    <Compile Remove="JobOffers.Designer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="JobOffers.resx" />
+  </ItemGroup>
+  <ItemGroup>
     <None Remove="fmfjvkzb.z3w~" />
   </ItemGroup>
   <ItemGroup>
