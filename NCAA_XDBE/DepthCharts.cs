@@ -438,7 +438,7 @@ namespace DB_EDITOR
 
                     //63 total up to here...
 
-                    if (DC77.Checked || Next26Mod)
+                    if (DC77.Checked || verNumber >= 16.0)
                     {
                         //FBs
                         rec = AddDCHTrecord(rec, 2, 2, DCRoster[TOID]);
@@ -582,7 +582,7 @@ namespace DB_EDITOR
             //SSs
             rec = AddDCHTrecord(rec, 17, 3, roster);
 
-            if (leaguesize >= 136 || Next26Mod)
+            if (leaguesize >= 136 || verNumber >= 16.0)
             {
                 //FBs
                 rec = AddDCHTrecord(rec, 2, 2, roster);

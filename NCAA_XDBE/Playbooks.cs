@@ -47,7 +47,7 @@ namespace DB_EDITOR
             SetUpPlayTypeEditor();
             SetUpPlayNameEditor();
             CalculateProjPassRatio();
-            if (NextMod || Next26Mod) DefaultPlaysRadio.Text = "NEXT Play Names";
+            if (verNumber >= 15.0) DefaultPlaysRadio.Text = "NEXT Play Names";
             else DefaultPlaysRadio.Text = "NCAA 06 Play Names";
 
         }
@@ -58,7 +58,7 @@ namespace DB_EDITOR
 
             if (DefaultPlaysRadio.Checked)
             {
-                if(!NextMod || !Next26Mod) PlayBookNames = CreateStringListsFromCSV(@"resources\playbooks\PLYL.csv", false);
+                if(verNumber < 15.0) PlayBookNames = CreateStringListsFromCSV(@"resources\playbooks\PLYL.csv", false);
                 else PlayBookNames = CreateStringListsFromCSV(@"resources\playbooks\PLYL-NEXT25.csv", false);
             } 
             else

@@ -371,14 +371,14 @@ namespace DB_EDITOR
             PlaybookSelectBox.Items.Clear();
             List<List<string>> pb = CreatePlaybookNames();
             //136-158 next ||  124 and below is vanilla
-            if (NextMod)
+            if (verNumber == 15.0)
             {
                 for (int i = 136; i < pb.Count - 2; i++)
                 {
                     PlaybookSelectBox.Items.Add(pb[i][1]);
                 }
             }
-            else if (Next26Mod || GetDBValueInt("COCH", "CPID", GetCOCHrecFromTeamRec(TeamIndex)) > 135)
+            else if (verNumber >= 16.0 || GetDBValueInt("COCH", "CPID", GetCOCHrecFromTeamRec(TeamIndex)) > 135)
             {
                 for (int i = 136; i < pb.Count; i++)
                 {

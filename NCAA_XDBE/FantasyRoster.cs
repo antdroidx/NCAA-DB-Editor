@@ -45,7 +45,7 @@ namespace DB_EDITOR
             CreateLastNamesDB();
 
             List<List<string>> teamData = new List<List<string>>();
-            if(Next26Mod) teamData = CreateStringListsFromCSV(@"resources\FantasyGenData136.csv", true);
+            if(verNumber >= 16.0) teamData = CreateStringListsFromCSV(@"resources\FantasyGenData136.csv", true);
             else teamData = CreateStringListsFromCSV(@"resources\FantasyGenData.csv", true);
 
             int rec = 0;
@@ -128,7 +128,7 @@ namespace DB_EDITOR
             int rec = GetTableRecCount("PLAY");
             int PGIDbeg = tgid * 70;
             int end = 69;
-            if (Next26Mod) end = 65;
+            if (verNumber >= 16.0) end = 65;
             int PGIDend = PGIDbeg + end;
             int ST = 0;
             int freshmanPCT = 25;
@@ -224,7 +224,7 @@ namespace DB_EDITOR
             RecalculateOverall(true);
             RecalculateBodyShape("PLAY", true);
             RecalculateQBTendencies(true);
-            if (Next26Mod) DepthChartMakerSingle("PLAY", tgid, 136, true);
+            if (verNumber >= 16.0) DepthChartMakerSingle("PLAY", tgid, 136, true);
             else DepthChartMakerSingle("PLAY", tgid, 120, true);
 
             if (!skipPrompt) MessageBox.Show(teamNameDB[tgid] + " Roster has been generated.");
@@ -679,8 +679,8 @@ namespace DB_EDITOR
             ChangeDBInt("COCH", "CRPC", rec, recruit);
 
             //playbook & strategy
-            if (NextMod) ChangeDBInt("COCH", "CPID", rec, rand.Next(136, 159));
-            else if (Next26Mod) ChangeDBInt("COCH", "CPID", rec, rand.Next(136, 163));
+            if (verNumber == 15.0) ChangeDBInt("COCH", "CPID", rec, rand.Next(136, 159));
+            else if (verNumber >= 16.0) ChangeDBInt("COCH", "CPID", rec, rand.Next(136, 163));
             else ChangeDBInt("COCH", "CPID", rec, rand.Next(0, 125));
 
             ChangeDBInt("COCH", "COST", rec, rand.Next(0, 5));

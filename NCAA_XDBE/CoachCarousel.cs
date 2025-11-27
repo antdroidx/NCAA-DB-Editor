@@ -35,7 +35,7 @@ namespace DB_EDITOR
 
 
             int coachfirings = 0;
-            if (!coachProgComplete && !NextMod && !Next26Mod)
+            if (!coachProgComplete && verNumber < 15.0)
             {
                 MessageBox.Show("Please run Coaching Progressions first before running this module.");
                 return;
@@ -64,6 +64,12 @@ namespace DB_EDITOR
             for (int x = 0; x < ccidList.Count; x++)
             {
                 int i = ccidList[x][0];
+                int CFUC = GetDBValueInt("COCH", "CFUC", i);
+                if (CFUC == 1)
+                { 
+                    continue; 
+                }
+
                 int TGID = GetDBValueInt("COCH", "TGID", i);
                 int CTOP = Convert.ToInt32(GetDBValue("COCH", "CTOP", i));
                 int TMPR = FindTeamPrestige(Convert.ToInt32(TGID));
@@ -128,7 +134,7 @@ namespace DB_EDITOR
                 else
                 {
                     //FIRE COACHES
-                    if (CCPO <= jobSecurityValue.Value && CTOP >= TMPR && GetDBValue("COCH", "CFUC", i) != "1" && rand.Next(0, 100) < 70 && NextMod || CCPO <= jobSecurityValue.Value && CTOP >= TMPR && GetDBValue("COCH", "CFUC", i) != "1" && rand.Next(0, 100) < 70 && Next26Mod || GetDBValueInt("COCH", "CTYR", i) > 3 && TMPR < 2 && rand.Next(0, 100) < 70 && CCPO < LowPrestigeCoachValue.Value || CCPO <= jobSecurityValue.Value && CTOP - 2 >= TMPR && GetDBValue("COCH", "CFUC", i) != "1" && rand.Next(0, 100) < 70 && !NextMod || CCPO <= jobSecurityValue.Value && CTOP - 2 >= TMPR && GetDBValue("COCH", "CFUC", i) != "1" && rand.Next(0, 100) < 70 && !Next26Mod)
+                    if (FireCoachDecision(CCPO, CTOP, TMPR, i))
                     {
                         TGID_VacancyList.Add(TGID);
 
@@ -181,6 +187,43 @@ namespace DB_EDITOR
 
         }
 
+        private bool FireCoachDecision(int CCPO, int CTOP, int TMPR, int i)
+        {
+            bool fired = false;
+
+
+            //Coached for a long time and team prestige dropped
+            if (GetDBValueInt("COCH", "CTYR", i) > 3 && TMPR < 2 && rand.Next(0, 100) < 70 && CCPO < LowPrestigeCoachValue.Value)
+            {
+                return true;
+            }
+
+            //Low Job Security & Lowered Team Prestige
+            if (CCPO <= jobSecurityValue.Value && rand.Next(0, 100) < 25 && GetDBValueInt("COCH", "CTYR", i) > 1 && GetDBValueInt("COCH", "CSWI", i) <= 4)
+            { 
+                return true;
+            }
+
+            if (verNumber >= 15.0)
+            {
+                //Low Job Security & Lowered Team Prestige
+                if (CCPO <= jobSecurityValue.Value && CTOP >= TMPR && rand.Next(0, 100) < 75)
+                {
+                    return true;
+                }
+            }
+            else
+            {
+                //Coached for a long time and team prestige dropped
+                if (CCPO <= jobSecurityValue.Value && CTOP - 2 >= TMPR && rand.Next(0, 100) < 75)
+                {
+                    return true;
+                }
+            }
+
+            return fired;
+
+        }
 
         private List<int> OfferCoachingJobs(List<int> TGID_VacancyList)
         {
@@ -374,7 +417,7 @@ namespace DB_EDITOR
                         }
                     }
 
-                    if (counter / 50 >= 1)
+                    if (counter / 100 >= 1)
                     {
                         downgrade++;
                         counter = 0;
@@ -494,7 +537,7 @@ namespace DB_EDITOR
         //Transfers Players - Updates TRAN table and sets PLAY-PTYP field to 1
         private void TransferPlayer(int i, int PGID)
         {
-            if (NextMod || Next26Mod)
+            if (verNumber >= 15.0)
             {
                 int row = GetTableRecCount("TRAN");
                 AddTableRecord("TRAN", false);
@@ -781,11 +824,11 @@ namespace DB_EDITOR
                 int COST = rand.Next(0, 6);
 
                 int CPID = rand.Next(0, 125);
-                if (Next26Mod)
+                if (verNumber >= 16.0)
                 {
                     CPID = rand.Next(136, 162);
                 }
-                else if (NextMod)
+                else if (verNumber >= 15.0)
                 {
                     CPID = rand.Next(131, 160);
                 }
@@ -874,14 +917,19 @@ namespace DB_EDITOR
                 ProgressBarStep();
             }
 
-            if (PGID_List.Count >= 0)
+            List<string> CoachList = new List<string>();
+            for (int i = 0; i < GetTableRecCount("COCH"); i++)
             {
-                //Randomly pick a FA Coach and replace with Player
+                string coachName = GetDBValue("COCH", "CLFN", i) + " " + GetDBValue("COCH", "CLLN", i);
+                CoachList.Add(coachName);
+            }
 
-                for (int i = 0; i < 1; i++)
-                {
+            bool coachPromoted = false;
+
+            while (PGID_List.Count >= 0 && !coachPromoted)
+            {
+                //Randomly replace with Player
                     int rec = FindRecNumberCCID(ccid);
-
 
                     string coachFN = GetDBValue("COCH", "CLFN", rec);
                     string coachLN = GetDBValue("COCH", "CLLN", rec);
@@ -893,7 +941,14 @@ namespace DB_EDITOR
                     string playLN = GetLastNameFromRecord(recP);
                     string team = GetTeamName(Convert.ToInt32(GetDBValue("PLAY", "PGID", recP)) / 70);
                     string pos = Positions[GetDBValueInt("PLAY", "PPOS", recP)];
+
+                    string PlayerName = playFN + " " + playLN;
+
+                if (CoachList.Contains(PlayerName)) 
+                {
                     PGID_List.Remove(recP);
+                    continue;
+                }
 
                     ChangeDBString("COCH", "CLFN", rec, playFN);
                     ChangeDBString("COCH", "CLLN", rec, playLN);
@@ -952,10 +1007,13 @@ namespace DB_EDITOR
                     }
 
                     AssignPlayerCoachStrategies(recCOCH, rec);
+                    coachPromoted = true;
+            }
 
-
-                }
-
+            if(!coachPromoted)
+            {
+                int rec = FindRecNumberCCID(ccid);
+                CreateFantasyCoach(rec);
             }
         }
 

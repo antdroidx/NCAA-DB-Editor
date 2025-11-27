@@ -42,9 +42,8 @@ namespace DB_EDITOR
         bool coachProgComplete = false;
         bool TDYN = false;
         public bool TEAM = false;
-        public bool NextMod = false;
-        public bool Next26Mod = false;
         public bool devMode = false;
+        double verNumber = 1.0;
 
         int TeamIndex;
         int PlayerIndex;
@@ -1051,7 +1050,7 @@ namespace DB_EDITOR
         private void ScheduleGenMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Please load the Schedule Template file (File 3 from TEMPLATE.DAT).");
-            LeagueMain scheduleGen = new LeagueMain(NextMod);
+            LeagueMain scheduleGen = new LeagueMain();
             scheduleGen.ShowDialog();
         }
 
@@ -1092,16 +1091,14 @@ namespace DB_EDITOR
 
         private void OGConfigRadio_CheckedChanged(object sender, EventArgs e)
         {
-            NextMod = false;
-            Next26Mod = false;
+            verNumber = 1.0;
             CreatePOCItable();
             CreateRatingsDB();
         }
 
         private void NextConfigRadio_CheckedChanged(object sender, EventArgs e)
         {
-            NextMod = true;
-            Next26Mod = false;
+            verNumber = 15.0;
             CreatePOCItable();
             CreateRatingsDB();
 
@@ -1109,13 +1106,22 @@ namespace DB_EDITOR
 
         private void radioNEXT26_CheckedChanged(object sender, EventArgs e)
         {
-            NextMod = false;
-            Next26Mod = true;
+            verNumber = 16.0;
             CreatePOCItable();
             CreateRatingsDB();
             maxPlayers = 66;
 
         }
+
+        private void radioNext26v162_CheckedChanged(object sender, EventArgs e)
+        {
+            verNumber = 16.2;
+            CreatePOCItable();
+            CreateRatingsDB();
+            maxPlayers = 66;
+        }
+
+
 
         #endregion
 
@@ -1214,6 +1220,7 @@ namespace DB_EDITOR
             devMode = true;
             MessageBox.Show("Dev Mode Enabled for New Glove Expansion Mod Features!");
         }
+
 
     }
 

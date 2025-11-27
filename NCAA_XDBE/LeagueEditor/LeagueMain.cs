@@ -66,13 +66,12 @@ namespace DB_EDITOR
 
         #endregion
 
-        public LeagueMain(bool next)
+        public LeagueMain()
         {
             InitializeComponent();
             DefaultSettings();
             OpenFile();
             KeyPreview = true;
-            NextMod = next;
             if (NextMod) NextConfigRadio.Checked = true;
 
             CheckArmyNavyLaunch();

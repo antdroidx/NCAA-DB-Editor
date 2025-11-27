@@ -205,7 +205,7 @@ namespace DB_EDITOR
                 ChangeDB2Int(tableName, "PHED", rec, hairstyle);
 
             //Randomize Eye Black
-            if (Next26Mod || NextMod)
+            if (verNumber >= 15.0)
             {
                 int eyeblack = rand.Next(0, 2);
 
@@ -228,7 +228,7 @@ namespace DB_EDITOR
 
 
             //Randomize Nasal Strip
-            if (Next26Mod || NextMod)
+            if (verNumber >= 15.0)
             {
                 int nasal = rand.Next(0, 2);
 
@@ -302,7 +302,7 @@ namespace DB_EDITOR
             RandomizeElbowGear(tableName, rec);
             RandomizeTurfTape(tableName, rec);
 
-            if(devMode) RandomizeEXPHands(tableName, rec);
+            if(devMode || verNumber >= 16.2) RandomizeEXPHands(tableName, rec);
             else RandomizeHands(tableName, rec);
 
             RandomizeShoe(tableName, rec);

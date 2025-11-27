@@ -64,7 +64,7 @@ namespace DB_EDITOR
             SCHDTeamBox.Items.Clear();
             int seow = GetDBValueInt("SEAI", "SEOW", 0);
 
-            for (int i = 0; i <= seow; i++)
+            for (int i = 0; i < seow; i++)
             {
                 SCHDTeamBox.Items.Add(i);
             }
@@ -150,12 +150,15 @@ namespace DB_EDITOR
                         teamNameA = teamNameDB[GetDBValueInt("SCHD", "GHTG", i)];
                         teamRecA = FindTeamRecfromTeamName(teamNameA);
                         int rank = GetDBValueInt("TEAM", "TCRK", teamRecA);
+                        int sewn = GetDBValueInt("SEAI", "SEWN", 0);
+                        if (sewn >= 8 && sewn < GetDBValueInt("SEAI", "SEOW", 0)) rank = GetDBValueInt("TEAM", "TBRK", teamRecA);
                         rankA = "@ ";
                         if (rank <= 25) rankA += "#" + rank + " ";
 
                         teamNameH = teamNameDB[tgid];
                         teamRecH = FindTeamRecfromTeamName(teamNameH);
                         rank = GetDBValueInt("TEAM", "TCRK", teamRecH);
+                        if (sewn >= 8 && sewn < GetDBValueInt("SEAI", "SEOW", 0)) rank = GetDBValueInt("TEAM", "TBRK", teamRecH);
                         if (rank <= 25) rankH += "#" + rank + " ";
 
                         strength += GetDBValueInt("TEAM", "TROV", teamRecH);
@@ -169,6 +172,8 @@ namespace DB_EDITOR
                         teamNameA = teamNameDB[GetDBValueInt("SCHD", "GATG", i)];
                         teamRecA = FindTeamRecfromTeamName(teamNameA);
                         int rank = GetDBValueInt("TEAM", "TCRK", teamRecA);
+                        int sewn = GetDBValueInt("SEAI", "SEWN", 0);
+                        if (sewn >= 8 && sewn < GetDBValueInt("SEAI", "SEOW", 0)) rank = GetDBValueInt("TEAM", "TBRK", teamRecA);
                         rankA = "vs ";
                         if (rank <= 25) rankA += "#" + rank + " ";
 
@@ -176,6 +181,7 @@ namespace DB_EDITOR
                         teamNameH = teamNameDB[tgid];
                         teamRecH = FindTeamRecfromTeamName(teamNameH);
                         rank = GetDBValueInt("TEAM", "TCRK", teamRecH);
+                        if (sewn >= 8 && sewn < GetDBValueInt("SEAI", "SEOW", 0)) rank = GetDBValueInt("TEAM", "TBRK", teamRecH);
                         if (rank <= 25) rankH += "#" + rank + " ";
 
                         strength += GetDBValueInt("TEAM", "TROV", teamRecA);
@@ -313,6 +319,8 @@ namespace DB_EDITOR
                     string teamNameA = teamNameDB[GetDBValueInt("SCHD", "GATG", i)];
                     int teamRecA = FindTeamRecfromTeamName(teamNameA);
                     int rank = GetDBValueInt("TEAM", "TCRK", teamRecA);
+                    int sewnX = GetDBValueInt("SEAI", "SEWN", 0);
+                    if (sewnX >= 8 && sewnX < GetDBValueInt("SEAI", "SEOW", 0)) rank = GetDBValueInt("TEAM", "TBRK", teamRecA);
                     if (rank <= 25) rankA = "#" + rank + " ";
                     GameScore[w] += rank;
                     ScheduleView.Rows[w].Cells[1].Value = rankA + teamNameA;
@@ -330,6 +338,7 @@ namespace DB_EDITOR
                     int teamRecH = FindTeamRecfromTeamName(teamNameH);
 
                     rank = GetDBValueInt("TEAM", "TCRK", teamRecH);
+                    if (sewnX >= 8 && sewnX < GetDBValueInt("SEAI", "SEOW", 0)) rank = GetDBValueInt("TEAM", "TBRK", teamRecA);
                     if (rank <= 25) rankH = "#" + rank + " ";
                     GameScore[w] += rank;
 
@@ -547,7 +556,11 @@ namespace DB_EDITOR
 
             categories.Add(teamNameDB[GetDBValueInt("TEAM", "TGID", rec)]);
             categories.Add(GetDBValue("TEAM", "TSWI", rec) + " - " + GetDBValue("TEAM", "TSLO", rec));
-            categories.Add(GetDBValue("TEAM", "TCRK", rec));
+
+            int sewn = GetDBValueInt("SEAI", "SEWN", 0);
+            int rank = GetDBValueInt("TEAM", "TCRK", rec);
+            if (sewn >= 8 && sewn < GetDBValueInt("SEAI", "SEOW", 0)) rank = GetDBValueInt("TEAM", "TBRK", rec);
+            categories.Add(Convert.ToString(rank));
             categories.Add(ConvertStarNumber(GetDBValueInt("TEAM", "TMPR", rec)));
             categories.Add(GetDBValue("TEAM", "TROV", rec));
             categories.Add(GetDBValue("TEAM", "TROF", rec));

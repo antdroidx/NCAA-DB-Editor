@@ -630,7 +630,7 @@ namespace DB_EDITOR
                 {
                     UniformGrid.Rows[row].Cells[0].Value = false;
                 }
-                if (NextMod && row == 12 || NextMod && row == 13) //kennesaw state
+                if (verNumber == 15.0 && row == 12 || verNumber == 15.0 && row == 13) //kennesaw state
                 {
                     UniformGrid.Rows[row].Cells[0].Value = true;
                 }

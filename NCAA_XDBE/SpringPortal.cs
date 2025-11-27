@@ -939,7 +939,7 @@ namespace DB_EDITOR
             ChangeDBInt("TRAN", "PTID", count, TGID);
             ChangeDBInt("TRAN", "TRYR", count, 0);
 
-            if (TransferEligible.Checked && !NextMod && !Next26Mod)
+            if (TransferEligible.Checked && verNumber < 15.0)
                 ChangeDBInt("TRAN", "TRYR", count, 1);
 
         }

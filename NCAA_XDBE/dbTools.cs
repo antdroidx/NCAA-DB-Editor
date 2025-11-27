@@ -50,7 +50,7 @@ namespace DB_EDITOR
             if (TDYN) FantastyRosterLeague.Visible = true;
             else FantastyRosterLeague.Visible = false;
 
-            if (Next26Mod)
+            if (verNumber >= 16.0)
             {
                 DC77.Checked = true;
                 MaxFantasyPlayers.Value = 66;

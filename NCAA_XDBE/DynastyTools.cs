@@ -166,13 +166,13 @@ namespace DB_EDITOR
                         if (PGID == GetDBValue("PLAY", "PGID", j))
                         {
                             //checks to see if player has only played 4 or less games
-                            if (NextMod || Next26Mod)
+                            if (verNumber >= 15.0)
                             {
                                 if (Convert.ToInt32(GetDBValue("PLAY", "PL13", j)) <= 4 && GetDBValue("PLAY", "PRSD", j) != "1")
                                 {
                                     //changes redshirt status to "1" (active redshirt)
                                     ChangeDBString("PLAY", "PRSD", j, "1");
-                                    if (Next26Mod) ChangeDBInt("PLAY", "PRSD", j, 3);
+                                    if (verNumber >= 16.0) ChangeDBInt("PLAY", "PRSD", j, 3);
                                     string team = GetTeamName(Convert.ToInt32(GetDBValue("PLAY", "PGID", j)) / 70);
 
                                     if (checkBoxInjuryRatings.Checked)
@@ -279,7 +279,7 @@ namespace DB_EDITOR
              * 91-120 0
              * */
 
-            if (!NextMod || !Next26Mod)
+            if (verNumber < 15.0)
             {
                 string coach = "";
                 for (int i = 0; i < GetTableRecCount("COCH"); i++)

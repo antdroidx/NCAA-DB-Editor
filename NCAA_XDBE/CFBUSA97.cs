@@ -407,7 +407,7 @@ namespace DB_EDITOR
         private string GetPlayerInfoCFBUSA(int rec)
         {
             return GetFirstNameFromRecord(rec) + " " + GetLastNameFromRecord(rec) + "," + ConvertRating(GetDBValueInt("PLAY", "POVR", rec)) + "," + GetDBValue("PLAY", "PJEN", rec) + "," + ConvertRating(GetDBValueInt("PLAY", "PAWR", rec)) + "," + ConvertRating(GetDBValueInt("PLAY", "PSPD", rec)) + ","
-                + ConvertRating(GetDBValueInt("PLAY", "PAGI", rec)) + "," + ConvertRating(GetDBValueInt("PLAY", "PSTR", rec)) + "," + ConvertRating(GetDBValueInt("PLAY", "PCTH", rec)) + "," + ConvertRating(GetDBValueInt("PLAY", "PPBK", rec)) + "," + ConvertRating(GetDBValueInt("PLAY", "PTAK", rec)) + "," + ConvertRating(GetDBValueInt("PLAY", "PTHP", rec)) + "," + ConvertRating(GetDBValueInt("PLAY", "PTHA", rec)) + ","
+                + (ConvertRating(GetDBValueInt("PLAY", "PAGI", rec))/ConvertRating(GetDBValueInt("PLAY", "PAGI", rec))) + "," + ConvertRating(GetDBValueInt("PLAY", "PSTR", rec)) + "," + ConvertRating(GetDBValueInt("PLAY", "PCTH", rec)) + "," + ConvertRating(GetDBValueInt("PLAY", "PPBK", rec)) + "," + ConvertRating(GetDBValueInt("PLAY", "PTAK", rec)) + "," + ConvertRating(GetDBValueInt("PLAY", "PTHP", rec)) + "," + ConvertRating(GetDBValueInt("PLAY", "PTHA", rec)) + ","
                 + ConvertRating(GetDBValueInt("PLAY", "PKPR", rec)) + "," + ConvertRating(GetDBValueInt("PLAY", "PKAC", rec)) + "," + (GetDBValueInt("PLAY", "PWGT", rec) + 160);
         }
         #endregion

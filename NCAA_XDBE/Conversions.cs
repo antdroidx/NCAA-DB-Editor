@@ -244,8 +244,8 @@ namespace DB_EDITOR
             RCAT = new List<List<int>>();
             string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             string csvLocation = Path.Combine(executableLocation, @"resources\RCAT.csv");
-            if (NextMod) csvLocation = Path.Combine(executableLocation, @"resources\RCAT-NEXT.csv");
-            else if (Next26Mod) csvLocation = Path.Combine(executableLocation, @"resources\RCAT-NEXT26.csv");
+            if (verNumber == 15.0) csvLocation = Path.Combine(executableLocation, @"resources\RCAT-NEXT.csv");
+            else if (verNumber >= 16.0) csvLocation = Path.Combine(executableLocation, @"resources\RCAT-NEXT26.csv");
 
             string filePath = csvLocation;
             StreamReader sr = new StreamReader(filePath);
@@ -366,7 +366,7 @@ namespace DB_EDITOR
             status.Add("None");
             status.Add("Current");
             status.Add("Redshirted");
-            if (Next26Mod) status.Add("Medical");
+            if (verNumber >= 16.0) status.Add("Medical");
             return status;
         }
 
@@ -612,7 +612,7 @@ namespace DB_EDITOR
         private List<string> GetSleevesType()
         {
             List<string> Sleeves = new List<string>();
-            if (Next26Mod)
+            if (verNumber >= 16.0)
             {
                 Sleeves.Add("Cold Only");
                 Sleeves.Add("Always/Tattoos");
@@ -630,7 +630,7 @@ namespace DB_EDITOR
         private List<string> GetSleevesColors()
         {
             List<string> SleevesColors = new List<string>();
-            if (Next26Mod)
+            if (verNumber >= 16.0)
             {
                 SleevesColors.Add("Tattoos 1");
                 SleevesColors.Add("Tattoos 2");
@@ -649,7 +649,7 @@ namespace DB_EDITOR
         private List<string> GetElbowTypes()
         {
             List<string> Elbows = new List<string>();
-            if (Next26Mod)
+            if (verNumber >= 15.0)
             {
                 Elbows.Add("Normal");
                 Elbows.Add("Rubber Pad");
@@ -686,7 +686,7 @@ namespace DB_EDITOR
         private List<string> GetWristsTypes()
         {
             List<string> Wrists = new List<string>();
-            if (Next26Mod)
+            if (verNumber >= 15.0)
             {
                 Wrists.Add("None");
                 Wrists.Add("White QB Wrist");
@@ -725,7 +725,7 @@ namespace DB_EDITOR
         private List<string> GetHandTypes()
         {
             List<string> Gloves = new List<string>();
-            if(Next26Mod && devMode)
+            if(verNumber >= 16.2)
             {
                 
                 Gloves.Add("Bare"); //0
@@ -738,7 +738,7 @@ namespace DB_EDITOR
                 Gloves.Add("Uniform 2");
 
             }
-            else if (Next26Mod)
+            else if (verNumber >= 16.0)
             {
                
                 Gloves.Add("None");
@@ -760,7 +760,7 @@ namespace DB_EDITOR
         {
             List<string> Cleats = new List<string>();
 
-            if (Next26Mod)
+            if (verNumber >= 16.2)
             {
                 Cleats.Add("Normal");
                 Cleats.Add("Alt 1 (White)");
@@ -1000,8 +1000,8 @@ namespace DB_EDITOR
             string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             string csvLocation = Path.Combine(executableLocation, @"resources\POCI.csv");
 
-            if (NextMod) csvLocation = Path.Combine(executableLocation, @"resources\POCI-NEXT.csv");
-            else if (Next26Mod) csvLocation = Path.Combine(executableLocation, @"resources\POCI-NEXT26.csv");
+            if (verNumber == 15.0) csvLocation = Path.Combine(executableLocation, @"resources\POCI-NEXT.csv");
+            else if (verNumber >= 16.0) csvLocation = Path.Combine(executableLocation, @"resources\POCI-NEXT26.csv");
 
             string filePath = csvLocation;
             StreamReader sr = new StreamReader(filePath);
@@ -1697,7 +1697,7 @@ namespace DB_EDITOR
 
         public int GetRandomPositiveAttribute(int attribute, int tol)
         {
-            if (Next26Mod) tol = (int)(tol * 1.0);
+            if (verNumber >= 16.0) tol = (int)(tol * 1.0);
             Random rand = new Random();
 
             if (tol < 0) attribute += rand.Next(tol, 0);

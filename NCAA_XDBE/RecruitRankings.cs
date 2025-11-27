@@ -83,7 +83,7 @@ namespace DB_EDITOR
             }
 
 
-            if (!Next26Mod && !NextMod)
+            if (verNumber < 15.0)
             {
                 StartProgressBar(GetTable2RecCount("RCTC"));
                 for (int i = 0; i < GetTable2RecCount("RCTC"); i++)
@@ -318,7 +318,7 @@ namespace DB_EDITOR
                 {
                     RecruitHomeTeam.HeaderText = "Home";
 
-                    if (!Next26Mod && !NextMod)
+                    if (verNumber < 15.0)
                     {
                         five = GetDB2ValueInt("RCTC", "RC5S", i);
                         four = GetDB2ValueInt("RCTC", "RC4S", i);
@@ -408,7 +408,7 @@ namespace DB_EDITOR
                 {
                     RecruitHomeTeam.HeaderText = "State";
 
-                    if (!Next26Mod && !NextMod)
+                    if (verNumber < 15.0)
                     {
                         five = GetDB2ValueInt("RCTC", "RC5S", i);
                         four = GetDB2ValueInt("RCTC", "RC4S", i);
@@ -442,7 +442,7 @@ namespace DB_EDITOR
                 }
                 else  //Transfers Only
                 {
-                    if (!Next26Mod && !NextMod)
+                    if (verNumber < 15.0)
                     {
                         five = 0;
                         four = 0;
