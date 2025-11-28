@@ -745,8 +745,6 @@ namespace DB_EDITOR
             }
         }
 
-
-
         private bool checkTabExists(string tabName)
         {
             foreach (TabPage tab in tabControl1.TabPages)
@@ -796,6 +794,7 @@ namespace DB_EDITOR
             fieldsGridView.Columns["College"].DisplayIndex = 4;
 
         }
+
         #endregion
 
         #region Table Capacity Editor

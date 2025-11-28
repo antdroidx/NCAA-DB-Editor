@@ -291,7 +291,7 @@ namespace DB_EDITOR
                 //DBTableAddOns();
 
                 StartHomeTab();
-
+                ModVersionChecker();
             }
         }
 
@@ -1050,7 +1050,7 @@ namespace DB_EDITOR
         private void ScheduleGenMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Please load the Schedule Template file (File 3 from TEMPLATE.DAT).");
-            LeagueMain scheduleGen = new LeagueMain();
+            LeagueMain scheduleGen = new LeagueMain(verNumber);
             scheduleGen.ShowDialog();
         }
 
@@ -1066,6 +1066,7 @@ namespace DB_EDITOR
 
         #region Configuration Selection
 
+        //Database Chooser
         private void DB2Button_CheckedChanged(object sender, EventArgs e)
         {
             dbSelected = 1;
@@ -1088,6 +1089,34 @@ namespace DB_EDITOR
             TDB.TDBSave(dbIndex2);
         }
 
+        //MOD VERSION CHECK
+
+        private void ModVersionChecker()
+        {
+            if (GetTableRecCount("PLAY") > 8400)
+            {
+                radioNEXT26.Checked = true;
+                for (int i = 0; i < GetTableRecCount("PLAY"); i++)
+                {
+                    if (GetDBValueInt("PLAY", "PLHN", i) > 2)
+                    {
+                        radioNext26v162.Checked = true;
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 0; i < GetTableRecCount("BOWL"); i++)
+                {
+                    if (GetDBValue("BOWL", "BNAM", i).Contains("CFP"))
+                    {
+                        NextConfigRadio.Checked = true;
+                        break;
+                    }
+                }
+            }
+        }
 
         private void OGConfigRadio_CheckedChanged(object sender, EventArgs e)
         {

@@ -56,9 +56,9 @@ namespace DB_EDITOR
         int TeamCount = 0;
         int maxTeams = 24;
         bool ArmyNavy = false;
-        bool NextMod = false;
-        bool Next26Mod = false;
-
+       //bool NextMod = false;
+        //bool Next26Mod = false;
+        double verNumber = 0.0;
 
         List<int> bowlsDeleted = new List<int>();
 
@@ -66,13 +66,17 @@ namespace DB_EDITOR
 
         #endregion
 
-        public LeagueMain()
+        public LeagueMain(double version)
         {
             InitializeComponent();
             DefaultSettings();
             OpenFile();
             KeyPreview = true;
-            if (NextMod) NextConfigRadio.Checked = true;
+
+            verNumber = version;
+            if(verNumber >= 16.0) Next26Config.Checked = true;
+            else if (verNumber >= 15.0) NextConfigRadio.Checked = true;
+            else OGConfigRadio.Checked = true;
 
             CheckArmyNavyLaunch();
         }
@@ -1733,21 +1737,15 @@ namespace DB_EDITOR
         {
             if (NextConfigRadio.Checked)
             {
-                NextMod = true;
-                Next26Mod = false;
-                radio120.Checked = true;
+                verNumber = 15.0;
             }
             else if (Next26Config.Checked)
             {
-                NextMod = false;
-                Next26Mod = true;
-                radio136.Checked = true;
+                verNumber = 16.0;
             }
             else
             {
-                NextMod = false;
-                Next26Mod = false;
-                radio120.Checked = true;
+                verNumber = 0.0;
             }
         }
 
@@ -1755,21 +1753,15 @@ namespace DB_EDITOR
         {
             if (NextConfigRadio.Checked)
             {
-                NextMod = true;
-                Next26Mod = false;
-                radio120.Checked = true;
+                verNumber = 15.0;
             }
             else if (Next26Config.Checked)
             {
-                NextMod = false;
-                Next26Mod = true;
-                radio136.Checked = true;
+                verNumber = 16.0;
             }
             else
             {
-                NextMod = false;
-                Next26Mod = false;
-                radio120.Checked = true;
+                verNumber = 0.0;
             }
         }
 
@@ -1777,21 +1769,15 @@ namespace DB_EDITOR
         {
             if (NextConfigRadio.Checked)
             {
-                NextMod = true;
-                Next26Mod = false;
-                radio120.Checked = true;
+                verNumber = 15.0;
             }
             else if (Next26Config.Checked)
             {
-                NextMod = false;
-                Next26Mod = true;
-                radio136.Checked = true;
+                verNumber = 16.0;
             }
             else
             {
-                NextMod = false;
-                Next26Mod = false;
-                radio120.Checked = true;
+                verNumber = 0.0;
             }
         }
     }

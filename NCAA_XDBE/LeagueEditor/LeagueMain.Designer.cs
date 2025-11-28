@@ -94,9 +94,6 @@ namespace DB_EDITOR
             openFileDialog2 = new OpenFileDialog();
             colorDialog1 = new ColorDialog();
             tabConf = new TabPage();
-            groupBox2 = new GroupBox();
-            radio136 = new RadioButton();
-            radio120 = new RadioButton();
             label31 = new Label();
             label32 = new Label();
             label33 = new Label();
@@ -235,7 +232,6 @@ namespace DB_EDITOR
             TablePropsgroupBox.SuspendLayout();
             FieldsPropsgroupBox.SuspendLayout();
             tabConf.SuspendLayout();
-            groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown7).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown8).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown9).BeginInit();
@@ -624,7 +620,6 @@ namespace DB_EDITOR
             // 
             tabConf.AutoScroll = true;
             tabConf.BackColor = SystemColors.ScrollBar;
-            tabConf.Controls.Add(groupBox2);
             tabConf.Controls.Add(label31);
             tabConf.Controls.Add(label32);
             tabConf.Controls.Add(label33);
@@ -725,39 +720,6 @@ namespace DB_EDITOR
             tabConf.TabIndex = 9;
             tabConf.Text = "Conferences";
             tabConf.MouseDown += MouseDown_Click;
-            // 
-            // groupBox2
-            // 
-            groupBox2.Controls.Add(radio136);
-            groupBox2.Controls.Add(radio120);
-            groupBox2.Location = new Point(972, 47);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(180, 51);
-            groupBox2.TabIndex = 111;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "League Team Count";
-            // 
-            // radio136
-            // 
-            radio136.AutoSize = true;
-            radio136.Location = new Point(91, 20);
-            radio136.Name = "radio136";
-            radio136.Size = new Size(78, 17);
-            radio136.TabIndex = 2;
-            radio136.Text = "136 Teams";
-            radio136.UseVisualStyleBackColor = true;
-            // 
-            // radio120
-            // 
-            radio120.AutoSize = true;
-            radio120.Checked = true;
-            radio120.Location = new Point(7, 20);
-            radio120.Name = "radio120";
-            radio120.Size = new Size(78, 17);
-            radio120.TabIndex = 0;
-            radio120.TabStop = true;
-            radio120.Text = "120 Teams";
-            radio120.UseVisualStyleBackColor = true;
             // 
             // label31
             // 
@@ -1378,9 +1340,9 @@ namespace DB_EDITOR
             AllTeamsListBox.BackColor = SystemColors.ControlLight;
             AllTeamsListBox.FormattingEnabled = true;
             AllTeamsListBox.ItemHeight = 13;
-            AllTeamsListBox.Location = new Point(975, 156);
+            AllTeamsListBox.Location = new Point(975, 77);
             AllTeamsListBox.Name = "AllTeamsListBox";
-            AllTeamsListBox.Size = new Size(161, 381);
+            AllTeamsListBox.Size = new Size(161, 472);
             AllTeamsListBox.TabIndex = 44;
             AllTeamsListBox.SelectedIndexChanged += AllTeamsListBox_SelectedIndexChanged;
             AllTeamsListBox.MouseDown += MouseClick_AddTeam;
@@ -1486,7 +1448,7 @@ namespace DB_EDITOR
             labelTeamSelection.AllowDrop = true;
             labelTeamSelection.AutoSize = true;
             labelTeamSelection.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            labelTeamSelection.Location = new Point(972, 137);
+            labelTeamSelection.Location = new Point(972, 58);
             labelTeamSelection.Name = "labelTeamSelection";
             labelTeamSelection.Size = new Size(116, 16);
             labelTeamSelection.TabIndex = 30;
@@ -2200,8 +2162,6 @@ namespace DB_EDITOR
             FieldsPropsgroupBox.PerformLayout();
             tabConf.ResumeLayout(false);
             tabConf.PerformLayout();
-            groupBox2.ResumeLayout(false);
-            groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown7).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown8).EndInit();
             ((System.ComponentModel.ISupportInitialize)numericUpDown9).EndInit();
@@ -2416,9 +2376,6 @@ namespace DB_EDITOR
         private GroupBox groupBox1;
         private RadioButton OGConfigRadio;
         private RadioButton NextConfigRadio;
-        private GroupBox groupBox2;
-        private RadioButton radio120;
-        private RadioButton radio136;
         private RadioButton Next26Config;
         private DataGridViewTextBoxColumn BIDX;
         private DataGridViewTextBoxColumn BNME;

@@ -94,7 +94,7 @@ namespace DB_EDITOR
             //Add Non-Required Bowls to List (BIDX 1-16)
             for (int i = 0; i < main.GetTableRecCount("BOWL"); i++)
             {
-                if (!Next26Mod) 
+                if (verNumber <= 15.0) 
                 { 
                     if (main.GetDBValueInt("BOWL", "BIDX", i) > 1 && main.GetDBValueInt("BOWL", "BIDX", i) <= 16)
                     availableBowls.Items.Add(main.GetDBValue("BOWL", "BNME", i));
@@ -152,7 +152,7 @@ namespace DB_EDITOR
             main.ChangeDBInt("BOWL", "SGNM", rec, count);
             main.ChangeDBInt("BOWL", "BMON", rec, 12);
             main.ChangeDBInt("BOWL", "SEWN", rec, 16);
-            if (!Next26Mod || main.GetTableRecCount("BOWL") < 40)
+            if (verNumber <= 15.0 || main.GetTableRecCount("BOWL") < 40)
             {
                 main.ChangeDBInt("BOWL", "BIDX", rec, 33 + count);
                 main.ChangeDBInt("BOWL", "BDAY", rec, 1);

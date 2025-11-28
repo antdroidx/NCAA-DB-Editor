@@ -108,7 +108,7 @@ namespace DB_EDITOR
             }
 
             //Add Army-Navy if not present
-            if (!ArmyNavy && NextMod || !ArmyNavy && Next26Mod)
+            if (!ArmyNavy && verNumber >= 15.0)
             {
                 int rec = GetTableRecCount("SANN");
                 TDB.TDBTableRecordAdd(dbIndex2, "SANN", false);
@@ -259,7 +259,7 @@ namespace DB_EDITOR
                 }
             }
 
-            if (!ArmyNavy && NextMod || !ArmyNavy && Next26Mod)
+            if (!ArmyNavy && verNumber >= 15.0)
             {
                 rec = TDB.TableRecordCount(dbIndex2, "SANN");
                 TDB.TDBTableRecordAdd(dbIndex2, "SANN", false);

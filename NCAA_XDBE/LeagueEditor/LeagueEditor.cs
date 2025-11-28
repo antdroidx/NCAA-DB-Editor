@@ -687,7 +687,7 @@ namespace DB_EDITOR
 
             /* Update Team Count and Save Button */
 
-            if (radio120.Checked) maxFBSTeams = 120;
+            if (verNumber <= 15.0) maxFBSTeams = 120;
             else maxFBSTeams = 136;
 
             if (TeamCount == maxFBSTeams && AllValid)

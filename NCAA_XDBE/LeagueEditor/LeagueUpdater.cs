@@ -169,7 +169,7 @@ namespace DB_EDITOR
                     main.GenerateFantasyRoster(tgid, 2, true);
 
                     int leaguesize = 120;
-                   if(radio136.Checked) leaguesize = 136;
+                   if(verNumber >= 16.0) leaguesize = 136;
                     main.DepthChartMakerSingle("TEAM", tgid, leaguesize, true);
                     progressBar1.PerformStep();
                 }
