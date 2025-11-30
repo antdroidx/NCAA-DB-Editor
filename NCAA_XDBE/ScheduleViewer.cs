@@ -159,7 +159,7 @@ namespace DB_EDITOR
                         teamRecH = FindTeamRecfromTeamName(teamNameH);
                         rank = GetDBValueInt("TEAM", "TCRK", teamRecH);
                         if (sewn >= 8 && sewn < GetDBValueInt("SEAI", "SEOW", 0)) rank = GetDBValueInt("TEAM", "TBRK", teamRecH);
-                        if (rank <= 25) rankH += "#" + rank + " ";
+                        if (rank > 0 && rank <= 25) rankH += "#" + rank + " ";
 
                         strength += GetDBValueInt("TEAM", "TROV", teamRecH);
                         games++;
@@ -175,14 +175,14 @@ namespace DB_EDITOR
                         int sewn = GetDBValueInt("SEAI", "SEWN", 0);
                         if (sewn >= 8 && sewn < GetDBValueInt("SEAI", "SEOW", 0)) rank = GetDBValueInt("TEAM", "TBRK", teamRecA);
                         rankA = "vs ";
-                        if (rank <= 25) rankA += "#" + rank + " ";
+                        if (rank > 0 && rank <= 25) rankA += "#" + rank + " ";
 
 
                         teamNameH = teamNameDB[tgid];
                         teamRecH = FindTeamRecfromTeamName(teamNameH);
                         rank = GetDBValueInt("TEAM", "TCRK", teamRecH);
                         if (sewn >= 8 && sewn < GetDBValueInt("SEAI", "SEOW", 0)) rank = GetDBValueInt("TEAM", "TBRK", teamRecH);
-                        if (rank <= 25) rankH += "#" + rank + " ";
+                        if (rank > 0 && rank <= 25) rankH += "#" + rank + " ";
 
                         strength += GetDBValueInt("TEAM", "TROV", teamRecA);
                         games++;
@@ -321,7 +321,7 @@ namespace DB_EDITOR
                     int rank = GetDBValueInt("TEAM", "TCRK", teamRecA);
                     int sewnX = GetDBValueInt("SEAI", "SEWN", 0);
                     if (sewnX >= 8 && sewnX < GetDBValueInt("SEAI", "SEOW", 0)) rank = GetDBValueInt("TEAM", "TBRK", teamRecA);
-                    if (rank <= 25) rankA = "#" + rank + " ";
+                    if (rank > 0 && rank <= 25) rankA = "#" + rank + " ";
                     GameScore[w] += rank;
                     ScheduleView.Rows[w].Cells[1].Value = rankA + teamNameA;
                     ScheduleView.Rows[w].Cells[1].Style.BackColor = GetTeamPrimaryColor(teamRecA);
@@ -338,8 +338,8 @@ namespace DB_EDITOR
                     int teamRecH = FindTeamRecfromTeamName(teamNameH);
 
                     rank = GetDBValueInt("TEAM", "TCRK", teamRecH);
-                    if (sewnX >= 8 && sewnX < GetDBValueInt("SEAI", "SEOW", 0)) rank = GetDBValueInt("TEAM", "TBRK", teamRecA);
-                    if (rank <= 25) rankH = "#" + rank + " ";
+                    if (sewnX >= 8 && sewnX < GetDBValueInt("SEAI", "SEOW", 0)) rank = GetDBValueInt("TEAM", "TBRK", teamRecH);
+                    if (rank > 0 && rank <= 25) rankH = "#" + rank + " ";
                     GameScore[w] += rank;
 
                     ScheduleView.Rows[w].Cells[4].Value = rankH + teamNameH;
@@ -643,10 +643,12 @@ namespace DB_EDITOR
                 }
             }
 
+            int sewnX = GetDBValueInt("SEAI", "SEWN", 0);
             //Away Team
             string rankA = "";
             int rank = GetDBValueInt("TEAM", "TCRK", recA);
-            if (rank <= 25) rankA = "#" + rank + " ";
+            if (sewnX >= 8 && sewnX < GetDBValueInt("SEAI", "SEOW", 0)) rank = GetDBValueInt("TEAM", "TBRK", recA);
+            if (rank > 0 && rank <= 25) rankA = "#" + rank + " ";
 
             WeeklyBoxscoreView.Rows[0].Cells[0].Value = rankA + teamNameDB[tgidA];
             WeeklyBoxscoreView.Rows[0].Cells[0].Style.BackColor = GetTeamPrimaryColor(recA);
@@ -655,7 +657,8 @@ namespace DB_EDITOR
 
             string rankH = "";
             rank = GetDBValueInt("TEAM", "TCRK", recH);
-            if (rank <= 25) rankH = "#" + rank + " ";
+            if (sewnX >= 8 && sewnX < GetDBValueInt("SEAI", "SEOW", 0)) rank = GetDBValueInt("TEAM", "TBRK", recH);
+            if (rank > 0 && rank <= 25) rankH = "#" + rank + " ";
 
             //Home Team
             WeeklyBoxscoreView.Rows[1].Cells[0].Value = rankH + teamNameDB[tgidH];

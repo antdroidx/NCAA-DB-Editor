@@ -79,6 +79,9 @@ namespace DB_EDITOR
                 string coachLN = GetDBValue("COCH", "CLLN", i);
                 string teamID = GetTeamName(Convert.ToInt32(GetDBValue("COCH", "TGID", i)));
                 int CYCD = GetDBValueInt("COCH", "CYCD", i);
+
+                string CTYR = GetDBValue("COCH", "CTYR", i);
+                if (CTYR == "0") CTYR = "N/A";
                 string team = teamNameDB[TGID];
                 if (TGID == 511) team = "Unemployed";
 
@@ -98,6 +101,9 @@ namespace DB_EDITOR
 
                     if (checkBoxFiredTransfers.Checked) CoachTransferPortal(Convert.ToInt32(GetDBValue("COCH", "TGID", i)));
 
+                    int seyr = GetDBValueInt("SEAI", "SEYR", 0);
+                    if (verNumber > 15.0) CYCD = CYCD + seyr + 23;
+
                     int newCounter = coachNews.Count;
                     coachNews.Add(new List<string>());
                     coachNews[newCounter].Add(coachFN + " " + coachLN);
@@ -106,6 +112,7 @@ namespace DB_EDITOR
                     coachNews[newCounter].Add(ConvertStarNumber(TMPR));
                     coachNews[newCounter].Add(ConvertStarNumber(CPRE));
                     coachNews[newCounter].Add(Convert.ToString(CYCD));
+                    coachNews[newCounter].Add(Convert.ToString(CTYR));
                     coachNews[newCounter].Add(GetDBValue("COCH", "CCWI", i) + "-" + GetDBValue("COCH", "CCLO", i));
                     coachNews[newCounter].Add(GetDBValue("COCH", "CSWI", i) + "-" + GetDBValue("COCH", "CSLO", i));
                     coachNews[newCounter].Add(GetDBValue("COCH", "CCPO", i));
@@ -140,6 +147,9 @@ namespace DB_EDITOR
 
                         if (checkBoxFiredTransfers.Checked) CoachTransferPortal(Convert.ToInt32(GetDBValue("COCH", "TGID", i)));
 
+                        int seyr = GetDBValueInt("SEAI", "SEYR", 0);
+                        if (verNumber > 15.0) CYCD = CYCD + seyr + 23;
+
                         int newCounter = coachNews.Count;
                         coachNews.Add(new List<string>());
                         coachNews[newCounter].Add(coachFN + " " + coachLN);
@@ -148,6 +158,7 @@ namespace DB_EDITOR
                         coachNews[newCounter].Add(ConvertStarNumber(TMPR));
                         coachNews[newCounter].Add(ConvertStarNumber(CPRE));
                         coachNews[newCounter].Add(Convert.ToString(CYCD));
+                        coachNews[newCounter].Add(Convert.ToString(CTYR));
                         coachNews[newCounter].Add(GetDBValue("COCH", "CCWI", i) + "-" + GetDBValue("COCH", "CCLO", i));
                         coachNews[newCounter].Add(GetDBValue("COCH", "CSWI", i) + "-" + GetDBValue("COCH", "CSLO", i));
                         coachNews[newCounter].Add(GetDBValue("COCH", "CCPO", i));
@@ -250,6 +261,9 @@ namespace DB_EDITOR
                     int CTOP = Convert.ToInt32(GetDBValue("COCH", "CTOP", i));
                     int TMPR = FindTeamPrestige(Convert.ToInt32(prvTGID));
                     int CCPO = Convert.ToInt32(GetDBValue("COCH", "CCPO", i));
+                    int CYCD = GetDBValueInt("COCH", "CYCD", i);
+                    int seyr = GetDBValueInt("SEAI", "SEYR", 0);
+                    if (verNumber > 15.0) CYCD = CYCD + seyr + 23;
 
                     if (CCPO > 84 && CTOP < TMPR)
                     {
@@ -284,7 +298,8 @@ namespace DB_EDITOR
                                     coachNews[newCounter].Add(teamNameDB[tgid]);
                                     coachNews[newCounter].Add(ConvertStarNumber(teamPrestigeList[x][2]));
                                     coachNews[newCounter].Add(ConvertStarNumber(cpre));
-                                    coachNews[newCounter].Add(GetDBValue("COCH", "CCYD", i));
+                                    coachNews[newCounter].Add(Convert.ToString(CYCD));
+                                    coachNews[newCounter].Add(GetDBValue("COCH", "CTYR", i));
                                     coachNews[newCounter].Add(GetDBValue("COCH", "CCWI", i) + "-" + GetDBValue("COCH", "CCLO", i));
                                     coachNews[newCounter].Add(GetDBValue("COCH", "CSWI", i) + "-" + GetDBValue("COCH", "CSLO", i));
                                     coachNews[newCounter].Add(GetDBValue("COCH", "CCPO", i));
@@ -342,7 +357,10 @@ namespace DB_EDITOR
                             string coachFN = GetDBValue("COCH", "CLFN", x);
                             string coachLN = GetDBValue("COCH", "CLLN", x);
                             string teamID = GetTeamName(Convert.ToInt32(GetDBValue("COCH", "TGID", x)));
-                            string CYCD = GetDBValue("COCH", "CYCD", x);
+                            int CYCD = GetDBValueInt("COCH", "CYCD", x);
+                            int seyr = GetDBValueInt("SEAI", "SEYR", 0);
+                            if (verNumber > 15.0) CYCD = CYCD + seyr + 23; 
+
                             int CPRE = GetDBValueInt("COCH", "CPRE", x);
 
 
@@ -354,6 +372,7 @@ namespace DB_EDITOR
                             coachNews[newCounter].Add(ConvertStarNumber(TMPR));
                             coachNews[newCounter].Add(ConvertStarNumber(CPRE));
                             coachNews[newCounter].Add(Convert.ToString(CYCD));
+                            coachNews[newCounter].Add("N/A");
                             coachNews[newCounter].Add(GetDBValue("COCH", "CCWI", x) + "-" + GetDBValue("COCH", "CCLO", x));
                             coachNews[newCounter].Add("N/A");
                             coachNews[newCounter].Add(GetDBValue("COCH", "CCPO", x));
@@ -380,17 +399,25 @@ namespace DB_EDITOR
 
                         if (currentTMPR < TMPR)
                         {
-                            ChangeDBInt("COCH", "TGID", x, TGID);
-                            ChangeDBString("COCH", "CCPO", x, "60");
-                            ChangeDBString("COCH", "CTYR", x, "0");
 
 
                             string coachFN = GetDBValue("COCH", "CLFN", x);
                             string coachLN = GetDBValue("COCH", "CLLN", x);
-                            string teamID = GetTeamName(GetDBValueInt("COCH", "TGID", x));
+                            string teamID = GetTeamName(TGID);
                             string oldTeamID = GetTeamName(currentTGID);
-                            string CYCD = GetDBValue("COCH", "CYCD", x);
+
+                            int CYCD = GetDBValueInt("COCH", "CYCD", x);
+                            int seyr = GetDBValueInt("SEAI", "SEYR", 0);
+                            if (verNumber > 15.0) CYCD = CYCD + seyr + 23;
+
                             int CPRE = GetDBValueInt("COCH", "CPRE", x);
+                            string CTYR = GetDBValue("COCH", "CTYR", x);
+                            string CCPO = GetDBValue("COCH", "CCPO", x);
+
+                            ChangeDBInt("COCH", "TGID", x, TGID);
+                            ChangeDBString("COCH", "CCPO", x, "60");
+                            ChangeDBString("COCH", "CTYR", x, "0");
+
 
                             if (checkBoxFiredTransfers.Checked)
                             {
@@ -405,9 +432,10 @@ namespace DB_EDITOR
                             coachNews[newCounter].Add(ConvertStarNumber(TMPR));
                             coachNews[newCounter].Add(ConvertStarNumber(CPRE));
                             coachNews[newCounter].Add(Convert.ToString(CYCD));
+                            coachNews[newCounter].Add(Convert.ToString(CTYR));
                             coachNews[newCounter].Add(GetDBValue("COCH", "CCWI", x) + "-" + GetDBValue("COCH", "CCLO", x));
                             coachNews[newCounter].Add(GetDBValue("COCH", "CSWI", x) + "-" + GetDBValue("COCH", "CSLO", x));
-                            coachNews[newCounter].Add(GetDBValue("COCH", "CCPO", x));
+                            coachNews[newCounter].Add(CCPO);
                             coachNews[newCounter].Add(Convert.ToString(x));
 
                             CCID_PromoteList.RemoveAt(r);
@@ -471,11 +499,11 @@ namespace DB_EDITOR
 
                         int row = TransferNews.Count;
                         TransferNews.Add(new List<string>());
-                        TransferNews[row].Add(Convert.ToString(ConvertRating(players[xfer, 2])));
+                        TransferNews[row].Add(GetTeamName(tgid));
                         TransferNews[row].Add(GetPositionName(players[xfer, 3]));
                         TransferNews[row].Add(GetFirstNameFromRecord(players[xfer, 0]) + " " + GetLastNameFromRecord(players[xfer, 0]));
                         TransferNews[row].Add(GetClassYearsAbbr(players[xfer, 4], players[xfer, 5]));
-                        TransferNews[row].Add(GetTeamName(tgid));
+                        TransferNews[row].Add(Convert.ToString(ConvertRating(players[xfer, 2])));
                         TransferNews[row].Add(Convert.ToString(players[xfer, 0]));
 
                         currentRecCount++;
@@ -571,8 +599,7 @@ namespace DB_EDITOR
                 CarouselDataGrid.Rows[row].Cells[7].Value = CoachNews[x][7];
                 CarouselDataGrid.Rows[row].Cells[8].Value = CoachNews[x][8];
                 CarouselDataGrid.Rows[row].Cells[9].Value = CoachNews[x][9];
-
-
+                CarouselDataGrid.Rows[row].Cells[10].Value = CoachNews[x][10];
             }
 
             CarouselDataGrid.ClearSelection();
@@ -1056,7 +1083,7 @@ namespace DB_EDITOR
             //Player
             if (cell == 0 && Convert.ToString(CarouselDataGrid.Rows[row].Cells[1].Value) != "Retired")
             {
-                int PLAYrec = Convert.ToInt32(CarouselDataGrid.Rows[row].Cells[9].Value);
+                int PLAYrec = Convert.ToInt32(CarouselDataGrid.Rows[row].Cells[10].Value);
 
                 CoachIndex = PLAYrec;
                 tabControl1.SelectedTab = tabCoaches;
@@ -1088,9 +1115,9 @@ namespace DB_EDITOR
                 LoadPlayerData();
             }
             //Team
-            else if(cell == 4)
+            else if(cell == 0)
             {
-                int teamRec = FindTeamRecfromTeamName(Convert.ToString(CoachPortalNews.Rows[row].Cells[4].Value));
+                int teamRec = FindTeamRecfromTeamName(Convert.ToString(CoachPortalNews.Rows[row].Cells[0].Value));
                 TeamIndex = teamRec;
                 tabControl1.SelectedTab = tabTeams;
                 GetTeamEditorData(teamRec);
