@@ -418,8 +418,22 @@ namespace DB_EDITOR
             labelRecruit = new Label();
             textBoxOffSeasonTitle = new System.Windows.Forms.TextBox();
             tabRecruits = new TabPage();
-            label170 = new Label();
+            groupBox55 = new GroupBox();
+            RecruitTypeFilter = new System.Windows.Forms.ComboBox();
+            RecruitStateFilter = new System.Windows.Forms.ComboBox();
+            RecruitPosFilter = new System.Windows.Forms.ComboBox();
+            Label19084 = new Label();
+            label204 = new Label();
+            label205 = new Label();
+            GroupBox54 = new GroupBox();
+            label208 = new Label();
+            TargetedByComboBox = new System.Windows.Forms.ComboBox();
+            label202 = new Label();
+            TeamInterestComboBox = new System.Windows.Forms.ComboBox();
             RecruitTeamComboBox = new System.Windows.Forms.ComboBox();
+            label201 = new Label();
+            label170 = new Label();
+            TransferTeamComboBox = new System.Windows.Forms.ComboBox();
             groupBox48 = new GroupBox();
             label82 = new Label();
             RHAN = new System.Windows.Forms.ComboBox();
@@ -472,13 +486,7 @@ namespace DB_EDITOR
             RCTeam = new DataGridViewComboBoxColumn();
             RCTScore = new DataGridViewTextBoxColumn();
             RecruitCounter = new Label();
-            label205 = new Label();
-            label204 = new Label();
-            Label19084 = new Label();
-            RecruitPosFilter = new System.Windows.Forms.ComboBox();
-            RecruitStateFilter = new System.Windows.Forms.ComboBox();
             CommitStatus = new CheckBox();
-            RecruitTypeFilter = new System.Windows.Forms.ComboBox();
             groupBox20 = new GroupBox();
             RSTAtext = new System.Windows.Forms.TextBox();
             RTENBox = new System.Windows.Forms.TextBox();
@@ -1501,8 +1509,6 @@ namespace DB_EDITOR
             RCATAppearanceRandomizerButton = new System.Windows.Forms.Button();
             buttonRCATBody = new System.Windows.Forms.Button();
             toolTip1 = new System.Windows.Forms.ToolTip(components);
-            label201 = new Label();
-            TransferTeamComboBox = new System.Windows.Forms.ComboBox();
             mainMenu.SuspendLayout();
             tableMenu.SuspendLayout();
             fieldMenu.SuspendLayout();
@@ -1548,6 +1554,8 @@ namespace DB_EDITOR
             groupBox50.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)recruitTolerance).BeginInit();
             tabRecruits.SuspendLayout();
+            groupBox55.SuspendLayout();
+            GroupBox54.SuspendLayout();
             groupBox48.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)RDIS).BeginInit();
             ((System.ComponentModel.ISupportInitialize)RHGTBox).BeginInit();
@@ -4693,10 +4701,8 @@ namespace DB_EDITOR
             // tabRecruits
             // 
             tabRecruits.BackColor = SystemColors.ActiveCaption;
-            tabRecruits.Controls.Add(label201);
-            tabRecruits.Controls.Add(TransferTeamComboBox);
-            tabRecruits.Controls.Add(label170);
-            tabRecruits.Controls.Add(RecruitTeamComboBox);
+            tabRecruits.Controls.Add(groupBox55);
+            tabRecruits.Controls.Add(GroupBox54);
             tabRecruits.Controls.Add(groupBox48);
             tabRecruits.Controls.Add(groupBox39);
             tabRecruits.Controls.Add(RecruitPitch);
@@ -4704,13 +4710,7 @@ namespace DB_EDITOR
             tabRecruits.Controls.Add(label207);
             tabRecruits.Controls.Add(RecruitDataGrid);
             tabRecruits.Controls.Add(RecruitCounter);
-            tabRecruits.Controls.Add(label205);
-            tabRecruits.Controls.Add(label204);
-            tabRecruits.Controls.Add(Label19084);
-            tabRecruits.Controls.Add(RecruitPosFilter);
-            tabRecruits.Controls.Add(RecruitStateFilter);
             tabRecruits.Controls.Add(CommitStatus);
-            tabRecruits.Controls.Add(RecruitTypeFilter);
             tabRecruits.Controls.Add(groupBox20);
             tabRecruits.Controls.Add(RecruitListBox);
             tabRecruits.Location = new Point(4, 29);
@@ -4719,25 +4719,174 @@ namespace DB_EDITOR
             tabRecruits.TabIndex = 12;
             tabRecruits.Text = "Recruits";
             // 
-            // label170
+            // groupBox55
             // 
-            label170.AutoSize = true;
-            label170.Location = new Point(12, 539);
-            label170.Name = "label170";
-            label170.Size = new Size(75, 13);
-            label170.TabIndex = 174;
-            label170.Text = "Committed To:";
+            groupBox55.Controls.Add(RecruitTypeFilter);
+            groupBox55.Controls.Add(RecruitStateFilter);
+            groupBox55.Controls.Add(RecruitPosFilter);
+            groupBox55.Controls.Add(Label19084);
+            groupBox55.Controls.Add(label204);
+            groupBox55.Controls.Add(label205);
+            groupBox55.Location = new Point(6, 3);
+            groupBox55.Name = "groupBox55";
+            groupBox55.Size = new Size(241, 62);
+            groupBox55.TabIndex = 178;
+            groupBox55.TabStop = false;
+            groupBox55.Text = "Recruit Filter";
+            // 
+            // RecruitTypeFilter
+            // 
+            RecruitTypeFilter.BackColor = SystemColors.Menu;
+            RecruitTypeFilter.FormattingEnabled = true;
+            RecruitTypeFilter.Location = new Point(6, 33);
+            RecruitTypeFilter.Name = "RecruitTypeFilter";
+            RecruitTypeFilter.Size = new Size(87, 21);
+            RecruitTypeFilter.TabIndex = 156;
+            RecruitTypeFilter.SelectedIndexChanged += (this.RecruitTypeFilter_SelectedIndexChanged);
+            // 
+            // RecruitStateFilter
+            // 
+            RecruitStateFilter.BackColor = SystemColors.Menu;
+            RecruitStateFilter.FormattingEnabled = true;
+            RecruitStateFilter.Location = new Point(102, 32);
+            RecruitStateFilter.Name = "RecruitStateFilter";
+            RecruitStateFilter.Size = new Size(64, 21);
+            RecruitStateFilter.TabIndex = 157;
+            RecruitStateFilter.SelectedIndexChanged += (this.RecruitStateFilter_SelectedIndexChanged);
+            // 
+            // RecruitPosFilter
+            // 
+            RecruitPosFilter.BackColor = SystemColors.Menu;
+            RecruitPosFilter.FormattingEnabled = true;
+            RecruitPosFilter.Location = new Point(175, 32);
+            RecruitPosFilter.Name = "RecruitPosFilter";
+            RecruitPosFilter.Size = new Size(59, 21);
+            RecruitPosFilter.TabIndex = 158;
+            RecruitPosFilter.SelectedIndexChanged += (this.RecruitPosFilter_SelectedIndexChanged);
+            // 
+            // Label19084
+            // 
+            Label19084.AutoSize = true;
+            Label19084.Location = new Point(12, 16);
+            Label19084.Name = "Label19084";
+            Label19084.Size = new Size(31, 13);
+            Label19084.TabIndex = 159;
+            Label19084.Text = "Type";
+            // 
+            // label204
+            // 
+            label204.AutoSize = true;
+            label204.Location = new Point(102, 15);
+            label204.Name = "label204";
+            label204.Size = new Size(32, 13);
+            label204.TabIndex = 160;
+            label204.Text = "State";
+            // 
+            // label205
+            // 
+            label205.AutoSize = true;
+            label205.Location = new Point(175, 15);
+            label205.Name = "label205";
+            label205.Size = new Size(44, 13);
+            label205.TabIndex = 161;
+            label205.Text = "Position";
+            // 
+            // GroupBox54
+            // 
+            GroupBox54.Controls.Add(label208);
+            GroupBox54.Controls.Add(TargetedByComboBox);
+            GroupBox54.Controls.Add(label202);
+            GroupBox54.Controls.Add(TeamInterestComboBox);
+            GroupBox54.Controls.Add(RecruitTeamComboBox);
+            GroupBox54.Controls.Add(label201);
+            GroupBox54.Controls.Add(label170);
+            GroupBox54.Controls.Add(TransferTeamComboBox);
+            GroupBox54.Location = new Point(6, 441);
+            GroupBox54.Name = "GroupBox54";
+            GroupBox54.Size = new Size(241, 145);
+            GroupBox54.TabIndex = 177;
+            GroupBox54.TabStop = false;
+            GroupBox54.Text = "Team Filters";
+            // 
+            // label208
+            // 
+            label208.AutoSize = true;
+            label208.Location = new Point(9, 115);
+            label208.Name = "label208";
+            label208.Size = new Size(68, 13);
+            label208.TabIndex = 180;
+            label208.Text = "Targeted By:";
+            // 
+            // TargetedByComboBox
+            // 
+            TargetedByComboBox.BackColor = SystemColors.Menu;
+            TargetedByComboBox.Font = new Font("Microsoft Sans Serif", 9F);
+            TargetedByComboBox.FormattingEnabled = true;
+            TargetedByComboBox.Location = new Point(89, 110);
+            TargetedByComboBox.Name = "TargetedByComboBox";
+            TargetedByComboBox.Size = new Size(145, 23);
+            TargetedByComboBox.TabIndex = 179;
+            TargetedByComboBox.SelectedIndexChanged += (this.TargetedBycomboBox_SelectedIndexChanged);
+            // 
+            // label202
+            // 
+            label202.AutoSize = true;
+            label202.Location = new Point(9, 86);
+            label202.Name = "label202";
+            label202.Size = new Size(69, 13);
+            label202.TabIndex = 178;
+            label202.Text = "Interested In:";
+            // 
+            // TeamInterestComboBox
+            // 
+            TeamInterestComboBox.BackColor = SystemColors.Menu;
+            TeamInterestComboBox.Font = new Font("Microsoft Sans Serif", 9F);
+            TeamInterestComboBox.FormattingEnabled = true;
+            TeamInterestComboBox.Location = new Point(89, 81);
+            TeamInterestComboBox.Name = "TeamInterestComboBox";
+            TeamInterestComboBox.Size = new Size(145, 23);
+            TeamInterestComboBox.TabIndex = 177;
+            TeamInterestComboBox.SelectedIndexChanged += (this.TeamInterestComboBox_SelectedIndexChanged);
             // 
             // RecruitTeamComboBox
             // 
             RecruitTeamComboBox.BackColor = SystemColors.Menu;
             RecruitTeamComboBox.Font = new Font("Microsoft Sans Serif", 9F);
             RecruitTeamComboBox.FormattingEnabled = true;
-            RecruitTeamComboBox.Location = new Point(92, 534);
+            RecruitTeamComboBox.Location = new Point(89, 24);
             RecruitTeamComboBox.Name = "RecruitTeamComboBox";
-            RecruitTeamComboBox.Size = new Size(124, 23);
+            RecruitTeamComboBox.Size = new Size(145, 23);
             RecruitTeamComboBox.TabIndex = 173;
             RecruitTeamComboBox.SelectedIndexChanged += (this.RecruitTeamComboBox_SelectedIndexChanged);
+            // 
+            // label201
+            // 
+            label201.AutoSize = true;
+            label201.Location = new Point(8, 57);
+            label201.Name = "label201";
+            label201.Size = new Size(75, 13);
+            label201.TabIndex = 176;
+            label201.Text = "Transfer From:";
+            // 
+            // label170
+            // 
+            label170.AutoSize = true;
+            label170.Location = new Point(9, 29);
+            label170.Name = "label170";
+            label170.Size = new Size(75, 13);
+            label170.TabIndex = 174;
+            label170.Text = "Committed To:";
+            // 
+            // TransferTeamComboBox
+            // 
+            TransferTeamComboBox.BackColor = SystemColors.Menu;
+            TransferTeamComboBox.Font = new Font("Microsoft Sans Serif", 9F);
+            TransferTeamComboBox.FormattingEnabled = true;
+            TransferTeamComboBox.Location = new Point(89, 52);
+            TransferTeamComboBox.Name = "TransferTeamComboBox";
+            TransferTeamComboBox.Size = new Size(145, 23);
+            TransferTeamComboBox.TabIndex = 175;
+            TransferTeamComboBox.SelectedIndexChanged += (this.TransferTeamComboBox_SelectedIndexChanged);
             // 
             // groupBox48
             // 
@@ -4775,7 +4924,7 @@ namespace DB_EDITOR
             groupBox48.Controls.Add(PRIDBox);
             groupBox48.Controls.Add(PFNABox);
             groupBox48.Controls.Add(PLNABox);
-            groupBox48.Location = new Point(240, 2);
+            groupBox48.Location = new Point(268, 2);
             groupBox48.Name = "groupBox48";
             groupBox48.Size = new Size(457, 203);
             groupBox48.TabIndex = 172;
@@ -5118,7 +5267,7 @@ namespace DB_EDITOR
             groupBox39.Controls.Add(GTransferOG);
             groupBox39.Controls.Add(label260);
             groupBox39.Controls.Add(GlobalTransferInterest);
-            groupBox39.Location = new Point(712, 384);
+            groupBox39.Location = new Point(756, 382);
             groupBox39.Name = "groupBox39";
             groupBox39.Size = new Size(371, 220);
             groupBox39.TabIndex = 171;
@@ -5209,7 +5358,7 @@ namespace DB_EDITOR
             // 
             RecruitPitch.AutoSize = true;
             RecruitPitch.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            RecruitPitch.Location = new Point(754, 336);
+            RecruitPitch.Location = new Point(754, 334);
             RecruitPitch.Name = "RecruitPitch";
             RecruitPitch.Size = new Size(193, 20);
             RecruitPitch.TabIndex = 169;
@@ -5217,7 +5366,7 @@ namespace DB_EDITOR
             // 
             // UpdateRecruitOffers
             // 
-            UpdateRecruitOffers.Location = new Point(973, 57);
+            UpdateRecruitOffers.Location = new Point(1052, 55);
             UpdateRecruitOffers.Name = "UpdateRecruitOffers";
             UpdateRecruitOffers.Size = new Size(75, 23);
             UpdateRecruitOffers.TabIndex = 168;
@@ -5229,7 +5378,7 @@ namespace DB_EDITOR
             // 
             label207.AutoSize = true;
             label207.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            label207.Location = new Point(750, 57);
+            label207.Location = new Point(756, 55);
             label207.Name = "label207";
             label207.Size = new Size(184, 20);
             label207.TabIndex = 167;
@@ -5243,11 +5392,11 @@ namespace DB_EDITOR
             RecruitDataGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             RecruitDataGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             RecruitDataGrid.Columns.AddRange(new DataGridViewColumn[] { RCNo, RCTeam, RCTScore });
-            RecruitDataGrid.Location = new Point(754, 84);
+            RecruitDataGrid.Location = new Point(754, 81);
             RecruitDataGrid.Name = "RecruitDataGrid";
             RecruitDataGrid.RowHeadersVisible = false;
             RecruitDataGrid.RowHeadersWidth = 72;
-            RecruitDataGrid.Size = new Size(294, 249);
+            RecruitDataGrid.Size = new Size(373, 249);
             RecruitDataGrid.TabIndex = 166;
             // 
             // RCNo
@@ -5276,58 +5425,11 @@ namespace DB_EDITOR
             // RecruitCounter
             // 
             RecruitCounter.AutoSize = true;
-            RecruitCounter.Location = new Point(15, 589);
+            RecruitCounter.Location = new Point(6, 591);
             RecruitCounter.Name = "RecruitCounter";
             RecruitCounter.Size = new Size(78, 13);
             RecruitCounter.TabIndex = 162;
             RecruitCounter.Text = "Recruit Count: ";
-            // 
-            // label205
-            // 
-            label205.AutoSize = true;
-            label205.Location = new Point(159, 12);
-            label205.Name = "label205";
-            label205.Size = new Size(44, 13);
-            label205.TabIndex = 161;
-            label205.Text = "Position";
-            // 
-            // label204
-            // 
-            label204.AutoSize = true;
-            label204.Location = new Point(91, 12);
-            label204.Name = "label204";
-            label204.Size = new Size(32, 13);
-            label204.TabIndex = 160;
-            label204.Text = "State";
-            // 
-            // Label19084
-            // 
-            Label19084.AutoSize = true;
-            Label19084.Location = new Point(12, 12);
-            Label19084.Name = "Label19084";
-            Label19084.Size = new Size(31, 13);
-            Label19084.TabIndex = 159;
-            Label19084.Text = "Type";
-            // 
-            // RecruitPosFilter
-            // 
-            RecruitPosFilter.BackColor = SystemColors.Menu;
-            RecruitPosFilter.FormattingEnabled = true;
-            RecruitPosFilter.Location = new Point(162, 29);
-            RecruitPosFilter.Name = "RecruitPosFilter";
-            RecruitPosFilter.Size = new Size(54, 21);
-            RecruitPosFilter.TabIndex = 158;
-            RecruitPosFilter.SelectedIndexChanged += (this.RecruitPosFilter_SelectedIndexChanged);
-            // 
-            // RecruitStateFilter
-            // 
-            RecruitStateFilter.BackColor = SystemColors.Menu;
-            RecruitStateFilter.FormattingEnabled = true;
-            RecruitStateFilter.Location = new Point(92, 29);
-            RecruitStateFilter.Name = "RecruitStateFilter";
-            RecruitStateFilter.Size = new Size(64, 21);
-            RecruitStateFilter.TabIndex = 157;
-            RecruitStateFilter.SelectedIndexChanged += (this.RecruitStateFilter_SelectedIndexChanged);
             // 
             // CommitStatus
             // 
@@ -5340,16 +5442,6 @@ namespace DB_EDITOR
             CommitStatus.TabIndex = 163;
             CommitStatus.Text = "Commitment Status";
             CommitStatus.UseVisualStyleBackColor = true;
-            // 
-            // RecruitTypeFilter
-            // 
-            RecruitTypeFilter.BackColor = SystemColors.Menu;
-            RecruitTypeFilter.FormattingEnabled = true;
-            RecruitTypeFilter.Location = new Point(12, 29);
-            RecruitTypeFilter.Name = "RecruitTypeFilter";
-            RecruitTypeFilter.Size = new Size(74, 21);
-            RecruitTypeFilter.TabIndex = 156;
-            RecruitTypeFilter.SelectedIndexChanged += (this.RecruitTypeFilter_SelectedIndexChanged);
             // 
             // groupBox20
             // 
@@ -5415,7 +5507,7 @@ namespace DB_EDITOR
             groupBox20.Controls.Add(RKPRlabel);
             groupBox20.Controls.Add(RKACBox);
             groupBox20.Controls.Add(RKAClabel);
-            groupBox20.Location = new Point(240, 207);
+            groupBox20.Location = new Point(268, 207);
             groupBox20.Name = "groupBox20";
             groupBox20.Size = new Size(457, 397);
             groupBox20.TabIndex = 151;
@@ -6051,9 +6143,9 @@ namespace DB_EDITOR
             RecruitListBox.ForeColor = SystemColors.ControlText;
             RecruitListBox.FormattingEnabled = true;
             RecruitListBox.ItemHeight = 13;
-            RecruitListBox.Location = new Point(12, 57);
+            RecruitListBox.Location = new Point(6, 68);
             RecruitListBox.Name = "RecruitListBox";
-            RecruitListBox.Size = new Size(203, 472);
+            RecruitListBox.Size = new Size(241, 368);
             RecruitListBox.TabIndex = 130;
             RecruitListBox.SelectedIndexChanged += (this.RecruitListBox_SelectedIndexChanged);
             // 
@@ -16893,26 +16985,6 @@ namespace DB_EDITOR
             buttonRCATBody.UseVisualStyleBackColor = true;
             buttonRCATBody.Click += (this.buttonRCATBody_Click);
             // 
-            // label201
-            // 
-            label201.AutoSize = true;
-            label201.Location = new Point(11, 567);
-            label201.Name = "label201";
-            label201.Size = new Size(75, 13);
-            label201.TabIndex = 176;
-            label201.Text = "Transfer From:";
-            // 
-            // TransferTeamComboBox
-            // 
-            TransferTeamComboBox.BackColor = SystemColors.Menu;
-            TransferTeamComboBox.Font = new Font("Microsoft Sans Serif", 9F);
-            TransferTeamComboBox.FormattingEnabled = true;
-            TransferTeamComboBox.Location = new Point(91, 562);
-            TransferTeamComboBox.Name = "TransferTeamComboBox";
-            TransferTeamComboBox.Size = new Size(124, 23);
-            TransferTeamComboBox.TabIndex = 175;
-            TransferTeamComboBox.SelectedIndexChanged += (this.TransferTeamComboBox_SelectedIndexChanged);
-            // 
             // MainEditor
             // 
             this.AllowDrop = true;
@@ -17006,6 +17078,10 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)recruitTolerance).EndInit();
             tabRecruits.ResumeLayout(false);
             tabRecruits.PerformLayout();
+            groupBox55.ResumeLayout(false);
+            groupBox55.PerformLayout();
+            GroupBox54.ResumeLayout(false);
+            GroupBox54.PerformLayout();
             groupBox48.ResumeLayout(false);
             groupBox48.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)RDIS).EndInit();
@@ -18634,6 +18710,12 @@ namespace DB_EDITOR
         private System.Windows.Forms.Button RemoveAllImpactButton;
         public Label label201;
         public System.Windows.Forms.ComboBox TransferTeamComboBox;
+        private GroupBox GroupBox54;
+        public Label label202;
+        public System.Windows.Forms.ComboBox TeamInterestComboBox;
+        private GroupBox groupBox55;
+        public Label label208;
+        public System.Windows.Forms.ComboBox TargetedByComboBox;
     }
 }
 

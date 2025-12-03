@@ -4,6 +4,7 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography;
 using System.Security.Cryptography.Xml;
 using System.Text.RegularExpressions;
@@ -35,14 +36,30 @@ namespace DB_EDITOR
             RecruitEditorList = new List<List<string>>();
 
             int TGID = -1;
-            if(RecruitTeamComboBox.SelectedIndex > 0)
+            List<List<int>> RCWK = new List<List<int>>();
+
+            if (RecruitTeamComboBox.SelectedIndex > 0)
             {
                 TGID = FindTGIDfromTeamName(RecruitTeamComboBox.Text);
             }
-
-            if (TransferTeamComboBox.SelectedIndex > 0)
+            else if (TransferTeamComboBox.SelectedIndex > 0)
             {
                 TGID = FindTGIDfromTeamName(TransferTeamComboBox.Text);
+            }
+            else if (TeamInterestComboBox.SelectedIndex > 0)
+            {
+                TGID = FindTGIDfromTeamName(TeamInterestComboBox.Text);
+            }
+            else if (TargetedByComboBox.SelectedIndex > 0)
+            {
+                TGID = FindTGIDfromTeamName(TargetedByComboBox.Text);
+
+                for(int i = 0; i < GetTable2RecCount("RCWK"); i++)
+                {
+                    RCWK.Add(new List<int>());
+                    RCWK[i].Add(GetDB2ValueInt("RCWK", "TGID", i));
+                    RCWK[i].Add(GetDB2ValueInt("RCWK", "PRID", i));
+                }
             }
 
             int row = 0;
@@ -54,7 +71,9 @@ namespace DB_EDITOR
                 int RATH = GetDB2ValueInt("RCPT", "RATH", i);
                 int PTCM = GetDB2ValueInt("RCPR", "PTCM", i);
                 int PTID = -1;
+                bool interest = false;
 
+                //Transfer Team Load
                 if (PRID >= 21000 && TransferTeamComboBox.SelectedIndex > 0)
                 {
                     for (int t = 0; t < GetTableRecCount("TRAN"); t++)
@@ -66,10 +85,54 @@ namespace DB_EDITOR
                         }
                     }
                 }
+                //Team Interest Load
+                else if (TeamInterestComboBox.SelectedIndex > 0 && PTCM == 511 || PTCM == TGID)
+                {
+                    for (int j = 1; j < 11; j++)
+                    {
+                        if (j < 10)
+                        {
+                            int teamID = GetDB2ValueInt("RCPR", "PT0" + j, i);
+                            if (TGID == teamID) interest = true;
+                           
+                        }
+                        else
+                        {
+                            int teamID = GetDB2ValueInt("RCPR", "PT" + j, i);
+                            if (TGID == teamID) interest = true;
+                        }
+                    }
+                }
+                //Team Targets Load
+                else if (TargetedByComboBox.SelectedIndex > 0 && PTCM == 511 || PTCM == TGID)
+                {
+                    if (PTCM == TGID)
+                    {
+                        interest = true;
+                    }
+                    else
+                    {
+                        //ADD CODE
+                        for (int t = 0; t < RCWK.Count; t++)
+                        {
+                            int teamID = RCWK[t][0];
+                            int prid = RCWK[t][1];
+                            if (PRID == prid && teamID == TGID)
+                            {
+                                interest = true;
+                                break;
+                            }
+                        }
+                    }
+                }
+
+
+
+                //Load the Boxes
 
                 if (RecruitTypeFilter.SelectedIndex == 0 || RecruitTypeFilter.SelectedIndex == 1 && PRID < 21000 || RecruitTypeFilter.SelectedIndex == 2 && PRID >= 21000)
                 {
-                    if (TGID == -1 || PTCM == TGID && RecruitTeamComboBox.SelectedIndex > 0 || PTID == TGID && TransferTeamComboBox.SelectedIndex > 0)
+                    if (TGID == -1 || PTCM == TGID && RecruitTeamComboBox.SelectedIndex > 0 || PTID == TGID && TransferTeamComboBox.SelectedIndex > 0 || interest && TeamInterestComboBox.SelectedIndex > 0 || interest && TargetedByComboBox.SelectedIndex > 0)
                     {
                         if (RecruitStateFilter.SelectedIndex == 0 || RecruitStateFilter.SelectedIndex - 1 == STID)
                         {
@@ -174,7 +237,12 @@ namespace DB_EDITOR
         private void LoadCommittedToBox()
         {
             if (RecruitTeamComboBox.Items.Count > 0) return;
+
+
             RecruitTeamComboBox.Items.Clear();
+            TeamInterestComboBox.Items.Clear();
+            TargetedByComboBox.Items.Clear();
+
             List<string> teamList = new List<string>();
 
             for (int i = 0; i < GetTableRecCount("TEAM"); i++)
@@ -188,10 +256,17 @@ namespace DB_EDITOR
 
             for (int i = 0; i < teamList.Count; i++)
             {
-                if (teamList[i] != null) RecruitTeamComboBox.Items.Add(teamList[i]);
+                if (teamList[i] != null)
+                {
+                    RecruitTeamComboBox.Items.Add(teamList[i]);
+                    TeamInterestComboBox.Items.Add(teamList[i]);
+                    TargetedByComboBox.Items.Add(teamList[i]);
+                }
             }
 
             RecruitTeamComboBox.SelectedIndex = 0;
+            TeamInterestComboBox.SelectedIndex = 0;
+            TargetedByComboBox.SelectedIndex = 0;
         }
 
         private void LoadTransferTeamBox()
@@ -280,9 +355,12 @@ namespace DB_EDITOR
         private void RecruitTeamComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (DoNotTrigger) return;
-
             DoNotTrigger = true;
+
             TransferTeamComboBox.SelectedIndex = 0;
+            TeamInterestComboBox.SelectedIndex = 0;
+            TargetedByComboBox.SelectedIndex = 0;
+
             LoadRCPTBox();
             DoNotTrigger = false;
 
@@ -292,11 +370,43 @@ namespace DB_EDITOR
         {
             if (DoNotTrigger) return;
             DoNotTrigger = true;
+
             RecruitTeamComboBox.SelectedIndex = 0;
+            TeamInterestComboBox.SelectedIndex = 0;
+            TargetedByComboBox.SelectedIndex = 0;
+
             LoadRCPTBox();
             DoNotTrigger = false;
 
         }
+
+        private void TeamInterestComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger) return;
+            DoNotTrigger = true;
+
+            TransferTeamComboBox.SelectedIndex = 0;
+            RecruitTeamComboBox.SelectedIndex = 0;
+            TargetedByComboBox.SelectedIndex = 0;
+
+            LoadRCPTBox();
+            DoNotTrigger = false;
+        }
+
+
+        private void TargetedBycomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger) return;
+            DoNotTrigger = true;
+
+            TransferTeamComboBox.SelectedIndex = 0;
+            RecruitTeamComboBox.SelectedIndex = 0;
+            TeamInterestComboBox.SelectedIndex = 0;
+
+            LoadRCPTBox();
+            DoNotTrigger = false;
+        }
+
 
         #region Add Items
 
