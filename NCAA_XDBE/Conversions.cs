@@ -245,6 +245,7 @@ namespace DB_EDITOR
             string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             string csvLocation = Path.Combine(executableLocation, @"resources\RCAT.csv");
             if (verNumber == 15.0) csvLocation = Path.Combine(executableLocation, @"resources\RCAT-NEXT.csv");
+            else if (verNumber >= 16.2) csvLocation = Path.Combine(executableLocation, @"resources\RCAT-NEXT26v2.csv");
             else if (verNumber >= 16.0) csvLocation = Path.Combine(executableLocation, @"resources\RCAT-NEXT26.csv");
 
             string filePath = csvLocation;

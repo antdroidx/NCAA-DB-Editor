@@ -790,6 +790,32 @@ namespace DB_EDITOR
             }
         }
 
+        //Determine Impact Players
+        private void RemoveAllImpactPlayers()
+        {
+            StartProgressBar(GetTableRecCount("TEAM"));
+
+
+            int minRating = 0;
+            minRating = RevertRating(Convert.ToInt32(ImpactPlayerMin.Value));
+
+
+            for (int i = 0; i < GetTableRecCount("TEAM"); i++)
+            {
+                if (GetDBValueInt("TEAM", "TTYP", i) == 0)
+                {
+                    ChangeDBInt("TEAM", "TPIO", i, 127);
+                    ChangeDBInt("TEAM", "TPID", i, 127);
+                    ChangeDBInt("TEAM", "TSI1", i, 127);
+                    ChangeDBInt("TEAM", "TSI2", i, 127);
+                }
+                ProgressBarStep();
+            }
+
+            EndProgressBar();
+            MessageBox.Show("Removed All Impact Players!");
+        }
+
         //Remove All Sanctions
         private void RemoveAllSanctions()
         {

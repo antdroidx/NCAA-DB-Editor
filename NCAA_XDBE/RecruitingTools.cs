@@ -360,13 +360,20 @@ namespace DB_EDITOR
         {
             StartProgressBar(GetTable2RecCount("RCPR"));
 
+            List<int> teamIDs = new List<int>();
+            for (int i = 0; i < GetTableRecCount("TEAM"); i++)
+            {
+                if (GetDBValueInt("TEAM", "TTYP", i) == 0)
+                {
+                    teamIDs.Add(GetDBValueInt("TEAM", "TGID", i));
+                }
+            }
+            int fcsTeams = 0;
             Random rand = new Random();
 
             for (int i = 0; i < GetTable2RecCount("RCPR"); i++)
             {
-
-
-                for (int j = (int)removeInterestTeams.Value - 1; j < 11; j++)
+                for (int j = (int)removeInterestTeams.Value; j < 11; j++)
                 {
                     if (j < 10)
                     {
@@ -380,12 +387,39 @@ namespace DB_EDITOR
                     }
                 }
 
+                //Remove Non-FBS teams
+                for (int j = 1; j < 11; j++)
+                {
+                    if (j < 10)
+                    {
+                        int TGID = GetDB2ValueInt("RCPR", "PT0" + j, i);
+                        if (!teamIDs.Contains(TGID))
+                        {
+                            ChangeDB2String("RCPR", "PS0" + j, i, "0");
+                            ChangeDB2String("RCPR", "PT0" + j, i, "511");
+                            fcsTeams++;
+                        }
+                    }
+                    else
+                    {
+                        int TGID = GetDB2ValueInt("RCPR", "PT" + j, i);
+                        if (!teamIDs.Contains(TGID))
+                        {
+                            ChangeDB2String("RCPR", "PS" + j, i, "0");
+                            ChangeDB2String("RCPR", "PT" + j, i, "511");
+                            fcsTeams++;
+                        }
+                    }
+                }
+
                 ProgressBarStep();
             }
 
             EndProgressBar();
 
             MessageBox.Show("Recruit Interested Teams Changed!");
+            if (fcsTeams > 0) MessageBox.Show(fcsTeams + " FCS Teams were removed from Interested Teams");
+
         }
 
         //Randomize the Recruits to give a little bit more variety and evaluation randomness -- Must be done at start of Recruiting
@@ -1062,6 +1096,11 @@ namespace DB_EDITOR
         private void RecordRecruitStarRating(int i, List<List<int>> recruits, int star)
         {
             int prid = recruits[i][0];
+            int posg = recruits[i][2];
+            if (posg >= 8 && star >= 3)
+            {
+                star = 3;
+            }
 
             for (int x = 0; x < GetTable2RecCount("RCPT"); x++)
             {
@@ -1092,6 +1131,11 @@ namespace DB_EDITOR
                     recruits[row].Add(GetDB2ValueInt("RCPT", "POVR", i));
                     recruits[row].Add(GetPOSGfromPPOS(GetDB2ValueInt("RCPT", "PPOS", i)));
                     recruits[row].Add(i);
+
+                    //bonus
+                    int bonus = GetRecruitRatingBonus(recruits[row][2]);
+                    recruits[row][1] += bonus;
+
                     row++;
                 }
                 else if (GetDB2ValueInt("RCPT", "PRID", i) >= 21000)  //transfers
@@ -1120,6 +1164,23 @@ namespace DB_EDITOR
 
             MessageBox.Show("Recruit & Transfer Star Ratings Recalculated!");
 
+        }
+
+        //Recruit Rating Bonus
+        private int GetRecruitRatingBonus(int posg)
+        {
+            int bonus = 0;
+
+            if (posg == 4 || posg == 6)
+            {
+                bonus = 2;
+            }
+            else if (posg == 0)
+            {
+                bonus = 1;
+            }
+
+            return bonus;
         }
 
         //Choose Athlete Position
@@ -1243,10 +1304,16 @@ namespace DB_EDITOR
 
             int newPlayers = TDB.TableCapacity(dbIndex, "PLAY") - GetTableRecCount("PLAY");
 
+            if (newPlayers <= 0)
+            {
+                MessageBox.Show("No available roster spots to create FCS Transfer Players!");
+                return;
+            }
+
             int maxFCSPlayers = 70;
             if (newPlayers > maxFCSPlayers) newPlayers = maxFCSPlayers; //limit to XX players max
 
-            for (int i = 0; i < newPlayers; i++)
+            while (fcsplayers < maxPlayers)
             {
                 int rec = GetTableRecCount("PLAY");
                 AddTableRecord("PLAY", false);
@@ -1257,7 +1324,7 @@ namespace DB_EDITOR
                 //Assign a Team
                 int TGID = fcsTeams[rand.Next(0, fcsTeams.Count)];
 
-                int PGID = TGID * 70 + i;
+                int PGID = TGID * 70 + fcsplayers;
                 TransferRCATtoPLAY(rec, rand.Next(0, 17), PGID, RCATmapper, PJEN, AvailablePJEN, 0);
                 RandomizeAttribute("PLAY", rec, 2);
                 RecalculateOverallByRec(rec);
@@ -1300,7 +1367,7 @@ namespace DB_EDITOR
                 }
             }
 
-            MessageBox.Show(fcsplayers + " FCS Players Created for Transfer Portal!");
+            MessageBox.Show(fcsplayers + " FCS Players Created for Transfer Portal!\n\nPLEASE MAKE SURE TO RUN 'MODIFY RECRUIT INTEREST' AT THE START OF RECRUITING PHASE.\nYou can leave the value at 11 if you do not want to remove interests. Running this will prevent FCS teams from recruiting players.");
         }
 
 

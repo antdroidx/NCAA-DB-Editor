@@ -1093,7 +1093,8 @@ namespace DB_EDITOR
 
         private void ModVersionChecker()
         {
-            if (GetTableRecCount("PLAY") > 8400)
+
+            if (TDB.TableCapacity(dbIndex, "PLAY") > 8400)
             {
                 radioNEXT26.Checked = true;
                 for (int i = 0; i < GetTableRecCount("PLAY"); i++)
@@ -1249,7 +1250,6 @@ namespace DB_EDITOR
             devMode = true;
             MessageBox.Show("Dev Mode Enabled for New Glove Expansion Mod Features!");
         }
-
 
     }
 

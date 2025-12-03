@@ -146,6 +146,11 @@ namespace DB_EDITOR
             DetermineAllImpactPlayers();
         }
 
+        private void RemoveAllImpactButton_Click(object sender, EventArgs e)
+        {
+            RemoveAllImpactPlayers();
+        }
+
         //Fantasy Roster Generator
         private void buttonFantasyRoster_Click(object sender, EventArgs e)
         {

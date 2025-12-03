@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Security.Cryptography;
+using System.Security.Cryptography.Xml;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using static System.Net.Mime.MediaTypeNames;
@@ -18,12 +19,15 @@ namespace DB_EDITOR
 
         public void StartRecruitEditor()
         {
-            TransferTeam.Visible = false;
+            DoNotTrigger = true;
             CompactDB2();
             AddFilters();
-            LoadRCPTBox();
             LoadCommittedToBox();
+            LoadTransferTeamBox();
             LoadGlobalTransferData();
+            LoadRCPTBox();
+
+            DoNotTrigger = false;
         }
 
         public void LoadRCPTBox()
@@ -36,6 +40,11 @@ namespace DB_EDITOR
                 TGID = FindTGIDfromTeamName(RecruitTeamComboBox.Text);
             }
 
+            if (TransferTeamComboBox.SelectedIndex > 0)
+            {
+                TGID = FindTGIDfromTeamName(TransferTeamComboBox.Text);
+            }
+
             int row = 0;
             for (int i = 0; i < GetTable2RecCount("RCPT"); i++)
             {
@@ -44,10 +53,23 @@ namespace DB_EDITOR
                 int STID = GetDB2ValueInt("RCPT", "STID", i);
                 int RATH = GetDB2ValueInt("RCPT", "RATH", i);
                 int PTCM = GetDB2ValueInt("RCPR", "PTCM", i);
+                int PTID = -1;
+
+                if (PRID >= 21000 && TransferTeamComboBox.SelectedIndex > 0)
+                {
+                    for (int t = 0; t < GetTableRecCount("TRAN"); t++)
+                    {
+                        if (GetDBValueInt("TRAN", "PGID", t) == PRID)
+                        {
+                            PTID = GetDBValueInt("TRAN", "PTID", t);
+                            break;
+                        }
+                    }
+                }
 
                 if (RecruitTypeFilter.SelectedIndex == 0 || RecruitTypeFilter.SelectedIndex == 1 && PRID < 21000 || RecruitTypeFilter.SelectedIndex == 2 && PRID >= 21000)
                 {
-                    if (TGID == -1 || PTCM == TGID)
+                    if (TGID == -1 || PTCM == TGID && RecruitTeamComboBox.SelectedIndex > 0 || PTID == TGID && TransferTeamComboBox.SelectedIndex > 0)
                     {
                         if (RecruitStateFilter.SelectedIndex == 0 || RecruitStateFilter.SelectedIndex - 1 == STID)
                         {
@@ -172,6 +194,30 @@ namespace DB_EDITOR
             RecruitTeamComboBox.SelectedIndex = 0;
         }
 
+        private void LoadTransferTeamBox()
+        {
+            if (TransferTeamComboBox.Items.Count > 0) return;
+            TransferTeamComboBox.Items.Clear();
+            List<string> teamList = new List<string>();
+
+            for (int i = 0; i < GetTableRecCount("TRAN"); i++)
+            {
+                if (!teamList.Contains(teamNameDB[GetDBValueInt("TRAN", "PTID", i)]))
+                    teamList.Add(teamNameDB[GetDBValueInt("TRAN", "PTID", i)]);
+            }
+
+            teamList.Sort();
+            teamList.Insert(0, "ALL PLAYERS");
+
+            for (int i = 0; i < teamList.Count; i++)
+            {
+                if (teamList[i] != null) TransferTeamComboBox.Items.Add(teamList[i]);
+            }
+
+            TransferTeamComboBox.SelectedIndex = 0;
+        }
+
+
         //Filters
 
         private void AddFilters()
@@ -212,22 +258,44 @@ namespace DB_EDITOR
 
         private void RecruitTypeFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (DoNotTrigger) return;
+
             LoadRCPTBox();
         }
 
         private void RecruitStateFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (DoNotTrigger) return;
+
             LoadRCPTBox();
         }
 
         private void RecruitPosFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (DoNotTrigger) return;
+
             LoadRCPTBox();
         }
 
         private void RecruitTeamComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (DoNotTrigger) return;
+
+            DoNotTrigger = true;
+            TransferTeamComboBox.SelectedIndex = 0;
             LoadRCPTBox();
+            DoNotTrigger = false;
+
+        }
+
+        private void TransferTeamComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger) return;
+            DoNotTrigger = true;
+            RecruitTeamComboBox.SelectedIndex = 0;
+            LoadRCPTBox();
+            DoNotTrigger = false;
+
         }
 
         #region Add Items
@@ -365,7 +433,6 @@ namespace DB_EDITOR
         private void LoadRecruitData()
         {
             DoNotTrigger = true;
-            TransferTeam.Visible = false;
 
 
             //Player Name
@@ -391,11 +458,9 @@ namespace DB_EDITOR
             RHometownBox.SelectedIndex = home - (state * 256);
 
             //Transfer Status
-            TransferTeam.Visible = false;
             string transfer = "";
             if (GetDB2ValueInt("RCPT", "PRID", RecruitIndex) >= 21000)
             {
-                //TransferTeam.Visible = true;
                 int prid = GetDB2ValueInt("RCPT", "PRID", RecruitIndex);
                 for (int i = 0; i < GetTableRecCount("TRAN"); i++)
                 {
@@ -405,8 +470,6 @@ namespace DB_EDITOR
                         break;
                     }
                 }
-
-                TransferTeam.Text = "Transferring from " + transfer;
             }
 
             //Overall Rating
