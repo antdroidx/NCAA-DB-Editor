@@ -545,10 +545,20 @@ namespace DB_EDITOR
         private List<string> GetVisorTypes()
         {
             List<string> Visors = new List<string>();
+            if (verNumber >= 16.2)
+            {
+                Visors.Add("None");
+                Visors.Add("Clear");
+                Visors.Add("Dark");
+                Visors.Add("Tinted");
+            }
+            else 
+            { 
             Visors.Add("None");
             Visors.Add("Clear");
             Visors.Add("Dark");
             Visors.Add("Orange");
+            }
             return Visors;
         }
 
@@ -650,7 +660,22 @@ namespace DB_EDITOR
         private List<string> GetElbowTypes()
         {
             List<string> Elbows = new List<string>();
-            if (verNumber >= 15.0)
+            if (verNumber >= 16.2)
+            {
+                Elbows.Add("Normal");
+                Elbows.Add("Rubber Pad");
+                Elbows.Add("Arm Restraint");
+                Elbows.Add("XL Undershirt");
+                Elbows.Add("TC Misc Band");
+                Elbows.Add("TC Shirt");
+                Elbows.Add("Black Sleeve Top");
+                Elbows.Add("White Sleeve Top");
+                Elbows.Add("Team Sleeve Top");
+                Elbows.Add("Black Undershirt");
+                Elbows.Add("White Undershirt");
+                Elbows.Add("TC Thin Band");
+            }
+            else if (verNumber >= 15.0)
             {
                 Elbows.Add("Normal");
                 Elbows.Add("Rubber Pad");

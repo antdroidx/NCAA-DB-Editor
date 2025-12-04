@@ -14,6 +14,8 @@ namespace DB_EDITOR
         {
             CompactDB();
             CompactDB2();
+            LoadGlobalTransferData();
+
         }
 
         #region RECRUITING TOOLS CLICKS
@@ -1369,6 +1371,86 @@ namespace DB_EDITOR
 
             MessageBox.Show(fcsplayers + " FCS Players Created for Transfer Portal!\n\nPLEASE MAKE SURE TO RUN 'MODIFY RECRUIT INTEREST' AT THE START OF RECRUITING PHASE.\nYou can leave the value at 11 if you do not want to remove interests. Running this will prevent FCS teams from recruiting players.");
         }
+
+
+        #region Transfer Editor
+
+        private void LoadGlobalTransferData()
+        {
+            GTransferOG.Items.Clear();
+            GTransferNew.Items.Clear();
+
+            for (int i = 0; i < GetTableRecCount("TEAM"); i++)
+            {
+                if (GetDBValueInt("TEAM", "TTYP", i) == 0)
+                {
+                    int tgid = GetDBValueInt("TEAM", "TGID", i);
+                    GTransferOG.Items.Add(teamNameDB[tgid]);
+                    GTransferNew.Items.Add(teamNameDB[tgid]);
+                }
+            }
+        }
+
+        private void GlobalTransferInterest_Click(object sender, EventArgs e)
+        {
+            if (GTransferOG.SelectedIndex == -1 || GTransferNew.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a team from both lists.");
+                return;
+            }
+            else
+            {
+                int og = FindTGIDfromTeamName(Convert.ToString(GTransferOG.SelectedItem));
+                int newT = FindTGIDfromTeamName(Convert.ToString(GTransferNew.SelectedItem));
+                ExecuteTransfersInterestChange(og, newT);
+            }
+        }
+
+        private void ExecuteTransfersInterestChange(int og, int newT)
+        {
+
+            string transferNames = "";
+
+            for (int i = 0; i < GetTableRecCount("TRAN"); i++)
+            {
+                if (GetDBValueInt("TRAN", "PTID", i) == og)
+                {
+                    int prid = GetDBValueInt("TRAN", "PGID", i);
+                    transferNames = ChangeTransfersInterest(newT, prid, transferNames);
+                }
+            }
+
+            MessageBox.Show(transferNames, "Transfers Updated");
+        }
+
+        private string ChangeTransfersInterest(int tgid, int prid, string transferNames)
+        {
+            for (int i = 0; i < GetTable2RecCount("RCPR"); i++)
+            {
+                if (GetDB2ValueInt("RCPR", "PRID", i) == prid)
+                {
+                    if (GTransferCommitted.Checked)
+                    {
+                        ChangeDB2Int("RCPR", "PTCM", i, tgid);
+                        ChangeDB2Int("RCPR", "PT01", i, tgid);
+                        ChangeDB2Int("RCPR", "PS01", i, 21000);
+                    }
+                    else
+                    {
+                        ChangeDB2Int("RCPR", "PT01", i, tgid);
+                        ChangeDB2Int("RCPR", "PS01", i, 200);
+                    }
+
+                    transferNames += Positions[GetDB2ValueInt("RCPT", "PPOS", i)] + " " + GetDB2Value("RCPT", "PFNA", i) + " " + GetDB2Value("RCPT", "PLNA", i) + "\n";
+                }
+            }
+
+            return transferNames;
+        }
+
+
+        #endregion
+
 
 
 

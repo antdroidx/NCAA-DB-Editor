@@ -706,8 +706,27 @@ namespace DB_EDITOR
                 ChangeDB2Int(tableName, "PFMK", rec, facemask);
         }
 
+        //Randomize Visors with Tint CLICK BUTTON
+        private void RandomizeTintedVisors_Click(object sender, EventArgs e)
+        {
+            int start = 0;
+            int count = GetTableRecCount("PLAY");
+            int tint = 0;
+
+            StartProgressBar(count);
+
+            for (int i = start; i < count; i++)
+            {
+                RandomizeVisor("PLAY", i, TintedVisorPCT.Value);
+                ProgressBarStep();
+            }
+
+            EndProgressBar();
+            MessageBox.Show("Visor Updates Complete!");
+        }
+
         //Visors
-        private void RandomizeVisor(string tableName, int rec)
+        private void RandomizeVisor(string tableName, int rec, decimal tinted = 0)
         {
             int pos = -1;
             if (tableName == "PLAY" || tableName == "RCAT")
@@ -755,6 +774,25 @@ namespace DB_EDITOR
                 else
                 {
                     visor = 3; //Orange
+                }
+            }
+
+            if(visor == 1)
+            {
+                if (rand.Next(1, 101) <= tinted)
+                {
+                    if (rand.Next(0, 101) < 50)
+                    {
+                        visor = 2; //Dark
+                    }
+                    else
+                    {
+                        visor = 3; //Orange
+                    }
+                }
+                else
+                {
+                    visor = 1;
                 }
             }
 
@@ -893,7 +931,7 @@ namespace DB_EDITOR
         {
             int val = rand.Next(1, 101);
             int mouthguard = 0;
-            if (val <= 50)
+            if (val <= 55)
             {
                 mouthguard = 0; //No
             }
@@ -1477,65 +1515,119 @@ namespace DB_EDITOR
                     elbowRight = 8;
                 }
             }
+            //Linemen
             else if (pos >= 5 && pos <= 9 || pos == 11)
             {
-                if (val <= 65)
+                if (val <= 70)
                 {
                     elbowLeft = 0;
                     elbowRight = 0;
 
-                    if (val <= 20) elbowRight = 11;
-                    else if (val <= 30) elbowRight = 10;
-                }
-                else if (val <= 70)
-                {
-                    int color = rand.Next(2, 6); //elbow Pads
-                    elbowLeft = color;
-                    elbowRight = color;
-                    if (val <= 73) elbowRight = 0;
+                    int right = rand.Next(0, 8);
+                    if (right <= 2)
+                    {
+                        elbowRight = right;
+                    }
+                    else if (right == 3)
+                    {
+                        elbowRight = 4;
+                    }
+                    else if (right == 4)
+                    {
+                        elbowRight = 11;
+                    }
+                    else
+                    {
+                        elbowRight = 0;
+                    }
+
+                    int left = rand.Next(0, 8);
+                    if (left <= 2)
+                    {
+                        elbowLeft = left;
+                    }
+                    else if (left == 3)
+                    {
+                        elbowLeft = 4;
+                    }
+                    else if (left == 4)
+                    {
+                        elbowLeft = 11;
+                    }
+                    else
+                    {
+                        elbowLeft = 0;
+                    }
+
                 }
                 else if (val <= 80)
                 {
+                    elbowLeft = 3; //XL White Shirt
+                    elbowRight = 3;
+                }
+                else if (val <= 90)
+                {
                     elbowLeft = 9; //Black Thin Band (Black Undershirt)
                     elbowRight = 9;
                 }
-                else if (val <= 90)
+                else
                 {
                     elbowLeft = 10; //White Thin Band (White Undershirt)
                     elbowRight = 10;
                 }
-                else
-                {
-                    elbowLeft = 11;
-                    elbowRight = 11;
-                    if (val <= 95) elbowRight = 0;
-                }
             }
+            //Everyone else
             else
             {
-                if (val <= 65)
+                if (val <= 70)
                 {
                     elbowLeft = 0;
                     elbowRight = 0;
 
-                    if (val <= 20) elbowRight = 11;
-                    else if (val <= 30) elbowRight = 10;
+                    int right = rand.Next(0, 6);
+                    
+                    if (right == 0)
+                    {
+                        elbowRight = 4;
+                    }
+                    else if (right == 1)
+                    {
+                        elbowRight = 11;
+                    }
+                    else
+                    {
+                        elbowRight = 0;
+                    }
+
+                    int left = rand.Next(0, 6);
+                    if (left == 0)
+                    {
+                        elbowLeft = 4;
+                    }
+                    else if (left == 1)
+                    {
+                        elbowLeft = 11;
+                    }
+                    else
+                    {
+                        elbowLeft = 0;
+                    }
+
                 }
-                else if (val <= 78)
+                else if (val <= 80)
+                {
+                    elbowLeft = 3; //XL White Shirt
+                    elbowRight = 3;
+                }
+                else if (val <= 90)
                 {
                     elbowLeft = 9; //Black Thin Band (Black Undershirt)
                     elbowRight = 9;
                 }
-                else if (val <= 90)
+                else
                 {
                     elbowLeft = 10; //White Thin Band (White Undershirt)
                     elbowRight = 10;
-                }
-                else
-                {
-                    elbowLeft = 11;
-                    elbowRight = 11;
-                    if (val <= 95) elbowRight = 0;
                 }
             }
 
@@ -1765,7 +1857,7 @@ namespace DB_EDITOR
 
                 if (val <= 5) hands = 1; //white
                 else if (val <= 15) hands = 2; //black
-                else if (val <= 75) hands = 4; //team
+                else if (val <= 70) hands = 4; //team
                 else hands = 5; //team 2
             }
 

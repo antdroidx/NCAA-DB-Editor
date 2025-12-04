@@ -25,7 +25,6 @@ namespace DB_EDITOR
             AddFilters();
             LoadCommittedToBox();
             LoadTransferTeamBox();
-            LoadGlobalTransferData();
             LoadRCPTBox();
 
             DoNotTrigger = false;
@@ -54,7 +53,7 @@ namespace DB_EDITOR
             {
                 TGID = FindTGIDfromTeamName(TargetedByComboBox.Text);
 
-                for(int i = 0; i < GetTable2RecCount("RCWK"); i++)
+                for (int i = 0; i < GetTable2RecCount("RCWK"); i++)
                 {
                     RCWK.Add(new List<int>());
                     RCWK[i].Add(GetDB2ValueInt("RCWK", "TGID", i));
@@ -94,7 +93,7 @@ namespace DB_EDITOR
                         {
                             int teamID = GetDB2ValueInt("RCPR", "PT0" + j, i);
                             if (TGID == teamID) interest = true;
-                           
+
                         }
                         else
                         {
@@ -104,7 +103,7 @@ namespace DB_EDITOR
                     }
                 }
                 //Team Targets Load
-                else if (TargetedByComboBox.SelectedIndex > 0 && PTCM == 511 || PTCM == TGID)
+                else if (TargetedByComboBox.SelectedIndex > 0 || PTCM == TGID)
                 {
                     if (PTCM == TGID)
                     {
@@ -185,28 +184,6 @@ namespace DB_EDITOR
             }
 
             RecruitCounter.Text = "Recruit Count: " + row;
-        }
-
-        private void LoadRecruitingTable()
-        {
-            RecruitDataGrid.Rows.Clear();
-            RCTeam.DataSource = RecruitTeams().Items;
-
-            for (int i = 1; i < 11; i++)
-            {
-                RecruitDataGrid.Rows.Add(new DataGridViewRow());
-
-                RecruitDataGrid.Rows[i - 1].Cells[0].Value = i;
-
-                //team data
-                int team = GetDB2ValueInt("RCPR", "PT" + AddLeadingZeros(Convert.ToString(i), 2), RecruitIndex);
-                RecruitDataGrid.Rows[i - 1].Cells[1].Value = teamNameDB[team];
-
-                //team score
-                int score = GetDB2ValueInt("RCPR", "PS" + AddLeadingZeros(Convert.ToString(i), 2), RecruitIndex);
-                RecruitDataGrid.Rows[i - 1].Cells[2].Value = score;
-            }
-
         }
 
         private ComboBox RecruitTeams()
@@ -823,6 +800,7 @@ namespace DB_EDITOR
 
 
             LoadRecruitingTable();
+            LoadScholarshipOffersView();
 
             RecruitPitch.Text = "Favorite Pitch: " + GetRecruitPitch(GetDB2ValueInt("RCPR", "PIT1", RecruitIndex));
 
@@ -1201,86 +1179,68 @@ namespace DB_EDITOR
 
         #endregion
 
+
+
         #region Recruiting Table
-
-        #endregion
-
-
-        #region Transfer Editor
-
-        private void LoadGlobalTransferData()
+        private void LoadRecruitingTable()
         {
-            GTransferOG.Items.Clear();
-            GTransferNew.Items.Clear();
+            RecruitDataGrid.Rows.Clear();
+            RCTeam.DataSource = RecruitTeams().Items;
 
-            for (int i = 0; i < GetTableRecCount("TEAM"); i++)
+            for (int i = 1; i < 11; i++)
             {
-                if (GetDBValueInt("TEAM", "TTYP", i) == 0)
+                RecruitDataGrid.Rows.Add(new DataGridViewRow());
+
+                RecruitDataGrid.Rows[i - 1].Cells[0].Value = i;
+
+                //team data
+                int team = GetDB2ValueInt("RCPR", "PT" + AddLeadingZeros(Convert.ToString(i), 2), RecruitIndex);
+                RecruitDataGrid.Rows[i - 1].Cells[1].Value = teamNameDB[team];
+
+                //team score
+                int score = GetDB2ValueInt("RCPR", "PS" + AddLeadingZeros(Convert.ToString(i), 2), RecruitIndex);
+                RecruitDataGrid.Rows[i - 1].Cells[2].Value = score;
+            }
+
+        }
+
+        private void LoadScholarshipOffersView()
+        {
+            ScholarshipOffersView.Rows.Clear();
+            List<List<int>> RCWK = new List<List<int>>();
+            int PRID = GetDB2ValueInt("RCPT", "PRID", RecruitIndex);
+
+            for (int i = 0; i < GetTable2RecCount("RCWK"); i++)
+            {
+                RCWK.Add(new List<int>());
+                RCWK[i].Add(GetDB2ValueInt("RCWK", "TGID", i));
+                RCWK[i].Add(GetDB2ValueInt("RCWK", "PRID", i));
+            }
+
+
+            //ADD CODE
+            for (int t = 0; t < RCWK.Count; t++)
+            {
+                int teamID = RCWK[t][0];
+                int prid = RCWK[t][1];
+                if (PRID == prid)
                 {
-                    int tgid = GetDBValueInt("TEAM", "TGID", i);
-                    GTransferOG.Items.Add(teamNameDB[tgid]);
-                    GTransferNew.Items.Add(teamNameDB[tgid]);
+                    int row = ScholarshipOffersView.Rows.Count;
+                    ScholarshipOffersView.Rows.Add(new DataGridViewRow());
+
+                    //team data
+                    int team = GetDB2ValueInt("RCWK", "TGID", t);
+                    ScholarshipOffersView.Rows[row].Cells[0].Value = teamNameDB[team];
+
+                    //team prestige
+                    int tprs = FindTeamPrestige(team);
+                    ScholarshipOffersView.Rows[row].Cells[1].Value = ConvertStarNumber(tprs);
                 }
+
             }
+
+
         }
-
-        private void GlobalTransferInterest_Click(object sender, EventArgs e)
-        {
-            if (GTransferOG.SelectedIndex == -1 || GTransferNew.SelectedIndex == -1)
-            {
-                MessageBox.Show("Please select a team from both lists.");
-                return;
-            }
-            else
-            {
-                int og = FindTGIDfromTeamName(Convert.ToString(GTransferOG.SelectedItem));
-                int newT = FindTGIDfromTeamName(Convert.ToString(GTransferNew.SelectedItem));
-                ExecuteTransfersInterestChange(og, newT);
-            }
-        }
-
-        private void ExecuteTransfersInterestChange(int og, int newT)
-        {
-
-            string transferNames = "";
-
-            for (int i = 0; i < GetTableRecCount("TRAN"); i++)
-            {
-                if (GetDBValueInt("TRAN", "PTID", i) == og)
-                {
-                    int prid = GetDBValueInt("TRAN", "PGID", i);
-                    transferNames = ChangeTransfersInterest(newT, prid, transferNames);
-                }
-            }
-
-            MessageBox.Show(transferNames, "Transfers Updated");
-        }
-
-        private string ChangeTransfersInterest(int tgid, int prid, string transferNames)
-        {
-            for (int i = 0; i < GetTable2RecCount("RCPR"); i++)
-            {
-                if (GetDB2ValueInt("RCPR", "PRID", i) == prid)
-                {
-                    if (GTransferCommitted.Checked)
-                    {
-                        ChangeDB2Int("RCPR", "PTCM", i, tgid);
-                        ChangeDB2Int("RCPR", "PT01", i, tgid);
-                        ChangeDB2Int("RCPR", "PS01", i, 21000);
-                    }
-                    else
-                    {
-                        ChangeDB2Int("RCPR", "PT01", i, tgid);
-                        ChangeDB2Int("RCPR", "PS01", i, 200);
-                    }
-
-                    transferNames += Positions[GetDB2ValueInt("RCPT", "PPOS", i)] + " " + GetDB2Value("RCPT", "PFNA", i) + " " + GetDB2Value("RCPT", "PLNA", i) + "\n";
-                }
-            }
-
-            return transferNames;
-        }
-
 
         #endregion
 
