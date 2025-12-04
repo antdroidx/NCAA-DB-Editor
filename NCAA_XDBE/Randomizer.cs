@@ -1518,21 +1518,30 @@ namespace DB_EDITOR
             //Linemen
             else if (pos >= 5 && pos <= 9 || pos == 11)
             {
-                if (val <= 70)
+                /* 0 - None
+                 * 1 - Rubber Pad
+                 * 2 - Arm Restraint
+                 * 3 - XL Undershirt
+                 * 4 - TC Misc
+                 * 5 - TC Undershit
+                 * 11 - TC Thin Band
+                 */
+
+                if (val <= 80)
                 {
                     elbowLeft = 0;
                     elbowRight = 0;
 
-                    int right = rand.Next(0, 8);
-                    if (right <= 2)
+                    int right = rand.Next(0, 10);
+                    if (right == 1)
                     {
-                        elbowRight = right;
+                        elbowRight = 1;
+                    }
+                    else if (right == 2)
+                    {
+                        elbowRight = 2;
                     }
                     else if (right == 3)
-                    {
-                        elbowRight = 4;
-                    }
-                    else if (right == 4)
                     {
                         elbowRight = 11;
                     }
@@ -1541,16 +1550,16 @@ namespace DB_EDITOR
                         elbowRight = 0;
                     }
 
-                    int left = rand.Next(0, 8);
-                    if (left <= 2)
+                    int left = rand.Next(0, 10);
+                    if (left <= 1)
                     {
-                        elbowLeft = left;
+                        elbowLeft = 1;
+                    }
+                    else if (left == 2)
+                    {
+                        elbowLeft = 2;
                     }
                     else if (left == 3)
-                    {
-                        elbowLeft = 4;
-                    }
-                    else if (left == 4)
                     {
                         elbowLeft = 11;
                     }
@@ -1560,12 +1569,82 @@ namespace DB_EDITOR
                     }
 
                 }
-                else if (val <= 80)
+                else if (val <= 85)
                 {
                     elbowLeft = 3; //XL White Shirt
                     elbowRight = 3;
                 }
-                else if (val <= 90)
+                else if (val <= 95)
+                {
+                    elbowLeft = 9; //Black Thin Band (Black Undershirt)
+                    elbowRight = 9;
+                }
+                else
+                {
+                    elbowLeft = 10; //White Thin Band (White Undershirt)
+                    elbowRight = 10;
+                }
+            }
+            //FB, TE, DE, LB
+            else if (pos == 2 || pos == 4 || pos == 10 || pos >= 12 && pos <= 14)
+            {
+                /* 0 - None
+                 * 1 - Rubber Pad
+                 * 2 - Arm Restraint
+                 * 3 - XL Undershirt
+                 * 4 - TC Misc
+                 * 5 - TC Undershit
+                 * 11 - TC Thin Band
+                 */
+
+                if (val <= 80)
+                {
+                    elbowLeft = 0;
+                    elbowRight = 0;
+
+                    int right = rand.Next(0, 16);
+                    if (right == 1)
+                    {
+                        elbowRight = 1;
+                    }
+                    else if (right == 2)
+                    {
+                        elbowRight = 2;
+                    }
+                    else if (right == 3)
+                    {
+                        elbowRight = 11;
+                    }
+                    else
+                    {
+                        elbowRight = 0;
+                    }
+
+                    int left = rand.Next(0, 16);
+                    if (left <= 1)
+                    {
+                        elbowLeft = 1;
+                    }
+                    else if (left == 2)
+                    {
+                        elbowLeft = 2;
+                    }
+                    else if (left == 3)
+                    {
+                        elbowLeft = 11;
+                    }
+                    else
+                    {
+                        elbowLeft = 0;
+                    }
+
+                }
+                else if (val <= 85)
+                {
+                    elbowLeft = 3; //XL White Shirt
+                    elbowRight = 3;
+                }
+                else if (val <= 95)
                 {
                     elbowLeft = 9; //Black Thin Band (Black Undershirt)
                     elbowRight = 9;
@@ -1579,20 +1658,16 @@ namespace DB_EDITOR
             //Everyone else
             else
             {
-                if (val <= 70)
+                if (val <= 80)
                 {
                     elbowLeft = 0;
                     elbowRight = 0;
 
                     int right = rand.Next(0, 6);
                     
-                    if (right == 0)
+                    if (right == 1)
                     {
-                        elbowRight = 4;
-                    }
-                    else if (right == 1)
-                    {
-                        elbowRight = 11;
+                        elbowRight = 11; //TC Thin Band
                     }
                     else
                     {
@@ -1600,11 +1675,7 @@ namespace DB_EDITOR
                     }
 
                     int left = rand.Next(0, 6);
-                    if (left == 0)
-                    {
-                        elbowLeft = 4;
-                    }
-                    else if (left == 1)
+                    if (left == 1)
                     {
                         elbowLeft = 11;
                     }
@@ -1614,12 +1685,12 @@ namespace DB_EDITOR
                     }
 
                 }
-                else if (val <= 80)
+                else if (val <= 85)
                 {
                     elbowLeft = 3; //XL White Shirt
                     elbowRight = 3;
                 }
-                else if (val <= 90)
+                else if (val <= 95)
                 {
                     elbowLeft = 9; //Black Thin Band (Black Undershirt)
                     elbowRight = 9;
@@ -1646,6 +1717,7 @@ namespace DB_EDITOR
 
         }
 
+        //Turf Tape
         private void RandomizeTurfTape(string tableName, int rec)
         {
             int pos = -1;

@@ -502,11 +502,20 @@ namespace DB_EDITOR
         private List<string> GetHelmetTypes()
         {
             List<string> Helmets = new List<string>();
-
-            Helmets.Add("Normal");
-            Helmets.Add("Adams");
-            Helmets.Add("Schutt");
-            Helmets.Add("Revolution");
+            if (verNumber > 16.0)
+            {
+                Helmets.Add("SpeedFlex");
+                Helmets.Add("Vicis Zero2");
+                Helmets.Add("Schutt F7");
+                Helmets.Add("Axiom");
+            }
+            else
+            {
+                Helmets.Add("Normal");
+                Helmets.Add("Adams");
+                Helmets.Add("Schutt");
+                Helmets.Add("Revolution");
+            }
 
             return Helmets;
         }
@@ -515,29 +524,56 @@ namespace DB_EDITOR
         {
             List<string> FaceMasks = new List<string>();
 
-            if (HELM == 3)
+            if (verNumber > 16.0)
             {
-                FaceMasks.Add("*");
-                FaceMasks.Add("REVOG3BDU");  //K+P
-                FaceMasks.Add("REVOG2EG"); //Skill
-                FaceMasks.Add("REVOG2B"); //Linemen
+                if (HELM == 3)
+                {
+                    FaceMasks.Add("*");
+                    FaceMasks.Add("2BC-S");  //K+P
+                    FaceMasks.Add("W-2EG-HP-S"); //Skill
+                    FaceMasks.Add("W-2B-HP-S"); //Linemen
+                }
+                else
+                {
+                    FaceMasks.Add("*");
+                    FaceMasks.Add("2-Bar");
+                    FaceMasks.Add("3-Bar");
+                    FaceMasks.Add("Half-Cage");
+                    FaceMasks.Add("Full-Cage 1");
+                    FaceMasks.Add("2-Bar Thin");
+                    FaceMasks.Add("1-Bar");
+                    FaceMasks.Add("2-Bar RB");
+                    FaceMasks.Add("3-Bar QB");
+                    FaceMasks.Add("3-Bar RB 1");
+                    FaceMasks.Add("Full-Cage 2");
+                    FaceMasks.Add("3-Bar RB 2");
+                }
             }
             else
             {
-                FaceMasks.Add("*");
-                FaceMasks.Add("2-Bar");
-                FaceMasks.Add("3-Bar");
-                FaceMasks.Add("Half-Cage");
-                FaceMasks.Add("Full-Cage 1");
-                FaceMasks.Add("2-Bar Thin");
-                FaceMasks.Add("1-Bar");
-                FaceMasks.Add("2-Bar RB");
-                FaceMasks.Add("3-Bar QB");
-                FaceMasks.Add("3-Bar RB 1");
-                FaceMasks.Add("Full-Cage 2");
-                FaceMasks.Add("3-Bar RB 2");
+                if (HELM == 3)
+                {
+                    FaceMasks.Add("*");
+                    FaceMasks.Add("REVOG3BDU");  //K+P
+                    FaceMasks.Add("REVOG2EG"); //Skill
+                    FaceMasks.Add("REVOG2B"); //Linemen
+                }
+                else
+                {
+                    FaceMasks.Add("*");
+                    FaceMasks.Add("2-Bar");
+                    FaceMasks.Add("3-Bar");
+                    FaceMasks.Add("Half-Cage");
+                    FaceMasks.Add("Full-Cage 1");
+                    FaceMasks.Add("2-Bar Thin");
+                    FaceMasks.Add("1-Bar");
+                    FaceMasks.Add("2-Bar RB");
+                    FaceMasks.Add("3-Bar QB");
+                    FaceMasks.Add("3-Bar RB 1");
+                    FaceMasks.Add("Full-Cage 2");
+                    FaceMasks.Add("3-Bar RB 2");
+                }
             }
-
 
                 return FaceMasks;
         }

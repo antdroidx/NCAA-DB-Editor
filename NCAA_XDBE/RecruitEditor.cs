@@ -1244,7 +1244,129 @@ namespace DB_EDITOR
 
         #endregion
 
+        #region Commit & Decommit Players
+        //Commit/Decomit Recruit
 
+        private void CommitStatus_CheckedChanged(object sender, EventArgs e)
+        {
+            ChangeRecruitStatus();
+        }
+
+        private void ChangeRecruitStatus()
+        {
+            if(DoNotTrigger)
+                return;
+
+            int recruitID = GetDB2ValueInt("RCPT", "PRID", RecruitIndex);
+
+            if (CommitStatus.Checked)
+            {
+                List<string> teams = RecruitTeams().Items.Cast<string>().ToList();
+
+                int teamID = PromptSelectTeam(teams);
+
+                if(teamID == -1)
+                {
+                    CommitStatus.Checked = false;
+                    return;
+                } 
+                else
+                {
+                    int tgid = FindTGIDfromTeamName(teams[teamID]);
+                    ChangeDB2Int("RCPR", "PTCM", RecruitIndex, tgid);
+                    ChangeDB2Int("RCPT", "RCCM", RecruitIndex, 1);
+                    for (int i = 0; i < GetTable2RecCount("RCWK"); i++)
+                    {
+                        int prid = GetDB2ValueInt("RCWK", "PRID", i);
+                        if (recruitID == prid)
+                        {
+                            ChangeDB2Int("RCWK", "RCCM", i, 1);
+                        }
+
+                    }
+                    CommitStatus.Text = "Committed to " + teams[teamID];
+                    CommitStatus.ForeColor = Color.IndianRed;
+                }
+
+            }
+            else
+            {
+                //Decommit Recruit
+                ChangeDB2Int("RCPR", "PTCM", RecruitIndex, 511);
+                ChangeDB2Int("RCPT", "RCCM", RecruitIndex, 0);
+                for (int i = 0; i < GetTable2RecCount("RCWK"); i++)
+                {
+                    int prid = GetDB2ValueInt("RCWK", "PRID", i);
+                    if(recruitID == prid)
+                    {
+                        ChangeDB2Int("RCWK", "RCCM", i, 0);
+                    }
+
+                }
+                CommitStatus.Text = "Uncommitted";
+                CommitStatus.ForeColor = Color.IndianRed;
+            }
+
+
+        }
+
+        private int PromptSelectTeam(List<string> teams, string title = "Select Team")
+        {
+            if (teams == null || teams.Count == 0) return -1;
+
+            using (Form dlg = new Form())
+            {
+                dlg.Text = title;
+                dlg.StartPosition = FormStartPosition.CenterParent;
+                dlg.FormBorderStyle = FormBorderStyle.FixedDialog;
+                dlg.MinimizeBox = false;
+                dlg.MaximizeBox = false;
+                dlg.ShowIcon = false;
+                dlg.ShowInTaskbar = false;
+                dlg.AutoSize = true;
+                dlg.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+                dlg.Padding = new Padding(8);
+
+                var listBox = new ListBox()
+                {
+                    SelectionMode = SelectionMode.One,
+                    Dock = DockStyle.Top,
+                    Height = 400
+                };
+
+                listBox.Items.AddRange(teams.ToArray());
+
+                var btnPanel = new FlowLayoutPanel()
+                {
+                    FlowDirection = FlowDirection.RightToLeft,
+                    Dock = DockStyle.Bottom,
+                    AutoSize = true
+                };
+
+                var ok = new Button() { Text = "OK", DialogResult = DialogResult.OK, Enabled = false, AutoSize = true };
+                var cancel = new Button() { Text = "Cancel", DialogResult = DialogResult.Cancel, AutoSize = true };
+
+                btnPanel.Controls.Add(ok);
+                btnPanel.Controls.Add(cancel);
+
+                dlg.Controls.Add(listBox);
+                dlg.Controls.Add(btnPanel);
+
+                dlg.AcceptButton = ok;
+                dlg.CancelButton = cancel;
+
+                listBox.SelectedIndexChanged += (s, e) => { ok.Enabled = listBox.SelectedIndex >= 0; };
+                listBox.DoubleClick += (s, e) => { if (listBox.SelectedIndex >= 0) dlg.DialogResult = DialogResult.OK; };
+
+                var result = dlg.ShowDialog(this);
+                if (result == DialogResult.OK && listBox.SelectedIndex >= 0)
+                    return listBox.SelectedIndex;
+
+                return -1;
+            }
+        }
+
+        #endregion
 
         #region ConversionMethods
 
@@ -1318,6 +1440,7 @@ namespace DB_EDITOR
 
         }
         #endregion
+
 
 
     }

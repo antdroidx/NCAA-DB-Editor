@@ -1400,7 +1400,7 @@ namespace DB_EDITOR
             int cell = e.ColumnIndex;
 
             //Player
-            if (cell == 1)
+            if (cell == 1 && row >= 0)
             {
                 int PLAYrec = Convert.ToInt32(PortalData.Rows[row].Cells[6].Value);
 
@@ -1409,14 +1409,14 @@ namespace DB_EDITOR
                 LoadPlayerData();
             }
             //Team
-            else if (cell == 4)
+            else if (cell == 4 && row >= 0)
             {
                 int teamRec = FindTeamRecfromTeamName(Convert.ToString(PortalData.Rows[row].Cells[4].Value));
                 TeamIndex = teamRec;
                 tabControl1.SelectedTab = tabTeams;
                 GetTeamEditorData(teamRec);
             }
-            else if (cell == 5)
+            else if (cell == 5 && row >= 0)
             {
                 int teamRec = FindTeamRecfromTeamName(Convert.ToString(PortalData.Rows[row].Cells[5].Value));
                 TeamIndex = teamRec;
