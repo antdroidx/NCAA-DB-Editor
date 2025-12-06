@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
@@ -7,7 +8,6 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Runtime.InteropServices.ComTypes;
-// using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
@@ -19,14 +19,161 @@ namespace DB_EDITOR
     {
         private void StartDepthChartEditor()
         {
+            if (DCHTPlayers != null)
+            {
+
+            }
+            else
+            {
+
+                DoNotTrigger = true;
+                DCHTGrid.Rows.Clear();
+                DCHTGrid.BackgroundColor = Color.DarkGray;
+                AddPositionsToDCHT();
+                AddTeamsToDCHT();
+                DepthChartIndex = 0;
+                DCHTEditorMode.Checked = true;
+
+                // Ensure we handle the editing control to enable owner-draw on combo boxes
+                DCHTGrid.EditingControlShowing -= DCHTGrid_EditingControlShowing;
+                DCHTGrid.EditingControlShowing += DCHTGrid_EditingControlShowing;
+
+                // Ensure DataGridView cell formatting runs to color the non-editing display
+                DCHTGrid.CellFormatting -= DCHTGrid_CellFormatting;
+                DCHTGrid.CellFormatting += DCHTGrid_CellFormatting;
+
+                if (verNumber < 16.0)
+                {
+                    DC136.Checked = false;
+                }
+                else
+                {
+                    DC136.Checked = true;
+                }
+                DoNotTrigger = false;
+                DCHTEditorMode.Checked = false;
+            }
+
+        }
+
+        //Change Views
+        private void DCHTEditorMode_CheckedChanged(object sender, EventArgs e)
+        {
+            // Do not replace the DCHTGrid instance; modify its columns in-place so the UI and event handlers remain intact.
             DoNotTrigger = true;
+
+            // Preserve layout and parent by working on the existing control
+            DCHTGrid.SuspendLayout();
+            DCHTGrid.Columns.Clear();
             DCHTGrid.Rows.Clear();
-            DCHTGrid.BackgroundColor = Color.DarkGray;
+
+            var col = new DataGridViewTextBoxColumn();
+
+            col.DataPropertyName = "DCHTPos";
+            col.Name = "Pos";
+            col.SortMode = DataGridViewColumnSortMode.NotSortable;
+            col.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            col.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            col.DefaultCellStyle.BackColor = Color.LightGray;
+            col.DefaultCellStyle.ForeColor = Color.Black;
+            DCHTGrid.Columns.Add(col);
+
+            if (DCHTEditorMode.Checked)
+            {
+                for (int i = 1; i <= 6; i++)
+                {
+
+                    var colCombo = new DataGridViewComboBoxColumn();
+
+                    colCombo.DataPropertyName = "DCHT" + (i);
+                    col.SortMode = DataGridViewColumnSortMode.NotSortable;
+                    col.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                    col.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+
+                    DCHTGrid.Columns.Add(colCombo);
+
+                }
+                DCHTGrid.Columns[1].Name = "Starter";
+                DCHTGrid.Columns[2].Name = "2nd String";
+                DCHTGrid.Columns[3].Name = "3rd String";
+                DCHTGrid.Columns[4].Name = "4th String";
+                DCHTGrid.Columns[5].Name = "5th String";
+                DCHTGrid.Columns[6].Name = "6th String";
+            }
+            else
+            {
+                for (int i = 1; i <= 18; i++)
+                {
+                    col = new DataGridViewTextBoxColumn();
+                    col.SortMode = DataGridViewColumnSortMode.NotSortable;
+                    col.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                    col.DefaultCellStyle.Font = new Font("Verdana", 8);
+                    col.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                    col.DefaultCellStyle.BackColor = Color.WhiteSmoke;
+                    col.DefaultCellStyle.ForeColor = Color.Black;
+                    col.DefaultCellStyle.SelectionBackColor = Color.Ivory;
+                    col.DefaultCellStyle.SelectionForeColor = Color.Black;
+
+                    if(i % 3 == 0)
+                    {
+                        col.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    }
+                    else
+                    {
+                        col.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+                    }
+
+
+                    DCHTGrid.Columns.Add(col);
+                }
+                DCHTGrid.Columns[1].Name = "Starter";
+                DCHTGrid.Columns[2].Name = "Class";
+                DCHTGrid.Columns[3].Name = "OVR";
+                DCHTGrid.Columns[4].Name = "2nd String";
+                DCHTGrid.Columns[5].Name = "Class";
+                DCHTGrid.Columns[6].Name = "OVR";
+                DCHTGrid.Columns[7].Name = "3rd String";
+                DCHTGrid.Columns[8].Name = "Class";
+                DCHTGrid.Columns[9].Name = "OVR";
+                DCHTGrid.Columns[10].Name = "4th String";
+                DCHTGrid.Columns[11].Name = "Class";
+                DCHTGrid.Columns[12].Name = "OVR";
+                DCHTGrid.Columns[13].Name = "5th String";
+                DCHTGrid.Columns[14].Name = "Class";
+                DCHTGrid.Columns[15].Name = "OVR";
+                DCHTGrid.Columns[16].Name = "6th String";
+                DCHTGrid.Columns[17].Name = "Class";
+                DCHTGrid.Columns[18].Name = "OVR";
+            }
+
+
+
             AddPositionsToDCHT();
-            AddTeamsToDCHT();
-            DepthChartIndex = 0;
+
+            // Reload data and repopulate cells
+            LoadDCHTPlayerData();
+            LoadTeamDCHTData();
+
+            // If editable mode, configure combo behavior and populate combo lists
+            if (DCHTEditorMode.Checked)
+            {
+                // Ensure the editing control handler is attached so owner-draw is applied
+                DCHTGrid.EditingControlShowing -= DCHTGrid_EditingControlShowing;
+                DCHTGrid.EditingControlShowing += DCHTGrid_EditingControlShowing;
+
+                if (DCHTGrid.CurrentCell != null) LoadDCHTBoxData(DCHTGrid.CurrentCell.RowIndex);
+            }
+            else
+            {
+                // Ensure cell formatting is applied for read-only view
+                DCHTGrid.CellFormatting -= DCHTGrid_CellFormatting;
+                DCHTGrid.CellFormatting += DCHTGrid_CellFormatting;
+            }
+
+            DCHTGrid.ResumeLayout();
             DoNotTrigger = false;
         }
+
 
         private void AddTeamsToDCHT()
         {
@@ -66,9 +213,38 @@ namespace DB_EDITOR
                 else if (i == 23) DCHTGrid.Rows[i].Cells[0].Value = "KOS";
                 else if (i == 24) DCHTGrid.Rows[i].Cells[0].Value = "LS";
                 else DCHTGrid.Rows[i].Cells[0].Value = Positions[i];
+
+                if(i<=9)
+                {
+                    DCHTGrid.Rows[i].DefaultCellStyle.BackColor = Color.Gainsboro;
+                }
+                else if(i<=18)
+                {
+                    DCHTGrid.Rows[i].DefaultCellStyle.BackColor = Color.Ivory;
+                }
+                else
+                {
+                    DCHTGrid.Rows[i].DefaultCellStyle.BackColor = Color.Gainsboro;
+                }
+
             }
         }
 
+        //Team Selection
+        private void DCHTTeam_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DoNotTrigger = true;
+            DepthChartIndex = FindTGIDfromTeamName(Convert.ToString(DCHTTeam.SelectedItem));
+
+            LoadDCHTPlayerData();
+            LoadTeamDCHTData();
+            if (DCHTGrid.CurrentCell != null) LoadDCHTBoxData(DCHTGrid.CurrentCell.RowIndex);
+
+            DoNotTrigger = false;
+
+        }
+
+        //Load Players List for ComboBox
         private void LoadDCHTPlayerData()
         {
             StartProgressBar(GetTableRecCount("PLAY"));
@@ -98,15 +274,18 @@ namespace DB_EDITOR
                     int pos = GetDBValueInt("PLAY", "PPOS", i);
 
                     DCHTPlayers[row].Add(GetPOSG2Name(GetPOSG2fromPPOS(pos)) + ": " + GetPlayerNamefromRec(i) + " [" + ConvertRating(GetDBValueInt("PLAY", "POVR", i)) + "]"); //27
-                    //DCHTPlayers[row].Add(GetPOSG2Name(GetPOSG2fromPPOS(pos)) + ": " + GetFirstNameFromRecord(i) + " " + GetLastNameFromRecord(i) + DCHTPlayers[row][4]); //debug use to see pos ratings
+
 
                     DCHTPlayers[row].Add(GetDBValue("PLAY", "PPOS", i)); //28
+                    DCHTPlayers[row].Add(GetPlayerNamefromRec(i)); //29
 
 
 
                     /* 0-24 position ratings
                      *  rec  25  pgid  26  name  27  position 28 POVR 29
                      */
+
+
                     row++;
                     if (row > 69) break;
                 }
@@ -118,15 +297,10 @@ namespace DB_EDITOR
             EndProgressBar();
         }
 
-
         private ComboBox CreateDCHTComboBox(int ppos)
         {
 
             ComboBox comboBox = new ComboBox();
-            comboBox.BackColor = Color.LightGray;
-            // Fix the black background on the drop down menu
-            
-            DCHTGrid.DefaultCellStyle.SelectionBackColor = Color.LightGray;
 
             DCHTPlayers.Sort((player1, player2) => Convert.ToDouble(player2[ppos]).CompareTo(Convert.ToDouble(player1[ppos])));
 
@@ -138,17 +312,101 @@ namespace DB_EDITOR
             return comboBox;
         }
 
-        private void LoadDCHTComboBoxes(int ppos)
+        // Configure a ComboBox for owner-draw so items can be color-coded
+        private void ConfigureComboOwnerDraw(ComboBox cb)
         {
+            if (cb == null) return;
 
-            DCHT0.DataSource = CreateDCHTComboBox(ppos).Items;
-            DCHT1.DataSource = CreateDCHTComboBox(ppos).Items;
-            DCHT2.DataSource = CreateDCHTComboBox(ppos).Items;
-            DCHT3.DataSource = CreateDCHTComboBox(ppos).Items;
-            DCHT4.DataSource = CreateDCHTComboBox(ppos).Items;
-            DCHT5.DataSource = CreateDCHTComboBox(ppos).Items;
+            cb.DrawMode = DrawMode.OwnerDrawFixed;
+            cb.DropDownStyle = ComboBoxStyle.DropDownList;
+            // Avoid duplicate subscriptions
+            cb.DrawItem -= DCHTCombo_DrawItem;
+            cb.DrawItem += DCHTCombo_DrawItem;
         }
 
+        // DataGridView EditingControlShowing handler to set owner-draw on in-place ComboBox controls
+        private void DCHTGrid_EditingControlShowing(object sender, DataGridViewEditingControlShowingEventArgs e)
+        {
+            if (e.Control is ComboBox cb)
+            {
+                ConfigureComboOwnerDraw(cb);
+            }
+        }
+
+        // Extract numeric rating between the last '[' and ']' in the item string
+        private int ExtractBracketRating(string text)
+        {
+            if (string.IsNullOrEmpty(text)) return -1;
+            int r = text.LastIndexOf('[');
+            int s = text.LastIndexOf(']');
+            if (r >= 0 && s > r)
+            {
+                string num = text.Substring(r + 1, s - r - 1);
+                if (int.TryParse(num, out int val)) return val;
+            }
+            return -1;
+        }
+
+        // Owner-draw handler: color-code based on numeric rating
+        private void DCHTCombo_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            if (sender is not ComboBox cb) return;
+
+            // Determine the text to draw: item in drop-down or the selected text when not dropped
+            string text;
+            if (e.Index >= 0 && e.Index < cb.Items.Count)
+            {
+                text = Convert.ToString(cb.Items[e.Index]) ?? string.Empty;
+            }
+            else
+            {
+                // Draw the selected text shown in the ComboBox's edit area.
+                // Prefer SelectedItem if available; fallback to Text.
+                text = (cb.SelectedItem != null) ? Convert.ToString(cb.SelectedItem) ?? string.Empty : cb.Text ?? string.Empty;
+            }
+
+            int rating = ExtractBracketRating(text);
+            Color textColor = GetColorRating(rating);
+
+            // Draw background (handles selection background)
+            e.DrawBackground();
+
+            // Draw text using TextRenderer for consistent alignment/clear type
+            TextFormatFlags flags = TextFormatFlags.Left | TextFormatFlags.VerticalCenter | TextFormatFlags.SingleLine;
+            TextRenderer.DrawText(e.Graphics, text, e.Font, e.Bounds, textColor, flags);
+
+            e.DrawFocusRectangle();
+        }
+
+        private void LoadDCHTBoxData(int ppos)
+        {
+            if (DCHTEditorMode.Checked)
+            {
+                var items = CreateDCHTComboBoxItems(ppos);
+
+                ((DataGridViewComboBoxColumn)DCHTGrid.Columns[1]).DataSource = items;
+                ((DataGridViewComboBoxColumn)DCHTGrid.Columns[2]).DataSource = items;
+                ((DataGridViewComboBoxColumn)DCHTGrid.Columns[3]).DataSource = items;
+                ((DataGridViewComboBoxColumn)DCHTGrid.Columns[4]).DataSource = items;
+                ((DataGridViewComboBoxColumn)DCHTGrid.Columns[5]).DataSource = items;
+            }
+        }
+
+        private IList<string> CreateDCHTComboBoxItems(int ppos)
+        {
+            var items = new List<string>();
+
+            // Avoid mutating global state repeatedly if possible
+            DCHTPlayers.Sort((player1, player2) => Convert.ToDouble(player2[ppos])
+                                          .CompareTo(Convert.ToDouble(player1[ppos])));
+
+            for (int i = 0; i < DCHTPlayers.Count; i++)
+            {
+                items.Add(DCHTPlayers[i][27]);
+            }
+
+            return items;
+        }
 
         private void LoadTeamDCHTData()
         {
@@ -157,6 +415,17 @@ namespace DB_EDITOR
             int PGIDBeg = DepthChartIndex * 70;
             int PGIDEnd = PGIDBeg + 69;
             int count = 0;
+            List<int> impactPlayers = new List<int>();
+            int teamRec = FindTeamRecfromTeamName(Convert.ToString(DCHTTeam.SelectedItem));
+            impactPlayers.Add(GetDBValueInt("TEAM", "TSI1", teamRec) + PGIDBeg);
+            impactPlayers.Add(GetDBValueInt("TEAM", "TSI2", teamRec) + PGIDBeg);
+            impactPlayers.Add(GetDBValueInt("TEAM", "TPIO", teamRec) + PGIDBeg);
+            impactPlayers.Add(GetDBValueInt("TEAM", "TPID", teamRec) + PGIDBeg);
+
+            List<int> captains = new List<int>();
+            captains.Add(GetDBValueInt("TEAM", "OCAP", teamRec) + PGIDBeg);
+            captains.Add(GetDBValueInt("TEAM", "DCAP", teamRec) + PGIDBeg);
+
             for (int i = 0; i < GetTableRecCount("DCHT"); i++)
             {
                 if (GetDBValueInt("DCHT", "PGID", i) >= PGIDBeg && GetDBValueInt("DCHT", "PGID", i) <= PGIDEnd)
@@ -168,9 +437,11 @@ namespace DB_EDITOR
                     int rec = FindPGIDRecord(pgid);
                     string name = GetPlayerNamefromRec(rec);
                     int pos = GetPPOSfromRecord(rec);
+                    string posgName = GetPOSG2Name(GetPOSG2fromPPOS(pos));
                     int povr = GetDBValueInt("PLAY", "POVR", rec);
-
-
+                    int jersey = GetDBValueInt("PLAY", "PJEN", rec);
+                    int year = GetDBValueInt("PLAY", "PYER", rec);
+                    int redshirt = GetDBValueInt("PLAY", "PRSD", rec);
                     int dchtrow = -1;
                     for (int x = 0; x < DCHTPlayers.Count; x++)
                     {
@@ -180,9 +451,34 @@ namespace DB_EDITOR
                             break;
                         }
                     }
+                    //Check Impact Player
+                    string impact = "";
+
+                    if (captains.Contains(pgid))
+                    {
+                        impact += " ©";
+                    }
+                    if (impactPlayers.Contains(pgid))
+                    {
+                        impact += " " + ConvertStarNumber(1);
+                    }
 
 
-                    DCHTGrid.Rows[ppos].Cells[ddep + 1].Value = (GetPOSG2Name(GetPOSG2fromPPOS(pos)) + ": " + name + " [" + ConvertRating(povr) + "]");
+                    if (DCHTEditorMode.Checked)
+                    {
+                        DCHTGrid.Rows[ppos].Cells[ddep + 1].Value = (posgName + ": " + name + " [" + ConvertRating(povr) + "]");
+                    }
+                    else
+                    {
+                        DCHTGrid.Rows[ppos].Cells[ddep*3+1].Value = "#" + jersey + " " + name + " " + impact;
+                        DCHTGrid.Rows[ppos].Cells[ddep*3+2].Value = GetClassYearsAbbr(year, redshirt);
+                        DCHTGrid.Rows[ppos].Cells[ddep*3+3].Value = ConvertRating(povr);
+
+                    }
+
+
+
+
                     count++;
                 }
                 ProgressBarStep();
@@ -196,11 +492,28 @@ namespace DB_EDITOR
 
         private void DisableDCHTCells()
         {
-            for (int i = 0; i < DCHTGrid.Rows.Count; i++)
+            if (DCHTEditorMode.Checked)
             {
-                for (int c = 0; c < DCHTGrid.Rows[i].Cells.Count; c++)
+                for (int i = 0; i < DCHTGrid.Rows.Count; i++)
                 {
-                    if (DCHTGrid.Rows[i].Cells[c].Value == null)
+                    for (int c = 0; c < DCHTGrid.Rows[i].Cells.Count; c++)
+                    {
+                        if (DCHTGrid.Rows[i].Cells[c].Value == null)
+                        {
+                            DCHTGrid.Rows[i].Cells[c].ReadOnly = true;
+                        }
+                        else
+                        {
+                            DCHTGrid.Rows[i].Cells[c].ReadOnly = false;
+                        }
+                    }
+                }
+            }
+            else
+            {
+                for (int i = 0; i < DCHTGrid.Rows.Count; i++)
+                {
+                    for (int c = 0; c < DCHTGrid.Rows[i].Cells.Count; c++)
                     {
                         DCHTGrid.Rows[i].Cells[c].ReadOnly = true;
                     }
@@ -208,28 +521,14 @@ namespace DB_EDITOR
             }
         }
 
-        //Team Selection
-        private void DCHTTeam_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            DoNotTrigger = true;
-            DepthChartIndex = FindTGIDfromTeamName(Convert.ToString(DCHTTeam.SelectedItem));
 
-            LoadDCHTPlayerData();
-            LoadTeamDCHTData();
-            if (DCHTGrid.CurrentCell != null) LoadDCHTComboBoxes(DCHTGrid.CurrentCell.RowIndex);
-            //LoadDCHTComboBoxes(29);
-            //int row = ((DataGridView)sender).CurrentRow.Index;
-
-            //LoadDCHTComboBoxes(row);
-            DoNotTrigger = false;
-
-        }
 
         //Update Player List by Cell
         private void DCHT_CellEnter(object sender, DataGridViewCellEventArgs e)
         {
             if (DoNotTrigger) return;
             if (DCHTTeam.SelectedIndex == -1) return;
+            if (!DCHTEditorMode.Checked) return;
 
             if (DCHTGrid.CurrentCell != null) UpdatePlayerList(DCHTGrid.CurrentCell.RowIndex);
         }
@@ -237,13 +536,84 @@ namespace DB_EDITOR
 
         private void UpdatePlayerList(int row)
         {
+            for(int i = 1; i < DCHTGrid.Columns.Count; i++)
+            {
+                ((DataGridViewComboBoxColumn)DCHTGrid.Columns[1]).DataSource = CreateDCHTComboBox(row).Items;
+            }
+        }
 
-            DCHT0.DataSource = CreateDCHTComboBox(row).Items;
-            DCHT1.DataSource = CreateDCHTComboBox(row).Items;
-            DCHT2.DataSource = CreateDCHTComboBox(row).Items;
-            DCHT3.DataSource = CreateDCHTComboBox(row).Items;
-            DCHT4.DataSource = CreateDCHTComboBox(row).Items;
-            DCHT5.DataSource = CreateDCHTComboBox(row).Items;
+        private string GetFirstComboItemText(DataGridViewComboBoxColumn col)
+        {
+            if (col == null || col.DataSource == null) return string.Empty;
+
+            // IList (List<string>, BindingList<string>, etc.)
+            if (col.DataSource is IList list && list.Count > 0) return Convert.ToString(list[0]) ?? string.Empty;
+
+            // BindingSource
+            if (col.DataSource is BindingSource bs && bs.List != null && bs.List.Count > 0) return Convert.ToString(bs.List[0]) ?? string.Empty;
+
+            // IListSource
+            if (col.DataSource is IListSource ils)
+            {
+                var li = ils.GetList();
+                if (li is IList il && il.Count > 0) return Convert.ToString(il[0]) ?? string.Empty;
+            }
+
+            return string.Empty;
+        }
+
+        private void DCHTGrid_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            // Only color non-header cells that display the player string (skip column 0 which shows position)
+            if (e.RowIndex < 0 || e.ColumnIndex <= 0) return;
+
+            string text = Convert.ToString(e.Value);
+
+            // If there's no value, try to derive a display string from the column's data source (e.g. first item)
+            if (string.IsNullOrEmpty(text))
+            {
+                if (DCHTGrid.Columns[e.ColumnIndex] is DataGridViewComboBoxColumn comboCol)
+                {
+                    text = GetFirstComboItemText(comboCol);
+                }
+
+                // still empty -> nothing to color
+                if (string.IsNullOrEmpty(text)) return;
+            }
+
+            int rating = -1;
+
+            Color textColor = GetColorRating(rating);
+
+            if (DCHTEditorMode.Checked)
+            {
+                rating = ExtractBracketRating(text);
+
+                // Apply the color to the cell's style so the cell displays colored text when NOT editing
+                e.CellStyle.ForeColor = textColor;
+                e.CellStyle.BackColor = Color.Black;
+
+                // If desired, also adjust selection fore color so selection does not hide color
+                e.CellStyle.SelectionForeColor = textColor;
+                e.CellStyle.SelectionBackColor = Color.DarkGray;
+            }
+            else
+            {
+                if(e.ColumnIndex % 3 == 0)
+                {
+                    textColor = GetColorRating(Convert.ToInt32(text));
+                    e.CellStyle.ForeColor = ChooseForeground(textColor);
+                    e.CellStyle.BackColor = textColor;
+                    e.CellStyle.SelectionBackColor = textColor;
+                }
+                else
+                {
+
+                }
+
+
+                return;
+            }
         }
 
         private void UpdateDatabase()
@@ -289,36 +659,81 @@ namespace DB_EDITOR
             return -1;
         }
 
+        private int GetDCHTPGIDfromPlayerName(string name)
+        {
+            for (int i = 0; i < DCHTPlayers.Count; i++)
+            {
+                if (DCHTPlayers[i][29] == name) return Convert.ToInt32(DCHTPlayers[i][25]);
+            }
+
+            return -1;
+        }
+
         # region Buttons
 
         private void DCHTAutoSet_Click(object sender, EventArgs e)
         {
             int leaguesize = 120;
-            if(DC136.Checked) leaguesize = 136;
+            if (DC136.Checked) leaguesize = 136;
             DepthChartMakerSingle("DCHT", DepthChartIndex, leaguesize);
             LoadTeamDCHTData();
             LoadDCHTPlayerData();
 
-            if (DCHTGrid.CurrentCell != null) LoadDCHTComboBoxes(DCHTGrid.CurrentCell.RowIndex);
-
-
-
+            if (DCHTGrid.CurrentCell != null) LoadDCHTBoxData(DCHTGrid.CurrentCell.RowIndex);
         }
 
         private void DCHTClear_Click(object sender, EventArgs e)
         {
+            if (!DCHTEditorMode.Checked)
+            {
+                MessageBox.Show("Depth Chart must be in Edit Mode to Clear Data.");
+                return;
+            }
             DoNotTrigger = true;
             LoadTeamDCHTData();
             LoadDCHTPlayerData();
 
-            if (DCHTGrid.CurrentCell != null) LoadDCHTComboBoxes(DCHTGrid.CurrentCell.RowIndex);
+            if (DCHTGrid.CurrentCell != null) LoadDCHTBoxData(DCHTGrid.CurrentCell.RowIndex);
 
             DoNotTrigger = false;
         }
 
         private void UpdateDCHT_Click(object sender, EventArgs e)
         {
+            if(!DCHTEditorMode.Checked)
+            {
+                MessageBox.Show("Depth Chart must be in Edit Mode to Update Database.");
+                return;
+            }
             UpdateDatabase();
+        }
+
+
+        private void DCHTGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (DCHTEditorMode.Checked) return;
+
+            int row = e.RowIndex;
+            int cell = e.ColumnIndex;
+
+            if (cell % 3 == 1)
+            {
+                string[] strings = Convert.ToString(DCHTGrid.Rows[row].Cells[cell].Value).Split(' ');
+                string playerName = "";
+                for(int i = 1; i < strings.Length; i++)
+                {
+                    playerName += strings[i] + " ";
+                }
+                playerName = playerName.Trim();
+           
+                int playerRec = GetDCHTPGIDfromPlayerName(playerName);
+
+
+                PlayerIndex = playerRec;
+                tabControl1.SelectedTab = tabPlayers;
+                LoadPlayerData();
+            }
+
         }
 
         #endregion
@@ -622,7 +1037,7 @@ namespace DB_EDITOR
 
 
             EndProgressBar();
-            if(!skipPrompt) MessageBox.Show(teamNameDB[tgid] + " Depth Charts are complete!");
+            if (!skipPrompt) MessageBox.Show(teamNameDB[tgid] + " Depth Charts are complete!");
         }
 
         public void DepthChartRemoveTeam(int tgid)
@@ -701,6 +1116,7 @@ namespace DB_EDITOR
             return false;
         }
         #endregion
+
 
 
     }

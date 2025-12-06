@@ -773,6 +773,12 @@ namespace DB_EDITOR
             File.WriteAllBytes(newLeagueFile, array);
         }
 
+        //UNIQUE PLAYERS MOD TOOL
+
+        private void UniquePlayerModButton_Click(object sender, EventArgs e)
+        {
+            UniquePlayers();
+        }
 
     }
 }

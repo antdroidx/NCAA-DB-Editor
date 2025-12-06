@@ -322,11 +322,11 @@ namespace DB_EDITOR
 
             //Overall Rating
             POVRbox.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "POVR", PlayerIndex)));
-            POVRbox.BackColor = GetRatingColor(POVRbox).BackColor;
+            POVRbox.BackColor = GetColorRating(Convert.ToInt32(POVRbox.Text));
 
             //Discipline
             PDIS.Value = GetDBValueInt("PLAY", "PDIS", PlayerIndex);
-            PDIS.BackColor = GetPrestigeColor(PDIS).BackColor;
+            PDIS.BackColor = GetPrestigeColor(PDIS.Value);
 
             //PGID Box
             PGIDbox.Text = GetDBValue("PLAY", "PGID", PlayerIndex);
@@ -407,116 +407,116 @@ namespace DB_EDITOR
             //Potential
             PPOEBox.Value = GetDBValueInt("PLAY", "PPOE", PlayerIndex);
             PPOEtext.Text = Convert.ToString(ConvertPotentialRating(Convert.ToInt32(PPOEBox.Value)));
-            PPOEtext.BackColor = GetRatingColor(PPOEtext).BackColor;
+            PPOEtext.BackColor = GetColorRating(Convert.ToInt32(PPOEtext.Text));
 
             //Injury
             PINJBox.Maximum = maxRatingVal;
             PINJBox.Value = GetDBValueInt("PLAY", "PINJ", PlayerIndex);
             PINJtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(PINJBox.Value)));
-            PINJtext.BackColor = GetRatingColor(PINJtext).BackColor;
+            PINJtext.BackColor = GetColorRating(Convert.ToInt32(PINJtext.Text));
 
 
             //Stamina
             PSTAbox.Maximum = maxRatingVal;
             PSTAbox.Value = GetDBValueInt("PLAY", "PSTA", PlayerIndex);
             PSTAtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(PSTAbox.Value)));
-            PSTAtext.BackColor = GetRatingColor(PSTAtext).BackColor;
+            PSTAtext.BackColor = GetColorRating(Convert.ToInt32(PSTAtext.Text));
 
             //Awareness
             PAWRBox.Maximum = maxRatingVal;
             PAWRBox.Value = GetDBValueInt("PLAY", "PAWR", PlayerIndex);
             PAWRtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(PAWRBox.Value)));
-            PAWRtext.BackColor = GetRatingColor(PAWRtext).BackColor;
+            PAWRtext.BackColor = GetColorRating(Convert.ToInt32(PAWRtext.Text));
 
             //Speed
             PSPDBox.Maximum = maxRatingVal;
             PSPDBox.Value = GetDBValueInt("PLAY", "PSPD", PlayerIndex);
             PSPDtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(PSPDBox.Value)));
-            PSPDtext.BackColor = GetRatingColor(PSPDtext).BackColor;
+            PSPDtext.BackColor = GetColorRating(Convert.ToInt32(PSPDtext.Text));
 
             //Agility
             PAGIBox.Maximum = maxRatingVal;
             PAGIBox.Value = GetDBValueInt("PLAY", "PAGI", PlayerIndex);
             PAGItext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(PAGIBox.Value)));
-            PAGItext.BackColor = GetRatingColor(PAGItext).BackColor;
+            PAGItext.BackColor = GetColorRating(Convert.ToInt32(PAGItext.Text));
 
             //Acceleration
             PACCBox.Maximum = maxRatingVal;
             PACCBox.Value = GetDBValueInt("PLAY", "PACC", PlayerIndex);
             PACCtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(PACCBox.Value)));
-            PACCtext.BackColor = GetRatingColor(PACCtext).BackColor;
+            PACCtext.BackColor = GetColorRating(Convert.ToInt32(PACCtext.Text));
 
             //Jumping
             PJMPBox.Maximum = maxRatingVal;
             PJMPBox.Value = GetDBValueInt("PLAY", "PJMP", PlayerIndex);
             PJMPtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(PJMPBox.Value)));
-            PJMPtext.BackColor = GetRatingColor(PJMPtext).BackColor;
+            PJMPtext.BackColor = GetColorRating(Convert.ToInt32(PJMPtext.Text));
 
             //Strength
             PSTRBox.Maximum = maxRatingVal;
             PSTRBox.Value = GetDBValueInt("PLAY", "PSTR", PlayerIndex);
             PSTRtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(PSTRBox.Value)));
-            PSTRtext.BackColor = GetRatingColor(PSTRtext).BackColor;
+            PSTRtext.BackColor = GetColorRating(Convert.ToInt32(PSTRtext.Text));
 
             //Throw Power
             PTHPBox.Maximum = maxRatingVal;
             PTHPBox.Value = GetDBValueInt("PLAY", "PTHP", PlayerIndex);
             PTHPtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(PTHPBox.Value)));
-            PTHPtext.BackColor = GetRatingColor(PTHPtext).BackColor;
+            PTHPtext.BackColor = GetColorRating(Convert.ToInt32(PTHPtext.Text));
 
             //Throw Accuracy
             PTHABox.Maximum = maxRatingVal;
             PTHABox.Value = GetDBValueInt("PLAY", "PTHA", PlayerIndex);
             PTHAtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(PTHABox.Value)));
-            PTHAtext.BackColor = GetRatingColor(PTHAtext).BackColor;
+            PTHAtext.BackColor = GetColorRating(Convert.ToInt32(PTHAtext.Text));
 
             //Break Tackle
             PBTKBox.Maximum = maxRatingVal;
             PBTKBox.Value = GetDBValueInt("PLAY", "PBTK", PlayerIndex);
             PBTKtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(PBTKBox.Value)));
-            PBTKtext.BackColor = GetRatingColor(PBTKtext).BackColor;
+            PBTKtext.BackColor = GetColorRating(Convert.ToInt32(PBTKtext.Text));
 
             //Ball Carry
             PCARBox.Maximum = maxRatingVal;
             PCARBox.Value = GetDBValueInt("PLAY", "PCAR", PlayerIndex);
             PCARtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(PCARBox.Value)));
-            PCARtext.BackColor = GetRatingColor(PCARtext).BackColor;
+            PCARtext.BackColor = GetColorRating(Convert.ToInt32(PCARtext.Text));
 
             //Run Blocking
             PRBKBox.Maximum = maxRatingVal;
             PRBKBox.Value = GetDBValueInt("PLAY", "PRBK", PlayerIndex);
             PRBKtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(PRBKBox.Value)));
-            PRBKtext.BackColor = GetRatingColor(PRBKtext).BackColor;
+            PRBKtext.BackColor = GetColorRating(Convert.ToInt32(PRBKtext.Text));
 
             //Pass Blocking
             PPBKBox.Maximum = maxRatingVal;
             PPBKBox.Value = GetDBValueInt("PLAY", "PPBK", PlayerIndex);
             PPBKtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(PPBKBox.Value)));
-            PPBKtext.BackColor = GetRatingColor(PPBKtext).BackColor;
+            PPBKtext.BackColor = GetColorRating(Convert.ToInt32(PPBKtext.Text));
 
             //Catching
             PCTHBox.Maximum = maxRatingVal;
             PCTHBox.Value = GetDBValueInt("PLAY", "PCTH", PlayerIndex);
             PCTHtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(PCTHBox.Value)));
-            PCTHtext.BackColor = GetRatingColor(PCTHtext).BackColor;
+            PCTHtext.BackColor = GetColorRating(Convert.ToInt32(PCTHtext.Text));
 
             //Tackling
             PTAKBox.Maximum = maxRatingVal;
             PTAKBox.Value = GetDBValueInt("PLAY", "PTAK", PlayerIndex);
             PTAKtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(PTAKBox.Value)));
-            PTAKtext.BackColor = GetRatingColor(PTAKtext).BackColor;
+            PTAKtext.BackColor = GetColorRating(Convert.ToInt32(PTAKtext.Text));
 
             //Kick Power
             PKPRBox.Maximum = maxRatingVal;
             PKPRBox.Value = GetDBValueInt("PLAY", "PKPR", PlayerIndex);
             PKPRtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(PKPRBox.Value)));
-            PKPRtext.BackColor = GetRatingColor(PKPRtext).BackColor;
+            PKPRtext.BackColor = GetColorRating(Convert.ToInt32(PKPRtext.Text));
 
             //Kick Accuracy
             PKACBox.Maximum = maxRatingVal;
             PKACBox.Value = GetDBValueInt("PLAY", "PKAC", PlayerIndex);
             PKACtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(PKACBox.Value)));
-            PKACtext.BackColor = GetRatingColor(PKACtext).BackColor;
+            PKACtext.BackColor = GetColorRating(Convert.ToInt32(PKACtext.Text));
 
             //Player Tendency/Archeatype
             PTEN.Text = GetPTENType(GetDBValueInt("PLAY", "PPOS", PlayerIndex), GetDBValueInt("PLAY", "PTEN", PlayerIndex));
@@ -1119,7 +1119,7 @@ namespace DB_EDITOR
                 return;
 
             ChangeDBInt("PLAY", "PDIS", PlayerIndex, Convert.ToInt32(PDIS.Value));
-            PDIS.BackColor = GetPrestigeColor(PDIS).BackColor;
+            PDIS.BackColor = GetPrestigeColor(PDIS.Value);
 
         }
 
@@ -1246,7 +1246,7 @@ namespace DB_EDITOR
 
             ChangeDBInt("PLAY", "PPOE", PlayerIndex, Convert.ToInt32(PPOEBox.Value));
             PPOEtext.Text = Convert.ToString(ConvertPotentialRating(GetDBValueInt("PLAY", "PPOE", PlayerIndex)));
-            PPOEtext.BackColor = GetRatingColor(PPOEtext).BackColor;
+            PPOEtext.BackColor = GetColorRating(Convert.ToInt32(PPOEtext.Text));
 
         }
 
@@ -1258,7 +1258,7 @@ namespace DB_EDITOR
 
             ChangeDBInt("PLAY", "PSTA", PlayerIndex, Convert.ToInt32(PSTAbox.Value));
             PSTAtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PSTA", PlayerIndex)));
-            PSTAtext.BackColor = GetRatingColor(PSTAtext).BackColor;
+            PSTAtext.BackColor = GetColorRating(Convert.ToInt32(PSTAtext.Text));
 
             DisplayNewOverallRating();
         }
@@ -1271,7 +1271,7 @@ namespace DB_EDITOR
 
             ChangeDBInt("PLAY", "PINJ", PlayerIndex, Convert.ToInt32(PINJBox.Value));
             PINJtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PINJ", PlayerIndex)));
-            PINJtext.BackColor = GetRatingColor(PINJtext).BackColor;
+            PINJtext.BackColor = GetColorRating(Convert.ToInt32(PINJtext.Text));
 
             DisplayNewOverallRating();
         }
@@ -1283,7 +1283,7 @@ namespace DB_EDITOR
 
             ChangeDBInt("PLAY", "PAWR", PlayerIndex, Convert.ToInt32(PAWRBox.Value));
             PAWRtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PAWR", PlayerIndex)));
-            PAWRtext.BackColor = GetRatingColor(PAWRtext).BackColor;
+            PAWRtext.BackColor = GetColorRating(Convert.ToInt32(PAWRtext.Text));
 
             DisplayNewOverallRating();
         }
@@ -1296,7 +1296,7 @@ namespace DB_EDITOR
 
             ChangeDBInt("PLAY", "PSPD", PlayerIndex, Convert.ToInt32(PSPDBox.Value));
             PSPDtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PSPD", PlayerIndex)));
-            PSPDtext.BackColor = GetRatingColor(PSPDtext).BackColor;
+            PSPDtext.BackColor = GetColorRating(Convert.ToInt32(PSPDtext.Text));
 
             DisplayNewOverallRating();
         }
@@ -1308,7 +1308,7 @@ namespace DB_EDITOR
 
             ChangeDBInt("PLAY", "PAGI", PlayerIndex, Convert.ToInt32(PAGIBox.Value));
             PAGItext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PAGI", PlayerIndex)));
-            PAGItext.BackColor = GetRatingColor(PAGItext).BackColor;
+            PAGItext.BackColor = GetColorRating(Convert.ToInt32(PAGItext.Text));
 
             DisplayNewOverallRating();
         }
@@ -1319,7 +1319,7 @@ namespace DB_EDITOR
 
             ChangeDBInt("PLAY", "PACC", PlayerIndex, Convert.ToInt32(PACCBox.Value));
             PACCtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PACC", PlayerIndex)));
-            PACCtext.BackColor = GetRatingColor(PACCtext).BackColor;
+            PACCtext.BackColor = GetColorRating(Convert.ToInt32(PACCtext.Text));
 
             DisplayNewOverallRating();
         }
@@ -1331,7 +1331,7 @@ namespace DB_EDITOR
 
             ChangeDBInt("PLAY", "PJMP", PlayerIndex, Convert.ToInt32(PJMPBox.Value));
             PJMPtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PJMP", PlayerIndex)));
-            PJMPtext.BackColor = GetRatingColor(PJMPtext).BackColor;
+            PJMPtext.BackColor = GetColorRating(Convert.ToInt32(PJMPtext.Text));
 
             DisplayNewOverallRating();
         }
@@ -1342,7 +1342,7 @@ namespace DB_EDITOR
 
             ChangeDBInt("PLAY", "PSTR", PlayerIndex, Convert.ToInt32(PSTRBox.Value));
             PSTRtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PSTR", PlayerIndex)));
-            PSTRtext.BackColor = GetRatingColor(PSTRtext).BackColor;
+            PSTRtext.BackColor = GetColorRating(Convert.ToInt32(PSTRtext.Text));
 
             DisplayNewOverallRating();
         }
@@ -1354,7 +1354,7 @@ namespace DB_EDITOR
 
             ChangeDBInt("PLAY", "PTHP", PlayerIndex, Convert.ToInt32(PTHPBox.Value));
             PTHPtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PTHP", PlayerIndex)));
-            PTHPtext.BackColor = GetRatingColor(PTHPtext).BackColor;
+            PTHPtext.BackColor = GetColorRating(Convert.ToInt32(PTHPtext.Text));
 
             DisplayNewOverallRating();
         }
@@ -1366,7 +1366,7 @@ namespace DB_EDITOR
 
             ChangeDBInt("PLAY", "PTHA", PlayerIndex, Convert.ToInt32(PTHABox.Value));
             PTHAtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PTHA", PlayerIndex)));
-            PTHAtext.BackColor = GetRatingColor(PTHAtext).BackColor;
+            PTHAtext.BackColor = GetColorRating(Convert.ToInt32(PTHAtext.Text));
 
             DisplayNewOverallRating();
         }
@@ -1378,7 +1378,7 @@ namespace DB_EDITOR
 
             ChangeDBInt("PLAY", "PBTK", PlayerIndex, Convert.ToInt32(PBTKBox.Value));
             PBTKtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PBTK", PlayerIndex)));
-            PBTKtext.BackColor = GetRatingColor(PBTKtext).BackColor;
+            PBTKtext.BackColor = GetColorRating(Convert.ToInt32(PBTKtext.Text));
 
             DisplayNewOverallRating();
         }
@@ -1390,7 +1390,7 @@ namespace DB_EDITOR
 
             ChangeDBInt("PLAY", "PCAR", PlayerIndex, Convert.ToInt32(PCARBox.Value));
             PCARtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PCAR", PlayerIndex)));
-            PCARtext.BackColor = GetRatingColor(PCARtext).BackColor;
+            PCARtext.BackColor = GetColorRating(Convert.ToInt32(PCARtext.Text));
 
             DisplayNewOverallRating();
         }
@@ -1402,7 +1402,7 @@ namespace DB_EDITOR
 
             ChangeDBInt("PLAY", "PRBK", PlayerIndex, Convert.ToInt32(PRBKBox.Value));
             PRBKtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PRBK", PlayerIndex)));
-            PRBKtext.BackColor = GetRatingColor(PRBKtext).BackColor;
+            PRBKtext.BackColor = GetColorRating(Convert.ToInt32(PRBKtext.Text));
 
             DisplayNewOverallRating();
         }
@@ -1414,7 +1414,7 @@ namespace DB_EDITOR
 
             ChangeDBInt("PLAY", "PPBK", PlayerIndex, Convert.ToInt32(PPBKBox.Value));
             PPBKtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PPBK", PlayerIndex)));
-            PPBKtext.BackColor = GetRatingColor(PPBKtext).BackColor;
+            PPBKtext.BackColor = GetColorRating(Convert.ToInt32(PPBKtext.Text));
 
             DisplayNewOverallRating();
         }
@@ -1427,7 +1427,7 @@ namespace DB_EDITOR
 
             ChangeDBInt("PLAY", "PCTH", PlayerIndex, Convert.ToInt32(PCTHBox.Value));
             PCTHtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PCTH", PlayerIndex)));
-            PCTHtext.BackColor = GetRatingColor(PCTHtext).BackColor;
+            PCTHtext.BackColor = GetColorRating(Convert.ToInt32(PCTHtext.Text));
 
             DisplayNewOverallRating();
         }
@@ -1439,7 +1439,7 @@ namespace DB_EDITOR
 
             ChangeDBInt("PLAY", "PTAK", PlayerIndex, Convert.ToInt32(PTAKBox.Value));
             PTAKtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PTAK", PlayerIndex)));
-            PTAKtext.BackColor = GetRatingColor(PTAKtext).BackColor;
+            PTAKtext.BackColor = GetColorRating(Convert.ToInt32(PTAKtext.Text));
 
             DisplayNewOverallRating();
         }
@@ -1451,7 +1451,7 @@ namespace DB_EDITOR
 
             ChangeDBInt("PLAY", "PKPR", PlayerIndex, Convert.ToInt32(PKPRBox.Value));
             PKPRtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PKPR", PlayerIndex)));
-            PKPRtext.BackColor = GetRatingColor(PKPRtext).BackColor;
+            PKPRtext.BackColor = GetColorRating(Convert.ToInt32(PKPRtext.Text));
 
             DisplayNewOverallRating();
         }
@@ -1464,7 +1464,7 @@ namespace DB_EDITOR
 
             ChangeDBInt("PLAY", "PKAC", PlayerIndex, Convert.ToInt32(PKACBox.Value));
             PKACtext.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "PKAC", PlayerIndex)));
-            PKACtext.BackColor = GetRatingColor(PKACtext).BackColor;
+            PKACtext.BackColor = GetColorRating(Convert.ToInt32(PKACtext.Text));
 
             DisplayNewOverallRating();
         }
@@ -1713,7 +1713,7 @@ namespace DB_EDITOR
         {
             RecalculateOverallByRec(PlayerIndex);
             POVRbox.Text = Convert.ToString(ConvertRating(GetDBValueInt("PLAY", "POVR", PlayerIndex)));
-            POVRbox.BackColor = GetRatingColor(POVRbox).BackColor;
+            POVRbox.BackColor = GetColorRating(Convert.ToInt32(POVRbox.Text));
         }
 
         private void CheckPJEN()

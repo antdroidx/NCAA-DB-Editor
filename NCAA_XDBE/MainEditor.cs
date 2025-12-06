@@ -1248,8 +1248,9 @@ namespace DB_EDITOR
         private void EnableDevGearsMod_Click(object sender, EventArgs e)
         {
             devMode = true;
-            MessageBox.Show("Dev Mode Enabled for New Glove Expansion Mod Features!");
+            MessageBox.Show("Dev Mode Enabled");
         }
+
 
     }
 

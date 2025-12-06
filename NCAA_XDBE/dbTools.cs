@@ -61,6 +61,10 @@ namespace DB_EDITOR
                 MaxFantasyPlayers.Value = 70;
 
             }
+
+            //Visors
+            ClearVisorPCT.Text = "" + (100 - TintedVisorPCT.Value - DarkVisorPCT.Value);
+
         }
 
         #region MAIN DB TOOLS CLICKS

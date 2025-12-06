@@ -1373,6 +1373,59 @@ namespace DB_EDITOR
         }
 
 
+        //Recruit Interest Randomizer
+
+        private void RandomizeRecruitInterestButton_Click(object sender, EventArgs e)
+        {
+            RecruitInterestRandomizer();
+        }
+
+        private void RecruitInterestRandomizer()
+        {
+            StartProgressBar(GetTable2RecCount("RCPR"));
+
+            for (int i = 0; i < GetTable2RecCount("RCPR"); i++)
+            {
+                int ptcm = GetDB2ValueInt("RCPR", "PTCM", i);
+
+                if (ptcm > 0)
+                {
+                    //Create Team List
+                    List<int> list = new List<int>();
+                    for (int t = 0; t < GetTableRecCount("TEAM"); t++)
+                    {
+                        if (GetDBValueInt("TEAM", "TTYP", t) == 0)
+                        {
+                            int tgid = GetDBValueInt("TEAM", "TGID", t);
+                            list.Add(tgid);
+                        }
+                    }
+                    //Create Field Names
+                    string PT = "PT0";
+                    string PS = "PS0";
+
+                    int score = rand.Next(100, 200);
+
+                    for (int x = 1; x <= 7; x++)
+                    {
+                        int teamID = list[rand.Next(0, list.Count)];
+                        score -= rand.Next(0, 11);
+
+                        ChangeDB2Int("RCPR", PT + x, i, teamID);
+                        ChangeDB2Int("RCPR", PS + x, i, score);
+
+                        list.Remove(teamID);
+                    }
+                }
+
+                ProgressBarStep();
+            }
+
+            EndProgressBar();
+            MessageBox.Show("Recruit Interest Randomized!");
+        }
+
+
         #region Transfer Editor
 
         private void LoadGlobalTransferData()

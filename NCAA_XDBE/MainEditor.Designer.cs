@@ -44,8 +44,8 @@ namespace DB_EDITOR
             DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle13 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle15 = new DataGridViewCellStyle();
@@ -208,6 +208,7 @@ namespace DB_EDITOR
             DB2Button = new RadioButton();
             DBChooserGroupBox = new GroupBox();
             tabDev = new TabPage();
+            UniquePlayerModButton = new System.Windows.Forms.Button();
             EnableDevGears = new System.Windows.Forms.Button();
             textBox25 = new System.Windows.Forms.TextBox();
             textBox23 = new System.Windows.Forms.TextBox();
@@ -369,6 +370,11 @@ namespace DB_EDITOR
             GlobalAttButton = new System.Windows.Forms.Button();
             textBox3 = new System.Windows.Forms.TextBox();
             groupBox53 = new GroupBox();
+            label214 = new Label();
+            ClearVisorPCT = new System.Windows.Forms.TextBox();
+            label212 = new Label();
+            DarkVisorPCT = new NumericUpDown();
+            RandomizeGlovesOnlyButton = new System.Windows.Forms.Button();
             Label210 = new Label();
             TintedVisorPCT = new NumericUpDown();
             RandomizeTintedVisors = new System.Windows.Forms.Button();
@@ -384,6 +390,8 @@ namespace DB_EDITOR
             ReRankTeamsAP = new CheckBox();
             RandomizeSkinTonesButton = new System.Windows.Forms.Button();
             tabOffSeason = new TabPage();
+            groupBox56 = new GroupBox();
+            RandomizeRecruitInterestButton = new System.Windows.Forms.Button();
             groupBox39 = new GroupBox();
             GTransferRecruitable = new RadioButton();
             GTransferCommitted = new RadioButton();
@@ -687,6 +695,7 @@ namespace DB_EDITOR
             conf2 = new CheckedListBox();
             conf1 = new CheckedListBox();
             tabDepthCharts = new TabPage();
+            DCHTEditorMode = new CheckBox();
             groupBox40 = new GroupBox();
             DC136 = new RadioButton();
             DC120 = new RadioButton();
@@ -697,12 +706,12 @@ namespace DB_EDITOR
             label152 = new Label();
             DCHTGrid = new DataGridView();
             DCHTPPOS = new DataGridViewTextBoxColumn();
-            DCHT0 = new DataGridViewComboBoxColumn();
-            DCHT1 = new DataGridViewComboBoxColumn();
-            DCHT2 = new DataGridViewComboBoxColumn();
-            DCHT3 = new DataGridViewComboBoxColumn();
-            DCHT4 = new DataGridViewComboBoxColumn();
-            DCHT5 = new DataGridViewComboBoxColumn();
+            DCHT0 = new DataGridViewTextBoxColumn();
+            DCHT1 = new DataGridViewTextBoxColumn();
+            DCHT2 = new DataGridViewTextBoxColumn();
+            DCHT3 = new DataGridViewTextBoxColumn();
+            DCHT4 = new DataGridViewTextBoxColumn();
+            DCHT5 = new DataGridViewTextBoxColumn();
             tabSchedule = new TabPage();
             ScheduleStrengthLabel = new Label();
             WeeklyHighlightView = new DataGridView();
@@ -1065,8 +1074,8 @@ namespace DB_EDITOR
             TopPlayerID = new DataGridViewTextBoxColumn();
             label19 = new Label();
             groupBox49 = new GroupBox();
+            TeamSwapGloves = new System.Windows.Forms.Button();
             GenerateNewRosterButton = new System.Windows.Forms.Button();
-            TeamAutoImpact = new System.Windows.Forms.Button();
             DeathPenaltyButton = new System.Windows.Forms.Button();
             TeamSetDepthChart = new System.Windows.Forms.Button();
             FireCoachButton = new System.Windows.Forms.Button();
@@ -1125,6 +1134,7 @@ namespace DB_EDITOR
             CapacityNumbox = new NumericUpDown();
             groupBox11 = new GroupBox();
             ImpactTSI1Select = new System.Windows.Forms.ComboBox();
+            TeamAutoImpact = new System.Windows.Forms.Button();
             label15 = new Label();
             label16 = new Label();
             label17 = new Label();
@@ -1546,8 +1556,10 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)GlobalAttNum).BeginInit();
             ((System.ComponentModel.ISupportInitialize)MinAttNum).BeginInit();
             groupBox53.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)DarkVisorPCT).BeginInit();
             ((System.ComponentModel.ISupportInitialize)TintedVisorPCT).BeginInit();
             tabOffSeason.SuspendLayout();
+            groupBox56.SuspendLayout();
             groupBox39.SuspendLayout();
             groupBox43.SuspendLayout();
             groupBox17.SuspendLayout();
@@ -1783,7 +1795,7 @@ namespace DB_EDITOR
             // 
             // qbTend
             // 
-            qbTend.BackColor = SystemColors.MenuHighlight;
+            qbTend.BackColor = Color.LightSkyBlue;
             qbTend.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             qbTend.ForeColor = SystemColors.ActiveCaptionText;
             qbTend.Location = new Point(259, 481);
@@ -2210,6 +2222,7 @@ namespace DB_EDITOR
             // tabDev
             // 
             tabDev.BackColor = SystemColors.ActiveCaption;
+            tabDev.Controls.Add(UniquePlayerModButton);
             tabDev.Controls.Add(EnableDevGears);
             tabDev.Controls.Add(textBox25);
             tabDev.Controls.Add(textBox23);
@@ -2254,15 +2267,27 @@ namespace DB_EDITOR
             tabDev.TabIndex = 8;
             tabDev.Text = "Dev";
             // 
+            // UniquePlayerModButton
+            // 
+            UniquePlayerModButton.BackColor = Color.Gold;
+            UniquePlayerModButton.Font = new Font("Microsoft Sans Serif", 12F);
+            UniquePlayerModButton.Location = new Point(726, 145);
+            UniquePlayerModButton.Name = "UniquePlayerModButton";
+            UniquePlayerModButton.Size = new Size(140, 55);
+            UniquePlayerModButton.TabIndex = 157;
+            UniquePlayerModButton.Text = "Unique Player Mod Thing";
+            UniquePlayerModButton.UseVisualStyleBackColor = false;
+            UniquePlayerModButton.Click += (this.UniquePlayerModButton_Click);
+            // 
             // EnableDevGears
             // 
             EnableDevGears.BackColor = Color.Gold;
             EnableDevGears.Font = new Font("Microsoft Sans Serif", 12F);
-            EnableDevGears.Location = new Point(979, 142);
+            EnableDevGears.Location = new Point(979, 124);
             EnableDevGears.Name = "EnableDevGears";
             EnableDevGears.Size = new Size(140, 55);
             EnableDevGears.TabIndex = 156;
-            EnableDevGears.Text = "Enable Dev Gloves Mod";
+            EnableDevGears.Text = "Enable Dev Mode";
             EnableDevGears.UseVisualStyleBackColor = false;
             EnableDevGears.Click += (this.EnableDevGearsMod_Click);
             // 
@@ -3440,7 +3465,7 @@ namespace DB_EDITOR
             groupBox38.Controls.Add(bodyFix);
             groupBox38.Controls.Add(qbTend);
             groupBox38.Controls.Add(buttonCalcOverall);
-            groupBox38.Location = new Point(319, 17);
+            groupBox38.Location = new Point(334, 17);
             groupBox38.Name = "groupBox38";
             groupBox38.Size = new Size(417, 581);
             groupBox38.TabIndex = 60;
@@ -3449,7 +3474,7 @@ namespace DB_EDITOR
             // 
             // RandomizePlayerGearButton
             // 
-            RandomizePlayerGearButton.BackColor = SystemColors.MenuHighlight;
+            RandomizePlayerGearButton.BackColor = Color.LightSkyBlue;
             RandomizePlayerGearButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             RandomizePlayerGearButton.ForeColor = SystemColors.ActiveCaptionText;
             RandomizePlayerGearButton.Location = new Point(258, 305);
@@ -3558,7 +3583,7 @@ namespace DB_EDITOR
             // 
             // buttonAutoDepthChart
             // 
-            buttonAutoDepthChart.BackColor = SystemColors.MenuHighlight;
+            buttonAutoDepthChart.BackColor = Color.LightSkyBlue;
             buttonAutoDepthChart.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             buttonAutoDepthChart.ForeColor = SystemColors.ActiveCaptionText;
             buttonAutoDepthChart.Location = new Point(259, 218);
@@ -3571,7 +3596,7 @@ namespace DB_EDITOR
             // 
             // buttonFantasyRoster
             // 
-            buttonFantasyRoster.BackColor = SystemColors.MenuHighlight;
+            buttonFantasyRoster.BackColor = Color.LightSkyBlue;
             buttonFantasyRoster.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             buttonFantasyRoster.ForeColor = SystemColors.ActiveCaptionText;
             buttonFantasyRoster.Location = new Point(8, 130);
@@ -3617,7 +3642,7 @@ namespace DB_EDITOR
             // 
             // buttonFillRosters
             // 
-            buttonFillRosters.BackColor = SystemColors.MenuHighlight;
+            buttonFillRosters.BackColor = Color.LightSkyBlue;
             buttonFillRosters.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             buttonFillRosters.ForeColor = SystemColors.ActiveCaptionText;
             buttonFillRosters.Location = new Point(257, 130);
@@ -3649,7 +3674,7 @@ namespace DB_EDITOR
             // 
             // FantasyCoachesButton
             // 
-            FantasyCoachesButton.BackColor = SystemColors.MenuHighlight;
+            FantasyCoachesButton.BackColor = Color.LightSkyBlue;
             FantasyCoachesButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             FantasyCoachesButton.ForeColor = SystemColors.ActiveCaptionText;
             FantasyCoachesButton.Location = new Point(8, 216);
@@ -3662,7 +3687,7 @@ namespace DB_EDITOR
             // 
             // buttonRandPotential
             // 
-            buttonRandPotential.BackColor = SystemColors.MenuHighlight;
+            buttonRandPotential.BackColor = Color.LightSkyBlue;
             buttonRandPotential.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             buttonRandPotential.ForeColor = SystemColors.ActiveCaptionText;
             buttonRandPotential.Location = new Point(259, 394);
@@ -3675,7 +3700,7 @@ namespace DB_EDITOR
             // 
             // RandomizeHeadButton
             // 
-            RandomizeHeadButton.BackColor = SystemColors.MenuHighlight;
+            RandomizeHeadButton.BackColor = Color.LightSkyBlue;
             RandomizeHeadButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             RandomizeHeadButton.ForeColor = SystemColors.ActiveCaptionText;
             RandomizeHeadButton.Location = new Point(8, 305);
@@ -3688,7 +3713,7 @@ namespace DB_EDITOR
             // 
             // bodyFix
             // 
-            bodyFix.BackColor = SystemColors.MenuHighlight;
+            bodyFix.BackColor = Color.LightSkyBlue;
             bodyFix.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             bodyFix.ForeColor = SystemColors.ActiveCaptionText;
             bodyFix.Location = new Point(8, 394);
@@ -3701,7 +3726,7 @@ namespace DB_EDITOR
             // 
             // buttonCalcOverall
             // 
-            buttonCalcOverall.BackColor = SystemColors.MenuHighlight;
+            buttonCalcOverall.BackColor = Color.LightSkyBlue;
             buttonCalcOverall.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             buttonCalcOverall.ForeColor = SystemColors.ActiveCaptionText;
             buttonCalcOverall.Location = new Point(8, 482);
@@ -4089,16 +4114,21 @@ namespace DB_EDITOR
             textBox3.BackColor = SystemColors.Info;
             textBox3.Enabled = false;
             textBox3.Font = new Font("Corbel", 15.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            textBox3.Location = new Point(16, 18);
+            textBox3.Location = new Point(3, 6);
             textBox3.Multiline = true;
             textBox3.Name = "textBox3";
-            textBox3.Size = new Size(237, 61);
+            textBox3.Size = new Size(310, 38);
             textBox3.TabIndex = 14;
-            textBox3.Text = "NCAA Football\r\nModding Toolkit";
+            textBox3.Text = "NCAA Football Modding Toolkit";
             textBox3.TextAlign = HorizontalAlignment.Center;
             // 
             // groupBox53
             // 
+            groupBox53.Controls.Add(label214);
+            groupBox53.Controls.Add(ClearVisorPCT);
+            groupBox53.Controls.Add(label212);
+            groupBox53.Controls.Add(DarkVisorPCT);
+            groupBox53.Controls.Add(RandomizeGlovesOnlyButton);
             groupBox53.Controls.Add(Label210);
             groupBox53.Controls.Add(TintedVisorPCT);
             groupBox53.Controls.Add(RandomizeTintedVisors);
@@ -4113,40 +4143,92 @@ namespace DB_EDITOR
             groupBox53.Controls.Add(TORDButton);
             groupBox53.Controls.Add(ReRankTeamsAP);
             groupBox53.Controls.Add(RandomizeSkinTonesButton);
-            groupBox53.Location = new Point(16, 85);
+            groupBox53.Location = new Point(19, 49);
             groupBox53.Name = "groupBox53";
-            groupBox53.Size = new Size(286, 513);
+            groupBox53.Size = new Size(294, 549);
             groupBox53.TabIndex = 68;
             groupBox53.TabStop = false;
             groupBox53.Text = "Misc Tools";
             // 
+            // label214
+            // 
+            label214.AutoSize = true;
+            label214.Font = new Font("Microsoft Sans Serif", 9F);
+            label214.Location = new Point(136, 293);
+            label214.Name = "label214";
+            label214.Size = new Size(62, 15);
+            label214.TabIndex = 76;
+            label214.Text = "Clear PCT";
+            // 
+            // ClearVisorPCT
+            // 
+            ClearVisorPCT.Font = new Font("Microsoft Sans Serif", 9F);
+            ClearVisorPCT.Location = new Point(205, 290);
+            ClearVisorPCT.Name = "ClearVisorPCT";
+            ClearVisorPCT.Size = new Size(63, 21);
+            ClearVisorPCT.TabIndex = 75;
+            // 
+            // label212
+            // 
+            label212.AutoSize = true;
+            label212.Font = new Font("Microsoft Sans Serif", 9F);
+            label212.Location = new Point(135, 243);
+            label212.Name = "label212";
+            label212.Size = new Size(59, 15);
+            label212.TabIndex = 74;
+            label212.Text = "Dark PCT";
+            // 
+            // DarkVisorPCT
+            // 
+            DarkVisorPCT.Font = new Font("Microsoft Sans Serif", 9F);
+            DarkVisorPCT.Location = new Point(136, 262);
+            DarkVisorPCT.Name = "DarkVisorPCT";
+            DarkVisorPCT.Size = new Size(66, 21);
+            DarkVisorPCT.TabIndex = 73;
+            DarkVisorPCT.Value = new decimal(new int[] { 25, 0, 0, 0 });
+            DarkVisorPCT.ValueChanged += (this.DarkVisorPCT_ValueChanged);
+            // 
+            // RandomizeGlovesOnlyButton
+            // 
+            RandomizeGlovesOnlyButton.BackColor = Color.LightSkyBlue;
+            RandomizeGlovesOnlyButton.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
+            RandomizeGlovesOnlyButton.ForeColor = SystemColors.ActiveCaptionText;
+            RandomizeGlovesOnlyButton.Location = new Point(153, 177);
+            RandomizeGlovesOnlyButton.Name = "RandomizeGlovesOnlyButton";
+            RandomizeGlovesOnlyButton.Size = new Size(110, 60);
+            RandomizeGlovesOnlyButton.TabIndex = 72;
+            RandomizeGlovesOnlyButton.Text = "Randomize Gloves Only";
+            RandomizeGlovesOnlyButton.UseVisualStyleBackColor = false;
+            RandomizeGlovesOnlyButton.Click += (this.RandomizeGlovesOnlyButton_Click);
+            // 
             // Label210
             // 
             Label210.AutoSize = true;
-            Label210.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            Label210.Location = new Point(197, 306);
+            Label210.Font = new Font("Microsoft Sans Serif", 9F);
+            Label210.Location = new Point(205, 243);
             Label210.Name = "Label210";
-            Label210.Size = new Size(75, 16);
+            Label210.Size = new Size(67, 15);
             Label210.TabIndex = 71;
             Label210.Text = "Tinted PCT";
             // 
             // TintedVisorPCT
             // 
-            TintedVisorPCT.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            TintedVisorPCT.Location = new Point(197, 325);
+            TintedVisorPCT.Font = new Font("Microsoft Sans Serif", 9F);
+            TintedVisorPCT.Location = new Point(208, 262);
             TintedVisorPCT.Name = "TintedVisorPCT";
-            TintedVisorPCT.Size = new Size(66, 26);
+            TintedVisorPCT.Size = new Size(66, 21);
             TintedVisorPCT.TabIndex = 69;
             TintedVisorPCT.Value = new decimal(new int[] { 25, 0, 0, 0 });
+            TintedVisorPCT.ValueChanged += (this.TintedVisorPCT_ValueChanged);
             // 
             // RandomizeTintedVisors
             // 
-            RandomizeTintedVisors.BackColor = SystemColors.MenuHighlight;
+            RandomizeTintedVisors.BackColor = Color.LightSkyBlue;
             RandomizeTintedVisors.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             RandomizeTintedVisors.ForeColor = SystemColors.ActiveCaptionText;
-            RandomizeTintedVisors.Location = new Point(12, 302);
+            RandomizeTintedVisors.Location = new Point(11, 252);
             RandomizeTintedVisors.Name = "RandomizeTintedVisors";
-            RandomizeTintedVisors.Size = new Size(179, 60);
+            RandomizeTintedVisors.Size = new Size(111, 60);
             RandomizeTintedVisors.TabIndex = 68;
             RandomizeTintedVisors.Text = "Randomize Visors with Tint";
             RandomizeTintedVisors.UseVisualStyleBackColor = false;
@@ -4154,10 +4236,10 @@ namespace DB_EDITOR
             // 
             // LoadCoachAge
             // 
-            LoadCoachAge.BackColor = Color.AntiqueWhite;
+            LoadCoachAge.BackColor = Color.PaleGoldenrod;
             LoadCoachAge.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             LoadCoachAge.ForeColor = SystemColors.ActiveCaptionText;
-            LoadCoachAge.Location = new Point(154, 437);
+            LoadCoachAge.Location = new Point(153, 483);
             LoadCoachAge.Name = "LoadCoachAge";
             LoadCoachAge.Size = new Size(109, 60);
             LoadCoachAge.TabIndex = 66;
@@ -4177,12 +4259,12 @@ namespace DB_EDITOR
             // 
             // ExportDraft
             // 
-            ExportDraft.BackColor = Color.LightSalmon;
+            ExportDraft.BackColor = Color.MediumTurquoise;
             ExportDraft.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             ExportDraft.ForeColor = SystemColors.ActiveCaptionText;
-            ExportDraft.Location = new Point(153, 170);
+            ExportDraft.Location = new Point(152, 352);
             ExportDraft.Name = "ExportDraft";
-            ExportDraft.Size = new Size(110, 126);
+            ExportDraft.Size = new Size(110, 59);
             ExportDraft.TabIndex = 64;
             ExportDraft.Text = "Export Draft Class";
             ExportDraft.UseVisualStyleBackColor = false;
@@ -4190,7 +4272,7 @@ namespace DB_EDITOR
             // 
             // TYDNButton
             // 
-            TYDNButton.BackColor = SystemColors.MenuHighlight;
+            TYDNButton.BackColor = Color.LightSkyBlue;
             TYDNButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             TYDNButton.ForeColor = SystemColors.ActiveCaptionText;
             TYDNButton.Location = new Point(6, 19);
@@ -4203,10 +4285,10 @@ namespace DB_EDITOR
             // 
             // SyncPBButton
             // 
-            SyncPBButton.BackColor = Color.AntiqueWhite;
+            SyncPBButton.BackColor = Color.PaleGoldenrod;
             SyncPBButton.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             SyncPBButton.ForeColor = SystemColors.ActiveCaptionText;
-            SyncPBButton.Location = new Point(154, 371);
+            SyncPBButton.Location = new Point(153, 417);
             SyncPBButton.Name = "SyncPBButton";
             SyncPBButton.Size = new Size(110, 60);
             SyncPBButton.TabIndex = 52;
@@ -4216,10 +4298,10 @@ namespace DB_EDITOR
             // 
             // ResetDynYear
             // 
-            ResetDynYear.BackColor = SystemColors.MenuHighlight;
+            ResetDynYear.BackColor = Color.PaleGoldenrod;
             ResetDynYear.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             ResetDynYear.ForeColor = SystemColors.ActiveCaptionText;
-            ResetDynYear.Location = new Point(12, 171);
+            ResetDynYear.Location = new Point(13, 351);
             ResetDynYear.Name = "ResetDynYear";
             ResetDynYear.Size = new Size(110, 60);
             ResetDynYear.TabIndex = 61;
@@ -4239,10 +4321,10 @@ namespace DB_EDITOR
             // 
             // ReorderPGIDButton
             // 
-            ReorderPGIDButton.BackColor = Color.AntiqueWhite;
+            ReorderPGIDButton.BackColor = Color.PaleGoldenrod;
             ReorderPGIDButton.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             ReorderPGIDButton.ForeColor = SystemColors.ActiveCaptionText;
-            ReorderPGIDButton.Location = new Point(12, 371);
+            ReorderPGIDButton.Location = new Point(12, 417);
             ReorderPGIDButton.Name = "ReorderPGIDButton";
             ReorderPGIDButton.Size = new Size(110, 60);
             ReorderPGIDButton.TabIndex = 28;
@@ -4252,10 +4334,10 @@ namespace DB_EDITOR
             // 
             // TORDButton
             // 
-            TORDButton.BackColor = Color.AntiqueWhite;
+            TORDButton.BackColor = Color.PaleGoldenrod;
             TORDButton.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             TORDButton.ForeColor = SystemColors.ActiveCaptionText;
-            TORDButton.Location = new Point(12, 437);
+            TORDButton.Location = new Point(12, 483);
             TORDButton.Name = "TORDButton";
             TORDButton.Size = new Size(110, 60);
             TORDButton.TabIndex = 26;
@@ -4275,10 +4357,10 @@ namespace DB_EDITOR
             // 
             // RandomizeSkinTonesButton
             // 
-            RandomizeSkinTonesButton.BackColor = SystemColors.MenuHighlight;
+            RandomizeSkinTonesButton.BackColor = Color.LightSkyBlue;
             RandomizeSkinTonesButton.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             RandomizeSkinTonesButton.ForeColor = SystemColors.ActiveCaptionText;
-            RandomizeSkinTonesButton.Location = new Point(12, 236);
+            RandomizeSkinTonesButton.Location = new Point(12, 177);
             RandomizeSkinTonesButton.Name = "RandomizeSkinTonesButton";
             RandomizeSkinTonesButton.Size = new Size(110, 60);
             RandomizeSkinTonesButton.TabIndex = 54;
@@ -4289,6 +4371,7 @@ namespace DB_EDITOR
             // tabOffSeason
             // 
             tabOffSeason.BackColor = SystemColors.ActiveCaption;
+            tabOffSeason.Controls.Add(groupBox56);
             tabOffSeason.Controls.Add(groupBox39);
             tabOffSeason.Controls.Add(groupBox43);
             tabOffSeason.Controls.Add(groupBox17);
@@ -4300,6 +4383,29 @@ namespace DB_EDITOR
             tabOffSeason.Size = new Size(1148, 607);
             tabOffSeason.TabIndex = 4;
             tabOffSeason.Text = "Off-Season";
+            // 
+            // groupBox56
+            // 
+            groupBox56.Controls.Add(RandomizeRecruitInterestButton);
+            groupBox56.Location = new Point(882, 429);
+            groupBox56.Name = "groupBox56";
+            groupBox56.Size = new Size(244, 165);
+            groupBox56.TabIndex = 173;
+            groupBox56.TabStop = false;
+            groupBox56.Text = "Recruiting Randomizer";
+            // 
+            // RandomizeRecruitInterestButton
+            // 
+            RandomizeRecruitInterestButton.BackColor = Color.LightSkyBlue;
+            RandomizeRecruitInterestButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            RandomizeRecruitInterestButton.ForeColor = Color.Black;
+            RandomizeRecruitInterestButton.Location = new Point(28, 31);
+            RandomizeRecruitInterestButton.Name = "RandomizeRecruitInterestButton";
+            RandomizeRecruitInterestButton.Size = new Size(188, 59);
+            RandomizeRecruitInterestButton.TabIndex = 4;
+            RandomizeRecruitInterestButton.Text = "Randomize Recruit Interested Teams";
+            RandomizeRecruitInterestButton.UseVisualStyleBackColor = false;
+            RandomizeRecruitInterestButton.Click += (this.RandomizeRecruitInterestButton_Click);
             // 
             // groupBox39
             // 
@@ -4314,7 +4420,7 @@ namespace DB_EDITOR
             groupBox39.Controls.Add(GlobalTransferInterest);
             groupBox39.Location = new Point(882, 58);
             groupBox39.Name = "groupBox39";
-            groupBox39.Size = new Size(244, 536);
+            groupBox39.Size = new Size(244, 351);
             groupBox39.TabIndex = 172;
             groupBox39.TabStop = false;
             groupBox39.Text = "Global Transfers Interest Editor";
@@ -4411,9 +4517,9 @@ namespace DB_EDITOR
             // 
             // AutoAdjustCoachBudgetButton2
             // 
-            AutoAdjustCoachBudgetButton2.BackColor = Color.RoyalBlue;
+            AutoAdjustCoachBudgetButton2.BackColor = Color.LightSkyBlue;
             AutoAdjustCoachBudgetButton2.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            AutoAdjustCoachBudgetButton2.ForeColor = SystemColors.ControlLight;
+            AutoAdjustCoachBudgetButton2.ForeColor = Color.Black;
             AutoAdjustCoachBudgetButton2.Location = new Point(31, 23);
             AutoAdjustCoachBudgetButton2.Name = "AutoAdjustCoachBudgetButton2";
             AutoAdjustCoachBudgetButton2.Size = new Size(250, 50);
@@ -4442,9 +4548,9 @@ namespace DB_EDITOR
             // 
             // CreateFCSTransferPortalButton
             // 
-            CreateFCSTransferPortalButton.BackColor = Color.RoyalBlue;
+            CreateFCSTransferPortalButton.BackColor = Color.LightSkyBlue;
             CreateFCSTransferPortalButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
-            CreateFCSTransferPortalButton.ForeColor = SystemColors.ButtonFace;
+            CreateFCSTransferPortalButton.ForeColor = Color.Black;
             CreateFCSTransferPortalButton.Location = new Point(28, 147);
             CreateFCSTransferPortalButton.Name = "CreateFCSTransferPortalButton";
             CreateFCSTransferPortalButton.Size = new Size(263, 83);
@@ -4455,9 +4561,9 @@ namespace DB_EDITOR
             // 
             // ExportDC2
             // 
-            ExportDC2.BackColor = Color.RoyalBlue;
+            ExportDC2.BackColor = Color.LightSkyBlue;
             ExportDC2.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            ExportDC2.ForeColor = SystemColors.ButtonFace;
+            ExportDC2.ForeColor = Color.Black;
             ExportDC2.Location = new Point(167, 255);
             ExportDC2.Name = "ExportDC2";
             ExportDC2.Size = new Size(124, 80);
@@ -4468,9 +4574,9 @@ namespace DB_EDITOR
             // 
             // TransferPortalStats
             // 
-            TransferPortalStats.BackColor = Color.RoyalBlue;
+            TransferPortalStats.BackColor = Color.LightSkyBlue;
             TransferPortalStats.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
-            TransferPortalStats.ForeColor = SystemColors.ButtonFace;
+            TransferPortalStats.ForeColor = Color.Black;
             TransferPortalStats.Location = new Point(167, 43);
             TransferPortalStats.Name = "TransferPortalStats";
             TransferPortalStats.Size = new Size(124, 80);
@@ -4481,9 +4587,9 @@ namespace DB_EDITOR
             // 
             // RemoveBadTransfers
             // 
-            RemoveBadTransfers.BackColor = Color.RoyalBlue;
+            RemoveBadTransfers.BackColor = Color.LightSkyBlue;
             RemoveBadTransfers.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold);
-            RemoveBadTransfers.ForeColor = SystemColors.ButtonFace;
+            RemoveBadTransfers.ForeColor = Color.Black;
             RemoveBadTransfers.Location = new Point(28, 43);
             RemoveBadTransfers.Name = "RemoveBadTransfers";
             RemoveBadTransfers.Size = new Size(124, 80);
@@ -4494,9 +4600,9 @@ namespace DB_EDITOR
             // 
             // buttonMinRecruitingPts
             // 
-            buttonMinRecruitingPts.BackColor = Color.RoyalBlue;
+            buttonMinRecruitingPts.BackColor = Color.LightSkyBlue;
             buttonMinRecruitingPts.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            buttonMinRecruitingPts.ForeColor = SystemColors.ButtonFace;
+            buttonMinRecruitingPts.ForeColor = Color.Black;
             buttonMinRecruitingPts.Location = new Point(28, 255);
             buttonMinRecruitingPts.Name = "buttonMinRecruitingPts";
             buttonMinRecruitingPts.Size = new Size(124, 80);
@@ -4585,9 +4691,9 @@ namespace DB_EDITOR
             // 
             // RandomizeRecruitGear
             // 
-            RandomizeRecruitGear.BackColor = Color.RoyalBlue;
+            RandomizeRecruitGear.BackColor = Color.LightSkyBlue;
             RandomizeRecruitGear.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            RandomizeRecruitGear.ForeColor = SystemColors.ButtonFace;
+            RandomizeRecruitGear.ForeColor = Color.Black;
             RandomizeRecruitGear.Location = new Point(265, 118);
             RandomizeRecruitGear.Name = "RandomizeRecruitGear";
             RandomizeRecruitGear.Size = new Size(200, 60);
@@ -4631,9 +4737,9 @@ namespace DB_EDITOR
             // 
             // RecalculateStarRankingsButton
             // 
-            RecalculateStarRankingsButton.BackColor = Color.RoyalBlue;
+            RecalculateStarRankingsButton.BackColor = Color.LightSkyBlue;
             RecalculateStarRankingsButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            RecalculateStarRankingsButton.ForeColor = SystemColors.ButtonFace;
+            RecalculateStarRankingsButton.ForeColor = Color.Black;
             RecalculateStarRankingsButton.Location = new Point(24, 344);
             RecalculateStarRankingsButton.Name = "RecalculateStarRankingsButton";
             RecalculateStarRankingsButton.Size = new Size(334, 80);
@@ -4644,9 +4750,9 @@ namespace DB_EDITOR
             // 
             // DetermineAthleteButton
             // 
-            DetermineAthleteButton.BackColor = Color.RoyalBlue;
+            DetermineAthleteButton.BackColor = Color.LightSkyBlue;
             DetermineAthleteButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            DetermineAthleteButton.ForeColor = SystemColors.ButtonFace;
+            DetermineAthleteButton.ForeColor = Color.Black;
             DetermineAthleteButton.Location = new Point(26, 265);
             DetermineAthleteButton.Name = "DetermineAthleteButton";
             DetermineAthleteButton.Size = new Size(439, 68);
@@ -4657,9 +4763,9 @@ namespace DB_EDITOR
             // 
             // buttonRandWalkOns
             // 
-            buttonRandWalkOns.BackColor = Color.RoyalBlue;
+            buttonRandWalkOns.BackColor = Color.LightSkyBlue;
             buttonRandWalkOns.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            buttonRandWalkOns.ForeColor = SystemColors.ButtonFace;
+            buttonRandWalkOns.ForeColor = Color.Black;
             buttonRandWalkOns.Location = new Point(251, 23);
             buttonRandWalkOns.Name = "buttonRandWalkOns";
             buttonRandWalkOns.Size = new Size(110, 80);
@@ -4670,9 +4776,9 @@ namespace DB_EDITOR
             // 
             // buttonRandRecruits
             // 
-            buttonRandRecruits.BackColor = Color.RoyalBlue;
+            buttonRandRecruits.BackColor = Color.LightSkyBlue;
             buttonRandRecruits.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            buttonRandRecruits.ForeColor = SystemColors.ButtonFace;
+            buttonRandRecruits.ForeColor = Color.Black;
             buttonRandRecruits.Location = new Point(26, 23);
             buttonRandRecruits.Name = "buttonRandRecruits";
             buttonRandRecruits.Size = new Size(110, 80);
@@ -4683,9 +4789,9 @@ namespace DB_EDITOR
             // 
             // RandomizeRecruitNamesButton
             // 
-            RandomizeRecruitNamesButton.BackColor = Color.RoyalBlue;
+            RandomizeRecruitNamesButton.BackColor = Color.LightSkyBlue;
             RandomizeRecruitNamesButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            RandomizeRecruitNamesButton.ForeColor = SystemColors.ButtonFace;
+            RandomizeRecruitNamesButton.ForeColor = Color.Black;
             RandomizeRecruitNamesButton.Location = new Point(26, 192);
             RandomizeRecruitNamesButton.Name = "RandomizeRecruitNamesButton";
             RandomizeRecruitNamesButton.Size = new Size(200, 60);
@@ -4696,9 +4802,9 @@ namespace DB_EDITOR
             // 
             // buttonRandomizeFaceShape
             // 
-            buttonRandomizeFaceShape.BackColor = Color.RoyalBlue;
+            buttonRandomizeFaceShape.BackColor = Color.LightSkyBlue;
             buttonRandomizeFaceShape.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            buttonRandomizeFaceShape.ForeColor = SystemColors.ButtonFace;
+            buttonRandomizeFaceShape.ForeColor = Color.Black;
             buttonRandomizeFaceShape.Location = new Point(26, 118);
             buttonRandomizeFaceShape.Name = "buttonRandomizeFaceShape";
             buttonRandomizeFaceShape.Size = new Size(200, 60);
@@ -4709,9 +4815,9 @@ namespace DB_EDITOR
             // 
             // polyNames
             // 
-            polyNames.BackColor = Color.RoyalBlue;
+            polyNames.BackColor = Color.LightSkyBlue;
             polyNames.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            polyNames.ForeColor = SystemColors.ButtonFace;
+            polyNames.ForeColor = Color.Black;
             polyNames.Location = new Point(265, 192);
             polyNames.Name = "polyNames";
             polyNames.Size = new Size(200, 60);
@@ -4722,9 +4828,9 @@ namespace DB_EDITOR
             // 
             // buttonInterestedTeams
             // 
-            buttonInterestedTeams.BackColor = Color.RoyalBlue;
+            buttonInterestedTeams.BackColor = Color.LightSkyBlue;
             buttonInterestedTeams.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            buttonInterestedTeams.ForeColor = SystemColors.ButtonFace;
+            buttonInterestedTeams.ForeColor = Color.Black;
             buttonInterestedTeams.Location = new Point(26, 441);
             buttonInterestedTeams.Name = "buttonInterestedTeams";
             buttonInterestedTeams.Size = new Size(332, 80);
@@ -6266,16 +6372,16 @@ namespace DB_EDITOR
             groupBox30.Controls.Add(GrassToTurf);
             groupBox30.Controls.Add(GlobalWeather);
             groupBox30.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            groupBox30.Location = new Point(702, 436);
+            groupBox30.Location = new Point(677, 328);
             groupBox30.Name = "groupBox30";
-            groupBox30.Size = new Size(398, 128);
+            groupBox30.Size = new Size(221, 240);
             groupBox30.TabIndex = 18;
             groupBox30.TabStop = false;
             groupBox30.Text = "Global Editor";
             // 
             // GrassToTurf
             // 
-            GrassToTurf.Location = new Point(215, 31);
+            GrassToTurf.Location = new Point(40, 141);
             GrassToTurf.Name = "GrassToTurf";
             GrassToTurf.Size = new Size(128, 76);
             GrassToTurf.TabIndex = 18;
@@ -6285,7 +6391,7 @@ namespace DB_EDITOR
             // 
             // GlobalWeather
             // 
-            GlobalWeather.Location = new Point(40, 32);
+            GlobalWeather.Location = new Point(40, 37);
             GlobalWeather.Name = "GlobalWeather";
             GlobalWeather.Size = new Size(128, 76);
             GlobalWeather.TabIndex = 17;
@@ -6689,9 +6795,9 @@ namespace DB_EDITOR
             groupBox27.Controls.Add(STADVisbility);
             groupBox27.Controls.Add(STADcat);
             groupBox27.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            groupBox27.Location = new Point(702, 106);
+            groupBox27.Location = new Point(677, 108);
             groupBox27.Name = "groupBox27";
-            groupBox27.Size = new Size(221, 135);
+            groupBox27.Size = new Size(221, 184);
             groupBox27.TabIndex = 6;
             groupBox27.TabStop = false;
             groupBox27.Text = "Stadium Options";
@@ -7231,6 +7337,7 @@ namespace DB_EDITOR
             // 
             // groupBox23
             // 
+            groupBox23.BackColor = SystemColors.ControlLight;
             groupBox23.Controls.Add(ConfDisplayProjPrestige);
             groupBox23.Controls.Add(ConfDisplayRanking);
             groupBox23.Controls.Add(ConfDisplayRating);
@@ -7633,6 +7740,7 @@ namespace DB_EDITOR
             // tabDepthCharts
             // 
             tabDepthCharts.BackColor = SystemColors.ControlDark;
+            tabDepthCharts.Controls.Add(DCHTEditorMode);
             tabDepthCharts.Controls.Add(groupBox40);
             tabDepthCharts.Controls.Add(DCHTAutoSet);
             tabDepthCharts.Controls.Add(DCHTClear);
@@ -7647,13 +7755,25 @@ namespace DB_EDITOR
             tabDepthCharts.TabIndex = 11;
             tabDepthCharts.Text = "Depth Charts";
             // 
+            // DCHTEditorMode
+            // 
+            DCHTEditorMode.AutoSize = true;
+            DCHTEditorMode.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            DCHTEditorMode.Location = new Point(15, 6);
+            DCHTEditorMode.Name = "DCHTEditorMode";
+            DCHTEditorMode.Size = new Size(110, 20);
+            DCHTEditorMode.TabIndex = 65;
+            DCHTEditorMode.Text = "Editor Mode";
+            DCHTEditorMode.UseVisualStyleBackColor = true;
+            DCHTEditorMode.CheckedChanged += (this.DCHTEditorMode_CheckedChanged);
+            // 
             // groupBox40
             // 
             groupBox40.Controls.Add(DC136);
             groupBox40.Controls.Add(DC120);
-            groupBox40.Location = new Point(4, 533);
+            groupBox40.Location = new Point(3, 523);
             groupBox40.Name = "groupBox40";
-            groupBox40.Size = new Size(152, 63);
+            groupBox40.Size = new Size(150, 73);
             groupBox40.TabIndex = 64;
             groupBox40.TabStop = false;
             groupBox40.Text = "League Size [SET FIRST]";
@@ -7684,7 +7804,7 @@ namespace DB_EDITOR
             // 
             DCHTAutoSet.BackColor = Color.Gold;
             DCHTAutoSet.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            DCHTAutoSet.Location = new Point(15, 267);
+            DCHTAutoSet.Location = new Point(6, 465);
             DCHTAutoSet.Name = "DCHTAutoSet";
             DCHTAutoSet.Size = new Size(138, 43);
             DCHTAutoSet.TabIndex = 5;
@@ -7696,7 +7816,7 @@ namespace DB_EDITOR
             // 
             DCHTClear.BackColor = SystemColors.ActiveCaption;
             DCHTClear.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            DCHTClear.Location = new Point(15, 192);
+            DCHTClear.Location = new Point(6, 404);
             DCHTClear.Name = "DCHTClear";
             DCHTClear.Size = new Size(138, 43);
             DCHTClear.TabIndex = 4;
@@ -7708,7 +7828,7 @@ namespace DB_EDITOR
             // 
             UpdateDCHT.BackColor = Color.IndianRed;
             UpdateDCHT.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            UpdateDCHT.Location = new Point(15, 117);
+            UpdateDCHT.Location = new Point(6, 346);
             UpdateDCHT.Name = "UpdateDCHT";
             UpdateDCHT.Size = new Size(138, 43);
             UpdateDCHT.TabIndex = 3;
@@ -7719,7 +7839,7 @@ namespace DB_EDITOR
             // DCHTTeam
             // 
             DCHTTeam.FormattingEnabled = true;
-            DCHTTeam.Location = new Point(15, 63);
+            DCHTTeam.Location = new Point(6, 62);
             DCHTTeam.Name = "DCHTTeam";
             DCHTTeam.Size = new Size(138, 21);
             DCHTTeam.TabIndex = 2;
@@ -7738,8 +7858,6 @@ namespace DB_EDITOR
             // 
             DCHTGrid.AllowUserToAddRows = false;
             DCHTGrid.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle11.BackColor = Color.FromArgb((int)(byte)224, (int)(byte)224, (int)(byte)224);
-            DCHTGrid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
             DCHTGrid.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             DCHTGrid.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             DCHTGrid.BackgroundColor = SystemColors.Control;
@@ -7747,22 +7865,27 @@ namespace DB_EDITOR
             DCHTGrid.Columns.AddRange(new DataGridViewColumn[] { DCHTPPOS, DCHT0, DCHT1, DCHT2, DCHT3, DCHT4, DCHT5 });
             DCHTGrid.EditMode = DataGridViewEditMode.EditOnEnter;
             DCHTGrid.GridColor = SystemColors.Control;
-            DCHTGrid.Location = new Point(159, 6);
+            DCHTGrid.Location = new Point(156, 6);
             DCHTGrid.MultiSelect = false;
             DCHTGrid.Name = "DCHTGrid";
+            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle12.WrapMode = DataGridViewTriState.True;
+            DCHTGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             DCHTGrid.RowHeadersVisible = false;
             DCHTGrid.RowHeadersWidth = 72;
             DCHTGrid.SelectionMode = DataGridViewSelectionMode.CellSelect;
-            DCHTGrid.Size = new Size(974, 590);
+            DCHTGrid.Size = new Size(986, 590);
             DCHTGrid.TabIndex = 0;
+            DCHTGrid.CellContentClick += (this.DCHTGrid_CellContentClick);
             DCHTGrid.CellEnter += (this.DCHT_CellEnter);
             DCHTGrid.DataError += (this.DCHTGrid_DataError);
             // 
             // DCHTPPOS
             // 
             DCHTPPOS.AutoSizeMode = DataGridViewAutoSizeColumnMode.DisplayedCells;
-            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleRight;
-            DCHTPPOS.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleRight;
+            DCHTPPOS.DefaultCellStyle = dataGridViewCellStyle11;
             DCHTPPOS.FillWeight = 30F;
             DCHTPPOS.HeaderText = "Pos";
             DCHTPPOS.MinimumWidth = 9;
@@ -7772,10 +7895,14 @@ namespace DB_EDITOR
             // 
             // DCHT0
             // 
+            DCHT0.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             DCHT0.FillWeight = 67.44775F;
             DCHT0.HeaderText = "Starter";
-            DCHT0.MinimumWidth = 9;
+            DCHT0.MinimumWidth = 150;
             DCHT0.Name = "DCHT0";
+            DCHT0.Resizable = DataGridViewTriState.True;
+            DCHT0.SortMode = DataGridViewColumnSortMode.NotSortable;
+            DCHT0.Width = 150;
             // 
             // DCHT1
             // 
@@ -7784,7 +7911,6 @@ namespace DB_EDITOR
             DCHT1.MinimumWidth = 9;
             DCHT1.Name = "DCHT1";
             DCHT1.Resizable = DataGridViewTriState.True;
-            DCHT1.SortMode = DataGridViewColumnSortMode.Automatic;
             // 
             // DCHT2
             // 
@@ -7792,6 +7918,8 @@ namespace DB_EDITOR
             DCHT2.HeaderText = "3rd String";
             DCHT2.MinimumWidth = 9;
             DCHT2.Name = "DCHT2";
+            DCHT2.Resizable = DataGridViewTriState.True;
+            DCHT2.SortMode = DataGridViewColumnSortMode.NotSortable;
             // 
             // DCHT3
             // 
@@ -7799,6 +7927,8 @@ namespace DB_EDITOR
             DCHT3.HeaderText = "4th String";
             DCHT3.MinimumWidth = 9;
             DCHT3.Name = "DCHT3";
+            DCHT3.Resizable = DataGridViewTriState.True;
+            DCHT3.SortMode = DataGridViewColumnSortMode.NotSortable;
             // 
             // DCHT4
             // 
@@ -7806,6 +7936,8 @@ namespace DB_EDITOR
             DCHT4.HeaderText = "5th String";
             DCHT4.MinimumWidth = 9;
             DCHT4.Name = "DCHT4";
+            DCHT4.Resizable = DataGridViewTriState.True;
+            DCHT4.SortMode = DataGridViewColumnSortMode.NotSortable;
             // 
             // DCHT5
             // 
@@ -7813,6 +7945,8 @@ namespace DB_EDITOR
             DCHT5.HeaderText = "6th String";
             DCHT5.MinimumWidth = 9;
             DCHT5.Name = "DCHT5";
+            DCHT5.Resizable = DataGridViewTriState.True;
+            DCHT5.SortMode = DataGridViewColumnSortMode.NotSortable;
             // 
             // tabSchedule
             // 
@@ -7995,7 +8129,7 @@ namespace DB_EDITOR
             // 
             // MatchAwayTeam
             // 
-            dataGridViewCellStyle22.BackColor = Color.Gainsboro;
+            dataGridViewCellStyle22.BackColor = SystemColors.ButtonFace;
             MatchAwayTeam.DefaultCellStyle = dataGridViewCellStyle22;
             MatchAwayTeam.HeaderText = "Away Team";
             MatchAwayTeam.MinimumWidth = 9;
@@ -8005,7 +8139,7 @@ namespace DB_EDITOR
             // 
             // MatchHomeTeam
             // 
-            dataGridViewCellStyle23.BackColor = Color.Gainsboro;
+            dataGridViewCellStyle23.BackColor = SystemColors.ButtonFace;
             MatchHomeTeam.DefaultCellStyle = dataGridViewCellStyle23;
             MatchHomeTeam.HeaderText = "Home Team";
             MatchHomeTeam.MinimumWidth = 9;
@@ -8808,7 +8942,7 @@ namespace DB_EDITOR
             // CoachPerfCheckBox
             // 
             CoachPerfCheckBox.AutoSize = true;
-            CoachPerfCheckBox.Location = new Point(101, 592);
+            CoachPerfCheckBox.Location = new Point(102, 582);
             CoachPerfCheckBox.Name = "CoachPerfCheckBox";
             CoachPerfCheckBox.Size = new Size(86, 17);
             CoachPerfCheckBox.TabIndex = 242;
@@ -9196,7 +9330,7 @@ namespace DB_EDITOR
             // label178
             // 
             label178.AutoSize = true;
-            label178.Location = new Point(17, 95);
+            label178.Location = new Point(18, 95);
             label178.Name = "label178";
             label178.Size = new Size(131, 13);
             label178.TabIndex = 38;
@@ -9350,7 +9484,7 @@ namespace DB_EDITOR
             // 
             // NewCoachButton
             // 
-            NewCoachButton.BackColor = Color.PaleGreen;
+            NewCoachButton.BackColor = SystemColors.ButtonFace;
             NewCoachButton.Location = new Point(275, 538);
             NewCoachButton.Name = "NewCoachButton";
             NewCoachButton.Size = new Size(138, 44);
@@ -9814,7 +9948,7 @@ namespace DB_EDITOR
             // CoachShowTeamBox
             // 
             CoachShowTeamBox.AutoSize = true;
-            CoachShowTeamBox.Location = new Point(12, 592);
+            CoachShowTeamBox.Location = new Point(13, 582);
             CoachShowTeamBox.Name = "CoachShowTeamBox";
             CoachShowTeamBox.Size = new Size(83, 17);
             CoachShowTeamBox.TabIndex = 237;
@@ -11515,10 +11649,10 @@ namespace DB_EDITOR
             // RandPlayerGear
             // 
             RandPlayerGear.BackColor = SystemColors.ActiveCaption;
-            RandPlayerGear.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            RandPlayerGear.Location = new Point(398, 363);
+            RandPlayerGear.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            RandPlayerGear.Location = new Point(364, 363);
             RandPlayerGear.Name = "RandPlayerGear";
-            RandPlayerGear.Size = new Size(80, 35);
+            RandPlayerGear.Size = new Size(114, 35);
             RandPlayerGear.TabIndex = 147;
             RandPlayerGear.Text = "Randomize Gear";
             RandPlayerGear.UseVisualStyleBackColor = false;
@@ -11876,7 +12010,7 @@ namespace DB_EDITOR
             // 
             label65.AutoSize = true;
             label65.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            label65.Location = new Point(528, 279);
+            label65.Location = new Point(629, 281);
             label65.Name = "label65";
             label65.Size = new Size(92, 16);
             label65.TabIndex = 153;
@@ -11941,7 +12075,6 @@ namespace DB_EDITOR
             // 
             TPRating.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewCellStyle40.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            dataGridViewCellStyle40.ForeColor = SystemColors.ControlLight;
             TPRating.DefaultCellStyle = dataGridViewCellStyle40;
             TPRating.HeaderText = "Rating";
             TPRating.Name = "TPRating";
@@ -11959,7 +12092,7 @@ namespace DB_EDITOR
             // 
             label19.AutoSize = true;
             label19.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            label19.Location = new Point(528, 9);
+            label19.Location = new Point(617, 9);
             label19.Name = "label19";
             label19.Size = new Size(104, 16);
             label19.TabIndex = 151;
@@ -11967,8 +12100,8 @@ namespace DB_EDITOR
             // 
             // groupBox49
             // 
+            groupBox49.Controls.Add(TeamSwapGloves);
             groupBox49.Controls.Add(GenerateNewRosterButton);
-            groupBox49.Controls.Add(TeamAutoImpact);
             groupBox49.Controls.Add(DeathPenaltyButton);
             groupBox49.Controls.Add(TeamSetDepthChart);
             groupBox49.Controls.Add(FireCoachButton);
@@ -11981,6 +12114,18 @@ namespace DB_EDITOR
             groupBox49.TabStop = false;
             groupBox49.Text = "Team Options";
             // 
+            // TeamSwapGloves
+            // 
+            TeamSwapGloves.BackColor = Color.Aquamarine;
+            TeamSwapGloves.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
+            TeamSwapGloves.Location = new Point(186, 17);
+            TeamSwapGloves.Name = "TeamSwapGloves";
+            TeamSwapGloves.Size = new Size(100, 42);
+            TeamSwapGloves.TabIndex = 142;
+            TeamSwapGloves.Text = "Swap Team Gloves";
+            TeamSwapGloves.UseVisualStyleBackColor = false;
+            TeamSwapGloves.Click += (this.TeamSwapGloves_Click);
+            // 
             // GenerateNewRosterButton
             // 
             GenerateNewRosterButton.BackColor = Color.LightPink;
@@ -11992,18 +12137,6 @@ namespace DB_EDITOR
             GenerateNewRosterButton.Text = "Fantasy Roster";
             GenerateNewRosterButton.UseVisualStyleBackColor = false;
             GenerateNewRosterButton.Click += (this.TeamEditorGenRoster_Click);
-            // 
-            // TeamAutoImpact
-            // 
-            TeamAutoImpact.BackColor = SystemColors.ActiveCaption;
-            TeamAutoImpact.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
-            TeamAutoImpact.Location = new Point(188, 18);
-            TeamAutoImpact.Name = "TeamAutoImpact";
-            TeamAutoImpact.Size = new Size(100, 42);
-            TeamAutoImpact.TabIndex = 139;
-            TeamAutoImpact.Text = "Determine Impact Players";
-            TeamAutoImpact.UseVisualStyleBackColor = false;
-            TeamAutoImpact.Click += (this.TeamAutoImpact_Click);
             // 
             // DeathPenaltyButton
             // 
@@ -12019,7 +12152,7 @@ namespace DB_EDITOR
             // 
             // TeamSetDepthChart
             // 
-            TeamSetDepthChart.BackColor = Color.OliveDrab;
+            TeamSetDepthChart.BackColor = Color.LightCyan;
             TeamSetDepthChart.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
             TeamSetDepthChart.Location = new Point(82, 18);
             TeamSetDepthChart.Name = "TeamSetDepthChart";
@@ -12626,9 +12759,9 @@ namespace DB_EDITOR
             // 
             // groupBox11
             // 
-            groupBox11.AutoSize = true;
             groupBox11.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             groupBox11.Controls.Add(ImpactTSI1Select);
+            groupBox11.Controls.Add(TeamAutoImpact);
             groupBox11.Controls.Add(label15);
             groupBox11.Controls.Add(label16);
             groupBox11.Controls.Add(label17);
@@ -12660,6 +12793,18 @@ namespace DB_EDITOR
             ImpactTSI1Select.TabIndex = 132;
             ImpactTSI1Select.Tag = "x";
             ImpactTSI1Select.SelectedIndexChanged += (this.ImpactTSI1Select_SelectedIndexChanged);
+            // 
+            // TeamAutoImpact
+            // 
+            TeamAutoImpact.BackColor = SystemColors.ActiveCaption;
+            TeamAutoImpact.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            TeamAutoImpact.Location = new Point(192, 152);
+            TeamAutoImpact.Name = "TeamAutoImpact";
+            TeamAutoImpact.Size = new Size(100, 42);
+            TeamAutoImpact.TabIndex = 139;
+            TeamAutoImpact.Text = "Determine Impact Players";
+            TeamAutoImpact.UseVisualStyleBackColor = false;
+            TeamAutoImpact.Click += (this.TeamAutoImpact_Click);
             // 
             // label15
             // 
@@ -12756,10 +12901,10 @@ namespace DB_EDITOR
             // ResetImpactPlayersButton
             // 
             ResetImpactPlayersButton.BackColor = Color.NavajoWhite;
-            ResetImpactPlayersButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            ResetImpactPlayersButton.Location = new Point(310, 155);
+            ResetImpactPlayersButton.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            ResetImpactPlayersButton.Location = new Point(295, 151);
             ResetImpactPlayersButton.Name = "ResetImpactPlayersButton";
-            ResetImpactPlayersButton.Size = new Size(81, 35);
+            ResetImpactPlayersButton.Size = new Size(100, 42);
             ResetImpactPlayersButton.TabIndex = 129;
             ResetImpactPlayersButton.Text = "Reset";
             ResetImpactPlayersButton.UseVisualStyleBackColor = false;
@@ -17143,9 +17288,11 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)MinAttNum).EndInit();
             groupBox53.ResumeLayout(false);
             groupBox53.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)DarkVisorPCT).EndInit();
             ((System.ComponentModel.ISupportInitialize)TintedVisorPCT).EndInit();
             tabOffSeason.ResumeLayout(false);
             tabOffSeason.PerformLayout();
+            groupBox56.ResumeLayout(false);
             groupBox39.ResumeLayout(false);
             groupBox39.PerformLayout();
             groupBox43.ResumeLayout(false);
@@ -18560,9 +18707,6 @@ namespace DB_EDITOR
         private CheckBox AllowStartersLeave;
         private RadioButton RankingOrderPriority;
         private Label startersCount;
-        private DataGridViewTextBoxColumn RatingCat;
-        private DataGridViewTextBoxColumn MatchAwayTeam;
-        private DataGridViewTextBoxColumn MatchHomeTeam;
         private DataGridViewTextBoxColumn SCHDWeek;
         private DataGridViewTextBoxColumn SCHDAWAY;
         private DataGridViewTextBoxColumn SCHDScoreA;
@@ -18579,13 +18723,6 @@ namespace DB_EDITOR
         private DataGridViewTextBoxColumn RB1Star;
         private DataGridViewTextBoxColumn RecruitRankingPts;
         private DataGridViewTextBoxColumn Column2;
-        private DataGridViewTextBoxColumn DCHTPPOS;
-        private DataGridViewComboBoxColumn DCHT0;
-        private DataGridViewComboBoxColumn DCHT1;
-        private DataGridViewComboBoxColumn DCHT2;
-        private DataGridViewComboBoxColumn DCHT3;
-        private DataGridViewComboBoxColumn DCHT4;
-        private DataGridViewComboBoxColumn DCHT5;
         private TabPage tabLeagueStats;
         private Label label181;
         private DataGridView LeagueStatsView;
@@ -18644,10 +18781,6 @@ namespace DB_EDITOR
         private Label label199;
         private System.Windows.Forms.ComboBox QBJacket;
         private Label QBJacketLabel;
-        private DataGridViewTextBoxColumn TPPos;
-        private DataGridViewTextBoxColumn TPPlayer;
-        private DataGridViewTextBoxColumn TPRating;
-        private DataGridViewTextBoxColumn TopPlayerID;
         private System.Windows.Forms.ComboBox FaceProtector;
         private Label label200;
         private System.Windows.Forms.Button TextureDumperButton;
@@ -18813,6 +18946,30 @@ namespace DB_EDITOR
         private NumericUpDown TintedVisorPCT;
         public System.Windows.Forms.Button RandomizeTintedVisors;
         private Label Label210;
+        private CheckBox DCHTEditorMode;
+        private DataGridViewTextBoxColumn TPPos;
+        private DataGridViewTextBoxColumn TPPlayer;
+        private DataGridViewTextBoxColumn TPRating;
+        private DataGridViewTextBoxColumn TopPlayerID;
+        private DataGridViewTextBoxColumn RatingCat;
+        private DataGridViewTextBoxColumn MatchAwayTeam;
+        private DataGridViewTextBoxColumn MatchHomeTeam;
+        private System.Windows.Forms.Button TeamSwapGloves;
+        public System.Windows.Forms.Button RandomizeGlovesOnlyButton;
+        private Label label212;
+        private NumericUpDown DarkVisorPCT;
+        public System.Windows.Forms.Button UniquePlayerModButton;
+        private DataGridViewTextBoxColumn DCHTPPOS;
+        private DataGridViewTextBoxColumn DCHT0;
+        private DataGridViewTextBoxColumn DCHT1;
+        private DataGridViewTextBoxColumn DCHT2;
+        private DataGridViewTextBoxColumn DCHT3;
+        private DataGridViewTextBoxColumn DCHT4;
+        private DataGridViewTextBoxColumn DCHT5;
+        private Label label214;
+        private System.Windows.Forms.TextBox ClearVisorPCT;
+        private GroupBox groupBox56;
+        public System.Windows.Forms.Button RandomizeRecruitInterestButton;
     }
 }
 

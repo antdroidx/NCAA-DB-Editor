@@ -853,7 +853,7 @@ namespace DB_EDITOR
                     int barWidth = (int)((e.CellBounds.Width - 2) * (value - min) / (float)(max - min));
                     barWidth = Math.Max(0, Math.Min(barWidth, e.CellBounds.Width - 2));
 
-                    Color col = GetColorValue(value);
+                    Color col = GetColorRating(value);
 
 
                     // Draw the bar
@@ -869,7 +869,7 @@ namespace DB_EDITOR
                         value.ToString(),
                         e.CellStyle.Font,
                         e.CellBounds,
-                        Color.WhiteSmoke,
+                        Color.Black,
                         TextFormatFlags.Left | TextFormatFlags.VerticalCenter
                     );
                 }
@@ -907,7 +907,7 @@ namespace DB_EDITOR
                         value.ToString(),
                         e.CellStyle.Font,
                         e.CellBounds,
-                        Color.WhiteSmoke,
+                        Color.Black,
                         TextFormatFlags.Left | TextFormatFlags.VerticalCenter
                     );
                 }

@@ -248,10 +248,10 @@ namespace DB_EDITOR
 
             //Ratings
             HCPrestigeNum.Value = GetDBValueInt("COCH", "CPRE", EditorIndex);
-            HCPrestigeNum.BackColor = GetPrestigeColor(HCPrestigeNum).BackColor;
+            HCPrestigeNum.BackColor = GetPrestigeColor(HCPrestigeNum.Value);
 
             CoachCCPONum.Value = GetDBValueInt("COCH", "CCPO", EditorIndex);
-            CoachCCPONum.BackColor = GetPerformanceColor(CoachCCPONum).BackColor;
+            CoachCCPONum.BackColor = GetColorValueFullRange(CoachCCPONum.Value);
 
             //Off-Season Budgets
             CoachDisciplineBox.Text = GetDBValue("COCH", "CDPC", EditorIndex);
@@ -611,7 +611,7 @@ namespace DB_EDITOR
             if (DoNotTrigger) return;
 
             ChangeDBString("COCH", "CCPO", CoachIndex, Convert.ToString(CoachCCPONum.Value));
-            CoachCCPONum.BackColor = GetPerformanceColor(CoachCCPONum).BackColor;
+            CoachCCPONum.BackColor = GetColorValueFullRange(CoachCCPONum.Value);
         }
 
         private void HCPrestigeNum_ValueChanged(object sender, EventArgs e)
@@ -620,7 +620,7 @@ namespace DB_EDITOR
                 return;
 
             ChangeDBString("COCH", "CPRE", CoachIndex, Convert.ToString(HCPrestigeNum.Value));
-            HCPrestigeNum.BackColor = GetPrestigeColor(HCPrestigeNum).BackColor;
+            HCPrestigeNum.BackColor = GetPrestigeColor(HCPrestigeNum.Value);
 
         }
 

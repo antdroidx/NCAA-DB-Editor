@@ -238,8 +238,8 @@ namespace DB_EDITOR
             TMARNumBox.Value = GetDBValueInt("TEAM", "TMAR", EditorIndex);
             tmarStars.Text = ConvertStarNumber(Convert.ToInt32(TMARNumBox.Value));
 
-            TMPRNumBox.BackColor = GetPrestigeColor(TMPRNumBox).BackColor;
-            TMARNumBox.BackColor = GetPrestigeColor(TMARNumBox).BackColor;
+            TMPRNumBox.BackColor = GetPrestigeColor(TMPRNumBox.Value);
+            TMARNumBox.BackColor = GetPrestigeColor(TMARNumBox.Value);
 
 
             ProgressBarStep();
@@ -254,8 +254,9 @@ namespace DB_EDITOR
 
             //NCAA Investigation
             INPOnumbox.Value = GetDBValueInt("TEAM", "INPO", EditorIndex);
-            INPOnumbox.BackColor = GetInvestigationColor(INPOnumbox).BackColor;
+            INPOnumbox.BackColor = GetColorValueFullRange(INPOnumbox.Value, true);
             NCDPnumbox.Value = GetDBValueInt("TEAM", "NCDP", EditorIndex);
+            NCDPnumbox.BackColor = GetColorValueFullRange(NCDPnumbox.Value);
             SDURnumbox.Value = GetDBValueInt("TEAM", "SDUR", EditorIndex);
             SNCTnumbox.Value = GetDBValueInt("TEAM", "SNCT", EditorIndex);
 
@@ -286,9 +287,9 @@ namespace DB_EDITOR
             HCFirstNameBox.Text = GetCoachFirstNamefromRec(GetCOCHrecFromTeamRec(EditorIndex));
             HCLastNameBox.Text = GetCoachLastNamefromRec(GetCOCHrecFromTeamRec(EditorIndex));
             TeamHCPrestigeNumBox.Value = GetDBValueInt("COCH", "CPRE", GetCOCHrecFromTeamRec(EditorIndex));
-            TeamHCPrestigeNumBox.BackColor = GetPrestigeColor(TeamHCPrestigeNumBox).BackColor;
+            TeamHCPrestigeNumBox.BackColor = GetPrestigeColor(TeamHCPrestigeNumBox.Value);
             TeamCCPONumBox.Value = GetDBValueInt("COCH", "CCPO", GetCOCHrecFromTeamRec(EditorIndex));
-            TeamCCPONumBox.BackColor = GetPerformanceColor(TeamCCPONumBox).BackColor;
+            TeamCCPONumBox.BackColor = GetColorValueFullRange(TeamCCPONumBox.Value);
 
             ProgressBarStep();
 
@@ -341,7 +342,7 @@ namespace DB_EDITOR
             AttendanceNumBox.Value = GetDBValueInt("TEAM", "TMAA", EditorIndex);
             CapacityNumbox.Value = GetDBValueInt("STAD", "SCAP", FindSTADrecFromTEAMrec(EditorIndex));
             TeamStadRank.Text = Convert.ToString(GetDBValueInt("STAD", "STDR", FindSTADrecFromTEAMrec(EditorIndex)));
-            TeamStadRank.BackColor = GetRatingColor(TeamStadRank).BackColor;
+            TeamStadRank.BackColor = GetColorRating(Convert.ToInt32(TeamStadRank.Text));
 
 
 
@@ -753,7 +754,7 @@ namespace DB_EDITOR
                 return;
 
             ChangeDBString("TEAM", "TMPR", TeamIndex, Convert.ToString(TMPRNumBox.Value));
-            TMPRNumBox.BackColor = GetPrestigeColor(TMPRNumBox).BackColor;
+            TMPRNumBox.BackColor = GetPrestigeColor(TMPRNumBox.Value);
             tmprStars.Text = ConvertStarNumber(Convert.ToInt32(TMPRNumBox.Value));
 
         }
@@ -764,7 +765,7 @@ namespace DB_EDITOR
                 return;
 
             ChangeDBString("TEAM", "TMAR", TeamIndex, Convert.ToString(TMARNumBox.Value));
-            TMARNumBox.BackColor = GetPrestigeColor(TMARNumBox).BackColor;
+            TMARNumBox.BackColor = GetPrestigeColor(TMARNumBox.Value);
             tmarStars.Text = ConvertStarNumber(Convert.ToInt32(TMARNumBox.Value));
 
         }
@@ -776,7 +777,7 @@ namespace DB_EDITOR
                 return;
 
             ChangeDBString("TEAM", "INPO", TeamIndex, Convert.ToString(INPOnumbox.Value));
-            INPOnumbox.BackColor = GetInvestigationColor(INPOnumbox).BackColor;
+            INPOnumbox.BackColor = GetColorValueFullRange(INPOnumbox.Value, true);
 
         }
 
@@ -788,6 +789,8 @@ namespace DB_EDITOR
                 return;
 
             ChangeDBString("TEAM", "NCDP", TeamIndex, Convert.ToString(NCDPnumbox.Value));
+            NCDPnumbox.BackColor = GetColorValueFullRange(NCDPnumbox.Value);
+
         }
 
         //NCAA Sanction
@@ -835,7 +838,7 @@ namespace DB_EDITOR
                 return;
 
             ChangeDBString("COCH", "CPRE", GetCOCHrecFromTeamRec(TeamIndex), Convert.ToString(TeamHCPrestigeNumBox.Value));
-            TeamHCPrestigeNumBox.BackColor = GetPrestigeColor(TeamHCPrestigeNumBox).BackColor;
+            TeamHCPrestigeNumBox.BackColor = GetPrestigeColor(TeamHCPrestigeNumBox.Value);
 
         }
 
@@ -845,7 +848,7 @@ namespace DB_EDITOR
             if (DoNotTrigger) return;
 
             ChangeDBString("COCH", "CCPO", GetCOCHrecFromTeamRec(TeamIndex), Convert.ToString(TeamCCPONumBox.Value));
-            TeamCCPONumBox.BackColor = GetPerformanceColor(TeamCCPONumBox).BackColor;
+            TeamCCPONumBox.BackColor = GetColorValueFullRange(TeamCCPONumBox.Value);
         }
 
         //Training
@@ -1287,7 +1290,7 @@ namespace DB_EDITOR
                     int barWidth = (int)((e.CellBounds.Width - 2) * (value - min) / (float)(max - min));
                     barWidth = Math.Max(0, Math.Min(barWidth, e.CellBounds.Width - 2));
 
-                    Color col = GetColorValue(value);
+                    Color col = GetColorRating(value);
 
 
                     // Draw the bar
@@ -1303,7 +1306,7 @@ namespace DB_EDITOR
                         value.ToString(),
                         e.CellStyle.Font,
                         e.CellBounds,
-                        Color.WhiteSmoke,
+                        Color.Black,
                         TextFormatFlags.Left | TextFormatFlags.VerticalCenter
                     );
                 }
@@ -1354,7 +1357,7 @@ namespace DB_EDITOR
                 TopPlayersView.Rows[i].Cells[0].Value = PlayerList[i][2];
                 TopPlayersView.Rows[i].Cells[1].Value = PlayerList[i][0] + " " + PlayerList[i][1];
                 TopPlayersView.Rows[i].Cells[2].Value = PlayerList[i][3];
-                TopPlayersView.Rows[i].Cells[2].Style.BackColor = GetColorValue(Convert.ToInt32(TopPlayersView.Rows[i].Cells[2].Value));
+                TopPlayersView.Rows[i].Cells[2].Style.BackColor = GetColorRating(Convert.ToInt32(TopPlayersView.Rows[i].Cells[2].Value));
                 TopPlayersView.Rows[i].Cells[3].Value = PlayerList[i][4];
             }
 

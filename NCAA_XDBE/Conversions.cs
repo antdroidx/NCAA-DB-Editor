@@ -1926,141 +1926,57 @@ namespace DB_EDITOR
         #endregion
 
         #region Coloring
-        private NumericUpDown GetPerformanceColor(NumericUpDown colorBox)
-        {
-            if (colorBox.Value <= 5) colorBox.BackColor = Color.FromArgb(255, 199, 206);
-            else if (colorBox.Value <= 25) colorBox.BackColor = Color.Orange;
-            else if (colorBox.Value <= 49) colorBox.BackColor = Color.PeachPuff;
-            else if (colorBox.Value < 75) colorBox.BackColor = Color.LightGreen;
-            else if (colorBox.Value < 100) colorBox.BackColor = Color.LightBlue;
-            else colorBox.BackColor = Color.MediumPurple;
 
-            return colorBox;
+        private Color GetColorValueFullRange(decimal rating, bool inverted = false)
+        {
+            if (inverted) rating = 100 - rating;
+
+            if (rating >= 100) return Color.DeepSkyBlue;
+            else if (rating >= 90) return Color.Aqua;
+            else if (rating >= 80) return Color.Aquamarine;
+            else if (rating >= 70) return Color.Lime;
+            else if (rating >= 60) return Color.GreenYellow;
+            else if (rating >= 50) return Color.Yellow;
+            else if (rating >= 40) return Color.Gold;
+            else if (rating >= 30) return Color.Orange;
+            else if (rating >= 20) return Color.Tomato;
+            else if (rating >= 10) return Color.LightCoral;
+            else return Color.IndianRed;
+
+            // default (no rating found)
+            return Color.DarkGray;
         }
 
-        private DataGridViewCell GetPerformanceColor(DataGridViewCell colorBox)
+
+        private Color GetColorRating(decimal rating)
         {
-            if (Convert.ToString(colorBox.Value) == "") return colorBox;
+            if (rating >= 97) return Color.DeepSkyBlue;
+            else if (rating >= 94) return Color.Aqua;
+            else if (rating >= 90) return Color.Aquamarine;
+            else if (rating >= 85) return Color.Lime;
+            else if (rating >= 80) return Color.GreenYellow;
+            else if (rating >= 75) return Color.Yellow;
+            else if (rating >= 70) return Color.Gold;
+            else if (rating >= 65) return Color.Orange;
+            else if (rating >= 60) return Color.Tomato;
+            else if (rating >= 50) return Color.LightCoral;
+            else return Color.IndianRed;
 
-            if (Convert.ToInt32(colorBox.Value) <= 5) colorBox.Style.BackColor = Color.FromArgb(255, 199, 206);
-            else if (Convert.ToInt32(colorBox.Value) <= 25) colorBox.Style.BackColor = Color.Orange;
-            else if (Convert.ToInt32(colorBox.Value) <= 49) colorBox.Style.BackColor = Color.PeachPuff;
-            else if (Convert.ToInt32(colorBox.Value) <= 75) colorBox.Style.BackColor = Color.LightGreen;
-            else if (Convert.ToInt32(colorBox.Value) < 100) colorBox.Style.BackColor = Color.LightBlue;
-            else colorBox.Style.BackColor = Color.MediumPurple;
-
-            return colorBox;
+            // default (no rating found)
+            return Color.DarkGray;
         }
 
-        private NumericUpDown GetInvestigationColor(NumericUpDown colorBox)
+        private Color GetPrestigeColor(decimal rating)
         {
-            if (colorBox.Value > 80) colorBox.BackColor = Color.FromArgb(255, 199, 206);
-            else if (colorBox.Value >= 60) colorBox.BackColor = Color.Orange;
-            else if (colorBox.Value >= 40) colorBox.BackColor = Color.PeachPuff;
-            else if (colorBox.Value >= 20) colorBox.BackColor = Color.LightGreen;
-            else colorBox.BackColor = Color.LightBlue;
+            if (rating == 6) return Color.DeepSkyBlue;
+            else if (rating == 5) return Color.Aqua;
+            else if (rating == 4) return Color.Lime;
+            else if (rating == 3) return Color.Gold;
+            else if (rating == 2) return Color.Orange;
+            else return Color.LightCoral;
 
-            return colorBox;
-        }
-
-        private NumericUpDown GetPrestigeColor(NumericUpDown colorBox)
-        {
-
-            if (colorBox.Value <= 0) colorBox.BackColor = Color.FromArgb(255, 199, 206);
-            else if (colorBox.Value <= 1) colorBox.BackColor = Color.FromArgb(255, 199, 206);
-            else if (colorBox.Value <= 2) colorBox.BackColor = Color.Orange;
-            else if (colorBox.Value <= 3) colorBox.BackColor = Color.PeachPuff;
-            else if (colorBox.Value <= 4) colorBox.BackColor = Color.LightGreen;
-            else if (colorBox.Value <= 5) colorBox.BackColor = Color.LightBlue;
-            else colorBox.BackColor = Color.MediumPurple;
-
-            return colorBox;
-        }
-
-        private TextBox GetRatingColor(TextBox colorBox)
-        {
-
-            if (Convert.ToInt32(colorBox.Text) < 60) colorBox.BackColor = Color.FromArgb(255, 199, 206);
-            else if (Convert.ToInt32(colorBox.Text) < 70) colorBox.BackColor = Color.Orange;
-            else if (Convert.ToInt32(colorBox.Text) < 80) colorBox.BackColor = Color.PeachPuff;
-            else if (Convert.ToInt32(colorBox.Text) < 90) colorBox.BackColor = Color.LightGreen;
-            else if (Convert.ToInt32(colorBox.Text) < 95) colorBox.BackColor = Color.LightBlue;
-            else colorBox.BackColor = Color.MediumPurple;
-
-            return colorBox;
-        }
-
-        private TextBox GetRatingColorUnconverted(TextBox colorBox)
-        {
-
-            if (Convert.ToInt32(colorBox.Text) < 6) colorBox.BackColor = Color.FromArgb(255, 199, 206);
-            else if (Convert.ToInt32(colorBox.Text) < 10) colorBox.BackColor = Color.Orange;
-            else if (Convert.ToInt32(colorBox.Text) < 15) colorBox.BackColor = Color.PeachPuff;
-            else if (Convert.ToInt32(colorBox.Text) < 23) colorBox.BackColor = Color.LightGreen;
-            else if (Convert.ToInt32(colorBox.Text) < 27) colorBox.BackColor = Color.LightBlue;
-            else colorBox.BackColor = Color.MediumPurple;
-
-            return colorBox;
-        }
-
-        private DataGridViewCell GetDataGridTextColor(DataGridViewCell colorBox)
-        {
-            //colorBox.Style.BackColor = Color.Black;
-            return colorBox;
-
-            if (Convert.ToString(colorBox.Value) == "") return colorBox;
-
-            if (Convert.ToInt32(colorBox.Value) < 60) colorBox.Style.BackColor = Color.FromArgb(255, 199, 206);
-            else if (Convert.ToInt32(colorBox.Value) < 70) colorBox.Style.BackColor = Color.Orange;
-            else if (Convert.ToInt32(colorBox.Value) < 80) colorBox.Style.BackColor = Color.PeachPuff;
-            else if (Convert.ToInt32(colorBox.Value) < 90) colorBox.Style.BackColor = Color.LightGreen;
-            else if (Convert.ToInt32(colorBox.Value) < 95) colorBox.Style.BackColor = Color.LightBlue;
-            else colorBox.Style.BackColor = Color.MediumPurple;
-
-            return colorBox;
-        }
-
-        private DataGridViewCell GetDataGridPrestigeTextColor(DataGridViewCell colorBox)
-        {
-            if (Convert.ToString(colorBox.Value) == "") return colorBox;
-
-            if (Convert.ToInt32(colorBox.Value) <= 0) colorBox.Style.BackColor = Color.FromArgb(255, 199, 206);
-            else if (Convert.ToInt32(colorBox.Value) <= 1) colorBox.Style.BackColor = Color.FromArgb(255, 199, 206);
-            else if (Convert.ToInt32(colorBox.Value) <= 2) colorBox.Style.BackColor = Color.Orange;
-            else if (Convert.ToInt32(colorBox.Value) <= 3) colorBox.Style.BackColor = Color.PeachPuff;
-            else if (Convert.ToInt32(colorBox.Value) <= 4) colorBox.Style.BackColor = Color.LightGreen;
-            else if (Convert.ToInt32(colorBox.Value) <= 5) colorBox.Style.BackColor = Color.LightBlue;
-            else colorBox.Style.BackColor = Color.MediumPurple;
-
-            return colorBox;
-        }
-
-        private Color GetColorValue(int value)
-        {
-            Color col = Color.Black;
-
-            if (value >= 95) col = Color.DarkSlateBlue;
-            else if (value >= 90) col = Color.DodgerBlue;
-            else if (value >= 80) col = Color.ForestGreen;
-            else if (value >= 70) col = Color.DarkOrange;
-            else if (value >= 60) col = Color.OrangeRed;
-            else if (value >= 40) col = Color.DarkRed;
-
-            return col;
-        }
-
-        private Color GetColorValueFullRange(int value)
-        {
-            Color col = Color.Black;
-
-            if (value >= 100) col = Color.DarkSlateBlue;
-            else if (value >= 65) col = Color.DodgerBlue;
-            else if (value >= 45) col = Color.ForestGreen;
-            else if (value >= 25) col = Color.DarkOrange;
-            else if (value >= 15) col = Color.OrangeRed;
-            else col = Color.DarkRed;
-
-            return col;
+            // default (no rating found)
+            return Color.DarkGray;
         }
 
         private Color GetTeamPrimaryColor(int tgid)
@@ -2073,7 +1989,7 @@ namespace DB_EDITOR
         Color ChooseForeground(Color bg)
         {
             if (bg.R * 2 + bg.G * 7 + bg.B < 1000)
-                return Color.LightGray;
+                return Color.Gainsboro;
             else
                 return Color.Black;
         }

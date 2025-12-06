@@ -706,27 +706,8 @@ namespace DB_EDITOR
                 ChangeDB2Int(tableName, "PFMK", rec, facemask);
         }
 
-        //Randomize Visors with Tint CLICK BUTTON
-        private void RandomizeTintedVisors_Click(object sender, EventArgs e)
-        {
-            int start = 0;
-            int count = GetTableRecCount("PLAY");
-            int tint = 0;
-
-            StartProgressBar(count);
-
-            for (int i = start; i < count; i++)
-            {
-                RandomizeVisor("PLAY", i, TintedVisorPCT.Value);
-                ProgressBarStep();
-            }
-
-            EndProgressBar();
-            MessageBox.Show("Visor Updates Complete!");
-        }
-
         //Visors
-        private void RandomizeVisor(string tableName, int rec, decimal tinted = 0)
+        private void RandomizeVisor(string tableName, int rec, decimal dark = 0, decimal tinted = 0)
         {
             int pos = -1;
             if (tableName == "PLAY" || tableName == "RCAT")
@@ -779,16 +760,14 @@ namespace DB_EDITOR
 
             if(visor == 1)
             {
-                if (rand.Next(1, 101) <= tinted)
+                val = rand.Next(1, 101);
+                if (val <= dark)
                 {
-                    if (rand.Next(0, 101) < 50)
-                    {
-                        visor = 2; //Dark
-                    }
-                    else
-                    {
-                        visor = 3; //Orange
-                    }
+                    visor = 2;
+                }
+                else if (val <= tinted + dark)
+                {
+                    visor = 3;
                 }
                 else
                 {
@@ -1817,10 +1796,20 @@ namespace DB_EDITOR
         {
 
             int pos = -1;
+            int wristLeft = 0; 
+            int wristRight = 0;
             if (tableName == "PLAY" || tableName == "RCAT")
+            {
                 pos = GetDBValueInt(tableName, "PPOS", rec);
+                wristLeft = GetDBValueInt(tableName, "PLWS", rec);
+                wristRight = GetDBValueInt(tableName, "PRWS", rec);
+            }
             else if (tableName == "RCPT" || tableName == "WKON")
+            {
                 pos = GetDB2ValueInt(tableName, "PPOS", rec);
+                wristLeft = GetDB2ValueInt(tableName, "PLWS", rec);
+                wristRight = GetDB2ValueInt(tableName, "PRWS", rec);
+            }
 
             int val = rand.Next(1, 101);
             int hands = 0;
@@ -1925,12 +1914,22 @@ namespace DB_EDITOR
             //Select a Glove Style
             if(hands != 0 && hands != 3) 
             {
-                val = rand.Next(1, 101);
-
-                if (val <= 5) hands = 1; //white
-                else if (val <= 15) hands = 2; //black
-                else if (val <= 70) hands = 4; //team
-                else hands = 5; //team 2
+                if (wristLeft == 4 || wristRight == 4)
+                {
+                    hands = 2; //black
+                }
+                else if (wristLeft == 5 || wristRight == 5)
+                {
+                    hands = 1; //white
+                }
+                else
+                {
+                    val = rand.Next(1, 101);
+                    if (val <= 5) hands = 1; //white
+                    else if (val <= 15) hands = 2; //black
+                    else if (val <= 70) hands = 4; //team
+                    else hands = 5; //team 2
+                }
             }
 
             if (tableName == "PLAY" || tableName == "RCAT")
@@ -2070,6 +2069,124 @@ namespace DB_EDITOR
         }
 
 
+        #endregion
+
+        #region Glove Swapper
+
+
+        private void TeamSwapGloves_Click(object sender, EventArgs e)
+        {
+            if(verNumber < 16.2)
+            {
+                MessageBox.Show("Glove feature swapping is only available for NCAA Next v16.2 or higher.", "Glove Swap", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            DialogResult = MessageBox.Show("This will swap team gloves with uniform gloves and vice-versa. Do you want to proceed?", "Glove Swap", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+            if(DialogResult == DialogResult.Yes)
+            {
+                SwapTeamGloves(TeamIndex);
+                MessageBox.Show("Team glove swap completed.", "Glove Swap", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            } 
+            else
+            {
+                return;
+            }
+
+
+        }
+
+        private void SwapTeamGloves(int teamIndex)
+        {
+            int tgid = GetDBValueInt("TEAM", "TGID", teamIndex);
+            
+            for(int i = 0; i < GetTableRecCount("PLAY"); i++)
+            {
+                int pgid = GetDBValueInt("PLAY", "PGID", i);
+                if(pgid >= tgid*70 && pgid <= tgid*70+69)
+                {
+                    int glove = GetDBValueInt("PLAY", "PLHN", i);
+                    int gloveStyle = 0;
+
+                    if (glove == 0) gloveStyle = 0;
+                    else if (glove == 1) gloveStyle = 1;
+                    else if (glove == 2) gloveStyle = 2;
+                    else if (glove == 3) gloveStyle = 3;
+                    else if (glove == 4) gloveStyle = 6;
+                    else if (glove == 5) gloveStyle = 7;
+                    else if (glove == 6) gloveStyle = 4;
+                    else if (glove == 7) gloveStyle = 5;
+
+                    else gloveStyle = glove;
+
+
+                    ChangeDBInt("PLAY", "PLHN", i, gloveStyle);
+                    ChangeDBInt("PLAY", "PRHN", i, gloveStyle);
+                }
+            }
+        }
+
+
+        private void RandomizeGlovesOnlyButton_Click(object sender, EventArgs e)
+        {
+            RandomizeGlovesOnly();
+        }
+
+        private void RandomizeGlovesOnly()
+        {
+            string tableName = "PLAY";
+            int start = 0;
+            int count = GetTableRecCount("PLAY");
+            StartProgressBar(count);
+
+            for (int i = start; i < count; i++)
+            {
+                if(verNumber > 16.2) RandomizeEXPHands(tableName, i);
+                else RandomizeHands(tableName, i);
+                ProgressBarStep();
+            }
+
+            EndProgressBar();
+
+            MessageBox.Show("Glove randomization completed.", "Glove Randomizer", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+
+        #endregion
+
+
+        #region visor randomizer
+
+
+        private void TintedVisorPCT_ValueChanged(object sender, EventArgs e)
+        {
+            ClearVisorPCT.Text = "" + (100 - TintedVisorPCT.Value - DarkVisorPCT.Value);
+        }
+
+        private void DarkVisorPCT_ValueChanged(object sender, EventArgs e)
+        {
+            ClearVisorPCT.Text = "" + (100 - TintedVisorPCT.Value - DarkVisorPCT.Value);
+        }
+
+        //Randomize Visors with Tint CLICK BUTTON
+        private void RandomizeTintedVisors_Click(object sender, EventArgs e)
+        {
+            int start = 0;
+            int count = GetTableRecCount("PLAY");
+            int tint = 0;
+
+            StartProgressBar(count);
+
+            for (int i = start; i < count; i++)
+            {
+                RandomizeVisor("PLAY", i, DarkVisorPCT.Value, TintedVisorPCT.Value);
+                ProgressBarStep();
+            }
+
+            EndProgressBar();
+            MessageBox.Show("Visor Updates Complete!");
+        }
         #endregion
 
     }

@@ -562,7 +562,7 @@ namespace DB_EDITOR
             //Overall Rating
             int xxx = GetDB2ValueInt("RCPT", "POVR", RecruitIndex);
             ROVR.Text = Convert.ToString(ConvertRating(GetDB2ValueInt("RCPT", "POVR", RecruitIndex)));
-            ROVR.BackColor = GetRatingColor(ROVR).BackColor;
+            ROVR.BackColor = GetColorRating(Convert.ToInt32(ROVR.Text));
 
             if (GetDB2ValueInt("RCPT", "PRID", RecruitIndex) < 21000)
                 RecruitStarsText.Text = GetDB2Value("RCPT", "RCCB", RecruitIndex) + " Star Recruit";
@@ -624,122 +624,122 @@ namespace DB_EDITOR
 
             //Discipline
             RDIS.Value = GetDB2ValueInt("RCPT", "PDIS", RecruitIndex);
-            RDIS.BackColor = GetPrestigeColor(RDIS).BackColor;
+            RDIS.BackColor = GetPrestigeColor(RDIS.Value);
 
 
             //Potential
             RPOEBox.Value = GetDB2ValueInt("RCPT", "PPOE", RecruitIndex);
             RPOEtext.Text = Convert.ToString(ConvertPotentialRating(Convert.ToInt32(RPOEBox.Value)));
-            RPOEtext.BackColor = GetRatingColor(RPOEtext).BackColor;
+            RPOEtext.BackColor = GetColorRating(Convert.ToInt32(RPOEtext.Text));
 
             //Injury
             RINJBox.Maximum = maxRatingVal;
             RINJBox.Value = GetDB2ValueInt("RCPT", "PINJ", RecruitIndex);
             RINJtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(RINJBox.Value)));
-            RINJtext.BackColor = GetRatingColor(RINJtext).BackColor;
+            RINJtext.BackColor = GetColorRating(Convert.ToInt32(RINJtext.Text));
 
             //Stamina
             RSTAbox.Maximum = maxRatingVal;
             RSTAbox.Value = GetDB2ValueInt("RCPT", "PSTA", RecruitIndex);
             RSTAtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(RSTAbox.Value)));
-            RSTAtext.BackColor = GetRatingColor(RSTAtext).BackColor;
+            RSTAtext.BackColor = GetColorRating(Convert.ToInt32(RSTAtext.Text));
 
 
             //Awareness
             RAWRBox.Maximum = maxRatingVal;
             RAWRBox.Value = GetDB2ValueInt("RCPT", "PAWR", RecruitIndex);
             RAWRtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(RAWRBox.Value)));
-            RAWRtext.BackColor = GetRatingColor(RAWRtext).BackColor;
+            RAWRtext.BackColor = GetColorRating(Convert.ToInt32(RAWRtext.Text));
 
             //Speed
             RSPDBox.Maximum = maxRatingVal;
             RSPDBox.Value = GetDB2ValueInt("RCPT", "PSPD", RecruitIndex);
             RSPDtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(RSPDBox.Value)));
-            RSPDtext.BackColor = GetRatingColor(RSPDtext).BackColor;
+            RSPDtext.BackColor = GetColorRating(Convert.ToInt32(RSPDtext.Text));
 
             //Agility
             RAGIBox.Maximum = maxRatingVal;
             RAGIBox.Value = GetDB2ValueInt("RCPT", "PAGI", RecruitIndex);
             RAGItext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(RAGIBox.Value)));
-            RAGItext.BackColor = GetRatingColor(RAGItext).BackColor;
+            RAGItext.BackColor = GetColorRating(Convert.ToInt32(RAGItext.Text));
 
             //Acceleration
             RACCBox.Maximum = maxRatingVal;
             RACCBox.Value = GetDB2ValueInt("RCPT", "PACC", RecruitIndex);
             RACCtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(RACCBox.Value)));
-            RACCtext.BackColor = GetRatingColor(RACCtext).BackColor;
+            RACCtext.BackColor = GetColorRating(Convert.ToInt32(RACCtext.Text));
 
             //Jumping
             RJMPBox.Maximum = maxRatingVal;
             RJMPBox.Value = GetDB2ValueInt("RCPT", "PJMP", RecruitIndex);
             RJMPtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(RJMPBox.Value)));
-            RJMPtext.BackColor = GetRatingColor(RJMPtext).BackColor;
+            RJMPtext.BackColor = GetColorRating(Convert.ToInt32(RJMPtext.Text));
 
             //Strength
             RSTRBox.Maximum = maxRatingVal;
             RSTRBox.Value = GetDB2ValueInt("RCPT", "PSTR", RecruitIndex);
             RSTRtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(RSTRBox.Value)));
-            RSTRtext.BackColor = GetRatingColor(RSTRtext).BackColor;
+            RSTRtext.BackColor = GetColorRating(Convert.ToInt32(RSTRtext.Text));
 
             //Throw Rower
             RTHPBox.Maximum = maxRatingVal;
             RTHPBox.Value = GetDB2ValueInt("RCPT", "PTHP", RecruitIndex);
             RTHPtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(RTHPBox.Value)));
-            RTHPtext.BackColor = GetRatingColor(RTHPtext).BackColor;
+            RTHPtext.BackColor = GetColorRating(Convert.ToInt32(RTHPtext.Text));
 
             //Throw Accuracy
             RTHABox.Maximum = maxRatingVal;
             RTHABox.Value = GetDB2ValueInt("RCPT", "PTHA", RecruitIndex);
             RTHAtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(RTHABox.Value)));
-            RTHAtext.BackColor = GetRatingColor(RTHAtext).BackColor;
+            RTHAtext.BackColor = GetColorRating(Convert.ToInt32(RTHAtext.Text));
 
             //Break Tackle
             RBTKBox.Maximum = maxRatingVal;
             RBTKBox.Value = GetDB2ValueInt("RCPT", "PBTK", RecruitIndex);
             RBTKtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(RBTKBox.Value)));
-            RBTKtext.BackColor = GetRatingColor(RBTKtext).BackColor;
+            RBTKtext.BackColor = GetColorRating(Convert.ToInt32(RBTKtext.Text));
 
             //Ball Carry
             RCARBox.Maximum = maxRatingVal;
             RCARBox.Value = GetDB2ValueInt("RCPT", "PCAR", RecruitIndex);
             RCARtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(RCARBox.Value)));
-            RCARtext.BackColor = GetRatingColor(RCARtext).BackColor;
+            RCARtext.BackColor = GetColorRating(Convert.ToInt32(RCARtext.Text));
 
             //Run Blocking
             RRBKBox.Maximum = maxRatingVal;
             RRBKBox.Value = GetDB2ValueInt("RCPT", "PRBK", RecruitIndex);
             RRBKtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(RRBKBox.Value)));
-            RRBKtext.BackColor = GetRatingColor(RRBKtext).BackColor;
+            RRBKtext.BackColor = GetColorRating(Convert.ToInt32(RRBKtext.Text));
 
             //Pass Blocking
             RPBKBox.Maximum = maxRatingVal;
             RPBKBox.Value = GetDB2ValueInt("RCPT", "PRBK", RecruitIndex);
             RPBKtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(RPBKBox.Value)));
-            RPBKtext.BackColor = GetRatingColor(RPBKtext).BackColor;
+            RPBKtext.BackColor = GetColorRating(Convert.ToInt32(RPBKtext.Text));
 
             //Catching
             RCTHBox.Maximum = maxRatingVal;
             RCTHBox.Value = GetDB2ValueInt("RCPT", "PCTH", RecruitIndex);
             RCTHtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(RCTHBox.Value)));
-            RCTHtext.BackColor = GetRatingColor(RCTHtext).BackColor;
+            RCTHtext.BackColor = GetColorRating(Convert.ToInt32(RCTHtext.Text));
 
             //Tackling
             RTAKBox.Maximum = maxRatingVal;
             RTAKBox.Value = GetDB2ValueInt("RCPT", "PTAK", RecruitIndex);
             RTAKtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(RTAKBox.Value)));
-            RTAKtext.BackColor = GetRatingColor(RTAKtext).BackColor;
+            RTAKtext.BackColor = GetColorRating(Convert.ToInt32(RTAKtext.Text));
 
             //Kick Rower
             RKPRBox.Maximum = maxRatingVal;
             RKPRBox.Value = GetDB2ValueInt("RCPT", "PKPR", RecruitIndex);
             RKPRtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(RKPRBox.Value)));
-            RKPRtext.BackColor = GetRatingColor(RKPRtext).BackColor;
+            RKPRtext.BackColor = GetColorRating(Convert.ToInt32(RKPRtext.Text));
 
             //Kick Accuracy
             RKACBox.Maximum = maxRatingVal;
             RKACBox.Value = GetDB2ValueInt("RCPT", "PKAC", RecruitIndex);
             RKACtext.Text = Convert.ToString(ConvertRating(Convert.ToInt32(RKACBox.Value)));
-            RKACtext.BackColor = GetRatingColor(RKACtext).BackColor;
+            RKACtext.BackColor = GetColorRating(Convert.ToInt32(RKACtext.Text));
 
             //Rlayer Tendency/Archeatype
             RTENBox.Text = GetPTENType(GetDB2ValueInt("RCPT", "PROS", RecruitIndex), GetDB2ValueInt("RCPT", "PTEN", RecruitIndex));
@@ -822,7 +822,7 @@ namespace DB_EDITOR
                 return;
 
             ChangeDB2Int("RCPT", "PDIS", RecruitIndex, Convert.ToInt32(RDIS.Value));
-            RDIS.BackColor = GetPrestigeColor(RDIS).BackColor;
+            RDIS.BackColor = GetPrestigeColor(RDIS.Value);
 
         }
 
@@ -834,7 +834,7 @@ namespace DB_EDITOR
             ChangeDB2Int("RCPT", "PINJ", RecruitIndex, Convert.ToInt32(RINJBox.Value));
             RINJtext.Text = Convert.ToString(ConvertRating(GetDB2ValueInt("RCPT", "PINJ", RecruitIndex)));
             DisplayNewRCPTOverallRating();
-            RINJBox.BackColor = GetRatingColor(RINJtext).BackColor;
+            RINJBox.BackColor = GetColorRating(Convert.ToInt32(RINJtext.Text));
         }
 
         private void RSPDBox_ValueChanged(object sender, EventArgs e)
@@ -845,7 +845,7 @@ namespace DB_EDITOR
             ChangeDB2Int("RCPT", "PSPD", RecruitIndex, Convert.ToInt32(RSPDBox.Value));
             RSPDtext.Text = Convert.ToString(ConvertRating(GetDB2ValueInt("RCPT", "PSPD", RecruitIndex)));
             DisplayNewRCPTOverallRating();
-            RSPDBox.BackColor = GetRatingColor(RSPDtext).BackColor;
+            RSPDBox.BackColor = GetColorRating(Convert.ToInt32(RSPDtext.Text));
         }
 
         private void RACCBox_ValueChanged(object sender, EventArgs e)
@@ -856,7 +856,7 @@ namespace DB_EDITOR
             ChangeDB2Int("RCPT", "PACC", RecruitIndex, Convert.ToInt32(RACCBox.Value));
             RACCtext.Text = Convert.ToString(ConvertRating(GetDB2ValueInt("RCPT", "PACC", RecruitIndex)));
             DisplayNewRCPTOverallRating();
-            RACCBox.BackColor = GetRatingColor(RACCtext).BackColor;
+            RACCBox.BackColor = GetColorRating(Convert.ToInt32(RACCtext.Text));
         }
 
         private void RSTRBox_ValueChanged(object sender, EventArgs e)
@@ -867,7 +867,7 @@ namespace DB_EDITOR
             ChangeDB2Int("RCPT", "PSTR", RecruitIndex, Convert.ToInt32(RSTRBox.Value));
             RSTRtext.Text = Convert.ToString(ConvertRating(GetDB2ValueInt("RCPT", "PSTR", RecruitIndex)));
             DisplayNewRCPTOverallRating();
-            RSTRBox.BackColor = GetRatingColor(RSTRtext).BackColor;
+            RSTRBox.BackColor = GetColorRating(Convert.ToInt32(RSTRtext.Text));
         }
 
         private void RTHPBox_ValueChanged(object sender, EventArgs e)
@@ -878,7 +878,7 @@ namespace DB_EDITOR
             ChangeDB2Int("RCPT", "PTHP", RecruitIndex, Convert.ToInt32(RTHPBox.Value));
             RTHPtext.Text = Convert.ToString(ConvertRating(GetDB2ValueInt("RCPT", "PTHP", RecruitIndex)));
             DisplayNewRCPTOverallRating();
-            RTHPBox.BackColor = GetRatingColor(RTHPtext).BackColor;
+            RTHPBox.BackColor = GetColorRating(Convert.ToInt32(RTHPtext.Text));
         }
 
         private void RBTKBox_ValueChanged(object sender, EventArgs e)
@@ -889,7 +889,7 @@ namespace DB_EDITOR
             ChangeDB2Int("RCPT", "PBTK", RecruitIndex, Convert.ToInt32(RBTKBox.Value));
             RBTKtext.Text = Convert.ToString(ConvertRating(GetDB2ValueInt("RCPT", "PINJ", RecruitIndex)));
             DisplayNewRCPTOverallRating();
-            RBTKBox.BackColor = GetRatingColor(RBTKtext).BackColor;
+            RBTKBox.BackColor = GetColorRating(Convert.ToInt32(RBTKtext.Text));
         }
 
         private void RRBKBox_ValueChanged(object sender, EventArgs e)
@@ -900,7 +900,7 @@ namespace DB_EDITOR
             ChangeDB2Int("RCPT", "PRBK", RecruitIndex, Convert.ToInt32(RRBKBox.Value));
             RRBKtext.Text = Convert.ToString(ConvertRating(GetDB2ValueInt("RCPT", "PRBK", RecruitIndex)));
             DisplayNewRCPTOverallRating();
-            RRBKBox.BackColor = GetRatingColor(RRBKtext).BackColor;
+            RRBKBox.BackColor = GetColorRating(Convert.ToInt32(RRBKtext.Text));
         }
 
         private void RCTHBox_ValueChanged(object sender, EventArgs e)
@@ -911,7 +911,7 @@ namespace DB_EDITOR
             ChangeDB2Int("RCPT", "PCTH", RecruitIndex, Convert.ToInt32(RCTHBox.Value));
             RCTHtext.Text = Convert.ToString(ConvertRating(GetDB2ValueInt("RCPT", "PCTH", RecruitIndex)));
             DisplayNewRCPTOverallRating();
-            RCTHBox.BackColor = GetRatingColor(RCTHtext).BackColor;
+            RCTHBox.BackColor = GetColorRating(Convert.ToInt32(RCTHtext.Text));
         }
 
         private void RKPRBox_ValueChanged(object sender, EventArgs e)
@@ -922,7 +922,7 @@ namespace DB_EDITOR
             ChangeDB2Int("RCPT", "PKPR", RecruitIndex, Convert.ToInt32(RKPRBox.Value));
             RKPRtext.Text = Convert.ToString(ConvertRating(GetDB2ValueInt("RCPT", "PKPR", RecruitIndex)));
             DisplayNewRCPTOverallRating();
-            RKPRBox.BackColor = GetRatingColor(RKPRtext).BackColor;
+            RKPRBox.BackColor = GetColorRating(Convert.ToInt32(RKPRtext.Text));
         }
 
         private void RPOEBox_ValueChanged(object sender, EventArgs e)
@@ -933,7 +933,7 @@ namespace DB_EDITOR
             ChangeDB2Int("RCPT", "PPOE", RecruitIndex, Convert.ToInt32(RPOEBox.Value));
             RPOEtext.Text = Convert.ToString(ConvertPotentialRating(GetDB2ValueInt("RCPT", "PPOE", RecruitIndex)));
             DisplayNewRCPTOverallRating();
-            RPOEBox.BackColor = GetRatingColor(RPOEtext).BackColor;
+            RPOEBox.BackColor = GetColorRating(Convert.ToInt32(RPOEtext.Text));
 
         }
 
@@ -945,7 +945,7 @@ namespace DB_EDITOR
             ChangeDB2Int("RCPT", "PAWR", RecruitIndex, Convert.ToInt32(RAWRBox.Value));
             RAWRtext.Text = Convert.ToString(ConvertRating(GetDB2ValueInt("RCPT", "PAWR", RecruitIndex)));
             DisplayNewRCPTOverallRating();
-            RAWRBox.BackColor = GetRatingColor(RAWRtext).BackColor;
+            RAWRBox.BackColor = GetColorRating(Convert.ToInt32(RAWRtext.Text));
         }
 
         private void RAGIBox_ValueChanged(object sender, EventArgs e)
@@ -956,7 +956,7 @@ namespace DB_EDITOR
             ChangeDB2Int("RCPT", "PAGI", RecruitIndex, Convert.ToInt32(RAGIBox.Value));
             RAGItext.Text = Convert.ToString(ConvertRating(GetDB2ValueInt("RCPT", "PAGI", RecruitIndex)));
             DisplayNewRCPTOverallRating();
-            RAGIBox.BackColor = GetRatingColor(RAGItext).BackColor;
+            RAGIBox.BackColor = GetColorRating(Convert.ToInt32(RAGItext.Text));
         }
 
         private void RJMPBox_ValueChanged(object sender, EventArgs e)
@@ -967,7 +967,7 @@ namespace DB_EDITOR
             ChangeDB2Int("RCPT", "PJMP", RecruitIndex, Convert.ToInt32(RJMPBox.Value));
             RJMPtext.Text = Convert.ToString(ConvertRating(GetDB2ValueInt("RCPT", "PJMP", RecruitIndex)));
             DisplayNewRCPTOverallRating();
-            RJMPBox.BackColor = GetRatingColor(RJMPtext).BackColor;
+            RJMPBox.BackColor = GetColorRating(Convert.ToInt32(RJMPtext.Text));
         }
 
         private void RTHABox_ValueChanged(object sender, EventArgs e)
@@ -978,7 +978,7 @@ namespace DB_EDITOR
             ChangeDB2Int("RCPT", "PTHA", RecruitIndex, Convert.ToInt32(RTHABox.Value));
             RTHAtext.Text = Convert.ToString(ConvertRating(GetDB2ValueInt("RCPT", "PTHA", RecruitIndex)));
             DisplayNewRCPTOverallRating();
-            RTHABox.BackColor = GetRatingColor(RTHAtext).BackColor;
+            RTHABox.BackColor = GetColorRating(Convert.ToInt32(RTHAtext.Text));
         }
 
         private void RCARBox_ValueChanged(object sender, EventArgs e)
@@ -989,7 +989,7 @@ namespace DB_EDITOR
             ChangeDB2Int("RCPT", "PCAR", RecruitIndex, Convert.ToInt32(RCARBox.Value));
             RCARtext.Text = Convert.ToString(ConvertRating(GetDB2ValueInt("RCPT", "PCAR", RecruitIndex)));
             DisplayNewRCPTOverallRating();
-            RCARBox.BackColor = GetRatingColor(RCARtext).BackColor;
+            RCARBox.BackColor = GetColorRating(Convert.ToInt32(RCARtext.Text));
         }
 
         private void RPBKBox_ValueChanged(object sender, EventArgs e)
@@ -1000,7 +1000,7 @@ namespace DB_EDITOR
             ChangeDB2Int("RCPT", "PPBK", RecruitIndex, Convert.ToInt32(RPBKBox.Value));
             RPBKtext.Text = Convert.ToString(ConvertRating(GetDB2ValueInt("RCPT", "PPBK", RecruitIndex)));
             DisplayNewRCPTOverallRating();
-            RPBKBox.BackColor = GetRatingColor(RPBKtext).BackColor;
+            RPBKBox.BackColor = GetColorRating(Convert.ToInt32(RPBKtext.Text));
         }
 
         private void RTAKBox_ValueChanged(object sender, EventArgs e)
@@ -1011,7 +1011,7 @@ namespace DB_EDITOR
             ChangeDB2Int("RCPT", "PTAK", RecruitIndex, Convert.ToInt32(RTAKBox.Value));
             RTAKtext.Text = Convert.ToString(ConvertRating(GetDB2ValueInt("RCPT", "PTAK", RecruitIndex)));
             DisplayNewRCPTOverallRating();
-            RTAKBox.BackColor = GetRatingColor(RTAKtext).BackColor;
+            RTAKBox.BackColor = GetColorRating(Convert.ToInt32(RTAKtext.Text));
         }
 
         private void RKACBox_ValueChanged(object sender, EventArgs e)
@@ -1022,7 +1022,7 @@ namespace DB_EDITOR
             ChangeDB2Int("RCPT", "PKAC", RecruitIndex, Convert.ToInt32(RKACBox.Value));
             RKACtext.Text = Convert.ToString(ConvertRating(GetDB2ValueInt("RCPT", "PKAC", RecruitIndex)));
             DisplayNewRCPTOverallRating();
-            RKACBox.BackColor = GetRatingColor(RKACtext).BackColor;
+            RKACBox.BackColor = GetColorRating(Convert.ToInt32(RKACtext.Text));
         }
 
 
@@ -1374,7 +1374,7 @@ namespace DB_EDITOR
         {
             RecalculateRecruitOverallByRec(RecruitIndex);
             ROVR.Text = Convert.ToString(ConvertRating(GetDB2ValueInt("RCPT", "POVR", RecruitIndex)));
-            ROVR.BackColor = GetRatingColor(ROVR).BackColor;
+            ROVR.BackColor = GetColorRating(Convert.ToInt32(ROVR.Text));
         }
 
 

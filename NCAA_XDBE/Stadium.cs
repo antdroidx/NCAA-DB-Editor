@@ -61,7 +61,7 @@ namespace DB_EDITOR
             STADResBox.Text = GetDBValue("STAD", "SRES", StadiumIndex);
             STADTDNA.Text = GetDBValue("STAD", "TDNA", StadiumIndex);
             STADSTDR.Text = GetDBValue("STAD", "STDR", StadiumIndex);
-            STADSTDR.BackColor = GetRatingColor(STADSTDR).BackColor;
+            STADSTDR.BackColor = GetColorRating(Convert.ToInt32(STADSTDR.Text));
 
 
 
