@@ -349,6 +349,9 @@ namespace DB_EDITOR
             if (GetDBValueInt("TEAM", "TTYP", EditorIndex) == 0 && TEAM) GenerateNewRosterButton.Enabled = true;
             else GenerateNewRosterButton.Enabled = false;
 
+            LoadTeamRivalBox();
+            TeamRivalBox.Text = teamNameDB[GetDBValueInt("TEAM", "TMRV", EditorIndex)];
+
             LoadTeamRatingsViewer();
             LoadTopPlayersViewer();
 
@@ -356,6 +359,10 @@ namespace DB_EDITOR
             EndProgressBar();
         }
 
+        #endregion
+
+
+        #region Load Box Data
         private void GetStateBoxItems()
         {
             StateBox.Items.Clear();
@@ -618,6 +625,18 @@ namespace DB_EDITOR
             }
 
             return -1;
+        }
+
+        private void LoadTeamRivalBox()
+        {
+            TeamRivalBox.Items.Clear();
+            for (int i = 0; i < GetTableRecCount("TEAM"); i++)
+            {
+                if (i != TeamIndex)
+                {
+                    TeamRivalBox.Items.Add(teamNameDB[GetDBValueInt("TEAM", "TGID", i)]);
+                }
+            }
         }
 
         #endregion
@@ -1078,6 +1097,14 @@ namespace DB_EDITOR
         {
             string val = TeamColorPalettes[CheerleaderBox.SelectedIndex][2];
             ChangeDBString("TEAM", "TMCP", TeamIndex, val);
+        }
+
+
+        //Rival Change
+        private void TeamRivalBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger) return;
+            ChangeDBInt("TEAM", "TMRV", TeamIndex, FindTGIDfromTeamName(TeamRivalBox.SelectedText));
         }
 
         #endregion

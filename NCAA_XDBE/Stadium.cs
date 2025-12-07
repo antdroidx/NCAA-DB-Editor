@@ -21,6 +21,7 @@ namespace DB_EDITOR
             StadiumIndex = -1;
 
             LoadStadiumListBox();
+            LoadCATStadiumGroupBox();
         }
 
         private void LoadStadiumListBox()
@@ -44,7 +45,24 @@ namespace DB_EDITOR
 
         }
 
+        private void LoadCATStadiumGroupBox()
+        {
+            GetCATSRESBoxItems(); //Stadium
+            GetCSBDBoxItems(); //Backdrops
+            GetSORIBoxItems(); //Orientation
+            GetCATSTFYBoxItems(); //Field Type
+            GetCSVDBoxItems(); //Video Screen
+            GetCSPRBoxItems(); //Press Box
+            GetCSSCBoxItems(); //Scoreboard
+            GetCSTKBoxItems(); //Stadium Track
+            GetCSEABoxItems(); //Endzone Art
+            GetCSEBBoxItems(); //Endzone BG
+            GetCSMFBoxItems(); //Midfield Logo
+            GetCSYDBoxItems(); //25 yard logo
+        }
 
+
+        //Stadium Selection Changed
         private void StadiumListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             StadiumIndex = StadiumListBox.SelectedIndex;
@@ -74,7 +92,7 @@ namespace DB_EDITOR
 
             STADCap.Value = GetDBValueInt("STAD", "SCAP", StadiumIndex);
 
-            GetFieldTypes();
+            GetSTADSTFYBoxItems();
             STADSFTYBox.SelectedIndex = GetDBValueInt("STAD", "SFTY", StadiumIndex);
 
             //Stadium Weather
@@ -116,10 +134,70 @@ namespace DB_EDITOR
                 ChangeDBInt("STAD", "STwp", StadiumIndex, 0);
             }
 
+            if(STADcat.Checked)
+            {
+                CATStadiumGroupBox.Enabled = true;
+                int CTCDRec = FindCTCDRec(GetDBValueInt("STAD", "SGID", StadiumIndex));
+                if (CTCDRec != -1)
+                {
+                    CATSRESBox.SelectedIndex = GetDBValueInt("STAD", "SRES", StadiumIndex);
+                    CATSFTYBox.SelectedIndex = GetDBValueInt("STAD", "SFTY", StadiumIndex);
+                    SORIBox.SelectedIndex = GetDBValueInt("STAD", "SORI", StadiumIndex);
+
+                    if (CATSRESBox.SelectedIndex == 5)
+                    {
+                        ChangeDBInt("STAD", "STYP", StadiumIndex, 1);
+                        STADType.Checked = true;
+
+                    }
+                    else
+                    {
+                        ChangeDBInt("STAD", "STYP", StadiumIndex, 0);
+                        STADType.Checked = false;
+
+                    }
+
+                    CSBDBox.SelectedIndex = GetDBValueInt("CTCD", "SBDP", CTCDRec);
+                    CSVDBox.SelectedIndex = GetDBValueInt("CTCD", "CSVD", CTCDRec);
+                    CSPRBox.SelectedIndex = GetDBValueInt("CTCD", "CSPR", CTCDRec);
+                    CSSCBox.SelectedIndex = GetDBValueInt("CTCD", "CSSC", CTCDRec);
+                    CSTKBox.SelectedIndex = GetDBValueInt("CTCD", "CSTK", CTCDRec);
+                    CSEABox.SelectedIndex = GetDBValueInt("CTCD", "CSEA", CTCDRec);
+                    CSEBBox.SelectedIndex = GetDBValueInt("CTCD", "CSEB", CTCDRec);
+                    CSMFBox.SelectedIndex = GetDBValueInt("CTCD", "CSMF", CTCDRec);
+                    CSYDBox.SelectedIndex = GetDBValueInt("CTCD", "CSYD", CTCDRec);
+                }
+                else
+                {
+                    CATStadiumGroupBox.Enabled = false;
+                    ChangeDBInt("STAD", "SCRE", StadiumIndex, 0);
+                }
+            }
+            else
+            {
+                CATStadiumGroupBox.Enabled = false;
+                CATSRESBox.SelectedIndex = -1;
+                CATSFTYBox.SelectedIndex = -1;
+                SORIBox.SelectedIndex = -1;
+                CSBDBox.SelectedIndex = -1;
+                CSVDBox.SelectedIndex = -1;
+                CSPRBox.SelectedIndex = -1;
+                CSSCBox.SelectedIndex = -1;
+                CSTKBox.SelectedIndex = -1;
+                CSEABox.SelectedIndex = -1;
+                CSEBBox.SelectedIndex = -1;
+                CSMFBox.SelectedIndex = -1;
+                CSYDBox.SelectedIndex = -1;
+            }
+
             DoNotTrigger = false;
 
         }
 
+        #endregion
+
+
+        #region Load Box Data
         private void GetSTADStateBoxItems()
         {
             STADState.Items.Clear();
@@ -131,19 +209,152 @@ namespace DB_EDITOR
             }
         }
 
-        private void GetFieldTypes()
+        private void GetSTADSTFYBoxItems()
         {
             STADSFTYBox.Items.Clear();
 
-            STADSFTYBox.Items.Add("Natural - Light");
-            STADSFTYBox.Items.Add("Natural - Dark");
-            STADSFTYBox.Items.Add("Artificial");
-            STADSFTYBox.Items.Add("Blue Turf");
-            STADSFTYBox.Items.Add("Grassy Turf");
-            STADSFTYBox.Items.Add("Multi-Turf");
+            STADSFTYBox.Items.Clear();
+            List<string> data = GetFieldTypes();
+
+            foreach (string item in data)
+            {
+                STADSFTYBox.Items.Add(item);
+            }
         }
 
+        private void GetCATSRESBoxItems()
+        {
+            CATSRESBox.Items.Clear();
+            List<string> data = GetCreateTeamSRESList();
+
+            foreach (string item in data)
+            {
+                CATSRESBox.Items.Add(item);
+            }
+        }
+        private void GetCSBDBoxItems()
+        {
+            CSBDBox.Items.Clear();
+            List<string> data = GetBackdropList();
+
+            foreach (string item in data)
+            {
+                CSBDBox.Items.Add(item);
+            }
+        }
+
+        private void GetCATSTFYBoxItems()
+        {
+            CATSFTYBox.Items.Clear();
+            List<string> data = GetFieldTypes();
+
+            foreach (string item in data)
+            {
+                CATSFTYBox.Items.Add(item);
+            }
+        }
+
+        private void GetSORIBoxItems()
+        {
+            SORIBox.Items.Clear();
+            List<string> data = GetSORIList();
+
+            foreach (string item in data)
+            {
+                SORIBox.Items.Add(item);
+            }
+        }
+
+        private void GetCSVDBoxItems()
+        {
+            CSVDBox.Items.Clear();
+            List<string> data = GetVideoScreenList();
+
+            foreach (string item in data)
+            {
+                CSVDBox.Items.Add(item);
+            }
+        }
+
+        private void GetCSPRBoxItems()
+        {
+            CSPRBox.Items.Clear();
+            List<string> data = GetPressBoxList();
+
+            foreach (string item in data)
+            {
+                CSPRBox.Items.Add(item);
+            }
+        }
+
+        private void GetCSSCBoxItems()
+        {
+            CSSCBox.Items.Clear();
+            List<string> data = GetScoreboardList();
+
+            foreach (string item in data)
+            {
+                CSSCBox.Items.Add(item);
+            }
+        }
+
+        private void GetCSTKBoxItems()
+        {
+            CSTKBox.Items.Clear();
+            List<string> data = GetStadiumTrackList();
+
+            foreach (string item in data)
+            {
+                CSTKBox.Items.Add(item);
+            }
+        }
+
+        private void GetCSEABoxItems()
+        {
+            CSEABox.Items.Clear();
+            List<string> data = GetEndzoneArtList();
+
+            foreach (string item in data)
+            {
+                CSEABox.Items.Add(item);
+            }
+        }
+
+        private void GetCSEBBoxItems()
+        {
+            CSEBBox.Items.Clear();
+            List<string> data = GetEndzoneBGList();
+
+            foreach (string item in data)
+            {
+                CSEBBox.Items.Add(item);
+            }
+        }
+
+        private void GetCSMFBoxItems()
+        {
+            CSMFBox.Items.Clear();
+            List<string> data = GetMidfieldLogoList();
+
+            foreach (string item in data)
+            {
+                CSMFBox.Items.Add(item);
+            }
+        }
+        private void GetCSYDBoxItems()
+        {
+            CSYDBox.Items.Clear();
+            List<string> data = Get25YardLogoList();
+
+            foreach (string item in data)
+            {
+                CSYDBox.Items.Add(item);
+            }
+        }
+
+
         #endregion
+
 
         #region Triggers
 
@@ -297,6 +508,115 @@ namespace DB_EDITOR
             else ChangeDBInt("STAD", "STYP", StadiumIndex, 0);
         }
 
+
+        #endregion
+
+
+        #region Create-A-Stadium Editor
+
+        private int FindCTCDRec(int sgid)
+        {
+            for (int i = 0; i < GetTableRecCount("CTCD"); i++)
+            {
+                if (GetDBValueInt("CTCD", "SGID", i) == sgid)
+                {
+                    return i;
+                }
+            }
+
+            return -1;
+        }
+
+
+        //Triggers
+
+        private void CATSRESBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger) return;
+
+            ChangeDBInt("STAD", "SRES", StadiumIndex, CATSRESBox.SelectedIndex);
+            STADResBox.Text = Convert.ToString(CATSRESBox.SelectedIndex);
+        }
+
+        private void SORIBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger) return;
+
+            ChangeDBInt("STAD", "SORI", StadiumIndex, SORIBox.SelectedIndex);
+
+        }
+
+        private void CATSFTYBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger) return;
+
+            ChangeDBInt("STAD", "STFY", StadiumIndex, CATSFTYBox.SelectedIndex);
+            STADSFTYBox.SelectedIndex = CATSFTYBox.SelectedIndex;
+        }
+
+        private void CSBDBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger) return;
+            int CTCDRec = FindCTCDRec(GetDBValueInt("STAD", "SGID", StadiumIndex));
+            ChangeDBInt("CTCD", "CSBD", CTCDRec, CSBDBox.SelectedIndex);
+        }
+
+        private void CSSCBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger) return;
+            int CTCDRec = FindCTCDRec(GetDBValueInt("STAD", "SGID", StadiumIndex));
+            ChangeDBInt("CTCD", "CSSC", CTCDRec, CSSCBox.SelectedIndex);
+        }
+
+        private void CSVDBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger) return;
+            int CTCDRec = FindCTCDRec(GetDBValueInt("STAD", "SGID", StadiumIndex));
+            ChangeDBInt("CTCD", "CSVD", CTCDRec, CSVDBox.SelectedIndex);
+        }
+
+        private void CSPRBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger) return;
+            int CTCDRec = FindCTCDRec(GetDBValueInt("STAD", "SGID", StadiumIndex));
+            ChangeDBInt("CTCD", "CSPR", CTCDRec, CSPRBox.SelectedIndex);
+        }
+
+        private void CSTKBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger) return;
+            int CTCDRec = FindCTCDRec(GetDBValueInt("STAD", "SGID", StadiumIndex));
+            ChangeDBInt("CTCD", "CSTK", CTCDRec, CSTKBox.SelectedIndex);
+        }
+
+        private void CSEABox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger) return;
+            int CTCDRec = FindCTCDRec(GetDBValueInt("STAD", "SGID", StadiumIndex));
+            ChangeDBInt("CTCD", "CSEA", CTCDRec, CSEABox.SelectedIndex);
+
+        }
+
+        private void CSEBBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger) return;
+            int CTCDRec = FindCTCDRec(GetDBValueInt("STAD", "SGID", StadiumIndex));
+            ChangeDBInt("CTCD", "CSEB", CTCDRec, CSEBBox.SelectedIndex);
+        }
+
+        private void CSMFBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger) return;
+            int CTCDRec = FindCTCDRec(GetDBValueInt("STAD", "SGID", StadiumIndex));
+            ChangeDBInt("CTCD", "CSMF", CTCDRec, CSMFBox.SelectedIndex);
+        }
+
+        private void CSYDBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger) return;
+            int CTCDRec = FindCTCDRec(GetDBValueInt("STAD", "SGID", StadiumIndex));
+            ChangeDBInt("CTCD", "CSYD", CTCDRec, CSYDBox.SelectedIndex);
+        }
 
         #endregion
 

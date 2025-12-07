@@ -497,6 +497,80 @@ namespace DB_EDITOR
 
         #endregion
 
+        #region Skill Attributes
+
+        public int GetRandomAttribute(int attribute, int tol)
+        {
+            Random rand = new Random();
+
+            attribute += rand.Next(-tol, tol + 1);
+
+            if (attribute < 0) attribute = 0; if (attribute > maxRatingVal) attribute = maxRatingVal;
+
+            return attribute;
+        }
+
+        public int GetRandomPositiveAttribute(int attribute, int tol)
+        {
+            if (verNumber >= 16.0) tol = (int)(tol * 1.0);
+            Random rand = new Random();
+
+            if (tol < 0) attribute += rand.Next(tol, 0);
+            else attribute += rand.Next(0, tol + 1);
+
+            if (attribute < minRatingVal) attribute = minRatingVal;
+            if (attribute > maxRatingVal) attribute = maxRatingVal;
+
+            return attribute;
+        }
+
+        public int GetReducedAttribute(int attribute, int tol)
+        {
+
+            attribute += rand.Next(0, tol + 1);
+
+            if (attribute < minRatingVal) attribute = minRatingVal;
+            if (attribute > maxRatingVal) attribute = maxRatingVal;
+
+            return attribute;
+        }
+
+        #endregion
+
+        #region Uniforms
+
+        private List<string> GetHelmetNumbers()
+        {
+            List<string> helmets = new List<string>();
+
+            helmets.Add("None");
+            helmets.Add("Small-Left");
+            helmets.Add("Small-Right");
+            helmets.Add("Small-Center");
+            helmets.Add("Med-Wide-Gape");
+            helmets.Add("Med-Gap");
+            helmets.Add("Med-Close");
+            helmets.Add("Large-Wide-Gap");
+            helmets.Add("Large-Gap");
+            helmets.Add("Large-Close");
+
+            return helmets;
+        }
+
+        private int ReturnHelmetNumberVal(string helmet)
+        {
+            List<string> helmets = GetHelmetNumbers();
+
+            for (int i = 0; i < helmets.Count; i++)
+            {
+                if (helmets[i] == helmet) return i;
+            }
+
+            return -1;
+        }
+
+        #endregion
+
         #region Equipment Lists
 
         private List<string> GetHelmetTypes()
@@ -1688,19 +1762,6 @@ namespace DB_EDITOR
         }
         #endregion
 
-        #region BOWLS
-        public int GetBOWLrecfromBNME(string bnme)
-        {
-            for (int i = 0; i < GetTableRecCount("BOWL"); i++)
-            {
-                if (GetDBValue("BOWL", "BNME", i) == bnme) return i;
-            }
-
-            return -1;
-        }
-
-        #endregion
-
         #region Stadiums
 
         public string GetStadNamefromSGID(string sgid)
@@ -1742,45 +1803,169 @@ namespace DB_EDITOR
             return 255;
         }
 
-        #endregion
-
-        #region Skill Attributes
-
-        public int GetRandomAttribute(int attribute, int tol)
+        private List<string> GetFieldTypes()
         {
-            Random rand = new Random();
+            List<string> fieldsList = new List<string>()
+            {
+                "Natural - Light",
+                "Natural - Dark",
+                "Artificial",
+                "Blue Turf",
+                "Grassy Turf",
+                "Multi-Turf"
+            };
 
-            attribute += rand.Next(-tol, tol + 1);
-
-            if (attribute < 0) attribute = 0; if (attribute > maxRatingVal) attribute = maxRatingVal;
-
-            return attribute;
+            return fieldsList;
         }
 
-        public int GetRandomPositiveAttribute(int attribute, int tol)
+        private List<string> GetCreateTeamSRESList()
         {
-            if (verNumber >= 16.0) tol = (int)(tol * 1.0);
-            Random rand = new Random();
+            List<string> sresList = new List<string>()
+            {
+                "Bowl",
+                "Square",
+                "Horseshoe",
+                "Upper Deck",
+                "Dual Sides",
+                "Dome"
+            };
 
-            if (tol < 0) attribute += rand.Next(tol, 0);
-            else attribute += rand.Next(0, tol + 1);
-
-            if (attribute < minRatingVal) attribute = minRatingVal;
-            if (attribute > maxRatingVal) attribute = maxRatingVal;
-
-            return attribute;
+            return sresList;
         }
 
-        public int GetReducedAttribute(int attribute, int tol)
+        private List<string> GetSTYPList()
         {
-
-            attribute += rand.Next(0, tol + 1);
-
-            if (attribute < minRatingVal) attribute = minRatingVal;
-            if (attribute > maxRatingVal) attribute = maxRatingVal;
-
-            return attribute;
+            List<string> stypList = new List<string>()
+            {
+                "Outdoor", 
+                "Dome"
+            };
+            return stypList;
         }
+
+        private List<string> GetSORIList()
+        {
+            List<string> sori = new List<string>()
+            {
+                "North/South",
+                "East/West"            
+            };
+            return sori;
+        }
+
+        private List<string> GetBackdropList()
+        {
+            List<string> sori = new List<string>()
+            {
+                "Campus",
+                "Metro",
+                "Rural",
+                "Moutains",
+                "Desert"
+            };
+            return sori;
+        }
+
+        private List<string> GetEndzoneArtList()
+        {
+            List<string> endzone = new List<string>()
+            {
+                "School Name 1",
+                "School Name 2",
+                "Nickname 1",
+                "Nickname 2",
+                "Diamonds",
+                "Checkerboard",
+                "Slashes",
+                "None"
+            };
+            return endzone;
+        }
+
+        private List<string> GetEndzoneBGList()
+        {
+            List<string> endzone = new List<string>()
+            {
+                "White", 
+                "Black",
+                "Primary Color",
+                "Secondary Color",
+                "None"
+            };
+            return endzone;
+        }
+
+        private List<string> Get25YardLogoList()
+        {
+            List<string> logo = new List<string>()
+            {
+                "School",
+                "EA Sports",
+                "NCAA",
+                "None"
+            };
+            return logo;
+        }
+
+        private List<string> GetMidfieldLogoList()
+        {
+            List<string> logo = new List<string>()
+            {
+                "School",
+                "EA Sports",
+                "NCAA",
+                "None"
+            };
+            return logo;
+        }
+
+        private List<string> GetVideoScreenList()
+        {
+            List<string> video = new List<string>()
+            {
+                "East/North",
+                "West/South",
+                "Both",
+                "None",
+            };
+            return video;
+        }
+
+        private List<string> GetPressBoxList()
+        {
+            List<string> press = new List<string>()
+            {
+                "West/South",
+                "East/North",
+                "Both",
+                "None",
+            };
+            return press;
+        }
+
+        private List<string> GetScoreboardList()
+        {
+            List<string> scoreboard = new List<string>()
+            {
+                "East/North",
+                "West/South",
+                "Both",
+                "None",
+            };
+            return scoreboard;
+        }
+
+        private List<string> GetStadiumTrackList()
+        {
+            List<string> track = new List<string>()
+            {
+                "No", "Yes"
+            };
+            return track;
+        }
+
+
+
 
         #endregion
 
@@ -1891,33 +2076,12 @@ namespace DB_EDITOR
 
         #endregion
 
-        #region Uniforms
-
-        private List<string> GetHelmetNumbers()
+        #region BOWLS
+        public int GetBOWLrecfromBNME(string bnme)
         {
-            List<string> helmets = new List<string>();
-
-            helmets.Add("None");
-            helmets.Add("Small-Left");
-            helmets.Add("Small-Right");
-            helmets.Add("Small-Center");
-            helmets.Add("Med-Wide-Gape");
-            helmets.Add("Med-Gap");
-            helmets.Add("Med-Close");
-            helmets.Add("Large-Wide-Gap");
-            helmets.Add("Large-Gap");
-            helmets.Add("Large-Close");
-
-            return helmets;
-        }
-
-        private int ReturnHelmetNumberVal(string helmet)
-        {
-            List<string> helmets = GetHelmetNumbers();
-
-            for (int i = 0; i < helmets.Count; i++)
+            for (int i = 0; i < GetTableRecCount("BOWL"); i++)
             {
-                if (helmets[i] == helmet) return i;
+                if (GetDBValue("BOWL", "BNME", i) == bnme) return i;
             }
 
             return -1;

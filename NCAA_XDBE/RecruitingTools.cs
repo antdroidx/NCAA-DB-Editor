@@ -15,11 +15,32 @@ namespace DB_EDITOR
             CompactDB();
             CompactDB2();
             LoadGlobalTransferData();
+            if(verNumber < 15.0)
+            {
+                RemoveBadTransfers.Enabled = false;
+                CreateFCSTransferPortalButton.Enabled = false;   
+            }
+            else
+            {
+                RemoveBadTransfers.Enabled = true;
+                CreateFCSTransferPortalButton.Enabled = true;
+            }
 
         }
 
         #region RECRUITING TOOLS CLICKS
 
+
+        //Auto Adjust Coach Budgets
+        private void AutoAdjustCoachBudgetButton2_Click(object sender, EventArgs e)
+        {
+            AutoAdjustCoachBudgets();
+        }
+        //Randomize Coach Budgets
+        private void OSRandomizeCoachBudgetButton_Click(object sender, EventArgs e)
+        {
+            RandomizeBudgets();
+        }
 
         //Raise minimum recruiting point allocation and off-season TPRA values -- Must be done at start of Recruiting
         private void ButtonMinRecruitingPts_Click(object sender, EventArgs e)
@@ -153,13 +174,7 @@ namespace DB_EDITOR
             ChooseAthletePosition();
         }
 
-
-        //Auto Adjust Coach Budgets
-        private void AutoAdjustCoachBudgetButton2_Click(object sender, EventArgs e)
-        {
-            AutoAdjustCoachBudgets();
-        }
-
+        //FCS Transfers
         private void CreateFCSTransferPortalButton_Click(object sender, EventArgs e)
         {
             CreateFCSPlayersForRecruiting();

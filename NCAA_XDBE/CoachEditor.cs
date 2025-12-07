@@ -23,6 +23,16 @@ namespace DB_EDITOR
             CoachListBox.MeasureItem += CoachListBox_MeasureItem;
             CoachListBox.DrawItem += CoachListBox_DrawItem;
             LoadCoachList(CoachFilter.SelectedIndex);
+
+            if(verNumber < 15.0)
+            {
+                coachProg.Enabled = true;
+            }
+            else
+            {
+                coachProg.Enabled = false;
+            }
+
         }
         private void AddCoachFilters()
         {
