@@ -581,7 +581,7 @@ namespace DB_EDITOR
                 Helmets.Add("SpeedFlex");
                 Helmets.Add("Vicis Zero2");
                 Helmets.Add("Schutt F7");
-                Helmets.Add("Axiom");
+                Helmets.Add("SpeedFlex 2");
             }
             else
             {
@@ -603,9 +603,9 @@ namespace DB_EDITOR
                 if (HELM == 3)
                 {
                     FaceMasks.Add("*");
-                    FaceMasks.Add("2BC-S");  //K+P
-                    FaceMasks.Add("W-2EG-HP-S"); //Skill
-                    FaceMasks.Add("W-2B-HP-S"); //Linemen
+                    FaceMasks.Add("SF-Kicker");  //K+P
+                    FaceMasks.Add("SF-3BD (Skill Pos)"); //Skill
+                    FaceMasks.Add("SF-2EG-II (Linemen)"); //Linemen
                 }
                 else
                 {

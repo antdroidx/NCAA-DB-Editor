@@ -19,7 +19,7 @@ namespace DB_EDITOR
 
         private void StartSpringPortal()
         {
-            if (NextConfigRadio.Checked)
+            if (verNumber >= 15.0)
             {
                 TransferEligible.Enabled = false;
             }
@@ -644,9 +644,6 @@ namespace DB_EDITOR
                         order++;
                     }
 
-                    //MessageBox.Show("" + teamNameDB[teamList[0][0]] + " " + teamNameDB[teamList[1][0]] + " " + teamNameDB[teamList[2][0]] + " " + teamNameDB[teamList[3][0]] + " " + teamNameDB[teamList[4][0]] + "");
-
-
                 }
                 else if (ReverseRankingPriority.Checked)
                 {
@@ -704,9 +701,6 @@ namespace DB_EDITOR
 
                         order++;
                     }
-
-                    //MessageBox.Show("" + teamNameDB[teamList[0][0]] + " " + teamNameDB[teamList[1][0]] + " " + teamNameDB[teamList[2][0]] + " " + teamNameDB[teamList[3][0]] + " " + teamNameDB[teamList[4][0]] + "");
-
 
                 }
                 else
@@ -926,9 +920,13 @@ namespace DB_EDITOR
             int prevTransfersCount = TotalTransfersCount.Text.Contains(":") ? Convert.ToInt32(TotalTransfersCount.Text.Split(':')[1].Trim()) : 0;
             int prevStarters = startersCount.Text.Contains(":") ? Convert.ToInt32(startersCount.Text.Split(':')[1].Trim()) : 0;
 
-            TotalTransfersCount.Text = "Total Transfers: " + Convert.ToString(portalList2.Count + prevTransfersCount);
+            TotalTransfersCount.Text = "Total Transfers: " + PortalData.Rows.Count;
             if (!AllowStartersLeave.Checked) startersCount.Text = "";
             else startersCount.Text = "Starters: " + Convert.ToString(starterCount + prevStarters);
+
+            // Ensure DataGridView cell formatting runs to color the non-editing display
+            PortalData.CellFormatting -= SpringPortal_CellFormatting;
+            PortalData.CellFormatting += SpringPortal_CellFormatting;
         }
 
         private void AddPlayertoTRAN(int PGID, int TGID)
@@ -1424,5 +1422,34 @@ namespace DB_EDITOR
                 GetTeamEditorData(teamRec);
             }
         }
+
+
+        #region colorization
+        private void SpringPortal_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            // Only color non-header cells that display the player string (skip column 0 which shows position)
+            if (e.RowIndex < 0 || e.ColumnIndex != 3) return;
+
+            string text = Convert.ToString(e.Value);
+
+            // still empty -> nothing to color
+            if (string.IsNullOrEmpty(text)) return;
+
+            int rating = Convert.ToInt32(text);
+
+            Color textColor = GetColorRating(rating);
+
+
+            // Apply the color to the cell's style so the cell displays colored text when NOT editing
+            e.CellStyle.ForeColor = Color.Black;
+            e.CellStyle.BackColor = textColor;
+
+            // If desired, also adjust selection fore color so selection does not hide color
+            e.CellStyle.SelectionForeColor = Color.Black;
+            e.CellStyle.SelectionBackColor = textColor;
+
+        }
+
+        #endregion
     }
 }

@@ -224,7 +224,6 @@ namespace DB_EDITOR
 
         private void GetFields(int dbFILEindex, int tmpTABLEindex)
         {
-
             FieldNames.Clear();
 
             TdbTableProperties TableProps = new TdbTableProperties();
@@ -297,6 +296,7 @@ namespace DB_EDITOR
         private void LoadFields()
         {
             DoNotTrigger = true;
+            commaPresent = false;
 
             int tmpFIELDcount = FieldNames.Count;
 
@@ -394,7 +394,13 @@ namespace DB_EDITOR
                         string val = new string((char)0, (FieldProps.Size / 8) + 1);
 
                         TDB.TDBFieldGetValueAsString(dbSelected, TableProps.Name, FieldProps.Name, r, ref val);
-                        val = val.Replace(",", "");
+                        
+                        val = val.Replace(",", ",");
+
+                        if(val.Contains(","))
+                        {
+                            commaPresent = true;
+                        }
 
                         fieldsGridView.Columns[tmpf + 1].Width = 86;  // Increase the width size for string literals.
 
@@ -559,7 +565,12 @@ namespace DB_EDITOR
             {
                 string tmpval = Convert.ToString(fieldsGridView.Rows[rownum].Cells[colnum].Value);
 
-                tmpval = tmpval.Replace(",", "-");
+                tmpval = tmpval.Replace(",", ",");
+
+                if (tmpval.Contains(","))
+                {
+                    commaPresent = true;
+                }
 
                 if (!TDB.TDBFieldSetValueAsString(dbSelected, SelectedTableName, fieldProps.Name, tmpcol, tmpval))
                     fieldsGridView.Rows[rownum].Cells[colnum].Value = tmpval;
@@ -808,105 +819,6 @@ namespace DB_EDITOR
             TdbTableProperties tableProps = new TdbTableProperties();
             tableProps.Name = TDBNameLength;
             TDB.TDBTableGetProperties(dbSelected, SelectedTableIndex, ref tableProps);
-
-            /*
-               // Create and configure the form
-               using (Form capacityDialog = new Form())
-               {
-                   capacityDialog.Text = $"Change Capacity - {tableProps.Name}";
-                   capacityDialog.Size = new Size(200, 200);
-                   capacityDialog.StartPosition = FormStartPosition.CenterParent;
-                   capacityDialog.FormBorderStyle = FormBorderStyle.FixedDialog;
-                   capacityDialog.MaximizeBox = false;
-                   capacityDialog.MinimizeBox = false;
-
-                   // Create controls
-                   Label currentCapLabel = new Label
-                   {
-                       Text = $"Current Capacity: {tableProps.Capacity}",
-                       Location = new Point(20, 20),
-                       AutoSize = true
-                   };
-
-                   Label recordsLabel = new Label
-                   {
-                       Text = $"Active Records: {tableProps.RecordCount}",
-                       Location = new Point(20, 40),
-                       AutoSize = true
-                   };
-
-                   Label newCapLabel = new Label
-                   {
-                       Text = "New Capacity:",
-                       Location = new Point(20, 70),
-                       AutoSize = true
-                   };
-
-                   NumericUpDown capacityInput = new NumericUpDown
-                   {
-                       Location = new Point(100, 68),
-                       Size = new Size(60, 20),
-                       Minimum = 0,
-                       Maximum = 65534,
-                       Value = tableProps.RecordCount
-                   };
-
-                   Button okButton = new Button
-                   {
-                       Text = "OK",
-                       DialogResult = DialogResult.OK,
-                       Location = new Point(20, 110),
-                       Size = new Size(60, 30)
-                   };
-
-                   Button cancelButton = new Button
-                   {
-                       Text = "Cancel",
-                       DialogResult = DialogResult.Cancel,
-                       Location = new Point(100, 110),
-                       Size = new Size(60, 30)
-                   };
-
-                   // Add controls to form
-                   capacityDialog.Controls.AddRange(new Control[]
-                   {
-                       currentCapLabel,
-                       recordsLabel,
-                       newCapLabel,
-                       capacityInput,
-                       okButton,
-                       cancelButton
-                   });
-
-                   capacityDialog.AcceptButton = okButton;
-                   capacityDialog.CancelButton = cancelButton;
-
-                   // Show dialog and process result
-                   if (capacityDialog.ShowDialog() == DialogResult.OK)
-                   {
-                       int newCapacity = (int)capacityInput.Value;
-                       if (newCapacity != tableProps.Capacity)
-                       {
-                           // Attempt to change the capacity
-                           if (TDB.TDBTableChangeCapacity(dbSelected, tableProps.Name, newCapacity))
-                           {
-                               MessageBox.Show($"Table capacity changed to {newCapacity}.", "Success",
-                                   MessageBoxButtons.OK, MessageBoxIcon.Information);
-                               GetTableProperties(); // Refresh the table properties display
-                           }
-                           else
-                           {
-                               MessageBox.Show("Failed to change table capacity.", "Error",
-                                   MessageBoxButtons.OK, MessageBoxIcon.Error);
-                           }
-                       }
-
-
-                   }
-               }
-
-               */
-
 
             // Create and configure the form (responsive layout, DPI-aware)
             using (Form capacityDialog = new Form())

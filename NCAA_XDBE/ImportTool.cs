@@ -32,7 +32,15 @@ namespace DB_EDITOR
             {
                 string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
                 string csvLocation = Path.Combine(executableLocation, SelectedTableName + ".csv");
-                myStream = new FileStream(csvLocation, FileMode.Open, FileAccess.Read);
+
+                if (tabDelimited) csvLocation = Path.Combine(executableLocation, SelectedTableName + ".txt");
+
+                if (File.Exists(csvLocation)) myStream = new FileStream(csvLocation, FileMode.Open, FileAccess.Read);
+                else
+                {
+                    MessageBox.Show("No importable files found in the DB Editor directory");
+                    return;
+                }
             }
             else if (tabDelimited)
                 openFileDialog2.Filter = "TXT Files (*.txt)|*.txt|All files (*.*)|*.*";
@@ -160,8 +168,6 @@ namespace DB_EDITOR
 
                         foreach (KeyValuePair<string, int> import in AvailableFields)
                         {
-                            //if (TableProps.Name == "PLAY" && getFieldIndex(import.Key) > AvailableFields.Count - 2)
-                            //    continue;
 
                             string importfieldnames = import.Key;
 

@@ -624,6 +624,10 @@ namespace DB_EDITOR
 
             CoachTransferPortalLabel.Text = "" + CoachPortalNews.Rows.Count + " Players Entering the Transfer Portal";
 
+            // Ensure DataGridView cell formatting runs to color the non-editing display
+            CoachPortalNews.CellFormatting -= Carousel_CellFormatting;
+            CoachPortalNews.CellFormatting += Carousel_CellFormatting;
+
             CoachPortalNews.ClearSelection();
         }
 
@@ -1073,8 +1077,7 @@ namespace DB_EDITOR
 
 
         //Coach & Player Hyperlinks
-
-
+        #region HyperLinks
         private void CarouselDataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             int row = e.RowIndex;
@@ -1123,6 +1126,36 @@ namespace DB_EDITOR
                 GetTeamEditorData(teamRec);
             }
         }
+
+        #endregion
+
+        #region colorization
+        private void Carousel_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            // Only color non-header cells that display the player string (skip column 0 which shows position)
+            if (e.RowIndex < 0 || e.ColumnIndex != 4) return;
+
+            string text = Convert.ToString(e.Value);
+
+            // still empty -> nothing to color
+            if (string.IsNullOrEmpty(text)) return;
+
+            int rating = Convert.ToInt32(text);
+
+            Color textColor = GetColorRating(rating);
+
+
+            // Apply the color to the cell's style so the cell displays colored text when NOT editing
+            e.CellStyle.ForeColor = Color.Black;
+            e.CellStyle.BackColor = textColor;
+
+            // If desired, also adjust selection fore color so selection does not hide color
+            e.CellStyle.SelectionForeColor = Color.Black;
+            e.CellStyle.SelectionBackColor = textColor;
+
+        }
+
+        #endregion
 
     }
 

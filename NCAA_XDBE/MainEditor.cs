@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Windows.Forms;
@@ -77,6 +78,7 @@ namespace DB_EDITOR
         int PPOSmem, AWRHmem;
 
         bool tabDelimited = false;
+        bool commaPresent = false;
         bool DUMPER = false;
 
         List<byte> binData = new List<byte>();     // Holds file header data. (MC02, FBChunks...)
@@ -107,9 +109,6 @@ namespace DB_EDITOR
         List<List<int>> RCAT;
         List<string> FirstNames;
         List<string> LastNames;
-
-        [DllImport("user32.dll")]
-        public static extern void DisableProcessWindowsGhosting();
 
 
         // Add this near the top of the MainEditor class, after existing DllImport
@@ -219,6 +218,7 @@ namespace DB_EDITOR
 
 
             tabDelimited = false;
+            commaPresent = false;
 
             //ColorDialog
             colorDialog1.AnyColor = true;
@@ -631,6 +631,11 @@ namespace DB_EDITOR
         }
         private void exportAllMenuItem_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("This will export every table in this database and may take some time depending on the size of the database. Do you want to proceed?", "Export All Tables", MessageBoxButtons.YesNo);
+
+            if(DialogResult == System.Windows.Forms.DialogResult.No) return;
+   
+
             // TdbTableProperties class
             TdbTableProperties TableProps = new TdbTableProperties();
 
@@ -657,30 +662,46 @@ namespace DB_EDITOR
 
         private void importAllMenuItem_Click(object sender, EventArgs e)
         {
-            // TdbTableProperties class
-            TdbTableProperties TableProps = new TdbTableProperties();
 
-            // 4 character string, max value of 5
-            StringBuilder TableName = new StringBuilder("    ", 5);
+            string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+            string csvLocation = Path.Combine(executableLocation, SelectedTableName + ".csv");
+            if (tabDelimited) csvLocation = Path.Combine(executableLocation, SelectedTableName + ".txt");
 
-            exportAll = true;
-            for (int i = 0; i < TDB.TDBDatabaseGetTableCount(dbSelected); i++)
+
+            if (File.Exists(csvLocation))
             {
-                // Init the tdbtableproperties name
-                TableProps.Name = TableName.ToString();
 
-                // Get the tableproperties for the given table number
-                if (TDB.TDBTableGetProperties(dbSelected, i, ref TableProps))
+
+                // TdbTableProperties class
+                TdbTableProperties TableProps = new TdbTableProperties();
+
+                // 4 character string, max value of 5
+                StringBuilder TableName = new StringBuilder("    ", 5);
+
+                exportAll = true;
+                for (int i = 0; i < TDB.TDBDatabaseGetTableCount(dbSelected); i++)
                 {
-                    SelectedTableName = TableProps.Name;
-                    SelectedTableIndex = i;
+                    // Init the tdbtableproperties name
+                    TableProps.Name = TableName.ToString();
 
-                    if (TableProps.Name != "TEAM")
-                        importTableMenuItem.PerformClick();
+                    // Get the tableproperties for the given table number
+                    if (TDB.TDBTableGetProperties(dbSelected, i, ref TableProps))
+                    {
+                        SelectedTableName = TableProps.Name;
+                        SelectedTableIndex = i;
+
+                        if (TableProps.Name != "TEAM")
+                            importTableMenuItem.PerformClick();
+                    }
                 }
+                exportAll = false;
+                MessageBox.Show("Import Complete", "Import All Tables");
             }
-            exportAll = false;
-            MessageBox.Show("Import Complete", "Import All Tables");
+            else
+            {
+                MessageBox.Show("No importable files found in the DB Editor directory");
+                return;
+            }
         }
 
         //tableMenuStrip

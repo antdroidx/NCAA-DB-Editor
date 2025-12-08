@@ -11,6 +11,15 @@ namespace DB_EDITOR
         //EXPORT - Main Menu
         private void ExportDB()
         {
+            if(commaPresent && !tabDelimited)
+            {
+               DialogResult dialogResult = MessageBox.Show("This database table contains commas in string fields. Exporting to a comma delimited (CSV) file may cause data misalignment. Please use TAB DELIMITED option instead!\n\n\n Do you want to proceed?", "Commas Detected!", MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.No)
+                {
+                    return;
+                }
+            }
+
             string tmpReverse = "";
             string tmpcurrentDBfile = Path.GetFileNameWithoutExtension(dbFile);
 

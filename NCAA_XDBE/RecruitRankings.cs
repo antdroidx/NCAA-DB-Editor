@@ -35,13 +35,12 @@ namespace DB_EDITOR
 
         private void LoadRecruitRankingComboBox()
         {
+            if (RecruitRankingComboBox.Items.Count > 0) return;
             RecruitRankingComboBox.Items.Clear();
             RecruitRankingComboBox.Items.Add("Overall");
             RecruitRankingComboBox.Items.Add("Recruits");
             RecruitRankingComboBox.Items.Add("Transfers");
         }
-
-
 
         private void RecruitRankingComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -157,22 +156,26 @@ namespace DB_EDITOR
                     //Check DB1
                     for (int x = 0; x < GetTableRecCount("TRAN"); x++)
                     {
-                        int tgid = GetDBValueInt("TRAN", "PGID", x) / 70;
-                        int ptid = GetDBValueInt("TRAN", "PTID", x);
-                        int rec = FindTRANRecFromPlayList(GetDBValueInt("TRAN", "PGID", x), playTable);
-                        int ovr = ConvertRating(GetDBValueInt("PLAY", "POVR", rec));
-                        int star = 0;
-                        if (ovr >= 86) star = 5;
-                        else if (ovr >= 80) star = 4;
-                        else if (ovr >= 74) star = 3;
-                        else if (ovr >= 68) star = 2;
-                        else star = 1;
-
-                        teamRecruits[tgid][star]++;
-
-                        if (ptid == tgid && !IncludeReturningTransfersBox.Checked)
+                        int pgid = GetDBValueInt("TRAN", "PGID", x);
+                        if (pgid < 21000)
                         {
-                            teamRecruits[tgid][star]--;
+                            int tgid = pgid / 70;
+                            int ptid = GetDBValueInt("TRAN", "PTID", x);
+                            int rec = FindTRANRecFromPlayList(GetDBValueInt("TRAN", "PGID", x), playTable);
+                            int ovr = ConvertRating(GetDBValueInt("PLAY", "POVR", rec));
+                            int star = 0;
+                            if (ovr >= 86) star = 5;
+                            else if (ovr >= 80) star = 4;
+                            else if (ovr >= 74) star = 3;
+                            else if (ovr >= 68) star = 2;
+                            else star = 1;
+
+                            teamRecruits[tgid][star]++;
+
+                            if (ptid == tgid && !IncludeReturningTransfersBox.Checked)
+                            {
+                                teamRecruits[tgid][star]--;
+                            }
                         }
                         ProgressBarStep();
                     }
@@ -231,22 +234,26 @@ namespace DB_EDITOR
                     //Check DB1
                     for (int x = 0; x < GetTableRecCount("TRAN"); x++)
                     {
-                        int tgid = GetDBValueInt("TRAN", "PGID", x) / 70;
-                        int ptid = GetDBValueInt("TRAN", "PTID", x);
-                        int rec = FindTRANRecFromPlayList(GetDBValueInt("TRAN", "PGID", x), playTable);
-                        int ovr = ConvertRating(GetDBValueInt("PLAY", "POVR", rec));
-                        int star = 0;
-                        if (ovr >= 86) star = 5;
-                        else if (ovr >= 80) star = 4;
-                        else if (ovr >= 74) star = 3;
-                        else if (ovr >= 68) star = 2;
-                        else star = 1;
-
-                        teamRecruits[tgid][star]++;
-
-                        if (ptid == tgid && !IncludeReturningTransfersBox.Checked)
+                        int pgid = GetDBValueInt("TRAN", "PGID", x);
+                        if (pgid < 21000)
                         {
-                            teamRecruits[tgid][star]--;
+                            int tgid = pgid / 70;
+                            int ptid = GetDBValueInt("TRAN", "PTID", x);
+                            int rec = FindTRANRecFromPlayList(GetDBValueInt("TRAN", "PGID", x), playTable);
+                            int ovr = ConvertRating(GetDBValueInt("PLAY", "POVR", rec));
+                            int star = 0;
+                            if (ovr >= 86) star = 5;
+                            else if (ovr >= 80) star = 4;
+                            else if (ovr >= 74) star = 3;
+                            else if (ovr >= 68) star = 2;
+                            else star = 1;
+
+                            teamRecruits[tgid][star]++;
+
+                            if (ptid == tgid && !IncludeReturningTransfersBox.Checked)
+                            {
+                                teamRecruits[tgid][star]--;
+                            }
                         }
                         ProgressBarStep();  
                     }
@@ -281,275 +288,6 @@ namespace DB_EDITOR
             }
 
             EndProgressBar();
-        }
-
-        private void LoadRecruitRankingView(int view)
-        {
-            /* 0 - Rank
-             * 1 - Team
-             * 2 - 5 star
-             * 3 - 4 star
-             * 4 - 3 star
-             * 5 - 2 star
-             * 6 - 1 star
-             * 7 - points
-             */
-
-            RecruitRankingView.Rows.Clear();
-
-            progressBar1.Visible = true;
-            progressBar1.Value = 0;
-            progressBar1.Maximum = GetTable2RecCount("RCTC");
-
-
-
-            for (int i = 0; i < GetTable2RecCount("RCTC"); i++)
-            {
-
-                int tgid = GetDB2ValueInt("RCTC", "TGID", i);
-                int five = 0;
-                int four = 0;
-                int three = 0;
-                int two = 0;
-                int one = 0;
-
-
-                if (view == 0)
-                {
-                    RecruitHomeTeam.HeaderText = "Home";
-
-                    if (verNumber < 15.0)
-                    {
-                        five = GetDB2ValueInt("RCTC", "RC5S", i);
-                        four = GetDB2ValueInt("RCTC", "RC4S", i);
-                        three = GetDB2ValueInt("RCTC", "RC3S", i) + GetDB2ValueInt("RCTC", "RTC3", i);
-                        two = GetDB2ValueInt("RCTC", "RC2S", i) + GetDB2ValueInt("RCTC", "RTC2", i);
-                        one = GetDB2ValueInt("RCTC", "RC1S", i) + GetDB2ValueInt("RCTC", "RTC1", i);
-
-                    }
-                    //Remove returning recruits if box not checked
-                    else
-                    {
-                        //check DB2
-                        for (int x = 0; x < GetTable2RecCount("RCPR"); x++)
-                        {
-                            int prid = GetDB2ValueInt("RCPR", "PRID", x);
-                            int ptcm = GetDB2ValueInt("RCPR", "PTCM", x);
-
-                            if (ptcm == tgid)
-                            {
-                                int star = GetDB2ValueInt("RCPT", "RCCB", x);
-
-                                if (star == 5) five++;
-                                if (star == 4) four++;
-                                if (star == 3) three++;
-                                if (star == 2) two++;
-                                if (star == 1) one++;
-
-                                //Remove returning transfers if box not checked
-                                if (!IncludeReturningTransfersBox.Checked && prid >= 21000)
-                                {
-                                    for (int tran = 0; tran < GetTableRecCount("TRAN"); tran++)
-                                    {
-                                        int ptid = GetDBValueInt("TRAN", "PTID", tran);
-
-                                        if (GetDBValueInt("TRAN", "PGID", tran) == prid)
-                                        {
-                                            if (ptid == tgid)
-                                            {
-                                                if (star == 5) five--;
-                                                if (star == 4) four--;
-                                                if (star == 3) three--;
-                                                if (star == 2) two--;
-                                                if (star == 1) one--;
-                                            }
-                                            break;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-
-                        //Check DB1
-                        for (int x = 0; x < GetTableRecCount("TRAN"); x++)
-                        {
-                            if (GetDBValueInt("TRAN", "PGID", x) >= tgid * 70 && GetDBValueInt("TRAN", "PGID", x) <= tgid * 70 + 69)
-                            {
-                                int ptid = GetDBValueInt("TRAN", "PTID", x);
-                                int ovr = ConvertRating(GetDBValueInt("PLAY", "POVR", FindPGIDRecord(GetDBValueInt("TRAN", "PGID", x))));
-                                int star = 0;
-                                if (ovr >= 86) star = 5;
-                                else if (ovr >= 80) star = 4;
-                                else if (ovr >= 74) star = 3;
-                                else if (ovr >= 68) star = 2;
-                                else star = 1;
-
-                                if (star == 5) five++;
-                                if (star == 4) four++;
-                                if (star == 3) three++;
-                                if (star == 2) two++;
-                                if (star == 1) one++;
-
-
-                                if (ptid == tgid && !IncludeReturningTransfersBox.Checked)
-                                {
-                                    if (star == 5) five--;
-                                    if (star == 4) four--;
-                                    if (star == 3) three--;
-                                    if (star == 2) two--;
-                                    if (star == 1) one--;
-                                }
-                            }
-                        }
-                    }
-
-                }
-                else if (view == 1)  //recruits only
-                {
-                    RecruitHomeTeam.HeaderText = "State";
-
-                    if (verNumber < 15.0)
-                    {
-                        five = GetDB2ValueInt("RCTC", "RC5S", i);
-                        four = GetDB2ValueInt("RCTC", "RC4S", i);
-                        three = GetDB2ValueInt("RCTC", "RC3S", i);
-                        two = GetDB2ValueInt("RCTC", "RC2S", i);
-                        one = GetDB2ValueInt("RCTC", "RC1S", i);
-                    }
-                    else
-                    {
-                        five = 0;
-                        four = 0;
-                        three = 0;
-                        two = 0;
-                        one = 0;
-
-                        for (int x = 0; x < GetTable2RecCount("RCPR"); x++)
-                        {
-                            if (GetDB2ValueInt("RCPR", "PTCM", x) == tgid && GetDB2ValueInt("RCPR", "PRID", x) <= 21000)
-                            {
-                                int star = GetDB2ValueInt("RCPT", "RCCB", x);
-
-                                if (star == 5) five++;
-                                if (star == 4) four++;
-                                if (star == 3) three++;
-                                if (star == 2) two++;
-                                if (star == 1) one++;
-
-                            }
-                        }
-                    }
-                }
-                else  //Transfers Only
-                {
-                    if (verNumber < 15.0)
-                    {
-                        five = 0;
-                        four = 0;
-                        three = GetDB2ValueInt("RCTC", "RTC3", i);
-                        two = GetDB2ValueInt("RCTC", "RTC2", i);
-                        one = GetDB2ValueInt("RCTC", "RTC1", i);
-                    }
-                    else
-                    {
-                        RecruitHomeTeam.HeaderText = "Prev";
-
-                        five = 0;
-                        four = 0;
-                        three = 0;
-                        two = 0;
-                        one = 0;
-
-                        //check DB2
-                        for (int x = 0; x < GetTable2RecCount("RCPR"); x++)
-                        {
-                            int prid = GetDB2ValueInt("RCPR", "PRID", x);
-                            int ptcm = GetDB2ValueInt("RCPR", "PTCM", x);
-
-                            if (ptcm == tgid && prid >= 21000)
-                            {
-                                int star = GetDB2ValueInt("RCPT", "RCCB", x);
-
-                                if (star == 5) five++;
-                                if (star == 4) four++;
-                                if (star == 3) three++;
-                                if (star == 2) two++;
-                                if (star == 1) one++;
-
-                                //Remove returning transfers if box not checked
-                                if (!IncludeReturningTransfersBox.Checked)
-                                {
-                                    for (int tran = 0; tran < GetTableRecCount("TRAN"); tran++)
-                                    {
-                                        int ptid = GetDBValueInt("TRAN", "PTID", tran);
-
-                                        if (GetDBValueInt("TRAN", "PGID", tran) == prid)
-                                        {
-                                            if (ptid == tgid)
-                                            {
-                                                if (star == 5) five--;
-                                                if (star == 4) four--;
-                                                if (star == 3) three--;
-                                                if (star == 2) two--;
-                                                if (star == 1) one--;
-                                            }
-                                            break;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-
-                        //Check DB1
-                        for (int x = 0; x < GetTableRecCount("TRAN"); x++)
-                        {
-                            if (GetDBValueInt("TRAN", "PGID", x) >= tgid * 70 && GetDBValueInt("TRAN", "PGID", x) <= tgid * 70 + 69)
-                            {
-                                int ptid = GetDBValueInt("TRAN", "PTID", x);
-                                int ovr = ConvertRating(GetDBValueInt("PLAY", "POVR", FindPGIDRecord(GetDBValueInt("TRAN", "PGID", x))));
-                                int star = 0;
-                                if (ovr >= 86) star = 5;
-                                else if (ovr >= 80) star = 4;
-                                else if (ovr >= 74) star = 3;
-                                else if (ovr >= 68) star = 2;
-                                else star = 1;
-
-                                if (ptid == tgid && !IncludeReturningTransfersBox.Checked)
-                                {
-                                    if (star == 5) five--;
-                                    if (star == 4) four--;
-                                    if (star == 3) three--;
-                                    if (star == 2) two--;
-                                    if (star == 1) one--;
-                                }
-                                else
-                                {
-                                    if (star == 5) five++;
-                                    if (star == 4) four++;
-                                    if (star == 3) three++;
-                                    if (star == 2) two++;
-                                    if (star == 1) one++;
-                                }
-                            }
-                        }
-
-                    }
-
-                }
-
-                FillRecruitRankingView(tgid, five, four, three, two, one);
-                ProgressBarStep();
-            }
-
-            RecruitRankingView.Sort(RecruitRankingPts, System.ComponentModel.ListSortDirection.Descending);
-
-            for (int r = 0; r < RecruitRankingView.Rows.Count; r++)
-            {
-                RecruitRankingView.Rows[r].Cells[0].Value = r + 1;
-            }
-
-            progressBar1.Value = 0;
-            progressBar1.Visible = false;
         }
 
         private void FillRecruitRankingView(int tgid, int five, int four, int three, int two, int one)
@@ -623,7 +361,7 @@ namespace DB_EDITOR
              */
 
             //All View
-            if (RecruitRankingComboBox.SelectedIndex == 0)
+            if (RecruitRankingComboBox.SelectedIndex == 0 || RecruitRankingComboBox.SelectedIndex == -1)
             {
                 RecruitTeamName.Text = teamNameDB[tgid] + " Overall Combined Class";
                 progressBar1.Maximum = GetTable2RecCount("RCPR") + GetTableRecCount("TRAN");
@@ -792,7 +530,7 @@ namespace DB_EDITOR
             int height = GetDBValueInt("PLAY", "PHGT", rec);
             int weight = GetDBValueInt("PLAY", "PWGT", rec) + 160;
             int ovr = ConvertRating(GetDBValueInt("PLAY", "POVR", rec));
-            int posRank = 0;
+            int posRank = -1;
 
             int star = 0;
             if (ovr >= 86) star = 5;

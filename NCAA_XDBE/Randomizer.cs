@@ -683,7 +683,11 @@ namespace DB_EDITOR
                 }
             }
 
-            int helm = GetDBValueInt(tableName, "HELM", rec);
+            int helm = -1;
+            if (tableName == "PLAY" || tableName == "RCAT") helm = GetDBValueInt(tableName, "HELM", rec);
+            else if (tableName == "RCPT" || tableName == "WKON") helm = GetDB2ValueInt(tableName, "HELM", rec);
+
+
             if (helm == 3)
             {
                 if(pos >= 5 && pos <= 15)

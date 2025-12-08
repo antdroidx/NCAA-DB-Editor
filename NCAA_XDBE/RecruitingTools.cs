@@ -378,12 +378,13 @@ namespace DB_EDITOR
             StartProgressBar(GetTable2RecCount("RCPR"));
 
             List<int> teamIDs = new List<int>();
+            teamIDs.Add(511); //Add NA team
             for (int i = 0; i < GetTableRecCount("TEAM"); i++)
             {
                 if (GetDBValueInt("TEAM", "TTYP", i) == 0)
                 {
                     teamIDs.Add(GetDBValueInt("TEAM", "TGID", i));
-                }
+                }  
             }
             int fcsTeams = 0;
             Random rand = new Random();
@@ -394,13 +395,13 @@ namespace DB_EDITOR
                 {
                     if (j < 10)
                     {
-                        ChangeDB2String("RCPR", "PS0" + j, i, "0");
-                        ChangeDB2String("RCPR", "PT0" + j, i, "511");
+                        ChangeDB2Int("RCPR", "PS0" + j, i, 0);
+                        ChangeDB2Int("RCPR", "PT0" + j, i, 511);
                     }
                     else
                     {
-                        ChangeDB2String("RCPR", "PS" + j, i, "0");
-                        ChangeDB2String("RCPR", "PT" + j, i, "511");
+                        ChangeDB2Int("RCPR", "PS" + j, i, 0);
+                        ChangeDB2Int("RCPR", "PT" + j, i, 511);
                     }
                 }
 
@@ -412,8 +413,8 @@ namespace DB_EDITOR
                         int TGID = GetDB2ValueInt("RCPR", "PT0" + j, i);
                         if (!teamIDs.Contains(TGID))
                         {
-                            ChangeDB2String("RCPR", "PS0" + j, i, "0");
-                            ChangeDB2String("RCPR", "PT0" + j, i, "511");
+                            ChangeDB2Int("RCPR", "PS0" + j, i, 0);
+                            ChangeDB2Int("RCPR", "PT0" + j, i, 511);
                             fcsTeams++;
                         }
                     }
@@ -422,8 +423,8 @@ namespace DB_EDITOR
                         int TGID = GetDB2ValueInt("RCPR", "PT" + j, i);
                         if (!teamIDs.Contains(TGID))
                         {
-                            ChangeDB2String("RCPR", "PS" + j, i, "0");
-                            ChangeDB2String("RCPR", "PT" + j, i, "511");
+                            ChangeDB2Int("RCPR", "PS" + j, i, 0);
+                            ChangeDB2Int("RCPR", "PT" + j, i, 511);
                             fcsTeams++;
                         }
                     }
@@ -570,113 +571,6 @@ namespace DB_EDITOR
                     int hand = 0;
                     if (handVal <= 9) hand = 1; //left handed 9% chance
                     ChangeDB2Int(tableName, "PHAN", i, hand);
-
-                    /*
-                    //Randomizes Face Shape (PGFM)
-                    int shape = rand.Next(0, 16);
-                    ChangeDB2Int(tableName, "PFGM", i, shape);
-
-                    //Randomizes Skin Tone
-                    RandomizeSkinTone(tableName, i);
-
-                    //Finds current skin tone and randomizes within it's Light/Medium/Dark general tone (PSKI)
-                    int skin = GetDB2ValueInt(tableName, "PSKI", i);
-                    if (skin <= 3) skin = rand.Next(0, 3);
-                    else if (skin > 3 && skin <= 6) skin = rand.Next(3, 7);
-                    else skin = 7;
-
-                    ChangeDB2Int(tableName, "PSKI", i, skin);
-
-                    //Randomizes Face Type based on new Skin Type
-                    int face = GetDB2ValueInt(tableName, "PSKI", i) * 8 + rand.Next(0, 8);
-                    ChangeDB2Int(tableName, "PFMP", i, face);
-
-                    //Randomize Hair Color
-                    int hcl = 0;
-                    if (skin < 2)
-                    {
-                        hcl = rand.Next(1, 101);
-                        if (hcl <= 55) hcl = 2; //brown
-                        else if (hcl <= 65) hcl = 0; //black
-                        else if (hcl <= 80) hcl = 1; //blonde
-                        else if (hcl <= 95) hcl = 4; //light brown
-                        else hcl = 3; //red
-                    }
-                    else if (skin == 2 || skin == 7)
-                    {
-                        hcl = rand.Next(1, 101);
-                        if (hcl <= 80) hcl = 0;
-                        else hcl = 4;
-                    }
-                    else
-                    {
-                        hcl = rand.Next(1, 101);
-                        if (hcl <= 92) hcl = 0;
-                        else if (hcl <= 70) hcl = 2;
-                        else hcl = rand.Next(0, 6);
-                    }
-                    ChangeDB2Int(tableName, "PHCL", i, hcl);
-
-                    //Randomize Hair Style
-                    int hairstyle = 5;
-
-                    if (skin < 3 || skin == 7)
-                    {
-
-                        if (rand.Next(1, 101) <= 50)
-                            hairstyle = rand.Next(2, 8);
-                        else if (rand.Next(1, 101) <= 75)
-                            hairstyle = rand.Next(11, 14);
-                        else hairstyle = 0;
-
-                    }
-                    else
-                    {
-                        if (rand.Next(1, 101) <= 50)
-                        {
-                            int hair = rand.Next(1, 5);
-                            if (hair == 1) hairstyle = 1;
-                            else if (hair == 2) hairstyle = 2;
-                            else if (hair == 3) hairstyle = 3;
-                            else if (hair == 4) hairstyle = 14;
-                        }
-                        else
-                        {
-                            if (rand.Next(1, 101) <= 50)
-                                hairstyle = rand.Next(0, 8);
-                            else
-                                hairstyle = rand.Next(11, 15);
-                        }
-                    }
-
-
-                    ChangeDB2Int(tableName, "PHED", i, hairstyle);
-
-                    //Randomize Eye Black
-                    if (Next26Mod || NextMod)
-                    {
-                        ChangeDB2Int(tableName, "PEYE", i, rand.Next(0, 2));
-                    }
-                    else
-                    {
-                        int val = rand.Next(1, 101);
-                        if (val <= 15) ChangeDBInt(tableName, "PEYE", i, 1);
-                        else ChangeDB2Int(tableName, "PEYE", i, 0);
-                    }
-
-
-                    //Randomize Nasal Strip
-                    if (Next26Mod || NextMod)
-                    {
-                        ChangeDB2Int(tableName, "PBRE", i, rand.Next(0, 2));
-                    }
-                    else
-                    {
-                        int val = rand.Next(1, 101);
-                        if (val <= 15) ChangeDBInt(tableName, "PBRE", i, 1);
-                        else ChangeDB2Int(tableName, "PBRE", i, 0);
-                    }
-                    */
                 }
 
                 ProgressBarStep();
