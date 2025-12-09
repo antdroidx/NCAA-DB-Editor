@@ -1137,7 +1137,9 @@ namespace DB_EDITOR
             string csvLocation = Path.Combine(executableLocation, @"resources\POCI.csv");
 
             if (verNumber == 15.0) csvLocation = Path.Combine(executableLocation, @"resources\POCI-NEXT.csv");
-            else if (verNumber >= 16.0) csvLocation = Path.Combine(executableLocation, @"resources\POCI-NEXT26.csv");
+            else if (verNumber == 16.0) csvLocation = Path.Combine(executableLocation, @"resources\POCI-NEXT26.csv");
+            else if (verNumber >= 16.2) csvLocation = Path.Combine(executableLocation, @"resources\POCI-NEXT26v2.csv");
+
 
             string filePath = csvLocation;
             StreamReader sr = new StreamReader(filePath);

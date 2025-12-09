@@ -1127,6 +1127,17 @@ namespace DB_EDITOR
                     }
                 }
             }
+            else if(TDB.TableCapacity(dbIndex, "RCAT") > 0)
+            {
+                for (int i = 0; i < GetTableRecCount("PLAY"); i++)
+                {
+                    if (GetDBValueInt("PLAY", "PLHN", i) > 2)
+                    {
+                        radioNext26v162.Checked = true;
+                        break;
+                    }
+                }
+            }
             else
             {
                 for (int i = 0; i < GetTableRecCount("BOWL"); i++)

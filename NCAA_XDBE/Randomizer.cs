@@ -523,7 +523,7 @@ namespace DB_EDITOR
                 }
             }
             //OLs & DT
-            else if (pos >= 5 && pos <= 9 || pos == 11)
+            else if (pos >= 5 && pos <= 9 || pos == 12)
             {
                 if (val <= 0)
                 {
@@ -563,7 +563,7 @@ namespace DB_EDITOR
                 }
             }
             //DEs & LBs
-            else if (pos >= 12 && pos <= 15 || pos == 10)
+            else if (pos >= 13 && pos <= 15 || pos >= 10 && pos <= 11)
             {
                 if (val <= 0)
                 {
@@ -869,7 +869,7 @@ namespace DB_EDITOR
                 }
             }
             //OLs, DTs
-            else if (pos >= 5 && pos <= 9 || pos == 11)
+            else if (pos >= 5 && pos <= 9 || pos == 12)
             {
                 if (val <= 75)
                 {
@@ -1499,7 +1499,7 @@ namespace DB_EDITOR
                 }
             }
             //Linemen
-            else if (pos >= 5 && pos <= 9 || pos == 11)
+            else if (pos >= 5 && pos <= 9 || pos == 12)
             {
                 /* 0 - None
                  * 1 - Rubber Pad
@@ -1569,7 +1569,7 @@ namespace DB_EDITOR
                 }
             }
             //FB, TE, DE, LB
-            else if (pos == 2 || pos == 4 || pos == 10 || pos >= 12 && pos <= 14)
+            else if (pos == 2 || pos == 4 || pos >= 10 && pos <= 11 || pos >= 13 && pos <= 15)
             {
                 /* 0 - None
                  * 1 - Rubber Pad
@@ -1983,7 +1983,7 @@ namespace DB_EDITOR
                 }
             }
             //FB, TE, DE, LBs
-            else if (pos == 2 || pos == 4 || pos == 10 || pos >= 12 && pos <= 15)
+            else if (pos == 2 || pos == 4 || pos >= 10 && pos <= 11 || pos >= 13 && pos <= 15)
             {
                 if (val <= 50)
                 {
@@ -2003,7 +2003,7 @@ namespace DB_EDITOR
                 }
             }
             //OL + DT
-            else if (pos == 11 || pos >= 5 && pos <= 9)
+            else if (pos == 12 || pos >= 5 && pos <= 9)
             {
                 if (val <= 50)
                 {
