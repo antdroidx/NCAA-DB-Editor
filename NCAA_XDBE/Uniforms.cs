@@ -235,8 +235,6 @@ namespace DB_EDITOR
                 var uniform = UniformGrid.Rows[UFID];
 
                 uniform.Cells[0].Value = true;
-                //uniform.Cells[3].Value = GetUFIDTeam(GetDBValueInt("TUNI", "TOID", i));
-                //uniform.Cells[4].Value = GetUniformSlot(GetDBValueInt("TUNI", "TUCO", i));
 
                 ProgressBarStep();
             }
@@ -555,6 +553,10 @@ namespace DB_EDITOR
         private void UniformGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (DoNotTrigger) return;
+
+            int col = e.ColumnIndex;
+            int row = e.RowIndex;
+
             if (e.ColumnIndex == 0 && e.RowIndex < 1200)
             {
                 if (UniformGrid.Rows[e.RowIndex].Cells[0].Value.Equals(false))
@@ -580,6 +582,82 @@ namespace DB_EDITOR
                 }
                 CheckUniformExpansion();
                 CheckTeamUniformExpansionCounter();
+            }
+
+
+
+        }
+
+        // PSEUDOCODE:
+        // 1. In UniformGrid_CellValueChanged, validate DoNotTrigger and indices.
+        // 2. When the checkbox column (col == 9) is set to true, find the combo box cell at col-1.
+        // 3. Safely cast to DataGridViewComboBoxCell and ensure it has items.
+        // 4. Assign the cell's Value to the first item (index 0) instead of trying to set SelectedIndex on the cell.
+        // 5. Preserve existing logic for column 8 handling (setting checkbox at col+1 to false).
+
+        private void UniformGrid_CellValueChanged(object sender, DataGridViewCellEventArgs e)
+        {
+            if (DoNotTrigger) return;
+
+            int col = e.ColumnIndex;
+            int row = e.RowIndex;
+            if (col < 0 || row < 0) return;
+
+            // If the helmet-side checkbox (column 9) was turned on, set the helmet-number combo (col 8) to its first item
+            if (col == 9)
+            {
+                // Safely get the checkbox value
+                var checkCell = UniformGrid.Rows[row].Cells[col];
+                bool isChecked = false;
+                try
+                {
+                    isChecked = Convert.ToBoolean(checkCell.Value);
+                }
+                catch
+                {
+                    isChecked = false;
+                }
+
+                if (isChecked)
+                {
+                    var comboCell = UniformGrid.Rows[row].Cells[col - 1] as DataGridViewComboBoxCell;
+                    if (comboCell != null && comboCell.Items != null && comboCell.Items.Count > 0)
+                    {
+                        var newValue = comboCell.Items[0];
+
+                        // Defer visual update to the message loop so the DataGridView has finished any internal processing.
+                        // Then commit and refresh so the change appears immediately.
+                        this.BeginInvoke((Action)(() =>
+                        {
+                            comboCell.Value = newValue;
+                            // Ensure any edit is committed and the formatted value is recalculated
+                            UniformGrid.CommitEdit(DataGridViewDataErrorContexts.Commit);
+                            UniformGrid.UpdateCellValue(col - 1, row);
+                            UniformGrid.InvalidateCell(comboCell);
+                            UniformGrid.Refresh();
+                        }));
+                    }
+                }
+            }
+            else if (col == 8)
+            {
+                // If the helmet number (col 8) is not "None", set the checkbox at col+1 to false
+                if (Convert.ToString(UniformGrid.Rows[row].Cells[col].Value) != "None")
+                {
+                    var targetCell = UniformGrid.Rows[row].Cells[col + 1] as DataGridViewCheckBoxCell;
+                    if (targetCell != null)
+                    {
+                        // Defer and then update + force repaint
+                        this.BeginInvoke((Action)(() =>
+                        {
+                            targetCell.Value = false;
+                            UniformGrid.CommitEdit(DataGridViewDataErrorContexts.Commit);
+                            UniformGrid.UpdateCellValue(col + 1, row);
+                            UniformGrid.InvalidateCell(targetCell);
+                            UniformGrid.Refresh();
+                        }));
+                    }
+                }
             }
         }
 

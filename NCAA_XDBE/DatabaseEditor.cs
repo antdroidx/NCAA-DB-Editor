@@ -130,7 +130,8 @@ namespace DB_EDITOR
             for (int i = 0; i < tmpTableCount; i++)
             {
                 // Init the tdbtableproperties name
-                TableProps.Name = TableName.ToString();
+                TableProps.Name = TableName;
+
 
                 // Get the tableproperties for the given table number
                 if (TDB.TDBTableGetProperties(dbFILEindex, i, ref TableProps))
@@ -715,10 +716,11 @@ namespace DB_EDITOR
                     else if (table.Name == "TRAN" && !BigEndian)
                     {
                         if (!checkTabExists("Dynasty")) tabControl1.TabPages.Insert(4, tabDynasty);
-                        if (!checkTabExists("Team Stats")) tabControl1.TabPages.Insert(5, tabTeamStats);
-                        if (!checkTabExists("League Stats")) tabControl1.TabPages.Insert(6, tabLeagueStats);
-                        if (!checkTabExists("Schedule")) tabControl1.TabPages.Insert(7, tabSchedule);
-                        if (!checkTabExists("Playoff") && GetDBValueInt("SEAI", "SEWN", 0) >= 8) tabControl1.TabPages.Insert(8, tabPlayoff);
+                        if (!checkTabExists("Headlines")) tabControl1.TabPages.Insert(5, tabHeadlines);
+                        if (!checkTabExists("Team Stats")) tabControl1.TabPages.Insert(6, tabTeamStats);
+                        if (!checkTabExists("League Stats")) tabControl1.TabPages.Insert(7, tabLeagueStats);
+                        if (!checkTabExists("Schedule")) tabControl1.TabPages.Insert(8, tabSchedule);
+                        if (!checkTabExists("Playoff") && GetDBValueInt("SEAI", "SEWN", 0) >= 8) tabControl1.TabPages.Insert(9, tabPlayoff);
                     }
                     else if (table.Name == "UNIF" && !BigEndian)
                     {

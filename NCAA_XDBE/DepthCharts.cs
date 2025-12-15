@@ -114,7 +114,7 @@ namespace DB_EDITOR
                     col.DefaultCellStyle.SelectionBackColor = Color.Ivory;
                     col.DefaultCellStyle.SelectionForeColor = Color.Black;
 
-                    if(i % 3 == 0)
+                    if (i % 3 == 0)
                     {
                         col.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
                     }
@@ -214,11 +214,11 @@ namespace DB_EDITOR
                 else if (i == 24) DCHTGrid.Rows[i].Cells[0].Value = "LS";
                 else DCHTGrid.Rows[i].Cells[0].Value = Positions[i];
 
-                if(i<=9)
+                if (i <= 9)
                 {
                     DCHTGrid.Rows[i].DefaultCellStyle.BackColor = Color.Gainsboro;
                 }
-                else if(i<=18)
+                else if (i <= 18)
                 {
                     DCHTGrid.Rows[i].DefaultCellStyle.BackColor = Color.Ivory;
                 }
@@ -417,6 +417,23 @@ namespace DB_EDITOR
             int count = 0;
             List<int> impactPlayers = new List<int>();
             int teamRec = FindTeamRecfromTeamName(Convert.ToString(DCHTTeam.SelectedItem));
+            int cochREC = FindCOCHRecordfromTeamTGID(GetDBValueInt("TEAM", "TGID", teamRec));
+            int off = GetDBValueInt("COCH", "COST", cochREC);
+            int def = GetDBValueInt("COCH", "CDST", cochREC);
+
+            if (DCHTTeam.SelectedIndex >= 0)
+            {
+                DCHTOffType.Text = GetOffTypeName(off);
+                DCHTDefType.Text = GetDefTypeName(def);
+            }
+            else
+            {
+                DCHTOffType.Text = "---";
+                DCHTDefType.Text = "---";
+            }
+
+
+
             impactPlayers.Add(GetDBValueInt("TEAM", "TSI1", teamRec) + PGIDBeg);
             impactPlayers.Add(GetDBValueInt("TEAM", "TSI2", teamRec) + PGIDBeg);
             impactPlayers.Add(GetDBValueInt("TEAM", "TPIO", teamRec) + PGIDBeg);
@@ -470,10 +487,10 @@ namespace DB_EDITOR
                     }
                     else
                     {
-                        DCHTGrid.Rows[ppos].Cells[ddep*3+1].Value = "#" + jersey + " " + name + " " + impact;
-                        DCHTGrid.Rows[ppos].Cells[ddep*3+2].Value = GetClassYearsAbbr(year, redshirt);
-                        DCHTGrid.Rows[ppos].Cells[ddep*3+3].Value = ConvertRating(povr);
-
+                        DCHTGrid.Rows[ppos].Cells[ddep * 3 + 1].Value = "#" + jersey + " " + name + " " + impact;
+                        DCHTGrid.Rows[ppos].Cells[ddep * 3 + 2].Value = GetClassYearsAbbr(year, redshirt);
+                        DCHTGrid.Rows[ppos].Cells[ddep * 3 + 3].Value = ConvertRating(povr);
+                        HighlightStarters(ppos, ddep, off, def);
                     }
 
 
@@ -521,7 +538,49 @@ namespace DB_EDITOR
             }
         }
 
+        private void HighlightStarters(int ppos, int depth, int off, int def)
+        {
+            if (ppos == 0 && depth < 1) FormatDCHTStartersCell(ppos, depth);
 
+            else if (ppos == 1 && depth < DepthChartHB(off)) FormatDCHTStartersCell(ppos, depth);
+
+            else if (ppos == 2 && depth < DepthChartFB(off)) FormatDCHTStartersCell(ppos, depth);
+
+            else if (ppos == 3 && depth < DepthChartWR(off)) FormatDCHTStartersCell(ppos, depth);
+
+            else if (ppos == 4 && depth < 1) FormatDCHTStartersCell(ppos, depth);
+            else if (ppos == 5 && depth < 1) FormatDCHTStartersCell(ppos, depth);
+            else if (ppos == 6 && depth < 1) FormatDCHTStartersCell(ppos, depth);
+            else if (ppos == 7 && depth < 1) FormatDCHTStartersCell(ppos, depth);
+            else if (ppos == 8 && depth < 1) FormatDCHTStartersCell(ppos, depth);
+            else if (ppos == 9 && depth < 1) FormatDCHTStartersCell(ppos, depth);
+            else if (ppos == 10 && depth < 1) FormatDCHTStartersCell(ppos, depth);
+            else if (ppos == 11 && depth < 1) FormatDCHTStartersCell(ppos, depth);
+            else if (ppos == 12 && depth < DepthChartDT(def)) FormatDCHTStartersCell(ppos, depth);
+
+            else if (ppos == 13 && depth < 1 && DepthChartOLB(def) > 1) FormatDCHTStartersCell(ppos, depth);
+            else if (ppos == 15 && depth < 1) FormatDCHTStartersCell(ppos, depth);
+            else if (ppos == 14 && depth < DepthChartMLB(def)) FormatDCHTStartersCell(ppos, depth);
+
+            else if (ppos == 16 && depth < 2) FormatDCHTStartersCell(ppos, depth);
+            else if (ppos == 17 && depth < 1) FormatDCHTStartersCell(ppos, depth);
+            else if (ppos == 18 && depth < DepthChartSS(def)) FormatDCHTStartersCell(ppos, depth);
+            else if (ppos == 19 && depth < 1) FormatDCHTStartersCell(ppos, depth);
+            else if (ppos == 20 && depth < 1) FormatDCHTStartersCell(ppos, depth);
+
+            else if (ppos == 21 && depth < 2) FormatDCHTStartersCell(ppos, depth);
+            else if (ppos == 22 && depth < 1) FormatDCHTStartersCell(ppos, depth);
+            else if (ppos == 23 && depth < 1) FormatDCHTStartersCell(ppos, depth);
+            else if (ppos == 24 && depth < 1) FormatDCHTStartersCell(ppos, depth);
+
+        }
+
+        private void FormatDCHTStartersCell(int ppos, int depth)
+        {
+            DCHTGrid.Rows[ppos].Cells[depth * 3 + 1].Style.Font = new Font("Verdana", 9, FontStyle.Bold);
+            DCHTGrid.Rows[ppos].Cells[depth * 3 + 3].Style.Font = new Font("Verdana", 9, FontStyle.Bold);
+
+        }
 
         //Update Player List by Cell
         private void DCHT_CellEnter(object sender, DataGridViewCellEventArgs e)
@@ -536,7 +595,7 @@ namespace DB_EDITOR
 
         private void UpdatePlayerList(int row)
         {
-            for(int i = 1; i < DCHTGrid.Columns.Count; i++)
+            for (int i = 1; i < DCHTGrid.Columns.Count; i++)
             {
                 ((DataGridViewComboBoxColumn)DCHTGrid.Columns[1]).DataSource = CreateDCHTComboBox(row).Items;
             }
@@ -599,7 +658,7 @@ namespace DB_EDITOR
             }
             else
             {
-                if(e.ColumnIndex % 3 == 0)
+                if (e.ColumnIndex % 3 == 0)
                 {
                     textColor = GetColorRating(Convert.ToInt32(text));
                     e.CellStyle.ForeColor = ChooseForeground(textColor);
@@ -700,7 +759,7 @@ namespace DB_EDITOR
 
         private void UpdateDCHT_Click(object sender, EventArgs e)
         {
-            if(!DCHTEditorMode.Checked)
+            if (!DCHTEditorMode.Checked)
             {
                 MessageBox.Show("Depth Chart must be in Edit Mode to Update Database.");
                 return;
@@ -720,12 +779,12 @@ namespace DB_EDITOR
             {
                 string[] strings = Convert.ToString(DCHTGrid.Rows[row].Cells[cell].Value).Split(' ');
                 string playerName = "";
-                for(int i = 1; i < strings.Length; i++)
+                for (int i = 1; i < strings.Length; i++)
                 {
                     playerName += strings[i] + " ";
                 }
                 playerName = playerName.Trim();
-           
+
                 int playerRec = GetDCHTPGIDfromPlayerName(playerName);
 
 

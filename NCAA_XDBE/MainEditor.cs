@@ -633,8 +633,8 @@ namespace DB_EDITOR
         {
             MessageBox.Show("This will export every table in this database and may take some time depending on the size of the database. Do you want to proceed?", "Export All Tables", MessageBoxButtons.YesNo);
 
-            if(DialogResult == System.Windows.Forms.DialogResult.No) return;
-   
+            if (DialogResult == System.Windows.Forms.DialogResult.No) return;
+
 
             // TdbTableProperties class
             TdbTableProperties TableProps = new TdbTableProperties();
@@ -1127,7 +1127,7 @@ namespace DB_EDITOR
                     }
                 }
             }
-            else if(TDB.TableCapacity(dbIndex, "RCAT") > 0)
+            else if (TDB.TableCapacity(dbIndex, "RCAT") > 0)
             {
                 for (int i = 0; i < GetTableRecCount("PLAY"); i++)
                 {
@@ -1231,6 +1231,7 @@ namespace DB_EDITOR
             else if (tabControl1.SelectedTab == tabTeamStats) { StartTeamStatsViewer(); }
             else if (tabControl1.SelectedTab == tabRecruiting) { StartRecruitRankingsView(); }
             else if (tabControl1.SelectedTab == tabOffSeason) { StartOffSeasonEditor(); }
+            else if (tabControl1.SelectedTab == tabHeadlines) { StartHeadlinesViewer(); }
 
         }
 

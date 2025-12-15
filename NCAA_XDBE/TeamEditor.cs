@@ -386,7 +386,7 @@ namespace DB_EDITOR
                     PlaybookSelectBox.Items.Add(pb[i][1]);
                 }
             }
-            else if (verNumber >= 16.0 || GetDBValueInt("COCH", "CPID", GetCOCHrecFromTeamRec(TeamIndex)) > 135)
+            else if (verNumber >= 16.0)
             {
                 for (int i = 136; i < pb.Count; i++)
                 {
@@ -653,7 +653,7 @@ namespace DB_EDITOR
             if (DoNotTrigger) return;
 
             if (UserCoachCheckBox.Checked) ChangeDBInt("COCH", "CFUC", GetCOCHrecFromTeamRec(TeamIndex), 1);
-            else if (!UserCoachCheckBox.Checked) ChangeDBInt("COCH", "CFUC", GetCOCHrecFromTeamRec(TeamIndex), 0);
+            else ChangeDBInt("COCH", "CFUC", GetCOCHrecFromTeamRec(TeamIndex), 0);
 
         }
 

@@ -154,54 +154,115 @@ namespace DB_EDITOR
         {
             confPrestige.Value = GetDBValueInt("CONF", "CPRS", confRec);
             confName.Text = GetDBValue("CONF", "CNAM", confRec);
-
+            List<List<string>> confTeams = new List<List<string>>();
             double prestige = 0;
             double teams = 0;
             double avg = 0;
+            int displayType = 0;
             for (int i = 0; i < GetTableRecCount("TEAM"); i++)
             {
                 if (GetDBValueInt("TEAM", "CGID", i) == conf)
                 {
-              
+
                     if (ConfDisplayTeam.Checked)
                     {
-                        conferenceBox.Items.Add(GetDBValue("TEAM", "TDNA", i));
+                        displayType = 0;
+
+                        int count = confTeams.Count;
+                        confTeams.Add(new List<string>());
+                        confTeams[count].Add(GetDBValue("TEAM", "TORD", i));
+                        confTeams[count].Add(GetDBValue("TEAM", "TDNA", i));
                     }
                     else if (ConfDisplayPrestige.Checked)
                     {
-                        conferenceBox.Items.Add(GetDBValue("TEAM", "TDNA", i) + " [" + GetDBValue("TEAM", "TMPR", i) + "]");
+                        displayType = 1;
+
+                        int count = confTeams.Count;
+                        confTeams.Add(new List<string>());
+                        confTeams[count].Add(GetDBValue("TEAM", "TMPR", i));
+                        confTeams[count].Add(GetDBValue("TEAM", "TDNA", i) + " [" + GetDBValue("TEAM", "TMPR", i) + "]");
+
                         prestige += GetDBValueInt("TEAM", "TMPR", i);
                     }
                     else if (ConfDisplayProjPrestige.Checked)
                     {
+                        displayType = 1;
+
                         int newPrestige = ProjectTeamPrestige(i);
                         int current = GetDBValueInt("TEAM", "TMPR", i);
                         string change = "";
                         if (newPrestige > current) change = " (+1)";
                         else if (newPrestige < current) change = " (-1)";
 
-                        conferenceBox.Items.Add(GetDBValue("TEAM", "TDNA", i) + " [" + newPrestige + "] " + change + "");
+                        int count = confTeams.Count;
+                        confTeams.Add(new List<string>());
+                        confTeams[count].Add(Convert.ToString(newPrestige));
+                        confTeams[count].Add(GetDBValue("TEAM", "TDNA", i) + " [" + newPrestige + "] " + change + "");
+
                         prestige += newPrestige;
                     }
                     else if (ConfDisplayRating.Checked)
                     {
-                        conferenceBox.Items.Add(GetDBValue("TEAM", "TDNA", i) + " [" + GetDBValue("TEAM", "TROV", i) + "]");
+                        displayType = 1;
+
+                        int count = confTeams.Count;
+                        confTeams.Add(new List<string>());
+                        confTeams[count].Add(GetDBValue("TEAM", "TROV", i));
+                        confTeams[count].Add(GetDBValue("TEAM", "TDNA", i) + " [" + GetDBValue("TEAM", "TROV", i) + "]");
                         prestige += GetDBValueInt("TEAM", "TROV", i);
                     }
                     else if (ConfDisplayRanking.Checked)
                     {
-                        conferenceBox.Items.Add(GetDBValue("TEAM", "TDNA", i) + " [#" + (GetDBValueInt("TEAM", "TCRK", i)) + "]");
+                        displayType = 0;
+
+                        int count = confTeams.Count;
+                        confTeams.Add(new List<string>());
+                        confTeams[count].Add(GetDBValue("TEAM", "TCRK", i));
+                        confTeams[count].Add(GetDBValue("TEAM", "TDNA", i) + " [#" + (GetDBValueInt("TEAM", "TCRK", i)) + "]");
+
                         prestige += GetDBValueInt("TEAM", "TCRK", i);
                     }
+                    else if (ConfDisplayRecord.Checked)
+                    {
+                        displayType = 1;
+
+                        int count = confTeams.Count;
+                        confTeams.Add(new List<string>());
+                        confTeams[count].Add(GetDBValue("TEAM", "tscw", i));
+
+                        confTeams[count].Add(GetDBValue("TEAM", "TDNA", i) + " [" + GetDBValueInt("TEAM", "tsdw", i) + "-" + GetDBValueInt("TEAM", "tsdl", i) + "]");
+                    }
+
                     else
                     {
-                        conferenceBox.Items.Add(GetDBValue("TEAM", "TDNA", i));
+                        displayType = 0;
+
+                        int count = confTeams.Count;
+                        confTeams.Add(new List<string>());
+                        confTeams[count].Add(GetDBValue("TEAM", "TORD", i));
+                        confTeams[count].Add(GetDBValue("TEAM", "TDNA", i));
                     }
 
                     teams++;
                 }
 
             }
+
+            if (displayType == 1)
+            {
+                confTeams.Sort((team1, team2) => Convert.ToInt32(team2[0]).CompareTo(Convert.ToInt32(team1[0])));
+            }
+            else
+            {
+                confTeams.Sort((team1, team2) => Convert.ToInt32(team1[0]).CompareTo(Convert.ToInt32(team2[0])));
+            }
+
+
+            foreach (var team in confTeams)
+                {
+                    conferenceBox.Items.Add(team[1]);
+                }
+
             if (teams > 0) avg = prestige / teams;
             return avg;
 
@@ -801,6 +862,12 @@ namespace DB_EDITOR
         private void ConfDisplayProjPrestige_CheckedChanged(object sender, EventArgs e)
         {
             ConferenceSetup();
+        }
+
+        private void ConfDisplayRecord_CheckedChanged(object sender, EventArgs e)
+        {
+            ConferenceSetup();
+
         }
 
         //Change Prestige Value

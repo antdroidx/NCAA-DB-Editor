@@ -94,7 +94,7 @@
     <Compile Update="RecruitingTools.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="RosterTools.cs">
+    <Compile Update="DevTools.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="ScheduleGenerator.cs">
@@ -109,7 +109,7 @@
     <Compile Update="Stadium.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="StatsViewer.cs">
+    <Compile Update="HeadlinesViewer.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="StrmdataEditor.cs">

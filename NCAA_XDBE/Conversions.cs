@@ -412,6 +412,22 @@ namespace DB_EDITOR
 
         }
 
+        public string GetClassYear(int year, int redshirt)
+        {
+            string classYear = "";
+            if (redshirt == 0)
+            {
+                classYear += "RS ";
+            }
+
+            if (year == 0) classYear+= "Freshman";
+            else if (year == 1) classYear += "Sophomore";
+            else if (year == 2) classYear += "Junior";
+            else classYear += "Senior";
+            
+            return classYear;
+        }
+
         public List<string> CreateOffSeasonPTYP()
         {
             List<string> status = new List<string>();
@@ -1057,6 +1073,50 @@ namespace DB_EDITOR
         public List<List<int>> GetAwarenessHitList()
         {
             return CreateIntListsFromCSV(@"resources\players\awareness.csv", true);
+        }
+
+        private int DepthChartHB(int off)
+        {
+            if (off == 3) return 2;
+            else return 1;
+        }
+
+        private int DepthChartFB(int off)
+        {
+            if (off == 1) return 0;
+            else return 1;
+        }
+
+        private int DepthChartWR(int off)
+        {
+            if (off == 3) return 1;
+            else if (off == 0 || off == 2 || off == 4) return 2;
+            else return 3;
+        }
+
+        private int DepthChartDT(int def)
+        {
+            if (def <= 2) return 1;
+            else return 2;
+        }
+
+        private int DepthChartOLB(int def)
+        {
+            if (def == 2) return 1;
+            else return 2;
+        }
+
+        private int DepthChartMLB(int def)
+        {
+            if (def == 0 || def == 4) return 1;
+            else return 2;
+        }
+
+        private int DepthChartSS(int def)
+        {
+            if (def == 0 || def == 3) return 1;
+            else if (def <=3) return 2;
+            else return 0;
         }
 
         #endregion
@@ -2091,6 +2151,25 @@ namespace DB_EDITOR
 
         #endregion
 
+        #region
+
+        private int GetCurrentWeek()
+        {
+            int week = 0;
+            week = Convert.ToInt32(GetDBValue("SEAI", "SEWN", 0));
+            return week;
+        }
+
+        private int GetCurrentYear()
+        {
+            int year = 0;
+            year = Convert.ToInt32(GetDBValue("SEAI", "SEYR", 0));
+            return year;
+        }
+
+        #endregion
+
+
         #region Coloring
 
         private Color GetColorValueFullRange(decimal rating, bool inverted = false)
@@ -2145,9 +2224,9 @@ namespace DB_EDITOR
             return Color.DarkGray;
         }
 
-        private Color GetTeamPrimaryColor(int tgid)
+        private Color GetTeamPrimaryColor(int teamRec)
         {
-            Color col = Color.FromArgb(GetDBValueInt("TEAM", "TFRD", tgid), GetDBValueInt("TEAM", "TFFG", tgid), GetDBValueInt("TEAM", "TFFB", tgid));
+            Color col = Color.FromArgb(GetDBValueInt("TEAM", "TFRD", teamRec), GetDBValueInt("TEAM", "TFFG", teamRec), GetDBValueInt("TEAM", "TFFB", teamRec));
             return col;
         }
 

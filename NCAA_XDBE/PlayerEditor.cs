@@ -611,6 +611,11 @@ namespace DB_EDITOR
             AddRightShoeTypes();
 
             //Helmet & Head Gear
+            int HELM = GetDBValueInt("PLAY", "HELM", PlayerIndex);
+            int FCMK = GetDBValueInt("PLAY", "PFMK", PlayerIndex);
+
+            if (HELM == 3 && FCMK > 3) RandomizeHelmet("PLAY", PlayerIndex);
+
             Helmet.SelectedIndex = GetDBValueInt("PLAY", "HELM", PlayerIndex);
             Facemask.SelectedIndex = GetDBValueInt("PLAY", "PFMK", PlayerIndex);
             Visor.SelectedIndex = GetDBValueInt("PLAY", "PVIS", PlayerIndex);
@@ -1847,6 +1852,7 @@ namespace DB_EDITOR
                 {
                     int sea = GetDBValueInt("PSOF", "SEYR", i);
                     int row = 4 - (year - sea);
+                    if (row < 0) continue;
                     int gp = GetDBValueInt("PSOF", "sgmp", i);
                     int cmp = GetDBValueInt("PSOF", "sacm", i);
                     int att = GetDBValueInt("PSOF", "saat", i);
@@ -1916,6 +1922,7 @@ namespace DB_EDITOR
                 {
                     int sea = GetDBValueInt("PSOF", "SEYR", i);
                     int row = 4 - (year - sea);
+                    if (row < 0) continue;
                     int gp = GetDBValueInt("PSOF", "sgmp", i);
                     int att = GetDBValueInt("PSOF", "suat", i);
                     int yds = GetDBValueInt("PSOF", "suya", i);
@@ -1972,6 +1979,8 @@ namespace DB_EDITOR
                 {
                     int sea = GetDBValueInt("PSOF", "SEYR", i);
                     int row = 4 - (year - sea);
+                    if (row < 0) continue;
+
                     int gp = GetDBValueInt("PSOF", "sgmp", i);
 
                     int cat = GetDBValueInt("PSOF", "scca", i);
@@ -2032,6 +2041,8 @@ namespace DB_EDITOR
                 {
                     int sea = GetDBValueInt("PSOL", "SEYR", i);
                     int row = 4 - (year - sea);
+                    if (row < 0) continue;
+
                     int gp = GetDBValueInt("PSOL", "sgmp", i);
 
                     int pan = GetDBValueInt("PSOL", "sopa", i);
@@ -2070,6 +2081,8 @@ namespace DB_EDITOR
                 {
                     int sea = GetDBValueInt("PSDE", "SEYR", i);
                     int row = 4 - (year - sea);
+                    if (row < 0) continue;
+
                     int gp = GetDBValueInt("PSDE", "sgmp", i);
                     int tak = GetDBValueInt("PSDE", "sdta", i);
                     int tfl = GetDBValueInt("PSDE", "sdtl", i);
@@ -2118,6 +2131,8 @@ namespace DB_EDITOR
                 {
                     int sea = GetDBValueInt("PSKI", "SEYR", i);
                     int row = 4 - (year - sea);
+                    if (row < 0) continue;
+
                     int gp = GetDBValueInt("PSKI", "sgmp", i);
                     int fgm = GetDBValueInt("PSKI", "skfm", i);
                     int fga = GetDBValueInt("PSKI", "skfa", i);
@@ -2169,6 +2184,8 @@ namespace DB_EDITOR
                 {
                     int sea = GetDBValueInt("PSKI", "SEYR", i);
                     int row = 4 - (year - sea);
+                    if (row < 0) continue;
+
                     int gp = GetDBValueInt("PSKI", "sgmp", i);
                     int punt = GetDBValueInt("PSKI", "spat", i);
                     int yd = GetDBValueInt("PSKI", "spya", i);

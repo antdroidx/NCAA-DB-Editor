@@ -912,15 +912,21 @@ namespace DB_EDITOR
         //Mouthguards
         private void RandomizeMouthguard(string tableName, int rec)
         {
+            int pos = -1;
+            if (tableName == "PLAY" || tableName == "RCAT")
+                pos = GetDBValueInt(tableName, "PPOS", rec);
+            else if (tableName == "RCPT" || tableName == "WKON")
+                pos = GetDB2ValueInt(tableName, "PPOS", rec);
+
             int val = rand.Next(1, 101);
             int mouthguard = 0;
-            if (val <= 55)
+            if (val <= 40 && pos > 0 && pos <= 18)
             {
-                mouthguard = 0; //No
+                mouthguard = 1; //Yes
             }
             else
             {
-                mouthguard = 1; //Yes
+                mouthguard = 0; //No
             }
 
             if (tableName == "PLAY" || tableName == "RCAT")

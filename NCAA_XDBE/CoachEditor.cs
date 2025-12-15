@@ -471,7 +471,7 @@ namespace DB_EDITOR
             if (DoNotTrigger) return;
 
             if (CFUCBox.Checked) ChangeDBInt("COCH", "CFUC", CoachIndex, 1);
-            else if (!CFUCBox.Checked) ChangeDBInt("COCH", "CFUC", CoachIndex, 0);
+            else ChangeDBInt("COCH", "CFUC", CoachIndex, 0);
         }
 
         //Recruiting Assistance
