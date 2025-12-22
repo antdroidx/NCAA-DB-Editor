@@ -215,7 +215,7 @@ namespace DB_EDITOR
             tabControl1.TabPages.Remove(tabPlayoff);
             tabControl1.TabPages.Remove(tabTeamStats);
             tabControl1.TabPages.Remove(tabRecruiting);
-
+            tabControl1.TabPages.Remove(tabHeadlines);
 
             tabDelimited = false;
             commaPresent = false;

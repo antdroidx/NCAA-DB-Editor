@@ -125,7 +125,7 @@ namespace DB_EDITOR
         {
             if (capSymbol == "-;") return "a";
 
-            if (capSymbol == "-b") return teamNameDB[tgid];
+            if (capSymbol == "-b" || capSymbol == "-b.") return teamNameDB[tgid];
             if (capSymbol.Contains("-b-")) return teamNameDB[tgid] + "'s";
             if (capSymbol == "-f") return GetPlayerNamefromPGID(pgid);
             if (capSymbol.Contains("-f-")) return GetPlayerNamefromPGID(pgid) + "'s";

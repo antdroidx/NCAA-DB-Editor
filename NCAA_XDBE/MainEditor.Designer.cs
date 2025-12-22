@@ -807,6 +807,7 @@ namespace DB_EDITOR
             INJtype = new DataGridViewTextBoxColumn();
             INJlength = new DataGridViewTextBoxColumn();
             groupBox45 = new GroupBox();
+            exportDynastyTrackerButton = new System.Windows.Forms.Button();
             RemoveAllImpactButton = new System.Windows.Forms.Button();
             buttonImpactPlayers = new System.Windows.Forms.Button();
             SetMinTeamPrestigeButton = new System.Windows.Forms.Button();
@@ -9075,6 +9076,7 @@ namespace DB_EDITOR
             // 
             // groupBox45
             // 
+            groupBox45.Controls.Add(exportDynastyTrackerButton);
             groupBox45.Controls.Add(RemoveAllImpactButton);
             groupBox45.Controls.Add(buttonImpactPlayers);
             groupBox45.Controls.Add(SetMinTeamPrestigeButton);
@@ -9089,6 +9091,18 @@ namespace DB_EDITOR
             groupBox45.TabIndex = 50;
             groupBox45.TabStop = false;
             groupBox45.Text = "Misc Tools";
+            // 
+            // exportDynastyTrackerButton
+            // 
+            exportDynastyTrackerButton.BackColor = SystemColors.Info;
+            exportDynastyTrackerButton.Font = new Font("Microsoft Sans Serif", 8.25F);
+            exportDynastyTrackerButton.Location = new Point(441, 19);
+            exportDynastyTrackerButton.Name = "exportDynastyTrackerButton";
+            exportDynastyTrackerButton.Size = new Size(101, 122);
+            exportDynastyTrackerButton.TabIndex = 51;
+            exportDynastyTrackerButton.Text = "Export to Dynasty Tracker App";
+            exportDynastyTrackerButton.UseVisualStyleBackColor = false;
+            exportDynastyTrackerButton.Click += (this.exportDynastyTrackerButton_Click);
             // 
             // RemoveAllImpactButton
             // 
@@ -20017,6 +20031,7 @@ namespace DB_EDITOR
         private Label label281;
         private Label label280;
         private RadioButton ConfDisplayRecord;
+        private System.Windows.Forms.Button exportDynastyTrackerButton;
     }
 }
 

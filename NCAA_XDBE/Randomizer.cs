@@ -55,7 +55,7 @@ namespace DB_EDITOR
         private void RandomizeSkinTone(string tableName, int rec)
         {
             List<List<int>> skinToneRatios = GetSkinToneRatios();
-            for(int i = 0; i < skinToneRatios.Count; i++)
+            for (int i = 0; i < skinToneRatios.Count; i++)
             {
                 skinToneRatios[i].RemoveAt(0);
             }
@@ -78,7 +78,7 @@ namespace DB_EDITOR
 
             if (tableName == "PLAY" || tableName == "RCAT")
                 ChangeDBInt(tableName, "PSKI", rec, selectedSkinTone);
-            else if (tableName == "RCPT" || tableName ==  "WKON")
+            else if (tableName == "RCPT" || tableName == "WKON")
                 ChangeDB2Int(tableName, "PSKI", rec, selectedSkinTone);
         }
 
@@ -108,7 +108,7 @@ namespace DB_EDITOR
 
             if (tableName == "PLAY" || tableName == "RCAT")
                 ChangeDBInt(tableName, "PFGM", rec, shape);
-            else if (tableName == "RCPT" || tableName ==  "WKON")
+            else if (tableName == "RCPT" || tableName == "WKON")
                 ChangeDB2Int(tableName, "PFGM", rec, shape);
 
 
@@ -123,7 +123,7 @@ namespace DB_EDITOR
 
             if (tableName == "PLAY" || tableName == "RCAT")
                 ChangeDBInt(tableName, "PSKI", rec, skin);
-            else if (tableName == "RCPT" || tableName ==  "WKON")
+            else if (tableName == "RCPT" || tableName == "WKON")
                 ChangeDB2Int(tableName, "PSKI", rec, skin);
 
 
@@ -132,7 +132,7 @@ namespace DB_EDITOR
 
             if (tableName == "PLAY" || tableName == "RCAT")
                 ChangeDBInt(tableName, "PFMP", rec, face);
-            else if (tableName == "RCPT" || tableName ==  "WKON")
+            else if (tableName == "RCPT" || tableName == "WKON")
                 ChangeDB2Int(tableName, "PFMP", rec, face);
 
 
@@ -163,7 +163,7 @@ namespace DB_EDITOR
 
             if (tableName == "PLAY" || tableName == "RCAT")
                 ChangeDBInt(tableName, "PHCL", rec, hcl);
-            else if (tableName == "RCPT" || tableName ==  "WKON")
+            else if (tableName == "RCPT" || tableName == "WKON")
                 ChangeDB2Int(tableName, "PHCL", rec, hcl);
 
 
@@ -201,7 +201,7 @@ namespace DB_EDITOR
 
             if (tableName == "PLAY" || tableName == "RCAT")
                 ChangeDBInt(tableName, "PHED", rec, hairstyle);
-            else if (tableName == "RCPT" || tableName ==  "WKON")
+            else if (tableName == "RCPT" || tableName == "WKON")
                 ChangeDB2Int(tableName, "PHED", rec, hairstyle);
 
             //Randomize Eye Black
@@ -211,7 +211,7 @@ namespace DB_EDITOR
 
                 if (tableName == "PLAY" || tableName == "RCAT")
                     ChangeDBInt(tableName, "PEYE", rec, eyeblack);
-                else if (tableName == "RCPT" || tableName ==  "WKON")
+                else if (tableName == "RCPT" || tableName == "WKON")
                     ChangeDB2Int(tableName, "PEYE", rec, eyeblack);
             }
             else
@@ -222,7 +222,7 @@ namespace DB_EDITOR
 
                 if (tableName == "PLAY" || tableName == "RCAT")
                     ChangeDBInt(tableName, "PEYE", rec, eyeblack);
-                else if (tableName == "RCPT" || tableName ==  "WKON")
+                else if (tableName == "RCPT" || tableName == "WKON")
                     ChangeDB2Int(tableName, "PEYE", rec, eyeblack);
             }
 
@@ -234,7 +234,7 @@ namespace DB_EDITOR
 
                 if (tableName == "PLAY" || tableName == "RCAT")
                     ChangeDBInt(tableName, "PBRE", rec, nasal);
-                else if (tableName == "RCPT" || tableName ==  "WKON")
+                else if (tableName == "RCPT" || tableName == "WKON")
                     ChangeDB2Int(tableName, "PBRE", rec, nasal);
             }
             else
@@ -245,7 +245,7 @@ namespace DB_EDITOR
 
                 if (tableName == "PLAY" || tableName == "RCAT")
                     ChangeDBInt(tableName, "PBRE", rec, nasal);
-                else if (tableName == "RCPT" || tableName ==  "WKON")
+                else if (tableName == "RCPT" || tableName == "WKON")
                     ChangeDB2Int(tableName, "PBRE", rec, nasal);
             }
 
@@ -295,14 +295,14 @@ namespace DB_EDITOR
             RandomizeMouthguard(tableName, rec);
             RandomizeVisor(tableName, rec);
 
-            if(!keepSleeves)
-            RandomizeSleeves(tableName, rec);
+            if (!keepSleeves)
+                RandomizeSleeves(tableName, rec);
 
             RandomizeWristGear(tableName, rec);
             RandomizeElbowGear(tableName, rec);
             RandomizeTurfTape(tableName, rec);
 
-            if(devMode || verNumber >= 16.2) RandomizeEXPHands(tableName, rec);
+            if (devMode || verNumber >= 16.2) RandomizeEXPHands(tableName, rec);
             else RandomizeHands(tableName, rec);
 
             RandomizeShoe(tableName, rec);
@@ -346,7 +346,7 @@ namespace DB_EDITOR
 
             if (tableName == "PLAY" || tableName == "RCAT")
                 ChangeDBInt(tableName, "HELM", rec, helmet);
-            else if (tableName == "RCPT" || tableName ==  "WKON")
+            else if (tableName == "RCPT" || tableName == "WKON")
                 ChangeDB2Int(tableName, "HELM", rec, helmet);
         }
 
@@ -356,7 +356,7 @@ namespace DB_EDITOR
             int pos = -1;
             if (tableName == "PLAY" || tableName == "RCAT")
                 pos = GetDBValueInt(tableName, "PPOS", rec);
-            else if (tableName == "RCPT" || tableName ==  "WKON")
+            else if (tableName == "RCPT" || tableName == "WKON")
                 pos = GetDB2ValueInt(tableName, "PPOS", rec);
 
             int val = rand.Next(1, 101);
@@ -690,10 +690,10 @@ namespace DB_EDITOR
 
             if (helm == 3)
             {
-                if(pos >= 5 && pos <= 15)
+                if (pos >= 5 && pos <= 15)
                 {
                     facemask = 3;
-                } 
+                }
                 else if (pos == 0 || pos == 3 || pos >= 16)
                 {
                     facemask = 1;
@@ -706,7 +706,7 @@ namespace DB_EDITOR
 
             if (tableName == "PLAY" || tableName == "RCAT")
                 ChangeDBInt(tableName, "PFMK", rec, facemask);
-            else if (tableName == "RCPT" || tableName ==  "WKON")
+            else if (tableName == "RCPT" || tableName == "WKON")
                 ChangeDB2Int(tableName, "PFMK", rec, facemask);
         }
 
@@ -762,7 +762,7 @@ namespace DB_EDITOR
                 }
             }
 
-            if(visor == 1)
+            if (visor == 1)
             {
                 val = rand.Next(1, 101);
                 if (val <= dark)
@@ -802,7 +802,7 @@ namespace DB_EDITOR
             {
                 if (val <= 85)
                     jacket = 1;
-                else 
+                else
                     jacket = 0;
             }
             else
@@ -832,7 +832,7 @@ namespace DB_EDITOR
             {
                 if (val <= 30) faceprotectors = 1;
             }
- 
+
             if (tableName == "PLAY" || tableName == "RCAT")
                 ChangeDBInt(tableName, "PLFP", rec, faceprotectors);
             else if (tableName == "RCPT" || tableName == "WKON")
@@ -846,7 +846,7 @@ namespace DB_EDITOR
             int pos = -1;
             if (tableName == "PLAY" || tableName == "RCAT")
                 pos = GetDBValueInt(tableName, "PPOS", rec);
-            else if (tableName == "RCPT" || tableName ==  "WKON")
+            else if (tableName == "RCPT" || tableName == "WKON")
                 pos = GetDB2ValueInt(tableName, "PPOS", rec);
 
             int val = rand.Next(1, 101);
@@ -904,7 +904,7 @@ namespace DB_EDITOR
 
             if (tableName == "PLAY" || tableName == "RCAT")
                 ChangeDBInt(tableName, "PNEK", rec, neckpad);
-            else if (tableName == "RCPT" || tableName ==  "WKON")
+            else if (tableName == "RCPT" || tableName == "WKON")
                 ChangeDB2Int(tableName, "PNEK", rec, neckpad);
         }
 
@@ -931,7 +931,7 @@ namespace DB_EDITOR
 
             if (tableName == "PLAY" || tableName == "RCAT")
                 ChangeDBInt(tableName, "PLMG", rec, mouthguard);
-            else if (tableName == "RCPT" || tableName ==  "WKON")
+            else if (tableName == "RCPT" || tableName == "WKON")
                 ChangeDB2Int(tableName, "PLMG", rec, mouthguard);
         }
 
@@ -958,7 +958,7 @@ namespace DB_EDITOR
 
             if (tableName == "PLAY" || tableName == "RCAT")
                 ChangeDBInt(tableName, "PSLO", rec, sleeves);
-            else if (tableName == "RCPT" || tableName ==  "WKON")
+            else if (tableName == "RCPT" || tableName == "WKON")
                 ChangeDB2Int(tableName, "PSLO", rec, sleeves);
 
             //Sleeve Colors
@@ -980,7 +980,7 @@ namespace DB_EDITOR
 
             if (tableName == "PLAY" || tableName == "RCAT")
                 ChangeDBInt(tableName, "PSLT", rec, sleeves);
-            else if (tableName == "RCPT" || tableName ==  "WKON")
+            else if (tableName == "RCPT" || tableName == "WKON")
                 ChangeDB2Int(tableName, "PSLT", rec, sleeves);
         }
 
@@ -996,7 +996,7 @@ namespace DB_EDITOR
                 pos = GetDBValueInt(tableName, "PPOS", rec);
                 hand = GetDBValueInt(tableName, "PHAN", rec);
             }
-            else if (tableName == "RCPT" || tableName ==  "WKON")
+            else if (tableName == "RCPT" || tableName == "WKON")
             {
                 pos = GetDB2ValueInt(tableName, "PPOS", rec);
                 hand = GetDB2ValueInt(tableName, "PHAN", rec);
@@ -1021,27 +1021,31 @@ namespace DB_EDITOR
                 }
                 else if (val <= 70) //QB WRIST
                 {
-                    int color = rand.Next(1, 4);
+                    int color = rand.Next(1, 8);
                     if (hand == 0)
                     {
-                        wristLeft = color;
-                        wristRight = 0;
+                        if (color <= 2)
+                            wristLeft = color;
+                        else wristLeft = 3;
+                            wristRight = 0;
                     }
                     else
                     {
                         wristLeft = 0;
-                        wristRight = color;
+                        if (color <= 2)
+                            wristRight= color;
+                        else wristRight = 3;
                     }
                 }
                 else if (val <= 85) //WRIST PAD
                 {
                     int color = rand.Next(1, 101);
-                    if (color <= 15)
+                    if (color <= 8)
                     {
                         wristLeft = 4;
                         wristRight = 4;
                     }
-                    else if (color <= 30)
+                    else if (color <= 16)
                     {
                         wristLeft = 5;
                         wristRight = 5;
@@ -1055,12 +1059,12 @@ namespace DB_EDITOR
                 else //Half-Sleeve
                 {
                     int color = rand.Next(1, 101);
-                    if (color <= 15)
+                    if (color <= 10)
                     {
                         wristLeft = 8;
                         wristRight = 8;
                     }
-                    else if (color <= 30)
+                    else if (color <= 20)
                     {
                         wristLeft = 9;
                         wristRight = 9;
@@ -1075,12 +1079,12 @@ namespace DB_EDITOR
             //Kickers & Punters
             else if (pos >= 19)
             {
-                if (val <= 60) //NORMAL
+                if (val <= 70) //NORMAL
                 {
                     wristLeft = 0;
                     wristRight = 0;
                 }
-                else if (val <= 85) //WRIST PAD
+                else if (val <= 90) //WRIST PAD
                 {
                     int color = rand.Next(1, 101);
                     if (color <= 15)
@@ -1130,12 +1134,12 @@ namespace DB_EDITOR
                 else if (val <= 70) //WRIST PAD
                 {
                     int color = rand.Next(1, 101);
-                    if (color <= 15)
+                    if (color <= 5)
                     {
                         wristLeft = 4;
                         wristRight = 4;
                     }
-                    else if (color <= 30)
+                    else if (color <= 10)
                     {
                         wristLeft = 5;
                         wristRight = 5;
@@ -1149,12 +1153,12 @@ namespace DB_EDITOR
                 else //Half-Sleeve
                 {
                     int color = rand.Next(1, 101);
-                    if (color <= 15)
+                    if (color <= 10)
                     {
                         wristLeft = 8;
                         wristRight = 8;
                     }
-                    else if (color <= 30)
+                    else if (color <= 20)
                     {
                         wristLeft = 9;
                         wristRight = 9;
@@ -1174,10 +1178,10 @@ namespace DB_EDITOR
                     wristLeft = 0;
                     wristRight = 0;
                 }
-                else if (val <= 95) //WRIST PAD
+                else if (val <= 90) //WRIST PAD
                 {
                     int color = rand.Next(1, 101);
-                    if (color <= 15)
+                    if (color <= 10)
                     {
                         wristLeft = 4;
                         wristRight = 4;
@@ -1326,7 +1330,7 @@ namespace DB_EDITOR
                 }
             }
             //Half-Sleeve Wrists Assymetry
-            else /*if (wristLeft >= 8)*/
+            else if (wristLeft >= 8)
             {
                 val = rand.Next(1, 101);
                 if (val <= 25) //NORMAL
@@ -1353,10 +1357,10 @@ namespace DB_EDITOR
                         }
                     }
                 }
-                else if (val <= 75) //WRIST PAD
+                else if (val <= 50) //WRIST PAD
                 {
                     int color = rand.Next(1, 101);
-                    if (color <= 10)
+                    if (color <= 5)
                     {
                         if (randHand == 0)
                         {
@@ -1367,9 +1371,9 @@ namespace DB_EDITOR
                             wristLeft = 4;
                         }
                     }
-                    else if (color <= 20)
+                    else if (color <= 0)
                     {
-                        if (randHand == 0)
+                        if (randHand == 10)
                         {
                             wristRight = 5;
                         }
@@ -1440,7 +1444,7 @@ namespace DB_EDITOR
                             wristLeft = wristRight;
                         }
                     }
-                    
+
                 }
             }
 
@@ -1653,7 +1657,7 @@ namespace DB_EDITOR
                     elbowRight = 0;
 
                     int right = rand.Next(0, 6);
-                    
+
                     if (right == 1)
                     {
                         elbowRight = 11; //TC Thin Band
@@ -1697,7 +1701,7 @@ namespace DB_EDITOR
                 ChangeDBInt(tableName, "PLEB", rec, elbowLeft);
                 ChangeDBInt(tableName, "PREB", rec, elbowRight);
             }
-            else if (tableName == "RCPT" || tableName ==  "WKON")
+            else if (tableName == "RCPT" || tableName == "WKON")
             {
                 ChangeDB2Int(tableName, "PLEB", rec, elbowLeft);
                 ChangeDB2Int(tableName, "PREB", rec, elbowRight);
@@ -1725,7 +1729,7 @@ namespace DB_EDITOR
             if (pos == 1 || pos == 3 || pos == 4 || pos == 16 || pos == 17 || pos == 18)
             {
                 //Don't use if Med Band/Shooter Sleeves enabled
-                if (elbowLeft <= 5 && elbowLeft >= 9|| elbowRight <= 5 && elbowRight >= 9) 
+                if (elbowLeft <= 5 && elbowLeft >= 9 || elbowRight <= 5 && elbowRight >= 9)
                 {
                     turftape = 2;
                 }
@@ -1752,7 +1756,7 @@ namespace DB_EDITOR
             int pos = -1;
             if (tableName == "PLAY" || tableName == "RCAT")
                 pos = GetDBValueInt(tableName, "PPOS", rec);
-            else if (tableName == "RCPT" || tableName ==  "WKON")
+            else if (tableName == "RCPT" || tableName == "WKON")
                 pos = GetDB2ValueInt(tableName, "PPOS", rec);
 
             int val = rand.Next(1, 101);
@@ -1795,7 +1799,7 @@ namespace DB_EDITOR
                 ChangeDBInt(tableName, "PRHN", rec, hands);
             }
 
-            else if (tableName == "RCPT" || tableName ==  "WKON")
+            else if (tableName == "RCPT" || tableName == "WKON")
             {
                 ChangeDB2Int(tableName, "PLHN", rec, hands);
                 ChangeDB2Int(tableName, "PRHN", rec, hands);
@@ -1806,7 +1810,7 @@ namespace DB_EDITOR
         {
 
             int pos = -1;
-            int wristLeft = 0; 
+            int wristLeft = 0;
             int wristRight = 0;
             if (tableName == "PLAY" || tableName == "RCAT")
             {
@@ -1922,15 +1926,23 @@ namespace DB_EDITOR
             }
 
             //Select a Glove Style
-            if(hands != 0 && hands != 3) 
+            if (hands != 0 && hands != 3)
             {
                 if (wristLeft == 4 || wristRight == 4)
                 {
-                    hands = 2; //black
+                    val = rand.Next(1, 101);
+                    if (val <= 7) hands = 1; //white
+                    else if (val <= 40) hands = 2; //black
+                    else if (val <= 80) hands = 4; //team
+                    else hands = 5; //team 2
                 }
                 else if (wristLeft == 5 || wristRight == 5)
                 {
-                    hands = 1; //white
+                    val = rand.Next(1, 101);
+                    if (val <= 33) hands = 1; //white
+                    else if (val <= 40) hands = 2; //black
+                    else if (val <= 80) hands = 4; //team
+                    else hands = 5; //team 2
                 }
                 else
                 {
@@ -1961,7 +1973,7 @@ namespace DB_EDITOR
             int pos = -1;
             if (tableName == "PLAY" || tableName == "RCAT")
                 pos = GetDBValueInt(tableName, "PPOS", rec);
-            else if (tableName == "RCPT" || tableName ==  "WKON")
+            else if (tableName == "RCPT" || tableName == "WKON")
                 pos = GetDB2ValueInt(tableName, "PPOS", rec);
 
 
@@ -2056,7 +2068,7 @@ namespace DB_EDITOR
                 ChangeDBInt(tableName, "PLSH", rec, shoe);
                 ChangeDBInt(tableName, "PRSH", rec, shoe);
             }
-            else if (tableName == "RCPT" || tableName ==  "WKON")
+            else if (tableName == "RCPT" || tableName == "WKON")
             {
                 ChangeDB2Int(tableName, "PLSH", rec, shoe);
                 ChangeDB2Int(tableName, "PRSH", rec, shoe);
@@ -2081,24 +2093,30 @@ namespace DB_EDITOR
 
         #endregion
 
+
         #region Glove Swapper
 
 
         private void TeamSwapGloves_Click(object sender, EventArgs e)
         {
-            if(verNumber < 16.2)
+            if (verNumber < 16.2)
             {
                 MessageBox.Show("Glove feature swapping is only available for NCAA Next v16.2 or higher.", "Glove Swap", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            DialogResult = MessageBox.Show("This will swap team gloves with uniform gloves and vice-versa. Do you want to proceed?", "Glove Swap", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            DialogResult = MessageBox.Show("Press YES to turn on Uniform Gloves. Press NO to turn on Team Gloves.", "Glove Swap", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information);
 
-            if(DialogResult == DialogResult.Yes)
+            if (DialogResult == DialogResult.Yes)
             {
-                SwapTeamGloves(TeamIndex);
+                SwapTeamGloves(TeamIndex, 1);
+                MessageBox.Show("Uniform glove swap completed.", "Glove Swap", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else if (DialogResult == DialogResult.No)
+            {
+                SwapTeamGloves(TeamIndex, 0);
                 MessageBox.Show("Team glove swap completed.", "Glove Swap", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            } 
+            }
             else
             {
                 return;
@@ -2107,14 +2125,14 @@ namespace DB_EDITOR
 
         }
 
-        private void SwapTeamGloves(int teamIndex)
+        private void SwapTeamGloves(int teamIndex, int gloveType)
         {
             int tgid = GetDBValueInt("TEAM", "TGID", teamIndex);
-            
-            for(int i = 0; i < GetTableRecCount("PLAY"); i++)
+
+            for (int i = 0; i < GetTableRecCount("PLAY"); i++)
             {
                 int pgid = GetDBValueInt("PLAY", "PGID", i);
-                if(pgid >= tgid*70 && pgid <= tgid*70+69)
+                if (pgid >= tgid * 70 && pgid <= tgid * 70 + 69)
                 {
                     int glove = GetDBValueInt("PLAY", "PLHN", i);
                     int gloveStyle = 0;
@@ -2123,11 +2141,17 @@ namespace DB_EDITOR
                     else if (glove == 1) gloveStyle = 1;
                     else if (glove == 2) gloveStyle = 2;
                     else if (glove == 3) gloveStyle = 3;
-                    else if (glove == 4) gloveStyle = 6;
-                    else if (glove == 5) gloveStyle = 7;
-                    else if (glove == 6) gloveStyle = 4;
-                    else if (glove == 7) gloveStyle = 5;
 
+                    if (gloveType == 0)
+                    {
+                        if (glove == 4 || glove == 6) gloveStyle = 4;
+                        else if (glove == 5 || glove == 7) gloveStyle = 5;
+                    }
+                    else if (gloveType == 1)
+                    {
+                        if (glove == 4 || glove == 6) gloveStyle = 6;
+                        else if (glove == 5 || glove == 7) gloveStyle = 7;
+                    }
                     else gloveStyle = glove;
 
 
@@ -2152,7 +2176,7 @@ namespace DB_EDITOR
 
             for (int i = start; i < count; i++)
             {
-                if(verNumber > 16.2) RandomizeEXPHands(tableName, i);
+                if (verNumber > 16.2) RandomizeEXPHands(tableName, i);
                 else RandomizeHands(tableName, i);
                 ProgressBarStep();
             }

@@ -1108,8 +1108,8 @@ namespace DB_EDITOR
 
         private int DepthChartMLB(int def)
         {
-            if (def == 0 || def == 4) return 1;
-            else return 2;
+            if (def == 0 || def == 4) return 2;
+            else return 1;
         }
 
         private int DepthChartSS(int def)

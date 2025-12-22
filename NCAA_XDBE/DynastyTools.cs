@@ -104,6 +104,48 @@ namespace DB_EDITOR
             SetMinTeamPrestige();
         }
 
+
+        //Export To Dynasty Tracker
+        private void exportDynastyTrackerButton_Click(object sender, EventArgs e)
+        {
+            // TdbTableProperties class
+            TdbTableProperties TableProps = new TdbTableProperties();
+
+            // 4 character string, max value of 5
+            StringBuilder TableName = new StringBuilder("    ", 5);
+            exportAll = true;
+            for (int i = 0; i < TDB.TDBDatabaseGetTableCount(dbIndex); i++)
+            {
+                // Get the tableproperties for the given table number
+                if (GetTableName(dbIndex, i) == "TEAM")
+                {
+                    SelectedTableName = "TEAM";
+                    SelectedTableIndex = i;
+                    exportToolItem.PerformClick();
+                }
+
+                // Get the tableproperties for the given table number
+                if (GetTableName(dbIndex, i) == "SCHD")
+                {
+                    SelectedTableName = "SCHD";
+                    SelectedTableIndex = i;
+                    exportToolItem.PerformClick();
+                }
+
+                // Get the tableproperties for the given table number
+                if (GetTableName(dbIndex, i) == "TSSE")
+                {
+                    SelectedTableName = "TSSE";
+                    SelectedTableIndex = i;
+                    exportToolItem.PerformClick();
+                }
+            }
+            exportAll = false;
+
+            MessageBox.Show("Dynasty Tracker files successfully exported to the DB Editor folder");
+        }
+
+
         #endregion
 
 
