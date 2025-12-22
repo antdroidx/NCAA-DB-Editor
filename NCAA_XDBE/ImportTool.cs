@@ -158,7 +158,7 @@ namespace DB_EDITOR
                         if (!addendum || importRec)
                         {
                             TDB.TDBTableRecordAdd(dbSelected, SelectedTableName, true);
-                            //TDB.TDBTableGetProperties(currentDBfileIndex, SelectedTableIndex, ref TableProps);
+
                             // Import record's record index.
                             if (importRec)
                                 recnum++;

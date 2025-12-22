@@ -43,7 +43,7 @@ namespace DB_EDITOR
 
             TdbTableProperties TableProps = new TdbTableProperties();
 
-            TableProps.Name = TDBNameLength;
+            TableProps.Name = new string((char)0, 5);
 
             // Get Tableprops based on the selected index
             TDB.TDBTableGetProperties(dbSelected, SelectedTableIndex, ref TableProps);
@@ -77,12 +77,11 @@ namespace DB_EDITOR
             #region Get TABLE Properties
             TdbTableProperties tableProps = new TdbTableProperties();
 
-            tableProps.Name = TDBNameLength;
-
             int tmpTableCount = TDB.TDBDatabaseGetTableCount(dbSelected);
 
             for (int tmpTableIndex = 0; tmpTableIndex < tmpTableCount; tmpTableIndex++)
             {
+                tableProps.Name = new string((char)0, 5);
                 TDB.TDBTableGetProperties(dbSelected, tmpTableIndex, ref tableProps);
 
                 if (tableProps.Name == SelectedTableName)
@@ -94,7 +93,7 @@ namespace DB_EDITOR
             #region Get FIELD Properties
             TdbFieldProperties fieldProps = new TdbFieldProperties();
 
-            fieldProps.Name = TDBNameLength;
+            fieldProps.Name = new string((char)0, 5);
 
             int tmpFieldCount = tableProps.FieldCount;
             for (int tmpFieldIndex = 0; tmpFieldIndex < tmpFieldCount; tmpFieldIndex++)
@@ -121,7 +120,7 @@ namespace DB_EDITOR
             TdbTableProperties TableProps = new TdbTableProperties();
 
             // 4 character string, max value of 5
-            string TableName = TDBNameLength;
+            TableProps.Name = new string((char)0, 5);
 
             int tmpTableCount = TDB.TDBDatabaseGetTableCount(dbFILEindex);
 
@@ -130,8 +129,7 @@ namespace DB_EDITOR
             for (int i = 0; i < tmpTableCount; i++)
             {
                 // Init the tdbtableproperties name
-                TableProps.Name = TableName;
-
+                TableProps.Name = new string((char)0, 5);
 
                 // Get the tableproperties for the given table number
                 if (TDB.TDBTableGetProperties(dbFILEindex, i, ref TableProps))
@@ -229,7 +227,7 @@ namespace DB_EDITOR
 
             TdbTableProperties TableProps = new TdbTableProperties();
 
-            TableProps.Name = TDBNameLength;
+            TableProps.Name = new string((char)0, 5);
 
             // Get Tableprops based on the selected table index
             if (!TDB.TDBTableGetProperties(dbFILEindex, tmpTABLEindex, ref TableProps))
@@ -244,7 +242,7 @@ namespace DB_EDITOR
                 TdbFieldProperties FieldProps = new TdbFieldProperties();
 
 
-                FieldProps.Name = TDBNameLength;
+                FieldProps.Name = new string((char)0, 5);
 
                 string tableName = GetTableName(dbFILEindex, tmpTABLEindex);
 
@@ -349,7 +347,7 @@ namespace DB_EDITOR
 
             TdbTableProperties TableProps = new TdbTableProperties();
 
-            TableProps.Name = TDBNameLength;
+            TableProps.Name = new string((char)0, 5);
 
 
             // Get Tableprops based on the selected table index
@@ -381,7 +379,7 @@ namespace DB_EDITOR
 
                     TdbFieldProperties FieldProps = new TdbFieldProperties();
 
-                    FieldProps.Name = TDBNameLength;
+                    FieldProps.Name = new string((char)0, 5);
 
                     TDB.TDBFieldGetProperties(dbSelected, TableProps.Name, f.Key, ref FieldProps);
 
@@ -512,12 +510,14 @@ namespace DB_EDITOR
             #region Get TABLE Properties
             TdbTableProperties tableProps = new TdbTableProperties();
 
-            tableProps.Name = TDBNameLength;
+            tableProps.Name = new string((char)0, 5);
 
             int tmpTableCount = TDB.TDBDatabaseGetTableCount(dbSelected);
 
             for (int tmpTableIndex = 0; tmpTableIndex < tmpTableCount; tmpTableIndex++)
             {
+                tableProps.Name = new string((char)0, 5);
+
                 TDB.TDBTableGetProperties(dbSelected, tmpTableIndex, ref tableProps);
 
                 if (tableProps.Name == SelectedTableName)
@@ -528,7 +528,7 @@ namespace DB_EDITOR
             #region Get FIELD Properties
             TdbFieldProperties fieldProps = new TdbFieldProperties();
 
-            fieldProps.Name = TDBNameLength;
+            fieldProps.Name = new string((char)0, 5);
 
             int tmpFieldCount = tableProps.FieldCount;
             for (int tmpFieldIndex = 0; tmpFieldIndex < tmpFieldCount; tmpFieldIndex++)
@@ -669,7 +669,7 @@ namespace DB_EDITOR
         private void DBTableAddOns()
         {
             TdbTableProperties table = new TdbTableProperties();
-            table.Name = TDBNameLength;
+            table.Name = new string((char)0, 5);
 
             int dbCount = 1;
             if (dbIndex2 == 1) dbCount = 2;
@@ -677,6 +677,7 @@ namespace DB_EDITOR
             {
                 for (int i = 0; i < TDB.TableCount(db); i++)
                 {
+                    table.Name = new string((char)0, 5);
                     var x = TDB.TDBTableGetProperties(db, i, ref table);
 
 
@@ -819,7 +820,7 @@ namespace DB_EDITOR
 
             // Get current table properties
             TdbTableProperties tableProps = new TdbTableProperties();
-            tableProps.Name = TDBNameLength;
+            tableProps.Name = new string((char)0, 5);
             TDB.TDBTableGetProperties(dbSelected, SelectedTableIndex, ref tableProps);
 
             // Create and configure the form (responsive layout, DPI-aware)

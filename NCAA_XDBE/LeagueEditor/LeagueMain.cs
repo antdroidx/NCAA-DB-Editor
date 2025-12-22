@@ -435,13 +435,13 @@ namespace DB_EDITOR
             TdbTableProperties TableProps = new TdbTableProperties();
 
             // 4 character string, max value of 5
-            StringBuilder TableName = new StringBuilder("    ", 5);
+            TableProps.Name = new string((char)0, 5);
 
             exportAll = true;
             for (int i = 0; i < TDB.TDBDatabaseGetTableCount(dbIndex2); i++)
             {
                 // Init the tdbtableproperties name
-                TableProps.Name = TableName.ToString();
+                TableProps.Name = new string((char)0, 5);
 
                 // Get the tableproperties for the given table number
                 if (TDB.TDBTableGetProperties(dbIndex2, i, ref TableProps))
@@ -962,8 +962,8 @@ namespace DB_EDITOR
             TdbTableProperties TableProps = new TdbTableProperties();
 
             // 4 character string, max value of 5
-            StringBuilder TableName = new StringBuilder("    ", 5);
-
+            TableProps.Name = new string((char)0, 5);
+ 
             int tmpTableCount = TDB.TDBDatabaseGetTableCount(dbFILEindex);
 
             progressBar1.Minimum = 0;
@@ -973,7 +973,7 @@ namespace DB_EDITOR
             for (int i = 0; i < tmpTableCount; i++)
             {
                 // Init the tdbtableproperties name
-                TableProps.Name = TableName.ToString();
+                TableProps.Name = new string((char)0, 5);
 
                 // Get the tableproperties for the given table number
                 if (TDB.TDBTableGetProperties(dbFILEindex, i, ref TableProps))
@@ -1369,6 +1369,8 @@ namespace DB_EDITOR
 
             for (int tmpTableIndex = 0; tmpTableIndex < tmpTableCount; tmpTableIndex++)
             {
+                tableProps.Name = new string((char)0, 5);
+
                 TDB.TDBTableGetProperties(dbIndex2, tmpTableIndex, ref tableProps);
 
                 if (tableProps.Name == SelectedTableName)
@@ -1420,6 +1422,8 @@ namespace DB_EDITOR
 
             for (int tmpTableIndex = 0; tmpTableIndex < tmpTableCount; tmpTableIndex++)
             {
+                tableProps.Name = new string((char)0, 5);
+
                 TDB.TDBTableGetProperties(dbIndex2, tmpTableIndex, ref tableProps);
 
                 if (tableProps.Name == SelectedTableName)
@@ -1636,7 +1640,8 @@ namespace DB_EDITOR
             TdbTableProperties TableProps = new TdbTableProperties();
 
             // 4 character string, max value of 5
-            StringBuilder TableName = new StringBuilder("    ", 5);
+            TableProps.Name = new string((char)0, 5);
+
 
             int tmpTableCount = TDB.TDBDatabaseGetTableCount(dbFILEindex);
 
@@ -1645,7 +1650,8 @@ namespace DB_EDITOR
             if (tmpTABLEindex < tmpTableCount)
             {
                 // Init the tdbtableproperties name
-                TableProps.Name = TableName.ToString();
+                TableProps.Name = new string((char)0, 5);
+
 
                 // Get the tableproperties for the given table number
                 TDB.TDBTableGetProperties(dbFILEindex, tmpTABLEindex, ref TableProps);
@@ -1664,7 +1670,7 @@ namespace DB_EDITOR
             TdbTableProperties TableProps = new TdbTableProperties();
 
             // 4 character string, max value of 5
-            StringBuilder TableName = new StringBuilder("    ", 5);
+            TableProps.Name = new string((char)0, 5);
 
             int tmpTableCount = TDB.TDBDatabaseGetTableCount(dbFILEindex);
             int tmpTABLEindex = -1;
@@ -1672,7 +1678,7 @@ namespace DB_EDITOR
             for (int i = 0; i < tmpTableCount; i++)
             {
                 // Init the tdbtableproperties name
-                TableProps.Name = TableName.ToString();
+                TableProps.Name = new string((char)0, 5);
 
                 // Get the tableproperties for the given table number
                 TDB.TDBTableGetProperties(dbFILEindex, i, ref TableProps);

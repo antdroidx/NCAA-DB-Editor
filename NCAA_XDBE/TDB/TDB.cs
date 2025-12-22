@@ -126,6 +126,7 @@ namespace DB_EDITOR
 
             for (int tmpTableIndex = 0; tmpTableIndex < tmpTableCount; tmpTableIndex++)
             {
+                tableProps.Name = new string((char)0, 5);
                 TDB.TDBTableGetProperties(DBIndex, tmpTableIndex, ref tableProps);
 
                 if (tableProps.Name == TableName)
@@ -151,6 +152,7 @@ namespace DB_EDITOR
 
             for (int tmpTableIndex = 0; tmpTableIndex < tmpTableCount; tmpTableIndex++)
             {
+                tableProps.Name = new string((char)0, 5);
                 TDB.TDBTableGetProperties(DBIndex, tmpTableIndex, ref tableProps);
 
                 if (tableProps.Name == TableName)
@@ -175,6 +177,7 @@ namespace DB_EDITOR
 
             for (int tmpTableIndex = 0; tmpTableIndex < tmpTableCount; tmpTableIndex++)
             {
+                tableProps.Name = new string((char)0, 5);
                 TDB.TDBTableGetProperties(DBIndex, tmpTableIndex, ref tableProps);
 
                 if (tableProps.Name == TableName)
@@ -199,6 +202,7 @@ namespace DB_EDITOR
 
             for (int tmpTableIndex = 0; tmpTableIndex < tmpTableCount; tmpTableIndex++)
             {
+                tableProps.Name = new string((char)0, 5);
                 TDB.TDBTableGetProperties(DBIndex, tmpTableIndex, ref tableProps);
 
                 if (tableProps.Name == TableName)
@@ -221,6 +225,7 @@ namespace DB_EDITOR
 
             for (int tmpTableIndex = 0; tmpTableIndex < tmpTableCount; tmpTableIndex++)
             {
+                tableProps.Name = new string((char)0, 5);
                 TDB.TDBTableGetProperties(DBIndex, tmpTableIndex, ref tableProps);
 
                 if (tableProps.Name == TableName)
@@ -258,6 +263,7 @@ namespace DB_EDITOR
 
             for (int tmpTableIndex = 0; tmpTableIndex < tmpTableCount; tmpTableIndex++)
             {
+                tableProps.Name = new string((char)0, 5);
                 TDB.TDBTableGetProperties(DBIndex, tmpTableIndex, ref tableProps);
 
                 if (tableProps.Name == TableName)
@@ -285,7 +291,7 @@ namespace DB_EDITOR
                 string val = new string((char)0, (fieldProps.Size / 8) + 1);
 
                 TDB.TDBFieldGetValueAsString(DBIndex, tableProps.Name, fieldProps.Name, RecNo, ref val);
-                val = val.Replace(",", "-");
+                val = val.Replace(",", ",");
                 tmpValue = val;
             }
             else if (fieldProps.FieldType == TdbFieldType.tdbUInt)
@@ -332,6 +338,7 @@ namespace DB_EDITOR
 
             for (int tmpTableIndex = 0; tmpTableIndex < tmpTableCount; tmpTableIndex++)
             {
+                tableProps.Name = new string((char)0, 5);
                 TDB.TDBTableGetProperties(DBIndex, tmpTableIndex, ref tableProps);
 
                 if (tableProps.Name == TableName)
@@ -412,6 +419,7 @@ namespace DB_EDITOR
 
             for (int tmpTableIndex = 0; tmpTableIndex < tmpTableCount; tmpTableIndex++)
             {
+                tableProps.Name = new string((char)0, 5);
                 TDB.TDBTableGetProperties(DBIndex, tmpTableIndex, ref tableProps);
 
                 if (tableProps.Name == TableName)
@@ -457,7 +465,7 @@ namespace DB_EDITOR
                     string val = new string((char)0, (FieldProps.Size / 8) + 1);
 
                     TDB.TDBFieldGetValueAsString(DBIndex, TableName, FieldProps.Name, RecNo, ref val);
-                    val = val.Replace(",", "");
+                    val = val.Replace(",", ",");
                     //
                     TDB.TDBFieldSetValueAsString(DBIndex, TableName, FieldProps.Name, newRecNo - 1, val);
                 }

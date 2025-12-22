@@ -29,7 +29,6 @@ namespace DB_EDITOR
         public int dbIndex = -1;
         public int dbIndex2 = -1;
         public int dbSelected = 0;
-        string TDBNameLength = "xxxx";
 
         string SelectedTableName = "";
         int SelectedTableIndex = -1;
@@ -286,9 +285,6 @@ namespace DB_EDITOR
 
                 if (TDB.TableIndex(dbIndex, "SETL") >= 0) AddPlaybooksTab(); //checks Playbooks first because of SGF table (3 char) causes TDB problems (expecting 4 char)
                 else if (TDB.TableIndex(dbIndex, "AIGR") >= 0 || TDB.FieldIndex(dbIndex, "TEAM", "TMNA") != -1 || TDB.FieldIndex(dbIndex, "PLAY", "PF10") != -1) DBTableAddOns();
-
-
-                //DBTableAddOns();
 
                 StartHomeTab();
                 ModVersionChecker();
@@ -640,13 +636,13 @@ namespace DB_EDITOR
             TdbTableProperties TableProps = new TdbTableProperties();
 
             // 4 character string, max value of 5
-            StringBuilder TableName = new StringBuilder("    ", 5);
+            TableProps.Name = new string((char)0, 5);
 
             exportAll = true;
             for (int i = 0; i < TDB.TDBDatabaseGetTableCount(dbSelected); i++)
             {
                 // Init the tdbtableproperties name
-                TableProps.Name = TableName.ToString();
+                TableProps.Name = new string((char)0, 5);
 
                 // Get the tableproperties for the given table number
                 if (TDB.TDBTableGetProperties(dbSelected, i, ref TableProps))
@@ -676,13 +672,13 @@ namespace DB_EDITOR
                 TdbTableProperties TableProps = new TdbTableProperties();
 
                 // 4 character string, max value of 5
-                StringBuilder TableName = new StringBuilder("    ", 5);
+                TableProps.Name = new string((char)0, 5);
 
                 exportAll = true;
                 for (int i = 0; i < TDB.TDBDatabaseGetTableCount(dbSelected); i++)
                 {
                     // Init the tdbtableproperties name
-                    TableProps.Name = TableName.ToString();
+                    TableProps.Name = new string((char)0, 5);
 
                     // Get the tableproperties for the given table number
                     if (TDB.TDBTableGetProperties(dbSelected, i, ref TableProps))

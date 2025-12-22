@@ -207,7 +207,7 @@ namespace DB_EDITOR
             TdbTableProperties TableProps = new TdbTableProperties();
 
             // 4 character string, max value of 5
-            StringBuilder TableName = new StringBuilder("    ", 5);
+            TableProps.Name = new string((char)0, 5);
 
             int tmpTableCount = TDB.TDBDatabaseGetTableCount(dbFILEindex);
 
@@ -216,7 +216,7 @@ namespace DB_EDITOR
             if (tmpTABLEindex < tmpTableCount)
             {
                 // Init the tdbtableproperties name
-                TableProps.Name = TableName.ToString();
+                TableProps.Name = new string((char)0, 5);
 
                 // Get the tableproperties for the given table number
                 TDB.TDBTableGetProperties(dbFILEindex, tmpTABLEindex, ref TableProps);

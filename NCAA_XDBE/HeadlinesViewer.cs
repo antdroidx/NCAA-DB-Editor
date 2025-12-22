@@ -168,7 +168,7 @@ namespace DB_EDITOR
             }
 
             //Team Conf Seed
-            if (capSymbol == "-I")
+            if (capSymbol.Contains("-I"))
             {
                 int teamRec = FindTeamRecfromTeamName(teamNameDB[tgid]);
 

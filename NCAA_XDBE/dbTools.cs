@@ -500,11 +500,18 @@ namespace DB_EDITOR
 
                 if (PPOS >= 1 && PPOS <= 2)
                 {
-                    if (count == 1) rating += roster[j][0];
-                    else rating += 2 * roster[j][0];
-                    count++;
+                    if (count == 1)
+                    {
+                        rating += roster[j][0];
+                        count++;
+                    }
+                    else
+                    {
+                        rating += 2 * roster[j][0];
+                        count += 2;
+                    }
                 }
-                if (count >= 2) break;
+                if (count >= 3) break;
             }
 
             if (count <= 0) rating = 0;

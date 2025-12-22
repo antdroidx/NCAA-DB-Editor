@@ -1130,7 +1130,7 @@ namespace DB_EDITOR
 
             TdbFieldProperties fieldProps = new TdbFieldProperties();
 
-            fieldProps.Name = TDBNameLength;
+            fieldProps.Name = new string((char)0, 5);
 
 
             if (TEAM && GetTableRecCount("PRLU") > 0)
