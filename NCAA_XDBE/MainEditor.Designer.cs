@@ -176,6 +176,7 @@ namespace DB_EDITOR
             exportAllMenuItem = new ToolStripMenuItem();
             importAllMenuItem = new ToolStripMenuItem();
             toolStripSeparator9 = new ToolStripSeparator();
+            ExportSelectedMenuItem = new ToolStripMenuItem();
             tabDelimitedMenuItem = new ToolStripMenuItem();
             optionsMenuItem = new ToolStripMenuItem();
             tableFieldOrderMenuItem = new ToolStripMenuItem();
@@ -1969,7 +1970,7 @@ namespace DB_EDITOR
             // 
             // CSVMenu
             // 
-            CSVMenu.DropDownItems.AddRange(new ToolStripItem[] { exportToolItem, importMenuItem, toolStripSeparator2, exportAllMenuItem, importAllMenuItem, toolStripSeparator9, tabDelimitedMenuItem });
+            CSVMenu.DropDownItems.AddRange(new ToolStripItem[] { exportToolItem, ExportSelectedMenuItem, importMenuItem, toolStripSeparator2, exportAllMenuItem, importAllMenuItem, toolStripSeparator9, tabDelimitedMenuItem });
             CSVMenu.Name = "CSVMenu";
             CSVMenu.Size = new Size(102, 21);
             CSVMenu.Text = "Import/Export";
@@ -2014,6 +2015,14 @@ namespace DB_EDITOR
             // 
             toolStripSeparator9.Name = "toolStripSeparator9";
             toolStripSeparator9.Size = new Size(190, 6);
+            // 
+            // ExportSelectedMenuItem
+            // 
+            ExportSelectedMenuItem.Name = "ExportSelectedMenuItem";
+            ExportSelectedMenuItem.ShowShortcutKeys = false;
+            ExportSelectedMenuItem.Size = new Size(193, 22);
+            ExportSelectedMenuItem.Text = "Export Selected";
+            ExportSelectedMenuItem.Click += (this.ExportSelectedMenuItem_Click);
             // 
             // tabDelimitedMenuItem
             // 
@@ -20032,6 +20041,7 @@ namespace DB_EDITOR
         private Label label280;
         private RadioButton ConfDisplayRecord;
         private System.Windows.Forms.Button exportDynastyTrackerButton;
+        public ToolStripMenuItem ExportSelectedMenuItem;
     }
 }
 

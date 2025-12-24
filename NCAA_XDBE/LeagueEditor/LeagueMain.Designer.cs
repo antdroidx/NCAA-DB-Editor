@@ -725,7 +725,7 @@ namespace DB_EDITOR
             // 
             label31.AutoSize = true;
             label31.BackColor = Color.LightCoral;
-            label31.Location = new Point(21, 425);
+            label31.Location = new Point(21, 419);
             label31.Name = "label31";
             label31.Size = new Size(104, 13);
             label31.TabIndex = 108;
@@ -735,7 +735,7 @@ namespace DB_EDITOR
             // 
             label32.AutoSize = true;
             label32.BackColor = Color.LightCoral;
-            label32.Location = new Point(177, 425);
+            label32.Location = new Point(177, 419);
             label32.Name = "label32";
             label32.Size = new Size(104, 13);
             label32.TabIndex = 107;
@@ -745,7 +745,7 @@ namespace DB_EDITOR
             // 
             label33.AutoSize = true;
             label33.BackColor = Color.LightCoral;
-            label33.Location = new Point(331, 425);
+            label33.Location = new Point(331, 419);
             label33.Name = "label33";
             label33.Size = new Size(104, 13);
             label33.TabIndex = 106;
@@ -755,7 +755,7 @@ namespace DB_EDITOR
             // 
             label34.AutoSize = true;
             label34.BackColor = Color.LightCoral;
-            label34.Location = new Point(487, 425);
+            label34.Location = new Point(487, 419);
             label34.Name = "label34";
             label34.Size = new Size(104, 13);
             label34.TabIndex = 105;
@@ -765,7 +765,7 @@ namespace DB_EDITOR
             // 
             label35.AutoSize = true;
             label35.BackColor = Color.LightCoral;
-            label35.Location = new Point(645, 425);
+            label35.Location = new Point(645, 419);
             label35.Name = "label35";
             label35.Size = new Size(104, 13);
             label35.TabIndex = 104;
@@ -775,7 +775,7 @@ namespace DB_EDITOR
             // 
             label36.AutoSize = true;
             label36.BackColor = Color.LightCoral;
-            label36.Location = new Point(801, 425);
+            label36.Location = new Point(801, 419);
             label36.Name = "label36";
             label36.Size = new Size(104, 13);
             label36.TabIndex = 103;
@@ -785,7 +785,7 @@ namespace DB_EDITOR
             // 
             label30.AutoSize = true;
             label30.BackColor = Color.LightCoral;
-            label30.Location = new Point(802, 33);
+            label30.Location = new Point(802, 27);
             label30.Name = "label30";
             label30.Size = new Size(104, 13);
             label30.TabIndex = 102;
@@ -795,7 +795,7 @@ namespace DB_EDITOR
             // 
             label29.AutoSize = true;
             label29.BackColor = Color.LightCoral;
-            label29.Location = new Point(646, 33);
+            label29.Location = new Point(646, 27);
             label29.Name = "label29";
             label29.Size = new Size(104, 13);
             label29.TabIndex = 101;
@@ -805,7 +805,7 @@ namespace DB_EDITOR
             // 
             label28.AutoSize = true;
             label28.BackColor = Color.LightCoral;
-            label28.Location = new Point(488, 33);
+            label28.Location = new Point(488, 27);
             label28.Name = "label28";
             label28.Size = new Size(104, 13);
             label28.TabIndex = 100;
@@ -815,7 +815,7 @@ namespace DB_EDITOR
             // 
             label27.AutoSize = true;
             label27.BackColor = Color.LightCoral;
-            label27.Location = new Point(332, 33);
+            label27.Location = new Point(332, 27);
             label27.Name = "label27";
             label27.Size = new Size(104, 13);
             label27.TabIndex = 99;
@@ -825,7 +825,7 @@ namespace DB_EDITOR
             // 
             label26.AutoSize = true;
             label26.BackColor = Color.LightCoral;
-            label26.Location = new Point(176, 33);
+            label26.Location = new Point(176, 27);
             label26.Name = "label26";
             label26.Size = new Size(104, 13);
             label26.TabIndex = 98;
@@ -835,7 +835,7 @@ namespace DB_EDITOR
             // 
             label25.AutoSize = true;
             label25.BackColor = Color.LightCoral;
-            label25.Location = new Point(19, 33);
+            label25.Location = new Point(19, 27);
             label25.Name = "label25";
             label25.Size = new Size(104, 13);
             label25.TabIndex = 97;
@@ -1787,7 +1787,7 @@ namespace DB_EDITOR
             groupBox1.ForeColor = SystemColors.Control;
             groupBox1.Location = new Point(34, 6);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(550, 281);
+            groupBox1.Size = new Size(305, 318);
             groupBox1.TabIndex = 144;
             groupBox1.TabStop = false;
             groupBox1.Text = "Configuration";

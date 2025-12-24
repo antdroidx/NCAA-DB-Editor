@@ -17,6 +17,12 @@ namespace DB_EDITOR
 {
     partial class LeagueMain : Form
     {
+        // Drag & Drop state
+        private Control dragSourceControl = null;
+        private CheckedListBox dragSourceBox = null;
+        private int dragSourceIndex = -1;
+        private object dragSourceItem = null;
+
 
 
         //List of CheckBox Conferences
@@ -254,6 +260,15 @@ namespace DB_EDITOR
                 conferenceBox.Items.Add("*");
             }
 
+            // Enable drag/drop on the conference box
+            conferenceBox.AllowDrop = true;
+            conferenceBox.MouseDown -= CheckedListBox_MouseDown;
+            conferenceBox.MouseDown += CheckedListBox_MouseDown;
+            conferenceBox.DragOver -= ListBox_DragOver;
+            conferenceBox.DragOver += ListBox_DragOver;
+            conferenceBox.DragDrop -= CheckedListBox_DragDrop;
+            conferenceBox.DragDrop += CheckedListBox_DragDrop;
+
         }
 
 
@@ -346,7 +361,9 @@ namespace DB_EDITOR
                 confBoxes[b].BackColor = Color.Gainsboro;
             }
 
-            List<string> teams = new List<string>(); ;
+            ReorderAsterisks(confBoxes[b]);
+            /*
+            List<string> teams = new List<string>();
             for(int i = 0; i < confBoxes[b].Items.Count; i++)
             {
                 if (confBoxes[b].Items[i].ToString() != "*") teams.Add(confBoxes[b].Items[i].ToString());
@@ -363,7 +380,30 @@ namespace DB_EDITOR
             {
                 confBoxes[b].Items.Add(teams[i].ToString());
             }
+            */
 
+            CountTeams();
+        }
+
+        private void ReorderAsterisks(CheckedListBox confBox)
+        {
+            List<string> teams = new List<string>(); ;
+            for (int i = 0; i < confBox.Items.Count; i++)
+            {
+                if (confBox.Items[i].ToString() != "*") teams.Add(confBox.Items[i].ToString());
+            }
+
+            for (int i = teams.Count; i < maxTeams; i++)
+            {
+                teams.Add("*");
+            }
+
+            confBox.Items.Clear();
+
+            for (int i = 0; i < teams.Count; i++)
+            {
+                confBox.Items.Add(teams[i].ToString());
+            }
 
             CountTeams();
         }
@@ -378,6 +418,14 @@ namespace DB_EDITOR
                 if (main.GetDBValueInt("TEAM", "TTYP", i) <= 1)
                     AllTeamsListBox.Items.Add(main.GetDBValue("TEAM", "TDNA", i));
             }
+            // Enable drag for the AllTeamsListBox
+            AllTeamsListBox.AllowDrop = true;
+            AllTeamsListBox.MouseDown -= AllTeamsListBox_MouseDown;
+            AllTeamsListBox.MouseDown += AllTeamsListBox_MouseDown;
+            AllTeamsListBox.DragOver -= ListBox_DragOver;
+            AllTeamsListBox.DragOver += ListBox_DragOver;
+            AllTeamsListBox.DragDrop -= AllTeamsListBox_DragDrop;
+            AllTeamsListBox.DragDrop += AllTeamsListBox_DragDrop;
         }
 
 
@@ -634,13 +682,6 @@ namespace DB_EDITOR
                         statusLabels[i].Text = "Count: " + count + " | Valid";
                         statusLabels[i].BackColor = Color.LightGreen;
                     }
-                    /*
-                    else if (count > 7 && count < 13 || count > 13 && count < 21 && count % 2 == 0 && valid)
-                    {
-                        statusLabels[i].Text = "Count: " + count + " | Valid";
-                        statusLabels[i].BackColor = Color.LightGreen;
-                    }
-                    */
                     else if (count >= 8 && count <= 24)
                     {
                         statusLabels[i].Text = "Count: " + count + " | Valid";
@@ -694,15 +735,14 @@ namespace DB_EDITOR
             {
                 SaveButton.Visible = true;
                 SaveButton.BackColor = Color.Crimson;
+                LeagueTeamsLabel.Text = "League Teams: " + TeamCount;
+
             }
             else
             {
                 SaveButton.Visible = false;
-                //SaveButton.BackColor = Color.DarkGray;
+                LeagueTeamsLabel.Text = "League Teams: " + TeamCount + " [INVALID NUMBER OF TEAMS]";
             }
-
-
-            LeagueTeamsLabel.Text = "League Teams: " + TeamCount;
 
         }
 
@@ -835,6 +875,159 @@ namespace DB_EDITOR
 
         #region Drag & Drop 
         // Event handlers:
+
+        private void AllTeamsListBox_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left) return;
+            ListBox lb = (ListBox)sender;
+            int idx = lb.IndexFromPoint(e.Location);
+            if (idx < 0 || idx >= lb.Items.Count) return;
+            dragSourceControl = lb;
+            dragSourceBox = null;
+            dragSourceIndex = idx;
+            dragSourceItem = lb.Items[idx];
+            lb.DoDragDrop(dragSourceItem, DragDropEffects.Move);
+        }
+
+        private void CheckedListBox_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button != MouseButtons.Left) return;
+            CheckedListBox clb = (CheckedListBox)sender;
+            int idx = clb.IndexFromPoint(e.Location);
+            if (idx < 0 || idx >= clb.Items.Count) return;
+            if (clb.Items[idx].Equals("*")) return; // don't drag placeholder
+            dragSourceControl = clb;
+            dragSourceBox = clb;
+            dragSourceIndex = idx;
+            dragSourceItem = clb.Items[idx];
+            clb.DoDragDrop(dragSourceItem, DragDropEffects.Move);
+        }
+
+        private void ListBox_DragOver(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(typeof(string)))
+            {
+                e.Effect = DragDropEffects.Move;
+            }
+            else e.Effect = DragDropEffects.None;
+        }
+
+        private void AllTeamsListBox_DragDrop(object sender, DragEventArgs e)
+        {
+            if (!e.Data.GetDataPresent(typeof(string))) return;
+            string data = (string)e.Data.GetData(typeof(string));
+            ListBox lb = (ListBox)sender;
+
+            // remove from source
+            if (dragSourceControl is ListBox srcLb)
+            {
+                srcLb.Items.RemoveAt(dragSourceIndex);
+            }
+            else if (dragSourceBox != null)
+            {
+                dragSourceBox.Items[dragSourceIndex] = "*";
+            }
+
+            // add to target
+            lb.Items.Add(data);
+            AllTeamsListBox.Sorted = true;
+            CountTeams();
+            // If item came from a conference, ensure its asterisks are reordered
+            if (dragSourceBox != null)
+                ReorderAsterisks(dragSourceBox);
+        }
+
+        private void CheckedListBox_DragDrop(object sender, DragEventArgs e)
+        {
+            if (!e.Data.GetDataPresent(typeof(string))) return;
+            string data = (string)e.Data.GetData(typeof(string));
+            CheckedListBox clb = (CheckedListBox)sender;
+
+            // find drop index
+            Point p = clb.PointToClient(new Point(e.X, e.Y));
+            int idx = clb.IndexFromPoint(p);
+            if (idx < 0) idx = clb.Items.Count - 1;
+
+            int max = clb.Items.Count;
+
+            // If dragging within same box -> reorder
+            if (dragSourceBox == clb)
+            {
+                int src = dragSourceIndex;
+                if (src == idx) return;
+                object temp = clb.Items[src];
+                if (src < idx)
+                {
+                    for (int i = src; i < idx; i++)
+                        clb.Items[i] = clb.Items[i + 1];
+                    clb.Items[idx] = temp;
+                }
+                else
+                {
+                    for (int i = src; i > idx; i--)
+                        clb.Items[i] = clb.Items[i - 1];
+                    clb.Items[idx] = temp;
+                }
+                CountTeams();
+                ReorderAsterisks(clb);
+                return;
+            }
+
+            // dragging from AllTeamsListBox
+            if (dragSourceControl is ListBox srcLb)
+            {
+                // remove from source list
+                srcLb.Items.Remove(data);
+
+                // shift items down in target to make room
+                object lastVal = clb.Items[max - 1];
+                for (int i = max - 1; i > idx; i--)
+                    clb.Items[i] = clb.Items[i - 1];
+                clb.Items[idx] = data;
+
+                // if lastVal was a real team, return it to AllTeamsListBox
+                if (lastVal != null && !lastVal.Equals("*"))
+                {
+                    AllTeamsListBox.Items.Add(lastVal);
+                    AllTeamsListBox.Sorted = true;
+                }
+
+                CountTeams();
+                ReorderAsterisks(clb);
+                return;
+            }
+
+            // dragging from another conference box
+            if (dragSourceBox != null && dragSourceBox != clb)
+            {
+                // remove from source by shifting items up from the dragged index
+                int src = dragSourceIndex;
+                object removed = dragSourceBox.Items[src];
+                for (int i = src; i < dragSourceBox.Items.Count - 1; i++)
+                    dragSourceBox.Items[i] = dragSourceBox.Items[i + 1];
+                dragSourceBox.Items[dragSourceBox.Items.Count - 1] = "*";
+
+                // shift items down in target to make room
+                object lastVal = clb.Items[max - 1];
+                for (int i = max - 1; i > idx; i--)
+                    clb.Items[i] = clb.Items[i - 1];
+                clb.Items[idx] = data;
+
+                // if lastVal was a real team, return it to AllTeamsListBox
+                if (lastVal != null && !lastVal.Equals("*"))
+                {
+                    AllTeamsListBox.Items.Add(lastVal);
+                    AllTeamsListBox.Sorted = true;
+                }
+
+                CountTeams();
+                // reorder asterisks on both source and target
+                if (dragSourceBox != null)
+                    ReorderAsterisks(dragSourceBox);
+                ReorderAsterisks(clb);
+                return;
+            }
+        }
 
         #endregion
 
@@ -992,6 +1185,12 @@ namespace DB_EDITOR
         #region Randomize League
         private void RandomizeLeagueButton_Click(object sender, EventArgs e)
         {
+            if(TeamSelectionBox.SelectedIndex < 0 || TeamsPerConfBox.SelectedIndex < 0)
+            {
+                MessageBox.Show("Please choose the league configuration first!");
+                return;
+            }
+
             RandomizeLeagueSetup();
         }
         private void RandomizeLeagueSetup()

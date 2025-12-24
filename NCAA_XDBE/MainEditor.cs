@@ -625,6 +625,7 @@ namespace DB_EDITOR
         {
             ImportDB();
         }
+
         private void exportAllMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("This will export every table in this database and may take some time depending on the size of the database. Do you want to proceed?", "Export All Tables", MessageBoxButtons.YesNo);
@@ -700,6 +701,45 @@ namespace DB_EDITOR
             }
         }
 
+        private void ExportSelectedMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("This will export every selected table. Do you want to proceed?", "Export Selected Tables", MessageBoxButtons.YesNo);
+
+            if (DialogResult == System.Windows.Forms.DialogResult.No) return;
+
+            List<int> tablesSelected = new List<int>();
+            for(int i = 0; i < tableGridView.Rows.Count; i++)
+            {
+                if (tableGridView.Rows[i].Selected)
+                    tablesSelected.Add(i);
+            }
+
+           // TdbTableProperties class
+           TdbTableProperties TableProps = new TdbTableProperties();
+
+            // 4 character string, max value of 5
+            TableProps.Name = new string((char)0, 5);
+
+            exportAll = true;
+            for (int i = 0; i < tablesSelected.Count; i++)
+            {
+                // Init the tdbtableproperties name
+                TableProps.Name = new string((char)0, 5);
+
+                // Get the tableproperties for the given table number
+                if (TDB.TDBTableGetProperties(dbSelected, tablesSelected[i], ref TableProps))
+                {
+                    SelectedTableName = TableProps.Name;
+                    SelectedTableIndex = tablesSelected[i];
+                    exportToolItem.PerformClick();
+                }
+            }
+            exportAll = false;
+            MessageBox.Show("Export Complete", "Export Selected Tables");
+
+        }
+
+
         //tableMenuStrip
         private void exportTableMenuItem_Click(object sender, EventArgs e)
         {
@@ -709,6 +749,7 @@ namespace DB_EDITOR
         {
             importMenuItem.PerformClick();
         }
+
         private void exportAllTableMenuItem_Click(object sender, EventArgs e)
         {
             exportAllMenuItem.PerformClick();

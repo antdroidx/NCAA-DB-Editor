@@ -1531,7 +1531,7 @@ namespace DB_EDITOR
 
         public string GetTeamName(int tgid)
         {
-
+            if (tgid >= teamNameDB.Length) return "Portal";
             string tmpSTR = teamNameDB[tgid];
             return tmpSTR;
         }
