@@ -11,6 +11,7 @@ using System.Runtime.InteropServices.ComTypes;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace DB_EDITOR
@@ -432,6 +433,21 @@ namespace DB_EDITOR
                 DCHTDefType.Text = "---";
             }
 
+            //Create a list of Team Injuries & Suspensions
+            List<int> InjuryList = new List<int>();
+            for (int i = 0; i < GetTableRecCount("INJY"); i++)
+            {
+                int PGID = GetDBValueInt("INJY", "PGID", i);
+                InjuryList.Add(PGID);
+            }
+
+            for (int i = 0; i < GetTableRecCount("SPYR"); i++)
+            {
+                int suspensionLength = GetDBValueInt("SPYR", "SEWN", i) - GetDBValueInt("SEAI", "SEWN", 0);
+                int PGID = GetDBValueInt("SPYR", "PGID", i);
+                if (suspensionLength > 0) InjuryList.Add(PGID);
+            }
+
 
 
             impactPlayers.Add(GetDBValueInt("TEAM", "TSI1", teamRec) + PGIDBeg);
@@ -479,6 +495,11 @@ namespace DB_EDITOR
                     if (impactPlayers.Contains(pgid))
                     {
                         impact += " " + ConvertStarNumber(1);
+                    }
+
+                    if (InjuryList.Contains(pgid))
+                    {
+                        impact += " !";
                     }
 
                     if (dbIndex2 > 0)
@@ -679,7 +700,7 @@ namespace DB_EDITOR
                         e.CellStyle.ForeColor = Color.ForestGreen;
 
                     }
-                    else if (text.Contains(">"))
+                    else if (text.Contains(">") || text.Contains("!"))
                     {
                         e.CellStyle.ForeColor = Color.DarkRed;
                     }
@@ -737,11 +758,22 @@ namespace DB_EDITOR
             return -1;
         }
 
-        private int GetDCHTPGIDfromPlayerName(string name)
+        private int GetDCHTPGIDfromPlayerName(int tgid, int ppos, int ddep)
         {
+            /*
             for (int i = 0; i < DCHTPlayers.Count; i++)
             {
                 if (DCHTPlayers[i][29] == name) return Convert.ToInt32(DCHTPlayers[i][25]);
+            }
+            */
+
+            for (int i = 0; i < GetTableRecCount("DCHT"); i++)
+            {
+                int pposX = GetDBValueInt("DCHT", "PPOS", i);
+                int ddepX = GetDBValueInt("DCHT", "ddep", i);
+                int pgidX = GetDBValueInt("DCHT", "PGID", i);
+                int tgidX = pgidX / 70;
+                if (tgidX == tgid && pposX == ppos && ddepX == ddep) return pgidX;
             }
 
             return -1;
@@ -804,8 +836,9 @@ namespace DB_EDITOR
                 }
                 playerName = playerName.Trim();
 
-                int playerRec = GetDCHTPGIDfromPlayerName(playerName);
-
+                int tgid = FindTGIDfromTeamName(DCHTTeam.Text);
+                int pgid = GetDCHTPGIDfromPlayerName(tgid, row, cell/3);
+                int playerRec = FindPGIDRecord(pgid);
 
                 PlayerIndex = playerRec;
                 tabControl1.SelectedTab = tabPlayers;

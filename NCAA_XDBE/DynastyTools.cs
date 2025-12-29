@@ -969,9 +969,29 @@ namespace DB_EDITOR
                     }
                 }
             }
+
+            //pick offensive impact if no skill positions meet criteria
+            if (ImpactKickers.Checked)
+            {
+                //Get Depth Chart
+
+                for (int d = 0; d < GetTableRecCount("DCHT"); d++)
+                {
+                    int pgidx = GetDBValueInt("DCHT", "PGID", d);
+                    int tgidx = pgidx / 70;
+                    int ppos = GetDBValueInt("DCHT", "PPOS", d);
+                    int ddep = GetDBValueInt("DCHT", "ddep", d);
+                    if (tgidx == TGID && ppos == 19 && ddep == 0)
+                    {
+                        double impactID = pgidx - PGIDbeg;
+                        ChangeDBString("TEAM", "TSI2", i, Convert.ToString(impactID));
+                        break;
+                    }
+                }
+            }
         }
 
-        //Determine Impact Players
+        //Remove Impact Players
         private void RemoveAllImpactPlayers()
         {
             StartProgressBar(GetTableRecCount("TEAM"));

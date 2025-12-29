@@ -1074,7 +1074,10 @@ namespace DB_EDITOR
         {
             return CreateIntListsFromCSV(@"resources\players\awareness.csv", true);
         }
-
+        private int DepthChartQB(int off)
+        {
+            return 1;
+        }
         private int DepthChartHB(int off)
         {
             if (off == 3) return 2;
@@ -1092,6 +1095,29 @@ namespace DB_EDITOR
             if (off == 3) return 1;
             else if (off == 0 || off == 2 || off == 4) return 2;
             else return 3;
+        }
+
+        private int DepthChartTE(int off)
+        {
+            return 1;
+        }
+        private int DepthChartOT(int off)
+        {
+            return 1;
+        }
+        private int DepthChartOG(int off)
+        {
+            return 1;
+        }
+
+        private int DepthChartOC(int off)
+        {
+            return 1;
+        }
+
+        private int DepthChartDE(int def)
+        {
+            return 2;
         }
 
         private int DepthChartDT(int def)
@@ -1112,11 +1138,31 @@ namespace DB_EDITOR
             else return 1;
         }
 
+        private int DepthChartCB(int def)
+        {
+            return 2;
+        }
+
+        private int DepthChartFS(int def)
+        {
+            return 1;
+        }
+
         private int DepthChartSS(int def)
         {
             if (def == 0 || def == 3) return 1;
             else if (def <=3) return 2;
             else return 0;
+        }
+
+        private int DepthChartK()
+        {
+            return 1;
+        }
+
+        private int DepthChartP()
+        {
+            return 1;
         }
 
         #endregion

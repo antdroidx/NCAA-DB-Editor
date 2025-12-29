@@ -451,10 +451,24 @@ namespace DB_EDITOR
         //Actually calculate the team ratings
         public void CalculateTeamRatings(string tableName, int teamRec, List<List<int>> roster)
         {
+            //Coach
+            int tgid = GetDBValueInt("TEAM", "TGID", teamRec);
+            int cochRec = -1;
+            for(int i = 0; i < GetTableRecCount("COCH"); i++)
+            {
+                if(GetDBValueInt("COCH", "TGID", i) == tgid)
+                {
+                    cochRec = i;
+                    break;
+                }
+            }
+
+            int offType = GetDBValueInt("COCH", "COST", cochRec);
+            int defType = GetDBValueInt("COCH", "CDST", cochRec);
 
             roster.Sort((player1, player2) => player2[0].CompareTo(player1[0]));
-            int bonus = 0;
             int rating = 0;
+            int total = 0;
             int count = 0;
             int topPlayer = 0;
             int topPlayerRating = 0;
@@ -467,7 +481,6 @@ namespace DB_EDITOR
             for (int j = 0; j < roster.Count; j++)
             {
                 int PPOS = roster[j][1];
-
 
                 if (PPOS == 0)
                 {
@@ -485,195 +498,493 @@ namespace DB_EDITOR
             }
 
             if (count <= 0) rating = 0;
-            else rating = ConvertRating(rating / count) + bonus;
+            else rating = ConvertRating(rating / count);
 
-            ChangeDBString(tableName, "TRQB", teamRec, Convert.ToString(rating));
+            ChangeDBInt(tableName, "TRQB", teamRec, rating);
             if (TDYN) ChangeDBInt(tableName, "OCAP", teamRec, topPlayer);
 
 
             //TRRB - Running Backs 1, 2
             rating = 0;
-            count = 0;
+            total = 0;
+            int countHB = DepthChartHB(offType);
+            int countFB = DepthChartFB(offType);
+            count = countHB + countFB + 1;
+
             for (int j = 0; j < roster.Count; j++)
             {
                 int PPOS = roster[j][1];
 
-                if (PPOS >= 1 && PPOS <= 2)
+                if (PPOS == 1 && countHB > 0)
                 {
-                    if (count == 1)
-                    {
-                        rating += roster[j][0];
-                        count++;
-                    }
-                    else
-                    {
-                        rating += 2 * roster[j][0];
-                        count += 2;
-                    }
+                    rating += roster[j][0]*3;
+                    countHB--;
+                    count--;
+                    total += 3;
+                    roster.RemoveAt(j);
+                    j--;
                 }
-                if (count >= 3) break;
+                if (countHB <= 0) break;
             }
 
-            if (count <= 0) rating = 0;
-            else rating = ConvertRating(rating / count) + bonus;
+            for (int j = 0; j < roster.Count; j++)
+            {
+                int PPOS = roster[j][1];
+                if (PPOS == 2 && countFB > 0)
+                {
+                    rating += roster[j][0];
+                    countFB--;
+                    count--;
+                    total++;
+                    roster.RemoveAt(j);
+                    j--;
+                    if (countFB <= 0) break;
+                }
+            }
+            for (int j = 0; j < roster.Count; j++)
+            {
+                int PPOS = roster[j][1];
 
-            ChangeDBString(tableName, "TRRB", teamRec, Convert.ToString(rating));
+                if (PPOS >= 1 && PPOS <= 2 && count > 0)
+                {
+                    rating += roster[j][0];
+                    count--;
+                    total++;
+                    roster.RemoveAt(j);
+                    j--;
+                    break;
+                }
+            }
+
+            if (count > 0)
+            {
+                for(int x = count; x > 0; x--)
+                {
+                    rating += 0;
+                    total++;
+                }
+            }
+            
+            rating = ConvertRating(rating / total);
+
+            ChangeDBInt(tableName, "TRRB", teamRec, rating);
 
 
 
             //TWRR - Wide Receivers 3, 4
             rating = 0;
-            count = 0;
+            total = 0;
+            int countWR = DepthChartWR(offType);
+            int countTE = DepthChartTE(offType);
+            count = countWR + countTE + 1;
+
             for (int j = 0; j < roster.Count; j++)
             {
                 int PPOS = roster[j][1];
 
-                if (PPOS >= 3 && PPOS <= 4)
+                if (PPOS == 3 && countWR > 0)
                 {
-                    if (count == 4) rating += roster[j][0];
-                    else rating += 2 * roster[j][0];
-                    count++;
+                    rating += roster[j][0]*2;
+                    countWR--;
+                    count--;
+                    total += 2;
+                    roster.RemoveAt(j);
+                    j--;
                 }
-                if (count >= 5) break;
+                if (countWR <= 0) break;
             }
 
-            if (count <= 0) rating = 0;
-            else rating = ConvertRating(rating / ((count - 1) * 2 + 1)) + bonus;
+            for (int j = 0; j < roster.Count; j++)
+            {
+                int PPOS = roster[j][1];
+                if (PPOS == 4 && countTE > 0)
+                {
+                    rating += roster[j][0]*2;
+                    countTE--;
+                    count--;
+                    total+=2;
+                    roster.RemoveAt(j);
+                    j--;
+                    if (countTE <= 0) break;
+                }
+            }
+            for (int j = 0; j < roster.Count; j++)
+            {
+                int PPOS = roster[j][1];
 
-            ChangeDBString(tableName, "TWRR", teamRec, Convert.ToString(rating));
+                if (PPOS >= 3 && PPOS <= 4 && count > 0)
+                {
+                    rating += roster[j][0];
+                    count--;
+                    total++;
+                    roster.RemoveAt(j);
+                    j--;
+                    break;
+                }
+            }
+
+            if (count > 0)
+            {
+                for (int x = count; x > 0; x--)
+                {
+                    rating += 0;
+                    total++;
+                }
+            }
+
+            rating = ConvertRating(rating / total);
+            ChangeDBInt(tableName, "TWRR", teamRec, rating);
+
+
 
             //TROL - Offensive Line 5 - 9
             rating = 0;
-            count = 0;
+            total = 0;
+            int countOT = DepthChartOT(offType);
+            int countOG = DepthChartOG(offType);
+            int countOC = DepthChartOC(offType);
+            count = countOT + countOG + countOC;
+
             for (int j = 0; j < roster.Count; j++)
             {
                 int PPOS = roster[j][1];
 
-                if (PPOS >= 5 && PPOS <= 9)
+                if ((PPOS == 5 | PPOS == 9) && countOT > 0)
                 {
                     rating += roster[j][0];
-                    count++;
+                    countOT--;
+                    count--;
+                    total++;
+                    roster.RemoveAt(j);
+                    j--;
                 }
-                if (count >= 5) break;
+                if (countOT <= 0) break;
             }
 
-            if (count <= 0) rating = 0;
-            else rating = ConvertRating(rating / count) + bonus;
+            for (int j = 0; j < roster.Count; j++)
+            {
+                int PPOS = roster[j][1];
+                if ((PPOS == 6 | PPOS == 8) && countOG > 0)
+                {
+                    rating += roster[j][0];
+                    countOG--;
+                    count--;
+                    total++;
+                    roster.RemoveAt(j);
+                    j--;
+                    if (countOG <= 0) break;
+                }
+            }
+            for (int j = 0; j < roster.Count; j++)
+            {
+                int PPOS = roster[j][1];
 
-            ChangeDBString(tableName, "TROL", teamRec, Convert.ToString(rating));
+                if (PPOS == 7 && countOC > 0)
+                {
+                    rating += roster[j][0];
+                    countOC--;
+                    count--;
+                    total++;
+                    roster.RemoveAt(j);
+                    j--;
+                }
+                if (countOC <= 0) break;
+            }
+
+            if (count > 0)
+            {
+                for (int x = count; x > 0; x--)
+                {
+                    rating += 0;
+                    total++;
+                }
+            }
+
+            rating = ConvertRating(rating / total);
+            ChangeDBInt(tableName, "TROL", teamRec, rating);
 
             //TRDL - Defensive Line 10, 11, 12
             rating = 0;
-            count = 0;
+            total = 0;
+            int countDE = DepthChartDE(defType);
+            int countDT = DepthChartDT(defType);
+            count = countDE + countDT + 1;
+
             for (int j = 0; j < roster.Count; j++)
             {
                 int PPOS = roster[j][1];
 
-                if (PPOS >= 10 && PPOS <= 12)
+                if (PPOS >= 10 && PPOS <= 11 && countDE > 0)
                 {
-                    if (count == 4) rating += roster[j][0];
-                    else rating += 2 * roster[j][0];
-                    count++;
+                    rating += roster[j][0]*2;
+                    countDE--;
+                    count--;
+                    total+=2;
+                    roster.RemoveAt(j);
+                    j--;
                 }
-                if (count >= 5) break;
+                if (countDE <= 0) break;
             }
 
-            if (count <= 0) rating = 0;
-            else rating = ConvertRating(rating / ((count - 1) * 2 + 1)) + bonus;
+            for (int j = 0; j < roster.Count; j++)
+            {
+                int PPOS = roster[j][1];
+                if (PPOS == 12 && countDT > 0)
+                {
+                    rating += roster[j][0]*2;
+                    countDT--;
+                    count--;
+                    total+=2;
+                    roster.RemoveAt(j);
+                    j--;
+                    if (countDT <= 0) break;
+                }
+            }
+            for (int j = 0; j < roster.Count; j++)
+            {
+                int PPOS = roster[j][1];
 
-            ChangeDBString(tableName, "TRDL", teamRec, Convert.ToString(rating));
+                if (PPOS >= 10 && PPOS <= 12 && count > 0)
+                {
+                    rating += roster[j][0];
+                    count--;
+                    total++;
+                    roster.RemoveAt(j);
+                    j--;
+                    break;
+                }
+            }
+
+            if (count > 0)
+            {
+                for (int x = count; x > 0; x--)
+                {
+                    rating += 0;
+                    total++;
+                }
+            }
+
+            rating = ConvertRating(rating / total);
+            ChangeDBInt(tableName, "TRDL", teamRec, rating);
 
 
             //TRLB - Linebackers 13, 14, 15
             rating = 0;
-            count = 0;
-            topPlayer = 0;
-            topPlayerRating = 0;
+            total = 0;
+            int countOLB = DepthChartOLB(defType);
+            int countMLB = DepthChartMLB(defType);
+            count = countOLB + countMLB + 1;
+
             for (int j = 0; j < roster.Count; j++)
             {
                 int PPOS = roster[j][1];
 
-                if (PPOS >= 13 && PPOS <= 15)
+                if ((PPOS >= 13 | PPOS <= 15) && countOLB > 0)
                 {
-                    rating += roster[j][0];
-
-                    if (roster[j][0] > topPlayerRating)
-                    {
-                        topPlayerRating = roster[j][0];
-                        topPlayer = roster[j][2] - GetDBValueInt(tableName, "TOID", teamRec)*70;
-                    }
-                    count++;
+                    rating += roster[j][0] * 2;
+                    countOLB--;
+                    count--;
+                    total += 2;
+                    roster.RemoveAt(j);
+                    j--;
                 }
-                if (count >= 4) break;
+                if (countOLB <= 0) break;
             }
 
-            if (count <= 0) rating = 0;
-            else rating = ConvertRating(rating / count) + bonus;
+            for (int j = 0; j < roster.Count; j++)
+            {
+                int PPOS = roster[j][1];
+                if (PPOS == 14 && countMLB > 0)
+                {
+                    rating += roster[j][0] * 2;
+                    countMLB--;
+                    count--;
+                    total+=2;
+                    roster.RemoveAt(j);
+                    j--;
+                    if (countMLB <= 0) break;
+                }
+            }
+            for (int j = 0; j < roster.Count; j++)
+            {
+                int PPOS = roster[j][1];
 
-            ChangeDBString(tableName, "TRLB", teamRec, Convert.ToString(rating));
+                if (PPOS >= 10 && PPOS <= 12 && count > 0)
+                {
+                    rating += roster[j][0];
+                    count--;
+                    total++;
+                    roster.RemoveAt(j);
+                    j--;
+                    break;
+                }
+            }
+
+            if (count > 0)
+            {
+                for (int x = count; x > 0; x--)
+                {
+                    rating += 0;
+                    total++;
+                }
+            }
+
+            rating = ConvertRating(rating / total);
+            ChangeDBInt(tableName, "TRLB", teamRec, rating);
             if(TDYN) ChangeDBInt(tableName, "DCAP", teamRec, topPlayer);
+
+
 
             //TRDB - Defensive Backs  PPOS = 16, 17, 18
             rating = 0;
-            count = 0;
+            total = 0;
+            int countCB = DepthChartCB(defType);
+            int countFS = DepthChartFS(defType);
+            int countSS = DepthChartSS(defType);
+            count = countCB + countFS + countSS + 1;
+
             for (int j = 0; j < roster.Count; j++)
             {
                 int PPOS = roster[j][1];
 
-                if (PPOS >= 16 && PPOS <= 18)
+                if (PPOS == 16 && countCB > 0)
                 {
-                    if (count == 4) rating += roster[j][0];
-                    else rating += 2 * roster[j][0];
-                    count++;
+                    rating += roster[j][0] * 2;
+                    countCB--;
+                    count--;
+                    total += 2;
+                    roster.RemoveAt(j);
+                    j--;
                 }
-                if (count >= 5) break;
+                if (countCB <= 0) break;
             }
 
-            if (count <= 0) rating = 0;
-            else rating = ConvertRating(rating / ((count - 1) * 2 + 1)) + bonus;
+            for (int j = 0; j < roster.Count; j++)
+            {
+                int PPOS = roster[j][1];
 
-            ChangeDBString(tableName, "TRDB", teamRec, Convert.ToString(rating));
+                if (PPOS == 17 && countFS > 0)
+                {
+                    rating += roster[j][0] * 2;
+                    countFS--;
+                    count--;
+                    total += 2;
+                    roster.RemoveAt(j);
+                    j--;
+                }
+                if (countFS <= 0) break;
+            }
 
+            for (int j = 0; j < roster.Count; j++)
+            {
+                int PPOS = roster[j][1];
+
+                if (PPOS == 18 && countSS > 0)
+                {
+                    rating += roster[j][0] * 2;
+                    countSS--;
+                    count--;
+                    total += 2;
+                    roster.RemoveAt(j);
+                    j--;
+                }
+                if (countSS <= 0) break;
+            }
+
+            for (int j = 0; j < roster.Count; j++)
+            {
+                int PPOS = roster[j][1];
+
+                if (PPOS >= 16 && PPOS <= 18 && count > 0)
+                {
+                    rating += roster[j][0];
+                    count--;
+                    total++;
+                    roster.RemoveAt(j);
+                    j--;
+                    break;
+                }
+            }
+
+            if (count > 0)
+            {
+                for (int x = count; x > 0; x--)
+                {
+                    rating += 0;
+                    total++;
+                }
+            }
+
+            rating = ConvertRating(rating / total);
+            ChangeDBInt(tableName, "TRDB", teamRec, rating);
 
 
             //TRST - Special Teams 19, 20
             rating = 0;
-            count = 0;
+            total = 0;
+            int countK = DepthChartK();
+            int countP = DepthChartP();
+            count = countK + countP;
+
             for (int j = 0; j < roster.Count; j++)
             {
                 int PPOS = roster[j][1];
 
-                if (PPOS >= 19 && PPOS <= 20)
+                if (PPOS == 19 && countK > 0)
                 {
-                    rating += roster[j][0];
-                    count++;
+                    rating += roster[j][0] * 2;
+                    countK--;
+                    count--;
+                    total += 2;
+                    roster.RemoveAt(j);
+                    j--;
                 }
-                if (count >= 2) break;
+                if (countK <= 0) break;
             }
 
-            if (count <= 0) ChangeDBInt(tableName, "TRST", teamRec, 0);
-            else
+            for (int j = 0; j < roster.Count; j++)
             {
-                rating = ConvertRating(rating / count) + bonus;
-
-                ChangeDBString(tableName, "TRST", teamRec, Convert.ToString(rating));
+                int PPOS = roster[j][1];
+                if (PPOS == 20 && countP > 0)
+                {
+                    rating += roster[j][0] * 2;
+                    countP--;
+                    count--;
+                    total += 2;
+                    roster.RemoveAt(j);
+                    j--;
+                    if (countP <= 0) break;
+                }
             }
+
+            if (count > 0)
+            {
+                for (int x = count; x > 0; x--)
+                {
+                    rating += 0;
+                    total++;
+                }
+            }
+
+            rating = ConvertRating(rating / total);
+            ChangeDBInt(tableName, "TRST", teamRec, rating);
+
 
 
             //TRDE - Defense 10 - 18, 20
-            rating = (Convert.ToInt32(GetDBValue(tableName, "TRDB", teamRec)) + Convert.ToInt32(GetDBValue(tableName, "TRLB", teamRec)) + Convert.ToInt32(GetDBValue(tableName, "TRDL", teamRec))) / 3;
+            rating = (GetDBValueInt(tableName, "TRDB", teamRec) + GetDBValueInt(tableName, "TRLB", teamRec) + GetDBValueInt(tableName, "TRDL", teamRec)) / 3;
 
-            ChangeDBString(tableName, "TRDE", teamRec, Convert.ToString(rating));
+            ChangeDBInt(tableName, "TRDE", teamRec, rating);
 
             //TROF - Offense 0 - 9, 19
-            rating = (Convert.ToInt32(GetDBValue(tableName, "TRQB", teamRec)) * 35 + Convert.ToInt32(GetDBValue(tableName, "TRRB", teamRec)) * 25 + Convert.ToInt32(GetDBValue(tableName, "TWRR", teamRec)) * 20 + Convert.ToInt32(GetDBValue(tableName, "TROL", teamRec)) * 20 ) / 100;
+            rating = (GetDBValueInt(tableName, "TRQB", teamRec) * 35 + GetDBValueInt(tableName, "TRRB", teamRec) * 25 + GetDBValueInt(tableName, "TWRR", teamRec) * 20 + GetDBValueInt(tableName, "TROL", teamRec) * 20 ) / 100;
 
-            ChangeDBString(tableName, "TROF", teamRec, Convert.ToString(rating));
+            ChangeDBInt(tableName, "TROF", teamRec, rating);
 
             //TROV - Team Overall
-            rating = (Convert.ToInt32(GetDBValue(tableName, "TROF", teamRec)) * 4 + Convert.ToInt32(GetDBValue(tableName, "TRDE", teamRec)) * 4 + Convert.ToInt32(GetDBValue(tableName, "TRST", teamRec))) / 9;
+            rating = (GetDBValueInt(tableName, "TROF", teamRec) * 4 + GetDBValueInt(tableName, "TRDE", teamRec) * 4 + GetDBValueInt(tableName, "TRST", teamRec)) / 9;
 
-            ChangeDBString(tableName, "TROV", teamRec, Convert.ToString(rating));
+            ChangeDBInt(tableName, "TROV", teamRec, rating);
 
         }
 
