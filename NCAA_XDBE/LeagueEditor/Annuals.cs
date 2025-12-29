@@ -70,8 +70,8 @@ namespace DB_EDITOR
                 {
                     int tgidA = GetDBValueInt("SANN", "GATG", i);
                     int tgidH = GetDBValueInt("SANN", "GHTG", i);
-                    int recA = main.FindTeamRecfromTeamName(teamNameDB[tgidA]);
-                    int recH = main.FindTeamRecfromTeamName(teamNameDB[tgidH]);
+                    int recA = main.FindTeamRecfromTGID(tgidA);
+                    int recH = main.FindTeamRecfromTGID(tgidH);
 
 
                     //check for Army-Navy game and change to week 15

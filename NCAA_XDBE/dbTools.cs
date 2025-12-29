@@ -319,8 +319,8 @@ namespace DB_EDITOR
                     int offPB = GetDBValueInt("COCH", "CPID", i);
                     int defPB = GetDBValueInt("COCH", "CDST", i);
 
-                    ChangeDBInt("TEAM", "TOPB", FindTeamRecfromTeamName(teamNameDB[tgid]), offPB);
-                    ChangeDBInt("TEAM", "TDPB", FindTeamRecfromTeamName(teamNameDB[tgid]), defPB);
+                    ChangeDBInt("TEAM", "TOPB", FindTeamRecfromTGID(tgid), offPB);
+                    ChangeDBInt("TEAM", "TDPB", FindTeamRecfromTGID(tgid), defPB);
                 }
                 ProgressBarStep();
             }
@@ -754,6 +754,9 @@ namespace DB_EDITOR
 
                     int stRating = GetDBValueInt(tableName, "TRST", x);
 
+                    if (offRating < 0) offRating = 0;
+                    if (defRating < 0) defRating = 0;
+
                     ChangeDBInt(tableName, "TROF", x, offRating);
                     ChangeDBInt(tableName, "TRDE", x, defRating);
 
@@ -776,6 +779,7 @@ namespace DB_EDITOR
                         int rating = GetDBValueInt(tableName, "TROF", x);
                         int def = GetDBValueInt(tableName, "TRDE", x);
                         int st = GetDBValueInt(tableName, "TRST", x);
+                        if (rating < diff) rating = diff;
 
                         ChangeDBInt(tableName, "TROF", x, rating - diff);
                         ChangeDBInt(tableName, "TROV", x, ((rating - diff)*45 + def * 45 + st*10) / 100);
@@ -794,6 +798,7 @@ namespace DB_EDITOR
                         int rating = GetDBValueInt(tableName, "TRDE", x);
                         int off = GetDBValueInt(tableName, "TROF", x);
                         int st = GetDBValueInt(tableName, "TRST", x);
+                        if (rating < diff) rating = diff;
 
                         ChangeDBInt(tableName, "TRDE", x, rating - diff);
                         ChangeDBInt(tableName, "TROV", x, ((rating - diff) * 45 + off * 45 + st * 10) / 100);

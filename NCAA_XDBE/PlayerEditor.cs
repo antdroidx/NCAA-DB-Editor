@@ -1754,7 +1754,7 @@ namespace DB_EDITOR
 
         private void PlayerTransferButton_Click(object sender, EventArgs e)
         {
-            var response = MessageBox.Show("Are you sure you want to send this player to the Transfer Portal?", "Transfer Player", MessageBoxButtons.OKCancel);
+            var response = MessageBox.Show("Are you sure you want to send this player to the Transfer Portal? \n\nNote: This only works in the Players Leaving stage!", "Transfer Player", MessageBoxButtons.OKCancel);
 
             if (response == DialogResult.OK)
             {
@@ -1882,7 +1882,7 @@ namespace DB_EDITOR
                     }
                     if (qbr < 0) qbr = 0;
 
-                    PlayerStatsView.Rows[row].Cells[0].Value = sea;
+                    PlayerStatsView.Rows[row].Cells[0].Value = sea + DynStartYear.Value;
                     PlayerStatsView.Rows[row].Cells[1].Value = gp;
                     PlayerStatsView.Rows[row].Cells[2].Value = qbr;
                     PlayerStatsView.Rows[row].Cells[3].Value = cmp;
@@ -1939,7 +1939,7 @@ namespace DB_EDITOR
                     double ypg = 0;
                     if (gp > 0) ypg = Math.Round((Convert.ToDouble(yds) / Convert.ToDouble(gp)), 1);
 
-                    PlayerStatsView.Rows[row].Cells[0].Value = sea;
+                    PlayerStatsView.Rows[row].Cells[0].Value = sea + DynStartYear.Value;
                     PlayerStatsView.Rows[row].Cells[1].Value = gp;
                     PlayerStatsView.Rows[row].Cells[2].Value = att;
                     PlayerStatsView.Rows[row].Cells[3].Value = yds;
@@ -2001,7 +2001,7 @@ namespace DB_EDITOR
                     if (cat > 0) ypc = Math.Round((Convert.ToDouble(rac) / Convert.ToDouble(cat)), 1);
 
 
-                    PlayerStatsView.Rows[row].Cells[0].Value = sea;
+                    PlayerStatsView.Rows[row].Cells[0].Value = sea + DynStartYear.Value;
                     PlayerStatsView.Rows[row].Cells[1].Value = gp;
                     PlayerStatsView.Rows[row].Cells[2].Value = cat;
                     PlayerStatsView.Rows[row].Cells[3].Value = yds;
@@ -2050,7 +2050,7 @@ namespace DB_EDITOR
                     if (gp <= 0) gp = CountTeamGames(pgid / 70);
 
 
-                    PlayerStatsView.Rows[row].Cells[0].Value = sea;
+                    PlayerStatsView.Rows[row].Cells[0].Value = sea + DynStartYear.Value;
                     PlayerStatsView.Rows[row].Cells[1].Value = gp;
                     PlayerStatsView.Rows[row].Cells[2].Value = pan;
                     PlayerStatsView.Rows[row].Cells[3].Value = sack;
@@ -2094,7 +2094,7 @@ namespace DB_EDITOR
                     int defTD = GetDBValueInt("PSDE", "ssdt", i);
                     if (gp <= 0) gp = CountTeamGames(pgid / 70);
 
-                    PlayerStatsView.Rows[row].Cells[0].Value = sea;
+                    PlayerStatsView.Rows[row].Cells[0].Value = sea + DynStartYear.Value;
                     PlayerStatsView.Rows[row].Cells[1].Value = gp;
                     PlayerStatsView.Rows[row].Cells[2].Value = tak;
                     PlayerStatsView.Rows[row].Cells[3].Value = tfl;
@@ -2148,7 +2148,7 @@ namespace DB_EDITOR
                     double xppct = 0;
                     if (xpa > 0) xppct = Math.Round((Convert.ToDouble(xpm) / Convert.ToDouble(xpa)) * 100, 1);
 
-                    PlayerStatsView.Rows[row].Cells[0].Value = sea;
+                    PlayerStatsView.Rows[row].Cells[0].Value = sea + DynStartYear.Value;
                     PlayerStatsView.Rows[row].Cells[1].Value = gp;
                     PlayerStatsView.Rows[row].Cells[2].Value = fgm;
                     PlayerStatsView.Rows[row].Cells[3].Value = fga;
@@ -2197,7 +2197,7 @@ namespace DB_EDITOR
                     double puntavg = 0;
                     if (punt > 0) puntavg = Math.Round((Convert.ToDouble(yd) / Convert.ToDouble(punt)), 1);
 
-                    PlayerStatsView.Rows[row].Cells[0].Value = sea;
+                    PlayerStatsView.Rows[row].Cells[0].Value = sea + DynStartYear.Value;
                     PlayerStatsView.Rows[row].Cells[1].Value = gp;
                     PlayerStatsView.Rows[row].Cells[2].Value = punt;
                     PlayerStatsView.Rows[row].Cells[3].Value = yd;

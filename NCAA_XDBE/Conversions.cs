@@ -1670,6 +1670,21 @@ namespace DB_EDITOR
             return tgid;
         }
 
+        public int FindTeamRecfromTGID(int tgid)
+        {
+            int rec = -1;
+            for (int i = 0; i < GetTableRecCount("TEAM"); i++)
+            {
+                if (GetDBValueInt("TEAM", "TGID", i) == tgid)
+                {
+                    rec = i;
+                    break;
+                }
+            }
+
+            return rec;
+        }
+
         public int FindTGIDfromTeamName(string tmName)
         {
             for (int i = 0; i < teamNameDB.Length; i++)

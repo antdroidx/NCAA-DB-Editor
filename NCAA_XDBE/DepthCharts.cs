@@ -459,6 +459,7 @@ namespace DB_EDITOR
                     int jersey = GetDBValueInt("PLAY", "PJEN", rec);
                     int year = GetDBValueInt("PLAY", "PYER", rec);
                     int redshirt = GetDBValueInt("PLAY", "PRSD", rec);
+                    int ptyp = GetDBValueInt("PLAY", "PTYP", rec);
                     int dchtrow = -1;
                     for (int x = 0; x < DCHTPlayers.Count; x++)
                     {
@@ -480,6 +481,11 @@ namespace DB_EDITOR
                         impact += " " + ConvertStarNumber(1);
                     }
 
+                    if (dbIndex2 > 0)
+                    {
+                        if (ptyp == 1) impact += " +";
+                        else if (ptyp == 3) impact += " >";
+                    }
 
                     if (DCHTEditorMode.Checked)
                     {
@@ -579,7 +585,6 @@ namespace DB_EDITOR
         {
             DCHTGrid.Rows[ppos].Cells[depth * 3 + 1].Style.Font = new Font("Verdana", 9, FontStyle.Bold);
             DCHTGrid.Rows[ppos].Cells[depth * 3 + 3].Style.Font = new Font("Verdana", 9, FontStyle.Bold);
-
         }
 
         //Update Player List by Cell
@@ -642,28 +647,42 @@ namespace DB_EDITOR
 
             int rating = -1;
 
-            Color textColor = GetColorRating(rating);
+            Color highlightColor = GetColorRating(rating);
 
             if (DCHTEditorMode.Checked)
             {
                 rating = ExtractBracketRating(text);
 
                 // Apply the color to the cell's style so the cell displays colored text when NOT editing
-                e.CellStyle.ForeColor = textColor;
+                e.CellStyle.ForeColor = highlightColor;
                 e.CellStyle.BackColor = Color.Black;
 
                 // If desired, also adjust selection fore color so selection does not hide color
-                e.CellStyle.SelectionForeColor = textColor;
+                e.CellStyle.SelectionForeColor = highlightColor;
                 e.CellStyle.SelectionBackColor = Color.DarkGray;
             }
             else
             {
                 if (e.ColumnIndex % 3 == 0)
                 {
-                    textColor = GetColorRating(Convert.ToInt32(text));
-                    e.CellStyle.ForeColor = ChooseForeground(textColor);
-                    e.CellStyle.BackColor = textColor;
-                    e.CellStyle.SelectionBackColor = textColor;
+                    highlightColor = GetColorRating(Convert.ToInt32(text));
+                    e.CellStyle.ForeColor = ChooseForeground(highlightColor);
+                    e.CellStyle.BackColor = highlightColor;
+                    e.CellStyle.SelectionBackColor = highlightColor;
+
+
+                }
+                else if (e.ColumnIndex % 1 == 0)
+                {
+                    if (text.Contains("+"))
+                    {
+                        e.CellStyle.ForeColor = Color.ForestGreen;
+
+                    }
+                    else if (text.Contains(">"))
+                    {
+                        e.CellStyle.ForeColor = Color.DarkRed;
+                    }
                 }
                 else
                 {

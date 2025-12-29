@@ -84,12 +84,22 @@ namespace DB_EDITOR
 
                     for (int i = 0; i < GetTableRecCount("TEAM"); i++)
                     {
+                        int tgid = GetDBValueInt("TEAM", "TGID", i);
                         if (GetDBValueInt("TEAM", "TTYP", i) == 0)
                         {
-                            int tgid = GetDBValueInt("TEAM", "TGID", i);
                             DetermineTeamCuts(tgid, teamPrestigeList);
                         }
-                        ProgressBarStep();
+                        //Add any excess players to the Portal (fixes any mistakes)
+                        else
+                        {
+                            //Create a list of players at the position
+                            for (int p = 0; p < SpringRoster[tgid].Count; p++)
+                            {
+                                SpringPortal.Add(SpringRoster[tgid][p]);
+                            }
+                        }
+
+                            ProgressBarStep();
                     }
 
                     EndProgressBar();
@@ -100,14 +110,29 @@ namespace DB_EDITOR
                 }
 
 
-                //Remove unused FCS players
+                //Remove unused FCS players & change PTYP
                 for (int i = 0; i < GetTableRecCount("PLAY"); i++)
                 {
                     int pgid = GetDBValueInt("PLAY", "PGID", i);
+                    int tgid = pgid / 70;
+
                     if (pgid >= 30000)
                     {
                         DeleteRecord("PLAY", i, true);
                     }
+                    else
+                    {
+                        int teamRec = FindTeamRecfromTGID(tgid);
+                        if(GetDBValueInt("TEAM", "TTYP", teamRec) > 0)
+                        {
+                            RemovePlayerFromTRAN(pgid);
+                            ClearPlayerStats(pgid);
+                            DeleteRecord("PLAY", i, true);
+                        }
+
+                    }
+
+                    ChangeDBInt("PLAY", "PTYP", i, 0);
                 }
 
                 for (int i = 0; i < GetTableRecCount("TRAN"); i++)
@@ -120,6 +145,8 @@ namespace DB_EDITOR
                 }
                 CompactDB();
             }
+
+
 
             PostPortalRosterCheck();
 
@@ -291,6 +318,9 @@ namespace DB_EDITOR
         private void DetermineTeamCuts(int tgid, List<int> teamPrestigeList)
         {
             List<decimal> depth = new List<decimal> { PortalQB.Value, PortalHB.Value, PortalFB.Value, PortalWR.Value, PortalTE.Value, PortalOT.Value, PortalOG.Value, PortalOC.Value, PortalDE.Value, PortalDT.Value, PortalOLB.Value, PortalMLB.Value, PortalCB.Value, PortalFS.Value, PortalSS.Value, PortalK.Value, PortalP.Value };
+            int teamRec = FindTeamRecfromTGID(tgid);
+            int teamWins = GetDBValueInt("TEAM", "tsdw", teamRec);   
+          
 
             for (int p = 0; p < depth.Count; p++)
             {
@@ -301,7 +331,9 @@ namespace DB_EDITOR
                 {
                     if (SpringRoster[tgid][i][3] == p)
                     {
-                        posList.Add(SpringRoster[tgid][i]);
+                        int ptyp = GetDBValueInt("PLAY", "PTYP", SpringRoster[tgid][i][0]);
+                        if (ptyp == 1) SpringPortal.Add(SpringRoster[tgid][i]);
+                        else posList.Add(SpringRoster[tgid][i]);
                     }
                 }
 
@@ -319,7 +351,7 @@ namespace DB_EDITOR
                     {
                         if (posList[x][0] != -1 && posList[x][9] == 0 || posList[x][2] >= 21000 && PortalTransfers.Checked || posList[x][9] == 1 && PortalTransfers.Checked)
                         {
-                            if (rand.Next(0, 100) < portalChance.Value)
+                            if (rand.Next(1, 100) < portalChance.Value)
                                 SpringPortal.Add(posList[x]);
                         }
                     }
@@ -343,7 +375,7 @@ namespace DB_EDITOR
                 }
 
                 //QB BACKUPS
-                if (AllowBackupQBPortal.Checked && p == 0 && rand.Next(0, 100) < portalChance.Value && posList.Count > 1)
+                if (AllowBackupQBPortal.Checked && p == 0 && rand.Next(1, 100) < portalChance.Value && posList.Count > 1)
                 {
                     // If the team has a backup QB, allow them to add a player to the portal
                     if (posList[1][0] != -1 && posList[1][9] == 0 || posList[1][2] >= 21000 && PortalTransfers.Checked || posList[1][9] == 1 && PortalTransfers.Checked)
@@ -354,7 +386,7 @@ namespace DB_EDITOR
                 }
 
                 //STARTERS
-                if (AllowStartersLeave.Checked && p >= 0 && rand.Next(0, 100) < 8 && posList.Count > 1)
+                if (AllowStartersLeave.Checked && p >= 0 && rand.Next(1, 100) < 8 && posList.Count > 1)
                 {
                     // If the team has a backup QB, allow them to add a player to the portal
                     if (posList[0][0] != -1 && posList[0][9] == 0 || posList[0][2] >= 21000 && PortalTransfers.Checked || posList[0][9] == 1 && PortalTransfers.Checked)
@@ -363,7 +395,7 @@ namespace DB_EDITOR
                         int tmpr = teamPrestigeList[tgid];
                         int poe = posList[0][13];
 
-                        if (disc <= rand.Next(0, 8) && tmpr <= rand.Next(0, 8) || poe >= rand.Next(0, 25) && tmpr <= rand.Next(0, 8))
+                        if (disc <= rand.Next(0, 8) && tmpr <= rand.Next(0, 8) || poe >= rand.Next(0, 25) && teamWins <= rand.Next(0, 10))
                         {
                             posList[0][12] = 1; //mark as starter leaving
                             SpringPortal.Add(posList[0]);
@@ -371,7 +403,7 @@ namespace DB_EDITOR
                         }
                     }
                 }
-
+                
             }
         }
 
@@ -1072,7 +1104,7 @@ namespace DB_EDITOR
             StartProgressBar(512);
             for (int tgid = 0; tgid < 512; tgid++)
             {
-                if (FindTeamRecfromTeamName(teamNameDB[tgid]) > 0 && GetDBValueInt("TEAM", "TTYP", FindTeamRecfromTeamName(teamNameDB[tgid])) == 0)
+                if (FindTeamRecfromTGID(tgid) > 0 && GetDBValueInt("TEAM", "TTYP", FindTeamRecfromTGID(tgid)) == 0)
                 {
 
                     for (int p = 0; p < depth.Count; p++)

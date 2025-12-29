@@ -241,7 +241,7 @@ namespace DB_EDITOR
             List<List<int>> teamPrestigeList = new List<List<int>>();
             for(int i = 0; i < TGID_VacancyList.Count; i++)
             {
-                int teamRec = FindTeamRecfromTeamName(teamNameDB[TGID_VacancyList[i]]);
+                int teamRec = FindTeamRecfromTGID(TGID_VacancyList[i]);
 
                 teamPrestigeList.Add(new List<int>());
                 teamPrestigeList[i].Add(teamRec);
@@ -577,7 +577,6 @@ namespace DB_EDITOR
             else
             {
                 ChangeDBString("PLAY", "PTYP", i, "1");
-
             }
         }
 

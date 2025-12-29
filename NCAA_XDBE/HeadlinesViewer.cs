@@ -36,7 +36,8 @@ namespace DB_EDITOR
 
         private void LoadNewspaperTitle(int week)
         {
-            DBNHeadlinesTitle.Text = "DATABASE NEWS NETWORK: Week " + week + " Headlines";
+            int sea = GetDBValueInt("SEAI", "SEYR", 0);
+            DBNHeadlinesTitle.Text = "" + (sea+DynStartYear.Value) + ": Week " + week + " Headlines";
         }
 
 
@@ -49,7 +50,7 @@ namespace DB_EDITOR
             string headlineTitle = GetDBValue("MCOV", "MHTX", week);
             string headlineCaption = GetDBValue("MCOV", "MCTX", week);
 
-            HeadlineMainHelmet.BackColor = GetTeamPrimaryColor(FindTeamRecfromTeamName(teamNameDB[tgid]));
+            HeadlineMainHelmet.BackColor = GetTeamPrimaryColor(FindTeamRecfromTGID(tgid));
 
             MainHeadlineTitle.Text = headlineTitle;
             MainHeadlineCaption.Text = headlineCaption;
@@ -111,7 +112,7 @@ namespace DB_EDITOR
                     }
                 }
 
-                helmets[i].BackColor = GetTeamPrimaryColor(FindTeamRecfromTeamName(teamNameDB[tgid]));
+                helmets[i].BackColor = GetTeamPrimaryColor(FindTeamRecfromTGID(tgid));
                 titles[i].Text = finalTitle;
                 captions[i].Text = finalCaption;
                 players[i].Text = GetPlayerNamefromPGID(pgid) + " (" + pos + ")  from " + teamNameDB[tgid];
@@ -132,19 +133,19 @@ namespace DB_EDITOR
             if (capSymbol.Contains("-f.")) return GetPlayerNamefromPGID(pgid);
 
 
-            if (capSymbol == "-J") return GetDBValue("TEAM", "TMNA", FindTeamRecfromTeamName(teamNameDB[tgid]));
-            if (capSymbol.Contains("-J-")) return GetDBValue("TEAM", "TMNA", FindTeamRecfromTeamName(teamNameDB[tgid])) + "'";
+            if (capSymbol.Contains("-J")) return GetDBValue("TEAM", "TMNA", FindTeamRecfromTGID(tgid));
+            if (capSymbol.Contains("-J-")) return GetDBValue("TEAM", "TMNA", FindTeamRecfromTGID(tgid)) + "'";
 
-            if (capSymbol.Contains("-P")) return "Year " + GetDBValueInt("SEAI", "SEYR", 0);
-            if (capSymbol == "-B") return GetClassYear(GetDBValueInt("PLAY", "PYER", pRec), GetDBValueInt("PLAY", "RSHD", pRec));
+            if (capSymbol.Contains("-P")) return "" + (GetDBValueInt("SEAI", "SEYR", 0) + DynStartYear.Value);
+            if (capSymbol.Contains("-B")) return GetClassYear(GetDBValueInt("PLAY", "PYER", pRec), GetDBValueInt("PLAY", "RSHD", pRec));
 
-            if (capSymbol == "-g") 
+            if (capSymbol.Contains("-g")) 
             {
-                int cgid = GetTeamCGID(FindTeamRecfromTeamName(teamNameDB[tgid]));
+                int cgid = GetTeamCGID(FindTeamRecfromTGID(tgid));
                 return GetConfNameFromCGID(cgid);
             }
 
-            if(capSymbol == "-#") GetTeamRanking(FindTeamRecfromTeamName(teamNameDB[tgid]));
+            if(capSymbol.Contains("-#")) GetTeamRanking(FindTeamRecfromTGID(tgid));
 
 
             if (capSymbol == "-{")
@@ -162,7 +163,7 @@ namespace DB_EDITOR
                 return GetPositionName(GetDBValueInt("PLAY", "PPOS", pRec));
             }
 
-            if (capSymbol == "-e")
+            if (capSymbol.Contains("-e"))
             {
                 return capSymbol;
             }
@@ -170,15 +171,15 @@ namespace DB_EDITOR
             //Team Conf Seed
             if (capSymbol.Contains("-I"))
             {
-                int teamRec = FindTeamRecfromTeamName(teamNameDB[tgid]);
+                int teamRec = FindTeamRecfromTGID(tgid);
 
                 return "" + GetDBValue("TEAM", "tscw", teamRec) + "-" + GetDBValue("TEAM", "tscl", teamRec);
             }
 
             //Team  Seed
-            if (capSymbol == "-8")
+            if (capSymbol.Contains("-8"))
             {
-                int teamRec = FindTeamRecfromTeamName(teamNameDB[tgid]);
+                int teamRec = FindTeamRecfromTGID(tgid);
                 return "#" + GetDBValue("TEAM", "TCRK", teamRec);
             }
 
@@ -192,12 +193,12 @@ namespace DB_EDITOR
                 {
                     if (tgid == GetDBValueInt("SCHD", "GATG", i) && sewn == GetDBValueInt("SCHD", "SEWN", i))
                     {
-                        int oppRec = FindTeamRecfromTeamName(teamNameDB[GetDBValueInt("SCHD", "GHTG", i)]);
+                        int oppRec = FindTeamRecfromTGID(GetDBValueInt("SCHD", "GHTG", i));
                         return "#" + GetDBValue("TEAM", "TCRK", oppRec);
                     }
                     if (tgid == GetDBValueInt("SCHD", "GHTG", i) && sewn == GetDBValueInt("SCHD", "SEWN", i))
                     {
-                        int oppRec = FindTeamRecfromTeamName(teamNameDB[GetDBValueInt("SCHD", "GATG", i)]);
+                        int oppRec = FindTeamRecfromTGID(GetDBValueInt("SCHD", "GATG", i));
                         return "#" + GetDBValue("TEAM", "TCRK", oppRec);
                     }
                 }
@@ -207,7 +208,7 @@ namespace DB_EDITOR
             }
 
             //Stats Season Yards
-            if (capSymbol == "-?")
+            if (capSymbol.Contains("-?"))
             {
                 int seyr = GetDBValueInt("SEAI", "SEYR", 0);
                 int ppos = GetDBValueInt("PLAY", "PPOS", pRec);
@@ -226,7 +227,7 @@ namespace DB_EDITOR
             }
 
             //Stats Season TDs
-            if (capSymbol == "-.")
+            if (capSymbol.Contains("-."))
             {
                 int seyr = GetDBValueInt("SEAI", "SEYR", 0);
                 int ppos = GetDBValueInt("PLAY", "PPOS", pRec);
@@ -245,7 +246,7 @@ namespace DB_EDITOR
 
 
             //Stats Game Yards
-            if (capSymbol == "-v")
+            if (capSymbol.Contains("-v"))
             {
                 int sewn = GetDBValueInt("SEAI", "SEWN", 0)-1;
                 int ppos = GetDBValueInt("PLAY", "PPOS", pRec);
@@ -277,7 +278,7 @@ namespace DB_EDITOR
 
 
             //Stats Game TDs
-            if (capSymbol == "-w")
+            if (capSymbol.Contains("-w"))
             {
                 int sewn = GetDBValueInt("SEAI", "SEWN", 0) - 1;
                 int ppos = GetDBValueInt("PLAY", "PPOS", pRec);
@@ -308,7 +309,7 @@ namespace DB_EDITOR
             }
 
             //Stats Game Catches
-            if (capSymbol == "-u")
+            if (capSymbol.Contains("-u"))
             {
                 int sewn = GetDBValueInt("SEAI", "SEWN", 0) - 1;
                 int ppos = GetDBValueInt("PLAY", "PPOS", pRec);
@@ -339,9 +340,9 @@ namespace DB_EDITOR
             }
 
             //City
-            if (capSymbol == "-:")
+            if (capSymbol.Contains("-:"))
             {
-                int sgid = GetDBValueInt("TEAM", "SGID", FindTeamRecfromTeamName(teamNameDB[tgid]));
+                int sgid = GetDBValueInt("TEAM", "SGID", FindTeamRecfromTGID(tgid));
 
                 for (int i = 0; i < GetTableRecCount("STAD"); i++)
                 {
@@ -376,7 +377,7 @@ namespace DB_EDITOR
             }
 
             //Opposing Team Nickname
-            if (capSymbol == "-|")
+            if (capSymbol.Contains("-|"))
             {
                 int opponent = -1;
                 int sewn = GetDBValueInt("SEAI", "SEWN", 0);
@@ -393,7 +394,7 @@ namespace DB_EDITOR
                     }
                 }
 
-                int teamRec = FindTeamRecfromTeamName(teamNameDB[opponent]);
+                int teamRec = FindTeamRecfromTGID(opponent);
 
                 if (teamRec > 0) return GetDBValue("TEAM", "TMNA", teamRec);
 
@@ -401,7 +402,7 @@ namespace DB_EDITOR
             }
 
             //Opposing Team rank
-            if (capSymbol == "-W")
+            if (capSymbol.Contains("-W"))
             {
                 int opponent = -1;
                 int sewn = GetDBValueInt("SEAI", "SEWN", 0);
@@ -418,7 +419,7 @@ namespace DB_EDITOR
                     }
                 }
 
-                int teamRec = FindTeamRecfromTeamName(teamNameDB[opponent]);
+                int teamRec = FindTeamRecfromTGID(opponent);
 
                 if (teamRec > 0) return "#" + GetDBValue("TEAM", "TCRK", teamRec);
 
@@ -464,7 +465,7 @@ namespace DB_EDITOR
                     }
                 }
 
-                int teamRec = FindTeamRecfromTeamName(teamNameDB[opponent]);
+                int teamRec = FindTeamRecfromTGID(opponent);
 
                 if (teamRec > 0) return GetDBValue("TEAM", "TMNA", teamRec);
 
@@ -504,7 +505,7 @@ namespace DB_EDITOR
             //Player's Team City
             if (capSymbol.Contains("-E"))
             {
-                int sgid = GetDBValueInt("TEAM", "SGID", FindTeamRecfromTeamName(teamNameDB[tgid]));
+                int sgid = GetDBValueInt("TEAM", "SGID", FindTeamRecfromTGID(tgid));
 
                 for (int i = 0; i < GetTableRecCount("STAD"); i++)
                 {
@@ -521,7 +522,7 @@ namespace DB_EDITOR
             //Team Record
             if (capSymbol.Contains("-H"))
             {
-                int rec = FindTeamRecfromTeamName(teamNameDB[tgid]);
+                int rec = FindTeamRecfromTGID(tgid);
                 int wins = GetDBValueInt("TEAM", "tsdw", rec);
                 int losses = GetDBValueInt("TEAM", "tsdl", rec);
 

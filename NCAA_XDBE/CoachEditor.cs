@@ -706,7 +706,7 @@ namespace DB_EDITOR
 
 
             ChangeDBInt("COCH", "CPID", CoachIndex, pbVal);
-            ChangeDBInt("TEAM", "TOPB", FindTeamRecfromTeamName(teamNameDB[GetDBValueInt("COCH", "TGID", CoachIndex)]), pbVal);
+            ChangeDBInt("TEAM", "TOPB", FindTeamRecfromTGID(GetDBValueInt("COCH", "TGID", CoachIndex)), pbVal);
         }
 
         private void CoachOffTypeBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -719,7 +719,7 @@ namespace DB_EDITOR
         {
             if (DoNotTrigger) return;
             ChangeDBInt("COCH", "CDST", CoachIndex, CoachDefTypeBox.SelectedIndex);
-            ChangeDBInt("TEAM", "TDPB", FindTeamRecfromTeamName(teamNameDB[GetDBValueInt("COCH", "TGID", CoachIndex)]), CoachDefTypeBox.SelectedIndex);
+            ChangeDBInt("TEAM", "TDPB", FindTeamRecfromTGID(GetDBValueInt("COCH", "TGID", CoachIndex)), CoachDefTypeBox.SelectedIndex);
 
         }
 
@@ -875,7 +875,7 @@ namespace DB_EDITOR
 
                     //get team sanction interest, team discipline, number of srs
                     int team = GetDBValueInt("COCH", "TGID", i);
-                    int teamRec = FindTeamRecfromTeamName(teamNameDB[team]);
+                    int teamRec = FindTeamRecfromTGID(team);
 
                     if (GetDBValueInt("TEAM", "SNCT", teamRec) > 0) CDPC += 3;
                     CDPC += (GetDBValueInt("TEAM", "INPO", teamRec) - 50) / 10;

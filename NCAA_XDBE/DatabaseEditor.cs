@@ -196,6 +196,8 @@ namespace DB_EDITOR
             if (tableGridView.SelectedRows.Count <= 0 || dbSelected == -1)
                 return;
 
+            if (tableGridView.SelectedRows.Count > 1) return;
+
             // Get the Table Name and RecNo.
             SelectedTableName = tableGridView.SelectedRows[0].Cells[1].Value.ToString();
             SelectedTableIndex = Convert.ToInt32(tableGridView.SelectedRows[0].Cells[0].Value);

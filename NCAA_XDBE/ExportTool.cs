@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Windows.Forms;
 
@@ -9,11 +10,11 @@ namespace DB_EDITOR
     {
 
         //EXPORT - Main Menu
-        private void ExportDB()
+        private void ExportDB(string seasonFolder = "")
         {
-            if(commaPresent && !tabDelimited)
+            if (commaPresent && !tabDelimited)
             {
-               DialogResult dialogResult = MessageBox.Show("This database table contains commas in string fields. Exporting to a comma delimited (CSV) file may cause data misalignment. Please use TAB DELIMITED option instead!\n\n\n Do you want to proceed?", "Commas Detected!", MessageBoxButtons.YesNo);
+                DialogResult dialogResult = MessageBox.Show("This database table contains commas in string fields. Exporting to a comma delimited (CSV) file may cause data misalignment. Please use TAB DELIMITED option instead!\n\n\n Do you want to proceed?", "Commas Detected!", MessageBoxButtons.YesNo);
                 if (dialogResult == DialogResult.No)
                 {
                     return;
@@ -22,7 +23,7 @@ namespace DB_EDITOR
 
             string tmpReverse = "";
             string tmpcurrentDBfile = Path.GetFileNameWithoutExtension(dbFile);
-
+            
             Stream myStream = null;
             SaveFileDialog SaveDialog1 = new SaveFileDialog();
 
@@ -39,7 +40,9 @@ namespace DB_EDITOR
             }
             else
             {
-                myStream = File.Create(SelectedTableName + ".csv");
+                string filename = SelectedTableName + ".csv";
+                string fullPath = Path.Combine(seasonFolder, filename);
+                myStream = File.Create(fullPath);
             }
 
             if (exportAll || SaveDialog1.ShowDialog() == DialogResult.OK)

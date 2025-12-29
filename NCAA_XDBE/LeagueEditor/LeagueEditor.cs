@@ -731,7 +731,7 @@ namespace DB_EDITOR
             if (verNumber <= 15.0) maxFBSTeams = 120;
             else maxFBSTeams = 136;
 
-            if (TeamCount == maxFBSTeams && AllValid)
+            if (TeamCount == maxFBSTeams && AllValid ||verNumber <= 15.0 && TeamCount == maxFBSTeams-1 && AllValid)
             {
                 SaveButton.Visible = true;
                 SaveButton.BackColor = Color.Crimson;

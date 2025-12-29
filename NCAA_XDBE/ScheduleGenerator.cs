@@ -283,8 +283,8 @@ namespace DB_EDITOR
                 int teamH = GetDBValueInt("SCHD", "GHTG", i);
                 int teamA = GetDBValueInt("SCHD", "GATG", i);
 
-                int recH = FindTeamRecfromTeamName(teamNameDB[teamH]);
-                int recA = FindTeamRecfromTeamName(teamNameDB[teamA]);
+                int recH = FindTeamRecfromTGID(teamH);
+                int recA = FindTeamRecfromTGID(teamA);
 
                 int GASC = GetDBValueInt("SCHD", "GASC", i);
                 int GHSC = GetDBValueInt("SCHD", "GHSC", i);

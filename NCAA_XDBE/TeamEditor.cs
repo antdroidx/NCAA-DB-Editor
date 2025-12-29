@@ -1104,7 +1104,7 @@ namespace DB_EDITOR
         private void TeamRivalBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (DoNotTrigger) return;
-            ChangeDBInt("TEAM", "TMRV", TeamIndex, FindTGIDfromTeamName(TeamRivalBox.SelectedText));
+            ChangeDBInt("TEAM", "TMRV", TeamIndex, FindTGIDfromTeamName(TeamRivalBox.Text));
         }
 
         #endregion
@@ -1226,8 +1226,64 @@ namespace DB_EDITOR
 
         private void TeamAutoImpact_Click(object sender, EventArgs e)
         {
-            DetermineTeamImpactPlayers(TeamIndex, 0);
+            List<int> InjuryList = new List<int>();
+            bool QBHB = false;
+
+            var messageBox = MessageBox.Show("Do you want to account for injuries/suspensions?", "Injuries and Suspensions", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            if (messageBox == DialogResult.Yes)
+            {
+
+                for (int i = 0; i < GetTableRecCount("INJY"); i++)
+                {
+                    int PGID = GetDBValueInt("INJY", "PGID", i);
+                    InjuryList.Add(PGID);
+                }
+
+                for (int i = 0; i < GetTableRecCount("SPYR"); i++)
+                {
+                    int suspensionLength = GetDBValueInt("SPYR", "SEWN", i) - GetDBValueInt("SEAI", "SEWN", 0);
+                    int PGID = GetDBValueInt("SPYR", "PGID", i);
+                    if (suspensionLength > 0) InjuryList.Add(PGID);
+                }
+                
+
+
+                var messageBox2 = MessageBox.Show("Do you want to force Impact on QBs and HBs?", "Impact Position", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+
+                if (messageBox2 == DialogResult.Yes)
+                {
+                    QBHB = true;
+                }
+                else if (messageBox2 == DialogResult.No)
+                {
+                    QBHB = false;
+                }
+                else return;
+                    
+            }
+            else if (messageBox == DialogResult.No)
+            {
+                var messageBox2 = MessageBox.Show("Do you want to force Impact on QBs and HBs?", "Impact Position", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+
+                if (messageBox2 == DialogResult.Yes)
+                {
+                    QBHB = true;
+                }
+                else if (messageBox2 == DialogResult.No)
+                {
+                    QBHB = false;
+                }
+                else return;
+            }
+            else
+            {
+                return;
+            }
+
+            DetermineTeamImpactPlayers(TeamIndex, 0, InjuryList, QBHB);
+
             GetTeamEditorData(TeamIndex);
+
         }
 
 
@@ -1377,6 +1433,8 @@ namespace DB_EDITOR
             }
 
             PlayerList.Sort((player1, player2) => Convert.ToInt32(player2[3]).CompareTo(Convert.ToInt32(player1[3])));
+
+            if (PlayerList.Count <= 10) return;
 
             for(int i = 0; i < 11; i++)
             {

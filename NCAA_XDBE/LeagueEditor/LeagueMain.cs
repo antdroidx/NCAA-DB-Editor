@@ -954,6 +954,80 @@ namespace DB_EDITOR
 
         #region TDB DATA ACTIONS
 
+        private void GetTableProperties()
+        {
+
+            TdbTableProperties TableProps = new TdbTableProperties();
+
+            TableProps.Name = new string((char)0, 5);
+
+            // Get Tableprops based on the selected index
+            TDB.TDBTableGetProperties(dbIndex2, SelectedTableIndex, ref TableProps);
+
+            string flags = "";
+            if (TableProps.Flag0) flags += " FL0";
+            if (TableProps.Flag1) flags += " FL1";
+            if (TableProps.Flag2) flags += " FL2";
+            if (TableProps.Flag3) flags += " FL3";
+            if (TableProps.NonAllocated) flags += " NonAlloc";
+
+            lblTableProps.Text = "Fields: " + TableProps.FieldCount.ToString() + "   Capacity: " + TableProps.Capacity.ToString() + "   Records: " + TableProps.RecordCount.ToString() + "    DelRec: " + TableProps.DeletedCount.ToString() + " " + flags;
+
+        }
+
+        private void GetFieldProps()
+        {
+            if (dbIndex2 == -1 || FieldNames.Count < 0)
+                return;
+
+            int rownum = fieldsGridView.CurrentCellAddress.Y;
+            int colnum = fieldsGridView.CurrentCellAddress.X;
+
+            lblFieldProps.Text = "";
+
+            if (colnum > FieldNames.Count || colnum < 0 || rownum < 0)
+                return;
+
+            string tmpFieldName = Convert.ToString(fieldsGridView.Columns[colnum].HeaderText);
+
+            #region Get TABLE Properties
+            TdbTableProperties tableProps = new TdbTableProperties();
+
+            int tmpTableCount = TDB.TDBDatabaseGetTableCount(dbIndex2);
+
+            for (int tmpTableIndex = 0; tmpTableIndex < tmpTableCount; tmpTableIndex++)
+            {
+                tableProps.Name = new string((char)0, 5);
+                TDB.TDBTableGetProperties(dbIndex2, tmpTableIndex, ref tableProps);
+
+                if (tableProps.Name == SelectedTableName)
+                    break;
+
+            }
+            #endregion
+
+            #region Get FIELD Properties
+            TdbFieldProperties fieldProps = new TdbFieldProperties();
+
+            fieldProps.Name = new string((char)0, 5);
+
+            int tmpFieldCount = tableProps.FieldCount;
+            for (int tmpFieldIndex = 0; tmpFieldIndex < tmpFieldCount; tmpFieldIndex++)
+            {
+                TDB.TDBFieldGetProperties(dbIndex2, tableProps.Name, tmpFieldIndex, ref fieldProps);
+                if (fieldProps.Name == tmpFieldName)
+                    break;
+            }
+            #endregion
+
+
+            lblFieldProps.Text = "Field: " + fieldProps.Name.ToString() +
+                                 "    Bits: " + fieldProps.Size.ToString() +
+                                 "    Type: " + fieldProps.FieldType.ToString() +
+                                 "  MaxVal: " + BitMax(fieldProps.Size);
+
+        }
+
         private void GetTables(int dbFILEindex)
         {
             TableNames.Clear();
@@ -1062,7 +1136,7 @@ namespace DB_EDITOR
             // int rownum = fieldsGridView.CurrentCellAddress.Y;
             // int colnum = fieldsGridView.CurrentCellAddress.X;
 
-            TablePropsLabel.Text = "";
+            lblTableProps.Text = "";
 
             if (tableGridView.SelectedRows.Count <= 0 || dbIndex2 == -1)
                 return;
@@ -1090,20 +1164,6 @@ namespace DB_EDITOR
             // MessageBox.Show(SelectedTableName);
             GetFields(dbIndex2, SelectedTableIndex);
             LoadFields();
-
-
-        }
-        private void GetTableProperties()
-        {
-            TdbTableProperties TableProps = new TdbTableProperties();
-            TableProps.Name = new string((char)0, 5);
-
-            // Get Tableprops based on the selected index
-            TDB.TDBTableGetProperties(dbIndex2, SelectedTableIndex, ref TableProps);
-
-            // TablePropsLabel.Text = "Tables: " + TDB.TDBDatabaseGetTableCount(currentDBfileIndex) + "    Table Name: " + tableGridView.SelectedRows[0].Cells[1].Value.ToString() + "   Fields: " + TableProps.FieldCount.ToString() + "   Capacity: " + TableProps.Capacity.ToString() + "   Records: " + TableProps.RecordCount.ToString() + "    DelRec: " + TableProps.DeletedCount.ToString();
-            TablePropsLabel.Text = "Fields: " + TableProps.FieldCount.ToString() + "   Capacity: " + TableProps.Capacity.ToString() + "   Records: " + TableProps.RecordCount.ToString() + "    DelRec: " + TableProps.DeletedCount.ToString() + "  CID: " + dbIndex2;
-
         }
 
         private void GetFields(int dbFILEindex, int tmpTABLEindex)
@@ -1392,7 +1452,7 @@ namespace DB_EDITOR
             #endregion
 
 
-            FieldsPropsLabel.Text = "Field: " + fieldProps.Name.ToString() +
+            lblFieldProps.Text = "Field: " + fieldProps.Name.ToString() +
                                  "    Bits: " + fieldProps.Size.ToString() +
                                  "    Type: " + fieldProps.FieldType.ToString() +
                                  "  MaxVal: " + BitMax(fieldProps.Size);
@@ -1432,6 +1492,7 @@ namespace DB_EDITOR
             #endregion
 
             #region Get FIELD Properties
+       
             TdbFieldProperties fieldProps = new TdbFieldProperties();
             fieldProps.Name = new string((char)0, 5);
 

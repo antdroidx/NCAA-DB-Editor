@@ -88,7 +88,7 @@ namespace DB_EDITOR
         //Contracts On/Off
         private void ContractsCheckBox_CheckedChanged(object sender, EventArgs e)
         {
-            if(ContractsCheckBox.Checked)
+            if (ContractsCheckBox.Checked)
             {
                 ChangeDBInt("GOPT", "OFCF", 0, 1);
             }
@@ -108,12 +108,24 @@ namespace DB_EDITOR
         //Export To Dynasty Tracker
         private void exportDynastyTrackerButton_Click(object sender, EventArgs e)
         {
+
+            string seasonFolder = "";
+            string filePath = "";
+            string season = "" + (GetDBValueInt("SEAI", "SEYR", 0) + DynStartYear.Value);
+            FolderBrowserDialog folderDialog1 = new FolderBrowserDialog();
+            folderDialog1.ShowDialog();
+            filePath = folderDialog1.SelectedPath;
+            seasonFolder = Path.Combine(filePath, season);
+            Directory.CreateDirectory(seasonFolder);
+
             // TdbTableProperties class
             TdbTableProperties TableProps = new TdbTableProperties();
 
             // 4 character string, max value of 5
             StringBuilder TableName = new StringBuilder("    ", 5);
             exportAll = true;
+
+            /*
             for (int i = 0; i < TDB.TDBDatabaseGetTableCount(dbIndex); i++)
             {
                 // Get the tableproperties for the given table number
@@ -140,9 +152,29 @@ namespace DB_EDITOR
                     exportToolItem.PerformClick();
                 }
             }
+            */
+
+            for (int i = 0; i < TDB.TDBDatabaseGetTableCount(dbIndex); i++)
+            {
+                // Get the tableproperties for the given table number
+                SelectedTableName = GetTableName(dbIndex, i);
+                SelectedTableIndex = i;
+
+
+                for (int r = 0; r < GetTableRecCount(SelectedTableName); r++)
+                {
+                    DeleteRecord(SelectedTableName, r, false);
+                }
+
+
+                ExportDB(seasonFolder);
+
+            }
+
+
             exportAll = false;
 
-            MessageBox.Show("Dynasty Tracker files successfully exported to the DB Editor folder");
+            MessageBox.Show("Dynasty Tracker files successfully exported to the Dynasty Tracker");
         }
 
 
@@ -192,7 +224,7 @@ namespace DB_EDITOR
                  * Coding:    ((INJL - 15) / 20)  + 1
                  */
 
-                int injuryWeeks = ((injLength - 15)/ 20) + 1;
+                int injuryWeeks = ((injLength - 15) / 20) + 1;
                 int seaWeek = GetDBValueInt("SEAI", "SEWN", 0);
 
                 int val = seaWeek + injuryWeeks;
@@ -368,7 +400,7 @@ namespace DB_EDITOR
 
                     //add a year of coaching at the team
                     int year = GetDBValueInt("COCH", "CTYR", i);
-                    ChangeDBInt("COCH", "CTYR", i, (year+1));
+                    ChangeDBInt("COCH", "CTYR", i, (year + 1));
 
 
                     ProgressBarStep();
@@ -670,12 +702,28 @@ namespace DB_EDITOR
         private void DetermineAllImpactPlayers()
         {
             StartProgressBar(GetTableRecCount("TEAM"));
-            
+            bool QBHB = false;
+            if (ImpactQBHB.Checked) QBHB = true;
+
+            List<int> InjuryList = new List<int>();
+            if (ImpactInjuries.Checked)
+            {
+                for (int i = 0; i < GetTableRecCount("INJY"); i++)
+                {
+                    int PGID = GetDBValueInt("INJY", "PGID", i);
+                    InjuryList.Add(PGID);
+                }
+
+                for (int i = 0; i < GetTableRecCount("SPYR"); i++)
+                {
+                    int suspensionLength = GetDBValueInt("SPYR", "SEWN", i) - GetDBValueInt("SEAI", "SEWN", 0);
+                    int PGID = GetDBValueInt("SPYR", "PGID", i);
+                    if (suspensionLength > 0) InjuryList.Add(PGID);
+                }
+            }
 
             int minRating = 0;
             minRating = RevertRating(Convert.ToInt32(ImpactPlayerMin.Value));
-
-
             for (int i = 0; i < GetTableRecCount("TEAM"); i++)
             {
                 if (GetDBValueInt("TEAM", "TTYP", i) == 0)
@@ -685,7 +733,7 @@ namespace DB_EDITOR
                     ChangeDBInt("TEAM", "TSI1", i, 127);
                     ChangeDBInt("TEAM", "TSI2", i, 127);
 
-                    DetermineTeamImpactPlayers(i, minRating);
+                    DetermineTeamImpactPlayers(i, minRating, InjuryList, QBHB);
                 }
                 ProgressBarStep();
             }
@@ -694,7 +742,7 @@ namespace DB_EDITOR
             MessageBox.Show("Impact Players are Set!");
         }
 
-        private void DetermineTeamImpactPlayers(int i, int minRating)
+        private void DetermineTeamImpactPlayers(int i, int minRating, List<int> InjuryList, bool QBHB)
         {
             int TGID = GetDBValueInt("TEAM", "TGID", i);
             int PGIDbeg = TGID * 70;
@@ -712,13 +760,12 @@ namespace DB_EDITOR
                 int PGID = GetDBValueInt("PLAY", "PGID", j);
                 int POVR = GetDBValueInt("PLAY", "POVR", j);
 
-                if (PGID >= PGIDbeg && PGID <= PGIDend && POVR >= minRating)
+                if (PGID >= PGIDbeg && PGID <= PGIDend && POVR >= minRating && !InjuryList.Contains(PGID))
                 {
                     int PPOS = GetDBValueInt("PLAY", "PPOS", j);
 
                     double POVRd = CalculatePositionRating(Convert.ToDouble(j), PPOS);
                     int PAWR = GetDBValueInt("PLAY", "PAWR", j);
-                    int PIMP = GetDBValueInt("PLAY", "PIMP", j);
 
                     List<double> player = new List<double>();
                     roster.Add(player);
@@ -736,16 +783,104 @@ namespace DB_EDITOR
                    .ThenBy(player => player[0]);
 
 
+            int countOff = 0;
+            int countDef = 0;
+            int impactCount = 0;
+
             if (roster.Count == 0)
             {
                 //do nothing
             }
+            else if (QBHB)
+            {
+                //Get Depth Chart
+                List<int> QBs = new List<int>{0,0,0 };
+                List<int> RBs = new List<int> { 0, 0, 0, 0 };
+                int countD = 0;
+                for(int d =  0; d < GetTableRecCount("DCHT"); d++)
+                {
+                    int pgidx = GetDBValueInt("DCHT", "PGID", d);
+                    int tgidx = pgidx / 70;
+                    int ppos = GetDBValueInt("DCHT", "PPOS", d);
+                    int ddep = GetDBValueInt("DCHT", "ddep", d);
+                    if (tgidx == TGID && ppos <= 1)
+                    {
+                        if (ppos == 0) QBs[ddep] = pgidx;
+                        else if (ppos == 1) RBs[ddep] = pgidx;
+                        countD++;
+                    }
+
+                    if (countD >= 7) break;
+                }
+
+                for(int d = 0; d < QBs.Count; d++)
+                {
+                    if (!InjuryList.Contains(QBs[d]))
+                    {
+                        int impactID = QBs[d] - PGIDbeg;
+
+                        ChangeDBInt("TEAM", "TPIO", i, impactID);
+                        countOff++;
+                        impactCount++;
+                        break;
+                    }
+                }
+
+
+                for (int d = 0; d < RBs.Count; d++)
+                {
+                    if (!InjuryList.Contains(RBs[d]))
+                    {
+                        int impactID = RBs[d] - PGIDbeg;
+                        ChangeDBInt("TEAM", "TSI1", i, impactID);
+                        countOff++;
+                        impactCount++;
+                        break;
+                    }
+                }
+
+
+
+                for (int j = 0; j < roster.Count; j++)
+                {
+                    //pick offensive impact
+                    if (roster[j][1] <= 4 && roster[j][1] != 2)
+                    {
+
+                        if (countOff + countDef >= 2 && GetDBValueInt("TEAM", "TSI2", i) == 127)
+                        {
+                            double impactID = roster[j][2] - PGIDbeg;
+                            ChangeDBString("TEAM", "TSI2", i, Convert.ToString(impactID));
+                            impactCount++;
+                        }
+                    }
+
+                    //pick defensive impact
+                    else if (roster[j][1] >= 10 && roster[j][1] <= 18)
+                    {
+                        if (countDef == 0)
+                        {
+                            double impactID = roster[j][2] - PGIDbeg;
+                            ChangeDBString("TEAM", "TPID", i, Convert.ToString(impactID));
+                            impactCount++;
+                        }
+                        else if (countOff + countDef >= 2 && GetDBValueInt("TEAM", "TSI2", i) == 127)
+                        {
+                            double impactID = roster[j][2] - PGIDbeg;
+                            ChangeDBString("TEAM", "TSI2", i, Convert.ToString(impactID));
+                            impactCount++;
+                        }
+                        countDef++;
+                    }
+
+                    if (impactCount == 4)
+                    {
+                        break;
+                    }
+                }
+            }
             else
             {
-
-                int countOff = 0;
-                int countDef = 0;
-                int impactCount = 0;
                 for (int j = 0; j < roster.Count; j++)
                 {
                     //pick offensive impact
@@ -770,11 +905,13 @@ namespace DB_EDITOR
                             impactCount++;
                         }
                         countOff++;
+
                     }
 
                     //pick defensive impact
                     else if (roster[j][1] >= 10 && roster[j][1] <= 18)
                     {
+
                         if (countDef == 0)
                         {
                             double impactID = roster[j][2] - PGIDbeg;
@@ -794,6 +931,7 @@ namespace DB_EDITOR
                             impactCount++;
                         }
                         countDef++;
+
                     }
 
                     if (impactCount == 4)
@@ -801,32 +939,33 @@ namespace DB_EDITOR
                         break;
                     }
                 }
+            }
 
-                //pick offensive impact if no skill positions meet criteria
-                if (countOff < 1)
+
+            //pick offensive impact if no skill positions meet criteria
+            if (countOff < 1)
+            {
+                for (int j = 0; j < roster.Count; j++)
                 {
-                    for (int j = 0; j < roster.Count; j++)
+
+                    if (roster[j][1] <= 9)
                     {
-
-                        if (roster[j][1] <= 9)
+                        if (countOff == 0)
                         {
-                            if (countOff == 0)
-                            {
-                                double impactID = roster[j][2] - PGIDbeg;
-                                ChangeDBString("TEAM", "TPIO", i, Convert.ToString(impactID));
-                            }
-                            if (countOff == 1)
-                            {
-                                double impactID = roster[j][2] - PGIDbeg;
-                                ChangeDBString("TEAM", "TSI1", i, Convert.ToString(impactID));
-                            }
-                            countOff++;
+                            double impactID = roster[j][2] - PGIDbeg;
+                            ChangeDBString("TEAM", "TPIO", i, Convert.ToString(impactID));
                         }
-
-                        if (countOff > 1 && countDef > 1)
+                        if (countOff == 1)
                         {
-                            break;
+                            double impactID = roster[j][2] - PGIDbeg;
+                            ChangeDBString("TEAM", "TSI1", i, Convert.ToString(impactID));
                         }
+                        countOff++;
+                    }
+
+                    if (countOff > 1 && countDef > 1)
+                    {
+                        break;
                     }
                 }
             }
@@ -936,8 +1075,8 @@ namespace DB_EDITOR
                 int awayTeam = GetDBValueInt("SCHD", "GATG", i);
                 int homeScore = GetDBValueInt("SCHD", "GHSC", i);
                 int homeTeam = GetDBValueInt("SCHD", "GHTG", i);
-                int awayRank = GetDBValueInt("TEAM", "TROV", FindTeamRecfromTeamName(teamNameDB[awayTeam]));
-                int homeRank = GetDBValueInt("TEAM", "TROV", FindTeamRecfromTeamName(teamNameDB[homeTeam]));
+                int awayRank = GetDBValueInt("TEAM", "TROV", FindTeamRecfromTGID(awayTeam));
+                int homeRank = GetDBValueInt("TEAM", "TROV", FindTeamRecfromTGID(homeTeam));
 
                 if (awayScore > homeScore)
                 {

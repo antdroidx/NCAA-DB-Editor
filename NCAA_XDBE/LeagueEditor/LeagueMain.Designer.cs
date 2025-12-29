@@ -226,6 +226,10 @@ namespace DB_EDITOR
             SGID = new DataGridViewComboBoxColumn();
             BMON = new DataGridViewComboBoxColumn();
             BDAY = new DataGridViewComboBoxColumn();
+            groupBox2 = new GroupBox();
+            lblTableProps = new Label();
+            groupBox3 = new GroupBox();
+            lblFieldProps = new Label();
             mainMenu.SuspendLayout();
             tableMenu.SuspendLayout();
             fieldMenu.SuspendLayout();
@@ -257,6 +261,8 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)ChampGrid).BeginInit();
             tabBowls.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)BowlsGrid).BeginInit();
+            groupBox2.SuspendLayout();
+            groupBox3.SuspendLayout();
             SuspendLayout();
             // 
             // mainMenu
@@ -1715,6 +1721,8 @@ namespace DB_EDITOR
             // tabDB
             // 
             tabDB.BackColor = SystemColors.Control;
+            tabDB.Controls.Add(groupBox2);
+            tabDB.Controls.Add(groupBox3);
             tabDB.Controls.Add(tableGridView);
             tabDB.Controls.Add(fieldsGridView);
             tabDB.Location = new Point(4, 24);
@@ -1739,7 +1747,7 @@ namespace DB_EDITOR
             tableGridView.RowHeadersVisible = false;
             tableGridView.RowTemplate.Height = 18;
             tableGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            tableGridView.Size = new Size(107, 879);
+            tableGridView.Size = new Size(107, 827);
             tableGridView.TabIndex = 2;
             tableGridView.SelectionChanged += TableGridView_SelectionChanged;
             // 
@@ -1761,7 +1769,7 @@ namespace DB_EDITOR
             fieldsGridView.RowHeadersVisible = false;
             fieldsGridView.RowTemplate.Height = 18;
             fieldsGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            fieldsGridView.Size = new Size(1030, 879);
+            fieldsGridView.Size = new Size(1030, 827);
             fieldsGridView.TabIndex = 3;
             fieldsGridView.CellValueChanged += FieldGridView_CellValueChanged;
             fieldsGridView.CurrentCellChanged += FieldGridView_CurrentCellChanged;
@@ -2130,6 +2138,50 @@ namespace DB_EDITOR
             BDAY.HeaderText = "Date";
             BDAY.Name = "BDAY";
             // 
+            // groupBox2
+            // 
+            groupBox2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            groupBox2.Controls.Add(lblTableProps);
+            groupBox2.ForeColor = SystemColors.ControlText;
+            groupBox2.Location = new Point(9, 839);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(375, 46);
+            groupBox2.TabIndex = 9;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Table Properties";
+            // 
+            // lblTableProps
+            // 
+            lblTableProps.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            lblTableProps.ForeColor = SystemColors.ControlText;
+            lblTableProps.Location = new Point(6, 15);
+            lblTableProps.Name = "lblTableProps";
+            lblTableProps.Size = new Size(363, 19);
+            lblTableProps.TabIndex = 5;
+            lblTableProps.Text = "TableProps";
+            // 
+            // groupBox3
+            // 
+            groupBox3.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            groupBox3.Controls.Add(lblFieldProps);
+            groupBox3.ForeColor = SystemColors.ControlText;
+            groupBox3.Location = new Point(400, 839);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(345, 46);
+            groupBox3.TabIndex = 8;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "Field Properties";
+            // 
+            // lblFieldProps
+            // 
+            lblFieldProps.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            lblFieldProps.ForeColor = SystemColors.ControlText;
+            lblFieldProps.Location = new Point(6, 19);
+            lblFieldProps.Name = "lblFieldProps";
+            lblFieldProps.Size = new Size(333, 21);
+            lblFieldProps.TabIndex = 6;
+            lblFieldProps.Text = "FieldsPropsLabel";
+            // 
             // LeagueMain
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
@@ -2190,6 +2242,8 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)ChampGrid).EndInit();
             tabBowls.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)BowlsGrid).EndInit();
+            groupBox2.ResumeLayout(false);
+            groupBox3.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
 
@@ -2386,6 +2440,10 @@ namespace DB_EDITOR
         private DataGridViewComboBoxColumn SGID;
         private DataGridViewComboBoxColumn BMON;
         private DataGridViewComboBoxColumn BDAY;
+        public GroupBox groupBox2;
+        public Label lblTableProps;
+        public GroupBox groupBox3;
+        public Label lblFieldProps;
     }
 }
 

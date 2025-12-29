@@ -41,11 +41,6 @@ namespace DB_EDITOR
 
         private List<List<int>> GetScheduleTemplate(int count)
         {
-            /* 12 A B C
-             * 14 A B
-             * 16 A B
-             * 18 A B
-             */
 
             List<List<int>> template = new List<List<int>>();
             if (count == 12)
@@ -189,6 +184,7 @@ namespace DB_EDITOR
             }
 
             //Check Schedules for Errors
+            
             for (int i = 0; i < CONFTables.Count; i++)
             {
                 string table = CONFTables[i];

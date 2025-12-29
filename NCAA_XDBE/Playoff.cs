@@ -24,7 +24,8 @@ namespace DB_EDITOR
         {
             // Load Playoff Viewer
             LoadRound1();
-            PlayoffYearLabel.Text = "YEAR " + (GetDBValueInt("SEAI", "SEYR", 0) + 1);
+            //PlayoffYearLabel.Text = "YEAR " + (GetDBValueInt("SEAI", "SEYR", 0) + 1);
+            PlayoffYearLabel.Text = "" + (GetDBValueInt("SEAI", "SEYR", 0) + DynStartYear.Value);
         }
 
 
@@ -265,11 +266,11 @@ namespace DB_EDITOR
                 int schdRec = FindSchdRecFromSGNM(sgnm, sewn);
 
                 int TGIDAway = GetDBValueInt("SCHD", "GATG", schdRec);
-                int TGIDAwayRec = FindTeamRecfromTeamName(teamNameDB[TGIDAway]);
+                int TGIDAwayRec = FindTeamRecfromTGID(TGIDAway);  
                 int AwayScore = GetDBValueInt("SCHD", "GASC", schdRec);
 
                 int TGIDHome = GetDBValueInt("SCHD", "GHTG", schdRec);
-                int TGIDHomeRec = FindTeamRecfromTeamName(teamNameDB[TGIDHome]);
+                int TGIDHomeRec = FindTeamRecfromTGID(TGIDHome);
                 int HomeScore = GetDBValueInt("SCHD", "GHSC", schdRec);
 
                 if (champ)

@@ -31,6 +31,8 @@ namespace DB_EDITOR
             RB3Star.HeaderText = "3" + whiteStar;
             RB2Star.HeaderText = "2" + whiteStar;
             RB1Star.HeaderText = "1" + whiteStar;
+
+            txtboxRecruitBoard.Text = "" + (GetDBValueInt("SEAI", "SEYR", 0) + DynStartYear.Value + 1) + " Recruiting Board";
         }
 
         private void LoadRecruitRankingComboBox()

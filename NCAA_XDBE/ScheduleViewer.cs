@@ -23,6 +23,10 @@ namespace DB_EDITOR
             ScheduleComboBox.SelectedIndex = 0;
             LoadScheduleTeamsBox();
 
+            int sea = GetDBValueInt("SEAI", "SEYR", 0);
+            int week = GetDBValueInt("SEAI", "SEWN", 0);
+            lblSCHDCurrent.Text = "Current Week: " + (sea + DynStartYear.Value) + ", Week " + week;
+
         }
 
         private void ScheduleComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -241,7 +245,7 @@ namespace DB_EDITOR
                 }
             }
 
-            int rec = FindTeamRecfromTeamName(teamNameDB[tgid]);
+            int rec = FindTeamRecfromTGID(tgid);
             SCHDrecord.Text = "Season Record: " + GetDBValue("TEAM", "TSWI", rec) + " - " + GetDBValue("TEAM", "TSLO", rec);
 
             string StrengthGrade = "";
@@ -623,8 +627,8 @@ namespace DB_EDITOR
                 {
                     tgidA = GetDBValueInt("SCHD", "GATG", i);
                     tgidH = GetDBValueInt("SCHD", "GHTG", i);
-                    recA = FindTeamRecfromTeamName(teamNameDB[tgidA]);
-                    recH = FindTeamRecfromTeamName(teamNameDB[tgidH]);
+                    recA = FindTeamRecfromTGID(tgidA);
+                    recH = FindTeamRecfromTGID(tgidH);
                     sewn = GetDBValueInt("SCHD", "SEWN", i);
                     sgnm = GetDBValueInt("SCHD", "SGNM", i);
                     break;
@@ -762,7 +766,7 @@ namespace DB_EDITOR
 
                     WeeklyHighlightView.Rows[row].Cells[0].Value = ppos + " " + GetPlayerNamefromPGID(pgid);
                     WeeklyHighlightView.Rows[row].Cells[1].Value = highlight;
-                    WeeklyHighlightView.Rows[row].Cells[0].Style.BackColor = GetTeamPrimaryColor(FindTeamRecfromTeamName(teamNameDB[tgid]));
+                    WeeklyHighlightView.Rows[row].Cells[0].Style.BackColor = GetTeamPrimaryColor(FindTeamRecfromTGID(tgid));
                     WeeklyHighlightView.Rows[row].Cells[0].Style.ForeColor = ChooseForeground(WeeklyHighlightView.Rows[row].Cells[0].Style.BackColor);
                     WeeklyHighlightView.Rows[row].Cells[1].Style.BackColor = Color.LightGray;
                 }
