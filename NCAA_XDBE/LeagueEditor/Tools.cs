@@ -21,28 +21,28 @@ namespace DB_EDITOR
 
         private void ChangeDBString(string table, string field, int rec, string value)
         {
-            TDB.NewfieldValue(dbIndex2, table, field, rec, value);
+            TDB.NewfieldValue(dbIndex, table, field, rec, value);
         }
 
         private void ChangeDBInt(string table, string field, int rec, int value)
         {
-            TDB.NewfieldValue(dbIndex2, table, field, rec, Convert.ToString(value));
+            TDB.NewfieldValue(dbIndex, table, field, rec, Convert.ToString(value));
 
         }
 
         private string GetDBValue(string table, string field, int rec)
         {
-            return TDB.FieldValue(dbIndex2, table, field, rec);
+            return TDB.FieldValue(dbIndex, table, field, rec);
         }
 
         private int GetDBValueInt(string table, string field, int rec)
         {
-            return TDB.TDBFieldGetValueAsInteger(dbIndex2, table, field, rec);
+            return TDB.TDBFieldGetValueAsInteger(dbIndex, table, field, rec);
         }
 
         private int GetTableRecCount(string table)
         {
-            return TDB.TableRecordCount(dbIndex2, table);
+            return TDB.TableRecordCount(dbIndex, table);
         }
 
 

@@ -94,6 +94,7 @@ namespace DB_EDITOR
             openFileDialog2 = new OpenFileDialog();
             colorDialog1 = new ColorDialog();
             tabConf = new TabPage();
+            label40 = new Label();
             label31 = new Label();
             label32 = new Label();
             label33 = new Label();
@@ -193,6 +194,10 @@ namespace DB_EDITOR
             TeamsPerConfBox = new System.Windows.Forms.ComboBox();
             RandomizeLeagueButton = new System.Windows.Forms.Button();
             tabDB = new TabPage();
+            groupBox2 = new GroupBox();
+            lblTableProps = new Label();
+            groupBox3 = new GroupBox();
+            lblFieldProps = new Label();
             tableGridView = new DataGridView();
             fieldsGridView = new DataGridView();
             tabHome = new TabPage();
@@ -226,10 +231,6 @@ namespace DB_EDITOR
             SGID = new DataGridViewComboBoxColumn();
             BMON = new DataGridViewComboBoxColumn();
             BDAY = new DataGridViewComboBoxColumn();
-            groupBox2 = new GroupBox();
-            lblTableProps = new Label();
-            groupBox3 = new GroupBox();
-            lblFieldProps = new Label();
             mainMenu.SuspendLayout();
             tableMenu.SuspendLayout();
             fieldMenu.SuspendLayout();
@@ -250,6 +251,8 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
             panel1.SuspendLayout();
             tabDB.SuspendLayout();
+            groupBox2.SuspendLayout();
+            groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)tableGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)fieldsGridView).BeginInit();
             tabHome.SuspendLayout();
@@ -261,8 +264,6 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)ChampGrid).BeginInit();
             tabBowls.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)BowlsGrid).BeginInit();
-            groupBox2.SuspendLayout();
-            groupBox3.SuspendLayout();
             SuspendLayout();
             // 
             // mainMenu
@@ -626,6 +627,7 @@ namespace DB_EDITOR
             // 
             tabConf.AutoScroll = true;
             tabConf.BackColor = SystemColors.ScrollBar;
+            tabConf.Controls.Add(label40);
             tabConf.Controls.Add(label31);
             tabConf.Controls.Add(label32);
             tabConf.Controls.Add(label33);
@@ -726,6 +728,17 @@ namespace DB_EDITOR
             tabConf.TabIndex = 9;
             tabConf.Text = "Conferences";
             tabConf.MouseDown += MouseDown_Click;
+            // 
+            // label40
+            // 
+            label40.AutoSize = true;
+            label40.BackColor = Color.Turquoise;
+            label40.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label40.Location = new Point(802, 6);
+            label40.Name = "label40";
+            label40.Size = new Size(126, 16);
+            label40.TabIndex = 111;
+            label40.Text = "INDEPENDENTS";
             // 
             // label31
             // 
@@ -1573,7 +1586,7 @@ namespace DB_EDITOR
             // conf6
             // 
             conf6.AllowDrop = true;
-            conf6.BackColor = Color.Gainsboro;
+            conf6.BackColor = Color.WhiteSmoke;
             conf6.CheckOnClick = true;
             conf6.FormattingEnabled = true;
             conf6.Location = new Point(799, 80);
@@ -1731,6 +1744,50 @@ namespace DB_EDITOR
             tabDB.Size = new Size(1158, 1002);
             tabDB.TabIndex = 0;
             tabDB.Text = "DB Editor";
+            // 
+            // groupBox2
+            // 
+            groupBox2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            groupBox2.Controls.Add(lblTableProps);
+            groupBox2.ForeColor = SystemColors.ControlText;
+            groupBox2.Location = new Point(9, 839);
+            groupBox2.Name = "groupBox2";
+            groupBox2.Size = new Size(375, 46);
+            groupBox2.TabIndex = 9;
+            groupBox2.TabStop = false;
+            groupBox2.Text = "Table Properties";
+            // 
+            // lblTableProps
+            // 
+            lblTableProps.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            lblTableProps.ForeColor = SystemColors.ControlText;
+            lblTableProps.Location = new Point(6, 15);
+            lblTableProps.Name = "lblTableProps";
+            lblTableProps.Size = new Size(363, 19);
+            lblTableProps.TabIndex = 5;
+            lblTableProps.Text = "TableProps";
+            // 
+            // groupBox3
+            // 
+            groupBox3.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            groupBox3.Controls.Add(lblFieldProps);
+            groupBox3.ForeColor = SystemColors.ControlText;
+            groupBox3.Location = new Point(400, 839);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(345, 46);
+            groupBox3.TabIndex = 8;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "Field Properties";
+            // 
+            // lblFieldProps
+            // 
+            lblFieldProps.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            lblFieldProps.ForeColor = SystemColors.ControlText;
+            lblFieldProps.Location = new Point(6, 19);
+            lblFieldProps.Name = "lblFieldProps";
+            lblFieldProps.Size = new Size(333, 21);
+            lblFieldProps.TabIndex = 6;
+            lblFieldProps.Text = "FieldsPropsLabel";
             // 
             // tableGridView
             // 
@@ -2138,50 +2195,6 @@ namespace DB_EDITOR
             BDAY.HeaderText = "Date";
             BDAY.Name = "BDAY";
             // 
-            // groupBox2
-            // 
-            groupBox2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            groupBox2.Controls.Add(lblTableProps);
-            groupBox2.ForeColor = SystemColors.ControlText;
-            groupBox2.Location = new Point(9, 839);
-            groupBox2.Name = "groupBox2";
-            groupBox2.Size = new Size(375, 46);
-            groupBox2.TabIndex = 9;
-            groupBox2.TabStop = false;
-            groupBox2.Text = "Table Properties";
-            // 
-            // lblTableProps
-            // 
-            lblTableProps.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            lblTableProps.ForeColor = SystemColors.ControlText;
-            lblTableProps.Location = new Point(6, 15);
-            lblTableProps.Name = "lblTableProps";
-            lblTableProps.Size = new Size(363, 19);
-            lblTableProps.TabIndex = 5;
-            lblTableProps.Text = "TableProps";
-            // 
-            // groupBox3
-            // 
-            groupBox3.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            groupBox3.Controls.Add(lblFieldProps);
-            groupBox3.ForeColor = SystemColors.ControlText;
-            groupBox3.Location = new Point(400, 839);
-            groupBox3.Name = "groupBox3";
-            groupBox3.Size = new Size(345, 46);
-            groupBox3.TabIndex = 8;
-            groupBox3.TabStop = false;
-            groupBox3.Text = "Field Properties";
-            // 
-            // lblFieldProps
-            // 
-            lblFieldProps.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            lblFieldProps.ForeColor = SystemColors.ControlText;
-            lblFieldProps.Location = new Point(6, 19);
-            lblFieldProps.Name = "lblFieldProps";
-            lblFieldProps.Size = new Size(333, 21);
-            lblFieldProps.TabIndex = 6;
-            lblFieldProps.Text = "FieldsPropsLabel";
-            // 
             // LeagueMain
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
@@ -2229,6 +2242,8 @@ namespace DB_EDITOR
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             tabDB.ResumeLayout(false);
+            groupBox2.ResumeLayout(false);
+            groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)tableGridView).EndInit();
             ((System.ComponentModel.ISupportInitialize)fieldsGridView).EndInit();
             tabHome.ResumeLayout(false);
@@ -2242,8 +2257,6 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)ChampGrid).EndInit();
             tabBowls.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)BowlsGrid).EndInit();
-            groupBox2.ResumeLayout(false);
-            groupBox3.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
 
@@ -2444,6 +2457,7 @@ namespace DB_EDITOR
         public Label lblTableProps;
         public GroupBox groupBox3;
         public Label lblFieldProps;
+        private Label label40;
     }
 }
 

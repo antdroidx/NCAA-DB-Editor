@@ -161,12 +161,13 @@ namespace DB_EDITOR
                 main.CreateNameConversionTable();
                 main.CreateRatingsDB();
                 main.CreatePOCItable();
+
                 main.CreateTeamDB();
 
                 for (int i = 0; i < teamsAdded.Count; i++)
                 {
                     int tgid = teamsAdded[i];
-                    main.GenerateFantasyRoster(tgid, 2, true);
+                    main.GenerateFantasyRoster(tgid, 1, true);
 
                     int leaguesize = 120;
                    if(verNumber >= 16.0) leaguesize = 136;

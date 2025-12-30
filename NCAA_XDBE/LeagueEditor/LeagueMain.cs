@@ -19,7 +19,7 @@ namespace DB_EDITOR
         Random rand = new Random();
 
         string dbFile = "";
-        int dbIndex2 = -1;
+        int dbIndex = -1;
 
         string SelectedTableName = "";
         int SelectedTableIndex = -1;
@@ -78,6 +78,8 @@ namespace DB_EDITOR
             else if (verNumber >= 15.0) NextConfigRadio.Checked = true;
             else OGConfigRadio.Checked = true;
 
+            main.verNumber = verNumber;
+
             CheckArmyNavyLaunch();
         }
 
@@ -87,7 +89,7 @@ namespace DB_EDITOR
             dbFile = "";
             TablePropsLabel.Text = "";
             FieldsPropsLabel.Text = "";
-            dbIndex2 = -1;
+            dbIndex = -1;
 
 
             toolStripSeparator1.Enabled = true;
@@ -172,7 +174,7 @@ namespace DB_EDITOR
 
                 OpenDB(dbFile);
 
-                if (dbIndex2 == -1)
+                if (dbIndex == -1)
                 {
                     MessageBox.Show("Error Opening File.", "DB File Error");
                     return;
@@ -198,10 +200,10 @@ namespace DB_EDITOR
                 tabControl1.Visible = true;
                 #endregion
 
-                GetTables(dbIndex2);
+                GetTables(dbIndex);
                 LoadTables();
 
-                GetFields(dbIndex2, SelectedTableIndex);
+                GetFields(dbIndex, SelectedTableIndex);
                 LoadFields();
 
                 createConsoleData();
@@ -213,7 +215,7 @@ namespace DB_EDITOR
         //SAVE FILE
         private void SaveMenuItem_Click(object sender, EventArgs e)
         {
-            if (SaveDB(dbIndex2))
+            if (SaveDB(dbIndex))
             {
 
                 #region Compile Console Data and DB information.
@@ -315,7 +317,7 @@ namespace DB_EDITOR
             DeleteDBFiles();
 
 
-            if (CloseDB(dbIndex2))
+            if (CloseDB(dbIndex))
             {
                 DefaultSettings();
             }
@@ -438,13 +440,13 @@ namespace DB_EDITOR
             TableProps.Name = new string((char)0, 5);
 
             exportAll = true;
-            for (int i = 0; i < TDB.TDBDatabaseGetTableCount(dbIndex2); i++)
+            for (int i = 0; i < TDB.TDBDatabaseGetTableCount(dbIndex); i++)
             {
                 // Init the tdbtableproperties name
                 TableProps.Name = new string((char)0, 5);
 
                 // Get the tableproperties for the given table number
-                if (TDB.TDBTableGetProperties(dbIndex2, i, ref TableProps))
+                if (TDB.TDBTableGetProperties(dbIndex, i, ref TableProps))
                 {
                     SelectedTableName = TableProps.Name;
                     SelectedTableIndex = i;
@@ -477,7 +479,7 @@ namespace DB_EDITOR
         {
             importRec = true;
             addendum = true;
-            TDB.TDBDatabaseCompact(dbIndex2);
+            TDB.TDBDatabaseCompact(dbIndex);
             importMenuItem.PerformClick();
             importRec = false;
             addendum = false;
@@ -507,12 +509,12 @@ namespace DB_EDITOR
                 {
                     // Shouldnt use expand flag as it causes problems in certain tables when it doesnt expect more than
                     // a certain amount of records.  Player table I know has this issue...
-                    TDB.TDBTableRecordAdd(dbIndex2, SelectedTableName, true);
+                    TDB.TDBTableRecordAdd(dbIndex, SelectedTableName, true);
 
                     TdbTableProperties TableProps = new TdbTableProperties();
                     TableProps.Name = new string((char)0, 5);
 
-                    TDB.TDBTableGetProperties(dbIndex2, SelectedTableIndex, ref TableProps);
+                    TDB.TDBTableGetProperties(dbIndex, SelectedTableIndex, ref TableProps);
 
 
                     TdbFieldProperties FieldProps = new TdbFieldProperties();
@@ -520,23 +522,23 @@ namespace DB_EDITOR
 
                     for (int fCount = 0; fCount != TableProps.FieldCount; fCount++)
                     {
-                        TDB.TDBFieldGetProperties(dbIndex2, SelectedTableName, fCount, ref FieldProps);
+                        TDB.TDBFieldGetProperties(dbIndex, SelectedTableName, fCount, ref FieldProps);
 
                         if (FieldProps.FieldType == TdbFieldType.tdbString)
                         {
-                            TDB.TDBFieldSetValueAsString(dbIndex2, SelectedTableName, FieldProps.Name, TableProps.RecordCount - 1, Convert.ToString(row.Cells[fCount + 1].Value));
+                            TDB.TDBFieldSetValueAsString(dbIndex, SelectedTableName, FieldProps.Name, TableProps.RecordCount - 1, Convert.ToString(row.Cells[fCount + 1].Value));
                         }
                         else if (FieldProps.FieldType == TdbFieldType.tdbInt || FieldProps.FieldType == TdbFieldType.tdbSInt)
                         {
-                            TDB.TDBFieldSetValueAsInteger(dbIndex2, SelectedTableName, FieldProps.Name, TableProps.RecordCount - 1, (int)Convert.ToInt32(row.Cells[fCount + 1].Value));
+                            TDB.TDBFieldSetValueAsInteger(dbIndex, SelectedTableName, FieldProps.Name, TableProps.RecordCount - 1, (int)Convert.ToInt32(row.Cells[fCount + 1].Value));
                         }
                         else if (FieldProps.FieldType == TdbFieldType.tdbUInt)
                         {
-                            TDB.TDBFieldSetValueAsInteger(dbIndex2, SelectedTableName, FieldProps.Name, TableProps.RecordCount - 1, (int)Convert.ToUInt32(row.Cells[fCount + 1].Value));
+                            TDB.TDBFieldSetValueAsInteger(dbIndex, SelectedTableName, FieldProps.Name, TableProps.RecordCount - 1, (int)Convert.ToUInt32(row.Cells[fCount + 1].Value));
                         }
                         else if (FieldProps.FieldType == TdbFieldType.tdbFloat)
                         {
-                            TDB.TDBFieldSetValueAsFloat(dbIndex2, SelectedTableName, FieldProps.Name, TableProps.RecordCount - 1, Convert.ToSingle(row.Cells[fCount + 1].Value));
+                            TDB.TDBFieldSetValueAsFloat(dbIndex, SelectedTableName, FieldProps.Name, TableProps.RecordCount - 1, Convert.ToSingle(row.Cells[fCount + 1].Value));
                         }
                         else if (FieldProps.FieldType == TdbFieldType.tdbBinary || FieldProps.FieldType == TdbFieldType.tdbVarchar || FieldProps.FieldType == TdbFieldType.tdbLongVarchar)
                         {
@@ -560,14 +562,14 @@ namespace DB_EDITOR
                 int rowcount = fieldsGridView.SelectedRows.Count;
 
                 if (rowcount == 0)
-                    TDB.TDBTableRecordAdd(dbIndex2, SelectedTableName, true);
+                    TDB.TDBTableRecordAdd(dbIndex, SelectedTableName, true);
                 else
                 {
                     for (int r = 0; r < rowcount; r++)
                     {
                         // Shouldnt use expand flag as it causes problems in certain tables when it doesnt expect more than
                         // a certain amount of records.  Player table I know has this issue...
-                        TDB.TDBTableRecordAdd(dbIndex2, SelectedTableName, true);
+                        TDB.TDBTableRecordAdd(dbIndex, SelectedTableName, true);
                     }
                 }
 
@@ -589,7 +591,7 @@ namespace DB_EDITOR
                 foreach (DataGridViewRow row in fieldsGridView.SelectedRows)
                 {
                     // cell 0 contains the record number
-                    if (TDB.TDBTableRecordChangeDeleted(dbIndex2, SelectedTableName, Convert.ToInt32(row.Cells[0].Value), true))
+                    if (TDB.TDBTableRecordChangeDeleted(dbIndex, SelectedTableName, Convert.ToInt32(row.Cells[0].Value), true))
                     {
                         fieldsGridView.Rows.RemoveAt(row.Index);
                     }
@@ -597,7 +599,7 @@ namespace DB_EDITOR
 
                 DBModified = true;
                 saveMenuItem.Enabled = true;
-                TDB.TDBDatabaseCompact(dbIndex2);
+                TDB.TDBDatabaseCompact(dbIndex);
                 GetTableProperties();
                 LoadFields();
             }
@@ -629,10 +631,10 @@ namespace DB_EDITOR
             descendingFieldOrderMenuItem.Checked = false;
             customOrderMenuItem.Checked = false;
 
-            GetTables(dbIndex2);
+            GetTables(dbIndex);
             LoadTables();
 
-            GetFields(dbIndex2, SelectedTableIndex);
+            GetFields(dbIndex, SelectedTableIndex);
             LoadFields();
         }
         private void ascendingMenuItem_Click(object sender, EventArgs e)
@@ -891,7 +893,7 @@ namespace DB_EDITOR
 
             if (offSeasonSave && db2Data.Count > 0)
             {
-                SaveDB(dbIndex2);
+                SaveDB(dbIndex);
                 array = File.ReadAllBytes(dbFile); //db2
                 x = 0;
                 y = array.Length;
@@ -902,7 +904,7 @@ namespace DB_EDITOR
                 foreach (byte b in db2Data)
                     psuTmp.Add(b);
 
-                SaveDB(dbIndex2);
+                SaveDB(dbIndex);
                 array = File.ReadAllBytes(dbFile); //db1
                 x = array.Length;
                 y = db2Data.Count;
@@ -914,8 +916,8 @@ namespace DB_EDITOR
         }
         public void OpenDB(string dbFileName)
         {
-            if (dbIndex2 == -1)
-                dbIndex2 = TDB.TDBOpen(dbFileName);
+            if (dbIndex == -1)
+                dbIndex = TDB.TDBOpen(dbFileName);
         }
 
         public bool SaveDB(int DBIndex)
@@ -962,7 +964,7 @@ namespace DB_EDITOR
             TableProps.Name = new string((char)0, 5);
 
             // Get Tableprops based on the selected index
-            TDB.TDBTableGetProperties(dbIndex2, SelectedTableIndex, ref TableProps);
+            TDB.TDBTableGetProperties(dbIndex, SelectedTableIndex, ref TableProps);
 
             string flags = "";
             if (TableProps.Flag0) flags += " FL0";
@@ -977,7 +979,7 @@ namespace DB_EDITOR
 
         private void GetFieldProps()
         {
-            if (dbIndex2 == -1 || FieldNames.Count < 0)
+            if (dbIndex == -1 || FieldNames.Count < 0)
                 return;
 
             int rownum = fieldsGridView.CurrentCellAddress.Y;
@@ -993,12 +995,12 @@ namespace DB_EDITOR
             #region Get TABLE Properties
             TdbTableProperties tableProps = new TdbTableProperties();
 
-            int tmpTableCount = TDB.TDBDatabaseGetTableCount(dbIndex2);
+            int tmpTableCount = TDB.TDBDatabaseGetTableCount(dbIndex);
 
             for (int tmpTableIndex = 0; tmpTableIndex < tmpTableCount; tmpTableIndex++)
             {
                 tableProps.Name = new string((char)0, 5);
-                TDB.TDBTableGetProperties(dbIndex2, tmpTableIndex, ref tableProps);
+                TDB.TDBTableGetProperties(dbIndex, tmpTableIndex, ref tableProps);
 
                 if (tableProps.Name == SelectedTableName)
                     break;
@@ -1014,7 +1016,7 @@ namespace DB_EDITOR
             int tmpFieldCount = tableProps.FieldCount;
             for (int tmpFieldIndex = 0; tmpFieldIndex < tmpFieldCount; tmpFieldIndex++)
             {
-                TDB.TDBFieldGetProperties(dbIndex2, tableProps.Name, tmpFieldIndex, ref fieldProps);
+                TDB.TDBFieldGetProperties(dbIndex, tableProps.Name, tmpFieldIndex, ref fieldProps);
                 if (fieldProps.Name == tmpFieldName)
                     break;
             }
@@ -1138,7 +1140,7 @@ namespace DB_EDITOR
 
             lblTableProps.Text = "";
 
-            if (tableGridView.SelectedRows.Count <= 0 || dbIndex2 == -1)
+            if (tableGridView.SelectedRows.Count <= 0 || dbIndex == -1)
                 return;
 
             // Get the Table Name and RecNo.
@@ -1162,7 +1164,7 @@ namespace DB_EDITOR
             GetTableProperties();
 
             // MessageBox.Show(SelectedTableName);
-            GetFields(dbIndex2, SelectedTableIndex);
+            GetFields(dbIndex, SelectedTableIndex);
             LoadFields();
         }
 
@@ -1289,7 +1291,7 @@ namespace DB_EDITOR
             TableProps.Name = new string((char)0, 5);
 
             // Get Tableprops based on the selected table index
-            if (!TDB.TDBTableGetProperties(dbIndex2, SelectedTableIndex, ref TableProps))
+            if (!TDB.TDBTableGetProperties(dbIndex, SelectedTableIndex, ref TableProps))
                 return;
 
             progressBar1.Minimum = 0;
@@ -1299,7 +1301,7 @@ namespace DB_EDITOR
             for (int r = 0; r < TableProps.RecordCount; r++)
             {
                 // check if record is deleted, if so, skip
-                if (TDB.TDBTableRecordDeleted(dbIndex2, TableProps.Name, r))
+                if (TDB.TDBTableRecordDeleted(dbIndex, TableProps.Name, r))
                     continue;
 
                 int tmpf = 0;
@@ -1316,7 +1318,7 @@ namespace DB_EDITOR
                     TdbFieldProperties FieldProps = new TdbFieldProperties();
                     FieldProps.Name = new string((char)0, 5);
 
-                    TDB.TDBFieldGetProperties(dbIndex2, TableProps.Name, f.Key, ref FieldProps);
+                    TDB.TDBFieldGetProperties(dbIndex, TableProps.Name, f.Key, ref FieldProps);
 
                     #region Load fieldsGridView by tdbFieldType.
                     //
@@ -1327,7 +1329,7 @@ namespace DB_EDITOR
                         string val = new string((char)0, (FieldProps.Size / 8) + 1);
 
 
-                        TDB.TDBFieldGetValueAsString(dbIndex2, TableProps.Name, FieldProps.Name, r, ref val);
+                        TDB.TDBFieldGetValueAsString(dbIndex, TableProps.Name, FieldProps.Name, r, ref val);
                         val = val.Replace(",", "");
 
 
@@ -1372,14 +1374,14 @@ namespace DB_EDITOR
                     else if (FieldProps.FieldType == TdbFieldType.tdbFloat)
                     {
                         float floatval;
-                        floatval = TDB.TDBFieldGetValueAsFloat(dbIndex2, TableProps.Name, FieldProps.Name, r);
+                        floatval = TDB.TDBFieldGetValueAsFloat(dbIndex, TableProps.Name, FieldProps.Name, r);
 
                         DataGridRow[tmpf + 1] = floatval;
                     }
                     else if (FieldProps.FieldType == TdbFieldType.tdbBinary || FieldProps.FieldType == TdbFieldType.tdbVarchar || FieldProps.FieldType == TdbFieldType.tdbLongVarchar)
                     {
                         string val = new string((char)0, (FieldProps.Size / 8) + 1);
-                        TDB.TDBFieldGetValueAsString(dbIndex2, TableProps.Name, FieldProps.Name, r, ref val);
+                        TDB.TDBFieldGetValueAsString(dbIndex, TableProps.Name, FieldProps.Name, r, ref val);
 
                         DataGridRow[tmpf + 1] = val;
                     }
@@ -1406,7 +1408,7 @@ namespace DB_EDITOR
         }
         private void FieldGridView_CurrentCellChanged(object sender, EventArgs e)
         {
-            if (dbIndex2 == -1 || FieldNames.Count < 0)
+            if (dbIndex == -1 || FieldNames.Count < 0)
                 return;
 
             int rownum = fieldsGridView.CurrentCellAddress.Y;
@@ -1425,13 +1427,13 @@ namespace DB_EDITOR
             TdbTableProperties tableProps = new TdbTableProperties();
             tableProps.Name = new string((char)0, 5);
 
-            int tmpTableCount = TDB.TDBDatabaseGetTableCount(dbIndex2);
+            int tmpTableCount = TDB.TDBDatabaseGetTableCount(dbIndex);
 
             for (int tmpTableIndex = 0; tmpTableIndex < tmpTableCount; tmpTableIndex++)
             {
                 tableProps.Name = new string((char)0, 5);
 
-                TDB.TDBTableGetProperties(dbIndex2, tmpTableIndex, ref tableProps);
+                TDB.TDBTableGetProperties(dbIndex, tmpTableIndex, ref tableProps);
 
                 if (tableProps.Name == SelectedTableName)
                     break;
@@ -1445,7 +1447,7 @@ namespace DB_EDITOR
             int tmpFieldCount = tableProps.FieldCount;
             for (int tmpFieldIndex = 0; tmpFieldIndex < tmpFieldCount; tmpFieldIndex++)
             {
-                TDB.TDBFieldGetProperties(dbIndex2, tableProps.Name, tmpFieldIndex, ref fieldProps);
+                TDB.TDBFieldGetProperties(dbIndex, tableProps.Name, tmpFieldIndex, ref fieldProps);
                 if (fieldProps.Name == tmpFieldName)
                     break;
             }
@@ -1469,7 +1471,7 @@ namespace DB_EDITOR
 
             // MessageBox.Show(tmpFieldName);
 
-            if (fieldsGridView.SelectedRows.Count <= 0 || dbIndex2 == -1 || colnum < 0 || rownum < 0)
+            if (fieldsGridView.SelectedRows.Count <= 0 || dbIndex == -1 || colnum < 0 || rownum < 0)
                 return;
 
             DBModified = true;
@@ -1478,13 +1480,13 @@ namespace DB_EDITOR
             TdbTableProperties tableProps = new TdbTableProperties();
             tableProps.Name = new string((char)0, 5);
 
-            int tmpTableCount = TDB.TDBDatabaseGetTableCount(dbIndex2);
+            int tmpTableCount = TDB.TDBDatabaseGetTableCount(dbIndex);
 
             for (int tmpTableIndex = 0; tmpTableIndex < tmpTableCount; tmpTableIndex++)
             {
                 tableProps.Name = new string((char)0, 5);
 
-                TDB.TDBTableGetProperties(dbIndex2, tmpTableIndex, ref tableProps);
+                TDB.TDBTableGetProperties(dbIndex, tmpTableIndex, ref tableProps);
 
                 if (tableProps.Name == SelectedTableName)
                     break;
@@ -1499,7 +1501,7 @@ namespace DB_EDITOR
             int tmpFieldCount = tableProps.FieldCount;
             for (int tmpFieldIndex = 0; tmpFieldIndex < tmpFieldCount; tmpFieldIndex++)
             {
-                TDB.TDBFieldGetProperties(dbIndex2, tableProps.Name, tmpFieldIndex, ref fieldProps);
+                TDB.TDBFieldGetProperties(dbIndex, tableProps.Name, tmpFieldIndex, ref fieldProps);
                 if (fieldProps.Name == tmpFieldName)
                     break;
             }
@@ -1513,7 +1515,7 @@ namespace DB_EDITOR
 
                 tmpval = tmpval.Replace(",", "");
 
-                if (!TDB.TDBFieldSetValueAsString(dbIndex2, SelectedTableName, fieldProps.Name, tmpcol, tmpval))
+                if (!TDB.TDBFieldSetValueAsString(dbIndex, SelectedTableName, fieldProps.Name, tmpcol, tmpval))
                     fieldsGridView.Rows[rownum].Cells[colnum].Value = tmpval;
 
             }
@@ -1525,7 +1527,7 @@ namespace DB_EDITOR
                 // int val = (Int32)TDB.TDBFieldGetValueAsInteger(currentDBfileIndex, SelectedTableName, FieldProps.Name, Convert.ToInt32(tmpcol));
                 if (IsUIntNumber(Convert.ToString(tmpval)))
                 {
-                    if (!TDB.TDBFieldSetValueAsInteger(dbIndex2, SelectedTableName, fieldProps.Name, Convert.ToInt32(tmpcol), Convert.ToInt32(intval)))
+                    if (!TDB.TDBFieldSetValueAsInteger(dbIndex, SelectedTableName, fieldProps.Name, Convert.ToInt32(tmpcol), Convert.ToInt32(intval)))
                         fieldsGridView.Rows[rownum].Cells[colnum].Value = Convert.ToUInt32(intval);
 
                 }
@@ -1541,7 +1543,7 @@ namespace DB_EDITOR
                 if (IsIntNumber(Convert.ToString(tmpval)))
                 {
 
-                    bool tmpTDB = TDB.TDBFieldSetValueAsInteger(dbIndex2, SelectedTableName, fieldProps.Name, Convert.ToInt32(tmpcol), Convert.ToInt32(tmpval));
+                    bool tmpTDB = TDB.TDBFieldSetValueAsInteger(dbIndex, SelectedTableName, fieldProps.Name, Convert.ToInt32(tmpcol), Convert.ToInt32(tmpval));
                     if (!tmpTDB)
                         fieldsGridView.Rows[rownum].Cells[colnum].Value = Convert.ToInt32(tmpval);
                     else
@@ -1563,7 +1565,7 @@ namespace DB_EDITOR
                 if (IsFloat(Convert.ToString(tmpval)))
                 {
 
-                    bool tmpTDB = TDB.TDBFieldSetValueAsFloat(dbIndex2, SelectedTableName, fieldProps.Name, Convert.ToInt32(tmpcol), Convert.ToSingle(tmpval));
+                    bool tmpTDB = TDB.TDBFieldSetValueAsFloat(dbIndex, SelectedTableName, fieldProps.Name, Convert.ToInt32(tmpcol), Convert.ToSingle(tmpval));
                     if (!tmpTDB)
                         fieldsGridView.Rows[rownum].Cells[colnum].Value = Convert.ToSingle(tmpval);
                     else
@@ -1677,14 +1679,14 @@ namespace DB_EDITOR
             TdbTableProperties TableProps = new TdbTableProperties();
             TableProps.Name = new string((char)0, 5);
 
-            TDB.TDBTableGetProperties(dbIndex2, SelectedTableIndex, ref TableProps);
+            TDB.TDBTableGetProperties(dbIndex, SelectedTableIndex, ref TableProps);
 
             TdbFieldProperties FieldProps = new TdbFieldProperties();
             FieldProps.Name = new string((char)0, 5);
 
             for (int index = 0; index < TableProps.FieldCount; index++)
             {
-                TDB.TDBFieldGetProperties(dbIndex2, SelectedTableName, index, ref FieldProps);
+                TDB.TDBFieldGetProperties(dbIndex, SelectedTableName, index, ref FieldProps);
 
                 if (tmpFName == FieldProps.Name)
                 {
@@ -1814,6 +1816,8 @@ namespace DB_EDITOR
             {
                 verNumber = 0.0;
             }
+            main.verNumber = verNumber;
+
         }
 
         private void OGConfigRadio_CheckedChanged(object sender, EventArgs e)
@@ -1830,6 +1834,8 @@ namespace DB_EDITOR
             {
                 verNumber = 0.0;
             }
+            main.verNumber = verNumber;
+
         }
 
         private void Next26Config_CheckedChanged(object sender, EventArgs e)
@@ -1846,6 +1852,8 @@ namespace DB_EDITOR
             {
                 verNumber = 0.0;
             }
+            main.verNumber = verNumber;
+
         }
     }
 

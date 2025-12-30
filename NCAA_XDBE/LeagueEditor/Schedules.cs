@@ -75,10 +75,10 @@ namespace DB_EDITOR
         {
             for (int i = 0; i < GetTableRecCount(table); i++)
             {
-                TDB.TDBTableRecordChangeDeleted(dbIndex2, table, i, true);
+                TDB.TDBTableRecordChangeDeleted(dbIndex, table, i, true);
             }
-            TDB.TDBTableChangeCapacity(dbIndex2, table, 0);
-            TDB.TDBDatabaseCompact(dbIndex2);
+            TDB.TDBTableChangeCapacity(dbIndex, table, 0);
+            TDB.TDBDatabaseCompact(dbIndex);
         }
 
         private void ScheduleGenerator()
@@ -90,7 +90,7 @@ namespace DB_EDITOR
             if (!ArmyNavy && verNumber >= 15.0)
             {
                 ClearAnnuals();
-                TDB.TDBTableRecordAdd(dbIndex2, "SANN", true);
+                TDB.TDBTableRecordAdd(dbIndex, "SANN", true);
                 ChangeDBInt("SANN", "GTOD", 0, 1200);
                 ChangeDBInt("SANN", "GATG", 0, 8);
                 ChangeDBInt("SANN", "GHTG", 0, 57);
@@ -99,7 +99,7 @@ namespace DB_EDITOR
                 ChangeDBInt("SANN", "GDAT", 0, 5);
                 ChangeDBInt("SANN", "SEWT", 0, 15);
 
-                TDB.TDBTableRecordAdd(dbIndex2, "SANN", true);
+                TDB.TDBTableRecordAdd(dbIndex, "SANN", true);
                 ChangeDBInt("SANN", "GTOD", 1, 1200);
                 ChangeDBInt("SANN", "GATG", 1, 57);
                 ChangeDBInt("SANN", "GHTG", 1, 8);
@@ -155,7 +155,7 @@ namespace DB_EDITOR
                             string table = CONFTables[i];
 
                             //Add a record
-                            TDB.TDBTableRecordAdd(dbIndex2, table, true);
+                            TDB.TDBTableRecordAdd(dbIndex, table, true);
 
                             ChangeDBInt(table, "GTOD", g, template[g][0]);
                             ChangeDBInt(table, "GATG", g, away);
@@ -193,12 +193,12 @@ namespace DB_EDITOR
                 {
                     if (GetDBValueInt(table, "GATG", j) == 0 && GetDBValueInt(table, "GHTG", j) == 0)
                     {
-                        TDB.TDBTableRecordChangeDeleted(dbIndex2, table, j, true);
+                        TDB.TDBTableRecordChangeDeleted(dbIndex, table, j, true);
                     }
                 }
 
 
-                TDB.TDBDatabaseCompact(dbIndex2);
+                TDB.TDBDatabaseCompact(dbIndex);
 
             }
 
@@ -224,7 +224,7 @@ namespace DB_EDITOR
                 {
                     if (GetDBValueInt(table, "SESI", g) == 0)
                     {
-                        TDB.TDBTableRecordAdd(dbIndex2, "SKNW", true);
+                        TDB.TDBTableRecordAdd(dbIndex, "SKNW", true);
                         ChangeDBInt("SKNW", "GTOD", tableRec, GetDBValueInt(table, "GTOD", g));
                         ChangeDBInt("SKNW", "GATG", tableRec, GetDBValueInt(table, "GATG", g));
                         ChangeDBInt("SKNW", "GHTG", tableRec, GetDBValueInt(table, "GHTG", g));
@@ -242,11 +242,11 @@ namespace DB_EDITOR
             {
                 if (GetDBValueInt("SKNW", "GATG", j) == 0 && GetDBValueInt("SKNW", "GHTG", j) == 0)
                 {
-                    TDB.TDBTableRecordChangeDeleted(dbIndex2, "SKNW", j, true);
+                    TDB.TDBTableRecordChangeDeleted(dbIndex, "SKNW", j, true);
                 }
             }
 
-            TDB.TDBDatabaseCompact(dbIndex2);
+            TDB.TDBDatabaseCompact(dbIndex);
         }
 
 

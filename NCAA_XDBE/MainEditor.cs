@@ -43,7 +43,7 @@ namespace DB_EDITOR
         bool TDYN = false;
         public bool TEAM = false;
         public bool devMode = false;
-        double verNumber = 1.0;
+        public double verNumber = 1.0;
 
         int TeamIndex;
         int PlayerIndex;

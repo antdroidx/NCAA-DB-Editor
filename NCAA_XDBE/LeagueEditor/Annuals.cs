@@ -64,6 +64,7 @@ namespace DB_EDITOR
         {
             string[] teamNameDB = main.GetTeamNameDB();
             int count = 0;
+            string message = "";
             for (int i = 0; i < GetTableRecCount("SANN"); i++)
             {
                 if (GetDBValueInt("SANN", "SESI", i) == 0)
@@ -98,20 +99,20 @@ namespace DB_EDITOR
                     }
                     else
                     {
-                        MessageBox.Show("" + main.teamNameDB[tgidA] + " and " + main.teamNameDB[tgidH] + " was removed. They are in the same conference.");
+                        message += "" + main.teamNameDB[tgidA] + " vs " + main.teamNameDB[tgidH] + "\n";
                     }
 
                     count++;
                 }
 
-                //if (count >= 26) break; // Limit to 50 rows
             }
+            if(message != "") MessageBox.Show("The following matches were removed: \n\n" + message);
 
             //Add Army-Navy if not present
             if (!ArmyNavy && verNumber >= 15.0)
             {
                 int rec = GetTableRecCount("SANN");
-                TDB.TDBTableRecordAdd(dbIndex2, "SANN", false);
+                TDB.TDBTableRecordAdd(dbIndex, "SANN", false);
                 ChangeDBInt("SANN", "GTOD", rec, 1200);
                 ChangeDBInt("SANN", "GATG", rec, 8);
                 ChangeDBInt("SANN", "GHTG", rec, 57);
@@ -120,7 +121,7 @@ namespace DB_EDITOR
                 ChangeDBInt("SANN", "GDAT", rec, 5);
                 ChangeDBInt("SANN", "SEWT", rec, 15);
 
-                TDB.TDBTableRecordAdd(dbIndex2, "SANN", false);
+                TDB.TDBTableRecordAdd(dbIndex, "SANN", false);
                 ChangeDBInt("SANN", "GTOD", rec + 1, 1200);
                 ChangeDBInt("SANN", "GATG", rec + 1, 57);
                 ChangeDBInt("SANN", "GHTG", rec + 1, 8);
@@ -185,29 +186,31 @@ namespace DB_EDITOR
             ClearAnnuals();
 
             int rec = 0;
-            for (int i = 0; i < AnnualsGrid.Rows.Count; i++)
+            for (int i = 0; i < AnnualsGrid.Rows.Count-1; i++)
             {
                 if (AnnualsGrid.Rows[i].Cells[0].Value != null && AnnualsGrid.Rows[i].Cells[1].Value != null && AnnualsGrid.Rows[i].Cells[2].Value != null)
                 {
+                    TDB.TDBDatabaseCompact(dbIndex);
                     int time = 1080;
                     int gdat = 5;
                     if (rand.Next(0, 2) == 1) time = 1200;
                     int home = GetTGIDfromTeamName(Convert.ToString(AnnualsGrid.Rows[i].Cells[1].Value));
                     int away = GetTGIDfromTeamName(Convert.ToString(AnnualsGrid.Rows[i].Cells[0].Value));
+                    int sewn = Convert.ToInt32(AnnualsGrid.Rows[i].Cells[2].Value);
 
                     //check for same conference
                     if (main.GetTeamCGID(GetTeamRecFromTGID(home)) != main.GetTeamCGID(GetTeamRecFromTGID(away)) || main.GetTeamCGID(GetTeamRecFromTGID(home)) == 5 || main.GetTeamCGID(GetTeamRecFromTGID(away)) == 5)
                     {
                         //year 0
-                        rec = TDB.TableRecordCount(dbIndex2, "SANN");
-                        TDB.TDBTableRecordAdd(dbIndex2, "SANN", true);
+                        rec = TDB.TableRecordCount(dbIndex, "SANN");
+                        TDB.TDBTableRecordAdd(dbIndex, "SANN", true);
                         ChangeDBInt("SANN", "GTOD", rec, time);
                         ChangeDBInt("SANN", "GATG", rec, away);
                         ChangeDBInt("SANN", "GHTG", rec, home);
                         ChangeDBInt("SANN", "SESI", rec, 0);
-                        ChangeDBInt("SANN", "SEWN", rec, Convert.ToInt32(AnnualsGrid.Rows[i].Cells[2].Value));
+                        ChangeDBInt("SANN", "SEWN", rec, sewn);
                         ChangeDBInt("SANN", "GDAT", rec, gdat);
-                        ChangeDBInt("SANN", "SEWT", rec, Convert.ToInt32(AnnualsGrid.Rows[i].Cells[2].Value));
+                        ChangeDBInt("SANN", "SEWT", rec, sewn);
 
                         //check for Army-Navy game
                         if (away == 57 & home == 8)
@@ -226,24 +229,24 @@ namespace DB_EDITOR
 
 
                         //year 1
-                        rec = TDB.TableRecordCount(dbIndex2, "SANN");
-                        TDB.TDBTableRecordAdd(dbIndex2, "SANN", true);
+                        rec = TDB.TableRecordCount(dbIndex, "SANN");
+                        TDB.TDBTableRecordAdd(dbIndex, "SANN", true);
                         ChangeDBInt("SANN", "GTOD", rec, time);
                         ChangeDBInt("SANN", "GATG", rec, home);
                         ChangeDBInt("SANN", "GHTG", rec, away);
                         ChangeDBInt("SANN", "SESI", rec, 1);
-                        ChangeDBInt("SANN", "SEWN", rec, Convert.ToInt32(AnnualsGrid.Rows[i].Cells[2].Value));
+                        ChangeDBInt("SANN", "SEWN", rec, sewn);
                         ChangeDBInt("SANN", "GDAT", rec, gdat);
-                        ChangeDBInt("SANN", "SEWT", rec, Convert.ToInt32(AnnualsGrid.Rows[i].Cells[2].Value));
+                        ChangeDBInt("SANN", "SEWT", rec, sewn);
 
                         //check for Army-Navy game
-                        if (away == 57 & home == 8)
+                        if (away == 57 & home == 8 && verNumber >= 15.0)
                         {
                             ChangeDBInt("SANN", "SEWN", rec, 15);
                             ChangeDBInt("SANN", "SEWT", rec, 15);
                             ArmyNavy = true;
                         }
-                        else if (away == 8 && home == 57)
+                        else if (away == 8 && home == 57 && verNumber >= 15.0)
                         {
                             ChangeDBInt("SANN", "SEWN", rec, 15);
                             ChangeDBInt("SANN", "SEWT", rec, 15);
@@ -261,8 +264,8 @@ namespace DB_EDITOR
 
             if (!ArmyNavy && verNumber >= 15.0)
             {
-                rec = TDB.TableRecordCount(dbIndex2, "SANN");
-                TDB.TDBTableRecordAdd(dbIndex2, "SANN", false);
+                rec = TDB.TableRecordCount(dbIndex, "SANN");
+                TDB.TDBTableRecordAdd(dbIndex, "SANN", false);
                 ChangeDBInt("SANN", "GTOD", rec, 1200);
                 ChangeDBInt("SANN", "GATG", rec, 8);
                 ChangeDBInt("SANN", "GHTG", rec, 57);
@@ -271,8 +274,8 @@ namespace DB_EDITOR
                 ChangeDBInt("SANN", "GDAT", rec, 5);
                 ChangeDBInt("SANN", "SEWT", rec, 15);
 
-                rec = TDB.TableRecordCount(dbIndex2, "SANN");
-                TDB.TDBTableRecordAdd(dbIndex2, "SANN", false);
+                rec = TDB.TableRecordCount(dbIndex, "SANN");
+                TDB.TDBTableRecordAdd(dbIndex, "SANN", false);
                 ChangeDBInt("SANN", "GTOD", rec, 1200);
                 ChangeDBInt("SANN", "GATG", rec, 57);
                 ChangeDBInt("SANN", "GHTG", rec, 8);
@@ -284,15 +287,18 @@ namespace DB_EDITOR
             }
 
             //Check Schedules for Errors
+              
             for (int j = 0; j < GetTableRecCount("SANN"); j++)
             {
-                if (GetDBValueInt("SANN", "GATG", j) == 0 && GetDBValueInt("SANN", "GHTG", j) == 0)
+                int home = GetDBValueInt("SANN", "GHTG", j);
+                int away = GetDBValueInt("SANN", "GATG", j);
+                if (away == 0 && home == 0)
                 {
-                    TDB.TDBTableRecordChangeDeleted(dbIndex2, "SANN", j, true);
+                    TDB.TDBTableRecordChangeDeleted(dbIndex, "SANN", j, true);
                 }
             }
-
-            TDB.TDBDatabaseCompact(dbIndex2);
+             
+            TDB.TDBDatabaseCompact(dbIndex);
 
             AddtoSKNW();
 
@@ -337,7 +343,7 @@ namespace DB_EDITOR
             {
                 if (GetDBValueInt(table, "SESI", g) == 0)
                 {
-                    TDB.TDBTableRecordAdd(dbIndex2, "SKNW", true);
+                    TDB.TDBTableRecordAdd(dbIndex, "SKNW", true);
                     ChangeDBInt("SKNW", "GTOD", tableRec, GetDBValueInt(table, "GTOD", g));
                     ChangeDBInt("SKNW", "GATG", tableRec, GetDBValueInt(table, "GATG", g));
                     ChangeDBInt("SKNW", "GHTG", tableRec, GetDBValueInt(table, "GHTG", g));
@@ -354,25 +360,11 @@ namespace DB_EDITOR
             {
                 if (GetDBValueInt("SKNW", "GATG", j) == 0 && GetDBValueInt("SKNW", "GHTG", j) == 0)
                 {
-                    TDB.TDBTableRecordChangeDeleted(dbIndex2, "SKNW", j, true);
+                    TDB.TDBTableRecordChangeDeleted(dbIndex, "SKNW", j, true);
                 }
             }
 
-            TDB.TDBDatabaseCompact(dbIndex2);
-        }
-
-        private void AnnualsGrid_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
-        {
-            if (AnnualsGrid.Rows.Count > 26)
-            {
-                MessageBox.Show("Maximum of 26 rows allowed.", "Row Limit Reached",
-                    MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                while (AnnualsGrid.Rows.Count > 26)
-                {
-                    AnnualsGrid.Rows.RemoveAt(AnnualsGrid.Rows.Count - 1);
-                }
-            }
+            TDB.TDBDatabaseCompact(dbIndex);
         }
     }
 }
