@@ -108,7 +108,7 @@ namespace DB_EDITOR
         //Export To Dynasty Tracker
         private void exportDynastyTrackerButton_Click(object sender, EventArgs e)
         {
-
+            StartProgressBar(TDB.TableCount(dbIndex));
             string seasonFolder = "";
             string filePath = "";
             string season = "" + (GetDBValueInt("SEAI", "SEYR", 0) + DynStartYear.Value);
@@ -125,35 +125,6 @@ namespace DB_EDITOR
             StringBuilder TableName = new StringBuilder("    ", 5);
             exportAll = true;
 
-            /*
-            for (int i = 0; i < TDB.TDBDatabaseGetTableCount(dbIndex); i++)
-            {
-                // Get the tableproperties for the given table number
-                if (GetTableName(dbIndex, i) == "TEAM")
-                {
-                    SelectedTableName = "TEAM";
-                    SelectedTableIndex = i;
-                    exportToolItem.PerformClick();
-                }
-
-                // Get the tableproperties for the given table number
-                if (GetTableName(dbIndex, i) == "SCHD")
-                {
-                    SelectedTableName = "SCHD";
-                    SelectedTableIndex = i;
-                    exportToolItem.PerformClick();
-                }
-
-                // Get the tableproperties for the given table number
-                if (GetTableName(dbIndex, i) == "TSSE")
-                {
-                    SelectedTableName = "TSSE";
-                    SelectedTableIndex = i;
-                    exportToolItem.PerformClick();
-                }
-            }
-            */
-
             for (int i = 0; i < TDB.TDBDatabaseGetTableCount(dbIndex); i++)
             {
                 // Get the tableproperties for the given table number
@@ -168,9 +139,9 @@ namespace DB_EDITOR
 
 
                 ExportDB(seasonFolder);
-
+                ProgressBarStep();
             }
-
+            EndProgressBar();
 
             exportAll = false;
 

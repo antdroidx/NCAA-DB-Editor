@@ -809,6 +809,7 @@ namespace DB_EDITOR
             INJtype = new DataGridViewTextBoxColumn();
             INJlength = new DataGridViewTextBoxColumn();
             groupBox45 = new GroupBox();
+            ImpactKickers = new CheckBox();
             ImpactInjuries = new CheckBox();
             ImpactQBHB = new CheckBox();
             exportDynastyTrackerButton = new System.Windows.Forms.Button();
@@ -994,7 +995,8 @@ namespace DB_EDITOR
             label151 = new Label();
             label271 = new Label();
             PlayerPosBox = new System.Windows.Forms.ComboBox();
-            groupBox6 = new GroupBox();
+            playerAttributesGroup = new GroupBox();
+            lblPlayerAllAmericanStars = new Label();
             PSTAtext = new System.Windows.Forms.TextBox();
             PSTAbox = new NumericUpDown();
             label268 = new Label();
@@ -1494,11 +1496,12 @@ namespace DB_EDITOR
             LeagueRankingBox = new System.Windows.Forms.ComboBox();
             label197 = new Label();
             LeagueRankingView = new DataGridView();
-            dataGridViewTextBoxColumn37 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn36 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn45 = new DataGridViewTextBoxColumn();
-            Column7 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn55 = new DataGridViewTextBoxColumn();
+            LRrank = new DataGridViewTextBoxColumn();
+            LRcol1 = new DataGridViewTextBoxColumn();
+            LRcol2 = new DataGridViewTextBoxColumn();
+            LRcol3 = new DataGridViewTextBoxColumn();
+            LRcol4 = new DataGridViewTextBoxColumn();
+            LRcol5 = new DataGridViewTextBoxColumn();
             label181 = new Label();
             LeagueStatsView = new DataGridView();
             LS00 = new DataGridViewTextBoxColumn();
@@ -1621,7 +1624,6 @@ namespace DB_EDITOR
             RCATAppearanceRandomizerButton = new System.Windows.Forms.Button();
             buttonRCATBody = new System.Windows.Forms.Button();
             toolTip1 = new System.Windows.Forms.ToolTip(components);
-            ImpactKickers = new CheckBox();
             mainMenu.SuspendLayout();
             tableMenu.SuspendLayout();
             fieldMenu.SuspendLayout();
@@ -1777,7 +1779,7 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)PJEN).BeginInit();
             groupBox42.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PlayerStatsView).BeginInit();
-            groupBox6.SuspendLayout();
+            playerAttributesGroup.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PSTAbox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PINJBox).BeginInit();
             ((System.ComponentModel.ISupportInitialize)PSPDBox).BeginInit();
@@ -9122,6 +9124,16 @@ namespace DB_EDITOR
             groupBox45.TabStop = false;
             groupBox45.Text = "Misc Tools";
             // 
+            // ImpactKickers
+            // 
+            ImpactKickers.AutoSize = true;
+            ImpactKickers.Location = new Point(120, 92);
+            ImpactKickers.Name = "ImpactKickers";
+            ImpactKickers.Size = new Size(144, 17);
+            ImpactKickers.TabIndex = 54;
+            ImpactKickers.Text = "Make Kickers 4th Impact";
+            ImpactKickers.UseVisualStyleBackColor = true;
+            // 
             // ImpactInjuries
             // 
             ImpactInjuries.AutoSize = true;
@@ -10465,7 +10477,7 @@ namespace DB_EDITOR
             tabPlayers.Controls.Add(groupBox42);
             tabPlayers.Controls.Add(label271);
             tabPlayers.Controls.Add(PlayerPosBox);
-            tabPlayers.Controls.Add(groupBox6);
+            tabPlayers.Controls.Add(playerAttributesGroup);
             tabPlayers.Controls.Add(ShowPOSGBox);
             tabPlayers.Controls.Add(ShowRatingCheckbox);
             tabPlayers.Controls.Add(ShowPosCheckBox);
@@ -11109,10 +11121,10 @@ namespace DB_EDITOR
             // PlayerTransferLabel
             // 
             PlayerTransferLabel.AutoSize = true;
-            PlayerTransferLabel.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            PlayerTransferLabel.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             PlayerTransferLabel.Location = new Point(10, 158);
             PlayerTransferLabel.Name = "PlayerTransferLabel";
-            PlayerTransferLabel.Size = new Size(276, 15);
+            PlayerTransferLabel.Size = new Size(327, 15);
             PlayerTransferLabel.TabIndex = 163;
             PlayerTransferLabel.Text = "Mississippi State | Transfer from Mississippi State";
             PlayerTransferLabel.Visible = false;
@@ -11147,78 +11159,89 @@ namespace DB_EDITOR
             PlayerPosBox.TabIndex = 161;
             PlayerPosBox.SelectedIndexChanged += (this.PlayerPosBox_SelectedIndexChanged);
             // 
-            // groupBox6
+            // playerAttributesGroup
             // 
-            groupBox6.Controls.Add(PSTAtext);
-            groupBox6.Controls.Add(PSTAbox);
-            groupBox6.Controls.Add(label268);
-            groupBox6.Controls.Add(PTEN);
-            groupBox6.Controls.Add(label173);
-            groupBox6.Controls.Add(PTHAtext);
-            groupBox6.Controls.Add(PINJBox);
-            groupBox6.Controls.Add(label64);
-            groupBox6.Controls.Add(label206);
-            groupBox6.Controls.Add(PKACtext);
-            groupBox6.Controls.Add(PSPDBox);
-            groupBox6.Controls.Add(PKPRtext);
-            groupBox6.Controls.Add(PDIS);
-            groupBox6.Controls.Add(PSPDlabel);
-            groupBox6.Controls.Add(PTAKtext);
-            groupBox6.Controls.Add(PACCBox);
-            groupBox6.Controls.Add(POVRbox);
-            groupBox6.Controls.Add(PPBKtext);
-            groupBox6.Controls.Add(PACClabel);
-            groupBox6.Controls.Add(PSTRBox);
-            groupBox6.Controls.Add(PCARtext);
-            groupBox6.Controls.Add(PSTRlabel);
-            groupBox6.Controls.Add(PCTHtext);
-            groupBox6.Controls.Add(PBTKBox);
-            groupBox6.Controls.Add(PJMPtext);
-            groupBox6.Controls.Add(PBTKlabel);
-            groupBox6.Controls.Add(PTHPBox);
-            groupBox6.Controls.Add(PTHPlabel);
-            groupBox6.Controls.Add(PAGItext);
-            groupBox6.Controls.Add(PRBKBox);
-            groupBox6.Controls.Add(PAWRtext);
-            groupBox6.Controls.Add(PRBKlabel);
-            groupBox6.Controls.Add(PPOEtext);
-            groupBox6.Controls.Add(PPOEBox);
-            groupBox6.Controls.Add(PRBKtext);
-            groupBox6.Controls.Add(label78);
-            groupBox6.Controls.Add(PTHPtext);
-            groupBox6.Controls.Add(PAWRBox);
-            groupBox6.Controls.Add(PBTKtext);
-            groupBox6.Controls.Add(PAWRlabel);
-            groupBox6.Controls.Add(PSTRtext);
-            groupBox6.Controls.Add(PAGIBox);
-            groupBox6.Controls.Add(PACCtext);
-            groupBox6.Controls.Add(PAGIlabel);
-            groupBox6.Controls.Add(PSPDtext);
-            groupBox6.Controls.Add(PJMPBox);
-            groupBox6.Controls.Add(PINJtext);
-            groupBox6.Controls.Add(PJMPlabel);
-            groupBox6.Controls.Add(label61);
-            groupBox6.Controls.Add(PCTHBox);
-            groupBox6.Controls.Add(PCTHlabel);
-            groupBox6.Controls.Add(PCARBox);
-            groupBox6.Controls.Add(PCARlabel);
-            groupBox6.Controls.Add(PTHABox);
-            groupBox6.Controls.Add(PTHAlabel);
-            groupBox6.Controls.Add(PPBKBox);
-            groupBox6.Controls.Add(PPBKlabel);
-            groupBox6.Controls.Add(PTAKBox);
-            groupBox6.Controls.Add(PTAKlabel);
-            groupBox6.Controls.Add(PKPRBox);
-            groupBox6.Controls.Add(PKPRlabel);
-            groupBox6.Controls.Add(PKACBox);
-            groupBox6.Controls.Add(PKAClabel);
-            groupBox6.Location = new Point(206, 202);
-            groupBox6.Name = "groupBox6";
-            groupBox6.Padding = new Padding(0);
-            groupBox6.Size = new Size(450, 331);
-            groupBox6.TabIndex = 150;
-            groupBox6.TabStop = false;
-            groupBox6.Text = "Attributes";
+            playerAttributesGroup.Controls.Add(lblPlayerAllAmericanStars);
+            playerAttributesGroup.Controls.Add(PSTAtext);
+            playerAttributesGroup.Controls.Add(PSTAbox);
+            playerAttributesGroup.Controls.Add(label268);
+            playerAttributesGroup.Controls.Add(PTEN);
+            playerAttributesGroup.Controls.Add(label173);
+            playerAttributesGroup.Controls.Add(PTHAtext);
+            playerAttributesGroup.Controls.Add(PINJBox);
+            playerAttributesGroup.Controls.Add(label64);
+            playerAttributesGroup.Controls.Add(label206);
+            playerAttributesGroup.Controls.Add(PKACtext);
+            playerAttributesGroup.Controls.Add(PSPDBox);
+            playerAttributesGroup.Controls.Add(PKPRtext);
+            playerAttributesGroup.Controls.Add(PDIS);
+            playerAttributesGroup.Controls.Add(PSPDlabel);
+            playerAttributesGroup.Controls.Add(PTAKtext);
+            playerAttributesGroup.Controls.Add(PACCBox);
+            playerAttributesGroup.Controls.Add(POVRbox);
+            playerAttributesGroup.Controls.Add(PPBKtext);
+            playerAttributesGroup.Controls.Add(PACClabel);
+            playerAttributesGroup.Controls.Add(PSTRBox);
+            playerAttributesGroup.Controls.Add(PCARtext);
+            playerAttributesGroup.Controls.Add(PSTRlabel);
+            playerAttributesGroup.Controls.Add(PCTHtext);
+            playerAttributesGroup.Controls.Add(PBTKBox);
+            playerAttributesGroup.Controls.Add(PJMPtext);
+            playerAttributesGroup.Controls.Add(PBTKlabel);
+            playerAttributesGroup.Controls.Add(PTHPBox);
+            playerAttributesGroup.Controls.Add(PTHPlabel);
+            playerAttributesGroup.Controls.Add(PAGItext);
+            playerAttributesGroup.Controls.Add(PRBKBox);
+            playerAttributesGroup.Controls.Add(PAWRtext);
+            playerAttributesGroup.Controls.Add(PRBKlabel);
+            playerAttributesGroup.Controls.Add(PPOEtext);
+            playerAttributesGroup.Controls.Add(PPOEBox);
+            playerAttributesGroup.Controls.Add(PRBKtext);
+            playerAttributesGroup.Controls.Add(label78);
+            playerAttributesGroup.Controls.Add(PTHPtext);
+            playerAttributesGroup.Controls.Add(PAWRBox);
+            playerAttributesGroup.Controls.Add(PBTKtext);
+            playerAttributesGroup.Controls.Add(PAWRlabel);
+            playerAttributesGroup.Controls.Add(PSTRtext);
+            playerAttributesGroup.Controls.Add(PAGIBox);
+            playerAttributesGroup.Controls.Add(PACCtext);
+            playerAttributesGroup.Controls.Add(PAGIlabel);
+            playerAttributesGroup.Controls.Add(PSPDtext);
+            playerAttributesGroup.Controls.Add(PJMPBox);
+            playerAttributesGroup.Controls.Add(PINJtext);
+            playerAttributesGroup.Controls.Add(PJMPlabel);
+            playerAttributesGroup.Controls.Add(label61);
+            playerAttributesGroup.Controls.Add(PCTHBox);
+            playerAttributesGroup.Controls.Add(PCTHlabel);
+            playerAttributesGroup.Controls.Add(PCARBox);
+            playerAttributesGroup.Controls.Add(PCARlabel);
+            playerAttributesGroup.Controls.Add(PTHABox);
+            playerAttributesGroup.Controls.Add(PTHAlabel);
+            playerAttributesGroup.Controls.Add(PPBKBox);
+            playerAttributesGroup.Controls.Add(PPBKlabel);
+            playerAttributesGroup.Controls.Add(PTAKBox);
+            playerAttributesGroup.Controls.Add(PTAKlabel);
+            playerAttributesGroup.Controls.Add(PKPRBox);
+            playerAttributesGroup.Controls.Add(PKPRlabel);
+            playerAttributesGroup.Controls.Add(PKACBox);
+            playerAttributesGroup.Controls.Add(PKAClabel);
+            playerAttributesGroup.Location = new Point(206, 202);
+            playerAttributesGroup.Name = "playerAttributesGroup";
+            playerAttributesGroup.Padding = new Padding(0);
+            playerAttributesGroup.Size = new Size(450, 331);
+            playerAttributesGroup.TabIndex = 150;
+            playerAttributesGroup.TabStop = false;
+            playerAttributesGroup.Text = "Attributes";
+            // 
+            // lblPlayerAllAmericanStars
+            // 
+            lblPlayerAllAmericanStars.AutoSize = true;
+            lblPlayerAllAmericanStars.Font = new Font("Microsoft Sans Serif", 20.25F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            lblPlayerAllAmericanStars.Location = new Point(160, 11);
+            lblPlayerAllAmericanStars.Name = "lblPlayerAllAmericanStars";
+            lblPlayerAllAmericanStars.Size = new Size(90, 31);
+            lblPlayerAllAmericanStars.TabIndex = 163;
+            lblPlayerAllAmericanStars.Text = "XXXX";
             // 
             // PSTAtext
             // 
@@ -11261,7 +11284,7 @@ namespace DB_EDITOR
             PTEN.Location = new Point(102, 47);
             PTEN.Name = "PTEN";
             PTEN.ReadOnly = true;
-            PTEN.Size = new Size(130, 22);
+            PTEN.Size = new Size(143, 22);
             PTEN.TabIndex = 147;
             PTEN.TextAlign = HorizontalAlignment.Center;
             // 
@@ -16866,7 +16889,7 @@ namespace DB_EDITOR
             dataGridViewCellStyle99.WrapMode = DataGridViewTriState.True;
             LeagueRankingView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle99;
             LeagueRankingView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            LeagueRankingView.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn37, dataGridViewTextBoxColumn36, dataGridViewTextBoxColumn45, Column7, dataGridViewTextBoxColumn55 });
+            LeagueRankingView.Columns.AddRange(new DataGridViewColumn[] { LRrank, LRcol1, LRcol2, LRcol3, LRcol4, LRcol5 });
             dataGridViewCellStyle105.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle105.BackColor = SystemColors.ButtonFace;
             dataGridViewCellStyle105.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
@@ -16891,54 +16914,61 @@ namespace DB_EDITOR
             LeagueRankingView.TabIndex = 13;
             LeagueRankingView.SortCompare += (this.LeagueRankingView_SortCompare);
             // 
-            // dataGridViewTextBoxColumn37
+            // LRrank
             // 
-            dataGridViewTextBoxColumn37.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            LRrank.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewCellStyle100.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dataGridViewTextBoxColumn37.DefaultCellStyle = dataGridViewCellStyle100;
-            dataGridViewTextBoxColumn37.HeaderText = "Rank";
-            dataGridViewTextBoxColumn37.Name = "dataGridViewTextBoxColumn37";
-            dataGridViewTextBoxColumn37.ReadOnly = true;
-            dataGridViewTextBoxColumn37.Width = 58;
+            LRrank.DefaultCellStyle = dataGridViewCellStyle100;
+            LRrank.HeaderText = "Rank";
+            LRrank.Name = "LRrank";
+            LRrank.ReadOnly = true;
+            LRrank.Width = 58;
             // 
-            // dataGridViewTextBoxColumn36
+            // LRcol1
             // 
-            dataGridViewTextBoxColumn36.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            LRcol1.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dataGridViewCellStyle101.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewTextBoxColumn36.DefaultCellStyle = dataGridViewCellStyle101;
-            dataGridViewTextBoxColumn36.HeaderText = "Team Name";
-            dataGridViewTextBoxColumn36.Name = "dataGridViewTextBoxColumn36";
-            dataGridViewTextBoxColumn36.ReadOnly = true;
+            LRcol1.DefaultCellStyle = dataGridViewCellStyle101;
+            LRcol1.HeaderText = "Team Name";
+            LRcol1.Name = "LRcol1";
+            LRcol1.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn45
+            // LRcol2
             // 
-            dataGridViewTextBoxColumn45.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            LRcol2.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewCellStyle102.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewTextBoxColumn45.DefaultCellStyle = dataGridViewCellStyle102;
-            dataGridViewTextBoxColumn45.HeaderText = "Record";
-            dataGridViewTextBoxColumn45.Name = "dataGridViewTextBoxColumn45";
-            dataGridViewTextBoxColumn45.ReadOnly = true;
-            dataGridViewTextBoxColumn45.Width = 67;
+            LRcol2.DefaultCellStyle = dataGridViewCellStyle102;
+            LRcol2.HeaderText = "Record";
+            LRcol2.Name = "LRcol2";
+            LRcol2.ReadOnly = true;
+            LRcol2.Width = 67;
             // 
-            // Column7
+            // LRcol3
             // 
-            Column7.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            LRcol3.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewCellStyle103.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            Column7.DefaultCellStyle = dataGridViewCellStyle103;
-            Column7.HeaderText = "Prestige";
-            Column7.Name = "Column7";
-            Column7.ReadOnly = true;
-            Column7.Width = 70;
+            LRcol3.DefaultCellStyle = dataGridViewCellStyle103;
+            LRcol3.HeaderText = "Prestige";
+            LRcol3.Name = "LRcol3";
+            LRcol3.ReadOnly = true;
+            LRcol3.Width = 70;
             // 
-            // dataGridViewTextBoxColumn55
+            // LRcol4
             // 
-            dataGridViewTextBoxColumn55.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            LRcol4.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             dataGridViewCellStyle104.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewTextBoxColumn55.DefaultCellStyle = dataGridViewCellStyle104;
-            dataGridViewTextBoxColumn55.HeaderText = "Score";
-            dataGridViewTextBoxColumn55.Name = "dataGridViewTextBoxColumn55";
-            dataGridViewTextBoxColumn55.ReadOnly = true;
-            dataGridViewTextBoxColumn55.Width = 60;
+            LRcol4.DefaultCellStyle = dataGridViewCellStyle104;
+            LRcol4.HeaderText = "Score";
+            LRcol4.Name = "LRcol4";
+            LRcol4.ReadOnly = true;
+            LRcol4.Width = 60;
+            // 
+            // LRcol5
+            // 
+            LRcol5.HeaderText = "ID";
+            LRcol5.Name = "LRcol5";
+            LRcol5.ReadOnly = true;
+            LRcol5.Visible = false;
             // 
             // label181
             // 
@@ -18264,16 +18294,6 @@ namespace DB_EDITOR
             buttonRCATBody.UseVisualStyleBackColor = true;
             buttonRCATBody.Click += (this.buttonRCATBody_Click);
             // 
-            // ImpactKickers
-            // 
-            ImpactKickers.AutoSize = true;
-            ImpactKickers.Location = new Point(120, 92);
-            ImpactKickers.Name = "ImpactKickers";
-            ImpactKickers.Size = new Size(144, 17);
-            ImpactKickers.TabIndex = 54;
-            ImpactKickers.Text = "Make Kickers 4th Impact";
-            ImpactKickers.UseVisualStyleBackColor = true;
-            // 
             // MainEditor
             // 
             this.AllowDrop = true;
@@ -18503,8 +18523,8 @@ namespace DB_EDITOR
             groupBox42.ResumeLayout(false);
             groupBox42.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)PlayerStatsView).EndInit();
-            groupBox6.ResumeLayout(false);
-            groupBox6.PerformLayout();
+            playerAttributesGroup.ResumeLayout(false);
+            playerAttributesGroup.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)PSTAbox).EndInit();
             ((System.ComponentModel.ISupportInitialize)PINJBox).EndInit();
             ((System.ComponentModel.ISupportInitialize)PSPDBox).EndInit();
@@ -19197,7 +19217,7 @@ namespace DB_EDITOR
         public Label label203;
         private System.Windows.Forms.ComboBox PStateBox;
         private System.Windows.Forms.Button ResetPlayerPOSbutton;
-        private GroupBox groupBox6;
+        private GroupBox playerAttributesGroup;
         public System.Windows.Forms.TextBox PTEN;
         private Label label173;
         private System.Windows.Forms.TextBox PTHAtext;
@@ -19795,11 +19815,6 @@ namespace DB_EDITOR
         private System.Windows.Forms.ComboBox LeagueStatsBox;
         private System.Windows.Forms.ComboBox LeagueRankingBox;
         private Label label197;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn37;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn36;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn45;
-        private DataGridViewTextBoxColumn Column7;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn55;
         private DataGridView WeeklyBoxscoreView;
         private DataGridView WeeklyHighlightView;
         private GroupBox groupBox15;
@@ -20123,6 +20138,13 @@ namespace DB_EDITOR
         private CheckBox ImpactInjuries;
         private CheckBox ImpactQBHB;
         private CheckBox ImpactKickers;
+        private DataGridViewTextBoxColumn LRrank;
+        private DataGridViewTextBoxColumn LRcol1;
+        private DataGridViewTextBoxColumn LRcol2;
+        private DataGridViewTextBoxColumn LRcol3;
+        private DataGridViewTextBoxColumn LRcol4;
+        private DataGridViewTextBoxColumn LRcol5;
+        private Label lblPlayerAllAmericanStars;
     }
 }
 

@@ -399,6 +399,8 @@ namespace DB_EDITOR
                 InjuryLabel.Visible = false;
             }
 
+            //All-American
+            CheckAllAmerican();
 
             //Attributes
             //
@@ -1798,6 +1800,57 @@ namespace DB_EDITOR
         #endregion
 
         #region Player Stat Tables
+
+        private void CheckAllAmerican()
+        {
+            lblPlayerAllAmericanStars.Visible = false;
+
+            int pgid = GetDBValueInt("PLAY", "PGID", PlayerIndex);
+            int seyr = GetDBValueInt("SEAI", "SEYR", 0);
+            bool current = false;
+            bool leagueAA = false;
+            bool currentleague = false;
+            int count = 0;
+            for (int i = 0; i < GetTableRecCount("AAPL"); i++)
+            {
+                int cgid = GetDBValueInt("AAPL", "CGID", i);
+                int pgidX = GetDBValueInt("AAPL", "PGID", i);
+                int seyrX = GetDBValueInt("AAPL", "SEYR", i);
+                if(pgidX == pgid & seyrX == seyr)
+                {
+                    if (cgid < 15)
+                    {
+                        count++;
+                        current = true;
+                    }
+                    else if (cgid == 15)
+                    {
+                        currentleague = true;
+                        leagueAA = true;
+                    }
+                }
+                else if(pgidX == pgid & cgid != 15)
+                {
+                    count++;
+                }
+                else if (pgidX == pgid & cgid == 15)
+                {
+                    leagueAA = true;
+                }
+                //if (playerConfAllAmerican.Visible && playerFBSAllAmerican.Visible) break;
+            }
+
+            if (count > 0) 
+            { 
+                lblPlayerAllAmericanStars.Visible = true;
+                lblPlayerAllAmericanStars.ForeColor = Color.Black;
+                lblPlayerAllAmericanStars.Text = ConvertStarNumber(count);
+                if (leagueAA) lblPlayerAllAmericanStars.ForeColor = Color.Blue;
+                if (currentleague) lblPlayerAllAmericanStars.ForeColor = Color.Red;
+                    
+            }
+
+        }
 
         private void LoadPlayerStats()
         {

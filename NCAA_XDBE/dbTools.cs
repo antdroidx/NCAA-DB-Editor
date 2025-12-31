@@ -109,7 +109,7 @@ namespace DB_EDITOR
             //  - No  = randomize sleeves/tattoos (pass keepSleeves = false)
             //  - Cancel = abort action
             var result = MessageBox.Show(
-                "Do you want to keep sleeves/tattoos as-is or randomize?",
+                "Do you want to keep current sleeves/tattoos?",
                 "Randomize Player Gear",
                 MessageBoxButtons.YesNoCancel,
                 MessageBoxIcon.Question,
@@ -120,7 +120,21 @@ namespace DB_EDITOR
 
             bool keepSleeves = (result == DialogResult.Yes);
 
-            RandomizeAllPlayerGears("PLAY", keepSleeves);
+            var result2 = MessageBox.Show(
+            "Do you want to Randomize User Teams?",
+            "Randomize User Teams",
+            MessageBoxButtons.YesNoCancel,
+            MessageBoxIcon.Question,
+            MessageBoxDefaultButton.Button2);
+
+            if (result2 == DialogResult.Cancel)
+                return;
+
+            bool userTeams = (result2 == DialogResult.Yes);
+
+
+
+            RandomizeAllPlayerGears("PLAY", keepSleeves, userTeams);
 
             MessageBox.Show("Player Gears Randomized!");
         }

@@ -29,9 +29,36 @@ namespace DB_EDITOR
         }
 
         #region League Ranking Viewer
+
+        private void LeagueRankingBoxLabelA()
+        {
+            LRcol1.HeaderText = "Team Name";
+            LRcol2.HeaderText = "Coach";
+            LRcol3.HeaderText = "Media";
+            LRcol4.HeaderText = "Bowl";
+        }
+
+        private void LeagueRankingBoxLabelB()
+        {
+            LRcol1.HeaderText = "Team Name";
+            LRcol2.HeaderText = "Record";
+            LRcol3.HeaderText = "Prestige";
+            LRcol4.HeaderText = "Score";
+        }
+
+        private void LeagueRankingBoxLabelC()
+        {
+            LRcol1.HeaderText = "Player Name";
+            LRcol2.HeaderText = "Team";
+            LRcol3.HeaderText = "Position";
+            LRcol4.HeaderText = "Class";
+        }
+
+
         private void LoadLeagueRankingBox()
         {
             LeagueRankingBox.Items.Clear();
+            LeagueRankingBox.Items.Add("All Polls");
 
             LeagueRankingBox.Items.Add("AP Poll");
             LeagueRankingBox.Items.Add("Coach Poll");
@@ -39,19 +66,42 @@ namespace DB_EDITOR
             LeagueRankingBox.Items.Add("Overall Rating");
             LeagueRankingBox.Items.Add("Offense Rating");
             LeagueRankingBox.Items.Add("Defense Rating");
+            //Awards
+            LeagueRankingBox.Items.Add("Heisman (Overall)");
+            LeagueRankingBox.Items.Add("Maxwell (Offense)");
+            LeagueRankingBox.Items.Add("Bednarik (Defense)");
+            LeagueRankingBox.Items.Add("O'Brien (QB)");
+            LeagueRankingBox.Items.Add("Walker (RB)");
+            LeagueRankingBox.Items.Add("Biletnikoff (WR)");
+            LeagueRankingBox.Items.Add("MacKey (TE)");
+            LeagueRankingBox.Items.Add("Outland (OL)");
+            LeagueRankingBox.Items.Add("Rimington (C)");
+            LeagueRankingBox.Items.Add("Lombardi (DL)");
+            LeagueRankingBox.Items.Add("Butkus (LB)");
+            LeagueRankingBox.Items.Add("Thorpe (DB)");
+            LeagueRankingBox.Items.Add("Groza (K)");
+            LeagueRankingBox.Items.Add("Guy (P)");
+            LeagueRankingBox.Items.Add("Hornung (ST)");
         }
-
 
         private void LeagueRankingBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             LeagueRankingView.Rows.Clear();
 
-            if (LeagueRankingBox.SelectedIndex == 0) LoadLeagueMediaPoll();
-            else if (LeagueRankingBox.SelectedIndex == 1) LoadLeagueCoachPoll();
-            else if (LeagueRankingBox.SelectedIndex == 2) LoadLeagueBowlRanking();
-            else if (LeagueRankingBox.SelectedIndex == 3) LoadLeagueTeamOVR();
-            else if (LeagueRankingBox.SelectedIndex == 4) LoadLeagueTeamOffRating();
-            else if (LeagueRankingBox.SelectedIndex == 5) LoadLeagueTeamDefRating();
+            if (LeagueRankingBox.SelectedIndex <= 0) LeagueRankingBoxLabelA();
+            else if (LeagueRankingBox.SelectedIndex <= 6) LeagueRankingBoxLabelB();
+            else LeagueRankingBoxLabelC();
+
+            if (LeagueRankingBox.SelectedIndex == 0) LoadLeagueAllPolls();
+            else if (LeagueRankingBox.SelectedIndex == 1) LoadLeagueMediaPoll();
+            else if (LeagueRankingBox.SelectedIndex == 2) LoadLeagueCoachPoll();
+            else if (LeagueRankingBox.SelectedIndex == 3) LoadLeagueBowlRanking();
+            else if (LeagueRankingBox.SelectedIndex == 4) LoadLeagueTeamOVR();
+            else if (LeagueRankingBox.SelectedIndex == 5) LoadLeagueTeamOffRating();
+            else if (LeagueRankingBox.SelectedIndex == 6) LoadLeagueTeamDefRating();
+            //Awards
+            else if (LeagueRankingBox.SelectedIndex == 7) LoadLeagueHeismanRace();
+            else LoadLeagueAwardsRace();
         }
 
 
@@ -65,15 +115,22 @@ namespace DB_EDITOR
                 LeagueRankingView.Rows[row].Cells[0].Value = Convert.ToInt32(team[0]);
                 LeagueRankingView.Rows[row].Cells[1].Value = team[1];
                 LeagueRankingView.Rows[row].Cells[2].Value = team[2];
-                LeagueRankingView.Rows[row].Cells[3].Value = Convert.ToInt32(team[3]);
-
-                if (team[4] == "N/A")
+                if (LeagueRankingBox.SelectedIndex <= 6)
                 {
-                    LeagueRankingView.Rows[row].Cells[4].Value = "N/A";
+                    LeagueRankingView.Rows[row].Cells[3].Value = Convert.ToInt32(team[3]);
+                    if (team[4] == "N/A")
+                    {
+                        LeagueRankingView.Rows[row].Cells[4].Value = "N/A";
+                    }
+                    else
+                    {
+                        LeagueRankingView.Rows[row].Cells[4].Value = Convert.ToInt32(team[4]);
+                    }
                 }
                 else
                 {
-                    LeagueRankingView.Rows[row].Cells[4].Value = Convert.ToInt32(team[4]);
+                    LeagueRankingView.Rows[row].Cells[3].Value = team[3];
+                    LeagueRankingView.Rows[row].Cells[4].Value = team[4];
                 }
             }
 
@@ -128,6 +185,35 @@ namespace DB_EDITOR
             return true;
         }
 
+        private void LoadLeagueAllPolls()
+        {
+            List<List<string>> rankings = new List<List<string>>();
+
+            for (int i = 0; i < GetTableRecCount("TEAM"); i++)
+            {
+                if (GetDBValueInt("TEAM", "TTYP", i) == 0)
+                {
+                    int num = rankings.Count;
+                    string rankM = GetDBValue("TEAM", "TMRK", i);
+                    string rankC = GetDBValue("TEAM", "TCRK", i);
+                    string rankB = GetDBValue("TEAM", "TBRK", i);
+
+                    rankings.Add(new List<string>());
+                    rankings[num].Add(rankC);
+                    rankings[num].Add(GetDBValue("TEAM", "TDNA", i));
+                    rankings[num].Add(rankC);
+                    rankings[num].Add(rankM);
+                    rankings[num].Add(rankB);
+
+                }
+
+            }
+
+            rankings.Sort((player1, player2) => Convert.ToInt32(player1[0]).CompareTo(Convert.ToInt32(player2[0])));
+
+            AddLeagueTeamRankData(rankings);
+
+        }
 
 
 
@@ -308,6 +394,84 @@ namespace DB_EDITOR
             AddLeagueTeamRankData(rankings);
         }
 
+        private void LoadLeagueHeismanRace()
+        {
+            List<List<string>> rankings = new List<List<string>>();
+
+            for (int i = 0; i < GetTableRecCount("HEIS"); i++)
+            {
+                int num = rankings.Count;
+                rankings.Add(new List<string>());
+
+                string rank = GetDBValue("HEIS", "HPRK", i);
+                int pgid = GetDBValueInt("HEIS", "PGID", i);
+                int rec = FindPGIDRecord(pgid);
+                string team = teamNameDB[pgid / 70];
+
+                string name = GetFirstNameFromRecord(rec) + " " + GetLastNameFromRecord(rec);
+                string pos = GetPositionName(GetDBValueInt("PLAY", "PPOS", rec));
+                string year = GetClassYearsAbbr(GetDBValueInt("PLAY", "PYER", rec), GetDBValueInt("PLAY", "PRSD", rec));
+
+                rankings[num].Add(rank);
+                rankings[num].Add(name);
+                rankings[num].Add(team);
+                rankings[num].Add(pos);
+                rankings[num].Add(year);
+
+            }
+
+            rankings.Sort((player1, player2) => Convert.ToInt32(player1[0]).CompareTo(Convert.ToInt32(player2[0])));
+
+            for (int i = 0; i < rankings.Count; i++)
+            {
+                rankings[i][0] = "" + (i + 1);
+            }
+
+
+            AddLeagueTeamRankData(rankings);
+        }
+
+        private void LoadLeagueAwardsRace()
+        {
+            List<List<string>> rankings = new List<List<string>>();
+            int seyr = GetDBValueInt("SEAI", "SEYR", 0);
+            int poat = LeagueRankingBox.SelectedIndex - 7;
+            for (int i = 0; i < GetTableRecCount("OSPA"); i++)
+            {
+                if (GetDBValueInt("OSPA", "SEYR", i) == seyr && GetDBValueInt("OSPA", "POAT", i) == poat)
+                {
+                    int num = rankings.Count;
+                    rankings.Add(new List<string>());
+
+                    string rank = GetDBValue("OSPA", "POAR", i);
+                    int pgid = GetDBValueInt("OSPA", "PGID", i);
+                    int rec = FindPGIDRecord(pgid);
+                    string team = teamNameDB[pgid / 70];
+
+                    string name = GetFirstNameFromRecord(rec) + " " + GetLastNameFromRecord(rec);
+                    string pos = GetPositionName(GetDBValueInt("PLAY", "PPOS", rec));
+                    string year = GetClassYearsAbbr(GetDBValueInt("PLAY", "PYER", rec), GetDBValueInt("PLAY", "PRSD", rec));
+
+                    rankings[num].Add(rank);
+                    rankings[num].Add(name);
+                    rankings[num].Add(team);
+                    rankings[num].Add(pos);
+                    rankings[num].Add(year);
+                }
+
+            }
+
+            rankings.Sort((player1, player2) => Convert.ToInt32(player1[0]).CompareTo(Convert.ToInt32(player2[0])));
+
+            for (int i = 0; i < rankings.Count; i++)
+            {
+                rankings[i][0] = "" + (i + 1);
+            }
+
+
+            AddLeagueTeamRankData(rankings);
+        }
+
         #endregion
 
         #region League Stat Viewer
@@ -342,7 +506,7 @@ namespace DB_EDITOR
             else if (LeagueStatsBox.SelectedIndex == 7) LoadLeaguePuntingStats(seyr);
             else if (LeagueStatsBox.SelectedIndex == 8) LoadLeagueReturnStats(seyr);
 
-            if(LeagueStatsBox.SelectedIndex >= 2)
+            if (LeagueStatsBox.SelectedIndex >= 2)
             {
                 LS00.HeaderText = "Team";
                 LS01.HeaderText = "Player";
@@ -351,9 +515,9 @@ namespace DB_EDITOR
             {
                 LS00.HeaderText = "Rank";
                 LS01.HeaderText = "Team";
-                for(int i = 0; i < LeagueStatsView.Rows.Count; i++)
+                for (int i = 0; i < LeagueStatsView.Rows.Count; i++)
                 {
-                    LeagueStatsView.Rows[i].Cells[0].Value = i+1;
+                    LeagueStatsView.Rows[i].Cells[0].Value = i + 1;
                 }
             }
 
@@ -388,15 +552,15 @@ namespace DB_EDITOR
                 int Ascore = GetDBValueInt("SCHD", "GASC", g);
                 int Hscore = GetDBValueInt("SCHD", "GHSC", g);
 
-                if(Ascore > 0 || Hscore > 0)
+                if (Ascore > 0 || Hscore > 0)
                 {
-                        teamGP[tgidA][0]++;
-                        teamGP[tgidA][1] += Ascore;
-                        teamGP[tgidA][2] += Hscore;
+                    teamGP[tgidA][0]++;
+                    teamGP[tgidA][1] += Ascore;
+                    teamGP[tgidA][2] += Hscore;
 
-                        teamGP[tgidH][0]++;
-                        teamGP[tgidH][1] += Hscore;
-                        teamGP[tgidH][2] += Ascore;
+                    teamGP[tgidH][0]++;
+                    teamGP[tgidH][1] += Hscore;
+                    teamGP[tgidH][2] += Ascore;
                 }
             }
 
@@ -603,7 +767,7 @@ namespace DB_EDITOR
                     LeagueStatsView.Rows[row].Cells[10].Value = skd;
 
                     int playerRec = FindPGIDRecord(GetDBValueInt("PSOF", "PGID", i));
-                    DisplayLeagueStatsViewID(row, playerRec); 
+                    DisplayLeagueStatsViewID(row, playerRec);
                 }
                 ProgressBarStep();
             }

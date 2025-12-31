@@ -630,6 +630,8 @@ namespace DB_EDITOR
         {
             MessageBox.Show("This will export every table in this database and may take some time depending on the size of the database. Do you want to proceed?", "Export All Tables", MessageBoxButtons.YesNo);
 
+            StartProgressBar(TDB.TableCount(dbSelected));
+
             if (DialogResult == System.Windows.Forms.DialogResult.No) return;
 
 
@@ -652,9 +654,11 @@ namespace DB_EDITOR
                     SelectedTableIndex = i;
                     exportToolItem.PerformClick();
                 }
+                ProgressBarStep();
             }
             exportAll = false;
             MessageBox.Show("Export Complete", "Export All Tables");
+            EndProgressBar();
         }
 
         private void importAllMenuItem_Click(object sender, EventArgs e)

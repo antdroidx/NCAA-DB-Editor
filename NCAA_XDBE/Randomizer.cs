@@ -157,7 +157,7 @@ namespace DB_EDITOR
             {
                 hcl = rand.Next(1, 101);
                 if (hcl <= 92) hcl = 0;
-                else if (hcl <= 70) hcl = 2;
+                else if (hcl <= 97) hcl = 2;
                 else hcl = rand.Next(0, 6);
             }
 
@@ -254,13 +254,23 @@ namespace DB_EDITOR
         #endregion
 
 
-        #region Randomizing Gear
+        #region Randomizing Gear Collector
 
         //Randomize Gears for all players
-        private void RandomizeAllPlayerGears(string tableName, bool keepSleeves = false)
+        private void RandomizeAllPlayerGears(string tableName, bool keepSleeves = false, bool userTeam = true)
         {
+            //Randomize Default:  Keep Sleeves & Tattoos (NO)  User Teams (Yes Randomize)
             int start = 0;
             int count = 0;
+
+            List<int> userTeams = new List<int>();
+            for(int i = 0; i < GetTableRecCount("COCH"); i++)
+            {
+                int tgid = GetDBValueInt("COCH", "TGID", i);
+                int cfuc = GetDBValueInt("COCH", "CFUC", i);
+                if (cfuc == 1) userTeams.Add(tgid);
+            }
+
             if (tableName == "RCPT")
             {
                 start = 480;
@@ -276,8 +286,12 @@ namespace DB_EDITOR
 
             for (int i = start; i < count; i++)
             {
-                RandomizePlayerGear(tableName, i, keepSleeves);
-                ProgressBarStep();
+                int pgid = GetDBValueInt(tableName, "PGID", i);
+                if (userTeam || !userTeam && !userTeams.Contains(pgid / 70))
+                {
+                    RandomizePlayerGear(tableName, i, keepSleeves);
+                    ProgressBarStep();
+                }
             }
 
             EndProgressBar();
@@ -307,6 +321,11 @@ namespace DB_EDITOR
 
             RandomizeShoe(tableName, rec);
         }
+
+        #endregion
+
+        #region Equipment
+
 
         //Randomize Helmets
         private void RandomizeHelmet(string tableName, int rec)
@@ -1829,7 +1848,7 @@ namespace DB_EDITOR
             int hands = 0;
 
             //QB + K + P
-            if (pos == 0 || pos >= 19)
+            if (pos == 0)
             {
                 if (val <= 90)
                 {
@@ -1900,6 +1919,22 @@ namespace DB_EDITOR
                     hands = 0; //None
                 }
                 else if (val <= 25)
+                {
+                    hands = 3; //Taped Fingers
+                }
+                else
+                {
+                    hands = 1; //Gloves
+                }
+            }
+            //K + P
+            if (pos >= 19)
+            {
+                if (val <= 100)
+                {
+                    hands = 0; //None
+                }
+                else if (val <= 100)
                 {
                     hands = 3; //Taped Fingers
                 }

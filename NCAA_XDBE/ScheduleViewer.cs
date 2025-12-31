@@ -155,18 +155,22 @@ namespace DB_EDITOR
                         teamRecA = FindTeamRecfromTeamName(teamNameA);
                         int rank = GetDBValueInt("TEAM", "TCRK", teamRecA);
                         int sewn = GetDBValueInt("SEAI", "SEWN", 0);
-                        if (sewn >= 8 && sewn < GetDBValueInt("SEAI", "SEOW", 0)) rank = GetDBValueInt("TEAM", "TBRK", teamRecA);
+                        if (sewn >= 11 && sewn < GetDBValueInt("SEAI", "SEOW", 0)) rank = GetDBValueInt("TEAM", "TBRK", teamRecA);
                         rankA = "@ ";
                         if (rank <= 25) rankA += "#" + rank + " ";
 
                         teamNameH = teamNameDB[tgid];
                         teamRecH = FindTeamRecfromTeamName(teamNameH);
                         rank = GetDBValueInt("TEAM", "TCRK", teamRecH);
-                        if (sewn >= 8 && sewn < GetDBValueInt("SEAI", "SEOW", 0)) rank = GetDBValueInt("TEAM", "TBRK", teamRecH);
+                        if (sewn >= 11 && sewn < GetDBValueInt("SEAI", "SEOW", 0)) rank = GetDBValueInt("TEAM", "TBRK", teamRecH);
                         if (rank > 0 && rank <= 25) rankH += "#" + rank + " ";
 
-                        strength += GetDBValueInt("TEAM", "TROV", teamRecH);
-                        games++;
+                        if (sewn <= 16)
+                        {
+                            strength += GetDBValueInt("TEAM", "TROV", teamRecH);
+                            games++;
+                        }
+
                         ScheduleView.Rows[w].Cells[2].Value = GetDBValueInt("SCHD", "GHSC", i);
                         ScheduleView.Rows[w].Cells[3].Value = GetDBValueInt("SCHD", "GASC", i);
 
@@ -177,7 +181,7 @@ namespace DB_EDITOR
                         teamRecA = FindTeamRecfromTeamName(teamNameA);
                         int rank = GetDBValueInt("TEAM", "TCRK", teamRecA);
                         int sewn = GetDBValueInt("SEAI", "SEWN", 0);
-                        if (sewn >= 8 && sewn < GetDBValueInt("SEAI", "SEOW", 0)) rank = GetDBValueInt("TEAM", "TBRK", teamRecA);
+                        if (sewn >= 11 && sewn < GetDBValueInt("SEAI", "SEOW", 0)) rank = GetDBValueInt("TEAM", "TBRK", teamRecA);
                         rankA = "vs ";
                         if (rank > 0 && rank <= 25) rankA += "#" + rank + " ";
 
@@ -185,11 +189,14 @@ namespace DB_EDITOR
                         teamNameH = teamNameDB[tgid];
                         teamRecH = FindTeamRecfromTeamName(teamNameH);
                         rank = GetDBValueInt("TEAM", "TCRK", teamRecH);
-                        if (sewn >= 8 && sewn < GetDBValueInt("SEAI", "SEOW", 0)) rank = GetDBValueInt("TEAM", "TBRK", teamRecH);
+                        if (sewn >= 11 && sewn < GetDBValueInt("SEAI", "SEOW", 0)) rank = GetDBValueInt("TEAM", "TBRK", teamRecH);
                         if (rank > 0 && rank <= 25) rankH += "#" + rank + " ";
 
-                        strength += GetDBValueInt("TEAM", "TROV", teamRecA);
-                        games++;
+                        if (sewn <= 16)
+                        {
+                            strength += GetDBValueInt("TEAM", "TROV", teamRecA);
+                            games++;
+                        }
 
                         ScheduleView.Rows[w].Cells[2].Value = GetDBValueInt("SCHD", "GASC", i);
                         ScheduleView.Rows[w].Cells[3].Value = GetDBValueInt("SCHD", "GHSC", i);
@@ -324,7 +331,8 @@ namespace DB_EDITOR
                     int teamRecA = FindTeamRecfromTeamName(teamNameA);
                     int rank = GetDBValueInt("TEAM", "TCRK", teamRecA);
                     int sewnX = GetDBValueInt("SEAI", "SEWN", 0);
-                    if (sewnX >= 8 && sewnX < GetDBValueInt("SEAI", "SEOW", 0)) rank = GetDBValueInt("TEAM", "TBRK", teamRecA);
+                    int seow = GetDBValueInt("SEAI", "SEOW", 0);
+                    if (sewnX >= 11 && sewnX < seow) rank = GetDBValueInt("TEAM", "TBRK", teamRecA);
                     if (rank > 0 && rank <= 25) rankA = "#" + rank + " ";
                     GameScore[w] += rank;
                     ScheduleView.Rows[w].Cells[1].Value = rankA + teamNameA;
@@ -342,7 +350,7 @@ namespace DB_EDITOR
                     int teamRecH = FindTeamRecfromTeamName(teamNameH);
 
                     rank = GetDBValueInt("TEAM", "TCRK", teamRecH);
-                    if (sewnX >= 8 && sewnX < GetDBValueInt("SEAI", "SEOW", 0)) rank = GetDBValueInt("TEAM", "TBRK", teamRecH);
+                    if (sewnX >= 11 && sewnX < seow) rank = GetDBValueInt("TEAM", "TBRK", teamRecH);
                     if (rank > 0 && rank <= 25) rankH = "#" + rank + " ";
                     GameScore[w] += rank;
 
@@ -528,10 +536,14 @@ namespace DB_EDITOR
 
         private List<string> LoadMatchViewRatingCats()
         {
+            int sewn = GetDBValueInt("SEAI", "SEWN", 0);
+            int seow = GetDBValueInt("SEAI", "SEOW", 0);
+
             List<string> categories = new List<string>();
             categories.Add("Teams");
             categories.Add("Record");
-            categories.Add("Coach Poll Rank");
+            if (sewn >= 11 & sewn < seow) categories.Add("Bowl Rank");
+            else categories.Add("Coach Poll Rank");
             categories.Add("Team Prestige");
             categories.Add("Overall");
             categories.Add("Offense");
@@ -562,8 +574,10 @@ namespace DB_EDITOR
             categories.Add(GetDBValue("TEAM", "TSWI", rec) + " - " + GetDBValue("TEAM", "TSLO", rec));
 
             int sewn = GetDBValueInt("SEAI", "SEWN", 0);
+            int seow = GetDBValueInt("SEAI", "SEOW", 0);
             int rank = GetDBValueInt("TEAM", "TCRK", rec);
-            if (sewn >= 8 && sewn < GetDBValueInt("SEAI", "SEOW", 0)) rank = GetDBValueInt("TEAM", "TBRK", rec);
+
+            if (sewn >= 11 && sewn < seow) rank = GetDBValueInt("TEAM", "TBRK", rec);
             categories.Add(Convert.ToString(rank));
             categories.Add(ConvertStarNumber(GetDBValueInt("TEAM", "TMPR", rec)));
             categories.Add(GetDBValue("TEAM", "TROV", rec));
@@ -648,10 +662,12 @@ namespace DB_EDITOR
             }
 
             int sewnX = GetDBValueInt("SEAI", "SEWN", 0);
+            int seow = GetDBValueInt("SEAI", "SEOW", 0);
+
             //Away Team
             string rankA = "";
             int rank = GetDBValueInt("TEAM", "TCRK", recA);
-            if (sewnX >= 8 && sewnX < GetDBValueInt("SEAI", "SEOW", 0)) rank = GetDBValueInt("TEAM", "TBRK", recA);
+            if (sewnX >= 11 && sewnX < seow) rank = GetDBValueInt("TEAM", "TBRK", recA);
             if (rank > 0 && rank <= 25) rankA = "#" + rank + " ";
 
             WeeklyBoxscoreView.Rows[0].Cells[0].Value = rankA + teamNameDB[tgidA];
@@ -661,7 +677,7 @@ namespace DB_EDITOR
 
             string rankH = "";
             rank = GetDBValueInt("TEAM", "TCRK", recH);
-            if (sewnX >= 8 && sewnX < GetDBValueInt("SEAI", "SEOW", 0)) rank = GetDBValueInt("TEAM", "TBRK", recH);
+            if (sewnX >= 11 && sewnX < seow) rank = GetDBValueInt("TEAM", "TBRK", recH);
             if (rank > 0 && rank <= 25) rankH = "#" + rank + " ";
 
             //Home Team
