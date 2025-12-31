@@ -61,11 +61,13 @@ namespace DB_EDITOR
             }
 
             int ppos = GetDBValueInt(tableName, "PPOS", rec);
+            if (tableName == "RCPT" || tableName == "WKON") ppos = GetDB2ValueInt(tableName, "PPOS", rec);
+
             List<int> positionSkinTones = skinToneRatios[ppos];
             int total = positionSkinTones.Sum();
             int randNum = rand.Next(1, total + 1);
             int cumulative = 0;
-            int selectedSkinTone = 0;
+            int selectedSkinTone = -1;
             for (int j = 0; j < positionSkinTones.Count; j++)
             {
                 cumulative += positionSkinTones[j];
@@ -117,7 +119,8 @@ namespace DB_EDITOR
             if (tableName == "PLAY" || tableName == "RCAT") skin = GetDBValueInt(tableName, "PSKI", rec);
             else skin = GetDB2ValueInt(tableName, "PSKI", rec);
 
-            if (skin <= 2) skin = rand.Next(0, 3);
+            if (skin < 2) skin = rand.Next(0, 2);
+            else if (skin == 2) skin = 2;
             else if (skin <= 6) skin = rand.Next(3, 7);
             else skin = 7;
 
