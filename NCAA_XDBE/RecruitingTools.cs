@@ -101,7 +101,7 @@ namespace DB_EDITOR
             {
                 if (GetDB2Value("RCYR", "SEWN", i) == "1")
                 {
-                    RandomizeRecruitFace("RCPT");
+                    RandomizeRecruitHead("RCPT");
                     correctWeek = true;
                 }
             }
@@ -109,7 +109,7 @@ namespace DB_EDITOR
             {
                 if (GetDB2Value("RCYR", "SEWN", i) == "1")
                 {
-                    RandomizeRecruitFace("WKON");
+                    RandomizeRecruitHead("WKON");
                 }
             }
             if (!correctWeek)
@@ -556,13 +556,13 @@ namespace DB_EDITOR
         }
 
         //Randomize the Recruits Skin Tone, Face and Face Shape
-        private void RandomizeRecruitFace(string tableName)
+        private void RandomizeRecruitHead(string tableName)
         {
             StartProgressBar(GetTable2RecCount(tableName));
 
             for (int i = 0; i < GetTable2RecCount(tableName); i++)
             {
-                if (tableName != "RCPT" || GetDB2ValueInt(tableName, "PRID", i) < 21000)  //skips transfers
+                if (GetDB2ValueInt(tableName, "PRID", i) < 21000)  //skips transfers
                 {
                     RandomizeSkinTone(tableName, i);
                     RandomizePlayerHead(tableName, i);
@@ -678,7 +678,7 @@ namespace DB_EDITOR
 
             EndProgressBar();
 
-            RandomizeRecruitFace("WKON");
+            RandomizeRecruitHead("WKON");
             DB2RecalculateBMI("WKON");
             MessageBox.Show("Walk-Ons Randomized!");
 
@@ -803,8 +803,7 @@ namespace DB_EDITOR
             ChangeDB2String("RCPT", "PLNA", i, newName);
             int skin = rand.Next(0, 101);
 
-            if (skin <= 40) skin = 2;
-            else if (skin <= 80) skin = 7;
+            if (skin <= 75) skin = 7;
             else skin = 3;
 
             ChangeDB2Int("RCPT", "PSKI", i, skin);

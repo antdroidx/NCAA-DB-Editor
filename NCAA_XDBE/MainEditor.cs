@@ -712,14 +712,14 @@ namespace DB_EDITOR
             if (DialogResult == System.Windows.Forms.DialogResult.No) return;
 
             List<int> tablesSelected = new List<int>();
-            for(int i = 0; i < tableGridView.Rows.Count; i++)
+            for (int i = 0; i < tableGridView.Rows.Count; i++)
             {
                 if (tableGridView.Rows[i].Selected)
                     tablesSelected.Add(i);
             }
 
-           // TdbTableProperties class
-           TdbTableProperties TableProps = new TdbTableProperties();
+            // TdbTableProperties class
+            TdbTableProperties TableProps = new TdbTableProperties();
 
             // 4 character string, max value of 5
             TableProps.Name = new string((char)0, 5);

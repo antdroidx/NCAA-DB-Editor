@@ -1050,7 +1050,7 @@ namespace DB_EDITOR
 
         #endregion
 
-        //LOAD COACHING AGE DATA FROM TXT
+        //LOAD COACHING AGE DATA FROM TXT (NOW in DEV TOOLS)
         private void LoadCoachAge_Click(object sender, EventArgs e)
         {
             List<List<int>> ageList = CreateIntListsFromCSV(@"resources\misc\COCH-AGE.csv", true);

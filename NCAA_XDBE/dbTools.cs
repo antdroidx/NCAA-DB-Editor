@@ -1973,6 +1973,80 @@ namespace DB_EDITOR
 
         #endregion
 
+        #region exports
+
+        private void importPLAYbtn_Click(object sender, EventArgs e)
+        {
+            StartProgressBar(TDB.TableCount(dbIndex));
+
+            // TdbTableProperties class
+            TdbTableProperties TableProps = new TdbTableProperties();
+
+            // 4 character string, max value of 5
+            StringBuilder TableName = new StringBuilder("    ", 5);
+
+
+            for (int i = 0; i < TDB.TDBDatabaseGetTableCount(dbIndex); i++)
+            {
+                // Get the tableproperties for the given table number
+                SelectedTableName = GetTableName(dbIndex, i);
+                SelectedTableIndex = i;
+
+                if (SelectedTableName == "PLAY")
+                {
+                    ImportDB();
+                    break;
+                }
+
+                ProgressBarStep();
+            }
+            EndProgressBar();
+
+            MessageBox.Show("PLAY Table Imported");
+        }
+
+        //Export To Dynasty Tracker
+        private void exportPLAYbtn_Click(object sender, EventArgs e)
+        {
+            StartProgressBar(TDB.TableCount(dbIndex));
+            string filePath = "";
+            FolderBrowserDialog folderDialog1 = new FolderBrowserDialog();
+            folderDialog1.ShowDialog();
+            filePath = folderDialog1.SelectedPath;
+            Directory.CreateDirectory(filePath);
+
+            // TdbTableProperties class
+            TdbTableProperties TableProps = new TdbTableProperties();
+
+            // 4 character string, max value of 5
+            StringBuilder TableName = new StringBuilder("    ", 5);
+            exportAll = true;
+
+            for (int i = 0; i < TDB.TDBDatabaseGetTableCount(dbIndex); i++)
+            {
+                // Get the tableproperties for the given table number
+                SelectedTableName = GetTableName(dbIndex, i);
+                SelectedTableIndex = i;
+
+                if (SelectedTableName == "PLAY")
+                {
+                    ExportDB(filePath);
+                    break;
+                }
+
+                ProgressBarStep();
+            }
+            EndProgressBar();
+
+            exportAll = false;
+
+            MessageBox.Show("PLAY Table Exported");
+        }
+
+
+
+        #endregion
+
     }
 
 }

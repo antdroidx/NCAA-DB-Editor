@@ -62,7 +62,7 @@ namespace DB_EDITOR
 
         private void DevRandomizeFaceButton_Click(object sender, EventArgs e)
         {
-            RandomizeRecruitFace("PLAY");
+            RandomizeRecruitHead("PLAY");
         }
 
         private void DevCalcOVRButton_Click(object sender, EventArgs e)

@@ -119,8 +119,7 @@ namespace DB_EDITOR
             if (tableName == "PLAY" || tableName == "RCAT") skin = GetDBValueInt(tableName, "PSKI", rec);
             else skin = GetDB2ValueInt(tableName, "PSKI", rec);
 
-            if (skin < 2) skin = rand.Next(0, 2);
-            else if (skin == 2) skin = 2;
+            if (skin <= 2) skin = rand.Next(0, 3);
             else if (skin <= 6) skin = rand.Next(3, 7);
             else skin = 7;
 
@@ -159,8 +158,8 @@ namespace DB_EDITOR
             else
             {
                 hcl = rand.Next(1, 101);
-                if (hcl <= 92) hcl = 0;
-                else if (hcl <= 97) hcl = 2;
+                if (hcl <= 90) hcl = 0;
+                else if (hcl <= 95) hcl = 2;
                 else hcl = rand.Next(0, 6);
             }
 
@@ -173,14 +172,16 @@ namespace DB_EDITOR
             //Randomize Hair Style
             int hairstyle = 5;
 
-            if (skin < 3 || skin == 7)
+            if (skin <= 2 || skin == 7)
             {
 
                 if (rand.Next(1, 101) <= 50)
                     hairstyle = rand.Next(2, 8);
                 else if (rand.Next(1, 101) <= 75)
                     hairstyle = rand.Next(11, 14);
-                else hairstyle = 0;
+                else if (rand.Next(1, 101) <= 99)
+                    hairstyle = 0;
+                else hairstyle = rand.Next(8, 11);
 
             }
             else
@@ -192,6 +193,10 @@ namespace DB_EDITOR
                     else if (hair == 2) hairstyle = 2;
                     else if (hair == 3) hairstyle = 3;
                     else if (hair == 4) hairstyle = 14;
+                }
+                else if(rand.Next(1,101) <= 5)
+                {
+                    hairstyle = rand.Next(8, 11);
                 }
                 else
                 {
@@ -1850,7 +1855,7 @@ namespace DB_EDITOR
             int val = rand.Next(1, 101);
             int hands = 0;
 
-            //QB + K + P
+            //QB 
             if (pos == 0)
             {
                 if (val <= 90)
@@ -1931,7 +1936,7 @@ namespace DB_EDITOR
                 }
             }
             //K + P
-            if (pos >= 19)
+            else if (pos >= 19)
             {
                 if (val <= 100)
                 {

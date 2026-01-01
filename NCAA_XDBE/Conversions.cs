@@ -471,19 +471,19 @@ namespace DB_EDITOR
             List<string> hair = new List<string>();
 
             hair.Add("Bald"); //0
-            hair.Add("Corn Rows");
-            hair.Add("Afro");
-            hair.Add("Flat Top");
-            hair.Add("Buzzcut");
-            hair.Add("Fade");
-            hair.Add("Balding");
-            hair.Add("Close Crop");
+            hair.Add("Corn Rows"); //1
+            hair.Add("Afro"); //2
+            hair.Add("Flat Top"); //3
+            hair.Add("Buzzcut"); //4
+            hair.Add("Fade"); //5
+            hair.Add("Balding"); //6
+            hair.Add("Close Crop"); //7
             hair.Add("Bald (Hidden)"); //8
-            hair.Add("Bald 2");
+            hair.Add("Bald 2"); //9
             hair.Add("Balding 2"); //10
-            hair.Add("Buzzcut 2");
-            hair.Add("Fade 2");
-            hair.Add("Mullet");
+            hair.Add("Buzzcut 2"); //11
+            hair.Add("Fade 2"); //12
+            hair.Add("Mullet"); //13
             hair.Add("Dreadlocks");  //14
             return hair;
         }
