@@ -209,7 +209,7 @@ namespace DB_EDITOR
             tabControl1.TabPages.Remove(tabSchedule);
             tabControl1.TabPages.Remove(tabStadiums);
             tabControl1.TabPages.Remove(tabPortal);
-            tabControl1.TabPages.Remove(tabSTRMDATA);
+            tabControl1.TabPages.Remove(tabRCAT);
             tabControl1.TabPages.Remove(tabCarousel);
             tabControl1.TabPages.Remove(tabPlayoff);
             tabControl1.TabPages.Remove(tabTeamStats);
@@ -1213,7 +1213,6 @@ namespace DB_EDITOR
             CreatePOCItable();
             CreateRatingsDB();
             maxPlayers = 66;
-
         }
 
         private void radioNext26v162_CheckedChanged(object sender, EventArgs e)
@@ -1267,7 +1266,7 @@ namespace DB_EDITOR
             else if (tabControl1.SelectedTab == tabLeagueStats) StartStatsViewer();
             else if (tabControl1.SelectedTab == tabStadiums) StartStadiumEditor();
             else if (tabControl1.SelectedTab == tabPortal) StartSpringPortal();
-            else if (tabControl1.SelectedTab == tabSTRMDATA) { /* do nothing */ }
+            else if (tabControl1.SelectedTab == tabRCAT) { StartRCATeditor(); }
             else if (tabControl1.SelectedTab == tabPlayoff) { StartPlayoffViewer(); }
             else if (tabControl1.SelectedTab == tabTeamStats) { StartTeamStatsViewer(); }
             else if (tabControl1.SelectedTab == tabRecruiting) { StartRecruitRankingsView(); }
@@ -1324,7 +1323,6 @@ namespace DB_EDITOR
             devMode = true;
             MessageBox.Show("Dev Mode Enabled");
         }
-
 
     }
 

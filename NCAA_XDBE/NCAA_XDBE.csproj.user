@@ -112,7 +112,7 @@
     <Compile Update="HeadlinesViewer.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Update="StrmdataEditor.cs">
+    <Compile Update="RecruitDB.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="TDB_Helper.cs">

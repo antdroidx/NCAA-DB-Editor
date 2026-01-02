@@ -1193,6 +1193,13 @@ namespace DB_EDITOR
                     Ratings.Add(i, i + 40);
                 }
             }
+            else if (Convert.ToInt32(TDB.FieldBitmax(dbIndex, "RCAT", "PTHA")) > 31)
+            {
+                for (int i = 0; i < 60; i++)
+                {
+                    Ratings.Add(i, i + 40);
+                }
+            }
             else
             {
                 List<int> ratingsList = new List<int>();
@@ -1278,7 +1285,7 @@ namespace DB_EDITOR
                     POCI[Row - 1, Line.Length + 1] = sum;
 
                     //Add 99 - (High - Low)
-                    POCI[Row - 1, Line.Length + 2] = 100 / (POCI[Row - 1, 0] - POCI[Row - 1, 1]);
+                    POCI[Row - 1, Line.Length + 2] = 99 / (POCI[Row - 1, 0] - POCI[Row - 1, 1]);
 
                 }
                 Row++;

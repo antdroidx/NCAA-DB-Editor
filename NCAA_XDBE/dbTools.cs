@@ -41,10 +41,10 @@ namespace DB_EDITOR
             GlobalAttNum.Minimum = -maxRatingVal;
             GlobalAttNum.Maximum = maxRatingVal;
 
-            MinAttNum.Minimum = -maxRatingVal;
+            MinAttNum.Minimum = 0;
             MinAttNum.Maximum = maxRatingVal;
 
-            MaxAttNum.Minimum = -maxRatingVal;
+            MaxAttNum.Minimum = 0;
             MaxAttNum.Maximum = maxRatingVal;
 
             if (TDYN) FantastyRosterLeague.Visible = true;
@@ -324,7 +324,7 @@ namespace DB_EDITOR
         {
 
             StartProgressBar(GetTableRecCount("PLAY"));
-
+            
             for (int i = 0; i < GetTableRecCount("COCH"); i++)
             {
                 int tgid = GetDBValueInt("COCH", "TGID", i);
@@ -352,23 +352,33 @@ namespace DB_EDITOR
 
             List<List<List<int>>> AllRosters = new List<List<List<int>>>();
             
-            List<List<int>> InjuryList = new List<List<int>>();
-            for (int i = 0; i < (70 * 511); i++)
-            {
-                InjuryList.Add(new List<int>());
-                InjuryList[i].Add(0);
-            }
-
+            List<int>InjuryList = new List<int>();
 
             if (TeamRatingExcludeInjury.Checked)
             {
                 for (int i = 0; i < GetTableRecCount("INJY"); i++)
                 {
                     int PGID = GetDBValueInt("INJY", "PGID", i);
-                    InjuryList[PGID][0] = GetDBValueInt("INJY", "INJL", i);
+                    InjuryList.Add(PGID);
+                }
+
+                for (int i = 0; i < GetTableRecCount("SPYR"); i++)
+                {
+                    int suspensionLength = GetDBValueInt("SPYR", "SEWN", i) - GetDBValueInt("SEAI", "SEWN", 0);
+                    int PGID = GetDBValueInt("SPYR", "PGID", i);
+                    if (suspensionLength > 0) InjuryList.Add(PGID);
                 }
             }
 
+            for (int i = 0; i < GetTableRecCount("INJY"); i++)
+            {
+                int PGID = GetDBValueInt("INJY", "PGID", i);
+                int INJL = GetDBValueInt("INJY", "INJL", i);
+                if (INJL >= 254)
+                {
+                    InjuryList.Add(PGID);
+                }
+            }
 
             for (int i = 0; i < 512; i++)
             {
@@ -386,7 +396,9 @@ namespace DB_EDITOR
 
                 int sewn = GetDBValueInt("SEAI", "SEWN", 0);
 
-                if (InjuryList[PGID][0] < (255 - sewn*15) || sewn >= 17)
+                int PRSD = GetDBValueInt("PLAY", "PRSD", j);
+
+                if (!InjuryList.Contains(PGID) && PRSD != 1 && PRSD != 3)
                 {
                     int count = AllRosters[TGID].Count;
                     List<int> player = new List<int>();
@@ -1972,6 +1984,8 @@ namespace DB_EDITOR
         }
 
         #endregion
+
+
 
         #region exports
 

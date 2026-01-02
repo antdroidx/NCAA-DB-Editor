@@ -165,7 +165,7 @@ namespace DB_EDITOR
                         if (sewn >= 11 && sewn < GetDBValueInt("SEAI", "SEOW", 0)) rank = GetDBValueInt("TEAM", "TBRK", teamRecH);
                         if (rank > 0 && rank <= 25) rankH += "#" + rank + " ";
 
-                        if (sewn <= 16)
+                        if (w <= 16)
                         {
                             strength += GetDBValueInt("TEAM", "TROV", teamRecH);
                             games++;
@@ -192,7 +192,7 @@ namespace DB_EDITOR
                         if (sewn >= 11 && sewn < GetDBValueInt("SEAI", "SEOW", 0)) rank = GetDBValueInt("TEAM", "TBRK", teamRecH);
                         if (rank > 0 && rank <= 25) rankH += "#" + rank + " ";
 
-                        if (sewn <= 16)
+                        if (w <= 16)
                         {
                             strength += GetDBValueInt("TEAM", "TROV", teamRecA);
                             games++;

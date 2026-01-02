@@ -735,7 +735,7 @@ namespace DB_EDITOR
                     }
                     else if (table.Name == "RCAT" && !BigEndian)
                     {
-                        if (!checkTabExists("STRMDATA")) tabControl1.TabPages.Add(tabSTRMDATA);
+                        if (!checkTabExists("RecruitDB")) tabControl1.TabPages.Add(tabRCAT);
                     }
 
                 }
