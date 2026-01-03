@@ -239,110 +239,7 @@ namespace DB_EDITOR
         #endregion
 
 
-
-        #region General Tools
-
-        //Recalculates QB Tendencies based on original game criteria
-        private void RecalculateQBTendencies(bool skip = false)
-        {
-            StartProgressBar(GetTableRecCount("PLAY"));
-
-
-            int pocket = 0;
-            int balanced = 0;
-            int scrambler = 0;
-
-
-            for (int i = 0; i < GetTableRecCount("PLAY"); i++)
-            {
-                if (GetDBValue("PLAY", "PPOS", i) == "0")
-                {
-                    int tendies;
-                    int speed = ConvertRating(Convert.ToInt32(GetDBValue("PLAY", "PSPD", i)));
-                    int acceleration = ConvertRating(Convert.ToInt32(GetDBValue("PLAY", "PACC", i)));
-                    int agility = ConvertRating(Convert.ToInt32(GetDBValue("PLAY", "PAGI", i)));
-                    int ThPow = ConvertRating(Convert.ToInt32(GetDBValue("PLAY", "PTHP", i)));
-                    int ThAcc = ConvertRating(Convert.ToInt32(GetDBValue("PLAY", "PTHA", i)));
-
-
-                    tendies = (100 + 10 * speed + acceleration + agility - 3 * ThPow - 5 * ThAcc) / 20;
-
-                    if (tendies > 31) tendies = 31;
-                    if (tendies < 0) tendies = 0;
-
-                    ChangeDBString("PLAY", "PTEN", i, Convert.ToString(tendies));
-
-                    if (tendies < 10) pocket++;
-                    else if (tendies > 19) scrambler++;
-                    else balanced++;
-
-                }
-                ProgressBarStep();
-            }
-
-            EndProgressBar();
-            if(!skip) MessageBox.Show("QB updates are complete!\n\nThe Stats:\n\n* Pocket-Passers: " + pocket + "\n\n* Balanced: " + balanced + "\n\n* Scramblers: " + scrambler);
-        }
-
-        //Randomize Player Potential
-        private void RandomizePotential()
-        {
-            StartProgressBar(GetTableRecCount("PLAY"));
-
-            for (int i = 0; i < GetTableRecCount("PLAY"); i++)
-            {
-                int x = rand.Next(0, 32);
-
-                ChangeDBString("PLAY", "PPOE", i, Convert.ToString(x));
-
-                ProgressBarStep();
-            }
-
-            EndProgressBar();
-            MessageBox.Show("Player Potential Updates are complete!");
-        }
-
-        //Recalculate Player Overalls
-        public void RecalculateOverall(bool skip = false)
-        {
-            StartProgressBar(GetTableRecCount("PLAY"));
-
-            for (int i = 0; i < GetTableRecCount("PLAY"); i++)
-            {
-                RecalculateOverallByRec(i);
-
-                ProgressBarStep();
-            }
-
-            EndProgressBar();
-            if(!skip) MessageBox.Show("Player Overall Calculations are complete!");
-        }
-
-
-        //Sync Playbook/Strategies with Team
-        private void SyncTeamCoachPlaybooks()
-        {
-
-            StartProgressBar(GetTableRecCount("PLAY"));
-            
-            for (int i = 0; i < GetTableRecCount("COCH"); i++)
-            {
-                int tgid = GetDBValueInt("COCH", "TGID", i);
-                if (tgid != 511)
-                {
-                    int offPB = GetDBValueInt("COCH", "CPID", i);
-                    int defPB = GetDBValueInt("COCH", "CDST", i);
-
-                    ChangeDBInt("TEAM", "TOPB", FindTeamRecfromTGID(tgid), offPB);
-                    ChangeDBInt("TEAM", "TDPB", FindTeamRecfromTGID(tgid), defPB);
-                }
-                ProgressBarStep();
-            }
-
-            EndProgressBar();
-            MessageBox.Show("Completed Sync");
-
-        }
+        #region Team Ratings
 
         //Calculate Team Ratings
         public void CalculateAllTeamRatings(string tableName)
@@ -351,8 +248,8 @@ namespace DB_EDITOR
             StartProgressBar(GetTableRecCount(tableName));
 
             List<List<List<int>>> AllRosters = new List<List<List<int>>>();
-            
-            List<int>InjuryList = new List<int>();
+
+            List<int> InjuryList = new List<int>();
 
             if (TeamRatingExcludeInjury.Checked)
             {
@@ -480,9 +377,9 @@ namespace DB_EDITOR
             //Coach
             int tgid = GetDBValueInt("TEAM", "TGID", teamRec);
             int cochRec = -1;
-            for(int i = 0; i < GetTableRecCount("COCH"); i++)
+            for (int i = 0; i < GetTableRecCount("COCH"); i++)
             {
-                if(GetDBValueInt("COCH", "TGID", i) == tgid)
+                if (GetDBValueInt("COCH", "TGID", i) == tgid)
                 {
                     cochRec = i;
                     break;
@@ -543,7 +440,7 @@ namespace DB_EDITOR
 
                 if (PPOS == 1 && countHB > 0)
                 {
-                    rating += roster[j][0]*3;
+                    rating += roster[j][0] * 3;
                     countHB--;
                     count--;
                     total += 3;
@@ -584,13 +481,13 @@ namespace DB_EDITOR
 
             if (count > 0)
             {
-                for(int x = count; x > 0; x--)
+                for (int x = count; x > 0; x--)
                 {
                     rating += 0;
                     total++;
                 }
             }
-            
+
             rating = ConvertRating(rating / total);
 
             ChangeDBInt(tableName, "TRRB", teamRec, rating);
@@ -610,7 +507,7 @@ namespace DB_EDITOR
 
                 if (PPOS == 3 && countWR > 0)
                 {
-                    rating += roster[j][0]*2;
+                    rating += roster[j][0] * 2;
                     countWR--;
                     count--;
                     total += 2;
@@ -625,10 +522,10 @@ namespace DB_EDITOR
                 int PPOS = roster[j][1];
                 if (PPOS == 4 && countTE > 0)
                 {
-                    rating += roster[j][0]*2;
+                    rating += roster[j][0] * 2;
                     countTE--;
                     count--;
-                    total+=2;
+                    total += 2;
                     roster.RemoveAt(j);
                     j--;
                     if (countTE <= 0) break;
@@ -742,10 +639,10 @@ namespace DB_EDITOR
 
                 if (PPOS >= 10 && PPOS <= 11 && countDE > 0)
                 {
-                    rating += roster[j][0]*2;
+                    rating += roster[j][0] * 2;
                     countDE--;
                     count--;
-                    total+=2;
+                    total += 2;
                     roster.RemoveAt(j);
                     j--;
                 }
@@ -757,10 +654,10 @@ namespace DB_EDITOR
                 int PPOS = roster[j][1];
                 if (PPOS == 12 && countDT > 0)
                 {
-                    rating += roster[j][0]*2;
+                    rating += roster[j][0] * 2;
                     countDT--;
                     count--;
-                    total+=2;
+                    total += 2;
                     roster.RemoveAt(j);
                     j--;
                     if (countDT <= 0) break;
@@ -825,7 +722,7 @@ namespace DB_EDITOR
                     rating += roster[j][0] * 2;
                     countMLB--;
                     count--;
-                    total+=2;
+                    total += 2;
                     roster.RemoveAt(j);
                     j--;
                     if (countMLB <= 0) break;
@@ -857,7 +754,7 @@ namespace DB_EDITOR
 
             rating = ConvertRating(rating / total);
             ChangeDBInt(tableName, "TRLB", teamRec, rating);
-            if(TDYN) ChangeDBInt(tableName, "DCAP", teamRec, topPlayer);
+            if (TDYN) ChangeDBInt(tableName, "DCAP", teamRec, topPlayer);
 
 
 
@@ -1003,7 +900,7 @@ namespace DB_EDITOR
             ChangeDBInt(tableName, "TRDE", teamRec, rating);
 
             //TROF - Offense 0 - 9, 19
-            rating = (GetDBValueInt(tableName, "TRQB", teamRec) * 35 + GetDBValueInt(tableName, "TRRB", teamRec) * 25 + GetDBValueInt(tableName, "TWRR", teamRec) * 20 + GetDBValueInt(tableName, "TROL", teamRec) * 20 ) / 100;
+            rating = (GetDBValueInt(tableName, "TRQB", teamRec) * 35 + GetDBValueInt(tableName, "TRRB", teamRec) * 25 + GetDBValueInt(tableName, "TWRR", teamRec) * 20 + GetDBValueInt(tableName, "TROL", teamRec) * 20) / 100;
 
             ChangeDBInt(tableName, "TROF", teamRec, rating);
 
@@ -1047,7 +944,7 @@ namespace DB_EDITOR
                         ChangeDBString(tableName, "TRDE", x, Convert.ToString(rating));
 
                         //TROF - Offense 0 - 9, 19
-                        rating = (Convert.ToInt32(GetDBValue(tableName, "TRQB", x)) * 35 + Convert.ToInt32(GetDBValue(tableName, "TRRB", x)) *25 + Convert.ToInt32(GetDBValue(tableName, "TWRR", x)) * 20 + Convert.ToInt32(GetDBValue(tableName, "TROL", x)) * 20) / 100;
+                        rating = (Convert.ToInt32(GetDBValue(tableName, "TRQB", x)) * 35 + Convert.ToInt32(GetDBValue(tableName, "TRRB", x)) * 25 + Convert.ToInt32(GetDBValue(tableName, "TWRR", x)) * 20 + Convert.ToInt32(GetDBValue(tableName, "TROL", x)) * 20) / 100;
 
                         ChangeDBString(tableName, "TROF", x, Convert.ToString(rating));
 
@@ -1098,14 +995,14 @@ namespace DB_EDITOR
                     ChangeDBInt(tableName, "TRDE", x, defRating);
 
 
-                    ChangeDBInt(tableName, "TROV", x, (offRating*45 + defRating*45 + stRating*10) / 100);
+                    ChangeDBInt(tableName, "TROV", x, (offRating * 45 + defRating * 45 + stRating * 10) / 100);
 
                     if (offRating > highOff) highOff = offRating;
                     if (defRating > highDef) highDef = defRating;
                 }
             }
 
-            if(highOff > 99)
+            if (highOff > 99)
             {
                 int diff = highOff - 99;
 
@@ -1119,7 +1016,7 @@ namespace DB_EDITOR
                         if (rating < diff) rating = diff;
 
                         ChangeDBInt(tableName, "TROF", x, rating - diff);
-                        ChangeDBInt(tableName, "TROV", x, ((rating - diff)*45 + def * 45 + st*10) / 100);
+                        ChangeDBInt(tableName, "TROV", x, ((rating - diff) * 45 + def * 45 + st * 10) / 100);
                     }
                 }
             }
@@ -1186,6 +1083,95 @@ namespace DB_EDITOR
             }
         }
 
+        #endregion
+
+
+
+        #region Player Tools
+
+
+        //Recalculate Player Overalls
+        public void RecalculateOverall(bool skip = false)
+        {
+            StartProgressBar(GetTableRecCount("PLAY"));
+
+            for (int i = 0; i < GetTableRecCount("PLAY"); i++)
+            {
+                RecalculateOverallByRec(i);
+
+                ProgressBarStep();
+            }
+
+            EndProgressBar();
+            if (!skip) MessageBox.Show("Player Overall Calculations are complete!");
+        }
+
+
+        //Recalculates QB Tendencies based on original game criteria
+        private void RecalculateQBTendencies(bool skip = false)
+        {
+            StartProgressBar(GetTableRecCount("PLAY"));
+
+
+            int pocket = 0;
+            int balanced = 0;
+            int scrambler = 0;
+
+
+            for (int i = 0; i < GetTableRecCount("PLAY"); i++)
+            {
+                if (GetDBValue("PLAY", "PPOS", i) == "0")
+                {
+                    int tendies;
+                    int speed = ConvertRating(Convert.ToInt32(GetDBValue("PLAY", "PSPD", i)));
+                    int acceleration = ConvertRating(Convert.ToInt32(GetDBValue("PLAY", "PACC", i)));
+                    int agility = ConvertRating(Convert.ToInt32(GetDBValue("PLAY", "PAGI", i)));
+                    int ThPow = ConvertRating(Convert.ToInt32(GetDBValue("PLAY", "PTHP", i)));
+                    int ThAcc = ConvertRating(Convert.ToInt32(GetDBValue("PLAY", "PTHA", i)));
+
+
+                    tendies = (100 + 10 * speed + acceleration + agility - 3 * ThPow - 5 * ThAcc) / 20;
+
+                    if (tendies > 31) tendies = 31;
+                    if (tendies < 0) tendies = 0;
+
+                    ChangeDBString("PLAY", "PTEN", i, Convert.ToString(tendies));
+
+                    if (tendies < 10) pocket++;
+                    else if (tendies > 19) scrambler++;
+                    else balanced++;
+
+                }
+                ProgressBarStep();
+            }
+
+            EndProgressBar();
+            if(!skip) MessageBox.Show("QB updates are complete!\n\nThe Stats:\n\n* Pocket-Passers: " + pocket + "\n\n* Balanced: " + balanced + "\n\n* Scramblers: " + scrambler);
+        }
+
+        //Randomize Player Potential
+        private void RandomizePotential()
+        {
+            StartProgressBar(GetTableRecCount("PLAY"));
+
+            for (int i = 0; i < GetTableRecCount("PLAY"); i++)
+            {
+                int x = rand.Next(0, 32);
+
+                ChangeDBString("PLAY", "PPOE", i, Convert.ToString(x));
+
+                ProgressBarStep();
+            }
+
+            EndProgressBar();
+            MessageBox.Show("Player Potential Updates are complete!");
+        }
+
+        #endregion
+
+
+
+        #region Fill Rosters
 
         //Fill Rosters
         private void FillRosters(string tableName, int FreshmanPCT)
@@ -1410,6 +1396,35 @@ namespace DB_EDITOR
             }
         }
 
+        #endregion
+
+
+        #region DB Fixes/Syncs
+        //Sync Playbook/Strategies with Team
+        private void SyncTeamCoachPlaybooks()
+        {
+
+            StartProgressBar(GetTableRecCount("PLAY"));
+
+            for (int i = 0; i < GetTableRecCount("COCH"); i++)
+            {
+                int tgid = GetDBValueInt("COCH", "TGID", i);
+                if (tgid != 511)
+                {
+                    int offPB = GetDBValueInt("COCH", "CPID", i);
+                    int defPB = GetDBValueInt("COCH", "CDST", i);
+
+                    ChangeDBInt("TEAM", "TOPB", FindTeamRecfromTGID(tgid), offPB);
+                    ChangeDBInt("TEAM", "TDPB", FindTeamRecfromTGID(tgid), defPB);
+                }
+                ProgressBarStep();
+            }
+
+            EndProgressBar();
+            MessageBox.Show("Completed Sync");
+
+        }
+
         //Unique Players
         private void UniquePlayers()
         {
@@ -1607,35 +1622,6 @@ namespace DB_EDITOR
             }
 
             return ht;
-        }
-
-        //Changed League Size
-        private void DC77_CheckedChanged(object sender, EventArgs e)
-        {
-            if(DC77.Checked)
-            {
-                MaxFantasyPlayers.Maximum = 66;
-                MaxFantasyPlayers.Value = 66;
-            }
-            else
-            {
-                MaxFantasyPlayers.Maximum = 70;
-                MaxFantasyPlayers.Value = 70;
-            }
-        }
-
-        private void DC88_CheckedChanged(object sender, EventArgs e)
-        {
-            if (DC77.Checked)
-            {
-                MaxFantasyPlayers.Maximum = 66;
-                MaxFantasyPlayers.Value = 66;
-            }
-            else
-            {
-                MaxFantasyPlayers.Maximum = 70;
-                MaxFantasyPlayers.Value = 70;
-            }
         }
 
         #endregion
@@ -1984,7 +1970,6 @@ namespace DB_EDITOR
         }
 
         #endregion
-
 
 
         #region exports

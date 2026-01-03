@@ -736,6 +736,8 @@ namespace DB_EDITOR
                     else if (table.Name == "RCAT" && !BigEndian)
                     {
                         if (!checkTabExists("RecruitDB")) tabControl1.TabPages.Add(tabRCAT);
+                        if (!checkTabExists("Overall Calculation Editor")) tabControl1.TabPages.Add(tabPOCI);
+
                     }
 
                 }

@@ -56,6 +56,9 @@ Credits:
     <None Remove="fmfjvkzb.z3w~" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="WinForms.DataVisualization" Version="1.10.0" />
+  </ItemGroup>
+  <ItemGroup>
     <Compile Update="LeagueStats.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +92,9 @@ Credits:
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="TextureDumper.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="POCIEditor.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

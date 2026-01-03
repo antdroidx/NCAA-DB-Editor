@@ -9,6 +9,7 @@ using System.Runtime.InteropServices.ComTypes;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
@@ -96,6 +97,8 @@ namespace DB_EDITOR
 
         private void RandomizeRCATRatingsBtn_Click(object sender, EventArgs e)
         {
+            StartProgressBar(GetTableRecCount("RCAT"));
+
             for (int rec = 0; rec < GetTableRecCount("RCAT"); rec++)
             {
                 string TableName = "RCAT";
@@ -174,9 +177,12 @@ namespace DB_EDITOR
                 ChangeDBInt(TableName, "PKPR", rec, PKPR);
                 ChangeDBInt(TableName, "PSTR", rec, PSTR);
                 ChangeDBInt(TableName, "PDIS", rec, PDIS);
+
+                ProgressBarStep();
             }
 
             MessageBox.Show("RCAT Ratings Randomization Complete!");
+            EndProgressBar();
         }
 
         private void RandomizeRCATBodyBtn_Click(object sender, EventArgs e)
@@ -518,8 +524,154 @@ namespace DB_EDITOR
 
         #endregion
 
+        #region RCAT Overall Recalculation
+        public int RecalculateRCATOverallByRec(int rec)
+        {
+            int ppos = Convert.ToInt32(GetDBValue("RCAT", "PPOS", rec));
+            double PCAR = Convert.ToInt32(GetDBValue("RCAT", "PCAR", rec)); //CAWT
+            double PKAC = Convert.ToInt32(GetDBValue("RCAT", "PKAC", rec)); //KAWT
+            double PTHA = Convert.ToInt32(GetDBValue("RCAT", "PTHA", rec)); //TAWT
+            double PPBK = Convert.ToInt32(GetDBValue("RCAT", "PPBK", rec)); //PBWT
+            double PRBK = Convert.ToInt32(GetDBValue("RCAT", "PRBK", rec)); //RBWT
+            double PACC = Convert.ToInt32(GetDBValue("RCAT", "PACC", rec)); //ACWT
+            double PAGI = Convert.ToInt32(GetDBValue("RCAT", "PAGI", rec)); //AGWT
+            double PTAK = Convert.ToInt32(GetDBValue("RCAT", "PTAK", rec)); //TKWT
+            double PINJ = Convert.ToInt32(GetDBValue("RCAT", "PINJ", rec)); //INWT
+            double PKPR = Convert.ToInt32(GetDBValue("RCAT", "PKPR", rec)); //KPWT
+            double PSPD = Convert.ToInt32(GetDBValue("RCAT", "PSPD", rec)); //SPWT
+            double PTHP = Convert.ToInt32(GetDBValue("RCAT", "PTHP", rec)); //TPWT
+            double PBKT = Convert.ToInt32(GetDBValue("RCAT", "PBTK", rec)); //BTWT
+            double PCTH = Convert.ToInt32(GetDBValue("RCAT", "PCTH", rec)); //CTWT
+            double PSTR = Convert.ToInt32(GetDBValue("RCAT", "PSTR", rec)); //STWT
+            double PJMP = Convert.ToInt32(GetDBValue("RCAT", "PJMP", rec)); //JUWT
+            double PAWR = Convert.ToInt32(GetDBValue("RCAT", "PAWR", rec)); //AWWT
+
+            double[] ratings = new double[] { PCAR, PKAC, PTHA, PPBK, PRBK, PACC, PAGI, PTAK, PINJ, PKPR, PSPD, PTHP, PBKT, PCTH, PSTR, PJMP, PAWR };
+
+            for (int i = 0; i < ratings.Length; i++)
+            {
+                ratings[i] = CalcOVRIndividuals(i + 3, ratings[i], ppos);
+            }
+
+            double newRating = 50;
+
+            for (int i = 0; i < ratings.Length; i++)
+            {
+                newRating += ratings[i];
+            }
+
+            int val = Convert.ToInt32(newRating);
+            if (val < minConvRatingVal) val = minConvRatingVal;
+            //val = RevertRating(val);
+
+            return val;
+        }
+
+
+        #endregion
 
         #region Visualizer
+
+        private void btnUpdateRCATchart_Click(object sender, EventArgs e)
+        {
+            BuildRCATChart();
+        }
+
+        private void BuildRCATChart()
+        {
+            // Example categories (replace with your positions)
+            string[] positions = { "QB","HB","FB","WR","TE","LT","LG","C","RG","RT",
+                               "LE","RE","DT","LOLB","MLB","ROLB","CB","FS","SS","K","P" };
+
+            // Example data: per position -> list of ratings
+            // Replace with your real RCAT Overall data
+            var rng = new Random(1);
+            var data = positions.ToDictionary(
+                p => p,
+                p => Enumerable.Range(0, 60).Select(_ => rng.Next(35, 83)).ToList()
+            );
+
+            List<List<int>> ratingsData = new List<List<int>>();
+            for (int i = 0; i < positions.Length; i++)
+            {
+                ratingsData.Add(new List<int>());
+            }
+
+            StartProgressBar(GetTableRecCount("RCAT"));
+            for (int i = 0; i < GetTableRecCount("RCAT"); i++)
+            {
+                int ppos = GetDBValueInt("RCAT", "PPOS", i);          
+                int overall = RecalculateRCATOverallByRec(i);
+
+                ratingsData[ppos].Add(overall);
+                ProgressBarStep();
+            }
+            EndProgressBar();
+
+            rcatChart.Series.Clear();
+            rcatChart.ChartAreas.Clear();
+            rcatChart.Titles.Clear();
+            rcatChart.Legends.Clear();
+
+            var area = new ChartArea("Area");
+            rcatChart.ChartAreas.Add(area);
+
+            // Title
+            rcatChart.Titles.Add("RCAT Overall by Position");
+
+            // Scatter style
+            var s = new Series("Overall")
+            {
+                ChartType = SeriesChartType.Point,
+                MarkerStyle = MarkerStyle.Circle,
+                MarkerSize = 5,
+                Color = Color.RoyalBlue
+            };
+            rcatChart.Series.Add(s);
+
+            // Y axis like your screenshot
+            area.AxisY.Minimum = 40;
+            area.AxisY.Maximum = 100;
+            area.AxisY.Interval = 10;
+
+            // X axis is categorical, but Chart wants numeric X.
+            // We'll use 0..N-1 and label them with CustomLabels.
+            area.AxisX.Minimum = -0.5;
+            area.AxisX.Maximum = positions.Length - 0.5;
+            area.AxisX.Interval = 1;
+
+            area.AxisX.MajorGrid.Enabled = true;
+            area.AxisY.MajorGrid.Enabled = true;
+
+            area.AxisX.CustomLabels.Clear();
+            for (int i = 0; i < positions.Length; i++)
+            {
+                area.AxisX.CustomLabels.Add(new CustomLabel(i - 0.5, i + 0.5, positions[i], 0, LabelMarkStyle.None));
+            }
+
+            // Add points
+            StartProgressBar(ratingsData.Count);
+            foreach (var recruit in ratingsData)
+            {
+                int x = ratingsData.IndexOf(recruit);
+                foreach (var y in recruit)
+                {
+                    s.Points.AddXY(x, y);
+                }
+                ProgressBarStep();
+            }
+            EndProgressBar();
+
+            // Make it fill nicely
+            rcatChart.Dock = DockStyle.Fill;
+            area.AxisX.LabelStyle.Angle = -45; // optional, if labels get crowded
+        }
+
+
+        #endregion
+
+
+        #region POCI Editor
 
 
 

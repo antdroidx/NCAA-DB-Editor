@@ -7,6 +7,7 @@ using System.Linq;
 using System.Reflection;
 using System.Runtime.Versioning;
 using System.Windows.Forms;
+using static System.Windows.Forms.LinkLabel;
 
 namespace DB_EDITOR
 {
@@ -420,11 +421,11 @@ namespace DB_EDITOR
                 classYear += "RS ";
             }
 
-            if (year == 0) classYear+= "Freshman";
+            if (year == 0) classYear += "Freshman";
             else if (year == 1) classYear += "Sophomore";
             else if (year == 2) classYear += "Junior";
             else classYear += "Senior";
-            
+
             return classYear;
         }
 
@@ -665,7 +666,7 @@ namespace DB_EDITOR
                 }
             }
 
-                return FaceMasks;
+            return FaceMasks;
         }
 
         private List<string> GetVisorTypes()
@@ -678,12 +679,12 @@ namespace DB_EDITOR
                 Visors.Add("Dark");
                 Visors.Add("Tinted");
             }
-            else 
-            { 
-            Visors.Add("None");
-            Visors.Add("Clear");
-            Visors.Add("Dark");
-            Visors.Add("Orange");
+            else
+            {
+                Visors.Add("None");
+                Visors.Add("Clear");
+                Visors.Add("Dark");
+                Visors.Add("Orange");
             }
             return Visors;
         }
@@ -877,9 +878,9 @@ namespace DB_EDITOR
         private List<string> GetHandTypes()
         {
             List<string> Gloves = new List<string>();
-            if(verNumber >= 16.2)
+            if (verNumber >= 16.2)
             {
-                
+
                 Gloves.Add("Bare"); //0
                 Gloves.Add("White");
                 Gloves.Add("Black");
@@ -892,7 +893,7 @@ namespace DB_EDITOR
             }
             else if (verNumber >= 16.0)
             {
-               
+
                 Gloves.Add("None");
                 Gloves.Add("Gloves (not used)");
                 Gloves.Add("Gloves");
@@ -904,7 +905,7 @@ namespace DB_EDITOR
                 Gloves.Add("Taped Hand");
                 Gloves.Add("Gloves");
             }
-                
+
             return Gloves;
         }
 
@@ -1151,7 +1152,7 @@ namespace DB_EDITOR
         private int DepthChartSS(int def)
         {
             if (def == 0 || def == 3) return 1;
-            else if (def <=3) return 2;
+            else if (def <= 3) return 2;
             else return 0;
         }
 
@@ -1246,51 +1247,105 @@ namespace DB_EDITOR
 
         public void CreatePOCItable()
         {
-            string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            string csvLocation = Path.Combine(executableLocation, @"resources\POCI.csv");
-
-            if (verNumber == 15.0) csvLocation = Path.Combine(executableLocation, @"resources\POCI-NEXT.csv");
-            else if (verNumber == 16.0) csvLocation = Path.Combine(executableLocation, @"resources\POCI-NEXT26.csv");
-            else if (verNumber >= 16.2) csvLocation = Path.Combine(executableLocation, @"resources\POCI-NEXT26v2.csv");
-
-
-            string filePath = csvLocation;
-            StreamReader sr = new StreamReader(filePath);
-            int Row = 0;
-            double sum = 0;
-            while (!sr.EndOfStream)
+            //If STRMDATA, pull directly from POCI table
+            if (TDB.TableCapacity(dbIndex, "POCI") > 0)
             {
-                string[] Line = sr.ReadLine().Split(',');
-                if (Row == 0)
+                int cols = TDB.FieldCount(dbIndex, "POCI");
+                POCI = new double[22, cols + 3];
+
+                for (int i = 0; i < GetTableRecCount("POCI"); i++)
                 {
-                    POCI = new double[22, Line.Length + 3];
-                }
-                else
-                {
+                    string[] Line = new string[TDB.FieldCount(dbIndex, "POCI")];
+
+                    for (int j = 0; j < TDB.FieldCount(dbIndex, "POCI"); j++)
+                    {
+                        var fieldProps = new TdbFieldProperties();
+
+                        fieldProps.Name = new string((char)0, 5);
+
+                        TDB.TDBFieldGetProperties(dbSelected, "POCI", j, ref fieldProps);
+                        Line[j] = TDB.FieldValue(dbIndex, "POCI", fieldProps.Name, i);
+                    }
+
+                    int row = Convert.ToInt32(TDB.FieldValue(dbIndex, "POCI", "PPOS", i));
+                    double sum = 0;
+
                     for (int column = 0; column < Line.Length; column++)
                     {
-                        POCI[Row - 1, column] = Convert.ToDouble(Line[column]);
+                        POCI[row, column] = Convert.ToDouble(Line[column]);
                     }
 
                     //Add Average of High/Low Rating
-                    POCI[Row - 1, Line.Length] = (POCI[Row - 1, 0] + POCI[Row - 1, 1]) / 2;
+                    POCI[row, Line.Length] = (POCI[row, 0] + POCI[row, 1]) / 2;
 
                     //Add Sum of Weighed Values
                     sum = 0;
 
                     for (int j = 3; j < Line.Length; j++)
                     {
-                        sum += POCI[Row - 1, j];
+                        sum += POCI[row, j];
                     }
-                    POCI[Row - 1, Line.Length + 1] = sum;
+                    POCI[row, Line.Length + 1] = sum;
 
                     //Add 99 - (High - Low)
-                    POCI[Row - 1, Line.Length + 2] = 99 / (POCI[Row - 1, 0] - POCI[Row - 1, 1]);
+                    POCI[row, Line.Length + 2] = 99 / (POCI[row, 0] - POCI[row, 1]);
 
+                    row++;
                 }
-                Row++;
+
             }
-            sr.Close();
+
+            //Create from CSV files in Resources
+            else
+            {
+
+
+                string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+                string csvLocation = Path.Combine(executableLocation, @"resources\POCI.csv");
+
+                if (verNumber == 15.0) csvLocation = Path.Combine(executableLocation, @"resources\POCI-NEXT.csv");
+                else if (verNumber == 16.0) csvLocation = Path.Combine(executableLocation, @"resources\POCI-NEXT26.csv");
+                else if (verNumber >= 16.2) csvLocation = Path.Combine(executableLocation, @"resources\POCI-NEXT26v2.csv");
+
+
+                string filePath = csvLocation;
+                StreamReader sr = new StreamReader(filePath);
+                int Row = 0;
+                double sum = 0;
+                while (!sr.EndOfStream)
+                {
+                    string[] Line = sr.ReadLine().Split(',');
+                    if (Row == 0)
+                    {
+                        POCI = new double[22, Line.Length + 3];
+                    }
+                    else
+                    {
+                        for (int column = 0; column < Line.Length; column++)
+                        {
+                            POCI[Row - 1, column] = Convert.ToDouble(Line[column]);
+                        }
+
+                        //Add Average of High/Low Rating
+                        POCI[Row - 1, Line.Length] = (POCI[Row - 1, 0] + POCI[Row - 1, 1]) / 2;
+
+                        //Add Sum of Weighed Values
+                        sum = 0;
+
+                        for (int j = 3; j < Line.Length; j++)
+                        {
+                            sum += POCI[Row - 1, j];
+                        }
+                        POCI[Row - 1, Line.Length + 1] = sum;
+
+                        //Add 99 - (High - Low)
+                        POCI[Row - 1, Line.Length + 2] = 99 / (POCI[Row - 1, 0] - POCI[Row - 1, 1]);
+
+                    }
+                    Row++;
+                }
+                sr.Close();
+            }
         }
 
         public void RecalculateOverallByRec(int rec)
@@ -1967,7 +2022,7 @@ namespace DB_EDITOR
         {
             List<string> stypList = new List<string>()
             {
-                "Outdoor", 
+                "Outdoor",
                 "Dome"
             };
             return stypList;
@@ -1978,7 +2033,7 @@ namespace DB_EDITOR
             List<string> sori = new List<string>()
             {
                 "North/South",
-                "East/West"            
+                "East/West"
             };
             return sori;
         }
@@ -2016,7 +2071,7 @@ namespace DB_EDITOR
         {
             List<string> endzone = new List<string>()
             {
-                "White", 
+                "White",
                 "Black",
                 "Primary Color",
                 "Secondary Color",

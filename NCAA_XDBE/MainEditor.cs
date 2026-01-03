@@ -215,6 +215,7 @@ namespace DB_EDITOR
             tabControl1.TabPages.Remove(tabTeamStats);
             tabControl1.TabPages.Remove(tabRecruiting);
             tabControl1.TabPages.Remove(tabHeadlines);
+            tabControl1.TabPages.Remove(tabPOCI);
 
             tabDelimited = false;
             commaPresent = false;
@@ -1170,9 +1171,9 @@ namespace DB_EDITOR
             }
             else if (TDB.TableCapacity(dbIndex, "RCAT") > 0)
             {
-                for (int i = 0; i < GetTableRecCount("PLAY"); i++)
+                for (int i = 0; i < GetTableRecCount("RCAT"); i++)
                 {
-                    if (GetDBValueInt("PLAY", "PLHN", i) > 2)
+                    if (GetDBValueInt("RCAT", "PLHN", i) > 2)
                     {
                         radioNext26v162.Checked = true;
                         break;
@@ -1272,10 +1273,9 @@ namespace DB_EDITOR
             else if (tabControl1.SelectedTab == tabRecruiting) { StartRecruitRankingsView(); }
             else if (tabControl1.SelectedTab == tabOffSeason) { StartOffSeasonEditor(); }
             else if (tabControl1.SelectedTab == tabHeadlines) { StartHeadlinesViewer(); }
+            else if (tabControl1.SelectedTab == tabPOCI) { StartPOCIEditor(); }
 
         }
-
-
 
         private void StartHomeTab()
         {
@@ -1305,7 +1305,7 @@ namespace DB_EDITOR
 
         #endregion
 
-
+        #region DEV MODE
         private void devTabToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (tabControl1.Contains(tabDev))
@@ -1323,6 +1323,8 @@ namespace DB_EDITOR
             devMode = true;
             MessageBox.Show("Dev Mode Enabled");
         }
+        #endregion
+
 
     }
 

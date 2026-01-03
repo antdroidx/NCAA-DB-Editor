@@ -18,6 +18,38 @@ namespace DB_EDITOR
     partial class MainEditor : Form
     {
 
+        #region League Size for Fantasy Roster
+
+        //Changed League Size
+        private void DC77_CheckedChanged(object sender, EventArgs e)
+        {
+            if (DC77.Checked)
+            {
+                MaxFantasyPlayers.Maximum = 66;
+                MaxFantasyPlayers.Value = 66;
+            }
+            else
+            {
+                MaxFantasyPlayers.Maximum = 70;
+                MaxFantasyPlayers.Value = 70;
+            }
+        }
+
+        private void DC88_CheckedChanged(object sender, EventArgs e)
+        {
+            if (DC77.Checked)
+            {
+                MaxFantasyPlayers.Maximum = 66;
+                MaxFantasyPlayers.Value = 66;
+            }
+            else
+            {
+                MaxFantasyPlayers.Maximum = 70;
+                MaxFantasyPlayers.Value = 70;
+            }
+        }
+
+        #endregion
 
         #region Fantasy Roster Generator
         //Fantasy Roster Generator
