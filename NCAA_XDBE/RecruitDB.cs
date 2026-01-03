@@ -583,14 +583,7 @@ namespace DB_EDITOR
             string[] positions = { "QB","HB","FB","WR","TE","LT","LG","C","RG","RT",
                                "LE","RE","DT","LOLB","MLB","ROLB","CB","FS","SS","K","P" };
 
-            // Example data: per position -> list of ratings
-            // Replace with your real RCAT Overall data
-            var rng = new Random(1);
-            var data = positions.ToDictionary(
-                p => p,
-                p => Enumerable.Range(0, 60).Select(_ => rng.Next(35, 83)).ToList()
-            );
-
+            // Prepare buckets per position
             List<List<int>> ratingsData = new List<List<int>>();
             for (int i = 0; i < positions.Length; i++)
             {
@@ -617,25 +610,23 @@ namespace DB_EDITOR
             rcatChart.ChartAreas.Add(area);
 
             // Title
-            rcatChart.Titles.Add("RCAT Overall by Position");
+            rcatChart.Titles.Add("Overall by Position");
 
-            // Scatter style
+            // Scatter style series (we will add one point per unique x,y and vary marker size)
             var s = new Series("Overall")
             {
                 ChartType = SeriesChartType.Point,
                 MarkerStyle = MarkerStyle.Circle,
-                MarkerSize = 5,
+                MarkerSize = 6,
                 Color = Color.RoyalBlue
             };
             rcatChart.Series.Add(s);
 
-            // Y axis like your screenshot
+            // Axis ranges
             area.AxisY.Minimum = 40;
             area.AxisY.Maximum = 100;
             area.AxisY.Interval = 10;
 
-            // X axis is categorical, but Chart wants numeric X.
-            // We'll use 0..N-1 and label them with CustomLabels.
             area.AxisX.Minimum = -0.5;
             area.AxisX.Maximum = positions.Length - 0.5;
             area.AxisX.Interval = 1;
@@ -649,18 +640,40 @@ namespace DB_EDITOR
                 area.AxisX.CustomLabels.Add(new CustomLabel(i - 0.5, i + 0.5, positions[i], 0, LabelMarkStyle.None));
             }
 
-            // Add points
-            StartProgressBar(ratingsData.Count);
-            foreach (var recruit in ratingsData)
+            // Build a map of (x,y) -> count so same-position+rating collisions can be shown by larger markers
+            var pointCounts = new Dictionary<(int x, int y), int>();
+            for (int x = 0; x < ratingsData.Count; x++)
             {
-                int x = ratingsData.IndexOf(recruit);
-                foreach (var y in recruit)
+                foreach (var y in ratingsData[x])
                 {
-                    s.Points.AddXY(x, y);
+                    var key = (x, y);
+                    if (pointCounts.ContainsKey(key)) pointCounts[key]++;
+                    else pointCounts[key] = 1;
                 }
-                ProgressBarStep();
             }
-            EndProgressBar();
+
+            // Add unique points with marker size proportional to the count at that (x,y)
+            foreach (var kv in pointCounts)
+            {
+                int x = kv.Key.x;
+                int y = kv.Key.y;
+                int count = kv.Value;
+
+                var idx = s.Points.AddXY(x, y);
+                var pt = s.Points[idx];
+
+                // Scale marker size using a simple mapping:
+                // 1 -> baseSize, 2-4 -> medium, 5+ -> larger; capped to avoid huge markers.
+                int baseSize = 3;
+                int size;
+                if (count <= 1) size = baseSize;
+                else size = Math.Min(40, baseSize + (int)Math.Round(Math.Log(count) * 6)); // logarithmic growth, capped
+
+                pt.MarkerSize = size;
+
+                // Keep interactive tooltip so users still see counts on hover.
+                pt.ToolTip = $"Pos: {positions[x]}\nRating: {y}\nCount: {count}";
+            }
 
             // Make it fill nicely
             rcatChart.Dock = DockStyle.Fill;
@@ -670,12 +683,6 @@ namespace DB_EDITOR
 
         #endregion
 
-
-        #region POCI Editor
-
-
-
-        #endregion
 
     }
 }

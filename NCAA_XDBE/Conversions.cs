@@ -1248,7 +1248,7 @@ namespace DB_EDITOR
         public void CreatePOCItable()
         {
             //If STRMDATA, pull directly from POCI table
-            if (TDB.TableCapacity(dbIndex, "POCI") > 0)
+            if (TDB.TableIndex(dbIndex, "POCI") != -1)
             {
                 int cols = TDB.FieldCount(dbIndex, "POCI");
                 POCI = new double[22, cols + 3];
@@ -1288,7 +1288,7 @@ namespace DB_EDITOR
                     POCI[row, Line.Length + 1] = sum;
 
                     //Add 99 - (High - Low)
-                    POCI[row, Line.Length + 2] = 99 / (POCI[row, 0] - POCI[row, 1]);
+                    POCI[row, Line.Length + 2] = 98 / (POCI[row, 0] - POCI[row, 1]);
 
                     row++;
                 }
@@ -1339,7 +1339,7 @@ namespace DB_EDITOR
                         POCI[Row - 1, Line.Length + 1] = sum;
 
                         //Add 99 - (High - Low)
-                        POCI[Row - 1, Line.Length + 2] = 99 / (POCI[Row - 1, 0] - POCI[Row - 1, 1]);
+                        POCI[Row - 1, Line.Length + 2] = 98 / (POCI[Row - 1, 0] - POCI[Row - 1, 1]);
 
                     }
                     Row++;

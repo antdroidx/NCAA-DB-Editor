@@ -95,6 +95,9 @@ namespace DB_EDITOR
             GetSTADSTFYBoxItems();
             STADSFTYBox.SelectedIndex = GetDBValueInt("STAD", "SFTY", StadiumIndex);
 
+            STADsgptBox.SelectedIndex = GetDBValueInt("STAD", "SGPT", StadiumIndex);
+
+
             //Stadium Weather
             STtsBox.Value = GetDBValueInt("STAD", "STts", StadiumIndex);
             STjtBox.Value = GetDBValueInt("STAD", "STjt", StadiumIndex);
@@ -401,6 +404,14 @@ namespace DB_EDITOR
             if (DoNotTrigger) return;
 
             ChangeDBInt("STAD", "SFTY", StadiumIndex, STADSFTYBox.SelectedIndex);
+        }
+
+
+        private void STADsgptBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DoNotTrigger) return;
+
+            ChangeDBInt("STAD", "SGPT", StadiumIndex, STADsgptBox.SelectedIndex);
         }
 
         //Weather

@@ -388,6 +388,7 @@ namespace DB_EDITOR
             GlobalAttButton = new System.Windows.Forms.Button();
             textBox3 = new System.Windows.Forms.TextBox();
             groupBox53 = new GroupBox();
+            ratingVisualizerBtn = new System.Windows.Forms.Button();
             importPLAYbtn = new System.Windows.Forms.Button();
             exportPLAYbtn = new System.Windows.Forms.Button();
             label214 = new Label();
@@ -634,6 +635,8 @@ namespace DB_EDITOR
             label229 = new Label();
             STtsBox = new NumericUpDown();
             groupBox28 = new GroupBox();
+            label297 = new Label();
+            STADsgptBox = new System.Windows.Forms.ComboBox();
             label239 = new Label();
             STADSFTYBox = new System.Windows.Forms.ComboBox();
             STADState = new System.Windows.Forms.ComboBox();
@@ -4337,6 +4340,7 @@ namespace DB_EDITOR
             // 
             // groupBox53
             // 
+            groupBox53.Controls.Add(ratingVisualizerBtn);
             groupBox53.Controls.Add(importPLAYbtn);
             groupBox53.Controls.Add(exportPLAYbtn);
             groupBox53.Controls.Add(label214);
@@ -4364,12 +4368,25 @@ namespace DB_EDITOR
             groupBox53.TabStop = false;
             groupBox53.Text = "Misc Tools";
             // 
+            // ratingVisualizerBtn
+            // 
+            ratingVisualizerBtn.BackColor = Color.Aquamarine;
+            ratingVisualizerBtn.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
+            ratingVisualizerBtn.ForeColor = SystemColors.ActiveCaptionText;
+            ratingVisualizerBtn.Location = new Point(152, 489);
+            ratingVisualizerBtn.Name = "ratingVisualizerBtn";
+            ratingVisualizerBtn.Size = new Size(112, 54);
+            ratingVisualizerBtn.TabIndex = 79;
+            ratingVisualizerBtn.Text = "Visualizer";
+            ratingVisualizerBtn.UseVisualStyleBackColor = false;
+            ratingVisualizerBtn.Click += (this.ratingVisualizerBtn_Click);
+            // 
             // importPLAYbtn
             // 
-            importPLAYbtn.BackColor = Color.PaleGoldenrod;
+            importPLAYbtn.BackColor = Color.PowderBlue;
             importPLAYbtn.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             importPLAYbtn.ForeColor = SystemColors.ActiveCaptionText;
-            importPLAYbtn.Location = new Point(154, 489);
+            importPLAYbtn.Location = new Point(154, 426);
             importPLAYbtn.Name = "importPLAYbtn";
             importPLAYbtn.Size = new Size(109, 54);
             importPLAYbtn.TabIndex = 78;
@@ -4379,12 +4396,12 @@ namespace DB_EDITOR
             // 
             // exportPLAYbtn
             // 
-            exportPLAYbtn.BackColor = Color.PaleGoldenrod;
+            exportPLAYbtn.BackColor = Color.PowderBlue;
             exportPLAYbtn.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             exportPLAYbtn.ForeColor = SystemColors.ActiveCaptionText;
-            exportPLAYbtn.Location = new Point(12, 489);
+            exportPLAYbtn.Location = new Point(13, 426);
             exportPLAYbtn.Name = "exportPLAYbtn";
-            exportPLAYbtn.Size = new Size(109, 54);
+            exportPLAYbtn.Size = new Size(108, 54);
             exportPLAYbtn.TabIndex = 77;
             exportPLAYbtn.Text = "Export PLAY Table";
             exportPLAYbtn.UseVisualStyleBackColor = false;
@@ -4491,7 +4508,7 @@ namespace DB_EDITOR
             ExportDraft.ForeColor = SystemColors.ActiveCaptionText;
             ExportDraft.Location = new Point(152, 294);
             ExportDraft.Name = "ExportDraft";
-            ExportDraft.Size = new Size(110, 117);
+            ExportDraft.Size = new Size(110, 54);
             ExportDraft.TabIndex = 64;
             ExportDraft.Text = "Export Draft Class (Madden)";
             ExportDraft.UseVisualStyleBackColor = false;
@@ -4512,12 +4529,12 @@ namespace DB_EDITOR
             // 
             // SyncPBButton
             // 
-            SyncPBButton.BackColor = Color.PaleGoldenrod;
+            SyncPBButton.BackColor = Color.PowderBlue;
             SyncPBButton.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             SyncPBButton.ForeColor = SystemColors.ActiveCaptionText;
-            SyncPBButton.Location = new Point(152, 426);
+            SyncPBButton.Location = new Point(13, 489);
             SyncPBButton.Name = "SyncPBButton";
-            SyncPBButton.Size = new Size(110, 54);
+            SyncPBButton.Size = new Size(108, 54);
             SyncPBButton.TabIndex = 52;
             SyncPBButton.Text = "Sync Team and Coach Playbooks";
             SyncPBButton.UseVisualStyleBackColor = false;
@@ -4525,7 +4542,7 @@ namespace DB_EDITOR
             // 
             // ResetDynYear
             // 
-            ResetDynYear.BackColor = Color.PaleGoldenrod;
+            ResetDynYear.BackColor = Color.PowderBlue;
             ResetDynYear.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             ResetDynYear.ForeColor = SystemColors.ActiveCaptionText;
             ResetDynYear.Location = new Point(13, 294);
@@ -4548,12 +4565,12 @@ namespace DB_EDITOR
             // 
             // ReorderPGIDButton
             // 
-            ReorderPGIDButton.BackColor = Color.PaleGoldenrod;
+            ReorderPGIDButton.BackColor = Color.PowderBlue;
             ReorderPGIDButton.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             ReorderPGIDButton.ForeColor = SystemColors.ActiveCaptionText;
-            ReorderPGIDButton.Location = new Point(12, 360);
+            ReorderPGIDButton.Location = new Point(13, 361);
             ReorderPGIDButton.Name = "ReorderPGIDButton";
-            ReorderPGIDButton.Size = new Size(110, 54);
+            ReorderPGIDButton.Size = new Size(108, 54);
             ReorderPGIDButton.TabIndex = 28;
             ReorderPGIDButton.Text = "Reorder PLAY Table (by PGID)";
             ReorderPGIDButton.UseVisualStyleBackColor = false;
@@ -4561,10 +4578,10 @@ namespace DB_EDITOR
             // 
             // TORDButton
             // 
-            TORDButton.BackColor = Color.PaleGoldenrod;
+            TORDButton.BackColor = Color.PowderBlue;
             TORDButton.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             TORDButton.ForeColor = SystemColors.ActiveCaptionText;
-            TORDButton.Location = new Point(12, 426);
+            TORDButton.Location = new Point(154, 361);
             TORDButton.Name = "TORDButton";
             TORDButton.Size = new Size(110, 54);
             TORDButton.TabIndex = 26;
@@ -7086,6 +7103,8 @@ namespace DB_EDITOR
             // 
             // groupBox28
             // 
+            groupBox28.Controls.Add(label297);
+            groupBox28.Controls.Add(STADsgptBox);
             groupBox28.Controls.Add(label239);
             groupBox28.Controls.Add(STADSFTYBox);
             groupBox28.Controls.Add(STADState);
@@ -7105,6 +7124,25 @@ namespace DB_EDITOR
             groupBox28.TabIndex = 15;
             groupBox28.TabStop = false;
             groupBox28.Text = "Stadium Info";
+            // 
+            // label297
+            // 
+            label297.AutoSize = true;
+            label297.Location = new Point(250, 143);
+            label297.Name = "label297";
+            label297.Size = new Size(69, 15);
+            label297.TabIndex = 134;
+            label297.Text = "Goal Post";
+            // 
+            // STADsgptBox
+            // 
+            STADsgptBox.FormattingEnabled = true;
+            STADsgptBox.Items.AddRange(new object[] { "Yellow", "White" });
+            STADsgptBox.Location = new Point(253, 159);
+            STADsgptBox.Name = "STADsgptBox";
+            STADsgptBox.Size = new Size(121, 23);
+            STADsgptBox.TabIndex = 4;
+            STADsgptBox.SelectedIndexChanged += (this.STADsgptBox_SelectedIndexChanged);
             // 
             // label239
             // 
@@ -14469,7 +14507,7 @@ namespace DB_EDITOR
             Headline4Helmet.Image = Resources.helmet;
             Headline4Helmet.Location = new Point(6, 523);
             Headline4Helmet.Name = "Headline4Helmet";
-            Headline4Helmet.Size = new Size(89, 78);
+            Headline4Helmet.Size = new Size(90, 75);
             Headline4Helmet.SizeMode = PictureBoxSizeMode.StretchImage;
             Headline4Helmet.TabIndex = 25;
             Headline4Helmet.TabStop = false;
@@ -14521,7 +14559,7 @@ namespace DB_EDITOR
             Headline3Helmet.Image = Resources.helmet;
             Headline3Helmet.Location = new Point(6, 413);
             Headline3Helmet.Name = "Headline3Helmet";
-            Headline3Helmet.Size = new Size(89, 78);
+            Headline3Helmet.Size = new Size(90, 75);
             Headline3Helmet.SizeMode = PictureBoxSizeMode.StretchImage;
             Headline3Helmet.TabIndex = 20;
             Headline3Helmet.TabStop = false;
@@ -14573,7 +14611,7 @@ namespace DB_EDITOR
             Headline2Helmet.Image = Resources.helmet;
             Headline2Helmet.Location = new Point(6, 296);
             Headline2Helmet.Name = "Headline2Helmet";
-            Headline2Helmet.Size = new Size(89, 78);
+            Headline2Helmet.Size = new Size(90, 75);
             Headline2Helmet.SizeMode = PictureBoxSizeMode.StretchImage;
             Headline2Helmet.TabIndex = 15;
             Headline2Helmet.TabStop = false;
@@ -14625,7 +14663,7 @@ namespace DB_EDITOR
             Headline1Helmet.Image = Resources.helmet;
             Headline1Helmet.Location = new Point(6, 188);
             Headline1Helmet.Name = "Headline1Helmet";
-            Headline1Helmet.Size = new Size(89, 78);
+            Headline1Helmet.Size = new Size(90, 75);
             Headline1Helmet.SizeMode = PictureBoxSizeMode.StretchImage;
             Headline1Helmet.TabIndex = 10;
             Headline1Helmet.TabStop = false;
@@ -14677,7 +14715,7 @@ namespace DB_EDITOR
             HeadlineMainHelmet.Image = Resources.helmet;
             HeadlineMainHelmet.Location = new Point(6, 57);
             HeadlineMainHelmet.Name = "HeadlineMainHelmet";
-            HeadlineMainHelmet.Size = new Size(119, 101);
+            HeadlineMainHelmet.Size = new Size(120, 100);
             HeadlineMainHelmet.SizeMode = PictureBoxSizeMode.StretchImage;
             HeadlineMainHelmet.TabIndex = 5;
             HeadlineMainHelmet.TabStop = false;
@@ -14824,13 +14862,13 @@ namespace DB_EDITOR
             // DBNHeadlinesTitle
             // 
             DBNHeadlinesTitle.AutoSize = true;
-            DBNHeadlinesTitle.Font = new Font("Arial Rounded MT Bold", 20.1428585F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            DBNHeadlinesTitle.Font = new Font("Malgun Gothic", 20.25F, (FontStyle)(FontStyle.Bold) | (FontStyle.Italic), GraphicsUnit.Point, (byte)0);
             DBNHeadlinesTitle.ForeColor = Color.Firebrick;
             DBNHeadlinesTitle.Location = new Point(3, 7);
             DBNHeadlinesTitle.Name = "DBNHeadlinesTitle";
-            DBNHeadlinesTitle.Size = new Size(346, 32);
+            DBNHeadlinesTitle.Size = new Size(434, 37);
             DBNHeadlinesTitle.TabIndex = 0;
-            DBNHeadlinesTitle.Text = "DBN Headlines - Week XX";
+            DBNHeadlinesTitle.Text = "DNN Headlines - 2025 Week XX";
             // 
             // tabCarousel
             // 
@@ -18355,18 +18393,19 @@ namespace DB_EDITOR
             // 
             groupBox6.Controls.Add(btnUpdateRCATchart);
             groupBox6.Controls.Add(rcatChart);
-            groupBox6.Location = new Point(533, 6);
+            groupBox6.Location = new Point(495, 6);
             groupBox6.Name = "groupBox6";
-            groupBox6.Size = new Size(590, 595);
+            groupBox6.Size = new Size(647, 595);
             groupBox6.TabIndex = 1;
             groupBox6.TabStop = false;
             groupBox6.Text = "RCAT Visualizer";
             // 
             // btnUpdateRCATchart
             // 
+            btnUpdateRCATchart.Anchor = (AnchorStyles)(AnchorStyles.Top) | (AnchorStyles.Right);
             btnUpdateRCATchart.BackColor = Color.Linen;
             btnUpdateRCATchart.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            btnUpdateRCATchart.Location = new Point(473, 19);
+            btnUpdateRCATchart.Location = new Point(530, 13);
             btnUpdateRCATchart.Name = "btnUpdateRCATchart";
             btnUpdateRCATchart.Size = new Size(111, 42);
             btnUpdateRCATchart.TabIndex = 1;
@@ -18376,6 +18415,7 @@ namespace DB_EDITOR
             // 
             // rcatChart
             // 
+            rcatChart.BackColor = Color.Gainsboro;
             chartArea1.Name = "ChartArea1";
             rcatChart.ChartAreas.Add(chartArea1);
             rcatChart.Location = new Point(6, 19);
@@ -18383,7 +18423,7 @@ namespace DB_EDITOR
             series1.ChartArea = "ChartArea1";
             series1.Name = "Series1";
             rcatChart.Series.Add(series1);
-            rcatChart.Size = new Size(578, 570);
+            rcatChart.Size = new Size(635, 570);
             rcatChart.TabIndex = 0;
             rcatChart.Text = "RCAT Visualizer";
             // 
@@ -18428,9 +18468,9 @@ namespace DB_EDITOR
             groupBox41.Controls.Add(RCATGearRandomizerButton);
             groupBox41.Controls.Add(RCATAppearanceRandomizerButton);
             groupBox41.Controls.Add(buttonRCATBody);
-            groupBox41.Location = new Point(17, 6);
+            groupBox41.Location = new Point(6, 6);
             groupBox41.Name = "groupBox41";
-            groupBox41.Size = new Size(496, 595);
+            groupBox41.Size = new Size(483, 595);
             groupBox41.TabIndex = 0;
             groupBox41.TabStop = false;
             groupBox41.Text = "Recruit Database (RCAT)";
@@ -18439,7 +18479,7 @@ namespace DB_EDITOR
             // 
             rcatGlobalAttBox.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             rcatGlobalAttBox.FormattingEnabled = true;
-            rcatGlobalAttBox.Location = new Point(234, 54);
+            rcatGlobalAttBox.Location = new Point(222, 56);
             rcatGlobalAttBox.Name = "rcatGlobalAttBox";
             rcatGlobalAttBox.Size = new Size(150, 23);
             rcatGlobalAttBox.TabIndex = 102;
@@ -18447,7 +18487,7 @@ namespace DB_EDITOR
             // RandomizeRCATBodyBtn
             // 
             RandomizeRCATBodyBtn.BackColor = Color.WhiteSmoke;
-            RandomizeRCATBodyBtn.Location = new Point(18, 432);
+            RandomizeRCATBodyBtn.Location = new Point(6, 434);
             RandomizeRCATBodyBtn.Name = "RandomizeRCATBodyBtn";
             RandomizeRCATBodyBtn.Size = new Size(125, 60);
             RandomizeRCATBodyBtn.TabIndex = 101;
@@ -18458,7 +18498,7 @@ namespace DB_EDITOR
             // RandomizeRCATRatingsBtn
             // 
             RandomizeRCATRatingsBtn.BackColor = Color.WhiteSmoke;
-            RandomizeRCATRatingsBtn.Location = new Point(18, 352);
+            RandomizeRCATRatingsBtn.Location = new Point(6, 354);
             RandomizeRCATRatingsBtn.Name = "RandomizeRCATRatingsBtn";
             RandomizeRCATRatingsBtn.Size = new Size(125, 60);
             RandomizeRCATRatingsBtn.TabIndex = 100;
@@ -18469,7 +18509,7 @@ namespace DB_EDITOR
             // RandomizeRCATDisciplineBtn
             // 
             RandomizeRCATDisciplineBtn.BackColor = Color.WhiteSmoke;
-            RandomizeRCATDisciplineBtn.Location = new Point(18, 266);
+            RandomizeRCATDisciplineBtn.Location = new Point(6, 268);
             RandomizeRCATDisciplineBtn.Name = "RandomizeRCATDisciplineBtn";
             RandomizeRCATDisciplineBtn.Size = new Size(125, 60);
             RandomizeRCATDisciplineBtn.TabIndex = 99;
@@ -18480,7 +18520,7 @@ namespace DB_EDITOR
             // rcatMaxBodyNum
             // 
             rcatMaxBodyNum.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            rcatMaxBodyNum.Location = new Point(406, 529);
+            rcatMaxBodyNum.Location = new Point(394, 531);
             rcatMaxBodyNum.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             rcatMaxBodyNum.Name = "rcatMaxBodyNum";
             rcatMaxBodyNum.Size = new Size(68, 21);
@@ -18490,7 +18530,7 @@ namespace DB_EDITOR
             // label284
             // 
             label284.AutoSize = true;
-            label284.Location = new Point(159, 513);
+            label284.Location = new Point(147, 515);
             label284.Name = "label284";
             label284.Size = new Size(44, 13);
             label284.TabIndex = 98;
@@ -18499,7 +18539,7 @@ namespace DB_EDITOR
             // label285
             // 
             label285.AutoSize = true;
-            label285.Location = new Point(158, 389);
+            label285.Location = new Point(146, 391);
             label285.Name = "label285";
             label285.Size = new Size(44, 13);
             label285.TabIndex = 97;
@@ -18510,7 +18550,7 @@ namespace DB_EDITOR
             rcatMinBodyBox.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             rcatMinBodyBox.FormattingEnabled = true;
             rcatMinBodyBox.Items.AddRange(new object[] { "Height (in)", "Weight (lbs)" });
-            rcatMinBodyBox.Location = new Point(232, 403);
+            rcatMinBodyBox.Location = new Point(220, 405);
             rcatMinBodyBox.Name = "rcatMinBodyBox";
             rcatMinBodyBox.Size = new Size(150, 23);
             rcatMinBodyBox.TabIndex = 87;
@@ -18520,7 +18560,7 @@ namespace DB_EDITOR
             // 
             label287.AutoSize = true;
             label287.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            label287.Location = new Point(228, 372);
+            label287.Location = new Point(216, 374);
             label287.Name = "label287";
             label287.Size = new Size(197, 20);
             label287.TabIndex = 88;
@@ -18530,7 +18570,7 @@ namespace DB_EDITOR
             // 
             rcatMaxBodyPosBox.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             rcatMaxBodyPosBox.FormattingEnabled = true;
-            rcatMaxBodyPosBox.Location = new Point(162, 528);
+            rcatMaxBodyPosBox.Location = new Point(150, 530);
             rcatMaxBodyPosBox.Name = "rcatMaxBodyPosBox";
             rcatMaxBodyPosBox.Size = new Size(65, 23);
             rcatMaxBodyPosBox.TabIndex = 96;
@@ -18538,7 +18578,7 @@ namespace DB_EDITOR
             // rcatMinBodyNum
             // 
             rcatMinBodyNum.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            rcatMinBodyNum.Location = new Point(404, 405);
+            rcatMinBodyNum.Location = new Point(392, 407);
             rcatMinBodyNum.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             rcatMinBodyNum.Name = "rcatMinBodyNum";
             rcatMinBodyNum.Size = new Size(68, 21);
@@ -18549,7 +18589,7 @@ namespace DB_EDITOR
             // 
             rcatMinBodyPosBox.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             rcatMinBodyPosBox.FormattingEnabled = true;
-            rcatMinBodyPosBox.Location = new Point(161, 403);
+            rcatMinBodyPosBox.Location = new Point(149, 405);
             rcatMinBodyPosBox.Name = "rcatMinBodyPosBox";
             rcatMinBodyPosBox.Size = new Size(65, 23);
             rcatMinBodyPosBox.TabIndex = 95;
@@ -18559,7 +18599,7 @@ namespace DB_EDITOR
             rcatMaxBodyBox.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             rcatMaxBodyBox.FormattingEnabled = true;
             rcatMaxBodyBox.Items.AddRange(new object[] { "Height (in)", "Weight (lbs)" });
-            rcatMaxBodyBox.Location = new Point(234, 527);
+            rcatMaxBodyBox.Location = new Point(222, 529);
             rcatMaxBodyBox.Name = "rcatMaxBodyBox";
             rcatMaxBodyBox.Size = new Size(150, 23);
             rcatMaxBodyBox.TabIndex = 90;
@@ -18569,7 +18609,7 @@ namespace DB_EDITOR
             // 
             label288.AutoSize = true;
             label288.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            label288.Location = new Point(230, 496);
+            label288.Location = new Point(218, 498);
             label288.Name = "label288";
             label288.Size = new Size(201, 20);
             label288.TabIndex = 91;
@@ -18578,7 +18618,7 @@ namespace DB_EDITOR
             // rcatMaxBodyBtn
             // 
             rcatMaxBodyBtn.BackColor = Color.PaleTurquoise;
-            rcatMaxBodyBtn.Location = new Point(405, 555);
+            rcatMaxBodyBtn.Location = new Point(393, 557);
             rcatMaxBodyBtn.Name = "rcatMaxBodyBtn";
             rcatMaxBodyBtn.Size = new Size(75, 23);
             rcatMaxBodyBtn.TabIndex = 94;
@@ -18589,7 +18629,7 @@ namespace DB_EDITOR
             // rcatMinBodyBtn
             // 
             rcatMinBodyBtn.BackColor = Color.PaleTurquoise;
-            rcatMinBodyBtn.Location = new Point(404, 432);
+            rcatMinBodyBtn.Location = new Point(392, 434);
             rcatMinBodyBtn.Name = "rcatMinBodyBtn";
             rcatMinBodyBtn.Size = new Size(75, 23);
             rcatMinBodyBtn.TabIndex = 93;
@@ -18600,7 +18640,7 @@ namespace DB_EDITOR
             // rcatMaxAttNum
             // 
             rcatMaxAttNum.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            rcatMaxAttNum.Location = new Point(404, 305);
+            rcatMaxAttNum.Location = new Point(392, 307);
             rcatMaxAttNum.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             rcatMaxAttNum.Name = "rcatMaxAttNum";
             rcatMaxAttNum.Size = new Size(68, 21);
@@ -18612,7 +18652,7 @@ namespace DB_EDITOR
             // 
             label289.AutoSize = true;
             label289.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            label289.Location = new Point(230, 23);
+            label289.Location = new Point(218, 25);
             label289.Name = "label289";
             label289.Size = new Size(189, 20);
             label289.TabIndex = 67;
@@ -18621,7 +18661,7 @@ namespace DB_EDITOR
             // rcatGlobalAttNum
             // 
             rcatGlobalAttNum.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            rcatGlobalAttNum.Location = new Point(406, 56);
+            rcatGlobalAttNum.Location = new Point(394, 58);
             rcatGlobalAttNum.Maximum = new decimal(new int[] { 10, 0, 0, 0 });
             rcatGlobalAttNum.Minimum = new decimal(new int[] { 10, 0, 0, global::System.Int32.MinValue });
             rcatGlobalAttNum.Name = "rcatGlobalAttNum";
@@ -18632,7 +18672,7 @@ namespace DB_EDITOR
             // label291
             // 
             label291.AutoSize = true;
-            label291.Location = new Point(157, 289);
+            label291.Location = new Point(145, 291);
             label291.Name = "label291";
             label291.Size = new Size(44, 13);
             label291.TabIndex = 86;
@@ -18641,7 +18681,7 @@ namespace DB_EDITOR
             // label292
             // 
             label292.AutoSize = true;
-            label292.Location = new Point(160, 170);
+            label292.Location = new Point(148, 172);
             label292.Name = "label292";
             label292.Size = new Size(44, 13);
             label292.TabIndex = 85;
@@ -18651,7 +18691,7 @@ namespace DB_EDITOR
             // 
             rcatMinAttBox.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             rcatMinAttBox.FormattingEnabled = true;
-            rcatMinAttBox.Location = new Point(234, 184);
+            rcatMinAttBox.Location = new Point(222, 186);
             rcatMinAttBox.Name = "rcatMinAttBox";
             rcatMinAttBox.Size = new Size(150, 23);
             rcatMinAttBox.TabIndex = 70;
@@ -18659,7 +18699,7 @@ namespace DB_EDITOR
             // label293
             // 
             label293.AutoSize = true;
-            label293.Location = new Point(160, 38);
+            label293.Location = new Point(148, 40);
             label293.Name = "label293";
             label293.Size = new Size(44, 13);
             label293.TabIndex = 84;
@@ -18669,7 +18709,7 @@ namespace DB_EDITOR
             // 
             label294.AutoSize = true;
             label294.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            label294.Location = new Point(230, 153);
+            label294.Location = new Point(218, 155);
             label294.Name = "label294";
             label294.Size = new Size(187, 20);
             label294.TabIndex = 71;
@@ -18679,7 +18719,7 @@ namespace DB_EDITOR
             // 
             rcatMaxAttPosBox.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             rcatMaxAttPosBox.FormattingEnabled = true;
-            rcatMaxAttPosBox.Location = new Point(160, 304);
+            rcatMaxAttPosBox.Location = new Point(148, 306);
             rcatMaxAttPosBox.Name = "rcatMaxAttPosBox";
             rcatMaxAttPosBox.Size = new Size(65, 23);
             rcatMaxAttPosBox.TabIndex = 83;
@@ -18687,7 +18727,7 @@ namespace DB_EDITOR
             // rcatMinAttNum
             // 
             rcatMinAttNum.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            rcatMinAttNum.Location = new Point(406, 186);
+            rcatMinAttNum.Location = new Point(394, 188);
             rcatMinAttNum.Maximum = new decimal(new int[] { 31, 0, 0, 0 });
             rcatMinAttNum.Name = "rcatMinAttNum";
             rcatMinAttNum.Size = new Size(68, 21);
@@ -18699,7 +18739,7 @@ namespace DB_EDITOR
             // 
             rcatMinAttPosBox.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             rcatMinAttPosBox.FormattingEnabled = true;
-            rcatMinAttPosBox.Location = new Point(163, 184);
+            rcatMinAttPosBox.Location = new Point(151, 186);
             rcatMinAttPosBox.Name = "rcatMinAttPosBox";
             rcatMinAttPosBox.Size = new Size(65, 23);
             rcatMinAttPosBox.TabIndex = 82;
@@ -18708,7 +18748,7 @@ namespace DB_EDITOR
             // 
             rcatMaxAttBox.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             rcatMaxAttBox.FormattingEnabled = true;
-            rcatMaxAttBox.Location = new Point(232, 303);
+            rcatMaxAttBox.Location = new Point(220, 305);
             rcatMaxAttBox.Name = "rcatMaxAttBox";
             rcatMaxAttBox.Size = new Size(150, 23);
             rcatMaxAttBox.TabIndex = 73;
@@ -18717,7 +18757,7 @@ namespace DB_EDITOR
             // 
             rcatGlobalAttPosBox.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             rcatGlobalAttPosBox.FormattingEnabled = true;
-            rcatGlobalAttPosBox.Location = new Point(163, 54);
+            rcatGlobalAttPosBox.Location = new Point(151, 56);
             rcatGlobalAttPosBox.Name = "rcatGlobalAttPosBox";
             rcatGlobalAttPosBox.Size = new Size(65, 23);
             rcatGlobalAttPosBox.TabIndex = 81;
@@ -18726,7 +18766,7 @@ namespace DB_EDITOR
             // 
             label295.AutoSize = true;
             label295.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            label295.Location = new Point(228, 272);
+            label295.Location = new Point(216, 274);
             label295.Name = "label295";
             label295.Size = new Size(191, 20);
             label295.TabIndex = 74;
@@ -18735,7 +18775,7 @@ namespace DB_EDITOR
             // rcatMaxAttBtn
             // 
             rcatMaxAttBtn.BackColor = Color.PaleTurquoise;
-            rcatMaxAttBtn.Location = new Point(403, 331);
+            rcatMaxAttBtn.Location = new Point(391, 333);
             rcatMaxAttBtn.Name = "rcatMaxAttBtn";
             rcatMaxAttBtn.Size = new Size(75, 23);
             rcatMaxAttBtn.TabIndex = 80;
@@ -18747,7 +18787,7 @@ namespace DB_EDITOR
             // 
             rcatMinAttText.BackColor = SystemColors.Info;
             rcatMinAttText.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            rcatMinAttText.Location = new Point(435, 159);
+            rcatMinAttText.Location = new Point(423, 161);
             rcatMinAttText.Name = "rcatMinAttText";
             rcatMinAttText.ReadOnly = true;
             rcatMinAttText.Size = new Size(39, 21);
@@ -18757,7 +18797,7 @@ namespace DB_EDITOR
             // rcatMinAttbtn
             // 
             rcatMinAttbtn.BackColor = Color.PaleTurquoise;
-            rcatMinAttbtn.Location = new Point(406, 213);
+            rcatMinAttbtn.Location = new Point(394, 215);
             rcatMinAttbtn.Name = "rcatMinAttbtn";
             rcatMinAttbtn.Size = new Size(75, 23);
             rcatMinAttbtn.TabIndex = 79;
@@ -18769,7 +18809,7 @@ namespace DB_EDITOR
             // 
             rcatMaxAttText.BackColor = SystemColors.Info;
             rcatMaxAttText.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            rcatMaxAttText.Location = new Point(433, 278);
+            rcatMaxAttText.Location = new Point(421, 280);
             rcatMaxAttText.Name = "rcatMaxAttText";
             rcatMaxAttText.ReadOnly = true;
             rcatMaxAttText.Size = new Size(39, 21);
@@ -18779,7 +18819,7 @@ namespace DB_EDITOR
             // rcatGlobalAttBtn
             // 
             rcatGlobalAttBtn.BackColor = Color.PaleTurquoise;
-            rcatGlobalAttBtn.Location = new Point(406, 82);
+            rcatGlobalAttBtn.Location = new Point(394, 84);
             rcatGlobalAttBtn.Name = "rcatGlobalAttBtn";
             rcatGlobalAttBtn.Size = new Size(75, 23);
             rcatGlobalAttBtn.TabIndex = 78;
@@ -18790,7 +18830,7 @@ namespace DB_EDITOR
             // ExportRCATButton
             // 
             ExportRCATButton.BackColor = Color.PowderBlue;
-            ExportRCATButton.Location = new Point(18, 518);
+            ExportRCATButton.Location = new Point(6, 520);
             ExportRCATButton.Name = "ExportRCATButton";
             ExportRCATButton.Size = new Size(125, 60);
             ExportRCATButton.TabIndex = 3;
@@ -18801,7 +18841,7 @@ namespace DB_EDITOR
             // RCATGearRandomizerButton
             // 
             RCATGearRandomizerButton.BackColor = Color.NavajoWhite;
-            RCATGearRandomizerButton.Location = new Point(18, 184);
+            RCATGearRandomizerButton.Location = new Point(6, 186);
             RCATGearRandomizerButton.Name = "RCATGearRandomizerButton";
             RCATGearRandomizerButton.Size = new Size(125, 60);
             RCATGearRandomizerButton.TabIndex = 2;
@@ -18812,7 +18852,7 @@ namespace DB_EDITOR
             // RCATAppearanceRandomizerButton
             // 
             RCATAppearanceRandomizerButton.BackColor = Color.NavajoWhite;
-            RCATAppearanceRandomizerButton.Location = new Point(18, 98);
+            RCATAppearanceRandomizerButton.Location = new Point(6, 100);
             RCATAppearanceRandomizerButton.Name = "RCATAppearanceRandomizerButton";
             RCATAppearanceRandomizerButton.Size = new Size(125, 60);
             RCATAppearanceRandomizerButton.TabIndex = 1;
@@ -18823,7 +18863,7 @@ namespace DB_EDITOR
             // buttonRCATBody
             // 
             buttonRCATBody.BackColor = Color.NavajoWhite;
-            buttonRCATBody.Location = new Point(18, 17);
+            buttonRCATBody.Location = new Point(6, 19);
             buttonRCATBody.Name = "buttonRCATBody";
             buttonRCATBody.Size = new Size(125, 60);
             buttonRCATBody.TabIndex = 0;
@@ -20936,6 +20976,9 @@ namespace DB_EDITOR
         private DataGridViewTextBoxColumn KAWT;
         private DataGridViewTextBoxColumn KPWT;
         private DataGridViewTextBoxColumn POCI_Total;
+        public System.Windows.Forms.Button ratingVisualizerBtn;
+        public Label label297;
+        private System.Windows.Forms.ComboBox STADsgptBox;
     }
 }
 

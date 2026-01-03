@@ -49,15 +49,13 @@ namespace DB_EDITOR
 
         int maxFBSTeams = 120; //max team number for FBSTeams db
 
-        MainEditor main = new MainEditor();
+        MainEditor main;
 
         Point p = Point.Empty;
 
         int TeamCount = 0;
         int maxTeams = 24;
         bool ArmyNavy = false;
-       //bool NextMod = false;
-        //bool Next26Mod = false;
         double verNumber = 0.0;
 
         List<int> bowlsDeleted = new List<int>();
@@ -66,8 +64,9 @@ namespace DB_EDITOR
 
         #endregion
 
-        public LeagueMain(double version)
+        public LeagueMain(double version, MainEditor parent)
         {
+            main = parent;
             InitializeComponent();
             DefaultSettings();
             OpenFile();

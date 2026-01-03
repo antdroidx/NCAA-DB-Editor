@@ -194,7 +194,7 @@ namespace DB_EDITOR
                     else if (hair == 3) hairstyle = 3;
                     else if (hair == 4) hairstyle = 14;
                 }
-                else if(rand.Next(1,101) <= 5)
+                else if (rand.Next(1, 101) <= 5)
                 {
                     hairstyle = rand.Next(8, 11);
                 }
@@ -272,7 +272,7 @@ namespace DB_EDITOR
             int count = 0;
 
             List<int> userTeams = new List<int>();
-            for(int i = 0; i < GetTableRecCount("COCH"); i++)
+            for (int i = 0; i < GetTableRecCount("COCH"); i++)
             {
                 int tgid = GetDBValueInt("COCH", "TGID", i);
                 int cfuc = GetDBValueInt("COCH", "CFUC", i);
@@ -789,28 +789,39 @@ namespace DB_EDITOR
                 }
             }
 
-            if (visor == 1)
+            if (tableName == "PLAY" || tableName == "RCAT")
+                ChangeDBInt(tableName, "PVIS", rec, visor);
+            else if (tableName == "RCPT" || tableName == "WKON")
+                ChangeDB2Int(tableName, "PVIS", rec, visor);
+
+            if(visor > 0 && (dark > 0 | tinted > 0)) RandomizeVisorTint(tableName, rec, dark, tinted);
+        }
+
+        private void RandomizeVisorTint(string tableName, int rec, decimal dark = 0, decimal tinted = 0)
+        {
+            int visor = 1; 
+
+            int val = rand.Next(1, 101);
+            if (val <= dark)
             {
-                val = rand.Next(1, 101);
-                if (val <= dark)
-                {
-                    visor = 2;
-                }
-                else if (val <= tinted + dark)
-                {
-                    visor = 3;
-                }
-                else
-                {
-                    visor = 1;
-                }
+                visor = 2;
             }
+            else if (val <= tinted + dark)
+            {
+                visor = 3;
+            }
+            else
+            {
+                visor = 1;
+            }
+
 
             if (tableName == "PLAY" || tableName == "RCAT")
                 ChangeDBInt(tableName, "PVIS", rec, visor);
             else if (tableName == "RCPT" || tableName == "WKON")
                 ChangeDB2Int(tableName, "PVIS", rec, visor);
         }
+
 
         //Flak Jacket
         private void RandomizeQBJacket(string tableName, int rec)
@@ -1054,13 +1065,13 @@ namespace DB_EDITOR
                         if (color <= 2)
                             wristLeft = color;
                         else wristLeft = 3;
-                            wristRight = 0;
+                        wristRight = 0;
                     }
                     else
                     {
                         wristLeft = 0;
                         if (color <= 2)
-                            wristRight= color;
+                            wristRight = color;
                         else wristRight = 3;
                     }
                 }
@@ -2249,15 +2260,36 @@ namespace DB_EDITOR
         //Randomize Visors with Tint CLICK BUTTON
         private void RandomizeTintedVisors_Click(object sender, EventArgs e)
         {
+            var result = MessageBox.Show(
+            "Do you want to apply this only to current visor users?",
+            "Randomize Visors",
+            MessageBoxButtons.YesNoCancel,
+            MessageBoxIcon.Question,
+            MessageBoxDefaultButton.Button2);
+
+            if (result == DialogResult.Cancel)
+                return;
+
+            bool keepVisors = (result == DialogResult.Yes);
+
+
             int start = 0;
             int count = GetTableRecCount("PLAY");
             int tint = 0;
-
             StartProgressBar(count);
 
             for (int i = start; i < count; i++)
             {
-                RandomizeVisor("PLAY", i, DarkVisorPCT.Value, TintedVisorPCT.Value);
+                int visor = GetDBValueInt("PLAY", "PVIS", i);
+ 
+                if (keepVisors && visor > 0)
+                {
+                    RandomizeVisorTint("PLAY", i, DarkVisorPCT.Value, TintedVisorPCT.Value);
+                }
+                else 
+                {
+                    RandomizeVisor("PLAY", i, DarkVisorPCT.Value, TintedVisorPCT.Value);
+                }
                 ProgressBarStep();
             }
 

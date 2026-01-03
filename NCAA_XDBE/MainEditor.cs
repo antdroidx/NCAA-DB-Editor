@@ -15,6 +15,8 @@ namespace DB_EDITOR
     public partial class MainEditor : Form
     {
         #region Global Variables
+        private RosterViz rosterViz;
+        private LeagueMain leagueEditor;
 
         Random rand = new Random();
 
@@ -1113,8 +1115,25 @@ namespace DB_EDITOR
         private void ScheduleGenMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show("Please load the Schedule Template file (File 3 from TEMPLATE.DAT).");
-            LeagueMain scheduleGen = new LeagueMain(verNumber);
-            scheduleGen.ShowDialog();
+            //LeagueMain leagueEditor = new LeagueMain(verNumber, this);
+            //scheduleGen.ShowDialog();
+
+            // If the form isn't created or was disposed, create and show it modelessly
+            if (leagueEditor == null || leagueEditor.IsDisposed)
+            {
+                leagueEditor = new LeagueMain(verNumber, this);
+                leagueEditor.FormClosed += (s, args) => leagueEditor = null; // clear ref when closed
+                leagueEditor.Show(this); // use __Show__ (modeless) instead of __ShowDialog__
+            }
+            else
+            {
+                // If it's already shown, bring it to front and restore if minimized
+                if (leagueEditor.WindowState == FormWindowState.Minimized)
+                    leagueEditor.WindowState = FormWindowState.Normal;
+
+                leagueEditor.BringToFront();
+                leagueEditor.Activate();
+            }
         }
 
 

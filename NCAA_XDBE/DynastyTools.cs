@@ -791,6 +791,8 @@ namespace DB_EDITOR
                         int impactID = QBs[d] - PGIDbeg;
 
                         ChangeDBInt("TEAM", "TPIO", i, impactID);
+                        roster = RemovePlayerFromImpactList(roster, QBs[d]);
+
                         countOff++;
                         impactCount++;
                         break;
@@ -804,6 +806,8 @@ namespace DB_EDITOR
                     {
                         int impactID = RBs[d] - PGIDbeg;
                         ChangeDBInt("TEAM", "TSI1", i, impactID);
+                        roster = RemovePlayerFromImpactList(roster, RBs[d]);
+
                         countOff++;
                         impactCount++;
                         break;
@@ -822,6 +826,8 @@ namespace DB_EDITOR
                         {
                             double impactID = roster[j][2] - PGIDbeg;
                             ChangeDBString("TEAM", "TSI2", i, Convert.ToString(impactID));
+                            roster = RemovePlayerFromImpactList(roster, Convert.ToInt32(roster[j][2]));
+                            j--;
                             impactCount++;
                         }
                     }
@@ -833,12 +839,18 @@ namespace DB_EDITOR
                         {
                             double impactID = roster[j][2] - PGIDbeg;
                             ChangeDBString("TEAM", "TPID", i, Convert.ToString(impactID));
+                            roster = RemovePlayerFromImpactList(roster, Convert.ToInt32(roster[j][2]));
+                            j--;
+
                             impactCount++;
                         }
                         else if (countOff + countDef >= 2 && GetDBValueInt("TEAM", "TSI2", i) == 127)
                         {
                             double impactID = roster[j][2] - PGIDbeg;
                             ChangeDBString("TEAM", "TSI2", i, Convert.ToString(impactID));
+                            roster = RemovePlayerFromImpactList(roster, Convert.ToInt32(roster[j][2]));
+                            j--;
+
                             impactCount++;
                         }
                         countDef++;
@@ -861,18 +873,24 @@ namespace DB_EDITOR
                         {
                             double impactID = roster[j][2] - PGIDbeg;
                             ChangeDBString("TEAM", "TPIO", i, Convert.ToString(impactID));
+                            roster = RemovePlayerFromImpactList(roster, Convert.ToInt32(roster[j][2]));
+                            j--;
                             impactCount++;
                         }
                         else if (GetDBValueInt("TEAM", "TSI1", i) == 127)
                         {
                             double impactID = roster[j][2] - PGIDbeg;
                             ChangeDBString("TEAM", "TSI1", i, Convert.ToString(impactID));
+                            roster = RemovePlayerFromImpactList(roster, Convert.ToInt32(roster[j][2]));
+                            j--;
                             impactCount++;
                         }
                         else if (countOff + countDef >= 2 && GetDBValueInt("TEAM", "TSI2", i) == 127)
                         {
                             double impactID = roster[j][2] - PGIDbeg;
                             ChangeDBString("TEAM", "TSI2", i, Convert.ToString(impactID));
+                            roster = RemovePlayerFromImpactList(roster, Convert.ToInt32(roster[j][2]));
+                            j--;
                             impactCount++;
                         }
                         countOff++;
@@ -887,18 +905,24 @@ namespace DB_EDITOR
                         {
                             double impactID = roster[j][2] - PGIDbeg;
                             ChangeDBString("TEAM", "TPID", i, Convert.ToString(impactID));
+                            roster = RemovePlayerFromImpactList(roster, Convert.ToInt32(roster[j][2]));
+                            j--;
                             impactCount++;
                         }
                         else if (GetDBValueInt("TEAM", "TSI1", i) == 127)
                         {
                             double impactID = roster[j][2] - PGIDbeg;
                             ChangeDBString("TEAM", "TSI1", i, Convert.ToString(impactID));
+                            roster = RemovePlayerFromImpactList(roster, Convert.ToInt32(roster[j][2]));
+                            j--;
                             impactCount++;
                         }
                         else if (countOff + countDef >= 2 && GetDBValueInt("TEAM", "TSI2", i) == 127)
                         {
                             double impactID = roster[j][2] - PGIDbeg;
                             ChangeDBString("TEAM", "TSI2", i, Convert.ToString(impactID));
+                            roster = RemovePlayerFromImpactList(roster, Convert.ToInt32(roster[j][2]));
+                            j--;
                             impactCount++;
                         }
                         countDef++;
@@ -925,11 +949,15 @@ namespace DB_EDITOR
                         {
                             double impactID = roster[j][2] - PGIDbeg;
                             ChangeDBString("TEAM", "TPIO", i, Convert.ToString(impactID));
+                            roster = RemovePlayerFromImpactList(roster, Convert.ToInt32(roster[j][2]));
+                            j--;
                         }
                         if (countOff == 1)
                         {
                             double impactID = roster[j][2] - PGIDbeg;
                             ChangeDBString("TEAM", "TSI1", i, Convert.ToString(impactID));
+                            roster = RemovePlayerFromImpactList(roster, Convert.ToInt32(roster[j][2]));
+                            j--;
                         }
                         countOff++;
                     }
@@ -960,6 +988,20 @@ namespace DB_EDITOR
                     }
                 }
             }
+        }
+
+        private List<List<double>> RemovePlayerFromImpactList(List<List<double>> playerList, int pgid)
+        {
+            foreach (var player in playerList)
+            {
+                if (player[2] == pgid)
+                {
+                    playerList.Remove(player);
+                    break;
+                }
+            }
+
+            return playerList;
         }
 
         //Remove Impact Players

@@ -236,6 +236,28 @@ namespace DB_EDITOR
         }
 
 
+        //Visual Rating Tool
+        private void ratingVisualizerBtn_Click(object sender, EventArgs e)
+        {
+            //RosterViz rosterViz = new RosterViz(this);
+            // If the form isn't created or was disposed, create and show it modelessly
+            if (rosterViz == null || rosterViz.IsDisposed)
+            {
+                rosterViz = new RosterViz(this);
+                rosterViz.FormClosed += (s, args) => rosterViz = null; // clear ref when closed
+                rosterViz.Show(this); // use __Show__ (modeless) instead of __ShowDialog__
+            }
+            else
+            {
+                // If it's already shown, bring it to front and restore if minimized
+                if (rosterViz.WindowState == FormWindowState.Minimized)
+                    rosterViz.WindowState = FormWindowState.Normal;
+
+                rosterViz.BringToFront();
+                rosterViz.Activate();
+            }
+        }
+
         #endregion
 
 
@@ -2045,6 +2067,7 @@ namespace DB_EDITOR
 
 
         #endregion
+
 
     }
 

@@ -49,6 +49,9 @@
     <Compile Update="FantasyRoster.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="RosterViz.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="ImportTool.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,9 +71,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="LeagueEditor\LeagueUpdater.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Update="LeagueEditor\Rosters.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="LeagueEditor\Schedules.cs">
