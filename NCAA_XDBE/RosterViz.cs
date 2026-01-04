@@ -32,7 +32,13 @@ namespace DB_EDITOR
         private void LoadRosterVizTeamList()
         {
             rosterVizTeamBox.Items.Clear();
-            rosterVizTeamBox.Items.Add("_All Teams");
+            rosterVizTeamBox.Items.Add("* All Teams *");
+
+            if (main.dbIndex2 > 0)
+            {
+                rosterVizTeamBox.Items.Add("* Recruits + Transfers *");
+                rosterVizTeamBox.Items.Add("* Recruits Only *");
+            }
 
             List<string> teamNames = new List<string>();
             for (int i = 0; i < main.GetTableRecCount("TEAM"); i++)
@@ -43,13 +49,13 @@ namespace DB_EDITOR
                     teamNames.Add(teamName);
                 }
             }
-            
+
             teamNames.Sort();
 
             foreach (var name in teamNames)
             {
                 rosterVizTeamBox.Items.Add(name);
-            }   
+            }
 
             rosterVizTeamBox.SelectedIndex = 0;
         }
@@ -57,7 +63,7 @@ namespace DB_EDITOR
 
         public void BuildRosterChart(bool sim = false, int tgid = -1)
         {
-            if(sim) rosterVizTeamBox.SelectedIndex = 0;
+            if (sim) rosterVizTeamBox.SelectedIndex = 0;
 
             // Example categories (replace with your positions)
             string[] positions = { "QB","HB","FB","WR","TE","LT","LG","C","RG","RT",
@@ -70,34 +76,70 @@ namespace DB_EDITOR
                 ratingsData.Add(new List<int>());
             }
 
-            StartProgressBar(main.GetTableRecCount("PLAY"));
-            // Collect ratings from PLAY table (convert to display rating)
-            for (int i = 0; i < main.GetTableRecCount("PLAY"); i++)
+            if (rosterVizTeamBox.SelectedIndex == 1 && main.dbIndex2 > 0)
             {
-                int ppos = main.GetDBValueInt("PLAY", "PPOS", i);
-                int pgid = main.GetDBValueInt("PLAY", "PGID", i);
-                if (ppos < 0 || ppos >= positions.Length) continue;
-                int overall = 0;
-                if (sim)
+                // Recruits + Transfers
+                StartProgressBar(main.GetTable2RecCount("RCPT"));
+                // Collect from DB2
+                for (int i = 0; i < main.GetTable2RecCount("RCPT"); i++)
                 {
-                    int overallSim = SimulateOverallByRec(i);
-                    ratingsData[ppos].Add(overallSim);
+                    int ppos = main.GetDB2ValueInt("RCPT", "PPOS", i);
+                    if (ppos < 0 || ppos >= positions.Length) continue;
+                    int overall = main.ConvertRating(main.GetDB2ValueInt("RCPT", "POVR", i));
+                    ratingsData[ppos].Add(overall);
                     ProgressBarStep();
                 }
-                else if (tgid > -1 && tgid == pgid / 70)
-                {
-                    overall = main.ConvertRating(main.GetDBValueInt("PLAY", "POVR", i));
-                }
-                else if (tgid == -1 || rosterVizTeamBox.SelectedIndex == 0)
-                {
-                    overall = main.ConvertRating(main.GetDBValueInt("PLAY", "POVR", i));
-                }
-
-
-                ratingsData[ppos].Add(overall);
-                ProgressBarStep();
+                EndProgressBar();
             }
-            EndProgressBar();
+            else if (rosterVizTeamBox.SelectedIndex == 2 && main.dbIndex2 > 0)
+            {
+                // Recruits Only
+                StartProgressBar(main.GetTable2RecCount("RCPT"));
+                // Collect from DB2 only
+                for (int i = 0; i < main.GetTable2RecCount("RCPT"); i++)
+                {
+                    int ppos = main.GetDB2ValueInt("RCPT", "PPOS", i);
+                    if (ppos < 0 || ppos >= positions.Length) continue;
+                    if (main.GetDB2ValueInt("RCPT", "PRID", i) < 21000)
+                    {
+                        int overall = main.ConvertRating(main.GetDB2ValueInt("RCPT", "POVR", i));
+                        ratingsData[ppos].Add(overall);
+                    }
+                    ProgressBarStep();
+                }
+                EndProgressBar();
+            }
+            else
+            {
+                StartProgressBar(main.GetTableRecCount("PLAY"));
+                // Collect ratings from PLAY table (convert to display rating)
+                for (int i = 0; i < main.GetTableRecCount("PLAY"); i++)
+                {
+                    int ppos = main.GetDBValueInt("PLAY", "PPOS", i);
+                    int pgid = main.GetDBValueInt("PLAY", "PGID", i);
+                    if (ppos < 0 || ppos >= positions.Length) continue;
+                    int overall = 0;
+                    if (sim)
+                    {
+                        int overallSim = SimulateOverallByRec(i);
+                        ratingsData[ppos].Add(overallSim);
+                        ProgressBarStep();
+                    }
+                    else if (tgid > -1 && tgid == pgid / 70)
+                    {
+                        overall = main.ConvertRating(main.GetDBValueInt("PLAY", "POVR", i));
+                    }
+                    else if (tgid == -1 || rosterVizTeamBox.SelectedIndex == 0)
+                    {
+                        overall = main.ConvertRating(main.GetDBValueInt("PLAY", "POVR", i));
+                    }
+
+
+                    ratingsData[ppos].Add(overall);
+                    ProgressBarStep();
+                }
+                EndProgressBar();
+            }
 
             rosterChart.Series.Clear();
             rosterChart.ChartAreas.Clear();
@@ -206,7 +248,7 @@ namespace DB_EDITOR
 
         private void rosterVizTeamBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(rosterVizTeamBox.SelectedIndex == 0)
+            if (rosterVizTeamBox.SelectedIndex == 0)
             {
                 BuildRosterChart();
             }
