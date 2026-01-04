@@ -1695,7 +1695,7 @@ namespace DB_EDITOR
             KAWT = new DataGridViewTextBoxColumn();
             KPWT = new DataGridViewTextBoxColumn();
             POCI_Total = new DataGridViewTextBoxColumn();
-            rcatUpdatebtn = new System.Windows.Forms.Button();
+            POCIUpdatebtn = new System.Windows.Forms.Button();
             toolTip1 = new System.Windows.Forms.ToolTip(components);
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             mainMenu.SuspendLayout();
@@ -2024,7 +2024,7 @@ namespace DB_EDITOR
             openMenuItem.Image = Resources.open2;
             openMenuItem.Name = "openMenuItem";
             openMenuItem.ShortcutKeys = (Keys)(Keys.Control) | (Keys.O);
-            openMenuItem.Size = new Size(157, 22);
+            openMenuItem.Size = new Size(192, 34);
             openMenuItem.Text = "Open";
             openMenuItem.Click += (this.OpenMenuItem_Click);
             // 
@@ -2033,7 +2033,7 @@ namespace DB_EDITOR
             saveMenuItem.Image = Resources.save3;
             saveMenuItem.Name = "saveMenuItem";
             saveMenuItem.ShortcutKeys = (Keys)(Keys.Control) | (Keys.S);
-            saveMenuItem.Size = new Size(157, 22);
+            saveMenuItem.Size = new Size(192, 34);
             saveMenuItem.Text = "Save";
             saveMenuItem.Click += (this.SaveMenuItem_Click);
             // 
@@ -2042,21 +2042,21 @@ namespace DB_EDITOR
             closeMenuItem.Image = Resources.close;
             closeMenuItem.Name = "closeMenuItem";
             closeMenuItem.ShortcutKeys = (Keys)(Keys.Control) | (Keys.W);
-            closeMenuItem.Size = new Size(157, 22);
+            closeMenuItem.Size = new Size(192, 34);
             closeMenuItem.Text = "Close";
             closeMenuItem.Click += (this.CloseMenuItem_Click);
             // 
             // toolStripSeparator7
             // 
             toolStripSeparator7.Name = "toolStripSeparator7";
-            toolStripSeparator7.Size = new Size(154, 6);
+            toolStripSeparator7.Size = new Size(189, 6);
             // 
             // exitMenuItem
             // 
             exitMenuItem.Image = Resources.exit;
             exitMenuItem.Name = "exitMenuItem";
             exitMenuItem.ShortcutKeys = (Keys)(Keys.Alt) | (Keys.F4);
-            exitMenuItem.Size = new Size(157, 22);
+            exitMenuItem.Size = new Size(192, 34);
             exitMenuItem.Text = "Exit";
             exitMenuItem.Click += (this.ExitToolItem_Click);
             // 
@@ -2134,7 +2134,7 @@ namespace DB_EDITOR
             // 
             tableFieldOrderMenuItem.DropDownItems.AddRange(new ToolStripItem[] { defaultFieldOrderMenuItem, ascendingFieldOrderMenuItem, descendingFieldOrderMenuItem, customOrderMenuItem });
             tableFieldOrderMenuItem.Name = "tableFieldOrderMenuItem";
-            tableFieldOrderMenuItem.Size = new Size(189, 34);
+            tableFieldOrderMenuItem.Size = new Size(192, 34);
             tableFieldOrderMenuItem.Text = "Table Field Order";
             // 
             // defaultFieldOrderMenuItem
@@ -2171,14 +2171,14 @@ namespace DB_EDITOR
             // 
             definitionFileMenuItem.Image = Resources.def_file;
             definitionFileMenuItem.Name = "definitionFileMenuItem";
-            definitionFileMenuItem.Size = new Size(189, 34);
+            definitionFileMenuItem.Size = new Size(192, 34);
             definitionFileMenuItem.Text = "Definition File";
             definitionFileMenuItem.Click += (this.DefinitionFileMenuItem_Click);
             // 
             // devTabToolStripMenuItem
             // 
             devTabToolStripMenuItem.Name = "devTabToolStripMenuItem";
-            devTabToolStripMenuItem.Size = new Size(189, 34);
+            devTabToolStripMenuItem.Size = new Size(192, 34);
             devTabToolStripMenuItem.Text = "Dev Tab";
             devTabToolStripMenuItem.Click += (this.devTabToolStripMenuItem_Click);
             // 
@@ -4377,7 +4377,7 @@ namespace DB_EDITOR
             ratingVisualizerBtn.Name = "ratingVisualizerBtn";
             ratingVisualizerBtn.Size = new Size(112, 54);
             ratingVisualizerBtn.TabIndex = 79;
-            ratingVisualizerBtn.Text = "Visualizer";
+            ratingVisualizerBtn.Text = "Launch Visualizer";
             ratingVisualizerBtn.UseVisualStyleBackColor = false;
             ratingVisualizerBtn.Click += (this.ratingVisualizerBtn_Click);
             // 
@@ -18875,7 +18875,7 @@ namespace DB_EDITOR
             // 
             tabPOCI.Controls.Add(label296);
             tabPOCI.Controls.Add(POCIGridView);
-            tabPOCI.Controls.Add(rcatUpdatebtn);
+            tabPOCI.Controls.Add(POCIUpdatebtn);
             tabPOCI.Location = new Point(4, 29);
             tabPOCI.Name = "tabPOCI";
             tabPOCI.Padding = new Padding(3);
@@ -19033,18 +19033,18 @@ namespace DB_EDITOR
             POCI_Total.Name = "POCI_Total";
             POCI_Total.ReadOnly = true;
             // 
-            // rcatUpdatebtn
+            // POCIUpdatebtn
             // 
-            rcatUpdatebtn.BackColor = Color.IndianRed;
-            rcatUpdatebtn.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            rcatUpdatebtn.ForeColor = SystemColors.Control;
-            rcatUpdatebtn.Location = new Point(1056, 4);
-            rcatUpdatebtn.Name = "rcatUpdatebtn";
-            rcatUpdatebtn.Size = new Size(86, 20);
-            rcatUpdatebtn.TabIndex = 4;
-            rcatUpdatebtn.Text = "UPDATE DB";
-            rcatUpdatebtn.UseVisualStyleBackColor = false;
-            rcatUpdatebtn.Click += (this.rcatUpdate_Click);
+            POCIUpdatebtn.BackColor = Color.IndianRed;
+            POCIUpdatebtn.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            POCIUpdatebtn.ForeColor = SystemColors.Control;
+            POCIUpdatebtn.Location = new Point(1056, 4);
+            POCIUpdatebtn.Name = "POCIUpdatebtn";
+            POCIUpdatebtn.Size = new Size(86, 20);
+            POCIUpdatebtn.TabIndex = 4;
+            POCIUpdatebtn.Text = "UPDATE DB";
+            POCIUpdatebtn.UseVisualStyleBackColor = false;
+            POCIUpdatebtn.Click += (this.POCIUpdate_Click);
             // 
             // MainEditor
             // 
@@ -20954,7 +20954,7 @@ namespace DB_EDITOR
         private System.Windows.Forms.Button btnUpdateRCATchart;
         private TabPage tabPOCI;
         private DataGridView POCIGridView;
-        private System.Windows.Forms.Button rcatUpdatebtn;
+        private System.Windows.Forms.Button POCIUpdatebtn;
         private Label label296;
         private DataGridViewTextBoxColumn PPOS;
         private DataGridViewTextBoxColumn PLDH;

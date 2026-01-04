@@ -17,13 +17,14 @@ namespace DB_EDITOR
         #region Global Variables
         private RosterViz rosterViz;
         private LeagueMain leagueEditor;
+        private POCIsimulator pociSim;
 
         Random rand = new Random();
 
-        int minRatingVal = 0;
-        int minConvRatingVal = 40;
-        int maxRatingVal = 31;
-        int maxConvRatingVal = 99;
+        public int minRatingVal = 0;
+        public int minConvRatingVal = 40;
+        public int maxRatingVal = 31;
+        public int maxConvRatingVal = 99;
         int maxPlayers = 70; //player per team
 
         string dbFile = "";
@@ -101,12 +102,12 @@ namespace DB_EDITOR
         public string[] teamNameDB = new string[512]; //temporary holder of Team Names assigned by TGID location in the array
         string[] teamMascot = new string[512]; //temporary holder of Team Names assigned by TGID location in the array
         int maxNameChar = 10; //maximum number of name characters (reserving extra last name letters for modding)
-        Dictionary<int, string> Positions = new Dictionary<int, string>(); //database of ppos id,position name
-        Dictionary<string, int> PositionsX = new Dictionary<string, int>(); //database of position name, ppos id
+        public Dictionary<int, string> Positions = new Dictionary<int, string>(); //database of ppos id,position name
+        public Dictionary<string, int> PositionsX = new Dictionary<string, int>(); //database of position name, ppos id
         Dictionary<int, int> Ratings = new Dictionary<int, int>(); //database of db rating, in-game rating
         Dictionary<int, int> RatingsX = new Dictionary<int, int>(); //database of in-game rating, db rating
 
-        double[,] POCI;
+        public double[,] POCI;
         List<List<int>> RCAT;
         List<string> FirstNames;
         List<string> LastNames;

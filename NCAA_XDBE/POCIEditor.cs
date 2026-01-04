@@ -81,10 +81,10 @@ namespace DB_EDITOR
             CalculatePOCISums();
         }
 
-        private void rcatUpdate_Click(object sender, EventArgs e)
+        private void POCIUpdate_Click(object sender, EventArgs e)
         {
             //Clear RCAT table
-            for(int i = 0; i < GetTableRecCount("POCI"); i++)
+            for (int i = 0; i < GetTableRecCount("POCI"); i++)
             {
                 DeleteRecord("POCI", i, true);
             }
@@ -94,7 +94,8 @@ namespace DB_EDITOR
             {
                 AddTableRecord("POCI", false);
 
-                for (int j = 0; j < POCIGridView.ColumnCount-1; j++) {
+                for (int j = 0; j < POCIGridView.ColumnCount - 1; j++)
+                {
 
                     string fieldName = POCIGridView.Columns[j].Name;
 
@@ -112,7 +113,9 @@ namespace DB_EDITOR
             }
 
             CreatePOCItable();
+
             MessageBox.Show("POCI Updated! Save to complete the process.");
+
         }
 
     }

@@ -622,6 +622,17 @@ namespace DB_EDITOR
             };
             rcatChart.Series.Add(s);
 
+            // Mean series: red square for mean value per X (position)
+            var meanSeries = new Series("Mean")
+            {
+                ChartType = SeriesChartType.Point,
+                MarkerStyle = MarkerStyle.Square,
+                MarkerSize = 10,
+                Color = Color.Red,
+                IsVisibleInLegend = false
+            };
+            rcatChart.Series.Add(meanSeries);
+
             // Axis ranges
             area.AxisY.Minimum = 40;
             area.AxisY.Maximum = 100;
@@ -673,6 +684,20 @@ namespace DB_EDITOR
 
                 // Keep interactive tooltip so users still see counts on hover.
                 pt.ToolTip = $"Pos: {positions[x]}\nRating: {y}\nCount: {count}";
+            }
+
+            // Add mean point (red square) for each X where data exists
+            for (int x = 0; x < ratingsData.Count; x++)
+            {
+                var bucket = ratingsData[x];
+                if (bucket == null || bucket.Count == 0) continue;
+                double mean = bucket.Average();
+                var mIdx = meanSeries.Points.AddXY(x, mean);
+                var mPt = meanSeries.Points[mIdx];
+                mPt.ToolTip = $"Pos: {positions[x]}\nMean: {mean:F2}\nCount: {bucket.Count}";
+                // Optionally make the mean marker stand out more:
+                mPt.MarkerSize = 10;
+                mPt.MarkerStyle = MarkerStyle.Square;
             }
 
             // Make it fill nicely

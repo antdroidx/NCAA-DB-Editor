@@ -49,6 +49,9 @@
     <Compile Update="FantasyRoster.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="POCIsimulator.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="RosterViz.cs">
       <SubType>Form</SubType>
     </Compile>

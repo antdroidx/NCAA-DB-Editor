@@ -175,8 +175,23 @@ namespace DB_EDITOR
             TDB.TDBTableRecordChangeDeleted(dbIndex, table, rec, deleted);
         }
 
+        public int GetFieldCount(string tableName)
+        {
+            return TDB.FieldCount(dbIndex, tableName);
+        }
 
-        private int GetFieldIndex(string tmpFName)
+        public string GetFieldName(string tableName, int fCol)
+        {
+            var fieldProps = new TdbFieldProperties();
+            fieldProps.Name = new string((char)0, 5);
+            TDB.TDBFieldGetProperties(dbSelected, tableName, fCol, ref fieldProps);
+
+            string fieldName = fieldProps.Name;
+
+            return fieldName;
+        }
+
+        public int GetFieldIndex(string tmpFName)
         {
             int tmpIndex = 0;
 
@@ -201,7 +216,8 @@ namespace DB_EDITOR
             // MessageBox.Show(tmpIndex + " ", tmpFName + " - " + FieldProps.Name);
             return tmpIndex;
         }
-        private string GetTableName(int dbFILEindex, int tmpTABLEindex)
+
+        public string GetTableName(int dbFILEindex, int tmpTABLEindex)
         {
             // TdbTableProperties class
             TdbTableProperties TableProps = new TdbTableProperties();
@@ -227,7 +243,7 @@ namespace DB_EDITOR
             // MessageBox.Show(tmpTABLEname + "  index: " + tmpTABLEindex);
             return tmpTABLEname;
         }
-        private int GetTableIndex(int dbFILEindex, string tmpTABLEname)
+        public int GetTableIndex(int dbFILEindex, string tmpTABLEname)
         {
             // TdbTableProperties class
             TdbTableProperties TableProps = new TdbTableProperties();

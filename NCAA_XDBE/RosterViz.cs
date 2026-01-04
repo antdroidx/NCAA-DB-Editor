@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -11,10 +12,13 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace DB_EDITOR
 {
+
     public partial class RosterViz : Form
     {
         MainEditor main;
+        POCIsimulator pociSim;
         Random rand = new Random();
+        public double[,] POCIsimValues;
 
 
         public RosterViz(MainEditor parent)
@@ -22,10 +26,39 @@ namespace DB_EDITOR
             main = parent;
             InitializeComponent();
             BuildRosterChart();
+            LoadRosterVizTeamList();
         }
 
-        private void BuildRosterChart()
+        private void LoadRosterVizTeamList()
         {
+            rosterVizTeamBox.Items.Clear();
+            rosterVizTeamBox.Items.Add("_All Teams");
+
+            List<string> teamNames = new List<string>();
+            for (int i = 0; i < main.GetTableRecCount("TEAM"); i++)
+            {
+                if (main.GetDBValue("TEAM", "TTYP", i) == "0")
+                {
+                    string teamName = main.GetDBValue("TEAM", "TDNA", i);
+                    teamNames.Add(teamName);
+                }
+            }
+            
+            teamNames.Sort();
+
+            foreach (var name in teamNames)
+            {
+                rosterVizTeamBox.Items.Add(name);
+            }   
+
+            rosterVizTeamBox.SelectedIndex = 0;
+        }
+
+
+        public void BuildRosterChart(bool sim = false, int tgid = -1)
+        {
+            if(sim) rosterVizTeamBox.SelectedIndex = 0;
+
             // Example categories (replace with your positions)
             string[] positions = { "QB","HB","FB","WR","TE","LT","LG","C","RG","RT",
                                "LE","RE","DT","LOLB","MLB","ROLB","CB","FS","SS","K","P" };
@@ -42,8 +75,25 @@ namespace DB_EDITOR
             for (int i = 0; i < main.GetTableRecCount("PLAY"); i++)
             {
                 int ppos = main.GetDBValueInt("PLAY", "PPOS", i);
-                if (ppos < 0 || ppos >= positions.Length) continue; // guard
-                int overall = main.ConvertRating(main.GetDBValueInt("PLAY", "POVR", i));
+                int pgid = main.GetDBValueInt("PLAY", "PGID", i);
+                if (ppos < 0 || ppos >= positions.Length) continue;
+                int overall = 0;
+                if (sim)
+                {
+                    int overallSim = SimulateOverallByRec(i);
+                    ratingsData[ppos].Add(overallSim);
+                    ProgressBarStep();
+                }
+                else if (tgid > -1 && tgid == pgid / 70)
+                {
+                    overall = main.ConvertRating(main.GetDBValueInt("PLAY", "POVR", i));
+                }
+                else if (tgid == -1 || rosterVizTeamBox.SelectedIndex == 0)
+                {
+                    overall = main.ConvertRating(main.GetDBValueInt("PLAY", "POVR", i));
+                }
+
+
                 ratingsData[ppos].Add(overall);
                 ProgressBarStep();
             }
@@ -69,6 +119,18 @@ namespace DB_EDITOR
                 Color = Color.RoyalBlue
             };
             rosterChart.Series.Add(s);
+
+            // Mean series: red square for mean value per X (position)
+            var meanSeries = new Series("Mean")
+            {
+                ChartType = SeriesChartType.Point,
+                MarkerStyle = MarkerStyle.Square,
+                MarkerSize = 10,
+                Color = Color.Red,
+                IsVisibleInLegend = false
+            };
+            rosterChart.Series.Add(meanSeries);
+
 
             // Axis ranges
             area.AxisY.Minimum = 40;
@@ -123,10 +185,39 @@ namespace DB_EDITOR
                 pt.ToolTip = $"Pos: {positions[x]}\nRating: {y}\nCount: {count}";
             }
 
+            // Add mean point (red square) for each X where data exists
+            for (int x = 0; x < ratingsData.Count; x++)
+            {
+                var bucket = ratingsData[x];
+                if (bucket == null || bucket.Count == 0) continue;
+                double mean = bucket.Average();
+                var mIdx = meanSeries.Points.AddXY(x, mean);
+                var mPt = meanSeries.Points[mIdx];
+                mPt.ToolTip = $"Pos: {positions[x]}\nMean: {mean:F2}\nCount: {bucket.Count}";
+                // Optionally make the mean marker stand out more:
+                mPt.MarkerSize = 10;
+                mPt.MarkerStyle = MarkerStyle.Square;
+            }
+
             // Make it fill nicely
             rosterChart.Dock = DockStyle.Fill;
             area.AxisX.LabelStyle.Angle = -45; // optional, if labels get crowded
         }
+
+        private void rosterVizTeamBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(rosterVizTeamBox.SelectedIndex == 0)
+            {
+                BuildRosterChart();
+            }
+            else
+            {
+                string selectedTeam = rosterVizTeamBox.SelectedItem.ToString();
+                int tgid = main.FindTGIDfromTeamName(selectedTeam);
+                BuildRosterChart(false, tgid);
+            }
+        }
+
 
         private void UpdateRosterVizBtn_Click(object sender, EventArgs e)
         {
@@ -158,6 +249,85 @@ namespace DB_EDITOR
         }
 
         #endregion
+
+        #region POCI Simulator
+        private void POCIsimulatorBtn_Click(object sender, EventArgs e)
+        {
+            // If the form isn't created or was disposed, create and show it modelessly
+            if (pociSim == null || pociSim.IsDisposed)
+            {
+                pociSim = new POCIsimulator(main, this);
+                pociSim.FormClosed += (s, args) => pociSim = null; // clear ref when closed
+                pociSim.Show(this); // use __Show__ (modeless) instead of __ShowDialog__
+            }
+            else
+            {
+                // If it's already shown, bring it to front and restore if minimized
+                if (pociSim.WindowState == FormWindowState.Minimized)
+                    pociSim.WindowState = FormWindowState.Normal;
+
+                pociSim.BringToFront();
+                pociSim.Activate();
+            }
+        }
+
+
+        public int SimulateOverallByRec(int rec)
+        {
+            int ppos = Convert.ToInt32(main.GetDBValue("PLAY", "PPOS", rec));
+            double PCAR = Convert.ToInt32(main.GetDBValue("PLAY", "PCAR", rec)); //CAWT
+            double PKAC = Convert.ToInt32(main.GetDBValue("PLAY", "PKAC", rec)); //KAWT
+            double PTHA = Convert.ToInt32(main.GetDBValue("PLAY", "PTHA", rec)); //TAWT
+            double PPBK = Convert.ToInt32(main.GetDBValue("PLAY", "PPBK", rec)); //PBWT
+            double PRBK = Convert.ToInt32(main.GetDBValue("PLAY", "PRBK", rec)); //RBWT
+            double PACC = Convert.ToInt32(main.GetDBValue("PLAY", "PACC", rec)); //ACWT
+            double PAGI = Convert.ToInt32(main.GetDBValue("PLAY", "PAGI", rec)); //AGWT
+            double PTAK = Convert.ToInt32(main.GetDBValue("PLAY", "PTAK", rec)); //TKWT
+            double PINJ = Convert.ToInt32(main.GetDBValue("PLAY", "PINJ", rec)); //INWT
+            double PKPR = Convert.ToInt32(main.GetDBValue("PLAY", "PKPR", rec)); //KPWT
+            double PSPD = Convert.ToInt32(main.GetDBValue("PLAY", "PSPD", rec)); //SPWT
+            double PTHP = Convert.ToInt32(main.GetDBValue("PLAY", "PTHP", rec)); //TPWT
+            double PBKT = Convert.ToInt32(main.GetDBValue("PLAY", "PBTK", rec)); //BTWT
+            double PCTH = Convert.ToInt32(main.GetDBValue("PLAY", "PCTH", rec)); //CTWT
+            double PSTR = Convert.ToInt32(main.GetDBValue("PLAY", "PSTR", rec)); //STWT
+            double PJMP = Convert.ToInt32(main.GetDBValue("PLAY", "PJMP", rec)); //JUWT
+            double PAWR = Convert.ToInt32(main.GetDBValue("PLAY", "PAWR", rec)); //AWWT
+
+            double[] ratings = new double[] { PCAR, PKAC, PTHA, PPBK, PRBK, PACC, PAGI, PTAK, PINJ, PKPR, PSPD, PTHP, PBKT, PCTH, PSTR, PJMP, PAWR };
+
+            for (int i = 0; i < ratings.Length; i++)
+            {
+                ratings[i] = CalcOVRIndividuals(i + 3, ratings[i], ppos);
+            }
+
+            double newRating = 50;
+
+            for (int i = 0; i < ratings.Length; i++)
+            {
+                newRating += ratings[i];
+            }
+
+            int val = Convert.ToInt32(newRating);
+            if (val < 40) val = 40;
+
+            return val;
+
+        }
+
+        public double CalcOVRIndividuals(int row, double val, int ppos)
+        {
+            double skillRating = (double)main.ConvertRating(Convert.ToInt32(val));
+
+            //attribute rating - (PLDH + PLDL)/2 * wtPts/total Pts * (99 / (PLDH-PLDL)
+            // row 20,   weight/row 21, row 22
+            // 
+
+            skillRating = (skillRating - POCIsimValues[ppos, 20]) * (POCIsimValues[ppos, row] / POCIsimValues[ppos, 21]) * POCIsimValues[ppos, 22];
+
+            return skillRating;
+        }
+        #endregion
+
 
     }
 }

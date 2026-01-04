@@ -35,6 +35,9 @@
             progressBar1 = new ProgressBar();
             rosterChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             splitContainer1 = new SplitContainer();
+            POCIsimulatorBtn = new Button();
+            rosterVizTeamBox = new ComboBox();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)rosterChart).BeginInit();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
@@ -57,9 +60,10 @@
             // progressBar1
             // 
             progressBar1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            progressBar1.BackColor = SystemColors.ButtonShadow;
             progressBar1.Location = new Point(97, 9);
             progressBar1.Name = "progressBar1";
-            progressBar1.Size = new Size(718, 28);
+            progressBar1.Size = new Size(440, 28);
             progressBar1.TabIndex = 2;
             // 
             // rosterChart
@@ -92,11 +96,46 @@
             // 
             // splitContainer1.Panel2
             // 
+            splitContainer1.Panel2.Controls.Add(label1);
+            splitContainer1.Panel2.Controls.Add(rosterVizTeamBox);
+            splitContainer1.Panel2.Controls.Add(POCIsimulatorBtn);
             splitContainer1.Panel2.Controls.Add(progressBar1);
             splitContainer1.Panel2.Controls.Add(UpdateRosterVizBtn);
             splitContainer1.Size = new Size(1184, 711);
             splitContainer1.SplitterDistance = 664;
             splitContainer1.TabIndex = 3;
+            // 
+            // POCIsimulatorBtn
+            // 
+            POCIsimulatorBtn.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            POCIsimulatorBtn.BackColor = Color.PaleTurquoise;
+            POCIsimulatorBtn.Location = new Point(1016, 9);
+            POCIsimulatorBtn.Name = "POCIsimulatorBtn";
+            POCIsimulatorBtn.Size = new Size(156, 28);
+            POCIsimulatorBtn.TabIndex = 3;
+            POCIsimulatorBtn.Text = "POCI Editing Simulator";
+            POCIsimulatorBtn.UseVisualStyleBackColor = false;
+            POCIsimulatorBtn.Click += POCIsimulatorBtn_Click;
+            // 
+            // rosterVizTeamBox
+            // 
+            rosterVizTeamBox.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            rosterVizTeamBox.FormattingEnabled = true;
+            rosterVizTeamBox.Location = new Point(597, 9);
+            rosterVizTeamBox.Name = "rosterVizTeamBox";
+            rosterVizTeamBox.Size = new Size(198, 25);
+            rosterVizTeamBox.TabIndex = 4;
+            rosterVizTeamBox.SelectedIndexChanged += rosterVizTeamBox_SelectedIndexChanged;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(543, 12);
+            label1.Name = "label1";
+            label1.Size = new Size(48, 20);
+            label1.TabIndex = 5;
+            label1.Text = "TEAM";
             // 
             // RosterViz
             // 
@@ -109,6 +148,7 @@
             ((System.ComponentModel.ISupportInitialize)rosterChart).EndInit();
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel2.ResumeLayout(false);
+            splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
             ResumeLayout(false);
@@ -119,5 +159,8 @@
         private ProgressBar progressBar1;
         private System.Windows.Forms.DataVisualization.Charting.Chart rosterChart;
         private SplitContainer splitContainer1;
+        private Button POCIsimulatorBtn;
+        private Label label1;
+        private ComboBox rosterVizTeamBox;
     }
 }
