@@ -1630,9 +1630,12 @@ namespace DB_EDITOR
             panel1 = new Panel();
             tabRCAT = new TabPage();
             groupBox6 = new GroupBox();
+            RCATVizTypeBox = new System.Windows.Forms.ComboBox();
             btnUpdateRCATchart = new System.Windows.Forms.Button();
             rcatChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             groupBox41 = new GroupBox();
+            button2 = new System.Windows.Forms.Button();
+            button1 = new System.Windows.Forms.Button();
             rcatGlobalAttBox = new System.Windows.Forms.ComboBox();
             RandomizeRCATBodyBtn = new System.Windows.Forms.Button();
             RandomizeRCATRatingsBtn = new System.Windows.Forms.Button();
@@ -2024,7 +2027,7 @@ namespace DB_EDITOR
             openMenuItem.Image = Resources.open2;
             openMenuItem.Name = "openMenuItem";
             openMenuItem.ShortcutKeys = (Keys)(Keys.Control) | (Keys.O);
-            openMenuItem.Size = new Size(192, 34);
+            openMenuItem.Size = new Size(157, 22);
             openMenuItem.Text = "Open";
             openMenuItem.Click += (this.OpenMenuItem_Click);
             // 
@@ -2033,7 +2036,7 @@ namespace DB_EDITOR
             saveMenuItem.Image = Resources.save3;
             saveMenuItem.Name = "saveMenuItem";
             saveMenuItem.ShortcutKeys = (Keys)(Keys.Control) | (Keys.S);
-            saveMenuItem.Size = new Size(192, 34);
+            saveMenuItem.Size = new Size(157, 22);
             saveMenuItem.Text = "Save";
             saveMenuItem.Click += (this.SaveMenuItem_Click);
             // 
@@ -2042,21 +2045,21 @@ namespace DB_EDITOR
             closeMenuItem.Image = Resources.close;
             closeMenuItem.Name = "closeMenuItem";
             closeMenuItem.ShortcutKeys = (Keys)(Keys.Control) | (Keys.W);
-            closeMenuItem.Size = new Size(192, 34);
+            closeMenuItem.Size = new Size(157, 22);
             closeMenuItem.Text = "Close";
             closeMenuItem.Click += (this.CloseMenuItem_Click);
             // 
             // toolStripSeparator7
             // 
             toolStripSeparator7.Name = "toolStripSeparator7";
-            toolStripSeparator7.Size = new Size(189, 6);
+            toolStripSeparator7.Size = new Size(154, 6);
             // 
             // exitMenuItem
             // 
             exitMenuItem.Image = Resources.exit;
             exitMenuItem.Name = "exitMenuItem";
             exitMenuItem.ShortcutKeys = (Keys)(Keys.Alt) | (Keys.F4);
-            exitMenuItem.Size = new Size(192, 34);
+            exitMenuItem.Size = new Size(157, 22);
             exitMenuItem.Text = "Exit";
             exitMenuItem.Click += (this.ExitToolItem_Click);
             // 
@@ -2134,7 +2137,7 @@ namespace DB_EDITOR
             // 
             tableFieldOrderMenuItem.DropDownItems.AddRange(new ToolStripItem[] { defaultFieldOrderMenuItem, ascendingFieldOrderMenuItem, descendingFieldOrderMenuItem, customOrderMenuItem });
             tableFieldOrderMenuItem.Name = "tableFieldOrderMenuItem";
-            tableFieldOrderMenuItem.Size = new Size(192, 34);
+            tableFieldOrderMenuItem.Size = new Size(189, 34);
             tableFieldOrderMenuItem.Text = "Table Field Order";
             // 
             // defaultFieldOrderMenuItem
@@ -2171,14 +2174,14 @@ namespace DB_EDITOR
             // 
             definitionFileMenuItem.Image = Resources.def_file;
             definitionFileMenuItem.Name = "definitionFileMenuItem";
-            definitionFileMenuItem.Size = new Size(192, 34);
+            definitionFileMenuItem.Size = new Size(189, 34);
             definitionFileMenuItem.Text = "Definition File";
             definitionFileMenuItem.Click += (this.DefinitionFileMenuItem_Click);
             // 
             // devTabToolStripMenuItem
             // 
             devTabToolStripMenuItem.Name = "devTabToolStripMenuItem";
-            devTabToolStripMenuItem.Size = new Size(192, 34);
+            devTabToolStripMenuItem.Size = new Size(189, 34);
             devTabToolStripMenuItem.Text = "Dev Tab";
             devTabToolStripMenuItem.Click += (this.devTabToolStripMenuItem_Click);
             // 
@@ -8691,7 +8694,7 @@ namespace DB_EDITOR
             MatchView.Columns.AddRange(new DataGridViewColumn[] { RatingCat, MatchAwayTeam, MatchHomeTeam });
             dataGridViewCellStyle24.Alignment = DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle24.BackColor = SystemColors.AppWorkspace;
-            dataGridViewCellStyle24.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            dataGridViewCellStyle24.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
             dataGridViewCellStyle24.ForeColor = SystemColors.ControlText;
             dataGridViewCellStyle24.SelectionBackColor = SystemColors.Highlight;
             dataGridViewCellStyle24.SelectionForeColor = SystemColors.HighlightText;
@@ -18391,6 +18394,7 @@ namespace DB_EDITOR
             // 
             // groupBox6
             // 
+            groupBox6.Controls.Add(RCATVizTypeBox);
             groupBox6.Controls.Add(btnUpdateRCATchart);
             groupBox6.Controls.Add(rcatChart);
             groupBox6.Location = new Point(495, 6);
@@ -18400,14 +18404,25 @@ namespace DB_EDITOR
             groupBox6.TabStop = false;
             groupBox6.Text = "RCAT Visualizer";
             // 
+            // RCATVizTypeBox
+            // 
+            RCATVizTypeBox.Anchor = (AnchorStyles)(AnchorStyles.Bottom) | (AnchorStyles.Right);
+            RCATVizTypeBox.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            RCATVizTypeBox.FormattingEnabled = true;
+            RCATVizTypeBox.Location = new Point(539, 16);
+            RCATVizTypeBox.Name = "RCATVizTypeBox";
+            RCATVizTypeBox.Size = new Size(102, 25);
+            RCATVizTypeBox.TabIndex = 8;
+            RCATVizTypeBox.SelectedIndexChanged += (this.RCATVizTypeBox_SelectedIndexChanged);
+            // 
             // btnUpdateRCATchart
             // 
             btnUpdateRCATchart.Anchor = (AnchorStyles)(AnchorStyles.Top) | (AnchorStyles.Right);
             btnUpdateRCATchart.BackColor = Color.Linen;
             btnUpdateRCATchart.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            btnUpdateRCATchart.Location = new Point(530, 13);
+            btnUpdateRCATchart.Location = new Point(6, 557);
             btnUpdateRCATchart.Name = "btnUpdateRCATchart";
-            btnUpdateRCATchart.Size = new Size(111, 42);
+            btnUpdateRCATchart.Size = new Size(107, 32);
             btnUpdateRCATchart.TabIndex = 1;
             btnUpdateRCATchart.Text = "Update Chart";
             btnUpdateRCATchart.UseVisualStyleBackColor = false;
@@ -18418,17 +18433,20 @@ namespace DB_EDITOR
             rcatChart.BackColor = Color.Gainsboro;
             chartArea1.Name = "ChartArea1";
             rcatChart.ChartAreas.Add(chartArea1);
-            rcatChart.Location = new Point(6, 19);
+            rcatChart.Dock = DockStyle.Fill;
+            rcatChart.Location = new Point(3, 16);
             rcatChart.Name = "rcatChart";
             series1.ChartArea = "ChartArea1";
             series1.Name = "Series1";
             rcatChart.Series.Add(series1);
-            rcatChart.Size = new Size(635, 570);
+            rcatChart.Size = new Size(641, 576);
             rcatChart.TabIndex = 0;
             rcatChart.Text = "RCAT Visualizer";
             // 
             // groupBox41
             // 
+            groupBox41.Controls.Add(button2);
+            groupBox41.Controls.Add(button1);
             groupBox41.Controls.Add(rcatGlobalAttBox);
             groupBox41.Controls.Add(RandomizeRCATBodyBtn);
             groupBox41.Controls.Add(RandomizeRCATRatingsBtn);
@@ -18474,6 +18492,30 @@ namespace DB_EDITOR
             groupBox41.TabIndex = 0;
             groupBox41.TabStop = false;
             groupBox41.Text = "Recruit Database (RCAT)";
+            // 
+            // button2
+            // 
+            button2.BackColor = Color.WhiteSmoke;
+            button2.Location = new Point(250, 554);
+            button2.Name = "button2";
+            button2.Size = new Size(85, 35);
+            button2.TabIndex = 104;
+            button2.Text = "Fix Safety";
+            button2.UseVisualStyleBackColor = false;
+            button2.Visible = false;
+            button2.Click += (this.button2_Click);
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.WhiteSmoke;
+            button1.Location = new Point(145, 554);
+            button1.Name = "button1";
+            button1.Size = new Size(85, 35);
+            button1.TabIndex = 103;
+            button1.Text = "Fix LB";
+            button1.UseVisualStyleBackColor = false;
+            button1.Visible = false;
+            button1.Click += (this.button1_Click);
             // 
             // rcatGlobalAttBox
             // 
@@ -20979,6 +21021,9 @@ namespace DB_EDITOR
         public System.Windows.Forms.Button ratingVisualizerBtn;
         public Label label297;
         private System.Windows.Forms.ComboBox STADsgptBox;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox RCATVizTypeBox;
     }
 }
 

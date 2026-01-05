@@ -35,9 +35,11 @@
             progressBar1 = new ProgressBar();
             rosterChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             splitContainer1 = new SplitContainer();
-            POCIsimulatorBtn = new Button();
-            rosterVizTeamBox = new ComboBox();
             label1 = new Label();
+            rosterVizTeamBox = new ComboBox();
+            POCIsimulatorBtn = new Button();
+            label2 = new Label();
+            rosterVizTypeBox = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)rosterChart).BeginInit();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
@@ -96,6 +98,8 @@
             // 
             // splitContainer1.Panel2
             // 
+            splitContainer1.Panel2.Controls.Add(label2);
+            splitContainer1.Panel2.Controls.Add(rosterVizTypeBox);
             splitContainer1.Panel2.Controls.Add(label1);
             splitContainer1.Panel2.Controls.Add(rosterVizTeamBox);
             splitContainer1.Panel2.Controls.Add(POCIsimulatorBtn);
@@ -104,6 +108,28 @@
             splitContainer1.Size = new Size(1184, 711);
             splitContainer1.SplitterDistance = 664;
             splitContainer1.TabIndex = 3;
+            // 
+            // label1
+            // 
+            label1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.Location = new Point(543, 12);
+            label1.Name = "label1";
+            label1.Size = new Size(48, 20);
+            label1.TabIndex = 5;
+            label1.Text = "TEAM";
+            // 
+            // rosterVizTeamBox
+            // 
+            rosterVizTeamBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            rosterVizTeamBox.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            rosterVizTeamBox.FormattingEnabled = true;
+            rosterVizTeamBox.Location = new Point(597, 9);
+            rosterVizTeamBox.Name = "rosterVizTeamBox";
+            rosterVizTeamBox.Size = new Size(146, 25);
+            rosterVizTeamBox.TabIndex = 4;
+            rosterVizTeamBox.SelectedIndexChanged += rosterVizTeamBox_SelectedIndexChanged;
             // 
             // POCIsimulatorBtn
             // 
@@ -117,25 +143,27 @@
             POCIsimulatorBtn.UseVisualStyleBackColor = false;
             POCIsimulatorBtn.Click += POCIsimulatorBtn_Click;
             // 
-            // rosterVizTeamBox
+            // label2
             // 
-            rosterVizTeamBox.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            rosterVizTeamBox.FormattingEnabled = true;
-            rosterVizTeamBox.Location = new Point(597, 9);
-            rosterVizTeamBox.Name = "rosterVizTeamBox";
-            rosterVizTeamBox.Size = new Size(198, 25);
-            rosterVizTeamBox.TabIndex = 4;
-            rosterVizTeamBox.SelectedIndexChanged += rosterVizTeamBox_SelectedIndexChanged;
+            label2.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.Location = new Point(767, 12);
+            label2.Name = "label2";
+            label2.Size = new Size(41, 20);
+            label2.TabIndex = 7;
+            label2.Text = "TYPE";
             // 
-            // label1
+            // RosterVizType
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 11.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(543, 12);
-            label1.Name = "label1";
-            label1.Size = new Size(48, 20);
-            label1.TabIndex = 5;
-            label1.Text = "TEAM";
+            rosterVizTypeBox.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            rosterVizTypeBox.Font = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            rosterVizTypeBox.FormattingEnabled = true;
+            rosterVizTypeBox.Location = new Point(821, 9);
+            rosterVizTypeBox.Name = "RosterVizType";
+            rosterVizTypeBox.Size = new Size(102, 25);
+            rosterVizTypeBox.TabIndex = 6;
+            rosterVizTypeBox.SelectedIndexChanged += RosterVizType_SelectedIndexChanged;
             // 
             // RosterViz
             // 
@@ -162,5 +190,7 @@
         private Button POCIsimulatorBtn;
         private Label label1;
         private ComboBox rosterVizTeamBox;
+        private Label label2;
+        private ComboBox rosterVizTypeBox;
     }
 }

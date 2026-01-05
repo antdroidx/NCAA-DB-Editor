@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace DB_EDITOR
 {
@@ -27,6 +30,7 @@ namespace DB_EDITOR
             InitializeComponent();
             BuildRosterChart();
             LoadRosterVizTeamList();
+            LoadRosterVizTypes();
         }
 
         private void LoadRosterVizTeamList()
@@ -60,10 +64,32 @@ namespace DB_EDITOR
             rosterVizTeamBox.SelectedIndex = 0;
         }
 
-
-        public void BuildRosterChart(bool sim = false, int tgid = -1)
+        private void LoadRosterVizTypes()
         {
-            if (sim) rosterVizTeamBox.SelectedIndex = 0;
+            rosterVizTypeBox.Items.Clear();
+            
+
+            List<string> attributeNames = new List<string>();
+            //PCAR, PKAC, PTHA, PPBK, PRBK, PACC, PAGI, PTAK, PINJ, PKPR, PSPD, PTHP, PBKT, PCTH, PSTR, PJMP, PAWR
+            attributeNames.AddRange(new[] { "PCAR", "PKAC", "PTHA", "PPBK", "PRBK", "PACC", "PAGI", "PTAK", "PINJ", "PKPR", "PSPD", "PTHP", "PBTK", "PCTH", "PSTR", "PJMP", "PAWR" });
+            attributeNames.Sort();
+
+            rosterVizTypeBox.Items.Add("POVR");
+            foreach (var name in attributeNames)
+            {
+                rosterVizTypeBox.Items.Add(name);
+            }
+
+            rosterVizTypeBox.SelectedIndex = 0;
+        }
+
+
+
+        public void BuildRosterChart(bool sim = false, int tgid = -1, string ratingType = "POVR")
+        {
+            if(rosterVizTypeBox.SelectedIndex > 0 && !sim) ratingType = rosterVizTypeBox.SelectedItem.ToString();
+            if (sim && rosterVizTeamBox.SelectedIndex > 2) rosterVizTeamBox.SelectedIndex = 0;
+            else if (sim && rosterVizTeamBox.SelectedIndex > 0) rosterVizTeamBox.SelectedIndex = 2;
 
             // Example categories (replace with your positions)
             string[] positions = { "QB","HB","FB","WR","TE","LT","LG","C","RG","RT",
@@ -85,7 +111,18 @@ namespace DB_EDITOR
                 {
                     int ppos = main.GetDB2ValueInt("RCPT", "PPOS", i);
                     if (ppos < 0 || ppos >= positions.Length) continue;
-                    int overall = main.ConvertRating(main.GetDB2ValueInt("RCPT", "POVR", i));
+
+                    int overall = 0;
+                    if (sim)
+                    {
+                        // Use the simulated overall as the single value we add
+                        overall = SimulateOverallByRec(i, "RCPT");
+                    }
+                    else
+                    {
+                        overall = main.ConvertRating(main.GetDB2ValueInt("RCPT", ratingType, i));
+                    }
+
                     ratingsData[ppos].Add(overall);
                     ProgressBarStep();
                 }
@@ -102,7 +139,16 @@ namespace DB_EDITOR
                     if (ppos < 0 || ppos >= positions.Length) continue;
                     if (main.GetDB2ValueInt("RCPT", "PRID", i) < 21000)
                     {
-                        int overall = main.ConvertRating(main.GetDB2ValueInt("RCPT", "POVR", i));
+                        int overall = 0;
+                        if (sim)
+                        {
+                            // Use the simulated overall as the single value we add
+                            overall = SimulateOverallByRec(i, "RCPT");
+                        }
+                        else
+                        {
+                            overall = main.ConvertRating(main.GetDB2ValueInt("RCPT", ratingType, i));
+                        }
                         ratingsData[ppos].Add(overall);
                     }
                     ProgressBarStep();
@@ -118,28 +164,32 @@ namespace DB_EDITOR
                     int ppos = main.GetDBValueInt("PLAY", "PPOS", i);
                     int pgid = main.GetDBValueInt("PLAY", "PGID", i);
                     if (ppos < 0 || ppos >= positions.Length) continue;
+
                     int overall = 0;
+
                     if (sim)
                     {
-                        int overallSim = SimulateOverallByRec(i);
-                        ratingsData[ppos].Add(overallSim);
-                        ProgressBarStep();
+                        // Use the simulated overall as the single value we add
+                        overall = SimulateOverallByRec(i, "PLAY");
                     }
-                    else if (tgid > -1 && tgid == pgid / 70)
+                    else
                     {
-                        overall = main.ConvertRating(main.GetDBValueInt("PLAY", "POVR", i));
+                        if (tgid > -1 && tgid == pgid / 70)
+                        {
+                            overall = main.ConvertRating(main.GetDBValueInt("PLAY", ratingType, i));
+                        }
+                        else if (tgid == -1 || rosterVizTeamBox.SelectedIndex == 0)
+                        {
+                            overall = main.ConvertRating(main.GetDBValueInt("PLAY", ratingType, i));
+                        }
                     }
-                    else if (tgid == -1 || rosterVizTeamBox.SelectedIndex == 0)
-                    {
-                        overall = main.ConvertRating(main.GetDBValueInt("PLAY", "POVR", i));
-                    }
-
 
                     ratingsData[ppos].Add(overall);
                     ProgressBarStep();
                 }
                 EndProgressBar();
             }
+
 
             rosterChart.Series.Clear();
             rosterChart.ChartAreas.Clear();
@@ -177,7 +227,7 @@ namespace DB_EDITOR
             // Axis ranges
             area.AxisY.Minimum = 40;
             area.AxisY.Maximum = 100;
-            area.AxisY.Interval = 10;
+            area.AxisY.Interval = 5;
 
             area.AxisX.Minimum = -0.5;
             area.AxisX.Maximum = positions.Length - 0.5;
@@ -313,27 +363,58 @@ namespace DB_EDITOR
             }
         }
 
-
-        public int SimulateOverallByRec(int rec)
+        private void RosterVizType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int ppos = Convert.ToInt32(main.GetDBValue("PLAY", "PPOS", rec));
-            double PCAR = Convert.ToInt32(main.GetDBValue("PLAY", "PCAR", rec)); //CAWT
-            double PKAC = Convert.ToInt32(main.GetDBValue("PLAY", "PKAC", rec)); //KAWT
-            double PTHA = Convert.ToInt32(main.GetDBValue("PLAY", "PTHA", rec)); //TAWT
-            double PPBK = Convert.ToInt32(main.GetDBValue("PLAY", "PPBK", rec)); //PBWT
-            double PRBK = Convert.ToInt32(main.GetDBValue("PLAY", "PRBK", rec)); //RBWT
-            double PACC = Convert.ToInt32(main.GetDBValue("PLAY", "PACC", rec)); //ACWT
-            double PAGI = Convert.ToInt32(main.GetDBValue("PLAY", "PAGI", rec)); //AGWT
-            double PTAK = Convert.ToInt32(main.GetDBValue("PLAY", "PTAK", rec)); //TKWT
-            double PINJ = Convert.ToInt32(main.GetDBValue("PLAY", "PINJ", rec)); //INWT
-            double PKPR = Convert.ToInt32(main.GetDBValue("PLAY", "PKPR", rec)); //KPWT
-            double PSPD = Convert.ToInt32(main.GetDBValue("PLAY", "PSPD", rec)); //SPWT
-            double PTHP = Convert.ToInt32(main.GetDBValue("PLAY", "PTHP", rec)); //TPWT
-            double PBKT = Convert.ToInt32(main.GetDBValue("PLAY", "PBTK", rec)); //BTWT
-            double PCTH = Convert.ToInt32(main.GetDBValue("PLAY", "PCTH", rec)); //CTWT
-            double PSTR = Convert.ToInt32(main.GetDBValue("PLAY", "PSTR", rec)); //STWT
-            double PJMP = Convert.ToInt32(main.GetDBValue("PLAY", "PJMP", rec)); //JUWT
-            double PAWR = Convert.ToInt32(main.GetDBValue("PLAY", "PAWR", rec)); //AWWT
+            BuildRosterChart();
+        }
+
+        public int SimulateOverallByRec(int rec, string tableName)
+        {
+            int ppos = -1;
+            double PCAR, PKAC, PTHA, PPBK, PRBK, PACC, PAGI, PTAK, PINJ, PKPR, PSPD, PTHP, PBKT, PCTH, PSTR, PJMP, PAWR;
+
+            if (tableName == "RCPT")
+            {
+                ppos = Convert.ToInt32(main.GetDB2Value(tableName, "PPOS", rec));
+                PCAR = Convert.ToInt32(main.GetDB2Value(tableName, "PCAR", rec)); //CAWT
+                PKAC = Convert.ToInt32(main.GetDB2Value(tableName, "PKAC", rec)); //KAWT
+                PTHA = Convert.ToInt32(main.GetDB2Value(tableName, "PTHA", rec)); //TAWT
+                PPBK = Convert.ToInt32(main.GetDB2Value(tableName, "PPBK", rec)); //PBWT
+                PRBK = Convert.ToInt32(main.GetDB2Value(tableName, "PRBK", rec)); //RBWT
+                PACC = Convert.ToInt32(main.GetDB2Value(tableName, "PACC", rec)); //ACWT
+                PAGI = Convert.ToInt32(main.GetDB2Value(tableName, "PAGI", rec)); //AGWT
+                PTAK = Convert.ToInt32(main.GetDB2Value(tableName, "PTAK", rec)); //TKWT
+                PINJ = Convert.ToInt32(main.GetDB2Value(tableName, "PINJ", rec)); //INWT
+                PKPR = Convert.ToInt32(main.GetDB2Value(tableName, "PKPR", rec)); //KPWT
+                PSPD = Convert.ToInt32(main.GetDB2Value(tableName, "PSPD", rec)); //SPWT
+                PTHP = Convert.ToInt32(main.GetDB2Value(tableName, "PTHP", rec)); //TPWT
+                PBKT = Convert.ToInt32(main.GetDB2Value(tableName, "PBTK", rec)); //BTWT
+                PCTH = Convert.ToInt32(main.GetDB2Value(tableName, "PCTH", rec)); //CTWT
+                PSTR = Convert.ToInt32(main.GetDB2Value(tableName, "PSTR", rec)); //STWT
+                PJMP = Convert.ToInt32(main.GetDB2Value(tableName, "PJMP", rec)); //JUWT
+                PAWR = Convert.ToInt32(main.GetDB2Value(tableName, "PAWR", rec)); //AWWT
+            }
+            else
+            {
+                ppos = Convert.ToInt32(main.GetDBValue(tableName, "PPOS", rec));
+                PCAR = Convert.ToInt32(main.GetDBValue(tableName, "PCAR", rec)); //CAWT
+                PKAC = Convert.ToInt32(main.GetDBValue(tableName, "PKAC", rec)); //KAWT
+                PTHA = Convert.ToInt32(main.GetDBValue(tableName, "PTHA", rec)); //TAWT
+                PPBK = Convert.ToInt32(main.GetDBValue(tableName, "PPBK", rec)); //PBWT
+                PRBK = Convert.ToInt32(main.GetDBValue(tableName, "PRBK", rec)); //RBWT
+                PACC = Convert.ToInt32(main.GetDBValue(tableName, "PACC", rec)); //ACWT
+                PAGI = Convert.ToInt32(main.GetDBValue(tableName, "PAGI", rec)); //AGWT
+                PTAK = Convert.ToInt32(main.GetDBValue(tableName, "PTAK", rec)); //TKWT
+                PINJ = Convert.ToInt32(main.GetDBValue(tableName, "PINJ", rec)); //INWT
+                PKPR = Convert.ToInt32(main.GetDBValue(tableName, "PKPR", rec)); //KPWT
+                PSPD = Convert.ToInt32(main.GetDBValue(tableName, "PSPD", rec)); //SPWT
+                PTHP = Convert.ToInt32(main.GetDBValue(tableName, "PTHP", rec)); //TPWT
+                PBKT = Convert.ToInt32(main.GetDBValue(tableName, "PBTK", rec)); //BTWT
+                PCTH = Convert.ToInt32(main.GetDBValue(tableName, "PCTH", rec)); //CTWT
+                PSTR = Convert.ToInt32(main.GetDBValue(tableName, "PSTR", rec)); //STWT
+                PJMP = Convert.ToInt32(main.GetDBValue(tableName, "PJMP", rec)); //JUWT
+                PAWR = Convert.ToInt32(main.GetDBValue(tableName, "PAWR", rec)); //AWWT
+            }
 
             double[] ratings = new double[] { PCAR, PKAC, PTHA, PPBK, PRBK, PACC, PAGI, PTAK, PINJ, PKPR, PSPD, PTHP, PBKT, PCTH, PSTR, PJMP, PAWR };
 
@@ -369,6 +450,7 @@ namespace DB_EDITOR
             return skillRating;
         }
         #endregion
+
 
 
     }
