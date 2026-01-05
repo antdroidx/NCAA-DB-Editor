@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Metrics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -20,7 +21,10 @@ namespace DB_EDITOR
         //RCAT EDITOR
         private void StartRCATeditor()
         {
+            DoNotTrigger = true;
             StartRCATGlobaEditors();
+            LoadRCATVizAttTypes();
+            DoNotTrigger = false;
         }
 
         #region RCAT Randomizers
@@ -574,10 +578,36 @@ namespace DB_EDITOR
 
         private void btnUpdateRCATchart_Click(object sender, EventArgs e)
         {
-            BuildRCATChart();
+            BuildRCATChart(RCATVizTypeBox.SelectedItem.ToString());
         }
 
-        private void BuildRCATChart()
+        private void LoadRCATVizAttTypes()
+        {
+            RCATVizTypeBox.Items.Clear();
+
+
+            List<string> attributeNames = new List<string>();
+            //PCAR, PKAC, PTHA, PPBK, PRBK, PACC, PAGI, PTAK, PINJ, PKPR, PSPD, PTHP, PBKT, PCTH, PSTR, PJMP, PAWR
+            attributeNames.AddRange(new[] { "PCAR", "PKAC", "PTHA", "PPBK", "PRBK", "PACC", "PAGI", "PTAK", "PINJ", "PKPR", "PSPD", "PTHP", "PBTK", "PCTH", "PSTR", "PJMP", "PAWR" });
+            attributeNames.Sort();
+
+            RCATVizTypeBox.Items.Add("POVR");
+            foreach (var name in attributeNames)
+            {
+                RCATVizTypeBox.Items.Add(name);
+            }
+
+            RCATVizTypeBox.SelectedIndex = 0;
+        }
+
+
+        private void RCATVizTypeBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(DoNotTrigger) return;
+            BuildRCATChart(RCATVizTypeBox.SelectedItem.ToString());
+        }
+
+        private void BuildRCATChart(string attType = "POVR")
         {
             // Example categories (replace with your positions)
             string[] positions = { "QB","HB","FB","WR","TE","LT","LG","C","RG","RT",
@@ -593,10 +623,18 @@ namespace DB_EDITOR
             StartProgressBar(GetTableRecCount("RCAT"));
             for (int i = 0; i < GetTableRecCount("RCAT"); i++)
             {
-                int ppos = GetDBValueInt("RCAT", "PPOS", i);          
-                int overall = RecalculateRCATOverallByRec(i);
+                int ppos = GetDBValueInt("RCAT", "PPOS", i);
+                int rating = 0;
+                if(attType == "POVR")
+                {
+                    rating = RecalculateRCATOverallByRec(i);
+                }
+                else
+                {
+                    rating = ConvertRating(GetDBValueInt("RCAT", attType, i));
+                }
 
-                ratingsData[ppos].Add(overall);
+                ratingsData[ppos].Add(rating);
                 ProgressBarStep();
             }
             EndProgressBar();
@@ -708,6 +746,124 @@ namespace DB_EDITOR
 
         #endregion
 
+
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int countMLB = 0;
+            int countOLB = 0;
+            for (int i = 0; i < GetTableRecCount("RCAT"); i++)
+            {
+                int pos = GetDBValueInt("RCAT", "PPOS", i);
+
+                if (pos >= 13 && pos <= 15)
+                {
+                    double olb = CalculateRCATPositionRating(i, 15);
+                    double mlb = CalculateRCATPositionRating(i, 14);
+
+                    if (pos == 14 && olb > mlb + 3)
+                    {
+                        ChangeDBInt("RCAT", "PPOS", i, 15);
+                        countMLB++;
+                    }
+                    else if (pos != 14 && mlb > olb + 3)
+                    {
+                        ChangeDBInt("RCAT", "PPOS", i, 14);
+                        countOLB++;
+                    }
+                }
+            }
+            MessageBox.Show("Position Changes Made: " + countMLB + " MLB->OLB and " + countOLB + " OLB->MLB");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int countFS = 0;
+            int countSS = 0;
+            for (int i = 0; i < GetTableRecCount("RCAT"); i++)
+            {
+                int pos = GetDBValueInt("RCAT", "PPOS", i);
+
+
+                if (pos >= 17 && pos <= 18)
+                {
+                    double fs = CalculateRCATPositionRating(i, 17);
+                    double ss = CalculateRCATPositionRating(i, 18);
+
+                    if (pos == 17 && ss > fs + 3)
+                    {
+                        ChangeDBInt("RCAT", "PPOS", i, 18);
+                        countFS++;
+                    }
+                    else if (pos == 18 && fs > ss + 3)
+                    {
+                        ChangeDBInt("RCAT", "PPOS", i, 17);
+                        countSS++;
+                    }
+                }
+            }
+            MessageBox.Show("Position Changes Made: " + countFS + " FS->SS and " + countSS + " SS->FS");
+        }
+
+        public double CalculateRCATPositionRating(int rec, int ppos)
+        {
+            int posg = GetPOSG2fromPPOS(ppos);
+            int playerPos = GetDBValueInt("RCAT", "PPOS", rec);
+            int playerPOSG = GetPOSG2fromPPOS(playerPos);
+
+            List<List<int>> AWRH = GetAwarenessHitList();
+            double hit = 0;
+
+
+            double PCAR = Convert.ToInt32(GetDBValue("RCAT", "PCAR", rec)); //CAWT
+            double PKAC = Convert.ToInt32(GetDBValue("RCAT", "PKAC", rec)); //KAWT
+            double PTHA = Convert.ToInt32(GetDBValue("RCAT", "PTHA", rec)); //TAWT
+            double PPBK = Convert.ToInt32(GetDBValue("RCAT", "PPBK", rec)); //PBWT
+            double PRBK = Convert.ToInt32(GetDBValue("RCAT", "PRBK", rec)); //RBWT
+            double PACC = Convert.ToInt32(GetDBValue("RCAT", "PACC", rec)); //ACWT
+            double PAGI = Convert.ToInt32(GetDBValue("RCAT", "PAGI", rec)); //AGWT
+            double PTAK = Convert.ToInt32(GetDBValue("RCAT", "PTAK", rec)); //TKWT
+            double PINJ = Convert.ToInt32(GetDBValue("RCAT", "PINJ", rec)); //INWT
+            double PKPR = Convert.ToInt32(GetDBValue("RCAT", "PKPR", rec)); //KPWT
+            double PSPD = Convert.ToInt32(GetDBValue("RCAT", "PSPD", rec)); //SPWT
+            double PTHP = Convert.ToInt32(GetDBValue("RCAT", "PTHP", rec)); //TPWT
+            double PBKT = Convert.ToInt32(GetDBValue("RCAT", "PBTK", rec)); //BTWT
+            double PCTH = Convert.ToInt32(GetDBValue("RCAT", "PCTH", rec)); //CTWT
+            double PSTR = Convert.ToInt32(GetDBValue("RCAT", "PSTR", rec)); //STWT
+            double PJMP = Convert.ToInt32(GetDBValue("RCAT", "PJMP", rec)); //JUWT
+            double PAWR = Convert.ToInt32(GetDBValue("RCAT", "PAWR", rec)); //AWWT
+
+            double AWRog = ConvertRating(Convert.ToInt32(PAWR));
+
+            double PosHit = hit * AWRH[playerPos][ppos];
+
+            double AWR = Convert.ToInt32(AWRog - (AWRog * PosHit));
+
+            if (AWR < minConvRatingVal) AWR = minConvRatingVal;
+
+            PAWR = RevertRating(Convert.ToInt32(AWR));
+
+            double[] ratings = new double[] { PCAR, PKAC, PTHA, PPBK, PRBK, PACC, PAGI, PTAK, PINJ, PKPR, PSPD, PTHP, PBKT, PCTH, PSTR, PJMP, PAWR };
+
+            for (int i = 0; i < ratings.Length; i++)
+            {
+
+                ratings[i] = CalcOVRIndividuals(i + 3, ratings[i], ppos);
+            }
+
+            double newRating = 50;
+
+            for (int i = 0; i < ratings.Length; i++)
+            {
+                newRating += ratings[i];
+            }
+
+            double val = newRating;
+
+            if (val < 0) val = 0;
+            return val;
+
+        }
 
     }
 }
