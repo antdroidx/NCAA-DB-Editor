@@ -37,6 +37,8 @@
             btnDecline = new Button();
             label1 = new Label();
             lblPositionName = new Label();
+            currentRosterView = new DataGridView();
+            label2 = new Label();
             Column1 = new DataGridViewTextBoxColumn();
             Column7 = new DataGridViewTextBoxColumn();
             Column2 = new DataGridViewTextBoxColumn();
@@ -44,7 +46,6 @@
             Column4 = new DataGridViewTextBoxColumn();
             Column5 = new DataGridViewTextBoxColumn();
             Column6 = new DataGridViewTextBoxColumn();
-            currentRosterView = new DataGridView();
             dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
@@ -52,7 +53,6 @@
             dataGridViewTextBoxColumn5 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn6 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn7 = new DataGridViewTextBoxColumn();
-            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)portalDraftView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)currentRosterView).BeginInit();
             SuspendLayout();
@@ -121,11 +121,47 @@
             // 
             lblPositionName.AutoSize = true;
             lblPositionName.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblPositionName.Location = new Point(616, 9);
+            lblPositionName.Location = new Point(461, 9);
             lblPositionName.Name = "lblPositionName";
             lblPositionName.Size = new Size(81, 21);
             lblPositionName.TabIndex = 4;
             lblPositionName.Text = "Position: ";
+            // 
+            // currentRosterView
+            // 
+            currentRosterView.AllowUserToAddRows = false;
+            currentRosterView.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle3.BackColor = SystemColors.ControlLightLight;
+            currentRosterView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            currentRosterView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            currentRosterView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            currentRosterView.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7 });
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = SystemColors.ControlLight;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
+            currentRosterView.DefaultCellStyle = dataGridViewCellStyle4;
+            currentRosterView.Location = new Point(12, 271);
+            currentRosterView.MultiSelect = false;
+            currentRosterView.Name = "currentRosterView";
+            currentRosterView.ReadOnly = true;
+            currentRosterView.RowHeadersVisible = false;
+            currentRosterView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            currentRosterView.Size = new Size(582, 167);
+            currentRosterView.TabIndex = 5;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(12, 247);
+            label2.Name = "label2";
+            label2.Size = new Size(205, 21);
+            label2.TabIndex = 6;
+            label2.Text = "Current Roster @ Position";
             // 
             // Column1
             // 
@@ -171,36 +207,10 @@
             // 
             // Column6
             // 
-            Column6.HeaderText = "Pos";
+            Column6.HeaderText = "Type";
             Column6.Name = "Column6";
             Column6.ReadOnly = true;
-            Column6.Width = 51;
-            // 
-            // currentRosterView
-            // 
-            currentRosterView.AllowUserToAddRows = false;
-            currentRosterView.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.BackColor = SystemColors.ControlLightLight;
-            currentRosterView.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
-            currentRosterView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            currentRosterView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            currentRosterView.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4, dataGridViewTextBoxColumn5, dataGridViewTextBoxColumn6, dataGridViewTextBoxColumn7 });
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = SystemColors.ControlLight;
-            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle4.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.False;
-            currentRosterView.DefaultCellStyle = dataGridViewCellStyle4;
-            currentRosterView.Location = new Point(12, 271);
-            currentRosterView.MultiSelect = false;
-            currentRosterView.Name = "currentRosterView";
-            currentRosterView.ReadOnly = true;
-            currentRosterView.RowHeadersVisible = false;
-            currentRosterView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            currentRosterView.Size = new Size(582, 167);
-            currentRosterView.TabIndex = 5;
+            Column6.Width = 57;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -246,20 +256,10 @@
             // 
             // dataGridViewTextBoxColumn7
             // 
-            dataGridViewTextBoxColumn7.HeaderText = "Pos";
+            dataGridViewTextBoxColumn7.HeaderText = "Type";
             dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             dataGridViewTextBoxColumn7.ReadOnly = true;
-            dataGridViewTextBoxColumn7.Width = 51;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(12, 247);
-            label2.Name = "label2";
-            label2.Size = new Size(205, 21);
-            label2.TabIndex = 6;
-            label2.Text = "Current Roster @ Position";
+            dataGridViewTextBoxColumn7.Width = 57;
             // 
             // PortalBox
             // 
@@ -288,6 +288,8 @@
         private Button btnDecline;
         private Label label1;
         private Label lblPositionName;
+        private DataGridView currentRosterView;
+        private Label label2;
         private DataGridViewTextBoxColumn Column1;
         private DataGridViewTextBoxColumn Column7;
         private DataGridViewTextBoxColumn Column2;
@@ -295,7 +297,6 @@
         private DataGridViewTextBoxColumn Column4;
         private DataGridViewTextBoxColumn Column5;
         private DataGridViewTextBoxColumn Column6;
-        private DataGridView currentRosterView;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
@@ -303,6 +304,5 @@
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private Label label2;
     }
 }

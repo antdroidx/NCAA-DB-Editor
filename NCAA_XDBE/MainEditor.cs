@@ -63,7 +63,8 @@ namespace DB_EDITOR
         public List<List<List<int>>> SpringRoster;
         List<List<string>> portalNews;
         List<List<int>> SpringPortal;
-        List<List<int>> TeamPortalNeeds;
+        List<List<int>> PortalTransfersList;
+        int[,] TeamPortalNeeds;
         List<List<int>> OccupiedPGIDList;
         List<List<int>> AvailablePJEN;
 
@@ -231,6 +232,7 @@ namespace DB_EDITOR
 
             PortalData.ClearSelection();
             PortalData.Rows.Clear();
+            portalNews = new List<List<string>>();
 
             devMode = false;
 

@@ -731,7 +731,7 @@ namespace DB_EDITOR
             RKACtext.BackColor = GetColorRating(Convert.ToInt32(RKACtext.Text));
 
             //Rlayer Tendency/Archeatype
-            RTENBox.Text = GetPTENType(GetDB2ValueInt("RCPT", "PROS", RecruitIndex), GetDB2ValueInt("RCPT", "PTEN", RecruitIndex));
+            RTENBox.Text = GetPTENType(GetDB2ValueInt("RCPT", "PPOS", RecruitIndex), GetDB2ValueInt("RCPT", "PTEN", RecruitIndex));
 
 
 

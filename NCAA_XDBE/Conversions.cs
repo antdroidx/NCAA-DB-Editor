@@ -489,7 +489,7 @@ namespace DB_EDITOR
 
         }
 
-        private string GetPTENType(int ppos, int pten)
+        public string GetPTENType(int ppos, int pten)
         {
             string type = "";
             int cat = 2;
@@ -1838,6 +1838,37 @@ namespace DB_EDITOR
             return tgid;
         }
 
+
+        // NEW: Build prestige list
+        private List<int> BuildTeamPrestigeList()
+        {
+            List<int> teamPRS = new List<int>(512);
+            for (int i = 0; i < 512; i++) teamPRS.Add(0);
+
+            int teamRecCount = GetTableRecCount("TEAM");
+            for (int i = 0; i < teamRecCount; i++)
+            {
+                int prs = GetDBValueInt("TEAM", "TMPR", i);
+                int tgid = GetDBValueInt("TEAM", "TGID", i);
+                teamPRS[tgid] = prs;
+            }
+
+            return teamPRS;
+        }
+
+        private List<int> BuildUserTeamList()
+        {
+            //Find User Teams
+            List<int> userTeams = new List<int>();
+            for (int i = 0; i < GetTableRecCount("COCH"); i++)
+            {
+                int tgid = GetDBValueInt("COCH", "TGID", i);
+                int cfuc = GetDBValueInt("COCH", "CFUC", i);
+                if (cfuc == 1) userTeams.Add(tgid);
+            }
+
+            return userTeams;
+        }
 
         #endregion
 

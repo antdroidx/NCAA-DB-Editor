@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Drawing;
 using System.Net.Sockets;
 
 namespace DB_EDITOR
@@ -46,7 +47,7 @@ namespace DB_EDITOR
         private void LoadPortalBox()
         {
             portalDraftView.Rows.Clear();
-            lblPositionName.Text = "Position: " + main.GetPOSG2Name(p);
+            lblPositionName.Text = "Position: " + main.GetPOSG2Name(p/2);
 
             for (int i = 0; i < PortalInterestList.Count; i++)
             {
@@ -65,6 +66,8 @@ namespace DB_EDITOR
                 int weight = main.GetDBValueInt("PLAY", "PWGT", pRec) + 160;
                 int pos = SpringPortal[x][3];
                 string posg = main.GetPOSG2Name(pos);
+                int pten = main.GetDBValueInt("PLAY", "PTEN", pRec);
+
                 int starter = SpringPortal[x][12];
 
                 string playerName = main.GetPlayerNamefromRec(pRec);
@@ -77,7 +80,7 @@ namespace DB_EDITOR
                 portalDraftView.Rows[i].Cells[3].Value = povr;
                 portalDraftView.Rows[i].Cells[4].Value = heightStr;
                 portalDraftView.Rows[i].Cells[5].Value = weight;
-                portalDraftView.Rows[i].Cells[6].Value = posg;
+                portalDraftView.Rows[i].Cells[6].Value = main.GetPTENType(pos, pten);
 
             }
 
@@ -87,14 +90,17 @@ namespace DB_EDITOR
                 {
                     int pRec = player[0];
                     int rRec = player[1];
-                    int team, year, redshirt, povr, height, feet, inches, weight, pos;
+                    int team, year, redshirt, povr, height, feet, inches, weight, pos, pten;
+                    string teamName = "";
                     string heightStr = "";
+                    string portal = "";
                     string playerName = "";
                     string posg = "";
 
                     if (pRec >= 0)
                     {
                         team = player[5];
+                        teamName = main.GetTeamName(team);
                         year = player[6];
                         redshirt = player[10];
                         povr = main.ConvertRating(player[4]);
@@ -105,11 +111,19 @@ namespace DB_EDITOR
                         weight = main.GetDBValueInt("PLAY", "PWGT", pRec) + 160;
                         pos = player[3];
                         posg = main.GetPOSG2Name(pos);
+                        pten = main.GetDBValueInt("PLAY", "PTEN", pRec);
                         playerName = main.GetPlayerNamefromRec(pRec);
+
+                        if(SpringPortal.Contains(player))
+                        {
+                            teamName = "PORTAL";
+                        }
                     }
                     else
                     {
                         team = player[5];
+                        teamName = main.GetTeamName(team);
+
                         year = player[6];
                         redshirt = player[10];
                         povr = main.ConvertRating(player[4]);
@@ -120,7 +134,13 @@ namespace DB_EDITOR
                         weight = main.GetDB2ValueInt("RCPT", "PWGT", rRec) + 160;
                         pos = player[3];
                         posg = main.GetPOSG2Name(pos);
+                        pten = main.GetDBValueInt("PLAY", "PTEN", pRec);
                         playerName = main.GetDB2Value("RCPT", "PFNA", rRec) + " " + main.GetDB2Value("RCPT", "PLNA", rRec);
+
+                        if (SpringPortal.Contains(player))
+                        {
+                            teamName = "PORTAL";
+                        }
                     }
 
 
@@ -128,18 +148,18 @@ namespace DB_EDITOR
                     int i = currentRosterView.Rows.Count;
                     currentRosterView.Rows.Add();
                     currentRosterView.Rows[i].Cells[0].Value = playerName;
-                    currentRosterView.Rows[i].Cells[1].Value = main.GetTeamName(team);
+                    currentRosterView.Rows[i].Cells[1].Value = teamName;
                     currentRosterView.Rows[i].Cells[2].Value = main.GetClassYearsAbbr(year, redshirt);
                     currentRosterView.Rows[i].Cells[3].Value = povr;
                     currentRosterView.Rows[i].Cells[4].Value = heightStr;
                     currentRosterView.Rows[i].Cells[5].Value = weight;
-                    currentRosterView.Rows[i].Cells[6].Value = posg;
+                    currentRosterView.Rows[i].Cells[6].Value = main.GetPTENType(pos, pten);
 
                 }
-
-
             }
 
+            portalDraftView.Sort(portalDraftView.Columns[3], System.ComponentModel.ListSortDirection.Descending);
+            currentRosterView.Sort(currentRosterView.Columns[3], System.ComponentModel.ListSortDirection.Descending);
         }
 
         private void btnOffer_Click(object sender, EventArgs e)
@@ -152,7 +172,8 @@ namespace DB_EDITOR
             {
                 //int selection = portalDraftView.SelectedRows[0].Index;
                 int portalRec = PortalInterestList[selection];
-                main.TransferPlayer(tgid, p, newPGID, portalRec);
+                //main.TransferPlayer(tgid, p, newPGID, portalRec);
+                main.TransferPlayerManager(tgid, p, newPGID, portalRec);
                 Close();
             }
             else

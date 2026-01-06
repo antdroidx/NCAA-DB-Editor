@@ -551,7 +551,7 @@ namespace DB_EDITOR
         }
 
         //Transfers Players - Updates TRAN table and sets PLAY-PTYP field to 1
-        private void TransferPlayer(int i, int PGID)
+        public void TransferPlayer(int i, int PGID)
         {
             if (verNumber >= 15.0)
             {
