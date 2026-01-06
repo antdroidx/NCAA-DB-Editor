@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.IO;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Windows.Forms;
 
 namespace DB_EDITOR
 
@@ -18,6 +12,7 @@ namespace DB_EDITOR
         private RosterViz rosterViz;
         private LeagueMain leagueEditor;
         private POCIsimulator pociSim;
+        private PortalBox portalBox;
 
         Random rand = new Random();
 
@@ -65,7 +60,8 @@ namespace DB_EDITOR
         List<List<string>> PlayerEditorList;
         List<List<string>> CoachEditorList;
         List<List<string>> RecruitEditorList;
-        List<List<List<int>>> SpringRoster;
+        public List<List<List<int>>> SpringRoster;
+        List<List<string>> portalNews;
         List<List<int>> SpringPortal;
         List<List<int>> TeamPortalNeeds;
         List<List<int>> OccupiedPGIDList;
@@ -1176,15 +1172,17 @@ namespace DB_EDITOR
 
         private void ModVersionChecker()
         {
+            verNumberBox.SelectedIndex = 0;
+
 
             if (TDB.TableCapacity(dbIndex, "PLAY") > 8400)
             {
-                radioNEXT26.Checked = true;
+                verNumberBox.SelectedIndex = 2;
                 for (int i = 0; i < GetTableRecCount("PLAY"); i++)
                 {
                     if (GetDBValueInt("PLAY", "PLHN", i) > 2)
                     {
-                        radioNext26v162.Checked = true;
+                        verNumberBox.SelectedIndex = 3;
                         break;
                     }
                 }
@@ -1195,7 +1193,7 @@ namespace DB_EDITOR
                 {
                     if (GetDBValueInt("RCAT", "PLHN", i) > 2)
                     {
-                        radioNext26v162.Checked = true;
+                        verNumberBox.SelectedIndex = 3;
                         break;
                     }
                 }
@@ -1206,45 +1204,43 @@ namespace DB_EDITOR
                 {
                     if (GetDBValue("BOWL", "BNAM", i).Contains("CFP"))
                     {
-                        NextConfigRadio.Checked = true;
+                        verNumberBox.SelectedIndex = 1;
                         break;
                     }
                 }
             }
         }
 
-        private void OGConfigRadio_CheckedChanged(object sender, EventArgs e)
+        //Version Number ComboBox
+        private void verNumberBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            verNumber = 1.0;
+            if (verNumberBox.SelectedIndex <= 0)
+            {
+                verNumber = 1.0;
+            }
+            else if (verNumberBox.SelectedIndex == 1)
+            {
+                verNumber = 15.0;
+            }
+            else if (verNumberBox.SelectedIndex == 2)
+            {
+                verNumber = 16.0;
+                maxPlayers = 66;
+            }
+            else if (verNumberBox.SelectedIndex == 3)
+            {
+                verNumber = 16.2;
+                maxPlayers = 66;
+            }
+            else if (verNumberBox.SelectedIndex == 4)
+            {
+                verNumber = 16.5;
+                maxPlayers = 66;
+            }
+
             CreatePOCItable();
             CreateRatingsDB();
         }
-
-        private void NextConfigRadio_CheckedChanged(object sender, EventArgs e)
-        {
-            verNumber = 15.0;
-            CreatePOCItable();
-            CreateRatingsDB();
-
-        }
-
-        private void radioNEXT26_CheckedChanged(object sender, EventArgs e)
-        {
-            verNumber = 16.0;
-            CreatePOCItable();
-            CreateRatingsDB();
-            maxPlayers = 66;
-        }
-
-        private void radioNext26v162_CheckedChanged(object sender, EventArgs e)
-        {
-            verNumber = 16.2;
-            CreatePOCItable();
-            CreateRatingsDB();
-            maxPlayers = 66;
-        }
-
-
 
         #endregion
 
@@ -1344,6 +1340,8 @@ namespace DB_EDITOR
             MessageBox.Show("Dev Mode Enabled");
         }
         #endregion
+
+
 
 
     }

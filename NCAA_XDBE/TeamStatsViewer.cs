@@ -1,17 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Runtime.InteropServices.ComTypes;
-// using System.Runtime.Remoting.Metadata.W3cXsd2001;
-using System.Security.Cryptography;
-using System.Text;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
-
+﻿// using System.Runtime.Remoting.Metadata.W3cXsd2001;
 namespace DB_EDITOR
 {
     partial class MainEditor : Form
@@ -127,12 +114,12 @@ namespace DB_EDITOR
 
                         int playerRec = FindPGIDRecord(GetDBValueInt("PSOF", "PGID", i));
                         TSPassing.Rows[row].Cells[11].Value = playerRec;
-                    } 
+                    }
                 }
             }
 
             TSPassing.Sort(TSPassYds, System.ComponentModel.ListSortDirection.Descending);
-            TSPassing.ClearSelection();    
+            TSPassing.ClearSelection();
         }
 
         private void LoadRushingStats(int year, int pgidStart, int pgidEnd)
@@ -446,7 +433,7 @@ namespace DB_EDITOR
 
         //HyperLinks
 
- 
+
 
         private void TSPassing_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -564,9 +551,9 @@ namespace DB_EDITOR
         {
             int games = 0;
 
-            for(int i = 0; i < GetTableRecCount("SCHD"); i++)
+            for (int i = 0; i < GetTableRecCount("SCHD"); i++)
             {
-                if(GetDBValueInt("SCHD","GATG", i) == tgid || GetDBValueInt("SCHD", "GHTG", i) == tgid)
+                if (GetDBValueInt("SCHD", "GATG", i) == tgid || GetDBValueInt("SCHD", "GHTG", i) == tgid)
                 {
                     games++;
                 }

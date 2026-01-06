@@ -1,15 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Security.Cryptography;
-using System.Security.Cryptography.Xml;
-using System.Text.RegularExpressions;
-using System.Windows.Forms;
-using static System.Net.Mime.MediaTypeNames;
+﻿using System.Reflection;
 
 namespace DB_EDITOR
 {
@@ -1254,7 +1243,7 @@ namespace DB_EDITOR
 
         private void ChangeRecruitStatus()
         {
-            if(DoNotTrigger)
+            if (DoNotTrigger)
                 return;
 
             int recruitID = GetDB2ValueInt("RCPT", "PRID", RecruitIndex);
@@ -1265,11 +1254,11 @@ namespace DB_EDITOR
 
                 int teamID = PromptSelectTeam(teams);
 
-                if(teamID == -1)
+                if (teamID == -1)
                 {
                     CommitStatus.Checked = false;
                     return;
-                } 
+                }
                 else
                 {
                     int tgid = FindTGIDfromTeamName(teams[teamID]);
@@ -1297,7 +1286,7 @@ namespace DB_EDITOR
                 for (int i = 0; i < GetTable2RecCount("RCWK"); i++)
                 {
                     int prid = GetDB2ValueInt("RCWK", "PRID", i);
-                    if(recruitID == prid)
+                    if (recruitID == prid)
                     {
                         ChangeDB2Int("RCWK", "RCCM", i, 0);
                     }

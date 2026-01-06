@@ -1,16 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.LinkLabel;
-
-namespace DB_EDITOR
+﻿namespace DB_EDITOR
 {
     public partial class POCIsimulator : Form
     {
@@ -120,12 +108,12 @@ namespace DB_EDITOR
 
                     if (j != 0)
                     {
-                        for(int x = 0; x < POCIHeaders.Count; x++)
+                        for (int x = 0; x < POCIHeaders.Count; x++)
                         {
                             if (fieldName == POCIHeaders[x])
                             {
                                 rosterViz.POCIsimValues[i, x] = Convert.ToInt32(POCIGridView.Rows[i].Cells[j].Value);
-                                if(x >= 3) sum += Convert.ToInt32(POCIGridView.Rows[i].Cells[j].Value);
+                                if (x >= 3) sum += Convert.ToInt32(POCIGridView.Rows[i].Cells[j].Value);
                                 break;
                             }
                         }

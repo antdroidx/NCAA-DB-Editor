@@ -1263,12 +1263,10 @@ namespace DB_EDITOR
             fieldsGridView = new DataGridView();
             tabHome = new TabPage();
             groupBox1 = new GroupBox();
+            label298 = new Label();
+            verNumberBox = new System.Windows.Forms.ComboBox();
             DynStartYear = new NumericUpDown();
             label283 = new Label();
-            radioNext26v162 = new RadioButton();
-            radioNEXT26 = new RadioButton();
-            OGConfigRadio = new RadioButton();
-            NextConfigRadio = new RadioButton();
             pictureBox1 = new PictureBox();
             tabControl1 = new TabControl();
             tabHeadlines = new TabPage();
@@ -14210,12 +14208,10 @@ namespace DB_EDITOR
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(label298);
+            groupBox1.Controls.Add(verNumberBox);
             groupBox1.Controls.Add(DynStartYear);
             groupBox1.Controls.Add(label283);
-            groupBox1.Controls.Add(radioNext26v162);
-            groupBox1.Controls.Add(radioNEXT26);
-            groupBox1.Controls.Add(OGConfigRadio);
-            groupBox1.Controls.Add(NextConfigRadio);
             groupBox1.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             groupBox1.ForeColor = SystemColors.Control;
             groupBox1.Location = new Point(12, 9);
@@ -14225,10 +14221,34 @@ namespace DB_EDITOR
             groupBox1.TabStop = false;
             groupBox1.Text = "Configuration";
             // 
+            // label298
+            // 
+            label298.AutoSize = true;
+            label298.Location = new Point(17, 32);
+            label298.Name = "label298";
+            label298.Size = new Size(163, 16);
+            label298.TabIndex = 8;
+            label298.Text = "Game Version Number";
+            // 
+            // verNumberBox
+            // 
+            verNumberBox.BackColor = SystemColors.Menu;
+            verNumberBox.DropDownStyle = ComboBoxStyle.DropDownList;
+            verNumberBox.FlatStyle = FlatStyle.Popup;
+            verNumberBox.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            verNumberBox.FormattingEnabled = true;
+            verNumberBox.Items.AddRange(new object[] { "Original Game", "NEXT24-25 (v14 to v15.5)", "NEXT26 (v16.0 to 16.1)", "NEXT26 (v16.2 to v16.4)", "NEXT26 (v16.5+)" });
+            verNumberBox.Location = new Point(17, 51);
+            verNumberBox.Name = "verNumberBox";
+            verNumberBox.Size = new Size(269, 28);
+            verNumberBox.TabIndex = 7;
+            verNumberBox.SelectedIndexChanged += (this.verNumberBox_SelectedIndexChanged);
+            // 
             // DynStartYear
             // 
+            DynStartYear.BackColor = SystemColors.Menu;
             DynStartYear.Font = new Font("Microsoft Sans Serif", 11.1428576F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            DynStartYear.Location = new Point(248, 37);
+            DynStartYear.Location = new Point(17, 137);
             DynStartYear.Maximum = new decimal(new int[] { 3000, 0, 0, 0 });
             DynStartYear.Minimum = new decimal(new int[] { 1900, 0, 0, 0 });
             DynStartYear.Name = "DynStartYear";
@@ -14240,57 +14260,11 @@ namespace DB_EDITOR
             // label283
             // 
             label283.AutoSize = true;
-            label283.Location = new Point(248, 18);
+            label283.Location = new Point(17, 118);
             label283.Name = "label283";
             label283.Size = new Size(136, 16);
             label283.TabIndex = 5;
             label283.Text = "Dynasty Start Year";
-            // 
-            // radioNext26v162
-            // 
-            radioNext26v162.AutoSize = true;
-            radioNext26v162.Location = new Point(23, 84);
-            radioNext26v162.Name = "radioNext26v162";
-            radioNext26v162.Size = new Size(134, 20);
-            radioNext26v162.TabIndex = 3;
-            radioNext26v162.Text = "Next 26 (v16.2+)";
-            radioNext26v162.UseVisualStyleBackColor = true;
-            radioNext26v162.CheckedChanged += (this.radioNext26v162_CheckedChanged);
-            // 
-            // radioNEXT26
-            // 
-            radioNEXT26.AutoSize = true;
-            radioNEXT26.Location = new Point(23, 130);
-            radioNEXT26.Name = "radioNEXT26";
-            radioNEXT26.Size = new Size(175, 20);
-            radioNEXT26.TabIndex = 2;
-            radioNEXT26.Text = "Next 26 (v16.0 to 16.1)";
-            radioNEXT26.UseVisualStyleBackColor = true;
-            radioNEXT26.CheckedChanged += (this.radioNEXT26_CheckedChanged);
-            // 
-            // OGConfigRadio
-            // 
-            OGConfigRadio.AutoSize = true;
-            OGConfigRadio.Checked = true;
-            OGConfigRadio.Location = new Point(23, 41);
-            OGConfigRadio.Name = "OGConfigRadio";
-            OGConfigRadio.Size = new Size(79, 20);
-            OGConfigRadio.TabIndex = 1;
-            OGConfigRadio.TabStop = true;
-            OGConfigRadio.Text = "Original";
-            OGConfigRadio.UseVisualStyleBackColor = true;
-            OGConfigRadio.CheckedChanged += (this.OGConfigRadio_CheckedChanged);
-            // 
-            // NextConfigRadio
-            // 
-            NextConfigRadio.AutoSize = true;
-            NextConfigRadio.Location = new Point(23, 177);
-            NextConfigRadio.Name = "NextConfigRadio";
-            NextConfigRadio.Size = new Size(192, 20);
-            NextConfigRadio.TabIndex = 0;
-            NextConfigRadio.Text = "Next 24-25 (v14 to v15.5)";
-            NextConfigRadio.UseVisualStyleBackColor = true;
-            NextConfigRadio.CheckedChanged += (this.NextConfigRadio_CheckedChanged);
             // 
             // pictureBox1
             // 
@@ -17826,7 +17800,7 @@ namespace DB_EDITOR
             // 
             richTextBox3.BackColor = SystemColors.Info;
             richTextBox3.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            richTextBox3.Location = new Point(773, 505);
+            richTextBox3.Location = new Point(773, 479);
             richTextBox3.Name = "richTextBox3";
             richTextBox3.Size = new Size(361, 52);
             richTextBox3.TabIndex = 39;
@@ -17836,7 +17810,7 @@ namespace DB_EDITOR
             // 
             richTextBox1.BackColor = SystemColors.Info;
             richTextBox1.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            richTextBox1.Location = new Point(773, 393);
+            richTextBox1.Location = new Point(773, 376);
             richTextBox1.Name = "richTextBox1";
             richTextBox1.Size = new Size(361, 97);
             richTextBox1.TabIndex = 37;
@@ -20057,10 +20031,8 @@ namespace DB_EDITOR
         private Label PKPRlabel;
         private NumericUpDown PKACBox;
         private Label PKAClabel;
-        private System.Windows.Forms.Button ImportPlayerTeam;
         private CheckBox AWHRBox;
         private System.Windows.Forms.Button PlayerTransferButton;
-        private System.Windows.Forms.Button ExportPlayerTeam;
         public System.Windows.Forms.TextBox PRST;
         public System.Windows.Forms.TextBox PGIDbox;
         public System.Windows.Forms.TextBox POVRbox;
@@ -20260,8 +20232,6 @@ namespace DB_EDITOR
         public DataGridView fieldsGridView;
         private TabPage tabHome;
         private GroupBox groupBox1;
-        private RadioButton OGConfigRadio;
-        private RadioButton NextConfigRadio;
         private PictureBox pictureBox1;
         public TabControl tabControl1;
         private TabPage tabPortal;
@@ -20373,7 +20343,6 @@ namespace DB_EDITOR
         private Label label270;
         private ToolStripMenuItem changeTableCapacityToolStripMenuItem;
         public System.Windows.Forms.Button buttonLEAGUEROSTERS;
-        private RadioButton radioNEXT26;
         public System.Windows.Forms.Button ResetCoachStatsButton;
         private Panel panel1;
         public Label label271;
@@ -20759,7 +20728,6 @@ namespace DB_EDITOR
         public System.Windows.Forms.TextBox textBox23;
         public System.Windows.Forms.TextBox textBox22;
         public System.Windows.Forms.Button EnableDevGears;
-        private RadioButton radioNext26v162;
         private DataGridViewTextBoxColumn CCName;
         private DataGridViewTextBoxColumn CCStatus;
         private DataGridViewTextBoxColumn CCTeam;
@@ -20966,11 +20934,9 @@ namespace DB_EDITOR
         private System.Windows.Forms.Button rcatMaxBodyBtn;
         private System.Windows.Forms.Button rcatMinBodyBtn;
         private NumericUpDown rcatMaxAttNum;
-        private System.Windows.Forms.ComboBox comboBox5;
         private Label label289;
         private NumericUpDown rcatGlobalAttNum;
         private Label label291;
-        private CheckBox checkBox1;
         private Label label292;
         private System.Windows.Forms.ComboBox rcatMinAttBox;
         private Label label293;
@@ -20991,7 +20957,6 @@ namespace DB_EDITOR
         private System.Windows.Forms.ComboBox rcatGlobalAttBox;
         private System.Windows.Forms.Button RandomizeRCATBodyBtn;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
         private System.Windows.Forms.DataVisualization.Charting.Chart rcatChart;
         private System.Windows.Forms.Button btnUpdateRCATchart;
         private TabPage tabPOCI;
@@ -21024,6 +20989,8 @@ namespace DB_EDITOR
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox RCATVizTypeBox;
+        private System.Windows.Forms.ComboBox verNumberBox;
+        private Label label298;
     }
 }
 

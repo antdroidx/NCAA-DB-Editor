@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Drawing;
-using System.Drawing.Text;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
+﻿using System.Data;
 
 namespace DB_EDITOR
 {
@@ -395,10 +388,10 @@ namespace DB_EDITOR
                         string val = new string((char)0, (FieldProps.Size / 8) + 1);
 
                         TDB.TDBFieldGetValueAsString(dbSelected, TableProps.Name, FieldProps.Name, r, ref val);
-                        
+
                         val = val.Replace(",", ",");
 
-                        if(val.Contains(","))
+                        if (val.Contains(","))
                         {
                             commaPresent = true;
                         }
@@ -451,8 +444,8 @@ namespace DB_EDITOR
                     {
                         string val = new string((char)0, (FieldProps.Size / 8) + 1);
 
-                        if(!BigEndian)
-                        TDB.TDBFieldGetValueAsString(dbSelected, TableProps.Name, FieldProps.Name, r, ref val);
+                        if (!BigEndian)
+                            TDB.TDBFieldGetValueAsString(dbSelected, TableProps.Name, FieldProps.Name, r, ref val);
                         else val = "na";
                         DataGridRow[tmpf + 1] = val;
                     }

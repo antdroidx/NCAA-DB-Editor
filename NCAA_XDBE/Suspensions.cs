@@ -1,16 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Runtime.InteropServices.ComTypes;
-// using System.Runtime.Remoting.Metadata.W3cXsd2001;
-using System.Security.Cryptography;
-using System.Text;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
-
+﻿// using System.Runtime.Remoting.Metadata.W3cXsd2001;
 namespace DB_EDITOR
 {
     partial class MainEditor : Form
@@ -39,7 +27,7 @@ namespace DB_EDITOR
             StartProgressBar(GetTableRecCount("SPYR"));
 
             int row = 0;
-            for (int i = GetTableRecCount("SPYR")-1; i >= 0; i--)
+            for (int i = GetTableRecCount("SPYR") - 1; i >= 0; i--)
             {
                 int pgid = GetDBValueInt("SPYR", "PGID", i);
                 int rec = FindPGIDRecord(pgid);
@@ -48,7 +36,7 @@ namespace DB_EDITOR
                 string pos = Positions[GetDBValueInt("PLAY", "PPOS", rec)];
                 string name = GetPlayerNamefromPGID(pgid);
                 string team = teamNameDB[(int)(GetDBValueInt("PLAY", "PGID", rec) / 70)];
-                int rating = ConvertRating( GetDBValueInt("PLAY", "POVR", rec));
+                int rating = ConvertRating(GetDBValueInt("PLAY", "POVR", rec));
 
                 string suspensionType = "";
                 int type = GetDBValueInt("SPYR", "SINF", i);
@@ -64,8 +52,8 @@ namespace DB_EDITOR
                 {
                     suspensionType = "Suspension";
                 }
-                
-                
+
+
                 int suspensionLength = GetDBValueInt("SPYR", "SEWN", i) - GetDBValueInt("SEAI", "SEWN", 0);
                 string length = suspensionLength + " weeks";
                 if (suspensionLength <= 0)
@@ -109,7 +97,7 @@ namespace DB_EDITOR
 
                     int rowIndex = SuspensionView.SelectedRows[0].Index;
                     RemoveSuspension(Convert.ToInt32(SuspensionView.Rows[rowIndex].Cells[0].Value));
-                    
+
                     CompactDB();
 
                     LoadSuspensionList(); // Refresh the grid after removal

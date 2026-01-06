@@ -1,17 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Net.NetworkInformation;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Windows.Forms.DataVisualization.Charting;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+﻿using System.Windows.Forms.DataVisualization.Charting;
 
 namespace DB_EDITOR
 {
@@ -67,7 +54,7 @@ namespace DB_EDITOR
         private void LoadRosterVizTypes()
         {
             rosterVizTypeBox.Items.Clear();
-            
+
 
             List<string> attributeNames = new List<string>();
             //PCAR, PKAC, PTHA, PPBK, PRBK, PACC, PAGI, PTAK, PINJ, PKPR, PSPD, PTHP, PBKT, PCTH, PSTR, PJMP, PAWR
@@ -87,7 +74,7 @@ namespace DB_EDITOR
 
         public void BuildRosterChart(bool sim = false, int tgid = -1, string ratingType = "POVR")
         {
-            if(rosterVizTypeBox.SelectedIndex > 0 && !sim) ratingType = rosterVizTypeBox.SelectedItem.ToString();
+            if (rosterVizTypeBox.SelectedIndex > 0 && !sim) ratingType = rosterVizTypeBox.SelectedItem.ToString();
             if (sim && rosterVizTeamBox.SelectedIndex > 2) rosterVizTeamBox.SelectedIndex = 0;
             else if (sim && rosterVizTeamBox.SelectedIndex > 0) rosterVizTeamBox.SelectedIndex = 2;
 

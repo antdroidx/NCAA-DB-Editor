@@ -1,18 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.IO;
-using System.Linq;
+﻿using System.ComponentModel;
 using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Runtime.InteropServices.ComTypes;
 // using System.Runtime.Remoting.Metadata.W3cXsd2001;
-using System.Security.Cryptography;
 using System.Text;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace DB_EDITOR
 {
@@ -733,7 +722,7 @@ namespace DB_EDITOR
         {
             DoNotTrigger = true;
 
-            for (int row = 1200; row < UniformGrid.Rows.Count; row+=20)
+            for (int row = 1200; row < UniformGrid.Rows.Count; row += 20)
             {
                 if (UniformGrid.Rows[row].Cells[2].Value == DBNull.Value || UniformGrid.Rows[row].Cells[2].Value == null || UniformGrid.Rows[row].Cells[2].Value.Equals("N/A") || UniformGrid.Rows[row].Cells[2].Value.Equals("XXX"))
                 {

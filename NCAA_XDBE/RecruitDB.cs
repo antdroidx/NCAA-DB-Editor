@@ -1,18 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.Metrics;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Runtime.InteropServices.ComTypes;
-// using System.Runtime.Remoting.Metadata.W3cXsd2001;
-using System.Security.Cryptography;
+﻿// using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
-using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace DB_EDITOR
 {
@@ -61,7 +49,7 @@ namespace DB_EDITOR
             RandomizeAllPlayerGears("RCAT");
             MessageBox.Show("Player Gears Randomized!");
         }
-        
+
         private void ExportRCATButton_Click(object sender, EventArgs e)
         {
             // TdbTableProperties class
@@ -152,7 +140,7 @@ namespace DB_EDITOR
                 PSTR = GetRandomAttribute(PSTR, tolRAND);
 
                 PPOE = rand.Next(1, 31);
-                PINJ = rand.Next(1, maxRatingVal); 
+                PINJ = rand.Next(1, maxRatingVal);
                 PDIS = rand.Next(2, 7);
 
                 //Thowing Hand
@@ -352,7 +340,7 @@ namespace DB_EDITOR
 
         private void rcatMinAttNum_ValueChanged(object sender, EventArgs e)
         {
-           rcatMinAttText.Text = Convert.ToString(ConvertRating(Convert.ToInt32(rcatMinAttNum.Value)));
+            rcatMinAttText.Text = Convert.ToString(ConvertRating(Convert.ToInt32(rcatMinAttNum.Value)));
         }
 
         private void rcatMaxAttNum_ValueChanged(object sender, EventArgs e)
@@ -384,7 +372,7 @@ namespace DB_EDITOR
                 {
                     int rating = GetDBValueInt("RCAT", attribute, i);
                     if (rating > val) ChangeDBInt("RCAT", attribute, i, val);
-                }   
+                }
 
                 ProgressBarStep();
             }
@@ -603,7 +591,7 @@ namespace DB_EDITOR
 
         private void RCATVizTypeBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(DoNotTrigger) return;
+            if (DoNotTrigger) return;
             BuildRCATChart(RCATVizTypeBox.SelectedItem.ToString());
         }
 
@@ -625,7 +613,7 @@ namespace DB_EDITOR
             {
                 int ppos = GetDBValueInt("RCAT", "PPOS", i);
                 int rating = 0;
-                if(attType == "POVR")
+                if (attType == "POVR")
                 {
                     rating = RecalculateRCATOverallByRec(i);
                 }

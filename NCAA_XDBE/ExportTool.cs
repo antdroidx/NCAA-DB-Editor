@@ -1,8 +1,4 @@
-﻿using System;
-using System.IO;
-using System.Runtime.CompilerServices;
-using System.Text;
-using System.Windows.Forms;
+﻿using System.Text;
 
 namespace DB_EDITOR
 {
@@ -23,7 +19,7 @@ namespace DB_EDITOR
 
             string tmpReverse = "";
             string tmpcurrentDBfile = Path.GetFileNameWithoutExtension(dbFile);
-            
+
             Stream myStream = null;
             SaveFileDialog SaveDialog1 = new SaveFileDialog();
 
@@ -288,7 +284,7 @@ namespace DB_EDITOR
 
                         // Progress bar for large table records to write.
                         StartProgressBar(TableProps.RecordCount);
-                        
+
 
                         #region Write CSV cells (field values).
 

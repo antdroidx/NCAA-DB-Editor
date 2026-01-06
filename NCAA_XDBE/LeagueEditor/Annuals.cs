@@ -1,16 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
-using Label = System.Windows.Forms.Label;
-
-namespace DB_EDITOR
+﻿namespace DB_EDITOR
 {
     partial class LeagueMain : Form
     {
@@ -106,7 +94,7 @@ namespace DB_EDITOR
                 }
 
             }
-            if(message != "") MessageBox.Show("The following matches were removed: \n\n" + message);
+            if (message != "") MessageBox.Show("The following matches were removed: \n\n" + message);
 
             //Add Army-Navy if not present
             if (!ArmyNavy && verNumber >= 15.0)
@@ -186,7 +174,7 @@ namespace DB_EDITOR
             ClearAnnuals();
 
             int rec = 0;
-            for (int i = 0; i < AnnualsGrid.Rows.Count-1; i++)
+            for (int i = 0; i < AnnualsGrid.Rows.Count - 1; i++)
             {
                 if (AnnualsGrid.Rows[i].Cells[0].Value != null && AnnualsGrid.Rows[i].Cells[1].Value != null && AnnualsGrid.Rows[i].Cells[2].Value != null)
                 {
@@ -287,7 +275,7 @@ namespace DB_EDITOR
             }
 
             //Check Schedules for Errors
-              
+
             for (int j = 0; j < GetTableRecCount("SANN"); j++)
             {
                 int home = GetDBValueInt("SANN", "GHTG", j);
@@ -297,7 +285,7 @@ namespace DB_EDITOR
                     TDB.TDBTableRecordChangeDeleted(dbIndex, "SANN", j, true);
                 }
             }
-             
+
             TDB.TDBDatabaseCompact(dbIndex);
 
             AddtoSKNW();

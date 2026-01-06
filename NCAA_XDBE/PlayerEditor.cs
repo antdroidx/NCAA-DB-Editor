@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Windows.Forms;
-using static System.Net.Mime.MediaTypeNames;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+﻿using System.Reflection;
 
 namespace DB_EDITOR
 {
@@ -123,7 +115,7 @@ namespace DB_EDITOR
             else
             {
                 pgidBeg = 0;
-                pgidEnd = 255*70;
+                pgidEnd = 255 * 70;
             }
 
             int row = 0;
@@ -1816,7 +1808,7 @@ namespace DB_EDITOR
                 int cgid = GetDBValueInt("AAPL", "CGID", i);
                 int pgidX = GetDBValueInt("AAPL", "PGID", i);
                 int seyrX = GetDBValueInt("AAPL", "SEYR", i);
-                if(pgidX == pgid & seyrX == seyr)
+                if (pgidX == pgid & seyrX == seyr)
                 {
                     if (cgid < 15)
                     {
@@ -1829,7 +1821,7 @@ namespace DB_EDITOR
                         leagueAA = true;
                     }
                 }
-                else if(pgidX == pgid & cgid != 15)
+                else if (pgidX == pgid & cgid != 15)
                 {
                     count++;
                 }
@@ -1840,14 +1832,14 @@ namespace DB_EDITOR
                 //if (playerConfAllAmerican.Visible && playerFBSAllAmerican.Visible) break;
             }
 
-            if (count > 0) 
-            { 
+            if (count > 0)
+            {
                 lblPlayerAllAmericanStars.Visible = true;
                 lblPlayerAllAmericanStars.ForeColor = Color.Black;
                 lblPlayerAllAmericanStars.Text = ConvertStarNumber(count);
                 if (leagueAA) lblPlayerAllAmericanStars.ForeColor = Color.Blue;
                 if (currentleague) lblPlayerAllAmericanStars.ForeColor = Color.Red;
-                    
+
             }
 
         }
@@ -1913,7 +1905,7 @@ namespace DB_EDITOR
                     int td = GetDBValueInt("PSOF", "satd", i);
                     int ints = GetDBValueInt("PSOF", "sain", i);
                     int skd = GetDBValueInt("PSOF", "sasa", i);
-                    if (gp <= 0) gp = CountTeamGames(pgid/ 70);
+                    if (gp <= 0) gp = CountTeamGames(pgid / 70);
 
                     double pct = 0;
                     if (att > 0) pct = Math.Round((Convert.ToDouble(cmp) / Convert.ToDouble(att)) * 100, 1);

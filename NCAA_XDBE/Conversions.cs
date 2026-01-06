@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.Eventing.Reader;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.Versioning;
-using System.Windows.Forms;
-using static System.Windows.Forms.LinkLabel;
+﻿using System.Reflection;
 
 namespace DB_EDITOR
 {
@@ -244,10 +235,11 @@ namespace DB_EDITOR
         {
             RCAT = new List<List<int>>();
             string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            string csvLocation = Path.Combine(executableLocation, @"resources\RCAT.csv");
-            if (verNumber == 15.0) csvLocation = Path.Combine(executableLocation, @"resources\RCAT-NEXT.csv");
-            else if (verNumber >= 16.2) csvLocation = Path.Combine(executableLocation, @"resources\RCAT-NEXT26v2.csv");
-            else if (verNumber >= 16.0) csvLocation = Path.Combine(executableLocation, @"resources\RCAT-NEXT26.csv");
+            string csvLocation = Path.Combine(executableLocation, @"resources\RCAT-POCI\RCAT.csv");
+            if (verNumber == 15.0) csvLocation = Path.Combine(executableLocation, @"resources\RCAT-POCI\V15-0\RCAT-NEXT.csv");
+            else if (verNumber == 16.0) csvLocation = Path.Combine(executableLocation, @"resources\RCAT-POCI\V16-0\RCAT-NEXT26.csv");
+            else if (verNumber == 16.2) csvLocation = Path.Combine(executableLocation, @"resources\RCAT-POCI\V16-2\RCAT-NEXT26v16-2.csv");
+            else if (verNumber >= 16.5) csvLocation = Path.Combine(executableLocation, @"resources\RCAT-POCI\V16-5\RCAT-NEXT26v16-5.csv");
 
             string filePath = csvLocation;
             StreamReader sr = new StreamReader(filePath);
@@ -1301,11 +1293,11 @@ namespace DB_EDITOR
 
 
                 string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-                string csvLocation = Path.Combine(executableLocation, @"resources\POCI.csv");
-
-                if (verNumber == 15.0) csvLocation = Path.Combine(executableLocation, @"resources\POCI-NEXT.csv");
-                else if (verNumber == 16.0) csvLocation = Path.Combine(executableLocation, @"resources\POCI-NEXT26.csv");
-                else if (verNumber >= 16.2) csvLocation = Path.Combine(executableLocation, @"resources\POCI-NEXT26v2.csv");
+                string csvLocation = Path.Combine(executableLocation, @"resources\RCAT-POCI\POCI.csv");
+                if (verNumber == 15.0) csvLocation = Path.Combine(executableLocation, @"resources\RCAT-POCI\V15-0\POCI-NEXT.csv");
+                else if (verNumber == 16.0) csvLocation = Path.Combine(executableLocation, @"resources\RCAT-POCI\V16-0\POCI-NEXT26.csv");
+                else if (verNumber == 16.2) csvLocation = Path.Combine(executableLocation, @"resources\RCAT-POCI\V16-2\POCI-NEXT26v16-2.csv");
+                else if (verNumber >= 16.5) csvLocation = Path.Combine(executableLocation, @"resources\RCAT-POCI\V16-5\POCI-NEXT26v16-5.csv");
 
 
                 string filePath = csvLocation;

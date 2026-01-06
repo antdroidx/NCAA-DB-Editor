@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+﻿using System.Reflection;
 
 namespace DB_EDITOR
 {
@@ -15,10 +9,10 @@ namespace DB_EDITOR
             CompactDB();
             CompactDB2();
             LoadGlobalTransferData();
-            if(verNumber < 15.0)
+            if (verNumber < 15.0)
             {
                 RemoveBadTransfers.Enabled = false;
-                CreateFCSTransferPortalButton.Enabled = false;   
+                CreateFCSTransferPortalButton.Enabled = false;
             }
             else
             {
@@ -384,7 +378,7 @@ namespace DB_EDITOR
                 if (GetDBValueInt("TEAM", "TTYP", i) == 0)
                 {
                     teamIDs.Add(GetDBValueInt("TEAM", "TGID", i));
-                }  
+                }
             }
             int fcsTeams = 0;
             Random rand = new Random();

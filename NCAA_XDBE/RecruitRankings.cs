@@ -1,20 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Numerics;
-using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Runtime.InteropServices.ComTypes;
-// using System.Runtime.Remoting.Metadata.W3cXsd2001;
-using System.Security.Cryptography;
-using System.Security.Policy;
-using System.Text;
-using System.Threading;
-using System.Windows.Forms;
-using static System.Net.WebRequestMethods;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
-
+﻿// using System.Runtime.Remoting.Metadata.W3cXsd2001;
 namespace DB_EDITOR
 {
     partial class MainEditor : Form
@@ -76,7 +60,7 @@ namespace DB_EDITOR
             {
                 teamRecruits.Add(new List<int>() { i, 0, 0, 0, 0, 0 }); // TGID, one, two, three, four, five
             }
-            
+
             List<int> playTable = new List<int>();
             for (int i = 0; i < GetTableRecCount("PLAY"); i++)
             {
@@ -116,7 +100,7 @@ namespace DB_EDITOR
                         teamRecruits[tgid][2] = GetDB2ValueInt("RCTC", "RTC2", i);
                         teamRecruits[tgid][1] = GetDB2ValueInt("RCTC", "RTC1", i);
                     }
-                    
+
                     ProgressBarStep();
                 }
                 EndProgressBar();
@@ -196,7 +180,7 @@ namespace DB_EDITOR
                             int star = GetDB2ValueInt("RCPT", "RCCB", x);
                             teamRecruits[ptcm][star]++;
                         }
-                        ProgressBarStep();  
+                        ProgressBarStep();
                     }
                 }
                 //Transfers Only
@@ -257,7 +241,7 @@ namespace DB_EDITOR
                                 teamRecruits[tgid][star]--;
                             }
                         }
-                        ProgressBarStep();  
+                        ProgressBarStep();
                     }
                 }
             }

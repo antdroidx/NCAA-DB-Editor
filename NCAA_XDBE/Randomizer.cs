@@ -1,17 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Runtime.InteropServices.ComTypes;
-// using System.Runtime.Remoting.Metadata.W3cXsd2001;
-using System.Security.Cryptography;
-using System.Text;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
-
+﻿// using System.Runtime.Remoting.Metadata.W3cXsd2001;
 namespace DB_EDITOR
 {
     partial class MainEditor : Form
@@ -794,12 +781,12 @@ namespace DB_EDITOR
             else if (tableName == "RCPT" || tableName == "WKON")
                 ChangeDB2Int(tableName, "PVIS", rec, visor);
 
-            if(visor > 0 && (dark > 0 | tinted > 0)) RandomizeVisorTint(tableName, rec, dark, tinted);
+            if (visor > 0 && (dark > 0 | tinted > 0)) RandomizeVisorTint(tableName, rec, dark, tinted);
         }
 
         private void RandomizeVisorTint(string tableName, int rec, decimal dark = 0, decimal tinted = 0)
         {
-            int visor = 1; 
+            int visor = 1;
 
             int val = rand.Next(1, 101);
             if (val <= dark)
@@ -2281,12 +2268,12 @@ namespace DB_EDITOR
             for (int i = start; i < count; i++)
             {
                 int visor = GetDBValueInt("PLAY", "PVIS", i);
- 
+
                 if (keepVisors && visor > 0)
                 {
                     RandomizeVisorTint("PLAY", i, DarkVisorPCT.Value, TintedVisorPCT.Value);
                 }
-                else 
+                else
                 {
                     RandomizeVisor("PLAY", i, DarkVisorPCT.Value, TintedVisorPCT.Value);
                 }

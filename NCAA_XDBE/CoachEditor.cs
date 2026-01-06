@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Windows.Forms;
-
-namespace DB_EDITOR
+﻿namespace DB_EDITOR
 {
     partial class MainEditor : Form
     {
@@ -24,7 +18,7 @@ namespace DB_EDITOR
             CoachListBox.DrawItem += CoachListBox_DrawItem;
             LoadCoachList(CoachFilter.SelectedIndex);
 
-            if(verNumber < 15.0)
+            if (verNumber < 15.0)
             {
                 coachProg.Enabled = true;
             }

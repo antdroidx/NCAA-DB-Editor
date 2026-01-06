@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
+﻿using System.Reflection;
 using System.Text;
-using System.Windows.Forms;
 
 namespace DB_EDITOR
 {
@@ -765,10 +760,10 @@ namespace DB_EDITOR
             else if (QBHB)
             {
                 //Get Depth Chart
-                List<int> QBs = new List<int>{0,0,0 };
+                List<int> QBs = new List<int> { 0, 0, 0 };
                 List<int> RBs = new List<int> { 0, 0, 0, 0 };
                 int countD = 0;
-                for(int d =  0; d < GetTableRecCount("DCHT"); d++)
+                for (int d = 0; d < GetTableRecCount("DCHT"); d++)
                 {
                     int pgidx = GetDBValueInt("DCHT", "PGID", d);
                     int tgidx = pgidx / 70;
@@ -784,7 +779,7 @@ namespace DB_EDITOR
                     if (countD >= 7) break;
                 }
 
-                for(int d = 0; d < QBs.Count; d++)
+                for (int d = 0; d < QBs.Count; d++)
                 {
                     if (!InjuryList.Contains(QBs[d]))
                     {

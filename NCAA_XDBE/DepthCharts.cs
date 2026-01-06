@@ -1,18 +1,5 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections;
 using System.ComponentModel;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Runtime.InteropServices.ComTypes;
-using System.Security.Cryptography;
-using System.Text;
-using System.Windows.Forms;
-using System.Xml.Linq;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace DB_EDITOR
 {
@@ -837,7 +824,7 @@ namespace DB_EDITOR
                 playerName = playerName.Trim();
 
                 int tgid = FindTGIDfromTeamName(DCHTTeam.Text);
-                int pgid = GetDCHTPGIDfromPlayerName(tgid, row, cell/3);
+                int pgid = GetDCHTPGIDfromPlayerName(tgid, row, cell / 3);
                 int playerRec = FindPGIDRecord(pgid);
 
                 PlayerIndex = playerRec;

@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Runtime.InteropServices.ComTypes;
-// using System.Runtime.Remoting.Metadata.W3cXsd2001;
-using System.Security.Cryptography;
+﻿// using System.Runtime.Remoting.Metadata.W3cXsd2001;
 using System.Text;
-using System.Windows.Forms;
-using System.Xml.Linq;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace DB_EDITOR
 {
@@ -58,9 +47,9 @@ namespace DB_EDITOR
 
             if (DefaultPlaysRadio.Checked)
             {
-                if(verNumber < 15.0) PlayBookNames = CreateStringListsFromCSV(@"resources\playbooks\PLYL.csv", false);
+                if (verNumber < 15.0) PlayBookNames = CreateStringListsFromCSV(@"resources\playbooks\PLYL.csv", false);
                 else PlayBookNames = CreateStringListsFromCSV(@"resources\playbooks\PLYL-NEXT25.csv", false);
-            } 
+            }
             else
             {
                 PlayBookNames = CreateStringListsFromCSV(@"resources\playbooks\PLYL-Custom.csv", false);
@@ -126,7 +115,7 @@ namespace DB_EDITOR
                         break;
                     }
                 }
-               
+
             }
             PlayTypeBox.SelectedIndex = 0;
         }
@@ -302,7 +291,7 @@ namespace DB_EDITOR
                 {
                     string[] Line = sr.ReadLine().Split(',');
 
-                    if(Row != 0) PlaybookGrid.Rows.Add(new List<string>());
+                    if (Row != 0) PlaybookGrid.Rows.Add(new List<string>());
 
                     for (int column = 0; column < Line.Length; column++)
                     {
@@ -311,11 +300,11 @@ namespace DB_EDITOR
                         {
                             if (column < 3 || column == 4 || column == 5 || column == 7)
                             {
-                                PlaybookGrid.Rows[Row-1].Cells[column].Value = Convert.ToInt32(Line[column]);
+                                PlaybookGrid.Rows[Row - 1].Cells[column].Value = Convert.ToInt32(Line[column]);
                             }
                             else
                             {
-                                PlaybookGrid.Rows[Row-1].Cells[column].Value = Convert.ToString(Line[column]);
+                                PlaybookGrid.Rows[Row - 1].Cells[column].Value = Convert.ToString(Line[column]);
                             }
                         }
 
@@ -495,7 +484,7 @@ namespace DB_EDITOR
 
             for (int i = 0; i < PlaybookGrid.Rows.Count; i++)
             {
-                    if (PlaybookGrid.Rows[i].Cells[6].Value.Equals(selection) && PlaybookGrid.Rows[i].Visible)
+                if (PlaybookGrid.Rows[i].Cells[6].Value.Equals(selection) && PlaybookGrid.Rows[i].Visible)
                     PlaybookGrid.Rows[i].Cells[4].Value = Convert.ToInt32(PlayNameValue.Value);
             }
 

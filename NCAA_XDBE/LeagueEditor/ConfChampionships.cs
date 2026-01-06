@@ -1,16 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
-using Label = System.Windows.Forms.Label;
-
-namespace DB_EDITOR
+﻿namespace DB_EDITOR
 {
     partial class LeagueMain : Form
     {
@@ -62,7 +50,7 @@ namespace DB_EDITOR
                 if (main.GetDBValueInt("CONF", "LGID", i) == 0 && main.GetDBValueInt("CONF", "CGID", i) != 5 && !confChamps.Contains(main.GetDBValueInt("CONF", "CGID", i))) missingCChamps.Add(i);
             }
 
-            for (int i = 0; i < missingCChamps.Count; i++) 
+            for (int i = 0; i < missingCChamps.Count; i++)
             {
                 ChampGrid.Rows.Add(new DataGridViewRow());
                 ChampGrid.Rows[i].Cells[0].Value = main.GetDBValue("CONF", "CNAM", missingCChamps[i]);
@@ -94,10 +82,10 @@ namespace DB_EDITOR
             //Add Non-Required Bowls to List (BIDX 1-16)
             for (int i = 0; i < main.GetTableRecCount("BOWL"); i++)
             {
-                if (verNumber <= 15.0) 
-                { 
+                if (verNumber <= 15.0)
+                {
                     if (main.GetDBValueInt("BOWL", "BIDX", i) > 1 && main.GetDBValueInt("BOWL", "BIDX", i) <= 16)
-                    availableBowls.Items.Add(main.GetDBValue("BOWL", "BNME", i));
+                        availableBowls.Items.Add(main.GetDBValue("BOWL", "BNME", i));
                 }
                 else
                 {

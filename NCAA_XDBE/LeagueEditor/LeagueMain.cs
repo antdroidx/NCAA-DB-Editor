@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Windows.Forms;
+﻿using System.Data;
 
 namespace DB_EDITOR
 
@@ -73,7 +66,7 @@ namespace DB_EDITOR
             KeyPreview = true;
 
             verNumber = version;
-            if(verNumber >= 16.0) Next26Config.Checked = true;
+            if (verNumber >= 16.0) Next26Config.Checked = true;
             else if (verNumber >= 15.0) NextConfigRadio.Checked = true;
             else OGConfigRadio.Checked = true;
 
@@ -140,7 +133,7 @@ namespace DB_EDITOR
             int teamArmy = main.FindTeamRecfromTeamName("Army");
             int teamNavy = main.FindTeamRecfromTeamName("Navy");
 
-            if(main.GetTeamCGID(teamNavy) == main.GetTeamCGID(teamArmy))
+            if (main.GetTeamCGID(teamNavy) == main.GetTeamCGID(teamArmy))
             {
                 ArmyNavy = true;
             }
@@ -1038,7 +1031,7 @@ namespace DB_EDITOR
 
             // 4 character string, max value of 5
             TableProps.Name = new string((char)0, 5);
- 
+
             int tmpTableCount = TDB.TDBDatabaseGetTableCount(dbFILEindex);
 
             progressBar1.Minimum = 0;
@@ -1114,7 +1107,7 @@ namespace DB_EDITOR
                 DataGrid[0] = TABLE.Key;
                 DataGrid[1] = TABLE.Value;
 
-         
+
 
                 string tmpDef = FieldDEF(TABLE.Value);
 
@@ -1358,7 +1351,6 @@ namespace DB_EDITOR
                     else if (FieldProps.FieldType == TdbFieldType.tdbUInt)
                     {
                         UInt32 intval;
-                        UInt32 pos;
                         intval = (UInt32)GetDBValueInt(TableProps.Name, FieldProps.Name, r);
 
                         DataGridRow[tmpf + 1] = intval;
@@ -1493,7 +1485,7 @@ namespace DB_EDITOR
             #endregion
 
             #region Get FIELD Properties
-       
+
             TdbFieldProperties fieldProps = new TdbFieldProperties();
             fieldProps.Name = new string((char)0, 5);
 

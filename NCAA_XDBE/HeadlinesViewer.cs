@@ -1,17 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Runtime.InteropServices.ComTypes;
-// using System.Runtime.Remoting.Metadata.W3cXsd2001;
-using System.Security.Cryptography;
-using System.Text;
-using System.Web;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
-
+﻿// using System.Runtime.Remoting.Metadata.W3cXsd2001;
 namespace DB_EDITOR
 {
     partial class MainEditor : Form
@@ -37,7 +24,7 @@ namespace DB_EDITOR
         private void LoadNewspaperTitle(int week)
         {
             int sea = GetDBValueInt("SEAI", "SEYR", 0);
-            DBNHeadlinesTitle.Text = "" + (sea+DynStartYear.Value) + ": Week " + week + " Headlines";
+            DBNHeadlinesTitle.Text = "" + (sea + DynStartYear.Value) + ": Week " + week + " Headlines";
         }
 
 
@@ -54,8 +41,8 @@ namespace DB_EDITOR
 
             MainHeadlineTitle.Text = headlineTitle;
             MainHeadlineCaption.Text = headlineCaption;
-            if(pgid < 65535)
-            MainHeadlineKeyPlayer.Text = GetPlayerNamefromPGID(pgid) + " (" + pos + ")";
+            if (pgid < 65535)
+                MainHeadlineKeyPlayer.Text = GetPlayerNamefromPGID(pgid) + " (" + pos + ")";
             else MainHeadlineKeyPlayer.Text = "";
 
         }
@@ -87,7 +74,7 @@ namespace DB_EDITOR
                 string[] headlineCaption = captionsDB[CDBIndex][4].Split(" ");
 
                 string finalTitle = "";
-                for(int x = 0; x < headlineTitle.Length; x++)
+                for (int x = 0; x < headlineTitle.Length; x++)
                 {
                     if (headlineTitle[x].Contains("-"))
                     {
@@ -131,7 +118,7 @@ namespace DB_EDITOR
             if (capSymbol == "-f") return GetPlayerNamefromPGID(pgid);
             if (capSymbol.Contains("-f-")) return GetPlayerNamefromPGID(pgid) + "'s";
             if (capSymbol.Contains("-f.")) return GetPlayerNamefromPGID(pgid);
-
+            if (capSymbol.Contains("-S")) return "award";
 
             if (capSymbol.Contains("-J")) return GetDBValue("TEAM", "TMNA", FindTeamRecfromTGID(tgid));
             if (capSymbol.Contains("-J-")) return GetDBValue("TEAM", "TMNA", FindTeamRecfromTGID(tgid)) + "'";
@@ -139,13 +126,13 @@ namespace DB_EDITOR
             if (capSymbol.Contains("-P")) return "" + (GetDBValueInt("SEAI", "SEYR", 0) + DynStartYear.Value);
             if (capSymbol.Contains("-B")) return GetClassYear(GetDBValueInt("PLAY", "PYER", pRec), GetDBValueInt("PLAY", "RSHD", pRec));
 
-            if (capSymbol.Contains("-g")) 
+            if (capSymbol.Contains("-g"))
             {
                 int cgid = GetTeamCGID(FindTeamRecfromTGID(tgid));
                 return GetConfNameFromCGID(cgid);
             }
 
-            if(capSymbol.Contains("-#")) GetTeamRanking(FindTeamRecfromTGID(tgid));
+            if (capSymbol.Contains("-#")) GetTeamRanking(FindTeamRecfromTGID(tgid));
 
 
             if (capSymbol == "-{")
@@ -165,7 +152,7 @@ namespace DB_EDITOR
 
             if (capSymbol.Contains("-e"))
             {
-                return capSymbol;
+                return GetFirstNameFromRecord(pRec);
             }
 
             //Team Conf Seed
@@ -187,8 +174,7 @@ namespace DB_EDITOR
             //Prv Opponent Team  Seed
             if (capSymbol == "-#" || capSymbol == "-$")
             {
-                int opponent = -1;
-                int sewn = GetDBValueInt("SEAI", "SEWN", 0)-1;
+                int sewn = GetDBValueInt("SEAI", "SEWN", 0) - 1;
                 for (int i = 0; i < GetTableRecCount("SCHD"); i++)
                 {
                     if (tgid == GetDBValueInt("SCHD", "GATG", i) && sewn == GetDBValueInt("SCHD", "SEWN", i))
@@ -204,7 +190,7 @@ namespace DB_EDITOR
                 }
 
                 return capSymbol;
-                
+
             }
 
             //Stats Season Yards
@@ -214,7 +200,7 @@ namespace DB_EDITOR
                 int ppos = GetDBValueInt("PLAY", "PPOS", pRec);
                 for (int i = 0; i < GetTableRecCount("PSOF"); i++)
                 {
-                    if(pgid == GetDBValueInt("PSOF", "PGID", i) && seyr == GetDBValueInt("PSOF", "SEYR", i))
+                    if (pgid == GetDBValueInt("PSOF", "PGID", i) && seyr == GetDBValueInt("PSOF", "SEYR", i))
                     {
                         if (ppos == 0) return GetDBValue("PSOF", "saya", i);
                         if (ppos == 1) return GetDBValue("PSOF", "suya", i);
@@ -248,7 +234,7 @@ namespace DB_EDITOR
             //Stats Game Yards
             if (capSymbol.Contains("-v"))
             {
-                int sewn = GetDBValueInt("SEAI", "SEWN", 0)-1;
+                int sewn = GetDBValueInt("SEAI", "SEWN", 0) - 1;
                 int ppos = GetDBValueInt("PLAY", "PPOS", pRec);
 
                 for (int i = 0; i < GetTableRecCount("PLAC"); i++)
@@ -346,7 +332,7 @@ namespace DB_EDITOR
 
                 for (int i = 0; i < GetTableRecCount("STAD"); i++)
                 {
-                    if(sgid == GetDBValueInt("STAD", "SGID", i))
+                    if (sgid == GetDBValueInt("STAD", "SGID", i))
                     {
                         return GetDBValue("STAD", "SCIT", i);
                     }
@@ -362,11 +348,11 @@ namespace DB_EDITOR
                 int sewn = GetDBValueInt("SEAI", "SEWN", 0);
                 for (int i = 0; i < GetTableRecCount("SCHD"); i++)
                 {
-                    if(tgid == GetDBValueInt("SCHD", "GATG", i) && sewn == GetDBValueInt("SCHD", "SEWN", i))
+                    if (tgid == GetDBValueInt("SCHD", "GATG", i) && sewn == GetDBValueInt("SCHD", "SEWN", i))
                     {
                         return teamNameDB[GetDBValueInt("SCHD", "GHTG", i)];
                     }
-                    if(tgid == GetDBValueInt("SCHD", "GHTG", i) && sewn == GetDBValueInt("SCHD", "SEWN", i))
+                    if (tgid == GetDBValueInt("SCHD", "GHTG", i) && sewn == GetDBValueInt("SCHD", "SEWN", i))
                     {
                         return teamNameDB[GetDBValueInt("SCHD", "GATG", i)];
 
@@ -429,8 +415,7 @@ namespace DB_EDITOR
             //Previous Opposing Team 
             if (capSymbol.Contains("-d"))
             {
-                int opponent = -1;
-                int sewn = GetDBValueInt("SEAI", "SEWN", 0)-1;
+                int sewn = GetDBValueInt("SEAI", "SEWN", 0) - 1;
                 for (int i = 0; i < GetTableRecCount("SCHD"); i++)
                 {
                     if (tgid == GetDBValueInt("SCHD", "GATG", i) && sewn == GetDBValueInt("SCHD", "SEWN", i))
@@ -484,7 +469,7 @@ namespace DB_EDITOR
                         return injuryType;
                     }
                 }
-                    return capSymbol;
+                return capSymbol;
             }
 
             //Injury Duration
@@ -535,7 +520,7 @@ namespace DB_EDITOR
             {
                 int awayScore = 0;
                 int homeScore = 0;
-                int sewn = GetDBValueInt("SEAI", "SEWN", 0)-1;
+                int sewn = GetDBValueInt("SEAI", "SEWN", 0) - 1;
                 for (int i = 0; i < GetTableRecCount("SCHD"); i++)
                 {
                     if (tgid == GetDBValueInt("SCHD", "GATG", i) && sewn == GetDBValueInt("SCHD", "SEWN", i))

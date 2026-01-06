@@ -1,15 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Runtime.InteropServices.ComTypes;
-// using System.Runtime.Remoting.Metadata.W3cXsd2001;
-using System.Security.Cryptography;
-using System.Text;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using System.Threading.Tasks;
 
 namespace DB_EDITOR
 {
@@ -29,6 +19,53 @@ namespace DB_EDITOR
             }
         }
 
+        #region Portal Roster Requirement Settings
+        //Set Default Roster Req
+
+        private void PortalDefaultSetting_Click(object sender, EventArgs e)
+        {
+            PortalQB.Value = 3;
+            PortalHB.Value = 4;
+            PortalFB.Value = 1;
+            PortalWR.Value = 6;
+            PortalTE.Value = 3;
+            PortalOT.Value = 6;
+            PortalOG.Value = 6;
+            PortalOC.Value = 3;
+            PortalDE.Value = 6;
+            PortalDT.Value = 5;
+            PortalOLB.Value = 6;
+            PortalMLB.Value = 4;
+            PortalCB.Value = 6;
+            PortalFS.Value = 3;
+            PortalSS.Value = 3;
+            PortalK.Value = 1;
+            PortalP.Value = 1;
+        }
+
+        //Set Minimum Roster Req
+        private void SpringPortalMin_Click(object sender, EventArgs e)
+        {
+            PortalQB.Value = 2;
+            PortalHB.Value = 3;
+            PortalFB.Value = 1;
+            PortalWR.Value = 3;
+            PortalTE.Value = 2;
+            PortalOT.Value = 3;
+            PortalOG.Value = 3;
+            PortalOC.Value = 2;
+            PortalDE.Value = 4;
+            PortalDT.Value = 4;
+            PortalOLB.Value = 3;
+            PortalMLB.Value = 3;
+            PortalCB.Value = 3;
+            PortalFS.Value = 2;
+            PortalSS.Value = 2;
+            PortalK.Value = 1;
+            PortalP.Value = 1;
+        }
+        #endregion
+
         private void SpringPortalButton_Click(object sender, EventArgs e)
         {
             bool correctWeek = false;
@@ -37,6 +74,7 @@ namespace DB_EDITOR
                 if (GetDB2ValueInt("RCYR", "SEWN", i) >= 6)
                 {
                     correctWeek = true;
+                    break;
                 }
             }
 
@@ -48,11 +86,13 @@ namespace DB_EDITOR
             {
                 CompactDB();
                 CompactDB2();
+
                 RunSpringPortal();
             }
 
         }
 
+        #region Spring Portal Actions
         private void RunSpringPortal()
         {
             PortalData.ClearSelection();
@@ -99,7 +139,7 @@ namespace DB_EDITOR
                             }
                         }
 
-                            ProgressBarStep();
+                        ProgressBarStep();
                     }
 
                     EndProgressBar();
@@ -123,7 +163,7 @@ namespace DB_EDITOR
                     else
                     {
                         int teamRec = FindTeamRecfromTGID(tgid);
-                        if(GetDBValueInt("TEAM", "TTYP", teamRec) > 0)
+                        if (GetDBValueInt("TEAM", "TTYP", teamRec) > 0)
                         {
                             RemovePlayerFromTRAN(pgid);
                             ClearPlayerStats(pgid);
@@ -221,6 +261,22 @@ namespace DB_EDITOR
                 SpringRoster[TGID][count].Add(0);
                 SpringRoster[TGID][count].Add(POE);
 
+                /* Spring Portal List
+                 *  0: PLAY Record
+                 *  1: RCPT Record
+                 *  2: PGID / PRID
+                 *  3: PPOS
+                 *  4: POVR
+                 *  5: TGID
+                 *  6: PYER
+                 *  7: Adjusted OVR
+                 *  8: PJEN
+                 *  9: TRAN Status
+                 *  10: RS
+                 *  11: DISC
+                 *  12: Is Starter
+                 *  13: POE
+                 */
 
                 if (PortalRatingBoost.Checked)
                     SpringRoster[TGID][count][7] = POVR - (int)(SpringRoster[TGID][count][6] / 1.5);
@@ -319,8 +375,8 @@ namespace DB_EDITOR
         {
             List<decimal> depth = new List<decimal> { PortalQB.Value, PortalHB.Value, PortalFB.Value, PortalWR.Value, PortalTE.Value, PortalOT.Value, PortalOG.Value, PortalOC.Value, PortalDE.Value, PortalDT.Value, PortalOLB.Value, PortalMLB.Value, PortalCB.Value, PortalFS.Value, PortalSS.Value, PortalK.Value, PortalP.Value };
             int teamRec = FindTeamRecfromTGID(tgid);
-            int teamWins = GetDBValueInt("TEAM", "tsdw", teamRec);   
-          
+            int teamWins = GetDBValueInt("TEAM", "tsdw", teamRec);
+
 
             for (int p = 0; p < depth.Count; p++)
             {
@@ -403,7 +459,7 @@ namespace DB_EDITOR
                         }
                     }
                 }
-                
+
             }
         }
 
@@ -498,6 +554,8 @@ namespace DB_EDITOR
 
         private void RedistributePlayers()
         {
+            portalNews = new List<List<string>>();
+
             if (SpringPortal.Count == 0) return;
 
             SpringPortal.Sort((player1, player2) => player2[7].CompareTo(player1[7]));
@@ -506,13 +564,11 @@ namespace DB_EDITOR
 
             for (int i = 0; i < GetTableRecCount("TEAM"); i++)
             {
-                if (GetDBValueInt("TEAM", "TTYP", i) == 0)
-                {
-                    int tgid = GetDBValueInt("TEAM", "TGID", i);
-                    int rank = GetDBValueInt("TEAM", "TMRK", i);
+                int tgid = GetDBValueInt("TEAM", "TGID", i);
+                int rank = GetDBValueInt("TEAM", "TMRK", i);
+                int ttyp = GetDBValueInt("TEAM", "TTYP", i);
 
-                    teamList.Add(new List<int> { tgid, rank, i });
-                }
+                if (ttyp == 0) teamList.Add(new List<int> { tgid, rank, i });
             }
 
             if (PortalFirst.Checked)
@@ -531,12 +587,14 @@ namespace DB_EDITOR
                 teamList = teamList.OrderBy(x => rnd.Next()).ToList();
                 SpringPortalRandomDistribution(teamList);
             }
+
+            DisplayPortalNews();
+
         }
 
         private void SpringPortalNormalDistribution(List<List<int>> teamList)
         {
-            List<List<string>> portalList = new List<List<string>>();
-
+            //Create List of Team Prestige
             List<int> teamPRS = new List<int>();
             for (int i = 0; i < 512; i++)
             {
@@ -549,6 +607,15 @@ namespace DB_EDITOR
                 int tgid = GetDBValueInt("TEAM", "TGID", i);
 
                 teamPRS[tgid] = prs;
+            }
+
+            //Find User Teams
+            List<int> userTeams = new List<int>();
+            for (int i = 0; i < GetTableRecCount("COCH"); i++)
+            {
+                int tgid = GetDBValueInt("COCH", "TGID", i);
+                int cfuc = GetDBValueInt("COCH", "CFUC", i);
+                if (cfuc == 1) userTeams.Add(tgid);
             }
 
 
@@ -565,14 +632,14 @@ namespace DB_EDITOR
                 {
                     for (int p = 0; p < TeamPortalNeeds[tgid].Count; p++)
                     {
-                        portalList = SpringTransfer(tgid, p, portalList, teamPRS);
+                        if (userTeams.Contains(tgid)) UserTransferChoice(tgid, p, teamPRS);
+                        else SpringPortalMatcher(tgid, p, teamPRS);
                     }
                 }
                 ProgressBarStep();
             }
 
 
-            DisplayPortalNews(portalList);
 
             EndProgressBar();
 
@@ -580,8 +647,7 @@ namespace DB_EDITOR
 
         private void SpringPortalRandomDistribution(List<List<int>> teamList)
         {
-            List<List<string>> portalList = new List<List<string>>();
-
+            //Create List of Team Prestige
             List<int> teamPRS = new List<int>();
             for (int i = 0; i < 512; i++)
             {
@@ -594,6 +660,15 @@ namespace DB_EDITOR
                 int tgid = GetDBValueInt("TEAM", "TGID", i);
 
                 teamPRS[tgid] = prs;
+            }
+
+            //Find User Teams
+            List<int> userTeams = new List<int>();
+            for (int i = 0; i < GetTableRecCount("COCH"); i++)
+            {
+                int tgid = GetDBValueInt("COCH", "TGID", i);
+                int cfuc = GetDBValueInt("COCH", "CFUC", i);
+                if (cfuc == 1) userTeams.Add(tgid);
             }
 
 
@@ -742,12 +817,17 @@ namespace DB_EDITOR
                 }
 
 
+
+
+                //Run the Spring Portal Finally
                 for (int t = 0; t < teamList.Count; t++)
                 {
                     if (SpringPortal.Count <= 0) break;
                     int tgid = teamList[t][0];
 
-                    portalList = SpringTransfer(tgid, randPos[p], portalList, teamPRS);
+                    if (userTeams.Contains(tgid)) UserTransferChoice(tgid, p, teamPRS);
+                    else SpringPortalMatcher(tgid, p, teamPRS);
+                    
                     ProgressBarStep();
                 }
 
@@ -755,211 +835,243 @@ namespace DB_EDITOR
 
 
             EndProgressBar();
-
-            DisplayPortalNews(portalList);
-
-
         }
 
-        private List<List<string>> SpringTransfer(int tgid, int p, List<List<string>> portalList, List<int> teamPRS)
+        private void SpringPortalMatcher(int tgid, int p, List<int> teamPRS)
         {
-            List<string> years = CreateClassYearsAbbr();
 
             //Check for team needs
-            if (TeamPortalNeeds[tgid][p] > 0)
-            {
-                bool need = true;
-                for (int i = 0; i < SpringPortal.Count; i++)
-                {
-                    int rec = SpringPortal[i][0];
-                    int pgid = SpringPortal[i][2];
-                    int pos = SpringPortal[i][3];
-                    int ov = SpringPortal[i][4];
-                    int team = SpringPortal[i][5];
-                    int starter = SpringPortal[i][12];
+            if (TeamPortalNeeds[tgid][p] <= 0) return;
 
-                    if (pos == p / 2)
+            //Find Available PGID Numbers
+            int tgidStart = tgid * 70;
+            int tgidEnd = tgidStart + maxPlayers - 1;
+            int newPGID = -1;
+
+            //Check for open PGID slots
+            for (int j = tgidStart; j <= tgidEnd; j++)
+            {
+                if (!OccupiedPGIDList[tgid].Contains(j))
+                {
+                    newPGID = j;
+                    break;
+                }
+            }
+            if (newPGID <= -1) return; //no available slots
+
+
+            //Find Player to Transfer
+            for (int i = 0; i < SpringPortal.Count; i++)
+            {
+                int rec = SpringPortal[i][0];
+                int pgid = SpringPortal[i][2];
+                int pos = SpringPortal[i][3];
+                int ov = SpringPortal[i][4];
+                int team = SpringPortal[i][5];
+                int starter = SpringPortal[i][12];
+
+                if (pos == p / 2)
+                {
+                    int tmpr = teamPRS[tgid];
+                    int playerteamprestige = teamPRS[team];
+
+                    if (starter == 1 && tmpr >= playerteamprestige && ov <= TeamPortalNeeds[tgid][p] || starter == 0 && ov <= TeamPortalNeeds[tgid][p] || rand.Next(0, 99) > portalChance.Value)
                     {
-                        int tmpr = teamPRS[tgid];
-                        int playerteamprestige = teamPRS[team];
-
-                        if (starter == 1 && tmpr >= playerteamprestige && ov <= TeamPortalNeeds[tgid][p] || starter == 0 && ov <= TeamPortalNeeds[tgid][p] || rand.Next(0, 99) > portalChance.Value)
-                        {
-                            break;
-                        }
-                        else
-                        {
-                            int tgidStart = tgid * 70;
-                            int tgidEnd = tgidStart + maxPlayers - 1;
-                            //Check for open PGID slots
-                            for (int j = tgidStart; j <= tgidEnd; j++)
-                            {
-                                if (!OccupiedPGIDList[tgid].Contains(j))
-                                {
-
-                                    int row = portalList.Count;
-                                    portalList.Add(new List<string>());
-                                    portalList[row].Add(GetPOSG2Name(pos));
-
-                                    string playerStarter = "";
-                                    //playerStarter += GetPlayerNamefromPGID(pgid);
-                                    playerStarter += GetPlayerNamefromRec(rec);
-                                    if (SpringPortal[i][12] == 1) playerStarter += " (S)";
-
-
-                                    portalList[row].Add(playerStarter);
-
-                                    string yr = years[SpringPortal[i][6]];
-                                    if (SpringPortal[i][10] == 2) yr += " (RS)";
-
-                                    portalList[row].Add(yr);
-                                    portalList[row].Add(Convert.ToString(ConvertRating(ov)));
-
-                                    if (PortalRatingBoost.Checked)
-                                    {
-                                        int boost = SpringPortal[i][7] + (SpringPortal[i][6] / 2);
-                                        portalList[row][3] = Convert.ToString(ConvertRating(boost));
-                                    }
-
-                                    portalList[row].Add(teamNameDB[tgid]);
-
-                                    if (pgid >= 21000 && pgid < 30000)
-                                    {
-                                        portalList[row].Add(teamNameDB[team] + "*");
-
-                                        //Update their commitment to the new team
-                                        for (int y = 0; y < GetTable2RecCount("RCPR"); y++)
-                                        {
-                                            if (GetDB2ValueInt("RCPR", "PRID", y) == pgid)
-                                            {
-                                                /*
-                                                ChangeDB2Int("RCPR", "PTCM", y, tgid);
-                                                ChangeDB2Int("RCPR", "PT01", y, tgid);
-                                                */
-                                                DeleteRecord2("RCPR", y, true);
-                                                CompactDB2();
-
-                                                break;
-                                            }
-                                        }
-
-                                        ChangeDBInt("PLAY", "PGID", SpringPortal[i][0], j);
-
-                                        ChangePlayerStatsID(SpringPortal[i][2], j);
-                                    }
-                                    else
-                                    {
-                                        //Denote special player status
-                                        if (pgid >= 30000) //fcs
-                                            portalList[row].Add(teamNameDB[team] + "+");
-                                        else if (SpringPortal[i][9] == 1) //transfer
-                                            portalList[row].Add(teamNameDB[team] + "*");
-                                        else
-                                            portalList[row].Add(teamNameDB[team]);
-
-                                        //Change their ID
-                                        ChangeDBInt("PLAY", "PGID", rec, j);
-
-
-                                        int currentPJEN = GetDBValueInt("PLAY", "PJEN", rec);
-                                        if (AvailablePJEN[tgid].Contains(currentPJEN))
-                                        {
-                                            int newPJEN = ChooseAvailableJerseyNumber(pos, tgid, AvailablePJEN[tgid]);
-                                            ChangeDBInt("PLAY", "PJEN", rec, newPJEN);
-                                            AvailablePJEN[tgid].Add(newPJEN);
-                                        }
-                                        else
-                                        {
-                                            AvailablePJEN[tgid].Add(currentPJEN);
-                                        }
-
-                                        // Need to add a thing to replace the RCTN table PGID
-                                        for (int y = 0; y < GetTable2RecCount("RCTN"); y++)
-                                        {
-                                            if (GetDB2ValueInt("RCTN", "PGID", y) == tgid)
-                                            {
-                                                ChangeDB2Int("RCTN", "PGID", y, j);
-                                                break;
-                                            }
-                                        }
-
-                                        // Delete old stats & Change Player Stats ID
-                                        ClearPlayerStats(j);
-                                        ChangePlayerStatsID(SpringPortal[i][2], j);
-                                    }
-
-                                    portalList[row].Add(Convert.ToString(SpringPortal[i][0]));
-
-                                    if (p % 2 == 1 && TeamPortalNeeds[tgid][p] == 1 && smallPortal.Checked)
-                                        TeamPortalNeeds[tgid][p - 1] = 0;
-
-                                    else if (p % 2 == 0 && TeamPortalNeeds[tgid][p + 1] == 1 && smallPortal.Checked)
-                                        TeamPortalNeeds[tgid][p + 1] = 0;
-
-                                    TeamPortalNeeds[tgid][p] = 0;
-
-                                    //Remove Player from TRAN table (if needed)
-                                    if (SpringPortal[i][9] == 1) RemovePlayerFromTRAN(pgid);
-
-                                    //Add Player to TRAN Table
-                                    AddPlayertoTRAN(j, team);
-
-                                    OccupiedPGIDList[tgid].Add(j);
-                                    if (pgid / 70 < 512) OccupiedPGIDList[pgid / 70].Remove(pgid);
-                                    SpringPortal.RemoveAt(i);
-                                    i--;
-                                    need = false;
-
-                                    break;
-                                }
-                            }
-                        }
+                        break;
                     }
-
-                    if (need == false) break;
+                    else
+                    {
+                        TransferPlayer(tgid, p, newPGID, i);
+                        break;
+                    }
                 }
             }
-
-
-            return portalList;
         }
 
-        private void DisplayPortalNews(List<List<string>> portalList2)
+        private void UserTransferChoice(int tgid, int p, List<int> teamPRS)
         {
-            int NewsCount = PortalData.Rows.Count;
-            int starterCount = 0;
+            List<string> years = CreateClassYearsAbbr();
+            List<int> PortalInterestList = new List<int>();
 
-            for (int x = NewsCount; x < portalList2.Count + NewsCount; x++)
+            //Check for team needs & Create Interest List
+            if (TeamPortalNeeds[tgid][p] <= 0) return;
+
+            //Find Available PGID Numbers
+            int tgidStart = tgid * 70;
+            int tgidEnd = tgidStart + maxPlayers - 1;
+            int newPGID = -1;
+
+            //Check for open PGID slots
+            for (int j = tgidStart; j <= tgidEnd; j++)
             {
-                PortalData.Rows.Add(new DataGridViewRow());
-
-                PortalData.Rows[x].Cells[0].Value = portalList2[x - NewsCount][0];
-                PortalData.Rows[x].Cells[1].Value = portalList2[x - NewsCount][1];
-                PortalData.Rows[x].Cells[2].Value = portalList2[x - NewsCount][2];
-                PortalData.Rows[x].Cells[3].Value = portalList2[x - NewsCount][3];
-                PortalData.Rows[x].Cells[4].Value = portalList2[x - NewsCount][4];
-                PortalData.Rows[x].Cells[5].Value = portalList2[x - NewsCount][5];
-                PortalData.Rows[x].Cells[6].Value = portalList2[x - NewsCount][6];
-
-                string test = PortalData.Rows[x].Cells[1].Value.ToString();
-                if (test.Contains("(S)"))
+                if (!OccupiedPGIDList[tgid].Contains(j))
                 {
-                    starterCount++;
+                    newPGID = j;
+                    break;
                 }
+            }
+            if (newPGID <= -1) return; //no available slots
 
+
+            for (int i = 0; i < SpringPortal.Count; i++)
+            {
+                int rec = SpringPortal[i][0];
+                int pgid = SpringPortal[i][2];
+                int pos = SpringPortal[i][3];
+                int ov = SpringPortal[i][4];
+                int team = SpringPortal[i][5];
+                int starter = SpringPortal[i][12];
+
+                if (pos == p / 2)
+                {
+                    int tmpr = teamPRS[tgid];
+                    int playerteamprestige = teamPRS[team];
+
+                    if (starter == 1 && tmpr >= playerteamprestige && ov <= TeamPortalNeeds[tgid][p] || starter == 0 && ov <= TeamPortalNeeds[tgid][p] || rand.Next(0, 99) > portalChance.Value)
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        PortalInterestList.Add(i);
+                    }
+                }
             }
 
-            int prevTransfersCount = TotalTransfersCount.Text.Contains(":") ? Convert.ToInt32(TotalTransfersCount.Text.Split(':')[1].Trim()) : 0;
-            int prevStarters = startersCount.Text.Contains(":") ? Convert.ToInt32(startersCount.Text.Split(':')[1].Trim()) : 0;
-
-            TotalTransfersCount.Text = "Total Transfers: " + PortalData.Rows.Count;
-            if (!AllowStartersLeave.Checked) startersCount.Text = "";
-            else startersCount.Text = "Starters: " + Convert.ToString(starterCount + prevStarters);
-
-            // Ensure DataGridView cell formatting runs to color the non-editing display
-            PortalData.CellFormatting -= SpringPortal_CellFormatting;
-            PortalData.CellFormatting += SpringPortal_CellFormatting;
+            //Load User Choice Dialog
+            if(PortalInterestList.Count == 0) return;
+            using (var portalBox = new PortalBox(this, SpringPortal, PortalInterestList, p, tgid, newPGID))
+            {
+               portalBox.ShowDialog(this);
+               
+            }
         }
+
+        #endregion
+
+        #region Transfer Table Management
+
+        public void TransferPlayer(int tgid, int p, int newPGID, int portalRec)
+        {
+            int i = portalRec;
+
+            List<string> years = CreateClassYearsAbbr();
+
+            int rec = SpringPortal[i][0];
+            int pgid = SpringPortal[i][2];
+            int pos = SpringPortal[i][3];
+            int ov = SpringPortal[i][4];
+            int team = SpringPortal[i][5];
+            int starter = SpringPortal[i][12];
+
+
+            int row = portalNews.Count;
+            portalNews.Add(new List<string>());
+            portalNews[row].Add(GetPOSG2Name(pos));
+
+            string playerStarter = "";
+            playerStarter += GetPlayerNamefromRec(rec);
+            if (SpringPortal[i][12] == 1) playerStarter += " (S)";
+
+
+            portalNews[row].Add(playerStarter);
+
+            string yr = years[SpringPortal[i][6]];
+            if (SpringPortal[i][10] == 2) yr += " (RS)";
+
+            portalNews[row].Add(yr);
+            portalNews[row].Add(Convert.ToString(ConvertRating(ov)));
+
+            if (PortalRatingBoost.Checked)
+            {
+                int boost = SpringPortal[i][7] + (SpringPortal[i][6] / 2);
+                portalNews[row][3] = Convert.ToString(ConvertRating(boost));
+            }
+
+            portalNews[row].Add(teamNameDB[tgid]);
+
+            if (pgid >= 21000 && pgid < 30000)
+            {
+                portalNews[row].Add(teamNameDB[team] + "*");
+
+                //Update their commitment to the new team
+                for (int y = 0; y < GetTable2RecCount("RCPR"); y++)
+                {
+                    if (GetDB2ValueInt("RCPR", "PRID", y) == pgid)
+                    {
+                        DeleteRecord2("RCPR", y, true);
+                        CompactDB2();
+
+                        break;
+                    }
+                }
+
+                ChangeDBInt("PLAY", "PGID", SpringPortal[i][0], newPGID);
+
+                ChangePlayerStatsID(SpringPortal[i][2], newPGID);
+            }
+            else
+            {
+                //Denote special player status
+                if (pgid >= 30000) //fcs
+                    portalNews[row].Add(teamNameDB[team] + "+");
+                else if (SpringPortal[i][9] == 1) //transfer
+                    portalNews[row].Add(teamNameDB[team] + "*");
+                else
+                    portalNews[row].Add(teamNameDB[team]);
+
+                //Change their ID
+                ChangeDBInt("PLAY", "PGID", rec, newPGID);
+
+
+                int currentPJEN = GetDBValueInt("PLAY", "PJEN", rec);
+                if (AvailablePJEN[tgid].Contains(currentPJEN))
+                {
+                    int newPJEN = ChooseAvailableJerseyNumber(pos, tgid, AvailablePJEN[tgid]);
+                    ChangeDBInt("PLAY", "PJEN", rec, newPJEN);
+                    AvailablePJEN[tgid].Add(newPJEN);
+                }
+                else
+                {
+                    AvailablePJEN[tgid].Add(currentPJEN);
+                }
+
+                // Need to add a thing to replace the RCTN table PGID
+                for (int y = 0; y < GetTable2RecCount("RCTN"); y++)
+                {
+                    if (GetDB2ValueInt("RCTN", "PGID", y) == tgid)
+                    {
+                        ChangeDB2Int("RCTN", "PGID", y, newPGID);
+                        break;
+                    }
+                }
+
+                // Delete old stats & Change Player Stats ID
+                ClearPlayerStats(newPGID);
+                ChangePlayerStatsID(SpringPortal[i][2], newPGID);
+            }
+
+            portalNews[row].Add(Convert.ToString(SpringPortal[i][0]));
+
+            if (p % 2 == 1 && TeamPortalNeeds[tgid][p] == 1 && smallPortal.Checked)
+                TeamPortalNeeds[tgid][p - 1] = 0;
+
+            else if (p % 2 == 0 && TeamPortalNeeds[tgid][p + 1] == 1 && smallPortal.Checked)
+                TeamPortalNeeds[tgid][p + 1] = 0;
+
+            TeamPortalNeeds[tgid][p] = 0;
+
+            //Remove Player from TRAN table (if needed)
+            if (SpringPortal[i][9] == 1) RemovePlayerFromTRAN(pgid);
+
+            //Add Player to TRAN Table
+            AddPlayertoTRAN(newPGID, team);
+
+            OccupiedPGIDList[tgid].Add(newPGID);
+            if (pgid / 70 < 512) OccupiedPGIDList[pgid / 70].Remove(pgid);
+            SpringPortal.RemoveAt(i);
+        }
+
 
         private void AddPlayertoTRAN(int PGID, int TGID)
         {
@@ -988,107 +1100,12 @@ namespace DB_EDITOR
             CompactDB();
         }
 
-
-        //Set Default Roster Req
-
-        private void PortalDefaultSetting_Click(object sender, EventArgs e)
-        {
-            PortalQB.Value = 3;
-            PortalHB.Value = 4;
-            PortalFB.Value = 1;
-            PortalWR.Value = 6;
-            PortalTE.Value = 3;
-            PortalOT.Value = 6;
-            PortalOG.Value = 6;
-            PortalOC.Value = 3;
-            PortalDE.Value = 6;
-            PortalDT.Value = 5;
-            PortalOLB.Value = 6;
-            PortalMLB.Value = 4;
-            PortalCB.Value = 6;
-            PortalFS.Value = 3;
-            PortalSS.Value = 3;
-            PortalK.Value = 1;
-            PortalP.Value = 1;
-        }
-
-        //Set Minimum Roster Req
-        private void SpringPortalMin_Click(object sender, EventArgs e)
-        {
-            PortalQB.Value = 2;
-            PortalHB.Value = 3;
-            PortalFB.Value = 1;
-            PortalWR.Value = 3;
-            PortalTE.Value = 2;
-            PortalOT.Value = 3;
-            PortalOG.Value = 3;
-            PortalOC.Value = 2;
-            PortalDE.Value = 4;
-            PortalDT.Value = 4;
-            PortalOLB.Value = 3;
-            PortalMLB.Value = 3;
-            PortalCB.Value = 3;
-            PortalFS.Value = 2;
-            PortalSS.Value = 2;
-            PortalK.Value = 1;
-            PortalP.Value = 1;
-        }
+        #endregion
 
 
-        //Check Depth Charts
-        private void CheckWalkOnNeeds(int teamA, int teamB, int posg)
-        {
-            //TGID, WOND, RGRP
-            //team A is team losing player & team B is team gaining player
+        #region Post Portal Roster Management
 
-            bool teamANeeds = false;
-            bool teamBNeeds = false;
-
-            for (int i = 0; i < GetTable2RecCount("WONS"); i++)
-            {
-                int tgid = GetDB2ValueInt("WONS", "TGID", i);
-                int wond = GetDB2ValueInt("WONS", "WOND", i);
-                int rgrp = GetDB2ValueInt("WONS", "RGRP", i);
-
-                if (tgid == teamA && rgrp == posg)
-                {
-                    ChangeDB2Int("WONS", "WOND", i, wond + 1);
-                    teamANeeds = true;
-
-                    if (teamANeeds && teamBNeeds) break;
-                }
-                else if (tgid == teamB && rgrp == posg && wond > 0)
-                {
-                    ChangeDB2Int("WONS", "WOND", i, wond - 1);
-                    teamBNeeds = true;
-
-                    if (teamANeeds && teamBNeeds) break;
-                }
-            }
-
-            if (!teamANeeds)
-            {
-                int rec = GetTable2RecCount("WONS");
-                AddTable2Record("WONS", false);
-                ChangeDB2Int("WONS", "TGID", rec, teamA);
-                ChangeDB2Int("WONS", "WOND", rec, 1);
-                ChangeDB2Int("WONS", "RGRP", rec, posg);
-            }
-
-
-            for (int i = 0; i < GetTable2RecCount("WONS"); i++)
-            {
-                int wond = GetDB2ValueInt("WONS", "WOND", i);
-
-                if (wond == 0)
-                {
-                    DeleteRecord2("WONS", i, true);
-                }
-
-            }
-            CompactDB2();
-        }
-
+        //Check for Walk-On Needs
         private void PostPortalRosterCheck()
         {
             for (int i = 0; i < GetTable2RecCount("WONS"); i++)
@@ -1139,6 +1156,55 @@ namespace DB_EDITOR
             EndProgressBar();
         }
 
+        #endregion
+
+
+        #region Portal News Headlines
+        private void DisplayPortalNews()
+        {
+            StartProgressBar(portalNews.Count);
+
+            int NewsCount = PortalData.Rows.Count;
+            int starterCount = 0;
+
+            for (int x = NewsCount; x < portalNews.Count + NewsCount; x++)
+            {
+                PortalData.Rows.Add(new DataGridViewRow());
+
+                PortalData.Rows[x].Cells[0].Value = portalNews[x - NewsCount][0];
+                PortalData.Rows[x].Cells[1].Value = portalNews[x - NewsCount][1];
+                PortalData.Rows[x].Cells[2].Value = portalNews[x - NewsCount][2];
+                PortalData.Rows[x].Cells[3].Value = portalNews[x - NewsCount][3];
+                PortalData.Rows[x].Cells[4].Value = portalNews[x - NewsCount][4];
+                PortalData.Rows[x].Cells[5].Value = portalNews[x - NewsCount][5];
+                PortalData.Rows[x].Cells[6].Value = portalNews[x - NewsCount][6];
+
+                string test = PortalData.Rows[x].Cells[1].Value.ToString();
+                if (test.Contains("(S)"))
+                {
+                    starterCount++;
+                }
+                ProgressBarStep();  
+            }
+
+            int prevTransfersCount = TotalTransfersCount.Text.Contains(":") ? Convert.ToInt32(TotalTransfersCount.Text.Split(':')[1].Trim()) : 0;
+            int prevStarters = startersCount.Text.Contains(":") ? Convert.ToInt32(startersCount.Text.Split(':')[1].Trim()) : 0;
+
+            TotalTransfersCount.Text = "Total Transfers: " + PortalData.Rows.Count;
+            if (!AllowStartersLeave.Checked) startersCount.Text = "";
+            else startersCount.Text = "Starters: " + Convert.ToString(starterCount + prevStarters);
+
+            // Ensure DataGridView cell formatting runs to color the non-editing display
+            PortalData.CellFormatting -= SpringPortal_CellFormatting;
+            PortalData.CellFormatting += SpringPortal_CellFormatting;
+
+            EndProgressBar();
+        }
+
+        #endregion
+
+
+        #region Hyperlink Helpers
 
         //HyperLinks
         private void PortalData_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -1172,6 +1238,8 @@ namespace DB_EDITOR
             }
         }
 
+        #endregion
+
 
         #region colorization
         private void SpringPortal_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -1200,5 +1268,6 @@ namespace DB_EDITOR
         }
 
         #endregion
-    }
+
+        }
 }

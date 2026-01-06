@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Runtime.InteropServices.ComTypes;
+﻿using System.Reflection;
 // using System.Runtime.Remoting.Metadata.W3cXsd2001;
-using System.Security.Cryptography;
-using System.Text;
-using System.Windows.Forms;
-using System.Xml.Linq;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace DB_EDITOR
 {
@@ -69,7 +58,7 @@ namespace DB_EDITOR
 
         #region MAIN DB TOOLS CLICKS
 
-            //Fixes Body Size Models if user does manipulation of the player attributes in the in-game player editor
+        //Fixes Body Size Models if user does manipulation of the player attributes in the in-game player editor
         private void BodyFix_Click(object sender, EventArgs e)
         {
             RecalculateBodyShape("PLAY");
@@ -1168,7 +1157,7 @@ namespace DB_EDITOR
             }
 
             EndProgressBar();
-            if(!skip) MessageBox.Show("QB updates are complete!\n\nThe Stats:\n\n* Pocket-Passers: " + pocket + "\n\n* Balanced: " + balanced + "\n\n* Scramblers: " + scrambler);
+            if (!skip) MessageBox.Show("QB updates are complete!\n\nThe Stats:\n\n* Pocket-Passers: " + pocket + "\n\n* Balanced: " + balanced + "\n\n* Scramblers: " + scrambler);
         }
 
         //Randomize Player Potential
@@ -1272,11 +1261,11 @@ namespace DB_EDITOR
                     int pgidSTART = tgid * 70;
                     int pgidEND = pgidSTART + 69;
 
-                    if (teamCount != 120 || teamCount != 119) 
-                    { 
-                       if (DC77.Checked) maxPlayers = 66;
-                       else maxPlayers = 70;
-                        pgidEND = pgidSTART + maxPlayers - 1; 
+                    if (teamCount != 120 || teamCount != 119)
+                    {
+                        if (DC77.Checked) maxPlayers = 66;
+                        else maxPlayers = 70;
+                        pgidEND = pgidSTART + maxPlayers - 1;
                     }
 
                     for (int j = pgidSTART; j < pgidEND; j++)
@@ -1628,7 +1617,7 @@ namespace DB_EDITOR
             }
             sr.Close();
 
-            if (home.Contains(Convert.ToString(hometown))) 
+            if (home.Contains(Convert.ToString(hometown)))
             {
                 return hometown;
             }
@@ -1698,7 +1687,7 @@ namespace DB_EDITOR
             MinAttPosBox.SelectedIndex = 0;
             MaxAttPosBox.SelectedIndex = 0;
             MinBodyPos.SelectedIndex = 0;
-            MaxBodyPos.SelectedIndex = 0;   
+            MaxBodyPos.SelectedIndex = 0;
         }
 
         private void GlobalAttButton_Click(object sender, EventArgs e)
@@ -1806,9 +1795,9 @@ namespace DB_EDITOR
             }
 
             string pos = "All Positions";
-            if(posg != -1) pos = GetPOSG2Name(posg);
+            if (posg != -1) pos = GetPOSG2Name(posg);
 
-            MessageBox.Show("A change of " + val + " pts to " + attribute + " Attribute has been applied to " + pos + "!\n\nRecalculate Player Overall and Team Ratings when completed!" );
+            MessageBox.Show("A change of " + val + " pts to " + attribute + " Attribute has been applied to " + pos + "!\n\nRecalculate Player Overall and Team Ratings when completed!");
 
             EndProgressBar();
         }
@@ -1888,7 +1877,7 @@ namespace DB_EDITOR
             else if (MinBodyType.SelectedIndex == 1)
             {
                 MinBodyValue.Minimum = 160;
-                MinBodyValue.Maximum = 160+255;
+                MinBodyValue.Maximum = 160 + 255;
                 MinBodyValue.Value = 160;
             }
         }
@@ -2000,13 +1989,6 @@ namespace DB_EDITOR
         {
             StartProgressBar(TDB.TableCount(dbIndex));
 
-            // TdbTableProperties class
-            TdbTableProperties TableProps = new TdbTableProperties();
-
-            // 4 character string, max value of 5
-            StringBuilder TableName = new StringBuilder("    ", 5);
-
-
             for (int i = 0; i < TDB.TDBDatabaseGetTableCount(dbIndex); i++)
             {
                 // Get the tableproperties for the given table number
@@ -2036,11 +2018,6 @@ namespace DB_EDITOR
             filePath = folderDialog1.SelectedPath;
             Directory.CreateDirectory(filePath);
 
-            // TdbTableProperties class
-            TdbTableProperties TableProps = new TdbTableProperties();
-
-            // 4 character string, max value of 5
-            StringBuilder TableName = new StringBuilder("    ", 5);
             exportAll = true;
 
             for (int i = 0; i < TDB.TDBDatabaseGetTableCount(dbIndex); i++)

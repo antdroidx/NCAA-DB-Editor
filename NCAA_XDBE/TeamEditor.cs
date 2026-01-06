@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
-
-namespace DB_EDITOR
+﻿namespace DB_EDITOR
 {
     partial class MainEditor : Form
     {
@@ -1245,7 +1238,7 @@ namespace DB_EDITOR
                     int PGID = GetDBValueInt("SPYR", "PGID", i);
                     if (suspensionLength > 0) InjuryList.Add(PGID);
                 }
-                
+
 
 
                 var messageBox2 = MessageBox.Show("Do you want to force Impact on QBs and HBs?", "Impact Position", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
@@ -1259,7 +1252,7 @@ namespace DB_EDITOR
                     QBHB = false;
                 }
                 else return;
-                    
+
             }
             else if (messageBox == DialogResult.No)
             {
@@ -1403,7 +1396,7 @@ namespace DB_EDITOR
             int ttyp = GetDBValueInt("TEAM", "TTYP", TeamIndex);
 
             TopPlayersView.Rows.Clear();
-            if(GetTableRecCount("PLAY") < 1 || ttyp > 0)
+            if (GetTableRecCount("PLAY") < 1 || ttyp > 0)
             {
                 TopPlayersView.ClearSelection();
                 return;
@@ -1436,7 +1429,7 @@ namespace DB_EDITOR
 
             if (PlayerList.Count <= 10) return;
 
-            for(int i = 0; i < 11; i++)
+            for (int i = 0; i < 11; i++)
             {
                 TopPlayersView.Rows.Add(1);
                 TopPlayersView.Rows[i].Cells[0].Value = PlayerList[i][2];
@@ -1469,5 +1462,5 @@ namespace DB_EDITOR
 
     }
 }
-    
+
 

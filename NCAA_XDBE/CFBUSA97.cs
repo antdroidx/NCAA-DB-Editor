@@ -1,16 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Runtime.InteropServices.ComTypes;
-// using System.Runtime.Remoting.Metadata.W3cXsd2001;
-using System.Security.Cryptography;
-using System.Text;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
-
+﻿// using System.Runtime.Remoting.Metadata.W3cXsd2001;
 namespace DB_EDITOR
 {
     partial class MainEditor : Form
@@ -397,7 +385,7 @@ namespace DB_EDITOR
 
         private string GetTeamNameCFBUSA(int TOID, List<List<string>> cfbusa97)
         {
-            for(int i = 0; i < cfbusa97.Count; i++)
+            for (int i = 0; i < cfbusa97.Count; i++)
             {
                 if (cfbusa97[i][0] == Convert.ToString(TOID)) return cfbusa97[i][1];
             }
@@ -407,7 +395,7 @@ namespace DB_EDITOR
         private string GetPlayerInfoCFBUSA(int rec)
         {
             return GetFirstNameFromRecord(rec) + " " + GetLastNameFromRecord(rec) + "," + ConvertRating(GetDBValueInt("PLAY", "POVR", rec)) + "," + GetDBValue("PLAY", "PJEN", rec) + "," + ConvertRating(GetDBValueInt("PLAY", "PAWR", rec)) + "," + ConvertRating(GetDBValueInt("PLAY", "PSPD", rec)) + ","
-                + (ConvertRating(GetDBValueInt("PLAY", "PAGI", rec))/ConvertRating(GetDBValueInt("PLAY", "PAGI", rec))) + "," + ConvertRating(GetDBValueInt("PLAY", "PSTR", rec)) + "," + ConvertRating(GetDBValueInt("PLAY", "PCTH", rec)) + "," + ConvertRating(GetDBValueInt("PLAY", "PPBK", rec)) + "," + ConvertRating(GetDBValueInt("PLAY", "PTAK", rec)) + "," + ConvertRating(GetDBValueInt("PLAY", "PTHP", rec)) + "," + ConvertRating(GetDBValueInt("PLAY", "PTHA", rec)) + ","
+                + (ConvertRating(GetDBValueInt("PLAY", "PAGI", rec)) / ConvertRating(GetDBValueInt("PLAY", "PAGI", rec))) + "," + ConvertRating(GetDBValueInt("PLAY", "PSTR", rec)) + "," + ConvertRating(GetDBValueInt("PLAY", "PCTH", rec)) + "," + ConvertRating(GetDBValueInt("PLAY", "PPBK", rec)) + "," + ConvertRating(GetDBValueInt("PLAY", "PTAK", rec)) + "," + ConvertRating(GetDBValueInt("PLAY", "PTHP", rec)) + "," + ConvertRating(GetDBValueInt("PLAY", "PTHA", rec)) + ","
                 + ConvertRating(GetDBValueInt("PLAY", "PKPR", rec)) + "," + ConvertRating(GetDBValueInt("PLAY", "PKAC", rec)) + "," + (GetDBValueInt("PLAY", "PWGT", rec) + 160);
         }
         #endregion

@@ -1,16 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Runtime.InteropServices.ComTypes;
-//// using System.Runtime.Remoting.Metadata.W3cXsd2001;
-using System.Security.Cryptography;
-using System.Text;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
-
+﻿//// using System.Runtime.Remoting.Metadata.W3cXsd2001;
 namespace DB_EDITOR
 {
     partial class MainEditor : Form
@@ -53,7 +41,7 @@ namespace DB_EDITOR
             {
                 ccidList.Add(new List<int>());
                 ccidList[i].Add(i);
-                ccidList[i].Add(rand.Next(0,1000));
+                ccidList[i].Add(rand.Next(0, 1000));
             }
 
             ccidList.Sort((coach1, coach2) => coach1[1].CompareTo(coach2[1]));
@@ -66,8 +54,8 @@ namespace DB_EDITOR
                 int i = ccidList[x][0];
                 int CFUC = GetDBValueInt("COCH", "CFUC", i);
                 if (CFUC == 1)
-                { 
-                    continue; 
+                {
+                    continue;
                 }
 
                 int TGID = GetDBValueInt("COCH", "TGID", i);
@@ -124,7 +112,7 @@ namespace DB_EDITOR
                     ChangeDBString("COCH", "TGID", i, "511");
 
                     RetiredCoachReplacement(GetDBValueInt("COCH", "CCID", i));
-                    if(team != "Unemployed") coachfirings++;
+                    if (team != "Unemployed") coachfirings++;
                 }
 
                 //ADD COACHING FREE AGENCY POOL TO THE LIST
@@ -186,13 +174,13 @@ namespace DB_EDITOR
             }
 
             EndProgressBar();
-           
+
             DisplayCarouselNews(coachNews);
             CoachFiringsCount.Text = "Vacancies: " + Convert.ToString(coachfirings);
 
             //Offer User a new job
-            if(UserJobOffers.Checked) TGID_VacancyList = OfferCoachingJobs(TGID_VacancyList);
-            
+            if (UserJobOffers.Checked) TGID_VacancyList = OfferCoachingJobs(TGID_VacancyList);
+
             //Send to Hiring Phase
             CoachCarouselHiringPhase(CCID_FAList, CCID_PromoteList, TGID_VacancyList);
 
@@ -211,7 +199,7 @@ namespace DB_EDITOR
 
             //Low Job Security & Lowered Team Prestige
             if (CCPO <= jobSecurityValue.Value && rand.Next(0, 100) < 25 && GetDBValueInt("COCH", "CTYR", i) > 1 && GetDBValueInt("COCH", "CSWI", i) <= 4)
-            { 
+            {
                 return true;
             }
 
@@ -239,7 +227,7 @@ namespace DB_EDITOR
         private List<int> OfferCoachingJobs(List<int> TGID_VacancyList)
         {
             List<List<int>> teamPrestigeList = new List<List<int>>();
-            for(int i = 0; i < TGID_VacancyList.Count; i++)
+            for (int i = 0; i < TGID_VacancyList.Count; i++)
             {
                 int teamRec = FindTeamRecfromTGID(TGID_VacancyList[i]);
 
@@ -251,7 +239,7 @@ namespace DB_EDITOR
 
             teamPrestigeList.Sort((coach1, coach2) => coach2[2].CompareTo(coach1[2]));
 
-            for(int i = 0; i < GetTableRecCount("COCH"); i++)
+            for (int i = 0; i < GetTableRecCount("COCH"); i++)
             {
                 int cfuc = GetDBValueInt("COCH", "CFUC", i);
                 if (cfuc == 1)
@@ -359,7 +347,7 @@ namespace DB_EDITOR
                             string teamID = GetTeamName(Convert.ToInt32(GetDBValue("COCH", "TGID", x)));
                             int CYCD = GetDBValueInt("COCH", "CYCD", x);
                             int seyr = GetDBValueInt("SEAI", "SEYR", 0);
-                            if (verNumber > 15.0) CYCD = CYCD + seyr + 23; 
+                            if (verNumber > 15.0) CYCD = CYCD + seyr + 23;
 
                             int CPRE = GetDBValueInt("COCH", "CPRE", x);
 
@@ -475,7 +463,7 @@ namespace DB_EDITOR
              *  
              */
 
-        List<List<string>> TransferNews = new List<List<string>>();
+            List<List<string>> TransferNews = new List<List<string>>();
             int maxTransfers = 1800;
             int currentRecCount = GetTableRecCount("TRAN");
 
@@ -959,88 +947,88 @@ namespace DB_EDITOR
             while (PGID_List.Count >= 0 && !coachPromoted)
             {
                 //Randomly replace with Player
-                    int rec = FindRecNumberCCID(ccid);
+                int rec = FindRecNumberCCID(ccid);
 
-                    string coachFN = GetDBValue("COCH", "CLFN", rec);
-                    string coachLN = GetDBValue("COCH", "CLLN", rec);
+                string coachFN = GetDBValue("COCH", "CLFN", rec);
+                string coachLN = GetDBValue("COCH", "CLLN", rec);
 
-                    int y = rand.Next(0, PGID_List.Count);
-                    int recP = PGID_List[y];
+                int y = rand.Next(0, PGID_List.Count);
+                int recP = PGID_List[y];
 
-                    string playFN = GetFirstNameFromRecord(recP);
-                    string playLN = GetLastNameFromRecord(recP);
-                    string team = GetTeamName(Convert.ToInt32(GetDBValue("PLAY", "PGID", recP)) / 70);
-                    string pos = Positions[GetDBValueInt("PLAY", "PPOS", recP)];
+                string playFN = GetFirstNameFromRecord(recP);
+                string playLN = GetLastNameFromRecord(recP);
+                string team = GetTeamName(Convert.ToInt32(GetDBValue("PLAY", "PGID", recP)) / 70);
+                string pos = Positions[GetDBValueInt("PLAY", "PPOS", recP)];
 
-                    string PlayerName = playFN + " " + playLN;
+                string PlayerName = playFN + " " + playLN;
 
-                if (CoachList.Contains(PlayerName)) 
+                if (CoachList.Contains(PlayerName))
                 {
                     PGID_List.Remove(recP);
                     continue;
                 }
 
-                    ChangeDBString("COCH", "CLFN", rec, playFN);
-                    ChangeDBString("COCH", "CLLN", rec, playLN);
+                ChangeDBString("COCH", "CLFN", rec, playFN);
+                ChangeDBString("COCH", "CLLN", rec, playLN);
 
-                    //SKIN COLOR, need to convert to 0, 1, 5
+                //SKIN COLOR, need to convert to 0, 1, 5
 
-                    int skin = GetDBValueInt("PLAY", "PSKI", recP);
-                    if (skin > 3) skin = 5;
-                    else if (skin > 0) skin = 2;
-                    ChangeDBInt("COCH", "CSKI", rec, skin);
+                int skin = GetDBValueInt("PLAY", "PSKI", recP);
+                if (skin > 3) skin = 5;
+                else if (skin > 0) skin = 2;
+                ChangeDBInt("COCH", "CSKI", rec, skin);
 
-                    ChangeDBInt("COCH", "CHAR", rec, GetDBValueInt("PLAY", "PHCL", recP));
+                ChangeDBInt("COCH", "CHAR", rec, GetDBValueInt("PLAY", "PHCL", recP));
 
-                    ChangeDBInt("COCH", "CBSZ", rec, rand.Next(0, 3));
+                ChangeDBInt("COCH", "CBSZ", rec, rand.Next(0, 3));
 
-                    int x = rand.Next(0, 5);
-                    if (x > 0) x++;
-                    ChangeDBInt("COCH", "CThg", rec, x);
+                int x = rand.Next(0, 5);
+                if (x > 0) x++;
+                ChangeDBInt("COCH", "CThg", rec, x);
 
-                    ChangeDBInt("COCH", "CFEX", rec, rand.Next(0, 4));
-                    ChangeDBInt("COCH", "CTgw", rec, rand.Next(0, 2));
+                ChangeDBInt("COCH", "CFEX", rec, rand.Next(0, 4));
+                ChangeDBInt("COCH", "CTgw", rec, rand.Next(0, 2));
 
-                    x = rand.Next(0, 3);
-                    if (x == 1) ChangeDBInt("COCH", "CThg", rec, 1);
-                    else if (x == 2) ChangeDBInt("COCH", "CThg", rec, 0);
+                x = rand.Next(0, 3);
+                if (x == 1) ChangeDBInt("COCH", "CThg", rec, 1);
+                else if (x == 2) ChangeDBInt("COCH", "CThg", rec, 0);
 
-                    ChangeDBInt("COCH", "COHT", rec, x);
+                ChangeDBInt("COCH", "COHT", rec, x);
 
-                    CoachesAddedBox.Items.Add("Added: " + pos + " " + playFN + " " + playLN + "  [" + team + "]");
+                CoachesAddedBox.Items.Add("Added: " + pos + " " + playFN + " " + playLN + "  [" + team + "]");
 
-                    //Clear COCH Stats Data
-                    ClearCoachStats(rec);
-
-
-                    //Calculate COCH PRESTIGE
-                    int prestige = ConvertRating(GetDBValueInt("PLAY", "POVR", recP));
-
-                    if (prestige > 90) prestige = 4;
-                    else if (prestige > 83) prestige = 3;
-                    else if (prestige > 75) prestige = 2;
-                    else prestige = 1;
-
-                    ChangeDBInt("COCH", "CPRE", rec, prestige);
+                //Clear COCH Stats Data
+                ClearCoachStats(rec);
 
 
-                    //Determine Coaching Playbook and Strategies
-                    int TGID = Convert.ToInt32(GetDBValue("PLAY", "PGID", recP)) / 70;
-                    int recCOCH = -1;
+                //Calculate COCH PRESTIGE
+                int prestige = ConvertRating(GetDBValueInt("PLAY", "POVR", recP));
 
-                    for (int j = 0; j < GetTableRecCount("COCH"); j++)
+                if (prestige > 90) prestige = 4;
+                else if (prestige > 83) prestige = 3;
+                else if (prestige > 75) prestige = 2;
+                else prestige = 1;
+
+                ChangeDBInt("COCH", "CPRE", rec, prestige);
+
+
+                //Determine Coaching Playbook and Strategies
+                int TGID = Convert.ToInt32(GetDBValue("PLAY", "PGID", recP)) / 70;
+                int recCOCH = -1;
+
+                for (int j = 0; j < GetTableRecCount("COCH"); j++)
+                {
+                    if (GetDBValue("COCH", "TGID", j) == Convert.ToString(TGID))
                     {
-                        if (GetDBValue("COCH", "TGID", j) == Convert.ToString(TGID))
-                        {
-                            recCOCH = j;
-                        }
+                        recCOCH = j;
                     }
+                }
 
-                    AssignPlayerCoachStrategies(recCOCH, rec);
-                    coachPromoted = true;
+                AssignPlayerCoachStrategies(recCOCH, rec);
+                coachPromoted = true;
             }
 
-            if(!coachPromoted)
+            if (!coachPromoted)
             {
                 int rec = FindRecNumberCCID(ccid);
                 CreateFantasyCoach(rec);
@@ -1095,7 +1083,7 @@ namespace DB_EDITOR
             else if (cell == 2)
             {
                 int teamRec = FindTeamRecfromTeamName(Convert.ToString(CarouselDataGrid.Rows[row].Cells[2].Value));
-                
+
                 TeamIndex = teamRec;
                 tabControl1.SelectedTab = tabTeams;
                 GetTeamEditorData(teamRec);
@@ -1117,7 +1105,7 @@ namespace DB_EDITOR
                 LoadPlayerData();
             }
             //Team
-            else if(cell == 0)
+            else if (cell == 0)
             {
                 int teamRec = FindTeamRecfromTeamName(Convert.ToString(CoachPortalNews.Rows[row].Cells[0].Value));
                 TeamIndex = teamRec;

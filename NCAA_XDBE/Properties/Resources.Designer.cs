@@ -19,7 +19,7 @@ namespace DB_EDITOR.Properties {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -142,8 +142,8 @@ namespace DB_EDITOR.Properties {
         ///930,12,3,0,1,5,1
         ///1185,5,8,0,1,5,1
         ///720,2,11,0,2,5,2
-        ///1080,7,4,0,2,5,2
-        ///720,9,6,0,2,5,2
+        ///1080,4,7,0,2,5,2
+        ///720,6,9,0,2,5,2
         ///1200,1,4,0,3,5,3
         ///930,2,5,0,3,5,3
         ///750,3,6,0,3,4,3
@@ -164,9 +164,7 @@ namespace DB_EDITOR.Properties {
         ///930,10,9,0,6,5,6
         ///1140,1,8,0,7,5,7
         ///930,3,7,0,7,5,7
-        ///1140,5,12,0,7,5,7
-        ///750,2,9,0,8,4,8
-        ///1200,4 [rest of string was truncated]&quot;;.
+        ///1140,5,12,0,7 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _12_team {
             get {
@@ -175,36 +173,34 @@ namespace DB_EDITOR.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to GTOD,Away,Home,SESI,SEWN,GDAT,SEWT
-        ///1140,10,1,0,2,5,2
-        ///930,12,3,0,2,5,2
-        ///1185,5,8,0,2,5,2
-        ///720,2,11,0,1,5,1
-        ///1080,7,4,0,1,5,1
-        ///720,9,6,0,1,5,1
-        ///1200,1,4,0,4,5,4
-        ///930,2,5,0,4,5,4
-        ///750,3,6,0,4,4,4
-        ///720,7,10,0,4,5,4
-        ///930,8,11,0,4,5,4
-        ///750,9,12,0,4,5,4
-        ///1170,7,1,0,3,5,3
-        ///1185,8,2,0,3,4,3
-        ///720,9,3,0,3,5,3
-        ///720,10,4,0,3,5,3
-        ///930,11,5,0,3,4,3
-        ///930,12,6,0,3,5,3
-        ///930,5,1,0,5,5,5
-        ///1080,4,3,0,6,5,6
-        ///930,12,8,0,5,5,5
-        ///930,6,2,0,6,5,6
-        ///1200,11,7,0,5,5,5
-        ///930,10,9,0,6,5,6
-        ///1140,1,8,0,8,5,8
-        ///930,3,7,0,7,5,7
-        ///1140,5,12,0,8,5,8
-        ///750,2,9,0,7,4,7
-        ///1200,4 [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to GTOD,GATG,GHTG,SESI,SEWN,GDAT,SEWT
+        ///1230,12,7,0,1,5,1
+        ///1050,12,6,0,3,5,3
+        ///1260,7,4,0,3,5,3
+        ///780,2,3,0,3,5,3
+        ///630,10,11,0,3,5,3
+        ///1230,8,1,0,3,5,3
+        ///930,9,5,0,3,5,3
+        ///1050,2,8,0,4,5,4
+        ///690,11,4,0,4,5,4
+        ///1080,3,9,0,4,5,4
+        ///870,1,7,0,4,5,4
+        ///870,5,10,0,4,5,4
+        ///870,6,10,0,5,5,5
+        ///1230,8,5,0,5,5,5
+        ///570,11,2,0,5,5,5
+        ///1020,1,9,0,5,3,5
+        ///930,4,12,0,5,5,5
+        ///600,7,3,0,5,5,5
+        ///1170,8,12,0,6,5,6
+        ///540,5,4,0,6,5,6
+        ///570,1,11,0,6,5,6
+        ///1170,10,2,0,6,5,6
+        ///810,3,6,0,6,5,6
+        ///630,9,7,0,6,5,6
+        ///660,10,8,0,7,5,7
+        ///900,7,5,0,7,5,7
+        ///750,6,1,0,7 [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string _12_teamB {
             get {
@@ -432,6 +428,16 @@ namespace DB_EDITOR.Properties {
         internal static string _9_team {
             get {
                 return ResourceManager.GetString("_9_team", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap a8b2f8a5_0498_4135_8adb_4c9449fac9a6 {
+            get {
+                object obj = ResourceManager.GetObject("a8b2f8a5-0498-4135-8adb-4c9449fac9a6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -741,8 +747,8 @@ namespace DB_EDITOR.Properties {
         ///12,Boise State Broncos,Boise State
         ///13,Boston College Eagles,Boston College
         ///14,Bowling Green Falcons,Bowling Green
-        ///15,Brigham Young Cougars,BYU
-        ///16,California Golden Bear [rest of string was truncated]&quot;;.
+        ///16,Brigham Young Cougars,BYU
+        ///17,Califo [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string college_football_usa {
             get {
@@ -840,6 +846,16 @@ namespace DB_EDITOR.Properties {
         internal static string FantasyGenData {
             get {
                 return ResourceManager.GetString("FantasyGenData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap helmet {
+            get {
+                object obj = ResourceManager.GetObject("helmet", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         
@@ -1048,35 +1064,6 @@ namespace DB_EDITOR.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to PLDH,PLDL,PPOS,CAWT,KAWT,TAWT,PBWT,RBWT,ACWT,AGWT,TKWT,INWT,KPWT,SPWT,TPWT,BTWT,CTWT,STWT,JUWT,AWWT
-        ///92,35,0,0,0,30,0,0,6,6,0,0,0,14,26,0,0,0,0,20
-        ///95,35,1,10,0,0,0,0,10,10,0,0,0,25,0,25,5,0,0,5
-        ///82,35,2,2,0,0,1,8,2,1,0,0,0,2,0,2,6,2,0,3
-        ///95,35,3,0,0,0,0,0,10,10,0,0,0,25,0,5,30,0,5,5
-        ///85,35,4,0,0,0,1,3,2,2,0,0,0,4,0,1,5,3,0,3
-        ///96,35,5,0,0,0,6,5,1,1,0,0,0,1,0,0,0,4,0,4
-        ///92,35,6,0,0,0,4,6,2,1,0,0,0,2,0,0,0,4,0,4
-        ///92,35,7,0,0,0,4,6,2,1,0,0,0,2,0,0,0,4,0,4
-        ///92,35,8,0,0,0,4,6,2,1,0,0,0,2,0,0,0,4,0,4
-        ///96,35,9,0,0,0,6,5,1,1 [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string POCI_NEXT {
-            get {
-                return ResourceManager.GetString("POCI_NEXT", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] POCI_NEXT26 {
-            get {
-                object obj = ResourceManager.GetObject("POCI-NEXT26", resourceCulture);
-                return ((byte[])(obj));
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to LUVL,LURT
         ///0,40
         ///1,44
@@ -1196,28 +1183,6 @@ namespace DB_EDITOR.Properties {
         internal static string RCAT_MAPPER {
             get {
                 return ResourceManager.GetString("RCAT_MAPPER", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to PTHA,PSTA,PLEB,PREB,PKAC,PACC,PHED,PSPD,PPOE,PBRE,PEYE,PFSH,PLSH,PMSH,PRSH,PSSH,RATH,PCTH,PAGI,PSKI,PINJ,PTAK,PPBK,PRBK,PNEK,PFMK,PBTK,PHCL,SPSL,HELM,PHAN,PLHN,PRHN,PSLO,PTTO,PLFP,PTHP,PJMP,PCAR,PKPR,PSTR,PAWR,PDIS,PVIS,PFJS,PPOS,PLWS,PRWS,MRCT,PHGT,PWGT,PSLT
-        ///0,19,11,11,1,20,2,25,22,0,0,-1,0,-1,0,4,0,12,21,5,18,3,1,2,0,2,0,0,0,2,0,2,2,1,0,0,0,16,2,0,0,1,6,0,0,3,6,6,1,72,19,0
-        ///0,20,0,0,0,17,14,13,26,0,1,1,0,3,0,3,0,3,12,5,14,13,0,2,1,4,0,0,1,0,0,2,2,0,0,0,0,9,2,0,10,7,2,1,0,13,6,6,1,76,70,2
-        ///0,10,8,11,0,13,14, [rest of string was truncated]&quot;;.
-        /// </summary>
-        internal static string RCAT_NEXT {
-            get {
-                return ResourceManager.GetString("RCAT_NEXT", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Byte[].
-        /// </summary>
-        internal static byte[] RCAT_NEXT26 {
-            get {
-                object obj = ResourceManager.GetObject("RCAT-NEXT26", resourceCulture);
-                return ((byte[])(obj));
             }
         }
         
@@ -1423,16 +1388,7 @@ namespace DB_EDITOR.Properties {
         ///Ndago
         ///Brittain
         ///Bein
-        ///Spiewak
-        ///Dapore
-        ///Jefferson
-        ///Blum
-        ///Erickson
-        ///Goodwin
-        ///Karas
-        ///Hiestand
-        ///Kelly
-        /// [rest of string was truncated]&quot;;.
+        ///Spiewak [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string RCLN {
             get {
@@ -1582,9 +1538,7 @@ namespace DB_EDITOR.Properties {
         ///20,Cincinnati,Bearcats
         ///21,Clemson,Tigers
         ///22,Colorado,Buffaloes
-        ///23,Colorado State,Rams
-        ///24,Duke,Blue Devils
-        /// [rest of string was truncated]&quot;;.
+        ///23,Colorado State,Ram [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TeamDB {
             get {
@@ -1736,8 +1690,7 @@ namespace DB_EDITOR.Properties {
         ///Arizona,21,4,0
         ///Arizona,22,4,2
         ///Arizona,23,4,3
-        ///Arizona State,38,5,1
-        ///Ariz [rest of string was truncated]&quot;;.
+        /// [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string TUNI_MASTER {
             get {

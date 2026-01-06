@@ -1,16 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Runtime.InteropServices.ComTypes;
-// using System.Runtime.Remoting.Metadata.W3cXsd2001;
-using System.Security.Cryptography;
-using System.Text;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
-
+﻿// using System.Runtime.Remoting.Metadata.W3cXsd2001;
 namespace DB_EDITOR
 {
     partial class MainEditor : Form
@@ -47,11 +35,11 @@ namespace DB_EDITOR
                 string pos = Positions[GetDBValueInt("PLAY", "PPOS", rec)];
                 string name = GetPlayerNamefromPGID(pgid);
                 string team = teamNameDB[(int)(GetDBValueInt("PLAY", "PGID", rec) / 70)];
-                int rating = ConvertRating( GetDBValueInt("PLAY", "POVR", rec));
+                int rating = ConvertRating(GetDBValueInt("PLAY", "POVR", rec));
                 string injuryType = InjuryType[GetDBValueInt("INJY", "INJT", i)];
                 string injuryLength = InjuryLength[GetDBValueInt("INJY", "INJL", i)];
 
-                if(GetDBValueInt("PLAY", "PRSD", rec) == 1 || GetDBValueInt("PLAY", "PRSD", rec) == 3)
+                if (GetDBValueInt("PLAY", "PRSD", rec) == 1 || GetDBValueInt("PLAY", "PRSD", rec) == 3)
                 {
                     ChangeDBInt("INJY", "INJL", rec, 254);
                     injuryLength = "Season (RS)";
@@ -84,7 +72,7 @@ namespace DB_EDITOR
 
                     int rowIndex = InjuryGridView.SelectedRows[0].Index;
                     RemoveInjury(Convert.ToInt32(InjuryGridView.Rows[rowIndex].Cells[0].Value));
-                    
+
                     CompactDB();
 
                     LoadInjuryList(); // Refresh the grid after removal

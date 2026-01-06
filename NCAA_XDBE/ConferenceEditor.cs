@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
-
-namespace DB_EDITOR
+﻿namespace DB_EDITOR
 {
     partial class MainEditor : Form
     {
@@ -83,7 +74,7 @@ namespace DB_EDITOR
                 //MessageBox.Show("Please only make conference edits during pre-season, at end of season, or in off-season!\n\n\nFCS Swapping will only safely work at end of season or beginning of off-season!");
                 //tabConf.Enabled = false;
                 SwapButton.Enabled = false;
-                
+
             }
             else
             {
@@ -259,9 +250,9 @@ namespace DB_EDITOR
 
 
             foreach (var team in confTeams)
-                {
-                    conferenceBox.Items.Add(team[1]);
-                }
+            {
+                conferenceBox.Items.Add(team[1]);
+            }
 
             if (teams > 0) avg = prestige / teams;
             return avg;
@@ -540,7 +531,7 @@ namespace DB_EDITOR
             List<List<int>> PJEN = CreateJerseyNumberDB();
 
             List<List<string>> RCATmapper = CreateStringListsFromCSV(@"resources\players\RCAT-MAPPER.csv", false);
-            List<int>  AvailablePJEN = new List<int>();
+            List<int> AvailablePJEN = new List<int>();
             List<List<string>> teamData = new List<List<string>>();
             teamData = CreateStringListsFromCSV(@"resources\FantasyGenData.csv", true);
             int rec = GetTableRecCount("PLAY");
@@ -693,7 +684,7 @@ namespace DB_EDITOR
             CalculateTeamRatingsSingle("TEAM", NEWtgid);
 
             int leaguesize = 0;
-            for(int i = 0; i < GetTableRecCount("TEAM"); i++)
+            for (int i = 0; i < GetTableRecCount("TEAM"); i++)
             {
                 if (GetDBValueInt("TTYP", "TEAM", i) == 0) leaguesize++;
 

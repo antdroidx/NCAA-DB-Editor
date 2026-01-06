@@ -1,16 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Runtime.InteropServices.ComTypes;
-// using System.Runtime.Remoting.Metadata.W3cXsd2001;
-using System.Security.Cryptography;
-using System.Text;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
-
+﻿// using System.Runtime.Remoting.Metadata.W3cXsd2001;
 namespace DB_EDITOR
 {
     partial class MainEditor : Form
@@ -22,6 +10,7 @@ namespace DB_EDITOR
 
         private void StartPlayoffViewer()
         {
+            
             // Load Playoff Viewer
             LoadRound1();
             //PlayoffYearLabel.Text = "YEAR " + (GetDBValueInt("SEAI", "SEYR", 0) + 1);
@@ -58,7 +47,7 @@ namespace DB_EDITOR
             else
             {
                 GetRound1Matchups();
-                
+
                 GetQuarterFinalMatchups();
 
                 GetSemiFinalMatchups();
@@ -200,7 +189,7 @@ namespace DB_EDITOR
 
             for (int i = 0; i < GetTableRecCount("TEAM"); i++)
             {
-                if(GetDBValueInt("TEAM", "TTYP", i) == 0)
+                if (GetDBValueInt("TEAM", "TTYP", i) == 0)
                 {
                     int count = playoffTeams.Count;
                     playoffTeams.Add(new List<int>());
@@ -218,7 +207,7 @@ namespace DB_EDITOR
             List<List<int>> tmpList = new List<List<int>>();
 
             List<int> confs = new List<int>();
-            for(int i = 0; i < 15; i++)
+            for (int i = 0; i < 15; i++)
             {
                 confs.Add(0);
             }
@@ -266,7 +255,7 @@ namespace DB_EDITOR
                 int schdRec = FindSchdRecFromSGNM(sgnm, sewn);
 
                 int TGIDAway = GetDBValueInt("SCHD", "GATG", schdRec);
-                int TGIDAwayRec = FindTeamRecfromTGID(TGIDAway);  
+                int TGIDAwayRec = FindTeamRecfromTGID(TGIDAway);
                 int AwayScore = GetDBValueInt("SCHD", "GASC", schdRec);
 
                 int TGIDHome = GetDBValueInt("SCHD", "GHTG", schdRec);
@@ -278,11 +267,15 @@ namespace DB_EDITOR
                     int TGID = -1;
                     int rec = -1;
 
-                    if(AwayScore > HomeScore)
+                    if(AwayScore == HomeScore)
+                    {
+                        //Skip
+                    }
+                    else if (AwayScore > HomeScore)
                     {
                         TGID = TGIDAway;
                         rec = TGIDAwayRec;
-                    } 
+                    }
                     else
                     {
                         TGID = TGIDHome;
@@ -311,7 +304,7 @@ namespace DB_EDITOR
             //lbl.ForeColor = Color.FromArgb(GetDBValueInt("TEAM", "TFOR", teamRec), GetDBValueInt("TEAM", "TFOG", teamRec), GetDBValueInt("TEAM", "TFOB", teamRec));
             lbl.ForeColor = Color.White;
             lbl.BackColor = Color.FromArgb(GetDBValueInt("TEAM", "TFRD", teamRec), GetDBValueInt("TEAM", "TFFG", teamRec), GetDBValueInt("TEAM", "TFFB", teamRec));
-           
+
             return lbl;
         }
 
@@ -339,7 +332,7 @@ namespace DB_EDITOR
         {
             for (int i = 0; i < GetTableRecCount("SCHD"); i++)
             {
-                if(GetDBValueInt("SCHD", "SGNM", i) == sgnm && GetDBValueInt("SCHD", "SEWN", i) == sewn) return i; 
+                if (GetDBValueInt("SCHD", "SGNM", i) == sgnm && GetDBValueInt("SCHD", "SEWN", i) == sewn) return i;
             }
 
             return -1;

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Windows.Forms;
-
-namespace DB_EDITOR
+﻿namespace DB_EDITOR
 {
     static class Program
     {

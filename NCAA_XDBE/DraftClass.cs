@@ -1,17 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Runtime.InteropServices.ComTypes;
-// using System.Runtime.Remoting.Metadata.W3cXsd2001;
-using System.Security.Cryptography;
-using System.Text;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
-
+﻿// using System.Runtime.Remoting.Metadata.W3cXsd2001;
 namespace DB_EDITOR
 {
     partial class MainEditor : Form
@@ -65,7 +52,7 @@ namespace DB_EDITOR
                                 classCount++;
                                 ProgressBarStep();
                             }
-                            
+
                         }
 
                         /*
@@ -229,7 +216,7 @@ namespace DB_EDITOR
                     if (needed <= 0) break;
                 }
 
-                if (needed > 0)  MessageBox.Show("Not enough " + posName + " prospects available to fill draft class requirements. It requires " + needed + " more players. Please pick players to graduate in PLAYER EDITOR.");
+                if (needed > 0) MessageBox.Show("Not enough " + posName + " prospects available to fill draft class requirements. It requires " + needed + " more players. Please pick players to graduate in PLAYER EDITOR.");
 
             }
 
@@ -255,7 +242,7 @@ namespace DB_EDITOR
             AllPosPlayers.Sort((player1, player2) => player2[1].CompareTo(player1[1]));
 
 
-            if (TopPlayers.Count > count+1)
+            if (TopPlayers.Count > count + 1)
             {
                 for (int i = count; i < AllPosPlayers.Count + 2; i++)
                 {

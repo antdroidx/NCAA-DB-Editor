@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Diagnostics.Eventing.Reader;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace DB_EDITOR
+﻿namespace DB_EDITOR
 {
     partial class MainEditor : Form
     {
@@ -34,14 +25,14 @@ namespace DB_EDITOR
         }
 
         private void ScheduleGenerator()
-        {  
+        {
             //Check League Setup
-            if(LeagueConfCheck() == false)
+            if (LeagueConfCheck() == false)
             {
                 ScheduleError();
                 return;
             }
-            
+
 
             //Clear Regular Season Games
             ClearRegularSeasonSchedule();
@@ -208,7 +199,7 @@ namespace DB_EDITOR
                 {
                     int tgid = teamList[t];
                     teamGames.Add(0);
-                    if(tgid == BYE)
+                    if (tgid == BYE)
                     {
                         continue;
                     }
@@ -266,8 +257,8 @@ namespace DB_EDITOR
                         attempts++;
                     }
 
-                }  
-                
+                }
+
             }
 
         }

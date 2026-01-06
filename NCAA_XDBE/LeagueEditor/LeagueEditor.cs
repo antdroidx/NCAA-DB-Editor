@@ -1,16 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Reflection.Emit;
-using System.Runtime.InteropServices.ComTypes;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
+﻿using System.Text;
 using Label = System.Windows.Forms.Label;
 
 namespace DB_EDITOR
@@ -731,7 +719,7 @@ namespace DB_EDITOR
             if (verNumber <= 15.0) maxFBSTeams = 120;
             else maxFBSTeams = 136;
 
-            if (TeamCount == maxFBSTeams && AllValid ||verNumber <= 15.0 && TeamCount == maxFBSTeams-1 && AllValid)
+            if (TeamCount == maxFBSTeams && AllValid || verNumber <= 15.0 && TeamCount == maxFBSTeams - 1 && AllValid)
             {
                 SaveButton.Visible = true;
                 SaveButton.BackColor = Color.Crimson;
@@ -801,7 +789,7 @@ namespace DB_EDITOR
                         confBoxes[x].SelectedItems.Clear();
                         confBoxes[x].SelectedItem = selItem;
                         confBoxes[x].SetItemChecked(selected, false);
-                        confBoxes[x].SetItemChecked(selected-1, true);
+                        confBoxes[x].SetItemChecked(selected - 1, true);
                     }
                 }
             }
@@ -1185,7 +1173,7 @@ namespace DB_EDITOR
         #region Randomize League
         private void RandomizeLeagueButton_Click(object sender, EventArgs e)
         {
-            if(TeamSelectionBox.SelectedIndex < 0 || TeamsPerConfBox.SelectedIndex < 0)
+            if (TeamSelectionBox.SelectedIndex < 0 || TeamsPerConfBox.SelectedIndex < 0)
             {
                 MessageBox.Show("Please choose the league configuration first!");
                 return;
@@ -1198,7 +1186,7 @@ namespace DB_EDITOR
             //Clear Conferences
             ClearLeague();
             int teamCount = Convert.ToInt32(TeamsPerConfBox.SelectedItem);
-            int confCount = maxFBSTeams/teamCount;
+            int confCount = maxFBSTeams / teamCount;
             int league = Convert.ToInt32(TeamSelectionBox.SelectedIndex);
             List<CheckedListBox> confBoxes = GetConfBoxObjects();
             List<NumericUpDown> prestigeBoxes = GetConfPrestigeBoxes();
@@ -1206,11 +1194,11 @@ namespace DB_EDITOR
 
             for (int i = 0; i < main.GetTableRecCount("TEAM"); i++)
             {
-                if(league == 2 && main.GetDBValueInt("TEAM", "TTYP", i) < 2 || main.GetDBValueInt("TEAM", "TTYP", i) == league) 
+                if (league == 2 && main.GetDBValueInt("TEAM", "TTYP", i) < 2 || main.GetDBValueInt("TEAM", "TTYP", i) == league)
                     teamList.Add(main.GetDBValue("TEAM", "TDNA", i));
             }
 
-            if (league ==1)
+            if (league == 1)
             {
                 for (int i = 0; 1 < (121 - teamList.Count); i++)
                 {

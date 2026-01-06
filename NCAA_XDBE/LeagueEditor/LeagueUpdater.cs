@@ -1,16 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
-using Label = System.Windows.Forms.Label;
-
-namespace DB_EDITOR
+﻿namespace DB_EDITOR
 {
     partial class LeagueMain : Form
     {
@@ -170,7 +158,7 @@ namespace DB_EDITOR
                     main.GenerateFantasyRoster(tgid, 1, true);
 
                     int leaguesize = 120;
-                   if(verNumber >= 16.0) leaguesize = 136;
+                    if (verNumber >= 16.0) leaguesize = 136;
                     main.DepthChartMakerSingle("TEAM", tgid, leaguesize, true);
                     progressBar1.PerformStep();
                 }
@@ -184,8 +172,8 @@ namespace DB_EDITOR
             progressBar1.Visible = true;
             progressBar1.Value = 0;
 
-            
-            
+
+
             //Schedule 
             ScheduleGenerator();
 
@@ -195,27 +183,27 @@ namespace DB_EDITOR
             progressBar1.Value = 0;
         }
 
-        private void CheckConfCountDB() 
+        private void CheckConfCountDB()
         {
             List<int> Conferences = new List<int>();
-            for(int i = 0; i < main.GetTableRecCount("CONF"); i++)
+            for (int i = 0; i < main.GetTableRecCount("CONF"); i++)
             {
                 if (main.GetDBValueInt("CONF", "CGID", i) < 15 || main.GetDBValueInt("CONF", "CGID", i) > 17 && main.GetDBValueInt("CONF", "CGID", i) != 24)
                     Conferences.Add(i);
             }
 
             List<int> CountTeam17 = new List<int>();
-            for(int i = 0; i < main.GetTableRecCount("TEAM"); i++)
+            for (int i = 0; i < main.GetTableRecCount("TEAM"); i++)
             {
-                if(main.GetDBValueInt("TEAM", "CGID", i) == 17) CountTeam17.Add(i);
+                if (main.GetDBValueInt("TEAM", "CGID", i) == 17) CountTeam17.Add(i);
             }
 
-            for(int i = 0; i < Conferences.Count; i++)
+            for (int i = 0; i < Conferences.Count; i++)
             {
                 bool teams = false;
                 for (int t = 0; t < main.GetTableRecCount("TEAM"); t++)
                 {
-                    if (main.GetDBValueInt("TEAM", "CGID", t) == Conferences[i]) 
+                    if (main.GetDBValueInt("TEAM", "CGID", t) == Conferences[i])
                     {
                         teams = true;
                         break;

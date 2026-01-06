@@ -1,16 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
-using ComboBox = System.Windows.Forms.ComboBox;
-using Label = System.Windows.Forms.Label;
+﻿using ComboBox = System.Windows.Forms.ComboBox;
 
 namespace DB_EDITOR
 {
@@ -50,7 +38,7 @@ namespace DB_EDITOR
 
             for (int i = 0; i < main.GetTableRecCount("CONF"); i++)
             {
-                if(main.GetDBValueInt("CONF", "LGID", i) == 0) comboBox.Items.Add(main.GetDBValue("CONF", "CNAM", i));
+                if (main.GetDBValueInt("CONF", "LGID", i) == 0) comboBox.Items.Add(main.GetDBValue("CONF", "CNAM", i));
             }
 
             comboBox.Items.Add("At-Large");
@@ -94,7 +82,7 @@ namespace DB_EDITOR
         private ComboBox BowlDates()
         {
             ComboBox comboBox = new ComboBox();
-            for(int i = 1; i < 32; i++)
+            for (int i = 1; i < 32; i++)
             {
                 comboBox.Items.Add(i);
             }
@@ -107,7 +95,7 @@ namespace DB_EDITOR
             BowlsGrid.Rows.Clear();
             List<int> confChampExtras = CheckForExtraConfChamps();
 
-            for(int i = 0; i < main.GetTableRecCount("BOWL"); i++)
+            for (int i = 0; i < main.GetTableRecCount("BOWL"); i++)
             {
                 BowlsGrid.Rows.Add(new DataGridViewRow());
                 if (main.GetTableRecCount("BOWL") > 40 && main.GetDBValueInt("BOWL", "BIDX", i) < 28 || main.GetTableRecCount("BOWL") > 40 && main.GetDBValueInt("BOWL", "BIDX", i) >= 54 || main.GetTableRecCount("BOWL") < 40 && main.GetDBValueInt("BOWL", "BIDX", i) == 0 || main.GetTableRecCount("BOWL") < 40 && main.GetDBValueInt("BOWL", "BIDX", i) > 16)
@@ -183,7 +171,7 @@ namespace DB_EDITOR
 
         private void SaveBowlButton_Click(object sender, EventArgs e)
         {
-            if(CheckBowlTable())
+            if (CheckBowlTable())
             {
                 SaveBowlData();
             }
@@ -211,7 +199,7 @@ namespace DB_EDITOR
 
         private void BowlCellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            if(DISABLE) return;
+            if (DISABLE) return;
             DataGridView row = (DataGridView)sender;
 
             if (BowlsGrid.Rows[row.SelectedCells[0].RowIndex].Cells[1].Style.ForeColor == Color.Red)
@@ -224,7 +212,7 @@ namespace DB_EDITOR
         {
             //Determine rec for conf champ that needs to be replaced
             int rec = -1;
-            for(int i = 0; i < main.GetTableRecCount("BOWL"); i++)
+            for (int i = 0; i < main.GetTableRecCount("BOWL"); i++)
             {
                 if (main.GetDBValueInt("BOWL", "BIDX", i) == currentBIDX) rec = i;
             }
@@ -276,7 +264,7 @@ namespace DB_EDITOR
                 main.ChangeDBInt("BOWL", "SGID", i, main.GetSGIDfromTDNA(Convert.ToString(BowlsGrid.Rows[i].Cells[6].Value)));
                 main.ChangeDBInt("BOWL", "BMON", i, Convert.ToInt32(BowlsGrid.Rows[i].Cells[7].Value));
                 main.ChangeDBInt("BOWL", "BDAY", i, Convert.ToInt32(BowlsGrid.Rows[i].Cells[8].Value));
-                if(Convert.ToInt32(BowlsGrid.Rows[i].Cells[0].Value) < 28)
+                if (Convert.ToInt32(BowlsGrid.Rows[i].Cells[0].Value) < 28)
                 {
                     main.ChangeDBInt("BOWL", "SGNM", i, 127);
                     main.ChangeDBInt("BOWL", "SEWN", i, 31);
@@ -298,7 +286,7 @@ namespace DB_EDITOR
         {
             for (int i = 0; i < BowlsGrid.Rows.Count; i++)
             {
-                if(main.GetTableRecCount("BOWL") > 40 && Convert.ToInt32(BowlsGrid.Rows[i].Cells[0].Value) < 54)
+                if (main.GetTableRecCount("BOWL") > 40 && Convert.ToInt32(BowlsGrid.Rows[i].Cells[0].Value) < 54)
                 {
                     BowlsGrid.Rows[i].Cells[2].Value = "At-Large";
                     BowlsGrid.Rows[i].Cells[3].Value = 0;

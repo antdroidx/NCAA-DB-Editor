@@ -1,16 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Runtime.InteropServices.ComTypes;
-// using System.Runtime.Remoting.Metadata.W3cXsd2001;
-using System.Security.Cryptography;
-using System.Text;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
-
+﻿// using System.Runtime.Remoting.Metadata.W3cXsd2001;
 namespace DB_EDITOR
 {
     partial class MainEditor : Form
@@ -32,14 +20,14 @@ namespace DB_EDITOR
 
         private void LoadPOCIGridData()
         {
-            for(int i = 0; i < GetTableRecCount("POCI"); i++)
+            for (int i = 0; i < GetTableRecCount("POCI"); i++)
             {
                 int ppos = GetDBValueInt("POCI", "PPOS", i);
                 POCIGridView.Rows[ppos].Cells[0].Value = Positions[ppos];
 
                 for (int j = 0; j < TDB.FieldCount(dbIndex, "POCI"); j++)
                 {
-                   
+
                     var fieldProps = new TdbFieldProperties();
                     fieldProps.Name = new string((char)0, 5);
                     TDB.TDBFieldGetProperties(dbSelected, "POCI", j, ref fieldProps);
@@ -55,7 +43,7 @@ namespace DB_EDITOR
 
 
                     if (col > 0) POCIGridView.Rows[ppos].Cells[col].Value = GetDBValueInt("POCI", fieldProps.Name, i);
-                    
+
                 }
             }
 

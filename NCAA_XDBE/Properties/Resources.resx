@@ -127,6 +127,9 @@
   <data name="TeamDB" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\teams\TeamDB.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
+  <data name="INJT" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\injuries\INJT.csv;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="temp_data" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\misc\temp-data.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
@@ -136,14 +139,14 @@
   <data name="transfers_gen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\rosters\transfers-gen.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="save3" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\images\save3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="_12_teamB" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\schedules\12-teamB.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="_16_team" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\schedules\16-team.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  </data>
+  <data name="INJL" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\injuries\INJL.csv;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="weather_data" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\misc\weather-data.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
@@ -172,6 +175,9 @@
   <data name="_11_team" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\schedules\11-team.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
+  <data name="helmet" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\helmet.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="SRGN" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\misc\SRGN.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
@@ -199,14 +205,14 @@
   <data name="ncaa_db_editor_TITLE" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\images\ncaa-db-editor-TITLE.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="RCAT_NEXT" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RCAT-NEXT.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
-  </data>
   <data name="PTEN" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\players\PTEN.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
   <data name="attributes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\players\attributes.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;iso-8859-1</value>
+  </data>
+  <data name="PlayerPicture" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>C:\Users\ahngu\OneDrive\Pictures\Screenshots\PlayerPicture.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="ncaa_db_editor_icon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\images\ncaa-db-editor-icon.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -217,8 +223,8 @@
   <data name="open2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\images\open2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="POCI_NEXT" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\POCI-NEXT.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
+  <data name="COCH-AGE" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\misc\COCH-AGE.csv;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="_8_team" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\schedules\8-team.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
@@ -237,6 +243,9 @@
   </data>
   <data name="def file" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\images\def file.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="save3" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\images\save3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="college_football_usa" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\college-football-usa.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
@@ -262,22 +271,7 @@
   <data name="_12_team" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\schedules\12-team.csv;System.String, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089;Windows-1252</value>
   </data>
-  <data name="PlayerPicture" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>C:\Users\ahngu\OneDrive\Pictures\Screenshots\PlayerPicture.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="RCAT-NEXT26" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\RCAT-NEXT26.csv;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="POCI-NEXT26" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\POCI-NEXT26.csv;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="INJL" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\injuries\INJL.csv;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="INJT" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\injuries\INJT.csv;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="COCH-AGE" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\misc\COCH-AGE.csv;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="a8b2f8a5-0498-4135-8adb-4c9449fac9a6" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\a8b2f8a5-0498-4135-8adb-4c9449fac9a6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -1,17 +1,5 @@
-﻿using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Runtime.InteropServices.ComTypes;
+﻿using System.Reflection;
 // using System.Runtime.Remoting.Metadata.W3cXsd2001;
-using System.Security.Cryptography;
-using System.Text;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.Rebar;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace DB_EDITOR
 {
@@ -77,7 +65,7 @@ namespace DB_EDITOR
             CreateLastNamesDB();
 
             List<List<string>> teamData = new List<List<string>>();
-            if(verNumber >= 16.0) teamData = CreateStringListsFromCSV(@"resources\FantasyGenData136.csv", true);
+            if (verNumber >= 16.0) teamData = CreateStringListsFromCSV(@"resources\FantasyGenData136.csv", true);
             else teamData = CreateStringListsFromCSV(@"resources\FantasyGenData.csv", true);
 
             int rec = 0;
@@ -87,14 +75,14 @@ namespace DB_EDITOR
                 if (FBSroster.Checked) leagueType = 0; //FBS
                 else leagueType = 1; //FCS
 
-                for(int i = 0; i < GetTableRecCount(tableName); i++)
+                for (int i = 0; i < GetTableRecCount(tableName); i++)
                 {
                     DeleteRecord(tableName, i, true);
                 }
                 CompactDB();
 
                 int r = 0;
-                for(int i = 0; i < teamData.Count; i++)
+                for (int i = 0; i < teamData.Count; i++)
                 {
                     if (Convert.ToInt32(teamData[i][3]) == leagueType)
                     {
@@ -105,7 +93,7 @@ namespace DB_EDITOR
                 }
             }
 
-            
+
             for (int i = 0; i < GetTableRecCount(tableName); i++)
             {
                 if (TDYN || GetDBValueInt(tableName, "TTYP", i) == 0)
@@ -113,13 +101,13 @@ namespace DB_EDITOR
                     int TOID = GetDBValueInt(tableName, "TOID", i);
                     int rating = GetFantasyTeamRating(teamData, TOID);
 
-                    GenerateFantasyRoster(TOID, rating, true);   
+                    GenerateFantasyRoster(TOID, rating, true);
 
                     //Finish team and perform step counter
                     ProgressBarStep();
                 }
             }
-            
+
 
             EndProgressBar();
             MessageBox.Show("Fantasy Players Created!");
@@ -335,7 +323,7 @@ namespace DB_EDITOR
                     int currentPJEN = GetDBValueInt("PLAY", "PJEN", rec);
                     if (AvailablePJEN.Contains(currentPJEN))
                     {
-                        int newPJEN = ChooseAvailableJerseyNumber(ppos, (PGID/70), AvailablePJEN);
+                        int newPJEN = ChooseAvailableJerseyNumber(ppos, (PGID / 70), AvailablePJEN);
                         ChangeDBInt("PLAY", "PJEN", rec, newPJEN);
                         AvailablePJEN.Add(newPJEN);
                     }
@@ -360,11 +348,11 @@ namespace DB_EDITOR
         //Randomize the Players to give a little bit more variety and evaluation randomness
         private void RandomizeAttribute(string TableName, int rec, int teamRating)
         {
-            int tolEXP = (int)(GetDBValueInt(TableName, "PYER", rec)*2.5);
-       
+            int tolEXP = (int)(GetDBValueInt(TableName, "PYER", rec) * 2.5);
+
             int tolRAND = 3;  //half the tolerance for specific attributes
 
-            teamRating = (int)((teamRating-2)*4);
+            teamRating = (int)((teamRating - 2) * 4);
 
             //PTHA	PSTA	PKAC	PACC	PSPD	PPOE	PCTH	PAGI	PINJ	PTAK	PPBK	PRBK	PBTK	PTHP	PJMP	PCAR	PKPR	PSTR	PAWR
             //PPOE, PINJ, PAWR
@@ -531,9 +519,9 @@ namespace DB_EDITOR
             return jersey;
         }
 
-        private int ChooseAvailableJerseyNumber(int PPOS, int TGID, List<int> teamPJENList )
+        private int ChooseAvailableJerseyNumber(int PPOS, int TGID, List<int> teamPJENList)
         {
-            List<List<int>> PJEN  = CreateJerseyNumberDB();
+            List<List<int>> PJEN = CreateJerseyNumberDB();
             int jersey = 99;
 
             for (int i = 0; i < PJEN.Count; i++)
@@ -683,10 +671,10 @@ namespace DB_EDITOR
             ChangeDBInt("COCH", "CThg", rec, x);
 
             ChangeDBInt("COCH", "CFEX", rec, rand.Next(0, 6));
-            
+
             //set face based on age
             if (age < 20) ChangeDBInt("COCH", "CFEX", rec, rand.Next(0, 2));
-            else if (age < 40) ChangeDBInt("COCH", "CFEX", rec, rand.Next(2,4));
+            else if (age < 40) ChangeDBInt("COCH", "CFEX", rec, rand.Next(2, 4));
             else ChangeDBInt("COCH", "CFEX", rec, rand.Next(4, 6));
 
             ChangeDBInt("COCH", "CTgw", rec, rand.Next(0, 2));

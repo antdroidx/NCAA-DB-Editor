@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Windows.Forms;
+﻿using System.Reflection;
 
 namespace DB_EDITOR
 {
@@ -14,7 +9,7 @@ namespace DB_EDITOR
         private void ImportDB()
         {
             bool roster = true;
-            if(TDB.TableCount(dbSelected) > 3) roster = false;
+            if (TDB.TableCount(dbSelected) > 3) roster = false;
 
             Dictionary<string, int> AvailableFields = new Dictionary<string, int>();
             Dictionary<string, int> TableFields = new Dictionary<string, int>();
@@ -44,7 +39,7 @@ namespace DB_EDITOR
             }
             else if (tabDelimited)
                 openFileDialog2.Filter = "TXT Files (*.txt)|*.txt|All files (*.*)|*.*";
-            else 
+            else
                 openFileDialog2.Filter = "CSV Files (*.csv)|*.csv|All files (*.*)|*.*";
 
             if (exportAll || openFileDialog2.ShowDialog() == DialogResult.OK)
@@ -257,7 +252,7 @@ namespace DB_EDITOR
 
                         }
 
-                        if (TableProps.Name == "PLAY" && TDB.FieldIndex(dbSelected, SelectedTableName, "PF10") == 0 && !roster && record.Length > 97|| TableProps.Name == "PLAY" && TDB.FieldIndex(dbSelected, SelectedTableName, "PF10") == 0 && roster && record.Length > 86)
+                        if (TableProps.Name == "PLAY" && TDB.FieldIndex(dbSelected, SelectedTableName, "PF10") == 0 && !roster && record.Length > 97 || TableProps.Name == "PLAY" && TDB.FieldIndex(dbSelected, SelectedTableName, "PF10") == 0 && roster && record.Length > 86)
                         {
                             ConvertFirstNameStringToInt(record[importtmpfieldindex + 1], recnum, "PLAY");
                             ConvertLastNameStringToInt(record[importtmpfieldindex + 2], recnum, "PLAY");
@@ -276,7 +271,7 @@ namespace DB_EDITOR
                     DBModified = true;
                     saveMenuItem.Enabled = true;
                     GetTableProperties();
-                    if(!exportAll) LoadFields();
+                    if (!exportAll) LoadFields();
 
                 }
 

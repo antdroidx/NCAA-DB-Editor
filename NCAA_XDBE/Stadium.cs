@@ -1,15 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Runtime.InteropServices.ComTypes;
+﻿using System.Reflection;
 // using System.Runtime.Remoting.Metadata.W3cXsd2001;
-using System.Security.Cryptography;
-using System.Text;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace DB_EDITOR
 {
@@ -137,7 +127,7 @@ namespace DB_EDITOR
                 ChangeDBInt("STAD", "STwp", StadiumIndex, 0);
             }
 
-            if(STADcat.Checked)
+            if (STADcat.Checked)
             {
                 CATStadiumGroupBox.Enabled = true;
                 int CTCDRec = FindCTCDRec(GetDBValueInt("STAD", "SGID", StadiumIndex));
@@ -689,7 +679,7 @@ namespace DB_EDITOR
 
         private int[,] GetTemperatureData()
         {
-            int[,] tempData = new int[511,2];
+            int[,] tempData = new int[511, 2];
             string location = @"resources\misc\temp-data.csv";
             string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
             string csvLocation = Path.Combine(executableLocation, location);
@@ -709,7 +699,7 @@ namespace DB_EDITOR
                 {
                     for (int column = 1; column < Line.Length; column++)
                     {
-                        tempData[Convert.ToInt32(Line[0]), column-1] = Convert.ToInt32(Line[column]);
+                        tempData[Convert.ToInt32(Line[0]), column - 1] = Convert.ToInt32(Line[column]);
                     }
                 }
 
@@ -723,7 +713,7 @@ namespace DB_EDITOR
 
         private void GrassToTurf_Click(object sender, EventArgs e)
         {
-            for(int i = 0; i < GetTableRecCount("STAD"); i++)
+            for (int i = 0; i < GetTableRecCount("STAD"); i++)
             {
                 if (GetDBValueInt("STAD", "SFTY", i) <= 1)
                 {

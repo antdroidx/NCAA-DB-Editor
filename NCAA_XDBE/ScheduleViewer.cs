@@ -1,18 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.IO;
-using System.Linq;
-using System.Reflection;
-using System.Runtime.InteropServices;
-using System.Runtime.InteropServices.ComTypes;
-// using System.Runtime.Remoting.Metadata.W3cXsd2001;
-using System.Security.Cryptography;
-using System.Text;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.TreeView;
-
+﻿// using System.Runtime.Remoting.Metadata.W3cXsd2001;
 namespace DB_EDITOR
 {
     partial class MainEditor : Form
@@ -308,8 +294,8 @@ namespace DB_EDITOR
             List<string> fcslist = new List<string>();
             for (int i = 0; i < GetTableRecCount("TEAM"); i++)
             {
-                if(GetDBValueInt("TEAM", "TTYP", i) == 1)
-                fcslist.Add(GetDBValue("TEAM", "TDNA", i));
+                if (GetDBValueInt("TEAM", "TTYP", i) == 1)
+                    fcslist.Add(GetDBValue("TEAM", "TDNA", i));
             }
 
             for (int i = 0; i < GetTableRecCount("SCHD"); i++)
@@ -395,13 +381,13 @@ namespace DB_EDITOR
                     if (fcslist.Contains(teamNameH) || fcslist.Contains(teamNameA))
                         ScheduleView.Rows[w].Cells[0].Value = "FCS";
 
-                    
+
                 }
             }
 
             int topW = 0;
             int lowscore = 1000;
-            for(int i = 0; i < GameScore.Count; i++)
+            for (int i = 0; i < GameScore.Count; i++)
             {
                 if (GameScore[i] > 0 && GameScore[i] < lowscore)
                 {
