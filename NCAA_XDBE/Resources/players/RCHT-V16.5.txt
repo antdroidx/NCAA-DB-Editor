@@ -1,0 +1,5238 @@
+RCHD	RCHN
+0	Birmingham
+1	Huntsville
+2	Mobile
+3	Montgomery
+4	Tuscaloosa
+5	Auburn
+6	Hoover
+7	Florence
+8	Anniston
+9	Dothan
+10	Madison
+11	Decatur
+12	Prattville
+13	Vestavia Hills
+14	Phenix City
+15	Alabaster
+16	Gadsden
+17	Opelika
+18	Northport
+19	Enterprise
+20	Daphne
+21	Homewood
+22	Athens
+23	Trussville
+24	Bessemer
+25	Pelham
+26	Fairhope
+27	Albertville
+28	Foley
+29	Mountain Brook
+30	Oxford
+31	Helena
+32	Prichard
+33	Cullman
+34	Troy
+35	Tillmans Corner
+36	Selma
+37	Calera
+38	Millbrook
+39	Muscle Shoals
+40	Hueytown
+41	Saraland
+42	Center Point
+43	Gardendale
+44	Gulf Shores
+45	Chelsea
+46	Scottsboro
+47	Hartselle
+48	Talladega
+49	Fort Payne
+50	Alexander City
+51	Jasper
+52	Ozark
+53	Jacksonville
+54	McCalla
+55	Irondale
+56	Moody
+57	Pell City
+58	Eufaula
+59	Sylacauga
+60	Leeds
+61	Boaz
+62	Russellville
+63	Saks
+64	Valley
+65	Spanish Fort
+66	Clay
+67	Meridianville
+68	Rainbow City
+69	Pike Road
+70	Fairfield
+71	Fultondale
+72	Pleasant Grove
+73	Southside
+74	Sheffield
+75	Forestdale
+76	Tuscumbia
+77	Tuskegee
+78	Meadowbrook
+79	Clanton
+80	Andalusia
+81	Guntersville
+82	Arab
+83	Brook Highland
+84	Atmore
+85	Orange Beach
+86	Bay Minette
+87	Pinson
+88	Montevallo
+89	Greenville
+90	Wetumpka
+91	Lincoln
+92	Demopolis
+93	Robertsdale
+94	Oneonta
+95	Hamilton
+96	Lanett
+97	Satsuma
+98	Opp
+99	Harvest
+100	Chickasaw
+101	Moores Mill
+102	Tarrant
+103	Grayson Valley
+104	Monroeville
+105	Attalla
+106	Holtville
+107	Highland Lakes
+108	Rainsville
+109	Margaret
+110	Smiths Station
+111	Semmes
+112	Glencoe
+113	Roanoke
+114	Brewton
+115	Redland
+116	Fort Rucker
+117	Headland
+118	Midfield
+119	Tallassee
+120	Odenville
+121	Winfield
+122	Theodore
+123	Springville
+124	Daleville
+125	Piedmont
+126	Childersburg
+127	Jackson
+128	Columbiana
+129	Hokes Bluff
+130	Argo
+131	Kimberly
+132	Adamsville
+133	Haleyville
+134	Lake View
+135	Pine Level
+136	Geneva
+137	Fayette
+138	Valley Grande
+139	Loxley
+140	Ladonia
+141	Citronelle
+142	Hazel Green
+143	Grand Bay
+144	West End-Cobb Town
+145	Thomasville
+146	Centre
+147	Priceville
+256	Anchorage
+257	Fairbanks
+258	Juneau
+259	Badger
+260	Knik-Fairview
+261	College
+262	North Lakes
+263	Tanaina
+264	Wasilla
+265	Meadow Lakes
+266	Sitka
+267	Ketchikan
+268	Kalifornsky
+269	Kenai
+270	Sterling
+271	Gateway
+272	Bethel
+273	Palmer
+274	South Lakes
+275	Chena Ridge
+276	Steele Creek
+277	Homer
+278	Kodiak
+279	Fishhook
+280	Farmers Loop
+512	Phoenix
+513	Tucson
+514	Mesa
+515	Chandler
+516	Gilbert
+517	Glendale
+518	Scottsdale
+519	Peoria
+520	Tempe
+521	Surprise
+522	Yuma
+523	San Tan Valley
+524	Goodyear
+525	Buckeye
+526	Prescott Valley
+527	Avondale
+528	Flagstaff
+529	Casas Adobes
+530	Maricopa
+531	Queen Creek
+532	Lake Havasu City
+533	Casa Grande
+534	Marana
+535	Catalina Foothills
+536	Oro Valley
+537	Prescott
+538	Sierra Vista
+539	Bullhead City
+540	Apache Junction
+541	Sun City
+542	San Luis
+543	El Mirage
+544	Sahuarita
+545	Kingman
+546	Fortuna Foothills
+547	Drexel Heights
+548	Sun City West
+549	Florence
+550	Fountain Hills
+551	Anthem
+552	Rio Rico
+553	Green Valley
+554	Nogales
+555	New River
+556	Flowing Wells
+557	Eloy
+558	Payson
+559	Douglas
+560	Vail
+561	Fort Mohave
+562	Tanque Verde
+563	Coolidge
+564	Somerton
+565	New Kingman-Butler
+566	Sierra Vista Southeast
+567	Sun Lakes
+568	Valencia West
+569	Chino Valley
+570	Tucson Estates
+571	Verde Village
+572	Paradise Valley
+573	Saddlebrooke
+574	Cottonwood
+575	Gold Canyon
+576	Camp Verde
+577	Show Low
+578	Tucson Mountains
+579	Safford
+580	Sedona
+581	Picture Rocks
+582	Corona de Tucson
+583	Winslow
+584	Arizona City
+585	Tuba City
+586	Golden Valley
+587	Wickenburg
+588	Page
+589	Tolleson
+590	Globe
+591	Youngtown
+592	Catalina
+593	Litchfield Park
+594	Avra Valley
+595	Snowflake
+596	Village of Oak Creek
+597	Williamson
+598	Doney Park
+599	Rincon Valley
+600	Kayenta
+601	Thatcher
+602	Benson
+603	Guadalupe
+604	Citrus Park
+605	Three Points
+606	Cave Creek
+607	Bisbee
+608	Paulden
+609	Holbrook
+610	San Carlos
+611	Clarkdale
+612	Lake Montezuma
+613	South Tucson
+614	Dewey-Humboldt
+615	Summit
+616	Eagar
+617	Chinle
+618	Whiteriver
+619	Pinetop-Lakeside
+620	Taylor
+621	Clifton
+622	Avenue B and C
+623	Ajo
+768	Little Rock
+769	Fayetteville
+770	Fort Smith
+771	Springdale
+772	Jonesboro
+773	Rogers
+774	Conway
+775	North Little Rock
+776	Bentonville
+777	Pine Bluff
+778	Hot Springs
+779	Benton
+780	Sherwood
+781	Bella Vista
+782	Paragould
+783	Texarkana
+784	Jacksonville
+785	Russellville
+786	Cabot
+787	West Memphis
+788	Van Buren
+789	Searcy
+790	Bryant
+791	Centerton
+792	Maumelle
+793	Siloam Springs
+794	El Dorado
+795	Hot Springs Village
+796	Marion
+797	Harrison
+798	Blytheville
+799	Mountain Home
+800	Forrest City
+801	Batesville
+802	Magnolia
+803	Malvern
+804	Lowell
+805	Camden
+806	Arkadelphia
+807	Greenwood
+808	Clarksville
+809	Helena-West Helena
+810	Hope
+811	Beebe
+812	Farmington
+813	Monticello
+814	Wynne
+815	Stuttgart
+816	Newport
+817	Pocahontas
+818	Prairie Grove
+819	Trumann
+820	Pea Ridge
+821	Heber Springs
+822	Morrilton
+823	Osceola
+824	Ward
+825	East End
+826	De Queen
+827	Alma
+828	Greenbrier
+829	Cave Springs
+830	Tontitown
+831	Berryville
+832	Mena
+833	White Hall
+834	Walnut Ridge
+835	Warren
+836	Cherokee Village
+837	Sheridan
+838	Barling
+839	Crossett
+840	Shannon Hills
+841	Dardanelle
+842	Piney
+843	Vilonia
+844	Lonoke
+845	Southside
+846	Brookland
+847	Ashdown
+848	Gibson
+849	Nashville
+850	Gentry
+851	Haskell
+852	Rockwell
+853	Dumas
+1024	Los Angeles
+1025	San Francisco
+1026	San Diego
+1027	Riverside
+1028	Sacramento
+1029	San Jose
+1030	Fresno
+1031	Mission Viejo
+1032	Bakersfield
+1033	Concord
+1034	Long Beach
+1035	Oakland
+1036	Stockton
+1037	Oxnard
+1038	Indio
+1039	Victorville
+1040	Modesto
+1041	Anaheim
+1042	Antioch
+1043	Santa Ana
+1044	Irvine
+1045	Santa Rosa
+1046	Chula Vista
+1047	Santa Clarita
+1048	Fremont
+1049	San Bernardino
+1050	Fontana
+1051	Moreno Valley
+1052	Thousand Oaks
+1053	Huntington Beach
+1054	Santa Barbara
+1055	Glendale
+1056	Ontario
+1057	Elk Grove
+1058	Hemet
+1059	Rancho Cucamonga
+1060	Salinas
+1061	Oceanside
+1062	Vallejo
+1063	Garden Grove
+1064	Lancaster
+1065	Visalia
+1066	Palmdale
+1067	Santa Cruz
+1068	Merced
+1069	Hayward
+1070	Corona
+1071	Sunnyvale
+1072	Roseville
+1073	Fairfield
+1074	Escondido
+1075	Pomona
+1076	Santa Maria
+1077	Torrance
+1078	Fullerton
+1079	Orange
+1080	Pasadena
+1081	Santa Clara
+1082	Yuba City
+1083	Simi Valley
+1084	Clovis
+1085	Redding
+1086	Berkeley
+1087	Seaside
+1088	Gilroy
+1089	Richmond
+1090	East Los Angeles
+1091	Carlsbad
+1092	Downey
+1093	Murrieta
+1094	Costa Mesa
+1095	Temecula
+1096	San Buenaventura
+1097	Chico
+1098	West Covina
+1099	El Monte
+1100	Menifee
+1101	Jurupa Valley
+1102	Inglewood
+1103	Burbank
+1104	El Cajon
+1105	Rialto
+1106	San Mateo
+1107	Daly City
+1108	Vacaville
+1109	Norwalk
+1110	Hesperia
+1111	Vista
+1112	Arden-Arcade
+1113	Tracy
+1114	Manteca
+1115	San Marcos
+1116	Compton
+1117	Carson
+1118	South Gate
+1119	Chino
+1120	Santa Monica
+1121	Westminster
+1122	San Leandro
+1123	Citrus Heights
+1124	Hawthorne
+1125	Whittier
+1126	Livermore
+1127	Lake Forest
+1128	San Ramon
+1129	Newport Beach
+1130	Buena Park
+1131	Madera
+1132	Redwood City
+1133	Mountain View
+1134	Folsom
+1135	Napa
+1136	Alhambra
+1137	Rancho Cordova
+1138	Lakewood
+1139	Turlock
+1140	Davis
+1141	Perris
+1142	Tustin
+1143	Upland
+1144	Milpitas
+1145	Carmichael
+1146	Chino Hills
+1147	Pleasanton
+1148	Bellflower
+1149	Alameda
+1150	Pittsburg
+1151	Apple Valley
+1152	Camarillo
+1153	Lodi
+1154	Redlands
+1155	Rocklin
+1156	Lake Elsinore
+1157	Baldwin Park
+1158	Dublin
+1159	Eastvale
+1160	Tulare
+1161	Redondo Beach
+1162	Walnut Creek
+1163	Porterville
+1164	El Paso de Robles
+1165	Hanford
+1166	Union City
+1167	Yorba Linda
+1168	Palo Alto
+1169	Watsonville
+1170	Castro Valley
+1171	Lynwood
+1172	Brentwood
+1173	South San Francisco
+1174	Laguna Niguel
+1175	San Clemente
+1176	La Habra
+1177	Florence-Graham
+1178	Encinitas
+1179	Montebello
+1180	Woodland
+1181	La Mesa
+1182	Pico Rivera
+1183	San Rafael
+1184	Gardena
+1185	Monterey Park
+1186	Santee
+1187	Petaluma
+1188	Cupertino
+1189	Highland
+1190	Fountain Valley
+1191	National City
+1192	Arcadia
+1193	South Whittier
+1194	Hacienda Heights
+1195	Beaumont
+1196	San Jacinto
+1197	West Sacramento
+1198	Yucaipa
+1199	Colton
+1200	Diamond Bar
+1201	Huntington Park
+1202	Novato
+1203	Paramount
+1204	Placentia
+1205	Cathedral City
+1206	Lincoln
+1207	Palm Desert
+1208	Glendora
+1209	Aliso Viejo
+1210	Delano
+1211	El Dorado Hills
+1212	Rosemead
+1213	Covina
+1214	Florin
+1215	Cypress
+1216	Azusa
+1217	Antelope
+1218	Ceres
+1219	Poway
+1220	Cerritos
+1221	San Luis Obispo
+1222	North Highlands
+1223	Brea
+1224	Rancho Santa Margarita
+1225	Newark
+1226	La Mirada
+1227	Rowland Heights
+1228	Los Banos
+1229	Morgan Hill
+1230	Palm Springs
+1231	Rohnert Park
+1232	Oakley
+1233	El Centro
+1234	Lompoc
+1235	Danville
+1236	Hollister
+1237	Campbell
+1238	Vineyard
+1239	San Bruno
+1240	Coachella
+1241	French Valley
+1242	Altadena
+1243	Rancho Palos Verdes
+1244	Culver City
+1245	San Gabriel
+1246	Bell Gardens
+1247	Stanton
+1248	Calexico
+1249	La Quinta
+1250	Adelanto
+1251	Montclair
+1252	Monrovia
+1253	Pacifica
+1254	La Puente
+1255	Foothill Farms
+1256	Wildomar
+1257	Martinez
+1258	La Presa
+1259	Claremont
+1260	Moorpark
+1261	Temple City
+1262	Orangevale
+1263	West Hollywood
+1264	San Juan Capistrano
+1265	Oildale
+1266	Manhattan Beach
+1267	Pleasant Hill
+1268	Westmont
+1269	San Dimas
+1270	Foster City
+1271	Dana Point
+1272	Bell
+1273	Desert Hot Springs
+1274	Menlo Park
+1275	Los Gatos
+1276	Lathrop
+1277	Goleta
+1280	Denver
+1281	Colorado Springs
+1282	Aurora
+1283	Fort Collins
+1284	Lakewood
+1285	Greeley
+1286	Thornton
+1287	Grand Junction
+1288	Arvada
+1289	Boulder
+1290	Pueblo
+1291	Westminster
+1292	Centennial
+1293	Lafayette
+1294	Longmont
+1295	Highlands Ranch
+1296	Loveland
+1297	Castle Rock
+1298	Broomfield
+1299	Commerce City
+1300	Parker
+1301	Littleton
+1302	Brighton
+1303	Security-Widefield
+1304	Northglenn
+1305	Windsor
+1306	Pueblo West
+1307	Dakota Ridge
+1308	Englewood
+1309	Ken Caryl
+1310	Wheat Ridge
+1311	Erie
+1312	Fountain
+1313	Columbine
+1314	Evans
+1315	Four Square Mile
+1316	Louisville
+1317	Montrose
+1318	Golden
+1319	Clifton
+1320	Sherrelwood
+1321	Durango
+1322	Cimarron Hills
+1323	Fort Carson
+1324	Johnstown
+1325	Firestone
+1326	Canon City
+1327	Welby
+1328	Frederick
+1329	Greenwood Village
+1330	Black Forest
+1331	Federal Heights
+1332	Lone Tree
+1333	Fruita
+1334	Steamboat Springs
+1335	Sterling
+1336	Superior
+1337	Castle Pines
+1338	The Pinery
+1339	Berthoud
+1340	Wellington
+1341	Fort Morgan
+1342	Monument
+1343	Cherry Creek
+1344	Berkley
+1345	Fairmount
+1346	Rifle
+1347	Gunbarrel
+1348	Edwards
+1349	Glenwood Springs
+1350	Alamosa
+1351	Roxborough Park
+1352	Severance
+1353	Delta
+1354	Stonegate
+1355	Craig
+1356	Cortez
+1357	Woodmoor
+1358	Redlands
+1359	Milliken
+1360	Derby
+1361	Evergreen
+1362	Fort Lupton
+1363	Gypsum
+1364	Trinidad
+1365	Twin Lakes
+1366	Lochbuie
+1367	Applewood
+1368	Timnath
+1369	Fruitvale
+1370	Woodland Park
+1371	Lamar
+1372	Eagle
+1373	La Junta
+1374	Aspen
+1375	Gunnison
+1376	Air Force Academy
+1377	Orchard Mesa
+1536	Hartford
+1537	Bridgeport
+1538	New Haven
+1539	Waterbury
+1540	Danbury
+1541	Norwich
+1542	Stamford
+1543	Norwalk
+1544	New Britain
+1545	Bristol
+1546	Meriden
+1547	West Haven
+1548	Milford city
+1549	Middletown
+1550	Shelton
+1551	Torrington
+1552	Naugatuck
+1553	New London
+1554	Ansonia
+1555	Wallingford Center
+1556	Willimantic
+1557	Storrs
+1558	Derby
+1559	Trumbull Center
+1560	Kensington
+1561	Sandy Hook
+1562	Oakville
+1563	Riverside
+1564	Long Hill
+1565	Conning Towers Nautilus Park
+1566	Southwood Acres
+1567	Glastonbury Center
+1568	Thompsonville
+1569	Cos Cob
+1570	Winsted
+1571	New Canaan
+1572	Staples
+1573	Old Greenwich
+1574	Rockville
+1575	Hazardville
+1576	Simsbury Center
+1577	Northford
+1578	Branford Center
+1579	Cheshire Village
+1580	Daniels Farm
+1581	Sherwood Manor
+1582	Noroton
+1583	Pawcatuck
+1584	Terryville
+1585	Byram
+1792	Dover
+1793	Wilmington
+1794	Newark
+1795	Middletown
+1796	Bear
+1797	Glasgow
+1798	Brookside
+1799	Hockessin
+1800	Smyrna
+1801	Milford
+1802	Pike Creek Valley
+1803	Claymont
+1804	Seaford
+1805	North Star
+1806	Wilmington Manor
+1807	Georgetown
+1808	Pike Creek
+1809	Millsboro
+1810	Edgemoor
+1811	Elsmere
+1812	New Castle
+1813	Rising Sun-Lebanon
+1814	Clayton
+1815	Laurel
+1816	Camden
+1817	Harrington
+1818	Highland Acres
+1819	Milton
+1820	Lewes
+1821	Greenville
+1822	Dover Base Housing
+1823	Selbyville
+1824	Townsend
+1825	Ocean View
+1826	Bridgeville
+1827	Kent Acres
+1828	Riverview
+1829	Delmar
+2048	Miami
+2049	Tampa
+2050	Orlando
+2051	Jacksonville
+2052	Cape Coral
+2053	Palm Bay
+2054	Port St. Lucie
+2055	Bonita Springs
+2056	Kissimmee
+2057	Pensacola
+2058	Winter Haven
+2059	Lakeland
+2060	Tallahassee
+2061	St. Petersburg
+2062	Deltona
+2063	Hialeah
+2064	Gainesville
+2065	Ocala
+2066	Spring Hill
+2067	Fort Lauderdale
+2068	Panama City
+2069	Pembroke Pines
+2070	Leesburg
+2071	Hollywood
+2072	Miramar
+2073	Coral Springs
+2074	Lehigh Acres
+2075	West Palm Beach
+2076	Clearwater
+2077	Brandon
+2078	Pompano Beach
+2079	Miami Gardens
+2080	Riverview
+2081	Davie
+2082	St. Augustine
+2083	Boca Raton
+2084	Sunrise
+2085	Palm Coast
+2086	Plantation
+2087	Fort Myers
+2088	Alafaya
+2089	Deerfield Beach
+2090	Town 'n' Country
+2091	Melbourne
+2092	Largo
+2093	Pine Hills
+2094	The Villages
+2095	Miami Beach
+2096	Homestead
+2097	Boynton Beach
+2098	North Port
+2099	Kendall
+2100	Doral
+2101	Daytona Beach
+2102	Lauderhill
+2103	Wesley Chapel
+2104	Tamarac
+2105	Poinciana
+2106	Weston
+2107	Delray Beach
+2108	Sebring
+2109	Port Charlotte
+2110	Port Orange
+2111	Sanford
+2112	Horizon West
+2113	St. Cloud
+2114	Wellington
+2115	Palm Harbor
+2116	Jupiter
+2117	Palm Beach Gardens
+2118	North Miami
+2119	The Hammocks
+2120	Margate
+2121	Coconut Creek
+2122	Fountainebleau
+2123	Bradenton
+2124	Sarasota
+2125	Apopka
+2126	Pinellas Park
+2127	Westchester
+2128	Kendale Lakes
+2129	Tamiami
+2130	Country Club
+2131	Coral Gables
+2132	Titusville
+2133	University
+2134	Fort Pierce
+2135	Ocoee
+2136	Winter Garden
+2137	Altamonte Springs
+2138	Clermont
+2139	North Lauderdale
+2140	Cutler Bay
+2141	North Fort Myers
+2142	Oakland Park
+2143	Greenacres
+2144	Ormond Beach
+2145	North Miami Beach
+2146	Land O' Lakes
+2147	Princeton
+2148	Hallandale Beach
+2149	Meadow Woods
+2150	The Acreage
+2151	Plant City
+2152	Oviedo
+2153	DeLand
+2154	Lakewood Ranch
+2155	Aventura
+2156	Royal Palm Beach
+2157	Navarre
+2158	Valrico
+2159	Winter Springs
+2160	Riviera Beach
+2161	South Miami Heights
+2162	Estero
+2163	Dunedin
+2164	Richmond West
+2165	Lauderdale Lakes
+2166	Parkland
+2167	Egypt Lake-Leto
+2168	Carrollwood
+2169	Fruit Cove
+2170	Kendall West
+2171	Golden Glades
+2172	Merritt Island
+2173	Cooper City
+2174	West Little River
+2175	East Lake
+2176	Buenaventura Lakes
+2177	Sun City Center
+2178	Dania Beach
+2179	Lake Magdalene
+2180	Lakeside
+2181	New Smyrna Beach
+2182	Haines City
+2183	Oakleaf Plantation
+2184	Miami Lakes
+2185	Ferry Pass
+2186	Ruskin
+2187	Winter Park
+2188	Casselberry
+2189	Vero Beach South
+2190	Fleming Island
+2191	East Lake-Orient Park
+2192	Golden Gate
+2193	Apollo Beach
+2194	Rockledge
+2195	Citrus Park
+2196	Crestview
+2197	West Melbourne
+2198	Silver Springs Shores
+2199	Wright
+2200	Temple Terrace
+2201	Leisure City
+2202	Palm Springs
+2203	Lutz
+2204	Keystone
+2205	Palm River-Clair Mel
+2206	Venice
+2207	Ives Estates
+2208	Fish Hawk
+2209	Key West
+2210	Sebastian
+2211	Palm City
+2212	Pace
+2213	Immokalee
+2214	South Bradenton
+2215	Nocatee
+2216	Tarpon Springs
+2217	Northdale
+2218	Bellview
+2219	Westchase
+2220	Port St. John
+2221	World Golf Village
+2222	Oak Ridge
+2223	Palmetto Bay
+2224	Liberty Triangle
+2225	Wekiwa Springs
+2226	Coral Terrace
+2227	Bloomingdale
+2228	Bayonet Point
+2229	Jacksonville Beach
+2230	Eustis
+2231	Brent
+2232	Edgewater
+2233	Jasmine Estates
+2234	Ensley
+2235	Hialeah Gardens
+2236	DeBary
+2237	The Crossings
+2238	Marion Oaks
+2239	Sunny Isles Beach
+2240	Holiday
+2241	Florida Ridge
+2242	Hunters Creek
+2243	Lealman
+2244	Fort Walton Beach
+2245	Midway
+2246	West Pensacola
+2247	Groveland
+2248	Punta Gorda
+2249	Bartow
+2250	Palm Valley
+2251	Tavares
+2252	Bradfordville
+2253	Sweetwater
+2254	Lynn Haven
+2255	Naples
+2256	Englewood
+2257	Seminole
+2258	Cocoa
+2259	Trinity
+2260	Maitland
+2261	Gibsonton
+2262	Country Walk
+2263	Panama City Beach
+2264	Glenvar Heights
+2265	Zephyrhills
+2266	Bayshore Gardens
+2267	San Carlos Park
+2268	Pinecrest
+2269	Stuart
+2270	Auburndale
+2271	Pinewood
+2304	Atlanta
+2305	Augusta
+2306	Savannah
+2307	Columbus
+2308	Gainesville
+2309	Macon
+2310	Warner Robins
+2311	Athens
+2312	South Fulton
+2313	Sandy Springs
+2314	Roswell
+2315	Albany
+2316	Johns Creek
+2317	Valdosta
+2318	Brunswick
+2319	Alpharetta
+2320	Dalton
+2321	Marietta
+2322	Stonecrest
+2323	Brookhaven
+2324	Smyrna
+2325	Dunwoody
+2326	Newnan
+2327	Mableton
+2328	Peachtree Corners
+2329	Milton
+2330	Peachtree City
+2331	East Point
+2332	Rome
+2333	Evans
+2334	Tucker
+2335	Woodstock
+2336	Douglasville
+2337	Stockbridge
+2338	Hinesville
+2339	Canton
+2340	Statesboro
+2341	Kennesaw
+2342	Martinez
+2343	Duluth
+2344	LaGrange
+2345	Lawrenceville
+2346	Redan
+2347	Chamblee
+2348	McDonough
+2349	Union City
+2350	Pooler
+2351	Carrollton
+2352	Sugar Hill
+2353	Decatur
+2354	Griffin
+2355	Cartersville
+2356	Acworth
+2357	Perry
+2358	Suwanee
+2359	Candler-McAfee
+2360	Snellville
+2361	Forest Park
+2362	Fayetteville
+2363	Kingsland
+2364	Winder
+2365	St. Marys
+2366	Thomasville
+2367	North Decatur
+2368	North Druid Hills
+2369	Conyers
+2370	Villa Rica
+2371	Holly Springs
+2372	Norcross
+2373	Calhoun
+2374	Buford
+2375	Powder Springs
+2376	Richmond Hill
+2377	Tifton
+2378	Milledgeville
+2379	Fairburn
+2380	Grovetown
+2381	Lithia Springs
+2382	St. Simons
+2383	Dublin
+2384	Americus
+2385	Monroe
+2386	Lilburn
+2387	Loganville
+2388	Riverdale
+2389	Clarkston
+2390	Moultrie
+2391	Wilmington Island
+2392	Dallas
+2393	Belvedere Park
+2394	Bainbridge
+2395	Covington
+2396	Jefferson
+2397	Braselton
+2398	College Park
+2399	Waycross
+2400	Vinings
+2401	Mountain Park
+2402	Port Wentworth
+2403	Douglas
+2404	Georgetown
+2405	Rincon
+2406	Lovejoy
+2407	Vidalia
+2408	Doraville
+2409	Scottdale
+2410	Fair Oaks
+2411	Garden City
+2412	Fort Oglethorpe
+2413	Flowery Branch
+2414	Cedartown
+2415	Cordele
+2416	Cairo
+2417	Fort Stewart
+2418	Locust Grove
+2419	Jesup
+2420	Thomaston
+2421	Country Club Estates
+2422	Cusseta
+2423	Toccoa
+2424	Fitzgerald
+2425	Skidaway Island
+2426	Panthersville
+2560	Honolulu
+2561	Kailua
+2562	East Honolulu
+2563	Hilo
+2564	Pearl City
+2565	Waipahu
+2566	Kaneohe
+2567	Mililani Town
+2568	Kahului
+2569	Ewa Gentry
+2570	Kapolei
+2571	Kihei
+2572	Mililani Mauka
+2573	Makakilo
+2574	Wahiawa
+2575	Schofield Barracks
+2576	Ocean Pointe
+2577	Wailuku
+2578	Ewa Beach
+2579	Waimalu
+2580	Halawa
+2581	Royal Kunia
+2582	Hawaiian Paradise Park
+2583	Waianae
+2584	Nanakuli
+2585	Maili
+2586	Lahaina
+2587	Waihee-Waiehu
+2588	Waipio
+2589	Kapaa
+2590	Waimea
+2591	Makaha
+2592	Haiku-Pauwela
+2593	Hickam Housing
+2594	Aiea
+2595	Ahuimanu
+2596	Pukalani
+2597	Waikele
+2598	Lihue
+2599	Makawao
+2816	Boise
+2817	Nampa
+2818	Coeur d'Alene
+2819	Meridian
+2820	Idaho Falls
+2821	Pocatello
+2822	Caldwell
+2823	Twin Falls
+2824	Post Falls
+2825	Rexburg
+2826	Lewiston
+2827	Eagle
+2828	Kuna
+2829	Moscow
+2830	Ammon
+2831	Mountain Home
+2832	Hayden
+2833	Chubbuck
+2834	Star
+2835	Jerome
+2836	Blackfoot
+2837	Garden City
+2838	Burley
+2839	Rathdrum
+2840	Middleton
+2841	Hailey
+2842	Sandpoint
+2843	Payette
+2844	Emmett
+2845	Fruitland
+2846	Rupert
+2847	Weiser
+2848	Preston
+2849	Rigby
+2850	Shelley
+2851	Kimberly
+2852	American Falls
+2853	Buhl
+2854	McCall
+2855	St. Anthony
+2856	Lincoln
+2857	Gooding
+2858	Heyburn
+2859	Ketchum
+2860	Hidden Springs
+2861	Grangeville
+2862	Orofino
+2863	Mountain Home AFB
+2864	Salmon
+3072	Chicago
+3073	Rockford
+3074	Peoria
+3075	Round Lake Beach
+3076	Aurora
+3077	Springfield
+3078	Joliet
+3079	Naperville
+3080	Champaign
+3081	Bloomington
+3082	Elgin
+3083	Waukegan
+3084	Decatur
+3085	Cicero
+3086	Alton
+3087	Schaumburg
+3088	Evanston
+3089	Arlington Heights
+3090	Bolingbrook
+3091	Kankakee
+3092	Palatine
+3093	Skokie
+3094	Des Plaines
+3095	Orland Park
+3096	Oak Lawn
+3097	Berwyn
+3098	Mount Prospect
+3099	Tinley Park
+3100	Wheaton
+3101	Oak Park
+3102	Normal
+3103	Hoffman Estates
+3104	Downers Grove
+3105	Glenview
+3106	Plainfield
+3107	Elmhurst
+3108	Lombard
+3109	Buffalo Grove
+3110	Moline
+3111	Belleville
+3112	Romeoville
+3113	Bartlett
+3114	DeKalb
+3115	Crystal Lake
+3116	Carol Stream
+3117	Park Ridge
+3118	Quincy
+3119	Streamwood
+3120	Wheeling
+3121	Urbana
+3122	Carpentersville
+3123	Hanover Park
+3124	Rock Island
+3125	Addison
+3126	Oswego
+3127	Calumet City
+3128	Northbrook
+3129	Woodridge
+3130	Glendale Heights
+3131	St. Charles
+3132	O'Fallon
+3133	Elk Grove Village
+3134	Pekin
+3135	Mundelein
+3136	North Chicago
+3137	Gurnee
+3138	Niles
+3139	Highland Park
+3140	Algonquin
+3141	Galesburg
+3142	Lake in the Hills
+3143	Burbank
+3144	Danville
+3145	Lansing
+3146	Glen Ellyn
+3147	Huntley
+3148	McHenry
+3149	Wilmette
+3150	New Lenox
+3151	Chicago Heights
+3152	Oak Forest
+3153	Vernon Hills
+3154	Batavia
+3155	Granite City
+3156	Edwardsville
+3157	Woodstock
+3158	Lockport
+3159	West Chicago
+3160	Morton Grove
+3161	Homer Glen
+3162	Melrose Park
+3163	Belvidere
+3164	Zion
+3165	Westmont
+3166	Collinsville
+3167	South Elgin
+3168	Elmwood Park
+3169	Rolling Meadows
+3170	Freeport
+3171	Blue Island
+3172	Lisle
+3173	Loves Park
+3174	Maywood
+3175	Machesney Park
+3176	Roselle
+3177	East Peoria
+3178	Villa Park
+3179	Bloomingdale
+3180	Yorkville
+3181	Darien
+3182	Carbondale
+3183	Geneva
+3184	Montgomery
+3185	South Holland
+3186	Dolton
+3187	Park Forest
+3188	East Moline
+3189	Grayslake
+3190	Libertyville
+3191	Frankfort
+3192	Mokena
+3193	Harvey
+3194	Crest Hill
+3195	Lake Zurich
+3196	Evergreen Park
+3197	Homewood
+3198	Brookfield
+3199	Lake Forest
+3200	Deerfield
+3201	Ottawa
+3202	Matteson
+3203	Alsip
+3204	Round Lake
+3205	Bensenville
+3206	North Aurora
+3207	Bellwood
+3208	East St. Louis
+3209	Jerome
+3328	Indianapolis
+3329	Fort Wayne
+3330	South Bend
+3331	Evansville
+3332	Lafayette
+3333	Elkhart
+3334	Bloomington
+3335	Fishers
+3336	Carmel
+3337	Muncie
+3338	Anderson
+3339	Terre Haute
+3340	Hammond
+3341	Noblesville
+3342	Michigan City
+3343	Gary
+3344	Greenwood
+3345	Kokomo
+3346	Westfield
+3347	Columbus
+3348	Mishawaka
+3349	Jeffersonville
+3350	Lawrence
+3351	West Lafayette
+3352	Portage
+3353	New Albany
+3354	Merrillville
+3355	Plainfield
+3356	Richmond
+3357	Valparaiso
+3358	Goshen
+3359	Crown Point
+3360	Zionsville
+3361	Brownsburg
+3362	Granger
+3363	Hobart
+3364	Schererville
+3365	Marion
+3366	East Chicago
+3367	Franklin
+3368	Greenfield
+3369	Highland
+3370	Munster
+3371	Avon
+3372	La Porte
+3373	Clarksville
+3374	St. John
+3375	Seymour
+3376	Shelbyville
+3377	Logansport
+3378	Lebanon
+3379	New Castle
+3380	Huntington
+3381	Vincennes
+3382	Warsaw
+3383	Jasper
+3384	Crawfordsville
+3385	Dyer
+3386	Griffith
+3387	Frankfort
+3388	New Haven
+3389	Beech Grove
+3390	Cedar Lake
+3391	Chesterton
+3392	Bedford
+3393	Speedway
+3394	Auburn
+3395	Connersville
+3396	Lake Station
+3397	Madison
+3398	Washington
+3399	Martinsville
+3400	Yorktown
+3401	Greensburg
+3402	Whitestown
+3403	Danville
+3404	Huntertown
+3405	Lowell
+3406	Peru
+3407	Bluffton
+3408	Plymouth
+3409	Wabash
+3410	Sellersburg
+3411	Bargersville
+3412	Kendallville
+3413	Columbia City
+3414	Greencastle
+3415	Decatur
+3416	McCordsville
+3417	Mooresville
+3418	Angola
+3419	Princeton
+3420	Elwood
+3421	Charlestown
+3422	Brazil
+3423	Winfield
+3424	Tell City
+3425	Lakes of the Four Seasons
+3426	Scottsburg
+3427	North Vernon
+3428	South Haven
+3584	Des Moines
+3585	Davenport
+3586	Cedar Rapids
+3587	Iowa City
+3588	Waterloo
+3589	Sioux City
+3590	Ankeny
+3591	West Des Moines
+3592	Dubuque
+3593	Ames
+3594	Council Bluffs
+3595	Urbandale
+3596	Marion
+3597	Cedar Falls
+3598	Bettendorf
+3599	Marshalltown
+3600	Mason City
+3601	Waukee
+3602	Ottumwa
+3603	Fort Dodge
+3604	Clinton
+3605	Johnston
+3606	Burlington
+3607	Muscatine
+3608	Coralville
+3609	North Liberty
+3610	Altoona
+3611	Clive
+3612	Indianola
+3613	Grimes
+3614	Newton
+3615	Norwalk
+3616	Boone
+3617	Oskaloosa
+3618	Spencer
+3619	Storm Lake
+3620	Pleasant Hill
+3621	Pella
+3622	Le Mars
+3623	Waverly
+3624	Carroll
+3625	Fort Madison
+3626	Keokuk
+3627	Grinnell
+3628	Fairfield
+3629	Mount Pleasant
+3630	Sioux Center
+3631	Denison
+3632	Bondurant
+3633	Perry
+3634	Webster City
+3635	Clear Lake
+3636	Decorah
+3637	Knoxville
+3638	Creston
+3639	Charles City
+3640	Washington
+3641	Hiawatha
+3642	Nevada
+3643	Atlantic
+3644	Eldridge
+3645	Orange City
+3646	Adel
+3647	Independence
+3648	Maquoketa
+3649	Asbury
+3650	Oelwein
+3651	Estherville
+3652	Polk City
+3653	Anamosa
+3654	Red Oak
+3655	DeWitt
+3656	Osceola
+3657	Spirit Lake
+3658	Algona
+3659	Sheldon
+3660	Winterset
+3661	Centerville
+3662	Clarinda
+3663	Tiffin
+3664	Windsor Heights
+3665	Cherokee
+3666	Manchester
+3667	Glenwood
+3668	Sergeant Bluff
+3669	Iowa Falls
+3840	Wichita
+3841	Overland Park
+3842	Kansas City
+3843	Topeka
+3844	Olathe
+3845	Lawrence
+3846	Shawnee
+3847	Lenexa
+3848	Manhattan
+3849	Salina
+3850	Hutchinson
+3851	Leavenworth
+3852	Leawood
+3853	Garden City
+3854	Dodge City
+3855	Derby
+3856	Emporia
+3857	Gardner
+3858	Prairie Village
+3859	Junction City
+3860	Hays
+3861	Pittsburg
+3862	Liberal
+3863	Newton
+3864	Andover
+3865	Great Bend
+3866	McPherson
+3867	El Dorado
+3868	Ottawa
+3869	Arkansas City
+3870	Winfield
+3871	Lansing
+3872	Haysville
+3873	Merriam
+3874	Atchison
+3875	Mission
+3876	Parsons
+3877	Augusta
+3878	Valley Center
+3879	Coffeyville
+3880	Spring Hill
+3881	Chanute
+3882	Fort Riley
+3883	Independence
+3884	Bonner Springs
+3885	Park City
+3886	Wellington
+3887	Fort Scott
+3888	Basehor
+3889	Roeland Park
+3890	Pratt
+3891	Abilene
+3892	De Soto
+3893	Eudora
+3894	Maize
+3895	Mulvane
+3896	Ulysses
+3897	Paola
+3898	Tonganoxie
+3899	Colby
+3900	Iola
+3901	Goddard
+3902	Concordia
+3903	Louisburg
+3904	Baldwin City
+3905	Edwardsville
+3906	Rose Hill
+3907	Russell
+3908	Osawatomie
+3909	Wamego
+3910	Fairway
+3911	Clay Center
+3912	Hugoton
+3913	Scott City
+3914	Goodland
+3915	Baxter Springs
+3916	Lindsborg
+3917	Hesston
+3918	Lyons
+3919	Mission Hills
+3920	Marysville
+3921	Holton
+3922	Frontenac
+3923	Larned
+3924	Hiawatha
+3925	Garnett
+4096	Louisville
+4097	Lexington
+4098	Bowling Green
+4099	Owensboro
+4100	Elizabethtown
+4101	Covington
+4102	Georgetown
+4103	Richmond
+4104	Florence
+4105	Nicholasville
+4106	Hopkinsville
+4107	Independence
+4108	Jeffersontown
+4109	Frankfort
+4110	Henderson
+4111	Paducah
+4112	Radcliff
+4113	Ashland
+4114	Erlanger
+4115	Madisonville
+4116	Winchester
+4117	Mount Washington
+4118	Burlington
+4119	Murray
+4120	St. Matthews
+4121	Shelbyville
+4122	Fort Thomas
+4123	Danville
+4124	Berea
+4125	Shively
+4126	Glasgow
+4127	Shepherdsville
+4128	Newport
+4129	Bardstown
+4130	Somerset
+4131	Lawrenceburg
+4132	Campbellsville
+4133	Fort Campbell North
+4134	Lyndon
+4135	Alexandria
+4136	Versailles
+4137	Francisville
+4138	Franklin
+4139	La Grange
+4140	Paris
+4141	Mayfield
+4142	Middletown
+4143	Oakbrook
+4144	Middlesborough
+4145	Elsmere
+4146	Harrodsburg
+4147	Maysville
+4148	Hillview
+4149	Fort Knox
+4150	Fort Mitchell
+4151	Corbin
+4152	Edgewood
+4153	Oak Grove
+4154	London
+4155	Pikeville
+4156	Mount Sterling
+4157	Union
+4158	Villa Hills
+4159	Flatwoods
+4160	Russellville
+4161	Morehead
+4162	Taylor Mill
+4163	Vine Grove
+4164	Hebron
+4165	Highland Heights
+4166	Leitchfield
+4167	Cynthiana
+4168	Lebanon
+4169	Cold Spring
+4170	Crestwood
+4171	Princeton
+4172	Wilmore
+4173	Fort Wright
+4174	Monticello
+4175	Central City
+4176	Dayton
+4177	Bellevue
+4178	Walton
+4179	Douglass Hills
+4180	Williamsburg
+4181	Hazard
+4182	Massac
+4183	Reidland
+4184	Columbia
+4185	Hendron
+4186	Benton
+4187	Hurstbourne
+4188	Prospect
+4189	Westwood
+4190	Greenville
+4191	Crescent Springs
+4192	Farley
+4193	Scottsville
+4352	New Orleans
+4353	Baton Rouge
+4354	Shreveport
+4355	Lafayette
+4356	Houma
+4357	Lake Charles
+4358	Metairie
+4359	Monroe
+4360	Mandeville
+4361	Slidell
+4362	Alexandria
+4363	Hammond
+4364	Kenner
+4365	Bossier City
+4366	Prairieville
+4367	Marrero
+4368	Central
+4369	Laplace
+4370	New Iberia
+4371	Terrytown
+4372	Chalmette
+4373	Ruston
+4374	Bayou Cane
+4375	Harvey
+4376	Sulphur
+4377	Zachary
+4378	Shenandoah
+4379	Natchitoches
+4380	Gretna
+4381	Estelle
+4382	Youngsville
+4383	Thibodaux
+4384	Opelousas
+4385	Pineville
+4386	Luling
+4387	Broussard
+4388	River Ridge
+4389	West Monroe
+4390	Gonzales
+4391	Claiborne
+4392	Baker
+4393	Gardere
+4394	Destrehan
+4395	Woodmere
+4396	Minden
+4397	Covington
+4398	Crowley
+4399	Moss Bluff
+4400	Bayou Blue
+4401	Morgan City
+4402	Timberlane
+4403	Abbeville
+4404	Belle Chasse
+4405	Carencro
+4406	Waggaman
+4407	Bogalusa
+4408	Raceland
+4409	Jefferson
+4410	DeRidder
+4411	Jennings
+4412	Bastrop
+4413	Denham Springs
+4414	Eunice
+4415	Merrydale
+4416	Harahan
+4417	Village St. George
+4418	Westwego
+4419	Oak Hills Place
+4420	Scott
+4421	Prien
+4422	Fort Polk South
+4423	Ponchatoula
+4424	Old Jefferson
+4425	Eden Isle
+4426	Breaux Bridge
+4427	Meraux
+4428	Reserve
+4429	Red Chute
+4430	St. Rose
+4431	Bridge City
+4432	Rayne
+4433	Addis
+4434	Lacombe
+4435	Donaldsonville
+4436	Oakdale
+4437	St. Gabriel
+4438	Galliano
+4439	Franklin
+4440	Walker
+4441	Ville Platte
+4442	Plaquemine
+4443	Tallulah
+4444	Inniswold
+4445	Schriever
+4446	Elmwood
+4447	Larose
+4448	Patterson
+4449	Leesville
+4450	Gray
+4451	St. Martinville
+4452	Grambling
+4453	Chackbay
+4454	Brownfields
+4455	Avondale
+4456	Carlyss
+4457	Cut Off
+4458	Marksville
+4459	Port Allen
+4460	Westlake
+4461	Winnsboro
+4462	Jeanerette
+4463	Swartz
+4464	Berwick
+4465	Monticello
+4466	Springhill
+4467	Mansfield
+4468	Haughton
+4469	New Roads
+4470	Violet
+4471	Arabi
+4472	Kaplan
+4473	Jena
+4474	Church Point
+4475	Jonesboro
+4476	Eastwood
+4477	Winnfield
+4478	Amite City
+4479	Brownsville
+4480	Jackson
+4481	Vidalia
+4482	Bayou Vista
+4483	Ball
+4484	Richwood
+4485	Hahnville
+4486	Franklinton
+4487	Blanchard
+4488	Lake Providence
+4489	Farmerville
+4490	Welsh
+4491	Bunkie
+4492	Rayville
+4493	Iowa
+4494	Vinton
+4495	Ferriday
+4496	Greenwood
+4497	Lakeshore
+4498	Lutcher
+4499	South Vacherie
+4608	Portland
+4609	Lewiston
+4610	Bangor
+4611	South Portland
+4612	Auburn
+4613	Biddeford
+4614	Sanford
+4615	Saco
+4616	Westbrook
+4617	Augusta
+4618	Waterville
+4619	Brewer
+4620	Bath
+4621	Presque Isle
+4622	Ellsworth
+4623	Old Town
+4624	Caribou
+4625	Rockland
+4626	Belfast
+4627	Gardiner
+4628	North Windham
+4629	Lisbon Falls
+4630	South Eliot
+4631	York Harbor
+4632	Lisbon
+4633	South Berwick
+4634	Lake Arrowhead
+4635	Calais
+4636	Cumberland Center
+4637	Cape Neddick
+4638	South Paris
+4639	Hallowell
+4640	Falmouth Foreside
+4641	Dunstan
+4642	Veazie
+4643	Steep Falls
+4864	Baltimore
+4865	Hagerstown
+4866	Frederick
+4867	Waldorf
+4868	Columbia
+4869	Germantown
+4870	Silver Spring
+4871	Salisbury
+4872	Ellicott City
+4873	Glen Burnie
+4874	Gaithersburg
+4875	Bethesda
+4876	Rockville
+4877	Dundalk
+4878	Severn
+4879	Bowie
+4880	Bel Air South
+4881	Towson
+4882	Aspen Hill
+4883	Wheaton
+4884	North Bethesda
+4885	Potomac
+4886	Odenton
+4887	Catonsville
+4888	Annapolis
+4889	Essex
+4890	Woodlawn
+4891	Severna Park
+4892	Clinton
+4893	Olney
+4894	Randallstown
+4895	Owings Mills
+4896	Chillum
+4897	College Park
+4898	Pikesville
+4899	Montgomery Village
+4900	Pasadena
+4901	Milford Mill
+4902	Middle River
+4903	Bel Air North
+4904	Eldersburg
+4905	Parkville
+4906	Crofton
+4907	Laurel
+4908	Clarksburg
+4909	Perry Hall
+4910	Carney
+4911	Reisterstown
+4912	South Laurel
+4913	Lochearn
+4914	Ilchester
+4915	Elkridge
+4916	Fairland
+4917	Ballenger Creek
+4918	Fort Washington
+4919	North Laurel
+4920	Edgewood
+4921	Suitland
+4922	Greenbelt
+4923	Landover
+4924	North Potomac
+4925	Arnold
+4926	Cockeysville
+4927	Camp Springs
+4928	Langley Park
+4929	Arbutus
+4930	Hyattsville
+4931	Rosedale
+4932	Westminster
+4933	Beltsville
+4934	East Riverdale
+4935	Redland
+4936	Cumberland
+4937	Maryland City
+4938	Seabrook
+4939	Oxon Hill
+4940	Lake Shore
+4941	Parole
+4942	Calverton
+4943	Glassmanor
+4944	Takoma Park
+4945	Adelphi
+4946	Easton
+4947	Ferndale
+4948	Damascus
+4949	Aberdeen
+4950	Cloverly
+4951	Glenmont
+4952	White Oak
+4953	Elkton
+4954	Brooklyn Park
+4955	Hillcrest Heights
+4956	Summerfield
+4957	Mays Chapel
+4958	Rossville
+4959	Lake Arbor
+4960	Glenn Dale
+4961	Havre de Grace
+4962	Bensville
+4963	Kemp Mill
+4964	Colesville
+5120	Boston
+5121	Worcester
+5122	Springfield
+5123	New Bedford
+5124	Cambridge
+5125	Lowell
+5126	Leominster
+5127	Brockton
+5128	Quincy
+5129	Lynn
+5130	Fall River
+5131	Newton
+5132	Lawrence
+5133	Somerville
+5134	Framingham
+5135	Haverhill
+5136	Malden
+5137	Waltham
+5138	Revere
+5139	Taunton
+5140	Medford
+5141	Chicopee
+5142	Peabody
+5143	Methuen Town
+5144	Everett
+5145	Attleboro
+5146	Salem
+5147	Pittsfield
+5148	Beverly
+5149	Fitchburg
+5150	Marlborough
+5151	Woburn
+5152	Westfield
+5153	Chelsea
+5154	Holyoke
+5155	Watertown Town
+5156	Gloucester
+5157	Melrose
+5158	Northampton
+5159	Gardner
+5160	Newburyport
+5161	North Adams
+5162	South Yarmouth
+5163	Middleborough Center
+5164	Whitinsville
+5165	Mansfield Center
+5166	Pinehurst
+5167	Cochituate
+5168	East Falmouth
+5169	West Yarmouth
+5170	North Scituate
+5171	West Concord
+5172	Yarmouth Port
+5173	East Harwich
+5174	Bliss Corner
+5175	North Westport
+5176	The Pinehills
+5177	Raynham Center
+5178	Ocean Bluff-Brant Rock
+5179	Millis-Clicquot
+5180	Smith Mills
+5181	North Plymouth
+5376	Detroit
+5377	Grand Rapids
+5378	Lansing
+5379	Ann Arbor
+5380	Flint
+5381	Kalamazoo
+5382	Muskegon
+5383	South Lyon
+5384	Warren
+5385	Sterling Heights
+5386	Saginaw
+5387	Holland
+5388	Dearborn
+5389	Livonia
+5390	Troy
+5391	Port Huron
+5392	Westland
+5393	Farmington Hills
+5394	Jackson
+5395	Wyoming
+5396	Rochester Hills
+5397	Southfield
+5398	Battle Creek
+5399	Novi
+5400	Bay City
+5401	Taylor
+5402	Dearborn Heights
+5403	Pontiac
+5404	St. Clair Shores
+5405	Royal Oak
+5406	Kentwood
+5407	Portage
+5408	Roseville
+5409	East Lansing
+5410	Midland
+5411	Lincoln Park
+5412	Eastpointe
+5413	Southgate
+5414	Burton
+5415	Oak Park
+5416	Forest Hills
+5417	Madison Heights
+5418	Allen Park
+5419	Hamtramck
+5420	Garden City
+5421	Allendale
+5422	Inkster
+5423	Okemos
+5424	Holt
+5425	Walker
+5426	Norton Shores
+5427	Romulus
+5428	Auburn Hills
+5429	Wyandotte
+5430	Waverly
+5431	Birmingham
+5432	Mount Pleasant
+5433	Marquette
+5434	Adrian
+5435	Monroe
+5436	Ypsilanti
+5437	Cutlerville
+5438	Ferndale
+5439	Haslett
+5440	Trenton
+5441	Wayne
+5442	Jenison
+5443	Wixom
+5444	Grosse Pointe Woods
+5445	Grandville
+5446	Mount Clemens
+5447	Traverse City
+5448	Northview
+5449	Harper Woods
+5450	Berkley
+5451	Hazel Park
+5452	Owosso
+5453	Fraser
+5454	Coldwater
+5455	Sault Ste. Marie
+5456	Ionia
+5457	Rochester
+5458	Woodhaven
+5459	Melvindale
+5460	Escanaba
+5461	Riverview
+5462	New Baltimore
+5463	Fenton
+5464	Niles
+5465	Farmington
+5466	Grosse Pointe Park
+5467	East Grand Rapids
+5468	Clawson
+5469	Sturgis
+5470	Grand Haven
+5471	Beverly Hills
+5472	Flat Rock
+5473	Cadillac
+5474	Comstock Park
+5475	Alpena
+5476	Howell
+5477	Grosse Pointe Farms
+5478	Marysville
+5479	Muskegon Heights
+5480	Lambertville
+5481	Alma
+5482	Charlotte
+5483	Plymouth
+5484	Ecorse
+5485	Lapeer
+5486	Benton Harbor
+5487	Saline
+5488	Westwood
+5489	Greenville
+5490	Highland Park
+5491	Tecumseh
+5492	Beecher
+5493	Temperance
+5494	Center Line
+5495	Menominee
+5496	Houghton
+5497	Flushing
+5498	Mason
+5499	Whitmore Lake
+5500	Hillsdale
+5501	Grand Blanc
+5502	Three Rivers
+5503	Big Rapids
+5504	St. Joseph
+5505	Grand Ledge
+5506	St. Johns
+5507	Hudsonville
+5508	Ludington
+5509	Albion
+5510	Brighton
+5511	Freeland
+5512	Hastings
+5513	Iron Mountain
+5514	Shields
+5515	Walled Lake
+5516	River Rouge
+5517	Fair Plain
+5518	St. Louis
+5519	Bridgeport
+5520	Byron Center
+5521	Marshall
+5522	South Monroe
+5523	Eastwood
+5524	Milford
+5525	New Haven
+5526	Huntington Woods
+5527	Manistee
+5528	Ishpeming
+5529	Lake Fenton
+5530	Rockford
+5531	Northville
+5532	Milan
+5533	Holly
+5534	Belding
+5535	Buena Vista
+5536	Swartz Creek
+5537	Petoskey
+5538	Richmond
+5539	Houghton Lake
+5540	Zeeland
+5541	Dowagiac
+5542	Dundee
+5543	St. Clair
+5544	Grosse Pointe
+5545	Chelsea
+5546	Springfield
+5547	Gladstone
+5548	Eaton Rapids
+5549	Comstock Northwest
+5550	Utica
+5551	Allegan
+5552	Kingsford
+5553	Frankenmuth
+5554	Davison
+5555	Ironwood
+5556	Gibraltar
+5557	Pearl Beach
+5558	Coopersville
+5559	Wolf Lake
+5560	Cheboygan
+5561	DeWitt
+5632	Minneapolis
+5633	St. Paul
+5634	Rochester
+5635	Duluth
+5636	St. Cloud
+5637	Bloomington
+5638	Brooklyn Park
+5639	Plymouth
+5640	Woodbury
+5641	Lakeville
+5642	Blaine
+5643	Maple Grove
+5644	Eagan
+5645	Burnsville
+5646	Coon Rapids
+5647	Eden Prairie
+5648	Apple Valley
+5649	Minnetonka
+5650	Edina
+5651	St. Louis Park
+5652	Shakopee
+5653	Mankato
+5654	Moorhead
+5655	Maplewood
+5656	Cottage Grove
+5657	Richfield
+5658	Roseville
+5659	Inver Grove Heights
+5660	Andover
+5661	Brooklyn Center
+5662	Savage
+5663	Fridley
+5664	Chaska
+5665	Oakdale
+5666	Ramsey
+5667	Prior Lake
+5668	Shoreview
+5669	Rosemount
+5670	Owatonna
+5671	Elk River
+5672	Austin
+5673	Chanhassen
+5674	Winona
+5675	Faribault
+5676	White Bear Lake
+5677	Farmington
+5678	Champlin
+5679	New Brighton
+5680	Crystal
+5681	Hastings
+5682	Columbia Heights
+5683	Golden Valley
+5684	Lino Lakes
+5685	New Hope
+5686	Otsego
+5687	Willmar
+5688	West St. Paul
+5689	Forest Lake
+5690	Northfield
+5691	South St. Paul
+5692	Sartell
+5693	Stillwater
+5888	Jackson
+5889	Gulfport
+5890	Hattiesburg
+5891	Southaven
+5892	Biloxi
+5893	Olive Branch
+5894	Tupelo
+5895	Meridian
+5896	Greenville
+5897	Madison
+5898	Pearl
+5899	Clinton
+5900	Horn Lake
+5901	Oxford
+5902	Starkville
+5903	Brandon
+5904	Ridgeland
+5905	Columbus
+5906	Pascagoula
+5907	Vicksburg
+5908	Gautier
+5909	Ocean Springs
+5910	Hernando
+5911	Laurel
+5912	Long Beach
+5913	Corinth
+5914	Clarksdale
+5915	Natchez
+5916	Greenwood
+5917	D'Iberville
+5918	Byram
+5919	Grenada
+5920	McComb
+5921	Moss Point
+5922	Picayune
+5923	Brookhaven
+5924	Petal
+5925	Canton
+5926	Cleveland
+5927	Flowood
+5928	Yazoo City
+5929	Bay St. Louis
+5930	West Point
+5931	Indianola
+5932	Diamondhead
+5933	Booneville
+5934	Senatobia
+5935	Gulf Hills
+5936	St. Martin
+5937	New Albany
+5938	Batesville
+5939	Richland
+5940	Waveland
+5941	Philadelphia
+5942	Kosciusko
+5943	Holly Springs
+5944	Amory
+5945	Gulf Park Estates
+5946	West Hattiesburg
+5947	Latimer
+5948	Louisville
+5949	Pass Christian
+5950	Columbia
+5951	Pontotoc
+5952	Leakesville
+5953	Ripley
+5954	Forest
+5955	Vancleave
+5956	Saltillo
+5957	Aberdeen
+5958	University
+5959	Carthage
+5960	Crystal Springs
+5961	Florence
+5962	Ellisville
+5963	Waynesboro
+5964	Fulton
+5965	Pearl River
+5966	Mississippi State
+5967	Winona
+5968	Wiggins
+5969	Magee
+5970	Leland
+5971	Houston
+5972	Beechwood
+5973	Morton
+5974	Escatawpa
+5975	New Hope
+5976	Hazlehurst
+5977	Macon
+5978	Water Valley
+5979	Magnolia
+5980	Newton
+5981	Iuka
+5982	Baldwyn
+5983	Bridgetown
+5984	Lucedale
+5985	Ruleville
+5986	Poplarville
+5987	Gluckstadt
+5988	Verona
+5989	Summit
+5990	Okolona
+5991	Hide-A-Way Lake
+5992	Belmont
+5993	Sardis
+5994	Nicholson
+5995	Kiln
+5996	Flora
+6144	St. Louis
+6145	Kansas City
+6146	Springfield
+6147	Columbia
+6148	Independence
+6149	Lee's Summit
+6150	O'Fallon
+6151	Joplin
+6152	St. Joseph
+6153	St. Charles
+6154	Blue Springs
+6155	St. Peters
+6156	Florissant
+6157	Chesterfield
+6158	Wentzville
+6159	Jefferson City
+6160	Cape Girardeau
+6161	Wildwood
+6162	Oakville
+6163	University City
+6164	Ballwin
+6165	Liberty
+6166	Raytown
+6167	Kirkwood
+6168	Mehlville
+6169	Maryland Heights
+6170	Gladstone
+6171	Grandview
+6172	Hazelwood
+6173	Belton
+6174	Nixa
+6175	Raymore
+6176	Webster Groves
+6177	Ozark
+6178	Sedalia
+6179	Old Jamestown
+6180	Arnold
+6181	Rolla
+6182	Affton
+6183	Warrensburg
+6184	Republic
+6185	Creve Coeur
+6186	Ferguson
+6187	Manchester
+6188	Spanish Lake
+6189	Concord
+6190	Farmington
+6191	Lake St. Louis
+6192	Kirksville
+6193	Clayton
+6194	Hannibal
+6195	Lemay
+6196	Poplar Bluff
+6197	Sikeston
+6198	Grain Valley
+6199	Overland
+6200	Jackson
+6201	Carthage
+6202	Fort Leonard Wood
+6203	Lebanon
+6204	Washington
+6205	Marshall
+6206	Moberly
+6207	Troy
+6208	Webb City
+6209	Dardenne Prairie
+6210	Festus
+6211	Jennings
+6212	St. Ann
+6213	Neosho
+6214	Branson
+6215	Fulton
+6216	Union
+6217	Eureka
+6218	West Plains
+6400	Billings
+6401	Missoula
+6402	Great Falls
+6403	Bozeman
+6404	Butte
+6405	Helena
+6406	Kalispell
+6407	Belgrade
+6408	Helena Valley Southeast
+6409	Anaconda
+6410	Havre
+6411	Evergreen
+6412	Livingston
+6413	Whitefish
+6414	Miles City
+6415	Helena Valley West Central
+6416	Lockwood
+6417	Laurel
+6418	Sidney
+6419	Lewistown
+6420	Four Corners
+6421	Columbia Falls
+6422	Polson
+6423	Orchard Homes
+6424	Bigfork
+6425	Helena Valley Northwest
+6426	Hamilton
+6427	Glendive
+6428	Helena Valley Northeast
+6429	Lolo
+6430	Malmstrom AFB
+6431	Dillon
+6432	Hardin
+6433	Glasgow
+6434	Shelby
+6435	Cut Bank
+6656	Omaha
+6657	Lincoln
+6658	Bellevue
+6659	Grand Island
+6660	Kearney
+6661	Fremont
+6662	Norfolk
+6663	Hastings
+6664	Columbus
+6665	Papillion
+6666	North Platte
+6667	La Vista
+6668	Scottsbluff
+6669	South Sioux City
+6670	Beatrice
+6671	Lexington
+6672	Chalco
+6673	Gretna
+6674	Gering
+6675	York
+6676	Alliance
+6677	Blair
+6678	Seward
+6679	Crete
+6680	McCook
+6681	Nebraska City
+6682	Plattsmouth
+6683	Schuyler
+6684	Ralston
+6685	Sidney
+6686	Wayne
+6687	Offutt AFB
+6688	Holdrege
+6689	Chadron
+6690	Wahoo
+6691	Ogallala
+6692	Aurora
+6693	Waverly
+6694	Falls City
+6695	Cozad
+6696	Fairbury
+6697	O'Neill
+6698	Broken Bow
+6699	West Point
+6700	Auburn
+6701	Gothenburg
+6702	Valley
+6703	Ashland
+6704	Central City
+6705	Minden
+6912	Las Vegas
+6913	Reno
+6914	Henderson
+6915	North Las Vegas
+6916	Enterprise
+6917	Spring Valley
+6918	Sunrise Manor
+6919	Paradise
+6920	Sparks
+6921	Carson City
+6922	Whitney
+6923	Pahrump
+6924	Winchester
+6925	Summerlin South
+6926	Fernley
+6927	Sun Valley
+6928	Mesquite
+6929	Elko
+6930	Spanish Springs
+6931	Dayton
+6932	Spring Creek
+6933	Boulder City
+6934	Gardnerville Ranchos
+6935	Cold Springs
+6936	Fallon
+6937	Incline Village
+6938	Laughlin
+6939	Winnemucca
+6940	Moapa Valley
+6941	Johnson Lane
+6942	Gardnerville
+6943	Indian Hills
+6944	Silver Springs
+6945	Nellis AFB
+6946	West Wendover
+6947	Lemmon Valley
+6948	Battle Mountain
+6949	Ely
+6950	Washoe Valley
+6951	Minden
+6952	Yerington
+6953	Hawthorne
+6954	Kingsbury
+6955	Carlin
+6956	Tonopah
+6957	Stagecoach
+6958	Sandy Valley
+6959	Topaz Ranch Estates
+6960	Smith Valley
+7168	Nashua
+7169	Manchester
+7170	Portsmouth
+7171	Dover
+7172	Concord
+7173	Rochester
+7174	Keene
+7175	Laconia
+7176	Lebanon
+7177	Claremont
+7178	Somersworth
+7179	Berlin
+7180	Franklin
+7181	South Hooksett
+7182	Suncook
+7183	East Merrimack
+7184	Pinardville
+7185	Tilton Northfield
+7186	Hampton Beach
+7187	North Conway
+7188	Woodsville
+7189	Contoocook
+7190	West Swanzey
+7191	Sanbornville
+7192	Seabrook Beach
+7193	Groveton
+7194	Klondike Corner
+7195	North Haverhill
+7196	North Walpole
+7197	North Woodstock
+7198	Center Ossipee
+7199	Mountain Lakes
+7200	West Stewartstown
+7201	Union
+7202	Melvin Village
+7203	Suissevale
+7204	New Boston
+7205	Francestown
+7424	Trenton
+7425	Newark
+7426	Jersey City
+7427	Paterson
+7428	Elizabeth
+7429	Vineland
+7430	Clifton
+7431	Camden
+7432	Bayonne
+7433	Passaic
+7434	East Orange
+7435	Union City
+7436	Hoboken
+7437	New Brunswick
+7438	Perth Amboy
+7439	Plainfield
+7440	West New York
+7441	Hackensack
+7442	Sayreville
+7443	Sicklerville
+7444	Linden
+7445	Kearny
+7446	Fort Lee
+7447	Atlantic City
+7448	Fair Lawn
+7449	Garfield
+7450	Long Branch
+7451	Westfield
+7452	Princeton
+7453	Rahway
+7454	Englewood
+7455	Bergenfield
+7456	Millville
+7457	Paramus
+7458	Ridgewood
+7459	Lodi
+7460	Cliffside Park
+7461	Carteret
+7462	South Plainfield
+7463	Somerset
+7464	Glassboro
+7465	North Plainfield
+7466	Summit
+7467	Roselle
+7468	Hillsborough
+7469	Parsippany
+7470	Lindenwold
+7471	Secaucus
+7472	Elmwood Park
+7473	Pleasantville
+7474	Morristown
+7475	Palisades Park
+7476	Harrison
+7477	Hawthorne
+7478	Tinton Falls
+7479	Point Pleasant
+7480	Iselin
+7481	Rutherford
+7482	Ocean Acres
+7483	Preakness
+7484	Dover
+7485	Colonia
+7486	Dumont
+7487	Avenel
+7488	New Milford
+7489	Madison
+7490	North Arlington
+7491	South River
+7492	Springdale
+7493	Princeton Meadows
+7494	Tenafly
+7495	Phillipsburg
+7496	Asbury Park
+7497	Metuchen
+7498	Highland Park
+7499	Fairview
+7500	Williamstown
+7501	Cherry Hill Mall
+7502	Hammonton
+7503	Ramsey
+7504	Edgewater
+7505	Moorestown-Lenola
+7506	Middlesex
+7507	Hopatcong
+7508	Short Hills
+7509	Bradley Gardens
+7510	West Freehold
+7511	Roselle Park
+7512	Westmont
+7513	Mercerville
+7514	New Providence
+7515	Echelon
+7516	Eatontown
+7517	Franklin Park
+7518	Ridgefield Park
+7519	Florham Park
+7520	Fords
+7521	Somerville
+7522	Holiday City-Berkeley
+7523	Red Bank
+7524	Oakland
+7525	Upper Montclair
+7526	Glen Rock
+7527	Hasbrouck Heights
+7528	River Edge
+7529	Bound Brook
+7530	Martinsville
+7531	Robertsville
+7532	Wallington
+7533	Bellmawr
+7534	Hamilton Square
+7680	Albuquerque
+7681	Las Cruces
+7682	Rio Rancho
+7683	Santa Fe
+7684	Roswell
+7685	Farmington
+7686	Hobbs
+7687	Clovis
+7688	South Valley
+7689	Carlsbad
+7690	Alamogordo
+7691	Gallup
+7692	Los Lunas
+7693	Sunland Park
+7694	Chaparral
+7695	Deming
+7696	Los Alamos
+7697	Las Vegas
+7698	Artesia
+7699	Portales
+7700	North Valley
+7701	Lovington
+7702	Espanola
+7703	Silver City
+7704	Grants
+7705	Bernalillo
+7706	Anthony
+7707	Corrales
+7708	Socorro
+7709	Shiprock
+7710	Ruidoso
+7711	Belen
+7712	Bloomfield
+7713	Taos
+7714	Aztec
+7715	Zuni Pueblo
+7716	Edgewood
+7717	North Hobbs
+7718	Truth or Consequences
+7719	Raton
+7720	Santa Teresa
+7721	Los Ranchos de Albuquerque
+7722	Eldorado at Santa Fe
+7723	White Rock
+7724	Tucumcari
+7725	El Cerro Mission
+7726	Rio Communities
+7727	Paradise Hills
+7728	Los Chaves
+7729	Lee Acres
+7730	Crouch Mesa
+7731	Placitas
+7732	Holloman AFB
+7733	Bosque Farms
+7734	Meadow Lake
+7735	La Cienega
+7736	Kirtland AFB
+7737	Peralta
+7738	Vado
+7739	El Cerro
+7740	Sandia Heights
+7741	Eunice
+7742	Crownpoint
+7743	Cannon AFB
+7744	Agua Fria
+7745	Dulce
+7746	Chimayo
+7747	University Park
+7748	Clayton
+7749	Ruidoso Downs
+7750	Tularosa
+7751	La Mesilla
+7752	West Hammond
+7753	Milan
+7754	Santa Rosa
+7755	Bayard
+7756	Center Point
+7757	Ranchos de Taos
+7758	Pojoaque
+7759	Jemez Pueblo
+7760	Valencia
+7761	Flora Vista
+7762	La Plata
+7763	San Ysidro
+7936	New York
+7937	Brooklyn
+7938	Queens
+7939	Manhattan
+7940	Bronx
+7941	Buffalo
+7942	Rochester
+7943	Albany
+7944	Staten Island
+7945	Syracuse
+7946	Poughkeepsie
+7947	Yonkers
+7948	Binghamton
+7949	Utica
+7950	New Rochelle
+7951	Saratoga Springs
+7952	Mount Vernon
+7953	Glens Falls
+7954	Schenectady
+7955	White Plains
+7956	Levittown
+7957	Troy
+7958	Niagara Falls
+7959	Freeport
+7960	Hicksville
+7961	West Babylon
+7962	Coram
+7963	Valley Stream
+7964	Central Islip
+7965	Kiryas Joel
+7966	Elmont
+7967	Commack
+7968	East Meadow
+7969	Long Beach
+7970	New City
+7971	Uniondale
+7972	Baldwin
+7973	Huntington Station
+7974	Spring Valley
+7975	Oceanside
+7976	Rome
+7977	Ithaca
+7978	Centereach
+7979	Bay Shore
+7980	Port Chester
+7981	Franklin Square
+7982	North Tonawanda
+7983	Middletown
+7984	Harrison
+7985	Jamestown
+7986	Glen Cove
+7987	Shirley
+7988	Monsey
+7989	Deer Park
+7990	Lindenhurst
+7991	West Islip
+7992	Auburn
+7993	Elmira
+7994	Holbrook
+7995	Plainview
+7996	Rockville Centre
+7997	Medford
+7998	Peekskill
+7999	Dix Hills
+8000	Watertown
+8001	Kingston
+8002	Copiague
+8003	Garden City
+8004	Massapequa
+8005	Merrick
+8006	Selden
+8007	East Patchogue
+8008	Mineola
+8009	North Bellmore
+8010	Hauppauge
+8011	West Hempstead
+8012	Lockport
+8013	North Bay Shore
+8014	North Amityville
+8015	Lynbrook
+8016	East Massapequa
+8017	Nanuet
+8018	Plattsburgh
+8019	Lackawanna
+8020	East Northport
+8021	Roosevelt
+8022	Holtsville
+8023	Melville
+8024	Ronkonkoma
+8025	Lake Ronkonkoma
+8026	Syosset
+8027	North Babylon
+8028	Woodmere
+8029	Amsterdam
+8030	Cohoes
+8031	North Massapequa
+8032	Scarsdale
+8033	Wantagh
+8034	North Valley Stream
+8035	Port Washington
+8036	Cortland
+8037	Bethpage
+8038	Hampton Bays
+8039	Oswego
+8040	Massapequa Park
+8041	Farmingville
+8042	Mastic Beach
+8043	Pearl River
+8044	Kings Park
+8045	Fort Drum
+8046	Floral Park
+8047	Seaford
+8048	Westbury
+8049	Bellmore
+8050	Sayville
+8051	Batavia
+8052	Eggertsville
+8053	Johnson City
+8054	Kenmore
+8055	Depew
+8056	Tonawanda
+8057	Mastic
+8058	Gloversville
+8059	Greenlawn
+8060	South Farmingdale
+8061	Beacon
+8062	Oneonta
+8063	New Cassel
+8064	North New Hyde Park
+8065	Latham
+8066	Jefferson Valley-Yorktown
+8067	Jericho
+8068	Rocky Point
+8069	Olean
+8070	East Islip
+8071	St. James
+8072	Endicott
+8073	Salisbury
+8074	Nesconset
+8075	Stony Brook
+8076	Manorville
+8077	Dunkirk
+8078	Geneva
+8079	North Merrick
+8080	Ridge
+8081	Patchogue
+8082	Inwood
+8083	Mount Sinai
+8084	Endwell
+8085	Tarrytown
+8192	Charlotte
+8193	Raleigh
+8194	Winston-Salem
+8195	Durham
+8196	Greensboro
+8197	Fayetteville
+8198	Concord
+8199	Asheville
+8200	Wilmington
+8201	Hickory
+8202	Gastonia
+8203	Cary
+8204	High Point
+8205	Burlington
+8206	Greenville
+8207	Jacksonville
+8208	Apex
+8209	Huntersville
+8210	Chapel Hill
+8211	Kannapolis
+8212	Rocky Mount
+8213	Mooresville
+8214	Wake Forest
+8215	Wilson
+8216	Holly Springs
+8217	Indian Trail
+8218	Fuquay-Varina
+8219	Salisbury
+8220	Monroe
+8221	Goldsboro
+8222	Garner
+8223	Cornelius
+8224	New Bern
+8225	Sanford
+8226	Morrisville
+8227	Matthews
+8228	Statesville
+8229	Clayton
+8230	Kernersville
+8231	Asheboro
+8232	Thomasville
+8233	Mint Hill
+8234	Leland
+8235	Shelby
+8236	Clemmons
+8237	Waxhaw
+8238	Carrboro
+8239	Lexington
+8240	Kinston
+8241	Boone
+8242	Knightdale
+8243	Lumberton
+8244	Harrisburg
+8245	Mebane
+8246	Elizabeth City
+8247	Lenoir
+8248	Pinehurst
+8249	Mount Holly
+8250	Hope Mills
+8251	Morganton
+8252	Graham
+8253	Murraysville
+8254	Albemarle
+8255	Stallings
+8256	Havelock
+8257	Southern Pines
+8258	Eden
+8259	Hendersonville
+8260	Belmont
+8261	Laurinburg
+8262	Roanoke Rapids
+8263	Henderson
+8264	Davidson
+8265	Reidsville
+8266	Piney Green
+8267	Anderson Creek
+8268	Lewisville
+8269	Weddington
+8270	Newton
+8271	Lake Norman of Catawba
+8272	Myrtle Grove
+8273	Archdale
+8274	Smithfield
+8275	Spring Lake
+8276	Wendell
+8277	Lincolnton
+8278	Kings Mountain
+8279	Elon
+8280	Spout Springs
+8281	Summerfield
+8282	Pineville
+8283	Tarboro
+8284	Mount Airy
+8285	Winterville
+8286	Waynesville
+8287	Rolesville
+8288	Washington
+8289	Morehead City
+8290	Hillsborough
+8291	St. Stephens
+8292	Gibsonville
+8293	Hampstead
+8294	Rockingham
+8295	Kings Grant
+8296	Aberdeen
+8297	Wesley Chapel
+8298	Oxford
+8299	Oak Island
+8300	Dunn
+8301	Conover
+8302	Black Mountain
+8303	Ogden
+8304	Clinton
+8305	Roxboro
+8306	Fletcher
+8307	Butner
+8308	Zebulon
+8309	Woodfin
+8310	Siler City
+8311	Brevard
+8312	Half Moon
+8313	Etowah
+8314	Kill Devil Hills
+8315	Oak Ridge
+8316	Marion
+8317	Forest City
+8318	King
+8319	Cullowhee
+8320	Mills River
+8321	Porters Neck
+8322	Trinity
+8323	St. James
+8324	Unionville
+8325	Carolina Beach
+8326	Selma
+8327	Marvin
+8328	East Flat Rock
+8329	Silver Lake
+8330	Boiling Spring Lakes
+8331	Cherryville
+8332	Briar Chapel
+8333	Swannanoa
+8334	Dallas
+8335	Mocksville
+8336	Hamlet
+8337	Stokesdale
+8338	Barbecue
+8339	Northchase
+8340	Walkertown
+8341	Angier
+8342	Nashville
+8343	Moyock
+8344	Locust
+8345	Bessemer City
+8346	Wrightsboro
+8347	Cramerton
+8348	Williamston
+8349	Whispering Pines
+8350	Westport
+8351	Archer Lodge
+8352	Ayden
+8353	Sawmills
+8354	Pleasant Garden
+8355	Long View
+8356	Wadesboro
+8357	Creedmoor
+8358	Granite Falls
+8359	James City
+8360	Carolina Shores
+8361	Midway
+8362	Seven Lakes
+8363	Ahoskie
+8448	Fargo
+8449	Bismarck
+8450	Grand Forks
+8451	Minot
+8452	West Fargo
+8453	Williston
+8454	Dickinson
+8455	Mandan
+8456	Jamestown
+8457	Wahpeton
+8458	Valley City
+8459	Watford City
+8460	Minot AFB
+8461	Lincoln
+8462	Grafton
+8463	Horace
+8464	Beulah
+8465	New Town
+8466	Casselton
+8467	Rugby
+8468	Hazen
+8469	Lisbon
+8470	Carrington
+8471	Stanley
+8472	Grand Forks AFB
+8473	Bottineau
+8474	Mayville
+8475	Oakes
+8476	Langdon
+8477	Belcourt
+8478	Harvey
+8479	Surrey
+8480	Hillsboro
+8481	Tioga
+8482	Bowman
+8704	Cincinnati
+8705	Cleveland
+8706	Columbus
+8707	Dayton
+8708	Akron
+8709	Toledo
+8710	Youngstown
+8711	Canton
+8712	Lorain
+8713	Middletown
+8714	Springfield
+8715	Newark
+8716	Parma
+8717	Mansfield
+8718	Lima
+8719	Hamilton
+8720	Kettering
+8721	Elyria
+8722	Cuyahoga Falls
+8723	Lakewood
+8724	Dublin
+8725	Euclid
+8726	Mentor
+8727	Beavercreek
+8728	Strongsville
+8729	Cleveland Heights
+8730	Fairfield
+8731	Huber Heights
+8732	Delaware
+8733	Grove City
+8734	Reynoldsburg
+8735	Lancaster
+8736	Findlay
+8737	Warren
+8738	Westerville
+8739	Hilliard
+8740	Upper Arlington
+8741	North Ridgeville
+8742	Marion
+8743	Gahanna
+8744	Brunswick
+8745	Mason
+8746	Fairborn
+8747	Stow
+8748	Westlake
+8749	Massillon
+8750	North Olmsted
+8751	North Royalton
+8752	Austintown
+8753	Bowling Green
+8754	Garfield Heights
+8755	Shaker Heights
+8756	Green
+8757	Kent
+8758	Wooster
+8759	Troy
+8760	Marysville
+8761	Medina
+8762	Xenia
+8763	Avon Lake
+8764	Avon
+8765	Perrysburg
+8766	Barberton
+8767	Centerville
+8768	Sandusky
+8769	Zanesville
+8770	Riverside
+8771	Wadsworth
+8772	Solon
+8773	Willoughby
+8774	Pickerington
+8775	Maple Heights
+8776	Athens
+8777	Trotwood
+8778	Hudson
+8779	Oxford
+8780	Chillicothe
+8781	South Euclid
+8782	Alliance
+8783	Rocky River
+8784	Lebanon
+8785	Parma Heights
+8786	Piqua
+8787	Sidney
+8788	Painesville
+8789	Mayfield Heights
+8790	Forest Park
+8791	Whitehall
+8792	Miamisburg
+8793	Oregon
+8794	Broadview Heights
+8795	Springboro
+8796	Twinsburg
+8797	Sylvania
+8798	Norwood
+8799	Ashland
+8800	White Oak
+8801	Tallmadge
+8802	Brook Park
+8803	Berea
+8804	Niles
+8805	Steubenville
+8806	Pataskala
+8807	Portsmouth
+8808	Ashtabula
+8809	Tiffin
+8810	North Canton
+8811	New Philadelphia
+8812	Eastlake
+8813	Streetsboro
+8814	Aurora
+8815	Norwalk
+8816	Fairview Park
+8817	Defiance
+8818	Mount Vernon
+8819	Bay Village
+8820	Fremont
+8821	Middleburg Heights
+8822	Vandalia
+8823	Monroe
+8824	Worthington
+8825	Washington Court House
+8826	Powell
+8827	Willowick
+8828	Circleville
+8829	Bellefontaine
+8830	Sharonville
+8831	Lyndhurst
+8832	Beachwood
+8833	New Franklin
+8834	Bridgetown
+8835	Maumee
+8836	East Cleveland
+8837	Brecksville
+8838	Warrensville Heights
+8839	University Heights
+8840	Harrison
+8841	Englewood
+8842	Blue Ash
+8843	Bexley
+8844	Trenton
+8845	Marietta
+8846	Loveland
+8847	Clayton
+8848	Dover
+8849	West Carrollton
+8850	Bedford
+8851	Amherst
+8852	Greenville
+8853	Fostoria
+8854	Wickliffe
+8855	Wilmington
+8856	Amelia
+8857	Conneaut
+8858	Monfort Heights
+8859	Macedonia
+8860	Dent
+8861	Finneytown
+8862	Salem
+8863	Franklin
+8864	Seven Hills
+8865	Bucyrus
+8866	Norton
+8867	Mack
+8868	Ravenna
+8869	Forestville
+8870	Brooklyn
+8871	Urbana
+8872	Coshocton
+8873	Celina
+8874	Springdale
+8875	Bedford Heights
+8876	Montgomery
+8877	Shiloh
+8878	Northbrook
+8879	Van Wert
+8880	Richmond Heights
+8881	Ironton
+8882	Heath
+8883	New Albany
+8884	Reading
+8885	Vermilion
+8886	London
+8887	Galion
+8888	Tipp City
+8889	Cambridge
+8890	Struthers
+8891	Willoughby Hills
+8892	East Liverpool
+8893	Wapakoneta
+8894	Canal Winchester
+8895	North College Hill
+8896	Louisville
+8897	Girard
+8898	Oakwood
+8899	Madeira
+8900	Beckett Ridge
+8901	Lincoln Village
+8902	Sheffield Lake
+8903	Bainbridge
+8904	Blacklick Estates
+8905	Wyoming
+8906	Shelby
+8907	Perry Heights
+8908	Bryan
+8909	Cheviot
+8910	Olmsted Falls
+8911	Highland Heights
+8912	Napoleon
+8913	Kenwood
+8914	Grandview Heights
+8915	Orrville
+8916	Eaton
+8917	St. Marys
+8918	North Madison
+8919	Bellevue
+8920	Oberlin
+8921	Landen
+8922	Groesbeck
+8923	Campbell
+8924	Dry Run
+8925	Fairlawn
+8926	Canfield
+8927	Kenton
+8928	Hubbard
+8929	Uniontown
+8930	Northridge
+8931	Independence
+8932	Wauseon
+8933	Bellbrook
+8934	Sunbury
+8935	Withamsville
+8936	Mentor-on-the-Lake
+8960	Oklahoma City
+8961	Tulsa
+8962	Norman
+8963	Broken Arrow
+8964	Edmond
+8965	Lawton
+8966	Moore
+8967	Midwest City
+8968	Enid
+8969	Stillwater
+8970	Owasso
+8971	Bartlesville
+8972	Muskogee
+8973	Shawnee
+8974	Bixby
+8975	Jenks
+8976	Yukon
+8977	Ardmore
+8978	Ponca City
+8979	Duncan
+8980	Sapulpa
+8981	Del City
+8982	Mustang
+8983	Bethany
+8984	Sand Springs
+8985	Claremore
+8986	Durant
+8987	Altus
+8988	McAlester
+8989	El Reno
+8990	Ada
+8991	Tahlequah
+8992	Chickasha
+8993	Glenpool
+8994	Miami
+8995	Guymon
+8996	Newcastle
+8997	Choctaw
+8998	Weatherford
+8999	Woodward
+9000	Elk City
+9001	Okmulgee
+9002	Guthrie
+9003	Warr Acres
+9004	Coweta
+9005	Pryor Creek
+9006	The Village
+9007	Blanchard
+9008	Poteau
+9009	Skiatook
+9010	Sallisaw
+9011	Collinsville
+9012	Clinton
+9013	Cushing
+9014	Piedmont
+9015	Wagoner
+9016	Tuttle
+9017	Catoosa
+9018	Noble
+9019	Seminole
+9020	Grove
+9021	Idabel
+9022	Purcell
+9023	Harrah
+9024	Tecumseh
+9025	Blackwell
+9026	Pauls Valley
+9027	Holdenville
+9028	Henryetta
+9029	Anadarko
+9030	Verdigris
+9031	Vinita
+9032	Sayre
+9033	Hugo
+9034	Lone Grove
+9035	Alva
+9036	Kingfisher
+9037	Sulphur
+9038	Hinton
+9039	Perry
+9040	McLoud
+9041	Marlow
+9042	Pocola
+9043	Bristow
+9044	Broken Bow
+9045	Slaughterville
+9046	Madill
+9047	Spencer
+9048	Nichols Hills
+9049	Fort Gibson
+9050	Stilwell
+9051	Elgin
+9052	Roland
+9053	Nowata
+9054	Frederick
+9055	Dewey
+9056	Hobart
+9057	Hominy
+9216	Portland
+9217	Eugene
+9218	Salem
+9219	Medford
+9220	Bend
+9221	Gresham
+9222	Hillsboro
+9223	Beaverton
+9224	Corvallis
+9225	Albany
+9226	Springfield
+9227	Tigard
+9228	Aloha
+9229	Lake Oswego
+9230	Grants Pass
+9231	Keizer
+9232	Oregon City
+9233	Redmond
+9234	McMinnville
+9235	Bethany
+9236	Tualatin
+9237	West Linn
+9238	Woodburn
+9239	Forest Grove
+9240	Wilsonville
+9241	Newberg
+9242	Happy Valley
+9243	Roseburg
+9244	Hayesville
+9245	Klamath Falls
+9246	Ashland
+9247	Milwaukie
+9248	Sherwood
+9249	Altamont
+9250	Cedar Mill
+9251	Hermiston
+9252	Central Point
+9253	Lebanon
+9254	Canby
+9255	Oak Grove
+9256	Dallas
+9257	Pendleton
+9258	Four Corners
+9259	Troutdale
+9260	The Dalles
+9261	Coos Bay
+9262	St. Helens
+9263	Cornelius
+9264	La Grande
+9265	Sandy
+9266	Oatfield
+9267	Gladstone
+9268	Ontario
+9269	Oak Hills
+9270	Prineville
+9271	Monmouth
+9272	White City
+9273	Damascus
+9274	Cottage Grove
+9275	Fairview
+9276	Santa Clara
+9277	Silverton
+9278	Newport
+9279	North Bend
+9280	Baker City
+9281	Molalla
+9282	Astoria
+9283	Independence
+9284	Sweet Home
+9285	Lincoln City
+9286	Eagle Point
+9287	Florence
+9288	Bull Mountain
+9289	Rockcreek
+9290	Sutherlin
+9291	Cedar Hills
+9292	River Road
+9293	Hood River
+9294	West Haven-Sylvan
+9295	Stayton
+9296	Scappoose
+9297	Green
+9298	Jennings Lodge
+9299	Madras
+9300	Umatilla
+9301	Seaside
+9472	Philadelphia
+9473	Pittsburgh
+9474	Allentown
+9475	Harrisburg
+9476	Lancaster
+9477	Scranton
+9478	Reading
+9479	York
+9480	Erie
+9481	State College
+9482	Bethlehem
+9483	Altoona
+9484	Lebanon
+9485	Levittown
+9486	Wilkes-Barre
+9487	Norristown
+9488	Chester
+9489	Bethel Park
+9490	Drexel Hill
+9491	Hazleton
+9492	Easton
+9493	Monroeville
+9494	Williamsport
+9495	Plum
+9496	King of Prussia
+9497	Pottstown
+9498	Allison Park
+9499	Chambersburg
+9500	New Castle
+9501	Carlisle
+9502	Baldwin
+9503	Murrysville
+9504	West Mifflin
+9505	West Chester
+9506	Phoenixville
+9507	Lansdale
+9508	Johnstown
+9509	Colonial Park
+9510	McKeesport
+9511	Fullerton
+9512	Hanover
+9513	Hermitage
+9514	Weigelstown
+9515	Franklin Park
+9516	Greensburg
+9517	Hershey
+9518	Indiana
+9519	Wilkinsburg
+9520	Ardmore
+9521	Dunmore
+9522	Willow Grove
+9523	Ephrata
+9524	Carnot-Moon
+9525	Montgomeryville
+9526	Pottsville
+9527	Washington
+9528	Kingston
+9529	Coatesville
+9530	Butler
+9531	Sharon
+9532	Bloomsburg
+9533	Meadville
+9534	St. Marys
+9535	Jefferson Hills
+9536	Yeadon
+9537	New Kensington
+9538	Elizabethtown
+9539	Mountain Top
+9540	Emmaus
+9541	Lower Burrell
+9542	Progress
+9543	Wyomissing
+9544	Lansdowne
+9545	Waynesboro
+9546	Shiloh
+9547	Broomall
+9548	Darby
+9549	Munhall
+9550	Nanticoke
+9551	Northampton
+9552	Berwick
+9553	Woodlyn
+9554	Columbia
+9555	Roslyn
+9556	Willow Street
+9557	Brentwood
+9558	Uniontown
+9559	Morrisville
+9560	Croydon
+9561	Canonsburg
+9562	Sunbury
+9563	Bala Cynwyd
+9564	Lititz
+9565	Middletown
+9566	Mechanicsburg
+9567	Oil City
+9568	Quakertown
+9569	East Stroudsburg
+9570	Warren
+9571	Conshohocken
+9572	Glenshaw
+9573	Perkasie
+9574	Aliquippa
+9575	Sanatoga
+9576	Harleysville
+9577	Audubon
+9578	Kulpsville
+9579	Fairless Hills
+9580	Northwest Harborcreek
+9581	Beaver Falls
+9582	East York
+9583	Collingdale
+9584	Carbondale
+9585	Park Forest Village
+9586	Village Green-Green Ridge
+9587	Jeannette
+9588	Millersville
+9589	Old Forge
+9590	Lewistown
+9591	Swissvale
+9592	Villanova
+9593	Pleasant Hills
+9594	Lock Haven
+9595	Parkville
+9596	Mount Joy
+9597	Folsom
+9598	Brookhaven
+9599	Castle Shannon
+9600	Hatboro
+9601	Wilson
+9602	Bellevue
+9603	Downingtown
+9604	Breinigsville
+9605	Camp Hill
+9606	Dormont
+9607	Leola
+9608	Carnegie
+9609	Latrobe
+9610	Glenside
+9611	Gettysburg
+9612	Grove City
+9613	Palmyra
+9614	Bradford
+9615	Ancient Oaks
+9616	Pittston
+9617	Ellwood City
+9618	Blandon
+9619	New Cumberland
+9620	White Oak
+9621	DuBois
+9728	Providence
+9729	Warwick
+9730	Cranston
+9731	Pawtucket
+9732	East Providence
+9733	Woonsocket
+9734	Newport
+9735	Central Falls
+9736	Valley Falls
+9737	Newport East
+9738	Cumberland Hill
+9739	Greenville
+9740	Kingston
+9741	Pascoag
+9742	Narragansett Pier
+9743	Hope Valley
+9744	Melville
+9745	Chepachet
+9746	Harrisville
+9747	Ashaway
+9748	Bradford
+9749	Carolina
+9750	Harmony
+9751	Greene
+9752	Quonochontaug
+9753	Weekapaug
+9754	Misquamicut
+9755	Wyoming
+9756	Foster Center
+9757	Watch Hill
+9984	Charleston
+9985	Columbia
+9986	Greenville
+9987	Myrtle Beach
+9988	Rock Hill
+9989	Spartanburg
+9990	Mauldin
+9991	North Charleston
+9992	Mount Pleasant
+9993	Florence
+9994	Sumter
+9995	Summerville
+9996	Goose Creek
+9997	Greer
+9998	Hilton Head Island
+9999	Aiken
+10000	Bluffton
+10001	Anderson
+10002	Fort Mill
+10003	Carolina Forest
+10004	Conway
+10005	Simpsonville
+10006	North Augusta
+10007	Socastee
+10008	Lexington
+10009	Easley
+10010	Taylors
+10011	Greenwood
+10012	Hanahan
+10013	St. Andrews
+10014	Wade Hampton
+10015	North Myrtle Beach
+10016	Five Forks
+10017	Clemson
+10018	West Columbia
+10019	Berea
+10020	Red Hill
+10021	Ladson
+10022	Seven Oaks
+10023	Dentsville
+10024	Lake Wylie
+10025	Gantt
+10026	Port Royal
+10027	Moncks Corner
+10028	Cayce
+10029	Beaufort
+10030	Tega Cay
+10031	Orangeburg
+10032	Gaffney
+10033	Boiling Springs
+10034	Parker
+10035	Oak Grove
+10036	Irmo
+10037	James Island
+10038	Powdersville
+10039	Fountain Inn
+10040	Red Bank
+10041	Garden City
+10042	Newberry
+10043	Forest Acres
+10044	Little River
+10045	Murrells Inlet
+10046	Woodfield
+10047	Litchfield Beach
+10048	Lugoff
+10049	Laurens
+10050	Hardeeville
+10051	Seneca
+10052	Lancaster
+10053	York
+10054	Sangaree
+10055	Georgetown
+10056	Sans Souci
+10057	Travelers Rest
+10058	Union
+10059	Camden
+10060	White Knoll
+10061	Clinton
+10062	Forestbrook
+10063	Welcome
+10064	Hartsville
+10065	Valley Falls
+10066	Burton
+10067	Lake Murray of Richland
+10068	Clover
+10069	Homeland Park
+10070	Centerville
+10071	Bennettsville
+10072	Clemson University
+10073	Dillon
+10074	Marion
+10075	Lyman
+10076	Darlington
+10077	Lake City
+10078	Piedmont
+10079	Laurel Bay
+10080	Walterboro
+10081	Belvedere
+10082	Hollywood
+10083	Blythewood
+10084	Central
+10085	Chester
+10086	Cheraw
+10087	Batesburg-Leesville
+10088	Abbeville
+10089	Barnwell
+10090	Belton
+10091	Baxter Village
+10092	Isle of Palms
+10093	Woodruff
+10094	Surfside Beach
+10240	Sioux Falls
+10241	Rapid City
+10242	Aberdeen
+10243	Brookings
+10244	Watertown
+10245	Mitchell
+10246	Yankton
+10247	Huron
+10248	Pierre
+10249	Spearfish
+10250	Box Elder
+10251	Vermillion
+10252	Brandon
+10253	Harrisburg
+10254	Rapid Valley
+10255	Sturgis
+10256	Tea
+10257	Madison
+10258	Belle Fourche
+10259	Dakota Dunes
+10260	Dell Rapids
+10261	Milbank
+10262	Hot Springs
+10263	Hartford
+10264	Canton
+10265	North Sioux City
+10266	Lead
+10267	Summerset
+10268	Mobridge
+10269	Winner
+10270	Blackhawk
+10271	Chamberlain
+10272	Sisseton
+10273	Lennox
+10274	Fort Pierre
+10275	Pine Ridge
+10496	Nashville
+10497	Memphis
+10498	Knoxville
+10499	Chattanooga
+10500	Clarksville
+10501	Murfreesboro
+10502	Johnson City
+10503	Kingsport
+10504	Franklin
+10505	Jackson
+10506	Cleveland
+10507	Spring Hill
+10508	Bristol
+10509	Morristown
+10510	Hendersonville
+10511	Bartlett
+10512	Smyrna
+10513	Collierville
+10514	Gallatin
+10515	Brentwood
+10516	Columbia
+10517	Lebanon
+10518	Mount Juliet
+10519	Germantown
+10520	La Vergne
+10521	Cookeville
+10522	Maryville
+10523	Oak Ridge
+10524	Farragut
+10525	Shelbyville
+10526	East Ridge
+10527	Tullahoma
+10528	Springfield
+10529	Sevierville
+10530	Goodlettsville
+10531	Dickson
+10532	Dyersburg
+10533	Seymour
+10534	Greeneville
+10535	Arlington
+10536	Nolensville
+10537	Elizabethton
+10538	Athens
+10539	Lakeland
+10540	White House
+10541	McMinnville
+10542	Powell
+10543	Portland
+10544	Soddy-Daisy
+10545	Manchester
+10546	Lewisburg
+10547	Crossville
+10548	Red Bank
+10549	Middle Valley
+10550	Hartsville
+10551	Lawrenceburg
+10552	Alcoa
+10553	Collegedale
+10554	Millington
+10555	Union City
+10556	Martin
+10557	Lenoir City
+10558	Paris
+10559	Atoka
+10560	Clinton
+10561	Fairview
+10562	Brownsville
+10563	Winchester
+10564	Oakland
+10565	Halls
+10566	Fairfield Glade
+10567	Signal Mountain
+10568	Bloomingdale
+10569	Covington
+10570	Jefferson City
+10571	Harrison
+10572	Pulaski
+10573	Milan
+10574	Lexington
+10575	Thompson's Station
+10576	Humboldt
+10577	South Cleveland
+10578	Ripley
+10579	La Follette
+10580	Savannah
+10581	Dayton
+10582	Church Hill
+10583	Fayetteville
+10584	Greenbrier
+10585	Tellico Village
+10586	Newport
+10587	Green Hill
+10588	Lynchburg
+10589	Sweetwater
+10590	Munford
+10591	Henderson
+10592	Pigeon Forge
+10593	Loudon
+10594	Jonesborough
+10595	Kingston
+10596	Harriman
+10597	Erwin
+10598	Millersville
+10599	Eagleton Village
+10600	McKenzie
+10601	Lafayette
+10602	Dunlap
+10603	Rockwood
+10604	Mount Carmel
+10605	Ashland City
+10606	Medina
+10607	Madisonville
+10608	Bolivar
+10609	Smithville
+10610	Pleasant View
+10611	Sparta
+10612	Mount Pleasant
+10613	Forest Hills
+10614	Christiana
+10615	Oak Hill
+10616	Whiteville
+10617	Rogersville
+10618	Coopertown
+10619	Lake Tansi
+10620	Oak Grove
+10621	Selmer
+10622	Huntingdon
+10623	Apison
+10624	Louisville
+10625	Harrogate
+10626	Waverly
+10627	Trenton
+10628	Shackle Island
+10629	Algood
+10630	White Bluff
+10752	Houston
+10753	Dallas
+10754	San Antonio
+10755	Austin
+10756	Fort Worth
+10757	El Paso
+10758	McAllen
+10759	Denton
+10760	Arlington
+10761	Corpus Christi
+10762	Plano
+10763	Lubbock
+10764	Killeen
+10765	Laredo
+10766	Irving
+10767	Garland
+10768	Brownsville
+10769	College Station
+10770	Frisco
+10771	Amarillo
+10772	Galveston
+10773	McKinney
+10774	Grand Prairie
+10775	Waco
+10776	Odessa
+10777	Pasadena
+10778	Mesquite
+10779	Beaumont
+10780	Midland
+10781	Carrollton
+10782	Tyler
+10783	Lewisville
+10784	Abilene
+10785	Pearland
+10786	Round Rock
+10787	Temple
+10788	Richardson
+10789	The Woodlands
+10790	Harlingen
+10791	League City
+10792	Port Arthur
+10793	Longview
+10794	Sugar Land
+10795	Allen
+10796	Edinburg
+10797	Wichita Falls
+10798	San Angelo
+10799	New Braunfels
+10800	Conroe
+10801	Atascocita
+10802	Mission
+10803	Bryan
+10804	Baytown
+10805	Pharr
+10806	Georgetown
+10807	Texarkana
+10808	Flower Mound
+10809	Cedar Park
+10810	Mansfield
+10811	Missouri City
+10812	San Marcos
+10813	Sherman
+10814	North Richland Hills
+10815	Leander
+10816	Spring
+10817	Victoria
+10818	Pflugerville
+10819	Rowlett
+10820	Euless
+10821	Wylie
+10822	DeSoto
+10823	Texas City
+10824	Kyle
+10825	Little Elm
+10826	Burleson
+10827	Grapevine
+10828	Rockwall
+10829	Bedford
+10830	Cedar Hill
+10831	Huntsville
+10832	Haltom City
+10833	Keller
+10834	The Colony
+10835	Waxahachie
+10836	Channelview
+10837	Schertz
+10838	Coppell
+10839	Weslaco
+10840	Friendswood
+10841	Lancaster
+10842	Hurst
+10843	Duncanville
+10844	Rosenberg
+10845	Mission Bend
+10846	Midlothian
+10847	Copperas Cove
+10848	Farmers Branch
+10849	Socorro
+10850	La Porte
+10851	San Juan
+10852	Timberwood Park
+10853	Del Rio
+10854	Prosper
+10855	Lufkin
+10856	Weatherford
+10857	Cibolo
+10858	Deer Park
+10859	Harker Heights
+10860	Cleburne
+10861	Canyon Lake
+10862	Hutto
+10863	Nacogdoches
+10864	West Odessa
+10865	Seguin
+10866	Southlake
+10867	Greenville
+10868	Sachse
+10869	Converse
+10870	Forney
+10871	Eagle Pass
+10872	Lake Jackson
+10873	Alvin
+10874	Balch Springs
+10875	Celina
+10876	Fulshear
+10877	Colleyville
+10878	Fort Hood
+10879	Denison
+10880	Corsicana
+10881	University Park
+10882	Kingsville
+10883	Pecan Grove
+10884	Big Spring
+10885	Paris
+10886	San Benito
+10887	Cloverleaf
+10888	Kerrville
+10889	Saginaw
+10890	Benbrook
+10891	Fresno
+10892	Katy
+10893	Belton
+10894	Marshall
+10895	Watauga
+10896	Horizon City
+10897	Corinth
+10898	Dickinson
+10899	Ennis
+10900	Stephenville
+10901	Murphy
+10902	Anna
+10903	Princeton
+10904	Brushy Creek
+10905	Fate
+10906	Portland
+10907	Alamo
+10908	Plainview
+10909	Universal City
+10910	Angleton
+10911	Boerne
+10912	Alton
+10913	Orange
+10914	Cinco Ranch
+10915	Lakeway
+10916	Terrell
+10917	Crowley
+10918	Seagoville
+10919	Palestine
+10920	La Marque
+10921	Brownwood
+10922	Steiner Ranch
+10923	Nederland
+10924	White Settlement
+10925	Brenham
+10926	Bay City
+10927	Alice
+10928	Gainesville
+10929	Melissa
+10930	Royse City
+10931	Stafford
+10932	Glenn Heights
+10933	Addison
+10934	Bellaire
+10935	Groves
+10936	Manor
+10937	Donna
+10938	Taylor
+10939	Pampa
+10940	Humble
+10941	Mercedes
+10942	Hewitt
+10943	Sulphur Springs
+10944	Mount Pleasant
+10945	Gatesville
+10946	South Houston
+10947	Highland Village
+10948	Red Oak
+10949	Rendon
+10950	Live Oak
+10951	Palmview
+10952	Buda
+10953	Aldine
+10954	Canyon
+10955	Uvalde
+10956	Rio Grande City
+10957	Mineral Wells
+10958	West University Place
+10959	Hereford
+10960	Lockhart
+10961	Dumas
+10962	Hidalgo
+10963	Jacksonville
+10964	Wells Branch
+10965	Forest Hill
+10966	Lumberton
+10967	Azle
+10968	Port Neches
+10969	Seabrook
+10970	Beeville
+10971	Trophy Club
+10972	Kilgore
+10973	Andrews
+10974	Henderson
+10975	Tomball
+10976	Athens
+10977	Manvel
+10978	Santa Fe
+10979	Robinson
+10980	Lantana
+10981	Levelland
+10982	Borger
+10983	Webster
+10984	El Campo
+10985	Richmond
+10986	Hornsby Bend
+10987	Fort Bliss
+10988	Granbury
+10989	Roma
+10990	Four Corners
+10991	Leon Valley
+10992	Port Lavaca
+10993	La Homa
+10994	Snyder
+10995	Selma
+10996	Fredericksburg
+10997	Iowa Colony
+10998	Heartland
+10999	Burkburnett
+11000	Elgin
+11001	Pleasanton
+11002	Scenic Oaks
+11003	Clute
+11004	Freeport
+11005	Fair Oaks Ranch
+11008	Salt Lake City
+11009	Provo
+11010	Ogden
+11011	St. George
+11012	West Valley City
+11013	Logan
+11014	West Jordan
+11015	Orem
+11016	Sandy
+11017	Layton
+11018	Lehi
+11019	South Jordan
+11020	Millcreek
+11021	Taylorsville
+11022	Herriman
+11023	Draper
+11024	Murray
+11025	Eagle Mountain
+11026	Bountiful
+11027	Riverton
+11028	Saratoga Springs
+11029	Spanish Fork
+11030	Roy
+11031	Pleasant Grove
+11032	Tooele
+11033	Cedar City
+11034	Kearns
+11035	Midvale
+11036	Springville
+11037	American Fork
+11038	Syracuse
+11039	Cottonwood Heights
+11040	Clearfield
+11041	Kaysville
+11042	Holladay
+11043	Washington
+11044	Magna
+11045	South Salt Lake
+11046	Farmington
+11047	Clinton
+11048	North Salt Lake
+11049	Payson
+11050	Hurricane
+11051	North Ogden
+11052	West Haven
+11053	Brigham City
+11054	Highland
+11055	Bluffdale
+11056	South Ogden
+11057	Heber
+11058	Centerville
+11059	Santaquin
+11060	Smithfield
+11061	Grantsville
+11062	Vineyard
+11063	Mapleton
+11064	Lindon
+11065	West Point
+11066	Woods Cross
+11067	North Logan
+11068	Stansbury Park
+11069	Pleasant View
+11070	Tremonton
+11071	Alpine
+11072	Vernal
+11073	Hyrum
+11074	Cedar Hills
+11075	Salem
+11076	Ivins
+11077	Riverdale
+11078	Hooper
+11079	Washington Terrace
+11080	Providence
+11081	Summit Park
+11082	Park City
+11083	Price
+11084	Richfield
+11085	Plain City
+11086	South Weber
+11087	Santa Clara
+11088	Farr West
+11089	Enoch
+11090	Nibley
+11091	Roosevelt
+11092	Harrisville
+11093	Nephi
+11094	Snyderville
+11095	Midway
+11096	Fruit Heights
+11097	West Bountiful
+11098	Ephraim
+11099	Perry
+11100	White City
+11101	Sunset
+11102	Hyde Park
+11103	Moab
+11104	Kanab
+11105	Elk Ridge
+11264	Burlington
+11265	South Burlington
+11266	Rutland
+11267	Essex Junction
+11268	Barre
+11269	Winooski
+11270	Montpelier
+11271	St. Albans
+11272	Newport
+11273	Wilder
+11274	White River Junction
+11275	Bellows Falls
+11276	West Brattleboro
+11277	Vergennes
+11278	Morrisville
+11279	Manchester Center
+11280	Enosburg Falls
+11281	Proctor
+11282	North Bennington
+11283	South Barre
+11284	Lyndonville
+11285	East Barre
+11286	Derby Line
+11287	Orleans
+11288	Castleton Four Corners
+11289	Jeffersonville
+11290	Island Pond
+11291	Derby Center
+11292	Pownal
+11293	Huntington
+11294	Killington Village
+11295	North Troy
+11296	Hartford Village
+11297	Underhill Flats
+11298	Stamford
+11299	Saxtons River
+11300	West Woodstock
+11301	Pownal Center
+11520	Virginia Beach
+11521	Richmond
+11522	Chesapeake
+11523	Arlington
+11524	Norfolk
+11525	Roanoke
+11526	Newport News
+11527	Fredericksburg
+11528	Alexandria
+11529	Hampton
+11530	Lynchburg
+11531	Charlottesville
+11532	Portsmouth
+11533	Suffolk
+11534	Williamsburg
+11535	Winchester
+11536	Harrisonburg
+11537	Dale City
+11538	Centreville
+11539	Blacksburg
+11540	Reston
+11541	McLean
+11542	Leesburg
+11543	Tuckahoe
+11544	Ashburn
+11545	Lake Ridge
+11546	Woodbridge
+11547	Burke
+11548	Manassas
+11549	Danville
+11550	Linton Hall
+11551	Annandale
+11552	Mechanicsville
+11553	Oakton
+11554	Fair Oaks
+11555	South Riding
+11556	Petersburg
+11557	Sterling
+11558	Springfield
+11559	West Falls Church
+11560	Short Pump
+11561	Tysons
+11562	Cave Spring
+11563	Staunton
+11564	Salem
+11565	Bailey's Crossroads
+11566	Herndon
+11567	Fairfax
+11568	Brambleton
+11569	Chantilly
+11570	Chester
+11571	Cherry Hill
+11572	Hopewell
+11573	West Springfield
+11574	Christiansburg
+11575	Waynesboro
+11576	McNair
+11577	Montclair
+11578	Lorton
+11579	Woodlawn
+11580	Rose Hill
+11581	Merrifield
+11582	Buckhall
+11583	Culpeper
+11584	Meadowbrook
+11585	Lincolnia
+11586	Midlothian
+11587	Franklin Farm
+11588	Sudley
+11589	Colonial Heights
+11590	Laurel
+11591	Franconia
+11592	Gainesville
+11593	Hybla Valley
+11594	Idylwood
+11595	Burke Centre
+11596	Kingstowne
+11597	Bon Air
+11598	Bristol
+11599	Hollins
+11600	Manassas Park
+11601	Bull Run
+11602	Glen Allen
+11603	Fort Hunt
+11604	Radford
+11605	Vienna
+11606	Stone Ridge
+11607	East Highland Park
+11608	Wolf Trap
+11609	Front Royal
+11610	Highland Springs
+11611	Great Falls
+11612	Broadlands
+11613	Falls Church
+11614	Brandermill
+11615	Newington
+11616	Martinsville
+11617	Groveton
+11618	Kings Park West
+11619	Huntington
+11620	Mount Vernon
+11621	Sugarland Run
+11622	Lakeside
+11623	Timberlake
+11624	Lansdowne
+11625	Poquoson
+11626	Cascades
+11627	Forest
+11628	Newington Forest
+11629	Manchester
+11630	Fairfax Station
+11631	Wyndham
+11632	Wakefield
+11633	Stuarts Draft
+11634	Dranesville
+11635	New Baltimore
+11636	Triangle
+11637	Lowes Island
+11638	Gloucester Point
+11639	Lake Monticello
+11640	Lake Barcroft
+11641	Yorkshire
+11642	Madison Heights
+11643	Loudoun Valley Estates
+11644	Independent Hill
+11645	Difficult Run
+11646	Warrenton
+11647	Woodburn
+11648	George Mason
+11649	Fishersville
+11650	Belmont
+11651	Countryside
+11652	Crozet
+11653	Seven Corners
+11654	University of Virginia
+11776	Seattle
+11777	Spokane
+11778	Kennewick
+11779	Bremerton
+11780	Tacoma
+11781	Olympia
+11782	Vancouver
+11783	Marysville
+11784	Bellevue
+11785	Kent
+11786	Yakima
+11787	Bellingham
+11788	Everett
+11789	Spokane Valley
+11790	Renton
+11791	Federal Way
+11792	Kirkland
+11793	Auburn
+11794	Wenatchee
+11795	Pasco
+11796	Redmond
+11797	Longview
+11798	South Hill
+11799	Mount Vernon
+11800	Sammamish
+11801	Lakewood
+11802	Richland
+11803	Shoreline
+11804	Lacey
+11805	Burien
+11806	Bothell
+11807	Edmonds
+11808	Puyallup
+11809	Lynnwood
+11810	Lake Stevens
+11811	Issaquah
+11812	Parkland
+11813	Graham
+11814	University Place
+11815	Spanaway
+11816	Walla Walla
+11817	Des Moines
+11818	Pullman
+11819	SeaTac
+11820	Orchards
+11821	Maple Valley
+11822	Camas
+11823	Tumwater
+11824	Moses Lake
+11825	Mill Creek East
+11826	Mercer Island
+11827	Bainbridge Island
+11828	Oak Harbor
+11829	Frederickson
+11830	North Lynnwood
+11831	Kenmore
+11832	Eastmont
+11833	Union Hill-Novelty Hill
+11834	Cottage Lake
+11835	Hazel Dell
+11836	Bonney Lake
+11837	Martha Lake
+11838	Silver Firs
+11839	Tukwila
+11840	Five Corners
+11841	Mountlake Terrace
+11842	Mukilteo
+11843	Battle Ground
+11844	Silverdale
+11845	Bothell West
+11846	Covington
+11847	Mill Creek
+11848	Arlington
+11849	Port Angeles
+11850	Monroe
+11851	Salmon Creek
+11852	Ellensburg
+11853	Centralia
+11854	Fairwood
+11855	Anacortes
+11856	Bryn Mawr-Skyway
+11857	Camano
+11858	West Richland
+11859	Aberdeen
+11860	Washougal
+11861	Port Orchard
+11862	Sunnyside
+11863	Lynden
+11864	Lake Stickney
+11865	Ferndale
+11866	White Center
+11867	Lakeland North
+11868	Bothell East
+11869	East Wenatchee
+11870	Artondale
+11871	Fort Lewis
+11872	Elk Plain
+11873	Snoqualmie
+11874	Woodinville
+11875	Lake Forest Park
+11876	Newcastle
+11877	Lakeland South
+11878	Cheney
+11879	Kelso
+11880	Edgewood
+11881	Enumclaw
+11882	Sedro-Woolley
+11883	Ridgefield
+11884	Liberty Lake
+11885	Lake Tapps
+11886	East Renton Highlands
+11887	Gig Harbor
+11888	Minnehaha
+12032	Huntington
+12033	Charleston
+12034	Morgantown
+12035	Parkersburg
+12036	Wheeling
+12037	Martinsburg
+12038	Weirton
+12039	Fairmont
+12040	Beckley
+12041	Clarksburg
+12042	Teays Valley
+12043	South Charleston
+12044	St. Albans
+12045	Vienna
+12046	Cheat Lake
+12047	Cross Lanes
+12048	Bluefield
+12049	Bridgeport
+12050	Oak Hill
+12051	Moundsville
+12052	Dunbar
+12053	Pea Ridge
+12054	Nitro
+12055	Hurricane
+12056	Elkins
+12057	Charles Town
+12058	Brookhaven
+12059	Princeton
+12060	Ranson
+12061	New Martinsville
+12062	Buckhannon
+12063	Keyser
+12064	Grafton
+12065	Barboursville
+12066	Point Pleasant
+12067	Westover
+12068	Pinch
+12069	Weston
+12070	Lewisburg
+12071	Ravenswood
+12072	Pleasant Valley
+12073	Welch
+12074	Shady Spring
+12075	Shannondale
+12076	Summersville
+12077	Blennerhassett
+12078	Petersburg
+12079	Culloden
+12080	Ripley
+12081	Kingwood
+12082	Williamson
+12083	Williamstown
+12084	Kenova
+12085	Moorefield
+12086	Philippi
+12087	Fayetteville
+12088	Madison
+12089	Follansbee
+12090	Milton
+12091	Sissonville
+12092	White Sulphur Springs
+12093	Richwood
+12094	Inwood
+12095	Bethlehem
+12096	Winfield
+12097	Paden City
+12098	Mineralwells
+12099	Hinton
+12100	Falling Waters
+12101	Wellsburg
+12102	Chester
+12103	Bluewell
+12104	Stonewood
+12105	Mullens
+12106	Shinnston
+12107	St. Marys
+12108	Hooverson Heights
+12109	Spencer
+12110	Terra Alta
+12111	Star City
+12112	Nutter Fort
+12113	Crab Orchard
+12114	Belington
+12115	Salem
+12116	Logan
+12117	New Haven
+12118	McMechen
+12119	Romney
+12120	Mannington
+12121	Eleanor
+12122	Sophia
+12123	Montgomery
+12124	Chesapeake
+12125	Craigsville
+12126	Prosperity
+12127	West Liberty
+12128	Daniels
+12129	Belle
+12288	Milwaukee
+12289	Madison
+12290	Appleton
+12291	Green Bay
+12292	Racine
+12293	Kenosha
+12294	Eau Claire
+12295	La Crosse
+12296	Wausau
+12297	Oshkosh
+12298	Janesville
+12299	Sheboygan
+12300	Waukesha
+12301	West Allis
+12302	Wauwatosa
+12303	Fond du Lac
+12304	Brookfield
+12305	New Berlin
+12306	Menomonee Falls
+12307	Greenfield
+12308	Beloit
+12309	Oak Creek
+12310	Sun Prairie
+12311	Franklin
+12312	Manitowoc
+12313	West Bend
+12314	Fitchburg
+12315	Mount Pleasant
+12316	Neenah
+12317	Superior
+12318	Stevens Point
+12319	De Pere
+12320	Caledonia
+12321	Mequon
+12322	Muskego
+12323	Watertown
+12324	Middleton
+12325	Pleasant Prairie
+12326	Germantown
+12327	South Milwaukee
+12328	Howard
+12329	Fox Crossing
+12330	Onalaska
+12331	Wisconsin Rapids
+12332	Marshfield
+12333	Oconomowoc
+12334	Menasha
+12335	Cudahy
+12336	Kaukauna
+12337	Ashwaubenon
+12338	Beaver Dam
+12339	Menomonie
+12340	River Falls
+12341	Bellevue
+12342	Weston
+12343	Hartford
+12344	Whitewater
+12345	Hudson
+12346	Waunakee
+12347	Whitefish Bay
+12348	Greendale
+12349	Chippewa Falls
+12544	Cheyenne
+12545	Casper
+12546	Gillette
+12547	Laramie
+12548	Rock Springs
+12549	Sheridan
+12550	Evanston
+12551	Green River
+12552	Riverton
+12553	Jackson
+12554	Cody
+12555	Rawlins
+12556	Lander
+12557	Powell
+12558	Douglas
+12559	Ranchettes
+12560	Torrington
+12561	Worland
+12562	South Greeley
+12563	Buffalo
+12564	Mills
+12565	Fox Farm-College
+12566	Wheatland
+12567	Newcastle
+12568	Bar Nunn
+12569	Glenrock
+12570	Kemmerer
+12571	Evansville
+12572	Warren AFB
+12573	Thermopolis
+12574	Lovell
+12575	North Rock Springs
+12576	Star Valley Ranch
+12577	Greybull
+12578	Pinedale
+12579	South Park
+12580	Afton
+12581	Saratoga
+12582	Sleepy Hollow
+12583	Lyman
+12584	Hoback
+12585	Lusk
+12586	Arapahoe
+12587	Ethete
+12800	Algiers, Algeria
+12801	Constantine, Algeria
+12802	Oran, Algeria
+12803	Aua, American Samoa
+12804	Faleniu, American Samoa
+12805	Ili'ili, American Samoa
+12806	Leone, American Samoa
+12807	Nu'uuli, American Samoa
+12808	Pago Pago, American Samoa
+12809	Tafuna, American Samoa
+12810	Buenos Aires, Argentina
+12811	Cordoba, Argentina
+12812	Roasario, Argentina
+12813	Adelaide, Australia
+12814	Brisbane, Australia
+12815	Cairns, Australia
+12816	Canberra, Australia
+12817	Central Coast, Australia
+12818	Geelong, Australia
+12819	Gold Coast, Australia
+12820	Hobart, Australia
+12821	Maitland, Australia
+12822	Melborne, Australia
+12823	Newcastle, Australia
+12824	Perth, Australia
+12825	Queanbeyan, Australia
+12826	Sunshine Coast, Australia
+12827	Sydney, Australia
+12828	Toowoomba, Australia
+12829	townsville, Australia
+12830	Tweed Heads, Australia
+12831	Wollongong, Australia
+12832	Graz, Austria
+12833	Linz, Austria
+12834	Vienna, Austria
+12835	Antwerp, Belgium
+12836	Brussels, Belgium
+12837	Ghent, Belgium
+12838	Belo Horizonte, Brazil
+12839	Rio de Janeiro, Brazil
+12840	Sao Paulo, Brazil
+12841	Bafoussam, Cameroon
+12842	Douala, Cameroon
+12843	Yaounde, Cameroon
+12844	Abbotsford, Canada
+12845	Ajax, Canada
+12846	Barrie, Canada
+12847	Brampton, Canada
+12848	Burlington, Canada
+12849	Burnaby, Canada
+12850	Calgary, Canada
+12851	Cambridge, Canada
+12852	Coquitlam, Canada
+12853	Edmonton, Canada
+12854	Gatineau, Canada
+12855	Greater Sudbury, Canada
+12856	Guelph, Canada
+12857	Halifax, Canada
+12858	Hamilton, Canada
+12859	Kelowna, Canada
+12860	Kingston, Canada
+12861	Kitchener, Canada
+12862	Langley, Canada
+12863	Laval, Canada
+12864	Levis, Canada
+12865	London, Canada
+12866	Longueuil, Canada
+12867	Markham, Canada
+12868	Mississauga, Canada
+12869	Montreal, Canada
+12870	Oakville, Canada
+12871	Oshawa, Canada
+12872	Ottawa, Canada
+12873	Quebec City, Canada
+12874	Regina, Canada
+12875	Richmond Hill, Canada
+12876	Richmond, Canada
+12877	Saguenay, Canada
+12878	Saskatoon, Canada
+12879	Sherbrooke, Canada
+12880	St. Catharines, Canada
+12881	Surrey, Canada
+12882	Toronto, Canada
+12883	Trois-Rivieres, Canada
+12884	Vancouver, Canada
+12885	Vaughan, Canada
+12886	Whitby, Canada
+12887	Windsor, Canada
+12888	Winnipeg, Canada
+12889	Maipu, Chile
+12890	Puente Alto, Chile
+12891	Santiago, Chile
+12892	Beijing, China
+12893	Shanghai, China
+12894	Shenzhen, China
+12895	Brazzaville, Congo
+12896	Dolisie, Congo
+12897	Pointe-Noire, Congo
+12898	Rijeka, Croatia
+12899	Split, Croatia
+12900	Zagreb, Croatia
+12901	Camaguey, Cuba
+12902	Havana, Cuba
+12903	Santiago de Cuba, Cuba
+12904	Brno, Czech Republic
+12905	Ostrava, Czech Republic
+12906	Prague, Czech Republic
+12907	Arhus, Denmark
+12908	Copenhagen, Denmark
+12909	Odense, Denmark
+12910	Alexandria, Egypt
+12911	Cairo, Egypt
+12912	Giza, Egypt
+12913	Birmingham, England
+12914	Bristol, England
+12915	Leeds, England
+12916	Liverpool, England
+12917	London, England
+12918	Manchester, England
+12919	Newcastle, England
+12920	Sheffield, England
+12921	Teesside, England
+12922	Lyon, France
+12923	Marseille, France
+12924	Paris, France
+12925	Berlin, Germany
+12926	Bochum, Germany
+12927	Bochum-Hordel, Germany
+12928	Bremen, Germany
+12929	Dortmund, Germany
+12930	Dresden, Germany
+12931	Duesseldorf, Germany
+12932	Duisburg, Germany
+12933	Essen, Germany
+12934	Essen, Germany
+12935	Frankfurt am Main, Germany
+12936	Hamburg, Germany
+12937	Hannover, Germany
+12938	Koeln, Germany
+12939	Leipzig, Germany
+12940	Munich, Germany
+12941	Nuernberg, Germany
+12942	Stuttgart, Germany
+12943	Wandsbek, Germany
+12944	Accra, Ghana
+12945	Kumasi, Ghana
+12946	Tamale, Ghana
+12947	Dededo Village, Guam
+12948	Yigo Village, Guam
+12949	Camayenne, Guinea
+12950	Conakry, Guinea
+12951	Nzerekore, Guinea
+12952	Hafnarfjoerdur, Iceland
+12953	Kopavogur, Iceland
+12954	Reykjavik, Iceland
+12955	Cork, Ireland
+12956	Dublin, Ireland
+12957	Dun Laoghaire, Ireland
+12958	Haifa, Israel
+12959	Jerusalem, Israel
+12960	Tel Aviv, Israel
+12961	Abidjan, Ivory Coast
+12962	Abobo, Ivory Coast
+12963	Bouake, Ivory Coast
+12964	Nagoya, Japan
+12965	Osaka, Japan
+12966	Tokyo, Japan
+12967	Eldoret, Kenya
+12968	Mombasa, Kenya
+12969	Nairobi, Kenya
+12970	Daugavpils, Latvia
+12971	Liepaja, Latvia
+12972	Riga, Latvia
+12973	Dudelange, Luxembourg
+12974	Esch-sur-Alzette, Luxembourg
+12975	Luxembourg, Luxembourg
+12976	Guadalajara, Mexico
+12977	Mexico City, Mexico
+12978	Monterrey, Mexico
+12979	Casablanca, Morocco
+12980	Fes, Morocco
+12981	Rabat, Morocco
+12982	Belfast, N Ireland
+12983	Derry, N Ireland
+12984	Lisburn, N Ireland
+12985	Amsterdam, Netherlands
+12986	Rotterdam, Netherlands
+12987	The Hague, Netherlands
+12988	Auckland, New Zealand
+12989	Christchurch, New Zealand
+12990	Hamilton, New Zealand
+12991	Manukau City, New Zealand
+12992	North Shore, New Zealand
+12993	Waitakere, New Zealand
+12994	Wellington, New Zealand
+12995	Abuja, Nigeria
+12996	Benin City, Nigeria
+12997	Ibadan, Nigeria
+12998	Kano, Nigeria
+12999	Lagos, Nigeria
+13000	Nnewi, Nigeria
+13001	Onitsha, Nigeria
+13002	Port Harcourt, Nigeria
+13003	Uyo, Nigeria
+13004	Bergen, Norway
+13005	Oslo, Norway
+13006	Trondheim, Norway
+13007	Amadora, Portugal
+13008	Lisbon, Portugal
+13009	Porto, Portugal
+13010	Bayamon, Puerto Rico
+13011	Carolina, Puerto Rico
+13012	San Juan, Puerto Rico
+13013	Moscow, Russia
+13014	Novosibirsk, Russia
+13015	St. Petersburg, Russia
+13016	Aberdeen, Scotland
+13017	Edinburgh, Scotland
+13018	Glasgow, Scotland
+13019	Cape Town, South Africa
+13020	Durban, South Africa
+13021	Johannesburg, South Africa
+13022	Busan, South Korea
+13023	Incheon, South Korea
+13024	Seoul, South Korea
+13025	Barcelona, Spain
+13026	Madrid, Spain
+13027	Valencia, Spain
+13028	Gothenburg, Sweden
+13029	Linkoeping, Sweden
+13030	Malmo, Sweden
+13031	OErebro, Sweden
+13032	Soedermalm, Sweden
+13033	Sollentuna, Sweden
+13034	Stockholm, Sweden
+13035	Uppsala, Sweden
+13036	Vaesteras, Sweden
+13037	Dar es Salaam, Tanzania
+13038	Mwanza, Tanzania
+13039	Zanzibar, Tanzania
+13040	Sfax, Tunisia
+13041	Sousse, Tunisia
+13042	Tunis, Tunisia
+13043	Kharkiv, Ukraine
+13044	Kiev, Ukraine
+13045	Odessa, Ukraine
+13046	Montevideo, Uruguay
+13047	Paysandu, Uruguay
+13048	Salto, Uruguay
+13049	Hanoi, Vietnam
+13050	Ho Chi Minh City, Vietnam
+13051	Thanh Hoa, Vietnam
+13052	Cardiff, Wales
+13053	Newport, Wales
+13054	Swansea, Wales
+13056	Washington

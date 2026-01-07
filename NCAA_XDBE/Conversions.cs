@@ -2281,6 +2281,54 @@ namespace DB_EDITOR
             return rec;
         }
 
+        public List<string> GetStatesList()
+        {
+            return CreateStringListfromCSV(@"resources\players\RCST.csv", true);
+        }
+
+        public string[] GetHometownList()
+        {
+            string[] home;
+
+            if (verNumber >= 16.5)
+            {
+                home = new string[13057];
+
+                string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+                string csvLocation = Path.Combine(executableLocation, @"resources\players\RCHT-V16.5.txt");
+
+                string filePath = csvLocation;
+                StreamReader sr = new StreamReader(filePath);
+                while (!sr.EndOfStream)
+                {
+                    string[] Line = sr.ReadLine().Split('\t');
+                    home[Convert.ToInt32(Line[0])] = Line[1];
+
+                }
+                sr.Close();
+            }
+            else
+            {
+                home = new string[13057];
+
+                string executableLocation = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
+                string csvLocation = Path.Combine(executableLocation, @"resources\players\RCHT.csv");
+
+                string filePath = csvLocation;
+                StreamReader sr = new StreamReader(filePath);
+                while (!sr.EndOfStream)
+                {
+                    string[] Line = sr.ReadLine().Split(',');
+                    home[Convert.ToInt32(Line[0])] = Line[1];
+
+                }
+                sr.Close();
+            }
+
+            return home;
+        }
+
+
 
         #endregion
 
@@ -2314,7 +2362,6 @@ namespace DB_EDITOR
         }
 
         #endregion
-
 
         #region Coloring
 
