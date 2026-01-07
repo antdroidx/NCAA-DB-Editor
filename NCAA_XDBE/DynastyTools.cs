@@ -466,7 +466,7 @@ namespace DB_EDITOR
             //determines what power conference prestige value is...
             for (int i = 0; i < GetTableRecCount("CONF"); i++)
             {
-                if (GetConfPrestige(i) < maxPrestige) maxPrestige = GetConfPrestige(i);
+                if (GetConfPrestige(i) > maxPrestige) maxPrestige = GetConfPrestige(i);
             }
 
             //creates a list of power and non-power conferences
@@ -476,7 +476,7 @@ namespace DB_EDITOR
                 {
                     GroupConfList.Add(GetConfCGID(i));
                 }
-                else if (GetConfPrestige(i) == 3 && GetConfLeague(i) == 0)
+                else if (GetConfPrestige(i) >= maxPrestige && GetConfLeague(i) == 0)
                 {
                     PowerConfList.Add(GetConfCGID(i));
                 }

@@ -106,7 +106,6 @@ namespace DB_EDITOR
                     coachNews[newCounter].Add(GetDBValue("COCH", "CCPO", i));
                     coachNews[newCounter].Add(Convert.ToString(i));
 
-
                     ChangeDBString("COCH", "CCPO", i, "60");
                     ChangeDBString("COCH", "CTYR", i, "0");
                     ChangeDBString("COCH", "TGID", i, "511");
@@ -292,7 +291,6 @@ namespace DB_EDITOR
                                     coachNews[newCounter].Add(GetDBValue("COCH", "CSWI", i) + "-" + GetDBValue("COCH", "CSLO", i));
                                     coachNews[newCounter].Add(GetDBValue("COCH", "CCPO", i));
                                     coachNews[newCounter].Add(Convert.ToString(i));
-                                    DisplayCarouselNews(coachNews);
 
                                 }
 
@@ -572,24 +570,35 @@ namespace DB_EDITOR
         {
             CarouselDataGrid.Columns[1].DefaultCellStyle.WrapMode = DataGridViewTriState.True;
 
-            for (int x = 0; x < CoachNews.Count; x++)
+
+            int prevCount = CoachPortalNews.RowCount;
+            for (int x = prevCount; x < prevCount + CoachNews.Count; x++)
             {
                 int row = CarouselDataGrid.Rows.Count;
                 CarouselDataGrid.Rows.Add(new DataGridViewRow());
-                CarouselDataGrid.Rows[row].Cells[0].Value = CoachNews[x][0];
-                CarouselDataGrid.Rows[row].Cells[1].Value = CoachNews[x][1];
-                CarouselDataGrid.Rows[row].Cells[2].Value = CoachNews[x][2];
-                CarouselDataGrid.Rows[row].Cells[3].Value = CoachNews[x][3];
-                CarouselDataGrid.Rows[row].Cells[4].Value = CoachNews[x][4];
-                CarouselDataGrid.Rows[row].Cells[5].Value = CoachNews[x][5];
-                CarouselDataGrid.Rows[row].Cells[6].Value = CoachNews[x][6];
-                CarouselDataGrid.Rows[row].Cells[7].Value = CoachNews[x][7];
-                CarouselDataGrid.Rows[row].Cells[8].Value = CoachNews[x][8];
-                CarouselDataGrid.Rows[row].Cells[9].Value = CoachNews[x][9];
-                CarouselDataGrid.Rows[row].Cells[10].Value = CoachNews[x][10];
+                CarouselDataGrid.Rows[row].Cells[0].Value = CoachNews[x - prevCount][0];
+                CarouselDataGrid.Rows[row].Cells[1].Value = CoachNews[x - prevCount][1];
+                CarouselDataGrid.Rows[row].Cells[2].Value = CoachNews[x - prevCount][2];
+                CarouselDataGrid.Rows[row].Cells[3].Value = CoachNews[x - prevCount][3];
+                CarouselDataGrid.Rows[row].Cells[4].Value = CoachNews[x - prevCount][4];
+                CarouselDataGrid.Rows[row].Cells[5].Value = CoachNews[x - prevCount][5];
+                CarouselDataGrid.Rows[row].Cells[6].Value = CoachNews[x - prevCount][6];
+                CarouselDataGrid.Rows[row].Cells[7].Value = CoachNews[x - prevCount][7];
+                CarouselDataGrid.Rows[row].Cells[8].Value = CoachNews[x - prevCount][8];
+                CarouselDataGrid.Rows[row].Cells[9].Value = CoachNews[x - prevCount][9];
+                CarouselDataGrid.Rows[row].Cells[10].Value = CoachNews[x - prevCount][10];
+            }
+
+
+            // Scroll to the bottom to show the most recent transfer
+            if (CarouselDataGrid.Rows.Count > 0)
+            {
+                CarouselDataGrid.FirstDisplayedScrollingRowIndex = CarouselDataGrid.Rows.Count - 1;
             }
 
             CarouselDataGrid.ClearSelection();
+
+            CarouselDataGrid.Refresh();
         }
 
         private void DisplayCoachPortalNews(List<List<string>> CoachNews)
@@ -615,7 +624,16 @@ namespace DB_EDITOR
             CoachPortalNews.CellFormatting -= Carousel_CellFormatting;
             CoachPortalNews.CellFormatting += Carousel_CellFormatting;
 
+
+            // Scroll to the bottom to show the most recent transfer
+            if (CoachPortalNews.Rows.Count > 0)
+            {
+                CoachPortalNews.FirstDisplayedScrollingRowIndex = CoachPortalNews.Rows.Count - 1;
+            }
+
             CoachPortalNews.ClearSelection();
+            CoachPortalNews.Refresh();
+
         }
 
 
