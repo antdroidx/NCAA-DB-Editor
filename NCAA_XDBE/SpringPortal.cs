@@ -96,6 +96,23 @@ namespace DB_EDITOR
 
         #region Spring Portal Actions
 
+        /* Spring Portal List
+         *  0: PLAY Record
+         *  1: RCPT Record
+         *  2: PGID / PRID
+         *  3: PPOS
+         *  4: POVR
+         *  5: TGID
+         *  6: PYER
+         *  7: Adjusted OVR
+         *  8: PJEN
+         *  9: TRAN Status
+         *  10: RS
+         *  11: DISC
+         *  12: Is Starter
+         *  13: POE
+         */
+
         private void RunSpringPortal()
         {
             PortalData.ClearSelection();
@@ -257,23 +274,6 @@ namespace DB_EDITOR
                 SpringRoster[TGID][count].Add(DISC);
                 SpringRoster[TGID][count].Add(0);
                 SpringRoster[TGID][count].Add(POE);
-
-                /* Spring Portal List
-                 *  0: PLAY Record
-                 *  1: RCPT Record
-                 *  2: PGID / PRID
-                 *  3: PPOS
-                 *  4: POVR
-                 *  5: TGID
-                 *  6: PYER
-                 *  7: Adjusted OVR
-                 *  8: PJEN
-                 *  9: TRAN Status
-                 *  10: RS
-                 *  11: DISC
-                 *  12: Is Starter
-                 *  13: POE
-                 */
 
                 if (PortalRatingBoost.Checked)
                     SpringRoster[TGID][count][7] = POVR - (int)(SpringRoster[TGID][count][6] / 1.5);
@@ -444,11 +444,12 @@ namespace DB_EDITOR
                     // If the team has a backup QB, allow them to add a player to the portal
                     if (posList[0][0] != -1 && posList[0][9] == 0 || posList[0][2] >= 21000 && AllowRecentTransfers.Checked || posList[0][9] == 1 && AllowRecentTransfers.Checked)
                     {
+                        int ovr = ConvertRating(posList[0][4]);
                         int disc = posList[0][11];
                         int tmpr = teamPrestigeList[tgid];
                         int poe = posList[0][13];
 
-                        if (disc <= rand.Next(0, 8) && tmpr <= rand.Next(0, 8) || poe >= rand.Next(0, 25) && teamWins <= rand.Next(0, 10))
+                        if (disc <= rand.Next(0, 8) && tmpr <= rand.Next(0, 8) || poe >= rand.Next(0, 25) && teamWins <= rand.Next(0, 10) || ovr > rand.Next(0, 100) & tmpr < rand.Next(0, 7) & teamWins <= rand.Next(0, 10) )
                         {
                             posList[0][12] = 1; //mark as starter leaving
                             SpringPortal.Add(posList[0]);
@@ -882,7 +883,7 @@ namespace DB_EDITOR
             PortalTransfersList.Add(SpringPortal[portalRec]);
 
             TransferPlayer(newTGID, p, newPGID, portalRec);
-            AddTransferPlayerNews(portalRec);
+            AddTransferPlayerNews();
         }
 
         public void TransferPlayer(int tgid, int p, int newPGID, int portalRec)
@@ -1055,7 +1056,7 @@ namespace DB_EDITOR
 
         #region Portal News Headlines
 
-        private void AddTransferPlayerNews(int portalRec)
+        private void AddTransferPlayerNews()
         {
             int i = PortalTransfersList.Count - 1;
 
