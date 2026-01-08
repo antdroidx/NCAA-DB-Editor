@@ -1177,7 +1177,7 @@ namespace DB_EDITOR
             verNumberBox.SelectedIndex = 0;
 
 
-            if (TDB.TableCapacity(dbIndex, "PLAY") > 8400)
+            if (TDB.TableCapacity(dbIndex, "PLAY") > 8800)
             {
                 verNumberBox.SelectedIndex = 2;
                 for (int i = 0; i < GetTableRecCount("PLAY"); i++)
@@ -1342,6 +1342,7 @@ namespace DB_EDITOR
             MessageBox.Show("Dev Mode Enabled");
         }
         #endregion
+
 
 
 

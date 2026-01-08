@@ -264,12 +264,13 @@ namespace DB_EDITOR
 
                 if (champ)
                 {
-                    int TGID = -1;
+                    int TGID = 511;
                     int rec = -1;
 
                     if(AwayScore == HomeScore)
                     {
-                        //Skip
+                        TGID = 511;
+                        rec = -1;
                     }
                     else if (AwayScore > HomeScore)
                     {
@@ -289,8 +290,8 @@ namespace DB_EDITOR
                 {
                     roundLabel[count * 4] = GetPlayoffLabel(roundLabel[count * 4], TGIDHome, TGIDHomeRec);
                     roundLabel[count * 4 + 1] = GetPlayoffLabel(roundLabel[count * 4 + 1], TGIDAway, TGIDAwayRec);
-                    roundLabel[count * 4 + 2] = GetScoreLabel(roundLabel[count * 4 + 2], HomeScore, TGIDHomeRec);
-                    roundLabel[count * 4 + 3] = GetScoreLabel(roundLabel[count * 4 + 3], AwayScore, TGIDAwayRec);
+                    roundLabel[count * 4 + 2] = GetScoreLabel(roundLabel[count * 4 + 2], HomeScore, TGIDHome);
+                    roundLabel[count * 4 + 3] = GetScoreLabel(roundLabel[count * 4 + 3], AwayScore, TGIDAway);
                 }
 
 
@@ -300,6 +301,14 @@ namespace DB_EDITOR
 
         private Label GetPlayoffLabel(Label lbl, int TGID, int teamRec)
         {
+            if (TGID == 511)
+            {
+                lbl.Text = "";
+                lbl.BackColor = Color.DimGray;
+                lbl.ForeColor = Color.Snow;
+                return lbl;
+            }
+
             lbl.Text = "" + GetDBValueInt("TEAM", "TBRK", teamRec) + " " + teamNameDB[TGID];
             //lbl.ForeColor = Color.FromArgb(GetDBValueInt("TEAM", "TFOR", teamRec), GetDBValueInt("TEAM", "TFOG", teamRec), GetDBValueInt("TEAM", "TFOB", teamRec));
             lbl.ForeColor = Color.White;
@@ -308,11 +317,19 @@ namespace DB_EDITOR
             return lbl;
         }
 
-        private Label GetScoreLabel(Label lbl, int score, int teamRec)
+        private Label GetScoreLabel(Label lbl, int score, int TGID)
         {
+            if (TGID == 511)
+            {
+                lbl.Text = "";
+                lbl.BackColor = Color.Black;
+                lbl.ForeColor = Color.LemonChiffon;
+                return lbl;
+            }
+
             lbl.Text = "" + score;
             lbl.BackColor = Color.Black;
-            lbl.ForeColor = Color.White;
+            lbl.ForeColor = Color.LemonChiffon;
 
             return lbl;
         }

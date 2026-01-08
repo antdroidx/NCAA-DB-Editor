@@ -348,7 +348,7 @@ namespace DB_EDITOR
             }
             else
             {
-                if (pos != 0)
+                if (pos != 0 || pos == 3 || pos >= 16 && pos <= 18)
                 {
                     helmet = 3; //Revolution
                 }
@@ -704,17 +704,17 @@ namespace DB_EDITOR
 
             if (helm == 3)
             {
-                if (pos >= 5 && pos <= 15)
+                if (pos >= 5 && pos <= 12)
                 {
-                    facemask = 3;
+                    facemask = 2;
                 }
-                else if (pos == 0 || pos == 3 || pos >= 16)
+                else if (pos == 0 || pos == 3 || pos >= 16) //QB/WR/DB should not be used but just in case
                 {
                     facemask = 1;
                 }
                 else
                 {
-                    facemask = 2;
+                    facemask = 3;
                 }
             }
 

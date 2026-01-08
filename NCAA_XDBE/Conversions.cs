@@ -612,9 +612,9 @@ namespace DB_EDITOR
                 if (HELM == 3)
                 {
                     FaceMasks.Add("*");
-                    FaceMasks.Add("SF-Kicker");  //K+P
-                    FaceMasks.Add("SF-3BD (Skill Pos)"); //Skill
-                    FaceMasks.Add("SF-2EG-II (Linemen)"); //Linemen
+                    FaceMasks.Add("SF-Kicker");  //WR + DB
+                    FaceMasks.Add("SF-3BD (Linemen)"); //Linemen
+                    FaceMasks.Add("SF-2EG-II (Skill Pos)");  //Big Skill
                 }
                 else
                 {

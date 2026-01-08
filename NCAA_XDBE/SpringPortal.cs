@@ -118,6 +118,9 @@ namespace DB_EDITOR
             PortalData.ClearSelection();
             TotalTransfersCount.Text = "Total Transfers: 0";
 
+            lblTransferPortalStatus.Text = "Starting the Portal...";
+            lblTransferPortalStatus.Refresh();
+
             for (int x = 0; x < PortalCycleCount.Value; x++)
             {
                 {
@@ -125,11 +128,17 @@ namespace DB_EDITOR
 
                     TeamPortalNeeds = new int[512, 34];
 
+                    lblTransferPortalStatus.Text = "Evaluating Team Rosters...";
+                    lblTransferPortalStatus.Refresh();
+
                     CollectSpringRoster();
 
                     StartProgressBar(GetTableRecCount("TEAM"));
 
                     List<int> teamPrestigeList = BuildTeamPrestigeList();
+
+                    lblTransferPortalStatus.Text = "FBS Players are now entering the portal...";
+                    lblTransferPortalStatus.Refresh();
 
                     for (int i = 0; i < GetTableRecCount("TEAM"); i++)
                     {
@@ -153,11 +162,22 @@ namespace DB_EDITOR
 
                     EndProgressBar();
 
-                    if (FCSTransferPortalCheckBox.Checked) CreateFCSPlayers();
+                    if (FCSTransferPortalCheckBox.Checked)
+                    {
+                        lblTransferPortalStatus.Text = "FCS Players are now entering the portal...";
+                        lblTransferPortalStatus.Refresh();
+                        CreateFCSPlayers();
+                    }
 
+
+                    lblTransferPortalStatus.Text = "The Transfer Portal is now active...";
+                    lblTransferPortalStatus.Refresh();
                     RedistributePlayers();
                 }
 
+
+                lblTransferPortalStatus.Text = "Database clean-up...";
+                lblTransferPortalStatus.Refresh();
 
                 //Remove unused FCS players & change PTYP
                 StartProgressBar(GetTableRecCount("PLAY"));
@@ -201,11 +221,18 @@ namespace DB_EDITOR
                 EndProgressBar();
             }
 
+
+            lblTransferPortalStatus.Text = "Checking Team Depth Chart for Walk-On Needs...";
+            lblTransferPortalStatus.Refresh();
+
             CompactDB();
             PostPortalRosterCheck();
             CompactDB();
             CompactDB2();
 
+
+            lblTransferPortalStatus.Text = "The Portal is now closed.";
+            lblTransferPortalStatus.Refresh();
         }
 
         private void CollectSpringRoster()
@@ -368,8 +395,49 @@ namespace DB_EDITOR
             EndProgressBar();
         }
 
+        private void XLportal_CheckedChanged(object sender, EventArgs e)
+        {
+            if (XLportal.Checked)
+            {
+                MessageBox.Show("Note: XL Portal has changed other portal settings.");
+                SpringPortalMin.PerformClick();
+                AllowStartersLeave.Checked = true;
+                AllowBackupQBPortal.Checked = true;
+                AllowRecentTransfers.Checked = true;
+                PortalRatingBoost.Checked = true;
+                FCSTransferPortalCheckBox.Checked = true;
+                portalChance.Value = 80;
+                starterChancePCT.Value = 25;
+            }
+            else
+            {
+                MessageBox.Show("Note: XL Portal settings have been reverted back to default.");
+                PortalDefaultSetting.PerformClick();
+                AllowStartersLeave.Checked = false;
+                AllowBackupQBPortal.Checked = false;
+                AllowRecentTransfers.Checked = false;
+                PortalRatingBoost.Checked = false;
+                FCSTransferPortalCheckBox.Checked = false;
+                portalChance.Value = 67;
+                starterChancePCT.Value = 8;
+            }
+        }
+
         private void DetermineTeamCuts(int tgid, List<int> teamPrestigeList)
         {
+            decimal starterPCT = starterChancePCT.Value;
+            int portalSize = 0;
+            if (largePortal.Checked)
+            {
+                portalSize = 1;
+            }
+
+            else if (XLportal.Checked) 
+            { 
+                portalSize = 2;
+            }
+
+
             List<decimal> depth = new List<decimal> { PortalQB.Value, PortalHB.Value, PortalFB.Value, PortalWR.Value, PortalTE.Value, PortalOT.Value, PortalOG.Value, PortalOC.Value, PortalDE.Value, PortalDT.Value, PortalOLB.Value, PortalMLB.Value, PortalCB.Value, PortalFS.Value, PortalSS.Value, PortalK.Value, PortalP.Value };
             int teamRec = FindTeamRecfromTGID(tgid);
             int teamWins = GetDBValueInt("TEAM", "tsdw", teamRec);
@@ -409,7 +477,7 @@ namespace DB_EDITOR
                         }
                     }
                     //allow team to add a player if its large portal & available player is better than 2nd best
-                    if (largePortal.Checked && posList.Count > 1) TeamPortalNeeds[tgid, p * 2 + 1] = posList[1][4];
+                    if (portalSize > 0 && posList.Count > 1) TeamPortalNeeds[tgid, p * 2 + 1] = posList[1][4];
                 }
 
                 //team does not have enough players
@@ -439,7 +507,7 @@ namespace DB_EDITOR
                 }
 
                 //STARTERS
-                if (AllowStartersLeave.Checked && p >= 0 && rand.Next(1, 100) < 8 && posList.Count > 1)
+                if (AllowStartersLeave.Checked && p >= 0 && rand.Next(1, 100) < starterPCT && posList.Count > 1)
                 {
                     // If the team has a backup QB, allow them to add a player to the portal
                     if (posList[0][0] != -1 && posList[0][9] == 0 || posList[0][2] >= 21000 && AllowRecentTransfers.Checked || posList[0][9] == 1 && AllowRecentTransfers.Checked)
@@ -612,6 +680,10 @@ namespace DB_EDITOR
                 {
                     for (int p = 0; p < TeamPortalNeeds.GetLength(1); p++)
                     {
+
+                        lblTransferPortalStatus.Text = "Team Pick: " + teamNameDB[tgid] + " | Position Pick: " + GetPOSG2Name(p/2);
+                        lblTransferPortalStatus.Refresh();
+
                         if (userTeams.Contains(tgid)) UserTransferChoice(tgid, p, teamPRS);
                         else SpringPortalMatcher(tgid, p, teamPRS);
                     }
@@ -657,8 +729,12 @@ namespace DB_EDITOR
 
                 for (int t = 0; t < teamList.Count; t++)
                 {
+
                     if (SpringPortal.Count <= 0) break;
                     int tgid = teamList[t][0];
+
+                    lblTransferPortalStatus.Text = "Team Pick: " + teamNameDB[tgid] + " | Position Pick: " + GetPOSG2Name(p / 2);
+                    lblTransferPortalStatus.Refresh();
 
                     if (SpringPortalUserChoice.Checked && userTeams.Contains(tgid)) UserTransferChoice(tgid, p, teamPRS);
                     else SpringPortalMatcher(tgid, p, teamPRS);
@@ -779,34 +855,31 @@ namespace DB_EDITOR
             }
             if (newPGID <= -1) return; //no available slots
 
-
-            //Find Player to Transfer
             for (int i = 0; i < SpringPortal.Count; i++)
-            {
-                int rec = SpringPortal[i][0];
-                int pgid = SpringPortal[i][2];
-                int pos = SpringPortal[i][3];
-                int ov = SpringPortal[i][4];
-                int team = SpringPortal[i][5];
-                int starter = SpringPortal[i][12];
-
-                if (pos == p / 2)
                 {
-                    int tmpr = teamPRS[tgid];
-                    int playerteamprestige = teamPRS[team];
+                    int rec = SpringPortal[i][0];
+                    int pgid = SpringPortal[i][2];
+                    int pos = SpringPortal[i][3];
+                    int ov = SpringPortal[i][4];
+                    int team = SpringPortal[i][5];
+                    int starter = SpringPortal[i][12];
 
-                    if (starter == 1 && tmpr >= playerteamprestige && ov <= TeamPortalNeeds[tgid, p] || starter == 0 && ov <= TeamPortalNeeds[tgid, p] || rand.Next(0, 99) > portalChance.Value)
+                    if (pos == p / 2)
                     {
-                        break;
-                    }
-                    else
-                    {
-                        //TransferPlayer(tgid, p, newPGID, i);
-                        TransferPlayerManager(tgid, p, newPGID, i);
-                        break;
+                        int tmpr = teamPRS[tgid];
+                        int playerteamprestige = teamPRS[team];
+
+                        if (starter == 1 && tmpr >= playerteamprestige && ov <= TeamPortalNeeds[tgid, p] || starter == 0 && ov <= TeamPortalNeeds[tgid, p] || rand.Next(0, 99) > portalChance.Value)
+                        {
+                            continue;
+                        }
+                        else
+                        {
+                            TransferPlayerManager(tgid, p, newPGID, i);
+                            break;
+                        }
                     }
                 }
-            }
         }
 
         private void UserTransferChoice(int tgid, int p, List<int> teamPRS)
@@ -850,7 +923,7 @@ namespace DB_EDITOR
 
                     if (starter == 1 && tmpr >= playerteamprestige && ov <= TeamPortalNeeds[tgid, p] || starter == 0 && ov <= TeamPortalNeeds[tgid, p] || rand.Next(0, 99) > portalChance.Value)
                     {
-                        break;
+                        continue;
                     }
                     else
                     {
@@ -993,6 +1066,7 @@ namespace DB_EDITOR
                     break;
                 }
             }
+            CompactDB();
         }
 
         #endregion
@@ -1239,137 +1313,7 @@ namespace DB_EDITOR
 
         }
 
-        #endregion
-
-
-
-        #region archive methods
-        /*
-        public void TransferPlayer(int tgid, int p, int newPGID, int portalRec)
-        {
-            int i = portalRec;
-
-            List<string> years = CreateClassYearsAbbr();
-
-            int rec = SpringPortal[i][0];
-            int pgid = SpringPortal[i][2];
-            int pos = SpringPortal[i][3];
-            int ov = SpringPortal[i][4];
-            int team = SpringPortal[i][5];
-            int starter = SpringPortal[i][12];
-
-
-            int row = portalNews.Count;
-            portalNews.Add(new List<string>());
-            portalNews[row].Add(GetPOSG2Name(pos));
-
-            string playerStarter = "";
-            playerStarter += GetPlayerNamefromRec(rec);
-            if (SpringPortal[i][12] == 1) playerStarter += " (S)";
-
-
-            portalNews[row].Add(playerStarter);
-
-            string yr = years[SpringPortal[i][6]];
-            if (SpringPortal[i][10] == 2) yr += " (RS)";
-
-            portalNews[row].Add(yr);
-            portalNews[row].Add(Convert.ToString(ConvertRating(ov)));
-
-            if (PortalRatingBoost.Checked)
-            {
-                int boost = SpringPortal[i][7] + (SpringPortal[i][6] / 2);
-                portalNews[row][3] = Convert.ToString(ConvertRating(boost));
-            }
-
-            portalNews[row].Add(teamNameDB[tgid]);
-
-            if (pgid >= 21000 && pgid < 30000)
-            {
-                portalNews[row].Add(teamNameDB[team] + "*");
-
-                //Update their commitment to the new team
-                for (int y = 0; y < GetTable2RecCount("RCPR"); y++)
-                {
-                    if (GetDB2ValueInt("RCPR", "PRID", y) == pgid)
-                    {
-                        DeleteRecord2("RCPR", y, true);
-                        CompactDB2();
-
-                        break;
-                    }
-                }
-
-                ChangeDBInt("PLAY", "PGID", SpringPortal[i][0], newPGID);
-
-                ChangePlayerStatsID(SpringPortal[i][2], newPGID);
-            }
-            else
-            {
-                //Denote special player status
-                if (pgid >= 30000) //fcs
-                    portalNews[row].Add(teamNameDB[team] + "+");
-                else if (SpringPortal[i][9] == 1) //transfer
-                    portalNews[row].Add(teamNameDB[team] + "*");
-                else
-                    portalNews[row].Add(teamNameDB[team]);
-
-                //Change their ID
-                ChangeDBInt("PLAY", "PGID", rec, newPGID);
-
-
-                int currentPJEN = GetDBValueInt("PLAY", "PJEN", rec);
-                if (AvailablePJEN[tgid].Contains(currentPJEN))
-                {
-                    int newPJEN = ChooseAvailableJerseyNumber(pos, tgid, AvailablePJEN[tgid]);
-                    ChangeDBInt("PLAY", "PJEN", rec, newPJEN);
-                    AvailablePJEN[tgid].Add(newPJEN);
-                }
-                else
-                {
-                    AvailablePJEN[tgid].Add(currentPJEN);
-                }
-
-                // Need to add a thing to replace the RCTN table PGID
-                for (int y = 0; y < GetTable2RecCount("RCTN"); y++)
-                {
-                    if (GetDB2ValueInt("RCTN", "PGID", y) == pgid)
-                    {
-                        ChangeDB2Int("RCTN", "PGID", y, newPGID);
-                        break;
-                    }
-                }
-
-                // Delete old stats & Change Player Stats ID
-                ClearPlayerStats(newPGID);
-                ChangePlayerStatsID(SpringPortal[i][2], newPGID);
-            }
-
-            portalNews[row].Add(Convert.ToString(SpringPortal[i][0]));
-
-            if (p % 2 == 1 && TeamPortalNeeds[tgid, p] == 1 && smallPortal.Checked)
-                TeamPortalNeeds[tgid, p - 1] = 0;
-
-            else if (p % 2 == 0 && TeamPortalNeeds[tgid, p + 1] == 1 && smallPortal.Checked)
-                TeamPortalNeeds[tgid, p + 1] = 0;
-
-            TeamPortalNeeds[tgid, p] = 0;
-
-            //Remove Player from TRAN table (if needed)
-            if (SpringPortal[i][9] == 1) RemovePlayerFromTRAN(pgid);
-
-            //Add Player to TRAN Table
-            AddPlayertoTRAN(newPGID, team);
-
-            OccupiedPGIDList[tgid].Add(newPGID);
-            if (pgid / 70 < 512) OccupiedPGIDList[pgid / 70].Remove(pgid);
-            SpringPortal.RemoveAt(i);
-
-            //DisplayPortalNews();
-        }
-        */
-
-        #endregion
+        #endregion    
 
     }
 }
