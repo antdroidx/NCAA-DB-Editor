@@ -156,6 +156,18 @@ namespace DB_EDITOR
             }
         }
 
+        //Randomize Hometowns
+        private void randomizeHometown_Click(object sender, EventArgs e)
+        {
+            string [] hometown = GetHometownList();
+
+            for (int i = 0; i < GetTable2RecCount("RCHD"); i++)
+            {
+                int x = rand.Next(0, hometown.Length);
+                ChangeDB2Int("RCPT", "RCHD", i, x);
+                ChangeDBInt("RCPT", "RCHD", i, x/256);
+            }
+        }
 
         //Recalculate Star Rankings     
         private void RecalculateStarRankingsButton_Click(object sender, EventArgs e)
@@ -1217,7 +1229,7 @@ namespace DB_EDITOR
             int maxFCSPlayers = 70;
             if (newPlayers > maxFCSPlayers) newPlayers = maxFCSPlayers; //limit to XX players max
 
-            while (fcsplayers < maxPlayers)
+            while (fcsplayers < newPlayers)
             {
                 int rec = GetTableRecCount("PLAY");
                 AddTableRecord("PLAY", false);

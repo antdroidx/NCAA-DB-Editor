@@ -328,6 +328,7 @@ namespace DB_EDITOR
             DefaultPlaysRadio = new RadioButton();
             CustomPlaysRadio = new RadioButton();
             tabTools = new TabPage();
+            ratingVisualizerBtn = new System.Windows.Forms.Button();
             groupBox38 = new GroupBox();
             RandomizePlayerGearButton = new System.Windows.Forms.Button();
             FantastyRosterLeague = new Panel();
@@ -388,7 +389,7 @@ namespace DB_EDITOR
             GlobalAttButton = new System.Windows.Forms.Button();
             textBox3 = new System.Windows.Forms.TextBox();
             groupBox53 = new GroupBox();
-            ratingVisualizerBtn = new System.Windows.Forms.Button();
+            GlobalSwapGloveBtn = new System.Windows.Forms.Button();
             importPLAYbtn = new System.Windows.Forms.Button();
             exportPLAYbtn = new System.Windows.Forms.Button();
             label214 = new Label();
@@ -410,17 +411,6 @@ namespace DB_EDITOR
             ReRankTeamsAP = new CheckBox();
             RandomizeSkinTonesButton = new System.Windows.Forms.Button();
             tabOffSeason = new TabPage();
-            groupBox56 = new GroupBox();
-            RandomizeRecruitInterestButton = new System.Windows.Forms.Button();
-            groupBox39 = new GroupBox();
-            GTransferRecruitable = new RadioButton();
-            GTransferCommitted = new RadioButton();
-            textBox21 = new System.Windows.Forms.TextBox();
-            GTransferNew = new System.Windows.Forms.ComboBox();
-            label261 = new Label();
-            GTransferOG = new System.Windows.Forms.ComboBox();
-            label260 = new Label();
-            GlobalTransferInterest = new System.Windows.Forms.Button();
             groupBox43 = new GroupBox();
             OSRandomizeCoachBudgetButton = new System.Windows.Forms.Button();
             AutoAdjustCoachBudgetButton2 = new System.Windows.Forms.Button();
@@ -435,6 +425,16 @@ namespace DB_EDITOR
             minTRPA = new NumericUpDown();
             label12 = new Label();
             groupBox16 = new GroupBox();
+            groupBox39 = new GroupBox();
+            GTransferRecruitable = new RadioButton();
+            GTransferCommitted = new RadioButton();
+            textBox21 = new System.Windows.Forms.TextBox();
+            GTransferNew = new System.Windows.Forms.ComboBox();
+            label261 = new Label();
+            GTransferOG = new System.Windows.Forms.ComboBox();
+            label260 = new Label();
+            GlobalTransferInterest = new System.Windows.Forms.Button();
+            RandomizeRecruitInterestButton = new System.Windows.Forms.Button();
             RandomizeRecruitGear = new System.Windows.Forms.Button();
             groupBox25 = new GroupBox();
             min2Stars = new RadioButton();
@@ -1554,6 +1554,7 @@ namespace DB_EDITOR
             Column2 = new DataGridViewTextBoxColumn();
             txtboxRecruitBoard = new System.Windows.Forms.TextBox();
             tabPortal = new TabPage();
+            lblTransferPortalStatus = new Label();
             groupBox57 = new GroupBox();
             SpringPortalLiveView = new CheckBox();
             SpringPortalUserChoice = new CheckBox();
@@ -1706,7 +1707,6 @@ namespace DB_EDITOR
             POCIUpdatebtn = new System.Windows.Forms.Button();
             toolTip1 = new System.Windows.Forms.ToolTip(components);
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            lblTransferPortalStatus = new Label();
             mainMenu.SuspendLayout();
             tableMenu.SuspendLayout();
             fieldMenu.SuspendLayout();
@@ -1740,14 +1740,13 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)DarkVisorPCT).BeginInit();
             ((System.ComponentModel.ISupportInitialize)TintedVisorPCT).BeginInit();
             tabOffSeason.SuspendLayout();
-            groupBox56.SuspendLayout();
-            groupBox39.SuspendLayout();
             groupBox43.SuspendLayout();
             groupBox17.SuspendLayout();
             groupBox52.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)minRecPts).BeginInit();
             ((System.ComponentModel.ISupportInitialize)minTRPA).BeginInit();
             groupBox16.SuspendLayout();
+            groupBox39.SuspendLayout();
             groupBox25.SuspendLayout();
             groupBox26.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)removeInterestTeams).BeginInit();
@@ -3662,6 +3661,7 @@ namespace DB_EDITOR
             // tabTools
             // 
             tabTools.BackColor = SystemColors.InactiveCaption;
+            tabTools.Controls.Add(ratingVisualizerBtn);
             tabTools.Controls.Add(groupBox38);
             tabTools.Controls.Add(groupBox18);
             tabTools.Controls.Add(textBox3);
@@ -3672,6 +3672,19 @@ namespace DB_EDITOR
             tabTools.Size = new Size(1148, 607);
             tabTools.TabIndex = 5;
             tabTools.Text = "dbTools";
+            // 
+            // ratingVisualizerBtn
+            // 
+            ratingVisualizerBtn.BackColor = Color.Aquamarine;
+            ratingVisualizerBtn.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
+            ratingVisualizerBtn.ForeColor = SystemColors.ActiveCaptionText;
+            ratingVisualizerBtn.Location = new Point(773, 7);
+            ratingVisualizerBtn.Name = "ratingVisualizerBtn";
+            ratingVisualizerBtn.Size = new Size(355, 54);
+            ratingVisualizerBtn.TabIndex = 79;
+            ratingVisualizerBtn.Text = "Launch Visualizer";
+            ratingVisualizerBtn.UseVisualStyleBackColor = false;
+            ratingVisualizerBtn.Click += (this.ratingVisualizerBtn_Click);
             // 
             // groupBox38
             // 
@@ -4001,9 +4014,9 @@ namespace DB_EDITOR
             groupBox18.Controls.Add(MinAttButton);
             groupBox18.Controls.Add(MaxAttRating);
             groupBox18.Controls.Add(GlobalAttButton);
-            groupBox18.Location = new Point(773, 17);
+            groupBox18.Location = new Point(773, 67);
             groupBox18.Name = "groupBox18";
-            groupBox18.Size = new Size(355, 581);
+            groupBox18.Size = new Size(355, 531);
             groupBox18.TabIndex = 55;
             groupBox18.TabStop = false;
             groupBox18.Text = "Global Player Editor";
@@ -4352,7 +4365,7 @@ namespace DB_EDITOR
             // 
             // groupBox53
             // 
-            groupBox53.Controls.Add(ratingVisualizerBtn);
+            groupBox53.Controls.Add(GlobalSwapGloveBtn);
             groupBox53.Controls.Add(importPLAYbtn);
             groupBox53.Controls.Add(exportPLAYbtn);
             groupBox53.Controls.Add(label214);
@@ -4380,25 +4393,25 @@ namespace DB_EDITOR
             groupBox53.TabStop = false;
             groupBox53.Text = "Misc Tools";
             // 
-            // ratingVisualizerBtn
+            // GlobalSwapGloveBtn
             // 
-            ratingVisualizerBtn.BackColor = Color.Aquamarine;
-            ratingVisualizerBtn.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
-            ratingVisualizerBtn.ForeColor = SystemColors.ActiveCaptionText;
-            ratingVisualizerBtn.Location = new Point(152, 489);
-            ratingVisualizerBtn.Name = "ratingVisualizerBtn";
-            ratingVisualizerBtn.Size = new Size(112, 54);
-            ratingVisualizerBtn.TabIndex = 79;
-            ratingVisualizerBtn.Text = "Launch Visualizer";
-            ratingVisualizerBtn.UseVisualStyleBackColor = false;
-            ratingVisualizerBtn.Click += (this.ratingVisualizerBtn_Click);
+            GlobalSwapGloveBtn.BackColor = Color.LightSkyBlue;
+            GlobalSwapGloveBtn.Enabled = false;
+            GlobalSwapGloveBtn.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
+            GlobalSwapGloveBtn.ForeColor = SystemColors.ActiveCaptionText;
+            GlobalSwapGloveBtn.Location = new Point(14, 294);
+            GlobalSwapGloveBtn.Name = "GlobalSwapGloveBtn";
+            GlobalSwapGloveBtn.Size = new Size(108, 54);
+            GlobalSwapGloveBtn.TabIndex = 79;
+            GlobalSwapGloveBtn.Text = "Swap Uniform Gloves";
+            GlobalSwapGloveBtn.UseVisualStyleBackColor = false;
             // 
             // importPLAYbtn
             // 
             importPLAYbtn.BackColor = Color.PowderBlue;
             importPLAYbtn.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             importPLAYbtn.ForeColor = SystemColors.ActiveCaptionText;
-            importPLAYbtn.Location = new Point(154, 426);
+            importPLAYbtn.Location = new Point(155, 487);
             importPLAYbtn.Name = "importPLAYbtn";
             importPLAYbtn.Size = new Size(109, 54);
             importPLAYbtn.TabIndex = 78;
@@ -4411,7 +4424,7 @@ namespace DB_EDITOR
             exportPLAYbtn.BackColor = Color.PowderBlue;
             exportPLAYbtn.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             exportPLAYbtn.ForeColor = SystemColors.ActiveCaptionText;
-            exportPLAYbtn.Location = new Point(13, 426);
+            exportPLAYbtn.Location = new Point(14, 487);
             exportPLAYbtn.Name = "exportPLAYbtn";
             exportPLAYbtn.Size = new Size(108, 54);
             exportPLAYbtn.TabIndex = 77;
@@ -4544,7 +4557,7 @@ namespace DB_EDITOR
             SyncPBButton.BackColor = Color.PowderBlue;
             SyncPBButton.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             SyncPBButton.ForeColor = SystemColors.ActiveCaptionText;
-            SyncPBButton.Location = new Point(13, 489);
+            SyncPBButton.Location = new Point(15, 421);
             SyncPBButton.Name = "SyncPBButton";
             SyncPBButton.Size = new Size(108, 54);
             SyncPBButton.TabIndex = 52;
@@ -4557,7 +4570,7 @@ namespace DB_EDITOR
             ResetDynYear.BackColor = Color.PowderBlue;
             ResetDynYear.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             ResetDynYear.ForeColor = SystemColors.ActiveCaptionText;
-            ResetDynYear.Location = new Point(13, 294);
+            ResetDynYear.Location = new Point(154, 421);
             ResetDynYear.Name = "ResetDynYear";
             ResetDynYear.Size = new Size(110, 54);
             ResetDynYear.TabIndex = 61;
@@ -4627,8 +4640,6 @@ namespace DB_EDITOR
             // tabOffSeason
             // 
             tabOffSeason.BackColor = SystemColors.ActiveCaption;
-            tabOffSeason.Controls.Add(groupBox56);
-            tabOffSeason.Controls.Add(groupBox39);
             tabOffSeason.Controls.Add(groupBox43);
             tabOffSeason.Controls.Add(groupBox17);
             tabOffSeason.Controls.Add(groupBox16);
@@ -4639,126 +4650,6 @@ namespace DB_EDITOR
             tabOffSeason.Size = new Size(1148, 607);
             tabOffSeason.TabIndex = 4;
             tabOffSeason.Text = "Off-Season";
-            // 
-            // groupBox56
-            // 
-            groupBox56.Controls.Add(RandomizeRecruitInterestButton);
-            groupBox56.Location = new Point(882, 429);
-            groupBox56.Name = "groupBox56";
-            groupBox56.Size = new Size(244, 165);
-            groupBox56.TabIndex = 173;
-            groupBox56.TabStop = false;
-            groupBox56.Text = "Recruiting Randomizer";
-            // 
-            // RandomizeRecruitInterestButton
-            // 
-            RandomizeRecruitInterestButton.BackColor = Color.LightSkyBlue;
-            RandomizeRecruitInterestButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            RandomizeRecruitInterestButton.ForeColor = Color.Black;
-            RandomizeRecruitInterestButton.Location = new Point(28, 31);
-            RandomizeRecruitInterestButton.Name = "RandomizeRecruitInterestButton";
-            RandomizeRecruitInterestButton.Size = new Size(188, 119);
-            RandomizeRecruitInterestButton.TabIndex = 4;
-            RandomizeRecruitInterestButton.Text = "Randomize Recruit Interested Teams";
-            RandomizeRecruitInterestButton.UseVisualStyleBackColor = false;
-            RandomizeRecruitInterestButton.Click += (this.RandomizeRecruitInterestButton_Click);
-            // 
-            // groupBox39
-            // 
-            groupBox39.Controls.Add(GTransferRecruitable);
-            groupBox39.Controls.Add(GTransferCommitted);
-            groupBox39.Controls.Add(textBox21);
-            groupBox39.Controls.Add(GTransferNew);
-            groupBox39.Controls.Add(label261);
-            groupBox39.Controls.Add(GTransferOG);
-            groupBox39.Controls.Add(label260);
-            groupBox39.Controls.Add(GlobalTransferInterest);
-            groupBox39.Location = new Point(882, 58);
-            groupBox39.Name = "groupBox39";
-            groupBox39.Size = new Size(244, 351);
-            groupBox39.TabIndex = 172;
-            groupBox39.TabStop = false;
-            groupBox39.Text = "Global Transfers Interest Editor";
-            // 
-            // GTransferRecruitable
-            // 
-            GTransferRecruitable.AutoSize = true;
-            GTransferRecruitable.Checked = true;
-            GTransferRecruitable.Location = new Point(42, 309);
-            GTransferRecruitable.Name = "GTransferRecruitable";
-            GTransferRecruitable.RightToLeft = RightToLeft.Yes;
-            GTransferRecruitable.Size = new Size(79, 17);
-            GTransferRecruitable.TabIndex = 7;
-            GTransferRecruitable.TabStop = true;
-            GTransferRecruitable.Text = "Recruitable";
-            GTransferRecruitable.UseVisualStyleBackColor = true;
-            // 
-            // GTransferCommitted
-            // 
-            GTransferCommitted.AutoSize = true;
-            GTransferCommitted.Location = new Point(127, 309);
-            GTransferCommitted.Name = "GTransferCommitted";
-            GTransferCommitted.Size = new Size(74, 17);
-            GTransferCommitted.TabIndex = 6;
-            GTransferCommitted.TabStop = true;
-            GTransferCommitted.Text = "Committed";
-            GTransferCommitted.UseVisualStyleBackColor = true;
-            // 
-            // textBox21
-            // 
-            textBox21.BackColor = SystemColors.InactiveCaption;
-            textBox21.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
-            textBox21.Location = new Point(19, 37);
-            textBox21.Multiline = true;
-            textBox21.Name = "textBox21";
-            textBox21.Size = new Size(208, 95);
-            textBox21.TabIndex = 5;
-            textBox21.Text = "This allows users to force transfer portal players to have high interest from a specific team. Useful for forcing players to follow coach to a new team.\r\n";
-            // 
-            // GTransferNew
-            // 
-            GTransferNew.FormattingEnabled = true;
-            GTransferNew.Location = new Point(51, 228);
-            GTransferNew.Name = "GTransferNew";
-            GTransferNew.Size = new Size(150, 21);
-            GTransferNew.TabIndex = 4;
-            // 
-            // label261
-            // 
-            label261.AutoSize = true;
-            label261.Location = new Point(48, 212);
-            label261.Name = "label261";
-            label261.Size = new Size(59, 13);
-            label261.TabIndex = 3;
-            label261.Text = "New Team";
-            // 
-            // GTransferOG
-            // 
-            GTransferOG.FormattingEnabled = true;
-            GTransferOG.Location = new Point(51, 173);
-            GTransferOG.Name = "GTransferOG";
-            GTransferOG.Size = new Size(150, 21);
-            GTransferOG.TabIndex = 2;
-            // 
-            // label260
-            // 
-            label260.AutoSize = true;
-            label260.Location = new Point(51, 156);
-            label260.Name = "label260";
-            label260.Size = new Size(72, 13);
-            label260.TabIndex = 1;
-            label260.Text = "Original Team";
-            // 
-            // GlobalTransferInterest
-            // 
-            GlobalTransferInterest.BackColor = SystemColors.Info;
-            GlobalTransferInterest.Location = new Point(51, 265);
-            GlobalTransferInterest.Name = "GlobalTransferInterest";
-            GlobalTransferInterest.Size = new Size(150, 36);
-            GlobalTransferInterest.TabIndex = 0;
-            GlobalTransferInterest.Text = "Update Transfer Interests";
-            GlobalTransferInterest.UseVisualStyleBackColor = false;
-            GlobalTransferInterest.Click += (this.GlobalTransferInterest_Click);
             // 
             // groupBox43
             // 
@@ -4924,6 +4815,8 @@ namespace DB_EDITOR
             // groupBox16
             // 
             groupBox16.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            groupBox16.Controls.Add(groupBox39);
+            groupBox16.Controls.Add(RandomizeRecruitInterestButton);
             groupBox16.Controls.Add(RandomizeRecruitGear);
             groupBox16.Controls.Add(groupBox25);
             groupBox16.Controls.Add(RecalculateStarRankingsButton);
@@ -4939,10 +4832,120 @@ namespace DB_EDITOR
             groupBox16.Controls.Add(groupBox50);
             groupBox16.Location = new Point(363, 58);
             groupBox16.Name = "groupBox16";
-            groupBox16.Size = new Size(486, 536);
+            groupBox16.Size = new Size(766, 536);
             groupBox16.TabIndex = 24;
             groupBox16.TabStop = false;
             groupBox16.Text = "Recruiting Phase";
+            // 
+            // groupBox39
+            // 
+            groupBox39.Controls.Add(GTransferRecruitable);
+            groupBox39.Controls.Add(GTransferCommitted);
+            groupBox39.Controls.Add(textBox21);
+            groupBox39.Controls.Add(GTransferNew);
+            groupBox39.Controls.Add(label261);
+            groupBox39.Controls.Add(GTransferOG);
+            groupBox39.Controls.Add(label260);
+            groupBox39.Controls.Add(GlobalTransferInterest);
+            groupBox39.Location = new Point(502, 19);
+            groupBox39.Name = "groupBox39";
+            groupBox39.Size = new Size(244, 348);
+            groupBox39.TabIndex = 172;
+            groupBox39.TabStop = false;
+            groupBox39.Text = "Global Transfers Interest Editor";
+            // 
+            // GTransferRecruitable
+            // 
+            GTransferRecruitable.AutoSize = true;
+            GTransferRecruitable.Checked = true;
+            GTransferRecruitable.Location = new Point(42, 309);
+            GTransferRecruitable.Name = "GTransferRecruitable";
+            GTransferRecruitable.RightToLeft = RightToLeft.Yes;
+            GTransferRecruitable.Size = new Size(79, 17);
+            GTransferRecruitable.TabIndex = 7;
+            GTransferRecruitable.TabStop = true;
+            GTransferRecruitable.Text = "Recruitable";
+            GTransferRecruitable.UseVisualStyleBackColor = true;
+            // 
+            // GTransferCommitted
+            // 
+            GTransferCommitted.AutoSize = true;
+            GTransferCommitted.Location = new Point(127, 309);
+            GTransferCommitted.Name = "GTransferCommitted";
+            GTransferCommitted.Size = new Size(74, 17);
+            GTransferCommitted.TabIndex = 6;
+            GTransferCommitted.TabStop = true;
+            GTransferCommitted.Text = "Committed";
+            GTransferCommitted.UseVisualStyleBackColor = true;
+            // 
+            // textBox21
+            // 
+            textBox21.BackColor = SystemColors.InactiveCaption;
+            textBox21.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
+            textBox21.Location = new Point(19, 37);
+            textBox21.Multiline = true;
+            textBox21.Name = "textBox21";
+            textBox21.Size = new Size(208, 101);
+            textBox21.TabIndex = 5;
+            textBox21.Text = "Use at the Start of Recruiting!\r\nThis allows users to force transfer portal players to have high interest from a specific team. Useful for forcing players to follow coach to a new team.\r\n";
+            // 
+            // GTransferNew
+            // 
+            GTransferNew.FormattingEnabled = true;
+            GTransferNew.Location = new Point(51, 228);
+            GTransferNew.Name = "GTransferNew";
+            GTransferNew.Size = new Size(150, 21);
+            GTransferNew.TabIndex = 4;
+            // 
+            // label261
+            // 
+            label261.AutoSize = true;
+            label261.Location = new Point(48, 212);
+            label261.Name = "label261";
+            label261.Size = new Size(59, 13);
+            label261.TabIndex = 3;
+            label261.Text = "New Team";
+            // 
+            // GTransferOG
+            // 
+            GTransferOG.FormattingEnabled = true;
+            GTransferOG.Location = new Point(51, 173);
+            GTransferOG.Name = "GTransferOG";
+            GTransferOG.Size = new Size(150, 21);
+            GTransferOG.TabIndex = 2;
+            // 
+            // label260
+            // 
+            label260.AutoSize = true;
+            label260.Location = new Point(51, 156);
+            label260.Name = "label260";
+            label260.Size = new Size(72, 13);
+            label260.TabIndex = 1;
+            label260.Text = "Original Team";
+            // 
+            // GlobalTransferInterest
+            // 
+            GlobalTransferInterest.BackColor = SystemColors.Info;
+            GlobalTransferInterest.Location = new Point(51, 265);
+            GlobalTransferInterest.Name = "GlobalTransferInterest";
+            GlobalTransferInterest.Size = new Size(150, 36);
+            GlobalTransferInterest.TabIndex = 0;
+            GlobalTransferInterest.Text = "Update Transfer Interests";
+            GlobalTransferInterest.UseVisualStyleBackColor = false;
+            GlobalTransferInterest.Click += (this.GlobalTransferInterest_Click);
+            // 
+            // RandomizeRecruitInterestButton
+            // 
+            RandomizeRecruitInterestButton.BackColor = Color.LightSkyBlue;
+            RandomizeRecruitInterestButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            RandomizeRecruitInterestButton.ForeColor = Color.Black;
+            RandomizeRecruitInterestButton.Location = new Point(502, 402);
+            RandomizeRecruitInterestButton.Name = "RandomizeRecruitInterestButton";
+            RandomizeRecruitInterestButton.Size = new Size(244, 119);
+            RandomizeRecruitInterestButton.TabIndex = 4;
+            RandomizeRecruitInterestButton.Text = "Randomize Recruit Interested Teams";
+            RandomizeRecruitInterestButton.UseVisualStyleBackColor = false;
+            RandomizeRecruitInterestButton.Click += (this.RandomizeRecruitInterestButton_Click);
             // 
             // RandomizeRecruitGear
             // 
@@ -5008,9 +5011,9 @@ namespace DB_EDITOR
             DetermineAthleteButton.BackColor = Color.LightSkyBlue;
             DetermineAthleteButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             DetermineAthleteButton.ForeColor = Color.Black;
-            DetermineAthleteButton.Location = new Point(26, 265);
+            DetermineAthleteButton.Location = new Point(26, 267);
             DetermineAthleteButton.Name = "DetermineAthleteButton";
-            DetermineAthleteButton.Size = new Size(439, 68);
+            DetermineAthleteButton.Size = new Size(439, 60);
             DetermineAthleteButton.TabIndex = 23;
             DetermineAthleteButton.Text = "Determine Athlete Best Position";
             DetermineAthleteButton.UseVisualStyleBackColor = false;
@@ -13202,7 +13205,6 @@ namespace DB_EDITOR
             // 
             // groupBox13
             // 
-            groupBox13.AutoSize = true;
             groupBox13.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             groupBox13.Controls.Add(TeamColor2Button);
             groupBox13.Controls.Add(TeamColor1Button);
@@ -13214,14 +13216,14 @@ namespace DB_EDITOR
             groupBox13.Controls.Add(CrowdBox);
             groupBox13.Location = new Point(202, 292);
             groupBox13.Name = "groupBox13";
-            groupBox13.Size = new Size(308, 179);
+            groupBox13.Size = new Size(311, 179);
             groupBox13.TabIndex = 145;
             groupBox13.TabStop = false;
             groupBox13.Text = "Team Colors";
             // 
             // TeamColor2Button
             // 
-            TeamColor2Button.Location = new Point(176, 21);
+            TeamColor2Button.Location = new Point(162, 25);
             TeamColor2Button.Name = "TeamColor2Button";
             TeamColor2Button.Size = new Size(125, 67);
             TeamColor2Button.TabIndex = 70;
@@ -13230,7 +13232,7 @@ namespace DB_EDITOR
             // 
             // TeamColor1Button
             // 
-            TeamColor1Button.Location = new Point(22, 21);
+            TeamColor1Button.Location = new Point(14, 25);
             TeamColor1Button.Name = "TeamColor1Button";
             TeamColor1Button.Size = new Size(125, 67);
             TeamColor1Button.TabIndex = 69;
@@ -13239,7 +13241,7 @@ namespace DB_EDITOR
             // 
             // ResetPrimaryColorButton
             // 
-            ResetPrimaryColorButton.Location = new Point(46, 94);
+            ResetPrimaryColorButton.Location = new Point(38, 98);
             ResetPrimaryColorButton.Name = "ResetPrimaryColorButton";
             ResetPrimaryColorButton.Size = new Size(75, 23);
             ResetPrimaryColorButton.TabIndex = 108;
@@ -13249,7 +13251,7 @@ namespace DB_EDITOR
             // 
             // ResetSecondaryColorButton
             // 
-            ResetSecondaryColorButton.Location = new Point(199, 94);
+            ResetSecondaryColorButton.Location = new Point(191, 98);
             ResetSecondaryColorButton.Name = "ResetSecondaryColorButton";
             ResetSecondaryColorButton.Size = new Size(75, 23);
             ResetSecondaryColorButton.TabIndex = 109;
@@ -13260,7 +13262,7 @@ namespace DB_EDITOR
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(174, 123);
+            label8.Location = new Point(166, 127);
             label8.Name = "label8";
             label8.Size = new Size(127, 13);
             label8.TabIndex = 134;
@@ -13269,7 +13271,7 @@ namespace DB_EDITOR
             // CheerleaderBox
             // 
             CheerleaderBox.FormattingEnabled = true;
-            CheerleaderBox.Location = new Point(164, 139);
+            CheerleaderBox.Location = new Point(156, 143);
             CheerleaderBox.MaxLength = 2;
             CheerleaderBox.Name = "CheerleaderBox";
             CheerleaderBox.RightToLeft = RightToLeft.No;
@@ -13281,7 +13283,7 @@ namespace DB_EDITOR
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(23, 123);
+            label5.Location = new Point(15, 127);
             label5.Name = "label5";
             label5.Size = new Size(100, 13);
             label5.TabIndex = 135;
@@ -13290,7 +13292,7 @@ namespace DB_EDITOR
             // CrowdBox
             // 
             CrowdBox.FormattingEnabled = true;
-            CrowdBox.Location = new Point(23, 139);
+            CrowdBox.Location = new Point(15, 143);
             CrowdBox.MaxLength = 2;
             CrowdBox.Name = "CrowdBox";
             CrowdBox.Size = new Size(138, 21);
@@ -17600,6 +17602,16 @@ namespace DB_EDITOR
             tabPortal.TabIndex = 18;
             tabPortal.Text = "Portal";
             // 
+            // lblTransferPortalStatus
+            // 
+            lblTransferPortalStatus.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
+            lblTransferPortalStatus.Location = new Point(238, 578);
+            lblTransferPortalStatus.Name = "lblTransferPortalStatus";
+            lblTransferPortalStatus.Size = new Size(525, 24);
+            lblTransferPortalStatus.TabIndex = 49;
+            lblTransferPortalStatus.Text = "Welcome to the Transfer Portal!";
+            lblTransferPortalStatus.TextAlign = ContentAlignment.MiddleCenter;
+            // 
             // groupBox57
             // 
             groupBox57.Controls.Add(SpringPortalLiveView);
@@ -19169,16 +19181,6 @@ namespace DB_EDITOR
             POCIUpdatebtn.UseVisualStyleBackColor = false;
             POCIUpdatebtn.Click += (this.POCIUpdate_Click);
             // 
-            // lblTransferPortalStatus
-            // 
-            lblTransferPortalStatus.Font = new Font("Microsoft Sans Serif", 14.25F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            lblTransferPortalStatus.Location = new Point(238, 578);
-            lblTransferPortalStatus.Name = "lblTransferPortalStatus";
-            lblTransferPortalStatus.Size = new Size(525, 24);
-            lblTransferPortalStatus.TabIndex = 49;
-            lblTransferPortalStatus.Text = "Welcome to the Transfer Portal!";
-            lblTransferPortalStatus.TextAlign = ContentAlignment.MiddleCenter;
-            // 
             // MainEditor
             // 
             this.AllowDrop = true;
@@ -19253,9 +19255,6 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)TintedVisorPCT).EndInit();
             tabOffSeason.ResumeLayout(false);
             tabOffSeason.PerformLayout();
-            groupBox56.ResumeLayout(false);
-            groupBox39.ResumeLayout(false);
-            groupBox39.PerformLayout();
             groupBox43.ResumeLayout(false);
             groupBox17.ResumeLayout(false);
             groupBox52.ResumeLayout(false);
@@ -19263,6 +19262,8 @@ namespace DB_EDITOR
             ((System.ComponentModel.ISupportInitialize)minRecPts).EndInit();
             ((System.ComponentModel.ISupportInitialize)minTRPA).EndInit();
             groupBox16.ResumeLayout(false);
+            groupBox39.ResumeLayout(false);
+            groupBox39.PerformLayout();
             groupBox25.ResumeLayout(false);
             groupBox25.PerformLayout();
             groupBox26.ResumeLayout(false);
@@ -20900,7 +20901,6 @@ namespace DB_EDITOR
         private DataGridViewTextBoxColumn DCHT5;
         private Label label214;
         private System.Windows.Forms.TextBox ClearVisorPCT;
-        private GroupBox groupBox56;
         public System.Windows.Forms.Button RandomizeRecruitInterestButton;
         private GroupBox CATStadiumGroupBox;
         private Label label216;
@@ -21120,6 +21120,7 @@ namespace DB_EDITOR
         private Label label299;
         private NumericUpDown starterChancePCT;
         private Label lblTransferPortalStatus;
+        public System.Windows.Forms.Button GlobalSwapGloveBtn;
     }
 }
 

@@ -239,6 +239,7 @@ namespace DB_EDITOR
             DoNotTrigger = false;
         }
 
+
         #region OPEN, SAVE & CLOSE
 
         private void OpenMenuItem_Click(object sender, EventArgs e)
@@ -1342,9 +1343,6 @@ namespace DB_EDITOR
             MessageBox.Show("Dev Mode Enabled");
         }
         #endregion
-
-
-
 
 
     }
