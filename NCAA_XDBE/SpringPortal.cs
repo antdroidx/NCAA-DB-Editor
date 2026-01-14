@@ -301,6 +301,7 @@ namespace DB_EDITOR
                 SpringRoster[TGID][count].Add(DISC);
                 SpringRoster[TGID][count].Add(0);
                 SpringRoster[TGID][count].Add(POE);
+                SpringRoster[TGID][count].Add(-1); //Prev Tream if Transferred in Winter
 
                 if (PortalRatingBoost.Checked)
                     SpringRoster[TGID][count][7] = POVR - (int)(SpringRoster[TGID][count][6] / 1.5);
@@ -315,11 +316,13 @@ namespace DB_EDITOR
             {
                 int pgid = GetDBValueInt("TRAN", "PGID", t);
                 int tgid = pgid / 70;
+                int ptid = GetDBValueInt("TRAN", "PTID", t);
                 for (int i = 0; i < SpringRoster[tgid].Count; i++)
                 {
                     if (SpringRoster[tgid][i][2] == pgid)
                     {
                         SpringRoster[tgid][i][9] = 1;
+                        SpringRoster[tgid][i][14] = ptid;
                         break;
                     }
                 }
@@ -371,6 +374,7 @@ namespace DB_EDITOR
                 SpringRoster[TGID][count].Add(DISC);
                 SpringRoster[TGID][count].Add(0);  //is Starter?
                 SpringRoster[TGID][count].Add(POE);
+                SpringRoster[TGID][count].Add(-1); //Prev Tream if Transferred in Winter
 
                 SpringRoster[TGID][count][4] = POVR;
                 if (PortalRatingBoost.Checked)
@@ -608,6 +612,7 @@ namespace DB_EDITOR
                     SpringPortal[count].Add(DISC);
                     SpringPortal[count].Add(0);
                     SpringPortal[count].Add(POE);
+                    SpringPortal[count].Add(-1); //Prev Tream if Transferred in Winter
 
                     SpringPortal[count][4] = POVR;
                     if (PortalRatingBoost.Checked)
@@ -968,6 +973,7 @@ namespace DB_EDITOR
             int pgid = SpringPortal[i][2];
             int team = SpringPortal[i][5];
             int pos = SpringPortal[i][3];
+            int ptid = SpringPortal[i][14];
 
             //Transfers
             if (pgid >= 21000 && pgid < 30000)
@@ -1033,7 +1039,7 @@ namespace DB_EDITOR
             if (SpringPortal[i][9] == 1) RemovePlayerFromTRAN(pgid);
 
             //Add Player to TRAN Table
-            AddPlayertoTRAN(newPGID, team);
+            AddPlayertoTRAN(newPGID, team, ptid);
 
             OccupiedPGIDList[tgid].Add(newPGID);
             if (pgid / 70 < 512) OccupiedPGIDList[pgid / 70].Remove(pgid);
@@ -1043,12 +1049,14 @@ namespace DB_EDITOR
             SpringPortal.RemoveAt(i);
         }
 
-        private void AddPlayertoTRAN(int PGID, int TGID)
+        private void AddPlayertoTRAN(int PGID, int TGID, int PTID)
         {
             int count = GetTableRecCount("TRAN");
             AddTableRecord("TRAN", false);
             ChangeDBInt("TRAN", "PGID", count, PGID);
             ChangeDBInt("TRAN", "PTID", count, TGID);
+            if(PTID > 0) ChangeDBInt("TRAN", "PTID", count, PTID);
+
             ChangeDBInt("TRAN", "TRYR", count, 0);
 
             if (TransferEligible.Checked && verNumber < 15.0)
@@ -1072,7 +1080,7 @@ namespace DB_EDITOR
         #endregion
 
 
-        #region Post Portal Roster Management
+        #region Walk-On Roster Management
 
         //Check for Walk-On Needs
         private void PostPortalRosterCheck()
@@ -1134,7 +1142,7 @@ namespace DB_EDITOR
         {
             int i = PortalTransfersList.Count - 1;
 
-            int tgid = PortalTransfersList[i][14];
+            int tgid = PortalTransfersList[i][15];
 
             List<string> years = CreateClassYearsAbbr();
 
@@ -1181,7 +1189,7 @@ namespace DB_EDITOR
                 if (pgid >= 30000) //fcs
                     portalNews[row].Add(teamNameDB[team] + "+");
                 else if (PortalTransfersList[i][9] == 1) //transfer
-                    portalNews[row].Add(teamNameDB[team] + "*");
+                    portalNews[row].Add(teamNameDB[team] + "\n(" + teamNameDB[PortalTransfersList[i][14]] + ")");
                 else
                     portalNews[row].Add(teamNameDB[team]);
             }
