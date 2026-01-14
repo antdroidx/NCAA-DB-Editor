@@ -62,8 +62,8 @@ namespace DB_EDITOR
         List<List<string>> RecruitEditorList;
         public List<List<List<int>>> SpringRoster;
         List<List<string>> portalNews;
-        List<List<int>> SpringPortal;
-        List<List<int>> PortalTransfersList;
+        public List<List<int>> SpringPortal;
+        public List<List<int>> PortalTransfersList;
         int[,] TeamPortalNeeds;
         List<List<int>> OccupiedPGIDList;
         List<List<int>> AvailablePJEN;
@@ -1345,6 +1345,16 @@ namespace DB_EDITOR
         #endregion
 
 
+        private void GlobalSwapGloveBtn_Click(object sender, EventArgs e)
+        {
+            if (verNumber <= 16.2) return;
+
+
+        }
+
+
     }
 
 }
+
+     

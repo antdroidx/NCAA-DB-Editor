@@ -114,10 +114,15 @@ namespace DB_EDITOR
                         pten = main.GetDBValueInt("PLAY", "PTEN", pRec);
                         playerName = main.GetPlayerNamefromRec(pRec);
 
-                        if(SpringPortal.Contains(player))
+                        if (SpringPortal.Contains(player))
                         {
-                            teamName = "PORTAL";
+                            teamName = "IN PORTAL";
                         }
+                        else if (main.PortalTransfersList.Contains(player))
+                        {
+                            teamName = "TRANSFERRED";
+                        }
+
                     }
                     else
                     {
@@ -141,6 +146,11 @@ namespace DB_EDITOR
                         {
                             teamName = "PORTAL";
                         }
+                        else if (main.PortalTransfersList.Contains(player))
+                        {
+                            teamName = "TRANSFERRED";
+                        }
+
                     }
 
 

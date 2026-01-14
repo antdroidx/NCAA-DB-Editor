@@ -4396,15 +4396,15 @@ namespace DB_EDITOR
             // GlobalSwapGloveBtn
             // 
             GlobalSwapGloveBtn.BackColor = Color.LightSkyBlue;
-            GlobalSwapGloveBtn.Enabled = false;
             GlobalSwapGloveBtn.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             GlobalSwapGloveBtn.ForeColor = SystemColors.ActiveCaptionText;
-            GlobalSwapGloveBtn.Location = new Point(14, 294);
+            GlobalSwapGloveBtn.Location = new Point(15, 140);
             GlobalSwapGloveBtn.Name = "GlobalSwapGloveBtn";
-            GlobalSwapGloveBtn.Size = new Size(108, 54);
+            GlobalSwapGloveBtn.Size = new Size(108, 60);
             GlobalSwapGloveBtn.TabIndex = 79;
             GlobalSwapGloveBtn.Text = "Swap Uniform Gloves";
             GlobalSwapGloveBtn.UseVisualStyleBackColor = false;
+            GlobalSwapGloveBtn.Click += (this.GlobalSwapGloveBtn_Click);
             // 
             // importPLAYbtn
             // 
@@ -4629,9 +4629,9 @@ namespace DB_EDITOR
             RandomizeSkinTonesButton.BackColor = Color.LightSkyBlue;
             RandomizeSkinTonesButton.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold);
             RandomizeSkinTonesButton.ForeColor = SystemColors.ActiveCaptionText;
-            RandomizeSkinTonesButton.Location = new Point(13, 140);
+            RandomizeSkinTonesButton.Location = new Point(15, 296);
             RandomizeSkinTonesButton.Name = "RandomizeSkinTonesButton";
-            RandomizeSkinTonesButton.Size = new Size(110, 60);
+            RandomizeSkinTonesButton.Size = new Size(106, 52);
             RandomizeSkinTonesButton.TabIndex = 54;
             RandomizeSkinTonesButton.Text = "Randomize Skin Tones";
             RandomizeSkinTonesButton.UseVisualStyleBackColor = false;
@@ -17999,9 +17999,10 @@ namespace DB_EDITOR
             // AllowStartersLeave
             // 
             AllowStartersLeave.AutoSize = true;
-            AllowStartersLeave.Location = new Point(137, 324);
+            AllowStartersLeave.Font = new Font("Microsoft Sans Serif", 9F);
+            AllowStartersLeave.Location = new Point(165, 322);
             AllowStartersLeave.Name = "AllowStartersLeave";
-            AllowStartersLeave.Size = new Size(135, 17);
+            AllowStartersLeave.Size = new Size(149, 19);
             AllowStartersLeave.TabIndex = 37;
             AllowStartersLeave.Text = "Allow Starters to Leave";
             AllowStartersLeave.UseVisualStyleBackColor = true;
@@ -18009,31 +18010,36 @@ namespace DB_EDITOR
             // AllowBackupQBPortal
             // 
             AllowBackupQBPortal.AutoSize = true;
-            AllowBackupQBPortal.Location = new Point(137, 301);
+            AllowBackupQBPortal.Font = new Font("Microsoft Sans Serif", 9F);
+            AllowBackupQBPortal.Location = new Point(165, 299);
             AllowBackupQBPortal.Name = "AllowBackupQBPortal";
-            AllowBackupQBPortal.Size = new Size(154, 17);
+            AllowBackupQBPortal.Size = new Size(168, 19);
             AllowBackupQBPortal.TabIndex = 36;
             AllowBackupQBPortal.Text = "Allow Backup QB to Leave";
             AllowBackupQBPortal.UseVisualStyleBackColor = true;
             // 
             // PortalDefaultSetting
             // 
-            PortalDefaultSetting.Location = new Point(263, 112);
+            PortalDefaultSetting.BackColor = Color.NavajoWhite;
+            PortalDefaultSetting.Font = new Font("Microsoft Sans Serif", 8.25F);
+            PortalDefaultSetting.Location = new Point(249, 126);
             PortalDefaultSetting.Name = "PortalDefaultSetting";
-            PortalDefaultSetting.Size = new Size(75, 40);
+            PortalDefaultSetting.Size = new Size(89, 54);
             PortalDefaultSetting.TabIndex = 35;
             PortalDefaultSetting.Text = "Default Settings";
-            PortalDefaultSetting.UseVisualStyleBackColor = true;
+            PortalDefaultSetting.UseVisualStyleBackColor = false;
             PortalDefaultSetting.Click += (this.PortalDefaultSetting_Click);
             // 
             // SpringPortalMin
             // 
-            SpringPortalMin.Location = new Point(263, 169);
+            SpringPortalMin.BackColor = Color.NavajoWhite;
+            SpringPortalMin.Font = new Font("Microsoft Sans Serif", 8.25F);
+            SpringPortalMin.Location = new Point(249, 207);
             SpringPortalMin.Name = "SpringPortalMin";
-            SpringPortalMin.Size = new Size(75, 40);
+            SpringPortalMin.Size = new Size(89, 55);
             SpringPortalMin.TabIndex = 34;
             SpringPortalMin.Text = "Set Minimum Roster";
-            SpringPortalMin.UseVisualStyleBackColor = true;
+            SpringPortalMin.UseVisualStyleBackColor = false;
             SpringPortalMin.Click += (this.SpringPortalMin_Click);
             // 
             // PortalK
@@ -18463,7 +18469,7 @@ namespace DB_EDITOR
             // 
             // SpringPortalButton
             // 
-            SpringPortalButton.BackColor = Color.OldLace;
+            SpringPortalButton.BackColor = Color.Wheat;
             SpringPortalButton.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             SpringPortalButton.Location = new Point(9, 11);
             SpringPortalButton.Name = "SpringPortalButton";
