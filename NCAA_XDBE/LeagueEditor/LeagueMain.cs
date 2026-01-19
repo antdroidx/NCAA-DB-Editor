@@ -31,7 +31,6 @@ namespace DB_EDITOR
         List<byte> psuExtras = new List<byte>(); // Holds remaining data from PSU saves
 
         bool offSeasonSave = false; //True if off-season save DB is present
-        int activeDB = 0; //1 - season, 2 - off-season
 
         List<string> deflist = new List<string>();
 
@@ -121,7 +120,6 @@ namespace DB_EDITOR
             colorDialog1.AllowFullOpen = true;
             colorDialog1.SolidColorOnly = false;
 
-            activeDB = 0;
             main.dbIndex = 0;
 
             CustomLeagueToolStrip.Visible = false;
@@ -841,7 +839,6 @@ namespace DB_EDITOR
 
                 //choose active DB
                 dbFile = filename + ".db2";
-                activeDB = 2; //sets activeDB to DB2
 
 
             }
@@ -1663,6 +1660,8 @@ namespace DB_EDITOR
                 return false;
             }
         }
+
+
         private int GetFieldIndex(string tmpFName)
         {
             int tmpIndex = 0;
@@ -1688,6 +1687,8 @@ namespace DB_EDITOR
             // MessageBox.Show(tmpIndex + " ", tmpFName + " - " + FieldProps.Name);
             return tmpIndex;
         }
+
+
         private string GetTableName(int dbFILEindex, int tmpTABLEindex)
         {
             // TdbTableProperties class
@@ -1718,6 +1719,8 @@ namespace DB_EDITOR
             // MessageBox.Show(tmpTABLEname + "  index: " + tmpTABLEindex);
             return tmpTABLEname;
         }
+
+
         private int GetTableIndex(int dbFILEindex, string tmpTABLEname)
         {
             // TdbTableProperties class
@@ -1750,6 +1753,8 @@ namespace DB_EDITOR
             // MessageBox.Show(TableProps.Name + "  index: " + tmpTABLEindex);
             return tmpTABLEindex;
         }
+
+
 
         #endregion
 

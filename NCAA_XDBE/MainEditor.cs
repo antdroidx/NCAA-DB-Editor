@@ -1176,9 +1176,11 @@ namespace DB_EDITOR
         private void ModVersionChecker()
         {
             verNumberBox.SelectedIndex = 0;
+            string ver = GetDBValue("MOIN", "MNAM", 0);
 
+            if (ver.Equals("VERSION 16.5")) verNumberBox.SelectedIndex = 4;
 
-            if (TDB.TableCapacity(dbIndex, "PLAY") > 8800)
+            else if (TDB.TableCapacity(dbIndex, "PLAY") > 8800)
             {
                 verNumberBox.SelectedIndex = 2;
                 for (int i = 0; i < GetTableRecCount("PLAY"); i++)

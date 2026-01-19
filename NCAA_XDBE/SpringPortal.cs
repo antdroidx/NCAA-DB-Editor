@@ -689,7 +689,7 @@ namespace DB_EDITOR
                         lblTransferPortalStatus.Text = "Team Pick: " + teamNameDB[tgid] + " | Position Pick: " + GetPOSG2Name(p/2);
                         lblTransferPortalStatus.Refresh();
 
-                        if (userTeams.Contains(tgid)) UserTransferChoice(tgid, p, teamPRS);
+                        if (SpringPortalUserChoice.Checked && userTeams.Contains(tgid)) UserTransferChoice(tgid, p, teamPRS);
                         else SpringPortalMatcher(tgid, p, teamPRS);
                     }
                 }

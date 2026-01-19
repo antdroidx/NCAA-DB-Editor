@@ -1526,7 +1526,6 @@ namespace DB_EDITOR
             LS9 = new DataGridViewTextBoxColumn();
             LSPGID = new DataGridViewTextBoxColumn();
             tabRecruiting = new TabPage();
-            IncludeReturningTransfersBox = new CheckBox();
             label196 = new Label();
             panel2 = new Panel();
             RecruitRankingComboBox = new System.Windows.Forms.ComboBox();
@@ -17248,7 +17247,6 @@ namespace DB_EDITOR
             // tabRecruiting
             // 
             tabRecruiting.BackColor = Color.LightSlateGray;
-            tabRecruiting.Controls.Add(IncludeReturningTransfersBox);
             tabRecruiting.Controls.Add(label196);
             tabRecruiting.Controls.Add(panel2);
             tabRecruiting.Controls.Add(RecruitRankingComboBox);
@@ -17261,20 +17259,6 @@ namespace DB_EDITOR
             tabRecruiting.Size = new Size(1148, 607);
             tabRecruiting.TabIndex = 23;
             tabRecruiting.Text = "Recruit Board";
-            // 
-            // IncludeReturningTransfersBox
-            // 
-            IncludeReturningTransfersBox.AutoSize = true;
-            IncludeReturningTransfersBox.Checked = true;
-            IncludeReturningTransfersBox.CheckState = CheckState.Checked;
-            IncludeReturningTransfersBox.Font = new Font("Microsoft Sans Serif", 9F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
-            IncludeReturningTransfersBox.ForeColor = SystemColors.ButtonFace;
-            IncludeReturningTransfersBox.Location = new Point(942, 46);
-            IncludeReturningTransfersBox.Name = "IncludeReturningTransfersBox";
-            IncludeReturningTransfersBox.Size = new Size(204, 19);
-            IncludeReturningTransfersBox.TabIndex = 165;
-            IncludeReturningTransfersBox.Text = "Include Returning Transfers";
-            IncludeReturningTransfersBox.UseVisualStyleBackColor = true;
             // 
             // label196
             // 
@@ -20656,7 +20640,6 @@ namespace DB_EDITOR
         private DataGridViewTextBoxColumn Column4;
         private GroupBox groupBox49;
         private Label label19;
-        private CheckBox IncludeReturningTransfersBox;
         private CheckBox AllowStartersLeave;
         private RadioButton RankingOrderPriority;
         private Label startersCount;

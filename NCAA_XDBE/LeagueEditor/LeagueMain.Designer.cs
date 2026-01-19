@@ -94,7 +94,6 @@ namespace DB_EDITOR
             openFileDialog2 = new OpenFileDialog();
             colorDialog1 = new ColorDialog();
             tabConf = new TabPage();
-            label40 = new Label();
             label31 = new Label();
             label32 = new Label();
             label33 = new Label();
@@ -231,6 +230,7 @@ namespace DB_EDITOR
             SGID = new DataGridViewComboBoxColumn();
             BMON = new DataGridViewComboBoxColumn();
             BDAY = new DataGridViewComboBoxColumn();
+            IndieCheckBox = new CheckBox();
             mainMenu.SuspendLayout();
             tableMenu.SuspendLayout();
             fieldMenu.SuspendLayout();
@@ -355,7 +355,7 @@ namespace DB_EDITOR
             // 
             exportToolItem.Name = "exportToolItem";
             exportToolItem.ShortcutKeys = Keys.Control | Keys.E;
-            exportToolItem.Size = new Size(178, 22);
+            exportToolItem.Size = new Size(180, 22);
             exportToolItem.Text = "Export Table";
             exportToolItem.Click += exportMenuItem_Click;
             // 
@@ -363,32 +363,32 @@ namespace DB_EDITOR
             // 
             importMenuItem.Name = "importMenuItem";
             importMenuItem.ShortcutKeys = Keys.Control | Keys.I;
-            importMenuItem.Size = new Size(178, 22);
+            importMenuItem.Size = new Size(180, 22);
             importMenuItem.Text = "Import Table";
             importMenuItem.Click += importMenuItem_Click;
             // 
             // toolStripSeparator2
             // 
             toolStripSeparator2.Name = "toolStripSeparator2";
-            toolStripSeparator2.Size = new Size(175, 6);
+            toolStripSeparator2.Size = new Size(177, 6);
             // 
             // exportAllMenuItem
             // 
             exportAllMenuItem.Name = "exportAllMenuItem";
             exportAllMenuItem.ShowShortcutKeys = false;
-            exportAllMenuItem.Size = new Size(178, 22);
+            exportAllMenuItem.Size = new Size(180, 22);
             exportAllMenuItem.Text = "Export All";
             exportAllMenuItem.Click += exportAllMenuItem_Click;
             // 
             // toolStripSeparator9
             // 
             toolStripSeparator9.Name = "toolStripSeparator9";
-            toolStripSeparator9.Size = new Size(175, 6);
+            toolStripSeparator9.Size = new Size(177, 6);
             // 
             // tabDelimitedMenuItem
             // 
             tabDelimitedMenuItem.Name = "tabDelimitedMenuItem";
-            tabDelimitedMenuItem.Size = new Size(178, 22);
+            tabDelimitedMenuItem.Size = new Size(180, 22);
             tabDelimitedMenuItem.Text = "Tab Delimited";
             tabDelimitedMenuItem.Click += tabDelimitedMenuItem_Click;
             // 
@@ -403,7 +403,7 @@ namespace DB_EDITOR
             // 
             tableFieldOrderMenuItem.DropDownItems.AddRange(new ToolStripItem[] { defaultFieldOrderMenuItem, ascendingFieldOrderMenuItem, descendingFieldOrderMenuItem, customOrderMenuItem });
             tableFieldOrderMenuItem.Name = "tableFieldOrderMenuItem";
-            tableFieldOrderMenuItem.Size = new Size(163, 22);
+            tableFieldOrderMenuItem.Size = new Size(180, 22);
             tableFieldOrderMenuItem.Text = "Table Field Order";
             // 
             // defaultFieldOrderMenuItem
@@ -411,28 +411,28 @@ namespace DB_EDITOR
             defaultFieldOrderMenuItem.Checked = true;
             defaultFieldOrderMenuItem.CheckState = CheckState.Checked;
             defaultFieldOrderMenuItem.Name = "defaultFieldOrderMenuItem";
-            defaultFieldOrderMenuItem.Size = new Size(136, 22);
+            defaultFieldOrderMenuItem.Size = new Size(180, 22);
             defaultFieldOrderMenuItem.Text = "Default";
             defaultFieldOrderMenuItem.Click += defaultMenuItem_Click;
             // 
             // ascendingFieldOrderMenuItem
             // 
             ascendingFieldOrderMenuItem.Name = "ascendingFieldOrderMenuItem";
-            ascendingFieldOrderMenuItem.Size = new Size(136, 22);
+            ascendingFieldOrderMenuItem.Size = new Size(180, 22);
             ascendingFieldOrderMenuItem.Text = "Ascending";
             ascendingFieldOrderMenuItem.Click += ascendingMenuItem_Click;
             // 
             // descendingFieldOrderMenuItem
             // 
             descendingFieldOrderMenuItem.Name = "descendingFieldOrderMenuItem";
-            descendingFieldOrderMenuItem.Size = new Size(136, 22);
+            descendingFieldOrderMenuItem.Size = new Size(180, 22);
             descendingFieldOrderMenuItem.Text = "Descending";
             descendingFieldOrderMenuItem.Click += descendingMenuItem_Click;
             // 
             // customOrderMenuItem
             // 
             customOrderMenuItem.Name = "customOrderMenuItem";
-            customOrderMenuItem.Size = new Size(136, 22);
+            customOrderMenuItem.Size = new Size(180, 22);
             customOrderMenuItem.Text = "Custom";
             customOrderMenuItem.Click += customMenuItem_Click;
             // 
@@ -627,7 +627,7 @@ namespace DB_EDITOR
             // 
             tabConf.AutoScroll = true;
             tabConf.BackColor = SystemColors.ScrollBar;
-            tabConf.Controls.Add(label40);
+            tabConf.Controls.Add(IndieCheckBox);
             tabConf.Controls.Add(label31);
             tabConf.Controls.Add(label32);
             tabConf.Controls.Add(label33);
@@ -728,17 +728,6 @@ namespace DB_EDITOR
             tabConf.TabIndex = 9;
             tabConf.Text = "Conferences";
             tabConf.MouseDown += MouseDown_Click;
-            // 
-            // label40
-            // 
-            label40.AutoSize = true;
-            label40.BackColor = Color.Turquoise;
-            label40.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label40.Location = new Point(802, 6);
-            label40.Name = "label40";
-            label40.Size = new Size(126, 16);
-            label40.TabIndex = 111;
-            label40.Text = "INDEPENDENTS";
             // 
             // label31
             // 
@@ -2195,6 +2184,19 @@ namespace DB_EDITOR
             BDAY.HeaderText = "Date";
             BDAY.Name = "BDAY";
             // 
+            // IndieCheckBox
+            // 
+            IndieCheckBox.AutoSize = true;
+            IndieCheckBox.Checked = true;
+            IndieCheckBox.CheckState = CheckState.Checked;
+            IndieCheckBox.Enabled = false;
+            IndieCheckBox.Location = new Point(802, 6);
+            IndieCheckBox.Name = "IndieCheckBox";
+            IndieCheckBox.Size = new Size(86, 17);
+            IndieCheckBox.TabIndex = 111;
+            IndieCheckBox.Text = "Independent";
+            IndieCheckBox.UseVisualStyleBackColor = true;
+            // 
             // LeagueMain
             // 
             AutoScaleDimensions = new SizeF(96F, 96F);
@@ -2457,7 +2459,7 @@ namespace DB_EDITOR
         public Label lblTableProps;
         public GroupBox groupBox3;
         public Label lblFieldProps;
-        private Label label40;
+        private CheckBox IndieCheckBox;
     }
 }
 

@@ -119,23 +119,6 @@ namespace DB_EDITOR
 
                         teamRecruits[ptcm][star]++;
 
-                        //Remove returning transfers if box not checked
-                        if (!IncludeReturningTransfersBox.Checked && prid >= 21000)
-                        {
-                            for (int tran = 0; tran < GetTableRecCount("TRAN"); tran++)
-                            {
-                                int ptid = GetDBValueInt("TRAN", "PTID", tran);
-
-                                if (GetDBValueInt("TRAN", "PGID", tran) == prid)
-                                {
-                                    if (ptid == ptcm)
-                                    {
-                                        teamRecruits[ptcm][star]--;
-                                    }
-                                    break;
-                                }
-                            }
-                        }
                         ProgressBarStep();
                     }
 
@@ -157,11 +140,6 @@ namespace DB_EDITOR
                             else star = 1;
 
                             teamRecruits[tgid][star]++;
-
-                            if (ptid == tgid && !IncludeReturningTransfersBox.Checked)
-                            {
-                                teamRecruits[tgid][star]--;
-                            }
                         }
                         ProgressBarStep();
                     }
@@ -196,22 +174,6 @@ namespace DB_EDITOR
                         {
                             int star = GetDB2ValueInt("RCPT", "RCCB", x);
                             teamRecruits[ptcm][star]++;
-                            //Remove returning transfers if box not checked
-                            if (!IncludeReturningTransfersBox.Checked)
-                            {
-                                for (int tran = 0; tran < GetTableRecCount("TRAN"); tran++)
-                                {
-                                    int ptid = GetDBValueInt("TRAN", "PTID", tran);
-                                    if (GetDBValueInt("TRAN", "PGID", tran) == prid)
-                                    {
-                                        if (ptid == ptcm)
-                                        {
-                                            teamRecruits[ptcm][star]--;
-                                        }
-                                        break;
-                                    }
-                                }
-                            }
                         }
                         ProgressBarStep();
                     }
@@ -235,11 +197,6 @@ namespace DB_EDITOR
                             else star = 1;
 
                             teamRecruits[tgid][star]++;
-
-                            if (ptid == tgid && !IncludeReturningTransfersBox.Checked)
-                            {
-                                teamRecruits[tgid][star]--;
-                            }
                         }
                         ProgressBarStep();
                     }
@@ -354,24 +311,10 @@ namespace DB_EDITOR
 
                 for (int x = 0; x < GetTable2RecCount("RCPR"); x++)
                 {
-                    if (GetDB2ValueInt("RCPR", "PTCM", x) == tgid && IncludeReturningTransfersBox.Checked)
+                    if (GetDB2ValueInt("RCPR", "PTCM", x) == tgid)
                     {
                         int prid = GetDB2ValueInt("RCPR", "PRID", x);
                         GetRecruitRankPlayer(x);
-                    }
-                    else if (GetDB2ValueInt("RCPR", "PTCM", x) == tgid && !IncludeReturningTransfersBox.Checked)
-                    {
-                        int prid = GetDB2ValueInt("RCPR", "PRID", x);
-                        if (prid >= 21000)
-                        {
-                            bool sameTeam = CheckTransferTeam(tgid, prid);
-                            if (!sameTeam) GetRecruitRankPlayer(x);
-                        }
-                        else
-                        {
-                            GetRecruitRankPlayer(x);
-
-                        }
                     }
 
                     ProgressBarStep();
@@ -379,19 +322,14 @@ namespace DB_EDITOR
 
                 for (int x = 0; x < GetTableRecCount("TRAN"); x++)
                 {
-                    if (GetDBValueInt("TRAN", "PGID", x) >= tgid * 70 && GetDBValueInt("TRAN", "PGID", x) <= tgid * 70 + 69 && IncludeReturningTransfersBox.Checked)
+                    if (GetDBValueInt("TRAN", "PGID", x) >= tgid * 70 && GetDBValueInt("TRAN", "PGID", x) <= tgid * 70 + 69)
                     {
                         int pgid = GetDBValueInt("TRAN", "PGID", x);
                         int ptid = GetDBValueInt("TRAN", "PTID", x);
 
                         GetTransferRankPlayer(pgid, ptid);
                     }
-                    else if (GetDBValueInt("TRAN", "PGID", x) >= tgid * 70 && GetDBValueInt("TRAN", "PGID", x) <= tgid * 70 + 69 && !IncludeReturningTransfersBox.Checked)
-                    {
-                        int pgid = GetDBValueInt("TRAN", "PGID", x);
-                        int ptid = GetDBValueInt("TRAN", "PTID", x);
-                        if (ptid != tgid) GetTransferRankPlayer(pgid, ptid);
-                    }
+
                     ProgressBarStep();
                 }
 
@@ -422,19 +360,10 @@ namespace DB_EDITOR
 
                 for (int x = 0; x < GetTable2RecCount("RCPR"); x++)
                 {
-                    if (GetDB2ValueInt("RCPR", "PTCM", x) == tgid && IncludeReturningTransfersBox.Checked)
+                    if (GetDB2ValueInt("RCPR", "PTCM", x) == tgid)
                     {
                         int prid = GetDB2ValueInt("RCPR", "PRID", x);
                         if (prid >= 21000) GetRecruitRankPlayer(x);
-                    }
-                    else if (GetDB2ValueInt("RCPR", "PTCM", x) == tgid && !IncludeReturningTransfersBox.Checked)
-                    {
-                        int prid = GetDB2ValueInt("RCPR", "PRID", x);
-                        if (prid >= 21000)
-                        {
-                            bool sameTeam = CheckTransferTeam(tgid, prid);
-                            if (!sameTeam) GetRecruitRankPlayer(x);
-                        }
                     }
 
                     ProgressBarStep();
@@ -443,18 +372,12 @@ namespace DB_EDITOR
 
                 for (int x = 0; x < GetTableRecCount("TRAN"); x++)
                 {
-                    if (GetDBValueInt("TRAN", "PGID", x) >= tgid * 70 && GetDBValueInt("TRAN", "PGID", x) <= tgid * 70 + 69 && IncludeReturningTransfersBox.Checked)
+                    if (GetDBValueInt("TRAN", "PGID", x) >= tgid * 70 && GetDBValueInt("TRAN", "PGID", x) <= tgid * 70 + 69)
                     {
                         int pgid = GetDBValueInt("TRAN", "PGID", x);
                         int ptid = GetDBValueInt("TRAN", "PTID", x);
 
                         GetTransferRankPlayer(pgid, ptid);
-                    }
-                    else if (GetDBValueInt("TRAN", "PGID", x) >= tgid * 70 && GetDBValueInt("TRAN", "PGID", x) <= tgid * 70 + 69 && !IncludeReturningTransfersBox.Checked)
-                    {
-                        int pgid = GetDBValueInt("TRAN", "PGID", x);
-                        int ptid = GetDBValueInt("TRAN", "PTID", x);
-                        if (ptid != tgid) GetTransferRankPlayer(pgid, ptid);
                     }
 
                     ProgressBarStep();

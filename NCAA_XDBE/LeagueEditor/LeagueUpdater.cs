@@ -26,9 +26,9 @@
 
             for (int i = 0; i < main.GetTableRecCount("DIVI"); i++)
             {
-                TDB.TDBTableRecordDeleted(0, "DIVI", i);
+                main.DeleteRecord("DIVI", i, true);
             }
-            TDB.TDBDatabaseCompact(0);
+            main.CompactDB();
 
 
             /* League Editor Data */

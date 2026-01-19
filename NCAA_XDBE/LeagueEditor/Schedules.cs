@@ -59,19 +59,34 @@
             return template;
         }
 
-        private void ClearScheduleTables(string table)
+        private void ClearAllScheduleTables()
         {
-            for (int i = 0; i < GetTableRecCount(table); i++)
+            for(int i = 0; i < TDB.TableCount(dbIndex); i ++)
             {
-                TDB.TDBTableRecordChangeDeleted(dbIndex, table, i, true);
+                // TdbTableProperties class
+                TdbTableProperties TableProps = new TdbTableProperties();
+
+                // 4 character string, max value of 5
+                TableProps.Name = new string((char)0, 5);
+
+                // Get the tableproperties for the given table number
+                TDB.TDBTableGetProperties(dbIndex, i, ref TableProps);
+
+                TDB.TDBTableChangeCapacity(dbIndex, TableProps.Name, 0);
             }
-            TDB.TDBTableChangeCapacity(dbIndex, table, 0);
-            TDB.TDBDatabaseCompact(dbIndex);
+        }
+
+        private void ClearScheduleTable(string tableName)
+        {
+
+            TDB.TDBTableChangeCapacity(dbIndex, tableName, 0);
+            
         }
 
         private void ScheduleGenerator()
         {
             ArmyNavy = false;
+            ClearAllScheduleTables();
             GenerateConfSchedules();
             GenerateSKNW();
 
@@ -110,11 +125,8 @@
 
             for (int i = 0; i < confBoxes.Count; i++)
             {
-                if (i != 5)
+                if (i != 5 && IndieCheckBox.Checked || !IndieCheckBox.Checked)
                 {
-                    //Clear CONF Table
-                    ClearScheduleTables(CONFTables[i]);
-
                     if (leagueButtons[i].Text == "FBS")
                     {
                         //Count Conf Teams and get a list of TGIDs
@@ -141,6 +153,7 @@
                             int away = tgids[template[g][1] - 1];
                             int home = tgids[template[g][2] - 1];
                             string table = CONFTables[i];
+                            if (i == 5) table = "SACC";
 
                             //Add a record
                             TDB.TDBTableRecordAdd(dbIndex, table, true);
@@ -194,12 +207,12 @@
 
         private void ClearAnnuals()
         {
-            ClearScheduleTables("SANN");
+            ClearScheduleTable("SANN");
         }
 
         private void GenerateSKNW()
         {
-            ClearScheduleTables("SKNW");
+            ClearScheduleTable("SKNW");
 
             List<string> CONFTables = AddCONFTables();
 
