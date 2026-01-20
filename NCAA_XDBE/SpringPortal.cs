@@ -443,6 +443,8 @@ namespace DB_EDITOR
 
 
             List<decimal> depth = new List<decimal> { PortalQB.Value, PortalHB.Value, PortalFB.Value, PortalWR.Value, PortalTE.Value, PortalOT.Value, PortalOG.Value, PortalOC.Value, PortalDE.Value, PortalDT.Value, PortalOLB.Value, PortalMLB.Value, PortalCB.Value, PortalFS.Value, PortalSS.Value, PortalK.Value, PortalP.Value };
+
+            List<int> depthDefault = new List<int> { 3, 4, 1, 6, 3, 5, 5, 3, 4, 4, 4, 4, 5, 3, 3, 1, 1 };
             int teamRec = FindTeamRecfromTGID(tgid);
             int teamWins = GetDBValueInt("TEAM", "tsdw", teamRec);
 
@@ -487,7 +489,7 @@ namespace DB_EDITOR
                 //team does not have enough players
                 else if (posList.Count <= depth[p])
                 {
-                    if (posList.Count <= 1 && p != 15 && p != 16 && p != 2 || posList.Count == 0 || depth[p] - posList.Count >= 3)
+                    if (posList.Count <= 1 && p != 15 && p != 16 && p != 2 || posList.Count == 0 || depthDefault[p] - posList.Count >= 1)
                     {
                         //allow team to add player to fill depth gaps
                         TeamPortalNeeds[tgid, p * 2 + 1] = 1;
