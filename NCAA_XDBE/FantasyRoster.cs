@@ -323,7 +323,9 @@ namespace DB_EDITOR
                     int currentPJEN = GetDBValueInt("PLAY", "PJEN", rec);
                     if (AvailablePJEN.Contains(currentPJEN))
                     {
-                        int newPJEN = ChooseAvailableJerseyNumber(ppos, (PGID / 70), AvailablePJEN);
+                        int newPJEN = ChooseAvailableJerseyNumber(GetPOSG2fromPPOS(ppos), (PGID / 70), AvailablePJEN);
+                        if (newPJEN < 0 || newPJEN > 99) newPJEN = rand.Next(0, 100);
+
                         ChangeDBInt("PLAY", "PJEN", rec, newPJEN);
                         AvailablePJEN.Add(newPJEN);
                     }
@@ -519,14 +521,14 @@ namespace DB_EDITOR
             return jersey;
         }
 
-        private int ChooseAvailableJerseyNumber(int PPOS, int TGID, List<int> teamPJENList)
+        private int ChooseAvailableJerseyNumber(int POSG, int TGID, List<int> teamPJENList)
         {
             List<List<int>> PJEN = CreateJerseyNumberDB();
-            int jersey = 99;
+            int jersey = 0;
 
             for (int i = 0; i < PJEN.Count; i++)
             {
-                if (PJEN[i][0] == PPOS)
+                if (PJEN[i][0] == POSG)
                 {
                     bool completed = false;
                     int count = 0;
@@ -540,7 +542,7 @@ namespace DB_EDITOR
                         }
                         count++;
 
-                        if (count >= 25)
+                        if (count >= 50)
                         {
                             jersey = rand.Next(PJEN[i][3], PJEN[i][4] + 1);
                             if (!teamPJENList.Contains(jersey))
@@ -551,16 +553,16 @@ namespace DB_EDITOR
                             count++;
                         }
 
-                        if (count >= 50)
+                        if (count >= 100)
                         {
-                            jersey = rand.Next(0, 100);
+                            jersey = rand.Next(0, 99);
                             if (!teamPJENList.Contains(jersey))
                             {
                                 completed = true;
                                 return jersey;
                             }
                         }
-                        if (count >= 100)
+                        if (count >= 200)
                         {
                             return rand.Next(0, 99);
                         }
@@ -571,6 +573,8 @@ namespace DB_EDITOR
 
             return jersey;
         }
+
+
         private int PickRandomHometown()
         {
             int ht = 0;

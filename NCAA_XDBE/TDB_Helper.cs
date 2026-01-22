@@ -371,6 +371,11 @@ namespace DB_EDITOR
             TDB.TDBTableRecordChangeDeleted(dbIndex2, table, rec, deleted);
         }
 
+        public int GetTableCapacity(string table)
+        {
+            return TDB.TableCapacity(dbIndex, table);
+        }
+
         #endregion
 
     }

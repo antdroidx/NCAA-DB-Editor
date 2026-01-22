@@ -1040,6 +1040,9 @@ namespace DB_EDITOR
             else if (posg == 20) return 16;
             else return -1;
         }
+
+
+
         public string GetPOSG2Name(int posg)
         {
             if (posg == 0) return "QB";

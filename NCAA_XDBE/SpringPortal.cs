@@ -100,7 +100,7 @@ namespace DB_EDITOR
          *  0: PLAY Record
          *  1: RCPT Record
          *  2: PGID / PRID
-         *  3: PPOS
+         *  3: POSG
          *  4: POVR
          *  5: TGID
          *  6: PYER
@@ -258,6 +258,11 @@ namespace DB_EDITOR
 
                 int PGID = GetDBValueInt("PLAY", "PGID", i);
                 int TGID = PGID / 70;
+                if (TGID > 511)
+                {
+                    ProgressBarStep();
+                    continue;
+                }
 
                 OccupiedPGIDList[TGID].Add(PGID);
 
@@ -271,17 +276,7 @@ namespace DB_EDITOR
 
                 AvailablePJEN[TGID].Add(PJEN);
 
-                if (PPOS == 8) PPOS = 6;
-                else if (PPOS == 9) PPOS = 5;
-                else if (PPOS == 10 || PPOS == 11) PPOS = 8;
-                else if (PPOS == 12) PPOS = 9;
-                else if (PPOS == 13 || PPOS == 15) PPOS = 10;
-                else if (PPOS == 14) PPOS = 11;
-                else if (PPOS == 16) PPOS = 12;
-                else if (PPOS == 17) PPOS = 13;
-                else if (PPOS == 18) PPOS = 14;
-                else if (PPOS == 19) PPOS = 15;
-                else if (PPOS == 20) PPOS = 16;
+                int POSG = GetPOSG2fromPPOS(PPOS);
 
                 int count = SpringRoster[TGID].Count;
                 List<int> player = new List<int>();
@@ -290,7 +285,7 @@ namespace DB_EDITOR
                 SpringRoster[TGID][count].Add(i);
                 SpringRoster[TGID][count].Add(-1);
                 SpringRoster[TGID][count].Add(PGID);
-                SpringRoster[TGID][count].Add(PPOS);
+                SpringRoster[TGID][count].Add(POSG);
                 SpringRoster[TGID][count].Add(POVR);
                 SpringRoster[TGID][count].Add(TGID);
                 SpringRoster[TGID][count].Add(PYER);
@@ -342,19 +337,13 @@ namespace DB_EDITOR
                 int PYER = GetDBValueInt("RCPT", "PYER", i);
                 int DISC = GetDBValueInt("RCPT", "PDIS", i);
                 int POE = GetDBValueInt("RCPT", "PPOE", i);
+                int POSG = GetPOSG2fromPPOS(PPOS);
 
-                if (PPOS == 8) PPOS = 6;
-                else if (PPOS == 9) PPOS = 5;
-                else if (PPOS == 10 || PPOS == 11) PPOS = 8;
-                else if (PPOS == 12) PPOS = 9;
-                else if (PPOS == 13 || PPOS == 15) PPOS = 10;
-                else if (PPOS == 14) PPOS = 11;
-                else if (PPOS == 16) PPOS = 12;
-                else if (PPOS == 17) PPOS = 13;
-                else if (PPOS == 18) PPOS = 14;
-                else if (PPOS == 19) PPOS = 15;
-                else if (PPOS == 20) PPOS = 16;
-
+                if (TGID > 512)
+                {
+                    ProgressBarStep();
+                    continue;
+                }
 
                 int count = SpringRoster[TGID].Count;
                 List<int> player = new List<int>();
@@ -363,7 +352,7 @@ namespace DB_EDITOR
                 SpringRoster[TGID][count].Add(-1);
                 SpringRoster[TGID][count].Add(i);
                 SpringRoster[TGID][count].Add(PRID);
-                SpringRoster[TGID][count].Add(PPOS);
+                SpringRoster[TGID][count].Add(POSG);
                 SpringRoster[TGID][count].Add(POVR);
                 SpringRoster[TGID][count].Add(TGID);
                 SpringRoster[TGID][count].Add(PYER);
@@ -581,17 +570,8 @@ namespace DB_EDITOR
                 int DISC = GetDBValueInt("PLAY", "PDIS", rec);
                 int POE = GetDBValueInt("PLAY", "PPOE", rec);
 
-                if (PPOS == 8) PPOS = 6;
-                else if (PPOS == 9) PPOS = 5;
-                else if (PPOS == 10 || PPOS == 11) PPOS = 8;
-                else if (PPOS == 12) PPOS = 9;
-                else if (PPOS == 13 || PPOS == 15) PPOS = 10;
-                else if (PPOS == 14) PPOS = 11;
-                else if (PPOS == 16) PPOS = 12;
-                else if (PPOS == 17) PPOS = 13;
-                else if (PPOS == 18) PPOS = 14;
-                else if (PPOS == 19) PPOS = 15;
-                else if (PPOS == 20) PPOS = 16;
+                int POSG = GetPOSG2fromPPOS(PPOS);
+
 
                 if (ConvertRating(POVR) >= 66)
                 {
@@ -603,7 +583,7 @@ namespace DB_EDITOR
                     SpringPortal[count].Add(rec);
                     SpringPortal[count].Add(-1);
                     SpringPortal[count].Add(PGID);
-                    SpringPortal[count].Add(PPOS);
+                    SpringPortal[count].Add(POSG);
                     SpringPortal[count].Add(POVR);
                     SpringPortal[count].Add(TGID);
                     SpringPortal[count].Add(PYER);
@@ -680,6 +660,7 @@ namespace DB_EDITOR
             for (int t = 0; t < teamList.Count; t++)
             {
                 if (SpringPortal.Count <= 0) break;
+                if (GetTableRecCount("TRAN") >= TDB.TableCapacity(dbIndex, "TRAN")) break;
                 int tgid = teamList[t][0];
 
                 //Check for team needs
@@ -738,6 +719,7 @@ namespace DB_EDITOR
                 {
 
                     if (SpringPortal.Count <= 0) break;
+                    if (GetTableRecCount("TRAN") >= TDB.TableCapacity(dbIndex, "TRAN")) break;
                     int tgid = teamList[t][0];
 
                     lblTransferPortalStatus.Text = "Team Pick: " + teamNameDB[tgid] + " | Position Pick: " + GetPOSG2Name(p / 2);
@@ -1006,6 +988,11 @@ namespace DB_EDITOR
                 if (AvailablePJEN[tgid].Contains(currentPJEN))
                 {
                     int newPJEN = ChooseAvailableJerseyNumber(pos, tgid, AvailablePJEN[tgid]);
+                    if (newPJEN < 0 || newPJEN > 99)
+                    {
+                        MessageBox.Show("The Portal tried to create an invalid Jersey Number. This will automatically fix itself when you press OK. Please let Antdroid know this happened though!");
+                        newPJEN = rand.Next(0, 100);
+                    }
                     ChangeDBInt("PLAY", "PJEN", rec, newPJEN);
                     AvailablePJEN[tgid].Add(newPJEN);
                 }

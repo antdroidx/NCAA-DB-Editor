@@ -1,4 +1,6 @@
-﻿namespace DB_EDITOR
+﻿using System.Diagnostics.Metrics;
+
+namespace DB_EDITOR
 {
     partial class LeagueMain : Form
     {
@@ -171,6 +173,35 @@
 
             progressBar1.Visible = true;
             progressBar1.Value = 0;
+
+
+            //UPDATE STTM
+            string usid = main.GetDBValue("STTM", "USid", 0);
+            usid = "4294967295";
+            int count = 0;
+            for (int i = 0; i < main.GetTableRecCount("TEAM"); i++)
+            {
+                int ttyp = main.GetDBValueInt("TEAM", "TTYP", i);
+                if (ttyp <= 1)
+                {
+
+                    int tgid = main.GetDBValueInt("TEAM", "TGID", i);
+                    int cgid = main.GetDBValueInt("TEAM", "CGID", i);
+                    int dgid = main.GetDBValueInt("TEAM", "DGID", i);
+
+                    if (main.GetTableCapacity("STTM") <= count || main.GetTableRecCount("STTM") <= count) main.AddTableRecord("STTM", true);
+                  
+                    main.ChangeDBInt("STTM", "CGID", count, cgid);
+                    main.ChangeDBInt("STTM", "DGID", count, dgid);
+                    main.ChangeDBInt("STTM", "TGID", count, tgid);
+                    main.ChangeDBInt("STTM", "TOID", count, tgid);
+                    main.ChangeDBInt("STTM", "SLNU", count, count);
+                    main.ChangeDBString("STTM", "USid", count, usid);
+
+                    count++;
+                }
+
+            }
 
 
 
