@@ -303,7 +303,7 @@ namespace DB_EDITOR
                     ChangeDBInt("PLAY", "PRSD", rec, redshirt); //Redshirt
                     ChangeDBInt("PLAY", "PLMG", rec, 0); //Mouthguard
                     ChangeDBInt("PLAY", "PFGM", rec, 0); //face shape (to be calculated later)
-                    ChangeDBInt("PLAY", "PJEN", rec, ChooseJerseyNumber(ppos, PJEN)); //jersey num
+                    ChangeDBInt("PLAY", "PJEN", rec, ChooseJerseyNumber(GetPOSG2fromPPOS(ppos), PJEN)); //jersey num
                     ChangeDBInt("PLAY", "PTEN", rec, 15); //tendency (to be calculated later)
                     ChangeDBInt("PLAY", "PFMP", rec, 0); //face (to be calculated later)
                     ChangeDBInt("PLAY", "PIMP", rec, rand.Next(0, 32)); //importance (to be re-calculated later)

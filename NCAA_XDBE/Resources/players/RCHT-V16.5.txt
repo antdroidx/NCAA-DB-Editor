@@ -1,4 +1,3 @@
-RCHD	RCHN
 0	Birmingham
 1	Huntsville
 2	Mobile
