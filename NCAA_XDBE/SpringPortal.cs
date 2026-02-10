@@ -1033,7 +1033,9 @@ namespace DB_EDITOR
             OccupiedPGIDList[tgid].Add(newPGID);
             if (pgid / 70 < 512) OccupiedPGIDList[pgid / 70].Remove(pgid);
 
-
+            //Update Roster Lists *****
+            //SpringRoster[team].Remove(SpringPortal[i]);
+            SpringRoster[tgid].Add(SpringPortal[i]);
 
             SpringPortal.RemoveAt(i);
         }

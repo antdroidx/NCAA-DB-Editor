@@ -13,12 +13,14 @@ namespace DB_EDITOR
         int newPGID;
         List<int> PortalInterestList;
         List<List<int>> SpringPortal;
+        string currentTeam = "";
 
         public PortalBox(MainEditor main, List<List<int>> SpringPortal, List<int> PortalInterestList, int p, int tgid, int newPGID)
         {
             InitializeComponent();
             this.main = main;
             this.tgid = tgid;
+            this.currentTeam = main.GetTeamName(tgid);
             this.p = p;
             this.newPGID = newPGID;
             this.PortalInterestList = PortalInterestList;
@@ -120,7 +122,10 @@ namespace DB_EDITOR
                         }
                         else if (main.PortalTransfersList.Contains(player))
                         {
-                            teamName = "TRANSFERRED";
+                            if (teamName == currentTeam)
+                                teamName = "TRANSFERRED OUT";
+                            else
+                                teamName = "TRANSFERRED IN";
                         }
 
                     }
@@ -144,11 +149,14 @@ namespace DB_EDITOR
 
                         if (SpringPortal.Contains(player))
                         {
-                            teamName = "PORTAL";
+                            teamName = "IN PORTAL";
                         }
                         else if (main.PortalTransfersList.Contains(player))
                         {
-                            teamName = "TRANSFERRED";
+                            if (teamName == currentTeam)
+                                teamName = "TRANSFERRED OUT";
+                            else 
+                                teamName = "TRANSFERRED IN";
                         }
 
                     }

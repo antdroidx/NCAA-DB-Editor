@@ -504,7 +504,7 @@
                         {
                             if (MasterSchedule[teamA][w] == 511 && MasterSchedule[teamB][w] == 511)
                             {
-                                ScheduleMatch(teamA, teamB, w, true);
+                                ScheduleMatch(teamA, teamB, w, false);
                                 scheduled = true;
                                 break;
                             }
