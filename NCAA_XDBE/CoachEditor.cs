@@ -283,7 +283,7 @@
             //Coaching History
             int seyr = GetDBValueInt("SEAI", "SEYR", 0);
             YearsCoachedBox.Value = GetDBValueInt("COCH", "CYCD", EditorIndex);
-            ProjectedAgeLabel.Text = "" + (GetDBValueInt("COCH", "CYCD", CoachIndex) + seyr + 23);
+            ProjectedAgeLabel.Text = "" + (GetDBValueInt("COCH", "CYCD", CoachIndex) + 23);
 
 
             int ctop = GetDBValueInt("COCH", "CTOP", EditorIndex);

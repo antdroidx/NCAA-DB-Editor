@@ -53,10 +53,6 @@ namespace DB_EDITOR
             {
                 int i = ccidList[x][0];
                 int CFUC = GetDBValueInt("COCH", "CFUC", i);
-                if (CFUC == 1)
-                {
-                    continue;
-                }
 
                 int TGID = GetDBValueInt("COCH", "TGID", i);
                 int CTOP = Convert.ToInt32(GetDBValue("COCH", "CTOP", i));
@@ -80,9 +76,12 @@ namespace DB_EDITOR
                 else if (age < 40) ChangeDBInt("COCH", "CFEX", i, rand.Next(2, 4));
                 else ChangeDBInt("COCH", "CFEX", i, rand.Next(4, 6));
 
+                if (CFUC == 1)
+                {
 
+                }
                 //RETIRE COACHES
-                if (CoachRetirement.Checked && CYCD > rand.Next(42, 60) && GetDBValueInt("COCH", "CFUC", i) != 1)
+                else if (CoachRetirement.Checked && CYCD > rand.Next(42, 55))
                 {
                     if (TGID != 511) TGID_VacancyList.Add(TGID);
 
@@ -90,7 +89,7 @@ namespace DB_EDITOR
                     if (checkBoxFiredTransfers.Checked) CoachTransferPortal(Convert.ToInt32(GetDBValue("COCH", "TGID", i)));
 
                     int seyr = GetDBValueInt("SEAI", "SEYR", 0);
-                    if (verNumber > 15.0) CYCD = CYCD + seyr + 23;
+                    if (verNumber > 15.0) CYCD = CYCD + 23;
 
                     int newCounter = coachNews.Count;
                     coachNews.Add(new List<string>());
@@ -135,7 +134,7 @@ namespace DB_EDITOR
                         if (checkBoxFiredTransfers.Checked) CoachTransferPortal(Convert.ToInt32(GetDBValue("COCH", "TGID", i)));
 
                         int seyr = GetDBValueInt("SEAI", "SEYR", 0);
-                        if (verNumber > 15.0) CYCD = CYCD + seyr + 23;
+                        if (verNumber > 15.0) CYCD = CYCD + 23;
 
                         int newCounter = coachNews.Count;
                         coachNews.Add(new List<string>());
