@@ -249,7 +249,7 @@ namespace DB_EDITOR
                     int CCPO = Convert.ToInt32(GetDBValue("COCH", "CCPO", i));
                     int CYCD = GetDBValueInt("COCH", "CYCD", i);
                     int seyr = GetDBValueInt("SEAI", "SEYR", 0);
-                    if (verNumber > 15.0) CYCD = CYCD + seyr + 23;
+                    if (verNumber > 15.0) CYCD = CYCD  + 23;
 
                     if (CCPO > 84 && CTOP < TMPR)
                     {
@@ -344,7 +344,7 @@ namespace DB_EDITOR
                             string teamID = GetTeamName(Convert.ToInt32(GetDBValue("COCH", "TGID", x)));
                             int CYCD = GetDBValueInt("COCH", "CYCD", x);
                             int seyr = GetDBValueInt("SEAI", "SEYR", 0);
-                            if (verNumber > 15.0) CYCD = CYCD + seyr + 23;
+                            if (verNumber > 15.0) CYCD = CYCD + 23;
 
                             int CPRE = GetDBValueInt("COCH", "CPRE", x);
 
@@ -393,7 +393,7 @@ namespace DB_EDITOR
 
                             int CYCD = GetDBValueInt("COCH", "CYCD", x);
                             int seyr = GetDBValueInt("SEAI", "SEYR", 0);
-                            if (verNumber > 15.0) CYCD = CYCD + seyr + 23;
+                            if (verNumber > 15.0) CYCD = CYCD + 23;
 
                             int CPRE = GetDBValueInt("COCH", "CPRE", x);
                             string CTYR = GetDBValue("COCH", "CTYR", x);
