@@ -1082,6 +1082,12 @@
                 ChangeDBInt("COCH", "CCWS", i, 0);
                 ChangeDBInt("COCH", "CNTW", i, 0);
                 ChangeDBInt("COCH", "CCTW", i, 0);
+
+                ChangeDBInt("COCH", "CRVW", i, 0);
+                ChangeDBInt("COCH", "CRVL", i, 0);
+                ChangeDBInt("COCH", "CCLS", i, 0);
+                ChangeDBInt("COCH", "CSWS", i, 0);
+
             }
 
             MessageBox.Show("Coach Stats Reset!");

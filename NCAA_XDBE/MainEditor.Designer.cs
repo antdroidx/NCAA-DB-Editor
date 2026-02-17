@@ -667,18 +667,6 @@ namespace DB_EDITOR
             tabBowls = new TabPage();
             SaveBowlButton = new System.Windows.Forms.Button();
             BowlsGrid = new DataGridView();
-            ActiveBowl = new DataGridViewCheckBoxColumn();
-            BIDX = new DataGridViewTextBoxColumn();
-            BNME = new DataGridViewTextBoxColumn();
-            TeamA = new DataGridViewComboBoxColumn();
-            ScoreA = new DataGridViewTextBoxColumn();
-            vs = new DataGridViewTextBoxColumn();
-            ScoreB = new DataGridViewTextBoxColumn();
-            TeamB = new DataGridViewComboBoxColumn();
-            SGID = new DataGridViewComboBoxColumn();
-            BMON = new DataGridViewComboBoxColumn();
-            BDAY = new DataGridViewComboBoxColumn();
-            SEWN = new DataGridViewTextBoxColumn();
             tabConf = new TabPage();
             label74 = new Label();
             CPRS12 = new NumericUpDown();
@@ -1706,6 +1694,18 @@ namespace DB_EDITOR
             POCIUpdatebtn = new System.Windows.Forms.Button();
             toolTip1 = new System.Windows.Forms.ToolTip(components);
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            ActiveBowl = new DataGridViewCheckBoxColumn();
+            BIDX = new DataGridViewTextBoxColumn();
+            BNME = new DataGridViewTextBoxColumn();
+            TeamA = new DataGridViewComboBoxColumn();
+            ScoreA = new DataGridViewTextBoxColumn();
+            vs = new DataGridViewTextBoxColumn();
+            ScoreB = new DataGridViewTextBoxColumn();
+            TeamB = new DataGridViewComboBoxColumn();
+            SGID = new DataGridViewComboBoxColumn();
+            BMON = new DataGridViewComboBoxColumn();
+            BDAY = new DataGridViewComboBoxColumn();
+            SEWN = new DataGridViewTextBoxColumn();
             mainMenu.SuspendLayout();
             tableMenu.SuspendLayout();
             fieldMenu.SuspendLayout();
@@ -7472,100 +7472,6 @@ namespace DB_EDITOR
             BowlsGrid.Size = new Size(950, 603);
             BowlsGrid.TabIndex = 4;
             BowlsGrid.DataError += (this.BowlsGrid_DataError);
-            // 
-            // ActiveBowl
-            // 
-            ActiveBowl.FillWeight = 7F;
-            ActiveBowl.HeaderText = "Active";
-            ActiveBowl.MinimumWidth = 9;
-            ActiveBowl.Name = "ActiveBowl";
-            // 
-            // BIDX
-            // 
-            BIDX.FillWeight = 8F;
-            BIDX.HeaderText = "BIDX";
-            BIDX.MinimumWidth = 9;
-            BIDX.Name = "BIDX";
-            BIDX.ReadOnly = true;
-            BIDX.SortMode = DataGridViewColumnSortMode.NotSortable;
-            // 
-            // BNME
-            // 
-            BNME.FillWeight = 25F;
-            BNME.HeaderText = "Bowl Name";
-            BNME.MinimumWidth = 9;
-            BNME.Name = "BNME";
-            BNME.SortMode = DataGridViewColumnSortMode.NotSortable;
-            // 
-            // TeamA
-            // 
-            TeamA.FillWeight = 20F;
-            TeamA.HeaderText = "Team";
-            TeamA.MinimumWidth = 9;
-            TeamA.Name = "TeamA";
-            // 
-            // ScoreA
-            // 
-            ScoreA.FillWeight = 7F;
-            ScoreA.HeaderText = "Score";
-            ScoreA.MinimumWidth = 9;
-            ScoreA.Name = "ScoreA";
-            ScoreA.ReadOnly = true;
-            ScoreA.SortMode = DataGridViewColumnSortMode.NotSortable;
-            // 
-            // vs
-            // 
-            vs.FillWeight = 4F;
-            vs.HeaderText = "vs";
-            vs.MinimumWidth = 9;
-            vs.Name = "vs";
-            vs.ReadOnly = true;
-            vs.SortMode = DataGridViewColumnSortMode.NotSortable;
-            // 
-            // ScoreB
-            // 
-            ScoreB.FillWeight = 7F;
-            ScoreB.HeaderText = "Score";
-            ScoreB.MinimumWidth = 9;
-            ScoreB.Name = "ScoreB";
-            ScoreB.ReadOnly = true;
-            ScoreB.SortMode = DataGridViewColumnSortMode.NotSortable;
-            // 
-            // TeamB
-            // 
-            TeamB.FillWeight = 20F;
-            TeamB.HeaderText = "Team";
-            TeamB.MinimumWidth = 9;
-            TeamB.Name = "TeamB";
-            // 
-            // SGID
-            // 
-            SGID.FillWeight = 25F;
-            SGID.HeaderText = "Stadium";
-            SGID.MinimumWidth = 9;
-            SGID.Name = "SGID";
-            // 
-            // BMON
-            // 
-            BMON.FillWeight = 8F;
-            BMON.HeaderText = "Month";
-            BMON.MinimumWidth = 9;
-            BMON.Name = "BMON";
-            // 
-            // BDAY
-            // 
-            BDAY.FillWeight = 8F;
-            BDAY.HeaderText = "Date";
-            BDAY.MinimumWidth = 9;
-            BDAY.Name = "BDAY";
-            // 
-            // SEWN
-            // 
-            SEWN.FillWeight = 6F;
-            SEWN.HeaderText = "Week";
-            SEWN.MinimumWidth = 9;
-            SEWN.Name = "SEWN";
-            SEWN.ReadOnly = true;
             // 
             // tabConf
             // 
@@ -14249,7 +14155,7 @@ namespace DB_EDITOR
             verNumberBox.FlatStyle = FlatStyle.Popup;
             verNumberBox.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, (byte)0);
             verNumberBox.FormattingEnabled = true;
-            verNumberBox.Items.AddRange(new object[] { "Original Game", "NEXT24-25 (v14 to v15.5)", "NEXT26 (v16.0 to 16.1)", "NEXT26 (v16.2 to v16.4)", "NEXT26 (v16.5+)" });
+            verNumberBox.Items.AddRange(new object[] { "Original Game", "NEXT24-25 (v14 to v15.5)", "NEXT26 (v16.0 to 16.1)", "NEXT26 (v16.2 to v16.4)", "NEXT26 (v16.5)", "NEXT26 (v16.6+)" });
             verNumberBox.Location = new Point(17, 51);
             verNumberBox.Name = "verNumberBox";
             verNumberBox.Size = new Size(269, 28);
@@ -19171,6 +19077,102 @@ namespace DB_EDITOR
             POCIUpdatebtn.UseVisualStyleBackColor = false;
             POCIUpdatebtn.Click += (this.POCIUpdate_Click);
             // 
+            // ActiveBowl
+            // 
+            ActiveBowl.FillWeight = 7F;
+            ActiveBowl.HeaderText = "Active";
+            ActiveBowl.MinimumWidth = 9;
+            ActiveBowl.Name = "ActiveBowl";
+            // 
+            // BIDX
+            // 
+            BIDX.FillWeight = 8F;
+            BIDX.HeaderText = "BIDX";
+            BIDX.MinimumWidth = 9;
+            BIDX.Name = "BIDX";
+            BIDX.ReadOnly = true;
+            BIDX.SortMode = DataGridViewColumnSortMode.NotSortable;
+            // 
+            // BNME
+            // 
+            BNME.FillWeight = 25F;
+            BNME.HeaderText = "Bowl Name";
+            BNME.MinimumWidth = 9;
+            BNME.Name = "BNME";
+            BNME.SortMode = DataGridViewColumnSortMode.NotSortable;
+            // 
+            // TeamA
+            // 
+            TeamA.FillWeight = 20F;
+            TeamA.HeaderText = "Team";
+            TeamA.MinimumWidth = 9;
+            TeamA.Name = "TeamA";
+            // 
+            // ScoreA
+            // 
+            ScoreA.FillWeight = 7F;
+            ScoreA.HeaderText = "Score";
+            ScoreA.MinimumWidth = 9;
+            ScoreA.Name = "ScoreA";
+            ScoreA.ReadOnly = true;
+            ScoreA.SortMode = DataGridViewColumnSortMode.NotSortable;
+            // 
+            // vs
+            // 
+            vs.FillWeight = 4F;
+            vs.HeaderText = "vs";
+            vs.MinimumWidth = 9;
+            vs.Name = "vs";
+            vs.ReadOnly = true;
+            vs.SortMode = DataGridViewColumnSortMode.NotSortable;
+            // 
+            // ScoreB
+            // 
+            ScoreB.FillWeight = 7F;
+            ScoreB.HeaderText = "Score";
+            ScoreB.MinimumWidth = 9;
+            ScoreB.Name = "ScoreB";
+            ScoreB.ReadOnly = true;
+            ScoreB.SortMode = DataGridViewColumnSortMode.NotSortable;
+            // 
+            // TeamB
+            // 
+            TeamB.FillWeight = 20F;
+            TeamB.HeaderText = "Team";
+            TeamB.MinimumWidth = 9;
+            TeamB.Name = "TeamB";
+            // 
+            // SGID
+            // 
+            SGID.FillWeight = 25F;
+            SGID.HeaderText = "Stadium";
+            SGID.MinimumWidth = 9;
+            SGID.Name = "SGID";
+            // 
+            // BMON
+            // 
+            BMON.FillWeight = 8F;
+            BMON.HeaderText = "Month";
+            BMON.MinimumWidth = 9;
+            BMON.Name = "BMON";
+            BMON.SortMode = DataGridViewColumnSortMode.Automatic;
+            // 
+            // BDAY
+            // 
+            BDAY.FillWeight = 8F;
+            BDAY.HeaderText = "Date";
+            BDAY.MinimumWidth = 9;
+            BDAY.Name = "BDAY";
+            BDAY.SortMode = DataGridViewColumnSortMode.Automatic;
+            // 
+            // SEWN
+            // 
+            SEWN.FillWeight = 6F;
+            SEWN.HeaderText = "Week";
+            SEWN.MinimumWidth = 9;
+            SEWN.Name = "SEWN";
+            SEWN.ReadOnly = true;
+            // 
             // MainEditor
             // 
             this.AllowDrop = true;
@@ -19903,18 +19905,6 @@ namespace DB_EDITOR
         private TabPage tabBowls;
         private System.Windows.Forms.Button SaveBowlButton;
         private DataGridView BowlsGrid;
-        private DataGridViewCheckBoxColumn ActiveBowl;
-        private DataGridViewTextBoxColumn BIDX;
-        private DataGridViewTextBoxColumn BNME;
-        private DataGridViewComboBoxColumn TeamA;
-        private DataGridViewTextBoxColumn ScoreA;
-        private DataGridViewTextBoxColumn vs;
-        private DataGridViewTextBoxColumn ScoreB;
-        private DataGridViewComboBoxColumn TeamB;
-        private DataGridViewComboBoxColumn SGID;
-        private DataGridViewComboBoxColumn BMON;
-        private DataGridViewComboBoxColumn BDAY;
-        private DataGridViewTextBoxColumn SEWN;
         private TabPage tabConf;
         private GroupBox groupBox23;
         private RadioButton ConfDisplayRanking;
@@ -21110,6 +21100,18 @@ namespace DB_EDITOR
         private NumericUpDown starterChancePCT;
         private Label lblTransferPortalStatus;
         public System.Windows.Forms.Button GlobalSwapGloveBtn;
+        private DataGridViewCheckBoxColumn ActiveBowl;
+        private DataGridViewTextBoxColumn BIDX;
+        private DataGridViewTextBoxColumn BNME;
+        private DataGridViewComboBoxColumn TeamA;
+        private DataGridViewTextBoxColumn ScoreA;
+        private DataGridViewTextBoxColumn vs;
+        private DataGridViewTextBoxColumn ScoreB;
+        private DataGridViewComboBoxColumn TeamB;
+        private DataGridViewComboBoxColumn SGID;
+        private DataGridViewComboBoxColumn BMON;
+        private DataGridViewComboBoxColumn BDAY;
+        private DataGridViewTextBoxColumn SEWN;
     }
 }
 

@@ -1177,8 +1177,8 @@ namespace DB_EDITOR
         {
             verNumberBox.SelectedIndex = 0;
             string ver = GetDBValue("MOIN", "MNAM", 0);
-
-            if (ver.Equals("VERSION 16.5")) verNumberBox.SelectedIndex = 4;
+            if (ver.Contains("VERSION 16.6")) verNumberBox.SelectedIndex = 5;
+            else if (ver.Contains("VERSION 16.5")) verNumberBox.SelectedIndex = 4;
 
             else if (TDB.TableCapacity(dbIndex, "PLAY") > 8800)
             {
@@ -1240,6 +1240,11 @@ namespace DB_EDITOR
             else if (verNumberBox.SelectedIndex == 4)
             {
                 verNumber = 16.5;
+                maxPlayers = 66;
+            }
+            else if (verNumberBox.SelectedIndex == 5)
+            {
+                verNumber = 16.6;
                 maxPlayers = 66;
             }
 
