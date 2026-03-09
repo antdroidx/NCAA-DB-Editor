@@ -152,7 +152,7 @@ namespace DB_EDITOR
             int bowlSEWN = GetDBValueInt("BOWL", "SEWN", bowlRec);
 
             //find bowl in schedule
-            for (int i = GetTableRecCount("SCHD") - 1; i > 0; i--)
+            for (int i = GetTableRecCount("SCHD") - 1; i >= 0; i--)
             {
                 int schdSGNM = GetDBValueInt("SCHD", "SGNM", i);
                 int schdSEWN = GetDBValueInt("SCHD", "SEWN", i);

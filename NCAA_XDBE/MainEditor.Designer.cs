@@ -19155,7 +19155,6 @@ namespace DB_EDITOR
             BMON.HeaderText = "Month";
             BMON.MinimumWidth = 9;
             BMON.Name = "BMON";
-            BMON.SortMode = DataGridViewColumnSortMode.Automatic;
             // 
             // BDAY
             // 
@@ -19163,7 +19162,6 @@ namespace DB_EDITOR
             BDAY.HeaderText = "Date";
             BDAY.MinimumWidth = 9;
             BDAY.Name = "BDAY";
-            BDAY.SortMode = DataGridViewColumnSortMode.Automatic;
             // 
             // SEWN
             // 
@@ -19172,6 +19170,7 @@ namespace DB_EDITOR
             SEWN.MinimumWidth = 9;
             SEWN.Name = "SEWN";
             SEWN.ReadOnly = true;
+            SEWN.SortMode = DataGridViewColumnSortMode.NotSortable;
             // 
             // MainEditor
             // 

@@ -455,8 +455,8 @@ namespace DB_EDITOR
                     countHB--;
                     count--;
                     total += 3;
-                    roster.RemoveAt(j);
-                    j--;
+                    //roster.RemoveAt(j);
+                    //j--;
                 }
                 if (countHB <= 0) break;
             }
@@ -470,8 +470,8 @@ namespace DB_EDITOR
                     countFB--;
                     count--;
                     total++;
-                    roster.RemoveAt(j);
-                    j--;
+                   // roster.RemoveAt(j);
+                    //j--;
                     if (countFB <= 0) break;
                 }
             }
@@ -484,8 +484,8 @@ namespace DB_EDITOR
                     rating += roster[j][0];
                     count--;
                     total++;
-                    roster.RemoveAt(j);
-                    j--;
+                    //roster.RemoveAt(j);
+                    //j--;
                     break;
                 }
             }
@@ -522,8 +522,8 @@ namespace DB_EDITOR
                     countWR--;
                     count--;
                     total += 2;
-                    roster.RemoveAt(j);
-                    j--;
+                    //roster.RemoveAt(j);
+                    //j--;
                 }
                 if (countWR <= 0) break;
             }
@@ -537,8 +537,8 @@ namespace DB_EDITOR
                     countTE--;
                     count--;
                     total += 2;
-                    roster.RemoveAt(j);
-                    j--;
+                    //roster.RemoveAt(j);
+                    //j--;
                     if (countTE <= 0) break;
                 }
             }
@@ -551,8 +551,8 @@ namespace DB_EDITOR
                     rating += roster[j][0];
                     count--;
                     total++;
-                    roster.RemoveAt(j);
-                    j--;
+                    //roster.RemoveAt(j);
+                    //j--;
                     break;
                 }
             }
@@ -589,8 +589,8 @@ namespace DB_EDITOR
                     countOT--;
                     count--;
                     total++;
-                    roster.RemoveAt(j);
-                    j--;
+                    //roster.RemoveAt(j);
+                    //j--;
                 }
                 if (countOT <= 0) break;
             }
@@ -604,8 +604,8 @@ namespace DB_EDITOR
                     countOG--;
                     count--;
                     total++;
-                    roster.RemoveAt(j);
-                    j--;
+                    //roster.RemoveAt(j);
+                    //j--;
                     if (countOG <= 0) break;
                 }
             }
@@ -619,8 +619,8 @@ namespace DB_EDITOR
                     countOC--;
                     count--;
                     total++;
-                    roster.RemoveAt(j);
-                    j--;
+                    //roster.RemoveAt(j);
+                    //j--;
                 }
                 if (countOC <= 0) break;
             }
@@ -654,8 +654,8 @@ namespace DB_EDITOR
                     countDE--;
                     count--;
                     total += 2;
-                    roster.RemoveAt(j);
-                    j--;
+                    //roster.RemoveAt(j);
+                    //j--;
                 }
                 if (countDE <= 0) break;
             }
@@ -669,8 +669,8 @@ namespace DB_EDITOR
                     countDT--;
                     count--;
                     total += 2;
-                    roster.RemoveAt(j);
-                    j--;
+                    //roster.RemoveAt(j);
+                    //j--;
                     if (countDT <= 0) break;
                 }
             }
@@ -683,8 +683,8 @@ namespace DB_EDITOR
                     rating += roster[j][0];
                     count--;
                     total++;
-                    roster.RemoveAt(j);
-                    j--;
+                    //roster.RemoveAt(j);
+                    //j--;
                     break;
                 }
             }
@@ -719,8 +719,8 @@ namespace DB_EDITOR
                     countOLB--;
                     count--;
                     total += 2;
-                    roster.RemoveAt(j);
-                    j--;
+                    //roster.RemoveAt(j);
+                    //j--;
                 }
                 if (countOLB <= 0) break;
             }
@@ -734,8 +734,8 @@ namespace DB_EDITOR
                     countMLB--;
                     count--;
                     total += 2;
-                    roster.RemoveAt(j);
-                    j--;
+                    //roster.RemoveAt(j);
+                    //j--;
                     if (countMLB <= 0) break;
                 }
             }
@@ -748,8 +748,8 @@ namespace DB_EDITOR
                     rating += roster[j][0];
                     count--;
                     total++;
-                    roster.RemoveAt(j);
-                    j--;
+                    //roster.RemoveAt(j);
+                    //j--;
                     break;
                 }
             }
@@ -787,8 +787,8 @@ namespace DB_EDITOR
                     countCB--;
                     count--;
                     total += 2;
-                    roster.RemoveAt(j);
-                    j--;
+                    //roster.RemoveAt(j);
+                    //j--;
                 }
                 if (countCB <= 0) break;
             }
@@ -803,8 +803,8 @@ namespace DB_EDITOR
                     countFS--;
                     count--;
                     total += 2;
-                    roster.RemoveAt(j);
-                    j--;
+                    //roster.RemoveAt(j);
+                    //j--;
                 }
                 if (countFS <= 0) break;
             }
@@ -819,8 +819,8 @@ namespace DB_EDITOR
                     countSS--;
                     count--;
                     total += 2;
-                    roster.RemoveAt(j);
-                    j--;
+                    //roster.RemoveAt(j);
+                    //j--;
                 }
                 if (countSS <= 0) break;
             }
@@ -834,8 +834,8 @@ namespace DB_EDITOR
                     rating += roster[j][0];
                     count--;
                     total++;
-                    roster.RemoveAt(j);
-                    j--;
+                    //roster.RemoveAt(j);
+                    //j--;
                     break;
                 }
             }
@@ -870,8 +870,8 @@ namespace DB_EDITOR
                     countK--;
                     count--;
                     total += 2;
-                    roster.RemoveAt(j);
-                    j--;
+                    //roster.RemoveAt(j);
+                    //j--;
                 }
                 if (countK <= 0) break;
             }
@@ -885,12 +885,13 @@ namespace DB_EDITOR
                     countP--;
                     count--;
                     total += 2;
-                    roster.RemoveAt(j);
-                    j--;
+                    //roster.RemoveAt(j);
+                    //j--;
                     if (countP <= 0) break;
                 }
             }
 
+            
             if (count > 0)
             {
                 for (int x = count; x > 0; x--)

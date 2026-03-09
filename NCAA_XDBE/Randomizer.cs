@@ -369,10 +369,17 @@ namespace DB_EDITOR
         private void RandomizeFacemask(string tableName, int rec)
         {
             int pos = -1;
+            int pten = -1;
             if (tableName == "PLAY" || tableName == "RCAT")
+            {
                 pos = GetDBValueInt(tableName, "PPOS", rec);
+                pten = GetDBValueInt(tableName, "PTEN", rec);
+            }
             else if (tableName == "RCPT" || tableName == "WKON")
+            {
                 pos = GetDB2ValueInt(tableName, "PPOS", rec);
+                pten = GetDB2ValueInt(tableName, "PTEN", rec);
+            }
 
             int val = rand.Next(1, 101);
             int facemask = 0;
@@ -416,6 +423,56 @@ namespace DB_EDITOR
                 {
                     facemask = 11; //3-Bar RB 2
                 }
+
+                //RANDOMIZE BASED ON TENDANCY
+                if (tableName != "RCAT" && tableName != "WKON")
+                {
+                    if (pten < 20)
+                    {
+                        val = rand.Next(1, 101);
+
+                        if (val <= 60)
+                        {
+                            facemask = 1; //2-Bar
+                        }
+                        else if (val <= 75)
+                        {
+                            facemask = 2; //3-Bar
+                        }
+                        else
+                        {
+                            facemask = 8; //3-Bar QB
+                        }
+                    }
+                    else
+                    {
+                        if (val <= 20)
+                        {
+                            facemask = 1; //2-Bar
+                        }
+                        else if (val <= 40)
+                        {
+                            facemask = 2; //3-Bar
+                        }
+                        else if (val <= 65)
+                        {
+                            facemask = 7; //2-Bar RB
+                        }
+                        else if (val <= 70)
+                        {
+                            facemask = 8; //3-Bar QB
+                        }
+                        else if (val <= 90)
+                        {
+                            facemask = 9; //3-Bar RB 1
+                        }
+                        else
+                        {
+                            facemask = 11; //3-Bar RB 2
+                        }
+                    }
+                }
+
             }
             //HBs
             else if (pos == 1)

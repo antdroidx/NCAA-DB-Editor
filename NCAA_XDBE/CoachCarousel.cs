@@ -794,7 +794,7 @@ namespace DB_EDITOR
             ChangeDBString("COCH", "CT15", rec, "0");
             ChangeDBString("COCH", "CT25", rec, "0");
             ChangeDBString("COCH", "CCBB", rec, "0");
-            ChangeDBString("COCH", "CFUC", rec, "0");
+            //ChangeDBString("COCH", "CFUC", rec, "0");
             ChangeDBString("COCH", "CCWI", rec, "0");
             ChangeDBString("COCH", "CSWI", rec, "0");
             ChangeDBString("COCH", "C25L", rec, "0");
